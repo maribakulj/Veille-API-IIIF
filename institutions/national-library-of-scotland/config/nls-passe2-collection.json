@@ -1,0 +1,15 @@
+{
+  "slug": "national-library-of-scotland",
+  "min_delay_s": 6,
+  "max_requests": 15,
+  "follow_redirects": 1,
+  "note": "Passe v2 n°2 : première collection listée par top.json (identifiant public du corps enregistré en passe 1) ; corps enregistré pour en tirer un manifeste public.",
+  "endpoints": [
+    {
+      "id": "collection-antiquarian-books",
+      "method": "GET",
+      "url": "https://view.nls.uk/collections/1208/2191/120821910.json",
+      "save_body": 3000000
+    }
+  ]
+}
