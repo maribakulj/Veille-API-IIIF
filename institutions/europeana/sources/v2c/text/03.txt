@@ -1,0 +1,187 @@
+GitHub - europeana/iiif-presentation-api: API that generates IIIF presentation resources based on Europeana Items, Galleries and other collections · GitHub 
+ Skip to content 
+ Navigation Menu
+ Sign in 
+ Products Platform GitHub Repository hosting, code review, and collaboration 
+ Copilot AI coding agent for tasks, projects, and automated work 
+ Build & Ship Actions CI/CD and automation 
+ Code Quality Quality analysis, fixes, and enforcement 
+ Codespaces Cloud development environments 
+ Secure Code Security Vulnerability detection and remediation 
+ Secret Protection Secret scanning and leak prevention 
+ All Features 
+ Developers Learn Documentation 
+ Training 
+ Certifications 
+ Build Build with Copilot 
+ Customize Copilot 
+ Integrations 
+ Explore Trending repos 
+ GitHub Sponsors 
+ Developer articles 
+ Changelog Changelog Your source for the latest features, improvements, and fixes across GitHub products, all in one place. 
+ Businesses By Stage Enterprises 
+ Team 
+ Startups 
+ Nonprofits 
+ By Industry Healthcare 
+ Financial services 
+ Manufacturing 
+ Government 
+ See all industries 
+ Evaluate GitHub Why GitHub 
+ Customer Stories 
+ Business insights 
+ Trust Center 
+ Add-ons GitHub Advanced Security Enterprise-grade code security 
+ Copilot for business Enterprise-grade AI features 
+ Premium Support Enterprise-grade 24/7 support 
+ Resources Learn & Connect Documentation 
+ Resource center 
+ Blog 
+ Events & webinars 
+ Community Forum 
+ Customer Stories 
+ Integrations 
+ Support Customer support 
+ Training 
+ GitHub Status 
+ Company About 
+ Partners 
+ Changelog 
+ GitHub Universe GitHub Universe The event for developers, by developers — talks, workshops, and what’s next for GitHub. 
+ Pricing 
+ Search / 
+ Sign in 
+ Sign up Appearance settings
+ You signed in with another tab or window. Reload to refresh your session. 
+ You signed out in another tab or window. Reload to refresh your session. 
+ You switched accounts on another tab or window. Reload to refresh your session. 
+ Dismiss alert 
+ {{ message }}
+ europeana 
+ iiif-presentation-api 
+ Repository navigation
+ Code 
+ Issues 
+ Pull requests 1  ( 1 ) 
+ Actions 
+ Projects 
+ Security and quality 
+ Insights 
+ More items 
+ iiif-presentation-api 
+ Public 
+ Notifications You must be signed in to change notification settings 
+ Fork 0  ( 0 ) 
+ Star 0  ( 0 ) You must be signed in to star a repository 
+ About 
+ API that generates IIIF presentation resources based on Europeana Items, Galleries and other collections
+ Resources 
+ Readme 
+ EUPL-1.2 license 
+ Activity 
+ Custom properties 
+ Stars 
+ 0 stars 
+ Watchers 
+ 5 watching 
+ Forks 
+ 0 forks 
+ Report repository 
+ main 
+ Branches Tags 
+ Go to file 
+ Code Open more actions menu 
+ Latest commit
+ History
+ 153 Commits 
+ 153 Commits 
+ Folders and files
+ Name Name Last commit message 
+ Last commit date 
+ .github/ workflows 
+ .github/ workflows 
+ iiif-presentation-collection 
+ iiif-presentation-collection 
+ iiif-presentation-definitions 
+ iiif-presentation-definitions 
+ iiif-presentation-manifest 
+ iiif-presentation-manifest 
+ iiif-presentation-web 
+ iiif-presentation-web 
+ k8s 
+ k8s 
+ .dockerignore 
+ .dockerignore 
+ .gitignore 
+ .gitignore 
+ Dockerfile 
+ Dockerfile 
+ LICENSE.md 
+ LICENSE.md 
+ README.md 
+ README.md 
+ owasp-suppress.xml 
+ owasp-suppress.xml 
+ pom.xml 
+ pom.xml 
+ View all files 
+ Repository files navigation
+ README 
+ EUPL-1.2 license 
+ More items 
+ Europeana IIIF Manifest API for IIIF v2 and v3 manifests 
+ The Europeana IIIF Manifest API is a Java Spring-Boot 2 application that on each valid request first retrieves json data from the
+Europeana Record API and uses the response to generate either an IIIF v2 or v3 manifest.
+ The Manifest API will also check with the Europeana Full-Text API if the record has fulltext available. If that is the case
+then a link to the appropriate IIIF Fulltext API url is added in the manifest.
+ A manifest request requires an Europeana API key and takes
+the following form:
+ https://<hostname>/presentation/<collectionId>/<recordId>/manifest?wskey=<apikey> 
+ By default an IIIF v2 will be generated, but you can specify which version you want by adding
+ a format parameter, e.g. https://<hostname>/presentation/<collectionId>/<recordId>/manifest?wskey=<apikey>&format=3 
+ or add an accept header to your request, e.g. Accept: application/json; profile="http://iiif.io/api/presentation/3/context.json" 
+ Build
+ mvn clean install (add -DskipTests ) to skip the unit tests during build
+ Deployment
+ Generate a Docker image using the project's Dockerfile 
+ Configure the application by generating a iiif.user.properties file and placing this in the
+ k8s folder. After deployment this file will override the settings specified in the iiif.properties file
+located in the src/main/resources folder. The .gitignore file makes sure the .user.properties file
+is never committed.
+ Configure the deployment by setting the proper environment variables specified in the configuration template files
+in the k8s folder
+ Deploy to Kubernetes infrastructure
+ About 
+ API that generates IIIF presentation resources based on Europeana Items, Galleries and other collections
+ Resources 
+ Readme 
+ EUPL-1.2 license 
+ Activity 
+ Custom properties 
+ Stars 
+ 0 stars 
+ Watchers 
+ 5 watching 
+ Forks 
+ 0 forks 
+ Report repository 
+ Releases 
+ Packages 
+ Used by 
+ Contributors 
+ Languages 
+ Footer
+ © 2026 GitHub, Inc.
+ Footer navigation
+ Terms 
+ Privacy 
+ Security 
+ Status 
+ Community 
+ Docs 
+ Contact 
+ Manage cookies
+ Do not share my personal information
+ You can’t perform that action at this time.

@@ -1,0 +1,82 @@
+IIIF APIs Documentation - Europeana Knowledge Base - Confluence 
+ Atlassian uses cookies to improve your browsing experience, perform analytics and research, and conduct advertising. Accept all cookies to indicate that you agree to our use of cookies on your device. 
+ Atlassian cookies and tracking notice , (opens new window) 
+ Atlassian uses cookies to improve your browsing experience, perform analytics and research, and conduct advertising. Accept all cookies to indicate that you agree to our use of cookies on your device. Atlassian cookies and tracking notice , (opens new window) 
+ Preferences Only necessary Accept all 
+ Collapse sidebar Switch sites or apps 
+ Confluence 
+ Create Create 
+ Help 
+ Log in 
+ Spaces 
+ Apps 
+ Europeana Knowledge Base 
+ More actions 
+ Back to top 
+ Content 
+ Results will update as you type. 
+ Terminology 
+ Europeana Data Model 
+ EDM - Mapping guidelines 
+ Semantic enrichments 
+ Media policy 
+ Publishing guide 
+ User Guides & Training 
+ Organisation entities in Europeana 
+ Europeana APIs Documentation 
+ Accessing the APIs 
+ Fair use policy & guidelines 
+ API Suite 
+ Record API Documentation 
+ Search API Documentation 
+ Entity API Documentation 
+ IIIF APIs Documentation 
+ Annotation API Documentation 
+ User Set API Documentation 
+ Recommendation API 
+ SPARQL API Documentation 
+ Dataset download and OAI-PMH service 
+ Thumbnail API Documentation 
+ User guides 
+ API FAQ 
+ Use cases 
+ Libraries and Plugins 
+ Publishing guide for 3D content 
+ Europeana usage statistics dashboard for providing cultural heritage institutions 
+ Copyright management guidelines for cultural heritage institutions 
+ Europeana and IIIF 
+ Article 14 National Implementations Overview 
+ Out of commerce works National Implementations Overview 
+ FAQs on digital cultural heritage and the concept of openness 
+ Persistent identifiers 
+ You‘re viewing this with anonymous access, so some content might be blocked. 
+ Close 
+ Europeana Knowledge Base
+ /
+ IIIF APIs Documentation
+ Updated Oct 02, 2024 
+ More actions 
+ IIIF APIs Documentation
+ By Jolan Wuyts (Unlicensed) 
+ 9 min 
+ Add a reaction
+ The Europeana APIs offer for IIIF covers the Presentation API (versions 2.1 & 3), the Content Search API (version 1) and make use of the IIIF Image API when made available by content providers. Additionally, Europeana’s IIIF offer also includes support for fulltext (such as transcriptions, translations of transcriptions, captions and subtitles) via the IIIF Fulltext API using an EDM extension for fulltext. These APIs follow the specifications defined by the IIIF consortium.
+ You don’t need an API key for this API!
+ Get Started with the IIIF APIs 
+ Go to the Console 
+ Need help? 
+ Introduction
+ The   International Image Interoperability Framework (IIIF)  is a range of standards that were initially designed to offer a standardized and scallable way to describe how digital objects composed of one or more images can be displayed to an end-user. This offers the flexibility to developers and users to respectively develop and use different IIIF compatible viewers according to their needs and preferences. Since its first release, it has grown to cover other types of media such as sound and video, and soon also 3D.
+ 1 Introduction 
+ 2 Retrieving a manifest 
+ 3 Retrieving images or portions of the image 3.1 Image service 
+ 3.2 Image service details 
+ 4 Retrieving full-text content 4.1 Annotation Pages 
+ 4.2 Annotation 
+ 4.3 Fulltext Resource 
+ 5 Searching on full-text 5.1 Search accross all items with full-text 
+ 5.2 Search within full-text of a single item 
+ 6 Source code and changelog 
+ IIIF datasets in Europeana: A Scholar’s delight 
+ Open image-20210322-153106.png 
+ {"serverDuration": 30, "requestCorrelationId": "04b506ac04cc47dd85e5e8490361eaa7"}
