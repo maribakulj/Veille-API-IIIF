@@ -1,0 +1,11 @@
+{
+  "slug": "nypl",
+  "min_delay_s": 6,
+  "max_requests": 15,
+  "endpoints": [
+    {"id": "racine-iiif", "method": "GET", "url": "https://iiif.nypl.org/"},
+    {"id": "api-collections-manifeste-1", "method": "GET", "url": "https://api-collections.nypl.org/manifests/333ce2c0-3144-0132-b540-3c075448cc4b"},
+    {"id": "api-repo-v1-recherche", "method": "GET", "url": "https://api.repo.nypl.org/api/v1/items/search?q=dance"},
+    {"id": "api-collections-manifeste-2", "method": "GET", "url": "https://api-collections.nypl.org/manifests/999d3890-b7bf-0133-81d7-3c07547a230f"}
+  ]
+}

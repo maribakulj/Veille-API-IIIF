@@ -1,0 +1,14 @@
+{
+  "slug": "harvard",
+  "min_delay_s": 6,
+  "max_requests": 15,
+  "endpoints": [
+    {"id": "racine-iiif", "method": "GET", "url": "https://iiif.lib.harvard.edu/"},
+    {"id": "manifeste-ids", "method": "GET", "url": "https://iiif.lib.harvard.edu/manifests/ids:11927378"},
+    {"id": "librarycloud-items", "method": "GET", "url": "https://api.lib.harvard.edu/v2/items?q=iiif&limit=1"},
+    {"id": "viewer-ids", "method": "GET", "url": "https://iiif.lib.harvard.edu/manifests/view/ids:11927378"},
+    {"id": "nrs-manifeste", "method": "GET", "url": "https://nrs.lib.harvard.edu/URN-3:HUAM:INV204583_DYNMC:MANIFEST:2"},
+    {"id": "mps-manifeste-v2", "method": "GET", "url": "https://mps.lib.harvard.edu/iiif/2/URN-3:HUAM:INV204583_DYNMC"},
+    {"id": "mps-info-json", "method": "GET", "url": "https://mps.lib.harvard.edu/assets/images/drs:11927378/info.json"}
+  ]
+}
