@@ -1,0 +1,15 @@
+{
+  "slug": "europeana",
+  "min_delay_s": 6,
+  "max_requests": 15,
+  "follow_redirects": 1,
+  "note": "Passe v2 n°2 : manifeste d'un enregistrement dont le service d'images est hébergé par Europeana (9200396/BibliographicResource_3000118436165, identifiant déjà public dans le journal de la passe antérieure). Corps enregistré pour en tirer le service d'images.",
+  "endpoints": [
+    {
+      "id": "iiif-manifeste-9200396",
+      "method": "GET",
+      "url": "https://iiif.europeana.eu/presentation/9200396/BibliographicResource_3000118436165/manifest",
+      "save_body": 3000000
+    }
+  ]
+}

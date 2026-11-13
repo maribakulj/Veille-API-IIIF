@@ -9,3 +9,8 @@
 # Hôte api.europeana.eu : aucune requête envoyée. L'API de recherche et l'API Record exigent une clé (doc Accessing the APIs : requêtes sans clé « automatically rejected »). Clé non demandée, conformément à la consigne.
 # Hôte pro.europeana.eu (portail développeurs) : WebFetch de https://pro.europeana.eu/page/search → HTTP 403 (corps non récupéré). Consigné, non contourné ; ce n'est pas un test d'API.
 # Total requêtes d'appel sur iiif.europeana.eu : 5 (budget 15). Pause ≥ 7 s entre deux requêtes. Aucun 429, aucun 403 sur cet hôte.
+# Session 2026-11-13T23:16:20Z — configuration europeana-passe1-manifeste.json — sonde probe.py au commit 9142cfb
+2026-11-13T23:16:20Z | robots.txt:iiif.europeana.eu | https://iiif.europeana.eu/robots.txt | GET | 200 | 0 règle(s) pour « * »
+2026-11-13T23:16:27Z | iiif-manifeste-90402-SK_A_3262 | https://iiif.europeana.eu/presentation/90402/SK_A_3262/manifest | GET | 200 OK | aucun en-tête de limite | taille≥4766 | corps: {   "@type" : "sc:Manifest",   "@id" : "https://iiif.europeana.eu/presentation/90402/SK_A_3262/manifest",   "@context" : "http://iiif.io/api/presentation/2/context.json",   "label" : [ {     "@languag
+# corps enregistré : tests/raw/iiif-manifeste-90402-SK_A_3262.body (4766 octets lus)
+# Fin 2026-11-13T23:16:27Z — 2 requête(s) envoyée(s)

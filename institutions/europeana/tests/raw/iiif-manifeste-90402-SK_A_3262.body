@@ -1,0 +1,111 @@
+{
+  "@type" : "sc:Manifest",
+  "@id" : "https://iiif.europeana.eu/presentation/90402/SK_A_3262/manifest",
+  "@context" : "http://iiif.io/api/presentation/2/context.json",
+  "label" : [ {
+    "@language" : "en",
+    "@value" : "Self-portrait"
+  }, {
+    "@language" : "nl",
+    "@value" : "Zelfportret"
+  } ],
+  "description" : [ {
+    "@language" : "en",
+    "@value" : "Vincent moved to Paris in 1886, after hearing from his brother Theo about the new, colourful style of French painting. Wasting no time, he tried it out in several self-portraits. He did this mostly to avoid having to pay for a model. Using rhythmic brushstrokes in striking colours, he portrayed himself here as a fashionably dressed Parisian."
+  }, {
+    "@language" : "nl",
+    "@value" : "Nadat hij van zijn broer Theo had gehoord over de nieuwe kleurige Franse schilderkunst, ging Vincent in 1886 in Parijs wonen. Al snel probeerde hij de Franse stijl uit op een aantal zelfportretten. Dit deed hij vooral om de kosten voor een model uit te sparen. Hier schilderde hij zichzelf als een mondain geklede Parijzenaar, met losse, ritmische penseelstreken in opvallende kleuren."
+  } ],
+  "metadata" : [ {
+    "label" : "format",
+    "value" : [ {
+      "@value" : "http://data.europeana.eu/concept/1813"
+    }, {
+      "@value" : "urn:rijksmuseum:thesaurus:RM0001.THESAU.380"
+    }, {
+      "@value" : "http://vocab.getty.edu/aat/300015050"
+    }, {
+      "@language" : "en",
+      "@value" : "oil paint (paint)"
+    }, {
+      "@language" : "nl",
+      "@value" : "karton"
+    }, {
+      "@language" : "nl",
+      "@value" : "olieverf"
+    } ]
+  }, {
+    "label" : "type",
+    "value" : [ {
+      "@value" : "http://data.europeana.eu/concept/47"
+    }, {
+      "@value" : "http://vocab.getty.edu/aat/300177435"
+    }, {
+      "@language" : "en",
+      "@value" : "painting"
+    }, {
+      "@language" : "nl",
+      "@value" : "schilderij"
+    } ]
+  }, {
+    "label" : "language",
+    "value" : [ {
+      "@value" : "nl"
+    } ]
+  } ],
+  "thumbnail" : {
+    "@type" : "dctypes:Image",
+    "@id" : "https://api.europeana.eu/thumbnail/v2/url.json?uri=https%3A%2F%2Fwww.rijksmuseum.nl%2Fassetimage2.jsp%3Fid%3DSK-A-3262&type=IMAGE"
+  },
+  "attribution" : "(en) Self-portrait - https://www.europeana.eu/item/90402/SK_A_3262. Rijksmuseum - http://hdl.handle.net/10934/RM0001.COLLECT.9617. Public Domain Mark - http://creativecommons.org/publicdomain/mark/1.0/",
+  "license" : "http://creativecommons.org/publicdomain/mark/1.0/",
+  "logo" : "https://style.europeana.eu/images/europeana-logo-default.png",
+  "seeAlso" : [ {
+    "@id" : "https://api.europeana.eu/record/90402/SK_A_3262.json-ld",
+    "format" : "application/ld+json",
+    "profile" : "http://www.europeana.eu/schemas/edm/"
+  }, {
+    "@id" : "https://api.europeana.eu/record/90402/SK_A_3262.json",
+    "format" : "application/json",
+    "profile" : "http://www.europeana.eu/schemas/edm/"
+  }, {
+    "@id" : "https://api.europeana.eu/record/90402/SK_A_3262.rdf",
+    "format" : "application/rdf+xml",
+    "profile" : "http://www.europeana.eu/schemas/edm/"
+  } ],
+  "service" : {
+    "@context" : "http://iiif.io/api/search/1/context.json",
+    "@id" : "https://iiif.europeana.eu/presentation/90402/SK_A_3262/search",
+    "profile" : "http://iiif.io/api/search/1/search"
+  },
+  "sequences" : [ {
+    "@type" : "sc:Sequence",
+    "label" : "Current Page Order",
+    "startCanvas" : "https://iiif.europeana.eu/presentation/90402/SK_A_3262/canvas/p1",
+    "canvases" : [ {
+      "@type" : "sc:Canvas",
+      "@id" : "https://iiif.europeana.eu/presentation/90402/SK_A_3262/canvas/p1",
+      "label" : "p. 1",
+      "height" : 2562,
+      "width" : 2034,
+      "attribution" : "(en) Self-portrait - https://www.europeana.eu/item/90402/SK_A_3262. Rijksmuseum - http://hdl.handle.net/10934/RM0001.COLLECT.9617. Public Domain Mark - http://creativecommons.org/publicdomain/mark/1.0/",
+      "license" : "http://creativecommons.org/publicdomain/mark/1.0/",
+      "images" : [ {
+        "@type" : "oa:Annotation",
+        "motivation" : "sc:painting",
+        "resource" : {
+          "@type" : "dctypes:Image",
+          "@id" : "https://lh3.googleusercontent.com/Ckjq-HkB2XhEsbuMsei0MR5fLTODfkcXY8qQTG-XLHVxE0jLO9DnSYaVE8n1kCrcm9AMKzoWB2w03LrY0v7eoj5hYw=s0",
+          "format" : "image/jpeg",
+          "height" : 2562,
+          "width" : 2034
+        },
+        "on" : "https://iiif.europeana.eu/presentation/90402/SK_A_3262/canvas/p1"
+      } ],
+      "thumbnail" : {
+        "@type" : "dctypes:Image",
+        "@id" : "https://api.europeana.eu/thumbnail/v2/url.json?uri=https%3A%2F%2Flh3.googleusercontent.com%2FCkjq-HkB2XhEsbuMsei0MR5fLTODfkcXY8qQTG-XLHVxE0jLO9DnSYaVE8n1kCrcm9AMKzoWB2w03LrY0v7eoj5hYw%3Ds0&type=TEXT"
+      }
+    } ]
+  } ]
+}
