@@ -1,0 +1,19 @@
+{
+  "slug": "europeana",
+  "min_delay_s": 6,
+  "max_requests": 15,
+  "follow_redirects": 1,
+  "note": "Passe v2 n°3 : service d'images Europeana annoncé par le manifeste de la passe 2 (identifiant public). Dérivé réduit.",
+  "endpoints": [
+    {
+      "id": "image-info-json",
+      "method": "GET",
+      "url": "https://iiif.europeana.eu/image/QNYVL2Z2FVHRGMK2UNXIP4DUUOTOVA2ND3WIPJQF6V23SO2CJ5UA/presentation_images/ee0edfa0-0220-11e6-a696-fa163e2dd531/node-3/image/BNL/Journal_historique_et_littéraire/1788/09/01/00001/info.json"
+    },
+    {
+      "id": "image-derive-200",
+      "method": "GET",
+      "url": "https://iiif.europeana.eu/image/QNYVL2Z2FVHRGMK2UNXIP4DUUOTOVA2ND3WIPJQF6V23SO2CJ5UA/presentation_images/ee0edfa0-0220-11e6-a696-fa163e2dd531/node-3/image/BNL/Journal_historique_et_littéraire/1788/09/01/00001/full/!200,200/0/default.jpg"
+    }
+  ]
+}
