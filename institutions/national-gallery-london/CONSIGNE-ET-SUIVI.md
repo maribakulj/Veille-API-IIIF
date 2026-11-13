@@ -2,57 +2,57 @@
 
 - **Dossier** : `institutions/national-gallery-london/`  ·  **Classeur de référence** : GLAM-009  ·  **Pays** : Royaume-Uni
 - **Statut d'institution** : active
-- **Dernière mise à jour du suivi** : (à renseigner à chaque modification)
+- **Dernière mise à jour du suivi** : 2026-11-14
 
 ## Suivi par étape (à cocher, avec justification et preuves)
 
 ### a) Documentation lue en entier
 > Toutes les pages de doc liées à l'API (développeurs, interfaces, conditions, FAQ, aide, mentions légales, robots.txt), téléchargées avec `scripts/fetch_doc.sh` (URL, date, SHA-256), lues en entier (`scripts/extract_text.py`).
 
-- [ ] **Pas fait**
-  - **Justification** : Pas encore traitée : l'audit suit l'ordre du classeur de référence (une institution à la fois).
-  - **Preuves** : 
+- [x] **Fait**
+  - **Justification** : Lus et hachés : page « Collection image APIs », serveur historique media.ng-london, API historique data.ng-london, conditions d'utilisation du site (texte complet, section « Prohibited use » lue), FAQ, robots.txt de 5 hôtes (www et research : lus ; data.ng.ac.uk, media, data.ng-london : 404). research.ng-london.org.uk/ss-iiif/end-points renvoie 404.
+  - **Preuves** : `institutions/national-gallery-london/sources/SHA256SUMS`, `institutions/national-gallery-london/sources/suite/SHA256SUMS`
 
 ### b) Endpoints tirés de la doc
 > Liste des endpoints citée par la doc (URL, exemples). Jamais devinée. Une interdiction ou une impossibilité écrite dans la doc justifie de renoncer (citer la phrase).
 
-- [ ] **Pas fait**
-  - **Justification** : Pas encore traitée : l'audit suit l'ordre du classeur de référence (une institution à la fois).
-  - **Preuves** : 
+- [x] **Fait**
+  - **Justification** : Endpoints documentés : data.ng.ac.uk/iiif/3/{PID}/{region}/{size}/{rotation}/default.jpg avec l'exemple 0M1F-000B-0000-0000 ; serveur historique media.ng-london.org.uk/iiif/{id}/manifest.json et /info.json avec exemples. Le Presentation API du nouveau service n'est pas encore disponible (doc). Point d'accès Elasticsearch non documenté publiquement (adresse masquée).
+  - **Preuves** : `institutions/national-gallery-london/sources/text/01.txt`, `institutions/national-gallery-london/sources/text/02.txt`
 
 ### c) Configuration écrite AVANT les tests
 > `config/<nom>.json` pilote `scripts/probe.py`, committée avant le lancement. Un endpoint absent de la doc mais non interdit se teste avec un script poli (identifiants issus de pages publiques ou d'exemples de la doc, pas de devinette).
 
-- [ ] **Pas fait**
-  - **Justification** : Pas encore traitée : l'audit suit l'ordre du classeur de référence (une institution à la fois).
-  - **Preuves** : 
+- [x] **Fait**
+  - **Justification** : Trois configurations committées avant lancement, avec les identifiants d'exemple de la doc ; dérivés réduits sauf l'exemple exact full/max, testé pour mesurer le plafond.
+  - **Preuves** : `institutions/national-gallery-london/config/ng-passe1-data-ng-ac-uk.json`, `institutions/national-gallery-london/config/ng-passe2-media-legacy.json`, `institutions/national-gallery-london/config/ng-passe3-full-max.json`
 
 ### d) Quota cherché dans la doc
 > Pour chaque page lue : endpoint de statut, en-têtes de limite documentés, clé ou compte donnant un quota, contact pour un volume plus élevé. Chaque réponse cite sa source.
 
-- [ ] **Pas fait**
-  - **Justification** : Pas encore traitée : l'audit suit l'ordre du classeur de référence (une institution à la fois).
-  - **Preuves** : 
+- [x] **Fait**
+  - **Justification** : Aucun quota, en-tête, clé ni endpoint de statut. Règle écrite : « creating a database that includes material downloaded or obtained from the Website without written permission » interdit (conditions) ; images en CC BY-NC-ND 4.0 ; robots.txt sans règle de débit.
+  - **Preuves** : `institutions/national-gallery-london/sources/suite/text/01.txt`, `institutions/national-gallery-london/sources/text/01.txt`, `institutions/national-gallery-london/sources/raw/05.html`
 
 ### e) Test systématique de chaque endpoint
 > Chaque endpoint documenté est testé (budget 15 requêtes par passe, pause ≥ 6 s, GET/HEAD, UA du projet). Redirections du même hôte suivies. Un 403 arrête son hôte, un 429 arrête l'institution. Seules les interdictions écrites dans la doc dispensent de tester.
 
-- [ ] **Pas fait**
-  - **Justification** : Pas encore traitée : l'audit suit l'ordre du classeur de référence (une institution à la fois).
-  - **Preuves** : 
+- [x] **Fait**
+  - **Justification** : Tous les endpoints documentés sont testés (3 passes, 6 requêtes de données) : nouveau service et serveur historique, 200 partout, aucun en-tête de limite ni 429. full/max mesuré à 800×730. Non testés : Elasticsearch (adresse non documentée), Presentation API du nouveau service (pas encore disponible selon la doc).
+  - **Preuves** : `institutions/national-gallery-london/tests/journal.log`, `institutions/national-gallery-london/tests/raw/ngac-info-json.headers.txt`, `institutions/national-gallery-london/tests/raw/media-manifeste-000-03JR-0000.headers.txt`
 
 ### f) Ce que disent les gens sur le web
 > Plaintes, discussions, présentations de l'institution, politique envers les API et les bots, blogs, GitHub, forums, listes de diffusion. Sources étiquetées (officielle / institution / utilisateur / tiers), lues, citées.
 
-- [ ] **Pas fait**
-  - **Justification** : Pas encore traitée : l'audit suit l'ordre du classeur de référence (une institution à la fois).
-  - **Preuves** : 
+- [x] **Fait**
+  - **Justification** : Deux recherches web : pas de politique de bots ni de débit publiée par la Galerie ; un projet tiers (PR GitHub) confirme le plafond d'environ 800 px et l'usage d'Elasticsearch, non officiel. Pas de plainte trouvée.
+  - **Preuves** : `institutions/national-gallery-london/fiche.md`, `institutions/national-gallery-london/sources/text/02.txt`
 
 ### g) Crash test progressif
 > Seulement après l'audit complet (a à f) de toutes les institutions et avec l'accord de Marcel : paliers jusqu'à 2 × la limite documentée, ou 200 req/min si illimité ou sans limite documentée. Arrêt au premier 429/403/CAPTCHA.
 
 - [ ] **Pas fait**
-  - **Justification** : Pas encore traitée : l'audit suit l'ordre du classeur de référence (une institution à la fois).
+  - **Justification** : À faire à la fin de l'audit de toutes les institutions et à l'accord de Marcel. Plafond prévu : 200 req/min sur data.ng.ac.uk (aucune limite annoncée). Les hôtes IIIF n'ont pas de robots.txt.
   - **Preuves** : 
 
 ### Contrôles transversaux
@@ -60,7 +60,7 @@
 
 <!-- AUTO:DEBUT -->
 ## Contrôles automatiques (calculés depuis `tests/journal.log`)
-- Requêtes enregistrées : **7** (sessions de sonde : 2, maximum par session : 4)
+- Requêtes enregistrées : **9** (sessions de sonde : 3, maximum par session : 4)
 - Plus courte pause vers un même hôte : **6 s** (règle : ≥ 6 s)
 - Méthodes utilisées : GET (règle : GET/HEAD seulement)
 - Anomalies : aucune

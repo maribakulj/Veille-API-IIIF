@@ -4,10 +4,81 @@
   "pays": "Royaume-Uni",
   "classeur_id": "GLAM-009",
   "type": "Institution",
-  "statut_audit": "à faire",
-  "limites_documentees": [],
+  "statut_audit": "audit a–f complet ; g à faire",
+  "limites_documentees": [
+    {
+      "nature": "Interdiction contractuelle",
+      "perimetre": "constitution d'une base de données à partir du site",
+      "valeur": "interdit sans autorisation écrite",
+      "fenetre": "–",
+      "effet": "non précisé",
+      "verification": "officielle, lue en entier",
+      "source": "https://www.nationalgallery.org.uk/terms-of-use",
+      "date": "2026-11-13"
+    },
+    {
+      "nature": "Plafond de taille d'image (mesuré, non documenté)",
+      "perimetre": "data.ng.ac.uk, requête full/max de l'exemple de la doc",
+      "valeur": "800 × 730 pixels",
+      "fenetre": "par requête",
+      "effet": "image réduite",
+      "verification": "observée par notre mesure (JPEG), non documentée",
+      "source": "https://www.nationalgallery.org.uk/documentation/ngacuk/collection-images",
+      "date": "2026-11-13"
+    }
+  ],
   "en_tetes_observes": [],
   "blocages": [],
-  "sources": [],
-  "web": []
+  "sources": [
+    {
+      "url": "https://www.nationalgallery.org.uk/documentation/ngacuk/collection-images",
+      "date": "2026-11-13",
+      "etiquette": "officielle",
+      "preuve": "institutions/national-gallery-london/sources/SHA256SUMS"
+    },
+    {
+      "url": "https://media.ng-london.org.uk/",
+      "date": "2026-11-13",
+      "etiquette": "officielle",
+      "preuve": "institutions/national-gallery-london/sources/SHA256SUMS"
+    },
+    {
+      "url": "https://data.ng-london.org.uk/",
+      "date": "2026-11-13",
+      "etiquette": "officielle",
+      "preuve": "institutions/national-gallery-london/sources/SHA256SUMS"
+    },
+    {
+      "url": "https://www.nationalgallery.org.uk/robots.txt",
+      "date": "2026-11-13",
+      "etiquette": "officielle",
+      "preuve": "institutions/national-gallery-london/sources/SHA256SUMS"
+    },
+    {
+      "url": "https://www.nationalgallery.org.uk/terms-of-use",
+      "date": "2026-11-13",
+      "etiquette": "officielle",
+      "preuve": "institutions/national-gallery-london/sources/suite/SHA256SUMS"
+    },
+    {
+      "url": "https://www.nationalgallery.org.uk/about-us/faq",
+      "date": "2026-11-13",
+      "etiquette": "officielle",
+      "preuve": "institutions/national-gallery-london/sources/suite/SHA256SUMS"
+    }
+  ],
+  "web": [
+    {
+      "url": "https://github.com/jeffreysmithart/jsa-art-tools/pull/6",
+      "date": "2026-11-13",
+      "etiquette": "tiers (développeur), non vérifié",
+      "citation": "La collection de Londres est cherchée par un point d'accès Elasticsearch de data.ng.ac.uk ; images publiques d'environ 800 px au plus, CC BY-NC-ND 4.0 (confirmé par notre mesure : 800×730).",
+      "preuve": "institutions/national-gallery-london/fiche.md"
+    }
+  ],
+  "contact": "hello@nationalgallery.org.uk ; formulaire de contact ; nationalgalleryimages.co.uk (usage commercial)",
+  "conclusion_quota": "Aucun quota ni en-tête. Interdiction contractuelle de constituer une base de données à partir du site sans autorisation écrite. full/max plafonné à 800×730 px (mesuré).",
+  "classe_quota": "aucun quota trouvé (interdiction contractuelle de base de données)",
+  "confiance": "moyenne",
+  "notes": "Service IIIF complet en cours de déploiement (Presentation API non disponible). Les hôtes IIIF n'ont pas de robots.txt."
 }
