@@ -145,3 +145,15 @@ Statut selon la méthode v2 : **incomplet** (étape a partiellement faite : une 
     (en-tête `Content-Length`, et dimensions) avant de conclure « pas de blocage ».
 - **Pour le crash test** (étape g) : le signal de dépassement de MDZ peut donc être une image
   1×1 en 200, et non un 429. Le test doit le détecter.
+
+### Étape f) complétée (2026-11-13, recherche directe)
+
+Recherches : 4 requêtes web (standard), dont une sur le 1×1 et une sur le forum IIIF.
+Sources retenues, étiquetées :
+- **officielle** : `https://www.digitale-sammlungen.de/en/interfaces` (et `de/schnittstellen`) : limites « per 24 hours » Image API et OCR, aucun chiffre (voir `sources/mdz/`).
+- **officielle (guide IIIF)** : `https://iiif.io/guides/guides/digitale-sammlungen.de/` : lu en entier par extraction : **aucune phrase sur les limites, quotas, clés, erreurs ou 1×1** ; seulement des conseils de filtrage. Contact cité : « Contact Us » (lien).
+- **tiers (projet utilisateur)** : `Embassy-of-the-Free-Mind/sourcelibrary-v2` #5448 (voir plus haut) et #3886 (2026-08-11) : « undocumented but clean JSON API at digitale-sammlungen.de/api/search ». Non vérifié, non testé, non utilisé.
+- **tiers (dépôt Mirador)** : `ProjectMirador/mirador` #4542 : un manifeste MDZ (bsb11134638) contient des canvases **1×1 px** qui s'affichent comme une image d'erreur dans Mirador en IIIF v3 (sans rapport direct avec un quota). Pertinent pour la détection : une image 1×1 peut être normale ou être un signal.
+- **Non trouvé** : forum IIIF Discourse, pages Wikisource ou Wikimedia sur les limites MDZ, présentations officielles sur la politique d'API, réponse écrite de la BSB au projet tiers.
+
+**Conclusion étape f)** : la seule source qui décrit un blocage ou un 1×1 de dépassement est un ticket tiers, non vérifié. Rien d'officiel ne confirme le comportement au dépassement.
