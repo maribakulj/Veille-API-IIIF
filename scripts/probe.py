@@ -23,6 +23,7 @@ Aucune requête n'est répétée en rafale : le script ne fait jamais deux requ�
 import http.client
 import json
 import ssl
+import subprocess
 import sys
 import time
 import urllib.parse
@@ -101,8 +102,13 @@ def main():
         print(f"[dry] pause {delay}s, plafond {max_req} requêtes")
         return
 
+    raw_dir = REPO / "tests" / "raw" / slug
+    raw_dir.mkdir(parents=True, exist_ok=True)
+    commit = subprocess.run(["git", "-C", str(REPO), "rev-parse", "--short", "HEAD"],
+                            capture_output=True, text=True).stdout.strip() or "inconnu"
     with log_path.open("a", encoding="utf-8") as log:
-        log.write(f"# Session {now_utc()} — configuration {cfg_path.name}\n")
+        log.write(f"# Session {now_utc()} — configuration {cfg_path.name} — "
+                  f"sonde {Path(__file__).name} au commit {commit}\n")
         for e in endpoints:
             if stop_all:
                 log.write(f"{now_utc()} | {e['id']} | NON LANCÉ : arrêt de l'institution (429)\n")
@@ -132,6 +138,10 @@ def main():
                 line = f"{now_utc()} | {e['id']} | {e['url']} | {method} | {verdict} | {err}\n"
             else:
                 verdict = classify(r["status"], r["headers"], r["body"])
+                # En-têtes complets, pour pouvoir vérifier chaque conclusion.
+                hdr = "\n".join(f"{k}: {v}" for k, v in r["headers"])
+                (raw_dir / f"{e['id']}.headers.txt").write_text(
+                    f"{now_utc()} {method} {e['url']}\nHTTP {r['status']}\n{hdr}\n", encoding="utf-8")
                 lh = "; ".join(limit_headers(r["headers"])) or "aucun en-tête de limite"
                 snippet = r["body"][:200].decode("utf-8", "replace").replace("\n", " ")
                 line = (f"{now_utc()} | {e['id']} | {e['url']} | {method} | {r['status']} {verdict} | "

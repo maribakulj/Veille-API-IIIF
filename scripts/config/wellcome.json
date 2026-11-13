@@ -1,0 +1,28 @@
+{
+  "slug": "wellcome",
+  "min_delay_s": 6,
+  "max_requests": 15,
+  "note": "Requêtes envoyées le 2026-11-13 (curl, UA honnête, pauses 6 s). La 4e est un chemin deviné : réponse 400.",
+  "endpoints": [
+    {
+      "id": "works-pagesize1",
+      "method": "GET",
+      "url": "https://api.wellcomecollection.org/catalogue/v2/works?pageSize=1"
+    },
+    {
+      "id": "manifeste-v3",
+      "method": "GET",
+      "url": "https://iiif.wellcomecollection.org/presentation/v3/b18035723"
+    },
+    {
+      "id": "info-json-thumbs",
+      "method": "GET",
+      "url": "https://iiif.wellcomecollection.org/thumbs/b18035723_0004.JP2/info.json"
+    },
+    {
+      "id": "info-json-image-v2-devine",
+      "method": "GET",
+      "url": "https://iiif.wellcomecollection.org/image/v2/b18035723_0004.JP2/info.json"
+    }
+  ]
+}

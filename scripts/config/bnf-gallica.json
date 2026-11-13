@@ -1,0 +1,13 @@
+{
+  "slug": "bnf-gallica",
+  "min_delay_s": 6,
+  "max_requests": 15,
+  "note": "Requête réellement envoyée le 2026-11-13 à 20:33Z (curl, UA honnête) : 403 Cloudflare. Arrêt volontaire ensuite. Les autres endpoints (info.json, ALTO, texteBrut) n'ont pas été testés.",
+  "endpoints": [
+    {
+      "id": "manifeste-btv1b550076223",
+      "method": "GET",
+      "url": "https://gallica.bnf.fr/iiif/ark:/12148/btv1b550076223/manifest.json"
+    }
+  ]
+}

@@ -1,0 +1,13 @@
+# Journal de tests — Cambridge University Library (CUDL) — UTC
+# Champs : n° | heure UTC | URL | méthode | statut | en-têtes de limite | taille | délai depuis précédent | corps (200 o max)
+# UA des requêtes curl : VeilleAPIIIF/0.1 (veille documentaire; github.com/maribakulj/Veille-API-IIIF)
+1 | 2026-11-13T21:0x (heure exacte non fournie par l'outil WebFetch, avant 21:05:53Z) | https://cudl.lib.cam.ac.uk/terms | GET via outil WebFetch (UA non maîtrisé par nous) | 403 | aucun en-tête de limite lu (corps non récupéré par l'outil) | - | delta=- (premier appel vers cudl.lib.cam.ac.uk) | corps: « The server returned HTTP 403 Forbidden. The response body was not retrieved. » Page de conditions non lue.
+2 | 2026-11-13T21:05:53Z | https://cudl.link/v1/metadata/MS-ADD-03958 | GET curl (UA honnête) | aucune réponse HTTP (échec DNS : « Could not resolve host: cudl.link », curl code 6) | - | 0 | delta=- (premier appel vers cudl.link) | corps: aucun. Route tirée de la doc du dépôt cudl-services (README : hôte cudl.link, route /v1/metadata/, identifiant d'exemple MS-ADD-03958).
+
+# Arrêt 1 : la requête n°1 (GET sur cudl.lib.cam.ac.uk, via WebFetch) a reçu un 403 « anti-bot » (accès refusé à ce client). Règle appliquée : aucun autre appel curl vers cudl.lib.cam.ac.uk (dont https://cudl.lib.cam.ac.uk/iiif/ et les manifestes). Aucun contournement tenté.
+# Arrêt 2 : cudl.link ne se résout pas depuis ce poste (DNS). Pas de nouvelle tentative : pas de nom d'hôte de remplacement deviné.
+# Bilan : 2 requêtes de test sur un budget de 15 ; 0 réponse HTTP exploitable de l'institution ; aucune limite observée.
+# Session 2026-11-13T21:06:47Z — configuration cudl.json
+2026-11-13T21:06:47Z | manifeste-PR-FB-00886 | https://cudl.lib.cam.ac.uk/iiif/PR-FB-00886-00005-00006.json | GET | 302 OK | aucun en-tête de limite | taille≥0 | corps: 
+2026-11-13T21:06:53Z | manifeste-MS-ADD-03965 | https://cudl.lib.cam.ac.uk/iiif/MS-ADD-03965.json | GET | 302 OK | aucun en-tête de limite | taille≥0 | corps: 
+# Fin 2026-11-13T21:06:53Z — 2 requête(s) envoyée(s)

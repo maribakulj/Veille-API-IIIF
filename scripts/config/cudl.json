@@ -1,0 +1,9 @@
+{
+  "slug": "cudl",
+  "min_delay_s": 6,
+  "max_requests": 15,
+  "endpoints": [
+    {"id": "manifeste-PR-FB-00886-sans-json", "method": "GET", "url": "https://cudl.lib.cam.ac.uk/iiif/PR-FB-00886-00005-00006"},
+    {"id": "manifeste-MS-ADD-03965-sans-json", "method": "GET", "url": "https://cudl.lib.cam.ac.uk/iiif/MS-ADD-03965"}
+  ]
+}

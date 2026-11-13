@@ -1,0 +1,23 @@
+{
+  "slug": "europeana",
+  "min_delay_s": 6,
+  "max_requests": 15,
+  "note": "Série envoyée par l'agent Europeana (5 requêtes, dont une en en-tête Accept v3 non reproduit ici). Les API de recherche/Record (clé requise) n'ont pas été appelées.",
+  "endpoints": [
+    {
+      "id": "manifeste-v2",
+      "method": "GET",
+      "url": "https://iiif.europeana.eu/presentation/9200396/BibliographicResource_3000118436165/manifest"
+    },
+    {
+      "id": "manifeste-head",
+      "method": "HEAD",
+      "url": "https://iiif.europeana.eu/presentation/9200396/BibliographicResource_3000118436165/manifest"
+    },
+    {
+      "id": "info-json-image",
+      "method": "GET",
+      "url": "https://iiif.europeana.eu/image/QNYVL2Z2FVHRGMK2UNXIP4DUUOTOVA2ND3WIPJQF6V23SO2CJ5UA/presentation_images/ee0edfa0-0220-11e6-a696-fa163e2dd531/node-3/image/BNL/Journal_historique_et_littéraire/1788/09/01/00001/info.json"
+    }
+  ]
+}

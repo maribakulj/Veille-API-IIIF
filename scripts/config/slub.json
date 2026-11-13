@@ -1,0 +1,28 @@
+{
+  "slug": "slub",
+  "min_delay_s": 6,
+  "max_requests": 15,
+  "note": "Série envoyée le 2026-11-13 (4 requêtes, arrêt volontaire). L'URL du manifeste vient d'un README tiers, non officiel.",
+  "endpoints": [
+    {
+      "id": "racine",
+      "method": "GET",
+      "url": "https://iiif.slub-dresden.de/"
+    },
+    {
+      "id": "manifeste-1",
+      "method": "GET",
+      "url": "https://iiif.slub-dresden.de/iiif/2/1741646995-18800000/manifest.json"
+    },
+    {
+      "id": "info-json-image",
+      "method": "GET",
+      "url": "https://images.iiif.slub-dresden.de/iiif/2/data%2Fkitodo%2FAdrefdiS_1741646995-18800000%2FAdrefdiS_1741646995-18800000_tif%2Fjpegs%2F00000001.tif.medium.jpg/info.json"
+    },
+    {
+      "id": "manifeste-2-repetition",
+      "method": "GET",
+      "url": "https://iiif.slub-dresden.de/iiif/2/1741646995-18800000/manifest.json"
+    }
+  ]
+}

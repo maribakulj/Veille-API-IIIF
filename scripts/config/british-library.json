@@ -1,0 +1,18 @@
+{
+  "slug": "british-library",
+  "min_delay_s": 6,
+  "max_requests": 15,
+  "note": "Requêtes curl du 2026-11-13 : 403 IIS sur iiif.bl.uk ; api.bl.uk non résolu. La lecture de bl.uk (terms) a été faite avec un outil web, non reproductible par la sonde.",
+  "endpoints": [
+    {
+      "id": "iiif-racine-curl",
+      "method": "HEAD",
+      "url": "https://iiif.bl.uk/"
+    },
+    {
+      "id": "api-manifeste-dns",
+      "method": "GET",
+      "url": "https://api.bl.uk/metadata/iiif/ark:/81055/vdc_000000035B1A/manifest.json"
+    }
+  ]
+}
