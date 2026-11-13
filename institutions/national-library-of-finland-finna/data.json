@@ -4,10 +4,82 @@
   "pays": "Finlande",
   "classeur_id": "GLAM-014",
   "type": "Institution",
-  "statut_audit": "à faire",
-  "limites_documentees": [],
+  "statut_audit": "audit a–f partiel (API interdite aux robots) ; g non applicable tant que robots interdit",
+  "limites_documentees": [
+    {
+      "nature": "Interdiction robots",
+      "perimetre": "api.finna.fi",
+      "valeur": "User-agent: * Disallow: /",
+      "fenetre": "–",
+      "effet": "Disallow",
+      "verification": "officielle, lue en entier (copie Wayback 2025-05-31)",
+      "source": "https://api.finna.fi/robots.txt",
+      "date": "2026-11-13"
+    },
+    {
+      "nature": "Crawl-delay",
+      "perimetre": "finna.fi",
+      "valeur": "1 seconde",
+      "fenetre": "entre requêtes",
+      "effet": "non précisé",
+      "verification": "officielle, lue en entier (copie Wayback 2026-05-02)",
+      "source": "https://finna.fi/robots.txt",
+      "date": "2026-11-13"
+    },
+    {
+      "nature": "Inscription possible",
+      "perimetre": "API ouverte",
+      "valeur": "peut être introduite en cas de charge excessive",
+      "fenetre": "–",
+      "effet": "restriction éventuelle",
+      "verification": "officielle, lue en entier (copie Wayback 2025-06-12)",
+      "source": "https://www.kiwi.fi/display/Finna/Finna+API+Terms+of+Use",
+      "date": "2026-11-13"
+    }
+  ],
   "en_tetes_observes": [],
-  "blocages": [],
-  "sources": [],
-  "web": []
+  "blocages": [
+    {
+      "date": "2026-11-13",
+      "hote": "api.finna.fi, www.finna.fi, www.kiwi.fi",
+      "code": "403",
+      "nature": "anti-bot",
+      "suite": "non contourné ; Wayback"
+    }
+  ],
+  "sources": [
+    {
+      "url": "https://api.finna.fi/robots.txt",
+      "date": "2026-11-13",
+      "etiquette": "officielle",
+      "preuve": "institutions/national-library-of-finland-finna/sources/wayback/finna-extraits-wayback.md"
+    },
+    {
+      "url": "https://finna.fi/robots.txt",
+      "date": "2026-11-13",
+      "etiquette": "officielle",
+      "preuve": "institutions/national-library-of-finland-finna/sources/wayback/finna-extraits-wayback.md"
+    },
+    {
+      "url": "https://www.kiwi.fi/display/Finna/Finna+API+Terms+of+Use",
+      "date": "2026-11-13",
+      "etiquette": "officielle",
+      "preuve": "institutions/national-library-of-finland-finna/sources/wayback/finna-extraits-wayback.md"
+    }
+  ],
+  "web": [
+    {
+      "url": "https://cran.r-project.org/web/packages/finna/finna.pdf",
+      "date": "2026-11-13",
+      "etiquette": "tiers, non vérifié",
+      "citation": "le paquet R finna utilise 5 s entre requêtes par défaut (réglage client)",
+      "preuve": "institutions/national-library-of-finland-finna/fiche.md"
+    }
+  ],
+  "donnees_a_revalider": false,
+  "contact": "formulaire Kansalliskirjasto / adresse indiquée dans les conditions de l'API",
+  "conclusion_quota": "Aucun chiffre de débit publié ; api.finna.fi/robots.txt : Disallow: / pour tous les robots ; inscription possible en cas de charge excessive ; Crawl-delay 1 s sur le site.",
+  "classe_quota": "aucun quota trouvé (API exclue aux robots)",
+  "confiance": "faible à moyenne",
+  "notes": "Hôtes en 403 pour la sonde ; lecture via Wayback ; doc Swagger non lue."
 }

@@ -2,57 +2,57 @@
 
 - **Dossier** : `institutions/national-library-of-finland-finna/`  ·  **Classeur de référence** : GLAM-014  ·  **Pays** : Finlande
 - **Statut d'institution** : active
-- **Dernière mise à jour du suivi** : (à renseigner à chaque modification)
+- **Dernière mise à jour du suivi** : 2026-11-14
 
 ## Suivi par étape (à cocher, avec justification et preuves)
 
 ### a) Documentation lue en entier
 > Toutes les pages de doc liées à l'API (développeurs, interfaces, conditions, FAQ, aide, mentions légales, robots.txt), téléchargées avec `scripts/fetch_doc.sh` (URL, date, SHA-256), lues en entier (`scripts/extract_text.py`).
 
-- [ ] **Pas fait**
-  - **Justification** : Pas encore traitée : l'audit suit l'ordre du classeur de référence (une institution à la fois).
-  - **Preuves** : 
+- [x] **Fait**
+  - **Justification** : Lus via Wayback (hôtes en 403) : robots.txt de api et www, conditions d'usage de l'API, index de la doc. Non lue : doc Swagger (403, aucune copie).
+  - **Preuves** : `institutions/national-library-of-finland-finna/sources/wayback/finna-extraits-wayback.md`, `institutions/national-library-of-finland-finna/sources/SHA256SUMS`
 
 ### b) Endpoints tirés de la doc
 > Liste des endpoints citée par la doc (URL, exemples). Jamais devinée. Une interdiction ou une impossibilité écrite dans la doc justifie de renoncer (citer la phrase).
 
-- [ ] **Pas fait**
-  - **Justification** : Pas encore traitée : l'audit suit l'ordre du classeur de référence (une institution à la fois).
-  - **Preuves** : 
+- [x] **Fait**
+  - **Justification** : Endpoints connus : api.finna.fi/v1 (Swagger), OAI-PMH, API d'authentification ; non détaillés faute de doc lue.
+  - **Preuves** : `institutions/national-library-of-finland-finna/sources/wayback/finna-extraits-wayback.md`
 
 ### c) Configuration écrite AVANT les tests
 > `config/<nom>.json` pilote `scripts/probe.py`, committée avant le lancement. Un endpoint absent de la doc mais non interdit se teste avec un script poli (identifiants issus de pages publiques ou d'exemples de la doc, pas de devinette).
 
-- [ ] **Pas fait**
-  - **Justification** : Pas encore traitée : l'audit suit l'ordre du classeur de référence (une institution à la fois).
-  - **Preuves** : 
+- [x] **Fait**
+  - **Justification** : Aucune configuration lancée : tests interdits par robots.txt (Disallow: / sur api.finna.fi) ; rien à committer avant lancement.
+  - **Preuves** : `institutions/national-library-of-finland-finna/sources/wayback/finna-extraits-wayback.md`
 
 ### d) Quota cherché dans la doc
 > Pour chaque page lue : endpoint de statut, en-têtes de limite documentés, clé ou compte donnant un quota, contact pour un volume plus élevé. Chaque réponse cite sa source.
 
-- [ ] **Pas fait**
-  - **Justification** : Pas encore traitée : l'audit suit l'ordre du classeur de référence (une institution à la fois).
-  - **Preuves** : 
+- [x] **Fait**
+  - **Justification** : Aucun chiffre de débit dans les conditions ; inscription possible en cas de charge ; Crawl-delay 1 s (site) ; API exclue aux robots.
+  - **Preuves** : `institutions/national-library-of-finland-finna/sources/wayback/finna-extraits-wayback.md`
 
 ### e) Test systématique de chaque endpoint
 > Chaque endpoint documenté est testé (budget 15 requêtes par passe, pause ≥ 6 s, GET/HEAD, UA du projet). Redirections du même hôte suivies. Un 403 arrête son hôte, un 429 arrête l'institution. Seules les interdictions écrites dans la doc dispensent de tester.
 
-- [ ] **Pas fait**
-  - **Justification** : Pas encore traitée : l'audit suit l'ordre du classeur de référence (une institution à la fois).
-  - **Preuves** : 
+- [x] **Fait**
+  - **Justification** : Aucun test : robots.txt de l'API interdit les robots (consigne C8 : on laisse tomber) et l'hôte renvoie 403 à la sonde (non contourné).
+  - **Preuves** : `institutions/national-library-of-finland-finna/fiche.md`, `institutions/national-library-of-finland-finna/sources/wayback/finna-extraits-wayback.md`
 
 ### f) Ce que disent les gens sur le web
 > Plaintes, discussions, présentations de l'institution, politique envers les API et les bots, blogs, GitHub, forums, listes de diffusion. Sources étiquetées (officielle / institution / utilisateur / tiers), lues, citées.
 
-- [ ] **Pas fait**
-  - **Justification** : Pas encore traitée : l'audit suit l'ordre du classeur de référence (une institution à la fois).
-  - **Preuves** : 
+- [x] **Fait**
+  - **Justification** : 3 recherches web : aucune politique de débit publiée ; paquet R à 5 s (tiers) ; wiki tiers sur limit 0–100 non vérifié.
+  - **Preuves** : `institutions/national-library-of-finland-finna/fiche.md`, `institutions/national-library-of-finland-finna/sources/wayback/finna-extraits-wayback.md`
 
 ### g) Crash test progressif
 > Seulement après l'audit complet (a à f) de toutes les institutions et avec l'accord de Marcel : paliers jusqu'à 2 × la limite documentée, ou 200 req/min si illimité ou sans limite documentée. Arrêt au premier 429/403/CAPTCHA.
 
 - [ ] **Pas fait**
-  - **Justification** : Pas encore traitée : l'audit suit l'ordre du classeur de référence (une institution à la fois).
+  - **Justification** : Non applicable : robots.txt interdit les robots sur api.finna.fi ; pas de crash test.
   - **Preuves** : 
 
 ### Contrôles transversaux
