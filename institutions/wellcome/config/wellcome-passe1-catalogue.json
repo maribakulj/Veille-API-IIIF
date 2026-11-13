@@ -1,0 +1,31 @@
+{
+  "slug": "wellcome",
+  "min_delay_s": 6,
+  "max_requests": 15,
+  "follow_redirects": 1,
+  "note": "Passe v2 n°1 : API Catalogue et instantanés documentés (developers.wellcomecollection.org/docs/catalogue et /datasets). Instantanés en HEAD seulement (works.json.gz = 1,5 Go). robots.txt de api.wellcomecollection.org : 404 (autorisé). L'hôte IIIF a Crawl-delay 30 s : testé séparément, la sonde applique ce délai.",
+  "endpoints": [
+    {
+      "id": "catalogue-works-page1",
+      "method": "GET",
+      "url": "https://api.wellcomecollection.org/catalogue/v2/works?pageSize=1",
+      "save_body": 300000
+    },
+    {
+      "id": "catalogue-works-en-ligne",
+      "method": "GET",
+      "url": "https://api.wellcomecollection.org/catalogue/v2/works?pageSize=1&availabilities=online",
+      "save_body": 300000
+    },
+    {
+      "id": "snapshot-works-head",
+      "method": "HEAD",
+      "url": "https://data.wellcomecollection.org/catalogue/v2/works.json.gz"
+    },
+    {
+      "id": "snapshot-images-head",
+      "method": "HEAD",
+      "url": "https://data.wellcomecollection.org/catalogue/v2/images.json.gz"
+    }
+  ]
+}
