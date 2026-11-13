@@ -1,0 +1,25 @@
+{
+  "slug": "nb-no",
+  "min_delay_s": 6,
+  "max_requests": 15,
+  "follow_redirects": 1,
+  "note": "Passe v2 n°1 : endpoints de l'OpenAPI officielle (api.nb.no/catalog/v1/items/api-docs). Résultats limités à 1 (size=1). Les liens IIIF seront lus dans la réponse (_links), pas devinés. robots.txt de api.nb.no : 404 (autorisé) ; www.nb.no déclare Crawl-delay 4 (hôte non utilisé ici).",
+  "endpoints": [
+    {
+      "id": "items-recherche-ibsen",
+      "method": "GET",
+      "url": "https://api.nb.no/catalog/v1/items?q=Ibsen&size=1",
+      "save_body": 500000
+    },
+    {
+      "id": "search-recherche-ibsen",
+      "method": "GET",
+      "url": "https://api.nb.no/catalog/v1/search?q=Ibsen&size=1"
+    },
+    {
+      "id": "aggregations-media",
+      "method": "GET",
+      "url": "https://api.nb.no/catalog/v1/aggregations?q=Ibsen&aggregation=mediatype"
+    }
+  ]
+}
