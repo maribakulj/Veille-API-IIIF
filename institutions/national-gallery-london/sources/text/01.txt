@@ -1,0 +1,111 @@
+Collection images | ng.ac.uk | National Gallery, London 
+ Skip to main content 
+My basket
+Sign in
+My basket
+My account 
+Sign out 
+ Home 
+ Visit us 
+ Exhibitions and events 
+ Art and artists 
+ Learning 
+ Research 
+ Membership 
+ Support us 
+ Shop 
+ Sign in 
+ My account 
+ Sign out ( ) 
+ Visit us
+ Plan your visit 
+ Floorplans 
+ Access 
+ Family activities 
+ Eat and drink 
+ Across the UK 
+ Virtual Gallery 
+ Exhibitions and events
+ What's on now 
+ Exhibitions 
+ Events 
+ Art and artists
+ Explore the collection 
+ Highlights from the collection 
+ Latest arrivals 
+ Picture of the month 
+ Contemporary residencies 
+ Latest stories 
+ Learning
+ About Learning 
+ Primary schools 
+ Secondary schools 
+ SEND programme 
+ Courses 
+ The Roden Centre for Creative Learning 
+ Research
+ About research 
+ Research events 
+ Our researchers 
+ Library and Archive 
+ Membership
+ Buy Membership 
+ Supporters' House 
+ Renew or upgrade 
+ Gift Memberships 
+ Support us
+ Support us 
+ Donate today 
+ Leave a legacy 
+ Become a Patron 
+ Individuals, Trusts and Foundations 
+ Corporate support 
+ Search
+ Area to search 
+ Entire website
+ Paintings
+ Artists
+ Events
+ Enter your search text 
+ Collection data 
+ Collection images 
+ Licences 
+ Help 
+ Collection image APIs 
+ How to access the Gallery's collection images.
+ The Gallery is in the process of implementing a full  IIIF service, serving  both images via IIIF Image API URLs, and IIIF collections and manifests using the IIIF Presentation API , as part of its implementation of a new Digital Asset Management System for collection images. Please bear with us as we work to deliver this. 
+ In the meantime, you can still access images using IIIF Image API URLs. Requests take the form 
+ https://data.ng.ac.uk/iiif/3/{image PID}/{region}/{size}/{rotataion}/default.jpg Image PIDs can be found in the object record Elasticsearch at 
+ $.multimedia[0] [email protected] For example,  https://data.ng.ac.uk/iiif/3/0M1F-000B-0000-0000/full/max/0/default.jpg  returns the uncropped, maximum-size, unrotated image of NG35, Titian, Bacchus and Ariadne . 
+ Footer
+ Trafalgar Square
+ London
+ WC2N 5DN
+ hello@nationalgallery.org.uk 
+ Brighten up your inbox
+ Experience the wonder of art with all the latest news from the Gallery, updates on exhibitions and events, plus occasional offers and information on how to support us.
+ Sign up for emails 
+ About us
+ Frequently asked questions 
+ Organisation 
+ Project Domani 
+ Press 
+ Commercial
+ Shop 
+ Venue hire 
+ Group and private tours 
+ Picture library 
+ Brand licensing 
+ Work with us
+ Partnering with the Gallery 
+ Borrowing from the Gallery 
+ Jobs 
+ User information
+ Accessibility 
+ Privacy notice 
+ Cookies policy 
+ Change cookie settings 
+ Website terms of use 
+ Modern Slavery Statement 
+ Follow our stories
+ Copyright © 2016–2026 The National Gallery

@@ -1,0 +1,190 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="NG IIIF image server, providing direct access to a limited set of National Gallery images for non-commercial re-use." />
+		<meta name="keywords" content="National Gallery|Paintings|IIIF|Images|Zooming|Open Linked Data|API" />
+    <meta name="author" content="Joseph Padfield| joseph.padfield@ng-london.org.uk |National Gallery | London UK | website@ng-london.org.uk | www.nationalgallery.org.uk" />
+    <meta property="og:type" content="website">
+    
+    
+    <meta property="og:title" content="National Gallery Public IIIF Server">
+		<meta property="og:description" content="NG IIIF image server, providing direct access to a limited set of National Gallery images for non-commercial re-use.">
+		<meta property="og:image" content="https://media.ng-london.org.uk/iiif/009-00DU-0000/full/800,/0/default.jpg">
+		<meta property="og:url" content="https://media.ng-london.org.uk">
+		    
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:creator" content="@JoePadfield">
+    <meta name="twitter:site" content="@NationalGallery">
+    <meta name="twitter:description" content="NG IIIF image server, providing direct access to a limited set of National Gallery images for non-commercial re-use.">
+    <meta name="twitter:image" content="https://media.ng-london.org.uk/iiif/009-00DU-0000/full/800,/0/default.jpg">
+    <meta name="twitter:title" content="National Gallery Public IIIF Server">
+		<meta name="twitter:url" content="https://media.ng-london.org.uk">
+		
+    <link rel="icon" href="https://www.nationalgallery.org.uk/custom/ng/img/icons/favicon.ico">
+    <title>National Gallery Public IIIF Server</title>
+    
+	<link href="https://research.ng-london.org.uk/ng/tools/bootstrap-4.1.3/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+	<link href="/tools/mirador-2.6.1/css/mirador-combined.css" rel="stylesheet" type="text/css">
+    <style>
+		
+		
+		body {
+			height:100%;
+			}
+			
+		#main-block {
+		 padding-top: 5px;
+		 position: absolute;
+		 top: 70px;
+		 //background-color: pink;
+		 width: 100%;
+		 height: -webkit-calc(100% - 115px);
+     height:    -moz-calc(100% - 115px);
+     height:         calc(100% - 115px);
+		}
+		
+		#footer-block {
+			position:absolute;    
+			//border-top: 1px solid black;
+      padding-top: 5px;
+		  width: 100%;
+		  height: 40px;
+			bottom: 0px;
+			}
+			
+	 .div-wrapper {
+    display: block;
+    max-height: 2000px;
+    overflow-y: auto;
+   -ms-overflow-style: -ms-autohiding-scrollbar;
+	}
+		</style>
+  </head>
+
+<body onload="onLoad();">
+  
+<!-- Wrap all page content here -->
+			<nav class="navbar navbar-expand-md fixed-top navbar-dark bg-dark">
+			<a class="navbar-brand" href="home"><img id="page-logo" class="logo" 
+				title="Logo" src="https://research.ng-london.org.uk/ng/graphics/ng-logo-white-100x40.png" 
+				style="" alt="The National Gallery"/>
+			</a>
+			<button class="navbar-toggler" type="button" data-toggle="collapse" 
+				data-target="#NG-NavBar" aria-controls="navbarCollapse" 
+				aria-expanded="false" aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+			<div class="collapse navbar-collapse" id="NG-NavBar">
+        <ul class="navbar-nav mr-auto mt-2 mt-lg-0"></ul>
+                
+      </div>
+    </nav>
+	
+	<!-- Begin page content -->
+  <main role="main" id="main-block" class="center-container" style="overflow:auto;">
+		<div class="center-row" style="height:100%;">
+			<div class="container" style="height:100%;">
+				<div class="alert alert-secondary" role="alert">		<div class="container-fluid">
+			<div class="row">
+				<div class="col-9 col-lg-9" style="display: flex;align-items: center;"><h3>Legacy National Gallery - Beta IIIF Sever</h3></div>
+				<div class="col-3 col-lg-3">
+				  <div class="row">
+				  <div class="col-12 col-lg-12">
+					<a href="http://iiif.io"><img src="https://research.ng-london.org.uk/ng/graphics/iiif_logo.png" style="margin-left:10.42px;margin-right:10.42px;float:right;" height="64px"></a>
+					</div><div class="col-12 col-lg-12">
+					<a href="http://projectmirador.org/"><img src="https://research.ng-london.org.uk/ng/graphics/mirador_logo.png" style="float:right;" height="64px"></a></div>			
+					</div></div>
+			</div>
+		</div></div><div class="row" style=""><div class="col-12 col-lg-12"><h4>Purpose</h4>
+						<p>Welcome to the placeholder landing page for the Legacy NG Beta <a href="http://iiif.io/">International Image Interoprability Framework (IIIF)</a> Server, which was set-up to allow initial direct access to a limited set of National Gallery images.</p>
+						<p>These web pages have been set up to provide examples of how the system works in a human viewable form, displaying images in the <a href="http://projectmirador.org/">Project Mirador</a> viewer, but the system is generally designed to be called directly by other computer systems.</p>
+						<!--<p>A simple search engine has been setup to search for images based on PIDs, names, title, inventory numbers, rooms, keywords, etc.</p>
+						<center>
+						<p><form class="form-inline my-2 my-lg-0" method="post" action="https://media.ng-london.org.uk/iiif/examples/" style="max-width:350px;">
+       <input class="form-control mr-sm-2" name="search" id="search" type="text" placeholder="Search">
+       <input type="hidden" name="page" value="search">
+       <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+       </form></p></center> -->
+       
+						<p><b><i>At this time all of the images displayed via this server are provided under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/">Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License</a>.</i></b></p>
+						</div><!--/span--><div class="col-12 col-lg-12"><div class="alert alert-primary" role="alert">
+  <h4 class="alert-heading">This system has been retired!</h4>
+  <p>This system is no longer up-to-date and should not been used for any live systems. For information relation to the current National Gallery Media and Data public endpoints please use the following link.</p>
+  <a href="https://data.ng.ac.uk" class="btn btn-primary btn-lg" role="button" aria-pressed="true">National Gallery Data End-point</a>
+</div>
+                
+                <h4>Basic URL Format - NG IIIF Server</h4>
+              <p>NG IIIF URLs take the form: <b>namespace/AAA-AAAA-AAAA/iiif-variables</b>, where:
+							<ul>
+								<li>The namespace is: 
+									<ul>
+										<li><a href="https://media.ng-london.org.uk/iiif/">http://media.ng-london.org.uk/iiif/</a></li>
+									</ul>
+								</li>
+								<li>A is any alphanumeric character and together they represent a unique NG PIDs.</li>
+								<li>The first set of three characters act as a prefix, indicating what kind of entity is being described by the PID.</li>
+								<li>The remaining characters are arbitrary and just form the rest of the PID. 	
+									<ul>
+										<li>Initially we will be using 8 additional characters: which will allow for 36<sup>8</sup> possibilities per prefix.</li>
+										<li>The system has been built to allow additional sets of 4 characters to be added to scale the number further if required.</li>
+									</ul>
+								</li>
+								<li>And the various options for the iiif-variables are defined by the <a href="http://iiif.io">IIIF</a> standards, some examples are provided below.</li>
+							</ul>
+							The search option, provided on this page can be used to find and display the images associated with NG PIDs based on names, titles, inventory numbers, etc.
+							</p>
+						</div><!--/span--><div class="col-12 col-lg-12"><h4>Examples of standard IIIF URL formats</h4>
+							<p>Full IIIF Manifests will be presented as: 
+							<ul>
+								<li>Painting: <a href="https://media.ng-london.org.uk/iiif/000-03JR-0000/manifest.json">https://media.ng-london.org.uk/iiif/000-03JR-0000/manifest.json</a></li>
+								<li>Artist: <a href="https://media.ng-london.org.uk/iiif/001-0145-0000/manifest.json">https://media.ng-london.org.uk/iiif/001-0145-0000/manifest.json</a></li>
+								<li>Title: <a href="https://media.ng-london.org.uk/iiif/00C-01B2-0000/manifest.json">https://media.ng-london.org.uk/iiif/00C-01B2-0000/manifest.json</a></li>
+								<li>Room Details: <a href="https://media.ng-london.org.uk/iiif/006-000O-0000/manifest.json">https://media.ng-london.org.uk/iiif/006-000O-0000/manifest.json</a></li>
+								<li>Keyword Details: <a href="https://media.ng-london.org.uk/iiif/00A-0063-0000/manifest.json">https://media.ng-london.org.uk/iiif/00A-0063-0000/manifest.json</a></li>
+							</ul></p>
+							<p>Image information will be presented as: 
+							<ul>
+								<li><a href="https://media.ng-london.org.uk/iiif/009-0039-0000/info.json">https://media.ng-london.org.uk/iiif/009-0039-0000/info.json</a></li>
+							</ul></p>
+								
+							<p>And basic images can be displayed following the <a href="http://iiif.io/api/image/2.1/#image-request-uri-syntax">standard url structure for IIIF</a>, for example: 
+							<ul>
+								<li><a href="https://media.ng-london.org.uk/iiif/009-0039-0000/full/512,/0/default.jpg">https://media.ng-london.org.uk/iiif/009-0039-0000/full/512,/0/default.jpg</a></li>
+							</ul></p>
+							</div><!--/span--></div><!--/row-->    
+			</div><!--/.container-->
+		</div>
+	</main>
+	  
+    <footer id="footer-block" class="page-footer bg-dark">
+		<div class="container-fluid">
+			<div class="row">
+				<div class="col-4" style="text-align:left;"><div style="color:white;font-size:small;">&copy; The National Gallery 2018</div></div>
+				<!--<div class="col-2" style="text-align:center;"></div>-->
+				<div class="col-8" style="text-align:right;"><a href="https://www.nationalgallery.org.uk/terms-of-use">
+    <img height="16" alt="National Gallery - Terms of Use" title="National Gallery - Terms of Use"
+      src="https://research.ng-london.org.uk/ng/graphics//ng-logo-white-100x40.png"/>
+</a><a href="http://rightsstatements.org/vocab/InC-EDU/1.0/">
+    <img height="16" alt="In Copyright - Educational Use Permitted" title="In Copyright - Educational Use Permitted"
+      src="https://research.ng-london.org.uk/ng/graphics/InC-EDU.dark-white-interior-blue-type.png"/>
+</a><a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/"><img alt="Creative Commons Licence" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-nd/4.0/88x31.png" /></a>
+</div>
+			</div>
+		</div>        
+  </footer>
+  
+	<script src="https://research.ng-london.org.uk/ng/tools/jquery-3.3.1/jquery-3.3.1.min.js"></script>
+	<script src="https://research.ng-london.org.uk/ng/tools/tether-1.4.0/js/tether.js"></script>
+	<script src="https://research.ng-london.org.uk/ng/tools/bootstrap-4.1.3/js/bootstrap.min.js"></script>
+	<script src="/tools/mirador-2.6.1/mirador.min.js"></script>
+  <script type="text/javascript">
+		
+		function onLoad() {
+			
+			}
+  </script>
+</body>
+</html>

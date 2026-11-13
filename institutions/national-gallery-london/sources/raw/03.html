@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="NG API System" />
+    <meta name="keywords" content="National Gallery|Paintings|Semantics|Open Linked Data|API" />
+    <meta name="author" content="Joseph Padfield| joseph.padfield@ng-london.org.uk |National Gallery | London UK | website@ng-london.org.uk | www.nationalgallery.org.uk" />
+    <link rel="icon" href="https://www.nationalgallery.org.uk/custom/ng/img/icons/favicon.ico">
+    <title>NG API System</title>
+    
+  <link href="ng/tools/bootstrap-4.1.3/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+  <link href="ng/tools/bootstrap-4.0.0-alpha.6/css/offcanvas.css" rel="stylesheet" type="text/css">
+  <link href="ng/tools/jquery.json-viewer/json-viewer/jquery.json-viewer.css" rel="stylesheet" type="text/css">
+    <style type="text/css">
+    .div-wrapper {
+    display: block;
+    max-height: 2000px;
+    overflow-y: auto;
+    -ms-overflow-style: -ms-autohiding-scrollbar;
+}
+    
+    
+  html, body {
+    height: 100%;
+    margin: 0;
+  }
+
+  body {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .container-fluid {
+    padding: 0;
+  }
+
+  #main-block {
+    flex: 1 0 auto;
+    width: 100%;
+    overflow-y: auto; /* Ensure the main content is scrollable */
+  }
+
+  #footer-block {
+    flex-shrink: 0;
+    width: 100%;
+    position: fixed;
+    bottom: 0;
+    height: 40px;
+    background-color: #343a40; /* Add background for the footer */
+    color: white;
+    z-index: 1000;
+  }
+
+  .div-wrapper {
+    display: block;
+    max-height: calc(100vh - 150px); /* Calculate the height of the div-wrapper to fit */
+    overflow-y: auto;
+    -ms-overflow-style: -ms-autohiding-scrollbar;
+  }
+
+  .container {
+    flex-grow: 1;
+    padding-bottom: 60px; /* Give space for the fixed footer */
+  }
+    </style>
+  </head>
+
+  <body onload="onLoad();">
+    <div class="container">
+      <nav class="navbar navbar-toggleable-md fixed-top navbar-inverse bg-inverse">
+      <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <a class="navbar-brand"  href="index.php">
+      <img id="page-logo" class="logo" title="Logo" src="ng/graphics//ng-logo-white-100x40.png" 
+        style="" alt="The National Gallery"/>
+      </a>
+          <nav class="navbar navbar-expand-md fixed-top navbar-dark bg-dark">
+      <a class="navbar-brand" href="index.php"><img id="page-logo" class="logo" 
+        title="Logo" src="ng/graphics/ng-logo-white-100x40.png" 
+        style="" alt="The National Gallery"/>
+      </a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" 
+        data-target="#NG-NavBar" aria-controls="navbarCollapse" 
+        aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="NG-NavBar">
+        <ul class="navbar-nav mr-auto mt-2 mt-lg-0"><li class="nav-item active"><a class="nav-link" href="https://data.ng-london.org.uk/?page=home">Home <span class="sr-only">(current)</span></a></li><li class="nav-item"><a class="nav-link" href="https://data.ng-london.org.uk/?page=examples">JSON Examples</a></li></ul>
+                
+      </div>
+    </nav>
+    </nav>
+      <div class="row " style="margin-top: 10px;">
+       <div class="col-12 col-md-12">          
+        
+        <div class="jumbotron"><h2><span style="color:red;">Legacy</span> National Gallery - Beta API<!--<span  style="float:right;font-size:small;"><a href="https://data.ng-london.org.uk/resource/examples/">Old Beta API</a></span>--></h2></div><div class="row"><div class="col-12 col-lg-12"><h2>Purpose</h2>
+            <p>Welcome to the NG Beta API, which has been set-up to allow direct access to structured, linkable data describing the National Gallery Collection.  The raw data has initially been provided in the form of a basic <a href="https://en.wikipedia.org/wiki/JSON">json</a> array. Once completed, data mapped to the <a href="http://www.cidoc-crm.org/">CIDOC CRM</a>, providing a standard semantic presentation of the data, will also be provided in a range of relevant formats.</p>
+            <p>These web pages have been set up to provide examples of how the system works in a human readable form, but the system is generally designed to be called directly by other computer systems.</p>
+            <p>At this time all of the text data display via this API is provided under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/">Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License</a>.</p>
+            </div><!--/span--><div class="col-12 col-lg-12"><div class="alert alert-primary" role="alert">
+  <h4 class="alert-heading">This system has been retired!</h4>
+  <p>This system is no longer up-to-date and should not been used for any live systems. For information relation to the current National Gallery Media and Data public endpoints please use the following link.</p>
+  <a href="https://data.ng.ac.uk" class="btn btn-primary btn-lg" role="button" aria-pressed="true">National Gallery Data End-point</a>
+</div><h2>Basic URL Format - NG API</h2>
+              <p>NG data URLs take the form: <br/><center><b>namespace/AAAA-AAAA-AAAA-AAAA</b></center></p>
+              <p>where:
+              <ul>
+                <li>The namespace is: 
+                  <ul>
+                    <li><a href="https://data.ng-london.org.uk/">https://data.ng-london.org.uk/</a></li>
+                  </ul>
+                </li>
+                <li>A is any alphanumeric character, uppercase letter and numbers, and together they represent a unique NG PID.
+                  <ul>
+                    <li>Initially we will be using 16 characters: which will allow for 36<sup>16</sup> possibilities PIDs.</li>
+                    <li>The system has been built to allow additional sets of 4 characters to be added to scale the number further if required.</li>
+                  </ul>
+                </li>
+                <li>The search option, provided on this page can be used to find NG PIDs based on names, titles, inventory numbers, etc.</li>
+              </ul></p>
+            </div><!--/span--></div><!--/row-->    
+      </div><!--/span-->
+      
+      
+      </div><!--/row-->      
+      
+    </div><!--/.container-->
+    
+      <footer id="footer-block" class="page-footer bg-dark">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-5" style="text-align:left;"><div style="color:white;font-size:small;">&copy; The National Gallery 2019</div></div>
+        <div class="col-2" style="text-align:center;"></div>
+        <div class="col-5" style="text-align:right;"><a href="https://www.nationalgallery.org.uk/terms-of-use">
+    <img height="16" alt="National Gallery - Terms of Use" title="National Gallery - Terms of Use"
+      src="ng/graphics//ng-logo-white-100x40.png"/>
+</a><a href="http://rightsstatements.org/vocab/InC-EDU/1.0/">
+    <img height="16" alt="In Copyright - Educational Use Permitted" title="In Copyright - Educational Use Permitted"
+      src="ng/graphics/InC-EDU.dark-white-interior-blue-type.png"/>
+</a><a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/"><img alt="Creative Commons Licence" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-nd/4.0/88x31.png" /></a>
+</div>
+      </div>
+    </div>        
+  </footer>
+    
+  <script src="ng/tools/jquery-3.3.1/jquery-3.3.1.min.js"></script>
+  <script src="ng/tools/tether-1.4.0/js/tether.js"></script>
+  <script src="ng/tools/bootstrap-4.1.3/js/bootstrap.min.js"></script>
+  <script src="ng/tools/bootstrap-4.0.0-alpha.6/js/offcanvas.js"></script>
+  <script src="ng/tools/jquery.json-viewer/json-viewer/jquery.json-viewer.js"></script>
+    <script type="text/javascript">
+      
+      function onLoad() {
+        
+        }
+    </script>
+  </body>
+</html>

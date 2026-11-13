@@ -1,0 +1,24 @@
+{
+  "slug": "national-gallery-london",
+  "min_delay_s": 6,
+  "max_requests": 15,
+  "follow_redirects": 1,
+  "note": "Passe v2 n°2 : serveur IIIF historique (« Legacy National Gallery - Beta IIIF Server »), exemples de sa page d'accueil (sources/raw/02.html). robots.txt de media.ng-london.org.uk : 404 (autorisé).",
+  "endpoints": [
+    {
+      "id": "media-manifeste-000-03JR-0000",
+      "method": "GET",
+      "url": "https://media.ng-london.org.uk/iiif/000-03JR-0000/manifest.json"
+    },
+    {
+      "id": "media-info-json-009-0039-0000",
+      "method": "GET",
+      "url": "https://media.ng-london.org.uk/iiif/009-0039-0000/info.json"
+    },
+    {
+      "id": "media-derive-512",
+      "method": "GET",
+      "url": "https://media.ng-london.org.uk/iiif/009-0039-0000/full/512,/0/default.jpg"
+    }
+  ]
+}

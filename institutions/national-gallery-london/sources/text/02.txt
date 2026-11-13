@@ -1,0 +1,36 @@
+National Gallery Public IIIF Server 
+ Legacy National Gallery - Beta IIIF Sever
+ Purpose
+ Welcome to the placeholder landing page for the Legacy NG Beta International Image Interoprability Framework (IIIF) Server, which was set-up to allow initial direct access to a limited set of National Gallery images.
+ These web pages have been set up to provide examples of how the system works in a human viewable form, displaying images in the Project Mirador viewer, but the system is generally designed to be called directly by other computer systems.
+ A simple search engine has been setup to search for images based on PIDs, names, title, inventory numbers, rooms, keywords, etc.
+ Search 
+ -->
+ At this time all of the images displayed via this server are provided under a Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License . 
+ This system has been retired!
+ This system is no longer up-to-date and should not been used for any live systems. For information relation to the current National Gallery Media and Data public endpoints please use the following link.
+ National Gallery Data End-point 
+ Basic URL Format - NG IIIF Server
+ NG IIIF URLs take the form: namespace/AAA-AAAA-AAAA/iiif-variables , where:
+ The namespace is: 
+ http://media.ng-london.org.uk/iiif/ 
+ A is any alphanumeric character and together they represent a unique NG PIDs.
+ The first set of three characters act as a prefix, indicating what kind of entity is being described by the PID.
+ The remaining characters are arbitrary and just form the rest of the PID. 
+ Initially we will be using 8 additional characters: which will allow for 36 8 possibilities per prefix.
+ The system has been built to allow additional sets of 4 characters to be added to scale the number further if required.
+ And the various options for the iiif-variables are defined by the IIIF standards, some examples are provided below.
+ The search option, provided on this page can be used to find and display the images associated with NG PIDs based on names, titles, inventory numbers, etc.
+ Examples of standard IIIF URL formats
+ Full IIIF Manifests will be presented as: 
+ Painting: https://media.ng-london.org.uk/iiif/000-03JR-0000/manifest.json 
+ Artist: https://media.ng-london.org.uk/iiif/001-0145-0000/manifest.json 
+ Title: https://media.ng-london.org.uk/iiif/00C-01B2-0000/manifest.json 
+ Room Details: https://media.ng-london.org.uk/iiif/006-000O-0000/manifest.json 
+ Keyword Details: https://media.ng-london.org.uk/iiif/00A-0063-0000/manifest.json 
+ Image information will be presented as: 
+ https://media.ng-london.org.uk/iiif/009-0039-0000/info.json 
+ And basic images can be displayed following the standard url structure for IIIF , for example: 
+ https://media.ng-london.org.uk/iiif/009-0039-0000/full/512,/0/default.jpg 
+ © The National Gallery 2018
+-->

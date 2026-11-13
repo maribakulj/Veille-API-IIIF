@@ -1,0 +1,22 @@
+NG API System 
+ Home (current) 
+ JSON Examples 
+ Legacy National Gallery - Beta API Old Beta API -->
+ Purpose
+ Welcome to the NG Beta API, which has been set-up to allow direct access to structured, linkable data describing the National Gallery Collection. The raw data has initially been provided in the form of a basic json array. Once completed, data mapped to the CIDOC CRM , providing a standard semantic presentation of the data, will also be provided in a range of relevant formats.
+ These web pages have been set up to provide examples of how the system works in a human readable form, but the system is generally designed to be called directly by other computer systems.
+ At this time all of the text data display via this API is provided under a Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License .
+ This system has been retired!
+ This system is no longer up-to-date and should not been used for any live systems. For information relation to the current National Gallery Media and Data public endpoints please use the following link.
+ National Gallery Data End-point 
+ Basic URL Format - NG API
+ NG data URLs take the form: 
+ namespace/AAAA-AAAA-AAAA-AAAA 
+ where:
+ The namespace is: 
+ https://data.ng-london.org.uk/ 
+ A is any alphanumeric character, uppercase letter and numbers, and together they represent a unique NG PID.
+ Initially we will be using 16 characters: which will allow for 36 16 possibilities PIDs.
+ The system has been built to allow additional sets of 4 characters to be added to scale the number further if required.
+ The search option, provided on this page can be used to find NG PIDs based on names, titles, inventory numbers, etc.
+ © The National Gallery 2019

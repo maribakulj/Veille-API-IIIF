@@ -1,0 +1,19 @@
+{
+  "slug": "national-gallery-london",
+  "min_delay_s": 6,
+  "max_requests": 15,
+  "follow_redirects": 1,
+  "note": "Passe v2 n°1 : service IIIF Image 3 documenté par la page « Collection image APIs » (identifiant d'exemple 0M1F-000B-0000-0000 = NG35). Dérivé réduit à la place du « full/max » de l'exemple, pour ne pas télécharger l'image maximale. robots.txt de data.ng.ac.uk : 404 (autorisé).",
+  "endpoints": [
+    {
+      "id": "ngac-info-json",
+      "method": "GET",
+      "url": "https://data.ng.ac.uk/iiif/3/0M1F-000B-0000-0000/info.json"
+    },
+    {
+      "id": "ngac-derive-200",
+      "method": "GET",
+      "url": "https://data.ng.ac.uk/iiif/3/0M1F-000B-0000-0000/full/!200,200/0/default.jpg"
+    }
+  ]
+}
