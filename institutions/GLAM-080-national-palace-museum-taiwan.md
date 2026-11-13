@@ -21,8 +21,6 @@ lacunes:
 - documentation IIIF ou API non lue
 methode: 'WebSearch « National Palace Museum Taiwan IIIF API rate limit » : aucune page officielle ; résultats sans rapport écartés ; Passe 2 (2026-11-13) : 1 WebFetch refusé (npm.gov.tw), non contourné.'
 verifie_le: '2026-11-13'
-sources_sans_url:
-- Aucune page officielle de quota atteignable (recherche bornée)
 sources:
 - url: https://www.npm.gov.tw
   note: 'Site tenté, refusé par l’outil (hors liste d’autorisation) : non lu, non surveillé'

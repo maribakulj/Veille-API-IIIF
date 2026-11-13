@@ -25,8 +25,6 @@ sources:
 - url: https://dpul.princeton.edu/exhibits_documentation/feature/what-is-digital-pul
   note: 'Page DPUL : aucun chiffre ; renvoi vers un contact pour la moisson IIIF'
   surveiller: true
-sources_sans_url:
-- Aucune page officielle de quota atteignable (recherche bornée)
 ---
 
 # Princeton University Library

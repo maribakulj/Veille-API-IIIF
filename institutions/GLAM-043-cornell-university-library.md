@@ -24,8 +24,6 @@ sources:
 - url: https://digital.library.cornell.edu/about
   note: '(extrait : contact pour le contenu et la technique, pas de chiffre)'
   surveiller: true
-sources_sans_url:
-- Aucune page officielle de quota atteignable (recherche bornée)
 ---
 
 # Cornell University Library

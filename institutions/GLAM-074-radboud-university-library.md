@@ -21,8 +21,6 @@ lacunes:
 - documentation IIIF ou API non lue
 methode: 'WebSearch « Radboud University Library IIIF API rate limit » : aucune page Radboud ; résultats d''autres établissements écartés ; Passe 2 (2026-11-13) : 1 WebFetch refusé (ru.nl/library), non contourné.'
 verifie_le: '2026-11-13'
-sources_sans_url:
-- Aucune page officielle de quota atteignable (recherche bornée)
 sources:
 - url: https://www.ru.nl/library
   note: 'Page tentée, refusée par l’outil (hors liste d’autorisation) : non lue, non surveillée'

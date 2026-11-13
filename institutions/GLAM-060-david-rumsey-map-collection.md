@@ -25,8 +25,6 @@ sources:
 - url: https://lunaimaging.atlassian.net/wiki/spaces/V75D/pages/655863/LUNA+API+Documentation
   note: '(documentation générique LUNA, extrait : pas de seuil)'
   surveiller: true
-sources_sans_url:
-- Aucune page officielle de quota atteignable (recherche bornée)
 ---
 
 # David Rumsey Map Collection

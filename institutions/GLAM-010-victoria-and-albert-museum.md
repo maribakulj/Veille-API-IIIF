@@ -25,8 +25,6 @@ sources:
 - url: https://www.vam.ac.uk/articles/terms-of-use
   note: 'Conditions : aucun chiffre ; section 9 absente ; conditions d’API renvoyées ailleurs'
   surveiller: true
-sources_sans_url:
-- Aucune page officielle V&A de quota atteignable (recherche bornée)
 ---
 
 # Victoria and Albert Museum

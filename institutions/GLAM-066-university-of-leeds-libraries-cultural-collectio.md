@@ -25,8 +25,6 @@ sources:
 - url: https://library.leeds.ac.uk/news/article/310/dive-deeper-into-our-collections-with-new-tech
   note: '(actualité officielle, extrait : déploiement IIIF, pas de chiffre)'
   surveiller: true
-sources_sans_url:
-- Aucune page officielle de quota atteignable (recherche bornée)
 ---
 
 # University of Leeds Libraries – Cultural Collections

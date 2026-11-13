@@ -28,8 +28,6 @@ sources:
 - url: https://lib.kuleuven.be
   note: 'Racine tentée, refusée par l’outil (hors liste d’autorisation) : non lue, non surveillée'
   surveiller: false
-sources_sans_url:
-- Aucune page officielle de quota atteignable (recherche bornée)
 ---
 
 # KU Leuven Libraries

@@ -21,8 +21,6 @@ lacunes:
 - documentation IIIF ou API non lue
 methode: 'WebSearch « Villanova University digital library IIIF API rate limit terms » : aucun résultat officiel pertinent ; Passe 2 (2026-11-13) : 1 WebFetch refusé (library.villanova.edu), non contourné.'
 verifie_le: '2026-11-13'
-sources_sans_url:
-- Aucune page officielle de quota atteignable (recherche bornée)
 sources:
 - url: https://library.villanova.edu
   note: 'Racine tentée, refusée par l’outil (hors liste d’autorisation) : non lue, non surveillée'

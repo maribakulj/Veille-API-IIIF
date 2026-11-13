@@ -25,8 +25,6 @@ sources:
 - url: https://folger.edu/terms-of-use/
   note: '(extrait : conditions générales, sans seuil)'
   surveiller: true
-sources_sans_url:
-- Aucune page officielle de quota atteignable (recherche bornée)
 ---
 
 # Folger Shakespeare Library

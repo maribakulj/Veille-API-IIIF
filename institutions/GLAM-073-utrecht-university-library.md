@@ -21,8 +21,6 @@ lacunes:
 - documentation IIIF ou API non lue
 methode: 'WebSearch « Utrecht University Library IIIF API rate limit » : aucun résultat officiel d''Utrecht ; résultats Leiden, Maastricht et Berne écartés ; Passe 2 (2026-11-13) : 1 WebFetch refusé (uu.nl, bibliothèque), non contourné.'
 verifie_le: '2026-11-13'
-sources_sans_url:
-- Aucune page officielle de quota atteignable (recherche bornée)
 sources:
 - url: https://www.uu.nl/en/organisation/university-library
   note: 'Page tentée, refusée par l’outil (hors liste d’autorisation) : non lue, non surveillée'

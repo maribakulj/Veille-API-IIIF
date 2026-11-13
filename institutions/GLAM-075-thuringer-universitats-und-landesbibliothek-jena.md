@@ -28,8 +28,6 @@ sources:
 - url: https://www.thulb.uni-jena.de
   note: 'Racine tentée, refusée par l’outil (hors liste d’autorisation) : non lue, non surveillée'
   surveiller: false
-sources_sans_url:
-- Aucune page officielle de quota atteignable (recherche bornée)
 ---
 
 # Thüringer Universitäts- und Landesbibliothek Jena

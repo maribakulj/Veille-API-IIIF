@@ -27,8 +27,6 @@ sources:
 - url: https://ukparliament.shorthandstories.com/parliamentary-archives-annual-review/index.html
   note: '(rapport 2021-2022, extrait : pas de chiffre)'
   surveiller: true
-sources_sans_url:
-- Aucune page officielle de quota atteignable pour Parliamentary Archives (recherche bornée)
 ---
 
 # Parliamentary Archives – UK

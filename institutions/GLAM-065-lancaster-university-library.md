@@ -21,8 +21,6 @@ lacunes:
 - documentation IIIF ou API non lue
 methode: 'WebSearch « Lancaster University Library digital collections IIIF API rate limit » : aucun chiffre dans les extraits ; WebFetch de l''adresse PDF citée : redirection 302 vers research.lancaster-university.uk, non suivie ; Passe 2 (2026-11-13) : 1 WebFetch refusé (www.lancaster.ac.uk/library), non contourné.'
 verifie_le: '2026-11-13'
-sources_sans_url:
-- Aucune page officielle de quota atteignable (recherche bornée)
 sources:
 - url: https://www.lancaster.ac.uk/library
   note: 'Page tentée, refusée par l’outil (hors liste d’autorisation) : non lue, non surveillée'

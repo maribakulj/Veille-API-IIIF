@@ -25,8 +25,6 @@ sources:
 - url: https://lib.uw.edu/department/
   note: '(référencé : collections numériques, sans chiffre)'
   surveiller: true
-sources_sans_url:
-- Aucune page officielle de quota atteignable (recherche bornée)
 ---
 
 # University of Washington Libraries

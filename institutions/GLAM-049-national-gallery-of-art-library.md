@@ -28,8 +28,6 @@ sources:
 - url: https://nga.gov/imagepolicy
   note: 'Politique d’images libres (lue en extrait de recherche) : CC0 ; aucun chiffre'
   surveiller: true
-sources_sans_url:
-- Aucune page officielle de quota atteignable (recherche bornée)
 ---
 
 # National Gallery of Art – Library

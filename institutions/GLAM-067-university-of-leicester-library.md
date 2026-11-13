@@ -28,8 +28,6 @@ sources:
 - url: https://le.ac.uk/library/about/policies/re-use-public-data
   note: '(politique de réutilisation, extrait : pas de chiffre)'
   surveiller: true
-sources_sans_url:
-- Aucune page officielle de quota atteignable (recherche bornée)
 ---
 
 # University of Leicester Library

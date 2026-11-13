@@ -24,8 +24,6 @@ sources:
 - url: https://artgallery.yale.edu/collections
   note: 'Refusée par l’outil (hors liste d’autorisation) : non lue, non surveillée'
   surveiller: false
-sources_sans_url:
-- Aucune page officielle de quota atteignable (recherche bornée)
 ---
 
 # Yale University Art Gallery

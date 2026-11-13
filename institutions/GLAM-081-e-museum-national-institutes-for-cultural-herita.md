@@ -21,8 +21,6 @@ lacunes:
 - documentation IIIF ou API non lue
 methode: 'WebSearch « e-Museum Japan IIIF API rate limit » : aucune page e-Museum ; portails tiers écartés ; Passe 2 (2026-11-13) : 1 WebFetch refusé (emuseum.nich.go.jp), non contourné.'
 verifie_le: '2026-11-13'
-sources_sans_url:
-- Aucune page officielle de quota atteignable (recherche bornée)
 sources:
 - url: https://emuseum.nich.go.jp
   note: 'Portail tenté, refusé par l’outil (hors liste d’autorisation) : non lu, non surveillé'

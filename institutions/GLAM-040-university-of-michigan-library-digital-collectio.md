@@ -22,8 +22,6 @@ sources:
 - url: https://blogs.lib.umich.edu/digital-collections-files/u-m-library%E2%80%99s-digital-collections-ecosystem-over-time
   note: '(extrait : historique technique, pas de chiffre)'
   surveiller: true
-sources_sans_url:
-- Aucune page officielle de quota atteignable (recherche bornée)
 ---
 
 # University of Michigan Library – Digital Collections

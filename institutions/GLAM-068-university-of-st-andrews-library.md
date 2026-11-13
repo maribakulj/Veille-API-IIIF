@@ -28,8 +28,6 @@ sources:
 - url: https://st-andrews.ac.uk/collections/for-teaching
   note: '(extrait : Universal Viewer, pas de chiffre)'
   surveiller: true
-sources_sans_url:
-- Aucune page officielle de quota atteignable (recherche bornée)
 ---
 
 # University of St Andrews Library

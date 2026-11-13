@@ -28,8 +28,6 @@ sources:
 - url: https://dri.ie/about
   note: '(extrait : présentation, pas de chiffre)'
   surveiller: true
-sources_sans_url:
-- Aucune page officielle de quota atteignable (recherche bornée)
 ---
 
 # Digital Repository of Ireland
