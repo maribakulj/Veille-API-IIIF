@@ -1,0 +1,15 @@
+{
+  "slug": "national-library-of-scotland",
+  "min_delay_s": 6,
+  "max_requests": 15,
+  "follow_redirects": 1,
+  "note": "Passe v2 n°1. Endpoint documenté par le NLS lui-même (application CoreTrustSeal, sources/coretrust) : « IIIF volumes are harvestable via a top-level collections-based json file… (https://view.nls.uk/collections/top.json) ». robots.txt de view.nls.uk lu par la sonde : seuls des robots d'IA nommés sont bloqués, pas « * ». Les sites digital.nls.uk et maps.nls.uk renvoient un CAPTCHA (405 « Human Verification ») : non testés, non contournés.",
+  "endpoints": [
+    {
+      "id": "collections-top-json",
+      "method": "GET",
+      "url": "https://view.nls.uk/collections/top.json",
+      "save_body": 3000000
+    }
+  ]
+}

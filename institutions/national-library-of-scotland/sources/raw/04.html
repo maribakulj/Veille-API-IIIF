@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Human Verification</title>
+    <style>
+        body {
+            font-family: "Arial";
+        }
+    </style>
+    <script type="text/javascript">
+    window.awsWafCookieDomainList = [];
+    window.gokuProps = {
+"key":"AQIDAHjcYu/GjX+QlghicBgQ/7bFaQZ+m5FKCMDnO+vTbNg96AE/fHOkzmkg0fbBQoJD7k+7AAAAfjB8BgkqhkiG9w0BBwagbzBtAgEAMGgGCSqGSIb3DQEHATAeBglghkgBZQMEAS4wEQQMFfZ6yiHmLD50QEltAgEQgDt9CdBSnBTlzPoMQ+eTb4q2QLe/LoxB4qp8Hb6OG7h42EiEpYpdFL1wpAA844RU2rD2TH//fWNdjhlHHg==",
+          "iv":"D5787wFvvwAAB3nD",
+          "context":"59NQGsKJGtC9Xu2PGVfPdLhcurvhl5JNNCaplfngaWRrvtQBdcRrj3DF6kq0AD5XNIwHJR5L+GjZenwvj5LPFyDF6I070bD8h4iL1Nfssyjj0R83Q5KcV67++JPNmRb5fbvf3BSaEZVdbCslhz19QjnjDPAxqmP9n+fVshid1nZvIH5cy8zz/oSFClrscf1KduRWUjZBCrY2IfZjOWQl3o6ILp6zLH/P6G6xLncnyAHgGODJukXchGbw3sQ6XBxKbJPUzPC+HNWJWzCf/aQ3CcvfuRwifDMS/GPafo5HzbTGLlMs38g26oQOQM8E9ZwMF2CCuY1/3zCd37lXRelYpcGZv5rfnfBnFAV4wArTRaArQq27iAqGgxnX41g/zl5VCVMW3z5DCuneslzryNyubkx8zLSvRE/xcw7yD4EPs3HzcLu5lE+6q/hSLda5roBeLhLp+niazKCUhVX0QjkDPkBnPQeKxbIM3xuUeyy55QEC/8BSYjWPo/YMmizU3OA8YbNVtaiWqCSYTxwXNHYIxE8D0Rc0hF5wGjWkgDoZRSs0rkTh6Qf473X0fhhT63Ado9GYzDyHLhzR4yDuSJ+rHwhzVSJH76WlbBCXc56lfaMjoQhb1UO5Y8+H4s31LhAkPJNV6Ko5hNvXFnhvXlHNwLBJ5LiBCrVYFzfWFOKvIF2P45Bwei1S/UJzQMwYxcT7b54kEgxaQozuEP9YN9P8ZuvRKIV8PwbYM4q9wR4ABsAvUI2ttuTpfQQa9iXBXZLczjzmhCp/kRh3UdS2OhSe9eh2+DWsylwxhCMr43dfPj/I6sVus1W3RBLEQXxpXzn07LGuLZF9yCpLsjNFzUoD1jmO4wpVXps3Gxnf3m0Hcks="
+};
+    </script>
+    <script src="https://62b06a23f41f.b6b0b324.eu-central-1.token.awswaf.com/62b06a23f41f/c78b218288ca/e68fd3a6378d/challenge.js"></script>
+    <script src="https://62b06a23f41f.b6b0b324.eu-central-1.captcha.awswaf.com/62b06a23f41f/c78b218288ca/e68fd3a6378d/captcha.js"></script>
+</head>
+<body>
+    <div id="captcha-container"></div>
+    <script type="text/javascript">
+        AwsWafIntegration.saveReferrer();
+        window.addEventListener("load", function() {
+          const container = document.querySelector("#captcha-container");
+          CaptchaScript.renderCaptcha(container, async (voucher) => {
+              await ChallengeScript.submitCaptcha(voucher);
+              window.location.reload(true);
+          }
+      );
+    });
+    </script>
+    <noscript>
+        <h1>JavaScript is disabled</h1>
+        In order to continue, you need to verify that you're not a robot by solving a CAPTCHA puzzle.
+         The CAPTCHA puzzle requires JavaScript. Enable JavaScript and then reload the page.
+    </noscript>
+</body>
+</html>
