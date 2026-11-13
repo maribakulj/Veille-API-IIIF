@@ -1,0 +1,20 @@
+2026-11-13T23:21:53Z GET https://iiif.micr.io/RFwqO/full/!200,200/0/default.jpg
+HTTP 200
+date: Fri, 13 Nov 2026 23:21:53 GMT
+content-type: image/jpeg
+content-length: 4913
+connection: keep-alive
+cf-cache-status: MISS
+access-control-allow-origin: *
+cache-control: public, max-age=31536000
+strict-transport-security: max-age=63072000; includeSubDomains; preload
+content-security-policy: default-src 'none'; sandbox
+permissions-policy: accelerometer=(), camera=(), geolocation=(), gyroscope=(), magnetometer=(), microphone=(), payment=(), usb=()
+referrer-policy: no-referrer
+x-content-type-options: nosniff
+x-frame-options: DENY
+report-to: {"group":"cf-nel","max_age":604800,"endpoints":[{"url":"https://a.nel.cloudflare.com/report/v4?s=91zZgH96CyFBCVI6zTBP680%2BO3R%2BABOXZrpJ%2B9XiSobn2rSP1BugyJsAVNAz2ozqWwZysX%2FhuVvcRm%2BWN0bZHxGPH6JnIUtuOSN%2FxECg8g%2B8LumGdpmu36HizDfnvg%3D%3D"}]}
+nel: {"report_to":"cf-nel","success_fraction":0.0,"max_age":604800}
+server: cloudflare
+cf-ray: a5a183eb5b3283b4-MXP
+alt-svc: h3=":443"; ma=86400

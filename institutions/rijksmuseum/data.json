@@ -2,18 +2,165 @@
   "slug": "rijksmuseum",
   "nom": "Rijksmuseum",
   "pays": "Pays-Bas",
-  "statut_audit": "partiel (ancienne méthode)",
-  "limites_documentees": [],
+  "statut_audit": "audit a–f complet ; g à faire",
+  "limites_documentees": [
+    {
+      "nature": "Pagination (pas un débit)",
+      "perimetre": "IIIF Change Discovery",
+      "valeur": "100 événements",
+      "fenetre": "par page",
+      "effet": "pagination",
+      "verification": "officielle, lue en entier",
+      "source": "https://data.rijksmuseum.nl/docs/iiif/cd",
+      "date": "2026-11-13"
+    },
+    {
+      "nature": "Content-Signal",
+      "perimetre": "iiif.micr.io, User-agent: *",
+      "valeur": "search=yes, ai-train=no, use=reference",
+      "fenetre": "–",
+      "effet": "réservation de droits (directive UE 2019/790, art. 4)",
+      "verification": "officielle, lue en entier",
+      "source": "https://iiif.micr.io/robots.txt",
+      "date": "2026-11-13"
+    },
+    {
+      "nature": "Robots d'entraînement d'IA bloqués",
+      "perimetre": "iiif.micr.io",
+      "valeur": "Disallow: / pour ClaudeBot, GPTBot, anthropic-ai, CCBot…",
+      "fenetre": "–",
+      "effet": "Disallow",
+      "verification": "officielle, lue en entier",
+      "source": "https://iiif.micr.io/robots.txt",
+      "date": "2026-11-13"
+    },
+    {
+      "nature": "Pas de clé",
+      "perimetre": "Search API et OAI-PMH",
+      "valeur": "aucune clé exigée",
+      "fenetre": "–",
+      "effet": "–",
+      "verification": "officielle, lue en entier",
+      "source": "https://data.rijksmuseum.nl/docs/search",
+      "date": "2026-11-13"
+    },
+    {
+      "nature": "Politique sur l'IA",
+      "perimetre": "données du musée",
+      "valeur": "les technologies d'IA doivent respecter la politique et être transparentes (3.16)",
+      "fenetre": "–",
+      "effet": "souhait, non chiffré",
+      "verification": "officielle, lue en entier",
+      "source": "https://data.rijksmuseum.nl/policy/information-and-data-policy",
+      "date": "2026-11-13"
+    }
+  ],
   "en_tetes_observes": [],
-  "blocages": [],
-  "contact": "générique (footer)",
-  "conclusion_quota": "API sans clé annoncée ; aucune limite trouvée. Une limite de taille de requête d'image (maxArea) est documentée.",
-  "classe_quota": "aucun quota trouvé",
-  "confiance": "moyenne",
-  "notes": "Pages data.rijksmuseum.nl/docs/api : 404.",
+  "blocages": [
+    {
+      "date": "2026-11-13",
+      "hote": "rijks-web.azurewebsites.net",
+      "code": "403",
+      "nature": "ancienne page de conditions (préproduction Azure)",
+      "suite": "non réessayé ; non lue"
+    }
+  ],
+  "contact": "formulaire de contact du Rijksmuseum (data.rijksmuseum.nl)",
+  "conclusion_quota": "Aucun quota ni en-tête ; API sans clé. Robots d'IA d'entraînement bloqués et Content-Signal ai-train=no sur le serveur d'images ; pagination à 100 événements (Change Discovery).",
+  "classe_quota": "aucun quota trouvé (Content-Signal ai-train=no)",
+  "confiance": "moyenne à élevée",
+  "notes": "robots.txt de iiif.micr.io : deux groupes * combinés, accès autorisé (Allow l'emporte). Ancienne page de conditions (Azure) en 403, non lue.",
   "classeur_id": "GLAM-012",
   "type": "Institution",
-  "sources": [],
-  "web": [],
-  "donnees_a_revalider": true
+  "sources": [
+    {
+      "url": "https://data.rijksmuseum.nl/docs",
+      "date": "2026-11-13",
+      "etiquette": "officielle",
+      "preuve": "institutions/rijksmuseum/sources/v2/SHA256SUMS"
+    },
+    {
+      "url": "https://data.rijksmuseum.nl/docs/search",
+      "date": "2026-11-13",
+      "etiquette": "officielle",
+      "preuve": "institutions/rijksmuseum/sources/v2/SHA256SUMS"
+    },
+    {
+      "url": "https://data.rijksmuseum.nl/docs/http",
+      "date": "2026-11-13",
+      "etiquette": "officielle",
+      "preuve": "institutions/rijksmuseum/sources/v2/SHA256SUMS"
+    },
+    {
+      "url": "https://data.rijksmuseum.nl/docs/iiif/",
+      "date": "2026-11-13",
+      "etiquette": "officielle",
+      "preuve": "institutions/rijksmuseum/sources/v2/SHA256SUMS"
+    },
+    {
+      "url": "https://data.rijksmuseum.nl/policy/information-and-data-policy",
+      "date": "2026-11-13",
+      "etiquette": "officielle",
+      "preuve": "institutions/rijksmuseum/sources/v2/SHA256SUMS"
+    },
+    {
+      "url": "https://iiif.micr.io/robots.txt",
+      "date": "2026-11-13",
+      "etiquette": "officielle",
+      "preuve": "institutions/rijksmuseum/sources/v2/SHA256SUMS"
+    },
+    {
+      "url": "https://www.rijksmuseum.nl/robots.txt",
+      "date": "2026-11-13",
+      "etiquette": "officielle",
+      "preuve": "institutions/rijksmuseum/sources/v2/SHA256SUMS"
+    },
+    {
+      "url": "https://data.rijksmuseum.nl/docs/iiif/cd",
+      "date": "2026-11-13",
+      "etiquette": "officielle",
+      "preuve": "institutions/rijksmuseum/sources/v2b/SHA256SUMS"
+    },
+    {
+      "url": "https://data.rijksmuseum.nl/docs/iiif/image",
+      "date": "2026-11-13",
+      "etiquette": "officielle",
+      "preuve": "institutions/rijksmuseum/sources/v2b/SHA256SUMS"
+    },
+    {
+      "url": "https://data.rijksmuseum.nl/docs/iiif/presentation",
+      "date": "2026-11-13",
+      "etiquette": "officielle",
+      "preuve": "institutions/rijksmuseum/sources/v2b/SHA256SUMS"
+    },
+    {
+      "url": "https://data.rijksmuseum.nl/docs/oai-pmh/",
+      "date": "2026-11-13",
+      "etiquette": "officielle",
+      "preuve": "institutions/rijksmuseum/sources/v2b/SHA256SUMS"
+    },
+    {
+      "url": "https://data.rijksmuseum.nl/docs/ldes/",
+      "date": "2026-11-13",
+      "etiquette": "officielle",
+      "preuve": "institutions/rijksmuseum/sources/v2b/SHA256SUMS"
+    }
+  ],
+  "web": [
+    {
+      "url": "https://iiif.micr.io/robots.txt",
+      "date": "2026-11-13",
+      "etiquette": "institution (position envers l'IA)",
+      "citation": "« As a condition of accessing this website, you agree to abide by the following content signals » ; « Content-Signal: search=yes,ai-train=no,use=reference » ; « EXPRESS RESERVATIONS OF RIGHTS UNDER ARTICLE 4 OF THE EUROPEAN UNION DIRECTIVE 2019/790 »",
+      "preuve": "institutions/rijksmuseum/sources/v2/raw/09.html"
+    },
+    {
+      "url": "https://data.rijksmuseum.nl/policy/information-and-data-policy",
+      "date": "2024-07-17",
+      "etiquette": "institution (politique)",
+      "citation": "« The Rijksmuseum wishes that artificial intelligence (AI) technology that uses the museum's Information and Data adheres to the Rijksmuseum's Information and Data Policy and the museum's core values. »",
+      "preuve": "institutions/rijksmuseum/sources/v2/text/06.txt"
+    }
+  ],
+  "donnees_a_revalider": false
 }

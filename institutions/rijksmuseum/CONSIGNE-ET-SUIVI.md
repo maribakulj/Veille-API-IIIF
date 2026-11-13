@@ -2,57 +2,57 @@
 
 - **Dossier** : `institutions/rijksmuseum/`  ·  **Classeur de référence** : GLAM-012  ·  **Pays** : Pays-Bas
 - **Statut d'institution** : active
-- **Dernière mise à jour du suivi** : (à renseigner à chaque modification)
+- **Dernière mise à jour du suivi** : 2026-11-14
 
 ## Suivi par étape (à cocher, avec justification et preuves)
 
 ### a) Documentation lue en entier
 > Toutes les pages de doc liées à l'API (développeurs, interfaces, conditions, FAQ, aide, mentions légales, robots.txt), téléchargées avec `scripts/fetch_doc.sh` (URL, date, SHA-256), lues en entier (`scripts/extract_text.py`).
 
-- [ ] **Pas fait**
-  - **Justification** : Passe antérieure non conforme à la méthode v2 (AUDIT-HAIKU.md) : à refaire. Le matériel déjà présent dans ce dossier est conservé comme historique.
-  - **Preuves** : 
+- [x] **Fait**
+  - **Justification** : Lus et hachés : index des docs, Search, résolveur, vidages, OAI-PMH, LDES, IIIF (CD, Image, Presentation), politique d'information et de données (texte complet, clause 3.16 lue), robots.txt de iiif.micr.io (lu en entier : Content-Signal), de www, de data (404) et de id (400). Non lue : ancienne page de conditions sur un domaine Azure (403).
+  - **Preuves** : `institutions/rijksmuseum/sources/v2/SHA256SUMS`, `institutions/rijksmuseum/sources/v2b/SHA256SUMS`, `institutions/rijksmuseum/sources/v2c/SHA256SUMS`
 
 ### b) Endpoints tirés de la doc
 > Liste des endpoints citée par la doc (URL, exemples). Jamais devinée. Une interdiction ou une impossibilité écrite dans la doc justifie de renoncer (citer la phrase).
 
-- [ ] **Pas fait**
-  - **Justification** : Passe antérieure non conforme à la méthode v2 (AUDIT-HAIKU.md) : à refaire. Le matériel déjà présent dans ce dossier est conservé comme historique.
-  - **Preuves** : 
+- [x] **Fait**
+  - **Justification** : Endpoints documentés avec exemples : data.rijksmuseum.nl/search/collection, /200107928 (résolveur), /oai?verb=… (Identify, ListMetadataFormats, ListSets, GetRecord), /ldes/collection.json, /cd/collection.json ; iiif.micr.io/RFwqO/info.json, /manifest, /full/…/default.jpg. SRU déprécié (non testé).
+  - **Preuves** : `institutions/rijksmuseum/sources/v2/text/05.txt`, `institutions/rijksmuseum/sources/v2b/text/02.txt`, `institutions/rijksmuseum/sources/v2b/text/05.txt`
 
 ### c) Configuration écrite AVANT les tests
 > `config/<nom>.json` pilote `scripts/probe.py`, committée avant le lancement. Un endpoint absent de la doc mais non interdit se teste avec un script poli (identifiants issus de pages publiques ou d'exemples de la doc, pas de devinette).
 
-- [ ] **Pas fait**
-  - **Justification** : Passe antérieure non conforme à la méthode v2 (AUDIT-HAIKU.md) : à refaire. Le matériel déjà présent dans ce dossier est conservé comme historique.
-  - **Preuves** : 
+- [x] **Fait**
+  - **Justification** : Deux configurations committées avant lancement : passe 1 (services data.rijksmuseum.nl, exemples de la doc), passe 2 (iiif.micr.io, identifiant d'exemple RFwqO ; dérivé réduit au lieu de full/max). robots.txt lu par la sonde (groupes * combinés).
+  - **Preuves** : `institutions/rijksmuseum/config/rijks-passe1-data.json`, `institutions/rijksmuseum/config/rijks-passe2-micrio.json`
 
 ### d) Quota cherché dans la doc
 > Pour chaque page lue : endpoint de statut, en-têtes de limite documentés, clé ou compte donnant un quota, contact pour un volume plus élevé. Chaque réponse cite sa source.
 
-- [ ] **Pas fait**
-  - **Justification** : Passe antérieure non conforme à la méthode v2 (AUDIT-HAIKU.md) : à refaire. Le matériel déjà présent dans ce dossier est conservé comme historique.
-  - **Preuves** : 
+- [x] **Fait**
+  - **Justification** : Aucun quota, en-tête de limite, clé ni endpoint de statut. Règles écrites : Content-Signal ai-train=no et réservation de droits (directive UE 2019/790, art. 4) sur iiif.micr.io ; robots d'entraînement d'IA bloqués ; pagination de 100 événements ; clause 3.16 sur l'IA ; moissonnage par OAI-PMH, Search ou LDES encouragé.
+  - **Preuves** : `institutions/rijksmuseum/sources/v2/raw/09.html`, `institutions/rijksmuseum/sources/v2/text/06.txt`, `institutions/rijksmuseum/sources/v2b/text/01.txt`
 
 ### e) Test systématique de chaque endpoint
 > Chaque endpoint documenté est testé (budget 15 requêtes par passe, pause ≥ 6 s, GET/HEAD, UA du projet). Redirections du même hôte suivies. Un 403 arrête son hôte, un 429 arrête l'institution. Seules les interdictions écrites dans la doc dispensent de tester.
 
-- [ ] **Pas fait**
-  - **Justification** : Passe antérieure non conforme à la méthode v2 (AUDIT-HAIKU.md) : à refaire. Le matériel déjà présent dans ce dossier est conservé comme historique.
-  - **Preuves** : 
+- [x] **Fait**
+  - **Justification** : Tous les endpoints documentés sont testés (2 passes, 11 requêtes de données) : 200 partout, aucun en-tête de limite ni 429 (en-têtes bruts relus). ListRecords volontairement non testé (volume), GetRecord pour l'identifiant d'exemple. Ancienne API à clé retirée : non testée.
+  - **Preuves** : `institutions/rijksmuseum/tests/journal.log`, `institutions/rijksmuseum/tests/raw/oai-getrecord-edm.headers.txt`, `institutions/rijksmuseum/tests/raw/micr-info-json.headers.txt`
 
 ### f) Ce que disent les gens sur le web
 > Plaintes, discussions, présentations de l'institution, politique envers les API et les bots, blogs, GitHub, forums, listes de diffusion. Sources étiquetées (officielle / institution / utilisateur / tiers), lues, citées.
 
-- [ ] **Pas fait**
-  - **Justification** : Passe antérieure non conforme à la méthode v2 (AUDIT-HAIKU.md) : à refaire. Le matériel déjà présent dans ce dossier est conservé comme historique.
-  - **Preuves** : 
+- [x] **Fait**
+  - **Justification** : Recherches web : aucune politique de débit du Rijksmuseum ; position officielle sur l'IA lue (Content-Signal et clause 3.16) ; ancienne page de conditions en 403 (non lue) ; listings d'API tiers sans valeur.
+  - **Preuves** : `institutions/rijksmuseum/fiche.md`, `institutions/rijksmuseum/sources/v2/raw/09.html`, `institutions/rijksmuseum/sources/v2/text/06.txt`
 
 ### g) Crash test progressif
 > Seulement après l'audit complet (a à f) de toutes les institutions et avec l'accord de Marcel : paliers jusqu'à 2 × la limite documentée, ou 200 req/min si illimité ou sans limite documentée. Arrêt au premier 429/403/CAPTCHA.
 
 - [ ] **Pas fait**
-  - **Justification** : Passe antérieure non conforme à la méthode v2 (AUDIT-HAIKU.md) : à refaire. Le matériel déjà présent dans ce dossier est conservé comme historique.
+  - **Justification** : À faire à la fin de l'audit de toutes les institutions et à l'accord de Marcel. Aucune limite annoncée : plafond de 200 req/min sur data.rijksmuseum.nl et iiif.micr.io. Précaution : Content-Signal ai-train=no ; le serveur d'images est derrière Cloudflare.
   - **Preuves** : 
 
 ### Contrôles transversaux
@@ -60,7 +60,7 @@
 
 <!-- AUTO:DEBUT -->
 ## Contrôles automatiques (calculés depuis `tests/journal.log`)
-- Requêtes enregistrées : **4** (sessions de sonde : 1, maximum par session : 4)
+- Requêtes enregistrées : **17** (sessions de sonde : 3, maximum par session : 9)
 - Plus courte pause vers un même hôte : **6 s** (règle : ≥ 6 s)
 - Méthodes utilisées : GET (règle : GET/HEAD seulement)
 - Anomalies : aucune

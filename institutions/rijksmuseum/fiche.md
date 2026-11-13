@@ -1,82 +1,37 @@
-# Rijksmuseum (Amsterdam) — `rijksmuseum`
+# Rijksmuseum (`rijksmuseum`)
 
-- **Statut** : vérifiée (sonde IIIF faite ; API de recherche avec clé non testée, voir § 4)
-- **Pays** : Pays-Bas
-- **Point d'entrée testé** : `https://iiif.micr.io/` (racine IIIF de production indiquée dans la doc officielle). Le point d'entrée `https://www.rijksmuseum.nl/api/` ne liste aucun endpoint.
-- **Vérifié le** : 2026-11-13 (sonde à 21:07:55 à 21:08:19 UTC ; documentation consultée le 2026-11-13)
-- **Vérifié par** : agent de veille (Claude Haiku 5.5), session de veille `claude/veille-iiif-quotas`
+- **Classeur de référence** : GLAM-012 · **Pays** : Pays-Bas
+- **Hôtes** : `data.rijksmuseum.nl` (Search, résolveur, OAI-PMH, LDES, IIIF Change Discovery), `iiif.micr.io` (IIIF Image et Presentation, Micrio), `id.rijksmuseum.nl`, `www.rijksmuseum.nl`
+- **Vérifié le** : 2026-11-13, par Sonnet 5.5 (reprise complète de la passe de Haiku)
+- **Suivi des étapes** : `CONSIGNE-ET-SUIVI.md`
 
-## 1. Documentation officielle
+## Ce que la doc officielle dit
 
-| Source (URL) | Consultée le | Ce qu'elle dit des quotas / limites / débit |
+- **Aucune clé** : « No API key is needed » (Search API, OAI-PMH). Services documentés : Search (Linked Art Search), résolveur d'identifiants (Linked Art), OAI-PMH (EDM), LDES, SRU (déprécié), IIIF Change Discovery, IIIF Image, IIIF Presentation, vidages de données.
+- **Aucun** quota, en-tête de limite, ni endpoint de statut. Seules limites chiffrées : « The API serves pages that contain a **maximum of one hundred ordered events** » (Change Discovery) ; résultats paginés par jeton.
+- **Moissonnage** : « You can use the OAI-PMH API, the Search API or the LDES API to harvest collection data. »
+- **`iiif.micr.io/robots.txt`** (lu en entier) : « As a condition of accessing this website, you agree to abide by the following content signals » ; **`Content-Signal: search=yes,ai-train=no,use=reference`** ; « express reservations of rights under Article 4 of the EU Directive 2019/790 » ; une trentaine de robots d'entraînement d'IA bloqués (ClaudeBot, GPTBot, anthropic-ai, CCBot…) ; deux groupes `*` (`Allow: /` puis `Disallow: /`) se combinent : l'accès reste autorisé (RFC 9309, `Allow` l'emporte à égalité).
+- **`www.rijksmuseum.nl/robots.txt`** : `*` autorisé, sauf quelques chemins (`/en/collection/search?*`, connexion). `data.rijksmuseum.nl` : pas de `robots.txt` (404).
+- **Politique d'information et de données** (en vigueur depuis le 17 juillet 2024) : 3.16 : le musée souhaite que les technologies d'IA qui utilisent ses données respectent la politique et ses valeurs, soient « transparent » ; attribution recommandée.
+- L'ancienne page de conditions de l'API (domaine de préproduction Azure) renvoie 403 : **non lue** ; elle concernait l'ancienne API à clé.
+
+## Tests (2 passes, configurations committées avant lancement)
+
+| Passe | Endpoint | Résultat |
 |---|---|---|
-| https://www.rijksmuseum.nl/api/ (page API du musée) | 2026-11-13 (WebFetch, résumé par un petit modèle) | Aucun endpoint, aucune mention de clé, quota ou limite. Renvoie vers data.rijksmuseum.nl. |
-| https://data.rijksmuseum.nl/ (accueil « Rijksmuseum Data ») | 2026-11-13 (WebFetch, résumé) | Aucun quota. Citations : « The Rijksmuseum offers multiple access points for this dataset: via APIs and also as a download. » ; « the Rijksmuseum operates an Open Data policy ». Liens vers `/docs/`, `/policy/`, `/docs/data-dumps`. |
-| https://acc.data.rijksmuseum.nl/tutorials/iiif/ (tutoriel IIIF, page acc.) | 2026-11-13 (WebFetch, résumé) | Aucun quota ni limite de débit, aucune clé. Limite **par requête** seulement : `maxArea` = « the maximum number of pixels that can be requested in a single image request ». |
-| https://acc.data.rijksmuseum.nl/docs/iiif/presentation (doc IIIF Presentation, acc.) | 2026-11-13 (WebFetch, résumé) | « There is one production endpoint available. » Racine `https://iiif.micr.io`. Aucune clé, aucune limite de débit ou quota. |
-| https://data.rijksmuseum.nl/docs/api | 2026-11-13 — **404** via WebFetch | Page non lue (404 au moment de la consultation). |
-| https://acc.data.rijksmuseum.nl/object-metadata/api/ | 2026-11-13 — **404** via WebFetch | Page non lue. |
-| https://data.rijksmuseum.nl/policy/introductie (politique d'information et de données) | Non lue en détail (lien trouvé depuis l'accueil) | Rien lu sur les quotas. À relire depuis un navigateur. |
+| 1 | `data…/search/collection`, résolveur `/200107928`, OAI-PMH (`Identify`, `ListMetadataFormats`, `ListSets`, `GetRecord` EDM), LDES, IIIF Change Discovery | **200** ×8 |
+| 2 | `iiif.micr.io/RFwqO/info.json`, `/manifest`, dérivé `!200,200` | **200** ×3 |
 
-Conclusion documentaire : **aucune limite chiffrée** (quota, fenêtre, débit) trouvée dans les pages officielles lues. Les pages IIIF ne demandent pas de clé.
+Aucun 429. Aucun en-tête `Retry-After`, `X-RateLimit-*`, `RateLimit-*` (en-têtes bruts relus). `ListRecords` n'est pas testé (très volumineux, la doc ne l'impose pas).
 
-## 2. Recherche élargie
+## Web
 
-- Termes cherchés : « Rijksmuseum API documentation IIIF manifest rate limit key » ; « Rijksmuseum Collection API key Rijksstudio "api key" quota requests per day 10000 ».
-- Sources examinées (résumés, non lues en brut) : apis.io (fiche Rijksmuseum Images API) ; spécification OpenAPI de l'ancienne API (citée par apis.io) ; page « Legacy API (DEPRECATED) » du site développeurs (signalée dans les résultats, non ouverte) ; article navigatingart « Almost frictionless: open access museum collections in practice in 2026 » (résumé) ; scraper Apify `crawlerbros/rijksmuseum-collection-scraper` (résumé) ; Hugging Face `Riksarkivet/iiif_mcp_docs` (non ouvert).
-- Résultat :
-  - Ancienne API (secondaire, non vérifiée sur la doc officielle) : la spécification OpenAPI citée par apis.io dit que « every request must carry a key » (paramètre `key`), clé obtenue dans les paramètres avancés d'un compte Rijksstudio ; elle décrit une réponse de type 429 en cas de quota journalier ou de fenêtre courte dépassée, **sans chiffre**. La page Legacy API serait marquée DEPRECATED (signalé, non ouvert).
-  - Article navigatingart 2026 (secondaire) : affirme que l'API de collection est ouverte, sans clé ni inscription. Non vérifié.
-  - Un chiffre « 10 000 requêtes par jour » apparaît dans une requête de recherche mais n'a été retrouvé dans **aucune** source : **non vérifié, à écarter**.
-  - Aucune source de recherche ne donne un quota officiel.
+- Une recherche sur les bots et les limites n'a trouvé **aucune politique de débit** du Rijksmuseum ; des listings tiers disent « limites non documentées ».
+- La politique de données et le `robots.txt` de Micrio sont la position officielle sur l'IA : entraînement interdit (`ai-train=no`), usage de référence.
 
-## 3. Tests d'appel (voir `institutions/rijksmuseum/tests/journal.log`)
+## Conclusion
 
-Configuration : `institutions/rijksmuseum/config/rijksmuseum.json` (4 endpoints, sur 15 autorisés). Pause de 6 s entre requêtes.
-
-| # | Heure UTC | URL (sans identifiant) | Méthode | Statut | En-têtes de limite | Corps (résumé) | Délai depuis précédent |
-|---|---|---|---|---|---|---|---|
-| 1 | 21:07:59 | https://iiif.micr.io/RFwqO/manifest | GET | 200 OK | aucun | Manifeste Presentation 3.0 (label « AK-NM-7009-Original-Cropped.jpg ») | - |
-| 2 | 21:08:06 | https://iiif.micr.io/PJEZO/manifest | GET | 200 OK | aucun | Manifeste Presentation 3.0 | 7 s |
-| 3 | 21:08:12 | https://iiif.micr.io/PJEZO/info.json | GET | 200 OK | aucun | Image API 3.0, profil level2 | 6 s |
-| 4 | 21:08:19 | https://iiif.micr.io/PJEZO/full/800,/0/default.jpg | GET | 200 OK | aucun | Image JPEG (JFIF) | 7 s |
-
-Non réalisé : l'API de recherche de collection (ancienne API avec clé, et endpoint de métadonnées non retrouvé en clair dans la doc lue). Aucun identifiant n'a été utilisé ni demandé. Total : 4 requêtes.
-
-## 4. Conclusion sur les limites
-
-- Limite **documentée** (citation et URL) : **non** pour les endpoints IIIF (pages lues ci-dessus). Pour l'ancienne API avec clé : une mention de 429 (secondaire, sans chiffre) ; pas de quota publié trouvé dans la doc officielle lue.
-- Limite **observée** (429 ou en-tête de quota reçu) : **non** (4 requêtes, aucun en-tête `Retry-After`, `X-RateLimit-*` ou `RateLimit-*`).
-- Accès refusé à ce client (403 anti-bot / défi Cloudflare) : **non** (aucune requête n° 1 à 4 refusée).
-- L'API annonce-t-elle ses limites dans la réponse ? **non observé** (aucun en-tête de limite).
-- Mécanisme observé : **aucun**.
-- Valeurs trouvées (quota, fenêtre) : **aucune** dans une source officielle. Limite par requête d'image : `maxArea` (doc tutoriel IIIF, valeur non lue).
-- Clé : les endpoints IIIF testés répondent **sans clé**. L'ancienne API de recherche indique une clé (secondaire, non testée, non demandée ici).
-- Blocages rencontrés : aucun. Pages `data.rijksmuseum.nl/docs/api` et `acc.data.rijksmuseum.nl/object-metadata/api/` en 404 à la consultation.
-
-## 5. Pourquoi ce n'est pas publié (si c'est le cas)
-
-Sans objet pour les endpoints IIIF (publiés et sans clé d'après la doc). Pour l'API de recherche, la divergence entre sources (ancienne API avec clé, nouvelle affirmée ouverte) n'est pas tranchée.
-
-- Trouvé (avec source) : pages IIIF officielles citées au § 1 ; ancienne API avec clé et 429 sans chiffre (spécification OpenAPI, secondaire).
-- Hypothèses (étiquetées comme telles) : hypothèse 1 : l'API de recherche actuelle est ouverte sans clé (article 2026, non vérifié). Hypothèse 2 : l'ancienne API reste en service avec clé et quota non publié (non vérifié).
-
-## 5 bis. Recherche ciblée des quotas (2026-11-13)
-
-Méthode : termes en néerlandais et en anglais, WebSearch (mode extended), WebFetch sur les pages officielles, recherche GitHub limitée à github.com. Aucune requête vers l'API.
-
-- a) Endpoint de statut de quota : **non trouvé** — termes cherchés : « rate limit », « quota », « throttling », « limits » (site data.rijksmuseum.nl, page /docs/search lue le 2026-11-13). GitHub : « rijksmuseum data API key rate limit issue » : aucun endpoint de statut.
-- b) En-têtes de limite documentés : **non trouvé** — la page /docs/search lue dit : « No API key is needed. » et ne mentionne ni en-tête, ni 429, ni limite de débit. Termes cherchés : « X-RateLimit », « Retry-After », « 429 » (web et GitHub).
-- c) Clé ou compte donnant un quota : **non pour l'API actuelle** — data.rijksmuseum.nl (Search, OAI-PMH) : « No API key is needed. » (WebFetch, 2026-11-13). Ancienne API rijksmuseum.nl/api : clé obtenue via un compte Rijksstudio ; la page https://www.rijksmuseum.nl/api/en lue en 404 le 2026-11-13. Une issue GitHub tierce (public-apis/public-apis #354, « Rijksmuseum now requires API key ») et une issue sur r-huijts/rijksmuseum-mcp (#6) évoquent la migration ; affirmation de retrait en juin 2026 avec réponse 410 : secondaire, non vérifiée, non reprise comme fait.
-- d) Contact officiel pour un quota : **trouvé (générique)** — lien « Contact » de la page /docs/search : https://www.rijksmuseum.nl/nl/footer/contact (WebFetch, 2026-11-13). Aucune adresse dédiée aux quotas n'est publiée dans les pages lues. Un courriel collectieinfo@rijksmuseum.nl apparaît dans un extrait de recherche (non lu en direct) : non retenu sans vérification.
-
-Conclusion : moyen d'interroger le quota : **non**. Pas d'en-tête ni de statut documenté ; l'API courante est annoncée sans clé. Aucun fichier `scripts/config/rijksmuseum-quota.json` écrit (rien à sonder de façon documentée).
-
-## 6. Confiance et pistes restantes
-
-- Niveau de confiance : **moyen** pour les endpoints IIIF (4 réponses 200 sans en-tête de limite) ; **faible** pour l'API de recherche (pages 404, sources secondaires contradictoires).
-- Ce qui reste à vérifier, et comment :
-  1. Ouvrir depuis un navigateur `https://data.rijksmuseum.nl/docs/` (rubrique API) et la page « Legacy API » pour trancher : clé requise ou non, quota publié ou non.
-  2. Lire `https://data.rijksmuseum.nl/policy/introductie` (conditions d'usage des données) depuis un navigateur.
-  3. Identifier l'URL exacte de l'endpoint de recherche de la nouvelle API (non trouvée en clair dans les pages lues), puis le tester sans clé, si la doc confirme qu'il est public (une requête, pas de POST).
-  4. Si une clé est exigée : ne pas en créer ni en utiliser dans cette veille ; consigner « clé requise, non testée ».
+- **Limite documentée chiffrée de débit** : aucune. Pagination : 100 événements par page (Change Discovery).
+- **Règle écrite** : `Content-Signal` `ai-train=no`, robots d'entraînement d'IA bloqués, réservation de droits (directive européenne 2019/790).
+- **Limite observée** : aucune (11 requêtes réussies, aucun en-tête). **Moyen d'interroger le quota** : aucun.
+- **Confiance** : moyenne à élevée.
