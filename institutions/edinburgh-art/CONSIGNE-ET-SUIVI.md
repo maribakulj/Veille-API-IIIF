@@ -2,57 +2,57 @@
 
 - **Dossier** : `institutions/edinburgh-art/`  ·  **Classeur de référence** : GLAM-005  ·  **Pays** : Royaume-Uni
 - **Statut d'institution** : active
-- **Dernière mise à jour du suivi** : (à renseigner à chaque modification)
+- **Dernière mise à jour du suivi** : 2026-11-14
 
 ## Suivi par étape (à cocher, avec justification et preuves)
 
 ### a) Documentation lue en entier
 > Toutes les pages de doc liées à l'API (développeurs, interfaces, conditions, FAQ, aide, mentions légales, robots.txt), téléchargées avec `scripts/fetch_doc.sh` (URL, date, SHA-256), lues en entier (`scripts/extract_text.py`).
 
-- [ ] **Pas fait**
-  - **Justification** : Passe antérieure non conforme à la méthode v2 (AUDIT-HAIKU.md) : à refaire. Le matériel déjà présent dans ce dossier est conservé comme historique.
-  - **Preuves** : 
+- [x] **Fait**
+  - **Justification** : Lus et hachés : pages IIIF, about, licensing, accueil, fiche 112492, takedown, accessibility, robots.txt de collections.ed.ac.uk et du serveur LUNA (279 lignes, Crawl-Delay 500 lu à la main). /art/terms et /art/feedback renvoient 404 (adresses devinées puis lien de la page) et ne sont pas des sources. Texte extrait relu.
+  - **Preuves** : `institutions/edinburgh-art/sources/SHA256SUMS`, `institutions/edinburgh-art/sources/suite/SHA256SUMS`, `institutions/edinburgh-art/sources/suite3/SHA256SUMS`, `institutions/edinburgh-art/sources/suite4/SHA256SUMS`, `institutions/edinburgh-art/sources/luna-robots/SHA256SUMS`
 
 ### b) Endpoints tirés de la doc
 > Liste des endpoints citée par la doc (URL, exemples). Jamais devinée. Une interdiction ou une impossibilité écrite dans la doc justifie de renoncer (citer la phrase).
 
-- [ ] **Pas fait**
-  - **Justification** : Passe antérieure non conforme à la méthode v2 (AUDIT-HAIKU.md) : à refaire. Le matériel déjà présent dans ce dossier est conservé comme historique.
-  - **Preuves** : 
+- [x] **Fait**
+  - **Justification** : Endpoint documenté par les pages du site : manifeste IIIF de chaque fiche (…/art/record/{id}/1/manifest.json, lien présent dans la page de la fiche 112492) ; le manifeste annonce lui-même le service d'images LUNA et un manifeste « related ». Aucune API de recherche documentée.
+  - **Preuves** : `institutions/edinburgh-art/sources/suite3/raw/01.html`, `institutions/edinburgh-art/sources/suite3/text/01.txt`
 
 ### c) Configuration écrite AVANT les tests
 > `config/<nom>.json` pilote `scripts/probe.py`, committée avant le lancement. Un endpoint absent de la doc mais non interdit se teste avec un script poli (identifiants issus de pages publiques ou d'exemples de la doc, pas de devinette).
 
-- [ ] **Pas fait**
-  - **Justification** : Passe antérieure non conforme à la méthode v2 (AUDIT-HAIKU.md) : à refaire. Le matériel déjà présent dans ce dossier est conservé comme historique.
-  - **Preuves** : 
+- [x] **Fait**
+  - **Justification** : Deux configurations committées avant lancement : passe 1 (manifeste de la fiche), passe 2 (service LUNA annoncé par le manifeste, identifiants publics). La sonde applique le Crawl-Delay de 500 s lu dans le robots.txt de LUNA.
+  - **Preuves** : `institutions/edinburgh-art/config/edinburgh-passe1-manifeste.json`, `institutions/edinburgh-art/config/edinburgh-passe2-luna.json`
 
 ### d) Quota cherché dans la doc
 > Pour chaque page lue : endpoint de statut, en-têtes de limite documentés, clé ou compte donnant un quota, contact pour un volume plus élevé. Chaque réponse cite sa source.
 
-- [ ] **Pas fait**
-  - **Justification** : Passe antérieure non conforme à la méthode v2 (AUDIT-HAIKU.md) : à refaire. Le matériel déjà présent dans ce dossier est conservé comme historique.
-  - **Preuves** : 
+- [x] **Fait**
+  - **Justification** : Aucun quota, clé ni endpoint de statut dans les pages du site. Règles écrites : /art/licensing (autorisation préalable pour toute utilisation) ; robots.txt de LUNA : Crawl-Delay 500 s pour * (50 s pour Googlebot), 31 règles Disallow ; robots.txt du site : tout autorisé.
+  - **Preuves** : `institutions/edinburgh-art/sources/luna-robots/raw/01.html`, `institutions/edinburgh-art/sources/suite/text/01.txt`, `institutions/edinburgh-art/sources/suite4/raw/04.html`
 
 ### e) Test systématique de chaque endpoint
 > Chaque endpoint documenté est testé (budget 15 requêtes par passe, pause ≥ 6 s, GET/HEAD, UA du projet). Redirections du même hôte suivies. Un 403 arrête son hôte, un 429 arrête l'institution. Seules les interdictions écrites dans la doc dispensent de tester.
 
-- [ ] **Pas fait**
-  - **Justification** : Passe antérieure non conforme à la méthode v2 (AUDIT-HAIKU.md) : à refaire. Le matériel déjà présent dans ce dossier est conservé comme historique.
-  - **Preuves** : 
+- [x] **Fait**
+  - **Justification** : Tous les endpoints annoncés sont testés (2 passes, 4 requêtes de données) : manifeste 200, LUNA info.json 200, dérivé 200, manifeste « related » 200 avec ratelimit-limit: 5.0 et ratelimit-reset: 1. Crawl-Delay de 500 s respecté (pauses de 500 s mesurées dans le journal). Aucun 403 ni 429.
+  - **Preuves** : `institutions/edinburgh-art/tests/journal.log`, `institutions/edinburgh-art/tests/raw/luna-manifeste-related.headers.txt`, `institutions/edinburgh-art/tests/raw/manifeste-record-112492.headers.txt`
 
 ### f) Ce que disent les gens sur le web
 > Plaintes, discussions, présentations de l'institution, politique envers les API et les bots, blogs, GitHub, forums, listes de diffusion. Sources étiquetées (officielle / institution / utilisateur / tiers), lues, citées.
 
-- [ ] **Pas fait**
-  - **Justification** : Passe antérieure non conforme à la méthode v2 (AUDIT-HAIKU.md) : à refaire. Le matériel déjà présent dans ce dossier est conservé comme historique.
-  - **Preuves** : 
+- [x] **Fait**
+  - **Justification** : Trois recherches web : aucune plainte ni politique de moissonnage ou de bots d'Édimbourg ; ticket GBIF sur un autre organisme (Royal Botanic Garden Edinburgh), marqué non applicable ; blog des bibliothèques (2016) sans règle de débit.
+  - **Preuves** : `institutions/edinburgh-art/fiche.md`, `institutions/edinburgh-art/sources/luna-robots/raw/01.html`
 
 ### g) Crash test progressif
 > Seulement après l'audit complet (a à f) de toutes les institutions et avec l'accord de Marcel : paliers jusqu'à 2 × la limite documentée, ou 200 req/min si illimité ou sans limite documentée. Arrêt au premier 429/403/CAPTCHA.
 
 - [ ] **Pas fait**
-  - **Justification** : Passe antérieure non conforme à la méthode v2 (AUDIT-HAIKU.md) : à refaire. Le matériel déjà présent dans ce dossier est conservé comme historique.
+  - **Justification** : À faire à la fin de l'audit de toutes les institutions et à l'accord de Marcel. Plafond prévu : 2 × la limite documentée, soit 1 requête par 250 s sur LUNA (Crawl-Delay 500 s) ; ce serait un test de plusieurs heures. Les en-têtes ratelimit-limit: 5.0 du manifeste suggèrent un second seuil par fenêtre courte.
   - **Preuves** : 
 
 ### Contrôles transversaux

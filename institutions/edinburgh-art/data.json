@@ -3,8 +3,28 @@
   "nom": "University of Edinburgh Art Collection",
   "pays": "Royaume-Uni",
   "classeur_id": "GLAM-005",
-  "statut_audit": "en cours (méthode v2)",
+  "statut_audit": "audit a–f complet ; g à faire",
   "limites_documentees": [
+    {
+      "nature": "Crawl-Delay",
+      "perimetre": "images.is.ed.ac.uk (LUNA), User-agent: *",
+      "valeur": "500 secondes",
+      "fenetre": "entre deux requêtes",
+      "effet": "non précisé",
+      "verification": "officielle, lue en entier",
+      "source": "https://images.is.ed.ac.uk/robots.txt",
+      "date": "2026-11-13"
+    },
+    {
+      "nature": "Crawl-Delay Googlebot",
+      "perimetre": "images.is.ed.ac.uk, Googlebot et Googlebot-Image",
+      "valeur": "50 secondes",
+      "fenetre": "entre deux requêtes",
+      "effet": "non précisé",
+      "verification": "officielle, lue en entier",
+      "source": "https://images.is.ed.ac.uk/robots.txt",
+      "date": "2026-11-13"
+    },
     {
       "nature": "Autorisation préalable pour toute utilisation des images",
       "perimetre": "images de la collection",
@@ -16,13 +36,28 @@
       "date": "2026-11-13"
     }
   ],
-  "en_tetes_observes": [],
+  "en_tetes_observes": [
+    {
+      "nom": "ratelimit-limit",
+      "valeur": "5.0 (unité non documentée)",
+      "endpoint": "images.is.ed.ac.uk/luna/servlet/iiif/m/…/manifest",
+      "date": "2026-11-13",
+      "preuve": "institutions/edinburgh-art/tests/raw/luna-manifeste-related.headers.txt"
+    },
+    {
+      "nom": "ratelimit-reset",
+      "valeur": "1 (unité non documentée)",
+      "endpoint": "images.is.ed.ac.uk/luna/servlet/iiif/m/…/manifest",
+      "date": "2026-11-13",
+      "preuve": "institutions/edinburgh-art/tests/raw/luna-manifeste-related.headers.txt"
+    }
+  ],
   "blocages": [],
   "contact": "HeritageCollections@ed.ac.uk",
-  "conclusion_quota": "Aucune API ni quota publié. Usage des images sur autorisation (recherche, étude, revue) ; usage commercial et publication à négocier.",
-  "classe_quota": "aucun quota trouvé (usage sur autorisation)",
+  "conclusion_quota": "Crawl-Delay: 500 (robots.txt du serveur LUNA) ; en-têtes ratelimit-limit: 5.0 et ratelimit-reset: 1 sur le manifeste LUNA (unité non documentée). Aucun 429.",
+  "classe_quota": "limite documentée chiffrée (Crawl-Delay 500 s) et en-têtes observés",
   "confiance": "moyenne",
-  "notes": "Pas d'API documentée : le seul accès programmatique annoncé est le manifeste par icône IIIF.",
+  "notes": "Les requêtes LUNA doivent être espacées de 500 s : un test de 4 requêtes dure 25 minutes. Un ticket GBIF sur le Royal Botanic Garden Edinburgh concerne un autre organisme.",
   "sources": [
     {
       "url": "https://collections.ed.ac.uk/art/iiif",
@@ -37,25 +72,58 @@
       "preuve": "institutions/edinburgh-art/sources/SHA256SUMS"
     },
     {
-      "url": "https://collections.ed.ac.uk/art",
-      "date": "2026-11-13",
-      "etiquette": "officielle",
-      "preuve": "institutions/edinburgh-art/sources/SHA256SUMS"
-    },
-    {
       "url": "https://collections.ed.ac.uk/art/licensing",
       "date": "2026-11-13",
       "etiquette": "officielle",
       "preuve": "institutions/edinburgh-art/sources/suite/SHA256SUMS"
     },
     {
+      "url": "https://collections.ed.ac.uk/art/record/112492",
+      "date": "2026-11-13",
+      "etiquette": "officielle",
+      "preuve": "institutions/edinburgh-art/sources/suite3/SHA256SUMS"
+    },
+    {
+      "url": "https://collections.ed.ac.uk/art/takedown",
+      "date": "2026-11-13",
+      "etiquette": "officielle",
+      "preuve": "institutions/edinburgh-art/sources/suite4/SHA256SUMS"
+    },
+    {
+      "url": "https://collections.ed.ac.uk/art/accessibility",
+      "date": "2026-11-13",
+      "etiquette": "officielle",
+      "preuve": "institutions/edinburgh-art/sources/suite4/SHA256SUMS"
+    },
+    {
       "url": "https://collections.ed.ac.uk/robots.txt",
       "date": "2026-11-13",
       "etiquette": "officielle",
-      "preuve": "sources/robots/SHA256SUMS"
+      "preuve": "institutions/edinburgh-art/sources/suite4/SHA256SUMS"
+    },
+    {
+      "url": "https://images.is.ed.ac.uk/robots.txt",
+      "date": "2026-11-13",
+      "etiquette": "officielle",
+      "preuve": "institutions/edinburgh-art/sources/luna-robots/SHA256SUMS"
     }
   ],
-  "web": [],
+  "web": [
+    {
+      "url": "https://images.is.ed.ac.uk/robots.txt",
+      "date": "2026-11-13",
+      "etiquette": "officielle (position de l'institution envers les robots)",
+      "citation": "« User-agent: * … Crawl-Delay: 500 » ; Baiduspider et Yandex : « Disallow: / ».",
+      "preuve": "institutions/edinburgh-art/sources/luna-robots/raw/01.html"
+    },
+    {
+      "url": "https://github.com/gbif/portal-feedback/issues/6567",
+      "date": "2026-11-13",
+      "etiquette": "tiers — NON APPLICABLE (Royal Botanic Garden Edinburgh, autre organisme)",
+      "citation": "Ticket sur des robots d'IA et du scraping rapide d'images, liste blanche mise en place par un autre organisme.",
+      "preuve": "institutions/edinburgh-art/fiche.md"
+    }
+  ],
   "type": "Institution",
-  "donnees_a_revalider": true
+  "donnees_a_revalider": false
 }
