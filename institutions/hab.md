@@ -51,6 +51,19 @@ Non réalisés : aucun manifeste ni info.json testé (aucune URL documentée pou
 - Trouvé (avec source) : la HAB annonce ses API IIIF (Image, Presentation, Authentication, Content Search) sans URL publique dans la page consultée ; l'OAI-PMH est documenté et répond. Le prototype IIIF connu passe par l'hôte Bodleian.
 - Hypothèses (étiquetées comme telles) : hypothèse 1 : le service IIIF de diglib.hab.de existe mais n'est pas documenté publiquement sous une URL stable (non vérifié). Hypothèse 2 : la production IIIF est hébergée sur `hab.bodleian.ox.ac.uk` (non vérifié, pas de manifeste testé).
 
+## 5 bis. Recherche ciblée des quotas (2026-11-13)
+
+Recherche menée après la sonde, sans nouvelle requête vers l'API. Aucun endpoint de statut ni en-tête de quota trouvé, donc aucune configuration `scripts/config/hab-quota.json` n'a été écrite.
+
+a) **Endpoint de statut de quota** : non trouvé — termes cherchés : « Herzog August Bibliothek diglib IIIF manifest API Rate Limit Kontakt » ; « Nutzungsbedingungen automatisierte Zugriffe Abfragen Beschränkung API » ; « diglib.hab.de IIIF manifest API ». Doc lue : http://diglib.hab.de/copyright.html (consultée 2026-11-13, WebFetch) : aucun endpoint de statut. La page se dit elle-même « veraltet » et renvoie à `nutzungshinweise.html`.
+b) **En-têtes de limite documentés** : non trouvé — la doc ne cite aucun en-tête. Observé (sonde du 13/11, 5 requêtes) : aucun en-tête de limite.
+c) **Clé ou compte donnant un quota** : non trouvé. Phrase exacte (copyright.html) : « Nicht frei zugängliche Angebote unterliegen gesonderten Nutzungsregeln » ; ces règles ne concernent pas un quota de débit.
+d) **Contact officiel pour un quota** : trouvé — auskunft@hab.de. Phrase exacte (copyright.html, consultée 2026-11-13) : « die von der Auskunft der Bibliothek (auskunft@hab.de) erfragt werden können ». Cette adresse est citée pour les règles d'usage des offres non libres, pas pour un quota ; elle reste la piste la plus directe.
+
+Standard : le brouillon IETF `draft-ietf-httpapi-ratelimit-headers` (RateLimit-Limit / RateLimit-Remaining / RateLimit-Reset) n'est pas une norme ; la spécification IIIF n'a pas été relue sur ce point.
+
+Conclusion : moyen d'interroger le quota : **non**. Piste : demander à auskunft@hab.de une politique de débit pour l'Image API et le manifeste, une fois l'URL IIIF connue.
+
 ## 6. Confiance et pistes restantes
 
 - Niveau de confiance : moyen sur l'absence de limite annoncée (conditions lues en résumé) ; faible sur les endpoints IIIF (aucune URL documentée).

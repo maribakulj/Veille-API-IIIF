@@ -65,3 +65,15 @@ Sans objet : aucune limite annoncée à expliquer.
   2. Trouver l'URL exacte du service image (info.json) et de l'OAI-PMH, idéalement dans la page https://www.e-codices.unifr.ch/en/about/metadata (non consultée) ou par contact de l'équipe e-codices.
   3. Refaire une sonde espacée plus tard (et en rafale contrôlée) pour voir si un en-tête de quota apparaît.
   4. Les URL de manifestes ne figurent pas dans la doc officielle : les considérer comme « observées, non documentées » tant que l'institution ne les publie pas.
+
+## 5 bis. Recherche ciblée des quotas (2026-11-13)
+
+a) **Endpoint de statut de quota** : non trouvé — termes cherchés : « e-codices rate limit quota », « e-codices IIIF manifest API documentation », « e-codices Nutzung automatisiert Kontakt ». Guide IIIF e-codices lu le 2026-11-13 (https://guides.iiif.io/guides/e-codices.ch/) : ne mentionne aucun endpoint de statut, ni `/status`, `/limits` ou `/me`. Doc officielle (https://www.e-codices.unifr.ch/en/about/terms, lue le 2026-11-13) : aucune mention d'API.
+
+b) **En-têtes de limite documentés** : non trouvé — aucun en-tête `RateLimit-*`, `X-RateLimit-*` ni `Retry-After` cité dans la doc ni dans les résultats. Nos 7 requêtes n'en renvoient aucun (tests/e-codices.log).
+
+c) **Clé d'API ou compte donnant un quota** : non trouvé — aucune clé ni compte mentionné pour l'accès IIIF ; les conditions ne parlent que d'autorisation écrite de la bibliothèque propriétaire pour l'usage commercial.
+
+d) **Contact officiel pour demander un quota** : non trouvé — aucune adresse officielle confirmée. L'adresse e-codices@unifr.ch n'apparaît dans aucun résultat. Les seules adresses trouvées (ramona.fritschi@unifr.ch, actualité unifr.ch de 2015 ; christophe.flueler@unifr.ch, même source) sont anciennes et personnelles : non utilisées, à vérifier sur la page contact actuelle du site, non relue. Source : résultats de recherche « e-codices Verein Universität Freiburg contact », 2026-11-13.
+
+Conclusion : moyen d'interroger le quota : **non**. Aucun endpoint, en-tête ni compte documenté ; aucune sonde ciblée lancée (pas de `scripts/config/e-codices-quota.json`).

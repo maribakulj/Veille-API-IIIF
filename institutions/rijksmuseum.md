@@ -61,6 +61,17 @@ Sans objet pour les endpoints IIIF (publiés et sans clé d'après la doc). Pour
 - Trouvé (avec source) : pages IIIF officielles citées au § 1 ; ancienne API avec clé et 429 sans chiffre (spécification OpenAPI, secondaire).
 - Hypothèses (étiquetées comme telles) : hypothèse 1 : l'API de recherche actuelle est ouverte sans clé (article 2026, non vérifié). Hypothèse 2 : l'ancienne API reste en service avec clé et quota non publié (non vérifié).
 
+## 5 bis. Recherche ciblée des quotas (2026-11-13)
+
+Méthode : termes en néerlandais et en anglais, WebSearch (mode extended), WebFetch sur les pages officielles, recherche GitHub limitée à github.com. Aucune requête vers l'API.
+
+- a) Endpoint de statut de quota : **non trouvé** — termes cherchés : « rate limit », « quota », « throttling », « limits » (site data.rijksmuseum.nl, page /docs/search lue le 2026-11-13). GitHub : « rijksmuseum data API key rate limit issue » : aucun endpoint de statut.
+- b) En-têtes de limite documentés : **non trouvé** — la page /docs/search lue dit : « No API key is needed. » et ne mentionne ni en-tête, ni 429, ni limite de débit. Termes cherchés : « X-RateLimit », « Retry-After », « 429 » (web et GitHub).
+- c) Clé ou compte donnant un quota : **non pour l'API actuelle** — data.rijksmuseum.nl (Search, OAI-PMH) : « No API key is needed. » (WebFetch, 2026-11-13). Ancienne API rijksmuseum.nl/api : clé obtenue via un compte Rijksstudio ; la page https://www.rijksmuseum.nl/api/en lue en 404 le 2026-11-13. Une issue GitHub tierce (public-apis/public-apis #354, « Rijksmuseum now requires API key ») et une issue sur r-huijts/rijksmuseum-mcp (#6) évoquent la migration ; affirmation de retrait en juin 2026 avec réponse 410 : secondaire, non vérifiée, non reprise comme fait.
+- d) Contact officiel pour un quota : **trouvé (générique)** — lien « Contact » de la page /docs/search : https://www.rijksmuseum.nl/nl/footer/contact (WebFetch, 2026-11-13). Aucune adresse dédiée aux quotas n'est publiée dans les pages lues. Un courriel collectieinfo@rijksmuseum.nl apparaît dans un extrait de recherche (non lu en direct) : non retenu sans vérification.
+
+Conclusion : moyen d'interroger le quota : **non**. Pas d'en-tête ni de statut documenté ; l'API courante est annoncée sans clé. Aucun fichier `scripts/config/rijksmuseum-quota.json` écrit (rien à sonder de façon documentée).
+
 ## 6. Confiance et pistes restantes
 
 - Niveau de confiance : **moyen** pour les endpoints IIIF (4 réponses 200 sans en-tête de limite) ; **faible** pour l'API de recherche (pages 404, sources secondaires contradictoires).

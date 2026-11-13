@@ -64,3 +64,27 @@ Non faits : image par tuile (pas nécessaire, aucun besoin de débit pour le tes
   1. Retrouver les conditions d'utilisation de Harvard Library (page « terms of use » ou équivalent) : URL à identifier depuis une page Harvard ouverte dans un navigateur.
   2. Demander à Harvard Library (Library Technology Services) s'il existe un plafond de requêtes IIIF et s'il est annoncé dans les en-têtes.
   3. Re-tester plus tard, à faible débit (≤ 1 requête toutes les 6 s), en gardant le même jeu de 9 requêtes, pour voir si un en-tête de limite apparaît.
+
+## 5 bis. Recherche ciblée des quotas (2026-11-13)
+
+Recherche faite en plus de la § 1 à § 5 : web (standard et extended), doc Harvard lue par WebFetch, pages wiki Harvard. Aucune requête supplémentaire envoyée à l'API (aucun endpoint de statut ou en-tête documenté trouvé, donc aucune sonde `scripts/config/harvard-quota.json`).
+
+- a) Endpoint de statut de quota : **non trouvé** — termes cherchés : « LibraryCloud rate limit status endpoint », « api.lib.harvard.edu usage status », « iiif.lib.harvard.edu rate_limit ». `https://api.lib.harvard.edu/v2/` répond 404 à la lecture WebFetch (2026-11-13) : pas de page de doc à cet emplacement.
+- b) En-têtes de limite documentés : **non trouvé** — termes cherchés : « Harvard LibraryCloud X-RateLimit », « Retry-After LibraryCloud ». Nos 9 réponses n'en contiennent aucun (tests/harvard.log).
+- c) Clé ou compte donnant un quota : **non trouvé pour LibraryCloud** — une source tierce (api-evangelist, apis.io) dit que l'API d'items est sans clé ; un projet tiers (STLee-blacklight) mentionne une « LibraryCloud API key », sans source officielle. La clé de l'API Harvard Art Museums (api.harvardartmuseums.org) est un autre service, hors de cette fiche.
+- d) Contact officiel pour un quota : **non trouvé** — aucune page Harvard lue ne cite de formulaire ou de courriel pour demander un quota (la page « library.harvard.edu/terms-use » reste en 404, cf. § 1).
+
+Doc relevée sur un quota de débit (non vérifiée sur la page) : extrait de recherche d'une page wiki Harvard (LibraryCloud APIs, page 43287734, « Updated May 11 », année non lisible) puis d'une page tierce : « an average of 300 requests per 5 minutes », dépassement suivi d'un blocage de 5 minutes, et « Please limit your requests to no more once per second ». Attribution incertaine (les deux résultats de recherche ne sont pas du même auteur). WebFetch de la page wiki tronquée : la phrase n'a pas pu être relue. Statut : **documenté par un extrait, non vérifié en entier**.
+
+Conclusion : moyen d'interroger le quota : **non**. Un chiffre de débit est annoncé (extrait non vérifié), mais aucun endpoint, en-tête ni contact pour le quota n'a été trouvé.
+
+## 5 ter. Standard IIIF : en-têtes de quota
+
+Recherche générale faite une seule fois pour l'ensemble des institutions de la veille (2026-11-13).
+
+- IIIF Image API 3.0 (https://iiif.io/api/image/3.0/) et 2.1 (https://iiif.io/api/image/2.1/), lues par WebFetch le 2026-11-13 : aucune mention de limitation de débit, quota, throttling, 429, `Retry-After`, `RateLimit-*` ni d'endpoint de statut. Seule mention de charge : code 503 « The server is busy/temporarily unavailable due to load/maintenance issues. » et « Server applications implementing this API should consider possible denial-of-service attacks ».
+- IIIF Presentation 3.0 : non lue (la recherche n'a rien remonté sur iiif.io à ce sujet).
+- Recherche « iiif.io rate limiting throttling 429 Retry-After » (extended) : aucun résultat de iiif.io ; seul un ticket de projet tiers (Embassy-of-the-Free-Mind/sourcelibrary-v2, issue #7771) propose une pratique de politesse (1 à 2 connexions par hôte, pause, Retry-After respecté) : pratique de projet, pas une norme IIIF.
+- Standards HTTP (sources de recherche, non relues en entier) : `Retry-After` défini par RFC 9110 ; statut 429 défini par RFC 6585. Les en-têtes `RateLimit-Limit`, `RateLimit-Remaining`, `RateLimit-Reset` relèvent d'un brouillon IETF (httpapi-ratelimit-headers), selon les résultats de recherche encore non publié en RFC (statut à la date non vérifié).
+
+Conclusion : le standard IIIF ne définit **aucun** en-tête ni endpoint de quota. Un serveur IIIF qui limite son débit le fait hors standard (ou via la passerelle), et le signale au mieux par 429 / `Retry-After`, à vérifier au cas par cas.

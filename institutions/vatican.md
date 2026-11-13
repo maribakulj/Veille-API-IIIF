@@ -66,3 +66,15 @@ Conclusion documentaire : aucune limite chiffrée (quota, fenêtre, débit) trou
   1. Relire https://www.vatlib.it/en/information-readers/fotoriproduzione-uso-professionale.html et les conditions de digi.vatlib.it depuis un navigateur (erreur TLS à l'outil).
   2. Demander par écrit à la Biblioteca Apostolica Vaticana (contatto del servizio digitalizzazione / ufficio fotoriproduzione) : endpoints IIIF officiels, version IIIF (2 ou 3), limite de débit tolérée, et l'emplacement des `info.json`.
   3. Plus tard, avec un identifiant d'image lu depuis le manifeste dans un navigateur : un `info.json` et une vignette, espacés, pour voir si un 403 de type 2016 réapparaît.
+
+## 5 bis. Recherche ciblée des quotas (2026-11-13)
+
+a) **Endpoint de statut de quota** : non trouvé — termes cherchés : « DigiVatLib Vatican Library IIIF API rate limit quota contact digitalizzazione », « Vatican Library digi.vatlib.it IIIF manifest API status endpoint headers rate limit github ». Source tierce (PR Antonio-Faure/mnemosyne#40, https://github.com/Antonio-Faure/mnemosyne/pull/40, consultée via résultat de recherche, 2026-11-13) : l'hôte « has no enumerable IIIF Collection and no JSON search endpoint » ; aucun endpoint de statut évoqué. Source non officielle.
+
+b) **En-têtes de limite documentés** : non trouvé — aucun en-tête de limite dans les résultats ni dans les 3 réponses reçues (tests/vatican.log).
+
+c) **Clé d'API ou compte** : non trouvé — la même PR décrit le descripteur comme « keyless » (source tierce). Aucune clé ni compte officiel mentionné.
+
+d) **Contact officiel pour demander un quota** : non trouvé — aucun contact de service de numérisation confirmé dans les résultats. La page officielle « Photographic reproductions for Professional Use » (https://www.vatlib.it/en/information-readers/fotoriproduzione-uso-professionale.html) n'a pas pu être relue : erreur de certificat TLS à WebFetch (2026-11-13). Seul un extrait de résultat de recherche existe : « Under no circumstances will downloading of the images be allowed. » (non lu en entier). Un contact par écrit reste à établir depuis un navigateur.
+
+Conclusion : moyen d'interroger le quota : **non**. Aucun endpoint, en-tête ni compte documenté ; aucune sonde ciblée lancée (pas de `scripts/config/vatican-quota.json`).

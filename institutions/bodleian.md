@@ -72,3 +72,12 @@ Note sur la requête 8 : elle est un doublon ajouté par erreur avant correction
   - Lire la suite du PDF des conditions d'imagerie (pages 5 et plus) et la page « API Documentation » complète pour l'image API (section cachée par WebFetch).
   - Vérifier la « Change Discovery API » évoquée par un tiers (APIs.io) : non confirmée par la doc Bodleian, ne pas la compter.
   - Test de rafale (non fait, hors budget ou contraire à la prudence) : seulement si l'équipe répond que c'est acceptable.
+
+## 5 bis. Recherche ciblée des quotas (2026-11-13)
+
+- a) **non trouvé** — termes cherchés : « Bodleian IIIF rate limit status endpoint » ; « digital.bodleian.ox.ac.uk quota usage » ; doc `https://digital.bodleian.ox.ac.uk/developer/iiif/` lue (WebFetch, 2026-11-13) : aucun endpoint de statut ni d'usage décrit.
+- b) **non trouvé** — termes cherchés : RateLimit-Limit, X-RateLimit-*, Retry-After. Même page : « The visible text has no rate limit, quota, throttling, requests-per-second figure, `X-RateLimit`/`RateLimit`/`Retry-After` header, or status/usage endpoint. » Sur 13 requêtes (fiche § 3), aucun en-tête de limite reçu.
+- c) **non trouvé** — pas de clé ni de compte ; l'API est ouverte selon la fiche § 1 (page `developer/data`, sans authentification décrite pour la recherche).
+- d) **trouvé** — source : `https://digital.bodleian.ox.ac.uk/developer/iiif/` (lu par WebFetch, 2026-11-13) : « if are expecting to harvest a significant number of manifests, we would ask that you get in touch with us and let us know. » ; « You can do this by contacting our digital support team, or by adding your e-mail address to the User-Agent string. » ; contact en tête de page : « Digital Bodleian Support: digital-bodleian@bodleian.ox.ac.uk ». Le message doit venir de l'utilisateur (la veille n'écrit pas).
+
+Conclusion : moyen d'interroger le quota : **non**. Le seul moyen annoncé est le contact (d) pour un moissonnage important. Aucun fichier `scripts/config/bodleian-quota.json` écrit (aucun endpoint documenté à sonder).

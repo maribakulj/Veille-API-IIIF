@@ -64,3 +64,14 @@ Non faits, et pourquoi : info.json IIIF (`iiif.nypl.org/iiif/…/info.json`) non
   2. Lire la page « open metadata » et les conditions d'utilisation NYPL complètes (lecture WebFetch en échec).
   3. Obtenir auprès de NYPL un identifiant d'image IIIF documenté, puis tester un info.json à ≤ 1 requête toutes les 6 s.
   4. Signaler à NYPL que la doc v1 annonce une limite pour une API désactivée.
+
+## 5 bis. Recherche ciblée des quotas (2026-11-13)
+
+Recherche faite en plus de la § 1 à § 5 : web (standard et extended), page d'accueil et page d'inscription de l'API Repo lues par WebFetch. Aucune requête supplémentaire envoyée (aucun endpoint de statut ni en-tête documenté trouvé, donc pas de sonde `scripts/config/nypl-quota.json`).
+
+- a) Endpoint de statut de quota : **non trouvé** — termes cherchés : « NYPL Digital Collections API usage status endpoint », « api.repo.nypl.org rate limit status ». La page `https://api.repo.nypl.org` (WebFetch, 2026-11-13) ne décrit aucun endpoint d'usage ; `/items/total` renvoie le nombre d'items, pas l'usage. L'API v1 répond 410 (§ 3, test 5).
+- b) En-têtes de limite documentés : **non trouvé** — la page d'accueil de l'API Repo indique « Rate-limit response headers : None documented » (résumé WebFetch, 2026-11-13). Aucun en-tête de limite dans nos 6 réponses.
+- c) Clé ou compte donnant un quota : **trouvé, pour l'API Repo seulement** — `https://api.repo.nypl.org/sign_up` (WebFetch, 2026-11-13) : « API Request Limit (Default): 10000 » et « NYPL has established quota limits for the NYPL Repository API. » ; `https://api.repo.nypl.org` : « The limit per authentication token while connecting from an application or curl request is 10,000 requests per day. » Mais la même page annonce : « The Repo API is being deprecated and will no longer be available starting August 1st, 2026. » (au 2026-11-13, cette date est passée). La doc v2 n'est pas trouvée : `https://api.repo.nypl.org/api_documentation_v2` répond 400 « The path that you entered is invalid » (WebFetch, 2026-11-13). Pour les manifestes et images IIIF (api-collections, iiif.nypl.org), aucune clé ni quota trouvé.
+- d) Contact officiel pour un quota : **trouvé** — page d'accueil de l'API Repo (2026-11-13) : « Questions/feedback? Write to: repoapi@nypl.org » ; pour la fin de l'API : digitaldam@nypl.org (même page, cité par le résumé). Aucun formulaire de demande de quota relevé.
+
+Conclusion : moyen d'interroger le quota : **non**. Une clé a un quota documenté (10 000 par jour), mais l'API qui le porte est annoncée comme arrêtée le 1er août 2026, aucun endpoint de statut ni en-tête n'existe dans la doc, et la v2 n'est pas documentée à l'URL attendue. Le quota IIIF de NYPL reste sans chiffre.

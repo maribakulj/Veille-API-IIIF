@@ -54,6 +54,17 @@ Non réalisés : `info.json` d'image (aucun `IMAGE_ID` documenté lu ; le corps 
 - Trouvé (avec source) : la doc API ne mentionne aucune limite ; l'accès est décrit comme données « as is » ; les images ont des conditions propres (cf. section 1).
 - Hypothèses (étiquetées comme telles) : hypothèse 1 : pas de quota formalisé pour les endpoints publics, la politique étant le respect des conditions de réutilisation (non vérifié, les pages de conditions n'ont pas été lues en entier). Hypothèse 2 : les limites éventuelles, si elles existent, ne se voient qu'en cas de charge (non vérifié, 7 requêtes espacées ne suffisent pas à tester).
 
+## 5 bis. Recherche ciblée des quotas (2026-11-13)
+
+Méthode : termes en anglais, WebSearch (mode extended), WebFetch sur la doc API Getty (page tronquée), recherche GitHub limitée à github.com. Aucune requête supplémentaire vers l'API.
+
+- a) Endpoint de statut de quota : **non trouvé** — termes cherchés : « rate limit », « rate limit status », « throttling », « usage », « quota », « automated access » (data.getty.edu/museum/collection/docs/ : page tronquée, seul le titre lu, 2026-11-13 ; GitHub : org thegetty, arrt, quire : aucune mention de limite pour Linked Art ni IIIF).
+- b) En-têtes de limite documentés : **non trouvé** — termes cherchés : « X-RateLimit », « RateLimit-Remaining », « Retry-After » avec « Getty » / « data.getty.edu ». Les résultats de limite trouvés concernent Getty Images (service commercial distinct, 403 au dépassement, 2026-11-13) : hors sujet, non retenus.
+- c) Clé ou compte donnant un quota : **non trouvé** — aucune clé requise par la doc Getty lue (données « as is »). Un scraper tiers (Apify) affirme que l'API et le SPARQL sont « fully public and keyless » : affirmation tierce, non vérifiée. Les images sous conditions distinctes sont à licencier auprès de rights@getty.edu (doc API, extrait lu via recherche, 2026-11-13).
+- d) Contact officiel pour un quota : **non trouvé pour les quotas** — adresses trouvées dans la doc API (extrait de recherche) : MuseumCollections@getty.edu pour l'intégrité du jeu de données ; rights@getty.edu pour les droits d'images. Aucune adresse dédiée à la charge ou aux limites. Page https://www.getty.edu/about/contact/ : non lue.
+
+Conclusion : moyen d'interroger le quota : **non**. Aucun endpoint de statut, aucun en-tête documenté, aucune clé. La question reste à poser par écrit à MuseumCollections@getty.edu. Aucun fichier `scripts/config/getty-quota.json` écrit.
+
 ## 6. Confiance et pistes restantes
 
 - Niveau de confiance : moyen (endpoints confirmés en 200 ; doc API lue via son JSON de données ; conditions non lues).

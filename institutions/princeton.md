@@ -63,3 +63,16 @@ Non faits : manifeste de la bibliothèque (aucun identifiant de manifeste Prince
   1. Lire la page DPUL « harvesting » ou « terms » complète, depuis un navigateur ordinaire.
   2. Demander à Princeton (digital-library, via le canal indiqué dans le wiki) les limites d'usage IIIF et la forme d'un manifeste de la bibliothèque.
   3. Re-tester avec un manifeste de la bibliothèque une fois trouvé, à ≤ 1 requête toutes les 6 s.
+
+## 5 bis. Recherche ciblée des quotas (2026-11-13)
+
+Recherche faite en plus de la § 1 à § 5 : web (standard et extended), doc DPUL et wiki Princeton lus par WebFetch ou extraits de recherche. Aucune requête supplémentaire envoyée (aucun endpoint de statut ni en-tête documenté trouvé, donc pas de sonde `scripts/config/princeton-quota.json`).
+
+- a) Endpoint de statut de quota : **non trouvé** — termes cherchés : « Princeton University Library IIIF rate limit quota API status endpoint », « iiif.princeton.edu rate limit ». La racine `https://iiif.princeton.edu/` (déjà consignée, § 3) ne liste que des points d'accès IIIF v2/v3 et des versions logicielles, sans statut.
+- b) En-têtes de limite documentés : **non trouvé** — aucun en-tête de limite dans nos 8 réponses (tests/princeton.log) ; aucune page lue n'en décrit.
+- c) Clé ou compte donnant un quota : **non trouvé** — aucune mention d'inscription, de clé ni de compte pour l'accès IIIF.
+- d) Contact officiel pour un quota : **partiel, sans quota** — extrait du wiki DPUL (pul-confluence, « DPUL: PUL's Curated Collections Platform », lu en extrait, 2026-11-13) : pour la moissonnage des données IIIF, « contact us » (canal #digital_library et adresse de la bibliothèque numérique). Aucun courriel ni formulaire précis lu en entier. Dépôt pulibrary/dpul lu par WebFetch (2026-11-13) : aucune mention de quota, de débit ni de contact pour l'accès en masse.
+
+Pour information non vérifiée : un projet tiers (natemoo93/whatiiif-mcp, 2026-11-13) affirme que Figgy (backend de DPUL) a un robots.txt « Disallow: / » et que DPUL refuse les clients automatisés. Affirmation de seconde main, non vérifiée sur le robots.txt de Princeton. À vérifier directement (https://dpul.princeton.edu/robots.txt, lecture seule, une requête) avant toute suite.
+
+Conclusion : moyen d'interroger le quota : **non**. Seule piste : contacter l'équipe DPUL (canal indiqué dans le wiki) pour les limites d'usage.

@@ -64,3 +64,13 @@ Autres lectures (non comptées comme tests d'appel, mais faites) : `https://www.
   - Refaire le test d'un `info.json` et d'un manifeste quand le service répond, avec la pause de 5 s et l'arrêt sur 403/429.
   - Confirmer quel hôte de manifeste est en service actuel (`api.bl.uk` non résolu ; le site de la BL cite d'autres hôtes, à vérifier).
   - Ne pas reprendre sans l'accord de l'opérateur de la veille si le 403 persiste (règle d'arrêt).
+
+## 5 bis. Recherche ciblée des quotas (2026-11-13)
+
+- a) **non trouvé** — termes cherchés : « British Library IIIF API rate limit status » ; « iiif.bl.uk rate limit endpoint » ; « api.bl.uk quota » ; recherche étendue (mode extended) sans résultat BL. iiif.bl.uk non relu (403, règle d'arrêt : pas de nouvel essai).
+- b) **non trouvé** — termes cherchés : RateLimit-Limit, X-RateLimit-*, Retry-After. Dépôt `britishlibrary/TremendousIIIF` (lu par WebFetch, 2026-11-13) : « Rate limits, throttling, quotas, requests per second, caching, usage policy, and HTTP headers: None found. » Aucun en-tête de limite observé (fiche § 3 : aucune réponse exploitable).
+- c) **non trouvé** — aucune clé ni compte documenté. Page `https://www.bl.uk/help/terms-of-use` (lue par WebFetch, 2026-11-13) : aucune phrase sur API, IIIF, accès automatisé ni quota.
+- d) **non trouvé** — aucun contact pour quota publié. Seules adresses vues : adresse postale (pied de page bl.uk) et « If you encounter any problems subscribing please contact us. » (non pertinent). L'adresse `permissions@bl.uk` citée § 6 reste **non vérifiée**.
+- Norme (contexte, non spécifique à la BL) : le brouillon IETF `draft-ietf-httpapi-ratelimit-headers` (https://www.ietf.org/archive/id/draft-ietf-httpapi-ratelimit-headers-11.html, vu via résultat de recherche, non lu en entier) définit RateLimit-Limit / RateLimit-Remaining / RateLimit-Reset ; la BL ne l'annonce nulle part.
+
+Conclusion : moyen d'interroger le quota : **non**. Aucun endpoint de statut, aucun en-tête documenté, aucune clé. Aucun fichier `scripts/config/british-library-quota.json` écrit (rien à sonder).

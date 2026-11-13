@@ -54,6 +54,17 @@ Budget : 1 requête sur 15 utilisée.
 - Trouvé (avec source) : la doc Smithsonian parle d'une clé sans chiffre. Le dépôt GitHub est archivé en lecture seule depuis le 21/05/2026. L'index S3 des métadonnées est accessible sans clé.
 - Hypothèses (étiquetées comme telles) : hypothèse 1 : la limite réelle est celle d'api.data.gov (1 000 req/h) appliquée à chaque clé (non vérifié). Hypothèse 2 : la doc chiffrée est sur la page `apidocs` rendue par JavaScript, que nous n'avons pas pu lire (non vérifié).
 
+## 5 bis. Recherche ciblée des quotas (2026-11-13)
+
+Méthode : termes en anglais, WebSearch (mode extended), WebFetch sur la doc EDAN, la doc api.data.gov et le dépôt GitHub. **Aucune requête vers api.si.edu** : l'API exige une clé, et on ne la demande pas.
+
+- a) Endpoint de statut de quota : **non trouvé** côté Smithsonian — termes cherchés : « rate limit », « rate limit status », « usage », « quota » (edan.si.edu/openaccess/apidocs/ : page « Loading... », aucun texte lisible ; github.com/Smithsonian/OpenAccess : archivé le 21/05/2026, aucune mention de quota ; github.com/Smithsonian/smithsonian-openaccess : aucune mention de quota). Côté api.data.gov : pas d'endpoint de statut dans la doc (https://api.data.gov/docs/developer-manual/, lue le 2026-11-13).
+- b) En-têtes de limite documentés : **oui, mais côté plateforme** — doc api.data.gov (https://api.data.gov/docs/developer-manual/, lue le 2026-11-13) : « inspecting the `X-RateLimit-Limit` and `X-RateLimit-Remaining` HTTP headers » ; « you will receive a response with an HTTP status code of 429 (Too Many Requests). ». La doc ne cite pas de Retry-After (« The page does not mention a `Retry-After` header » : constat de notre lecture). Le Smithsonian ne documente pas lui-même d'en-tête.
+- c) Clé ou compte donnant un quota : **oui** — inscription https://api.data.gov/signup/ (citée par le dépôt smithsonian-openaccess, lu le 2026-11-13 : « The API requires you to provide your own 'api_key' value. » / « Please register with https://api.data.gov/signup/ to get a key. »). Quota de la plateforme (non propre au Smithsonian) : « Hourly Limit: 1,000 requests per hour » par clé ; DEMO_KEY : « Hourly Limit: 30 requests per IP address per hour » et « Daily Limit: 50 requests per IP address per day » (api.data.gov, 2026-11-13). Application au Smithsonian : **non vérifiée**. Clé non demandée, non utilisée.
+- d) Contact officiel pour un quota : **partiel** — api.data.gov : « If you need higher rate limits, please contact the API owner at the agency that offers the service you're trying to query » (2026-11-13). Adresse Smithsonian non trouvée : termes cherchés « OpenAccess@si.edu », « Smithsonian Open Access contact » ; aucune adresse lue. Un contact « Smithsonian Open Access Team » est cité par un annuaire tiers, sans courriel.
+
+Conclusion : moyen d'interroger le quota : **oui, sous conditions** — les en-têtes X-RateLimit-Limit / X-RateLimit-Remaining et le 429 sont documentés par api.data.gov pour une clé valide. Non testé : aucun appel avec clé. Sans clé, pas de moyen de lire le quota. Aucun fichier `scripts/config/smithsonian-quota.json` écrit, la sonde n'étant pas autorisée sans clé. Décision à prendre par Marcel avant tout test avec une clé du projet.
+
 ## 6. Confiance et pistes restantes
 
 - Niveau de confiance : faible (aucune réponse de l'API elle-même ; doc Smithsonian sans chiffre).

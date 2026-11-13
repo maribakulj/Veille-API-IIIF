@@ -64,3 +64,12 @@ Non réalisés :
   2. Tester l'info.json d'une image (identifiant lu dans le manifeste) et l'hôte d'images, si la doc ou le manifeste les donne.
   3. Demander par écrit à l'équipe CUDL s'il existe une limite de débit pour les manifestes et images IIIF, et si `/v1/metadata/` est accessible hors du réseau de l'université (cudl.link non résolu ici).
   4. Refaire quelques requêtes espacées de 6 s plus tard, pour voir si un en-tête de limite apparaît.
+
+## 5 bis. Recherche ciblée des quotas (2026-11-13)
+
+- a) **non trouvé** — termes cherchés : « Cambridge University Library CUDL API rate limit quota contact » ; « cudl.lib.cam.ac.uk iiif rate limit throttling usage policy » ; dépôt `cambridge-collection/cudl-services` (README lu par WebFetch, 2026-11-13) : aucune route de statut. Pages `https://cudl.lib.cam.ac.uk/terms` et `https://cudl.lib.cam.ac.uk/help` : **403** à la lecture WebFetch (2026-11-13), non relues, non contournées.
+- b) **non trouvé** — termes cherchés : RateLimit-Limit, X-RateLimit-*, Retry-After. Le README `cudl-services` ne mentionne aucun en-tête. Sur 7 requêtes (fiche § 3), aucun en-tête de limite reçu.
+- c) **non trouvé** pour un accès à quota — cudl-services : « The API is publicly accessible and (for the most part) requires no authentication, but is designed to be used primarily by the CUDL viewer. » ; une route est protégée : « NB: This route is secured by an authentication token so that only the DCP Drupal instance can use it. » (route interne, non utilisable).
+- d) **non trouvé** — aucun contact pour quota dans cudl-services ni dans les résultats de recherche. Contact général de la bibliothèque non retenu (non vérifié).
+
+Conclusion : moyen d'interroger le quota : **non**. Aucun endpoint de statut, aucun en-tête, aucune clé, aucun contact documenté. Aucun fichier `scripts/config/cudl-quota.json` écrit.

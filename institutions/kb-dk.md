@@ -69,6 +69,19 @@ Notes sur le test :
 - Trouvé (avec source) : aucun quota ni règle de débit dans la doc de l'institution. La doc dit que les métadonnées sont « basically public domain » et que la diffusion des métadonnées est OAI-PMH.
 - Hypothèses (étiquetées comme telles) : hypothèse 1 : pas de quota formalisé, l'accès se fait par usage raisonnable (non vérifié). Hypothèse 2 : pour les données de recherche, la limite est une question de procédure (« sur demande », disponibilité de la bibliothèque), non de débit (non vérifié).
 
+## 5 bis. Recherche ciblée des quotas (2026-11-13)
+
+Recherche menée après la sonde, sans nouvelle requête vers l'API. Aucun endpoint de statut ni en-tête de quota trouvé, donc aucune configuration `scripts/config/kb-dk-quota.json` n'a été écrite.
+
+a) **Endpoint de statut de quota** : non trouvé — termes cherchés : « Det Kongelige Bibliotek API rate limit X-RateLimit IIIF kb-images » ; « kb-labs-api github rate limit OR fair use OR throttl OR requests per » ; « Det Kongelige Bibliotek IIIF API dokumentation manifest ». Pages lues (2026-11-13) : https://www.kb.dk/en/find-materials/systems-and-services/api (WebFetch) : aucune phrase sur quota, clé ou inscription ; https://github.com/Det-Kongelige-Bibliotek/access-digital-objects (README, fiche) : aucune mention de limite.
+b) **En-têtes de limite documentés** : non trouvé. Observé (12 requêtes, fiche) : aucun en-tête `Retry-After`, `X-RateLimit-*` ou `RateLimit-*`.
+c) **Clé ou compte donnant un quota** : non trouvé. Source tierce (non officielle) : AgentAccess, https://agentaccess.dk/sites/kb/api/kb-labs (2026-11-13) : « Auth required | Public ». Le kb-labs-api n'est pas le service IIIF testé.
+d) **Contact officiel pour un quota** : trouvé, générique — kb@kb.dk et téléphone +45 3347 4747, sur https://www.kb.dk/en/find-materials/systems-and-services/api (2026-11-13, WebFetch). La page précise que ce sont des coordonnées générales de la bibliothèque, non propres à l'API. Adresse à utiliser pour la demande.
+
+Standard : le brouillon IETF `draft-ietf-httpapi-ratelimit-headers` (RateLimit-*) n'est pas une norme ; la spécification IIIF n'a pas été relue sur ce point.
+
+Conclusion : moyen d'interroger le quota : **non**. Piste : demander à kb@kb.dk une politique de débit pour l'Image API et l'OAI-PMH, et si un manifeste IIIF est prévu.
+
 ## 6. Confiance et pistes restantes
 
 - Niveau de confiance : moyen (tests réels cohérents, doc lue surtout en résumé).

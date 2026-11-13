@@ -67,3 +67,15 @@ Note : la requête n° 2 utilise un identifiant issu de l'exemple du README tier
   - Vérifier la page de documentation des « Digital Collections » une fois l'adresse exacte connue (non trouvée par la recherche).
   - Refaire un petit lot de requêtes espacées (≥ 6 s) plus tard, pour voir si des en-têtes de quota apparaissent sur un nombre d'appels plus élevé.
   - Confirmer le motif d'identifiant et la liste des objets via un identifiant SLUB officiel (non trouvé).
+
+## 5 bis. Recherche ciblée des quotas (2026-11-13)
+
+a) **Endpoint de statut de quota** : non trouvé — termes cherchés : « SLUB Dresden IIIF API documentation rate limit », « SLUB Dresden IIIF API Nutzung Limit Anfragen Kontakt », « SLUB Dresden digital collections IIIF manifest API terms of use usage limits github ». Conditions d'usage des collections numériques lues le 2026-11-13 (https://nutzungshinweis.slub-dresden.de/en) : aucune mention d'API, de limite, de quota ni d'endpoint de statut. Aucun dépôt GitHub SLUB d'API IIIF trouvé.
+
+b) **En-têtes de limite documentés** : non trouvé — aucun en-tête de limite cité ; les 4 requêtes de la sonde n'en renvoient aucun (tests/slub.log).
+
+c) **Clé d'API ou compte** : non trouvé — aucune clé ni compte mentionné dans les résultats ni dans les conditions lues.
+
+d) **Contact officiel** : **trouvé** — digital@slub-dresden.de. Sources : https://nutzungshinweis.slub-dresden.de/en (lue le 2026-11-13 : « the listed contact is Annika-Valeska Walzel, Digital Library: digital@slub-dresden.de ») ; et la page de conditions citée par Heidelberg (https://digi.ub.uni-heidelberg.de/en/wgd/projekt/slub_lizenz.html, résultat de recherche : « please contact SLUB directly, at Digital (at) slub-dresden.de »). Une adresse générale information@slub-dresden.de apparaît dans un résultat de recherche (non vérifiée sur le site).
+
+Conclusion : moyen d'interroger le quota : **non**. Aucun endpoint, en-tête ni compte documenté ; aucune sonde ciblée lancée (pas de `scripts/config/slub-quota.json`).

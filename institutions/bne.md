@@ -57,6 +57,17 @@ Non réalisés : aucun endpoint IIIF (pas documenté dans une source lue). Les r
 - Trouvé (avec source) : rien de publié sur un quota BNE dans les sources lues.
 - Hypothèses (étiquetées comme telles) : hypothèse 1 : la BNE ne publie pas de politique de quota pour ses données (non vérifié). Hypothèse 2 : la doc IIIF BNE est sur un autre hôte que datos.bne.es (non vérifié).
 
+## 5 bis. Recherche ciblée des quotas (2026-11-13)
+
+Méthode : termes en espagnol et en anglais, WebSearch (mode extended), WebFetch sur les pages officielles, recherche GitHub limitée à github.com (org BNElab). Aucune requête vers l'API. Pages `datos.bne.es` et `bdh.bne.es` : 403 au niveau de l'outil WebFetch, non contourné.
+
+- a) Endpoint de statut de quota : **non trouvé** — termes cherchés : « límite de peticiones », « uso de la API », « rate limit », « límites de uso » (web) ; « BNElab IIIF rate limit » (GitHub, org BNElab : aucune doc d'API trouvée).
+- b) En-têtes de limite documentés : **non trouvé** — termes cherchés : « X-RateLimit », « Retry-After », « RateLimit-Remaining » combinés à « BNE » / « datos.bne.es ». Aucun résultat BNE.
+- c) Clé ou compte donnant un quota : **non trouvé** — aucune page BNE ne décrit de clé d'API. Source la plus proche : bnelab.bne.es/datos (extrait de recherche, 2026-11-13) : « Descarga y reutilización libre de los datos de la BNE » (formats XML, MARC, CSV, JSON, RDF, OAI). Ce n'est pas un quota.
+- d) Contact officiel pour un quota : **non trouvé** — aucune adresse ou formulaire d'API trouvé dans les extraits lus. Pistes à relire depuis un navigateur : https://bnelab.bne.es/datos/ et la page de contact de la BNE.
+
+Conclusion : moyen d'interroger le quota : **non**. Rien d'annoncé ni de documenté côté BNE ; aucun fichier `scripts/config/bne-quota.json` écrit.
+
 ## 6. Confiance et pistes restantes
 
 - Niveau de confiance : faible (aucune doc officielle lue ; aucun endpoint IIIF identifié).

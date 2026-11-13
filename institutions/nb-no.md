@@ -53,6 +53,19 @@ Non réalisés : URL d'image (info.json) : aucun service d'image identifié (voi
 - Trouvé (avec source) : l'API est publique sans authentification pour les manifestes (200 sans en-tête d'auth, sans cookie demandé hors `_nblb` de session posé par le serveur). Les manifestes déclarent une licence « protégé par le droit d'auteur » : un usage de réutilisation doit tenir compte de cette licence (sources : manifestes d'exemple, section 1).
 - Hypothèses (étiquetées comme telles) : hypothèse 1 : pas de quota publié pour les manifestes ; le service est servi par nginx sans limiteur visible (non vérifié, car nous n'avons pas testé de rafale). Hypothèse 2 : la rareté de l'information tient au fait que la bibliothèque renvoie l'usage des données vers les applications web et vers le package `dhlab` (hypothèse, non vérifiée).
 
+## 5 bis. Recherche ciblée des quotas (2026-11-13)
+
+Recherche menée après la sonde, sans nouvelle requête vers l'API. Aucun endpoint de statut ni en-tête de quota trouvé, donc aucune configuration `scripts/config/nb-no-quota.json` n'a été écrite. La lecture de la spécification OpenAPI ci-dessous est une lecture de documentation (WebFetch), pas une sonde.
+
+a) **Endpoint de statut de quota** : non trouvé — termes cherchés : « Nasjonalbiblioteket api.nb.no rate limit kvote API dokumentasjon IIIF » ; « api.nb.no rate limit quota terms of use National Library of Norway API » ; « api.nb.no catalog v1 openapi api-docs swagger rate limit » ; « Nasjonalbiblioteket kontakt API utviklere bruksvilkår maskinell tilgang ». Documentation lue : OpenAPI `https://api.nb.no/catalog/v1/items/api-docs` (cité par une issue GitHub tierce, lu 2026-11-13) : aucun champ de quota, de statut ni de limite ; la page Swagger racine https://api.nb.no/ (2026-11-13) ne donne aucun lien vers une spécification.
+b) **En-têtes de limite documentés** : non trouvé — ni `RateLimit-*`, ni `X-RateLimit-*`, ni `Retry-After` dans la spécification. Observé (5 requêtes, fiche) : aucun en-tête de limite. Source tierce (issue GitHub bindery #2979, non officielle) : « NB publishes no rate limits, so this keeps the load to people who asked for it. ».
+c) **Clé ou compte donnant un quota** : non trouvé. La spécification ne mentionne aucune clé d'API. Les services d'archivage (`digitalpreservation.no`) utilisent OAuth 2.0 mais relèvent d'un autre usage (dépôt), non de la consultation.
+d) **Contact officiel pour un quota** : trouvé — nasa@nb.no, dans le champ `info.contact` de l'OpenAPI `https://api.nb.no/catalog/v1/items/api-docs` (lu 2026-11-13). Pour l'API de recherche, search@nb.no est indiqué dans le document OpenSearch (extrait de recherche, non lu à la source).
+
+Standard : le brouillon IETF `draft-ietf-httpapi-ratelimit-headers` (RateLimit-*) n'est pas une norme ; la spécification IIIF n'a pas été relue sur ce point.
+
+Conclusion : moyen d'interroger le quota : **non**. Piste : écrire à nasa@nb.no (ou search@nb.no) pour demander une politique de débit pour les manifestes et les images, comme le recommande déjà la fiche.
+
 ## 6. Confiance et pistes restantes
 
 - Niveau de confiance : moyen (3 manifestes et la page racine testés en 200 ; pas de limite observée ; doc officielle non trouvée).

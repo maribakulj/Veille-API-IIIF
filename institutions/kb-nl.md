@@ -56,6 +56,19 @@ Note : l'outil WebFetch a aussi renvoyé `ENOTFOUND` pour `iiif.kb.nl` ; la sond
 - Trouvé (avec source) : l'API IIIF KB n'a pas d'URL publique documentée dans les pages consultées ; le consortium IIIF annonce seulement l'intention d'accès IIIF (annonce de 2025). Les API réellement documentées (SRU, OAI-PMH) sont des services de métadonnées, pas IIIF.
 - Hypothèses (étiquetées comme telles) : hypothèse 1 : le nom `iiif.kb.nl` est prévu mais pas encore en service (non vérifié ; le DNS ne le résout pas aujourd'hui). Hypothèse 2 : les manifestes passent par le viewer ou par Delpher, dont l'URL n'a pas été identifiée (non vérifié).
 
+## 5 bis. Recherche ciblée des quotas (2026-11-13)
+
+Recherche menée après la sonde, sans nouvelle requête vers l'API. Aucun endpoint de statut ni en-tête de quota trouvé, donc aucune configuration `scripts/config/kb-nl-quota.json` n'a été écrite.
+
+a) **Endpoint de statut de quota** : non trouvé — termes cherchés : « Koninklijke Bibliotheek IIIF API rate limit quota developers contact data services » ; « API voorwaarden gebruik limiet aantal verzoeken per minuut data services contact » ; « iiif.kb.nl manifest 2026 » ; « KB Netherlands API documentation rate limit ». Pages KB lues : https://www.kb.nl/en/research-find/for-researchers/data-services-apis-and-downloads (fiche, 2026-11-13) : aucun endpoint de statut. Non relu : le lien « contact » de cette page.
+b) **En-têtes de limite documentés** : non trouvé. Observé (7 requêtes SRU/OAI, fiche) : aucun en-tête de limite. `iiif.kb.nl` ne se résout pas (DNS) ; non retesté ici.
+c) **Clé ou compte donnant un quota** : non trouvé. Aucune clé ni compte n'est mentionné dans les pages lues ; la fiche indique SRU et OAI-PMH sans authentification.
+d) **Contact officiel pour un quota** : non trouvé. Aucune adresse de service données KB spécifique à l'API dans les pages lues. Ne pas confondre avec admin@iiif.io, qui est le contact du Consortium IIIF et non de la KB (https://iiif.io/news/2025/02/06/KB/, extrait de recherche).
+
+Standard : le brouillon IETF `draft-ietf-httpapi-ratelimit-headers` (RateLimit-*) n'est pas une norme ; la spécification IIIF n'a pas été relue sur ce point.
+
+Conclusion : moyen d'interroger le quota : **non**. Piste : retrouver le lien « contact » de la page data services (https://www.kb.nl/en/research-find/for-researchers/data-services-apis-and-downloads) et demander la politique de débit pour SRU, OAI-PMH et images.
+
 ## 6. Confiance et pistes restantes
 
 - Niveau de confiance : moyen sur les endpoints SRU/OAI (testés en direct, 200) ; faible sur IIIF (aucune URL documentée, hôte non résolu).
