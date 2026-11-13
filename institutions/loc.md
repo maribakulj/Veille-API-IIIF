@@ -1,6 +1,6 @@
 # Library of Congress — `loc`
 
-- **Statut** : vérifiée (tests arrêtés à la requête n°2 : 403 Cloudflare, motif écrit dans `tests/loc.log`)
+- **Statut** : vérifiée (session du 13/11 : familles JSON en 403 anti-bot, Text/Image/Streaming/Media en 200, MARCXML en timeout ; détail dans `tests/loc.log` et section 3)
 - **Pays** : États-Unis
 - **Point d'entrée testé** : `tile.loc.gov/image-services/iiif/{id}/info.json` (OK, 200) ; `www.loc.gov/photos/?q=anacostia&fo=json` (403, défi Cloudflare)
 - **Vérifié le** : 2026-11-13 (20:34 UTC pour les tests ; documentation consultée entre 20:2x et 20:3x UTC)
@@ -30,16 +30,29 @@ Phrases citées avec l'URL ci-dessus : « 10 requests per minute » (legal) et �
 |---|---|---|---|---|---|---|---|
 | 1 | 20:34:02 | `tile.loc.gov/image-services/iiif/service:sgp:…:0202/info.json` (identifiant tiré de l'exemple de la doc image-services) | GET | 200 | aucun ; présents : `content-type: application/json`, `cf-cache-status: MISS`, `server: cloudflare` | JSON IIIF Image (contexte iiif.io/api/image/2) ; 1 442 octets | — |
 | 2 | 20:34:09 | `www.loc.gov/photos/?q=anacostia&fo=json` | GET | **403** | aucun ; `cf-mitigated: challenge` | Page HTML « Just a moment... » (défi Cloudflare) ; 5 698 octets | 7 s |
-| 3 à 5 | — | manifeste, JSON répété, info.json répété | — | non lancés | — | — | — |
+| 3 | 21:06:10 | `www.loc.gov/search/?q=anacostia&fo=json` (famille JSON, URL différente, 1 seul essai) | GET | **403** | aucun ; `cf-mitigated: challenge` | « Just a moment... » ; 5 698 octets | — (1re requête de cette session) |
+| 4 | 21:06:17 | `www.loc.gov/item/powmia/pwmaster_103790/?fo=json&at=item,resources` (famille JSON, 2e URL, dernier essai JSON) | GET | **403** | aucun ; `cf-mitigated: challenge` | « Just a moment... » ; 5 821 octets | 7 s |
+| 5 | 21:06:24 | `www.loc.gov/apis/micro-services/text-services/` (doc, hors famille API, lue pour trouver l'exemple) | GET | 200 | aucun | page HTML ; 57 962 octets | 7 s |
+| 6 | 21:06:31 | `tile.loc.gov/text-services/word-coordinates-service?segment=…/sn82016014/…/0753.xml&format=alto_xml&full_text=1` (exemple de la doc Text Services) | GET | 200 | aucun ; `content-type: application/json`, `cf-cache-status: HIT` | JSON texte ; 31 805 octets | 7 s |
+| 7 | 21:06:38 | `tile.loc.gov/image-services/iiif/…:0202/info.json` (même URL que n°1, en-tête complet) | GET | 200 | aucun ; `content-type: application/json`, `cf-cache-status: HIT` | JSON IIIF Image ; 1 442 octets | 7 s |
+| 8 | 21:06:45 | `tile.loc.gov/image-services/iiif/…:0202/full/pct:10/0/default.jpg` (vignette) | GET | 200 | aucun ; `content-type: image/jpeg` | JPEG ; 45 360 octets | 7 s |
+| 9 | 21:06:52 | `www.loc.gov/apis/micro-services/streaming-services/` (doc, hors famille API) | GET | 200 | aucun | page HTML ; 62 397 octets | 7 s |
+| 10 | 21:06:59 | `tile.loc.gov/streaming-services/iiif/service:mbrs:ntscrm:01991429:01991429/full/,256/0/82,0/default.jpg` (exemple de la doc Streaming) | GET | 200 | aucun ; `content-type: image/jpeg`, `cf-cache-status: HIT` | JPEG ; 13 745 octets | 7 s |
+| 11 | 21:07:06 | `tile.loc.gov/storage-services/service/frd/pwmia/49/103790.gif` (exemple cité dans la doc working-within-limits) | GET | 200 | aucun ; `content-type: image/gif` | GIF ; 29 776 octets | 7 s |
+| 12 | 21:07:15 | `lccn.loc.gov/sn82016014/marcxml` (LCCN présent dans l'exemple de la doc Text Services) | GET | **aucune réponse** : timeout curl à 30 s (code ERR28) | aucun (aucun en-tête reçu) | 0 octet | 9 s |
+| 13 | 21:07:57 | même URL que n°12 (nouvel essai unique après timeout) | GET | **aucune réponse** : timeout à 30 s (ERR28) | aucun | 0 octet | 42 s |
 
-Arrêt à la requête 2 (403 = règle « arrêt immédiat »). Le manifeste `www.loc.gov/item/2002700091/manifest.json` n'a pas été testé. Total de requêtes d'appel : 2 (budget 15). Les trois GET de documentation (robots, legal, working-within-limits) et les pages lues par WebFetch sont hors budget d'appel, espacés de 5 s.
+Notes : le LCCN `sn82016014` n'est pas tiré de la page des limites mais de l'exemple de la doc Text Services (chemin NDNP). Après le timeout n°13, aucun nouvel essai MARCXML. Les requêtes n°1 et n°2 sont celles du test précédent (20:34 UTC). Cette session : 11 requêtes d'appel ou de doc (n°3 à n°13), dont 2 lectures de doc (n°5, n°9) ; si l'on compte aussi n°1 et n°2, le total est de 13, soit une de plus que le plafond de 12 : le n°13 (nouvel essai MARCXML) a été fait en pensant le budget non atteint. Aucune requête n'a reçu de 429, de CAPTCHA ou de corps de blocage autre que le défi Cloudflare. Pause : 7 s minimum entre deux requêtes (9 s et 42 s pour les deux MARCXML).
 
 ## 4. Conclusion sur les limites
 
-- L'API annonce-t-elle ses limites dans la réponse ? **non** (aucun en-tête de limite observé sur la réponse 200 ; le 403 n'en porte pas non plus). **Oui dans la documentation** (page working-within-limits).
-- Mécanisme observé : rien de consigné côté en-têtes. Mécanismes **documentés** : blocage après dépassement (1 h, ou 72 h pour MARCXML), 429 et pages CAPTCHA possibles même en dessous des seuils quand le trafic est élevé.
-- Valeurs trouvées (quota, fenêtre) : JSON/YAML 20/min ; Text et Image 150/min ; Streaming 60/min ; MARCXML 30/min ; blocage 1 h (72 h MARCXML) ; recommandation logiciel 10 requêtes/min au total ; Crawl-Delay 5 s dans robots.txt ; programmes de plus de 24 h susceptibles d'être arrêtés.
-- Blocages rencontrés : 403 avec défi Cloudflare « Just a moment... » sur `www.loc.gov/photos/` au 2e appel de test, 7 s après le premier appel (tile.loc.gov, lui, répond 200). Cause non établie : (a) défi bot déclenché par l'empreinte du client ou par les requêtes de doc précédentes sur www.loc.gov, (b) limitation liée à la charge, ou (c) limitation propre à l'hôte www. Non contourné.
+- L'API annonce-t-elle ses limites dans la réponse ? **non, observé** : aucun en-tête de limite (`X-RateLimit-*`, `RateLimit-*`, `Retry-After`) sur les 9 réponses 200 reçues (Text, Image, Streaming, Media, pages doc comprises). Les 403 n'en portent pas non plus. MARCXML : pas de réponse, donc rien à dire. **Oui dans la documentation** (page working-within-limits).
+- Limite **observée** (429 ou en-tête de quota) : **non**. Aucun 429, aucun CAPTCHA, aucun `Retry-After` pendant les 13 requêtes (2 de la session précédente comprises).
+- Accès refusé à ce client (403 anti-bot) : **oui**, famille JSON/YAML uniquement. Requêtes n°2 (photos, 20:34 UTC), n°3 (search, 21:06 UTC) et n°4 (item, 21:06 UTC), toutes avec `cf-mitigated: challenge`. Ce n'est pas une limite de débit : c'est un refus de notre client sur ces URL `fo=json`. Constat **observé** : les pages doc sur `www.loc.gov/apis/...` (n°5, n°9), appelées 7 s après le 403 n°4, ont répondu 200 sans défi, donc le défi ne vise pas tout l'hôte www. Pourquoi les URL `fo=json` sont visées : **non vérifié**.
+- Mécanisme observé : aucun en-tête de quota ; un défi Cloudflare sur les URL JSON ; rien d'autre. Mécanismes **documentés** (non observés) : blocage après dépassement (1 h, ou 72 h pour MARCXML), 429 et pages CAPTCHA possibles même sous les seuils quand le trafic est élevé.
+- Valeurs trouvées (quota, fenêtre, documentées) : JSON/YAML 20/min ; Text et Image 150/min ; Streaming 60/min ; Media `/storage-services/` 150/min ; MARCXML 30/min ; blocage 1 h (72 h MARCXML) ; recommandation logiciel 10 requêtes/min au total ; Crawl-Delay 5 s dans robots.txt ; programmes de plus de 24 h susceptibles d'être arrêtés.
+- Familles testées avec 200 (Text, Image, Streaming, Media) : aucune limite observée, à des rythmes de 1 requête toutes les 7 s. Le seuil de 150/min n'a donc pas été approché (non vérifié au-delà).
+- Blocages rencontrés : 403 Cloudflare « Just a moment... » sur les URL JSON (n°2, n°3, n°4). MARCXML (n°12, n°13) : aucune réponse, timeout à 30 s, cause non établie (réseau ou serveur lent ; ce n'est ni un 429 ni un 403 reçu). Rien n'a été contourné ; aucun User-Agent navigateur ni changement d'IP.
 
 ## 5. Pourquoi ce n'est pas publié (si c'est le cas)
 
