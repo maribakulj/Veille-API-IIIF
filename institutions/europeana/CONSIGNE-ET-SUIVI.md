@@ -2,57 +2,57 @@
 
 - **Dossier** : `institutions/europeana/`  ·  **Classeur de référence** : GLAM-011  ·  **Pays** : Union européenne
 - **Statut d'institution** : active
-- **Dernière mise à jour du suivi** : (à renseigner à chaque modification)
+- **Dernière mise à jour du suivi** : 2026-11-14
 
 ## Suivi par étape (à cocher, avec justification et preuves)
 
 ### a) Documentation lue en entier
 > Toutes les pages de doc liées à l'API (développeurs, interfaces, conditions, FAQ, aide, mentions légales, robots.txt), téléchargées avec `scripts/fetch_doc.sh` (URL, date, SHA-256), lues en entier (`scripts/extract_text.py`).
 
-- [ ] **Pas fait**
-  - **Justification** : Passe antérieure non conforme à la méthode v2 (AUDIT-HAIKU.md) : à refaire. Le matériel déjà présent dans ce dossier est conservé comme historique.
-  - **Preuves** : 
+- [x] **Fait**
+  - **Justification** : Lus et hachés : politique d'usage équitable, « Accessing the APIs », FAQ de l'API, « Europeana and IIIF », « API Suite », « IIIF Manifests at Europeana », « IIIF APIs Documentation » (base Atlassian, notice « anonymous access, some content might be blocked »), conditions d'utilisation, page des APIs du site, README du générateur de manifestes (GitHub), robots.txt de www, iiif, api (page d'application) et pro (403). Non lue : pro.europeana.eu (403 pour la sonde).
+  - **Preuves** : `institutions/europeana/sources/v2/SHA256SUMS`, `institutions/europeana/sources/v2b/SHA256SUMS`, `institutions/europeana/sources/v2c/SHA256SUMS`
 
 ### b) Endpoints tirés de la doc
 > Liste des endpoints citée par la doc (URL, exemples). Jamais devinée. Une interdiction ou une impossibilité écrite dans la doc justifie de renoncer (citer la phrase).
 
-- [ ] **Pas fait**
-  - **Justification** : Passe antérieure non conforme à la méthode v2 (AUDIT-HAIKU.md) : à refaire. Le matériel déjà présent dans ce dossier est conservé comme historique.
-  - **Preuves** : 
+- [x] **Fait**
+  - **Justification** : Endpoints documentés : manifestes iiif.europeana.eu/presentation/{DATASET_ID}/{LOCAL_ID}/manifest (sans clé) et service d'images annoncé par les manifestes ; APIs Search et Record (api.europeana.eu/record/v2/…, clé X-Api-Key ou wskey requise : non testées). Exemple d'enregistrement 90402/SK_A_3262 cité dans la FAQ.
+  - **Preuves** : `institutions/europeana/sources/v2/text/03.txt`, `institutions/europeana/sources/v2c/text/01.txt`, `institutions/europeana/sources/v2c/text/02.txt`
 
 ### c) Configuration écrite AVANT les tests
 > `config/<nom>.json` pilote `scripts/probe.py`, committée avant le lancement. Un endpoint absent de la doc mais non interdit se teste avec un script poli (identifiants issus de pages publiques ou d'exemples de la doc, pas de devinette).
 
-- [ ] **Pas fait**
-  - **Justification** : Passe antérieure non conforme à la méthode v2 (AUDIT-HAIKU.md) : à refaire. Le matériel déjà présent dans ce dossier est conservé comme historique.
-  - **Preuves** : 
+- [x] **Fait**
+  - **Justification** : Trois configurations committées avant lancement : manifeste d'exemple de la FAQ, manifeste avec service d'images Europeana, images du manifeste. Identifiants issus de la doc ou de réponses précédentes ; robots.txt de iiif.europeana.eu lu par la sonde.
+  - **Preuves** : `institutions/europeana/config/europeana-passe1-manifeste.json`, `institutions/europeana/config/europeana-passe2-manifeste-images.json`, `institutions/europeana/config/europeana-passe3-images.json`
 
 ### d) Quota cherché dans la doc
 > Pour chaque page lue : endpoint de statut, en-têtes de limite documentés, clé ou compte donnant un quota, contact pour un volume plus élevé. Chaque réponse cite sa source.
 
-- [ ] **Pas fait**
-  - **Justification** : Passe antérieure non conforme à la méthode v2 (AUDIT-HAIKU.md) : à refaire. Le matériel déjà présent dans ce dossier est conservé comme historique.
-  - **Preuves** : 
+- [x] **Fait**
+  - **Justification** : Aucun chiffre ni en-tête de limite, aucun endpoint de statut. Règles écrites : usage équitable avec limites par type de requête fixées par Europeana ; limites des clés personnelles réduites jusqu'en avril 2026 ; blocage ou révocation de clé ; jeux de données et OAI-PMH pour le moissonnage ; l'API IIIF ne demande aucune clé. La FAQ plus ancienne (« as often as you like ») est contredite.
+  - **Preuves** : `institutions/europeana/sources/v2/text/01.txt`, `institutions/europeana/sources/v2/text/02.txt`, `institutions/europeana/sources/v2/text/04.txt`, `institutions/europeana/sources/v2c/text/02.txt`
 
 ### e) Test systématique de chaque endpoint
 > Chaque endpoint documenté est testé (budget 15 requêtes par passe, pause ≥ 6 s, GET/HEAD, UA du projet). Redirections du même hôte suivies. Un 403 arrête son hôte, un 429 arrête l'institution. Seules les interdictions écrites dans la doc dispensent de tester.
 
-- [ ] **Pas fait**
-  - **Justification** : Passe antérieure non conforme à la méthode v2 (AUDIT-HAIKU.md) : à refaire. Le matériel déjà présent dans ce dossier est conservé comme historique.
-  - **Preuves** : 
+- [x] **Fait**
+  - **Justification** : Tous les endpoints sans clé sont testés (3 passes, 5 requêtes de données) : manifestes et images : 200, aucun en-tête de limite ni 429. Renoncements justifiés : APIs Search et Record (clé exigée par la doc, non demandée). Une tentative a échoué avant l'envoi (bug d'encodage de la sonde, corrigé) : aucune requête n'est partie.
+  - **Preuves** : `institutions/europeana/tests/journal.log`, `institutions/europeana/tests/raw/iiif-manifeste-9200396.headers.txt`, `institutions/europeana/tests/raw/image-info-json.headers.txt`
 
 ### f) Ce que disent les gens sur le web
 > Plaintes, discussions, présentations de l'institution, politique envers les API et les bots, blogs, GitHub, forums, listes de diffusion. Sources étiquetées (officielle / institution / utilisateur / tiers), lues, citées.
 
-- [ ] **Pas fait**
-  - **Justification** : Passe antérieure non conforme à la méthode v2 (AUDIT-HAIKU.md) : à refaire. Le matériel déjà présent dans ce dossier est conservé comme historique.
-  - **Preuves** : 
+- [x] **Fait**
+  - **Justification** : Recherches web (4) : politique d'usage équitable et réduction des clés lues sur le site de l'institution ; le chiffre « 120 requêtes / 10 s » de l'ancienne passe est introuvable (non retenu) ; aucune annonce d'Europeana sur les robots ou l'IA ; profils d'API tiers sans valeur chiffrée.
+  - **Preuves** : `institutions/europeana/fiche.md`, `institutions/europeana/sources/v2/text/01.txt`
 
 ### g) Crash test progressif
 > Seulement après l'audit complet (a à f) de toutes les institutions et avec l'accord de Marcel : paliers jusqu'à 2 × la limite documentée, ou 200 req/min si illimité ou sans limite documentée. Arrêt au premier 429/403/CAPTCHA.
 
 - [ ] **Pas fait**
-  - **Justification** : Passe antérieure non conforme à la méthode v2 (AUDIT-HAIKU.md) : à refaire. Le matériel déjà présent dans ce dossier est conservé comme historique.
+  - **Justification** : À faire à la fin de l'audit de toutes les institutions et à l'accord de Marcel. Aucune limite chiffrée pour l'IIIF : plafond de 200 req/min sur iiif.europeana.eu, mais Europeana peut bloquer ou révoquer des accès, et robots.txt du site interdit /iiif/* sur www. Les APIs à clé ne sont pas testables sans clé.
   - **Preuves** : 
 
 ### Contrôles transversaux
@@ -60,7 +60,7 @@
 
 <!-- AUTO:DEBUT -->
 ## Contrôles automatiques (calculés depuis `tests/journal.log`)
-- Requêtes enregistrées : **12** (sessions de sonde : 3, maximum par session : 3)
+- Requêtes enregistrées : **15** (sessions de sonde : 4, maximum par session : 3)
 - Plus courte pause vers un même hôte : **6 s** (règle : ≥ 6 s)
 - Méthodes utilisées : GET, HEAD (règle : GET/HEAD seulement)
 - Anomalies : aucune

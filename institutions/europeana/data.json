@@ -2,27 +2,67 @@
   "slug": "europeana",
   "nom": "Europeana",
   "pays": "Union européenne",
-  "statut_audit": "partiel (ancienne méthode)",
+  "statut_audit": "audit a–f complet ; g à faire",
   "limites_documentees": [
     {
-      "nature": "Quota par clé personnelle",
-      "perimetre": "API de recherche / Record",
-      "valeur": "non chiffré officiellement",
+      "nature": "Politique d'usage équitable",
+      "perimetre": "toutes les APIs d'Europeana",
+      "valeur": "nombre raisonnable de requêtes simultanées, limite par type de requête fixée par Europeana (non publiée)",
       "fenetre": "–",
-      "effet": "–",
-      "source": "https://www.europeana.eu/ (fair use policy, 2024, lue en résumé)",
-      "date": "2026-11-13",
-      "verification": "officielle, extrait lu (page non relue en entier)"
+      "effet": "clé temporairement bloquée ou révoquée",
+      "verification": "officielle, lue en entier (mise à jour 2024-09-05)",
+      "source": "https://europeana.atlassian.net/wiki/spaces/EF/pages/2704146433/Fair+use+policy+guidelines",
+      "date": "2026-11-13"
     },
     {
-      "nature": "Forum (non vérifié)",
-      "perimetre": "API",
-      "valeur": "120 requêtes / 10 s",
-      "fenetre": "10 s",
+      "nature": "Réduction des limites des clés personnelles",
+      "perimetre": "clés personnelles, APIs Search et Record",
+      "valeur": "réduction progressive jusqu'en avril 2026 (chiffres non publiés)",
+      "fenetre": "–",
+      "effet": "passage aux clés de projet",
+      "verification": "officielle, lue en entier",
+      "source": "https://europeana.atlassian.net/wiki/spaces/EF/pages/2462351393/Accessing+the+APIs",
+      "date": "2026-11-13"
+    },
+    {
+      "nature": "Limitation du nombre de requêtes (conditions)",
+      "perimetre": "API Europeana",
+      "valeur": "limite raisonnable, fixable à tout moment, non chiffrée",
+      "fenetre": "–",
+      "effet": "non précisé",
+      "verification": "officielle, lue en entier",
+      "source": "https://www.europeana.eu/en/rights/terms-of-use",
+      "date": "2026-11-13"
+    },
+    {
+      "nature": "Moissonnage en masse",
+      "perimetre": "métadonnées",
+      "valeur": "jeux de données FTP/HTTP ou OAI-PMH recommandés",
+      "fenetre": "–",
       "effet": "–",
-      "source": "fil de forum, date et portée inconnues",
-      "date": "2026-11-13",
-      "verification": "tierce, non vérifiée"
+      "verification": "officielle, lue en entier",
+      "source": "https://europeana.atlassian.net/wiki/spaces/EF/pages/2704146433/Fair+use+policy+guidelines",
+      "date": "2026-11-13"
+    },
+    {
+      "nature": "Pas de clé",
+      "perimetre": "API IIIF (iiif.europeana.eu)",
+      "valeur": "aucune clé exigée",
+      "fenetre": "–",
+      "effet": "–",
+      "verification": "officielle, lue en entier",
+      "source": "https://europeana.atlassian.net/wiki/spaces/EF/pages/1627914244/IIIF+APIs+Documentation",
+      "date": "2026-11-13"
+    },
+    {
+      "nature": "Affirmation plus ancienne contredite",
+      "perimetre": "APIs (FAQ)",
+      "valeur": "« as often as you like without any throttling or limiting »",
+      "fenetre": "–",
+      "effet": "–",
+      "verification": "officielle mais ancienne, contredite par la politique d'usage équitable",
+      "source": "https://europeana.atlassian.net/wiki/spaces/EF/pages/2360508417/Europeana+API+FAQ",
+      "date": "2026-11-13"
     }
   ],
   "en_tetes_observes": [],
@@ -31,18 +71,95 @@
       "date": "2026-11-13",
       "hote": "pro.europeana.eu",
       "code": "403",
-      "nature": "portail développeurs, lecture WebFetch",
-      "suite": "non réessayé"
+      "nature": "anti-bot pour la sonde",
+      "suite": "non réessayé ; documentation lue sur la base de connaissances Atlassian"
     }
   ],
   "contact": "api@europeana.eu",
-  "conclusion_quota": "Quota lié à la clé personnelle (X-Api-Key) ; pas de chiffre officiel trouvé.",
-  "classe_quota": "règle sans chiffre publié (clé)",
-  "confiance": "faible",
-  "notes": "Le 120/10 s provient d'un forum, non vérifié.",
+  "conclusion_quota": "Aucun chiffre publié. Usage équitable : limites par type de requête fixées par Europeana ; limites des clés personnelles réduites jusqu'en avril 2026 ; blocage ou révocation de clé. L'API IIIF ne demande aucune clé. Aucun en-tête de limite observé.",
+  "classe_quota": "règle sans chiffre publié (clé personnelle ou de projet)",
+  "confiance": "moyenne",
+  "notes": "Le chiffre « 120 requêtes / 10 s » de l'ancienne passe est introuvable. La FAQ (plus ancienne) dit « as often as you like without any throttling » : contredite par la politique d'usage équitable. Documentation Confluence partiellement masquée aux anonymes.",
   "classeur_id": "GLAM-011",
   "type": "Plateforme / consortium",
-  "sources": [],
-  "web": [],
-  "donnees_a_revalider": true
+  "sources": [
+    {
+      "url": "https://europeana.atlassian.net/wiki/spaces/EF/pages/2704146433/Fair+use+policy+guidelines",
+      "date": "2026-11-13",
+      "etiquette": "officielle",
+      "preuve": "institutions/europeana/sources/v2/SHA256SUMS"
+    },
+    {
+      "url": "https://europeana.atlassian.net/wiki/spaces/EF/pages/2462351393/Accessing+the+APIs",
+      "date": "2026-11-13",
+      "etiquette": "officielle",
+      "preuve": "institutions/europeana/sources/v2/SHA256SUMS"
+    },
+    {
+      "url": "https://europeana.atlassian.net/wiki/spaces/EF/pages/2360508417/Europeana+API+FAQ",
+      "date": "2026-11-13",
+      "etiquette": "officielle",
+      "preuve": "institutions/europeana/sources/v2/SHA256SUMS"
+    },
+    {
+      "url": "https://www.europeana.eu/en/rights/terms-of-use",
+      "date": "2026-11-13",
+      "etiquette": "officielle",
+      "preuve": "institutions/europeana/sources/v2/SHA256SUMS"
+    },
+    {
+      "url": "https://iiif.europeana.eu/robots.txt",
+      "date": "2026-11-13",
+      "etiquette": "officielle",
+      "preuve": "institutions/europeana/sources/v2/SHA256SUMS"
+    },
+    {
+      "url": "https://www.europeana.eu/robots.txt",
+      "date": "2026-11-13",
+      "etiquette": "officielle",
+      "preuve": "institutions/europeana/sources/v2/SHA256SUMS"
+    },
+    {
+      "url": "https://europeana.atlassian.net/wiki/spaces/EF/pages/2398912540/IIIF+Manifests+at+Europeana",
+      "date": "2026-11-13",
+      "etiquette": "officielle",
+      "preuve": "institutions/europeana/sources/v2c/SHA256SUMS"
+    },
+    {
+      "url": "https://europeana.atlassian.net/wiki/spaces/EF/pages/1627914244/IIIF+APIs+Documentation",
+      "date": "2026-11-13",
+      "etiquette": "officielle",
+      "preuve": "institutions/europeana/sources/v2c/SHA256SUMS"
+    },
+    {
+      "url": "https://github.com/europeana/iiif-presentation-api",
+      "date": "2026-11-13",
+      "etiquette": "officielle",
+      "preuve": "institutions/europeana/sources/v2c/SHA256SUMS"
+    }
+  ],
+  "web": [
+    {
+      "url": "https://europeana.atlassian.net/wiki/spaces/EF/pages/2462351393/Accessing+the+APIs",
+      "date": "2026-11-13",
+      "etiquette": "institution (base de connaissances)",
+      "citation": "« The rate limits for personal keys have been progressively reduced until April 2026 to give customers with service-level requirements sufficient time to transition to project keys »",
+      "preuve": "institutions/europeana/sources/v2/text/02.txt"
+    },
+    {
+      "url": "https://europeana.atlassian.net/wiki/spaces/EF/pages/2704146433/Fair+use+policy+guidelines",
+      "date": "2024-09-05",
+      "etiquette": "institution (politique)",
+      "citation": "« The failure to comply with this policy may result in your access key be temporarily blocked or even revoked. »",
+      "preuve": "institutions/europeana/sources/v2/text/01.txt"
+    },
+    {
+      "url": "https://apis.io/rate-limits/",
+      "date": "2026-11-13",
+      "etiquette": "tiers (agrégateur), non vérifié",
+      "citation": "« Europeana Rate Limits » sans valeur chiffrée.",
+      "preuve": "institutions/europeana/fiche.md"
+    }
+  ],
+  "donnees_a_revalider": false
 }
