@@ -1,0 +1,121 @@
+IIIF Change Discovery API | Rijksmuseum Data Services 
+ Skip to main content 
+ Docs Tutorials Policy About 
+ Overview 
+ Data Dumps 
+ Linked Data Resolver 
+ Search 
+ OAI-PMH 
+ LDES 
+ SRU (deprecated) 
+ IIIF 
+ IIIF CD API 
+ IIIF Image API 
+ IIIF Presentation API 
+ IIIF 
+ IIIF CD API 
+ On this page 
+ IIIF Change Discovery API
+ Introduction ​ 
+ The IIIF Change Discovery API provides
+a mechanism to discover changes to resources. The Activity Streams 2.0 
+specification is used to describe these changes, through an OrderedCollection 
+(an interlinked set of pages) in which each OrderedCollectionPage 
+contains a certain number of change events.
+ The OrderedCollection 
+serves as a navigational starting point for discovery, and provides
+a reference to the last OrderedCollectionPage 
+within the collection.
+The last OrderedCollectionPage 
+describes the most recent event(s), while the pages before that describe
+older event(s). Additionally, each page may contain a reference
+to the previous page in a collection.
+As recommended by the API specification, processing begins with the
+ last page . The
+ first page is optional in the
+specification; the Rijksmuseum implementation omits it and does not support
+forward pagination via next :
+pages can only be traversed backwards.
+ The client should keep track of the pages or events that have
+already been processed before. The client is also expected to interpret
+the types of change to a resource and infer what the current state
+of the resource is, and it should make intelligent decisions whether
+an event is still relevant or applicable to a resource.
+ Implementation ​ 
+ Rijksmuseum uses a IIIF Change Discovery API to facilitate
+the discovery of any changes to the metadata of e.g. its collection objects
+and bibliographic resources.
+ The API serves pages that contain a maximum of one hundred ordered events.
+Each event with a timestamp, the type of change and the persistent identifier
+of the resource that underwent the change. The actual metadata of the resource
+is not included; the content can be obtained by resolving the persistent
+identifier of the resource.
+ Datasets ​ 
+ The implementation also includes support for datasets, which scopes an
+ OrderedCollection 
+to events about an opiniated selection of resources.
+Each dataset is assigned a unique dataset number . Rijksmuseum registers
+certain datasets (e.g. as DCAT entries
+in the NDE Dataset Register )
+or communicates relevant dataset numbers to interested parties directly.
+However, discovery of datasets is currently not available.
+ Access ​ 
+ Resource Scope Root Location 
+ All https://data.rijksmuseum.nl/cd/collection.json 
+ Dataset https​://data.rijksmuseum.nl/cd/ dataset number /collection.json 
+ Examples ​ 
+ OrderedCollection ​ 
+ note
+ The following example does not represent an actual API response.
+ { 
+ "@context" : "http://iiif.io/api/discovery/1/context.json" , 
+ "@type" : "OrderedCollection" , 
+ "id" : "http://data.rijksmuseum.nl/cd/collection.json" , 
+ "last" : { 
+ "id" : "http://data.rijksmuseum.nl/cd/pages/collection/backward/500.json" , 
+ "type" : "OrderedCollectionPage" 
+ } 
+ } 
+ OrderedCollectionPage ​ 
+ note
+ The list of events was reduced to keep the example small
+and does not represent an actual API response.
+ { 
+ "@context" : "http://iiif.io/api/discovery/1/context.json" , 
+ "id" : "http://data.rijksmuseum.nl/cd/pages/collection/backward/500.json" , 
+ "orderedItems" : [ 
+ { 
+ "endTime" : "2024-12-10T16:00:00.723333" , 
+ "object" : { 
+ "id" : "http://data.rijksmuseum.nl/2987654" 
+ } , 
+ "type" : "Create" 
+ } , 
+ { 
+ "endTime" : "2024-12-10T16:00:00.656666" , 
+ "object" : { 
+ "id" : "http://data.rijksmuseum.nl/2765432" 
+ } , 
+ "type" : "Create" 
+ } 
+ ] , 
+ "partOf" : { 
+ "id" : "http://data.rijksmuseum.nl/cd/collection.json" , 
+ "type" : "OrderedCollection" 
+ } , 
+ "prev" : { 
+ "id" : "http://data.rijksmuseum.nl/cd/pages/500/backward/400.json" , 
+ "type" : "OrderedCollectionPage" 
+ } , 
+ "type" : "OrderedCollectionPage" 
+ } 
+ Previous
+ IIIF
+ Next
+ IIIF Image API
+ Introduction 
+ Implementation Datasets 
+ Access 
+ Examples OrderedCollection 
+ OrderedCollectionPage 
+ Cookie settings Rijksmuseum · Contact

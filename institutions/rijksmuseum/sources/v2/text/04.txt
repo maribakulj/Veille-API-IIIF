@@ -1,0 +1,41 @@
+Data Dumps | Rijksmuseum Data Services 
+ Skip to main content 
+ Docs Tutorials Policy About 
+ Overview 
+ Data Dumps 
+ Historical Data Dumps 
+ Linked Data Resolver 
+ Search 
+ OAI-PMH 
+ LDES 
+ SRU (deprecated) 
+ IIIF 
+ Data Dumps 
+ On this page 
+ Data Dumps
+ Data dumps are available with metadata from various domains in their respective representations.
+ Multi-domain object metadata download ​ 
+ This set of files includes resource metadata from the Rijkmuseum collection and library domains.
+The metadata is represented in the CIDOC-CRM (scoped to Linked Art )
+and Schema.org conceptual models, and serialized as application/n-triples .
+ Each file contains the metadata of a single resource. The files are distributed through the following downloadable archives:
+ Archive Files Domain Description 
+ classification.tar.gz 23.834 Shared Classifications as Linked Art E55_Type with references to SKOS/ICONCLASS. 
+ concept.tar.gz 14.051 Shared Concepts as Linked Art E55_Type with references to AAT. 
+ event.tar.gz 2.412 Shared Historical events as Linked Art E7_Activity . 
+ exhibition.tar.gz 870 Collection Exhibitions as Linked Art E7_Activity . 
+ image.tar.gz 580.039 Collection Image metadata as Linked Art D1_Digital_Object and IIIF Image API endpoint. 
+ instance.tar.gz 321.354 Library Bibliographic instances as Schema.org ProductModel . 
+ item.tar.gz 381.376 Library Bibliographic items as Schema.org IndividualProduct . 
+ organisation.tar.gz 28.215 Library Bibliographic organisations as Schema.org Organization . 
+ person.tar.gz 181.379 Library Bibliographic persons as Schema.org Person . 
+ place.tar.gz 37.101 Shared Places as Linked Art E53_Place . 
+ set.tar.gz 229 Shared Set metadata as Schema.org Dataset defining specific compositions of resources. 
+ topical_term.tar.gz 8.014 Library Bibliographic topical terms as Schema.org DefinedTerm . 
+ work.tar.gz 321.354 Library Bibliographic works as Schema.org CreativeWork . 
+ Previous
+ Overview
+ Next
+ Historical Data Dumps
+ Multi-domain object metadata download 
+ Cookie settings Rijksmuseum · Contact

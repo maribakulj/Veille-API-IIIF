@@ -1,0 +1,58 @@
+IIIF Image API | Rijksmuseum Data Services 
+ Skip to main content 
+ Docs Tutorials Policy About 
+ Overview 
+ Data Dumps 
+ Linked Data Resolver 
+ Search 
+ OAI-PMH 
+ LDES 
+ SRU (deprecated) 
+ IIIF 
+ IIIF CD API 
+ IIIF Image API 
+ IIIF Presentation API 
+ IIIF 
+ IIIF Image API 
+ On this page 
+ IIIF Image API
+ Introduction ​ 
+ The IIIF Image API can be used to return both image metadata
+as well as the binary data of an image, and additionally supports
+various transformations that can be applied to an image, such as
+cropping, resizing, rotation and quality or format adjustments.
+All features can be entirely accessed by using a specific
+ URI syntax .
+ Implementation ​ 
+ Rijksmuseum uses an IIIF Image API to offer images of artworks.
+For this, it uses the product Micrio which is
+created by Q42 .
+The API endpoint of an image can be obtained through the access point
+of a D1_Digital_Object 
+which the E36_Visual_Item 
+of a E22_Human-Made_Object 
+may reference.
+ Access ​ 
+ There is one production endpoint available.
+ Intented Use Resource Scope Root Location 
+ Production All https://iiif.micr.io 
+ Examples ​ 
+ URI Description 
+ https://iiif.micr.io/RFwqO/info.json Retrieve image metadata. 
+ https://iiif.micr.io/RFwqO/full/max/0/default.png The image of an object in PNG format. 
+ https://iiif.micr.io/RFwqO/full/max/0/gray.jpg The image of an object in grayscale JPEG. 
+ https://iiif.micr.io/ohGMs/full/800,80/90/gray.jpg The image of another object cropped and rotated 90⁰. 
+ Further reading ​ 
+ IIIF Image API 3.0 specification 
+ IIIF Cookbook 
+ Micrio Knowledge Base 
+ Micrio Image API 
+ Previous
+ IIIF CD API
+ Next
+ IIIF Presentation API
+ Introduction 
+ Implementation Access 
+ Examples 
+ Further reading 
+ Cookie settings Rijksmuseum · Contact

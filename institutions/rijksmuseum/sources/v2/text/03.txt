@@ -1,0 +1,40 @@
+Linked Data Resolver | Rijksmuseum Data Services 
+ Skip to main content 
+ Docs Tutorials Policy About 
+ Overview 
+ Data Dumps 
+ Linked Data Resolver 
+ Content Negotiation with Arguments 
+ Content Negotiation with Headers 
+ Search 
+ OAI-PMH 
+ LDES 
+ SRU (deprecated) 
+ IIIF 
+ Linked Data Resolver 
+ On this page 
+ Linked Data Resolver
+ The Rijksmuseum Persistent Identifier Resolver is a Linked Open Data API allowing you to dereference Rijksmuseum persistent identifiers (PIDs). These PIDs are of the form https://id.rijksmuseum.nl/<integer number> and link to either this entity on the Rijksmuseum Collection website when accessed in a browser, or serve data about this entity when accessed programmatically or using content negotiation . These URLs also serve as the canonical RDF URI of Rijksmuseum entities such as collection objects, people, places, etc.
+ The API also serves data about entities directly at https://data.rijksmuseum.nl/<integer number> , but note that this URL is not the canonical RDF URI of entities and should preferably not be used for linking to entities externally, unless you want to link to the API (outside of a Linked Data context).
+ HTTP Content Negotiation ​ 
+ Metadata may be available in several representations. For example, The Night Watch is available in representations using the Linked Art model and the Europeana Data Model. Furthermore, each of these representations may be serialized in multiple ways, such as JSON-LD or RDF/XML .
+ To make known to the resolver what representation and serialization can be accepted by the client, the resolver and it's client may perform content negotiation. The resolver API implements the Content Negotiation by Profile spec by the W3C . More specifically, it conforms to the following two functional profiles of that specification:
+ http://www.w3.org/ns/dx/connegp/profile/http (HTTP headers)
+ http://www.w3.org/ns/dx/connegp/profile/qsa (Query string arguments)
+ For each method of content negotiation with the Resolver API, refer to the following docs:
+ Content negotiation with query string arguments 
+ Content negotiation with HTTP headers 
+ Endpoint behaviour ​ 
+ To summarize, how the API handles the following requests:
+ https://id.rijksmuseum.nl/<integer number> accessed in a browser > redirects you to the associated page of an entity on the Rijksmuseum Collection website
+ https://id.rijksmuseum.nl/<integer number>?_profile=* with the content negotiation query parameter _profile=* > serves data about an entity in the default format (such as Linked Art), regardless of browser or other client.
+ https://id.rijksmuseum.nl/<integer number>?_profile=la-framed with the content negotiation query parameter _profile=la-framed > serves data about an entity in the la-framed format, regardless of browser or other client.
+ https://data.rijksmuseum.nl/<integer number> without content negotation query parameters or headers > serves data about an entity in the default format, regardless of browser or other client ( same as 2 ).
+ https://data.rijksmuseum.nl/<integer number>?_profile=la-framed with the content negotiation query parameter _profile=la-framed > serves data about an entity in the la-framed format, regardless of browser or other client ( same as 3 ).
+ Previous
+ Historical Data Dumps
+ Next
+ Content Negotiation with Arguments
+ HTTP Content Negotiation 
+ Endpoint behaviour 
+ Cookie settings Rijksmuseum · Contact

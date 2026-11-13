@@ -1,0 +1,51 @@
+IIIF Presentation API | Rijksmuseum Data Services 
+ Skip to main content 
+ Docs Tutorials Policy About 
+ Overview 
+ Data Dumps 
+ Linked Data Resolver 
+ Search 
+ OAI-PMH 
+ LDES 
+ SRU (deprecated) 
+ IIIF 
+ IIIF CD API 
+ IIIF Image API 
+ IIIF Presentation API 
+ IIIF 
+ IIIF Presentation API 
+ On this page 
+ IIIF Presentation API
+ Introduction ​ 
+ The IIIF Presentation API provides a standardized description of
+e.g. the structure, composition or presentation views of digital objects
+using a JSON format. These digital objects can be digitisations
+of (compound) physical objects or represent born-digital content.
+ Implementation ​ 
+ Rijksmuseum relies on Micrio to provide
+a IIIF Presentation API endpoint for its images.
+Please see IIIF Image API for more details
+on how to access images of Rijksmuseum artworks.
+For some images, Q42 , the creator of Micrio,
+has leveraged the IIIF Presentation specification to include detailed
+descriptions 
+for specific sections of an image.
+ Access ​ 
+ There is one production endpoint available.
+ Intented Use Resource Scope Root Location 
+ Production All https://iiif.micr.io 
+ Examples ​ 
+ URI Description 
+ https://iiif.micr.io/RFwqO/manifest Retrieve the manifest of a specific image. 
+ Further reading ​ 
+ IIIF Presentation API 3.0 specification 
+ IIIF Cookbook 
+ Micrio Knowledge Base 
+ Micrio Presentation API 
+ Previous
+ IIIF Image API
+ Introduction 
+ Implementation Access 
+ Examples 
+ Further reading 
+ Cookie settings Rijksmuseum · Contact

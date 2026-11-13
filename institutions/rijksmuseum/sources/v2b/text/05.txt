@@ -1,0 +1,261 @@
+OAI-PMH | Rijksmuseum Data Services 
+ Skip to main content 
+ Docs Tutorials Policy About 
+ Overview 
+ Data Dumps 
+ Linked Data Resolver 
+ Search 
+ OAI-PMH 
+ LDES 
+ SRU (deprecated) 
+ IIIF 
+ OAI-PMH 
+ On this page 
+ OAI-PMH
+ note
+ june 11, 2026 
+ We have released a new version of our OAI-PMH API, in which the Europeana Data Model (EDM) representations provided are valid according to Europeana's XML Schema and Schematron validation rules.
+ This update may have breaking changes for your usecase, depending on the way you consume the EDM data: if you use the EDM data as a graph, nothing will change. If you parse the XML, please refer to the EDM documentation ( https://pro.europeana.eu/page/edm-documentation ) for more information about the structure of EDM data.
+ The Rijksmuseum offers an API featuring the Open Archives Initiative Protocol for Metadata Harvesting (OAI-PMH). This API only returns records from the museum collection. Library and archive records are not available.
+ The spec's documentation provides in-depth information about the OAI-PMH spec and how to use it. Information and examples specific to the Rijksmuseum are listed below.
+ Access to the OAI-PMH API ​ 
+ The API is available at the following URL. No API key is needed.
+ OAI-PMH base url
+ https://data.rijksmuseum.nl/oai 
+ Verbs ​ 
+ Every request to the OAI-PMH API must be accompanied by a verb parameter. A verb is used to indicate what data to retrieve. The following verbs can be used as parameters (case sensitive):
+ Identify retreive information about this API.
+ ListMetadataFormats retrieve the available metadata formats.
+ ListSets retrieve the available sets of objects.
+ ListRecords retrieve an entire set of data.
+ GetRecord retrieve a specific record.
+ ListIdentifiers retrieve headers with identifiers of records.
+ https://data.rijksmuseum.nl/oai?verb={verb} 
+ Identify ​ 
+ The Identify verb retrieves information about this API, including supported granularity for timestamps. Timestamps are in UTC.
+ Example request ​ 
+ https://data.rijksmuseum.nl/oai?verb=Identify 
+ Example response ​ 
+ Example response of the Identify verb with information about this API. Of particular note is the granularity as this describes the required format for all timestamps.
+ < Identify > 
+ < repositoryName > Rijksmuseum OAI-PMH API </ repositoryName > 
+ < baseURL > https://data.rijksmuseum.nl/oai </ baseURL > 
+ < protocolVersion > 2.0 </ protocolVersion > 
+ < adminEmail > collectieinfo@rijksmuseum.nl </ adminEmail > 
+ < earliestDatestamp > 2024-08-15T13:51:17Z </ earliestDatestamp > 
+ < deletedRecord > persistent </ deletedRecord > 
+ < granularity > YYYY-MM-DDThh:mm:ssZ </ granularity > 
+ </ Identify > 
+ ListMetadataFormats ​ 
+ The ListMetadataFormats verb retrieves a list of available metadata formats.
+ The currently supported formats are:
+ Prefix Format 
+ edm Europeana Data Model 
+ oai_dc Dublin Core 
+ Example request ​ 
+ https://data.rijksmuseum.nl/oai?verb=ListMetadataFormats 
+ Example response ​ 
+ Example response of the ListMetadataFormats verb. The value of metadataPrefix can be used as a parameter in other requests such as ListRecords .
+ < ListMetadataFormats > 
+ < metadataFormat > 
+ < metadataPrefix > edm </ metadataPrefix > 
+ < schema > https://www.europeana.eu/schemas/edm/EDM.xsd </ schema > 
+ < metadataNamespace > http://www.europeana.eu/schemas/edm/ </ metadataNamespace > 
+ </ metadataFormat > 
+ </ ListMetadataFormats > 
+ ListSets ​ 
+ The ListSets retrieves the available sets of objects. Currently, these sets are curated by the Rijksmuseum. They are based on collections terms (e.g porcelain), special sets (e.g. Dutch Paintings of the Seventeenth Century in the Rijksmuseum) or sets created for aggregators.
+ Example request ​ 
+ https://data.rijksmuseum.nl/oai?verb=ListSets 
+ Example response ​ 
+ Example response of the ListSets verb. Each set includes a descriptive name and a setSpec identifier, which can be used as the set parameter in other requests such as ListRecords . Note that set identifiers correspond to their Linked Open Data identifiers in the format of https://id.rijksmuseum.nl/{setSpec} .
+ < ListSets > 
+ < set > 
+ < setSpec > 26021 </ setSpec > 
+ < setName > Dutch Paintings of the Seventeenth Century in the Rijksmuseum </ setName > 
+ </ set > 
+ < set > 
+ < setSpec > 26018 </ setSpec > 
+ < setName > Flemish Paintings in the Rijksmuseum </ setName > 
+ </ set > 
+ <!-- more results... --> 
+ </ ListSets > 
+ ListRecords ​ 
+ The ListRecords verb retrieves an entire set of metadata.
+ Parameter Format Default Notes 
+ metadataPrefix edm Required: the prefix of the requested metadataFormat . 
+ set 0-9 all objects An optional set to harvest. 
+ resumptionToken base64 The resumption token returned by a previous ListRecords request, used for pagination. 
+ from YYYY-MM-DDThh:mm:ssZ earliest datestamp Parameter for selective harvesting, based on a specified date range. Specifies a bound interpreted as "greater than or equal to". 
+ until YYYY-MM-DDThh:mm:ssZ now Parameter for selective harvesting, based on a specified date range. Specifies a bound interpreted as "less than or equal to". 
+ Example request ​ 
+ https://data.rijksmuseum.nl/oai?verb=ListRecords&set=26021&metadataPrefix=edm 
+ This request will return the first 50 records in the specified set. A resumptionToken element is included at the end of the response, which can be used as a parameter to request the next 50 records. Resumption tokens do not expire, and are based on records changed within the from and until date ranges. Note that if an included record has changed more recently as well, you will always get the most up-to-date version of this record.
+ Example response ​ 
+ Example response of the ListRecords verb. Each record's header includes the identifier of the object and a date stamp. The datestamp indicates when a record was created, deleted, or modified. Note that if a record has changed both within the from and until ranges of the request, as well as more recently, the datestamp may be higher than the requested ranges. You will always receive the most up-to-date version of this record.
+ < ListRecords > 
+ < record > 
+ < header > 
+ < identifier > https://id.rijksmuseum.nl/200108293 </ identifier > 
+ < datestamp > 2024-08-30T14:20:05Z </ datestamp > 
+ < setSpec > 260208 </ setSpec > 
+ < setSpec > 26021 </ setSpec > 
+ < setSpec > 260212 </ setSpec > 
+ < setSpec > 260213 </ setSpec > 
+ < setSpec > 260214 </ setSpec > 
+ </ header > 
+ < metadata > 
+ < rdf: RDF xmlns: dc = " http://purl.org/dc/elements/1.1/ " xmlns: dcterms = " http://purl.org/dc/terms/ " xmlns: edm = " http://www.europeana.eu/schemas/edm/ " xmlns: mrel = " http://id.loc.gov/vocabulary/relators/ " xmlns: ore = " http://www.openarchives.org/ore/terms/ " xmlns: owl = " http://www.w3.org/2002/07/owl# " xmlns: rdf = " http://www.w3.org/1999/02/22-rdf-syntax-ns# " xmlns: skos = " http://www.w3.org/2004/02/skos/core# " > 
+ < ore: Aggregation rdf: about = " https://id.rijksmuseum.nl/200108293#aggregation " > 
+ < edm: aggregatedCHO > 
+ < edm: ProvidedCHO rdf: about = " https://id.rijksmuseum.nl/200108293 " > 
+ < dc: description xml: lang = " en " > Our eye meanders happily through this large painting. If we follow the road and cross the bridge, we see in the distance a well-to-do traveller in a sedan chair. Mules carry his baggage. By placing a draughtsman near the bridge over the waterfall, Both would have us believe that he painted this scene from life, but in reality it was painted at home in his Dutch studio. </ dc: description > 
+ < dc: description xml: lang = " nl " > Over zo &#8217; n groot schilderij kan de blik ronddwalen. Als we de weg volgen, de brug over, zien we in de verte een welgestelde reiziger in een draagstoel. Muilezels dragen zijn bagage. Met de tekenaar voor de brug bij de waterval wil Both ons doen geloven dat hij het allemaal naar de werkelijkheid heeft geschilderd. Maar toch werd deze voorstelling thuis samengesteld. </ dc: description > 
+ < dc: identifier > SK-C-109 </ dc: identifier > 
+ < dc: rights rdf: resource = " https://creativecommons.org/publicdomain/zero/1.0/ " /> 
+ < dc: subject rdf: resource = " https://id.rijksmuseum.nl/221160 " /> 
+ < dc: subject rdf: resource = " https://id.rijksmuseum.nl/221227 " /> 
+ < dc: subject rdf: resource = " https://id.rijksmuseum.nl/221592 " /> 
+ < dc: title xml: lang = " en " > Italiaans landschap met tekenaar </ dc: title > 
+ < dc: title xml: lang = " en " > Italian Landscape with a Draughtsman </ dc: title > 
+ < dc: title xml: lang = " nl " > Italiaans landschap met tekenaar </ dc: title > 
+ < dc: title xml: lang = " nl " > Italian Landscape with a Draughtsman </ dc: title > 
+ <!-- more metadata... --> 
+ </ edm: ProvidedCHO > 
+ </ edm: aggregatedCHO > 
+ < edm: provider > Rijksmuseum </ edm: provider > 
+ < edm: rights rdf: resource = " http://creativecommons.org/publicdomain/mark/1.0/ " /> 
+ < edm: dataProvider > Rijksmuseum </ edm: dataProvider > 
+ < edm: isShownAt > 
+ < edm: WebResource rdf: about = " https://www.rijksmuseum.nl/nl/collectie/SK-C-109 " > 
+ < dc: format > text/html </ dc: format > 
+ < dc: language > nl </ dc: language > 
+ < dc: type rdf: resource = " http://purl.org/dc/dcmitype/InteractiveResource " /> 
+ </ edm: WebResource > 
+ </ edm: isShownAt > 
+ </ ore: Aggregation > 
+ <!-- more metadata... --> 
+ < edm: Place rdf: about = " https://id.rijksmuseum.nl/2301886 " > 
+ < skos: prefLabel > Rijksmuseum </ skos: prefLabel > 
+ </ edm: Place > 
+ </ rdf: RDF > 
+ </ metadata > 
+ </ record > 
+ <!-- more results... --> 
+ < resumptionToken completeListSize = " 650 " > bWV0YWRhdGFQcmV... </ resumptionToken > 
+ </ ListRecords > 
+ ListIdentifiers ​ 
+ The ListIdentifiers verb retrieves headers with identifiers of objects. This verb is an abbreviated form of ListRecords , retrieving only headers rather than records.
+ Parameter Format Default Notes 
+ metadataPrefix edm Required: the prefix of the requested metadataFormat . 
+ set 0-9 all objects An optional set to harvest. 
+ resumptionToken base64 The resumption token returned by a previous ListIdentifiers request, used for pagination. 
+ from YYYY-MM-DDThh:mm:ssZ earliest datestamp Parameter for selective harvesting, based on a specified date range. Specifies a bound interpreted as "greater than or equal to". 
+ until YYYY-MM-DDThh:mm:ssZ now Parameter for selective harvesting, based on a specified date range. Specifies a bound interpreted as "less than or equal to". 
+ Example request ​ 
+ https://data.rijksmuseum.nl/oai?verb=ListIdentifiers&set=26021&metadataPrefix=edm 
+ This request will return the first 50 records in the specified set. A resumptionToken element is included at the end of the response, which can be used as a parameter to request the next 50 records. Resumption tokens do not expire, and are based on records changed within the from and until date ranges. Note that if an included record has changed more recently as well, you will always get the most up-to-date version of this record.
+ Example response ​ 
+ Example response of the ListIdentifiers verb. Each header includes the identifier of the object and a date stamp. The datestamp indicates when a record was created, deleted, or modified. Note that if a record has changed both within the from and until ranges of the request, as well as more recently, the datestamp may be higher than the requested ranges.
+ < ListIdentifiers > 
+ < header > 
+ < identifier > https://id.rijksmuseum.nl/200108292 </ identifier > 
+ < datestamp > 2024-08-30T14:20:05Z </ datestamp > 
+ < setSpec > 260208 </ setSpec > 
+ < setSpec > 26021 </ setSpec > 
+ </ header > 
+ < header > 
+ < identifier > https://id.rijksmuseum.nl/200108293 </ identifier > 
+ < datestamp > 2024-08-30T14:20:05Z </ datestamp > 
+ < setSpec > 260208 </ setSpec > 
+ < setSpec > 26021 </ setSpec > 
+ < setSpec > 260212 </ setSpec > 
+ < setSpec > 260213 </ setSpec > 
+ < setSpec > 260214 </ setSpec > 
+ </ header > 
+ <!-- more results... --> 
+ < resumptionToken completeListSize = " 650 " > bWV0YWRhdGFQcmV... </ resumptionToken > 
+ </ ListIdentifiers > 
+ GetRecord ​ 
+ The GetRecord verb retrieves an individual metadata record.
+ Parameter Format Default Notes 
+ identifier https://id.rijksmuseum.nl/[record-id] Required: specifies the URI identifier of the object (e.g. https://id.rijksmuseum.nl/200107928 ). 
+ metadataPrefix edm Required: the metadata format of the result. 
+ Example request ​ 
+ https://data.rijksmuseum.nl/oai?verb=GetRecord&metadataPrefix=edm&identifier=https://id.rijksmuseum.nl/200107928 
+ This request will return the EDM-formatted object description of the Nightwatch ( https://id.rijksmuseum.nl/200107928 ).
+ Example response ​ 
+ < GetRecord > 
+ < record > 
+ < header > 
+ < identifier > https://id.rijksmuseum.nl/200107928 </ identifier > 
+ < datestamp > 2024-09-27T07:20:23Z </ datestamp > 
+ < setSpec > 260208 </ setSpec > 
+ < setSpec > 260212 </ setSpec > 
+ < setSpec > 260213 </ setSpec > 
+ < setSpec > 260214 </ setSpec > 
+ </ header > 
+ < metadata > 
+ < rdf: RDF xmlns: dc = " http://purl.org/dc/elements/1.1/ " xmlns: dcterms = " http://purl.org/dc/terms/ " xmlns: edm = " http://www.europeana.eu/schemas/edm/ " xmlns: mrel = " http://id.loc.gov/vocabulary/relators/ " xmlns: ore = " http://www.openarchives.org/ore/terms/ " xmlns: owl = " http://www.w3.org/2002/07/owl# " xmlns: rdaGr2 = " http://rdvocab.info/ElementsGr2/ " xmlns: rdf = " http://www.w3.org/1999/02/22-rdf-syntax-ns# " xmlns: skos = " http://www.w3.org/2004/02/skos/core# " xmlns: wgs84_pos = " http://www.w3.org/2003/01/geo/wgs84_pos# " > 
+ < ore: Aggregation rdf: about = " https://id.rijksmuseum.nl/200107928#aggregation " > 
+ < edm: aggregatedCHO > 
+ < edm: ProvidedCHO rdf: about = " https://id.rijksmuseum.nl/200107928 " > 
+ < dc: creator rdf: resource = " https://id.rijksmuseum.nl/2103429 " /> 
+ < dc: description xml: lang = " en " > Rembrandt &#8217; s largest, most famous canvas was made for the Arquebusiers guild hall. This was one of several halls of Amsterdam &#8217; s civic guard, the city &#8217; s militia and police. Rembrandt was the first to paint figures in a group portrait actually doing something. The captain, dressed in black, is telling his lieutenant to start the company marching. The guardsmen are getting into formation. Rembrandt used the light to focus on particular details, like the captain &#8217; s gesturing hand and the young girl in the background. She was the company mascot. </ dc: description > 
+ < dc: description xml: lang = " nl " > Rembrandts beroemdste en grootste doek werd gemaakt voor de Kloveniersdoelen. Dit was een van de verenigingsgebouwen van de Amsterdamse schutterij, de burgerwacht van de stad. Rembrandt was de eerste die op een groepsportret de figuren in actie weergaf. De kapitein, in het zwart, geeft zijn luitenant opdracht dat de compagnie moet gaan marcheren. De schutters stellen zich op. Met behulp van licht vestigde Rembrandt de aandacht op belangrijke details, zoals het handgebaar van de kapitein en het kleine meisje op de achtergrond. Zij is de mascotte van de schutters. </ dc: description > 
+ < dc: identifier > SK-C-5 </ dc: identifier > 
+ < dc: relation rdf: resource = " https://id.rijksmuseum.nl/200187874 " /> 
+ < dc: title xml: lang = " en " > De Nachtwacht </ dc: title > 
+ < dc: title xml: lang = " en " > The Night Watch Militia Company of District II under the Command of Captain Frans Banninck Cocq </ dc: title > 
+ < dc: title xml: lang = " nl " > De Nachtwacht </ dc: title > 
+ < dc: title xml: lang = " nl " > The Night Watch Militia Company of District II under the Command of Captain Frans Banninck Cocq </ dc: title > 
+ < dc: type rdf: resource = " https://id.rijksmuseum.nl/2208 " /> 
+ < dcterms: alternative xml: lang = " en " > The company of Captain Frans Banninck Cocq and Lieutenant Willem van Ruytenburch, known as 'The nightwatch' </ dcterms: alternative > 
+ < dcterms: alternative > Het korporaalschap van kapitein Frans Banninck Cocq en luitenant Willem van Ruytenburch, bekend als de 'Nachtwacht' </ dcterms: alternative > 
+ < dcterms: created xml: lang = " en " > 1642 </ dcterms: created > 
+ < dcterms: created xml: lang = " nl " > 1642 </ dcterms: created > 
+ < dcterms: extent > 453.5cm x 379.5cm </ dcterms: extent > 
+ <!-- more metadata... --> 
+ </ edm: ProvidedCHO > 
+ </ edm: aggregatedCHO > 
+ < edm: provider > Rijksmuseum </ edm: provider > 
+ < edm: rights rdf: resource = " http://creativecommons.org/publicdomain/mark/1.0/ " /> 
+ < edm: dataProvider > Rijksmuseum </ edm: dataProvider > 
+ < edm: isShownAt > 
+ < edm: WebResource rdf: about = " https://www.rijksmuseum.nl/nl/collectie/SK-C-5 " > 
+ < dc: format > text/html </ dc: format > 
+ < dc: language > nl </ dc: language > 
+ < dc: type rdf: resource = " http://purl.org/dc/dcmitype/InteractiveResource " /> 
+ </ edm: WebResource > 
+ </ edm: isShownAt > 
+ </ ore: Aggregation > 
+ < rdf: Description rdf: about = " https://data.rijksmuseum.nl/200107928 " > 
+ < dc: publisher > Rijksmuseum </ dc: publisher > 
+ </ rdf: Description > 
+ < rdf: Description rdf: about = " https://id.rijksmuseum.nl/260208 " > 
+ < skos: prefLabel > schilderijen </ skos: prefLabel > 
+ </ rdf: Description > 
+ <!-- more metadata... --> 
+ </ rdf: RDF > 
+ </ metadata > 
+ </ record > 
+ </ GetRecord > 
+ Previous
+ Search
+ Next
+ LDES
+ Access to the OAI-PMH API 
+ Verbs 
+ Identify Example request 
+ Example response 
+ ListMetadataFormats Example request 
+ Example response 
+ ListSets Example request 
+ Example response 
+ ListRecords Example request 
+ Example response 
+ ListIdentifiers Example request 
+ Example response 
+ GetRecord Example request 
+ Example response 
+ Cookie settings Rijksmuseum · Contact

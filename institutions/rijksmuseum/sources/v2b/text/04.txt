@@ -1,0 +1,53 @@
+Linked Data Event Streams API | Rijksmuseum Data Services 
+ Skip to main content 
+ Docs Tutorials Policy About 
+ Overview 
+ Data Dumps 
+ Linked Data Resolver 
+ Search 
+ OAI-PMH 
+ LDES 
+ SRU (deprecated) 
+ IIIF 
+ LDES 
+ On this page 
+ Linked Data Event Streams API
+ Introduction ​ 
+ The Linked Data Event Streams API 
+exposes a Linked Data Event Stream, which is a collection of immutable objects
+each described in RDF . LDES relies on the
+ TREE specification for its collection
+and pagination features.
+ Implementation ​ 
+ Rijksmuseum offers an LDES API to share metadata about its collection objects
+and bibliographic resources. Each LDES page is formatted as JSON-LD 
+and contains complete metadata of one or more resources and/or information
+to navigate the available metadata. For example, one can find metadata about
+a Human-Made Object 
+or a Creative Work using the LDES API.
+ Datasets ​ 
+ The implementation also includes support for datasets, which scopes
+the metadata to an opiniated selection of resources. Each dataset is assigned
+a unique dataset number . Rijksmuseum registers certain datasets
+(e.g. as DCAT entries in the
+ NDE Dataset Register )
+or communicates relevant dataset numbers to interested parties directly.
+However, discovery of datasets is currently not available.
+ Access ​ 
+ Resource Scope Root Location 
+ All https://data.rijksmuseum.nl/ldes/collection.json 
+ Dataset https​://data.rijksmuseum.nl/ldes/dataset/ dataset number /collection.json 
+ Further reading ​ 
+ If you want to know more about LDES or using and publishing an LDES API,
+please follow the links in this section,
+or refer to this e-learning module 
+from EU Academy.
+ Previous
+ OAI-PMH
+ Next
+ SRU (deprecated)
+ Introduction 
+ Implementation Datasets 
+ Access 
+ Further reading 
+ Cookie settings Rijksmuseum · Contact

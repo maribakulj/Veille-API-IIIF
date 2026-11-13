@@ -1,0 +1,49 @@
+{
+  "slug": "rijksmuseum",
+  "min_delay_s": 6,
+  "max_requests": 15,
+  "follow_redirects": 1,
+  "note": "Passe v2 n°1 : services de data.rijksmuseum.nl documentés (search, résolveur, OAI-PMH, LDES, IIIF Change Discovery), avec les exemples de la doc (sources/v2, sources/v2b). « No API key is needed » (Search et OAI-PMH). ListRecords non testé (volumineux) ; GetRecord pour l'identifiant d'exemple. robots.txt : 404 (autorisé).",
+  "endpoints": [
+    {
+      "id": "search-collection-peinture",
+      "method": "GET",
+      "url": "https://data.rijksmuseum.nl/search/collection?type=painting&material=oil+paint"
+    },
+    {
+      "id": "resolveur-200107928",
+      "method": "GET",
+      "url": "https://data.rijksmuseum.nl/200107928"
+    },
+    {
+      "id": "oai-identify",
+      "method": "GET",
+      "url": "https://data.rijksmuseum.nl/oai?verb=Identify"
+    },
+    {
+      "id": "oai-listmetadataformats",
+      "method": "GET",
+      "url": "https://data.rijksmuseum.nl/oai?verb=ListMetadataFormats"
+    },
+    {
+      "id": "oai-listsets",
+      "method": "GET",
+      "url": "https://data.rijksmuseum.nl/oai?verb=ListSets"
+    },
+    {
+      "id": "oai-getrecord-edm",
+      "method": "GET",
+      "url": "https://data.rijksmuseum.nl/oai?verb=GetRecord&metadataPrefix=edm&identifier=https://id.rijksmuseum.nl/200107928"
+    },
+    {
+      "id": "ldes-collection",
+      "method": "GET",
+      "url": "https://data.rijksmuseum.nl/ldes/collection.json"
+    },
+    {
+      "id": "iiif-cd-collection",
+      "method": "GET",
+      "url": "https://data.rijksmuseum.nl/cd/collection.json"
+    }
+  ]
+}
