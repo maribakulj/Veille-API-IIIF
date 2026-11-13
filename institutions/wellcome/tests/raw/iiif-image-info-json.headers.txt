@@ -1,0 +1,19 @@
+2026-11-13T22:57:41Z GET https://iiif.wellcomecollection.org/image/b18659135_0001.jp2/info.json
+HTTP 401
+content-type: application/json
+content-length: 4322
+connection: keep-alive
+date: Fri, 13 Nov 2026 22:57:41 GMT
+server: Kestrel
+cache-control: max-age=86400, private
+x-correlation-id: ae7f1bb5-680b-44a1-b901-bdefacc28a70
+x-asset-id: 2/5/b18659135_0001.jp2
+access-control-allow-origin: *
+x-varnish: 218857908
+via: 1.1 varnish (Varnish/7.1), 1.1 6bd1f57616826567973945ed5968343a.cloudfront.net (CloudFront)
+x-cache-hits: 0
+vary: Accept-Encoding
+x-cache: Error from cloudfront
+x-amz-cf-pop: MXP53-P8
+x-amz-cf-id: N86KYc2xre2170kaL9opOyffUrzwD9lf3rFwSPF0oKw0QD9SOTXjjw==
+age: 0

@@ -1,0 +1,22 @@
+2026-11-13T22:58:13Z GET https://iiif.wellcomecollection.org/image/b18659135_0001.jp2/full/!200,200/0/default.jpg
+HTTP 200
+content-type: image/jpeg
+transfer-encoding: chunked
+connection: keep-alive
+date: Fri, 13 Nov 2026 22:58:13 GMT
+server: Kestrel
+cache-control: private, max-age=600
+x-correlation-id: e64d97bf-451a-4c27-8d84-36dcf702fcf0
+x-asset-id: 2/5/b18659135_0001.jp2
+x-asset-id: 2/5/b18659135_0001.jp2
+x-thumb-match: 1
+x-proxy-destination: Thumbs
+access-control-allow-origin: *
+x-varnish: 2491652
+via: 1.1 varnish (Varnish/7.1), 1.1 a4b90eeb3ac2a0b286bca1c8dc675fae.cloudfront.net (CloudFront)
+accept-ranges: bytes
+x-cache-hits: 0
+x-cache: Miss from cloudfront
+x-amz-cf-pop: MXP53-P8
+x-amz-cf-id: i-6Eq9Gis8UaIExrE90smtxqXNrs45TmJBSJp94yLdLudzjnGLt-Wg==
+age: 0
