@@ -1,0 +1,15 @@
+{
+  "slug": "wellcome",
+  "min_delay_s": 6,
+  "max_requests": 15,
+  "follow_redirects": 1,
+  "note": "Passe v2 n°2 : même API Catalogue, avec le paramètre include=items pour obtenir les liens IIIF de l'œuvre a222zvge (identifiant public lu en passe 1).",
+  "endpoints": [
+    {
+      "id": "catalogue-work-a222zvge-items",
+      "method": "GET",
+      "url": "https://api.wellcomecollection.org/catalogue/v2/works/a222zvge?include=items",
+      "save_body": 300000
+    }
+  ]
+}
