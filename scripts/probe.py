@@ -77,7 +77,9 @@ def classify(status, headers, body):
         return "403_ANTI_BOT"
     if status >= 500:
         return "ERREUR_SERVEUR"
-    return "OK" if status < 400 else f"HTTP_{status}"
+    if 300 <= status < 400:
+        return "REDIRECTION_NON_SUIVIE"  # la sonde ne suit pas les redirections
+    return "OK" if status < 300 else f"HTTP_{status}"
 
 
 def main():
