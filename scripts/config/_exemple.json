@@ -1,0 +1,9 @@
+{
+  "slug": "_exemple",
+  "min_delay_s": 6,
+  "max_requests": 4,
+  "endpoints": [
+    {"id": "e1", "method": "GET", "url": "https://example.org/a"},
+    {"id": "e2", "method": "HEAD", "url": "https://example.org/b"}
+  ]
+}
