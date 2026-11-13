@@ -18,4 +18,4 @@
 # Requêtes 3 à 5 (session 21:06 UTC) : sonde scripts/probe.py ; le 302 du .json (ci-dessous) a été lu par un HEAD via la fonction fetch de probe.py (même UA), pas par un curl brut.
 # Note : le .json suggéré par le guide iiif.io redirige (302, Location: PR-FB-00886-00005-00006) vers la forme sans extension, qui répond 200.
 # Non tenté : info.json d'image (aucune URL d'image documentée ; l'identifiant d'image est dans le corps du manifeste, que la sonde ne lit que sur 200 octets) ; endpoint métadonnées (cudl.link : DNS non résolu, aucune autre URL documentée) ; recherche Solr (doc : non publique, accessible seulement depuis le sous-réseau interne).
-# Bilan mis à jour : 5 requêtes sur 15 ; manifestes IIIF accessibles en 200 ; aucune limite de débit (ni en-tête, ni 429) observée sur 4 appels espacés de 6 s et plus.
+# Bilan mis à jour : 7 requêtes au total sur 15 (2 de la 1re session, 5 de cette session) ; manifestes IIIF accessibles en 200 ; aucune limite de débit (ni en-tête, ni 429) observée sur 5 requêtes espacées de 6 s et plus (dont un HEAD).

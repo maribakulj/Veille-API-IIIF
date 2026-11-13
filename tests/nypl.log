@@ -1,3 +1,5 @@
 # Journal nypl — veille quotas IIIF — UA: VeilleAPIIIF/0.1 (veille documentaire; github.com/maribakulj/Veille-API-IIIF)
 # Format : n° | horodatage UTC | URL | méthode | statut | en-têtes | limites | taille | délai depuis précédent | corps (200 o max)
 # Portée : api-collections.nypl.org (manifestes) et api.repo.nypl.org (API REST, documentée à part) sont des hôtes distincts de iiif.nypl.org.
+1 | 2026-11-13T21:07:42Z | https://iiif.nypl.org/ | GET | 000ERR | ct=-  | limites: aucun | taille=0 | delta=-s | corps: 
+2 | 2026-11-13T21:08:12Z | https://api-collections.nypl.org/manifests/333ce2c0-3144-0132-b540-3c075448cc4b | GET | 200 | content-type: application/json ; server: uvicorn | limites: aucun | taille=7527 | delta=-s | corps: {"id":"https://api-collections.nypl.org/manifests/333ce2c0-3144-0132-b540-3c075448cc4b","type":"Manifest","label":{"en":["The early years: The context of Ruth St. Denis' choreography"]},"@context":"ht

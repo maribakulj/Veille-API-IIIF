@@ -1,0 +1,11 @@
+{
+  "slug": "kb-nl",
+  "min_delay_s": 6,
+  "max_requests": 15,
+  "endpoints": [
+    {"id": "sru-explain-https", "method": "GET", "url": "https://jsru.kb.nl/sru/sru?operation=explain"},
+    {"id": "oai-identify-https", "method": "GET", "url": "https://services.kb.nl/mdo/oai?verb=Identify"},
+    {"id": "sru-searchretrieve", "method": "GET", "url": "https://jsru.kb.nl/sru/sru?operation=searchRetrieve&version=1.2&maximumRecords=1&query=dc.title%3Damsterdam"},
+    {"id": "oai-listsets", "method": "GET", "url": "https://services.kb.nl/mdo/oai?verb=ListSets"}
+  ]
+}
