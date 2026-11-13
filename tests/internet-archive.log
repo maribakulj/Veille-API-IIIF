@@ -1,0 +1,23 @@
+# Journal brut — internet-archive — 2026-11-13 (UTC)
+# UA : VeilleAPIIIF/0.1 (veille documentaire; github.com/maribakulj/Veille-API-IIIF)
+# Méthode : GET uniquement, pause >= 6 s entre requêtes (même hôte), 10 requêtes directes au total (budget 15).
+# Les consultations de documentation (WebSearch / WebFetch) ne sont pas comptées.
+
+# n°  | heure UTC           | méthode | URL                                                                        | statut | en-têtes de limite          | corps / remarque                              | délai depuis précédent
+1   | 2026-11-13T20:33:45Z | GET     | https://iiif.archivelab.org/iiif/mma_irises_436528/info.json               | 000    | aucun                       | ECHEC TLS : certificat ne correspond pas au nom d'hôte (curl exit 60). Pas de contournement (-k non utilisé). | - (pause 5 s avant)
+2   | 2026-11-13T20:33:56Z | GET     | https://iiif.archive.org/iiif/img-8664_202009/info.json                    | 302    | aucun                       | redirection vers .../image/iiif/2/img-8664_202009%2fIMG_8664.jpg/info.json | 11 s
+3   | 2026-11-13T20:34:05Z | GET     | https://iiif.archive.org/image/iiif/2/img-8664_202009%2fIMG_8664.jpg/info.json | 200 | aucun                   | JSON IIIF Image 2.0, Cantaloupe 5.0.6, 903 o, width 4032 / height 3024 | 9 s
+4   | 2026-11-13T20:34:14Z | GET     | https://archive.org/advancedsearch.php?q=mediatype%3Atexts+AND+collection%3Aiiif&fl[]=identifier&rows=1&page=1&output=json | 200 | aucun | numFound 0 (requête mal ciblée, pas un blocage) | 9 s
+5   | 2026-11-13T20:34:23Z | GET     | https://archive.org/metadata/                                              | 200 | aucun                       | {"error":"missing identifier"} (conséquence de n°4 : identifiant vide) | 9 s
+6   | 2026-11-13T20:34:33Z | GET     | https://archive.org/advancedsearch.php?q=mediatype%3Atexts&fl[]=identifier&rows=1&page=1&output=json | 200 | aucun | numFound 53174561, 1 doc (identifiant ddd_010120427_mpeg21), 247 o, QTime 426 | 10 s
+7   | 2026-11-13T20:34:43Z | GET     | https://archive.org/metadata/ddd_010120427_mpeg21                          | 200 | aucun                       | JSON métadonnées d'item, 6838 o (corps non recopié) | 10 s
+8   | 2026-11-13T20:34:53Z | GET     | https://iiif.archive.org/iiif/img-8664_202009/manifest.json (suivi -L)     | 200 | aucun                       | IIIF Presentation 3, application/ld+json, 3027 o | 10 s
+9   | 2026-11-13T20:35:07Z | GET     | https://archive.org/advancedsearch.php?q=mediatype%3Atexts&fl[]=identifier&rows=1&page=1&output=json | 200 | aucun | 247 o, identique à n°6 | 14 s
+10  | 2026-11-13T20:35:14Z | GET     | idem n°9                                                                   | 200    | aucun                       | 247 o | 7 s
+
+# En-têtes notables observés (n°3, n°6, n°7) : server nginx ; access-control-allow-origin: *; cache-control: max-age=21600 (IIIF) ;
+# aucun X-RateLimit-*, RateLimit-*, Retry-After ni 429/503 sur ces 10 requêtes.
+# Pas de requête de test par WebFetch dans ce journal (documentation seulement).
+# Observation hors journal : une consultation documentaire via WebFetch de https://archive.org/details/termsofuse a renvoyé
+# 404 avec l'en-tête « Retry-After: 3600 » (réponse de l'outil de récupération, non reproduite avec notre UA ; non comptée).
+# Wayback (MCP ia_find_snapshots) : appel refusé pour paramètre manquant (mode), non relancé.
