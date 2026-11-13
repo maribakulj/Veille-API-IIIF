@@ -1,0 +1,12 @@
+2026-11-13T22:49:32Z GET https://dams.llgc.org.uk/iiif/archive/3975658/fonds.json
+HTTP 302
+server: nginx/1.26.3
+date: Fri, 13 Nov 2026 22:49:32 GMT
+content-type: text/html
+content-length: 145
+location: https://iiif.llyfrgell.cymru/iiif/archive/3975658/fonds.json
+access-control-allow-origin: *
+access-control-allow-methods: GET, HEAD, OPTIONS
+access-control-allow-headers: Origin, Accept, Content-Type, Authorization, X-Requested-With, Range
+access-control-expose-headers: Content-Length, Content-Range, Content-Type
+vary: Origin

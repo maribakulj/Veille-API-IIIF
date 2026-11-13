@@ -1,0 +1,17 @@
+# Session 2026-11-13T22:48:54Z — configuration nlw-passe1-manifestes.json — sonde probe.py au commit 0ead1f1
+2026-11-13T22:48:54Z | robots.txt:damsssl.llgc.org.uk | https://damsssl.llgc.org.uk/robots.txt | GET | 302 | robots.txt indisponible : tout est autorisé (RFC 9309)
+2026-11-13T22:49:01Z | manifeste-4389767 | https://damsssl.llgc.org.uk/iiif/2.0/4389767/manifest.json | GET | 302 REDIRECTION_NON_SUIVIE | aucun en-tête de limite | taille≥145 | corps: <html> <head><title>302 Found</title></head> <body> <center><h1>302 Found</h1></center> <hr><center>nginx/1.26.3</center> </body> </html> 
+# redirection vers https://iiif.llyfrgell.cymru/manifests/2.0/4389767/manifest.json : NON suivie (autre hôte)
+2026-11-13T22:49:07Z | manifeste-1489984 | https://damsssl.llgc.org.uk/iiif/2.0/1489984/manifest.json | GET | 302 REDIRECTION_NON_SUIVIE | aucun en-tête de limite | taille≥145 | corps: <html> <head><title>302 Found</title></head> <body> <center><h1>302 Found</h1></center> <hr><center>nginx/1.26.3</center> </body> </html> 
+# redirection vers https://iiif.llyfrgell.cymru/manifests/2.0/1489984/manifest.json : NON suivie (autre hôte)
+2026-11-13T22:49:14Z | journal-presse-issue-3036869 | https://damsssl.llgc.org.uk/iiif/newspaper/issue/3036869/manifest.json | GET | 302 REDIRECTION_NON_SUIVIE | aucun en-tête de limite | taille≥145 | corps: <html> <head><title>302 Found</title></head> <body> <center><h1>302 Found</h1></center> <hr><center>nginx/1.26.3</center> </body> </html> 
+# redirection vers https://iiif.llyfrgell.cymru/manifests/newspaper/issue/3036869/manifest.json : NON suivie (autre hôte)
+2026-11-13T22:49:20Z | collection-presse-3036868 | https://damsssl.llgc.org.uk/iiif/newspapers/3036868.json | GET | 302 REDIRECTION_NON_SUIVIE | aucun en-tête de limite | taille≥145 | corps: <html> <head><title>302 Found</title></head> <body> <center><h1>302 Found</h1></center> <hr><center>nginx/1.26.3</center> </body> </html> 
+# redirection vers https://iiif.llyfrgell.cymru/iiif/newspapers/3036868.json : NON suivie (autre hôte)
+2026-11-13T22:49:20Z | robots.txt:dams.llgc.org.uk | http://dams.llgc.org.uk/robots.txt | GET | 301 | robots.txt indisponible : tout est autorisé (RFC 9309)
+2026-11-13T22:49:26Z | fonds-3975658 | http://dams.llgc.org.uk/iiif/archive/3975658/fonds.json | GET | 301 REDIRECTION_NON_SUIVIE | aucun en-tête de limite | taille≥0 | corps: 
+# redirection vers https://dams.llgc.org.uk/iiif/archive/3975658/fonds.json : suivie (même hôte, comptée dans le budget)
+2026-11-13T22:49:32Z | fonds-3975658+redir | https://dams.llgc.org.uk/iiif/archive/3975658/fonds.json | GET | 302 REDIRECTION_NON_SUIVIE | aucun en-tête de limite | taille≥145 | corps: <html> <head><title>302 Found</title></head> <body> <center><h1>302 Found</h1></center> <hr><center>nginx/1.26.3</center> </body> </html> 
+2026-11-13T22:49:33Z | robots.txt:iiif.llyfrgell.cymru | https://iiif.llyfrgell.cymru/robots.txt | GET | 404 | robots.txt indisponible : tout est autorisé (RFC 9309)
+2026-11-13T22:49:39Z | manifeste-llyfrgell-6086535 | https://iiif.llyfrgell.cymru/manifests/2.0/6086535/manifest.json | GET | 200 OK | aucun en-tête de limite | taille≥200 | corps: { 	"@context": "http://iiif.io/api/presentation/2/context.json", 	"@type": "sc:Manifest", 	"@id": "https://iiif.llyfrgell.cymru/manifests/2.0/6086535/manifest.json", 	"label": "Petition - 1/214 1923",
+# Fin 2026-11-13T22:49:39Z — 10 requête(s) envoyée(s)

@@ -1,0 +1,30 @@
+{
+  "slug": "national-library-of-wales",
+  "min_delay_s": 6,
+  "max_requests": 15,
+  "follow_redirects": 1,
+  "note": "Passe v2 n°2 : cibles des redirections 302 de damsssl.llgc.org.uk et dams.llgc.org.uk (en-têtes Location de la passe 1, tests/raw/*.headers.txt) : le NLW a déplacé son IIIF vers iiif.llyfrgell.cymru. La sonde ne suit pas les redirections vers un autre hôte ; elles sont donc testées explicitement ici.",
+  "endpoints": [
+    {
+      "id": "llyfrgell-manifeste-4389767",
+      "method": "GET",
+      "url": "https://iiif.llyfrgell.cymru/manifests/2.0/4389767/manifest.json",
+      "save_body": 3000000
+    },
+    {
+      "id": "llyfrgell-presse-issue-3036869",
+      "method": "GET",
+      "url": "https://iiif.llyfrgell.cymru/manifests/newspaper/issue/3036869/manifest.json"
+    },
+    {
+      "id": "llyfrgell-presse-collection-3036868",
+      "method": "GET",
+      "url": "https://iiif.llyfrgell.cymru/iiif/newspapers/3036868.json"
+    },
+    {
+      "id": "llyfrgell-fonds-3975658",
+      "method": "GET",
+      "url": "https://iiif.llyfrgell.cymru/iiif/archive/3975658/fonds.json"
+    }
+  ]
+}
