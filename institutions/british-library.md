@@ -1,6 +1,6 @@
 # British Library — `british-library`
 
-- **Statut** : vérifiée (fiche complète ; tests d'appel arrêtés sur iiif.bl.uk après un 403, voir § 3)
+- **Statut** : **incomplète** (corrigé le 2026-11-13 : la doc IIIF / API de la BL n'a pas été lue ; le 403 vient aussi d'un curl depuis la machine de veille, pas seulement de l'outil de lecture — voir § 3)
 - **Pays** : Royaume-Uni
 - **Point d'entrée testé** : `https://iiif.bl.uk/` (point d'entrée supposé dans `institutions.csv`) ; manifeste de repli `https://api.bl.uk/metadata/iiif/ark:/81055/vdc_000000035B1A/manifest.json` (cité dans une source tierce, nom DNS non résolu)
 - **Vérifié le** : 2026-11-13 (≈ 20:33 UTC)

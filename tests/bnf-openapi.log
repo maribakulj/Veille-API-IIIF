@@ -1,0 +1,13 @@
+# Journal bnf-openapi — veille quotas IIIF — 2026-11-13 (UTC)
+# Règles : GET seulement (HEAD pour les sondes de disponibilité), UA VeilleAPIIIF/0.1, pas d'identifiant envoyé, pause >= 10 s entre requêtes vers *.bnf.fr.
+# Aucun appel POST (jeton OAuth non demandé : voir fiche § 3).
+# Sondes HEAD initiales (lot de ~20:32:50 à 20:33:12 UTC, pauses de 10 s) :
+2026-11-13T20:32:5xZ | https://apimpubext.bnf.fr | HEAD | ERR (résolution DNS impossible, curl 6) | - | - | -
+2026-11-13T20:33:0xZ | https://openapi.bnf.fr | HEAD | 200 | (en-têtes non relevés) | - | -
+2026-11-13T20:33:1xZ | https://apimauthpubext.bnf.fr | HEAD | 403 | - | - | - | (sonde unique, non répétée)
+# Tests GET :
+#1 | 2026-11-13T20:33:50Z | https://openapi.bnf.fr/iiif/presentation/v3/ark:/12148/bpt6k9761234x/manifest.json | GET | 404 | 50o | delai=- | en-tetes: Content-Type: application/json; charset=UTF-8 | corps: {"reason":"Not Found","code":404,"status":"error"}
+#2 | 2026-11-13T20:34:00Z | https://openapiproext.bnf.fr/iiif/presentation/v3/ark:/12148/bpt6k9761234x/manifest.json | GET | ERR28 (délai de connexion dépassé, 30 s) | 0o | delai=10s | en-tetes: aucun | corps: vide | ARRÊT (connexion non établie, pas de réessai)
+#3 | 2026-11-13T20:34:35Z | https://openapi.bnf.fr/ | GET | 200 | 142o | delai=- | en-tetes: Content-Type: text/html; charset=UTF-8 | corps: page d'accueil APIM (Apache Synapse) "Welcome to APIM", lien /service masqué
+#4 | 2026-11-13T20:34:45Z | https://openapi.bnf.fr/iiif/presentation/v3/ark:/12148/btv1b8453475v/manifest | GET | 404 | 128o | delai=10s | en-tetes: Content-Type: application/json; charset=UTF-8 | corps: {"code":"404","type":"Status report","message":"Runtime Error","description":"No matching resource found for given API Request"}
+# Total : 7 requêtes (3 sondes HEAD, 4 GET), budget 15 respecté. Aucune 429/503 observée.
