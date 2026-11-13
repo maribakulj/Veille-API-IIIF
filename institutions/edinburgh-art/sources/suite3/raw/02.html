@@ -1,0 +1,302 @@
+<!doctype html>
+<!--[if lt IE 7 ]> <html class="no-js ie6" lang="en"> <![endif]-->
+<!--[if IE 7 ]>    <html class="no-js ie7" lang="en"> <![endif]-->
+<!--[if IE 8 ]>    <html class="no-js ie8" lang="en"> <![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
+
+<head>
+    <meta charset="utf-8">
+    <title>About - University of Edinburgh Art Collection</title>
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="shortcut icon" href="https://collections.ed.ac.uk/collections/art/images/favicon.ico">
+    <link rel="apple-touch-icon" href="https://collections.ed.ac.uk/collections/art/images/apple-touch-icon.png">
+
+    <link rel="stylesheet" href="https://collections.ed.ac.uk/assets/fancybox/source/jquery.fancybox.css?v=2.1.4" type="text/css" media="screen" />
+    <link rel="stylesheet" href="https://releases.flowplayer.org/6.0.4/skin/minimalist.css">
+    <link rel="stylesheet" href="https://collections.ed.ac.uk/assets/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+
+    <script src="https://collections.ed.ac.uk/assets/modernizr/modernizr-1.7.min.js"></script>
+    <script src="https://collections.ed.ac.uk/assets/jquery-1.11.0/jquery-1.11.0.min.js"></script>
+    <script src="https://collections.ed.ac.uk/assets/jquery-ui-1.10.4/ui/minified/jquery-ui.min.js"></script>
+    <script src="https://collections.ed.ac.uk/assets/jquery-1.11.0/jcarousel/jquery.jcarousel.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/leaflet.js"></script>
+    <script src="https://cdn.rawgit.com/mejackreed/Leaflet-IIIF/master/leaflet-iiif.js"></script>
+    <script src="https://collections.ed.ac.uk/assets/openseadragon/openseadragon.min.js"></script>
+
+    
+    <script src="https://releases.flowplayer.org/6.0.4/flowplayer.min.js"></script>
+    <script>
+        flowplayer.conf = {
+            analytics: ""
+        };
+    </script>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+    <script src="https://kit.fontawesome.com/3321181a33.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://collections.ed.ac.uk/collections/art/css/style.css?v=2">
+</head>
+
+<body>
+    <script>
+        function warnNewTab() {
+            return confirm("This link will open in a new tab. Proceed?");
+        }
+    </script>
+    <div class="skip-links" style="position: absolute;">
+        <a class="screen-reader-text" href="https://collections.ed.ac.uk/art/about#main">Skip to content</a>
+    </div>
+    <div id="container">
+        
+        <div class="container-fluid d-flex justify-content-between py-2 small border-bottom" style="background:#fff;">
+            <a href="https://www.ed.ac.uk" target="_blank" rel="noopener" class="text-secondary">
+                The University of Edinburgh
+                <span class="sr-only">(opens in a new tab)</span>
+            </a>
+            <a href="https://collections.ed.ac.uk" target="_blank" rel="noopener" class="text-secondary">
+                All Collections
+                <span class="sr-only">(opens in a new tab)</span>
+            </a>
+        </div>
+        <header>
+            <div class="container-fluid header">
+                <div class="header-logo">
+                    <a href="https://collections.ed.ac.uk/art">
+                        <img class="header-img"
+                            onmouseout="this.src='https://collections.ed.ac.uk/collections/art/images/UoE_Stacked-Logo_Blue-dark.png'"
+                            onmouseover="this.src='https://collections.ed.ac.uk/collections/art/images/UoE_Stacked-Logo_Blue-light.png'"
+                            src="https://collections.ed.ac.uk/collections/art/images/UoE_Stacked-Logo_Blue-dark.png">
+                    </a>
+                </div>
+                <nav class="navbar navbar-expand-lg navbar-light custom-nav">
+                    <div class="d-flex flex-grow-1">
+                        <span class="w-100 d-lg-none d-block"></span>
+                        <a class="navbar-brand-two mx-auto d-lg-none d-inline-block" href="#">
+                        <div class="w-100 text-right">
+                            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#myNavbar">
+                                <span class="navbar-toggler-icon"></span>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="collapse navbar-collapse flex-grow-1 text-right" id="myNavbar">
+                        <ul class="navbar-nav ml-auto flex-nowrap">
+                            <li class="nav-item">
+                                <a href="https://collections.ed.ac.uk/art" class="nav-link text-nowrap m-2 menu-item">Home</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="https://collections.ed.ac.uk/art/focus" class="nav-link text-nowrap m-2 menu-item">In Focus</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="https://collections.ed.ac.uk/art/comissioning" class="nav-link text-nowrap m-2 menu-item">Commissioning</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="https://collections.ed.ac.uk/art/loans" class="nav-link text-nowrap m-2 menu-item">Loans</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="https://collections.ed.ac.uk/art-on-campus" class="nav-link text-nowrap m-2 menu-item">Art on Campus</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="#contact" class="nav-link text-nowrap m-2 menu-item b-right">Contact</a>
+                            </li>
+                        </ul>
+                    </div>
+                </nav>
+
+            </div>
+            <section class="search">
+                <form action="https://collections.ed.ac.uk/art/redirect" method="post">
+                    <input type="hidden" name="_token" value="XwqS6FLR1MkRboZ7EjxPtb2N4HQug0WeTy4e8S5b" autocomplete="off">                    <div class="container-fluid">
+                        <div class="input-group">
+                            <input type="text" class="form-control"
+                                placeholder="Search 8,000 artworks spanning two millenia"
+                                aria-describedby="basic-addon2" name="q" value="" id="q">
+                            <div class="input-group-append">
+                                <input type="submit" class="btn btn-outline-secondary" name="submit_search"
+                                    value="Search" id="submit_search" />
+                                <input type="button" class="btn btn-outline-secondary" name="submit_search"
+                                    value="Advanced Search" onclick="location.href='https://collections.ed.ac.uk/art/advanced';" />
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </section>
+        </header>
+
+        <div id="main" role="main" class="clearfix">
+
+            <div class="content container">
+    <div class="content byEditor">
+        <p>Our Art Collection supports the world-leading research and teaching that happens within the University.
+            Comprised of an astonishing range of objects and ideas spanning two millennia and a multitude of artistic forms,
+            the collection reflects not only the long and rich trajectory of the University, but also major national and international shifts in art history.
+        </p>
+
+        <p>A significant and celebrated component of our holdings is the Torrie collection, which features seventeenth-century Dutch and Italian work,
+            with examples by <a href="https://collections.ed.ac.uk/art/search/Ruisdael">Ruisdael</a>, <a href="https://collections.ed.ac.uk/art/search/ten%20Oever">ten Oever</a>,
+            <a href="https://collections.ed.ac.uk/art/search/Van%20der%20Meulen">Van der Meulen</a>, <a href="https://collections.ed.ac.uk/art/search/Pynacker">Pynacker</a>,
+            <a href="https://collections.ed.ac.uk/art/search/Rosa">Rosa</a> and <a href="https://collections.ed.ac.uk/art/search/van%20de%20Velde">van de Velde</a>. The University also holds the second largest collection of
+            portraits in Scotland, ranging from historic depictions of <a href="https://collections.ed.ac.uk/art/search/Napier">John Napier</a> and <a href="https://collections.ed.ac.uk/art/search/John%20Knox">John Knox</a>,
+            to the more recent painting of Nobel Laureate <a href="https://collections.ed.ac.uk/art/search/Peter%20Higgs">Peter Higgs</a> by
+            Ken Currie. Other portrait artists represented include <a href="https://collections.ed.ac.uk/art/search/Henry%20Raeburn">Sir Henry Raeburn</a>, <a href="https://collections.ed.ac.uk/art/search/Stanley%20Cursiter">Stanley Cursiter</a>,
+            <a href="https://collections.ed.ac.uk/art/search/George%20Reid">Sir George Reid</a>, <a href="https://collections.ed.ac.uk/art/search/James%20Cowie">James Cowie</a> and
+            <a href="https://collections.ed.ac.uk/art/search/Victoria%20Crowe">Victoria Crowe</a>.
+        </p>
+
+        <p>After the organisations merged in 2011, the Edinburgh College of Art (ECA) collection of prints, drawings, paintings and sculpture also became
+            part of the wider University Art Collection. These works help tell the story of the artistic output of the College, with a particular strength being the
+            early to mid-20th Century work by artists such as <a href="https://collections.ed.ac.uk/art/search/Peploe">Samuel Peploe</a>, <a href="https://collections.ed.ac.uk/art/search/Bellany">John Bellany</a>,
+            <a href="https://collections.ed.ac.uk/art/search/Redpath">Anne Redpath</a> and <a href="https://collections.ed.ac.uk/art/search/Blackadder">Elizabeth Blackadder</a>.
+        </p>
+
+        <p>
+            We continue to actively acquire works for the collection, with the most recent strand of development being the Contemporary Art Research Collection (CARC).
+            Established in 2015 in partnership with academics in the History of Art department at ECA, the CARC takes globalisation as its central theme, setting a
+            specific focus on women's experience and the contribution of feminist thought. Artists acquired to date include <a href="https://collections.ed.ac.uk/art/search/Whittle">Alberta Whittle</a>,
+            <a href="https://collections.ed.ac.uk/art/search/McNaughton">Shona McNaughton</a>, <a href="https://collections.ed.ac.uk/art/search/Kate%20Davis">Kate Davis</a>,
+            <a href="https://collections.ed.ac.uk/art/search/Gilligan">Melanie Gilligan</a> and <a href="https://collections.ed.ac.uk/art/search/Bauer">Petra Bauer</a>.
+        </p>
+
+        <h1>Display, loan and access</h1>
+
+        <p>A large portion of the Art Collection is on view throughout the University campus, and we actively lend to other venues where possible. Viewing works held in store,
+            or enquiring about borrowing a work, can be arranged by contacting <a href="mailto:HeritageCollections@ed.ac.uk">HeritageCollections@ed.ac.uk</a></p>
+
+        <h1>Online</h1>
+
+        <p>Representing the University Art Collection online is an ongoing process. Images accompany records where there is an existing image file of sufficient quality, and
+            images will be added to records as part of wider cataloguing efforts. If there is a particular work that is of interest that does not have an accompanying image, please contact us directly on the
+            details below.</p>
+
+        <h1>Contact Details</h1>
+        <p>
+            For further information about the University of Edinburgh Art Collections please contact:
+        </p>
+        <p>Art Collections Curator<br />
+            University of Edinburgh,<br />
+            Main Library,<br />
+            30 George Square,<br />
+            Edinburgh,<br />
+            EH8 9LJ<br />
+            <a class="email" href="mailto:HeritageCollections@ed.ac.uk">HeritageCollections@ed.ac.uk</a><br />
+        </p>
+
+        <p>Visit Centre for Research Collections <a href="https://www.ed.ac.uk/visit/museums-galleries/heritage-collections" title="Centre for Research Collections" target="_blank">webpage (opens in a new tab)</a>
+            for further information about access.</p>
+
+        <a href="https://twitter.com/UoEArtArchives" title="Art Collections on Twitter" target="_blank">Art Collections on Twitter (opens in a new tab)</a><br />
+
+        <a href="https://artuk.org/visit/venues/university-of-edinburgh-5095" title="Art Collections on ArtUK" target="_blank">Art Collections on Art UK (opens in a new tab)</a>
+
+    </div>
+</div>
+
+</div><footer class="page-footer font-small stylish-color-dark pt-4">
+
+    <div class="container text-center text-md-left">
+
+        <hr>
+
+        <ul id="contact" class="list-unstyled list-inline text-center py-2">
+            <li class="list-inline-item">
+                <h5 class="mb-1">For more information on borrowing, gifting or of viewing artwork</h5>
+            </li>
+            <li class="list-inline-item">
+                <a href="mailto:HeritageCollections@ed.ac.uk" class="btn btn-danger btn-rounded">Contact us!</a>
+            </li>
+        </ul>
+
+        <hr>
+
+        <div class="row">
+
+            <div class="col-md-4 mx-auto">
+                <h5 class="font-weight-bold mt-3 mb-4">Art Collections Curator</h5>
+                <p>University of Edinburgh<br/>
+                    Main Library<br/>
+                    30 George Square<br/>
+                    Edinburgh<br/>
+                    EH8 9LJ<br/>
+                </p>
+            </div>
+
+            <hr class="clearfix w-100 d-md-none">
+
+            <div class="col-md-2 mx-auto">
+                <h5 class="font-weight-bold mt-3 mb-4">Links</h5>
+                <ul class="list-unstyled">
+                    <li><a href="https://collections.ed.ac.uk/art">UoE Art Collection</a></li>
+                    <li><a href="https://collections.ed.ac.uk/art/about">About</a></li>
+                    <li><a href="https://collections.ed.ac.uk/art/iiif">IIIF</a></li>
+                    <li><a href="https://collections.ed.ac.uk/art/feedback">Feedback</a></li>
+                </ul>
+            </div>
+
+            <hr class="clearfix w-100 d-md-none">
+
+            <div class="col-md-2 mx-auto">
+                <h5 class="font-weight-bold mt-3 mb-4">Links</h5>
+                <ul class="list-unstyled">
+                    <li><a href="https://www.ed.ac.uk/about/website/privacy">Privacy & Cookies</a></li>
+                    <li><a href="https://collections.ed.ac.uk/art/takedown">Takedown Policy</a></li>
+                    <li><a href="https://collections.ed.ac.uk/art/licensing">Licensing & Copyright</a></li>
+                    <li><a href="https://collections.ed.ac.uk/art/accessibility">Accessibility</a></li>
+                </ul>
+            </div>
+
+            <hr class="clearfix w-100 d-md-none">
+
+        </div>
+
+    </div>
+
+    <ul class="list-unstyled list-inline text-center">
+        <li class="list-inline-item">
+            <a href="https://www.facebook.com/UniversityOfEdinburghFineArtCollection" class="btn-floating btn-fb mx-1" title="UoE Fine Art Collection Facebook Page">
+                <i class="fab fa-facebook-f"> </i>
+            </a>
+        </li>
+        <li class="list-inline-item">
+            <a href="https://twitter.com/UoEArtColl" class="btn-floating btn-tw mx-1" title="UoE Fine Art Collection Twitter Page">
+                <i class="fab fa-twitter"> </i>
+            </a>
+        </li>
+        <li class="list-inline-item">
+            <a href="https://uoeartandarchives.tumblr.com/" class="btn-floating btn-gplus mx-1" title="UoE Fine Art Collection Tumblr Page">
+                <i class="fab fa-tumblr"></i>
+            </a>
+        </li>
+        <li class="list-inline-item">
+            <a href="https://podcasts.apple.com/gb/podcast/the-collection-podcast/id1086099131" class="btn-floating btn-dribbble mx-1" title="UoE The Collection Podcast">
+                <i class="fab fa-itunes-note"></i>
+            </a>
+        </li>
+    </ul>
+
+    <div class="footer-copyright text-center py-3">This collection is part of <a href="https://collections.ed.ac.uk/">University Collections.</a><br/>Unless explicitly stated otherwise, all material is copyright &copy; 2026
+        <a href="https://www.ed.ac.uk/">University of Edinburgh.</a>
+    </div>
+
+</footer>
+<script type="text/javascript" src="https://collections.ed.ac.uk/assets/fancybox/lib/jquery.mousewheel-3.0.6.pack.js"></script>
+<script type="text/javascript" src="https://collections.ed.ac.uk/assets/fancybox/source/jquery.fancybox.pack.js?v=2.1.4"></script>
+<script type="text/javascript" src="https://collections.ed.ac.uk/assets/fancybox/source/helpers/jquery.fancybox-buttons.js?v=1.0.5"></script>
+<script type="text/javascript" src="https://collections.ed.ac.uk/assets/fancybox/source/helpers/jquery.fancybox-media.js?v=1.0.5"></script>
+<script type="text/javascript" src="https://collections.ed.ac.uk/assets/fancybox/source/helpers/jquery.fancybox-thumbs.js?v=1.0.7"></script>
+<script src="https://collections.ed.ac.uk/collections/art/js/script.js"></script>
+<script>
+    $(document).ready(function() {
+        $(".fancybox").fancybox();
+    });
+</script>
+    </div>
+</body>
+</html>
