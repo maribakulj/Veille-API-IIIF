@@ -1,0 +1,24 @@
+{
+  "slug": "cudl",
+  "min_delay_s": 6,
+  "max_requests": 15,
+  "follow_redirects": 1,
+  "note": "Passe v2 n°3 : service d'images annoncé par le manifeste MS-ADD-03958 (identifiants publics tirés du corps enregistré en passe 1). robots.txt de images.lib.cam.ac.uk lu par la sonde (compté dans le budget).",
+  "endpoints": [
+    {
+      "id": "image-info-json",
+      "method": "GET",
+      "url": "https://images.lib.cam.ac.uk/iiif/MS-ADD-03958-001-00001.jp2/info.json"
+    },
+    {
+      "id": "image-derive-200",
+      "method": "GET",
+      "url": "https://images.lib.cam.ac.uk/iiif/MS-ADD-03958-001-00001.jp2/full/!200,200/0/default.jpg"
+    },
+    {
+      "id": "image-info-json-2",
+      "method": "GET",
+      "url": "https://images.lib.cam.ac.uk/iiif/MS-ADD-03958-001-00002.jp2/info.json"
+    }
+  ]
+}
