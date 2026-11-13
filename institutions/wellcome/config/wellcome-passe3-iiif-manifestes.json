@@ -1,0 +1,20 @@
+{
+  "slug": "wellcome",
+  "min_delay_s": 6,
+  "max_requests": 15,
+  "follow_redirects": 1,
+  "note": "Passe v2 n°3 : hôte IIIF. Son robots.txt déclare « Crawl-delay: 30 » et « Request-rate: 1/30s » : la sonde espère donc 30 s entre deux requêtes. Manifeste de l'œuvre a222zvge, adresse donnée par l'API Catalogue (include=items). Corps enregistré pour en tirer le service d'images.",
+  "endpoints": [
+    {
+      "id": "iiif-presentation-v2-b18659135",
+      "method": "GET",
+      "url": "https://iiif.wellcomecollection.org/presentation/v2/b18659135",
+      "save_body": 3000000
+    },
+    {
+      "id": "iiif-presentation-v3-b18659135",
+      "method": "GET",
+      "url": "https://iiif.wellcomecollection.org/presentation/v3/b18659135"
+    }
+  ]
+}

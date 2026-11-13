@@ -12,3 +12,8 @@
 2026-11-13T22:55:37Z | snapshot-works-head | https://data.wellcomecollection.org/catalogue/v2/works.json.gz | HEAD | 200 OK | aucun en-tête de limite | taille≥0 | corps: 
 2026-11-13T22:55:44Z | snapshot-images-head | https://data.wellcomecollection.org/catalogue/v2/images.json.gz | HEAD | 200 OK | aucun en-tête de limite | taille≥0 | corps: 
 # Fin 2026-11-13T22:55:44Z — 6 requête(s) envoyée(s)
+# Session 2026-11-13T22:55:59Z — configuration wellcome-passe2-work-items.json — sonde probe.py au commit 6fbf165
+2026-11-13T22:56:00Z | robots.txt:api.wellcomecollection.org | https://api.wellcomecollection.org/robots.txt | GET | 404 | robots.txt indisponible : tout est autorisé (RFC 9309)
+2026-11-13T22:56:06Z | catalogue-work-a222zvge-items | https://api.wellcomecollection.org/catalogue/v2/works/a222zvge?include=items | GET | 200 OK | aucun en-tête de limite | taille≥1384 | corps: {"physicalDescription":"1 file","items":[{"id":"c5rdccrs","locations":[{"locationType":{"id":"closed-stores","type":"LocationType","label":"Closed stores"},"accessConditions":[{"method":{"id":"online-
+# corps enregistré : tests/raw/catalogue-work-a222zvge-items.body (1384 octets lus)
+# Fin 2026-11-13T22:56:06Z — 2 requête(s) envoyée(s)
