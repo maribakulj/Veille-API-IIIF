@@ -67,3 +67,34 @@ Conclusion : moyen d'interroger le quota : non. Aucune sonde lancée : aucun end
   2. Demander à la BnF (formulaire « Écrire à la BnF » : https://www.bnf.fr/fr/contacter-la-bnf) la date d'entrée en vigueur des limites d'usage et si elles sont annoncées dans les en-têtes.
   3. Re-tester plus tard, à faible débit (≤ 5 appels/min, pauses ≥ 12 s), un manifeste puis un info.json, pour voir si le 403 persiste. Ne pas tester un 429 par rafale (notes locales : connexions coupées après une rafale).
   4. Ne pas utiliser de User-Agent de navigateur pour passer le 403 : contraire à la méthode.
+
+## Vérification méthode v2 (2026-11-13, reprise directe)
+
+| Étape | Statut | Preuves |
+|---|---|---|
+| a) Doc lue en entier | **fait, une page incomplète** | `sources/bnf-gallica/` (5 pages, `SHA256SUMS`, `FETCH.log`) ; `sources/bnf-gallica/suite/` (`node/2620`, `wrapper-python`, `node/2748` **incomplète** : délai dépassé à 7,6 ko sur 21,8 ko, à refaire) ; `sources/bnf-gallica/suite2/` (page « évolution des modalités d'accès » et page « Un captcha pour Gallica »). Page des conditions d'utilisation : **403** à la récupération, non réessayée. |
+| b) Endpoints tirés de la doc | **fait** | Pattern IIIF image : `gallica.bnf.fr/iiif/ark:/12148/…/full/0/native.jpg` et manifeste : `gallica.bnf.fr/iiif/ark:/12148/…/manifest.json` (api.bnf.fr, page IIIF). |
+| c) Configuration avant tests | **fait** | `scripts/config/bnf-gallica.json` réécrit à partir de la doc (2 endpoints) ; `--dry-run` OK. |
+| d) Recherche de quota dans la doc | **fait** | Voir ci-dessous. |
+| e) Test de chaque endpoint | **non fait : hôte bloqué** | `gallica.bnf.fr` renvoie 403 anti-bot depuis 20:33Z (premier appel, `tests/bnf-gallica.log`). Règle : on ne réessaie pas un hôte en 403. Les 2 endpoints de la configuration restent non testés. |
+| f) Ce que disent les gens sur le web | **fait, à compléter** | Voir ci-dessous. |
+| g) Crash test | **à faire après l'audit de toutes les institutions** | — |
+
+### Étape d) — ce que disent les pages officielles
+
+1. **Officiel, ancien** (`https://api.bnf.fr/fr/node/232`, lu le 2026-11-13) : « Durant cette phase transitoire, des limites d'usage ont été mises en place sur les API Gallica » : IIIF Image **5 appels/min** (mode `full/full` ou `full/>1000 px`), TexteBrut **5/min**, PDF **4/min**, highres **50/min**, bande passante **832 Ko/s**, dépassement = **429 « Too Many Requests »**. Pas de date.
+2. **Officiel, plus récent** (`https://api.bnf.fr/fr/evolution-des-modalites-dacces-aux-api-de-gallica`, lu le 2026-11-13) : « Dans le cadre du renforcement de la sécurité de ses infrastructures, la BnF a mis en place de nouvelles mesures de protection des services de Gallica. Ces mesures entraînent des restrictions temporaires d'accès aux API de Gallica, notamment aux services IIIF, SRU et API Document. Les modalités d'accès à ces services sont actuellement en cours de définition. » **Donc les chiffres de la page 1 ne décrivent plus l'accès actuel : l'accès IIIF est restreint et ses modalités ne sont pas publiées.**
+3. **Officiel** (`https://www.bnf.fr/fr/actualites/un-captcha-pour-gallica`) : « un CAPTCHA est mis en place à compter du 18 décembre 2025 » ; « À chaque première recherche de la journée » une case à cocher. Le captcha concerne la recherche, pas l'IIIF (la page ne le dit pas explicitement).
+4. **Officiel** (`https://data.gouv.fr/…api-gallica-iiif`, lu le 2026-11-13) : « Son accès est ouvert sans restriction, sauf en cas d'usage abusif. » et « Limite d'appels non documentée ». **Contradictoire** avec les points 1 et 2 : à signaler, pas à trancher.
+5. **Pas de clé, pas de compte, pas d'endpoint de statut, pas d'en-tête documenté** (vérifié dans les pages lues).
+
+**Conclusion étape d)** : moyen d'interroger le quota = **non**. Les chiffres (5/min, 429) existent mais datent d'avant les restrictions annoncées ; la page la plus récente dit que les modalités ne sont pas encore définies.
+
+### Étape f) — sources web (2026-11-13)
+
+- **Officiel** : la page « évolution » et la page captcha ci-dessus.
+- **Tiers, presse** : ActuaLitté, « Gallica installe un CAPTCHA : le web patrimonial face aux bots » (`https://actualitte.com/article/128618/numerisation/gallica-installe-un-captcha-le-web-patrimonial-face-aux-bots`) : signale des blocages d'IP jugés très stricts par les utilisateurs. Lu en résumé uniquement.
+- **Tiers, presse** : IA Tech au Quotidien (`https://www.iatechauquotidien.com/gallica-paralysee-des-robots-dia-aspirent-massivement-ses-contenus/`) : la BnF attribue les difficultés à une forte hausse du moissonnage automatisé, dont des robots d'IA. Lu en résumé.
+- **Tiers, code** : `https://github.com/Antonio-Faure/mnemosyne/pull/69` : documente des **403 de type Cloudflare sur les chemins SRU** de Gallica, et conclut à un blocage **au niveau IP/ASN**, pas à un bug de code. Non vérifié par nous.
+- **Tiers, code** : `rekyt/bnfimage` (client R) annonce « au maximum 1 requête toutes les 3 secondes », et le SDK `mdeville/gallica` 250 ms d'écart : chiffres de tiers, contradictoires entre eux et avec la page officielle.
+- **Non trouvé** : plainte formelle, fil de forum dédié, réponse écrite de la BnF sur le quota IIIF.

@@ -1,0 +1,677 @@
+<!DOCTYPE html>
+<html lang="fr" dir="ltr" prefix="content: http://purl.org/rss/1.0/modules/content/  dc: http://purl.org/dc/terms/  foaf: http://xmlns.com/foaf/0.1/  og: http://ogp.me/ns#  rdfs: http://www.w3.org/2000/01/rdf-schema#  schema: http://schema.org/  sioc: http://rdfs.org/sioc/ns#  sioct: http://rdfs.org/sioc/types#  skos: http://www.w3.org/2004/02/skos/core#  xsd: http://www.w3.org/2001/XMLSchema# ">
+  <head>
+    <meta charset="utf-8" />
+<meta name="Generator" content="Drupal 11 (https://www.drupal.org)" />
+<meta name="MobileOptimized" content="width" />
+<meta name="HandheldFriendly" content="true" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<link rel="icon" href="/themes/custom/bnf_api_design/favicon.ico" type="image/vnd.microsoft.icon" />
+<link rel="alternate" hreflang="fr" href="https://api.bnf.fr/fr/wrapper-python-pour-les-api-gallica" />
+<link rel="canonical" href="https://api.bnf.fr/fr/wrapper-python-pour-les-api-gallica" />
+<link rel="shortlink" href="https://api.bnf.fr/fr/node/2697" />
+
+    <title>Wrappers pour les API Gallica | BnF API et jeux de données</title>
+    <link rel="stylesheet" media="all" href="/core/misc/components/progress.module.css?to2phm" />
+<link rel="stylesheet" media="all" href="/core/misc/components/ajax-progress.module.css?to2phm" />
+<link rel="stylesheet" media="all" href="/core/modules/system/css/components/align.module.css?to2phm" />
+<link rel="stylesheet" media="all" href="/core/modules/system/css/components/fieldgroup.module.css?to2phm" />
+<link rel="stylesheet" media="all" href="/core/modules/system/css/components/container-inline.module.css?to2phm" />
+<link rel="stylesheet" media="all" href="/core/modules/system/css/components/clearfix.module.css?to2phm" />
+<link rel="stylesheet" media="all" href="/core/modules/system/css/components/details.module.css?to2phm" />
+<link rel="stylesheet" media="all" href="/core/modules/system/css/components/hidden.module.css?to2phm" />
+<link rel="stylesheet" media="all" href="/core/modules/system/css/components/item-list.module.css?to2phm" />
+<link rel="stylesheet" media="all" href="/core/modules/system/css/components/js.module.css?to2phm" />
+<link rel="stylesheet" media="all" href="/core/modules/system/css/components/nowrap.module.css?to2phm" />
+<link rel="stylesheet" media="all" href="/core/modules/system/css/components/position-container.module.css?to2phm" />
+<link rel="stylesheet" media="all" href="/core/modules/system/css/components/reset-appearance.module.css?to2phm" />
+<link rel="stylesheet" media="all" href="/core/modules/system/css/components/resize.module.css?to2phm" />
+<link rel="stylesheet" media="all" href="/core/modules/system/css/components/system-status-counter.css?to2phm" />
+<link rel="stylesheet" media="all" href="/core/modules/system/css/components/system-status-report-counters.css?to2phm" />
+<link rel="stylesheet" media="all" href="/core/modules/system/css/components/system-status-report-general-info.css?to2phm" />
+<link rel="stylesheet" media="all" href="/core/modules/system/css/components/tablesort.module.css?to2phm" />
+<link rel="stylesheet" media="all" href="/modules/contrib/paragraphs/css/paragraphs.unpublished.css?to2phm" />
+<link rel="stylesheet" media="all" href="/themes/custom/bnf_api_design/css/vendors/bootstrap-5.0.2/bootstrap.min.css?to2phm" />
+<link rel="stylesheet" media="all" href="/themes/custom/bnf_api_design/css/vendors/tinyslider/tinyslider.css?to2phm" />
+<link rel="stylesheet" media="all" href="/themes/custom/bnf_api_design/css/vendors/fontawesome-7.0.1/css/all.css?to2phm" />
+<link rel="stylesheet" media="all" href="/themes/custom/bnf_api_design/css/helper.css?to2phm" />
+<link rel="stylesheet" media="all" href="/themes/custom/bnf_api_design/css/style.css?to2phm" />
+<link rel="stylesheet" media="all" href="/themes/custom/bnf_api_design/css/tabs.css?to2phm" />
+<link rel="stylesheet" media="all" href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@300;400;700&amp;display=swap" />
+
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  </head>
+  <body>
+
+    <div class="skiplinks">
+      <nav class="container" role="navigation" aria-label="Quick access">
+        <ul class="skiplinkslist focusable">
+          <li>
+            <a href="#main-content">
+              Contenu principal
+            </a>
+          </li>
+          <li>
+            <a href="#btn-Accéder aux données">
+              Menu de navigation
+            </a>
+          </li>
+          <li>
+            <a href="/fr/recherche#edit-search-api-fulltext--2">
+              Recherche
+            </a>
+          </li>
+          <li>
+            <a href="#footer">
+              Pied de page
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+
+    
+      <div class="dialog-off-canvas-main-canvas" data-off-canvas-main-canvas>
+    
+
+
+<nav id="block-menuheader" class="navbar navbar-expand-lg" role="navigation">
+	<div class="container">
+		<div class="row w-100 align-items-center">
+			<button class="col-2 col-md-1 ps-4 ps-md-0 hamburger navbar-toggler collapsed" id="hamburger-1" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+				<img src="/themes/custom/bnf_api_design/css/public/img/picto_menu-burger-annotation_FR.svg" class="" alt="menu burger"/>
+			</button>
+			<div class="col-lg-5 col-md-7 col-7">
+	<a class="navbar-brand" href="/fr" aria-label="Aller à l'accueil">
+		<img src="/themes/custom/bnf_api_design/logo.svg" height="37" class="d-inline-block align-top" alt="Logo BnF"/>
+		<h1>API et jeux de données</h1>
+	</a>
+</div>
+
+
+			<div class="offset-lg-5 offset-xl-4 col-lg-3 col-12 order-3 navbar-collapse collapse" id="navbarSupportedContent">
+				    
+              <ul itemscope itemtype="http://www.schema.org/SiteNavigationElement" class="navbar-nav mr-auto" role="menu">
+                                          <li  class="nav-item collection-item-clickable-btn menu-item--expanded">
+                        <div class="dropdown">
+            <button type="button" data-bs-toggle="dropdown" id="btn-Accéder aux données" class="btn dropdown-toggle nav-link dropdown-toggle-mainmenu">
+                <a id="item-clickable" class="nav-link">
+
+                    Accéder aux données
+
+                    <div class="selected-arrow selected-arrow-bottom"></div>
+                </a>
+            </button>
+            <ul id="sousmenu" class="navdown dropdown-menu" role="menu">
+                <div class="container">
+                    <div class="row align-items-center">
+        
+                                
+
+
+                                          <li  class="align-middle dropdown-item">
+              <a href="/index.php/fr/recherche?f%5B0%5D=categories%3A1158" title="Les API de la BnF" class="align-middle dropdown-item dropdown-bar" data-drupal-link-query="{&quot;f&quot;:[&quot;categories:1158&quot;]}" data-drupal-link-system-path="recherche">API</a>
+                    </li>
+                                      <li  class="align-middle dropdown-item">
+              <a href="/index.php/fr/recherche?f%5B0%5D=categories%3A1161" title="Jeux de données brutes (dumps, exports...)" class="align-middle dropdown-item dropdown-bar" data-drupal-link-query="{&quot;f&quot;:[&quot;categories:1161&quot;]}" data-drupal-link-system-path="recherche">Jeux de données brutes</a>
+                    </li>
+                                      <li  class="align-middle dropdown-item">
+              <a href="/index.php/fr/recherche?f%5B0%5D=categories%3A1162" title="Jeux de données transformées (produites ou modifiées dans le cadre d&#039;une recherche)" class="align-middle dropdown-item dropdown-bar" data-drupal-link-query="{&quot;f&quot;:[&quot;categories:1162&quot;]}" data-drupal-link-system-path="recherche">Jeux de données transformées</a>
+                    </li>
+                                      <li  class="align-middle dropdown-item">
+              <a href="/index.php/fr/sources" title="Filtrer par source des données" class="align-middle dropdown-item dropdown-bar" data-drupal-link-system-path="sources">Par source</a>
+                    </li>
+                            </div>
+                </div>
+            </ul>
+        </div>
+      
+              </li>
+                                      <li  class="nav-item collection-item-clickable-btn menu-item--expanded">
+                        <div class="dropdown">
+            <button type="button" data-bs-toggle="dropdown" id="btn-Apprendre &amp; utiliser" class="btn dropdown-toggle nav-link dropdown-toggle-mainmenu">
+                <a id="item-clickable" class="nav-link">
+
+                    Apprendre &amp; utiliser
+
+                    <div class="selected-arrow selected-arrow-bottom"></div>
+                </a>
+            </button>
+            <ul id="sousmenu" class="navdown dropdown-menu" role="menu">
+                <div class="container">
+                    <div class="row align-items-center">
+        
+                                
+
+
+                                          <li  class="align-middle dropdown-item">
+              <a href="/index.php/fr/decouvrir-api-bnf-fr" title="Que trouve-t-on sur api.bnf.fr ?" class="align-middle dropdown-item dropdown-bar" data-drupal-link-system-path="node/2767">Découvrir api.bnf.fr</a>
+                    </li>
+                                      <li  class="align-middle dropdown-item">
+              <a href="/index.php/fr/recherche?f%5B0%5D=categories%3A1164&amp;f%5B1%5D=categories%3A1165&amp;f%5B2%5D=categories%3A1166&amp;f%5B3%5D=categories%3A1167&amp;f%5B4%5D=categories%3A1294" title="Guides, tutoriels, outils, scénarios de recherche" class="align-middle dropdown-item dropdown-bar" data-drupal-link-query="{&quot;f&quot;:[&quot;categories:1164&quot;,&quot;categories:1165&quot;,&quot;categories:1166&quot;,&quot;categories:1167&quot;,&quot;categories:1294&quot;]}" data-drupal-link-system-path="recherche">Documentation</a>
+                    </li>
+                                      <li  class="align-middle dropdown-item">
+              <a href="/index.php/fr/recherche?f%5B0%5D=categories%3A1282&amp;f%5B1%5D=categories%3A1283" title="Expérimentations, projets de recherche" class="align-middle dropdown-item dropdown-bar" data-drupal-link-query="{&quot;f&quot;:[&quot;categories:1282&quot;,&quot;categories:1283&quot;]}" data-drupal-link-system-path="recherche">Exemples d&#039;utilisations</a>
+                    </li>
+                                      <li  class="align-middle dropdown-item">
+              <a href="/index.php/fr/services" title="Services sur les API et jeux de données" class="align-middle dropdown-item dropdown-bar" data-drupal-link-system-path="node/2758">Services</a>
+                    </li>
+                            </div>
+                </div>
+            </ul>
+        </div>
+      
+              </li>
+                                      <li  class="nav-item collection-item-clickable-btn menu-item--expanded">
+                        <div class="dropdown">
+            <button type="button" data-bs-toggle="dropdown" id="btn-Professionnels" class="btn dropdown-toggle nav-link dropdown-toggle-mainmenu">
+                <a id="item-clickable" class="nav-link">
+
+                    Professionnels
+
+                    <div class="selected-arrow selected-arrow-bottom"></div>
+                </a>
+            </button>
+            <ul id="sousmenu" class="navdown dropdown-menu" role="menu">
+                <div class="container">
+                    <div class="row align-items-center">
+        
+                                
+
+
+                                          <li  class="align-middle dropdown-item">
+              <a href="/index.php/fr/recherche?f%5B0%5D=public%3A1205" title="Contenus spécifiques pour les chercheurs" class="align-middle dropdown-item dropdown-bar" data-drupal-link-query="{&quot;f&quot;:[&quot;public:1205&quot;]}" data-drupal-link-system-path="recherche">Chercheurs</a>
+                    </li>
+                                      <li  class="align-middle dropdown-item">
+              <a href="/index.php/fr/professionnels-metiers-du-livre" title="Contenus spécifiques pour les métiers du livre" class="align-middle dropdown-item dropdown-bar" data-drupal-link-system-path="node/2766">Métiers du livre</a>
+                    </li>
+                            </div>
+                </div>
+            </ul>
+        </div>
+      
+              </li>
+                                      <li  class="nav-item collection-item-clickable">
+                          <a href="/index.php/fr/blog" title="Le blog des données à la BnF" class="nav-item collection-item-clickable nav-link" data-drupal-link-system-path="blog">Blog</a>
+        
+                    </li>
+                </ul>
+      
+
+
+
+
+			</div>
+
+			<div class="col-lg-1 offset-lg-6 col-md-1 offset-md-3 col-2 offset-1 pe-0 ps-0 border-start border-end position-relative">
+
+				<div class="w-50 p-2 d-inline-block" role="search">
+					<a href="/fr/recherche" class="" aria-label="Aller à la page Recherche">
+							<img src="/themes/custom/bnf_api_design/css/public/img/search.svg" alt="" width="20" height="20"/>
+					</a>
+				</div>
+			</div>
+			
+		</div>
+	</div>
+</nav>
+
+        <main id="main-content" role="main">
+	<div class="container-fluid">
+		<div class="row">
+			<div class="main-api col-12 pb-6 mt-5">
+				 
+				<section class="row nav-summary">
+					<div class="col-lg-3 desktop">
+						<div id="access-nav-container" class="position-fixed rounded mt-3 pb-5">
+							<nav id="access-nav" class="pt-4 ps-4"></nav>
+						</div>
+					</div>
+					<div class="col-lg-9">
+						<div class="row">
+							<div id="Api-Content" class="col-12 col-lg-8">
+								
+
+			<span class="badge">JSON</span>
+	
+								
+
+			<span class="badge">Python</span>
+			<span class="badge">IIIF</span>
+			<span class="badge">SRU</span>
+			<span class="badge">R</span>
+	
+								
+								
+								
+								<h1>
+<span>Wrappers pour les API Gallica</span>
+</h1>
+								<hr>
+								  <p>Ces wrappers permettent d'appeler les API Gallica, IIIF et SRU depuis un script Python ou R.</p>
+
+
+								  
+<h2>
+	  Installation
+
+</h2>
+  <h3>Python</h3>
+
+<p>Ces wrappers sont des packages Python à installer selon les conseils de leurs développeurs :</p>
+
+<ul>
+	<li><strong>PyGallica</strong>, développé par Ian Goodale&nbsp;(université d'Austin, Texas) : voir le <a href="https://github.com/ian-nai/PyGallica">github </a></li>
+	<li><strong>Gallipy</strong>, développé par Bertrand Duménieu (EHESS) :&nbsp;voir le <a href="https://libraries.io/pypi/gallipy">site </a></li>
+	<li><strong>fdh-gallica</strong>, développé par Raphaël Barman (EPFL) : voir le <a href="http://fdh.epfl.ch/index.php/Gallica_wrapper">site</a></li>
+	<li><strong>Pyllica</strong>, développé par Pierre-Carl Langlais et Julien Schuh, est dédié aux périodiques.&nbsp;Voir la page qui lui est consacrée sur <a href="https://api.bnf.fr/fr/extracteur-python-de-corpus-de-periodiques">api.bnf</a>&nbsp;</li>
+</ul>
+
+<h3>R</h3>
+
+<p>Ces deux packages R sont également disponibles :</p>
+
+<ul>
+	<li><strong>bnfimage, </strong>développé par Matthias Grenié, implémente l'API Gallica IIIF en R&nbsp;: voir le <a href="https://github.com/Rekyt/bnfimage">github</a>&nbsp;&nbsp;</li>
+	<li><strong>gargallica,</strong> développé par Guillaume Pressiat, implémente les API d'extraction des métadonnées et de l'OCR : voir le <a href="https://github.com/GuillaumePressiat/gargallica">github</a><br>
+	&nbsp;</li>
+</ul>
+
+
+  
+<h2>
+	  Exemple d&#039;utilisation : PyGallica
+
+</h2>
+  <p>&nbsp;Le package PyGallica enveloppe plusieurs API Gallica :</p>
+
+<ul>
+	<li>recherche dans la collection numérique avec l'API <a href="http://api.bnf.fr/api-gallica-de-recherche">SRU Gallica</a> :</li>
+</ul>
+
+<pre>
+<code>&gt;&gt;&gt; from search_api import Search
+&gt;&gt;&gt; Search.search('Verdun')</code></pre>
+
+<ul>
+	<li>accès aux métadonnées d'un document numérique avec l'API <a href="http://api.bnf.fr/api-document-de-gallica">Document de Gallica</a> &nbsp;:</li>
+</ul>
+
+<pre>
+<code>&gt;&gt;&gt; from document_api import Document
+&gt;&gt;&gt; Document.oai('btv1b53066668g')</code></pre>
+
+<ul>
+	<li>accès aux images&nbsp;d'un document numérique avec l'API <a href="http://api.bnf.fr/api-iiif-de-recuperation-des-images-de-gallica">IIIF</a> :</li>
+</ul>
+
+<pre>
+<code>&gt;&gt;&gt; from iiif_api import IIIF
+&gt;&gt;&gt; IIIF.iiif('12148/btv1b53066668g/f1', 'full', 'full', '0', 'native', 'jpg'
+&gt;&gt;&gt; IIIF.metadata('12148/btv1b53066668g/f1')
+</code></pre>
+
+
+
+								
+
+							</div>
+							<div id="api-access" class="col-12 col-lg-4 mt-3 pt-5 p-0 rounded-left-mobile rounded-right">
+
+							<div class="p-3">
+
+								
+								
+									<section class="pt-4 pb-4 border-top border-bottom">
+										<div class="ps-3">
+											<h5 class="api-title pb-4">Fiche Technique</h5>
+											
+																						<small>Source des données</small>
+											<p>
+
+			<span class="badge">Gallica</span>
+	</p>
+																						
+																						<small>Date de dernière mise à jour</small>
+											<p>      		<time datetime="2021-06-29T12:00:00Z">2021</time>
+
+    	</p>
+											
+																						<small>Formats techniques</small>
+											<p>
+
+			<span class="badge">JSON</span>
+	</p>
+											
+											
+																						<small>Technologies</small>
+											<p>
+
+			<span class="badge">Python</span>
+			<span class="badge">IIIF</span>
+			<span class="badge">SRU</span>
+			<span class="badge">R</span>
+	</p>
+											
+											
+											
+																						<small>Licence</small>
+											  <p about="/index.php/fr/taxonomy/term/1201">
+<a href="https://gallica.bnf.fr/edit/und/conditions-dutilisation-des-contenus-de-gallica">   Conditions d&#039;utilisation des contenus de Gallica
+ </a>
+</p>
+
+
+																					</div>
+									</section>
+																		<section class="pt-4 pb-4 border-bottom">
+										<div class="ps-3">
+											<h5 class="api-title pb-4">Contact</h5>
+											<a href="mailto:  https://github.com/ian-nai
+">  https://github.com/ian-nai
+</a>
+										</div>
+									</section>
+																		<section class="pt-4 pb-4 border-bottom">
+										<h5 class="api-title ps-3 pb-4">Partage</h5>
+										<div class="d-flex">
+											<a href="https://x.com/intent/tweet?url=https://api.bnf.fr/fr/wrapper-python-pour-les-api-gallica&amp;title=Wrappers pour les API Gallica" target="_blank" title="Partager Wrappers pour les API Gallica sur X" type="button" class="col-3 col-lg-4 btn btn-shared btn-outline-success me-1 ms-1">
+												X
+												<i class="fab fa-x-twitter text-light"></i>
+											</a>
+											<a href="https://www.facebook.com/share.php?u=https://api.bnf.fr/fr/wrapper-python-pour-les-api-gallica&amp;title=Wrappers pour les API Gallica" target="_blank" type="button" class="col-3 col-lg-4 btn btn-shared btn-outline-success mr-1" title="Partager Wrappers pour les API Gallica sur Facebook">
+												facebook
+												<i class="fab fa-facebook-f text-light"></i>
+											</a>
+											<a href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https://api.bnf.fr/fr/wrapper-python-pour-les-api-gallica&amp;title=Wrappers pour les API Gallica" target="_blank" title="Partager Wrappers pour les API Gallica sur Linkedin" type="button" class="col-3 col-lg-4 btn btn-shared btn-outline-success ms-1 me-1">
+											   Linkedin
+											   <i class="fab fa-linkedin text-light"></i>
+											</a>
+										</div>
+									</section>
+																		<section class="pt-4 pb-4">
+										<h5 class="api-title ps-3 pb-4">Ressources en lien</h5>
+
+										<div class="mobile-flex offset-md-2 offset-lg-0">
+											  
+<div class="card mb-5">
+		<img src="/themes/custom/bnf_api_design/img/vign/55.jpg" alt="" class="card-img rounded"/>
+	
+	<a rel="bookmark" href="/fr/api-iiif-de-recuperation-des-images-de-gallica" class="card-body align-self-center rounded">
+		<h6>
+<span>API IIIF de récupération des images de Gallica</span>
+</h6>
+		
+
+		<p data-history-node-id="2620" about="/fr/api-iiif-de-recuperation-des-images-de-gallica">
+						
+			
+			
+												
+																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																														
+									L&#039;API IIIF (International Image Interoperability Framework) est une API standardisée par le consortium IIIF  permettant la manipulation homogène d&#039;images indépendamment de leurs localisations…
+			
+
+
+
+
+
+
+		</p>
+		
+
+			<span class="badge">JPEG / JPG</span>
+			<span class="badge">TIFF</span>
+	
+		
+
+			<span class="badge">IIIF</span>
+	
+		
+
+			<span class="badge">Images</span>
+	
+		
+		
+	</a>
+</div>
+
+  
+<div class="card mb-5">
+		<img src="/themes/custom/bnf_api_design/img/vign/25.jpg" alt="" class="card-img rounded"/>
+	
+	<a rel="bookmark" href="/fr/api-gallica-de-recherche" class="card-body align-self-center rounded">
+		<h6>
+<span>API de recherche de Gallica </span>
+</h6>
+		
+
+		<p data-history-node-id="2611" about="/fr/api-gallica-de-recherche">
+						
+			
+			
+												
+																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																										
+									Cette API permet de rechercher dans le fonds numérique et de fournir également un ensemble d&#039;éléments d&#039;affinage des requêtes. Cette API a été créée afin de rester pérenne quelle que soit…
+			
+
+
+
+
+
+
+		</p>
+		
+
+			<span class="badge">XML</span>
+	
+		
+
+			<span class="badge">SRU</span>
+	
+		
+		
+		
+	</a>
+</div>
+
+  
+<div class="card mb-5">
+		<img src="/themes/custom/bnf_api_design/img/vign/17.jpg" alt="" class="card-img rounded"/>
+	
+	<a rel="bookmark" href="/index.php/fr/api-document-de-gallica" class="card-body align-self-center rounded">
+		<h6>
+<span>API Document de Gallica</span>
+</h6>
+		
+
+		<p data-history-node-id="2636" about="/index.php/fr/api-document-de-gallica">
+						
+			
+			
+												
+																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																						
+									À partir d&#039;un document trouvé via l’API de recherche ou de l&#039;interface Gallica, l’API Document permet de récupérer les d&#039;informations (métadonnées) nécessaires à l&#039;exploitation des ressources…
+			
+
+
+
+
+
+
+		</p>
+		
+
+			<span class="badge">XML</span>
+	
+		
+		
+		
+		
+	</a>
+</div>
+
+
+										</div>
+									</section>
+																	</div>
+							</div>
+						</div>
+					</div>
+				</section>
+			</div>
+		</div>
+	</div>
+</main>
+
+
+
+
+<footer id="footer" class="p-4 text-small">
+	<div class="container">
+		<div class="row align-items-center">
+			    
+              <ul class="pdp list-inline mb-0 col-12 col-lg-8">
+                    <li class="list-inline-item pe-3 pe-md-2">
+              <a href="">© 2020 BnF</a>
+              </li>
+                <li class="list-inline-item border-left-black ps-3 pe-3 ps-md-2 pe-md-2">
+              <a href="/fr/a-propos" data-drupal-link-system-path="node/2678">À propos</a>
+              </li>
+                <li class="list-inline-item border-left-black ps-3 pe-3 ps-md-2 pe-md-2">
+              <a href="/fr/conditions-generales-dutilisation-du-site-bnf-api-et-jeux-de-donnees" data-drupal-link-system-path="node/2763">Conditions d&#039;utilisation</a>
+              </li>
+                <li class="list-inline-item border-left-black ps-3 pe-3 ps-md-2 pe-md-2">
+              <a href="/fr/mentions-l%C3%A9gales" data-drupal-link-system-path="node/2677">Mentions légales</a>
+              </li>
+                <li class="list-inline-item border-left-black ps-3 pe-3 ps-md-2 pe-md-2">
+              <a href="/fr/api_cookies" data-drupal-link-system-path="node/2761">Politique de confidentialité</a>
+              </li>
+                <li class="list-inline-item border-left-black ps-3 pe-3 ps-md-2 pe-md-2">
+              <a href="/fr/content/rss.xml" data-drupal-link-system-path="content/rss.xml">RSS</a>
+              </li>
+                <li class="list-inline-item border-left-black ps-3 pe-3 ps-md-2 pe-md-2">
+              <a href="https://www.bnf.fr/fr/contacter-la-bnf">Écrire à la BnF</a>
+              </li>
+                <li class="list-inline-item border-left-black ps-3 pe-3 ps-md-2 pe-md-2">
+              <a href="/fr/accessibilite" data-drupal-link-system-path="node/2765">Accessibilité (non conforme)</a>
+              </li>
+                <li class="list-inline-item border-left-black ps-3 pe-3 ps-md-2 pe-md-2">
+              <a href="/sites/default/files/catalog.jsonld" title="DCAT est une ontologie RDF pour décrire des jeux de données.">DCAT</a>
+              </li>
+        </ul>
+  
+
+
+
+
+			<div class="social col-lg-4 col-12 d-flex justify-content-lg-end justify-content-center" >
+				<a href="https://x.com/laBnF" class="ms-2 mr-2 text-decoration-none" target="_blank">
+					<span class="d-flex flex-column align-items-center">
+						<span class="fa-half fa-stack align-top">
+							<i class="fab fa-x-twitter fa-stack-1x" role="img" aria-label="Suivez-nous sur X"></i>
+						</span>
+						<span class="d-block" style="font-size: 10px;">X</span>
+					</span>
+				</a>
+				<a href="https://www.facebook.com/bibliothequebnf" class="align-items-center d-flex flex-column ms-2 mr-2 text-decoration-none" target="_blank">
+					<span class="d-flex flex-column align-items-center">
+						<span class="fa-half fa-stack align-top">
+							<i class="fab fa-facebook-f fa-stack-1x" role="img" aria-label="Suivez-nous sur Facebook"></i>
+						</span>
+						<span class="d-block" style="font-size: 10px;">facebook</span>
+					</span>
+				</a>
+				<a href="https://www.instagram.com/labnf/" class="align-items-center d-flex flex-column ms-2 mr-2 text-decoration-none" target="_blank">
+					<span class="d-flex flex-column align-items-center">
+						<span class="fa-stack fa-half align-top">
+							<i class="fab fa-instagram fa-stack-1x"></i>
+						</span>
+						<span class="d-block" style="font-size: 10px;" role="img" aria-label="Suivez-nous sur Instagram">instagram</span>
+					</span>
+				</a>
+				<a href="https://www.youtube.com/channel/UC4qeHjCTm6etgMiHXzbTd0A" class="align-items-center d-flex flex-column ms-2 mr-2 text-decoration-none" target="_blank">
+					<span class="d-flex flex-column align-items-center">
+						<span class="fa-stack fa-half align-top">
+							<i class="fab fa-youtube fa-stack-1x" role="img" aria-label="Suivez-nous sur Youtube"></i>
+						</span>
+						<span class="d-block" style="font-size: 10px;">youtube</span>
+					</span>
+				</a>
+			</div>
+		</div>
+	</div>
+</footer>
+<div id="block-tagaucitroncentraliseblock">
+  
+    
+      <div class="marquage">
+<script async defer type="text/javascript" src="https://multimedia-ext.bnf.fr/bnf_marquage/bnf_marquage.js??version=1.0&domaine=api_p.bnf.fr"></script>
+<div class="marquage-page"		           		
+	data-siten1="18798"		
+	data-level2="77"				
+	data-chapitre1="Api"					
+    data-titre="Wrappers_pour_les_API_Gallica"	>
+</div>
+</div>
+  </div>
+
+<div class="modal fade" id="imageModal" tabindex="-1" aria-labelledby="imageModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-xl">
+    <div class="modal-content bg-white text-dark rounded shadow-lg">
+
+      <div class="modal-header border-0">
+        <h5 id="imageModalLabel" class="modal-title visually-hidden">Image agrandie dans une fenêtre modale</h5>
+        <button type="button"
+                class="btn-close"
+                data-bs-dismiss="modal"
+                aria-label="Fermer la fenêtre d’aperçu de l’image"></button>
+      </div>
+
+      <div class="modal-body text-center px-4 pt-3 pb-4">
+        <img id="imageModalTarget"
+             src=""
+             alt=""
+             class="img-fluid w-100" />
+        <div id="imageModalCaption"
+             class="text-dark mt-3 fs-5 text-center"></div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  </div>
+
+    
+    <script type="application/json" data-drupal-selector="drupal-settings-json">{"path":{"baseUrl":"\/","pathPrefix":"fr\/","currentPath":"node\/2697","currentPathIsAdmin":false,"isFront":false,"currentLanguage":"fr"},"pluralDelimiter":"\u0003","suppressDeprecationErrors":true,"ajaxPageState":{"libraries":"eJx1zFEKAyEMBNAL2fVIEjVVl6yGjH7s7dtSSulC_4Z5zMR-D6QtZEYr3b_ijoBkTaeLv5gq2dxxrYuMSHJ7b_7qPKX1clUcz8tJxaVh7LMtJdnSECEFOyWjYqQVH_o22-q6ojRUzg4nJh8-EvgBi1tRyg","theme":"bnf_api_design","theme_token":null},"ajaxTrustedUrl":[],"user":{"uid":0,"permissionsHash":"5b7f64e59bc1725b892d3c50fd81a3b354477005ef440d85808ca7d8f48ea10f"}}</script>
+<script src="/core/assets/vendor/jquery/jquery.min.js?v=4.0.0-beta.2"></script>
+<script src="/core/assets/vendor/once/once.min.js?v=1.0.1"></script>
+<script src="/sites/default/files/languages/fr_HbqYepDABf_aziBYDleYrDAVjN1S6XHQKXDtdByOxuk.js?to2phm"></script>
+<script src="/core/misc/drupalSettingsLoader.js?v=11.1.10"></script>
+<script src="/core/misc/drupal.js?v=11.1.10"></script>
+<script src="/core/misc/drupal.init.js?v=11.1.10"></script>
+<script src="/core/assets/vendor/tabbable/index.umd.min.js?v=6.2.0"></script>
+<script src="/themes/custom/bnf_api_design/js/vendors/scrollnav/scrollnav.js?to2phm"></script>
+<script src="/themes/custom/bnf_api_design/js/scripts/script_api.js?to2phm"></script>
+<script src="/core/misc/progress.js?v=11.1.10"></script>
+<script src="/core/assets/vendor/loadjs/loadjs.min.js?v=4.3.0"></script>
+<script src="/core/misc/debounce.js?v=11.1.10"></script>
+<script src="/core/misc/announce.js?v=11.1.10"></script>
+<script src="/core/misc/message.js?v=11.1.10"></script>
+<script src="/core/misc/ajax.js?v=11.1.10"></script>
+<script src="/themes/custom/bnf_api_design/js/vendors/bootstrap-5.0.2/bootstrap.bundle.min.js?to2phm"></script>
+<script src="/themes/custom/bnf_api_design/js/vendors/tinyslider/tinysler.js?to2phm"></script>
+<script src="/themes/custom/bnf_api_design/js/scripts/script_navigation.js?to2phm"></script>
+<script src="/core/misc/form.js?v=11.1.10"></script>
+<script src="/core/misc/details-summarized-content.js?v=11.1.10"></script>
+<script src="/core/misc/details-aria.js?v=11.1.10"></script>
+<script src="/core/misc/details.js?v=11.1.10"></script>
+
+  </body>
+</html>
