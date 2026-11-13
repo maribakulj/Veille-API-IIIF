@@ -1,0 +1,17 @@
+{
+  "slug": "kb-dk",
+  "min_delay_s": 6,
+  "max_requests": 15,
+  "endpoints": [
+    {"id": "oai-identify-www", "method": "GET", "url": "http://www.kb.dk/cop/oai/?verb=Identify"},
+    {"id": "oai-getrecord-www", "method": "GET", "url": "http://www.kb.dk/cop/oai/?verb=GetRecord&identifier=oai:kb.dk:manus:judsam:2010:maj:jsmss:object62730&metadataPrefix=oai_dc"},
+    {"id": "oai-identify-oai-host", "method": "GET", "url": "http://oai.kb.dk/oai/provider?verb=Identify"},
+    {"id": "iiif-info-arkiv6", "method": "GET", "url": "http://kb-images.kb.dk/online_master_arkiv_6/non-archival/Images/BILLED/2008/Billede/dk_eksp_album_191/kbb_alb_2_191_friis_011/info.json"},
+    {"id": "iiif-info-arkiv5", "method": "GET", "url": "http://kb-images.kb.dk/online_master_arkiv_5/non-archival/Manus/VMANUS/2009/jun/dfs_1906_6a_16/dfs_1906_6a_16_001/info.json"},
+    {"id": "iiif-image-native-2000", "method": "GET", "url": "http://kb-images.kb.dk/online_master_arkiv_6/non-archival/Images/BILLED/2008/Billede/dk_eksp_album_191/kbb_alb_2_191_friis_011/full/!2000,/0/native.jpg"},
+    {"id": "cop-syndication-billeder", "method": "GET", "url": "https://www.kb.dk/cop/syndication/images/billed/2010/okt/billeder/"},
+    {"id": "cop-navigation-subject841", "method": "GET", "url": "https://www.kb.dk/cop/navigation/images/billed/2010/okt/billeder/subject841/"},
+    {"id": "cop-opensearch-description", "method": "GET", "url": "https://www.kb.dk/cop/images/billed/2010/okt/billeder"},
+    {"id": "imageservice-legacy-w640", "method": "GET", "url": "http://www.kb.dk/imageService/w640/online_master_arkiv_6/non-archival/Images/BILLED/2008/Billede/dk_eksp_album_191/kbb_alb_2_191_friis_011.jpg"}
+  ]
+}
