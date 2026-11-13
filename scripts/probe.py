@@ -51,6 +51,9 @@ def fetch(url, method, timeout=20, lire=200):
     if parts.scheme not in ("http", "https") or not parts.hostname:
         raise ValueError(f"URL refusée : {url}")
     path = (parts.path or "/") + (("?" + parts.query) if parts.query else "")
+    # http.client exige une ligne de requête ASCII : on encode les caractères non ASCII
+    # (UTF-8) en conservant les %XX existants et les séparateurs d'URL.
+    path = urllib.parse.quote(path, safe="/%:@!$&'()*+,;=~-._?")
     if parts.scheme == "https":
         conn = http.client.HTTPSConnection(
             parts.hostname, parts.port, timeout=timeout, context=ssl.create_default_context()

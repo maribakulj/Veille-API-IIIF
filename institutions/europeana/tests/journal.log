@@ -19,3 +19,8 @@
 2026-11-13T23:16:44Z | iiif-manifeste-9200396 | https://iiif.europeana.eu/presentation/9200396/BibliographicResource_3000118436165/manifest | GET | 200 OK | aucun en-tête de limite | taille≥136587 | corps: {   "@type" : "sc:Manifest",   "@id" : "https://iiif.europeana.eu/presentation/9200396/BibliographicResource_3000118436165/manifest",   "@context" : "http://iiif.io/api/presentation/2/context.json",  
 # corps enregistré : tests/raw/iiif-manifeste-9200396.body (136587 octets lus)
 # Fin 2026-11-13T23:16:44Z — 2 requête(s) envoyée(s)
+# Session 2026-11-13T23:16:52Z — configuration europeana-passe3-images.json — sonde probe.py au commit 050287a
+2026-11-13T23:16:52Z | robots.txt:iiif.europeana.eu | https://iiif.europeana.eu/robots.txt | GET | 200 | 0 règle(s) pour « * »
+2026-11-13T23:16:58Z | image-info-json | https://iiif.europeana.eu/image/QNYVL2Z2FVHRGMK2UNXIP4DUUOTOVA2ND3WIPJQF6V23SO2CJ5UA/presentation_images/ee0edfa0-0220-11e6-a696-fa163e2dd531/node-3/image/BNL/Journal_historique_et_littéraire/1788/09/01/00001/info.json | GET | ERREUR_RÉSEAU | UnicodeEncodeError: 'ascii' codec can't encode character '\xe9' in position 164: ordinal not in range(128)
+2026-11-13T23:17:04Z | image-derive-200 | https://iiif.europeana.eu/image/QNYVL2Z2FVHRGMK2UNXIP4DUUOTOVA2ND3WIPJQF6V23SO2CJ5UA/presentation_images/ee0edfa0-0220-11e6-a696-fa163e2dd531/node-3/image/BNL/Journal_historique_et_littéraire/1788/09/01/00001/full/!200,200/0/default.jpg | GET | ERREUR_RÉSEAU | UnicodeEncodeError: 'ascii' codec can't encode character '\xe9' in position 164: ordinal not in range(128)
+# Fin 2026-11-13T23:17:04Z — 3 requête(s) envoyée(s)

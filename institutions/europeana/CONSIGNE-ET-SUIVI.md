@@ -60,8 +60,8 @@
 
 <!-- AUTO:DEBUT -->
 ## Contrôles automatiques (calculés depuis `tests/journal.log`)
-- Requêtes enregistrées : **9** (sessions de sonde : 2, maximum par session : 2)
-- Plus courte pause vers un même hôte : **7 s** (règle : ≥ 6 s)
+- Requêtes enregistrées : **12** (sessions de sonde : 3, maximum par session : 3)
+- Plus courte pause vers un même hôte : **6 s** (règle : ≥ 6 s)
 - Méthodes utilisées : GET, HEAD (règle : GET/HEAD seulement)
 - Anomalies : aucune
 <!-- AUTO:FIN -->
