@@ -27,6 +27,15 @@ pourquoi quand elle l'est.
   fichiers du dépôt. Les réponses sont résumées (en-têtes + statut + 200 octets
   de corps au maximum), jamais recopiées en entier.
 
+## Distinguer quatre choses (à écrire séparément dans chaque fiche)
+
+- **Documenté** : la doc officielle annonce une limite, avec URL, date et citation exacte.
+- **Observé** : une réponse 429 (ou un en-tête `Retry-After`, `X-RateLimit-*`, `RateLimit-*`) a été reçue lors de nos appels. Seul ce cas établit un mécanisme de limitation.
+- **Accès refusé à ce client (403 anti-bot)** : 403 ou page de défi (Cloudflare « Just a moment », IIS 403) reçu dès la 1re ou la 2e requête. Ce n'est **pas** un quota : c'est un refus d'accès à notre client. Ne jamais l'écrire comme « limite de débit ».
+- **Non vérifié** : tout le reste. Une limite documentée mais jamais observée reste « documentée, non vérifiée ».
+
+Un 403 ne se contourne pas (pas de changement d'User-Agent vers un navigateur, pas de changement d'IP). On consigne, on arrête pour cet hôte, et on note ce qui devrait être refait autrement (navigateur de l'utilisateur, demande écrite à l'institution).
+
 ## Déroulé pour une institution
 
 1. **Documentation** : chercher la doc officielle de l'API (site de

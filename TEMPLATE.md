@@ -26,6 +26,9 @@
 
 ## 4. Conclusion sur les limites
 
+- Limite **documentée** (citation et URL) : oui / non
+- Limite **observée** (429 ou en-tête de quota reçu) : oui / non
+- Accès refusé à ce client (403 anti-bot / défi Cloudflare) : oui / non, à quelle requête n°
 - L'API annonce-t-elle ses limites dans la réponse ? oui / non / partiel
 - Mécanisme observé (429 + Retry-After, en-têtes X-RateLimit, rien) : 
 - Valeurs trouvées (quota, fenêtre) : 

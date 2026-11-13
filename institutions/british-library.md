@@ -17,7 +17,7 @@
 | https://github.com/britishlibrary (organisation GitHub) | 2026-11-13 | Aucune mention de quota ni de limite (10 dépôts visibles sur 57). Dépôts IIIF visibles : `TremendousIIIF` (serveur d'images IIIF en C#) et `UniversalViewer-old` (visionneuse archivée). |
 | https://bl.uk/research/digitised-manuscripts (via recherche) | 2026-11-13 | Extrait cité par un résultat : 1 000 manuscrits numérisés remis en ligne après une cyberattaque d'octobre 2023 ; « view only and there is no download option » ; liste de plus de 2 000 documents (mise à jour juin 2025). Pas de chiffre de débit. |
 
-Résultat doc officielle : **aucune limite chiffrée, ni fair use, ni règle sur les robots, trouvée**. La doc IIIF de la BL elle-même n'a pas pu être lue (403 sur iiif.bl.uk).
+Résultat doc officielle : **aucune limite chiffrée trouvée dans les pages lues**. La doc IIIF / API de la BL elle-même n'a **pas été lue** (403 sur iiif.bl.uk, page conditions en 404) : ce résultat ne permet pas de conclure qu'il n'existe aucune limite.
 
 ## 2. Recherche élargie
 
