@@ -2,10 +2,10 @@
 id: GLAM-065
 institution: Lancaster University Library
 pays: Royaume-Uni
-statut: NON TROUVÉ APRÈS RECHERCHE (aucune doc officielle de quota)
+statut: NON TROUVÉ APRÈS RECHERCHE (aucune URL officielle listée ; racine de la bibliothèque refusée par l’outil)
 classe: non trouvé après recherche
-statut_quota: NON TROUVÉ APRÈS RECHERCHE (aucune doc officielle de quota) ; Adresse PDF non relue (redirection 302 non suivie) ; recherche bornée (1 requête)
-debit_iiif: Aucune limite de requêtes, quota ni code 429 n'a été trouvée pour les collections numériques de Lancaster. Un résultat de recherche désignait une présentation de mai 2025 sur les collections numériques, sans chiffre ; l'adresse PDF citée redirige vers la page d'accueil d'un portail de recherche et n'a pas pu être relue. Aucune autre page officielle de quota n'a été trouvée.
+statut_quota: 'NON TROUVÉ APRÈS RECHERCHE : aucun chiffre lu ; page officielle refusée'
+debit_iiif: 'Aucun débit IIIF trouvé. La fiche ne listait aucune URL officielle. La page de la bibliothèque (www.lancaster.ac.uk/library) a été tentée et refusée par l’outil : non contournée, non surveillée. Aucune règle de débit n’a pu être lue pour ce fonds.'
 iiif_image: NON PRÉSENT SUR CETTE PAGE
 iiif_presentation: Guide IIIF Lancaster (guides.iiif.io, dernière mise à jour 27 mai 2026) ; URL de manifeste non lue
 api_recherche: NON PRÉSENT SUR CETTE PAGE
@@ -16,12 +16,17 @@ bots_ia: NON PRÉSENT SUR CETTE PAGE
 droits: NON PRÉSENT SUR CETTE PAGE
 strategie: Lancaster Digital Collections, construit sur la plateforme de Cambridge (communiqué de lancement) ; IIIF documenté par la communauté
 lacunes:
-- documentation officielle de l'API non localisée
-- version IIIF, manifestes, quota, conditions
-methode: 'WebSearch « Lancaster University Library digital collections IIIF API rate limit » : aucun chiffre dans les extraits ; WebFetch de l''adresse PDF citée : redirection 302 vers research.lancaster-university.uk, non suivie'
+- aucune URL officielle listée dans la fiche
+- page de la bibliothèque refusée par l’outil
+- documentation IIIF ou API non lue
+methode: 'WebSearch « Lancaster University Library digital collections IIIF API rate limit » : aucun chiffre dans les extraits ; WebFetch de l''adresse PDF citée : redirection 302 vers research.lancaster-university.uk, non suivie ; Passe 2 (2026-11-13) : 1 WebFetch refusé (www.lancaster.ac.uk/library), non contourné.'
 verifie_le: '2026-11-13'
 sources_sans_url:
 - Aucune page officielle de quota atteignable (recherche bornée)
+sources:
+- url: https://www.lancaster.ac.uk/library
+  note: 'Page tentée, refusée par l’outil (hors liste d’autorisation) : non lue, non surveillée'
+  surveiller: false
 ---
 
 # Lancaster University Library
@@ -36,3 +41,6 @@ _À compléter._
 
 - WebSearch « Lancaster University Library digital collections IIIF API rate limit » : aucun chiffre dans les extraits
 - WebFetch de l'adresse PDF citée : redirection 302 vers research.lancaster-university.uk, non suivie
+
+## Passe 2 (2026-11-13)
+- WebFetch www.lancaster.ac.uk/library : URL hors liste d’autorisation ; non contournée.

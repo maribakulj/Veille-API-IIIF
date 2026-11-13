@@ -2,18 +2,20 @@
 id: GLAM-025
 institution: SUB Göttingen – GDZ
 pays: Allemagne
-statut: DOC LUE, AUCUN CHIFFRE (page IIIF officielle lue)
+statut: DOC LUE, AUCUN CHIFFRE (page IIIF de la bibliothèque lue ; aucun seuil publié)
 classe: doc lue, sans chiffre
-statut_quota: DOC LUE, AUCUN CHIFFRE (page IIIF officielle lue) ; Page IIIF officielle lue ; documentation du GDZ non lue
-debit_iiif: Aucun débit, quota, nombre de requêtes, throttling, code 429, clé d'API ni règle de moissonnage sur la page officielle « IIIF at the Göttingen State and University Library ». La page annonce le support des API Image et Presentation et renvoie à la documentation des bibliothèques ou API concernées, non lue.
+statut_quota: 'DOC LUE, AUCUN CHIFFRE : aucun seuil, quota ni throttling sur la page IIIF ; clé non précisée'
+debit_iiif: Aucun seuil de débit IIIF publié sur la page IIIF de la bibliothèque. La page nomme les API Image et Presentation, plus Authentication et Content Search, sans chiffre. Elle ne dit pas si une clé est requise, ne renvoie vers aucune documentation d’API et renvoie pour les limites d’usage vers la bibliothèque elle-même.
 iiif_image: 'NON PRÉSENT SUR CETTE PAGE (guide IIIF ; seule mention : copier l''URL du manifeste)'
 iiif_presentation: NON PRÉSENT SUR CETTE PAGE (guide IIIF)
 acces: NON PRÉSENT SUR CETTE PAGE
 moissonnage: NON PRÉSENT SUR CETTE PAGE
 robots_waf: NON PRÉSENT SUR CETTE PAGE
 droits: NON PRÉSENT SUR CETTE PAGE
-lacunes: Relire la page Terms of Use SUB.
-methode: 'WebSearch « SUB Göttingen GDZ IIIF API documentation Nutzung Limit Anfragen » : pages SUB et guide communautaire ; WebFetch page IIIF officielle SUB Göttingen : aucune limite'
+lacunes:
+- pas de lien vers une documentation IIIF propre à Göttingen
+- limites d’usage renvoyées vers la bibliothèque, non publiées sur la page
+methode: 'WebSearch « SUB Göttingen GDZ IIIF API documentation Nutzung Limit Anfragen » : pages SUB et guide communautaire ; WebFetch page IIIF officielle SUB Göttingen : aucune limite ; Passe 2 (2026-11-13) : 1 WebFetch, résumé d’extraction (page IIIF).'
 verifie_le: '2026-11-13'
 sources:
 - url: https://www03.sub.uni-goettingen.de/en/digital-library/digital-tools/iiif-at-the-goettingen-state-and-university-library
@@ -39,3 +41,7 @@ _À compléter._
 
 - WebSearch « SUB Göttingen GDZ IIIF API documentation Nutzung Limit Anfragen » : pages SUB et guide communautaire
 - WebFetch page IIIF officielle SUB Göttingen : aucune limite
+
+## Passe 2 (2026-11-13)
+- WebFetch page IIIF : aucun seuil ni throttling ; clé non précisée ; aucun lien de documentation.
+- Les seuls chiffres de la page sont des dates de conférence, non des limites.

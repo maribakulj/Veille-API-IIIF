@@ -2,10 +2,10 @@
 id: GLAM-067
 institution: University of Leicester Library
 pays: Royaume-Uni
-statut: NON TROUVÉ APRÈS RECHERCHE (aucune doc officielle de quota)
-classe: non trouvé après recherche
-statut_quota: NON TROUVÉ APRÈS RECHERCHE (aucune doc officielle de quota) ; Blog officiel et politique de réutilisation lus en extrait ; aucune page technique de quota ; recherche bornée (1 requête)
-debit_iiif: Aucune limite de requêtes, quota ni code 429 n'a été trouvée sur les pages officielles de Leicester. Le blog officiel de la bibliothèque (2023) présente la fonction IIIF et le visualiseur Mirador de Special Collections Online, sans seuil. La politique de réutilisation des données publiques ne fixe pas de limite technique.
+statut: DOC LUE, AUCUN CHIFFRE (page de réutilisation des données lue ; ni API ni IIIF mentionnés)
+classe: doc lue, sans chiffre
+statut_quota: 'DOC LUE, AUCUN CHIFFRE : aucun seuil, quota ni throttling ; délai de réponse de 20 jours ouvrés, non un plafond'
+debit_iiif: 'Aucun chiffre de limite sur la page de réutilisation des données publiques. Elle indique que les demandes de réutilisation reçoivent une réponse dans un délai de 20 jours ouvrés : c’est un délai de traitement, non un plafond de requêtes. Les frais de numérisation et de licence ne sont pas des limites d’usage. La page ne mentionne ni API ni IIIF et ne dit pas si une clé est requise ; les détails API s’obtiennent auprès du service spécial collections.'
 iiif_image: NON PRÉSENT SUR CETTE PAGE
 iiif_presentation: IIIF et visionneuse Mirador ajoutés à Special Collections Online (blog staff, 2023) ; URL non lue
 api_recherche: NON PRÉSENT SUR CETTE PAGE
@@ -16,11 +16,10 @@ bots_ia: NON PRÉSENT SUR CETTE PAGE
 droits: NON PRÉSENT SUR CETTE PAGE
 strategie: 'IIIF limité aux documents textuels et aux images : ni son, ni film, ni 3D (blog, 2023)'
 lacunes:
-- version IIIF
-- URL des manifestes
-- quota
-- conditions
-methode: 'WebSearch « University of Leicester Special Collections Online IIIF API rate limit » : blog officiel et politique de réutilisation, pas de chiffre'
+- API et IIIF non décrits sur la page lue
+- clé non précisée
+- pas d’URL de documentation
+methode: 'WebSearch « University of Leicester Special Collections Online IIIF API rate limit » : blog officiel et politique de réutilisation, pas de chiffre ; Passe 2 (2026-11-13) : 1 WebFetch, résumé d’extraction (page de réutilisation).'
 verifie_le: '2026-11-13'
 sources:
 - url: https://staffblogs.le.ac.uk/library/?p=1086
@@ -44,3 +43,6 @@ _À compléter._
 ## Traces de la boucle de vérification (passe du 13/11/2026)
 
 - WebSearch « University of Leicester Special Collections Online IIIF API rate limit » : blog officiel et politique de réutilisation, pas de chiffre
+
+## Passe 2 (2026-11-13)
+- WebFetch réutilisation : aucun seuil ni throttling ; délai de réponse de 20 jours ouvrés, non un plafond ; API non mentionnée.

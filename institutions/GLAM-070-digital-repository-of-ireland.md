@@ -2,10 +2,10 @@
 id: GLAM-070
 institution: Digital Repository of Ireland
 pays: Irlande
-statut: NON TROUVÉ APRÈS RECHERCHE (aucune doc officielle de quota)
-classe: non trouvé après recherche
-statut_quota: NON TROUVÉ APRÈS RECHERCHE (aucune doc officielle de quota) ; Pages officielles lues en extrait ; aucune page technique de quota ; recherche bornée (1 requête)
-debit_iiif: Aucune limite de requêtes, quota ni code 429 n'a été trouvée sur les pages officielles du DRI. Une actualité officielle ancienne (2016) annonce le déploiement IIIF, sans seuil ; une présentation tierce évoque un ajout futur de l'API IIIF, sans chiffre, et n'est pas retenue comme source de limite.
+statut: DOC LUE, AUCUN CHIFFRE (page À propos lue ; ni API ni IIIF mentionnés)
+classe: doc lue, sans chiffre
+statut_quota: 'DOC LUE, AUCUN CHIFFRE : aucun seuil, quota ni throttling ; clé non précisée'
+debit_iiif: 'Aucun chiffre de limite sur la page À propos du Digital Repository of Ireland. La page ne mentionne ni API ni IIIF, et renvoie vers une spécification d’exigences et un code d’éthique sans URL donnée : ces documents ne sont pas de la documentation d’API.'
 iiif_image: Code de la plateforme (Hydra) annoncé comme supportant IIIF et Mirador (dri.ie, 2016) ; version non précisée
 iiif_presentation: Présence IIIF listée par guides.iiif.io ; URL de manifeste non lue
 api_recherche: NON PRÉSENT SUR CETTE PAGE
@@ -16,9 +16,10 @@ bots_ia: NON PRÉSENT SUR CETTE PAGE
 droits: NON PRÉSENT SUR CETTE PAGE
 strategie: Dépôt ouvert sur Hydra avec IIIF ; quota et API non documentés dans les sources lues
 lacunes:
-- documentation API officielle non trouvée
-- version, quota, conditions
-methode: 'WebSearch « Digital Repository of Ireland IIIF API rate limit terms » : pages officielles sans chiffre'
+- API et IIIF absents de la page lue
+- clé non précisée
+- documents renvoyés « à ce lien » sans URL
+methode: 'WebSearch « Digital Repository of Ireland IIIF API rate limit terms » : pages officielles sans chiffre ; Passe 2 (2026-11-13) : 1 WebFetch, résumé d’extraction (page À propos).'
 verifie_le: '2026-11-13'
 sources:
 - url: https://dri.ie/?p=2564
@@ -42,3 +43,6 @@ _À compléter._
 ## Traces de la boucle de vérification (passe du 13/11/2026)
 
 - WebSearch « Digital Repository of Ireland IIIF API rate limit terms » : pages officielles sans chiffre
+
+## Passe 2 (2026-11-13)
+- WebFetch page À propos : aucun seuil ni throttling ; aucune mention d’API ni d’IIIF ; la page ?p=2564 n’a pas été lue.

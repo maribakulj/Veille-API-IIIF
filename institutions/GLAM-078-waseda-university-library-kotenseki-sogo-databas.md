@@ -2,10 +2,10 @@
 id: GLAM-078
 institution: Waseda University Library – Kotenseki Sogo Database
 pays: Japon
-statut: NON TROUVÉ APRÈS RECHERCHE (aucune doc officielle de quota)
-classe: non trouvé après recherche
-statut_quota: NON TROUVÉ APRÈS RECHERCHE (aucune doc officielle de quota) ; Rapport annuel 2022 (japonais) et pages officielles lus en extrait ; recherche bornée (1 requête)
-debit_iiif: Aucune limite de requêtes, quota ni code 429 n'a été trouvée sur les pages officielles de Waseda. Le rapport annuel 2022 de la bibliothèque (en japonais) indique que les images IIIF, plus volumineuses, imposent de choisir les documents publiés en tenant compte de la charge du serveur, sans chiffre. La page officielle d'usage des images exige une demande préalable, sans seuil technique.
+statut: DOC LUE, AUCUN CHIFFRE (page des droits d’image lue ; ni API ni IIIF mentionnés)
+classe: doc lue, sans chiffre
+statut_quota: 'DOC LUE, AUCUN CHIFFRE : aucun seuil ni quota ; usage d’images soumis à demande préalable'
+debit_iiif: Aucun chiffre de limite de requêtes, de débit ni de quota sur la page des droits d’image. Elle porte sur l’autorisation d’usage, non sur les accès techniques, et ne mentionne ni API ni IIIF. Les images de la base Kotenseki Sogo se demandent à l’avance auprès de la salle des collections spéciales, pour tout usage (consultation, publication, diffusion, site, exposition).
 iiif_image: NON PRÉSENT SUR CETTE PAGE (version non précisée)
 iiif_presentation: Manifestes et URI de manifeste publiés sur les fiches bibliographiques de la base Kotenseki (article Fumikura, 2022)
 api_recherche: NON PRÉSENT SUR CETTE PAGE
@@ -16,10 +16,10 @@ bots_ia: NON PRÉSENT SUR CETTE PAGE
 droits: Page À propos décrivant un cadre d'usage des images (non lue en entier)
 strategie: Manifestes IIIF ajoutés aux fiches de la base de 300 000 items ; visionneuse IIIF ; quota non publié
 lacunes:
-- version IIIF
-- clé et quota
-- conditions d'usage complètes
-methode: 'WebSearch « Waseda University Library Kotenseki IIIF rate limit » : aucune limite chiffrée ; rapport annuel 2022 en japonais lu en extrait'
+- base Kotenseki Sogo non lue (API ou IIIF éventuels)
+- clé non précisée, aucune API mentionnée
+- limites techniques à demander à la salle des collections spéciales
+methode: 'WebSearch « Waseda University Library Kotenseki IIIF rate limit » : aucune limite chiffrée ; rapport annuel 2022 en japonais lu en extrait ; Passe 2 (2026-11-13) : 1 WebFetch, résumé d’extraction (page des droits d’image).'
 verifie_le: '2026-11-13'
 sources:
 - url: https://waseda.repo.nii.ac.jp/record/78696/files/WasedaDaigakuTosyokanNenpou_2022_6.pdf
@@ -41,3 +41,6 @@ _À compléter._
 ## Traces de la boucle de vérification (passe du 13/11/2026)
 
 - WebSearch « Waseda University Library Kotenseki IIIF rate limit » : aucune limite chiffrée ; rapport annuel 2022 en japonais lu en extrait
+
+## Passe 2 (2026-11-13)
+- WebFetch page des droits d’image : aucun seuil ; autorisation préalable ; aucune API ni IIIF mentionnés.

@@ -2,14 +2,17 @@
 id: GLAM-016
 institution: Ghent University Library (UGent)
 pays: Belgique
-statut: NON TROUVÉ APRÈS RECHERCHE (documentation officielle lib.ugent.be non lisible)
+statut: 'NON TROUVÉ APRÈS RECHERCHE (IIIF) : aucune documentation IIIF ni chiffre trouvés sur les pages officielles'
 classe: non trouvé après recherche
-statut_quota: NON TROUVÉ APRÈS RECHERCHE (documentation officielle lib.ugent.be non lisible) ; Documentation officielle non accessible dans cette session ; aucune preuve d'absence de limite
-debit_iiif: 'Aucun débit, quota ni limite de requêtes trouvé. La page officielle du catalogue (lib.ugent.be/catalog), citée par un répertoire d''APIs tiers, n''a pas pu être lue : URL refusée par l''outil (hors liste autorisée). Sources lues : un document municipal de 2020 indique que l''implémentation IIIF de l''UGent suit Image API 2.1.1 (niveau 1) et Presentation API 2.1.1, sans limite ; la page de l''IIIF Consortium (2021) n''en mentionne pas. Aucun chiffre publié n''a été trouvé.'
+statut_quota: 'NON TROUVÉ APRÈS RECHERCHE : aucun seuil ni quota IIIF trouvé ; exports de catalogue libres (MARC XML, quotidiens)'
+debit_iiif: Aucun débit IIIF trouvé. Les pages officielles trouvées traitent des exports de catalogue en MARC XML, quotidiens et sans limite chiffrée, et de l’API Biblio pour les publications de l’université (REST, hors IIIF, non lue). Une absence de chiffre ne signifie pas absence de limite.
 iiif_image: Non vérifié sur doc officielle (présence IIIF attestée par source tierce meemoo)
 iiif_presentation: Non vérifié
-lacunes: Doc UGent à atteindre par recherche directe ; aucune trouvée à ce stade.
-methode: 'WebSearch « lib.ugent.be IIIF presentation API documentation rate limit » : rien d''officiel ; WebFetch lib.ugent.be/catalog : refusé (hors liste autorisée) ; WebSearch néerlandais « documentatie API gebruiksvoorwaarden » : document municipal et pages tierces, aucune limite'
+lacunes:
+- aucune documentation IIIF officielle trouvée
+- lib.ugent.be/catalog refusé en passe 1
+- API Biblio non lue
+methode: 'WebSearch « lib.ugent.be IIIF presentation API documentation rate limit » : rien d''officiel ; WebFetch lib.ugent.be/catalog : refusé (hors liste autorisée) ; WebSearch néerlandais « documentatie API gebruiksvoorwaarden » : document municipal et pages tierces, aucune limite ; Passe 2 (2026-11-13) : 1 WebSearch restreinte à ugent.be (résultats : bibliothèque, exports de données ; aucune documentation IIIF).'
 verifie_le: '2026-11-13'
 sources:
 - url: https://lib.ugent.be/catalog
@@ -39,3 +42,9 @@ Le classeur attribue à UGent une « API bibliographique 10 000 notices/export �
 - WebSearch « lib.ugent.be IIIF presentation API documentation rate limit » : rien d'officiel
 - WebFetch lib.ugent.be/catalog : refusé (hors liste autorisée)
 - WebSearch néerlandais « documentatie API gebruiksvoorwaarden » : document municipal et pages tierces, aucune limite
+
+## Passe 2 (2026-11-13)
+- WebSearch ugent.be : aucune documentation IIIF ni chiffre ; pages de bibliothèque, données ouvertes et dépôts sans rapport avec un débit IIIF.
+- Extrait lib.ugent.be (données ouvertes) : exports MARC XML quotidiens ; ce ne sont pas des API IIIF.
+- API Biblio (publications, REST) : documentation signalée par extrait, non lue ; même si elle était chiffrée, elle ne serait pas un débit IIIF.
+- Les pages iiif.io et apis.io citées en passe 1 : la seconde est un agrégateur tiers, non retenue.

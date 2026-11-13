@@ -2,10 +2,10 @@
 id: GLAM-062
 institution: Norman B. Leventhal Map & Education Center – Boston Public Library
 pays: États-Unis
-statut: DOC LUE, AUCUN CHIFFRE (page officielle des collections numériques lue en extrait)
+statut: DOC LUE, AUCUN CHIFFRE (page des collections numériques lue ; manifestes et Search API décrits)
 classe: doc lue, sans chiffre
-statut_quota: DOC LUE, AUCUN CHIFFRE (page officielle des collections numériques lue en extrait) ; Page officielle lue en extrait ; API de recherche référencée, non lue
-debit_iiif: La page officielle des collections numériques du Leventhal Map Center (leventhalmap.org, extrait) indique que tous les objets sont accessibles en IIIF (manifestes et images), qu'un manifeste s'obtient en ajoutant /manifest.json à l'URL d'une notice, et mentionne une API de recherche. Aucun nombre de requêtes, quota, débit ni code 429 n'apparaît dans l'extrait.
+statut_quota: 'DOC LUE, AUCUN CHIFFRE : aucun seuil ni quota sur la page ; clé pour la Search API non traitée'
+debit_iiif: Aucun chiffre de limite sur la page des collections numériques. Les manifestes IIIF s’obtiennent en ajoutant un suffixe à l’URL d’un objet, et une API de recherche (search.json) accepte les mêmes paramètres que le portail. La page indique que les deux dépôts principaux sont accessibles sans inscription, sans dire si la Search API ou les endpoints IIIF requièrent une clé.
 iiif_image: API IIIF mentionnée (github bplmaps/collections-api) ; version non précisée
 iiif_presentation: 'Manifeste : suffixe /manifest.json ajouté à l''URL collections.leventhalmap.org (leventhalmap.org/collections/digital-collections)'
 api_recherche: 'JSON : collections.leventhalmap.org/search.json, mêmes paramètres que le portail'
@@ -16,10 +16,9 @@ bots_ia: NON PRÉSENT SUR CETTE PAGE
 droits: Collections soumises aux spécifications de Digital Commonwealth (github bplmaps) ; conditions NON PRÉSENT SUR CETTE PAGE
 strategie: Double accès JSON et IIIF, relayé par le portail Digital Commonwealth ; quota non publié
 lacunes:
-- quota
-- conditions d'usage
-- version IIIF
-methode: 'WebSearch « Leventhal Map Center Boston Public Library IIIF API rate limit terms » : page officielle des collections en extrait, pas de chiffre'
+- clé pour la Search API et les endpoints IIIF non précisée
+- aucune documentation d’API liée
+methode: 'WebSearch « Leventhal Map Center Boston Public Library IIIF API rate limit terms » : page officielle des collections en extrait, pas de chiffre ; Passe 2 (2026-11-13) : 1 WebFetch, résumé d’extraction (collections numériques).'
 verifie_le: '2026-11-13'
 sources:
 - url: https://www.leventhalmap.org/collections/digital-collections
@@ -41,3 +40,6 @@ _À compléter._
 ## Traces de la boucle de vérification (passe du 13/11/2026)
 
 - WebSearch « Leventhal Map Center Boston Public Library IIIF API rate limit terms » : page officielle des collections en extrait, pas de chiffre
+
+## Passe 2 (2026-11-13)
+- WebFetch collections numériques : aucun seuil ni throttling ; accès sans inscription pour les deux dépôts ; clé non traitée pour l’API.

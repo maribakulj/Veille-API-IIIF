@@ -2,10 +2,10 @@
 id: GLAM-079
 institution: Keio University Libraries – Keio D Collections
 pays: Japon
-statut: DOC LUE, AUCUN CHIFFRE (page officielle « About » lue en extrait)
+statut: DOC LUE, AUCUN CHIFFRE (page À propos lue ; pas d’API documentée)
 classe: doc lue, sans chiffre
-statut_quota: DOC LUE, AUCUN CHIFFRE (page officielle « About » lue en extrait) ; Page officielle lue en extrait ; aucun chiffre ; recherche bornée (1 requête)
-debit_iiif: Aucun chiffre de débit ni de quota n'apparaît sur la page officielle « About » de Keio D Collections (lue en extrait). Elle décrit un serveur d'images IIIF permettant la navigation haute résolution, et des PDF téléchargeables pour certaines collections, sans seuil. Une entrée tierce « Rate Limits » du catalogue apis.io n'a pas de valeur lisible et n'est pas retenue.
+statut_quota: 'DOC LUE, AUCUN CHIFFRE : aucun seuil, quota ni throttling ; téléchargements PDF sans plafond annoncé'
+debit_iiif: Aucun chiffre de limite sur la page À propos de D-Collections, pour le site, le serveur d’images IIIF ou une API. Le site est déclaré librement accessible, sans seuil. Les téléchargements en PDF ne sont proposés que pour des collections listées, sans plafond de taille ni de nombre. Les conditions de réutilisation ne contiennent pas de plafond numérique ; les questions sur les images renvoient vers la page de contact. Aucune API n’est mentionnée, donc aucune clé.
 iiif_image: Serveur d'images IIIF pour la visionneuse (dcollections.lib.keio.ac.jp/en/about) ; version non précisée
 iiif_presentation: Lien « IIIF Manifest » sur les fiches et ouverture dans une visionneuse IIIF (pages de collections)
 api_recherche: NON PRÉSENT SUR CETTE PAGE
@@ -16,10 +16,9 @@ bots_ia: NON PRÉSENT SUR CETTE PAGE
 droits: NON PRÉSENT SUR CETTE PAGE
 strategie: Visionneuse IIIF et PDF pour les fonds rares ; projet commun Digital Fujikawa avec Kyoto (2018)
 lacunes:
-- version IIIF
-- quota
-- conditions d'usage
-methode: 'WebSearch « Keio University Libraries digital collections IIIF rate limit » : page officielle sans chiffre ; entrée tierce écartée'
+- aucune documentation API ou IIIF liée
+- conditions d’usage des images à confirmer auprès du contact
+methode: 'WebSearch « Keio University Libraries digital collections IIIF rate limit » : page officielle sans chiffre ; entrée tierce écartée ; Passe 2 (2026-11-13) : 1 WebFetch, résumé d’extraction (page À propos).'
 verifie_le: '2026-11-13'
 sources:
 - url: https://dcollections.lib.keio.ac.jp/en/about
@@ -41,3 +40,6 @@ _À compléter._
 ## Traces de la boucle de vérification (passe du 13/11/2026)
 
 - WebSearch « Keio University Libraries digital collections IIIF rate limit » : page officielle sans chiffre ; entrée tierce écartée
+
+## Passe 2 (2026-11-13)
+- WebFetch page À propos : accès libre sans seuil ; serveur IIIF sans limite chiffrée ; téléchargements PDF sans plafond annoncé.

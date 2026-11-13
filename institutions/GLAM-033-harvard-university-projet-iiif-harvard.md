@@ -2,10 +2,10 @@
 id: GLAM-033
 institution: Harvard University (projet IIIF Harvard)
 pays: États-Unis
-statut: DOC LUE, AUCUN CHIFFRE (page IIIF officielle lue)
+statut: DOC LUE, AUCUN CHIFFRE (page des collaborateurs IIIF lue ; LibraryCloud non lue)
 classe: doc lue, sans chiffre
-statut_quota: DOC LUE, AUCUN CHIFFRE (page IIIF officielle lue) ; Page officielle lue ; documentation technique LibraryCloud / IIIF non lue
-debit_iiif: Aucun débit, quota, nombre de requêtes, throttling, code 429, clé d'API ni règle de moissonnage sur la page officielle Harvard Library (iiif.harvard.edu/collaborators/harvard-library). La page décrit un accès public et gratuit à plus de 6 000 000 d'objets numériques et des services IIIF (plus de 53 000 000 d'images), sans condition d'usage technique. Les chiffres relevés sont des volumes de contenu, non des limites.
+statut_quota: 'DOC LUE, AUCUN CHIFFRE : aucun seuil ni quota sur la page IIIF ; limites de LibraryCloud (API de métadonnées, non IIIF) non décrites'
+debit_iiif: 'Aucun seuil de débit IIIF publié sur la page des collaborateurs IIIF de Harvard. Les chiffres de la page (plus de 53 millions d’images, plus de 6 millions d’objets) décrivent le contenu, non des limites. Le seul lien d’API est LibraryCloud, qui est une API de métadonnées distincte d’IIIF : la page ne décrit pas ses limites. Les services IIIF sont gérés par LTS, sans conditions d’usage sur la page.'
 iiif_image: Image API 2.1 (liens vers iiif.io/api/image/2.1/)
 iiif_presentation: Presentation API 2.1 (liens) ; légende de diagramme « Presentation API 3.0 » (version servie non confirmée)
 api_recherche: NON PRÉSENT SUR CETTE PAGE
@@ -15,9 +15,10 @@ robots_waf: NON PRÉSENT SUR CETTE PAGE
 bots_ia: NON PRÉSENT SUR CETTE PAGE
 droits: « © International Image Interoperability Framework at Harvard University » ; aucune condition d'usage
 lacunes:
-- library.harvard.edu/services-tools/iiif-manifests-digital-objects non autorisée
-- date de mise à jour (les chemins « 2022/12 » ne sont pas une date)
-methode: 'WebSearch « Harvard Library Digital Collections IIIF API rate limit terms harvard.edu » : pages IIIF Harvard et wiki interne ; WebFetch iiif.harvard.edu/collaborators/harvard-library : aucune limite, volumes seulement'
+- limites de LibraryCloud non décrites sur la page liée
+- conditions d’usage IIIF non publiées sur la page lue
+- clé non précisée
+methode: 'WebSearch « Harvard Library Digital Collections IIIF API rate limit terms harvard.edu » : pages IIIF Harvard et wiki interne ; WebFetch iiif.harvard.edu/collaborators/harvard-library : aucune limite, volumes seulement ; Passe 2 (2026-11-13) : 1 WebFetch, résumé d’extraction (page collaborateurs).'
 verifie_le: '2026-11-13'
 sources:
 - url: https://iiif.harvard.edu/collaborators/harvard-library
@@ -40,3 +41,6 @@ _À compléter._
 
 - WebSearch « Harvard Library Digital Collections IIIF API rate limit terms harvard.edu » : pages IIIF Harvard et wiki interne
 - WebFetch iiif.harvard.edu/collaborators/harvard-library : aucune limite, volumes seulement
+
+## Passe 2 (2026-11-13)
+- WebFetch page collaborateurs : aucun seuil, quota ni fair use ; clé non précisée ; LibraryCloud cité, non lu.

@@ -2,10 +2,10 @@
 id: GLAM-042
 institution: Princeton University Art Museum
 pays: États-Unis
-statut: DOC LUE, AUCUN CHIFFRE (dépôt officiel de documentation de l'API lu en extrait)
+statut: DOC LUE, AUCUN CHIFFRE (docs API du dépôt GitHub lues ; aucune clé requise à ce jour)
 classe: doc lue, sans chiffre
-statut_quota: DOC LUE, AUCUN CHIFFRE (dépôt officiel de documentation de l'API lu en extrait) ; Dépôt officiel lu en extrait ; service IIIF du musée (page d'objet) référencé sans chiffre
-debit_iiif: 'La documentation officielle de l''API du musée (dépôt GitHub Princeton-University-Art-Museum/puam-api-docs, extrait) indique que l''accès ne requiert pas d''authentification pour le moment, avec la réserve que cela pourrait changer, et propose des fichiers JSON statiques téléchargeables, rafraîchis chaque semaine, pour les usages sans connexion dynamique. Aucun nombre de requêtes, quota, débit ni code 429 n''apparaît dans l''extrait. Un agrégateur tiers évoque des limites de débit : non retenu.'
+statut_quota: 'DOC LUE, AUCUN CHIFFRE : aucun seuil, quota ni throttling sur la documentation ; aucune authentification requise à ce jour'
+debit_iiif: 'Aucun chiffre de limite de requêtes dans la documentation de l’API du musée. Elle indique qu’aucune authentification n’est requise actuellement, avec la réserve d’un changement futur. Des exports JSON en masse, rafraîchis chaque semaine, sont proposés : ce sont des fichiers statiques, non un débit. Les médias IIIF apparaissent sous un chemin de média, sans documentation IIIF liée.'
 iiif_image: 'NON PRÉSENT SUR CETTE PAGE (doc Mirador : viewer Mirador 3.0.0 ; version de l''Image API non précisée)'
 iiif_presentation: 'Packages IIIF : data.artmuseum.princeton.edu/iiif/packages/{id} (exemple cité dans la doc Mirador) ; version non précisée'
 api_recherche: NON PRÉSENT dans les sources lues
@@ -15,8 +15,11 @@ robots_waf: NON PRÉSENT dans les sources lues
 bots_ia: NON PRÉSENT dans les sources lues
 droits: NON PRÉSENT dans les sources lues
 strategie: API lancée en 2017 pour rendre accessibles plus de 113 000 œuvres aux étudiants, enseignants et développeurs (page du musée)
-lacunes: Doc du dépôt du musée à rechercher avec le nom exact du dépôt.
-methode: 'WebSearch « Princeton University Art Museum IIIF API images rate limit terms » : dépôt officiel repéré ; WebSearch « Princeton University Art Museum open API documentation rate limit » (domaines artmuseum, github, guides.iiif.io) : dépôt puam-api-docs en extrait, pas de chiffre'
+lacunes:
+- aucune documentation IIIF liée (chemin de média seulement)
+- réserve sur une future authentification
+- limites non publiées
+methode: 'WebSearch « Princeton University Art Museum IIIF API images rate limit terms » : dépôt officiel repéré ; WebSearch « Princeton University Art Museum open API documentation rate limit » (domaines artmuseum, github, guides.iiif.io) : dépôt puam-api-docs en extrait, pas de chiffre ; Passe 2 (2026-11-13) : 1 WebFetch, résumé d’extraction (dépôt GitHub de la documentation API).'
 verifie_le: '2026-11-13'
 sources:
 - url: https://github.com/Princeton-University-Art-Museum/puam-api-docs
@@ -39,3 +42,6 @@ _À compléter._
 
 - WebSearch « Princeton University Art Museum IIIF API images rate limit terms » : dépôt officiel repéré
 - WebSearch « Princeton University Art Museum open API documentation rate limit » (domaines artmuseum, github, guides.iiif.io) : dépôt puam-api-docs en extrait, pas de chiffre
+
+## Passe 2 (2026-11-13)
+- WebFetch dépôt puam-api-docs : aucun seuil ; pas d’authentification actuelle ; exports JSON hebdomadaires sur site statique.

@@ -2,10 +2,10 @@
 id: GLAM-071
 institution: University College Dublin Libraries – Digital UCD
 pays: Irlande
-statut: DOC LUE, AUCUN CHIFFRE (page officielle des services de recherche lue en extrait)
+statut: DOC LUE, AUCUN CHIFFRE (page Research lue ; API et IIIF décrits sans chiffre de débit)
 classe: doc lue, sans chiffre
-statut_quota: DOC LUE, AUCUN CHIFFRE (page officielle des services de recherche lue en extrait) ; Page officielle lue en extrait ; aucun chiffre ; recherche bornée (1 requête)
-debit_iiif: Aucun chiffre de débit ni de quota n'apparaît sur la page officielle des services de recherche de la bibliothèque UCD (lue en extrait). Elle décrit l'API IIIF Image et Presentation (Image API 2.0, Presentation API 2.0) et un outil de téléchargement, sans seuil. Une entrée « Rate Limits » d'un catalogue tiers n'a pas de valeur lisible et n'est pas retenue.
+statut_quota: 'DOC LUE, AUCUN CHIFFRE : aucun seuil, quota ni throttling ; clé ou authentification non précisées'
+debit_iiif: 'Aucun chiffre de limite sur la page Research de Digital UCD, pour la bibliothèque, ses services IIIF ou ses API. Les nombres présents ne sont pas des limites : rayon de recherche en kilomètres de l’API géospatiale, paramètre de nombre de résultats sans valeur maximale précisée dans OpenSearch. La page ne dit pas si une clé est requise. Les services IIIF Image et Presentation 2.0 n’ont pas de documentation propre liée.'
 iiif_image: 'Image API 2.0 : iiif.ucd.ie/loris/{identifier}/{region}/{size}/{rotation}/{quality}{.format} et data.ucd.ie/api/img/{identifier}/info.json (digital.ucd.ie/research/)'
 iiif_presentation: 'Presentation API 2.0 : data.ucd.ie/api/img/manifests/{identifier} ; collections : data.ucd.ie/api/img/collection/{identifier} (digital.ucd.ie/research/)'
 api_recherche: API de données géographiques (Geospatial Data API) et paramètres de sérialisation ; API de recherche IIIF non confirmée (diapositives de 2017, bêta)
@@ -16,10 +16,11 @@ bots_ia: NON PRÉSENT SUR CETTE PAGE
 droits: NON PRÉSENT SUR CETTE PAGE
 strategie: Image API 2.0 et Presentation API 2.0 servis par la bibliothèque, intégrés à Mirador ; quota non publié
 lacunes:
-- quota et clé absents
-- conditions d'usage non lues
-- version Search API
-methode: 'WebSearch « UCD Digital Library IIIF API rate limit » : page officielle sans chiffre ; entrée tierce « Rate Limits » sans valeur écartée'
+- 'API quantitative et API LOD : PDF liés, non lus'
+- documentation géospatiale annoncée, sans lien
+- clé ou authentification non précisée
+- 'Image Services API et Presentation 2.0 : pas de documentation UCD liée'
+methode: 'WebSearch « UCD Digital Library IIIF API rate limit » : page officielle sans chiffre ; entrée tierce « Rate Limits » sans valeur écartée ; Passe 2 (2026-11-13) : 1 WebFetch, résumé d’extraction (page Research).'
 verifie_le: '2026-11-13'
 sources:
 - url: https://digital.ucd.ie/research/
@@ -41,3 +42,6 @@ _À compléter._
 ## Traces de la boucle de vérification (passe du 13/11/2026)
 
 - WebSearch « UCD Digital Library IIIF API rate limit » : page officielle sans chiffre ; entrée tierce « Rate Limits » sans valeur écartée
+
+## Passe 2 (2026-11-13)
+- WebFetch page Research : aucun seuil ; paramètres géospatiaux et OpenSearch non chiffrés comme limites ; PDF d’API non ouverts.

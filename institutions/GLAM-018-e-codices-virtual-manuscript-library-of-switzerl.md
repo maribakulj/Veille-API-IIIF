@@ -2,18 +2,19 @@
 id: GLAM-018
 institution: e-codices – Virtual Manuscript Library of Switzerland
 pays: Suisse
-statut: DOC LUE, AUCUN CHIFFRE (conditions d'utilisation lues)
+statut: DOC LUE, AUCUN CHIFFRE (conditions lues ; IIIF non mentionné dans ces conditions)
 classe: doc lue, sans chiffre
-statut_quota: DOC LUE, AUCUN CHIFFRE (conditions d'utilisation lues) ; Conditions lues ; la documentation technique IIIF n'a pas été lue (URL hors liste)
-debit_iiif: 'Aucun débit, quota, nombre de requêtes, throttling, code 429 ni clé d''API dans les conditions d''utilisation. Moissonnage des métadonnées par interfaces OAI (Dublin Core) : aucun volume ni fréquence fixé ; métadonnées OAI libres de droits, sous réserve de citation. Images : tiff non compressé obtenu auprès de la bibliothèque propriétaire pour l''imprimé ; aucune limite chiffrée.'
+statut_quota: 'DOC LUE, AUCUN CHIFFRE : aucun quota, seuil de téléchargement ni limite de moissonnage sur la page des conditions'
+debit_iiif: 'Aucun seuil publié sur la page des conditions. Les interfaces OAI n’annoncent aucune limite de débit ni clé. La page ne mentionne pas IIIF, donc aucune limite IIIF n’y est décrite. L’usage commercial exige citation et autorisation écrite ; l’inscription à l’outil d’annotation demande nom et courriel : règles d’usage, non des débits.'
 iiif_image: 'NON VÉRIFIÉ : aucune doc officielle e-codices lue'
 iiif_presentation: 'NON VÉRIFIÉ sur doc officielle ; source tierce (awesome-iiif, non datée) : manifeste par manuscrit et collection de collections'
 acces: NON VÉRIFIÉ
 moissonnage: NON VÉRIFIÉ ; collection de collections IIIF citée par source tierce
 robots_waf: NON VÉRIFIÉ
 droits: NON VÉRIFIÉ
-lacunes: Aucune règle de débit publiée ; la page des conditions est à relire verbatim.
-methode: 'WebSearch « e-codices IIIF API documentation rate limit terms » : pages de présentation, aucun chiffre ; WebFetch e-codices.ch/en/info/terms : aucune limite, moissonnage OAI sans volume'
+lacunes:
+- 'aucune limite IIIF décrite : IIIF absent des conditions'
+methode: 'WebSearch « e-codices IIIF API documentation rate limit terms » : pages de présentation, aucun chiffre ; WebFetch e-codices.ch/en/info/terms : aucune limite, moissonnage OAI sans volume ; Passe 2 (2026-11-13) : 1 WebFetch (conditions).'
 verifie_le: '2026-11-13'
 sources:
 - url: https://e-codices.ch/en/info/terms
@@ -36,3 +37,7 @@ _À compléter._
 
 - WebSearch « e-codices IIIF API documentation rate limit terms » : pages de présentation, aucun chiffre
 - WebFetch e-codices.ch/en/info/terms : aucune limite, moissonnage OAI sans volume
+
+## Passe 2 (2026-11-13)
+- WebFetch info/terms : aucun chiffre pour téléchargements, quotas ou moissonnage ; OAI sans limite annoncée ; aucune clé mentionnée ; IIIF non mentionné.
+- Impression : fichiers TIFF non compressés sur demande à la bibliothèque détentrice ; aucun seuil annoncé.
