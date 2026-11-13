@@ -2,53 +2,112 @@
   "slug": "cudl",
   "nom": "Cambridge University Library (CUDL)",
   "pays": "Royaume-Uni",
-  "statut_audit": "en cours (méthode v2)",
-  "limites_documentees": [],
+  "statut_audit": "audit a–f complet ; g à faire",
+  "limites_documentees": [
+    {
+      "nature": "Interdiction contractuelle",
+      "perimetre": "extraction systématique de parties substantielles ; base de données dérivée",
+      "valeur": "interdit sans licence",
+      "fenetre": "–",
+      "effet": "fin du droit d'utiliser le site",
+      "verification": "officielle, lue en entier (copie Wayback 2025-11-19)",
+      "source": "https://cudl.lib.cam.ac.uk/terms/",
+      "date": "2026-11-13"
+    },
+    {
+      "nature": "Interdiction robots",
+      "perimetre": "/search",
+      "valeur": "Disallow",
+      "fenetre": "–",
+      "effet": "non précisé",
+      "verification": "officielle, lue en entier (copie Wayback 2026-05-01)",
+      "source": "https://cudl.lib.cam.ac.uk/robots.txt",
+      "date": "2026-11-13"
+    }
+  ],
   "en_tetes_observes": [],
   "blocages": [
     {
       "date": "2026-11-13",
-      "hote": "cudl.lib.cam.ac.uk /terms",
+      "hote": "cudl.lib.cam.ac.uk (/terms, /help, /about, /robots.txt)",
       "code": "403",
-      "nature": "anti-bot, page du site (pas un endpoint API)",
-      "suite": "API non arrêtée, manifestes testés 200"
-    }
-  ],
-  "contact": "non trouvé",
-  "conclusion_quota": "Aucun quota publié dans le README cudl-services (API publique sans authentification).",
-  "classe_quota": "aucun quota trouvé",
-  "confiance": "moyenne",
-  "notes": "Recherche Solr : interne. Métadonnées : cudl.link en DNS.",
-  "sources": [
-    {
-      "url": "https://cudl.lib.cam.ac.uk/terms",
-      "date": "2026-11-13",
-      "etiquette": "officielle (403, non lue)",
-      "preuve": "institutions/cudl/sources/FETCH.log"
+      "nature": "CloudFront « Request blocked » sur les pages, pas sur les manifestes ni les images",
+      "suite": "non réessayé ; pages lues dans la Wayback Machine"
     },
     {
-      "url": "https://cudl.lib.cam.ac.uk/help",
       "date": "2026-11-13",
-      "etiquette": "officielle (403, non lue)",
-      "preuve": "institutions/cudl/sources/FETCH.log"
+      "hote": "cudl.link",
+      "code": "DNS",
+      "nature": "domaine des services non résolu",
+      "suite": "routes non testables"
+    }
+  ],
+  "contact": "dl-feedback@lib.cam.ac.uk",
+  "conclusion_quota": "Aucun quota, en-tête ni endpoint de statut. Interdiction contractuelle d'extraire systématiquement des parties substantielles ; /search interdit aux robots.",
+  "classe_quota": "aucun quota trouvé (interdiction contractuelle d'extraction systématique)",
+  "confiance": "moyenne",
+  "notes": "Pages officielles en 403 CloudFront pour la sonde, lues dans la Wayback Machine. cudl.link non résolu.",
+  "sources": [
+    {
+      "url": "https://cudl.lib.cam.ac.uk/terms/",
+      "date": "2026-11-13",
+      "etiquette": "officielle (copie Wayback 2025-11-19)",
+      "preuve": "institutions/cudl/sources/wayback/terms.extraits-wayback.md"
+    },
+    {
+      "url": "https://cudl.lib.cam.ac.uk/about/",
+      "date": "2026-11-13",
+      "etiquette": "officielle (copie Wayback 2026-10-17)",
+      "preuve": "institutions/cudl/sources/wayback/about.extraits-wayback.md"
+    },
+    {
+      "url": "https://cudl.lib.cam.ac.uk/help/",
+      "date": "2026-11-13",
+      "etiquette": "officielle (copie Wayback 2026-05-01)",
+      "preuve": "institutions/cudl/sources/wayback/help.extraits-wayback.md"
+    },
+    {
+      "url": "https://cudl.lib.cam.ac.uk/robots.txt",
+      "date": "2026-11-13",
+      "etiquette": "officielle (copie Wayback 2026-05-01)",
+      "preuve": "institutions/cudl/sources/wayback/robots.txt.copie-wayback.txt"
     },
     {
       "url": "https://github.com/cambridge-collection/cudl-services",
       "date": "2026-11-13",
       "etiquette": "officielle (dépôt du projet)",
-      "preuve": "institutions/cudl/sources/raw/03.html"
+      "preuve": "institutions/cudl/sources/SHA256SUMS"
+    },
+    {
+      "url": "https://github.com/cambridge-collection/cudl-viewer",
+      "date": "2026-11-13",
+      "etiquette": "officielle (dépôt du projet)",
+      "preuve": "institutions/cudl/sources/suite/SHA256SUMS"
+    },
+    {
+      "url": "https://www.lib.cam.ac.uk/research/digital-humanities/case-studies/dynamic-digital-library-iiif-scoping-project",
+      "date": "2026-11-13",
+      "etiquette": "officielle",
+      "preuve": "institutions/cudl/sources/suite/SHA256SUMS"
     }
   ],
   "web": [
     {
       "url": "https://apis.io/providers/university-of-cambridge/",
       "date": "2026-11-13",
-      "etiquette": "tiers (profil d'API non officiel, Cambridge)",
-      "citation": "Mentionne des limites de débit sans chiffre pour l'API de Cambridge (non vérifié, non applicable tel quel à CUDL).",
-      "preuve": "institutions/cudl/fiche.md (étape f)"
+      "etiquette": "tiers (profil d'API non officiel)",
+      "citation": "Formes d'URL cudl.lib.cam.ac.uk/iiif/<id> et images.lib.cam.ac.uk/iiif/<id>.jp2/info.json (confirmées par nos tests) ; limites mentionnées sans chiffre (non vérifié).",
+      "preuve": "institutions/cudl/fiche.md"
+    },
+    {
+      "url": "https://www.cambridge.org/core/legal-notices/terms",
+      "date": "2026-11-13",
+      "etiquette": "tiers — NON APPLICABLE (Cambridge University Press, autre organisme)",
+      "citation": "Limite de 500 PDF par heure ; contacter openresearch@cambridge.org pour le téléchargement programmatique. Ne s'applique pas à CUDL.",
+      "preuve": "institutions/cudl/fiche.md"
     }
   ],
   "classeur_id": "GLAM-004",
   "type": "Institution",
-  "donnees_a_revalider": true
+  "donnees_a_revalider": false
 }

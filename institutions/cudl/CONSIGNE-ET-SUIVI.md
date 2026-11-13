@@ -2,57 +2,57 @@
 
 - **Dossier** : `institutions/cudl/`  ·  **Classeur de référence** : GLAM-004  ·  **Pays** : Royaume-Uni
 - **Statut d'institution** : active
-- **Dernière mise à jour du suivi** : (à renseigner à chaque modification)
+- **Dernière mise à jour du suivi** : 2026-11-13
 
 ## Suivi par étape (à cocher, avec justification et preuves)
 
 ### a) Documentation lue en entier
 > Toutes les pages de doc liées à l'API (développeurs, interfaces, conditions, FAQ, aide, mentions légales, robots.txt), téléchargées avec `scripts/fetch_doc.sh` (URL, date, SHA-256), lues en entier (`scripts/extract_text.py`).
 
-- [ ] **Pas fait**
-  - **Justification** : Passe antérieure non conforme à la méthode v2 (AUDIT-HAIKU.md) : à refaire. Le matériel déjà présent dans ce dossier est conservé comme historique.
-  - **Preuves** : 
+- [x] **Fait**
+  - **Justification** : Terms, About, Help et robots.txt renvoient 403 CloudFront à la sonde : lus en entier dans la Wayback Machine (captures 2025-11-19, 2026-10-17, 2026-05-01), extraits verbatim et URL de réplique consignés ; le téléchargement par curl de ces copies a été refusé par le système, donc pas d'empreinte du texte complet. Lus et hachés : README cudl-services, dépôt cudl-viewer, page du projet IIIF de la bibliothèque. Page communauté CDCP : coquille JavaScript illisible.
+  - **Preuves** : `institutions/cudl/sources/wayback/terms.extraits-wayback.md`, `institutions/cudl/sources/wayback/about.extraits-wayback.md`, `institutions/cudl/sources/wayback/help.extraits-wayback.md`, `institutions/cudl/sources/wayback/robots.txt.copie-wayback.txt`, `institutions/cudl/sources/SHA256SUMS`, `institutions/cudl/sources/suite/SHA256SUMS`
 
 ### b) Endpoints tirés de la doc
 > Liste des endpoints citée par la doc (URL, exemples). Jamais devinée. Une interdiction ou une impossibilité écrite dans la doc justifie de renoncer (citer la phrase).
 
-- [ ] **Pas fait**
-  - **Justification** : Passe antérieure non conforme à la méthode v2 (AUDIT-HAIKU.md) : à refaire. Le matériel déjà présent dans ce dossier est conservé comme historique.
-  - **Preuves** : 
+- [x] **Fait**
+  - **Justification** : Doc : accès « through APIs such as IIIF » (About), sans URL ; README cudl-services : routes /v1/metadata, /v1/transcription (exemple avec MS-ADD-03958), /v1/translation, /v1/xtf/similarity, /v1/rdb/membership, /v1/darwin (jeton), sur le domaine cudl.link. Les formes /iiif/{id} et images.lib.cam.ac.uk/iiif/{id}.jp2 viennent du manifeste lui-même et d'un profil tiers. Exclus : /v1/darwin (jeton), /v1/iiif et /v1/tags (README : non utilisées).
+  - **Preuves** : `institutions/cudl/sources/text/03.txt`, `institutions/cudl/sources/wayback/about.extraits-wayback.md`
 
 ### c) Configuration écrite AVANT les tests
 > `config/<nom>.json` pilote `scripts/probe.py`, committée avant le lancement. Un endpoint absent de la doc mais non interdit se teste avec un script poli (identifiants issus de pages publiques ou d'exemples de la doc, pas de devinette).
 
-- [ ] **Pas fait**
-  - **Justification** : Passe antérieure non conforme à la méthode v2 (AUDIT-HAIKU.md) : à refaire. Le matériel déjà présent dans ce dossier est conservé comme historique.
-  - **Preuves** : 
+- [x] **Fait**
+  - **Justification** : Trois configurations committées avant chaque lancement : passe 1 (manifeste), passe 2 (services cudl.link), passe 3 (images du manifeste). La passe 1 lit robots.txt depuis la copie Wayback (le serveur le bloque en 403).
+  - **Preuves** : `institutions/cudl/config/cudl-passe1.json`, `institutions/cudl/config/cudl-passe2-services.json`, `institutions/cudl/config/cudl-passe3-images.json`
 
 ### d) Quota cherché dans la doc
 > Pour chaque page lue : endpoint de statut, en-têtes de limite documentés, clé ou compte donnant un quota, contact pour un volume plus élevé. Chaque réponse cite sa source.
 
-- [ ] **Pas fait**
-  - **Justification** : Passe antérieure non conforme à la méthode v2 (AUDIT-HAIKU.md) : à refaire. Le matériel déjà présent dans ce dossier est conservé comme historique.
-  - **Preuves** : 
+- [x] **Fait**
+  - **Justification** : Aucun quota, en-tête, clé ni endpoint de statut dans aucune page lue. Règles : interdiction contractuelle d'« extraire systématiquement des parties substantielles » (Terms) ; robots.txt : Disallow /search. Contact : dl-feedback@lib.cam.ac.uk.
+  - **Preuves** : `institutions/cudl/sources/wayback/terms.extraits-wayback.md`, `institutions/cudl/sources/wayback/robots.txt.copie-wayback.txt`, `institutions/cudl/sources/text/03.txt`
 
 ### e) Test systématique de chaque endpoint
 > Chaque endpoint documenté est testé (budget 15 requêtes par passe, pause ≥ 6 s, GET/HEAD, UA du projet). Redirections du même hôte suivies. Un 403 arrête son hôte, un 429 arrête l'institution. Seules les interdictions écrites dans la doc dispensent de tester.
 
-- [ ] **Pas fait**
-  - **Justification** : Passe antérieure non conforme à la méthode v2 (AUDIT-HAIKU.md) : à refaire. Le matériel déjà présent dans ce dossier est conservé comme historique.
-  - **Preuves** : 
+- [x] **Fait**
+  - **Justification** : Tous les endpoints testables sont testés (passes 1 à 3) : manifeste 200, trois requêtes d'images 200, aucun en-tête de limite ni 429. Renoncements justifiés : /search interdit par robots.txt ; cudl.link non résolu par DNS (2 tentatives) ; /v1/darwin exige un jeton ; /v1/iiif et /v1/tags « not in use » (README). Budget respecté (2, 2 et 4 requêtes).
+  - **Preuves** : `institutions/cudl/tests/journal.log`, `institutions/cudl/tests/raw/manifeste-MS-ADD-03958.headers.txt`, `institutions/cudl/tests/raw/image-info-json.headers.txt`
 
 ### f) Ce que disent les gens sur le web
 > Plaintes, discussions, présentations de l'institution, politique envers les API et les bots, blogs, GitHub, forums, listes de diffusion. Sources étiquetées (officielle / institution / utilisateur / tiers), lues, citées.
 
-- [ ] **Pas fait**
-  - **Justification** : Passe antérieure non conforme à la méthode v2 (AUDIT-HAIKU.md) : à refaire. Le matériel déjà présent dans ce dossier est conservé comme historique.
-  - **Preuves** : 
+- [x] **Fait**
+  - **Justification** : Trois recherches web : profil d'API tiers (formes d'URL confirmées), conditions de Cambridge University Press (autre organisme, non applicables), presse sectorielle sur les robots d'IA sans lien spécifique avec CUDL. Aucune plainte ni présentation de CUDL sur sa politique de moissonnage ou de bots.
+  - **Preuves** : `institutions/cudl/fiche.md`
 
 ### g) Crash test progressif
 > Seulement après l'audit complet (a à f) de toutes les institutions et avec l'accord de Marcel : paliers jusqu'à 2 × la limite documentée, ou 200 req/min si illimité ou sans limite documentée. Arrêt au premier 429/403/CAPTCHA.
 
 - [ ] **Pas fait**
-  - **Justification** : Passe antérieure non conforme à la méthode v2 (AUDIT-HAIKU.md) : à refaire. Le matériel déjà présent dans ce dossier est conservé comme historique.
+  - **Justification** : À faire à la fin de l'audit de toutes les institutions et à l'accord de Marcel. Plafond prévu : 200 req/min (aucune limite annoncée). Précaution : l'hôte de pages renvoie 403 CloudFront aux clients non navigateur ; seuls les manifestes et les images répondent.
   - **Preuves** : 
 
 ### Contrôles transversaux
@@ -60,7 +60,7 @@
 
 <!-- AUTO:DEBUT -->
 ## Contrôles automatiques (calculés depuis `tests/journal.log`)
-- Requêtes enregistrées : **8** (sessions de sonde : 4, maximum par session : 2)
+- Requêtes enregistrées : **14** (sessions de sonde : 6, maximum par session : 4)
 - Plus courte pause vers un même hôte : **6 s** (règle : ≥ 6 s)
 - Méthodes utilisées : GET (règle : GET/HEAD seulement)
 - Anomalies : aucune
