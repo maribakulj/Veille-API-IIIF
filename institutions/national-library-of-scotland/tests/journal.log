@@ -3,3 +3,8 @@
 2026-11-13T22:43:04Z | collections-top-json | https://view.nls.uk/collections/top.json | GET | 200 OK | aucun en-tête de limite | taille≥7571 | corps: { 	"@context": "http://iiif.io/api/presentation/2/context.json", 	"@id": "https://view.nls.uk/collections/top.json", 	"@type": "sc:Collection", 	"label": "National Library of Scotland IIIF Collect
 # corps enregistré : tests/raw/collections-top-json.body (7571 octets lus)
 # Fin 2026-11-13T22:43:04Z — 2 requête(s) envoyée(s)
+# Session 2026-11-13T22:43:19Z — configuration nls-passe2-collection.json — sonde probe.py au commit d175abf
+2026-11-13T22:43:20Z | robots.txt:view.nls.uk | https://view.nls.uk/robots.txt | GET | 200 | 0 règle(s) pour « * »
+2026-11-13T22:43:27Z | collection-antiquarian-books | https://view.nls.uk/collections/1208/2191/120821910.json | GET | 200 OK | aucun en-tête de limite | taille≥688565 | corps: { 	"@context": "http://iiif.io/api/presentation/2/context.json", 	"@id": "https://view.nls.uk/collections/1208/2191/120821910.json", 	"@type": "sc:Collection", 	"label": "Antiquarian books of Scot
+# corps enregistré : tests/raw/collection-antiquarian-books.body (688565 octets lus)
+# Fin 2026-11-13T22:43:27Z — 2 requête(s) envoyée(s)
