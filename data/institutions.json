@@ -818,14 +818,14 @@
     "slug": "cudl",
     "nom": "Cambridge University Library (CUDL)",
     "pays": "Royaume-Uni",
-    "statut_audit": "partiel (ancienne méthode)",
+    "statut_audit": "en cours (méthode v2)",
     "checklist": {
-      "a_doc_lue": "partiel (/terms et /help en 403)",
-      "b_endpoints_doc": "partiel",
-      "c_config_avant_tests": "fait (cudl.json)",
-      "d_quota_dans_doc": "fait (ancienne méthode)",
-      "e_tests_endpoints": "partiel (7 requêtes, cudl.link en DNS)",
-      "f_web": "non fait",
+      "a_doc_lue": "partiel : /terms et /help en 403 (défi anti-bot) ; README cudl-services lu en entier (GitHub)",
+      "b_endpoints_doc": "fait (README cudl-services : routes de l'API publique)",
+      "c_config_avant_tests": "fait (scripts/config/cudl.json, à relancer en passe v2)",
+      "d_quota_dans_doc": "fait : aucun quota ; « publicly accessible and (for the most part) requires no authentication »",
+      "e_tests_endpoints": "fait (passes antérieures, tests/cudl.log ; passe v2 à faire)",
+      "f_web": "à faire",
       "g_crash_test": "à faire (après audit)"
     },
     "limites_documentees": [],
@@ -846,24 +846,44 @@
     "notes": "Recherche Solr : interne. Métadonnées : cudl.link en DNS.",
     "preuves": {
       "a_doc_lue": [
-        "sources/cudl/SHA256SUMS"
+        "sources/cudl/SHA256SUMS",
+        "sources/cudl/FETCH.log"
       ],
       "b_endpoints_doc": [
-        "institutions/cudl.md"
+        "sources/cudl/raw/03.html"
       ],
       "c_config_avant_tests": [
         "scripts/config/cudl.json"
       ],
       "d_quota_dans_doc": [
-        "institutions/cudl.md"
+        "sources/cudl/raw/03.html"
       ],
       "e_tests_endpoints": [
         "tests/cudl.log"
       ],
-      "f_web": [
-        "institutions/cudl.md"
-      ]
-    }
+      "f_web": []
+    },
+    "sources": [
+      {
+        "url": "https://cudl.lib.cam.ac.uk/terms",
+        "date": "2026-11-13",
+        "etiquette": "officielle (403, non lue)",
+        "preuve": "sources/cudl/FETCH.log"
+      },
+      {
+        "url": "https://cudl.lib.cam.ac.uk/help",
+        "date": "2026-11-13",
+        "etiquette": "officielle (403, non lue)",
+        "preuve": "sources/cudl/FETCH.log"
+      },
+      {
+        "url": "https://github.com/cambridge-collection/cudl-services",
+        "date": "2026-11-13",
+        "etiquette": "officielle (dépôt du projet)",
+        "preuve": "sources/cudl/raw/03.html"
+      }
+    ],
+    "web": []
   },
   {
     "slug": "europeana",
