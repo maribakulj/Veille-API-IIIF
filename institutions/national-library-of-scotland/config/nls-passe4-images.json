@@ -1,0 +1,19 @@
+{
+  "slug": "national-library-of-scotland",
+  "min_delay_s": 6,
+  "max_requests": 15,
+  "follow_redirects": 1,
+  "note": "Passe v2 n°4 : service d'images annoncé par le manifeste de la passe 3 (identifiants publics). Dérivé réduit, pas de plein format.",
+  "endpoints": [
+    {
+      "id": "dg-info-json",
+      "method": "GET",
+      "url": "https://dg-view.nls.uk/iiif/2/1215%2F7544%2F121575443.5/info.json"
+    },
+    {
+      "id": "dg-derive-200",
+      "method": "GET",
+      "url": "https://dg-view.nls.uk/iiif/2/1215%2F7544%2F121575443.5/full/!200,200/0/default.jpg"
+    }
+  ]
+}

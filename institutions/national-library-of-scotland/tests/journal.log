@@ -8,3 +8,8 @@
 2026-11-13T22:43:27Z | collection-antiquarian-books | https://view.nls.uk/collections/1208/2191/120821910.json | GET | 200 OK | aucun en-tête de limite | taille≥688565 | corps: { 	"@context": "http://iiif.io/api/presentation/2/context.json", 	"@id": "https://view.nls.uk/collections/1208/2191/120821910.json", 	"@type": "sc:Collection", 	"label": "Antiquarian books of Scot
 # corps enregistré : tests/raw/collection-antiquarian-books.body (688565 octets lus)
 # Fin 2026-11-13T22:43:27Z — 2 requête(s) envoyée(s)
+# Session 2026-11-13T22:43:37Z — configuration nls-passe3-manifeste.json — sonde probe.py au commit 93b706b
+2026-11-13T22:43:37Z | robots.txt:view.nls.uk | https://view.nls.uk/robots.txt | GET | 200 | 0 règle(s) pour « * »
+2026-11-13T22:43:43Z | manifeste-adrift-on-a-raft | https://view.nls.uk/manifest/1204/4314/120443143/manifest.json | GET | 200 OK | aucun en-tête de limite | taille≥44480 | corps: {"@context":"http://iiif.io/api/presentation/2/context.json","@id":"https://view.nls.uk/manifest/1204/4314/120443143/manifest.json","@type":"sc:Manifest","attribution":"National Library of Scotland\u0
+# corps enregistré : tests/raw/manifeste-adrift-on-a-raft.body (44480 octets lus)
+# Fin 2026-11-13T22:43:43Z — 2 requête(s) envoyée(s)
