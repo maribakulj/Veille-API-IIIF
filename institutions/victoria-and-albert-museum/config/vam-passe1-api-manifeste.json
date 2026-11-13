@@ -1,0 +1,37 @@
+{
+  "slug": "victoria-and-albert-museum",
+  "min_delay_s": 6,
+  "max_requests": 15,
+  "follow_redirects": 1,
+  "note": "Passe v2 n°1 : endpoints documentés (guide quick-start, guide IIIF, OpenAPI /openapi.json), avec les identifiants d'exemple de la doc (O828146, O9138, q=Etruria, q=Paris). Résultats limités à 1 (page_size=1). Pauses de 6 s : bien au-delà de l'indicatif « no more frequently than one request per second » (conditions, section 9.2). robots.txt de api.vam.ac.uk : 404 (autorisé).",
+  "endpoints": [
+    {
+      "id": "api-objects-search-etruria",
+      "method": "GET",
+      "url": "https://api.vam.ac.uk/v2/objects/search?q=Etruria&page_size=1",
+      "save_body": 300000
+    },
+    {
+      "id": "api-object-O828146",
+      "method": "GET",
+      "url": "https://api.vam.ac.uk/v2/object/O828146",
+      "save_body": 300000
+    },
+    {
+      "id": "api-clusters-search-paris",
+      "method": "GET",
+      "url": "https://api.vam.ac.uk/v2/objects/clusters/search?q=Paris&cluster_size=3"
+    },
+    {
+      "id": "api-sayt-search-chair",
+      "method": "GET",
+      "url": "https://api.vam.ac.uk/v2/sayt/search?q=chair"
+    },
+    {
+      "id": "iiif-manifeste-O9138",
+      "method": "GET",
+      "url": "https://iiif.vam.ac.uk/collections/O9138/manifest.json",
+      "save_body": 2000000
+    }
+  ]
+}

@@ -1,0 +1,1102 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Quick Start &#8212; Collections API Guide</title>
+    
+  <link rel="stylesheet" href="_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
+
+    
+  <link rel="stylesheet"
+    href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+  <link rel="stylesheet"
+    href="_static/vendor/open-sans_all/1.44.1/index.css">
+  <link rel="stylesheet"
+    href="_static/vendor/lato_latin-ext/1.44.1/index.css">
+
+    
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="_static/sphinx-book-theme.40e2e510f6b7d1648584402491bb10fe.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="_static/js/index.d3f166471bb80abb5163.js">
+
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/togglebutton.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="_static/sphinx-book-theme.d31b09fe5c1d09cb49b26a786de4a05d.js"></script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Identifiers" href="common-identifiers.html" />
+    <link rel="prev" title="Welcome" href="welcome.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="index.html">
+  
+  <img src="_static/va-red.png" class="logo" alt="logo">
+  
+  
+  <h1 class="site-logo" id="site-title">Collections API Guide</h1>
+  
+</a>
+</div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="welcome.html">
+   Welcome
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Quick Start
+ </span>
+</p>
+<ul class="current nav sidenav_l1">
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Introduction
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="common-identifiers.html">
+   Identifiers
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Searching
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="search/introduction.html">
+   Introduction
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="search/boolean.html">
+   Boolean
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Filtering
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="filter/introduction.html">
+   Introduction
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="filter/keyword.html">
+   Keyword
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Restriction
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="restriction/introduction.html">
+   Introduction
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="restriction/miscellaneous.html">
+   Miscellaneous
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Results
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="results/introduction.html">
+   Introduction
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="results/object-fields-brief.html">
+   Fields (Summary)
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Images
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="images/introduction.html">
+   Introduction
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="images/iiif.html">
+   IIIF
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Data Visualisation
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="data-vis/introduction.html">
+   Introduction
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="data-vis/clustering.html">
+   Clustering
+  </a>
+ </li>
+</ul>
+
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="row topbar fixed-top container-xl">
+    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
+    </div>
+    <div class="col pl-2 topbar-main">
+        
+        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+            data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+            aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+            title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+            <i class="fas fa-bars"></i>
+            <i class="fas fa-arrow-left"></i>
+            <i class="fas fa-arrow-up"></i>
+        </button>
+        
+        
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="_sources/quick-start.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+        <!-- Source interaction buttons -->
+
+
+        <!-- Full screen (wrap in <a> to have style consistency -->
+        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+                title="Fullscreen mode"><i
+                    class="fas fa-expand"></i></button></a>
+
+        <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/quick-start.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+    </div>
+
+    <!-- Table of contents -->
+    <div class="d-none d-md-block col-md-2 bd-toc show">
+        
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i> Contents
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#retrieve-a-single-object-record">
+   Retrieve a single object record
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#searching-object-record-s">
+   Searching object record(s)
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#filtering-object-records-s">
+   Filtering object records(s)
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#clustering-object-records">
+   Clustering object records
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#all-clusters">
+     All clusters
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#single-cluster-type-s">
+     Single cluster type(s)
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#specified-cluster-type">
+     Specified cluster type
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+        </nav>
+        
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="quick-start">
+<span id="quick-start-top"></span><h1>Quick Start<a class="headerlink" href="#quick-start" title="Permalink to this headline">¶</a></h1>
+<p>If you are familiar with using a REST based API already, this page contains some of the most common operations you are likely to want to use with our <a class="reference external" href="https://developers.vam.ac.uk">API</a>.</p>
+<p>If you are not familiar with REST APIs, we can recommend reading <a class="reference external" href="https://programminghistorian.org/en/lessons/introduction-to-populating-a-website-with-api-data">Introduction to Populating a Website with API Data </a> from the excellent <a class="reference external" href="https://programminghistorian.org">Programming Historian</a> site.</p>
+<p>You might also find the worked examples at our <a class="reference external" href="https://developers.vam.ac.uk/notebooks/">Data Explorations</a> site useful to see how you can explore the collections data within a Python Jupyter notebook.</p>
+<div class="cell tag_hide-cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">sys</span>
+<span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">&quot;/srv/explore-the-collections/code/ivpy/src/&quot;</span><span class="p">)</span>
+<span class="kn">from</span> <span class="nn">ivpy</span> <span class="kn">import</span> <span class="n">attach</span><span class="p">,</span><span class="n">show</span><span class="p">,</span><span class="n">compose</span><span class="p">,</span><span class="n">montage</span><span class="p">,</span><span class="n">histogram</span><span class="p">,</span><span class="n">scatter</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="retrieve-a-single-object-record">
+<h2>Retrieve a single object record<a class="headerlink" href="#retrieve-a-single-object-record" title="Permalink to this headline">¶</a></h2>
+<p>The simplest operation. If you already know the system number assigned to the object you want to retrieve, then you can just retrieve it with a GET request.</p>
+<div class="cell tag_hide-output docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">requests</span>
+<span class="n">req</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;https://api.vam.ac.uk/v2/museumobject/O828146&#39;</span><span class="p">)</span>
+<span class="n">object_data</span> <span class="o">=</span> <span class="n">req</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;The object you requested has the title &#39;</span><span class="si">%s</span><span class="s2">&#39;&quot;</span> <span class="o">%</span> <span class="n">object_data</span><span class="p">[</span><span class="s2">&quot;record&quot;</span><span class="p">][</span><span class="s2">&quot;titles&quot;</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="s2">&quot;title&quot;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The object you requested has the title &#39;Picturesque Holland&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<p>Here we just print out the first (‘primary’) title from the record. An overview of the most commonly used fields is in <a class="reference internal" href="results/object-fields-brief.html#object-fields-summary-top"><span class="std std-ref">Field (Summary)</span></a>.</p>
+</div>
+<div class="section" id="searching-object-record-s">
+<h2>Searching object record(s)<a class="headerlink" href="#searching-object-record-s" title="Permalink to this headline">¶</a></h2>
+<p>If you are looking for records that match some word(s), you can use the ‘q’ parameter to query all fields in all object records and return those that match. Below we are searching for any records with the word ‘Etruria’</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">requests</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+
+<span class="n">object_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;https://api.vam.ac.uk/v2/objects/search?q=Etruria&amp;page_size=45&amp;response_format=csv&quot;</span><span class="p">)</span>
+<span class="n">object_df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>accessionNumber</th>
+      <th>accessionYear</th>
+      <th>systemNumber</th>
+      <th>objectType</th>
+      <th>_primaryTitle</th>
+      <th>_primaryPlace</th>
+      <th>_primaryMaker__name</th>
+      <th>_primaryMaker__association</th>
+      <th>_primaryDate</th>
+      <th>_primaryImageId</th>
+      <th>_sampleMaterial</th>
+      <th>_sampleTechnique</th>
+      <th>_sampleStyle</th>
+      <th>_currentLocation__displayName</th>
+      <th>_objectContentWarning</th>
+      <th>_imageContentWarning</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>S.1897-2013</td>
+      <td>2013</td>
+      <td>O1263636</td>
+      <td>Dish</td>
+      <td>Mr Punch dish</td>
+      <td>Staffordshire</td>
+      <td>Wedgwood of Etruria and Barlaston</td>
+      <td>makers</td>
+      <td>mid 20th century</td>
+      <td>2013GL4747</td>
+      <td>earthenware</td>
+      <td>moulding</td>
+      <td>NaN</td>
+      <td>In store</td>
+      <td>False</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>E.2084-1949</td>
+      <td>1949</td>
+      <td>O596454</td>
+      <td>Watercolour</td>
+      <td>Wedgwood Works, Etruria</td>
+      <td>Etruria</td>
+      <td>Puller</td>
+      <td>artist</td>
+      <td>1943</td>
+      <td>2008BV7718</td>
+      <td>watercolour</td>
+      <td>painting</td>
+      <td>NaN</td>
+      <td>Prints &amp; Drawings Study Room, level H</td>
+      <td>False</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>CIRC.737&amp;A-1956</td>
+      <td>1956</td>
+      <td>O308545</td>
+      <td>Teapot and cover</td>
+      <td>NaN</td>
+      <td>england</td>
+      <td>Etruria</td>
+      <td>NaN</td>
+      <td>c.1785</td>
+      <td>2019LN7745</td>
+      <td>stoneware</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>In store</td>
+      <td>False</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>C.307-1951</td>
+      <td>1951</td>
+      <td>O278785</td>
+      <td>Plate</td>
+      <td>NaN</td>
+      <td>england</td>
+      <td>Etruria</td>
+      <td>NaN</td>
+      <td>c.1812-1816</td>
+      <td>2010EC4842</td>
+      <td>porcelain</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>Ceramics, Room 139, The Curtain Foundation Gal...</td>
+      <td>False</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>C.129 to A-1956</td>
+      <td>1956</td>
+      <td>O332163</td>
+      <td>Vase and cover</td>
+      <td>NaN</td>
+      <td>Staffordshire</td>
+      <td>Etruria</td>
+      <td>NaN</td>
+      <td>1869</td>
+      <td>2019LX6435</td>
+      <td>stoneware</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>In store</td>
+      <td>False</td>
+      <td>False</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Some other common parameters you might want to use with searching (and filtering) are:</p>
+<ul class="simple">
+<li><p>Pagination (page_size, page_offset) - Allows you to request results of different sizes and to skip through them</p></li>
+<li><p>Ordering (order_by) - Order the results in particular order</p></li>
+<li><p>Order Direction (order_sort) - Sort the results in a direction (increasing/decreasing)</p></li>
+</ul>
+<p>See <a class="reference internal" href="restriction/introduction.html#restriction-top"><span class="std std-ref">Restriction</span></a> for full details on these parameters, see <a class="reference internal" href="search/introduction.html#searching-top"><span class="std std-ref">Searching</span></a> on problems you might encounter with searching across all fields and how you might find more relevant results using more selective search parameters.</p>
+</div>
+<p>Let’s look at some object images (when available) all in one go using the <a class="reference external" href="https://github.com/damoncrockett/ivpy">Ivpy</a> library. First we need to turn the image identifier into a <a class="reference external" href="https://iiif.io/">IIIF</a> URL, to request a (maximum of) 100 by 100 pixel thumbnail image.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">IIIF_IMAGE_URL</span> <span class="o">=</span> <span class="s2">&quot;https://framemark.vam.ac.uk/collections/</span><span class="si">%s</span><span class="s2">/full/!100,100/0/default.jpg&quot;</span>
+<span class="n">object_df</span><span class="o">.</span><span class="n">_primaryImageId</span> <span class="o">=</span> <span class="p">[</span><span class="n">IIIF_IMAGE_URL</span> <span class="o">%</span> <span class="n">item</span> <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">object_df</span><span class="o">.</span><span class="n">_primaryImageId</span><span class="p">]</span>
+<span class="n">object_df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>accessionNumber</th>
+      <th>accessionYear</th>
+      <th>systemNumber</th>
+      <th>objectType</th>
+      <th>_primaryTitle</th>
+      <th>_primaryPlace</th>
+      <th>_primaryMaker__name</th>
+      <th>_primaryMaker__association</th>
+      <th>_primaryDate</th>
+      <th>_primaryImageId</th>
+      <th>_sampleMaterial</th>
+      <th>_sampleTechnique</th>
+      <th>_sampleStyle</th>
+      <th>_currentLocation__displayName</th>
+      <th>_objectContentWarning</th>
+      <th>_imageContentWarning</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>S.1897-2013</td>
+      <td>2013</td>
+      <td>O1263636</td>
+      <td>Dish</td>
+      <td>Mr Punch dish</td>
+      <td>Staffordshire</td>
+      <td>Wedgwood of Etruria and Barlaston</td>
+      <td>makers</td>
+      <td>mid 20th century</td>
+      <td>https://framemark.vam.ac.uk/collections/2013GL...</td>
+      <td>earthenware</td>
+      <td>moulding</td>
+      <td>NaN</td>
+      <td>In store</td>
+      <td>False</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>E.2084-1949</td>
+      <td>1949</td>
+      <td>O596454</td>
+      <td>Watercolour</td>
+      <td>Wedgwood Works, Etruria</td>
+      <td>Etruria</td>
+      <td>Puller</td>
+      <td>artist</td>
+      <td>1943</td>
+      <td>https://framemark.vam.ac.uk/collections/2008BV...</td>
+      <td>watercolour</td>
+      <td>painting</td>
+      <td>NaN</td>
+      <td>Prints &amp; Drawings Study Room, level H</td>
+      <td>False</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>CIRC.737&amp;A-1956</td>
+      <td>1956</td>
+      <td>O308545</td>
+      <td>Teapot and cover</td>
+      <td>NaN</td>
+      <td>england</td>
+      <td>Etruria</td>
+      <td>NaN</td>
+      <td>c.1785</td>
+      <td>https://framemark.vam.ac.uk/collections/2019LN...</td>
+      <td>stoneware</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>In store</td>
+      <td>False</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>C.307-1951</td>
+      <td>1951</td>
+      <td>O278785</td>
+      <td>Plate</td>
+      <td>NaN</td>
+      <td>england</td>
+      <td>Etruria</td>
+      <td>NaN</td>
+      <td>c.1812-1816</td>
+      <td>https://framemark.vam.ac.uk/collections/2010EC...</td>
+      <td>porcelain</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>Ceramics, Room 139, The Curtain Foundation Gal...</td>
+      <td>False</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>C.129 to A-1956</td>
+      <td>1956</td>
+      <td>O332163</td>
+      <td>Vase and cover</td>
+      <td>NaN</td>
+      <td>Staffordshire</td>
+      <td>Etruria</td>
+      <td>NaN</td>
+      <td>1869</td>
+      <td>https://framemark.vam.ac.uk/collections/2019LX...</td>
+      <td>stoneware</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>In store</td>
+      <td>False</td>
+      <td>False</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>Now we’ve updated the _primaryImageId column to contain the full URL to get the thumbnail image, we can pass this to the attach method from Ivpy, telling it to use that field to create a montage of all the images.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">attach</span><span class="p">(</span><span class="n">object_df</span><span class="p">,</span> <span class="s2">&quot;_primaryImageId&quot;</span><span class="p">)</span>
+<span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/quick-start_11_0.png" src="_images/quick-start_11_0.png" />
+</div>
+</div>
+<p>Some of the objects don’t have images hence the gaps, we could remove those by adding the parameter ‘images_exist=1’ to our query to only retrieve objects with images.</p>
+</div>
+<div class="section" id="filtering-object-records-s">
+<h2>Filtering object records(s)<a class="headerlink" href="#filtering-object-records-s" title="Permalink to this headline">¶</a></h2>
+<p>Rather than searching for words occuring anywhere in a record, filtering matches on identifiers assigned to a concept such as a type of material, a production technnique, a person, etc. The fields that make us of these identifiers are called controlled vocabulary fields. For example, to find all object records that mention the use of ‘jet’ (which has the identifier ‘AAT45514’) as a material:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">requests</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+
+<span class="n">object_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;https://api.vam.ac.uk/v2/objects/search?id_material=AAT45514&amp;page_size=50&amp;response_format=csv&quot;</span><span class="p">)</span>
+<span class="n">object_df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>accessionNumber</th>
+      <th>accessionYear</th>
+      <th>systemNumber</th>
+      <th>objectType</th>
+      <th>_primaryTitle</th>
+      <th>_primaryPlace</th>
+      <th>_primaryMaker__name</th>
+      <th>_primaryMaker__association</th>
+      <th>_primaryDate</th>
+      <th>_primaryImageId</th>
+      <th>_sampleMaterial</th>
+      <th>_sampleTechnique</th>
+      <th>_sampleStyle</th>
+      <th>_currentLocation__displayName</th>
+      <th>_objectContentWarning</th>
+      <th>_imageContentWarning</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>S.1440-1984</td>
+      <td>1984</td>
+      <td>O101999</td>
+      <td>Hat</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>L &amp; H Nathan Ltd</td>
+      <td>Costumier</td>
+      <td>1950</td>
+      <td>2019MK5645</td>
+      <td>velvet</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>In store</td>
+      <td>False</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>S.1369-1984</td>
+      <td>1984</td>
+      <td>O100800</td>
+      <td>Sleeve</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>Early 19th century</td>
+      <td>2017KJ9878</td>
+      <td>velvet</td>
+      <td>embroidering</td>
+      <td>NaN</td>
+      <td>In store</td>
+      <td>False</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>CIRC.68-1950</td>
+      <td>1950</td>
+      <td>O110902</td>
+      <td>Brooch</td>
+      <td>NaN</td>
+      <td>Germany</td>
+      <td>Unknown</td>
+      <td>NaN</td>
+      <td>ca. 1860</td>
+      <td>2006BJ4470</td>
+      <td>porcelain</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>Jewellery, Rooms 91, The William and Judith Bo...</td>
+      <td>False</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>A.12-1953</td>
+      <td>1953</td>
+      <td>O256858</td>
+      <td>Rosary bead</td>
+      <td>Christ on the Cross and St James the Greater</td>
+      <td>Santiago de Compostela</td>
+      <td>Unknown</td>
+      <td>NaN</td>
+      <td>1600-1700</td>
+      <td>2006AF2948</td>
+      <td>jet</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>In store</td>
+      <td>False</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>T.236B&amp;C-1986</td>
+      <td>1986</td>
+      <td>O1174801</td>
+      <td>Pair of earrings</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>Unknown</td>
+      <td>NaN</td>
+      <td>before 1986</td>
+      <td>2019MD7121</td>
+      <td>jet</td>
+      <td>cutting (glassworking)</td>
+      <td>NaN</td>
+      <td>In store</td>
+      <td>False</td>
+      <td>False</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>See much more on this <a class="reference internal" href="filter/introduction.html#filtering-top"><span class="std std-ref">Filtering</span></a>. Some common identifiers are listed in <a class="reference internal" href="common-identifiers.html#identifiers-top"><span class="std std-ref">Identifiers</span></a> to get you started.</p>
+</div>
+</div>
+<div class="section" id="clustering-object-records">
+<h2>Clustering object records<a class="headerlink" href="#clustering-object-records" title="Permalink to this headline">¶</a></h2>
+<p>If you are more interested in the numbers of objects that match a query than the individual objects themselves, you can use the <a class="reference internal" href="data-vis/clustering.html#clustering-top"><span class="std std-ref">Introduction</span></a> endpoints which returns the counts of objects matching on one or more of the controlled vocabulary fields in the record. There are two endpoints, one returns counts for all controlled vocab. fields, the other will only return the counts for the controlled vocab. field of interest (material, technique, person, etc).</p>
+<div class="section" id="all-clusters">
+<h3>All clusters<a class="headerlink" href="#all-clusters" title="Permalink to this headline">¶</a></h3>
+<div class="cell tag_hide-output docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">requests</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">altair</span> <span class="k">as</span> <span class="nn">alt</span>
+
+<span class="n">req</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;https://api.vam.ac.uk/v2/objects/clusters/search?q=Paris&#39;</span><span class="p">)</span>
+<span class="n">object_data</span> <span class="o">=</span> <span class="n">req</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+<span class="n">object_info</span> <span class="o">=</span> <span class="n">object_data</span><span class="p">[</span><span class="s2">&quot;info&quot;</span><span class="p">]</span>
+<span class="n">record_count</span> <span class="o">=</span> <span class="n">object_info</span><span class="p">[</span><span class="s2">&quot;record_count&quot;</span><span class="p">]</span>
+<span class="n">object_clusters</span> <span class="o">=</span> <span class="n">object_data</span><span class="p">[</span><span class="s2">&quot;clusters&quot;</span><span class="p">]</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;The matching </span><span class="si">{</span><span class="n">record_count</span><span class="si">}</span><span class="s2"> object records for the query &#39;Paris&#39; have these clusters:&quot;</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">cluster_type</span> <span class="ow">in</span> <span class="n">object_clusters</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;  Cluster type &#39;</span><span class="si">%s</span><span class="s2">&#39; has the most common value &#39;</span><span class="si">%s</span><span class="s2">&#39;&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">cluster_type</span><span class="p">,</span> <span class="n">object_clusters</span><span class="p">[</span><span class="n">cluster_type</span><span class="p">][</span><span class="s2">&quot;terms&quot;</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="s2">&quot;value&quot;</span><span class="p">]))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The matching 74190 object records for the query &#39;Paris&#39; have these clusters:
+  Cluster type &#39;category&#39; has the most common value &#39;Designs&#39;
+  Cluster type &#39;person&#39; has the most common value &#39;Jean-Charles Worth&#39;
+  Cluster type &#39;organisation&#39; has the most common value &#39;Worth&#39;
+  Cluster type &#39;collection&#39; has the most common value &#39;Prints, Drawings &amp; Paintings Collection&#39;
+  Cluster type &#39;gallery&#39; has the most common value &#39;Prints &amp; Drawings Study Room, level E&#39;
+  Cluster type &#39;style&#39; has the most common value &#39;French School&#39;
+  Cluster type &#39;place&#39; has the most common value &#39;Paris&#39;
+  Cluster type &#39;object_type&#39; has the most common value &#39;Fashion design&#39;
+  Cluster type &#39;technique&#39; has the most common value &#39;watercolour drawing&#39;
+  Cluster type &#39;material&#39; has the most common value &#39;watercolour&#39;
+  Cluster type &#39;maker&#39; has the most common value &#39;Worth&#39;
+  Cluster type &#39;associated&#39; has the most common value &#39;Louvre (Paris)&#39;
+  Cluster type &#39;depicts&#39; has the most common value &#39;Paris&#39;
+  Cluster type &#39;accession_year&#39; has the most common value &#39;1957&#39;
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="single-cluster-type-s">
+<h3>Single cluster type(s)<a class="headerlink" href="#single-cluster-type-s" title="Permalink to this headline">¶</a></h3>
+<p>If you already know the controlled vocab field you want to retrieve (for example materials), you have two choices. You can pass a ‘cluster_type’ parameter to the same endpoint as above, the response is the same but returns only the field you specified. For example</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">requests</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">altair</span> <span class="k">as</span> <span class="nn">alt</span>
+
+<span class="n">req</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;https://api.vam.ac.uk/v2/objects/clusters/search?cluster_type=material&amp;id_place=x29337&amp;made_after_year=1700&amp;made_before_year=1800&amp;cluster_size=10&#39;</span><span class="p">)</span>
+<span class="n">object_data</span> <span class="o">=</span> <span class="n">req</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+<span class="n">object_clusters</span> <span class="o">=</span> <span class="n">object_data</span><span class="p">[</span><span class="s2">&quot;clusters&quot;</span><span class="p">]</span>
+<span class="n">materials</span> <span class="o">=</span> <span class="n">object_clusters</span><span class="p">[</span><span class="s2">&quot;material&quot;</span><span class="p">][</span><span class="s2">&quot;terms&quot;</span><span class="p">]</span>
+
+<span class="n">materials_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">materials</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">10</span><span class="p">])</span>
+<span class="n">alt</span><span class="o">.</span><span class="n">Chart</span><span class="p">(</span><span class="n">materials_df</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s2">&quot;Materials used in C18th Welsh objects&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">mark_bar</span><span class="p">()</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
+    <span class="n">x</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">X</span><span class="p">(</span><span class="s1">&#39;value&#39;</span><span class="p">,</span> <span class="n">sort</span><span class="o">=</span><span class="s1">&#39;-y&#39;</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s1">&#39;Material&#39;</span><span class="p">),</span>
+    <span class="n">y</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">Y</span><span class="p">(</span><span class="s1">&#39;count&#39;</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s1">&#39;Number of Objects&#39;</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html">
+<div id="altair-viz-eca96af440fd4ccdb6f5b8838ca0bf20"></div>
+<script type="text/javascript">
+  (function(spec, embedOpt){
+    let outputDiv = document.currentScript.previousElementSibling;
+    if (outputDiv.id !== "altair-viz-eca96af440fd4ccdb6f5b8838ca0bf20") {
+      outputDiv = document.getElementById("altair-viz-eca96af440fd4ccdb6f5b8838ca0bf20");
+    }
+    const paths = {
+      "vega": "https://cdn.jsdelivr.net/npm//vega@5?noext",
+      "vega-lib": "https://cdn.jsdelivr.net/npm//vega-lib?noext",
+      "vega-lite": "https://cdn.jsdelivr.net/npm//vega-lite@4.8.1?noext",
+      "vega-embed": "https://cdn.jsdelivr.net/npm//vega-embed@6?noext",
+    };
+
+    function loadScript(lib) {
+      return new Promise(function(resolve, reject) {
+        var s = document.createElement('script');
+        s.src = paths[lib];
+        s.async = true;
+        s.onload = () => resolve(paths[lib]);
+        s.onerror = () => reject(`Error loading script: ${paths[lib]}`);
+        document.getElementsByTagName("head")[0].appendChild(s);
+      });
+    }
+
+    function showError(err) {
+      outputDiv.innerHTML = `<div class="error" style="color:red;">${err}</div>`;
+      throw err;
+    }
+
+    function displayChart(vegaEmbed) {
+      vegaEmbed(outputDiv, spec, embedOpt)
+        .catch(err => showError(`Javascript Error: ${err.message}<br>This usually means there's a typo in your chart specification. See the javascript console for the full traceback.`));
+    }
+
+    if(typeof define === "function" && define.amd) {
+      requirejs.config({paths});
+      require(["vega-embed"], displayChart, err => showError(`Error loading script: ${err.message}`));
+    } else if (typeof vegaEmbed === "function") {
+      displayChart(vegaEmbed);
+    } else {
+      loadScript("vega")
+        .then(() => loadScript("vega-lite"))
+        .then(() => loadScript("vega-embed"))
+        .catch(showError)
+        .then(() => displayChart(vegaEmbed));
+    }
+  })({"config": {"view": {"continuousWidth": 400, "continuousHeight": 300}}, "data": {"name": "data-2a8eb8b8ee192d048b0c1bd452247c90"}, "mark": "bar", "encoding": {"x": {"type": "nominal", "field": "value", "sort": "-y", "title": "Material"}, "y": {"type": "quantitative", "field": "count", "title": "Number of Objects"}}, "title": "Materials used in C18th Welsh objects", "$schema": "https://vega.github.io/schema/vega-lite/v4.8.1.json", "datasets": {"data-2a8eb8b8ee192d048b0c1bd452247c90": [{"id": "AAT14109", "value": "paper (fiber product)", "count": 197, "count_max_error": 0}, {"id": "AAT14190", "value": "photographic paper", "count": 193, "count_max_error": 0}, {"id": "AAT15045", "value": "water-colour", "count": 99, "count_max_error": 0}, {"id": "x30308", "value": "paper", "count": 97, "count_max_error": 0}, {"id": "x33202", "value": "watercolour", "count": 72, "count_max_error": 0}, {"id": "x44137", "value": "toned paper", "count": 54, "count_max_error": 0}, {"id": "x30344", "value": "card", "count": 32, "count_max_error": 0}, {"id": "x33202", "value": "Watercolour", "count": 28, "count_max_error": 0}, {"id": "x30347", "value": "pencil", "count": 21, "count_max_error": 0}, {"id": "AAT127389", "value": "salted paper", "count": 16, "count_max_error": 0}]}}, {"mode": "vega-lite"});
+</script></div></div>
+</div>
+</div>
+<div class="section" id="specified-cluster-type">
+<h3>Specified cluster type<a class="headerlink" href="#specified-cluster-type" title="Permalink to this headline">¶</a></h3>
+<p>Alternatively, you can use a different endpoint to request only the single cluster type. This returns only the counts without any other information, making it slightly easy to load into programmes such as <a class="reference external" href="https://pandas.pydata.org/">Pandas</a>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">altair</span> <span class="k">as</span> <span class="nn">alt</span>
+
+<span class="n">materials_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_json</span><span class="p">(</span><span class="s1">&#39;https://api.vam.ac.uk/v2/objects/clusters/material/search?id_place=x29337&amp;made_after_year=1700&amp;made_before_year=1800&amp;cluster_size=10&#39;</span><span class="p">,</span> <span class="n">orient</span><span class="o">=</span><span class="s1">&#39;columns&#39;</span><span class="p">)</span>
+<span class="n">alt</span><span class="o">.</span><span class="n">Chart</span><span class="p">(</span><span class="n">materials_df</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s2">&quot;Materials used in C18th Welsh objects held at the V&amp;A&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">mark_bar</span><span class="p">()</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
+    <span class="n">x</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">X</span><span class="p">(</span><span class="s1">&#39;value&#39;</span><span class="p">,</span> <span class="n">sort</span><span class="o">=</span><span class="s1">&#39;-y&#39;</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s1">&#39;Material&#39;</span><span class="p">),</span>
+    <span class="n">y</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">Y</span><span class="p">(</span><span class="s1">&#39;count&#39;</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s1">&#39;Number of Objects&#39;</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html">
+<div id="altair-viz-4f985cabf3be40d588c3d5659c5c9c55"></div>
+<script type="text/javascript">
+  (function(spec, embedOpt){
+    let outputDiv = document.currentScript.previousElementSibling;
+    if (outputDiv.id !== "altair-viz-4f985cabf3be40d588c3d5659c5c9c55") {
+      outputDiv = document.getElementById("altair-viz-4f985cabf3be40d588c3d5659c5c9c55");
+    }
+    const paths = {
+      "vega": "https://cdn.jsdelivr.net/npm//vega@5?noext",
+      "vega-lib": "https://cdn.jsdelivr.net/npm//vega-lib?noext",
+      "vega-lite": "https://cdn.jsdelivr.net/npm//vega-lite@4.8.1?noext",
+      "vega-embed": "https://cdn.jsdelivr.net/npm//vega-embed@6?noext",
+    };
+
+    function loadScript(lib) {
+      return new Promise(function(resolve, reject) {
+        var s = document.createElement('script');
+        s.src = paths[lib];
+        s.async = true;
+        s.onload = () => resolve(paths[lib]);
+        s.onerror = () => reject(`Error loading script: ${paths[lib]}`);
+        document.getElementsByTagName("head")[0].appendChild(s);
+      });
+    }
+
+    function showError(err) {
+      outputDiv.innerHTML = `<div class="error" style="color:red;">${err}</div>`;
+      throw err;
+    }
+
+    function displayChart(vegaEmbed) {
+      vegaEmbed(outputDiv, spec, embedOpt)
+        .catch(err => showError(`Javascript Error: ${err.message}<br>This usually means there's a typo in your chart specification. See the javascript console for the full traceback.`));
+    }
+
+    if(typeof define === "function" && define.amd) {
+      requirejs.config({paths});
+      require(["vega-embed"], displayChart, err => showError(`Error loading script: ${err.message}`));
+    } else if (typeof vegaEmbed === "function") {
+      displayChart(vegaEmbed);
+    } else {
+      loadScript("vega")
+        .then(() => loadScript("vega-lite"))
+        .then(() => loadScript("vega-embed"))
+        .catch(showError)
+        .then(() => displayChart(vegaEmbed));
+    }
+  })({"config": {"view": {"continuousWidth": 400, "continuousHeight": 300}}, "data": {"name": "data-2a8eb8b8ee192d048b0c1bd452247c90"}, "mark": "bar", "encoding": {"x": {"type": "nominal", "field": "value", "sort": "-y", "title": "Material"}, "y": {"type": "quantitative", "field": "count", "title": "Number of Objects"}}, "title": "Materials used in C18th Welsh objects held at the V&A", "$schema": "https://vega.github.io/schema/vega-lite/v4.8.1.json", "datasets": {"data-2a8eb8b8ee192d048b0c1bd452247c90": [{"id": "AAT14109", "value": "paper (fiber product)", "count": 197, "count_max_error": 0}, {"id": "AAT14190", "value": "photographic paper", "count": 193, "count_max_error": 0}, {"id": "AAT15045", "value": "water-colour", "count": 99, "count_max_error": 0}, {"id": "x30308", "value": "paper", "count": 97, "count_max_error": 0}, {"id": "x33202", "value": "watercolour", "count": 72, "count_max_error": 0}, {"id": "x44137", "value": "toned paper", "count": 54, "count_max_error": 0}, {"id": "x30344", "value": "card", "count": 32, "count_max_error": 0}, {"id": "x33202", "value": "Watercolour", "count": 28, "count_max_error": 0}, {"id": "x30347", "value": "pencil", "count": 21, "count_max_error": 0}, {"id": "AAT127389", "value": "salted paper", "count": 16, "count_max_error": 0}]}}, {"mode": "vega-lite"});
+</script></div></div>
+</div>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        </div>
+    </div>
+    
+    
+    <div class='prev-next-bottom'>
+        
+    <a class='left-prev' id="prev-link" href="welcome.html" title="previous page">Welcome</a>
+    <a class='right-next' id="next-link" href="common-identifiers.html" title="next page">Identifiers</a>
+
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Victoria and Albert Museum<br/>
+        
+            &copy; Copyright 2020.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    
+  <script src="_static/js/index.d3f166471bb80abb5163.js"></script>
+
+
+    
+  </body>
+</html>
