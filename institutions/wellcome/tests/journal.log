@@ -17,3 +17,9 @@
 2026-11-13T22:56:06Z | catalogue-work-a222zvge-items | https://api.wellcomecollection.org/catalogue/v2/works/a222zvge?include=items | GET | 200 OK | aucun en-tête de limite | taille≥1384 | corps: {"physicalDescription":"1 file","items":[{"id":"c5rdccrs","locations":[{"locationType":{"id":"closed-stores","type":"LocationType","label":"Closed stores"},"accessConditions":[{"method":{"id":"online-
 # corps enregistré : tests/raw/catalogue-work-a222zvge-items.body (1384 octets lus)
 # Fin 2026-11-13T22:56:06Z — 2 requête(s) envoyée(s)
+# Session 2026-11-13T22:56:15Z — configuration wellcome-passe3-iiif-manifestes.json — sonde probe.py au commit 881b6ab
+2026-11-13T22:56:15Z | robots.txt:iiif.wellcomecollection.org | https://iiif.wellcomecollection.org/robots.txt | GET | 200 | 0 règle(s) pour « * »
+2026-11-13T22:56:22Z | iiif-presentation-v2-b18659135 | https://iiif.wellcomecollection.org/presentation/v2/b18659135 | GET | 200 OK | aucun en-tête de limite | taille≥671815 | corps: {   "@context": "http://iiif.io/api/presentation/2/context.json",   "@id": "https://iiif.wellcomecollection.org/presentation/v2/b18659135",   "@type": "sc:Manifest",   "label": "'An Outline'; 'Opening
+# corps enregistré : tests/raw/iiif-presentation-v2-b18659135.body (671815 octets lus)
+2026-11-13T22:56:28Z | iiif-presentation-v3-b18659135 | https://iiif.wellcomecollection.org/presentation/v3/b18659135 | GET | 200 OK | aucun en-tête de limite | taille≥200 | corps: {   "@context": [     "http://iiif.io/api/auth/2/context.json",     "http://iiif.io/api/presentation/3/context.json"   ],   "id": "https://iiif.wellcomecollection.org/presentation/b18659135",   "type"
+# Fin 2026-11-13T22:56:28Z — 3 requête(s) envoyée(s)

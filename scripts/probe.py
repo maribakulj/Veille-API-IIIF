@@ -102,6 +102,7 @@ def lire_robots(texte):
     """Retourne (règles, crawl_delay) pour notre User-Agent, sinon pour « * ».
     règles : liste de (autorise, longueur_du_motif, motif_source, regex)."""
     groupes, courant, agents_en_cours = [], None, False
+    texte = texte.lstrip("\ufeff")  # BOM éventuel en tête de fichier (vu sur iiif.wellcomecollection.org)
     for brut in texte.splitlines():
         ligne = brut.split("#", 1)[0].strip()
         if ":" not in ligne:
@@ -121,9 +122,15 @@ def lire_robots(texte):
         elif courant is not None and cle == "crawl-delay":
             agents_en_cours = False
             try:
-                courant["delai"] = float(val)
+                courant["delai"] = max(courant["delai"] or 0.0, float(val))
             except ValueError:
                 pass
+        elif courant is not None and cle == "request-rate":
+            agents_en_cours = False
+            m = re.match(r"(\d+)\s*/\s*(\d+)\s*([smhd]?)", val.lower())
+            if m and int(m.group(1)) > 0:
+                unite = {"": 1, "s": 1, "m": 60, "h": 3600, "d": 86400}[m.group(3)]
+                courant["delai"] = max(courant["delai"] or 0.0, int(m.group(2)) * unite / int(m.group(1)))
         else:
             agents_en_cours = False
     precis = [g for g in groupes if any(UA_TOKEN in a for a in g["agents"])]

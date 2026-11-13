@@ -60,7 +60,7 @@
 
 <!-- AUTO:DEBUT -->
 ## Contrôles automatiques (calculés depuis `tests/journal.log`)
-- Requêtes enregistrées : **8** (sessions de sonde : 2, maximum par session : 6)
+- Requêtes enregistrées : **11** (sessions de sonde : 3, maximum par session : 6)
 - Plus courte pause vers un même hôte : **6 s** (règle : ≥ 6 s)
 - Méthodes utilisées : GET, HEAD (règle : GET/HEAD seulement)
 - Anomalies : aucune
@@ -303,4 +303,6 @@ hôte déjà bloqué en 403 anti-bot.
 - Le `robots.txt` de chaque hôte testé est **téléchargé et lu à l'étape a)** (il fait partie de la doc : il contient des interdictions écrites).
 - La sonde le lit **automatiquement** avant de tester un hôte (`respect_robots`, vrai par défaut) : jokers `*` et `$`, groupe de notre User-Agent sinon `*`, plus long motif gagnant, `Crawl-delay` respecté s'il dépasse notre pause. Un chemin interdit n'est **pas lancé** (ligne « NON LANCÉ : interdit par robots.txt » dans le journal) : c'est une interdiction écrite, qui dispense de tester (consigne C8).
 - `robots.txt` indisponible (4xx) : tout est autorisé ; erreur serveur ou réseau : tout est traité comme interdit (RFC 9309). La lecture de `robots.txt` compte dans le budget de la passe.
+
+**Incident du 2026-11-13 (Wellcome)** : le `robots.txt` de `iiif.wellcomecollection.org` commence par un BOM invisible ; la sonde ne reconnaissait alors pas `User-agent: *` et ignorait `Crawl-delay: 30`. Deux requêtes sont parties à 6 s d'écart au lieu de 30 s (passe 3 de Wellcome). Corrigé : la sonde retire le BOM et lit aussi `Request-rate`. Règle : **lire à l'étape a) le `robots.txt` de chaque hôte avec les yeux**, y compris `Crawl-delay` et `Request-rate`, en plus de la lecture par la sonde ; le résultat est consigné dans la fiche.
 <!-- CONSIGNE:FIN -->
