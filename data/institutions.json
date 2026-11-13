@@ -14,21 +14,217 @@
       "g_crash_test": "à faire (après audit)"
     },
     "limites_documentees": [
-      {"nature": "Quota par 24 h", "perimetre": "Image API", "valeur": "non chiffrée", "fenetre": "24 h", "effet": "non précisé", "source": "https://www.digitale-sammlungen.de/en/interfaces", "date": "2026-11-13"},
-      {"nature": "Quota par 24 h", "perimetre": "OCR (téléchargements)", "valeur": "non chiffrée", "fenetre": "24 h", "effet": "non précisé", "source": "https://www.digitale-sammlungen.de/en/interfaces", "date": "2026-11-13"},
-      {"nature": "Illimité", "perimetre": "Presentation API", "valeur": "illimité (annoncé)", "fenetre": "–", "effet": "–", "source": "https://www.digitale-sammlungen.de/en/interfaces", "date": "2026-11-13"}
+      {
+        "nature": "Quota par 24 h",
+        "perimetre": "Image API",
+        "valeur": "non chiffrée",
+        "fenetre": "24 h",
+        "effet": "non précisé",
+        "source": "https://www.digitale-sammlungen.de/en/interfaces",
+        "date": "2026-11-13",
+        "verification": "officielle, lue en entier"
+      },
+      {
+        "nature": "Quota par 24 h",
+        "perimetre": "OCR (téléchargements)",
+        "valeur": "non chiffrée",
+        "fenetre": "24 h",
+        "effet": "non précisé",
+        "source": "https://www.digitale-sammlungen.de/en/interfaces",
+        "date": "2026-11-13",
+        "verification": "officielle, lue en entier"
+      },
+      {
+        "nature": "Illimité",
+        "perimetre": "Presentation API",
+        "valeur": "illimité (annoncé)",
+        "fenetre": "–",
+        "effet": "–",
+        "source": "https://www.digitale-sammlungen.de/en/interfaces",
+        "date": "2026-11-13",
+        "verification": "officielle, lue en entier"
+      }
     ],
     "en_tetes_observes": [
-      {"nom": "x-ratelimit-limit", "valeur": "5001 (OCR) / 25001 (Image)", "endpoint": "OCR hOCR, Image API", "date": "2026-11-13", "preuve": "tests/mdz.log, tests/raw/mdz/"},
-      {"nom": "x-ratelimit-remaining", "valeur": "5000 / 25000, identique entre deux appels", "endpoint": "idem", "date": "2026-11-13", "preuve": "tests/mdz.log"},
-      {"nom": "x-ratelimit-reset", "valeur": "17 (OCR) / 3 (Image) : unité inconnue", "endpoint": "idem", "date": "2026-11-13", "preuve": "tests/mdz.log"}
+      {
+        "nom": "x-ratelimit-limit",
+        "valeur": "5001 (OCR) / 25001 (Image)",
+        "endpoint": "OCR hOCR, Image API",
+        "date": "2026-11-13",
+        "preuve": "tests/mdz.log, tests/raw/mdz/"
+      },
+      {
+        "nom": "x-ratelimit-remaining",
+        "valeur": "5000 / 25000, identique entre deux appels",
+        "endpoint": "idem",
+        "date": "2026-11-13",
+        "preuve": "tests/mdz.log"
+      },
+      {
+        "nom": "x-ratelimit-reset",
+        "valeur": "17 (OCR) / 3 (Image) : unité inconnue",
+        "endpoint": "idem",
+        "date": "2026-11-13",
+        "preuve": "tests/mdz.log"
+      }
     ],
     "blocages": [],
     "contact": "mdz@bsb-muenchen.de (contact général)",
     "conclusion_quota": "Quota par 24 h documenté sans chiffre ; en-têtes x-ratelimit observés, non documentés, non utilisables comme compteur",
     "classe_quota": "règle sans chiffre publié",
     "confiance": "moyenne",
-    "notes": "Ticket tiers (sourcelibrary-v2 #5448) : demande d'IP autorisée sans réponse au 26/10 ; affirme un « 1×1 over-quota placeholder » en 200 (non vérifié) : à détecter dans la sonde."
+    "notes": "Ticket tiers (sourcelibrary-v2 #5448) : demande d'IP autorisée sans réponse au 26/10 ; affirme un « 1×1 over-quota placeholder » en 200 (non vérifié) : à détecter dans la sonde.",
+    "web": [
+      {
+        "url": "https://www.digitale-sammlungen.de/en/interfaces",
+        "date": "2026-11-13",
+        "etiquette": "officielle",
+        "citation": "Please note that there is a limit to the number of requests that can be made to the Image API per 24 hours. / … OCR downloads … per 24 hours. / Access to the Presentation API is unlimited.",
+        "preuve": "sources/mdz/SHA256SUMS"
+      },
+      {
+        "url": "https://iiif.io/guides/guides/digitale-sammlungen.de/",
+        "date": "2026-11-13",
+        "etiquette": "officielle (guide IIIF)",
+        "citation": "Aucune phrase sur les limites, quotas, clés ou erreurs (lu par extraction).",
+        "preuve": "institutions/mdz.md (étape f)"
+      },
+      {
+        "url": "https://github.com/Embassy-of-the-Free-Mind/sourcelibrary-v2/issues/5448",
+        "date": "2026-10-01 → 2026-10-26",
+        "etiquette": "tiers (projet utilisateur)",
+        "citation": "« Email BSB/MDZ asking for an allowlisted IP » ; « BSB's reply … is still pending » ; « 1×1 over-quota placeholder » (2026-10-25).",
+        "preuve": "institutions/mdz.md (étape f)"
+      },
+      {
+        "url": "https://github.com/Embassy-of-the-Free-Mind/sourcelibrary-v2/issues/3886",
+        "date": "2026-08-11",
+        "etiquette": "tiers (projet utilisateur)",
+        "citation": "« undocumented but clean JSON API at digitale-sammlungen.de/api/search » (non testé, non utilisé).",
+        "preuve": "institutions/mdz.md (étape f)"
+      },
+      {
+        "url": "https://github.com/ProjectMirador/mirador/issues/4542",
+        "date": "2026-11-13",
+        "etiquette": "tiers (dépôt Mirador)",
+        "citation": "Canvases 1×1 px d'un manifeste MDZ affichées comme image d'erreur (sans lien direct avec un quota).",
+        "preuve": "institutions/mdz.md (étape f)"
+      }
+    ],
+    "sources": [
+      {
+        "url": "https://www.digitale-sammlungen.de/en/interfaces",
+        "date": "2026-11-13",
+        "etiquette": "officielle",
+        "preuve": "sources/mdz/SHA256SUMS"
+      },
+      {
+        "url": "https://www.digitale-sammlungen.de/de/schnittstellen",
+        "date": "2026-11-13",
+        "etiquette": "officielle",
+        "preuve": "sources/mdz/SHA256SUMS"
+      },
+      {
+        "url": "https://www.digitale-sammlungen.de/en/faq",
+        "date": "2026-11-13",
+        "etiquette": "officielle",
+        "preuve": "sources/mdz/SHA256SUMS"
+      },
+      {
+        "url": "https://www.digitale-sammlungen.de/de/faq",
+        "date": "2026-11-13",
+        "etiquette": "officielle",
+        "preuve": "sources/mdz/SHA256SUMS"
+      },
+      {
+        "url": "https://www.digitale-sammlungen.de/en/contact",
+        "date": "2026-11-13",
+        "etiquette": "officielle",
+        "preuve": "sources/mdz/SHA256SUMS"
+      },
+      {
+        "url": "https://www.digitale-sammlungen.de/en/download-options",
+        "date": "2026-11-13",
+        "etiquette": "officielle",
+        "preuve": "sources/mdz/SHA256SUMS"
+      },
+      {
+        "url": "https://www.digitale-sammlungen.de/en/technologies-and-software-development",
+        "date": "2026-11-13",
+        "etiquette": "officielle",
+        "preuve": "sources/mdz/SHA256SUMS"
+      },
+      {
+        "url": "https://www.digitale-sammlungen.de/de/technologien-und-softwareentwicklung",
+        "date": "2026-11-13",
+        "etiquette": "officielle",
+        "preuve": "sources/mdz/SHA256SUMS"
+      },
+      {
+        "url": "https://www.digitale-sammlungen.de/en/imprint",
+        "date": "2026-11-13",
+        "etiquette": "officielle",
+        "preuve": "sources/mdz/SHA256SUMS"
+      },
+      {
+        "url": "https://www.digitale-sammlungen.de/en/disclaimer",
+        "date": "2026-11-13",
+        "etiquette": "officielle",
+        "preuve": "sources/mdz/SHA256SUMS"
+      },
+      {
+        "url": "https://www.digitale-sammlungen.de/en/privacy-policy",
+        "date": "2026-11-13",
+        "etiquette": "officielle",
+        "preuve": "sources/mdz/SHA256SUMS"
+      },
+      {
+        "url": "https://www.digitale-sammlungen.de/en/rightsstatement-vgwort",
+        "date": "2026-11-13",
+        "etiquette": "officielle",
+        "preuve": "sources/mdz/SHA256SUMS"
+      },
+      {
+        "url": "https://www.digitale-sammlungen.de/en/search-help",
+        "date": "2026-11-13",
+        "etiquette": "officielle",
+        "preuve": "sources/mdz/SHA256SUMS"
+      },
+      {
+        "url": "https://www.digitale-sammlungen.de/en/viewer-help",
+        "date": "2026-11-13",
+        "etiquette": "officielle",
+        "preuve": "sources/mdz/SHA256SUMS"
+      },
+      {
+        "url": "https://oai.bsb-muenchen.de/doc/en/bavarian-digital-repository",
+        "date": "2026-11-13",
+        "etiquette": "officielle",
+        "preuve": "sources/mdz/SHA256SUMS"
+      }
+    ],
+    "preuves": {
+      "a_doc_lue": [
+        "sources/mdz/SHA256SUMS"
+      ],
+      "b_endpoints_doc": [
+        "scripts/config/mdz.json",
+        "sources/mdz/SHA256SUMS"
+      ],
+      "c_config_avant_tests": [
+        "scripts/config/mdz.json"
+      ],
+      "d_quota_dans_doc": [
+        "sources/mdz/SHA256SUMS",
+        "institutions/mdz.md"
+      ],
+      "e_tests_endpoints": [
+        "tests/mdz.log"
+      ],
+      "f_web": [
+        "institutions/mdz.md"
+      ]
+    }
   },
   {
     "slug": "bnf-gallica",
@@ -45,21 +241,181 @@
       "g_crash_test": "à faire (après audit)"
     },
     "limites_documentees": [
-      {"nature": "Débit (ancienne page)", "perimetre": "IIIF Image (full/full, >1000 px)", "valeur": "5", "fenetre": "par minute", "effet": "429 Too Many Requests", "source": "https://api.bnf.fr/fr/node/232", "date": "2026-11-13"},
-      {"nature": "Débit (ancienne page)", "perimetre": "TexteBrut", "valeur": "5", "fenetre": "par minute", "effet": "429", "source": "https://api.bnf.fr/fr/node/232", "date": "2026-11-13"},
-      {"nature": "Débit (ancienne page)", "perimetre": "PDF", "valeur": "4", "fenetre": "par minute", "effet": "429", "source": "https://api.bnf.fr/fr/node/232", "date": "2026-11-13"},
-      {"nature": "Débit (ancienne page)", "perimetre": "highres", "valeur": "50", "fenetre": "par minute", "effet": "429", "source": "https://api.bnf.fr/fr/node/232", "date": "2026-11-13"},
-      {"nature": "Restriction annoncée (récente)", "perimetre": "IIIF, SRU, API Document", "valeur": "restrictions temporaires, modalités non définies", "fenetre": "–", "effet": "–", "source": "https://api.bnf.fr/fr/evolution-des-modalites-dacces-aux-api-de-gallica", "date": "2026-11-13"}
+      {
+        "nature": "Débit (ancienne page)",
+        "perimetre": "IIIF Image (full/full, >1000 px)",
+        "valeur": "5",
+        "fenetre": "par minute",
+        "effet": "429 Too Many Requests",
+        "source": "https://api.bnf.fr/fr/node/232",
+        "date": "2026-11-13",
+        "verification": "officielle, extrait lu (page non relue en entier)"
+      },
+      {
+        "nature": "Débit (ancienne page)",
+        "perimetre": "TexteBrut",
+        "valeur": "5",
+        "fenetre": "par minute",
+        "effet": "429",
+        "source": "https://api.bnf.fr/fr/node/232",
+        "date": "2026-11-13",
+        "verification": "officielle, extrait lu (page non relue en entier)"
+      },
+      {
+        "nature": "Débit (ancienne page)",
+        "perimetre": "PDF",
+        "valeur": "4",
+        "fenetre": "par minute",
+        "effet": "429",
+        "source": "https://api.bnf.fr/fr/node/232",
+        "date": "2026-11-13",
+        "verification": "officielle, extrait lu (page non relue en entier)"
+      },
+      {
+        "nature": "Débit (ancienne page)",
+        "perimetre": "highres",
+        "valeur": "50",
+        "fenetre": "par minute",
+        "effet": "429",
+        "source": "https://api.bnf.fr/fr/node/232",
+        "date": "2026-11-13",
+        "verification": "officielle, extrait lu (page non relue en entier)"
+      },
+      {
+        "nature": "Restriction annoncée (récente)",
+        "perimetre": "IIIF, SRU, API Document",
+        "valeur": "restrictions temporaires, modalités non définies",
+        "fenetre": "–",
+        "effet": "–",
+        "source": "https://api.bnf.fr/fr/evolution-des-modalites-dacces-aux-api-de-gallica",
+        "date": "2026-11-13",
+        "verification": "officielle, lue en entier"
+      }
     ],
     "en_tetes_observes": [],
     "blocages": [
-      {"date": "2026-11-13 20:33Z", "hote": "gallica.bnf.fr", "code": "403", "nature": "anti-bot (Cloudflare), 1re requête", "suite": "hôte arrêté, non réessayé"}
+      {
+        "date": "2026-11-13 20:33Z",
+        "hote": "gallica.bnf.fr",
+        "code": "403",
+        "nature": "anti-bot (Cloudflare), 1re requête",
+        "suite": "hôte arrêté, non réessayé"
+      }
     ],
     "contact": "gallica@bnf.fr (data.gouv, lu en résumé)",
     "conclusion_quota": "Débits publiés (5/min, 429) mais page ancienne ; la page récente annonce des restrictions dont les modalités ne sont pas définies. Pas d'en-tête, pas de clé, pas d'endpoint de statut.",
     "classe_quota": "règle chiffrée ancienne, accès restreint annoncé",
     "confiance": "faible",
-    "notes": "data.gouv (« limite non documentée ») contredit api.bnf.fr. Page 2748 incomplète. Page conditions : 403."
+    "notes": "data.gouv (« limite non documentée ») contredit api.bnf.fr. Page 2748 incomplète. Page conditions : 403.",
+    "web": [
+      {
+        "url": "https://api.bnf.fr/fr/evolution-des-modalites-dacces-aux-api-de-gallica",
+        "date": "2026-11-13",
+        "etiquette": "officielle",
+        "citation": "« Ces mesures entraînent des restrictions temporaires d'accès aux API de Gallica, notamment aux services IIIF, SRU et API Document. Les modalités d'accès à ces services sont actuellement en cours de définition. »",
+        "preuve": "sources/bnf-gallica/suite2/SHA256SUMS"
+      },
+      {
+        "url": "https://www.bnf.fr/fr/actualites/un-captcha-pour-gallica",
+        "date": "2026-11-13",
+        "etiquette": "officielle",
+        "citation": "« un CAPTCHA est mis en place à compter du 18 décembre 2025 » ; case à cocher à la première recherche de la journée.",
+        "preuve": "sources/bnf-gallica/suite2/SHA256SUMS"
+      },
+      {
+        "url": "https://actualitte.com/article/128618/numerisation/gallica-installe-un-captcha-le-web-patrimonial-face-aux-bots",
+        "date": "non lue",
+        "etiquette": "presse",
+        "citation": "Blocages d'IP jugés très stricts par les utilisateurs (résumé uniquement).",
+        "preuve": "institutions/bnf-gallica.md (étape f)"
+      },
+      {
+        "url": "https://www.iatechauquotidien.com/gallica-paralysee-des-robots-dia-aspirent-massivement-ses-contenus/",
+        "date": "non lue",
+        "etiquette": "presse",
+        "citation": "La BnF attribue les difficultés à un moissonnage automatisé en forte hausse (résumé).",
+        "preuve": "institutions/bnf-gallica.md (étape f)"
+      },
+      {
+        "url": "https://github.com/Antonio-Faure/mnemosyne/pull/69",
+        "date": "non lue",
+        "etiquette": "tiers (code)",
+        "citation": "403 de type Cloudflare sur les chemins SRU de Gallica, conclusion : blocage IP/ASN (non vérifié).",
+        "preuve": "institutions/bnf-gallica.md (étape f)"
+      }
+    ],
+    "sources": [
+      {
+        "url": "https://api.bnf.fr/fr/node/232",
+        "date": "2026-11-13",
+        "etiquette": "officielle",
+        "preuve": "sources/bnf-gallica/SHA256SUMS"
+      },
+      {
+        "url": "https://api.bnf.fr/fr/api-iiif-de-recuperation-des-images-de-gallica",
+        "date": "2026-11-13",
+        "etiquette": "officielle",
+        "preuve": "sources/bnf-gallica/SHA256SUMS"
+      },
+      {
+        "url": "https://www.bnf.fr/fr/portail-bnf-api-et-jeux-de-donnees",
+        "date": "2026-11-13",
+        "etiquette": "officielle",
+        "preuve": "sources/bnf-gallica/SHA256SUMS"
+      },
+      {
+        "url": "https://www.data.gouv.fr/dataservices/api-gallica-iiif",
+        "date": "2026-11-13",
+        "etiquette": "officielle",
+        "preuve": "sources/bnf-gallica/SHA256SUMS"
+      },
+      {
+        "url": "https://api.bnf.fr/fr/node/2620",
+        "date": "2026-11-13",
+        "etiquette": "officielle",
+        "preuve": "sources/bnf-gallica/SHA256SUMS"
+      },
+      {
+        "url": "https://api.bnf.fr/fr/wrapper-python-pour-les-api-gallica",
+        "date": "2026-11-13",
+        "etiquette": "officielle",
+        "preuve": "sources/bnf-gallica/SHA256SUMS"
+      },
+      {
+        "url": "https://api.bnf.fr/fr/node/2748",
+        "date": "2026-11-13",
+        "etiquette": "officielle (INCOMPLÈTE : délai dépassé)",
+        "preuve": "sources/bnf-gallica/suite/FETCH.log"
+      },
+      {
+        "url": "https://gallica.bnf.fr/html/und/conditions-dutilisation-des-contenus-de-gallica",
+        "date": "2026-11-13",
+        "etiquette": "officielle (403, non lue)",
+        "preuve": "sources/bnf-gallica/FETCH.log"
+      }
+    ],
+    "preuves": {
+      "a_doc_lue": [
+        "sources/bnf-gallica/SHA256SUMS",
+        "sources/bnf-gallica/suite/FETCH.log",
+        "sources/bnf-gallica/suite2/SHA256SUMS"
+      ],
+      "b_endpoints_doc": [
+        "institutions/bnf-gallica.md"
+      ],
+      "c_config_avant_tests": [
+        "scripts/config/bnf-gallica.json"
+      ],
+      "d_quota_dans_doc": [
+        "institutions/bnf-gallica.md"
+      ],
+      "e_tests_endpoints": [
+        "tests/bnf-gallica.log"
+      ],
+      "f_web": [
+        "institutions/bnf-gallica.md"
+      ]
+    }
   },
   {
     "slug": "loc",
@@ -76,24 +432,119 @@
       "g_crash_test": "à faire (après audit)"
     },
     "limites_documentees": [
-      {"nature": "Débit", "perimetre": "JSON/YAML loc.gov", "valeur": "20", "fenetre": "par minute", "effet": "blocage 1 h", "source": "https://www.loc.gov/apis/json-and-yaml/working-within-limits/", "date": "2026-11-13"},
-      {"nature": "Débit", "perimetre": "Text Services", "valeur": "150", "fenetre": "par minute", "effet": "blocage 1 h", "source": "https://www.loc.gov/apis/json-and-yaml/working-within-limits/", "date": "2026-11-13"},
-      {"nature": "Débit", "perimetre": "Image Services (IIIF)", "valeur": "150", "fenetre": "par minute", "effet": "blocage 1 h", "source": "https://www.loc.gov/apis/json-and-yaml/working-within-limits/", "date": "2026-11-13"},
-      {"nature": "Débit", "perimetre": "Streaming Services", "valeur": "60", "fenetre": "par minute", "effet": "blocage 1 h", "source": "https://www.loc.gov/apis/json-and-yaml/working-within-limits/", "date": "2026-11-13"},
-      {"nature": "Débit", "perimetre": "Médias /storage-services/", "valeur": "150", "fenetre": "par minute", "effet": "blocage 1 h", "source": "https://www.loc.gov/apis/json-and-yaml/working-within-limits/", "date": "2026-11-13"},
-      {"nature": "Débit", "perimetre": "MARCXML lccn.loc.gov", "valeur": "30", "fenetre": "par minute", "effet": "blocage 72 h", "source": "https://www.loc.gov/apis/json-and-yaml/working-within-limits/", "date": "2026-11-13"},
-      {"nature": "Recommandation logicielle", "perimetre": "ensemble", "valeur": "10", "fenetre": "par minute", "effet": "–", "source": "https://www.loc.gov/legal/ (cité dans la fiche, à relire)", "date": "2026-11-13"}
+      {
+        "nature": "Débit",
+        "perimetre": "JSON/YAML loc.gov",
+        "valeur": "20",
+        "fenetre": "par minute",
+        "effet": "blocage 1 h",
+        "source": "https://www.loc.gov/apis/json-and-yaml/working-within-limits/",
+        "date": "2026-11-13",
+        "verification": "officielle, extrait lu (page non relue en entier)"
+      },
+      {
+        "nature": "Débit",
+        "perimetre": "Text Services",
+        "valeur": "150",
+        "fenetre": "par minute",
+        "effet": "blocage 1 h",
+        "source": "https://www.loc.gov/apis/json-and-yaml/working-within-limits/",
+        "date": "2026-11-13",
+        "verification": "officielle, extrait lu (page non relue en entier)"
+      },
+      {
+        "nature": "Débit",
+        "perimetre": "Image Services (IIIF)",
+        "valeur": "150",
+        "fenetre": "par minute",
+        "effet": "blocage 1 h",
+        "source": "https://www.loc.gov/apis/json-and-yaml/working-within-limits/",
+        "date": "2026-11-13",
+        "verification": "officielle, extrait lu (page non relue en entier)"
+      },
+      {
+        "nature": "Débit",
+        "perimetre": "Streaming Services",
+        "valeur": "60",
+        "fenetre": "par minute",
+        "effet": "blocage 1 h",
+        "source": "https://www.loc.gov/apis/json-and-yaml/working-within-limits/",
+        "date": "2026-11-13",
+        "verification": "officielle, extrait lu (page non relue en entier)"
+      },
+      {
+        "nature": "Débit",
+        "perimetre": "Médias /storage-services/",
+        "valeur": "150",
+        "fenetre": "par minute",
+        "effet": "blocage 1 h",
+        "source": "https://www.loc.gov/apis/json-and-yaml/working-within-limits/",
+        "date": "2026-11-13",
+        "verification": "officielle, extrait lu (page non relue en entier)"
+      },
+      {
+        "nature": "Débit",
+        "perimetre": "MARCXML lccn.loc.gov",
+        "valeur": "30",
+        "fenetre": "par minute",
+        "effet": "blocage 72 h",
+        "source": "https://www.loc.gov/apis/json-and-yaml/working-within-limits/",
+        "date": "2026-11-13",
+        "verification": "officielle, extrait lu (page non relue en entier)"
+      },
+      {
+        "nature": "Recommandation logicielle",
+        "perimetre": "ensemble",
+        "valeur": "10",
+        "fenetre": "par minute",
+        "effet": "–",
+        "source": "https://www.loc.gov/legal/ (cité dans la fiche, à relire)",
+        "date": "2026-11-13",
+        "verification": "officielle, extrait lu (page non relue en entier)"
+      }
     ],
     "en_tetes_observes": [],
     "blocages": [
-      {"date": "2026-11-13 20:34Z", "hote": "www.loc.gov", "code": "403", "nature": "défi Cloudflare « Just a moment », 2e requête", "suite": "JSON bloqué sur 2 URL, hôte non réessayé"},
-      {"date": "2026-11-13", "hote": "lccn.loc.gov", "code": "timeout", "nature": "pas de réponse à 30 s (2 essais)", "suite": "non résolu"}
+      {
+        "date": "2026-11-13 20:34Z",
+        "hote": "www.loc.gov",
+        "code": "403",
+        "nature": "défi Cloudflare « Just a moment », 2e requête",
+        "suite": "JSON bloqué sur 2 URL, hôte non réessayé"
+      },
+      {
+        "date": "2026-11-13",
+        "hote": "lccn.loc.gov",
+        "code": "timeout",
+        "nature": "pas de réponse à 30 s (2 essais)",
+        "suite": "non résolu"
+      }
     ],
     "contact": "non trouvé",
     "conclusion_quota": "Débits chiffrés publiés par famille d'API. Aucun en-tête de limite observé ; aucun endpoint de statut documenté.",
     "classe_quota": "limite documentée chiffrée",
     "confiance": "moyenne",
-    "notes": "Test de dépassement non fait (règle : accord de Marcel). Image Services : une seule famille testée avec succès (200, sans en-tête)."
+    "notes": "Test de dépassement non fait (règle : accord de Marcel). Image Services : une seule famille testée avec succès (200, sans en-tête).",
+    "preuves": {
+      "a_doc_lue": [
+        "sources/loc/SHA256SUMS"
+      ],
+      "b_endpoints_doc": [
+        "institutions/loc.md"
+      ],
+      "c_config_avant_tests": [
+        "scripts/config/loc.json"
+      ],
+      "d_quota_dans_doc": [
+        "institutions/loc.md"
+      ],
+      "e_tests_endpoints": [
+        "tests/loc.log"
+      ],
+      "f_web": [
+        "institutions/loc.md"
+      ]
+    }
   },
   {
     "slug": "internet-archive",
@@ -110,8 +561,26 @@
       "g_crash_test": "à faire (après audit)"
     },
     "limites_documentees": [
-      {"nature": "Consigne qualitative", "perimetre": "bots (IIIF/advancedsearch/metadata)", "valeur": "non chiffrée : « honor 429 and Retry-After »", "fenetre": "–", "effet": "429", "source": "https://archive.org/developers/bots.html", "date": "2026-11-13"},
-      {"nature": "Task limit (clés S3)", "perimetre": "API Tasks", "valeur": "non lu (exige clés S3)", "fenetre": "–", "effet": "–", "source": "https://archive.org/developers/tasks.html", "date": "2026-11-13"}
+      {
+        "nature": "Consigne qualitative",
+        "perimetre": "bots (IIIF/advancedsearch/metadata)",
+        "valeur": "non chiffrée : « honor 429 and Retry-After »",
+        "fenetre": "–",
+        "effet": "429",
+        "source": "https://archive.org/developers/bots.html",
+        "date": "2026-11-13",
+        "verification": "officielle, lue en entier"
+      },
+      {
+        "nature": "Task limit (clés S3)",
+        "perimetre": "API Tasks",
+        "valeur": "non lu (exige clés S3)",
+        "fenetre": "–",
+        "effet": "–",
+        "source": "https://archive.org/developers/tasks.html",
+        "date": "2026-11-13",
+        "verification": "non lue (clés requises)"
+      }
     ],
     "en_tetes_observes": [],
     "blocages": [],
@@ -119,7 +588,27 @@
     "conclusion_quota": "Aucun quota chiffré pour advancedsearch, metadata, IIIF. Moyen partiel : API Tasks, avec clés S3 (non utilisée).",
     "classe_quota": "aucun quota trouvé (moyen avec clé)",
     "confiance": "moyenne",
-    "notes": "iiif.archivelab.org : échec TLS, non résolu. terms : page vide."
+    "notes": "iiif.archivelab.org : échec TLS, non résolu. terms : page vide.",
+    "preuves": {
+      "a_doc_lue": [
+        "sources/internet-archive/SHA256SUMS"
+      ],
+      "b_endpoints_doc": [
+        "institutions/internet-archive.md"
+      ],
+      "c_config_avant_tests": [
+        "scripts/config/internet-archive.json"
+      ],
+      "d_quota_dans_doc": [
+        "institutions/internet-archive.md"
+      ],
+      "e_tests_endpoints": [
+        "tests/internet-archive.log"
+      ],
+      "f_web": [
+        "institutions/internet-archive.md"
+      ]
+    }
   },
   {
     "slug": "wellcome",
@@ -136,7 +625,16 @@
       "g_crash_test": "à faire (après audit)"
     },
     "limites_documentees": [
-      {"nature": "Intention", "perimetre": "endpoints publics", "valeur": "non chiffrée (RFC 012 : « would benefit from rate limiting »)", "fenetre": "–", "effet": "–", "source": "https://docs.wellcomecollection.org/request-for-comments-rfcs/012-api_architecture", "date": "2026-11-13"}
+      {
+        "nature": "Intention",
+        "perimetre": "endpoints publics",
+        "valeur": "non chiffrée (RFC 012 : « would benefit from rate limiting »)",
+        "fenetre": "–",
+        "effet": "–",
+        "source": "https://docs.wellcomecollection.org/request-for-comments-rfcs/012-api_architecture",
+        "date": "2026-11-13",
+        "verification": "officielle, lue en entier"
+      }
     ],
     "en_tetes_observes": [],
     "blocages": [],
@@ -144,7 +642,27 @@
     "conclusion_quota": "Aucun quota publié. API sans authentification, sans clé.",
     "classe_quota": "aucun quota trouvé",
     "confiance": "moyenne",
-    "notes": "Snapshot quotidien recommandé pour les moissonnages complets."
+    "notes": "Snapshot quotidien recommandé pour les moissonnages complets.",
+    "preuves": {
+      "a_doc_lue": [
+        "sources/wellcome/SHA256SUMS"
+      ],
+      "b_endpoints_doc": [
+        "institutions/wellcome.md"
+      ],
+      "c_config_avant_tests": [
+        "scripts/config/wellcome.json"
+      ],
+      "d_quota_dans_doc": [
+        "institutions/wellcome.md"
+      ],
+      "e_tests_endpoints": [
+        "tests/wellcome.log"
+      ],
+      "f_web": [
+        "institutions/wellcome.md"
+      ]
+    }
   },
   {
     "slug": "british-library",
@@ -163,14 +681,46 @@
     "limites_documentees": [],
     "en_tetes_observes": [],
     "blocages": [
-      {"date": "2026-11-13 20:35Z", "hote": "iiif.bl.uk", "code": "403", "nature": "Microsoft-IIS, reproduit en curl depuis la machine de veille", "suite": "non réessayé"},
-      {"date": "2026-11-13 20:33Z", "hote": "api.bl.uk", "code": "DNS", "nature": "non résolu", "suite": "–"}
+      {
+        "date": "2026-11-13 20:35Z",
+        "hote": "iiif.bl.uk",
+        "code": "403",
+        "nature": "Microsoft-IIS, reproduit en curl depuis la machine de veille",
+        "suite": "non réessayé"
+      },
+      {
+        "date": "2026-11-13 20:33Z",
+        "hote": "api.bl.uk",
+        "code": "DNS",
+        "nature": "non résolu",
+        "suite": "–"
+      }
     ],
     "contact": "permissions@bl.uk (à confirmer)",
     "conclusion_quota": "Non vérifiable : doc IIIF non lue, hôte bloqué.",
     "classe_quota": "non vérifiable",
     "confiance": "faible",
-    "notes": "Conditions : bl.uk/help/terms-of-use lue (CC-BY, aucun quota)."
+    "notes": "Conditions : bl.uk/help/terms-of-use lue (CC-BY, aucun quota).",
+    "preuves": {
+      "a_doc_lue": [
+        "sources/british-library/SHA256SUMS"
+      ],
+      "b_endpoints_doc": [
+        "institutions/british-library.md"
+      ],
+      "c_config_avant_tests": [
+        "scripts/config/british-library.json"
+      ],
+      "d_quota_dans_doc": [
+        "institutions/british-library.md"
+      ],
+      "e_tests_endpoints": [
+        "tests/british-library.log"
+      ],
+      "f_web": [
+        "institutions/british-library.md"
+      ]
+    }
   },
   {
     "slug": "bodleian",
@@ -193,7 +743,27 @@
     "conclusion_quota": "Aucun quota publié. Contact demandé pour un moissonnage important.",
     "classe_quota": "aucun quota trouvé (contact)",
     "confiance": "moyenne",
-    "notes": "La doc suggère d'ajouter un e-mail au User-Agent ; non fait (consigne du projet)."
+    "notes": "La doc suggère d'ajouter un e-mail au User-Agent ; non fait (consigne du projet).",
+    "preuves": {
+      "a_doc_lue": [
+        "sources/bodleian/SHA256SUMS"
+      ],
+      "b_endpoints_doc": [
+        "institutions/bodleian.md"
+      ],
+      "c_config_avant_tests": [
+        "scripts/config/bodleian.json"
+      ],
+      "d_quota_dans_doc": [
+        "institutions/bodleian.md"
+      ],
+      "e_tests_endpoints": [
+        "tests/bodleian.log"
+      ],
+      "f_web": [
+        "institutions/bodleian.md"
+      ]
+    }
   },
   {
     "slug": "cudl",
@@ -212,13 +782,39 @@
     "limites_documentees": [],
     "en_tetes_observes": [],
     "blocages": [
-      {"date": "2026-11-13", "hote": "cudl.lib.cam.ac.uk /terms", "code": "403", "nature": "anti-bot, page du site (pas un endpoint API)", "suite": "API non arrêtée, manifestes testés 200"}
+      {
+        "date": "2026-11-13",
+        "hote": "cudl.lib.cam.ac.uk /terms",
+        "code": "403",
+        "nature": "anti-bot, page du site (pas un endpoint API)",
+        "suite": "API non arrêtée, manifestes testés 200"
+      }
     ],
     "contact": "non trouvé",
     "conclusion_quota": "Aucun quota publié dans le README cudl-services (API publique sans authentification).",
     "classe_quota": "aucun quota trouvé",
     "confiance": "moyenne",
-    "notes": "Recherche Solr : interne. Métadonnées : cudl.link en DNS."
+    "notes": "Recherche Solr : interne. Métadonnées : cudl.link en DNS.",
+    "preuves": {
+      "a_doc_lue": [
+        "sources/cudl/SHA256SUMS"
+      ],
+      "b_endpoints_doc": [
+        "institutions/cudl.md"
+      ],
+      "c_config_avant_tests": [
+        "scripts/config/cudl.json"
+      ],
+      "d_quota_dans_doc": [
+        "institutions/cudl.md"
+      ],
+      "e_tests_endpoints": [
+        "tests/cudl.log"
+      ],
+      "f_web": [
+        "institutions/cudl.md"
+      ]
+    }
   },
   {
     "slug": "europeana",
@@ -235,18 +831,62 @@
       "g_crash_test": "à faire (après audit)"
     },
     "limites_documentees": [
-      {"nature": "Quota par clé personnelle", "perimetre": "API de recherche / Record", "valeur": "non chiffré officiellement", "fenetre": "–", "effet": "–", "source": "https://www.europeana.eu/ (fair use policy, 2024, lue en résumé)", "date": "2026-11-13"},
-      {"nature": "Forum (non vérifié)", "perimetre": "API", "valeur": "120 requêtes / 10 s", "fenetre": "10 s", "effet": "–", "source": "fil de forum, date et portée inconnues", "date": "2026-11-13"}
+      {
+        "nature": "Quota par clé personnelle",
+        "perimetre": "API de recherche / Record",
+        "valeur": "non chiffré officiellement",
+        "fenetre": "–",
+        "effet": "–",
+        "source": "https://www.europeana.eu/ (fair use policy, 2024, lue en résumé)",
+        "date": "2026-11-13",
+        "verification": "officielle, extrait lu (page non relue en entier)"
+      },
+      {
+        "nature": "Forum (non vérifié)",
+        "perimetre": "API",
+        "valeur": "120 requêtes / 10 s",
+        "fenetre": "10 s",
+        "effet": "–",
+        "source": "fil de forum, date et portée inconnues",
+        "date": "2026-11-13",
+        "verification": "tierce, non vérifiée"
+      }
     ],
     "en_tetes_observes": [],
     "blocages": [
-      {"date": "2026-11-13", "hote": "pro.europeana.eu", "code": "403", "nature": "portail développeurs, lecture WebFetch", "suite": "non réessayé"}
+      {
+        "date": "2026-11-13",
+        "hote": "pro.europeana.eu",
+        "code": "403",
+        "nature": "portail développeurs, lecture WebFetch",
+        "suite": "non réessayé"
+      }
     ],
     "contact": "api@europeana.eu",
     "conclusion_quota": "Quota lié à la clé personnelle (X-Api-Key) ; pas de chiffre officiel trouvé.",
     "classe_quota": "règle sans chiffre publié (clé)",
     "confiance": "faible",
-    "notes": "Le 120/10 s provient d'un forum, non vérifié."
+    "notes": "Le 120/10 s provient d'un forum, non vérifié.",
+    "preuves": {
+      "a_doc_lue": [
+        "sources/europeana/SHA256SUMS"
+      ],
+      "b_endpoints_doc": [
+        "institutions/europeana.md"
+      ],
+      "c_config_avant_tests": [
+        "scripts/config/europeana.json"
+      ],
+      "d_quota_dans_doc": [
+        "institutions/europeana.md"
+      ],
+      "e_tests_endpoints": [
+        "tests/europeana.log"
+      ],
+      "f_web": [
+        "institutions/europeana.md"
+      ]
+    }
   },
   {
     "slug": "e-codices",
@@ -269,7 +909,27 @@
     "conclusion_quota": "Aucune limite annoncée dans les conditions lues.",
     "classe_quota": "aucun quota trouvé",
     "confiance": "moyenne",
-    "notes": "Service image non documenté (non testé)."
+    "notes": "Service image non documenté (non testé).",
+    "preuves": {
+      "a_doc_lue": [
+        "sources/e-codices/SHA256SUMS"
+      ],
+      "b_endpoints_doc": [
+        "institutions/e-codices.md"
+      ],
+      "c_config_avant_tests": [
+        "scripts/config/e-codices.json"
+      ],
+      "d_quota_dans_doc": [
+        "institutions/e-codices.md"
+      ],
+      "e_tests_endpoints": [
+        "tests/e-codices.log"
+      ],
+      "f_web": [
+        "institutions/e-codices.md"
+      ]
+    }
   },
   {
     "slug": "vatican",
@@ -288,13 +948,39 @@
     "limites_documentees": [],
     "en_tetes_observes": [],
     "blocages": [
-      {"date": "2026-11-13", "hote": "vatlib.it / spotlight.vatlib.it", "code": "TLS", "nature": "erreur de certificat à la lecture", "suite": "non lu"}
+      {
+        "date": "2026-11-13",
+        "hote": "vatlib.it / spotlight.vatlib.it",
+        "code": "TLS",
+        "nature": "erreur de certificat à la lecture",
+        "suite": "non lu"
+      }
     ],
     "contact": "non trouvé",
     "conclusion_quota": "Aucun quota trouvé ; doc officielle non lue.",
     "classe_quota": "aucun quota trouvé (doc non lue)",
     "confiance": "faible",
-    "notes": "Interdiction de téléchargement des images (extrait de recherche, non lu brut)."
+    "notes": "Interdiction de téléchargement des images (extrait de recherche, non lu brut).",
+    "preuves": {
+      "a_doc_lue": [
+        "sources/vatican/SHA256SUMS"
+      ],
+      "b_endpoints_doc": [
+        "institutions/vatican.md"
+      ],
+      "c_config_avant_tests": [
+        "scripts/config/vatican.json"
+      ],
+      "d_quota_dans_doc": [
+        "institutions/vatican.md"
+      ],
+      "e_tests_endpoints": [
+        "tests/vatican.log"
+      ],
+      "f_web": [
+        "institutions/vatican.md"
+      ]
+    }
   },
   {
     "slug": "slub",
@@ -317,7 +1003,27 @@
     "conclusion_quota": "Aucun quota trouvé.",
     "classe_quota": "aucun quota trouvé",
     "confiance": "faible",
-    "notes": "Aucune source officielle IIIF lue."
+    "notes": "Aucune source officielle IIIF lue.",
+    "preuves": {
+      "a_doc_lue": [
+        "sources/slub/SHA256SUMS"
+      ],
+      "b_endpoints_doc": [
+        "institutions/slub.md"
+      ],
+      "c_config_avant_tests": [
+        "scripts/config/slub.json"
+      ],
+      "d_quota_dans_doc": [
+        "institutions/slub.md"
+      ],
+      "e_tests_endpoints": [
+        "tests/slub.log"
+      ],
+      "f_web": [
+        "institutions/slub.md"
+      ]
+    }
   },
   {
     "slug": "hab",
@@ -340,7 +1046,27 @@
     "conclusion_quota": "Aucun quota dans les Nutzungshinweise lues en résumé.",
     "classe_quota": "aucun quota trouvé",
     "confiance": "faible",
-    "notes": "Pas d'URL de manifeste trouvée pour diglib.hab.de."
+    "notes": "Pas d'URL de manifeste trouvée pour diglib.hab.de.",
+    "preuves": {
+      "a_doc_lue": [
+        "sources/hab/SHA256SUMS"
+      ],
+      "b_endpoints_doc": [
+        "institutions/hab.md"
+      ],
+      "c_config_avant_tests": [
+        "scripts/config/hab.json"
+      ],
+      "d_quota_dans_doc": [
+        "institutions/hab.md"
+      ],
+      "e_tests_endpoints": [
+        "tests/hab.log"
+      ],
+      "f_web": [
+        "institutions/hab.md"
+      ]
+    }
   },
   {
     "slug": "kb-nl",
@@ -359,13 +1085,39 @@
     "limites_documentees": [],
     "en_tetes_observes": [],
     "blocages": [
-      {"date": "2026-11-13", "hote": "iiif.kb.nl", "code": "DNS", "nature": "non résolu", "suite": "IIIF non testable"}
+      {
+        "date": "2026-11-13",
+        "hote": "iiif.kb.nl",
+        "code": "DNS",
+        "nature": "non résolu",
+        "suite": "IIIF non testable"
+      }
     ],
     "contact": "non trouvé (admin@iiif.io est celui du consortium, à ne pas confondre)",
     "conclusion_quota": "Aucun quota trouvé pour SRU et OAI-PMH.",
     "classe_quota": "aucun quota trouvé",
     "confiance": "faible",
-    "notes": "IIIF non résolu : seul SRU et OAI-PMH ont été testés."
+    "notes": "IIIF non résolu : seul SRU et OAI-PMH ont été testés.",
+    "preuves": {
+      "a_doc_lue": [
+        "sources/kb-nl/SHA256SUMS"
+      ],
+      "b_endpoints_doc": [
+        "institutions/kb-nl.md"
+      ],
+      "c_config_avant_tests": [
+        "scripts/config/kb-nl.json"
+      ],
+      "d_quota_dans_doc": [
+        "institutions/kb-nl.md"
+      ],
+      "e_tests_endpoints": [
+        "tests/kb-nl.log"
+      ],
+      "f_web": [
+        "institutions/kb-nl.md"
+      ]
+    }
   },
   {
     "slug": "kb-dk",
@@ -388,7 +1140,27 @@
     "conclusion_quota": "Aucun quota dans les pages lues ; règlement intégral non lu.",
     "classe_quota": "aucun quota trouvé",
     "confiance": "faible",
-    "notes": "Les URL IIIF des tests ont été reconstituées à partir d'un résumé : à revérifier."
+    "notes": "Les URL IIIF des tests ont été reconstituées à partir d'un résumé : à revérifier.",
+    "preuves": {
+      "a_doc_lue": [
+        "sources/kb-dk/SHA256SUMS"
+      ],
+      "b_endpoints_doc": [
+        "institutions/kb-dk.md"
+      ],
+      "c_config_avant_tests": [
+        "scripts/config/kb-dk.json"
+      ],
+      "d_quota_dans_doc": [
+        "institutions/kb-dk.md"
+      ],
+      "e_tests_endpoints": [
+        "tests/kb-dk.log"
+      ],
+      "f_web": [
+        "institutions/kb-dk.md"
+      ]
+    }
   },
   {
     "slug": "nb-no",
@@ -411,7 +1183,27 @@
     "conclusion_quota": "Aucun champ de quota dans la spécification OpenAPI.",
     "classe_quota": "aucun quota trouvé",
     "confiance": "moyenne",
-    "notes": "oEmbed en 404 : à retester."
+    "notes": "oEmbed en 404 : à retester.",
+    "preuves": {
+      "a_doc_lue": [
+        "sources/nb-no/SHA256SUMS"
+      ],
+      "b_endpoints_doc": [
+        "institutions/nb-no.md"
+      ],
+      "c_config_avant_tests": [
+        "scripts/config/nb-no.json"
+      ],
+      "d_quota_dans_doc": [
+        "institutions/nb-no.md"
+      ],
+      "e_tests_endpoints": [
+        "tests/nb-no.log"
+      ],
+      "f_web": [
+        "institutions/nb-no.md"
+      ]
+    }
   },
   {
     "slug": "bne",
@@ -430,13 +1222,39 @@
     "limites_documentees": [],
     "en_tetes_observes": [],
     "blocages": [
-      {"date": "2026-11-13", "hote": "datos.bne.es, bdh.bne.es", "code": "403", "nature": "lecture WebFetch", "suite": "non contourné"}
+      {
+        "date": "2026-11-13",
+        "hote": "datos.bne.es, bdh.bne.es",
+        "code": "403",
+        "nature": "lecture WebFetch",
+        "suite": "non contourné"
+      }
     ],
     "contact": "non trouvé",
     "conclusion_quota": "Non vérifiable : doc BNE inaccessible à l'outil.",
     "classe_quota": "non vérifiable",
     "confiance": "faible",
-    "notes": "Piste : lire bdh.bne.es depuis un navigateur."
+    "notes": "Piste : lire bdh.bne.es depuis un navigateur.",
+    "preuves": {
+      "a_doc_lue": [
+        "sources/bne/SHA256SUMS"
+      ],
+      "b_endpoints_doc": [
+        "institutions/bne.md"
+      ],
+      "c_config_avant_tests": [
+        "scripts/config/bne.json"
+      ],
+      "d_quota_dans_doc": [
+        "institutions/bne.md"
+      ],
+      "e_tests_endpoints": [
+        "tests/bne.log"
+      ],
+      "f_web": [
+        "institutions/bne.md"
+      ]
+    }
   },
   {
     "slug": "rijksmuseum",
@@ -459,7 +1277,27 @@
     "conclusion_quota": "API sans clé annoncée ; aucune limite trouvée. Une limite de taille de requête d'image (maxArea) est documentée.",
     "classe_quota": "aucun quota trouvé",
     "confiance": "moyenne",
-    "notes": "Pages data.rijksmuseum.nl/docs/api : 404."
+    "notes": "Pages data.rijksmuseum.nl/docs/api : 404.",
+    "preuves": {
+      "a_doc_lue": [
+        "sources/rijksmuseum/SHA256SUMS"
+      ],
+      "b_endpoints_doc": [
+        "institutions/rijksmuseum.md"
+      ],
+      "c_config_avant_tests": [
+        "scripts/config/rijksmuseum.json"
+      ],
+      "d_quota_dans_doc": [
+        "institutions/rijksmuseum.md"
+      ],
+      "e_tests_endpoints": [
+        "tests/rijksmuseum.log"
+      ],
+      "f_web": [
+        "institutions/rijksmuseum.md"
+      ]
+    }
   },
   {
     "slug": "smithsonian",
@@ -476,8 +1314,28 @@
       "g_crash_test": "non applicable sans clé"
     },
     "limites_documentees": [
-      {"nature": "Quota par clé api.data.gov (plateforme)", "perimetre": "API api.si.edu avec clé", "valeur": "1000", "fenetre": "par heure", "effet": "429", "source": "https://api.data.gov/docs/developer-manual/ (non vérifié pour le Smithsonian)", "date": "2026-11-13"},
-      {"nature": "DEMO_KEY (plateforme)", "perimetre": "clé de démonstration", "valeur": "30 par heure par IP, 50 par jour", "fenetre": "heure / jour", "effet": "429", "source": "https://api.data.gov/docs/developer-manual/", "date": "2026-11-13"}
+      {
+        "nature": "Quota par clé api.data.gov (plateforme)",
+        "perimetre": "API api.si.edu avec clé",
+        "valeur": "1000",
+        "fenetre": "par heure",
+        "effet": "429",
+        "source": "https://api.data.gov/docs/developer-manual/ (non vérifié pour le Smithsonian)",
+        "date": "2026-11-13",
+        "verification": "plateforme api.data.gov (non vérifiée pour le Smithsonian)",
+        "classe": "plateforme, non applicable tel quel"
+      },
+      {
+        "nature": "DEMO_KEY (plateforme)",
+        "perimetre": "clé de démonstration",
+        "valeur": "30 par heure par IP, 50 par jour",
+        "fenetre": "heure / jour",
+        "effet": "429",
+        "source": "https://api.data.gov/docs/developer-manual/",
+        "date": "2026-11-13",
+        "verification": "plateforme api.data.gov (non vérifiée pour le Smithsonian)",
+        "classe": "plateforme, non applicable tel quel"
+      }
     ],
     "en_tetes_observes": [],
     "blocages": [],
@@ -485,7 +1343,27 @@
     "conclusion_quota": "Oui sous condition : en-têtes X-RateLimit-* documentés par api.data.gov pour une clé valide ; non testés (clé non demandée).",
     "classe_quota": "clé donne un quota (plateforme)",
     "confiance": "faible",
-    "notes": "Clé requise : inscription sur api.data.gov, à décider par Marcel."
+    "notes": "Clé requise : inscription sur api.data.gov, à décider par Marcel.",
+    "preuves": {
+      "a_doc_lue": [
+        "sources/smithsonian/SHA256SUMS"
+      ],
+      "b_endpoints_doc": [
+        "institutions/smithsonian.md"
+      ],
+      "c_config_avant_tests": [
+        "scripts/config/smithsonian.json"
+      ],
+      "d_quota_dans_doc": [
+        "institutions/smithsonian.md"
+      ],
+      "e_tests_endpoints": [
+        "tests/smithsonian.log"
+      ],
+      "f_web": [
+        "institutions/smithsonian.md"
+      ]
+    }
   },
   {
     "slug": "getty",
@@ -508,7 +1386,27 @@
     "conclusion_quota": "Aucun quota ni clé documenté (lecture partielle).",
     "classe_quota": "aucun quota trouvé",
     "confiance": "faible",
-    "notes": "Doc tronquée à la lecture : à relire en entier."
+    "notes": "Doc tronquée à la lecture : à relire en entier.",
+    "preuves": {
+      "a_doc_lue": [
+        "sources/getty/SHA256SUMS"
+      ],
+      "b_endpoints_doc": [
+        "institutions/getty.md"
+      ],
+      "c_config_avant_tests": [
+        "scripts/config/getty.json"
+      ],
+      "d_quota_dans_doc": [
+        "institutions/getty.md"
+      ],
+      "e_tests_endpoints": [
+        "tests/getty.log"
+      ],
+      "f_web": [
+        "institutions/getty.md"
+      ]
+    }
   },
   {
     "slug": "harvard",
@@ -525,7 +1423,16 @@
       "g_crash_test": "à faire (après audit)"
     },
     "limites_documentees": [
-      {"nature": "Débit (extrait non vérifié, wiki LibraryCloud)", "perimetre": "API LibraryCloud", "valeur": "300 requêtes", "fenetre": "par 5 minutes (1 req/s)", "effet": "–", "source": "wiki LibraryCloud, page 43287734 (extrait tronqué, attribution incertaine)", "date": "2026-11-13"}
+      {
+        "nature": "Débit (extrait non vérifié, wiki LibraryCloud)",
+        "perimetre": "API LibraryCloud",
+        "valeur": "300 requêtes",
+        "fenetre": "par 5 minutes (1 req/s)",
+        "effet": "–",
+        "source": "wiki LibraryCloud, page 43287734 (extrait tronqué, attribution incertaine)",
+        "date": "2026-11-13",
+        "verification": "tierce, non vérifiée"
+      }
     ],
     "en_tetes_observes": [],
     "blocages": [],
@@ -533,7 +1440,27 @@
     "conclusion_quota": "Un débit est annoncé par un extrait de wiki non vérifié ; aucun en-tête.",
     "classe_quota": "règle sans chiffre officiel (extrait non vérifié)",
     "confiance": "faible",
-    "notes": "À vérifier sur la doc officielle LibraryCloud."
+    "notes": "À vérifier sur la doc officielle LibraryCloud.",
+    "preuves": {
+      "a_doc_lue": [
+        "sources/harvard/SHA256SUMS"
+      ],
+      "b_endpoints_doc": [
+        "institutions/harvard.md"
+      ],
+      "c_config_avant_tests": [
+        "scripts/config/harvard.json"
+      ],
+      "d_quota_dans_doc": [
+        "institutions/harvard.md"
+      ],
+      "e_tests_endpoints": [
+        "tests/harvard.log"
+      ],
+      "f_web": [
+        "institutions/harvard.md"
+      ]
+    }
   },
   {
     "slug": "princeton",
@@ -556,7 +1483,27 @@
     "conclusion_quota": "Aucun quota trouvé.",
     "classe_quota": "aucun quota trouvé",
     "confiance": "faible",
-    "notes": "Robots.txt de Figgy : affirmation tierce non vérifiée."
+    "notes": "Robots.txt de Figgy : affirmation tierce non vérifiée.",
+    "preuves": {
+      "a_doc_lue": [
+        "sources/princeton/SHA256SUMS"
+      ],
+      "b_endpoints_doc": [
+        "institutions/princeton.md"
+      ],
+      "c_config_avant_tests": [
+        "scripts/config/princeton.json"
+      ],
+      "d_quota_dans_doc": [
+        "institutions/princeton.md"
+      ],
+      "e_tests_endpoints": [
+        "tests/princeton.log"
+      ],
+      "f_web": [
+        "institutions/princeton.md"
+      ]
+    }
   },
   {
     "slug": "nypl",
@@ -573,7 +1520,16 @@
       "g_crash_test": "à faire (après audit)"
     },
     "limites_documentees": [
-      {"nature": "Quota par jeton (API v1, désactivée)", "perimetre": "API Repo v1", "valeur": "10 000", "fenetre": "par jour", "effet": "–", "source": "doc api_documentation_v1 (NYPL)", "date": "2026-11-13"}
+      {
+        "nature": "Quota par jeton (API v1, désactivée)",
+        "perimetre": "API Repo v1",
+        "valeur": "10 000",
+        "fenetre": "par jour",
+        "effet": "–",
+        "source": "doc api_documentation_v1 (NYPL)",
+        "date": "2026-11-13",
+        "verification": "officielle, extrait lu (page non relue en entier)"
+      }
     ],
     "en_tetes_observes": [],
     "blocages": [],
@@ -581,6 +1537,52 @@
     "conclusion_quota": "Quota 10 000/jour pour une API v1 désactivée (410) ; v2 non documentée trouvée.",
     "classe_quota": "règle chiffrée (API désactivée)",
     "confiance": "faible",
-    "notes": "iiif.nypl.org répond en Cantaloupe 5.0.7 ; info.json non testé."
+    "notes": "iiif.nypl.org répond en Cantaloupe 5.0.7 ; info.json non testé.",
+    "preuves": {
+      "a_doc_lue": [
+        "sources/nypl/SHA256SUMS"
+      ],
+      "b_endpoints_doc": [
+        "institutions/nypl.md"
+      ],
+      "c_config_avant_tests": [
+        "scripts/config/nypl.json"
+      ],
+      "d_quota_dans_doc": [
+        "institutions/nypl.md"
+      ],
+      "e_tests_endpoints": [
+        "tests/nypl.log"
+      ],
+      "f_web": [
+        "institutions/nypl.md"
+      ]
+    }
+  },
+  {
+    "slug": "bnf-openapi",
+    "nom": "BnF — API publiques (openapi.bnf.fr)",
+    "pays": "France",
+    "statut_audit": "ABANDONNÉE à la demande de Marcel (2026-11-13)",
+    "checklist": {
+      "a_doc_lue": "non (abandonnée)",
+      "b_endpoints_doc": "non (abandonnée)",
+      "c_config_avant_tests": "non (abandonnée)",
+      "d_quota_dans_doc": "non (abandonnée)",
+      "e_tests_endpoints": "non (abandonnée)",
+      "f_web": "non (abandonnée)",
+      "g_crash_test": "non (abandonnée)"
+    },
+    "limites_documentees": [],
+    "en_tetes_observes": [],
+    "blocages": [],
+    "contact": "Ludovic (BnF), via identifiants du trousseau — non utilisé",
+    "conclusion_quota": "Non traitée : POST OAuth non autorisé, abandon à la demande de Marcel.",
+    "classe_quota": "hors périmètre (abandonnée)",
+    "confiance": "—",
+    "notes": "Résultats partiels : 7 GET, aucune limite annoncée dans les pages accessibles, openapiproext non joignable.",
+    "sources": [],
+    "web": [],
+    "preuves": {}
   }
 ]
