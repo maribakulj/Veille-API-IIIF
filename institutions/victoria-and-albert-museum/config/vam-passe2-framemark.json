@@ -1,0 +1,25 @@
+{
+  "slug": "victoria-and-albert-museum",
+  "min_delay_s": 6,
+  "max_requests": 15,
+  "follow_redirects": 1,
+  "note": "Passe v2 n°2 : serveur d'images framemark.vam.ac.uk (guide IIIF du V&A), identifiant d'image 2016JF9061 lu dans la réponse de l'objet O828146 (passe 1). Vignette 100×100 = exemple du guide ; plein format mesuré pour vérifier une éventuelle limite de taille.",
+  "endpoints": [
+    {
+      "id": "framemark-info-json",
+      "method": "GET",
+      "url": "https://framemark.vam.ac.uk/collections/2016JF9061/info.json"
+    },
+    {
+      "id": "framemark-vignette-100",
+      "method": "GET",
+      "url": "https://framemark.vam.ac.uk/collections/2016JF9061/full/!100,100/0/default.jpg"
+    },
+    {
+      "id": "framemark-full-full",
+      "method": "GET",
+      "url": "https://framemark.vam.ac.uk/collections/2016JF9061/full/full/0/default.jpg",
+      "save_body": 8000000
+    }
+  ]
+}

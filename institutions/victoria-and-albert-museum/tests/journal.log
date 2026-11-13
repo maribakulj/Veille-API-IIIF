@@ -1,0 +1,12 @@
+# Session 2026-11-13T23:11:50Z — configuration vam-passe1-api-manifeste.json — sonde probe.py au commit 7315638
+2026-11-13T23:11:50Z | robots.txt:api.vam.ac.uk | https://api.vam.ac.uk/robots.txt | GET | 404 | robots.txt indisponible : tout est autorisé (RFC 9309)
+2026-11-13T23:11:56Z | api-objects-search-etruria | https://api.vam.ac.uk/v2/objects/search?q=Etruria&page_size=1 | GET | 200 OK | aucun en-tête de limite | taille≥18159 | corps: {"info":{"version":"2.0","record_count":7713,"record_count_exact":true,"parameters":{},"page_size":1,"pages":7713,"page":1,"image_count":8832},"records":[{"systemNumber":"O1820708","accessionNumber":"
+# corps enregistré : tests/raw/api-objects-search-etruria.body (18159 octets lus)
+2026-11-13T23:12:02Z | api-object-O828146 | https://api.vam.ac.uk/v2/object/O828146 | GET | 200 OK | aucun en-tête de limite | taille≥4924 | corps: {"meta":{"version":"2.1","_links":{"self":{"href":"https://api.vam.ac.uk/v2/object/O828146"},"collection_page":{"href":"https://collections.vam.ac.uk/item/O828146/"}},"images":{"_primary_thumbnail":"h
+# corps enregistré : tests/raw/api-object-O828146.body (4924 octets lus)
+2026-11-13T23:12:09Z | api-clusters-search-paris | https://api.vam.ac.uk/v2/objects/clusters/search?q=Paris&cluster_size=3 | GET | 200 OK | aucun en-tête de limite | taille≥200 | corps: {"info":{"version":"2.0","record_count":85003,"record_count_exact":true,"parameters":{},"page_size":0,"pages":0,"page":1},"clusters":{"venue":{"other_terms_record_count":0,"terms":[{"id":"VA","value":
+2026-11-13T23:12:15Z | api-sayt-search-chair | https://api.vam.ac.uk/v2/sayt/search?q=chair | GET | 200 OK | aucun en-tête de limite | taille≥200 | corps: {"info":{"version":"2.0","record_count":9,"record_count_exact":true,"parameters":{},"page_size":10,"pages":1,"page":1},"records":[{"displayName":"Chairina","id_name":"N7993 - Chairina","systemNumber":
+2026-11-13T23:12:15Z | robots.txt:iiif.vam.ac.uk | https://iiif.vam.ac.uk/robots.txt | GET | 404 | robots.txt indisponible : tout est autorisé (RFC 9309)
+2026-11-13T23:12:21Z | iiif-manifeste-O9138 | https://iiif.vam.ac.uk/collections/O9138/manifest.json | GET | 200 OK | aucun en-tête de limite | taille≥94999 | corps: {   "@context": "http://iiif.io/api/presentation/2/context.json",   "@id": "https://iiif.vam.ac.uk/collections/O9138/manifest.json",   "@type": "sc:Manifest",   "label": "Great Bed of Ware",   "metada
+# corps enregistré : tests/raw/iiif-manifeste-O9138.body (94999 octets lus)
+# Fin 2026-11-13T23:12:21Z — 7 requête(s) envoyée(s)
