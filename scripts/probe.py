@@ -25,6 +25,7 @@ Aucune requête n'est répétée en rafale : le script ne fait jamais deux requ�
 """
 import http.client
 import json
+import re
 import ssl
 import subprocess
 import sys
@@ -44,7 +45,7 @@ def now_utc():
     return datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
 
 
-def fetch(url, method, timeout=20):
+def fetch(url, method, timeout=20, lire=200):
     """Une seule requête HTTP(S) sans authentification. Retourne un dict."""
     parts = urllib.parse.urlsplit(url)
     if parts.scheme not in ("http", "https") or not parts.hostname:
@@ -60,7 +61,7 @@ def fetch(url, method, timeout=20):
         conn.request(method, path, headers={"User-Agent": UA, "Accept": "*/*"})
         resp = conn.getresponse()
         headers = [(k.lower(), v) for k, v in resp.getheaders()]
-        body = b"" if method == "HEAD" else resp.read(200)
+        body = b"" if method == "HEAD" else resp.read(lire)
         return {"status": resp.status, "headers": headers, "body": body}
     finally:
         conn.close()
@@ -83,6 +84,66 @@ def classify(status, headers, body):
     if 300 <= status < 400:
         return "REDIRECTION_NON_SUIVIE"  # la sonde ne suit pas les redirections
     return "OK" if status < 300 else f"HTTP_{status}"
+
+
+# ---------------------------------------------------------------- robots.txt (RFC 9309)
+UA_TOKEN = "veilleapiiiif"
+
+
+def _motif(chemin):
+    """Convertit un chemin robots.txt (jokers * et $) en expression régulière ancrée au début."""
+    rx = re.escape(chemin).replace(r"\*", ".*")
+    if rx.endswith(r"\$"):
+        rx = rx[:-2] + "$"
+    return re.compile("^" + rx)
+
+
+def lire_robots(texte):
+    """Retourne (règles, crawl_delay) pour notre User-Agent, sinon pour « * ».
+    règles : liste de (autorise, longueur_du_motif, motif_source, regex)."""
+    groupes, courant, agents_en_cours = [], None, False
+    for brut in texte.splitlines():
+        ligne = brut.split("#", 1)[0].strip()
+        if ":" not in ligne:
+            continue
+        cle, val = [x.strip() for x in ligne.split(":", 1)]
+        cle = cle.lower()
+        if cle == "user-agent":
+            if not agents_en_cours:
+                courant = {"agents": [], "regles": [], "delai": None}
+                groupes.append(courant)
+            courant["agents"].append(val.lower())
+            agents_en_cours = True
+        elif courant is not None and cle in ("allow", "disallow"):
+            agents_en_cours = False
+            if val:  # « Disallow: » vide = tout autorisé
+                courant["regles"].append((cle == "allow", len(val), val, _motif(val)))
+        elif courant is not None and cle == "crawl-delay":
+            agents_en_cours = False
+            try:
+                courant["delai"] = float(val)
+            except ValueError:
+                pass
+        else:
+            agents_en_cours = False
+    precis = [g for g in groupes if any(UA_TOKEN in a for a in g["agents"])]
+    generiques = [g for g in groupes if "*" in g["agents"]]
+    choisis = precis or generiques
+    regles = [r for g in choisis for r in g["regles"]]
+    delais = [g["delai"] for g in choisis if g["delai"] is not None]
+    return regles, (max(delais) if delais else None), ("notre User-Agent" if precis else "« * »")
+
+
+def autorise(regles, url):
+    """Plus long motif gagnant ; à égalité, Allow l'emporte (RFC 9309)."""
+    parts = urllib.parse.urlsplit(url)
+    cible = (parts.path or "/") + (("?" + parts.query) if parts.query else "")
+    meilleur = None
+    for aut, longueur, source, rx in regles:
+        if rx.search(cible):
+            if meilleur is None or longueur > meilleur[1] or (longueur == meilleur[1] and aut):
+                meilleur = (aut, longueur, source)
+    return (True, None) if meilleur is None or meilleur[0] else (False, meilleur[2])
 
 
 def main():
@@ -118,6 +179,8 @@ def main():
     with log_path.open("a", encoding="utf-8") as log:
         log.write(f"# Session {now_utc()} — configuration {cfg_path.name} — "
                   f"sonde {Path(__file__).name} au commit {commit}\n")
+        respect_robots = bool(cfg.get("respect_robots", True))
+        robots = {}  # hôte -> (règles, crawl_delay)
         max_hops = int(cfg.get("follow_redirects", 1))  # redirections du MÊME hôte, comptées dans le budget
         file = [(e["id"], e["url"], e.get("method", "GET"), 0) for e in endpoints]
         while file:
@@ -132,7 +195,39 @@ def main():
             if count >= max_req:
                 log.write(f"{now_utc()} | {eid} | NON LANCÉ : plafond de {max_req} requêtes atteint\n")
                 continue
-            wait = delay - (time.monotonic() - last_call[host]) if host in last_call else 0
+            if respect_robots and host not in robots:
+                # robots.txt de l'hôte : lu une fois par passe, compté dans le budget, même pause
+                scheme = urllib.parse.urlsplit(url).scheme
+                rurl = f"{scheme}://{host}/robots.txt"
+                wait = delay - (time.monotonic() - last_call[host]) if host in last_call else 0
+                if wait > 0:
+                    time.sleep(wait)
+                try:
+                    rr = fetch(rurl, "GET", lire=200000)
+                    code = rr["status"]
+                    if code == 200:
+                        regles, cd, qui = lire_robots(rr["body"].decode("utf-8", "replace"))
+                        robots[host] = (regles, cd)
+                        log.write(f"{now_utc()} | robots.txt:{host} | {rurl} | GET | 200 | "
+                                  f"{len(regles)} règle(s) pour {qui}" + (f" ; Crawl-delay {cd} s" if cd else "") + "\n")
+                    elif 500 <= code < 600:
+                        robots[host] = ([(False, 1, "/", _motif("/"))], None)
+                        log.write(f"{now_utc()} | robots.txt:{host} | {rurl} | GET | {code} | erreur serveur : par prudence (RFC 9309) tout est traité comme interdit\n")
+                    else:
+                        robots[host] = ([], None)
+                        log.write(f"{now_utc()} | robots.txt:{host} | {rurl} | GET | {code} | robots.txt indisponible : tout est autorisé (RFC 9309)\n")
+                except Exception as exc:  # noqa: BLE001
+                    robots[host] = ([(False, 1, "/", _motif("/"))], None)
+                    log.write(f"{now_utc()} | robots.txt:{host} | {rurl} | GET | ERREUR_RÉSEAU | {type(exc).__name__} : tout est traité comme interdit\n")
+                last_call[host] = time.monotonic()
+                count += 1
+            if respect_robots and host in robots:
+                ok, motif = autorise(robots[host][0], url)
+                if not ok:
+                    log.write(f"{now_utc()} | {eid} | {url} | NON LANCÉ : interdit par robots.txt (Disallow: {motif})\n")
+                    print(f"NON LANCÉ (robots.txt) : {url}")
+                    continue
+            wait = max(delay, robots.get(host, (None, None))[1] or 0) - (time.monotonic() - last_call[host]) if host in last_call else 0
             if wait > 0:
                 time.sleep(wait)
             if method not in ("GET", "HEAD"):
