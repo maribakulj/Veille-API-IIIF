@@ -58,7 +58,7 @@ méthode v2.
 
 | Institution | Passe | Conforme v2 ? | Décision |
 |---|---|---|---|
-| bnf-gallica | v2 (Haiku) | non : a) partiel (1 page incomplète, 1 en 403), e) bloqué | compléter |
+| bnf-gallica | v2 (Haiku) | sans objet | **écartée à la demande de Marcel** |
 | bodleian | v2 (Haiku) | non : budget 25 > 15, f) partiel (blog lu en résumé) | compléter |
 | eap-bl | v2 (Haiku) | non : pas de fiche, pas de configuration, f) non fait | refaire |
 | cudl | v2 (Haiku) | non : a) partiel, g) bloquée | compléter |
@@ -73,3 +73,8 @@ méthode v2.
 - **Aucune étape n'est marquée « non applicable » sans citer** la phrase de la doc qui la justifie.
 - **Aucune fiche n'est marquée « vérifiée »** avant que les étapes a) à f) aient chacune leur fichier de preuve et que l'orchestrateur ait contrôlé ces preuves.
 - **`data/institutions.json` n'est alimenté qu'à partir de la fiche relue** de l'institution, jamais de mémoire.
+
+## Décisions de Marcel après l'audit
+
+- **BnF Gallica : écartée** (2026-11-13). C'est l'institution de Marcel, l'audit n'est pas nécessaire. Les sources déjà téléchargées restent dans `sources/bnf-gallica/` à titre d'historique, sans être poursuivies.
+- **BnF OpenAPI : abandonnée** (2026-11-13, déjà décidé).

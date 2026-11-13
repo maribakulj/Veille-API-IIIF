@@ -230,7 +230,7 @@
     "slug": "bnf-gallica",
     "nom": "BnF — Gallica (IIIF)",
     "pays": "France",
-    "statut_audit": "en cours (méthode v2)",
+    "statut_audit": "ÉCARTÉE à la demande de Marcel (2026-11-13) : Gallica est l'institution de Marcel, audit non nécessaire",
     "checklist": {
       "a_doc_lue": "partiel (1 page incomplète, 1 page 403)",
       "b_endpoints_doc": "fait",
@@ -304,7 +304,7 @@
     ],
     "contact": "gallica@bnf.fr (data.gouv, lu en résumé)",
     "conclusion_quota": "Débits publiés (5/min, 429) mais page ancienne ; la page récente annonce des restrictions dont les modalités ne sont pas définies. Pas d'en-tête, pas de clé, pas d'endpoint de statut.",
-    "classe_quota": "règle chiffrée ancienne, accès restreint annoncé",
+    "classe_quota": "hors périmètre (écartée)",
     "confiance": "faible",
     "notes": "data.gouv (« limite non documentée ») contredit api.bnf.fr. Page 2748 incomplète. Page conditions : 403.",
     "web": [
