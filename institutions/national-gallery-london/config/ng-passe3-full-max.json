@@ -1,0 +1,15 @@
+{
+  "slug": "national-gallery-london",
+  "min_delay_s": 6,
+  "max_requests": 15,
+  "follow_redirects": 1,
+  "note": "Passe v2 n°3 : exemple exact de la page « Collection image APIs » (full/max pour NG35). Corps enregistré pour mesurer la taille réelle du JPEG (un tiers affirme un plafond d'environ 800 px, non officiel).",
+  "endpoints": [
+    {
+      "id": "ngac-full-max-exemple-doc",
+      "method": "GET",
+      "url": "https://data.ng.ac.uk/iiif/3/0M1F-000B-0000-0000/full/max/0/default.jpg",
+      "save_body": 6000000
+    }
+  ]
+}
