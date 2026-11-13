@@ -1,0 +1,567 @@
+<!DOCTYPE html>
+<!--[if IE 6]>
+<html id="ie6" lang="en-GB" xmlns:fb="http://ogp.me/ns/fb#" xmlns:addthis="http://www.addthis.com/help/api-spec" >
+<![endif]-->
+<!--[if IE 7]>
+<html id="ie7" lang="en-GB" xmlns:fb="http://ogp.me/ns/fb#" xmlns:addthis="http://www.addthis.com/help/api-spec" >
+<![endif]-->
+<!--[if IE 8]>
+<html id="ie8" lang="en-GB" xmlns:fb="http://ogp.me/ns/fb#" xmlns:addthis="http://www.addthis.com/help/api-spec" >
+<![endif]-->
+<!--[if !(IE 6) | !(IE 7) | !(IE 8)  ]><!-->
+<html lang="en-GB" xmlns:fb="http://ogp.me/ns/fb#" xmlns:addthis="http://www.addthis.com/help/api-spec" >
+<!--<![endif]-->
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width" />
+<title>Implementing our AI Policy: hypothetical use cases | Bodleian Digital and Scholarly Resources Blog</title>
+<link rel="profile" href="http://gmpg.org/xfn/11" />
+<link rel="stylesheet" type="text/css" media="all" href="https://blogs.bodleian.ox.ac.uk/digital/wp-content/themes/twentyeleven-bodleian/style.css" />
+<link rel="pingback" href="https://blogs.bodleian.ox.ac.uk/digital/xmlrpc.php" />
+<!--[if lt IE 9]>
+<script src="https://blogs.bodleian.ox.ac.uk/digital/wp-content/themes/twentyeleven-bodleian/js/html5.js" type="text/javascript"></script>
+<![endif]-->
+<meta name='robots' content='max-image-preview:large' />
+	<style>img:is([sizes="auto" i], [sizes^="auto," i]) { contain-intrinsic-size: 3000px 1500px }</style>
+	<link rel='dns-prefetch' href='//stats.wp.com' />
+<link rel='dns-prefetch' href='//v0.wordpress.com' />
+<link rel="alternate" type="application/rss+xml" title="Bodleian Digital and Scholarly Resources Blog &raquo; Feed" href="https://blogs.bodleian.ox.ac.uk/digital/feed/" />
+<link rel="alternate" type="application/rss+xml" title="Bodleian Digital and Scholarly Resources Blog &raquo; Comments Feed" href="https://blogs.bodleian.ox.ac.uk/digital/comments/feed/" />
+<link rel="alternate" type="application/rss+xml" title="Bodleian Digital and Scholarly Resources Blog &raquo; Implementing our AI Policy: hypothetical use cases Comments Feed" href="https://blogs.bodleian.ox.ac.uk/digital/2026/10/01/implementing-our-ai-policy-hypothetical-use-cases/feed/" />
+<script type="text/javascript">
+/* <![CDATA[ */
+window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/15.0.3\/72x72\/","ext":".png","svgUrl":"https:\/\/s.w.org\/images\/core\/emoji\/15.0.3\/svg\/","svgExt":".svg","source":{"concatemoji":"https:\/\/blogs.bodleian.ox.ac.uk\/digital\/wp-includes\/js\/wp-emoji-release.min.js?ver=6.7.11"}};
+/*! This file is auto-generated */
+!function(i,n){var o,s,e;function c(e){try{var t={supportTests:e,timestamp:(new Date).valueOf()};sessionStorage.setItem(o,JSON.stringify(t))}catch(e){}}function p(e,t,n){e.clearRect(0,0,e.canvas.width,e.canvas.height),e.fillText(t,0,0);var t=new Uint32Array(e.getImageData(0,0,e.canvas.width,e.canvas.height).data),r=(e.clearRect(0,0,e.canvas.width,e.canvas.height),e.fillText(n,0,0),new Uint32Array(e.getImageData(0,0,e.canvas.width,e.canvas.height).data));return t.every(function(e,t){return e===r[t]})}function u(e,t,n){switch(t){case"flag":return n(e,"\ud83c\udff3\ufe0f\u200d\u26a7\ufe0f","\ud83c\udff3\ufe0f\u200b\u26a7\ufe0f")?!1:!n(e,"\ud83c\uddfa\ud83c\uddf3","\ud83c\uddfa\u200b\ud83c\uddf3")&&!n(e,"\ud83c\udff4\udb40\udc67\udb40\udc62\udb40\udc65\udb40\udc6e\udb40\udc67\udb40\udc7f","\ud83c\udff4\u200b\udb40\udc67\u200b\udb40\udc62\u200b\udb40\udc65\u200b\udb40\udc6e\u200b\udb40\udc67\u200b\udb40\udc7f");case"emoji":return!n(e,"\ud83d\udc26\u200d\u2b1b","\ud83d\udc26\u200b\u2b1b")}return!1}function f(e,t,n){var r="undefined"!=typeof WorkerGlobalScope&&self instanceof WorkerGlobalScope?new OffscreenCanvas(300,150):i.createElement("canvas"),a=r.getContext("2d",{willReadFrequently:!0}),o=(a.textBaseline="top",a.font="600 32px Arial",{});return e.forEach(function(e){o[e]=t(a,e,n)}),o}function t(e){var t=i.createElement("script");t.src=e,t.defer=!0,i.head.appendChild(t)}"undefined"!=typeof Promise&&(o="wpEmojiSettingsSupports",s=["flag","emoji"],n.supports={everything:!0,everythingExceptFlag:!0},e=new Promise(function(e){i.addEventListener("DOMContentLoaded",e,{once:!0})}),new Promise(function(t){var n=function(){try{var e=JSON.parse(sessionStorage.getItem(o));if("object"==typeof e&&"number"==typeof e.timestamp&&(new Date).valueOf()<e.timestamp+604800&&"object"==typeof e.supportTests)return e.supportTests}catch(e){}return null}();if(!n){if("undefined"!=typeof Worker&&"undefined"!=typeof OffscreenCanvas&&"undefined"!=typeof URL&&URL.createObjectURL&&"undefined"!=typeof Blob)try{var e="postMessage("+f.toString()+"("+[JSON.stringify(s),u.toString(),p.toString()].join(",")+"));",r=new Blob([e],{type:"text/javascript"}),a=new Worker(URL.createObjectURL(r),{name:"wpTestEmojiSupports"});return void(a.onmessage=function(e){c(n=e.data),a.terminate(),t(n)})}catch(e){}c(n=f(s,u,p))}t(n)}).then(function(e){for(var t in e)n.supports[t]=e[t],n.supports.everything=n.supports.everything&&n.supports[t],"flag"!==t&&(n.supports.everythingExceptFlag=n.supports.everythingExceptFlag&&n.supports[t]);n.supports.everythingExceptFlag=n.supports.everythingExceptFlag&&!n.supports.flag,n.DOMReady=!1,n.readyCallback=function(){n.DOMReady=!0}}).then(function(){return e}).then(function(){var e;n.supports.everything||(n.readyCallback(),(e=n.source||{}).concatemoji?t(e.concatemoji):e.wpemoji&&e.twemoji&&(t(e.twemoji),t(e.wpemoji)))}))}((window,document),window._wpemojiSettings);
+/* ]]> */
+</script>
+<style id='wp-emoji-styles-inline-css' type='text/css'>
+
+	img.wp-smiley, img.emoji {
+		display: inline !important;
+		border: none !important;
+		box-shadow: none !important;
+		height: 1em !important;
+		width: 1em !important;
+		margin: 0 0.07em !important;
+		vertical-align: -0.1em !important;
+		background: none !important;
+		padding: 0 !important;
+	}
+</style>
+<link rel='stylesheet' id='wp-block-library-css' href='https://blogs.bodleian.ox.ac.uk/digital/wp-includes/css/dist/block-library/style.min.css?ver=6.7.11' type='text/css' media='all' />
+<link rel='stylesheet' id='mediaelement-css' href='https://blogs.bodleian.ox.ac.uk/digital/wp-includes/js/mediaelement/mediaelementplayer-legacy.min.css?ver=4.2.17' type='text/css' media='all' />
+<link rel='stylesheet' id='wp-mediaelement-css' href='https://blogs.bodleian.ox.ac.uk/digital/wp-includes/js/mediaelement/wp-mediaelement.min.css?ver=6.7.11' type='text/css' media='all' />
+<style id='jetpack-sharing-buttons-style-inline-css' type='text/css'>
+.jetpack-sharing-buttons__services-list{display:flex;flex-direction:row;flex-wrap:wrap;gap:0;list-style-type:none;margin:5px;padding:0}.jetpack-sharing-buttons__services-list.has-small-icon-size{font-size:12px}.jetpack-sharing-buttons__services-list.has-normal-icon-size{font-size:16px}.jetpack-sharing-buttons__services-list.has-large-icon-size{font-size:24px}.jetpack-sharing-buttons__services-list.has-huge-icon-size{font-size:36px}@media print{.jetpack-sharing-buttons__services-list{display:none!important}}.editor-styles-wrapper .wp-block-jetpack-sharing-buttons{gap:0;padding-inline-start:0}ul.jetpack-sharing-buttons__services-list.has-background{padding:1.25em 2.375em}
+</style>
+<style id='classic-theme-styles-inline-css' type='text/css'>
+/*! This file is auto-generated */
+.wp-block-button__link{color:#fff;background-color:#32373c;border-radius:9999px;box-shadow:none;text-decoration:none;padding:calc(.667em + 2px) calc(1.333em + 2px);font-size:1.125em}.wp-block-file__button{background:#32373c;color:#fff;text-decoration:none}
+</style>
+<style id='global-styles-inline-css' type='text/css'>
+:root{--wp--preset--aspect-ratio--square: 1;--wp--preset--aspect-ratio--4-3: 4/3;--wp--preset--aspect-ratio--3-4: 3/4;--wp--preset--aspect-ratio--3-2: 3/2;--wp--preset--aspect-ratio--2-3: 2/3;--wp--preset--aspect-ratio--16-9: 16/9;--wp--preset--aspect-ratio--9-16: 9/16;--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: #abb8c3;--wp--preset--color--white: #ffffff;--wp--preset--color--pale-pink: #f78da7;--wp--preset--color--vivid-red: #cf2e2e;--wp--preset--color--luminous-vivid-orange: #ff6900;--wp--preset--color--luminous-vivid-amber: #fcb900;--wp--preset--color--light-green-cyan: #7bdcb5;--wp--preset--color--vivid-green-cyan: #00d084;--wp--preset--color--pale-cyan-blue: #8ed1fc;--wp--preset--color--vivid-cyan-blue: #0693e3;--wp--preset--color--vivid-purple: #9b51e0;--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple: linear-gradient(135deg,rgba(6,147,227,1) 0%,rgb(155,81,224) 100%);--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan: linear-gradient(135deg,rgb(122,220,180) 0%,rgb(0,208,130) 100%);--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange: linear-gradient(135deg,rgba(252,185,0,1) 0%,rgba(255,105,0,1) 100%);--wp--preset--gradient--luminous-vivid-orange-to-vivid-red: linear-gradient(135deg,rgba(255,105,0,1) 0%,rgb(207,46,46) 100%);--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray: linear-gradient(135deg,rgb(238,238,238) 0%,rgb(169,184,195) 100%);--wp--preset--gradient--cool-to-warm-spectrum: linear-gradient(135deg,rgb(74,234,220) 0%,rgb(151,120,209) 20%,rgb(207,42,186) 40%,rgb(238,44,130) 60%,rgb(251,105,98) 80%,rgb(254,248,76) 100%);--wp--preset--gradient--blush-light-purple: linear-gradient(135deg,rgb(255,206,236) 0%,rgb(152,150,240) 100%);--wp--preset--gradient--blush-bordeaux: linear-gradient(135deg,rgb(254,205,165) 0%,rgb(254,45,45) 50%,rgb(107,0,62) 100%);--wp--preset--gradient--luminous-dusk: linear-gradient(135deg,rgb(255,203,112) 0%,rgb(199,81,192) 50%,rgb(65,88,208) 100%);--wp--preset--gradient--pale-ocean: linear-gradient(135deg,rgb(255,245,203) 0%,rgb(182,227,212) 50%,rgb(51,167,181) 100%);--wp--preset--gradient--electric-grass: linear-gradient(135deg,rgb(202,248,128) 0%,rgb(113,206,126) 100%);--wp--preset--gradient--midnight: linear-gradient(135deg,rgb(2,3,129) 0%,rgb(40,116,252) 100%);--wp--preset--font-size--small: 13px;--wp--preset--font-size--medium: 20px;--wp--preset--font-size--large: 36px;--wp--preset--font-size--x-large: 42px;--wp--preset--spacing--20: 0.44rem;--wp--preset--spacing--30: 0.67rem;--wp--preset--spacing--40: 1rem;--wp--preset--spacing--50: 1.5rem;--wp--preset--spacing--60: 2.25rem;--wp--preset--spacing--70: 3.38rem;--wp--preset--spacing--80: 5.06rem;--wp--preset--shadow--natural: 6px 6px 9px rgba(0, 0, 0, 0.2);--wp--preset--shadow--deep: 12px 12px 50px rgba(0, 0, 0, 0.4);--wp--preset--shadow--sharp: 6px 6px 0px rgba(0, 0, 0, 0.2);--wp--preset--shadow--outlined: 6px 6px 0px -3px rgba(255, 255, 255, 1), 6px 6px rgba(0, 0, 0, 1);--wp--preset--shadow--crisp: 6px 6px 0px rgba(0, 0, 0, 1);}:where(.is-layout-flex){gap: 0.5em;}:where(.is-layout-grid){gap: 0.5em;}body .is-layout-flex{display: flex;}.is-layout-flex{flex-wrap: wrap;align-items: center;}.is-layout-flex > :is(*, div){margin: 0;}body .is-layout-grid{display: grid;}.is-layout-grid > :is(*, div){margin: 0;}:where(.wp-block-columns.is-layout-flex){gap: 2em;}:where(.wp-block-columns.is-layout-grid){gap: 2em;}:where(.wp-block-post-template.is-layout-flex){gap: 1.25em;}:where(.wp-block-post-template.is-layout-grid){gap: 1.25em;}.has-black-color{color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-color{color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-color{color: var(--wp--preset--color--white) !important;}.has-pale-pink-color{color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-color{color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-color{color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-color{color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-color{color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-color{color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-color{color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-color{color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-color{color: var(--wp--preset--color--vivid-purple) !important;}.has-black-background-color{background-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-background-color{background-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-background-color{background-color: var(--wp--preset--color--white) !important;}.has-pale-pink-background-color{background-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-background-color{background-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-background-color{background-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-background-color{background-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-background-color{background-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-background-color{background-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-background-color{background-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-background-color{background-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-background-color{background-color: var(--wp--preset--color--vivid-purple) !important;}.has-black-border-color{border-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-border-color{border-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-border-color{border-color: var(--wp--preset--color--white) !important;}.has-pale-pink-border-color{border-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-border-color{border-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-border-color{border-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-border-color{border-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-border-color{border-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-border-color{border-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-border-color{border-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-border-color{border-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-border-color{border-color: var(--wp--preset--color--vivid-purple) !important;}.has-vivid-cyan-blue-to-vivid-purple-gradient-background{background: var(--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple) !important;}.has-light-green-cyan-to-vivid-green-cyan-gradient-background{background: var(--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan) !important;}.has-luminous-vivid-amber-to-luminous-vivid-orange-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange) !important;}.has-luminous-vivid-orange-to-vivid-red-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-orange-to-vivid-red) !important;}.has-very-light-gray-to-cyan-bluish-gray-gradient-background{background: var(--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray) !important;}.has-cool-to-warm-spectrum-gradient-background{background: var(--wp--preset--gradient--cool-to-warm-spectrum) !important;}.has-blush-light-purple-gradient-background{background: var(--wp--preset--gradient--blush-light-purple) !important;}.has-blush-bordeaux-gradient-background{background: var(--wp--preset--gradient--blush-bordeaux) !important;}.has-luminous-dusk-gradient-background{background: var(--wp--preset--gradient--luminous-dusk) !important;}.has-pale-ocean-gradient-background{background: var(--wp--preset--gradient--pale-ocean) !important;}.has-electric-grass-gradient-background{background: var(--wp--preset--gradient--electric-grass) !important;}.has-midnight-gradient-background{background: var(--wp--preset--gradient--midnight) !important;}.has-small-font-size{font-size: var(--wp--preset--font-size--small) !important;}.has-medium-font-size{font-size: var(--wp--preset--font-size--medium) !important;}.has-large-font-size{font-size: var(--wp--preset--font-size--large) !important;}.has-x-large-font-size{font-size: var(--wp--preset--font-size--x-large) !important;}
+:where(.wp-block-post-template.is-layout-flex){gap: 1.25em;}:where(.wp-block-post-template.is-layout-grid){gap: 1.25em;}
+:where(.wp-block-columns.is-layout-flex){gap: 2em;}:where(.wp-block-columns.is-layout-grid){gap: 2em;}
+:root :where(.wp-block-pullquote){font-size: 1.5em;line-height: 1.6;}
+</style>
+<link rel='stylesheet' id='jetpack-subscriptions-css' href='https://blogs.bodleian.ox.ac.uk/digital/wp-content/plugins/jetpack/modules/subscriptions/subscriptions.css?ver=14.1' type='text/css' media='all' />
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="https://blogs.bodleian.ox.ac.uk/digital/xmlrpc.php?rsd" />
+<meta name="generator" content="WordPress 6.7.11" />
+<link rel="canonical" href="https://blogs.bodleian.ox.ac.uk/digital/2026/10/01/implementing-our-ai-policy-hypothetical-use-cases/" />
+<link rel='shortlink' href='https://wp.me/p5Zjz8-r5' />
+<link rel="alternate" title="oEmbed (JSON)" type="application/json+oembed" href="https://blogs.bodleian.ox.ac.uk/digital/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fblogs.bodleian.ox.ac.uk%2Fdigital%2F2026%2F10%2F01%2Fimplementing-our-ai-policy-hypothetical-use-cases%2F" />
+<link rel="alternate" title="oEmbed (XML)" type="text/xml+oembed" href="https://blogs.bodleian.ox.ac.uk/digital/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fblogs.bodleian.ox.ac.uk%2Fdigital%2F2026%2F10%2F01%2Fimplementing-our-ai-policy-hypothetical-use-cases%2F&#038;format=xml" />
+	<style>img#wpstats{display:none}</style>
+		<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-K4CQ492');</script>
+<!-- End Google Tag Manager --><!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-K4CQ492"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+<!-- Jetpack Open Graph Tags -->
+<meta property="og:type" content="article" />
+<meta property="og:title" content="Implementing our AI Policy: hypothetical use cases" />
+<meta property="og:url" content="https://blogs.bodleian.ox.ac.uk/digital/2026/10/01/implementing-our-ai-policy-hypothetical-use-cases/" />
+<meta property="og:description" content="Hypothetical use cases to test the robustness of our AI policy." />
+<meta property="article:published_time" content="2026-10-01T11:55:27+00:00" />
+<meta property="article:modified_time" content="2026-10-05T12:52:03+00:00" />
+<meta property="og:site_name" content="Bodleian Digital and Scholarly Resources Blog" />
+<meta property="og:image" content="https://s0.wp.com/i/blank.jpg" />
+<meta property="og:image:alt" content="" />
+<meta property="og:locale" content="en_GB" />
+<meta name="twitter:text:title" content="Implementing our AI Policy: hypothetical use cases" />
+<meta name="twitter:card" content="summary" />
+
+<!-- End Jetpack Open Graph Tags -->
+</head>
+
+<body class="post-template-default single single-post postid-1679 single-format-standard singular two-column right-sidebar">
+<div id="page" class="hfeed">
+	<header id="branding" role="banner">
+
+                                                  <hgroup>
+                            <h1 id="site-title"><span><a href="https://blogs.bodleian.ox.ac.uk/digital/" title="Bodleian Digital and Scholarly Resources Blog" rel="home">Bodleian Digital and Scholarly Resources Blog</a></span></h1>
+                            <h2 id="site-description"></h2>
+                          </hgroup>
+                        
+						<a href="https://blogs.bodleian.ox.ac.uk/digital/">
+									<img src="https://blogs.bodleian.ox.ac.uk/digital/wp-content/uploads/sites/166/2026/10/cropped-Bodleian-Library-MS-Ind-Inst-Sansk-2_00065_p-51_reduced_small.jpg" width="1000" height="281" alt="" />
+							</a>
+			
+								<form method="get" id="searchform" action="https://blogs.bodleian.ox.ac.uk/digital/">
+		<label for="s" class="assistive-text">Search</label>
+		<input type="text" class="field" name="s" id="s" placeholder="Search" />
+		<input type="submit" class="submit" name="submit" id="searchsubmit" value="Search" />
+	</form>
+			
+			<nav id="access" role="navigation">
+				<h3 class="assistive-text">Main menu</h3>
+								<div class="skip-link"><a class="assistive-text" href="#content" title="Skip to primary content">Skip to primary content</a></div>
+				<div class="skip-link"><a class="assistive-text" href="#secondary" title="Skip to secondary content">Skip to secondary content</a></div>
+								<div class="menu-bodleian-blogs-container"><ul id="menu-bodleian-blogs" class="menu"><li id="menu-item-152" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-152"><a href="http://blogs.bodleian.ox.ac.uk/archivesandmanuscripts/">Archives and Manuscripts</a></li>
+<li id="menu-item-153" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-153"><a href="http://researchdata.ox.ac.uk/home/research-data-blog/">Oxford Research Data</a></li>
+<li id="menu-item-154" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-154"><a href="http://bav.bodleian.ox.ac.uk/blog/">Polonsky Foundation Digitization Project</a></li>
+</ul></div>			</nav><!-- #access -->
+	</header><!-- #branding -->
+
+
+	<div id="main">
+
+		<div id="primary">
+			<div id="content" role="main">
+
+				
+					<nav id="nav-single">
+						<h3 class="assistive-text">Post navigation</h3>
+						<span class="nav-previous"><a href="https://blogs.bodleian.ox.ac.uk/digital/2026/05/26/what-is-the-digital-humanities-oxford-summer-school/" rel="prev"><span class="meta-nav">&larr;</span> Previous</a></span>
+						<span class="nav-next"><a href="https://blogs.bodleian.ox.ac.uk/digital/2026/10/09/returning-to-an-unfinished-archive-augmented-reading-at-the-bodleian/" rel="next">Next <span class="meta-nav">&rarr;</span></a></span>
+					</nav><!-- #nav-single -->
+
+					
+<article id="post-1679" class="post-1679 post type-post status-publish format-standard hentry category-ai tag-digital-policy">
+	<header class="entry-header">
+		<h1 class="entry-title">Implementing our AI Policy: hypothetical use cases</h1>
+
+				<div class="entry-meta">
+			<span class="sep">Posted on </span><a href="https://blogs.bodleian.ox.ac.uk/digital/2026/10/01/implementing-our-ai-policy-hypothetical-use-cases/" title="12:55 pm" rel="bookmark"><time class="entry-date" datetime="2026-10-01T12:55:27+01:00" pubdate>1 October 2026</time></a><span class="by-author"> <span class="sep"> by </span> <span class="author vcard"><a class="url fn n" href="https://blogs.bodleian.ox.ac.uk/digital/author/elizabethhatfield/" title="View all posts by elizabethhatfield" rel="author">elizabethhatfield</a></span></span>		</div><!-- .entry-meta -->
+			</header><!-- .entry-header -->
+
+	<div class="entry-content">
+		<!-- AddThis Sharing Buttons above -->
+                <div class="addthis_toolbox addthis_default_style addthis_32x32_style" addthis:url='https://blogs.bodleian.ox.ac.uk/digital/2026/10/01/implementing-our-ai-policy-hypothetical-use-cases/' addthis:title='Implementing our AI Policy: hypothetical use cases' >
+                    <a class="addthis_button_preferred_1"></a>
+                    <a class="addthis_button_preferred_2"></a>
+                    <a class="addthis_button_preferred_3"></a>
+                    <a class="addthis_button_preferred_4"></a>
+                    <a class="addthis_button_compact"></a>
+                    <a class="addthis_counter addthis_bubble_style"></a>
+                </div>
+<p>The Bodleian Libraries has just <a href="http://www.bodleian.ox.ac.uk/sites/default/files/bodreader/documents/media/bodleian-libraries-ai-policy.pdf" data-type="link" data-id="https://www.bodleian.ox.ac.uk/about/libraries/policies">published an AI policy</a>, and it’s&nbsp;taken us a whole year of consultation to get it to a place where we feel it’s&nbsp;fit for purpose.</p>
+
+
+
+<p>It was really important to us to listen to our staff, students, academics and other libraries as we drafted this policy. When we set out, we were acutely aware that there were gaps in our knowledge and that there were risks we might not be able to foresee. </p>
+
+
+
+<p>I’m proud that the policy we’re publishing in Michaelmas 2026 is vastly different from the draft principles the Libraries’ AI Strategy &amp; Policy Group wrote in Michaelmas 2025. </p>
+
+
+
+<p>One of the things that staff and students asked us for were tangible examples of how the policy could be used to guide real choices once it is published. We don’t have real examples yet as the policy is only just being published, but we have thought through some hypothetical scenarios and discussed these as part of the consultation.</p>
+
+
+
+<p>The purpose of these use cases is to show how we would like to implement our policy in a responsible and thoughtful manner.</p>
+
+
+
+<h2 class="wp-block-heading">Library staff use case: Tom&#8217;s collection</h2>
+
+
+
+<p>Tom works in a small cataloguing team facing a backlog of under-described pamphlets, all out of copyright. He has been given permission to trial an approved AI tool, a large language model (LLM) chatbot, to help produce first-draft summary descriptions of the pamphlets.</p>
+
+
+
+<p>Before starting, Tom checks <a href="https://oerc.ox.ac.uk/ai-centre/generative-ai-tools">the University&#8217;s approved tools</a> list and confirms whether this task (to draft subject terms and summaries for out of copyright material) is a sensible and proportionate use of AI. Tom wants to avoid the habit of simply reaching for AI as a default when it may not be necessary.</p>
+
+
+
+<p class="has-black-color has-cyan-bluish-gray-background-color has-text-color has-background has-link-color wp-elements-1311c1203313b8de3497b715ab0238f9"><strong>Policy principle applied: Adopt AI responsibly and proportionately</strong></p>
+
+
+
+<p>Tom runs each pamphlet&#8217;s scanned text through the tool, which suggests a description, subject terms and a short summary. Tom reads every suggestion before deciding whether to use it. Nothing is published automatically. Tom treats the AI output the way he would treat a trainee&#8217;s first draft; he finds the suggestions useful, but they require his professional judgement and need occasional edits and corrections.</p>
+
+
+
+<p class="has-black-color has-cyan-bluish-gray-background-color has-text-color has-background has-link-color wp-elements-f63879cae06df64e5efb9ab64ceb23f1"><strong>Policy principle applied: maintain human accountability </strong></p>
+
+
+
+<p>Part of the way through his task, Tom notices that the AI has used outdated and offensive terminology to describe one pamphlet&#8217;s subject matter. This is language that the Bodleian Libraries would not use today in descriptions, even though the term is present in the source text.</p>
+
+
+
+<p>Tom rewrites the offending text, drawing on the Libraries&#8217; <a href="https://www.bodleian.ox.ac.uk/about/libraries/our-work/we-are-our-history">We Are Our History</a> work and other library guidance on best practice around outdated terminology. He then flags the pattern to his team so that others can watch for the same issue. Where he is unsure whether wording could cause offence or misrepresent the material, he raises it with his manager, rather than guessing.</p>
+
+
+
+<p class="has-black-color has-cyan-bluish-gray-background-color has-text-color has-background has-link-color wp-elements-1a1f7f244d9fb9ae83c6cd3b397abece"><strong>Policy principle applied: advocate for lawful and ethical actions</strong></p>
+
+
+
+<p>When the batch of pamphlet scans is complete, Tom adds a short note to the project file. The note states that these records were drafted with AI assistance and reviewed by cataloguing staff before publication. Anyone looking at the collection later can see how the descriptions were produced.</p>
+
+
+
+<p class="has-black-color has-cyan-bluish-gray-background-color has-text-color has-background has-link-color wp-elements-f6c706163990b38e157dc34ef879a2db"><strong>Policy principle applied: be transparent about AI use</strong></p>
+
+
+
+<p>Tom&#8217;s manager had earlier made sure that Tom had time in his diary to learn the tool properly. This included attending AI training delivered by the <a href="https://oerc.ox.ac.uk/ai-centre/training-events">AI Competency Centre</a> and an <a href="https://www.bodleian.ox.ac.uk/ask/workshops#/">iSkills AI workshop</a>. His manager had also given Tom the opportunity to ask questions, which helped him feel able to learn and experiment safely and to say when something didn&#8217;t work.</p>
+
+
+
+<p class="has-black-color has-cyan-bluish-gray-background-color has-text-color has-background has-link-color wp-elements-58d98a8e1638b572e8771cff99b0d468"><strong>Policy principle applied: support informed and critical AI use</strong></p>
+
+
+
+<hr class="wp-block-separator has-alpha-channel-opacity"/>
+
+
+
+<h2 class="wp-block-heading">Student use case: Jenny&#8217;s search</h2>
+
+
+
+<p>Jenny is a second-year undergraduate historian starting a new essay. She logs into SOLO to find sources about early modern print culture. Jenny notices a toggle for “AI-assisted search”, which is clearly labelled and is switched off by default.</p>
+
+
+
+<p class="has-black-color has-cyan-bluish-gray-background-color has-text-color has-background has-link-color wp-elements-f6c706163990b38e157dc34ef879a2db"><strong>Policy principle applied: be transparent about AI use</strong></p>
+
+
+
+<p>Jenny is environmentally conscious and wants to understand whether her use of the search assistant would be proportionate. She reads a short note on the webpage that explains what the search assistant does and that ordinary search still works exactly as before if she chooses not to use it. It also tells her the carbon impact of each AI-assisted search compared to ordinary search.</p>
+
+
+
+<p class="has-black-color has-cyan-bluish-gray-background-color has-text-color has-background has-link-color wp-elements-03670dcdb94024d869dda8c9744b2f14"><strong>Policy principle applied: minimise AI&#8217;s environmental impact</strong></p>
+
+
+
+<p>Curious, Jenny switches on the search assistant. Jenny checks the short help note linked from the results page, which explains what is being searched, SOLO records, some licensed databases and the Bodleian&#8217;s digitised collections, and confirms that the open internet is not included. This helps her judge how much to trust what she sees, so she knows how best to apply the information to her work.</p>
+
+
+
+<p class="has-black-color has-cyan-bluish-gray-background-color has-text-color has-background has-link-color wp-elements-28d9eeeabe76193840b7684fb560334e"><strong>Policy principle applied: protect and enhance our collections</strong></p>
+
+
+
+<p>The tool summarises a cluster of results and suggests some related open-access items that Jenny had not found herself. Underneath the summary, a note reminds her that this is a starting point, not a citable source, and that she should read and cite the original material directly.</p>
+
+
+
+<p class="has-black-color has-cyan-bluish-gray-background-color has-text-color has-background has-link-color wp-elements-1a1f7f244d9fb9ae83c6cd3b397abece"><strong>Policy principle applied: advocate for lawful and ethical actions</strong></p>
+
+
+
+<p>One suggested source turns out not to exist. Jenny uses a “report a problem” link next to the result and finds a page explaining who reviews these reports and roughly how long it takes to fix things.</p>
+
+
+
+<p class="has-black-color has-cyan-bluish-gray-background-color has-text-color has-background has-link-color wp-elements-6eec6385f7aab208b751bbfcc99c985b"><strong>Policy principle applied: maintain human accountability</strong></p>
+
+
+
+<p>Jenny finishes her search having found genuinely useful material, understanding clearly which parts came from AI assistance and which she found and read herself. Keen to use AI well in the run-up to her exams, but without time to attend a full training course, she follows a link to the Bodleian&#8217;s guide on <a href="https://libguides.bodleian.ox.ac.uk/ai-for-literature-searching">AI for Literature Searching</a>. It&#8217;s focused specifically on the literature searching process, covering how to use AI in a search, how to evaluate AI-generated sources, how to reference AI in her work, and where the University&#8217;s policies on AI sit, so within a few minutes she has exactly what she needs for the task in front of her.</p>
+
+
+
+<p class="has-black-color has-cyan-bluish-gray-background-color has-text-color has-background has-link-color wp-elements-58d98a8e1638b572e8771cff99b0d468"><strong>Policy principle applied: support informed and critical AI use</strong></p>
+
+
+
+<hr class="wp-block-separator has-alpha-channel-opacity"/>
+
+
+
+<h2 class="wp-block-heading"><strong>Researcher use case: Dr Amara&#8217;s dataset</strong></h2>
+
+
+
+<p>Dr Amara, a computational linguist and postdoctoral researcher, wants to study whether AI models trained only on women authors sound different from models trained only on men, and whether readers can tell the difference. To do this, she needs to build a large training dataset from openly available texts, including material held in the Bodleian&#8217;s institutional repository, the Oxford Research Archive (ORA), where Oxford researchers&#8217; publications and theses are made freely available online. As a new researcher to Oxford, Dr Amara reads the University&#8217;s <a href="https://www.ox.ac.uk/research/support/governance-and-committees/research-policies/policy-for-using-generative-ai-in">Policy for Using Generative AI in Research</a>.</p>
+
+
+
+<p>Dr Amara has read about some cultural heritage organisations suffering from heavy web scraping. So rather than writing a script to bulk-download material directly, which could slow the repository for other users or breach terms of use, Dr Amara contacts the Bodleian Libraries first to discuss what she needs.</p>
+
+
+
+<p class="has-black-color has-cyan-bluish-gray-background-color has-text-color has-background has-link-color wp-elements-120c86befea3158bb9e137402f794216"><strong>Policy principle applied: support responsible openness</strong></p>
+
+
+
+<p>A member of staff at the Bodleian Libraries responds to Dr Amara, talking her through a route that will give her the scale of access her research requires while avoiding the unrestricted, unannounced harvesting that has caused problems for the repository in the past. (This includes AI bots that ignore normal usage limits.) Dr Amara is delighted to learn more about how ORA works and is confident that her new route will give her the data she needs. She can now describe her data collection methodology accurately and with integrity.<a id="_msocom_1"></a></p>
+
+
+
+<p class="has-black-color has-cyan-bluish-gray-background-color has-text-color has-background has-link-color wp-elements-28d9eeeabe76193840b7684fb560334e"><strong>Policy principle applied: protect and enhance our collections</strong></p>
+
+
+
+<p>In return, Amara agrees to cite her use of ORA in any resulting publications and confirms she will not redistribute the underlying texts themselves. In line with good practice and the requirements of copyright law, the resulting model, rather than the source material, will be made openly available. This will enable other researchers to build on Dr Amara’s work without needing separate access to the original texts.</p>
+
+
+
+<p class="has-black-color has-cyan-bluish-gray-background-color has-text-color has-background has-link-color wp-elements-1a1f7f244d9fb9ae83c6cd3b397abece"><strong>Policy principle applied: advocate for lawful and ethical actions</strong></p>
+
+
+
+<p>Because the Bodleian Libraries chose to have this conversation rather than simply blocking large-scale access outright, Dr Amara&#8217;s research proceeds on a timeline that works for her. Bodleian Libraries’ staff also retain confidence that access to repository content at scale is being given responsibly and in line with the needs of readers.</p>
+
+
+
+<p class="has-black-color has-cyan-bluish-gray-background-color has-text-color has-background has-link-color wp-elements-395ad4f6937cbe1ac52b593bd25a1d76"><strong>Policy principle applied: adopt AI responsibly and proportionately</strong></p>
+
+
+
+<hr class="wp-block-separator has-alpha-channel-opacity"/>
+
+
+
+<h2 class="wp-block-heading">What&#8217;s next</h2>
+
+
+
+<p>As we think about and test AI applications in the Libraries, we will make sure we are transparent with our decisions and outcomes.</p>
+
+
+
+<p>We would love to hear from you about other use cases of AI, and how you are putting the policy into practice either at Oxford or within your own library. </p>
+
+
+
+<p>Please send any feedback or comments to:&nbsp;<a href="mailto:strategy@bodleian.ox.ac.uk">strategy@bodleian.ox.ac.uk</a>. </p>
+
+
+
+<p>Comments will be reviewed on a termly basis by the Libraries’ AI Strategy &amp; Policy Group, which is responsible for updating the AI policy at least once a year.</p>
+
+
+
+<p></p>
+<!-- AddThis Sharing Buttons below -->
+                <div class="addthis_toolbox addthis_default_style addthis_32x32_style" addthis:url='https://blogs.bodleian.ox.ac.uk/digital/2026/10/01/implementing-our-ai-policy-hypothetical-use-cases/' addthis:title='Implementing our AI Policy: hypothetical use cases' >
+                    <a class="addthis_button_preferred_1"></a>
+                    <a class="addthis_button_preferred_2"></a>
+                    <a class="addthis_button_preferred_3"></a>
+                    <a class="addthis_button_preferred_4"></a>
+                    <a class="addthis_button_compact"></a>
+                    <a class="addthis_counter addthis_bubble_style"></a>
+                </div>			</div><!-- .entry-content -->
+
+	<footer class="entry-meta">
+		This entry was posted in <a href="https://blogs.bodleian.ox.ac.uk/digital/category/ai/" rel="category tag">AI</a> and tagged <a href="https://blogs.bodleian.ox.ac.uk/digital/tag/digital-policy/" rel="tag">digital policy</a> by <a href="https://blogs.bodleian.ox.ac.uk/digital/author/elizabethhatfield/">elizabethhatfield</a>. Bookmark the <a href="https://blogs.bodleian.ox.ac.uk/digital/2026/10/01/implementing-our-ai-policy-hypothetical-use-cases/" rel="bookmark">permalink</a>.		
+			</footer><!-- .entry-meta -->
+</article><!-- #post-1679 -->
+
+						<div id="comments">
+	
+	
+			<p class="nocomments">Comments are closed.</p>
+	
+	
+</div><!-- #comments -->
+
+				
+			</div><!-- #content -->
+		</div><!-- #primary -->
+
+
+  </div><!-- #main -->
+
+  <footer id="colophon" role="contentinfo">
+    
+
+    <div id="site-generator">
+              <a href="http://www.bodleian.ox.ac.uk/"><img src="/wp-content/themes/twentyeleven-bodleian/images/bodleian.jpg" alt="Bodleian Libraries" /></a>
+
+        <p>
+          &copy; 2012 <a href="http://www.bodleian.ox.ac.uk/">Bodleian Libraries</a>
+          |
+
+  <a href="https://www.bodleian.ox.ac.uk/accessibility">Accessibility</a>
+  |
+  <a href="https://glam.web.ox.ac.uk/privacy-policy-bodleian-wordpress" target="_blank">Privacy Policy</a>
+  |
+  <a href="http://www.ox.ac.uk/legal">Terms of Use</a>
+  |
+  <a href="https://www.bodleian.ox.ac.uk/cookies">Cookies</a>
+
+        </p>
+      
+    </div>
+
+  </footer><!-- #colophon -->
+
+  <style type="text/css">/* <![CDATA[ */
+.cookie-policy, .cookie-policy .grid {
+  background: url('//www.bodleian.ox.ac.uk/__data/assets/image/0018/116505/footer-pattern.png') repeat-x 0 -3px black;
+}
+.cookie-policy {
+  color: white;
+  font-size: 0.857em;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+}
+.cookie-policy .grid {
+  margin-left: auto;
+  margin-right: auto;
+  width: 1008px;
+}
+.cookie-policy .grid .twelve {
+  display: inline;
+  float: left;
+  position: relative;
+  margin-left: 15px;
+  margin-right: 15px;
+  width: 978px;
+}
+.cookie-policy a.close {
+  background: url('//www.bodleian.ox.ac.uk/__data/assets/image/0010/116497/close-cookie-policy-box.jpg') scroll no-repeat center center transparent;
+  display: block;
+  float: right;
+  margin: 3px 0 0 20px;
+  height: 18px;
+  width: 18px;
+}
+.cookie-policy .detail.for-desktop {
+  display: block;
+}
+.cookie-policy .detail.for-mobile {
+  display: none;
+}
+.cookie-policy .detail {
+  color: #bebebe;
+  padding: 3px 0;
+}
+.cookie-policy .detail a {
+  color: #ffffff;
+}
+.cookie-policy p {
+  margin: 2px 0;
+  font: 12px 'Arial', sans-serif;
+}
+/* ]]> */</style>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+<script type="application/javascript">
+/* Close cookie policy notice */
+function createCookie(name, value, days) {
+  if (days) {
+    var date = new Date();
+    date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
+    var expires = "; expires=" + date.toGMTString();
+  } else var expires = "";
+  document.cookie = name + "=" + value + expires + "; path=/";
+}
+
+function readCookie(name) {
+  var nameEQ = name + "=";
+  var ca = document.cookie.split(';');
+  for (var i = 0; i < ca.length; i++) {
+    var c = ca[i];
+    while (c.charAt(0) == ' ') c = c.substring(1, c.length);
+    if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length, c.length);
+  }
+  return null;
+}
+
+function eraseCookie(name) {
+  createCookie(name, "", -1);
+}
+jQuery(function(){
+  jQuery('.cookie-policy a.close').click(function (e) {
+    e.preventDefault();
+    jQuery('.cookie-policy').hide();
+    createCookie('groupCookiePolicyClosed', 1, 30);
+  });
+  if (readCookie('groupCookiePolicyClosed')) {
+    jQuery('.cookie-policy a.close').parent().hide();
+  }
+});
+/* Close cookie policy - end*/
+</script>
+<div class="cookie-policy">
+  <div class="grid">
+    <div class="twelve">
+      <a href="#" title="Accept and close" class="close"></a>
+      <p class="detail for-desktop">This site uses cookies to support some content and functions, and also Google Analytics. By using this site you agree to their use. <a href="//blogs.bodleian.ox.ac.uk/cookies">Find out more and opt out &raquo;</a></p>
+      <p class="detail for-mobile"><a href="//blogs.bodleian.ox.ac.uk/cookies">This site uses cookies to support some content and functions, and also Google Analytics &raquo;</a></p>
+    </div>
+  </div>
+</div>
+</div><!-- #page -->
+
+<script data-cfasync="false" type="text/javascript">
+var addthis_config = {"data_track_clickback":false,"ui_atversion":300,"ignore_server_config":true};
+var addthis_share = {};
+</script>
+                <!-- AddThis Settings Begin -->
+                <script data-cfasync="false" type="text/javascript">
+                    var addthis_product = "wpp-5.3.4";
+                    var wp_product_version = "wpp-5.3.4";
+                    var wp_blog_version = "6.7.11";
+                    var addthis_plugin_info = {"info_status":"enabled","cms_name":"WordPress","plugin_name":"Share Buttons by AddThis","plugin_version":"5.3.4","anonymous_profile_id":"wp-5341205b92b83a4db614d5f5697e72ba","plugin_mode":"WordPress","select_prefs":{"addthis_per_post_enabled":true,"addthis_above_enabled":true,"addthis_below_enabled":true,"addthis_sidebar_enabled":true,"addthis_mobile_toolbar_enabled":true,"addthis_above_showon_home":true,"addthis_below_showon_home":false,"addthis_above_showon_pages":false,"addthis_below_showon_pages":false,"addthis_above_showon_categories":false,"addthis_below_showon_categories":false,"addthis_above_showon_archives":false,"addthis_below_showon_archives":false,"addthis_above_showon_posts":true,"addthis_above_showon_excerpts":true,"addthis_below_showon_posts":true,"addthis_below_showon_excerpts":true,"addthis_sidebar_showon_home":true,"addthis_sidebar_showon_posts":true,"addthis_sidebar_showon_pages":true,"addthis_sidebar_showon_archives":true,"addthis_sidebar_showon_categories":true,"addthis_mobile_toolbar_showon_home":true,"addthis_mobile_toolbar_showon_posts":true,"addthis_mobile_toolbar_showon_pages":true,"addthis_mobile_toolbar_showon_archives":true,"addthis_mobile_toolbar_showon_categories":true,"sharing_enabled_on_post_via_metabox":true},"page_info":{"template":"posts","post_type":""}};
+                    if (typeof(addthis_config) == "undefined") {
+                        var addthis_config = {"data_track_clickback":false,"ui_atversion":300,"ignore_server_config":true};
+                    }
+                    if (typeof(addthis_share) == "undefined") {
+                        var addthis_share = {};
+                    }
+                    if (typeof(addthis_layers) == "undefined") {
+                        var addthis_layers = {"share":{"theme":"transparent","position":"right","numPreferredServices":5,"mobile":false},"sharedock":{"counts":true,"position":"bottom","numPreferredServices":5}};
+                    }
+                </script>
+                <script
+                    data-cfasync="false"
+                    type="text/javascript"
+                    src="//s7.addthis.com/js/300/addthis_widget.js#pubid=wp-5341205b92b83a4db614d5f5697e72ba "
+                    
+                >
+                </script>
+                <script data-cfasync="false" type="text/javascript">
+                    (function() {
+                        var at_interval = setInterval(function () {
+                            if(window.addthis) {
+                                clearInterval(at_interval);
+                                addthis.layers(addthis_layers);
+                            }
+                        },1000)
+                    }());
+                </script>
+                <link rel='stylesheet' id='addthis_output-css' href='https://blogs.bodleian.ox.ac.uk/digital/wp-content/plugins/addthis/css/output.css?ver=6.7.11' type='text/css' media='all' />
+<style id='core-block-supports-inline-css' type='text/css'>
+.wp-elements-1311c1203313b8de3497b715ab0238f9 a:where(:not(.wp-element-button)){color:var(--wp--preset--color--black);}.wp-elements-f63879cae06df64e5efb9ab64ceb23f1 a:where(:not(.wp-element-button)){color:var(--wp--preset--color--black);}.wp-elements-1a1f7f244d9fb9ae83c6cd3b397abece a:where(:not(.wp-element-button)){color:var(--wp--preset--color--black);}.wp-elements-f6c706163990b38e157dc34ef879a2db a:where(:not(.wp-element-button)){color:var(--wp--preset--color--black);}.wp-elements-58d98a8e1638b572e8771cff99b0d468 a:where(:not(.wp-element-button)){color:var(--wp--preset--color--black);}.wp-elements-03670dcdb94024d869dda8c9744b2f14 a:where(:not(.wp-element-button)){color:var(--wp--preset--color--black);}.wp-elements-28d9eeeabe76193840b7684fb560334e a:where(:not(.wp-element-button)){color:var(--wp--preset--color--black);}.wp-elements-6eec6385f7aab208b751bbfcc99c985b a:where(:not(.wp-element-button)){color:var(--wp--preset--color--black);}.wp-elements-120c86befea3158bb9e137402f794216 a:where(:not(.wp-element-button)){color:var(--wp--preset--color--black);}.wp-elements-395ad4f6937cbe1ac52b593bd25a1d76 a:where(:not(.wp-element-button)){color:var(--wp--preset--color--black);}
+</style>
+<script type="text/javascript" src="https://blogs.bodleian.ox.ac.uk/digital/wp-content/plugins/jetpack/_inc/build/twitter-timeline.min.js?ver=4.0.0" id="jetpack-twitter-timeline-js"></script>
+<script type="text/javascript" src="https://stats.wp.com/e-202646.js" id="jetpack-stats-js" data-wp-strategy="defer"></script>
+<script type="text/javascript" id="jetpack-stats-js-after">
+/* <![CDATA[ */
+_stq = window._stq || [];
+_stq.push([ "view", JSON.parse("{\"v\":\"ext\",\"blog\":\"88494902\",\"post\":\"1679\",\"tz\":\"0\",\"srv\":\"blogs.bodleian.ox.ac.uk\",\"j\":\"1:14.1\"}") ]);
+_stq.push([ "clickTrackerInit", "88494902", "1679" ]);
+/* ]]> */
+</script>
+<!--wp_footer-->
+</body>
+</html>

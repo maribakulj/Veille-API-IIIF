@@ -1,0 +1,1388 @@
+Digital Bodleian Data API Specification 
+ Data Search get Fulltext Queries 
+ Collections get Retrieve a Digital Bodleian Collection 
+ get Search a Digital Bodleian Collection 
+ Partners get Retrieve a Partner's Collection 
+ get Search a Partner's Collection 
+ Objects get Retrieve a Surface record 
+ get Retrieve a Digital Bodleian object record 
+ get Search over the object's surfaces 
+ Account get Retrieve Authenticated User Account Data
+ post Save a Search 
+ del Delete a Search 
+ post Save an Object 
+ put Update a Saved Object 
+ patch Update a Saved Object 
+ del Delete a Saved Object 
+ Documentation Powered by ReDoc 
+ Digital Bodleian Data API Specification ( 1.0.0 ) 
+ Download OpenAPI specification: Download 
+ URL: https://www.bodleian.ox.ac.uk 
+ Search
+ Fulltext Queries 
+ Fulltext queries are performed by setting the value of the q parameter in the
+querystring. Complex operations for filtering can be accomplished by using Lucene query syntax in the fq 
+parameter, e.g., fq=(collections:"Arabic" OR collections:"Western) . This has been tested with AND, OR, and
+NOT operators. Multiple fq parameters provided will be treated as AND statements.
+ The response is an object that can be parsed for a page of search results. The member key contains an array of
+search results, if any were found. Results to a query are sorted by relevance by default
+in this array. The sorting of the array can be controlled with the sort query parameter.
+ query Parameters
+ q string 
+ Enum : "binding" "collections" "contents" "date" "decorations" "description" "hands" "holding-institution" "inscriptions" "languages" "materials" "musical-notation" "provenance" "shelfmark" "titles" "architects" "people" "artists" "authors" "cartographers" "commentators" "composers" "compilers" "draughtsmen" "editors" "engravers" "former-owners" "illustrators" "origins" "patrons" "photographers" "printers" "publishers" "sitters" "translators" "performers" 
+ Example: q=unicorns 
+ A fulltext search query. This supports some Lucene search syntax, such as the fuzzy operator ( ~ ).
+Phrases can be searched by surrounding them in quotation marks. Field-specific queries from the list above work,
+as do the boolean operators AND, OR, and NOT, e.g., ?q=talmud NOT collections:"Arabic" AND date:[1700 TO *] .
+ page integer 
+ Example: page=10 
+ The page number.
+ fq string 
+ Enum : "collections" "completeness" "origins" "languages" "has-musical-notation" 
+ Example: fq=collections:"Arabic"&fq=(collections:"Arabic" OR collections:"Western)&fq=date:[700 TO 900] 
+ A filter to apply to the query. Use this with Lucene syntax to filter on a given value, e.g.,
+completeness:Yes for completely digitised objects or has-musical-notation:No for objects without musical notation.
+Fields from the list above are supported.
+Multiple fq parameters provided will be treated as AND statements.
+For dates, date:[1250 TO 1350] represents the inclusive range 1250-01-01 to 1350-12-31, and date:[* TO 1350] 
+means 'up to and including 1350'. Note that these ranges are inclusive on both ends.
+ sort string 
+ Enum : "relevance" "shelfmark" "published" "date" 
+ Example: sort=date desc 
+ Controls the sort order of the results. relevance desc (default) will sort the results in order from
+most to least relevant. shelfmark will sort the results first by institution, then by shelfmark in
+alphanumeric order. published desc will sort by most recently digitized first.
+ date asc will sort by creation date. Each of these can be reversed using asc or desc .
+ rows string 
+ Enum : "20" "40" "100" 
+ The number of results per page.
+ Responses
+ 200 The response returned when a search has been successful.
+ 400 The request was not properly formed (a 4XX) request
+ get /search 
+ https://digital.bodleian.ox.ac.uk /search
+ Response samples 
+ 200
+ Content type application/ld+json
+ Copy
+ Expand all Collapse all 
+ { "id" : " https://digital.bodleian.ox.ac.uk/search/?q=romance&page=4 " , 
+ "suggestedCollections" : [ { "id" : " http://digital.bodleian.ox.ac.uk/collections/medieval " , 
+ "type" : "db:Collection" , 
+ "title" : "string" , 
+ "thumbnail" : { "id" : " https://iiif.bodleian.ox.ac.uk/iiif/image/cb8d48b3-dcc2-4dae-9c27-bd4070b766c8/0,758,5306,3537/300,200/0/default.jpg " , 
+ "type" : "Image" , 
+ "format" : "image/jpeg" , 
+ "service" : [ { "id" : " https://iiif.bodleian.ox.ac.uk/iiif/image/cb8d48b3-dcc2-4dae-9c27-bd4070b766c8 " , 
+ "type" : "ImageService2" , 
+ "profile" : "level1" 
+ } 
+ ] 
+ } 
+ } 
+ ] , 
+ "didYouMean" : { "suggested" : { "url" : " http://example.com " , 
+ "suggestion" : "string" 
+ } 
+ } , 
+ "facets" : [ { "name" : "collections" , 
+ "displayName" : "Collections" , 
+ "type" : "Facet" , 
+ "items" : { "Archives and Modern Manuscripts" : 3 , 
+ "Bindings" : 1 
+ } 
+ } 
+ ] , 
+ "@context" : " https://digital.bodleian.ox.ac.uk/api/1/context.json " , 
+ "type" : "Collection" , 
+ "query" : [ { "q" : [ "ms ashmole 1511" 
+ ] , 
+ "fq" : [ "completeness:complete" 
+ ] 
+ } 
+ ] , 
+ "view" : { "type" : "PartialCollectionView" , 
+ "first" : " https://digital.bodleian.ox.ac.uk/search/ " , 
+ "next" : " https://digital.bodleian.ox.ac.uk/search/?page=5 " , 
+ "previous" : " https://digital.bodleian.ox.ac.uk/search/?page=3 " , 
+ "last" : " https://digital.bodleian.ox.ac.uk/search/?page=20 " , 
+ "totalPages" : 20 
+ } , 
+ "totalItems" : 400 , 
+ "member" : [ { "surfaceCount" : 802 , 
+ "resultsWithin" : { "totalItems" : 101 , 
+ "url" : " https://digital.bodleian.ox.ac.uk/objects/7ed574fb-5fbc-41d0-9958-f2497acf462a/search/?q=foo " 
+ } , 
+ "displayFields" : { "shelfmark" : [ "string" 
+ ] , 
+ "people" : [ "string" 
+ ] , 
+ "origins" : [ "string" 
+ ] , 
+ "languages" : [ "string" 
+ ] , 
+ "title" : [ "string" 
+ ] , 
+ "dateStatement" : [ "string" 
+ ] , 
+ "snippet" : [ "... Speech welcoming <em>Henry</em> <em>VII</em> to Cambridge University. ..." 
+ ] 
+ } , 
+ "id" : " http://digital.bodleian.ox.ac.uk/objects/ae9f6cca-ae5c-4149-8fe4-95e6eca1f73c " , 
+ "type" : "Object" , 
+ "shelfmark" : "Bodleian Library MS Bodl. 264" , 
+ "thumbnail" : { "id" : " https://iiif.bodleian.ox.ac.uk/iiif/image/cb8d48b3-dcc2-4dae-9c27-bd4070b766c8/0,758,5306,3537/300,200/0/default.jpg " , 
+ "type" : "Image" , 
+ "format" : "image/jpeg" , 
+ "service" : [ { "id" : " https://iiif.bodleian.ox.ac.uk/iiif/image/cb8d48b3-dcc2-4dae-9c27-bd4070b766c8 " , 
+ "type" : "ImageService2" , 
+ "profile" : "level1" 
+ } 
+ ] 
+ } , 
+ "manifest" : " https://iiif.bodleian.ox.ac.uk/iiif/manifest/60834383-7146-41ab-bfe1-48ee97bc04be.json " , 
+ "saved" : true , 
+ "contacts" : { "imaging" : [ { "text" : "Image rights and reuse enquiries" 
+ } ,
+ { "links" : { "url" : "mailto:imaging@bodleian.ox.ac.uk?subject=Bodleian%20Library%20MS.%20Bodl.%20264" , 
+ "text" : "imaging@bodleian.ox.ac.uk" 
+ } 
+ } 
+ ] , 
+ "object" : [ { "text" : "Enquiries about this object" 
+ } ,
+ { "links" : { "url" : " https://www.bodleian.ox.ac.uk/weston/about/contact " , 
+ "text" : " https://www.bodleian.ox.ac.uk/weston/about/contact " 
+ } 
+ } 
+ ] , 
+ "technical" : [ { "text" : "Technical enquiries and questions about the digital collections" 
+ } ,
+ { "links" : { "url" : "mailto:digital-bodleian@bodleian.ox.ac.uk?subject=Bodleian%20Library%20MS.%20Bodl.%20264" , 
+ "text" : "digital-bodleian@bodleian.ox.ac.uk" 
+ } 
+ } 
+ ] 
+ } , 
+ "logo" : { "id" : " https://iiif.bodleian.ox.ac.uk/iiif/image/16053652-6c5e-4abb-ab23-190c7030ecbc/full/255,/0/default.jpg " , 
+ "type" : "Image" , 
+ "format" : "image/jpeg" , 
+ "service" : [ { "id" : " https://iiif.bodleian.ox.ac.uk/iiif/image/cb8d48b3-dcc2-4dae-9c27-bd4070b766c8 " , 
+ "type" : "ImageService2" , 
+ "profile" : "level1" 
+ } 
+ ] 
+ } 
+ } 
+ ] , 
+ "contacts" : { "imaging" : [ { "text" : "Image rights and reuse enquiries" 
+ } ,
+ { "links" : { "url" : "mailto:imaging@bodleian.ox.ac.uk?subject=Bodleian%20Library%20MS.%20Bodl.%20264" , 
+ "text" : "imaging@bodleian.ox.ac.uk" 
+ } 
+ } 
+ ] , 
+ "object" : [ { "text" : "Enquiries about this object" 
+ } ,
+ { "links" : { "url" : " https://www.bodleian.ox.ac.uk/weston/about/contact " , 
+ "text" : " https://www.bodleian.ox.ac.uk/weston/about/contact " 
+ } 
+ } 
+ ] , 
+ "technical" : [ { "text" : "Technical enquiries and questions about the digital collections" 
+ } ,
+ { "links" : { "url" : "mailto:digital-bodleian@bodleian.ox.ac.uk?subject=Bodleian%20Library%20MS.%20Bodl.%20264" , 
+ "text" : "digital-bodleian@bodleian.ox.ac.uk" 
+ } 
+ } 
+ ] 
+ } , 
+ "logo" : { "id" : " https://iiif.bodleian.ox.ac.uk/iiif/image/16053652-6c5e-4abb-ab23-190c7030ecbc/full/255,/0/default.jpg " , 
+ "type" : "Image" , 
+ "format" : "image/jpeg" , 
+ "service" : [ { "id" : " https://iiif.bodleian.ox.ac.uk/iiif/image/cb8d48b3-dcc2-4dae-9c27-bd4070b766c8 " , 
+ "type" : "ImageService2" , 
+ "profile" : "level1" 
+ } 
+ ] 
+ } 
+ } 
+ Collections
+ Retrieve a Digital Bodleian Collection 
+ Digital Bodleian collections are retrieved by accessing this route using a GET request and submitting a string
+containing the collection name, e.g., /collections/western-medieval-manuscripts .
+ path Parameters
+ name required 
+ string 
+ Example: western-medieval-manuscripts 
+ The name of the collection
+ Responses
+ 200 The response returned when a collections GET request has been successful.
+ 404 The requested URI was not found on the server
+ get /collections 
+ https://digital.bodleian.ox.ac.uk /collections
+ Response samples 
+ 200
+ Content type application/ld+json
+ Copy
+ Expand all Collapse all 
+ { "@context" : " https://digital.bodleian.ox.ac.uk/api/1/context.json " , 
+ "id" : [ " https://digital.bodleian.ox.ac.uk/collections/western-medieval-manuscripts/ " 
+ ] , 
+ "type" : "db:Collection" , 
+ "view" : { "type" : "PartialCollectionView" , 
+ "first" : " https://digital.bodleian.ox.ac.uk/search/ " , 
+ "next" : " https://digital.bodleian.ox.ac.uk/search/?page=5 " , 
+ "previous" : " https://digital.bodleian.ox.ac.uk/search/?page=3 " , 
+ "last" : " https://digital.bodleian.ox.ac.uk/search/?page=20 " , 
+ "totalPages" : 20 
+ } , 
+ "totalItems" : 802 , 
+ "member" : { "displayFields" : { "shelfmark" : [ "Bodleian Library MS. Bodl. 264" 
+ ] , 
+ "people" : [ "Gillray, James, 1756-1815" 
+ ] , 
+ "origins" : [ "string" 
+ ] , 
+ "languages" : [ "English" 
+ ] , 
+ "title" : [ "Very slippy-weather: St. Jame's Street" 
+ ] , 
+ "dateStatement" : [ "1808-02-10" 
+ ] 
+ } , 
+ "id" : " http://digital.bodleian.ox.ac.uk/objects/ae9f6cca-ae5c-4149-8fe4-95e6eca1f73c " , 
+ "type" : "Object" , 
+ "shelfmark" : "Bodleian Library MS Bodl. 264" , 
+ "thumbnail" : { "id" : " https://iiif.bodleian.ox.ac.uk/iiif/image/cb8d48b3-dcc2-4dae-9c27-bd4070b766c8/0,758,5306,3537/300,200/0/default.jpg " , 
+ "type" : "Image" , 
+ "format" : "image/jpeg" , 
+ "service" : [ { "id" : " https://iiif.bodleian.ox.ac.uk/iiif/image/cb8d48b3-dcc2-4dae-9c27-bd4070b766c8 " , 
+ "type" : "ImageService2" , 
+ "profile" : "level1" 
+ } 
+ ] 
+ } , 
+ "manifest" : " https://iiif.bodleian.ox.ac.uk/iiif/manifest/60834383-7146-41ab-bfe1-48ee97bc04be.json " , 
+ "saved" : true , 
+ "contacts" : { "imaging" : [ { "text" : "Image rights and reuse enquiries" 
+ } ,
+ { "links" : { "url" : "mailto:imaging@bodleian.ox.ac.uk?subject=Bodleian%20Library%20MS.%20Bodl.%20264" , 
+ "text" : "imaging@bodleian.ox.ac.uk" 
+ } 
+ } 
+ ] , 
+ "object" : [ { "text" : "Enquiries about this object" 
+ } ,
+ { "links" : { "url" : " https://www.bodleian.ox.ac.uk/weston/about/contact " , 
+ "text" : " https://www.bodleian.ox.ac.uk/weston/about/contact " 
+ } 
+ } 
+ ] , 
+ "technical" : [ { "text" : "Technical enquiries and questions about the digital collections" 
+ } ,
+ { "links" : { "url" : "mailto:digital-bodleian@bodleian.ox.ac.uk?subject=Bodleian%20Library%20MS.%20Bodl.%20264" , 
+ "text" : "digital-bodleian@bodleian.ox.ac.uk" 
+ } 
+ } 
+ ] 
+ } , 
+ "logo" : { "id" : " https://iiif.bodleian.ox.ac.uk/iiif/image/16053652-6c5e-4abb-ab23-190c7030ecbc/full/255,/0/default.jpg " , 
+ "type" : "Image" , 
+ "format" : "image/jpeg" , 
+ "service" : [ { "id" : " https://iiif.bodleian.ox.ac.uk/iiif/image/cb8d48b3-dcc2-4dae-9c27-bd4070b766c8 " , 
+ "type" : "ImageService2" , 
+ "profile" : "level1" 
+ } 
+ ] 
+ } 
+ } , 
+ "facets" : { "name" : "collections" , 
+ "displayName" : "Collections" , 
+ "type" : "Facet" , 
+ "items" : { "Archives and Modern Manuscripts" : 3 , 
+ "Bindings" : 1 
+ } 
+ } , 
+ "title" : [ "Western Medieval Manuscripts" 
+ ] , 
+ "thumbnail" : { "id" : " https://iiif.bodleian.ox.ac.uk/iiif/image/cb8d48b3-dcc2-4dae-9c27-bd4070b766c8/0,758,5306,3537/300,200/0/default.jpg " , 
+ "type" : "Image" , 
+ "format" : "image/jpeg" , 
+ "service" : [ { "id" : " https://iiif.bodleian.ox.ac.uk/iiif/image/cb8d48b3-dcc2-4dae-9c27-bd4070b766c8 " , 
+ "type" : "ImageService2" , 
+ "profile" : "level1" 
+ } 
+ ] 
+ } 
+ } 
+ Search a Digital Bodleian Collection 
+ Fulltext queries can be performed on collections by accessing this route using a GET request and submitting
+a string containing the collection name and setting the value of the q parameter in the querystring.
+ Complex operations for filtering can be accomplished by using Lucene query syntax in the fq 
+parameter, e.g., fq=(languages:English) . This has been tested with AND, OR, and
+NOT operators. Multiple fq parameters provided will be treated as AND statements.
+ The response is an object that can be parsed for a page of search results. The member key contains an array of
+search results, if any were found. Results to a query are sorted by relevance by default
+in this array. The sorting of the array can be controlled with the sort query parameter.
+ path Parameters
+ name required 
+ string 
+ Example: western-medieval-manuscripts 
+ The name of the collection
+ query Parameters
+ q string 
+ Enum : "binding" "collections" "contents" "date" "decorations" "description" "hands" "holding-institution" "inscriptions" "languages" "materials" "musical-notation" "provenance" "shelfmark" "titles" "architects" "people" "artists" "authors" "cartographers" "commentators" "composers" "compilers" "draughtsmen" "editors" "engravers" "former-owners" "illustrators" "origins" "patrons" "photographers" "printers" "publishers" "sitters" "translators" "performers" 
+ Example: q=unicorns 
+ A fulltext search query. This supports some Lucene search syntax, such as the fuzzy operator ( ~ ).
+Phrases can be searched by surrounding them in quotation marks. Field-specific queries from the list above work,
+as do the boolean operators AND, OR, and NOT, e.g., ?q=talmud NOT collections:"Arabic" AND date:[1700 TO *] .
+ page integer 
+ Example: page=10 
+ The page number.
+ fq string 
+ Enum : "collections" "completeness" "origins" "languages" "has-musical-notation" 
+ Example: fq=collections:"Arabic"&fq=(collections:"Arabic" OR collections:"Western)&fq=date:[700 TO 900] 
+ A filter to apply to the query. Use this with Lucene syntax to filter on a given value, e.g.,
+completeness:Yes for completely digitised objects or has-musical-notation:No for objects without musical notation.
+Fields from the list above are supported.
+Multiple fq parameters provided will be treated as AND statements.
+For dates, date:[1250 TO 1350] represents the inclusive range 1250-01-01 to 1350-12-31, and date:[* TO 1350] 
+means 'up to and including 1350'. Note that these ranges are inclusive on both ends.
+ sort string 
+ Enum : "relevance" "shelfmark" "published" "date" 
+ Example: sort=date desc 
+ Controls the sort order of the results. relevance desc (default) will sort the results in order from
+most to least relevant. shelfmark will sort the results first by institution, then by shelfmark in
+alphanumeric order. published desc will sort by most recently digitized first.
+ date asc will sort by creation date. Each of these can be reversed using asc or desc .
+ rows string 
+ Enum : "20" "40" "100" 
+ The number of results per page.
+ Responses
+ 200 The response returned when a search within a collection has been successful.
+ 400 The request was not properly formed (a 4XX) request
+ get /collections/<str:name>/ 
+ https://digital.bodleian.ox.ac.uk /collections/<str:name>/
+ Response samples 
+ 200
+ Content type application/ld+json
+ Copy
+ Expand all Collapse all 
+ { "query" : [ { "q" : [ "MS Bodl. 264" 
+ ] , 
+ "fq" : [ "completeness:complete" 
+ ] 
+ } 
+ ] , 
+ "@context" : " https://digital.bodleian.ox.ac.uk/api/1/context.json " , 
+ "id" : [ " https://digital.bodleian.ox.ac.uk/collections/western-medieval-manuscripts/ " 
+ ] , 
+ "type" : "db:Collection" , 
+ "view" : { "type" : "PartialCollectionView" , 
+ "first" : " https://digital.bodleian.ox.ac.uk/search/ " , 
+ "next" : " https://digital.bodleian.ox.ac.uk/search/?page=5 " , 
+ "previous" : " https://digital.bodleian.ox.ac.uk/search/?page=3 " , 
+ "last" : " https://digital.bodleian.ox.ac.uk/search/?page=20 " , 
+ "totalPages" : 20 
+ } , 
+ "totalItems" : 802 , 
+ "member" : { "displayFields" : { "shelfmark" : [ "Bodleian Library MS. Bodl. 264" 
+ ] , 
+ "people" : [ "Gillray, James, 1756-1815" 
+ ] , 
+ "origins" : [ "string" 
+ ] , 
+ "languages" : [ "English" 
+ ] , 
+ "title" : [ "Very slippy-weather: St. Jame's Street" 
+ ] , 
+ "dateStatement" : [ "1808-02-10" 
+ ] 
+ } , 
+ "id" : " http://digital.bodleian.ox.ac.uk/objects/ae9f6cca-ae5c-4149-8fe4-95e6eca1f73c " , 
+ "type" : "Object" , 
+ "shelfmark" : "Bodleian Library MS Bodl. 264" , 
+ "thumbnail" : { "id" : " https://iiif.bodleian.ox.ac.uk/iiif/image/cb8d48b3-dcc2-4dae-9c27-bd4070b766c8/0,758,5306,3537/300,200/0/default.jpg " , 
+ "type" : "Image" , 
+ "format" : "image/jpeg" , 
+ "service" : [ { "id" : " https://iiif.bodleian.ox.ac.uk/iiif/image/cb8d48b3-dcc2-4dae-9c27-bd4070b766c8 " , 
+ "type" : "ImageService2" , 
+ "profile" : "level1" 
+ } 
+ ] 
+ } , 
+ "manifest" : " https://iiif.bodleian.ox.ac.uk/iiif/manifest/60834383-7146-41ab-bfe1-48ee97bc04be.json " , 
+ "saved" : true , 
+ "contacts" : { "imaging" : [ { "text" : "Image rights and reuse enquiries" 
+ } ,
+ { "links" : { "url" : "mailto:imaging@bodleian.ox.ac.uk?subject=Bodleian%20Library%20MS.%20Bodl.%20264" , 
+ "text" : "imaging@bodleian.ox.ac.uk" 
+ } 
+ } 
+ ] , 
+ "object" : [ { "text" : "Enquiries about this object" 
+ } ,
+ { "links" : { "url" : " https://www.bodleian.ox.ac.uk/weston/about/contact " , 
+ "text" : " https://www.bodleian.ox.ac.uk/weston/about/contact " 
+ } 
+ } 
+ ] , 
+ "technical" : [ { "text" : "Technical enquiries and questions about the digital collections" 
+ } ,
+ { "links" : { "url" : "mailto:digital-bodleian@bodleian.ox.ac.uk?subject=Bodleian%20Library%20MS.%20Bodl.%20264" , 
+ "text" : "digital-bodleian@bodleian.ox.ac.uk" 
+ } 
+ } 
+ ] 
+ } , 
+ "logo" : { "id" : " https://iiif.bodleian.ox.ac.uk/iiif/image/16053652-6c5e-4abb-ab23-190c7030ecbc/full/255,/0/default.jpg " , 
+ "type" : "Image" , 
+ "format" : "image/jpeg" , 
+ "service" : [ { "id" : " https://iiif.bodleian.ox.ac.uk/iiif/image/cb8d48b3-dcc2-4dae-9c27-bd4070b766c8 " , 
+ "type" : "ImageService2" , 
+ "profile" : "level1" 
+ } 
+ ] 
+ } 
+ } , 
+ "facets" : { "name" : "collections" , 
+ "displayName" : "Collections" , 
+ "type" : "Facet" , 
+ "items" : { "Archives and Modern Manuscripts" : 3 , 
+ "Bindings" : 1 
+ } 
+ } , 
+ "title" : [ "Western Medieval Manuscripts" 
+ ] , 
+ "thumbnail" : { "id" : " https://iiif.bodleian.ox.ac.uk/iiif/image/cb8d48b3-dcc2-4dae-9c27-bd4070b766c8/0,758,5306,3537/300,200/0/default.jpg " , 
+ "type" : "Image" , 
+ "format" : "image/jpeg" , 
+ "service" : [ { "id" : " https://iiif.bodleian.ox.ac.uk/iiif/image/cb8d48b3-dcc2-4dae-9c27-bd4070b766c8 " , 
+ "type" : "ImageService2" , 
+ "profile" : "level1" 
+ } 
+ ] 
+ } 
+ } 
+ Partners
+ Retrieve a Partner's Collection 
+ Partner collections are retrieved by accessing this route using a GET request and submitting a string containing
+the partner name, e.g., /partners/balliol .
+ path Parameters
+ name required 
+ string 
+ Example: balliol 
+ The name of the partner
+ Responses
+ 200 The response returned when a partners GET request has been successful.
+ 404 The requested URI was not found on the server
+ get /partners 
+ https://digital.bodleian.ox.ac.uk /partners
+ Response samples 
+ 200
+ Content type application/ld+json
+ Copy
+ Expand all Collapse all 
+ { "@context" : " https://digital.bodleian.ox.ac.uk/api/1/context.json " , 
+ "id" : [ " https://digital.bodleian.ox.ac.uk/partners/balliol/ " 
+ ] , 
+ "type" : "db:Collection" , 
+ "view" : { "type" : "PartialCollectionView" , 
+ "first" : " https://digital.bodleian.ox.ac.uk/search/ " , 
+ "next" : " https://digital.bodleian.ox.ac.uk/search/?page=5 " , 
+ "previous" : " https://digital.bodleian.ox.ac.uk/search/?page=3 " , 
+ "last" : " https://digital.bodleian.ox.ac.uk/search/?page=20 " , 
+ "totalPages" : 20 
+ } , 
+ "totalItems" : 802 , 
+ "member" : { "displayFields" : { "shelfmark" : [ "Balliol College MS 238A" 
+ ] , 
+ "people" : [ "Bandini, Domenico" ,
+ "Werken, Theodoricus" 
+ ] , 
+ "origins" : [ "string" 
+ ] , 
+ "languages" : [ "Latin" 
+ ] , 
+ "title" : [ "Fons memorabilium uniuersi (Part I)" 
+ ] , 
+ "dateStatement" : [ "1444–1448" 
+ ] 
+ } , 
+ "id" : " http://digital.bodleian.ox.ac.uk/objects/441db95d-cdff-472e-bb2d-b46f043db82d " , 
+ "type" : "Object" , 
+ "shelfmark" : "Balliol College MS 238A" , 
+ "thumbnail" : { "id" : " https://iiif.bodleian.ox.ac.uk/iiif/image/79bf8325-22fa-4696-afe5-7d827d84f393/full/255,/0/default.jpg " , 
+ "type" : "Image" , 
+ "format" : "image/jpeg" , 
+ "service" : [ { "id" : " https://iiif.bodleian.ox.ac.uk/iiif/image/cb8d48b3-dcc2-4dae-9c27-bd4070b766c8 " , 
+ "type" : "ImageService2" , 
+ "profile" : "level1" 
+ } 
+ ] 
+ } , 
+ "manifest" : " https://iiif.bodleian.ox.ac.uk/iiif/manifest/441db95d-cdff-472e-bb2d-b46f043db82d.json " , 
+ "saved" : true 
+ } , 
+ "facets" : { "name" : "collections" , 
+ "displayName" : "Collections" , 
+ "type" : "Facet" , 
+ "items" : { "Archives and Modern Manuscripts" : 3 , 
+ "Bindings" : 1 
+ } 
+ } , 
+ "title" : [ "Western Medieval Manuscripts" 
+ ] , 
+ "thumbnail" : { "id" : " https://iiif.bodleian.ox.ac.uk/iiif/image/cb8d48b3-dcc2-4dae-9c27-bd4070b766c8/0,758,5306,3537/300,200/0/default.jpg " , 
+ "type" : "Image" , 
+ "format" : "image/jpeg" , 
+ "service" : [ { "id" : " https://iiif.bodleian.ox.ac.uk/iiif/image/cb8d48b3-dcc2-4dae-9c27-bd4070b766c8 " , 
+ "type" : "ImageService2" , 
+ "profile" : "level1" 
+ } 
+ ] 
+ } , 
+ "logo" : { "id" : " https://iiif.bodleian.ox.ac.uk/iiif/image/16053652-6c5e-4abb-ab23-190c7030ecbc/full/255,/0/default.jpg " , 
+ "type" : "Image" , 
+ "format" : "image/jpeg" , 
+ "service" : [ { "id" : " https://iiif.bodleian.ox.ac.uk/iiif/image/cb8d48b3-dcc2-4dae-9c27-bd4070b766c8 " , 
+ "type" : "ImageService2" , 
+ "profile" : "level1" 
+ } 
+ ] 
+ } 
+ } 
+ Search a Partner's Collection 
+ Fulltext queries can be performed on collections by accessing this route using a GET request and submitting
+a string containing the partner's name and setting the value of the q parameter in the querystring.
+ Complex operations for filtering can be accomplished by using Lucene query syntax in the fq 
+parameter, e.g., fq=(languages:English) . This has been tested with AND, OR, and
+NOT operators. Multiple fq parameters provided will be treated as AND statements.
+ The response is an object that can be parsed for a page of search results. The member key contains an array of
+search results, if any were found. Results to a query are sorted by relevance by default
+in this array. The sorting of the array can be controlled with the sort query parameter.
+ path Parameters
+ name required 
+ string 
+ Example: balliol 
+ The name of the partner
+ query Parameters
+ q string 
+ Enum : "binding" "collections" "contents" "date" "decorations" "description" "hands" "holding-institution" "inscriptions" "languages" "materials" "musical-notation" "provenance" "shelfmark" "titles" "architects" "people" "artists" "authors" "cartographers" "commentators" "composers" "compilers" "draughtsmen" "editors" "engravers" "former-owners" "illustrators" "origins" "patrons" "photographers" "printers" "publishers" "sitters" "translators" "performers" 
+ Example: q=unicorns 
+ A fulltext search query. This supports some Lucene search syntax, such as the fuzzy operator ( ~ ).
+Phrases can be searched by surrounding them in quotation marks. Field-specific queries from the list above work,
+as do the boolean operators AND, OR, and NOT, e.g., ?q=talmud NOT collections:"Arabic" AND date:[1700 TO *] .
+ page integer 
+ Example: page=10 
+ The page number.
+ fq string 
+ Enum : "collections" "completeness" "origins" "languages" "has-musical-notation" 
+ Example: fq=collections:"Arabic"&fq=(collections:"Arabic" OR collections:"Western)&fq=date:[700 TO 900] 
+ A filter to apply to the query. Use this with Lucene syntax to filter on a given value, e.g.,
+completeness:Yes for completely digitised objects or has-musical-notation:No for objects without musical notation.
+Fields from the list above are supported.
+Multiple fq parameters provided will be treated as AND statements.
+For dates, date:[1250 TO 1350] represents the inclusive range 1250-01-01 to 1350-12-31, and date:[* TO 1350] 
+means 'up to and including 1350'. Note that these ranges are inclusive on both ends.
+ sort string 
+ Enum : "relevance" "shelfmark" "published" "date" 
+ Example: sort=date desc 
+ Controls the sort order of the results. relevance desc (default) will sort the results in order from
+most to least relevant. shelfmark will sort the results first by institution, then by shelfmark in
+alphanumeric order. published desc will sort by most recently digitized first.
+ date asc will sort by creation date. Each of these can be reversed using asc or desc .
+ rows string 
+ Enum : "20" "40" "100" 
+ The number of results per page.
+ Responses
+ 200 The response returned when a search within a partner's collection has been successful.
+ 400 The request was not properly formed (a 4XX) request
+ get /partners/<str:name>/ 
+ https://digital.bodleian.ox.ac.uk /partners/<str:name>/
+ Response samples 
+ 200
+ Content type application/ld+json
+ Copy
+ Expand all Collapse all 
+ { "query" : [ { "q" : [ "Balliol College MS 238A" 
+ ] , 
+ "fq" : [ "completeness:complete" 
+ ] 
+ } 
+ ] , 
+ "@context" : " https://digital.bodleian.ox.ac.uk/api/1/context.json " , 
+ "id" : [ " https://digital.bodleian.ox.ac.uk/partners/balliol/ " 
+ ] , 
+ "type" : "db:Collection" , 
+ "view" : { "type" : "PartialCollectionView" , 
+ "first" : " https://digital.bodleian.ox.ac.uk/search/ " , 
+ "next" : " https://digital.bodleian.ox.ac.uk/search/?page=5 " , 
+ "previous" : " https://digital.bodleian.ox.ac.uk/search/?page=3 " , 
+ "last" : " https://digital.bodleian.ox.ac.uk/search/?page=20 " , 
+ "totalPages" : 20 
+ } , 
+ "totalItems" : 802 , 
+ "member" : { "displayFields" : { "shelfmark" : [ "Balliol College MS 238A" 
+ ] , 
+ "people" : [ "Bandini, Domenico" ,
+ "Werken, Theodoricus" 
+ ] , 
+ "origins" : [ "string" 
+ ] , 
+ "languages" : [ "Latin" 
+ ] , 
+ "title" : [ "Fons memorabilium uniuersi (Part I)" 
+ ] , 
+ "dateStatement" : [ "1444–1448" 
+ ] 
+ } , 
+ "id" : " http://digital.bodleian.ox.ac.uk/objects/441db95d-cdff-472e-bb2d-b46f043db82d " , 
+ "type" : "Object" , 
+ "shelfmark" : "Balliol College MS 238A" , 
+ "thumbnail" : { "id" : " https://iiif.bodleian.ox.ac.uk/iiif/image/79bf8325-22fa-4696-afe5-7d827d84f393/full/255,/0/default.jpg " , 
+ "type" : "Image" , 
+ "format" : "image/jpeg" , 
+ "service" : [ { "id" : " https://iiif.bodleian.ox.ac.uk/iiif/image/cb8d48b3-dcc2-4dae-9c27-bd4070b766c8 " , 
+ "type" : "ImageService2" , 
+ "profile" : "level1" 
+ } 
+ ] 
+ } , 
+ "manifest" : " https://iiif.bodleian.ox.ac.uk/iiif/manifest/441db95d-cdff-472e-bb2d-b46f043db82d.json " , 
+ "saved" : true 
+ } , 
+ "facets" : { "name" : "collections" , 
+ "displayName" : "Collections" , 
+ "type" : "Facet" , 
+ "items" : { "Archives and Modern Manuscripts" : 3 , 
+ "Bindings" : 1 
+ } 
+ } , 
+ "title" : [ "Western Medieval Manuscripts" 
+ ] , 
+ "thumbnail" : { "id" : " https://iiif.bodleian.ox.ac.uk/iiif/image/cb8d48b3-dcc2-4dae-9c27-bd4070b766c8/0,758,5306,3537/300,200/0/default.jpg " , 
+ "type" : "Image" , 
+ "format" : "image/jpeg" , 
+ "service" : [ { "id" : " https://iiif.bodleian.ox.ac.uk/iiif/image/cb8d48b3-dcc2-4dae-9c27-bd4070b766c8 " , 
+ "type" : "ImageService2" , 
+ "profile" : "level1" 
+ } 
+ ] 
+ } , 
+ "logo" : { "id" : " https://iiif.bodleian.ox.ac.uk/iiif/image/16053652-6c5e-4abb-ab23-190c7030ecbc/full/255,/0/default.jpg " , 
+ "type" : "Image" , 
+ "format" : "image/jpeg" , 
+ "service" : [ { "id" : " https://iiif.bodleian.ox.ac.uk/iiif/image/cb8d48b3-dcc2-4dae-9c27-bd4070b766c8 " , 
+ "type" : "ImageService2" , 
+ "profile" : "level1" 
+ } 
+ ] 
+ } 
+ } 
+ Objects
+ Retrieve a Surface record 
+ A surface represents a page in an object.
+ path Parameters
+ surface_id required 
+ string < uuid > 
+ The ID of the surface
+ object_id required 
+ string < uuid > 
+ The ID of the object containing the surface
+ Responses
+ 200 Surface retrieval request was successful
+ 404 The requested URI was not found on the server
+ get /objects/{object_id}/surfaces/{surface_id} 
+ https://digital.bodleian.ox.ac.uk /objects/{object_id}/surfaces/{surface_id}
+ Response samples 
+ 200
+ Content type application/ld+json
+ Copy
+ Expand all Collapse all 
+ { "id" : " http://digital.bodleian.ox.ac.uk/objects/bb802112-dde2-468f-8311-840c7f25175d/surfaces/8f35d798-bcd5-427b-8521-df11f06b353f/ " , 
+ "type" : "Surface" , 
+ "description" : "Upper Board" , 
+ "thumbnail" : { "id" : " https://iiif.bodleian.ox.ac.uk/iiif/image/cb8d48b3-dcc2-4dae-9c27-bd4070b766c8/0,758,5306,3537/300,200/0/default.jpg " , 
+ "type" : "Image" , 
+ "format" : "image/jpeg" , 
+ "service" : [ { "id" : " https://iiif.bodleian.ox.ac.uk/iiif/image/cb8d48b3-dcc2-4dae-9c27-bd4070b766c8 " , 
+ "type" : "ImageService2" , 
+ "profile" : "level1" 
+ } 
+ ] 
+ } , 
+ "displayFields" : { "shelfmark" : [ "string" 
+ ] , 
+ "people" : [ "string" 
+ ] , 
+ "origins" : [ "string" 
+ ] , 
+ "languages" : [ "string" 
+ ] , 
+ "title" : [ "string" 
+ ] , 
+ "dateStatement" : [ "string" 
+ ] , 
+ "snippet" : [ "... Speech welcoming <em>Henry</em> <em>VII</em> to Cambridge University. ..." 
+ ] 
+ } 
+ } 
+ Retrieve a Digital Bodleian object record 
+ An object represents a physical object in the collection. For example, this can be a map, a board game, or a manuscript.
+ path Parameters
+ object_id required 
+ string < uuid > 
+ Example: faeff7fb-f8a7-44b5-95ed-cff9a9ffd198 
+ The ID of the object to retrieve
+ Responses
+ 200 Object retrieval request was successful
+ 404 The requested URI was not found on the server
+ get /objects/{object_id} 
+ https://digital.bodleian.ox.ac.uk /objects/{object_id}
+ Response samples 
+ 200
+ Content type application/ld+json
+ Copy
+ Expand all Collapse all 
+ { "surfaceCount" : 802 , 
+ "collections" : [ { "id" : " http://digital.bodleian.ox.ac.uk/collections/medieval " , 
+ "type" : "db:Collection" , 
+ "title" : "string" , 
+ "thumbnail" : { "id" : " https://iiif.bodleian.ox.ac.uk/iiif/image/cb8d48b3-dcc2-4dae-9c27-bd4070b766c8/0,758,5306,3537/300,200/0/default.jpg " , 
+ "type" : "Image" , 
+ "format" : "image/jpeg" , 
+ "service" : [ { "id" : " https://iiif.bodleian.ox.ac.uk/iiif/image/cb8d48b3-dcc2-4dae-9c27-bd4070b766c8 " , 
+ "type" : "ImageService2" , 
+ "profile" : "level1" 
+ } 
+ ] 
+ } 
+ } 
+ ] , 
+ "exhibitions" : [ { "id" : " http://digital.bodleian.ox.ac.uk/collections/medieval " , 
+ "type" : "db:Collection" , 
+ "title" : "string" , 
+ "thumbnail" : { "id" : " https://iiif.bodleian.ox.ac.uk/iiif/image/cb8d48b3-dcc2-4dae-9c27-bd4070b766c8/0,758,5306,3537/300,200/0/default.jpg " , 
+ "type" : "Image" , 
+ "format" : "image/jpeg" , 
+ "service" : [ { "id" : " https://iiif.bodleian.ox.ac.uk/iiif/image/cb8d48b3-dcc2-4dae-9c27-bd4070b766c8 " , 
+ "type" : "ImageService2" , 
+ "profile" : "level1" 
+ } 
+ ] 
+ } 
+ } 
+ ] , 
+ "related" : [ { "id" : " http://digital.bodleian.ox.ac.uk/objects/ae9f6cca-ae5c-4149-8fe4-95e6eca1f73c " , 
+ "type" : "Object" , 
+ "shelfmark" : "Bodleian Library MS Bodl. 264" , 
+ "thumbnail" : { "id" : " https://iiif.bodleian.ox.ac.uk/iiif/image/cb8d48b3-dcc2-4dae-9c27-bd4070b766c8/0,758,5306,3537/300,200/0/default.jpg " , 
+ "type" : "Image" , 
+ "format" : "image/jpeg" , 
+ "service" : [ { "id" : " https://iiif.bodleian.ox.ac.uk/iiif/image/cb8d48b3-dcc2-4dae-9c27-bd4070b766c8 " , 
+ "type" : "ImageService2" , 
+ "profile" : "level1" 
+ } 
+ ] 
+ } , 
+ "manifest" : " https://iiif.bodleian.ox.ac.uk/iiif/manifest/60834383-7146-41ab-bfe1-48ee97bc04be.json " , 
+ "saved" : true , 
+ "contacts" : { "imaging" : [ { "text" : "Image rights and reuse enquiries" 
+ } ,
+ { "links" : { "url" : "mailto:imaging@bodleian.ox.ac.uk?subject=Bodleian%20Library%20MS.%20Bodl.%20264" , 
+ "text" : "imaging@bodleian.ox.ac.uk" 
+ } 
+ } 
+ ] , 
+ "object" : [ { "text" : "Enquiries about this object" 
+ } ,
+ { "links" : { "url" : " https://www.bodleian.ox.ac.uk/weston/about/contact " , 
+ "text" : " https://www.bodleian.ox.ac.uk/weston/about/contact " 
+ } 
+ } 
+ ] , 
+ "technical" : [ { "text" : "Technical enquiries and questions about the digital collections" 
+ } ,
+ { "links" : { "url" : "mailto:digital-bodleian@bodleian.ox.ac.uk?subject=Bodleian%20Library%20MS.%20Bodl.%20264" , 
+ "text" : "digital-bodleian@bodleian.ox.ac.uk" 
+ } 
+ } 
+ ] 
+ } , 
+ "logo" : { "id" : " https://iiif.bodleian.ox.ac.uk/iiif/image/16053652-6c5e-4abb-ab23-190c7030ecbc/full/255,/0/default.jpg " , 
+ "type" : "Image" , 
+ "format" : "image/jpeg" , 
+ "service" : [ { "id" : " https://iiif.bodleian.ox.ac.uk/iiif/image/cb8d48b3-dcc2-4dae-9c27-bd4070b766c8 " , 
+ "type" : "ImageService2" , 
+ "profile" : "level1" 
+ } 
+ ] 
+ } 
+ } 
+ ] , 
+ "id" : " http://digital.bodleian.ox.ac.uk/objects/ae9f6cca-ae5c-4149-8fe4-95e6eca1f73c " , 
+ "type" : "Object" , 
+ "shelfmark" : "Bodleian Library MS Bodl. 264" , 
+ "thumbnail" : { "id" : " https://iiif.bodleian.ox.ac.uk/iiif/image/cb8d48b3-dcc2-4dae-9c27-bd4070b766c8/0,758,5306,3537/300,200/0/default.jpg " , 
+ "type" : "Image" , 
+ "format" : "image/jpeg" , 
+ "service" : [ { "id" : " https://iiif.bodleian.ox.ac.uk/iiif/image/cb8d48b3-dcc2-4dae-9c27-bd4070b766c8 " , 
+ "type" : "ImageService2" , 
+ "profile" : "level1" 
+ } 
+ ] 
+ } , 
+ "manifest" : " https://iiif.bodleian.ox.ac.uk/iiif/manifest/60834383-7146-41ab-bfe1-48ee97bc04be.json " , 
+ "saved" : true , 
+ "contacts" : { "imaging" : [ { "text" : "Image rights and reuse enquiries" 
+ } ,
+ { "links" : { "url" : "mailto:imaging@bodleian.ox.ac.uk?subject=Bodleian%20Library%20MS.%20Bodl.%20264" , 
+ "text" : "imaging@bodleian.ox.ac.uk" 
+ } 
+ } 
+ ] , 
+ "object" : [ { "text" : "Enquiries about this object" 
+ } ,
+ { "links" : { "url" : " https://www.bodleian.ox.ac.uk/weston/about/contact " , 
+ "text" : " https://www.bodleian.ox.ac.uk/weston/about/contact " 
+ } 
+ } 
+ ] , 
+ "technical" : [ { "text" : "Technical enquiries and questions about the digital collections" 
+ } ,
+ { "links" : { "url" : "mailto:digital-bodleian@bodleian.ox.ac.uk?subject=Bodleian%20Library%20MS.%20Bodl.%20264" , 
+ "text" : "digital-bodleian@bodleian.ox.ac.uk" 
+ } 
+ } 
+ ] 
+ } , 
+ "logo" : { "id" : " https://iiif.bodleian.ox.ac.uk/iiif/image/16053652-6c5e-4abb-ab23-190c7030ecbc/full/255,/0/default.jpg " , 
+ "type" : "Image" , 
+ "format" : "image/jpeg" , 
+ "service" : [ { "id" : " https://iiif.bodleian.ox.ac.uk/iiif/image/cb8d48b3-dcc2-4dae-9c27-bd4070b766c8 " , 
+ "type" : "ImageService2" , 
+ "profile" : "level1" 
+ } 
+ ] 
+ } 
+ } 
+ Search over the object's surfaces 
+ Search the surfaces belonging to the given object. This accepts the same parameters as the main search API,
+except for the sort parameter, since surfaces are expected to be returned in the order in which they appear
+in the document.
+ path Parameters
+ object_id required 
+ string < uuid > 
+ Example: faeff7fb-f8a7-44b5-95ed-cff9a9ffd198 
+ The ID of the object containing the surfaces
+ query Parameters
+ q string 
+ Enum : "binding" "collections" "contents" "date" "decorations" "description" "hands" "holding-institution" "inscriptions" "languages" "materials" "musical-notation" "provenance" "shelfmark" "titles" "architects" "people" "artists" "authors" "cartographers" "commentators" "composers" "compilers" "draughtsmen" "editors" "engravers" "former-owners" "illustrators" "origins" "patrons" "photographers" "printers" "publishers" "sitters" "translators" "performers" 
+ Example: q=unicorns 
+ A fulltext search query. This supports some Lucene search syntax, such as the fuzzy operator ( ~ ).
+Phrases can be searched by surrounding them in quotation marks. Field-specific queries from the list above work,
+as do the boolean operators AND, OR, and NOT, e.g., ?q=talmud NOT collections:"Arabic" AND date:[1700 TO *] .
+ page integer 
+ Example: page=10 
+ The page number.
+ fq string 
+ Enum : "collections" "completeness" "origins" "languages" "has-musical-notation" 
+ Example: fq=collections:"Arabic"&fq=(collections:"Arabic" OR collections:"Western)&fq=date:[700 TO 900] 
+ A filter to apply to the query. Use this with Lucene syntax to filter on a given value, e.g.,
+completeness:Yes for completely digitised objects or has-musical-notation:No for objects without musical notation.
+Fields from the list above are supported.
+Multiple fq parameters provided will be treated as AND statements.
+For dates, date:[1250 TO 1350] represents the inclusive range 1250-01-01 to 1350-12-31, and date:[* TO 1350] 
+means 'up to and including 1350'. Note that these ranges are inclusive on both ends.
+ rows string 
+ Enum : "20" "40" "100" 
+ The number of results per page.
+ Responses
+ 200 The response returned when a surface search has been successful.
+ 400 The request was not properly formed (a 4XX) request
+ get /objects/{object_id}/?q 
+ https://digital.bodleian.ox.ac.uk /objects/{object_id}/?q
+ Response samples 
+ 200
+ Content type application/ld+json
+ Copy
+ Expand all Collapse all 
+ { "id" : " https://digital.bodleian.ox.ac.uk/faeff7fb-f8a7-44b5-95ed-cff9a9ffd198/search/?q=unicorn&page=4 " , 
+ "member" : [ { "order" : 24 , 
+ "id" : " http://digital.bodleian.ox.ac.uk/objects/ae9f6cca-ae5c-4149-8fe4-95e6eca1f73c " , 
+ "type" : "Object" , 
+ "description" : "Upper Board" , 
+ "thumbnail" : { "id" : " https://iiif.bodleian.ox.ac.uk/iiif/image/cb8d48b3-dcc2-4dae-9c27-bd4070b766c8/0,758,5306,3537/300,200/0/default.jpg " , 
+ "type" : "Image" , 
+ "format" : "image/jpeg" , 
+ "service" : [ { "id" : " https://iiif.bodleian.ox.ac.uk/iiif/image/cb8d48b3-dcc2-4dae-9c27-bd4070b766c8 " , 
+ "type" : "ImageService2" , 
+ "profile" : "level1" 
+ } 
+ ] 
+ } , 
+ "displayFields" : { "shelfmark" : [ "string" 
+ ] , 
+ "people" : [ "string" 
+ ] , 
+ "origins" : [ "string" 
+ ] , 
+ "languages" : [ "string" 
+ ] , 
+ "title" : [ "string" 
+ ] , 
+ "dateStatement" : [ "string" 
+ ] , 
+ "snippet" : [ "... Speech welcoming <em>Henry</em> <em>VII</em> to Cambridge University. ..." 
+ ] 
+ } , 
+ "surfaceCount" : 802 , 
+ "resultsWithin" : { "totalItems" : 101 , 
+ "url" : " https://digital.bodleian.ox.ac.uk/objects/7ed574fb-5fbc-41d0-9958-f2497acf462a/search/?q=foo " 
+ } , 
+ "shelfmark" : "Bodleian Library MS Bodl. 264" , 
+ "manifest" : " https://iiif.bodleian.ox.ac.uk/iiif/manifest/60834383-7146-41ab-bfe1-48ee97bc04be.json " , 
+ "saved" : true , 
+ "contacts" : { "imaging" : [ { "text" : "Image rights and reuse enquiries" 
+ } ,
+ { "links" : { "url" : "mailto:imaging@bodleian.ox.ac.uk?subject=Bodleian%20Library%20MS.%20Bodl.%20264" , 
+ "text" : "imaging@bodleian.ox.ac.uk" 
+ } 
+ } 
+ ] , 
+ "object" : [ { "text" : "Enquiries about this object" 
+ } ,
+ { "links" : { "url" : " https://www.bodleian.ox.ac.uk/weston/about/contact " , 
+ "text" : " https://www.bodleian.ox.ac.uk/weston/about/contact " 
+ } 
+ } 
+ ] , 
+ "technical" : [ { "text" : "Technical enquiries and questions about the digital collections" 
+ } ,
+ { "links" : { "url" : "mailto:digital-bodleian@bodleian.ox.ac.uk?subject=Bodleian%20Library%20MS.%20Bodl.%20264" , 
+ "text" : "digital-bodleian@bodleian.ox.ac.uk" 
+ } 
+ } 
+ ] 
+ } , 
+ "logo" : { "id" : " https://iiif.bodleian.ox.ac.uk/iiif/image/16053652-6c5e-4abb-ab23-190c7030ecbc/full/255,/0/default.jpg " , 
+ "type" : "Image" , 
+ "format" : "image/jpeg" , 
+ "service" : [ { "id" : " https://iiif.bodleian.ox.ac.uk/iiif/image/cb8d48b3-dcc2-4dae-9c27-bd4070b766c8 " , 
+ "type" : "ImageService2" , 
+ "profile" : "level1" 
+ } 
+ ] 
+ } 
+ } 
+ ] , 
+ "@context" : " https://digital.bodleian.ox.ac.uk/api/1/context.json " , 
+ "type" : "Collection" , 
+ "query" : [ { "q" : [ "ms ashmole 1511" 
+ ] , 
+ "fq" : [ "completeness:complete" 
+ ] 
+ } 
+ ] , 
+ "view" : { "type" : "PartialCollectionView" , 
+ "first" : " https://digital.bodleian.ox.ac.uk/search/ " , 
+ "next" : " https://digital.bodleian.ox.ac.uk/search/?page=5 " , 
+ "previous" : " https://digital.bodleian.ox.ac.uk/search/?page=3 " , 
+ "last" : " https://digital.bodleian.ox.ac.uk/search/?page=20 " , 
+ "totalPages" : 20 
+ } , 
+ "totalItems" : 400 , 
+ "contacts" : { "imaging" : [ { "text" : "Image rights and reuse enquiries" 
+ } ,
+ { "links" : { "url" : "mailto:imaging@bodleian.ox.ac.uk?subject=Bodleian%20Library%20MS.%20Bodl.%20264" , 
+ "text" : "imaging@bodleian.ox.ac.uk" 
+ } 
+ } 
+ ] , 
+ "object" : [ { "text" : "Enquiries about this object" 
+ } ,
+ { "links" : { "url" : " https://www.bodleian.ox.ac.uk/weston/about/contact " , 
+ "text" : " https://www.bodleian.ox.ac.uk/weston/about/contact " 
+ } 
+ } 
+ ] , 
+ "technical" : [ { "text" : "Technical enquiries and questions about the digital collections" 
+ } ,
+ { "links" : { "url" : "mailto:digital-bodleian@bodleian.ox.ac.uk?subject=Bodleian%20Library%20MS.%20Bodl.%20264" , 
+ "text" : "digital-bodleian@bodleian.ox.ac.uk" 
+ } 
+ } 
+ ] 
+ } , 
+ "logo" : { "id" : " https://iiif.bodleian.ox.ac.uk/iiif/image/16053652-6c5e-4abb-ab23-190c7030ecbc/full/255,/0/default.jpg " , 
+ "type" : "Image" , 
+ "format" : "image/jpeg" , 
+ "service" : [ { "id" : " https://iiif.bodleian.ox.ac.uk/iiif/image/cb8d48b3-dcc2-4dae-9c27-bd4070b766c8 " , 
+ "type" : "ImageService2" , 
+ "profile" : "level1" 
+ } 
+ ] 
+ } 
+ } 
+ Account
+ Retrieve Authenticated User Account Data
+ A GET request can be used on /account to retrieve a response containing the user account data.
+ Users performing a GET request who are not authenticated will receive a 401 response,
+indicating that they are not operating as a logged-in user.
+ The GET response for authenticated users will contain account information including a
+ savedSearches and a savedObjects key containing searches and objects saved by the user.
+ Responses
+ 200 The response returned when an account GET request has been successful.
+ 401 The request user is unauthorized
+ 405 The request method is not allowed
+ get /account 
+ https://digital.bodleian.ox.ac.uk /account
+ Response samples 
+ 200
+ Content type application/ld+json
+ Copy
+ Expand all Collapse all 
+ { "@context" : " https://digital.bodleian.ox.ac.uk/api/1/context.json " , 
+ "id" : " https://digital.bodleian.ox.ac.uk/account/ " , 
+ "type" : "db:Account" , 
+ "email" : "string" , 
+ "name" : "string" , 
+ "isStaff" : true , 
+ "savedSearches" : [ [ { "id" : " https://digital.bodleian.ox.ac.uk/account/searches/550ff925-d87b-4e8a-a5b7-c9ecd3bef265 " , 
+ "name" : "Search Example" , 
+ "route" : "/search/" , 
+ "search" : " https://digital.bodleian.ox.ac.uk/search/?q=Shakespeare&fq=collect:Western&fq=languages:English&sort=sort=shelfmark+asc&page=10&rows=20 " , 
+ "created" : "2019-11-05 14:51:50" 
+ } 
+ ] 
+ ] , 
+ "savedObjects" : [ [ { "id" : " https://digital.bodleian.ox.ac.uk/account/objects/390fd0e8-9eae-475d-9564-ed916ab9035c/ " , 
+ "object" : " https://digital.bodleian.ox.ac.uk/objects/390fd0e8-9eae-475d-9564-ed916ab9035c/ " , 
+ "tags" : [ "Elizabethan" ,
+ "Drama" 
+ ] , 
+ "surfaces" : [ " http://https://digital.bodleian.ox.ac.uk/objects/390fd0e8-9eae-475d-9564-ed916ab9035c/surfaces/98d1dd37-7406-48aa-bd22-b36d5c6431f3/ " 
+ ] , 
+ "displayFields" : { "shelfmark" : "Bodleian Library Arch. G c.7" , 
+ "people" : [ "Heminge, John, approximately 1556-1630" ,
+ "Condell, Henry, -1627" ,
+ "Holland, Hugh" ,
+ "Shakespeare, William, 1564-1616" ,
+ "Jonson, Ben" ,
+ "Digges, L." ,
+ "Smethwicke, John, -1641" ,
+ "Aspley, William, -1640" ,
+ "Blount, Edward, active 1588-1632" ,
+ "Jaggard, Isaac, -1627" 
+ ] , 
+ "origins" : [ "London" 
+ ] , 
+ "languages" : [ "English" 
+ ] , 
+ "title" : "Mr. VVilliam Shakespeares comedies, histories, & tragedies.: Published according to the True Originall Copies." , 
+ "dateStatement" : [ "1623" 
+ ] 
+ } 
+ } 
+ ] 
+ ] 
+ } 
+ Save a Search 
+ Searches are saved to the user account by accessing this route with a POST request containing a valid JSON
+object. Searches can be saved from the search page e.g. /search/?q=Shakespeare or via a collection page e.g.
+ /partners/balliol/?q=Shakespeare by changing the route value in the request body to /search/ or /partners/balliol/ etc.
+ Request Body schema: application/json 
+ name string 
+ An optional name for the search the user wishes to save. It must be in valid JSON format, e.g.,
+ {"name": "Shakespeare in English"} . If left out of the request body the default value will be
+ Unnamed search .
+ route required 
+ string 
+ The route for where the search is being saved from. If must be in valid JSON format, e.g.,
+ {"route": "/search/"} .
+ search required 
+ string 
+ The query string containing the search parameters used for the search the account user wishes to
+save. The leading question mark must be omitted. It must be in valid JSON format, e.g.,
+ {"search": "q=Shakespeare&fq=languages:English"} .
+ Responses
+ 201 The response returned when a search has been saved successfully.
+ 400 The request was not properly formed (a 4XX) request
+ 405 The request method is not allowed
+ 422 The request body is recognised and the syntax is correct but the content cannot be processed
+ post /account/searches 
+ https://digital.bodleian.ox.ac.uk /account/searches
+ Request samples 
+ Payload
+ Content type application/json
+ Copy
+ Expand all Collapse all 
+ { "name" : "Shakespeare in English" , 
+ "route" : "/search/" , 
+ "search" : "q=Shakespeare&fq=languages:English" 
+ } 
+ Response samples 
+ 201
+ Content type application/json
+ Copy
+ Expand all Collapse all 
+ { "id" : "550ff925-d87b-4e8a-a5b7-c9ecd3bef265" , 
+ "name" : "Shakespeare in Western English" , 
+ "route" : "/search/" , 
+ "search" : [ { "q" : [ "Shakespeare" 
+ ] , 
+ "fq" : [ "collections:Western" ,
+ "languages:English" ,
+ "page=10" ,
+ "rows=20" ,
+ "sort='shelfmark_asc'" 
+ ] 
+ } 
+ ] , 
+ "created" : "2019-11-05 14:51:50" 
+ } 
+ Delete a Search 
+ Searches are deleted from the user account by accessing this route using a DELETE request and
+submitting a primary key in UUID format as a part of the path, e.g., /account/searches/550ff925-d87b-4e8a-a5b7-c9ecd3bef265 .
+ path Parameters
+ saved_search_id required 
+ string < uuid > 
+ Example: 550ff925-d87b-4e8a-a5b7-c9ecd3bef265 
+ The value of the ID of a saved search in UUID format
+ Responses
+ 204 The request was successful and no content was returned
+ 404 The requested URI was not found on the server
+ 405 The request method is not allowed
+ delete /account/searches/{saved_search_id} 
+ https://digital.bodleian.ox.ac.uk /account/searches/{saved_search_id}
+ Save an Object 
+ Objects are saved to the user account by accessing this route with a POST request containing a valid JSON
+object.
+ Request Body schema: application/json 
+ object string 
+ The URL of the object the user wishes to save. It must be in valid JSON format, e.g.,
+ {"https://digital.bodleian.ox.ac.uk/objects/390fd0e8-9eae-475d-9564-ed916ab9035"} .
+ tags object 
+ The list of tags the user wishes the saved object to be grouped under. It must be in valid JSON
+format, e.g., {"tags": ["Shakespeare", "Elizabethan Dramas"]} .
+ surfaces object 
+ The list of surfaces the user wishes to save from the object. The surfaces listed must all be the URLS of existing surfaces.
+It must be in valid JSON format, e.g., {"surfaces": ["https://digital.bodleian.ox.ac.uk/objects/390fd0e8-9eae-475d-9564-ed916ab9035/surfaces/a13ee009-596c-4151-8f4c-568b0c2ce2cc",
+"https://digital.bodleian.ox.ac.uk/objects/390fd0e8-9eae-475d-9564-ed916ab9035/surfaces/a024a538-aef3-44b3-ad11-51c6a8b04ea2"]} .
+ Responses
+ 201 The response returned when an object has been saved or updated successfully.
+ 400 The request was not properly formed (a 4XX) request
+ 405 The request method is not allowed
+ 422 The request body is recognised and the syntax is correct but the content cannot be processed
+ post /account/objects/ 
+ https://digital.bodleian.ox.ac.uk /account/objects/
+ Request samples 
+ Payload
+ Content type application/json
+ Copy
+ Expand all Collapse all 
+ { "object" : " https://digital.bodleian.ox.ac.uk/objects/390fd0e8-9eae-475d-9564-ed916ab9035c " , 
+ "tags" : [ "Shakespeare" ,
+ "Elizabethan Drama" 
+ ] , 
+ "surfaces" : [ " https://digital.bodleian.ox.ac.uk/objects/390fd0e8-9eae-475d-9564-ed916ab9035/surfaces/a13ee009-596c-4151-8f4c-568b0c2ce2cc " ,
+ " https://digital.bodleian.ox.ac.uk/objects/390fd0e8-9eae-475d-9564-ed916ab9035/surfaces/a024a538-aef3-44b3-ad11-51c6a8b04ea2 " 
+ ] 
+ } 
+ Response samples 
+ 201
+ Content type application/json
+ Copy
+ Expand all Collapse all 
+ { "id" : " https://digital.bodleian.ox.ac.uk/account/objects/390fd0e8-9eae-475d-9564-ed916ab9035c/ " , 
+ "object" : " https://digital.bodleian.ox.ac.uk/objects/390fd0e8-9eae-475d-9564-ed916ab9035c/ " , 
+ "surfaces" : [ " https://digital.bodleian.ox.ac.uk/objects/390fd0e8-9eae-475d-9564-ed916ab9035c/surfaces/a13ee009-596c-4151-8f4c-568b0c2ce2cc " ,
+ " https://digital.bodleian.ox.ac.uk/objects/390fd0e8-9eae-475d-9564-ed916ab9035c/surfaces/a024a538-aef3-44b3-ad11-51c6a8b04ea2 " 
+ ] , 
+ "tags" : [ "Shakespeare" ,
+ "Elizabethan Drama" 
+ ] , 
+ "displayFields" : [ { "shelfmark" : "Bodlian Library Arch. G c.7" , 
+ "people" : [ "Heminge, John, approximately 1556-1630" ,
+ "Condell, Henry, -1627" ,
+ "Jonson, Ben" ,
+ "Holland, Hugh" ,
+ "Digges, L." ,
+ "Shakespeare, William, 1564-1616" ,
+ "Aspley, William, -1640" ,
+ "Smethwicke, John, -1641" ,
+ "Jaggard, Isaac, -1627" ,
+ "Blount, Edward, active 1588-1632" 
+ ] , 
+ "origins" : [ "London" 
+ ] , 
+ "languages" : [ "English" 
+ ] , 
+ "title" : "Mr. VVilliam Shakespeares comedies, histories, & tragedies.: Published according to the True Originall Copies." , 
+ "dateStatement" : [ "1623" 
+ ] 
+ } 
+ ] 
+ } 
+ Update a Saved Object 
+ Saved objects are updated by accessing this route with a PUT request containing a valid JSON object and
+submitting a primary key in UUID format as a part of the path, e.g., /account/objects/390fd0e8-9eae-475d-9564-ed916ab9035c 
+ path Parameters
+ saved_object_id required 
+ string < uuid > 
+ Example: 390fd0e8-9eae-475d-9564-ed916ab9035c 
+ The value of the ID of a saved object in UUID format
+ Request Body schema: application/json 
+ tags object 
+ The list of tags the user wishes the saved object to be grouped under. It must be in valid JSON
+format, e.g., {"tags": ["Shakespeare", "Elizabethan Dramas"]} . Ommision of tags in the request
+body will result in any saved tags for the object being replaced with an empty list, e.g., {"tags": []} .
+ surfaces object 
+ The list of surfaces the user wishes to save from the object. The surfaces listed must all be valid UUIDs.
+It must be in valid JSON format, e.g., {"surfaces": ["a13ee009-596c-4151-8f4c-568b0c2ce2cc",
+"a024a538-aef3-44b3-ad11-51c6a8b04ea2"]} . Ommision of surfaces will result in any saved surfaces
+for the object being replaced with an empty list, e.g., {"surfaces": []} .
+ Responses
+ 200 The response returned when an object has been updated successfully.
+ 400 The request was not properly formed (a 4XX) request
+ 404 The requested URI was not found on the server
+ 405 The request method is not allowed
+ 422 The request body is recognised and the syntax is correct but the content cannot be processed
+ put /account/objects/{saved_object_id} 
+ https://digital.bodleian.ox.ac.uk /account/objects/{saved_object_id}
+ Request samples 
+ Payload
+ Content type application/json
+ Copy
+ Expand all Collapse all 
+ { "tags" : [ "Shakespeare" ,
+ "Elizabethan Drama" 
+ ] , 
+ "surfaces" : [ "a13ee009-596c-4151-8f4c-568b0c2ce2cc" ,
+ "a024a538-aef3-44b3-ad11-51c6a8b04ea2" 
+ ] 
+ } 
+ Response samples 
+ 200
+ Content type application/json
+ Copy
+ Expand all Collapse all 
+ { "id" : " https://digital.bodleian.ox.ac.uk/account/objects/390fd0e8-9eae-475d-9564-ed916ab9035c/ " , 
+ "object" : " https://digital.bodleian.ox.ac.uk/objects/390fd0e8-9eae-475d-9564-ed916ab9035c/ " , 
+ "surfaces" : [ " https://digital.bodleian.ox.ac.uk/objects/390fd0e8-9eae-475d-9564-ed916ab9035c/surfaces/a13ee009-596c-4151-8f4c-568b0c2ce2cc " ,
+ " https://digital.bodleian.ox.ac.uk/objects/390fd0e8-9eae-475d-9564-ed916ab9035c/surfaces/a024a538-aef3-44b3-ad11-51c6a8b04ea2 " 
+ ] , 
+ "tags" : [ "Shakespeare" ,
+ "Elizabethan Drama" 
+ ] , 
+ "displayFields" : [ { "shelfmark" : "Bodlian Library Arch. G c.7" , 
+ "people" : [ "Heminge, John, approximately 1556-1630" ,
+ "Condell, Henry, -1627" ,
+ "Jonson, Ben" ,
+ "Holland, Hugh" ,
+ "Digges, L." ,
+ "Shakespeare, William, 1564-1616" ,
+ "Aspley, William, -1640" ,
+ "Smethwicke, John, -1641" ,
+ "Jaggard, Isaac, -1627" ,
+ "Blount, Edward, active 1588-1632" 
+ ] , 
+ "origins" : [ "London" 
+ ] , 
+ "languages" : [ "English" 
+ ] , 
+ "title" : "Mr. VVilliam Shakespeares comedies, histories, & tragedies.: Published according to the True Originall Copies." , 
+ "dateStatement" : [ "1623" 
+ ] 
+ } 
+ ] 
+ } 
+ Update a Saved Object 
+ Saved objects are updated by accessing this route with a PATCH request containing a valid JSON object and
+submitting a primary key in UUID format as a part of the path, e.g., /account/objects/390fd0e8-9eae-475d-9564-ed916ab9035c .
+ path Parameters
+ saved_object_id required 
+ string < uuid > 
+ Example: 390fd0e8-9eae-475d-9564-ed916ab9035c 
+ The value of the ID of a saved object in UUID format
+ Request Body schema: application/json 
+ tags object 
+ The list of tags the user wishes the saved object to be grouped under. It must be in valid JSON
+format, e.g., {"tags": ["Shakespeare", "Elizabethan Dramas"]} . Ommision of tags in the request
+body will result in any saved tags for the object being replaced with an empty list, e.g., {"tags": []} .
+ surfaces object 
+ The list of surfaces the user wishes to save from the object. The surfaces listed must all be valid UUIDs.
+It must be in valid JSON format, e.g., {"surfaces": ["a13ee009-596c-4151-8f4c-568b0c2ce2cc",
+"a024a538-aef3-44b3-ad11-51c6a8b04ea2"]} . Ommision of surfaces will result in any saved surfaces
+for the object being replaced with an empty list, e.g., {"surfaces": []} .
+ Responses
+ 200 The response returned when an object has been updated successfully.
+ 400 The request was not properly formed (a 4XX) request
+ 404 The requested URI was not found on the server
+ 405 The request method is not allowed
+ 422 The request body is recognised and the syntax is correct but the content cannot be processed
+ patch /account/objects/{saved_object_id} 
+ https://digital.bodleian.ox.ac.uk /account/objects/{saved_object_id}
+ Request samples 
+ Payload
+ Content type application/json
+ Copy
+ Expand all Collapse all 
+ { "tags" : [ "Shakespeare" ,
+ "Elizabethan Drama" 
+ ] , 
+ "surfaces" : [ "a13ee009-596c-4151-8f4c-568b0c2ce2cc" ,
+ "a024a538-aef3-44b3-ad11-51c6a8b04ea2" 
+ ] 
+ } 
+ Response samples 
+ 200
+ Content type application/json
+ Copy
+ Expand all Collapse all 
+ { "id" : " https://digital.bodleian.ox.ac.uk/account/objects/390fd0e8-9eae-475d-9564-ed916ab9035c/ " , 
+ "object" : " https://digital.bodleian.ox.ac.uk/objects/390fd0e8-9eae-475d-9564-ed916ab9035c/ " , 
+ "surfaces" : [ " https://digital.bodleian.ox.ac.uk/objects/390fd0e8-9eae-475d-9564-ed916ab9035c/surfaces/a13ee009-596c-4151-8f4c-568b0c2ce2cc " ,
+ " https://digital.bodleian.ox.ac.uk/objects/390fd0e8-9eae-475d-9564-ed916ab9035c/surfaces/a024a538-aef3-44b3-ad11-51c6a8b04ea2 " 
+ ] , 
+ "tags" : [ "Shakespeare" ,
+ "Elizabethan Drama" 
+ ] , 
+ "displayFields" : [ { "shelfmark" : "Bodlian Library Arch. G c.7" , 
+ "people" : [ "Heminge, John, approximately 1556-1630" ,
+ "Condell, Henry, -1627" ,
+ "Jonson, Ben" ,
+ "Holland, Hugh" ,
+ "Digges, L." ,
+ "Shakespeare, William, 1564-1616" ,
+ "Aspley, William, -1640" ,
+ "Smethwicke, John, -1641" ,
+ "Jaggard, Isaac, -1627" ,
+ "Blount, Edward, active 1588-1632" 
+ ] , 
+ "origins" : [ "London" 
+ ] , 
+ "languages" : [ "English" 
+ ] , 
+ "title" : "Mr. VVilliam Shakespeares comedies, histories, & tragedies.: Published according to the True Originall Copies." , 
+ "dateStatement" : [ "1623" 
+ ] 
+ } 
+ ] 
+ } 
+ Delete a Saved Object 
+ Saved objects are deleted from the user account by accessing this route using a DELETE request and
+submitting a primary key in UUID format as a part of the path, e.g., /account/objects/390fd0e8-9eae-475d-9564-ed916ab9035c .
+ path Parameters
+ saved_object_id required 
+ string < uuid > 
+ Example: 390fd0e8-9eae-475d-9564-ed916ab9035c 
+ The value of the ID of a saved object in UUID format
+ Responses
+ 204 The request was successful and no content was returned
+ 404 The requested URI was not found on the server
+ 405 The request method is not allowed
+ delete /account/objects/{saved_object_id} 
+ https://digital.bodleian.ox.ac.uk /account/objects/{saved_object_id}

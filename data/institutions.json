@@ -726,43 +726,61 @@
     "slug": "bodleian",
     "nom": "Bodleian Libraries (Oxford)",
     "pays": "Royaume-Uni",
-    "statut_audit": "en cours (méthode v2, 2 étapes sur 7 à compléter)",
+    "statut_audit": "méthode v2 complète sauf g (crash test après audit global)",
     "checklist": {
-      "a_doc_lue": "fait (5 pages lues en entier : developer, iiif, data, terms, faq)",
-      "b_endpoints_doc": "fait (manifestes, canvases, images, collections, search ; /account exige une authentification)",
-      "c_config_avant_tests": "fait (scripts/config/bodleian.json)",
-      "d_quota_dans_doc": "fait : aucun quota ; « if you are expecting to harvest a significant number of manifests, we would ask that you get in touch »",
-      "e_tests_endpoints": "fait (passe v2 : 12 requêtes, aucun en-tête de limite, aucun 403/429)",
-      "f_web": "partiel (liste iiif-discuss 2017 lue ; billet blog IA lu en résumé seulement)",
-      "g_crash_test": "à faire (après audit)"
+      "a_doc_lue": "fait (5 pages + 2 robots + blog + politique IA + poster LIBER lus ; iiif.bodleian robots.txt en 400)",
+      "b_endpoints_doc": "fait (IIIF, données ; /account non testé : authentification)",
+      "c_config_avant_tests": "fait (scripts/config/bodleian.json, 12 entrées)",
+      "d_quota_dans_doc": "fait : aucun quota ; « get in touch » avant un moissonnage important",
+      "e_tests_endpoints": "fait (passe v2 : 12 requêtes, aucun en-tête ni 403/429)",
+      "f_web": "fait (poster LIBER 2025, blog 2026-10-01, politique IA, iiif-discuss 2017 en extraits)",
+      "g_crash_test": "à faire (après audit global)"
     },
-    "limites_documentees": [],
+    "limites_documentees": [
+      {
+        "nature": "Règle explicite (sans chiffre)",
+        "perimetre": "moissonnage d'un nombre important de manifestes",
+        "valeur": "prévenir l'équipe avant",
+        "fenetre": "–",
+        "effet": "non précisé",
+        "verification": "officielle, lue en entier",
+        "source": "https://digital.bodleian.ox.ac.uk/developer/iiif/",
+        "date": "2026-11-13"
+      }
+    ],
     "en_tetes_observes": [],
     "blocages": [],
-    "contact": "digital-bodleian@bodleian.ox.ac.uk (moissonnage significatif)",
-    "conclusion_quota": "Aucun quota publié. Contact demandé pour un moissonnage important.",
-    "classe_quota": "aucun quota trouvé (contact)",
+    "contact": "digital-bodleian@bodleian.ox.ac.uk",
+    "conclusion_quota": "Aucun quota chiffré ni en-tête. Prévenir avant un moissonnage important. La Bodleian déclare subir un scraping qui dégrade ses sites et envisage des mesures techniques.",
+    "classe_quota": "aucun quota trouvé (règle de contact, menace de mesures techniques)",
     "confiance": "moyenne",
-    "notes": "La doc suggère d'ajouter un e-mail au User-Agent ; non fait (consigne du projet).",
+    "notes": "Le billet 2026-10-01 concerne le dépôt ORA, pas Digital Bodleian. iiif.bodleian robots.txt : 400. Poster lu visuellement.",
     "preuves": {
       "a_doc_lue": [
-        "sources/bodleian/SHA256SUMS"
+        "sources/bodleian/SHA256SUMS",
+        "sources/bodleian/suite/SHA256SUMS",
+        "sources/bodleian/blog-ia/SHA256SUMS",
+        "sources/bodleian/poster/SHA256SUMS"
       ],
       "b_endpoints_doc": [
-        "sources/bodleian/raw/02.html",
-        "sources/bodleian/raw/03.html"
+        "sources/bodleian/text/02.txt",
+        "sources/bodleian/text/03.txt"
       ],
       "c_config_avant_tests": [
         "scripts/config/bodleian.json"
       ],
       "d_quota_dans_doc": [
-        "sources/bodleian/SHA256SUMS"
+        "sources/bodleian/text/02.txt",
+        "sources/bodleian/text/04.txt"
       ],
       "e_tests_endpoints": [
-        "tests/bodleian.log"
+        "tests/bodleian.log",
+        "tests/raw/bodleian"
       ],
       "f_web": [
-        "institutions/bodleian.md"
+        "sources/bodleian/poster/liber2025.pdf",
+        "sources/bodleian/blog-ia/text/01.txt",
+        "sources/bodleian/poster/bodleian-ai-policy.txt"
       ]
     },
     "sources": [
@@ -795,24 +813,69 @@
         "date": "2026-11-13",
         "etiquette": "officielle",
         "preuve": "sources/bodleian/SHA256SUMS"
+      },
+      {
+        "url": "https://digital.bodleian.ox.ac.uk/robots.txt",
+        "date": "2026-11-13",
+        "etiquette": "officielle",
+        "preuve": "sources/bodleian/suite/SHA256SUMS"
+      },
+      {
+        "url": "https://iiif.bodleian.ox.ac.uk/robots.txt",
+        "date": "2026-11-13",
+        "etiquette": "officielle (400)",
+        "preuve": "sources/bodleian/suite/SHA256SUMS"
+      },
+      {
+        "url": "https://blogs.bodleian.ox.ac.uk/digital/2026/10/01/implementing-our-ai-policy-hypothetical-use-cases/",
+        "date": "2026-11-13",
+        "etiquette": "institution (blog)",
+        "preuve": "sources/bodleian/blog-ia/SHA256SUMS"
+      },
+      {
+        "url": "http://www.bodleian.ox.ac.uk/sites/default/files/bodreader/documents/media/bodleian-libraries-ai-policy.pdf",
+        "date": "2026-11-13",
+        "etiquette": "institution (politique IA)",
+        "preuve": "sources/bodleian/poster/SHA256SUMS"
+      },
+      {
+        "url": "https://zenodo.org/records/16744631",
+        "date": "2026-11-13",
+        "etiquette": "institution (poster LIBER 2025)",
+        "preuve": "sources/bodleian/poster/SHA256SUMS"
       }
     ],
     "web": [
       {
-        "url": "https://groups.google.com/g/iiif-discuss/c/Z3GVdj6s61w",
-        "date": "2017-11-13",
-        "etiquette": "officielle-équipe (liste IIIF, message de l'équipe Digital Bodleian)",
-        "citation": "« could you please use the \"User-Agent\" header to give some contact details or a pointer to a project page? » ; « consider adding a small break between requests; even a 500ms delay » ; « If you do get blocked for abuse, I would imagine the service providers would prefer that block to be temporary. » ; « We would like to avoid automated throttling of our connections if at all possible »",
-        "preuve": "institutions/bodleian.md (étape f)"
+        "url": "https://zenodo.org/records/16744631",
+        "date": "2025-07",
+        "etiquette": "institution (poster LIBER 2025)",
+        "citation": "« Our websites are grinding to a halt » ; « Web scraping is bringing our websites to a crawl » ; « Companies & scrapers are ignoring robots.txt » ; « How do we limit bots without losing human users? »",
+        "preuve": "sources/bodleian/poster/liber2025.pdf"
       },
       {
-        "url": "https://blogs.bodleian.ox.ac.uk/digital/",
-        "date": "non lu en entier",
-        "etiquette": "officielle (blog Digital Bodleian, billet « Implementing our AI Policy: hypothetical use cases »)",
-        "citation": "Résumé : le dépôt a subi des problèmes de moissonnage non annoncé, y compris de bots IA qui ignorent les limites d'usage normales ; un accès en volume passe par une voie sanctionnée. Citation exacte non relue.",
+        "url": "https://blogs.bodleian.ox.ac.uk/digital/2026/10/01/implementing-our-ai-policy-hypothetical-use-cases/",
+        "date": "2026-10-01",
+        "etiquette": "institution (blog) — portée : dépôt ORA",
+        "citation": "« avoiding the unrestricted, unannounced harvesting that has caused problems for the repository in the past. (This includes AI bots that ignore normal usage limits.) »",
+        "preuve": "sources/bodleian/blog-ia/text/01.txt"
+      },
+      {
+        "url": "http://www.bodleian.ox.ac.uk/sites/default/files/bodreader/documents/media/bodleian-libraries-ai-policy.pdf",
+        "date": "2026",
+        "etiquette": "institution (politique IA)",
+        "citation": "« we may apply technical, contractual or other measures to manage these risks while preserving legitimate research and educational use of collections. »",
+        "preuve": "sources/bodleian/poster/bodleian-ai-policy.txt"
+      },
+      {
+        "url": "https://groups.google.com/g/iiif-discuss/c/Z3GVdj6s61w",
+        "date": "2017-11-13",
+        "etiquette": "institution (message équipe Digital Bodleian), ancien, extraits",
+        "citation": "« even a 500ms delay between requests would help moderate traffic » ; « We would like to avoid automated throttling of our connections if at all possible »",
         "preuve": "institutions/bodleian.md (étape f)"
       }
-    ]
+    ],
+    "classeur_id": "GLAM-002"
   },
   {
     "slug": "cudl",

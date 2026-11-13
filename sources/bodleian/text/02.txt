@@ -1,0 +1,399 @@
+Digital Bodleian IIIF API Specification 
+ Harvesting 
+ Bug Reports 
+ Manifests Manifest get Retrieve a IIIF Manifest 
+ Canvas get Retrieve a dereferenced Canvas Object 
+ Sequence get Retrieve a dereferenced Sequence object (Presentation v2 Only) 
+ Annotation get Retrieve an dereferenced Annotation Object 
+ AnnotationPage get Retrieve a dereferenced AnnotationPage Object (Presentation v3 Only) 
+ AnnotationList get Retrieve a dereferenced AnnotationList Object (Presentation v2 Only) 
+ Images Image get Retrieve the info.json for an image resource 
+ get Retrieve an image 
+ Collections Collection get Retrieve the top-level IIIF Collection 
+ get Retrieve URLs for all IIIF Manifests at the Bodleian 
+ get Retrieve a IIIF Collection 
+ ActivityStreams ActivityStream get Monitor content added to Digital Bodleian 
+ get An individual page of results 
+ get A de-referenceable individual Activity 
+ Discovery Discovery get A root-level document advertising browseable IIIF services 
+ Documentation Powered by ReDoc 
+ Digital Bodleian IIIF API Specification ( 2.0.0 ) 
+ Download OpenAPI specification: Download 
+ Digital Bodleian Support : digital-bodleian@bodleian.ox.ac.uk 
+ This is the IIIF API Specification for Digital Bodleian. We provide our manifests in both Presentation API v2 (default)
+and v3 (available via Content Negotiation).
+ Most URIs are dereferenceable, and are returned with their appropriate JSON-LD @context when de-referenced. The only exception
+to this are Ranges; this will be addressed in a future update.
+ The 406 Not Acceptable status code will be returned for requests that apply to a specific IIIF version. For example,
+Sequences have been removed in v3, so requesting a Sequence ID as a IIIFv3 response will return a 406 Status Code.
+ Harvesting
+ You are welcome to harvest our manifests for the purposes of indexing or making our content available in aggregator
+services. However, if are expecting to harvest a significant number of manifests, we would ask that you get in touch
+with us and let us know. You can do this by contacting our digital support team, or by adding your e-mail address
+to the User-Agent string.
+ We would prefer that you do not download and re-host our images.
+ Bug Reports
+ We welcome bug reports. If you are having a problem retrieving or parsing our manifests, or if you find an invalid
+manifest, please contact us and provide the link to the manifest that does not work.
+ Manifest
+ Retrieve a IIIF Manifest 
+ Returns a IIIF Manifest. Clients will receive a Presentation v2.1 manifest by default. Version 3.0 manifests
+can be returned by sending an Accept header with a value of application/ld+json;profile=http://iiif.io/api/presentation/3/context.json .
+ Presentation API 3.0 manifests are returned with a partOf key that contains a link to all Collections this
+manifest is a member of.
+ path Parameters
+ manifest_id required 
+ string < uuid > 
+ Example: b73ca01f-aac8-4916-a7c6-3c8e67939a66 
+ The ID of the Manifest to Retrieve
+ Responses
+ 200 Request for a Manifest was successful
+ 404 Requested ID was not found
+ get /iiif/manifest/{manifest_id}.json 
+ https://iiif.bodleian.ox.ac.uk /iiif/manifest/{manifest_id}.json
+ Response samples 
+ 200
+ Content type application/ld+json 
+ application/ld+json
+ application/ld+json;profile=http://iiif.io/api/presentation/3/context.json
+ application/json
+ Copy
+ Expand all Collapse all 
+ { "@context" : " http://iiif.io/api/presentation/2/context.json " , 
+ "@id" : " https://iiif.bodleian.ox.ac.uk/iiif/manifest/b73ca01f-aac8-4916-a7c6-3c8e67939a66.json " , 
+ "@type" : "sc:Manifest" 
+ } 
+ Canvas
+ Retrieve a dereferenced Canvas Object 
+ Dereferenced Canvases are returned with the within key (v2) or a partOf key (v3)
+pointing to their parent manifest.
+ path Parameters
+ canvas_id required 
+ string < uuid > 
+ Example: f37dd11c-a243-4b66-9a65-b8d498a114d6 
+ The ID of the Canvas to retrieve
+ Responses
+ 200 Request for a Canvas was successful
+ 404 Requested ID was not found
+ get /iiif/canvas/{canvas_id}.json 
+ https://iiif.bodleian.ox.ac.uk /iiif/canvas/{canvas_id}.json
+ Response samples 
+ 200
+ Content type application/ld+json 
+ application/ld+json
+ application/json
+ application/ld+json;profile=http://iiif.io/api/presentation/3/context.json
+ Copy
+ Expand all Collapse all 
+ { "@context" : " http://iiif.io/api/presentation/2/context.json " , 
+ "@id" : "string" , 
+ "@type" : "sc:Canvas" 
+ } 
+ Sequence
+ Retrieve a dereferenced Sequence object (Presentation v2 Only) 
+ A dereferenced Sequence Object. Note that sequences are only available in
+v2 manifests, so this will return a 406 status code if it is requested
+for a v3 manifest. For all manifests we publish there will be only one sequence, the default.
+ path Parameters
+ sequence_id required 
+ string 
+ Example: faeff7fb-f8a7-44b5-95ed-cff9a9ffd198_default 
+ The ID of the sequence
+ Responses
+ 200 Request was successful
+ 404 Requested ID was not found
+ 406 The request was not acceptable. Generally this means a resource was requested that is not available in the
+version of the IIIF specification that was also requested.
+ get /iiif/sequence/{sequence_id}.json 
+ https://iiif.bodleian.ox.ac.uk /iiif/sequence/{sequence_id}.json
+ Response samples 
+ 200
+ Content type application/ld+json 
+ application/ld+json
+ application/ld+json;profile=http://iiif.io/api/presentation/3/context.json
+ application/json
+ Copy
+ Expand all Collapse all 
+ { } 
+ Annotation
+ Retrieve an dereferenced Annotation Object 
+ A dereferenced Annotation Object.
+ path Parameters
+ annotation_id required 
+ string < uuid > 
+ Example: f37dd11c-a243-4b66-9a65-b8d498a114d6 
+ The Annotation ID
+ Responses
+ 200 Request was successful
+ 404 Requested ID was not found
+ get /iiif/annotation/{annotation_id}.json 
+ https://iiif.bodleian.ox.ac.uk /iiif/annotation/{annotation_id}.json
+ Response samples 
+ 200
+ Content type application/ld+json 
+ application/ld+json
+ application/ld+json;profile=http://iiif.io/api/presentation/3/context.json
+ application/json
+ Copy
+ Expand all Collapse all 
+ { } 
+ AnnotationPage
+ Retrieve a dereferenced AnnotationPage Object (Presentation v3 Only) 
+ A dereferenced AnnotationPage Object. Note that annotation pages are only available
+in v3 manifests, so this will return a 406 status code if it is requested for a v2 manifest.
+ path Parameters
+ annotation_page_id required 
+ string 
+ Example: f37dd11c-a243-4b66-9a65-b8d498a114d6 
+ The annotation page ID
+ Responses
+ 200 Request was successful
+ 404 Requested ID was not found
+ 406 The request was not acceptable. Generally this means a resource was requested that is not available in the
+version of the IIIF specification that was also requested.
+ get /iiif/annotationpage/{annotation_page_id}.json 
+ https://iiif.bodleian.ox.ac.uk /iiif/annotationpage/{annotation_page_id}.json
+ Response samples 
+ 200
+ Content type application/ld+json 
+ application/ld+json
+ application/ld+json;profile=http://iiif.io/api/presentation/3/context.json
+ application/json
+ Copy
+ Expand all Collapse all 
+ { } 
+ AnnotationList
+ Retrieve a dereferenced AnnotationList Object (Presentation v2 Only) 
+ A dereferenced AnnotationList Object. Note that annotation pages are only available
+in v2 manifests, so this will return a 406 status code if it is requested for a v3 manifest.
+ path Parameters
+ annotation_list_id required 
+ string 
+ Example: f37dd11c-a243-4b66-9a65-b8d498a114d6 
+ The annotation list ID
+ Responses
+ 200 Request was successful
+ 404 Requested ID was not found
+ 406 The request was not acceptable. Generally this means a resource was requested that is not available in the
+version of the IIIF specification that was also requested.
+ get /iiif/annotationlist/{annotation_list_id}.json 
+ https://iiif.bodleian.ox.ac.uk /iiif/annotationlist/{annotation_list_id}.json
+ Response samples 
+ 200
+ Content type application/ld+json 
+ application/ld+json
+ application/ld+json;profile=http://iiif.io/api/presentation/3/context.json
+ application/json
+ Copy
+ Expand all Collapse all 
+ { } 
+ Image
+ Retrieve the info.json for an image resource 
+ A IIIF Image API Info Response. Clients will receive a Image API v2.1 response by default. Version 3.0 responses
+can be returned by sending an Accept header with a value of application/ld+json;profile=http://iiif.io/api/image/3/context.json .
+ If a request omits the /info.json , the response will be a 307 redirect to /info.json .
+ path Parameters
+ image_id required 
+ string < uuid > 
+ Example: 082d5ad2-ea08-463c-ad50-6d1a0cb01246 
+ The ID of the Image to retrieve
+ Responses
+ 200 Request for an Image info response was successful
+ get /iiif/image/{image_id}/info.json 
+ https://iiif.bodleian.ox.ac.uk /iiif/image/{image_id}/info.json
+ Response samples 
+ 200
+ Content type application/json
+ Copy
+ Expand all Collapse all 
+ { "@context" : " http://iiif.io/api/image/2/context.json " , 
+ "@id" : "string" , 
+ "@type" : "sc:Image" 
+ } 
+ Retrieve an image 
+ Supports the IIIF v2.1 and v3.0 Image API. A full Image API URL might look like:
+ https : / / iiif . bodleian . ox . ac . uk / iiif / image / 1363 b336 - 260 d - 4 f22 - a6cf - 4e1320 dbb689 / 800 , 1400 , 1550 , 1950 / 256 , / 0 / default . jpg This should return the following image:
+ path Parameters
+ image_id required 
+ string < uuid > 
+ region required 
+ Full (string) or Array of Arr (integers) 
+ Image Region to return. Can be either the keyword full , square , a comma-separated list
+of either pixel dimensions, x,y,w,h , or percentages of the full image, pct:x,y,w,h .
+ size required 
+ Full (string) or Array of Arr (integers) 
+ Size of image to return. Supports the following values:
+ max : The extracted region is returned at the maximum size available, but will not be upscaled. The resulting image will have the pixel dimensions of the extracted region, unless it is constrained to a smaller size by maxWidth, maxHeight, or maxArea as defined in the Technical Properties section.
+ ^max : The extracted region is scaled to the maximum size permitted by maxWidth, maxHeight, or maxArea as defined in the Technical Properties section. If the resulting dimensions are greater than the pixel width and height of the extracted region, the extracted region is upscaled.
+ w, : The extracted region should be scaled so that the width of the returned image is exactly equal to w. The value of w must not be greater than the width of the extracted region.
+ ^w, : The extracted region should be scaled so that the width of the returned image is exactly equal to w. If w is greater than the pixel width of the extracted region, the extracted region is upscaled.
+ ,h : The extracted region should be scaled so that the height of the returned image is exactly equal to h. The value of h must not be greater than the height of the extracted region.
+ ^,h : The extracted region should be scaled so that the height of the returned image is exactly equal to h. If h is greater than the pixel height of the extracted region, the extracted region is upscaled.
+ pct:n : The width and height of the returned image is scaled to n percent of the width and height of the extracted region. The value of n must not be greater than 100.
+ ^pct:n : The width and height of the returned image is scaled to n percent of the width and height of the extracted region. For values of n greater than 100, the extracted region is upscaled.
+ w,h : The width and height of the returned image are exactly w and h. The aspect ratio of the returned image may be significantly different than the extracted region, resulting in a distorted image. The values of w and h must not be greater than the corresponding pixel dimensions of the extracted region.
+ ^w,h : The width and height of the returned image are exactly w and h. The aspect ratio of the returned image may be significantly different than the extracted region, resulting in a distorted image. If w and/or h are greater than the corresponding pixel dimensions of the extracted region, the extracted region is upscaled.
+ !w,h : The extracted region is scaled so that the width and height of the returned image are not greater than w and h, while maintaining the aspect ratio. The returned image must be as large as possible but not larger than the extracted region, w or h, or server-imposed limits.
+ ^!w,h : The extracted region is scaled so that the width and height of the returned image are not greater than w and h, while maintaining the aspect ratio. The returned image must be as large as possible but not larger than w, h, or server-imposed limits.
+ rotation required 
+ integer [ 0 .. 360 ] 
+ Default: 0 
+ Rotation angle of the returned image, specified in degrees. Only supported in 90 degree
+increments. Raises a 500 error if the values are less than 0, or greater than 360. All values
+may be prepended with a ! to indicate that the image should be mirrored before being rotated.
+ quality required 
+ string 
+ Enum : "default" "color" "grey" "bitonal" 
+ Quality of the returned image. default is a synonym for color . grey will return
+a greyscale version of the image, and bitonal a bitonal version.
+ format required 
+ string 
+ Value : "jpg" 
+ The only supported return format is jpg .
+ Responses
+ 200 Request for an Image was successful
+ 5XX Unexpected error
+ get /iiif/image/{image_id}/{region}/{size}/{rotation}/{quality}.{format} 
+ https://iiif.bodleian.ox.ac.uk /iiif/image/{image_id}/{region}/{size}/{rotation}/{quality}.{format}
+ Collection
+ Retrieve the top-level IIIF Collection 
+ The top-level IIIF Collection contains a list of all of the sub-collections. Harvesters and crawlers should
+note that many manifests belong to two or more collections, so using this as an entry
+point for retrieving all manifests will result in many duplicate records.
+It is better to use the all collection, which links directly to all manifests, or to individual collections.
+ Responses
+ 200 Request for a Collection was successful
+ 5XX Unexpected error
+ get /iiif/collection/top 
+ https://iiif.bodleian.ox.ac.uk /iiif/collection/top
+ Response samples 
+ 200
+ Content type application/ld+json 
+ application/ld+json
+ application/json
+ application/ld+json;profile=http://iiif.io/api/presentation/3/context.json
+ Copy
+ Expand all Collapse all 
+ { "@context" : " http://iiif.io/api/presentation/2/context.json " , 
+ "@id" : "string" , 
+ "@type" : "sc:Collection" 
+ } 
+ Retrieve URLs for all IIIF Manifests at the Bodleian 
+ A list of all manifests we publish, sorted by their label. This is a very large result to download.
+ Responses
+ 200 Request for a Collection was successful
+ 5XX Unexpected error
+ get /iiif/collection/all 
+ https://iiif.bodleian.ox.ac.uk /iiif/collection/all
+ Response samples 
+ 200
+ Content type application/ld+json 
+ application/ld+json
+ application/json
+ application/ld+json;profile=http://iiif.io/api/presentation/3/context.json
+ Copy
+ Expand all Collapse all 
+ { "@context" : " http://iiif.io/api/presentation/2/context.json " , 
+ "@id" : "string" , 
+ "@type" : "sc:Collection" 
+ } 
+ Retrieve a IIIF Collection 
+ Clients may use the top-level Collection endpoint to discover the URIs for all collections we publish.
+ path Parameters
+ collection_id required 
+ string 
+ Example: colleges 
+ The ID of the Collection to Retrieve
+ Responses
+ 200 Request for a Collection was successful
+ 404 Requested ID was not found
+ 5XX Unexpected error
+ get /iiif/collection/{collection_id} 
+ https://iiif.bodleian.ox.ac.uk /iiif/collection/{collection_id}
+ Response samples 
+ 200
+ Content type application/ld+json 
+ application/ld+json
+ application/json
+ application/ld+json;profile=http://iiif.io/api/presentation/3/context.json
+ Copy
+ Expand all Collapse all 
+ { "@context" : " http://iiif.io/api/presentation/2/context.json " , 
+ "@id" : "string" , 
+ "@type" : "sc:Collection" 
+ } 
+ ActivityStream
+ Monitor content added to Digital Bodleian 
+ Responses
+ 200 Request was successful
+ 404 Requested ID was not found
+ get /iiif/activity/all-changes 
+ https://iiif.bodleian.ox.ac.uk /iiif/activity/all-changes
+ Response samples 
+ 200
+ Content type application/ld+json 
+ application/ld+json
+ application/ld+json;profile=http://iiif.io/api/presentation/3/context.json
+ application/json
+ Copy
+ Expand all Collapse all 
+ { } 
+ An individual page of results 
+ path Parameters
+ page-number required 
+ string 
+ A page number, formatted as 'page-NNN', where NNN is an integer value for a page, e.g., 'page-0'.
+ Responses
+ 200 Request was successful
+ 404 Requested ID was not found
+ get /iiif/activity/{page-number} 
+ https://iiif.bodleian.ox.ac.uk /iiif/activity/{page-number}
+ Response samples 
+ 200
+ Content type application/ld+json 
+ application/ld+json
+ application/ld+json;profile=http://iiif.io/api/presentation/3/context.json
+ application/json
+ Copy
+ Expand all Collapse all 
+ { } 
+ A de-referenceable individual Activity 
+ While individual activities for update and delete MAY be provided in the future, at present we only publish
+'Create' activities
+ path Parameters
+ uuid required 
+ string < uuid > 
+ An identifier of the create activity. In theory this may be any UUID; in practice, since we are only
+publishing Create activities, this will correspond to the UUID of the created object.
+ Responses
+ 200 Request was successful
+ 404 Requested ID was not found
+ get /iiif/activity/create/{uuid} 
+ https://iiif.bodleian.ox.ac.uk /iiif/activity/create/{uuid}
+ Response samples 
+ 200
+ Content type application/ld+json 
+ application/ld+json
+ application/ld+json;profile=http://iiif.io/api/presentation/3/context.json
+ application/json
+ Copy
+ Expand all Collapse all 
+ { } 
+ Discovery
+ A root-level document advertising browseable IIIF services 
+ A request for the root ( https://iiif.bodleian.ox.ac.uk/ ) will return a JSON document containing links to top-level
+IIIF resources; namely the top-level collection, and a pointer to the ActivityStreams root. Root requests ("/")
+will return a 303 Redirect to "/info.json".
+ Responses
+ 200 Request was successful
+ get /info.json 
+ https://iiif.bodleian.ox.ac.uk /info.json
+ Response samples 
+ 200
+ Content type application/ld+json 
+ application/ld+json
+ application/ld+json;profile=http://iiif.io/api/presentation/3/context.json
+ application/json
+ Copy
+ Expand all Collapse all 
+ { }
