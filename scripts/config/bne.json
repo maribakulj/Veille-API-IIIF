@@ -1,0 +1,9 @@
+{
+  "slug": "bne",
+  "min_delay_s": 6,
+  "max_requests": 15,
+  "endpoints": [
+    {"id": "racine-datos-bne", "method": "GET", "url": "https://datos.bne.es/"},
+    {"id": "sparql-2014-annonce", "method": "GET", "url": "http://datos.bne.es/sparql"}
+  ]
+}
