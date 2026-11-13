@@ -1746,5 +1746,79 @@
       ],
       "f_web": []
     }
+  },
+  {
+    "slug": "edinburgh-art",
+    "nom": "University of Edinburgh Art Collection",
+    "pays": "Royaume-Uni",
+    "classeur_id": "GLAM-005",
+    "statut_audit": "en cours (méthode v2)",
+    "checklist": {
+      "a_doc_lue": "fait (pages IIIF, about, accueil, licensing lues ; /art/terms en 404, adresse devinée)",
+      "b_endpoints_doc": "fait : aucun endpoint d'API documenté (manifestes par icône IIIF seulement)",
+      "c_config_avant_tests": "non fait (aucun endpoint documenté à tester)",
+      "d_quota_dans_doc": "fait : aucun quota ; usage sur autorisation",
+      "e_tests_endpoints": "non applicable (aucun endpoint documenté)",
+      "f_web": "partiel (recherche web : aucune discussion trouvée sur les quotas)",
+      "g_crash_test": "non applicable"
+    },
+    "limites_documentees": [
+      {
+        "nature": "Autorisation préalable pour toute utilisation des images",
+        "perimetre": "images de la collection",
+        "valeur": "autorisation requise (sans chiffre)",
+        "fenetre": "–",
+        "effet": "–",
+        "verification": "officielle, lue en entier",
+        "source": "https://collections.ed.ac.uk/art/licensing",
+        "date": "2026-11-13"
+      }
+    ],
+    "en_tetes_observes": [],
+    "blocages": [],
+    "contact": "HeritageCollections@ed.ac.uk",
+    "conclusion_quota": "Aucune API ni quota publié. Usage des images sur autorisation (recherche, étude, revue) ; usage commercial et publication à négocier.",
+    "classe_quota": "aucun quota trouvé (usage sur autorisation)",
+    "confiance": "moyenne",
+    "notes": "Pas d'API documentée : le seul accès programmatique annoncé est le manifeste par icône IIIF.",
+    "sources": [
+      {
+        "url": "https://collections.ed.ac.uk/art/iiif",
+        "date": "2026-11-13",
+        "etiquette": "officielle",
+        "preuve": "sources/edinburgh-art/SHA256SUMS"
+      },
+      {
+        "url": "https://collections.ed.ac.uk/art/about",
+        "date": "2026-11-13",
+        "etiquette": "officielle",
+        "preuve": "sources/edinburgh-art/SHA256SUMS"
+      },
+      {
+        "url": "https://collections.ed.ac.uk/art",
+        "date": "2026-11-13",
+        "etiquette": "officielle",
+        "preuve": "sources/edinburgh-art/SHA256SUMS"
+      },
+      {
+        "url": "https://collections.ed.ac.uk/art/licensing",
+        "date": "2026-11-13",
+        "etiquette": "officielle",
+        "preuve": "sources/edinburgh-art/suite/SHA256SUMS"
+      }
+    ],
+    "web": [],
+    "preuves": {
+      "a_doc_lue": [
+        "sources/edinburgh-art/SHA256SUMS",
+        "sources/edinburgh-art/suite/SHA256SUMS"
+      ],
+      "b_endpoints_doc": [
+        "sources/edinburgh-art/raw/01.html"
+      ],
+      "d_quota_dans_doc": [
+        "sources/edinburgh-art/suite/SHA256SUMS"
+      ]
+    }
   }
 ]
