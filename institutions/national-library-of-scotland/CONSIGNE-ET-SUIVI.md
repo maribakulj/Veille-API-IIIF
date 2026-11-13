@@ -2,57 +2,57 @@
 
 - **Dossier** : `institutions/national-library-of-scotland/`  ·  **Classeur de référence** : GLAM-006  ·  **Pays** : Royaume-Uni
 - **Statut d'institution** : active
-- **Dernière mise à jour du suivi** : (à renseigner à chaque modification)
+- **Dernière mise à jour du suivi** : 2026-11-13
 
 ## Suivi par étape (à cocher, avec justification et preuves)
 
 ### a) Documentation lue en entier
 > Toutes les pages de doc liées à l'API (développeurs, interfaces, conditions, FAQ, aide, mentions légales, robots.txt), téléchargées avec `scripts/fetch_doc.sh` (URL, date, SHA-256), lues en entier (`scripts/extract_text.py`).
 
-- [ ] **Pas fait**
-  - **Justification** : Pas encore traitée : l'audit suit l'ordre du classeur de référence (une institution à la fois).
-  - **Preuves** : 
+- [x] **Fait**
+  - **Justification** : Lus et hachés : guide IIIF, robots.txt de view, deriv, data et dg-view (404 « No route »), déclaration IA, application CoreTrustSeal du NLS (PDF, texte extrait). digital.nls.uk et maps.nls.uk renvoient un CAPTCHA 405 : pages lues dans la Wayback (API des cartes, copyright : extraits verbatim avec URL de réplique, sans empreinte du texte complet). Non lues et impossibles : FAQ maps.nls.uk/help/ et conditions de digital.nls.uk (CAPTCHA, aucune copie archivée récente).
+  - **Preuves** : `institutions/national-library-of-scotland/sources/SHA256SUMS`, `institutions/national-library-of-scotland/sources/suite/SHA256SUMS`, `institutions/national-library-of-scotland/sources/coretrust/SHA256SUMS`, `institutions/national-library-of-scotland/sources/wayback/maps-api-et-copyright.extraits-wayback.md`
 
 ### b) Endpoints tirés de la doc
 > Liste des endpoints citée par la doc (URL, exemples). Jamais devinée. Une interdiction ou une impossibilité écrite dans la doc justifie de renoncer (citer la phrase).
 
-- [ ] **Pas fait**
-  - **Justification** : Pas encore traitée : l'audit suit l'ordre du classeur de référence (une institution à la fois).
-  - **Preuves** : 
+- [x] **Fait**
+  - **Justification** : Endpoint documenté par le NLS : view.nls.uk/collections/top.json (« IIIF volumes are harvestable via a top-level collections-based json file »). Les manifestes, le service d'images dg-view et map-view sont ceux que ce fichier et les manifestes annoncent eux-mêmes. API des cartes MapTiler : clé requise, hors IIIF, non testée.
+  - **Preuves** : `institutions/national-library-of-scotland/sources/coretrust/nls-oais-archive.txt`, `institutions/national-library-of-scotland/sources/wayback/maps-api-et-copyright.extraits-wayback.md`
 
 ### c) Configuration écrite AVANT les tests
 > `config/<nom>.json` pilote `scripts/probe.py`, committée avant le lancement. Un endpoint absent de la doc mais non interdit se teste avec un script poli (identifiants issus de pages publiques ou d'exemples de la doc, pas de devinette).
 
-- [ ] **Pas fait**
-  - **Justification** : Pas encore traitée : l'audit suit l'ordre du classeur de référence (une institution à la fois).
-  - **Preuves** : 
+- [x] **Fait**
+  - **Justification** : Cinq configurations committées avant chaque lancement (passes 1 à 5) ; les identifiants viennent de réponses précédentes ou d'un ticket public, jamais devinés ; robots.txt lu par la sonde pour chaque hôte.
+  - **Preuves** : `institutions/national-library-of-scotland/config/nls-passe1-top.json`, `institutions/national-library-of-scotland/config/nls-passe2-collection.json`, `institutions/national-library-of-scotland/config/nls-passe3-manifeste.json`, `institutions/national-library-of-scotland/config/nls-passe4-images.json`, `institutions/national-library-of-scotland/config/nls-passe5-map-view.json`
 
 ### d) Quota cherché dans la doc
 > Pour chaque page lue : endpoint de statut, en-têtes de limite documentés, clé ou compte donnant un quota, contact pour un volume plus élevé. Chaque réponse cite sa source.
 
-- [ ] **Pas fait**
-  - **Justification** : Pas encore traitée : l'audit suit l'ordre du classeur de référence (une institution à la fois).
-  - **Preuves** : 
+- [x] **Fait**
+  - **Justification** : Aucun quota, en-tête, clé ni endpoint de statut pour l'IIIF. Règles : moissonnage IIIF prévu (top.json, document officiel) ; robots d'IA nommés bloqués sur view.nls.uk ; CAPTCHA sur digital.nls.uk et maps.nls.uk. Quota chiffré hors IIIF : 100 000 tuiles de carte par mois (free tier MapTiler).
+  - **Preuves** : `institutions/national-library-of-scotland/sources/coretrust/nls-oais-archive.txt`, `institutions/national-library-of-scotland/sources/wayback/maps-api-et-copyright.extraits-wayback.md`, `institutions/national-library-of-scotland/sources/raw/05.html`
 
 ### e) Test systématique de chaque endpoint
 > Chaque endpoint documenté est testé (budget 15 requêtes par passe, pause ≥ 6 s, GET/HEAD, UA du projet). Redirections du même hôte suivies. Un 403 arrête son hôte, un 429 arrête l'institution. Seules les interdictions écrites dans la doc dispensent de tester.
 
-- [ ] **Pas fait**
-  - **Justification** : Pas encore traitée : l'audit suit l'ordre du classeur de référence (une institution à la fois).
-  - **Preuves** : 
+- [x] **Fait**
+  - **Justification** : Tous les endpoints IIIF atteignables sont testés (passes 1 à 5, 9 requêtes de données + lectures de robots) : top.json, collection de 4 142 manifests, manifeste, info.json et dérivé de dg-view, info.json de map-view : 200 partout, aucun en-tête de limite, aucun 429. Renoncements : digital.nls.uk et maps.nls.uk (CAPTCHA 405, règle d'arrêt de l'hôte), API MapTiler (clé requise).
+  - **Preuves** : `institutions/national-library-of-scotland/tests/journal.log`, `institutions/national-library-of-scotland/tests/raw/collections-top-json.headers.txt`, `institutions/national-library-of-scotland/tests/raw/mapview-info-json.headers.txt`
 
 ### f) Ce que disent les gens sur le web
 > Plaintes, discussions, présentations de l'institution, politique envers les API et les bots, blogs, GitHub, forums, listes de diffusion. Sources étiquetées (officielle / institution / utilisateur / tiers), lues, citées.
 
-- [ ] **Pas fait**
-  - **Justification** : Pas encore traitée : l'audit suit l'ordre du classeur de référence (une institution à la fois).
-  - **Preuves** : 
+- [x] **Fait**
+  - **Justification** : Document officiel du NLS (CoreTrustSeal) lu en entier : moissonnage prévu ; déclaration IA lue ; ticket d'utilisateur de 2020 sur un 403 de taille de tuile, lu et daté (non vérifié) ; recherches sur CAPTCHA et bots : aucune politique spécifique publiée.
+  - **Preuves** : `institutions/national-library-of-scotland/sources/coretrust/nls-oais-archive.txt`, `institutions/national-library-of-scotland/sources/suite/text/01.txt`, `institutions/national-library-of-scotland/fiche.md`
 
 ### g) Crash test progressif
 > Seulement après l'audit complet (a à f) de toutes les institutions et avec l'accord de Marcel : paliers jusqu'à 2 × la limite documentée, ou 200 req/min si illimité ou sans limite documentée. Arrêt au premier 429/403/CAPTCHA.
 
 - [ ] **Pas fait**
-  - **Justification** : Pas encore traitée : l'audit suit l'ordre du classeur de référence (une institution à la fois).
+  - **Justification** : À faire à la fin de l'audit de toutes les institutions et à l'accord de Marcel. Plafond prévu : 200 req/min sur view.nls.uk et dg-view.nls.uk (aucune limite annoncée), robots d'IA nommés bloqués mais pas notre UA ; CAPTCHA sur les sites de pages.
   - **Preuves** : 
 
 ### Contrôles transversaux
@@ -60,7 +60,7 @@
 
 <!-- AUTO:DEBUT -->
 ## Contrôles automatiques (calculés depuis `tests/journal.log`)
-- Requêtes enregistrées : **9** (sessions de sonde : 4, maximum par session : 3)
+- Requêtes enregistrées : **11** (sessions de sonde : 5, maximum par session : 3)
 - Plus courte pause vers un même hôte : **6 s** (règle : ≥ 6 s)
 - Méthodes utilisées : GET (règle : GET/HEAD seulement)
 - Anomalies : aucune

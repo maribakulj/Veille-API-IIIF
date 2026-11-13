@@ -4,10 +4,129 @@
   "pays": "Royaume-Uni",
   "classeur_id": "GLAM-006",
   "type": "Institution",
-  "statut_audit": "à faire",
-  "limites_documentees": [],
+  "statut_audit": "audit a–f complet ; g à faire",
+  "limites_documentees": [
+    {
+      "nature": "Quota gratuit non commercial (couches de cartes MapTiler, hors IIIF)",
+      "perimetre": "Historic Maps API (tuiles XYZ via MapTiler Cloud)",
+      "valeur": "100 000",
+      "fenetre": "par mois",
+      "effet": "au-delà : plans payants MapTiler",
+      "verification": "officielle, lue en entier (copie Wayback 2025-11-14)",
+      "source": "https://maps.nls.uk/projects/api/",
+      "date": "2026-11-13"
+    },
+    {
+      "nature": "Moissonnage IIIF prévu",
+      "perimetre": "view.nls.uk/collections/top.json",
+      "valeur": "harvestable (sans limite annoncée)",
+      "fenetre": "–",
+      "effet": "–",
+      "verification": "officielle, lue en entier (PDF CoreTrustSeal)",
+      "source": "https://www.coretrustseal.org/wp-content/uploads/2022/03/20220325-National-Library-of-Scotland-OAIS-Archive_final.pdf",
+      "date": "2026-11-13"
+    },
+    {
+      "nature": "Robots d'IA nommés bloqués",
+      "perimetre": "view.nls.uk",
+      "valeur": "Disallow: / pour ClaudeBot, anthropic-ai, GPTBot, CCBot…",
+      "fenetre": "–",
+      "effet": "Disallow",
+      "verification": "officielle, lue en entier",
+      "source": "https://view.nls.uk/robots.txt",
+      "date": "2026-11-13"
+    },
+    {
+      "nature": "Taille maximale d'une requête d'image (rapportée par un utilisateur)",
+      "perimetre": "map-view.nls.uk",
+      "valeur": "seuil de pixels non chiffré",
+      "fenetre": "–",
+      "effet": "403 « exceeds the maximum threshold »",
+      "verification": "tierce, non vérifiée (ticket 2020)",
+      "source": "https://github.com/lovasoa/dezoomify-rs/issues/92",
+      "date": "2020-12-18"
+    }
+  ],
   "en_tetes_observes": [],
-  "blocages": [],
-  "sources": [],
-  "web": []
+  "blocages": [
+    {
+      "date": "2026-11-13",
+      "hote": "digital.nls.uk, maps.nls.uk",
+      "code": "405 CAPTCHA",
+      "nature": "page « Human Verification » (CAPTCHA JavaScript)",
+      "suite": "hôtes non testés, non contournés ; pages lues dans la Wayback"
+    }
+  ],
+  "sources": [
+    {
+      "url": "https://www.coretrustseal.org/wp-content/uploads/2022/03/20220325-National-Library-of-Scotland-OAIS-Archive_final.pdf",
+      "date": "2026-11-13",
+      "etiquette": "officielle (document du NLS)",
+      "preuve": "institutions/national-library-of-scotland/sources/coretrust/SHA256SUMS"
+    },
+    {
+      "url": "https://maps.nls.uk/projects/api/",
+      "date": "2026-11-13",
+      "etiquette": "officielle (copie Wayback 2025-11-14)",
+      "preuve": "institutions/national-library-of-scotland/sources/wayback/maps-api-et-copyright.extraits-wayback.md"
+    },
+    {
+      "url": "https://maps.nls.uk/copyright.html",
+      "date": "2026-11-13",
+      "etiquette": "officielle (copie Wayback 2025-12-03)",
+      "preuve": "institutions/national-library-of-scotland/sources/wayback/maps-api-et-copyright.extraits-wayback.md"
+    },
+    {
+      "url": "https://view.nls.uk/robots.txt",
+      "date": "2026-11-13",
+      "etiquette": "officielle",
+      "preuve": "institutions/national-library-of-scotland/sources/SHA256SUMS"
+    },
+    {
+      "url": "https://deriv.nls.uk/robots.txt",
+      "date": "2026-11-13",
+      "etiquette": "officielle",
+      "preuve": "institutions/national-library-of-scotland/sources/SHA256SUMS"
+    },
+    {
+      "url": "https://data.nls.uk/about/ai-statement/",
+      "date": "2026-11-13",
+      "etiquette": "officielle",
+      "preuve": "institutions/national-library-of-scotland/sources/suite/SHA256SUMS"
+    },
+    {
+      "url": "https://iiif.io/guides/guides/digital.nls.uk/",
+      "date": "2026-11-13",
+      "etiquette": "officielle (guide IIIF)",
+      "preuve": "institutions/national-library-of-scotland/sources/SHA256SUMS"
+    }
+  ],
+  "web": [
+    {
+      "url": "https://www.coretrustseal.org/wp-content/uploads/2022/03/20220325-National-Library-of-Scotland-OAIS-Archive_final.pdf",
+      "date": "2022-03-25",
+      "etiquette": "institution (demande CoreTrustSeal du NLS)",
+      "citation": "« All of the web services support web crawling and harvesting for direct access from search engines. » ; « IIIF volumes are harvestable via a top-level collections-based json file that provides access to all IIIF manifests (https://view.nls.uk/collections/top.json) »",
+      "preuve": "institutions/national-library-of-scotland/sources/coretrust/nls-oais-archive.txt"
+    },
+    {
+      "url": "https://github.com/lovasoa/dezoomify-rs/issues/92",
+      "date": "2020-12-18",
+      "etiquette": "utilisateur (particulier), ancien, non vérifié",
+      "citation": "« The requested pixel area exceeds the maximum threshold set in the configuration. » (403 sur une requête de tuile plein format, map-view.nls.uk)",
+      "preuve": "institutions/national-library-of-scotland/fiche.md"
+    },
+    {
+      "url": "https://data.nls.uk/about/ai-statement/",
+      "date": "2026-11-13",
+      "etiquette": "institution (déclaration IA)",
+      "citation": "« It will guide our decision-making on how we employ AI tools, communicate about our use of AI, collect AI-generated material, and allow our data to be used by others. »",
+      "preuve": "institutions/national-library-of-scotland/sources/suite/text/01.txt"
+    }
+  ],
+  "contact": "geo@nls.uk (cartes) ; ask a librarian (nls.uk)",
+  "conclusion_quota": "Aucune limite sur l'IIIF : moissonnage prévu via view.nls.uk/collections/top.json (document officiel du NLS). Quota chiffré hors IIIF : 100 000 tuiles/mois (MapTiler). CAPTCHA sur les sites de pages ; robots d'IA nommés bloqués.",
+  "classe_quota": "aucun quota IIIF trouvé (moissonnage prévu ; CAPTCHA sur les pages)",
+  "confiance": "moyenne",
+  "notes": "digital.nls.uk et maps.nls.uk : CAPTCHA 405, lus dans la Wayback. FAQ maps non lue."
 }
