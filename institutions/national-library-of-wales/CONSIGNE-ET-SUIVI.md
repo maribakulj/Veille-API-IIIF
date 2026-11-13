@@ -2,57 +2,57 @@
 
 - **Dossier** : `institutions/national-library-of-wales/`  ·  **Classeur de référence** : GLAM-007  ·  **Pays** : Royaume-Uni
 - **Statut d'institution** : active
-- **Dernière mise à jour du suivi** : (à renseigner à chaque modification)
+- **Dernière mise à jour du suivi** : 2026-11-13
 
 ## Suivi par étape (à cocher, avec justification et preuves)
 
 ### a) Documentation lue en entier
 > Toutes les pages de doc liées à l'API (développeurs, interfaces, conditions, FAQ, aide, mentions légales, robots.txt), téléchargées avec `scripts/fetch_doc.sh` (URL, date, SHA-256), lues en entier (`scripts/extract_text.py`).
 
-- [ ] **Pas fait**
-  - **Justification** : Pas encore traitée : l'audit suit l'ordre du classeur de référence (une institution à la fois).
-  - **Preuves** : 
+- [x] **Fait**
+  - **Justification** : Lus et hachés : 5 pages d'atelier IIIF du NLW (manifestes, serveurs d'images, images, accueil), robots.txt de viewer, damsssl, dams, iiif.llyfrgell.cymru et discover, accueil discover. www.library.wales renvoie 403 anti-bot : page de copyright lue dans la Wayback (extrait verbatim, URL de réplique, sans empreinte). Non lu : PDF « Access to Collection Items Policy » (capture PDF illisible, téléchargement d'archive refusé). viewer.library.wales/robots.txt est la page de l'application, pas un robots.txt.
+  - **Preuves** : `institutions/national-library-of-wales/sources/SHA256SUMS`, `institutions/national-library-of-wales/sources/suite/SHA256SUMS`, `institutions/national-library-of-wales/sources/wayback/copyright.extraits-wayback.md`
 
 ### b) Endpoints tirés de la doc
 > Liste des endpoints citée par la doc (URL, exemples). Jamais devinée. Une interdiction ou une impossibilité écrite dans la doc justifie de renoncer (citer la phrase).
 
-- [ ] **Pas fait**
-  - **Justification** : Pas encore traitée : l'audit suit l'ordre du classeur de référence (une institution à la fois).
-  - **Preuves** : 
+- [x] **Fait**
+  - **Justification** : Endpoints cités par la page d'atelier du NLW : manifestes /iiif/2.0/{id}/manifest.json, journaux de presse /iiif/newspaper/issue/{id}/manifest.json, collections /iiif/newspapers/{id}.json, fonds /iiif/archive/{id}/fonds.json, images /iiif/2.0/image/{id}, sur damsssl.llgc.org.uk ; hôte officiel actuel iiif.llyfrgell.cymru (manifeste cité dans la page du visualiseur). Aucune API de recherche publique documentée.
+  - **Preuves** : `institutions/national-library-of-wales/sources/text/01.txt`, `institutions/national-library-of-wales/sources/suite/text/01.txt`
 
 ### c) Configuration écrite AVANT les tests
 > `config/<nom>.json` pilote `scripts/probe.py`, committée avant le lancement. Un endpoint absent de la doc mais non interdit se teste avec un script poli (identifiants issus de pages publiques ou d'exemples de la doc, pas de devinette).
 
-- [ ] **Pas fait**
-  - **Justification** : Pas encore traitée : l'audit suit l'ordre du classeur de référence (une institution à la fois).
-  - **Preuves** : 
+- [x] **Fait**
+  - **Justification** : Trois configurations committées avant chaque lancement : passe 1 (endpoints de la page d'atelier), passe 2 (cibles des redirections Location), passe 3 (images du manifeste, plein format avec corps enregistré). Identifiants issus de la doc ou de réponses précédentes, jamais devinés ; robots.txt lu pour chaque hôte.
+  - **Preuves** : `institutions/national-library-of-wales/config/nlw-passe1-manifestes.json`, `institutions/national-library-of-wales/config/nlw-passe2-llyfrgell.json`, `institutions/national-library-of-wales/config/nlw-passe3-images.json`
 
 ### d) Quota cherché dans la doc
 > Pour chaque page lue : endpoint de statut, en-têtes de limite documentés, clé ou compte donnant un quota, contact pour un volume plus élevé. Chaque réponse cite sa source.
 
-- [ ] **Pas fait**
-  - **Justification** : Pas encore traitée : l'audit suit l'ordre du classeur de référence (une institution à la fois).
-  - **Preuves** : 
+- [x] **Fait**
+  - **Justification** : Aucun quota de débit, en-tête, clé ni endpoint de statut. Règles chiffrées : image plafonnée à 1200×1200 (page d'atelier, confirmée par mesure) ; Crawl-delay 10 s sur discover.library.wales (robots.txt) ; recherche IIIF coupée à 100 résultats (wiki 2017). Information du secteur public réutilisable, métadonnées en CC0 (copyright).
+  - **Preuves** : `institutions/national-library-of-wales/sources/suite/text/01.txt`, `institutions/national-library-of-wales/sources/suite/raw/05.html`, `institutions/national-library-of-wales/sources/wayback/copyright.extraits-wayback.md`
 
 ### e) Test systématique de chaque endpoint
 > Chaque endpoint documenté est testé (budget 15 requêtes par passe, pause ≥ 6 s, GET/HEAD, UA du projet). Redirections du même hôte suivies. Un 403 arrête son hôte, un 429 arrête l'institution. Seules les interdictions écrites dans la doc dispensent de tester.
 
-- [ ] **Pas fait**
-  - **Justification** : Pas encore traitée : l'audit suit l'ordre du classeur de référence (une institution à la fois).
-  - **Preuves** : 
+- [x] **Fait**
+  - **Justification** : Endpoints testables testés (3 passes, 11 requêtes réussies) : manifestes, images, info.json, plein format mesuré à 1200×1200 ; aucun en-tête de limite ni 429. Les anciens hôtes redirigent (302) vers iiif.llyfrgell.cymru, dont les cibles sont testées explicitement ; trois identifiants de presse et d'archives donnent 404 à la nouvelle adresse. Renoncements : www.library.wales (403 anti-bot), recherche IIIF (aucune URL publique documentée).
+  - **Preuves** : `institutions/national-library-of-wales/tests/journal.log`, `institutions/national-library-of-wales/tests/raw/llyfrgell-image-full-full.headers.txt`, `institutions/national-library-of-wales/tests/raw/llyfrgell-manifeste-4389767.headers.txt`
 
 ### f) Ce que disent les gens sur le web
 > Plaintes, discussions, présentations de l'institution, politique envers les API et les bots, blogs, GitHub, forums, listes de diffusion. Sources étiquetées (officielle / institution / utilisateur / tiers), lues, citées.
 
-- [ ] **Pas fait**
-  - **Justification** : Pas encore traitée : l'audit suit l'ordre du classeur de référence (une institution à la fois).
-  - **Preuves** : 
+- [x] **Fait**
+  - **Justification** : Wiki de développement du NLW (2017, cache de 12 Go « to reduce stress on the IIIF server », recherche coupée à 100 résultats), page d'atelier de 2025, PR d'un développeur tiers (pas de collection agrégée ni de recherche), présentation de 2016 : aucune politique de débit ni de bots publiée. Wiki lu par résumé, pas en entier.
+  - **Preuves** : `institutions/national-library-of-wales/sources/suite/text/01.txt`, `institutions/national-library-of-wales/fiche.md`
 
 ### g) Crash test progressif
 > Seulement après l'audit complet (a à f) de toutes les institutions et avec l'accord de Marcel : paliers jusqu'à 2 × la limite documentée, ou 200 req/min si illimité ou sans limite documentée. Arrêt au premier 429/403/CAPTCHA.
 
 - [ ] **Pas fait**
-  - **Justification** : Pas encore traitée : l'audit suit l'ordre du classeur de référence (une institution à la fois).
+  - **Justification** : À faire à la fin de l'audit de toutes les institutions et à l'accord de Marcel. Plafond prévu : 200 req/min sur iiif.llyfrgell.cymru (aucun quota de débit annoncé) ; le catalogue discover.library.wales annonce Crawl-delay 10 s, à ne pas tester. Particularité : image plein format plafonnée à 1200×1200.
   - **Preuves** : 
 
 ### Contrôles transversaux
@@ -60,7 +60,7 @@
 
 <!-- AUTO:DEBUT -->
 ## Contrôles automatiques (calculés depuis `tests/journal.log`)
-- Requêtes enregistrées : **15** (sessions de sonde : 2, maximum par session : 10)
+- Requêtes enregistrées : **21** (sessions de sonde : 3, maximum par session : 10)
 - Plus courte pause vers un même hôte : **6 s** (règle : ≥ 6 s)
 - Méthodes utilisées : GET (règle : GET/HEAD seulement)
 - Anomalies : aucune
