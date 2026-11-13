@@ -72,3 +72,41 @@ Un 403 ne se contourne pas (pas de changement d'User-Agent vers un navigateur, p
 - Une institution n'est « vérifiée intégralement » que si la doc, la recherche
   élargie, les tests et la question « pourquoi pas publié ? » sont tous
   remplis.
+
+## Méthode v2 (validée par Marcel le 2026-11-13) — checklist obligatoire
+
+Une institution n'est « vérifiée » que si TOUTES les étapes ont leur preuve dans le dépôt.
+Une étape non faite reste « non faite », et l'institution reste « incomplète ».
+
+**Ordre et parallélisme** : une institution à la fois, dans l'ordre de `institutions.csv`.
+Au plus deux agents en parallèle, sur deux institutions différentes, chacun n'écrit que
+dans son propre dossier. Aucun agent n'écrit dans un journal ou une fiche qu'un autre traite.
+Les journaux ne sont jamais réécrits : on ajoute, on ne remplace pas.
+
+**a) Doc lue en entier.** Toutes les pages de doc liées à l'API (développeurs, interfaces,
+conditions d'utilisation, FAQ, aide, mentions légales), lues en entier. Chaque page est
+sauvegardée dans `sources/<slug>/` avec URL, date UTC et empreinte SHA-256, et la fiche
+cite le fichier de preuve.
+
+**b) Endpoints tirés de la doc.** La liste des endpoints vient de la doc (citée). Jamais devinée.
+
+**c) Configuration écrite AVANT les tests.** `scripts/config/<slug>.json` liste les endpoints
+et pilote `scripts/probe.py`. Chaque requête produit un fichier d'en-têtes bruts dans `tests/raw/<slug>/`.
+
+**d) Recherche de quota dans la doc.** Pour chaque source lue : endpoint de statut, en-têtes
+de limite documentés (nom exact), clé ou compte donnant un quota, contact pour un volume plus
+élevé. Chaque réponse cite sa source.
+
+**e) Test de chaque endpoint.** Même après un 403 sur un autre endpoint de la même institution.
+Un 403 arrête son hôte, un 429 arrête l'institution et prévient Marcel. Le test de dépassement
+(provoquer un 429 pour lire `Retry-After`) n'est fait qu'avec l'accord explicite de Marcel.
+
+**f) Ce que disent les gens sur le web.** Recherche sur le net de tout ce qui concerne l'usage
+des API de l'institution : plaintes ou questions sur les quotas, blocages de bots, présentations
+de l'institution sur sa politique d'API, billets de blog, issues GitHub, forums, listes
+de diffusion, réseaux professionnels, publications de l'institution sur ses API. Chaque
+source est citée (URL, date, étiquette : officielle / présentation de l'institution /
+utilisateur / tiers). Les noms de personnes privées ne sont pas reproduits.
+
+**Vérification finale (par l'orchestrateur)** : contrôle que chaque étape a son fichier de
+preuve. Sinon l'institution reste « incomplète ».
