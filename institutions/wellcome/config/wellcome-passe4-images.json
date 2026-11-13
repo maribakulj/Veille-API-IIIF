@@ -1,0 +1,19 @@
+{
+  "slug": "wellcome",
+  "min_delay_s": 6,
+  "max_requests": 15,
+  "follow_redirects": 1,
+  "note": "Passe v2 n°4 : service d'images annoncé par le manifeste v2 de la passe 3 (identifiant public). Sonde corrigée (BOM) : Crawl-delay 30 s appliqué.",
+  "endpoints": [
+    {
+      "id": "iiif-image-info-json",
+      "method": "GET",
+      "url": "https://iiif.wellcomecollection.org/image/b18659135_0001.jp2/info.json"
+    },
+    {
+      "id": "iiif-image-derive-200",
+      "method": "GET",
+      "url": "https://iiif.wellcomecollection.org/image/b18659135_0001.jp2/full/!200,200/0/default.jpg"
+    }
+  ]
+}
