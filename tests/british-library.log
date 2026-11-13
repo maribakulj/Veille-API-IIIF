@@ -1,0 +1,11 @@
+# Journal des requêtes — british-library
+# Format : horodatage UTC | méthode | URL | résultat | en-têtes de limite | remarque
+# UA : VeilleAPIIIF/0.1 (veille documentaire; github.com/maribakulj/Veille-API-IIIF)
+
+2026-11-13 ≈20:30-20:33Z (heure exacte non consignée) | GET (outil de lecture web, pas de curl) | https://iiif.bl.uk/ | 403 Forbidden | aucun en-tête lu | corps non récupéré ; arrêt des tests sur ce site (règle 403)
+2026-11-13T20:33:22Z | GET (curl, UA honnête) | https://api.bl.uk/metadata/iiif/ark:/81055/vdc_000000035B1A/manifest.json | échec DNS (résolution impossible) | — | manifeste cité par source tierce, non vérifié
+2026-11-13T20:33:27Z | GET (curl, UA honnête) | même URL | échec DNS (« Could not resolve host: api.bl.uk ») | — | pause 5 s depuis la requête précédente
+# Lectures de pages (hors appels API) :
+2026-11-13 | GET (outil de lecture web) | https://www.bl.uk/help/terms-of-use | 200 | — | pas de quota ; mention CC-BY
+2026-11-13 | GET (outil de lecture web) | https://www.bl.uk/terms-and-conditions | 404 | — | page inaccessible
+# Wayback (lecture seule, hors site BL) : historique iiif.bl.uk ; capture 2026-08-02 = 403

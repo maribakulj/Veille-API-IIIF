@@ -1,0 +1,6 @@
+# Journal bnf-gallica — veille quotas IIIF — UA: VeilleAPIIIF/0.1 (veille documentaire; github.com/maribakulj/Veille-API-IIIF)
+# Format : horodatage UTC | URL | méthode | statut | en-têtes de limite | corps
+2026-11-13T20:33:22Z | https://gallica.bnf.fr/iiif/ark:/12148/btv1b550076223/manifest.json | GET | 403 (HTTP/2, server: cloudflare, content-type text/html; charset=UTF-8, 5662 o) | aucun Retry-After / X-RateLimit / RateLimit | corps non lu (HTML de 403) | délai depuis précédent : n/a (1re requête)
+# ARRÊT : 403 sur la 1re requête → arrêt immédiat selon METHODOLOGY.md. Aucune autre requête vers gallica.bnf.fr. Non testés : info.json, requête ALTO, texteBrut, rafale.
+# Remarque : une lecture WebFetch (outil d'un tiers, pas une requête de ce journal) de https://gallica.bnf.fr/html/und/conditions-dutilisation-des-contenus-de-gallica a aussi renvoyé 403 (2026-11-13 vers 20:3x UTC).
+# Lectures documentaires (non-Gallica-API, pour information) : https://api.bnf.fr/fr/node/232 et https://api.bnf.fr/fr/api-iiif-de-recuperation-des-images-de-gallica consultées via WebFetch le 2026-11-13.
