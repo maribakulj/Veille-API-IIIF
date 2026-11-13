@@ -1,0 +1,74 @@
+dhlab 
+ Menu 
+ Expand 
+ Light mode 
+ Dark mode 
+ Auto light/dark, in light mode 
+ Auto light/dark, in dark mode 
+ Skip to content 
+ dhlab
+ Examples of use 
+ API Reference 
+ dhlab 
+ dhlab.text 
+ dhlab.text.geo_data 
+ dhlab.text.parse 
+ dhlab.text.nb_search_text 
+ dhlab.text.utils 
+ dhlab.text.corpus 
+ dhlab.text.conc_coll 
+ dhlab.text.dispersion 
+ dhlab.text.corpus_collection 
+ dhlab.text.dhlab_object 
+ dhlab.text.chunking 
+ dhlab.text.wildcard 
+ dhlab.wordbank 
+ dhlab.wordbank.wordbank 
+ dhlab.utils 
+ dhlab.utils.display 
+ dhlab.utils.files 
+ dhlab.ngram 
+ dhlab.ngram.nb_ngram 
+ dhlab.ngram.ngram 
+ dhlab.images 
+ dhlab.visualize 
+ dhlab.visualize.cloud 
+ dhlab.visualize.df 
+ dhlab.api 
+ dhlab.api.utils 
+ dhlab.api.nb_ngram_api 
+ dhlab.api.nb_search_api 
+ dhlab.api.dhlab_api 
+ dhlab.constants 
+ Term definitions 
+ Back to top 
+ View this page 
+ Edit this page 
+ dhlab documentation ¶ 
+ dhlab is a python library for doing qualitative and quantitative analyses of the digital texts from Nettbiblioteket (eng: “the online library”) at the National Library of Norway (NLN). Nettbiblioteket is the NLN’s digital collection of media publications.
+ Head to our official homepage for tutorials, how-to-guides, interactive web apps, and more information about the DH-lab group.
+ Installation ¶ 
+ Ensure that you already have Python >=3.10 installed.
+ Install the latest version of the dhlab python package in your (Unix) terminal with pip:
+ pip install -U dhlab
+ Functionality ¶ 
+ Here are some of the text mining and automatic analyses you can do with dhlab :
+ Build a corpus from bibliographic metadata about publications.
+ Retrieve word (token) frequencies from a corpus.
+ Fetch chunks of text (paragraphs) as bag of words from a specific publication.
+ Extract concordances 
+ Calculate collocations 
+ Retrieve n-gram frequencies per yer in a time period.
+ Extract occurrences of named entities .
+ Plot narrative graphs of word dispersions in a publication.
+ Try some of our examples to get started.
+ Next 
+ Examples of use
+ Copyright © 2026, The National Library of Norway
+ Made with Sphinx and @pradyunsg 's
+ Furo 
+ Last updated on 2026-04-21
+ On this page
+ dhlab documentation 
+ Installation 
+ Functionality

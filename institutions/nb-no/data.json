@@ -2,18 +2,101 @@
   "slug": "nb-no",
   "nom": "Nasjonalbiblioteket (Norvège)",
   "pays": "Norvège",
-  "statut_audit": "partiel (ancienne méthode)",
-  "limites_documentees": [],
+  "statut_audit": "audit a–f complet ; g à faire",
+  "limites_documentees": [
+    {
+      "nature": "Crawl-delay",
+      "perimetre": "www.nb.no, User-agent: *",
+      "valeur": "4 secondes",
+      "fenetre": "entre deux requêtes",
+      "effet": "non précisé",
+      "verification": "officielle, lue en entier",
+      "source": "https://www.nb.no/robots.txt",
+      "date": "2026-11-13"
+    },
+    {
+      "nature": "Chemins interdits aux robots",
+      "perimetre": "www.nb.no",
+      "valeur": "/cgi-bin/wa, /archives/, /sok/, /baser/, /emigrasjon/, /gallerinor/, /idtjeneste/, /test/",
+      "fenetre": "–",
+      "effet": "Disallow",
+      "verification": "officielle, lue en entier",
+      "source": "https://www.nb.no/robots.txt",
+      "date": "2026-11-13"
+    },
+    {
+      "nature": "Réponses d'erreur déclarées",
+      "perimetre": "api.nb.no (OpenAPI)",
+      "valeur": "400, 401, 404, 500 (pas de 429)",
+      "fenetre": "–",
+      "effet": "–",
+      "verification": "officielle, lue en entier",
+      "source": "https://api.nb.no/catalog/v1/items/api-docs",
+      "date": "2026-11-13"
+    }
+  ],
   "en_tetes_observes": [],
   "blocages": [],
-  "contact": "nasa@nb.no (info.contact de l'OpenAPI)",
-  "conclusion_quota": "Aucun champ de quota dans la spécification OpenAPI.",
-  "classe_quota": "aucun quota trouvé",
+  "contact": "dh-lab@nb.no (DH-lab) ; formulaire de contact nb.no",
+  "conclusion_quota": "Aucune limite sur l'API ; seul Crawl-delay 4 s est écrit pour www.nb.no (robots.txt). Pas de page de conditions d'usage de l'API. Aucun en-tête de limite, aucun 429.",
+  "classe_quota": "limite documentée chiffrée (Crawl-delay 4 s sur le site, pas sur l'API)",
   "confiance": "moyenne",
-  "notes": "oEmbed en 404 : à retester.",
+  "notes": "OpenAPI : réponses 400/401/404/500 seulement. IIIF non documenté dans l'OpenAPI mais annoncé par _links. Ancienne page de recherche : délai dépassé (non lue).",
   "classeur_id": "GLAM-013",
   "type": "Institution",
-  "sources": [],
-  "web": [],
-  "donnees_a_revalider": true
+  "sources": [
+    {
+      "url": "https://api.nb.no/catalog/v1/items/api-docs",
+      "date": "2026-11-13",
+      "etiquette": "officielle",
+      "preuve": "institutions/nb-no/sources/v2/SHA256SUMS"
+    },
+    {
+      "url": "https://www.nb.no/robots.txt",
+      "date": "2026-11-13",
+      "etiquette": "officielle",
+      "preuve": "institutions/nb-no/sources/v2/SHA256SUMS"
+    },
+    {
+      "url": "https://api.nb.no/robots.txt",
+      "date": "2026-11-13",
+      "etiquette": "officielle",
+      "preuve": "institutions/nb-no/sources/v2/SHA256SUMS"
+    },
+    {
+      "url": "https://www.nb.no/dh-lab/",
+      "date": "2026-11-13",
+      "etiquette": "officielle",
+      "preuve": "institutions/nb-no/sources/v2b/SHA256SUMS"
+    },
+    {
+      "url": "https://nationallibraryofnorway.github.io/DHLAB/",
+      "date": "2026-11-13",
+      "etiquette": "officielle",
+      "preuve": "institutions/nb-no/sources/v2b/SHA256SUMS"
+    },
+    {
+      "url": "https://data.norge.no/en/datasets/719fa38c-8451-3e04-905a-d5f3035838ba/nb-dh-lab",
+      "date": "2026-11-13",
+      "etiquette": "officielle",
+      "preuve": "institutions/nb-no/sources/v2b/SHA256SUMS"
+    }
+  ],
+  "web": [
+    {
+      "url": "https://github.com/Antonio-Faure/mnemosyne/pull/49",
+      "date": "2026-11-13",
+      "etiquette": "tiers (développeur), non vérifié",
+      "citation": "API REST publique sans clé ; connecteur avec limite volontaire de 1 requête par seconde ; aucune limite publiée par le NB.",
+      "preuve": "institutions/nb-no/fiche.md"
+    },
+    {
+      "url": "https://data.norge.no/en/datasets/719fa38c-8451-3e04-905a-d5f3035838ba/nb-dh-lab",
+      "date": "2026-11-13",
+      "etiquette": "officielle (catalogue national de données)",
+      "citation": "« Access may still require registration and an API key request, as long as anyone can request such registration and/or API keys. » (API dhlab)",
+      "preuve": "institutions/nb-no/sources/v2b/text/03.txt"
+    }
+  ],
+  "donnees_a_revalider": false
 }

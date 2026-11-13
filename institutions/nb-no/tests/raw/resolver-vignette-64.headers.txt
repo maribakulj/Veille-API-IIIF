@@ -1,0 +1,16 @@
+2026-11-13T23:25:34Z GET https://www.nb.no/services/image/resolver/URN:NBN:no-nb_digitidsskrift_2024031180067_001_0001/full/0,64/0/native.jpg
+HTTP 200
+server: nginx
+date: Fri, 13 Nov 2026 23:25:34 GMT
+content-type: image/jpeg
+transfer-encoding: chunked
+connection: keep-alive
+set-cookie: _nblb=66cdec2b94943d78a07cd6b417282990; expires=Sat, 14-Nov-26 11:25:34 GMT; max-age=43200; path=/
+link: <http://iiif.io/api/image/2/level0.json>;rel="profile"
+strict-transport-security: max-age=31536000; includeSubdomains; preload
+x-frame-options: SAMEORIGIN
+x-content-type-options: nosniff
+content-security-policy: frame-ancestors 'self' ai.nb.no tools.nb.no produksjon.nb.no dev.produksjon.nb.no;
+access-control-allow-origin: https://www.nb.no
+access-control-allow-credentials: true
+vary: Origin
