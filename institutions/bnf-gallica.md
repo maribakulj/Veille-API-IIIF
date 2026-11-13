@@ -50,6 +50,15 @@ Ce n'est pas le cas : les limites **sont** publiées (api.bnf.fr), mais de faço
   - H2 : le 403 Cloudflare du test vise les clients scriptés (non vérifié ; le même constat est noté dans les notes locales de Marcel pour Python).
   - H3 : la fiche data.gouv n'a pas été mise à jour après la phase transitoire (hypothèse, date absente des deux sources).
 
+## 5 bis. Recherche ciblée des quotas (2026-11-13)
+
+- a) Endpoint de statut de quota : non trouvé. Termes cherchés : « Gallica API quota endpoint », « gallica rate limit status », « api.bnf.fr gestionnaire d'API clé d'accès quota ». Seule mention : « La BnF est en train de déployer un gestionnaire d'API » (https://api.bnf.fr/fr/node/232, consultée le 2026-11-13). Ce gestionnaire n'est pas décrit comme exposant un statut.
+- b) En-têtes de limite : non trouvé. Termes : « RateLimit », « X-RateLimit », « Retry-After » avec « gallica ». Seule source : « En cas de dépassement, le code erreur renvoyé est … 429 : "Too Many Requests" » (https://api.bnf.fr/fr/node/232, 2026-11-13). Aucun nom d'en-tête cité.
+- c) Clé d'API ou compte donnant un quota : non trouvé. La fiche data.gouv de l'API Gallica Recherche dit que l'accès est « ouvert sans restriction, sauf en cas d'usage abusif » (https://www.data.gouv.fr/dataservices/api-gallica-recherche, résumé de résultat, non lu brut). Aucune clé n'est exigée dans les sources lues.
+- d) Contact officiel : trouvé, partiel. La fiche data.gouv de l'API Gallica IIIF indique « Contact: gallica@bnf.fr » (https://www.data.gouv.fr/dataservices/api-gallica-iiif, vu dans un résumé de résultat le 2026-11-13, non lu brut). Formulaire « Écrire à la BnF » : https://www.bnf.fr/fr/contacter-la-bnf (déjà cité en § 6, non vérifié ici). Aucune procédure de relèvement de quota trouvée.
+
+Conclusion : moyen d'interroger le quota : non. Aucune sonde lancée : aucun endpoint de statut ni en-tête de limite documenté n'a été trouvé. L'hôte gallica.bnf.fr avait déjà répondu 403 anti-bot (§ 3) ; on n'y a pas refait d'essai.
+
 ## 6. Confiance et pistes restantes
 
 - Niveau de confiance : **moyen** sur la doc (chiffres explicites, mais page non datée) ; **faible** sur le comportement réel (un seul appel, 403).

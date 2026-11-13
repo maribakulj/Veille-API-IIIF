@@ -53,6 +53,15 @@
   - Hypothèse : Wellcome ne publie pas de quota car la doc de l'API est en réalité peu formalisée (API publique sans clé, usage « raisonnable » implicite). Non vérifiable depuis les sources.
   - Hypothèse : le rate limiting évoqué dans la RFC (et la note de février 2025 sur les bots) est mis en place au niveau de la passerelle/CDN (CloudFront observé) sans être documenté. Non vérifiable.
 
+## 5 bis. Recherche ciblée des quotas (2026-11-13)
+
+- a) Endpoint de statut de quota : non trouvé. Termes : « Wellcome Collection API rate limit », « Wellcome catalogue API rate limit status ». Les pages https://developers.wellcomecollection.org/ et https://docs.wellcomecollection.org/catalogue-api/ ne décrivent aucun endpoint de statut (§ 1).
+- b) En-têtes de limite : non trouvé. Termes : « wellcomecollection 429 github issues rate limiting ». Aucune issue GitHub trouvée. Aucun en-tête de limite documenté ni observé (§ 4).
+- c) Clé d'API ou compte donnant un quota : non trouvé, et absence de clé confirmée. Citation : « There's no sign up or authentication required » (https://developers.wellcomecollection.org/docs/catalogue et /docs/iiif, consultées le 2026-11-13). La RFC 012 (https://docs.wellcomecollection.org/request-for-comments-rfcs/012-api_architecture, 2019) dit que les endpoints publics « would benefit from rate limiting », sans chiffre ni clé.
+- d) Contact officiel pour un quota : non trouvé. Termes : « Wellcome Collection API rate limit quota contact developers request higher limit ». Aucun contact ou formulaire de quota. La page https://developers.wellcomecollection.org/docs/terms répond 404 (§ 1).
+
+Conclusion : moyen d'interroger le quota : non. Aucune sonde lancée : aucun endpoint de statut ni en-tête documenté trouvé.
+
 ## 6. Confiance et pistes restantes
 
 - Niveau de confiance : moyen (doc lue en entier pour les pages principales ; limites non documentées ; quatre réponses sans en-tête de quota).

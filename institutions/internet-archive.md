@@ -65,6 +65,15 @@ Les limites ne sont pas chiffrées, ce qui est cohérent avec la situation trouv
   - Hypothèse : les protections frappent surtout les IP VPN / Tor et les DNS tiers (commentaires du billet 2026), donc un test depuis une IP différente pourrait donner d'autres résultats. Non testé.
   - Hypothèse : le `Retry-After: 3600` vu sur une 404 de doc n'est probablement pas une limite d'API, mais je ne peux pas l'exclure.
 
+## 5 bis. Recherche ciblée des quotas (2026-11-13)
+
+- a) Endpoint de statut de quota : partiel. Termes : « archive.org API rate limit status endpoint », « archive.org developers rate limits ». L'API Tasks (https://archive.org/developers/tasks.html, résumé de résultat 2026-11-13) indique le « task limit » et le nombre de tâches en vol de l'utilisateur. Elle exige les clés S3 du compte (accès authentifié) : non sondée. Le `check_limit` de ias3 (https://archive.org/developers/ias3.html) est un test de congestion de l'écriture, avec clé et bucket ; ce n'est pas un quota, et il n'est pas sondé.
+- b) En-têtes de limite : trouvé, mais dans une doc datée. La doc IIIF v1 alpha (https://iiif.archivelab.org/iiif/documentation, résumé de résultat 2026-11-13, non lue brut) cite « X-RateLimit-Limit », « X-RateLimit-Remaining », « X-RateLimit-Reset ». La même source la présente comme datée. L'hôte iiif.archivelab.org a déjà échoué en TLS (config internet-archive.json) : non vérifié. Côté doc actuelle, https://archive.org/developers/bots.html dit « Honor `429 Too Many Requests` responses and `Retry-After` headers » (§ 1) ; aucun en-tête de quota nommé. Retry-After est aussi cité dans https://archive.org/developers/md-write.html et dans les notes de version 5.6.0 de la bibliothèque `internetarchive` (2025-10-10).
+- c) Clé d'API ou compte donnant un quota : trouvé, partiel. Les clés S3 se trouvent sur https://archive.org/account/s3.php (cité par la doc ias3 et Tasks, résumé 2026-11-13). Elles donnent accès à ias3 et à l'API Tasks. Aucun quota de compte n'est publié. Ne pas confondre avec Archive API v2 (app.archive.com), service distinct avec quotas par plan : hors périmètre.
+- d) Contact officiel pour un quota : non trouvé. Termes : « archive.org API quota request increase contact ». Le seul contact cité est info@archive.org, pour un blocage 429 jugé erroné (https://blog.archive.org/2026/09/15/an-update-on-wayback-machine-access/, 15/09/2026, déjà en § 1). Aucun formulaire de relèvement.
+
+Conclusion : moyen d'interroger le quota : oui, partiellement (API Tasks, « task limit » et tâches en vol) mais elle exige les clés S3 du compte : NON exécuté (aucune clé demandée ni utilisée). Pour les API lues testées (advancedsearch, metadata, IIIF) : non. Les en-têtes X-RateLimit de la doc IIIF v1 restent non vérifiés.
+
 ## 6. Confiance et pistes restantes
 
 - Niveau de confiance : **moyen** (pour l'absence de chiffres, élevé ; pour le comportement réel sous charge, faible : 10 requêtes espacées seulement).

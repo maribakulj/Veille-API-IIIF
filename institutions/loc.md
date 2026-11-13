@@ -64,6 +64,15 @@ Les quotas **sont** publiés, dans la documentation. Ce qui manque, c'est la pub
   - Hypothèse : les seuils sont variables (« may decrease »), donc chiffrés en « current rate limits » plutôt que garantis.
   - Hypothèse : le défi Cloudflare sur www.loc.gov est une protection anti-bot générale, pas un quota IIIF.
 
+## 5 bis. Recherche ciblée des quotas (2026-11-13)
+
+- a) Endpoint de statut de quota : non trouvé. Termes : « loc.gov API rate limit status endpoint », « loc.gov rate limit status ». La page officielle https://www.loc.gov/apis/json-and-yaml/working-within-limits/ ne décrit aucun endpoint de statut. Les seuls résultats qui en parlent sont des outils tiers, non officiels.
+- b) En-têtes de limite : non trouvé dans la doc officielle. Termes : « RateLimit-Remaining », « Retry-After », « loc.gov ». La page working-within-limits ne nomme aucun en-tête (« Users may want to add handling to pause when encountering 429 status codes and HTML CAPTCHA responses »). Aucun en-tête de limite observé (§ 4). Un billet tiers (issue cyanheads/libofcongress-mcp-server #54 sur GitHub, 2026) décrit des 429 et CAPTCHA sans en-tête : source non officielle.
+- c) Clé d'API ou compte : non trouvé. Phrase officielle : « The API is accessible to the public with no API key or authentication required. » (https://www.loc.gov/apis/json-and-yaml/working-within-limits/, consultée le 2026-11-13). Aucun compte ne donne de quota plus élevé cité.
+- d) Contact officiel pour un quota : non trouvé. Termes : « ask.loc.gov IIIF API rate limit increase request contact ». Aucun formulaire de relèvement cité. Les pages https://www.loc.gov/apis/ et https://www.loc.gov/apis/micro-services/image-services/ ne donnent pas de contact pour cela (§ 1).
+
+Conclusion : moyen d'interroger le quota : non. Aucune sonde lancée : aucun endpoint de statut ni en-tête documenté trouvé. Les URL www.loc.gov en JSON sont déjà en 403 anti-bot (§ 3) ; pas de nouvel essai.
+
 ## 6. Confiance et pistes restantes
 
 - Niveau de confiance : **moyen**. Élevé pour les citations de legal et robots (vérifiées brut). Moyen pour les chiffres du tableau (JSON, Text, Image vérifiés par grep sur la page brute ; Streaming et MARCXML seulement via résumé).
