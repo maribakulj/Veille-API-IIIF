@@ -145,3 +145,11 @@ hôte déjà bloqué en 403 anti-bot.
   ou « aucun blocage jusqu'à 2 × la limite documentée » (API limitée), ou « aucun blocage
   jusqu'à 200 req/min » (API illimitée). Un test « illimité » n'est pas une preuve
   d'illimitation au-delà de 200 req/min.
+
+## Règles ajoutées après l'audit du 2026-11-13 (voir AUDIT-HAIKU.md)
+
+- Le budget de 15 requêtes s'applique **par passe** d'une institution (un déroulé complet de la méthode). Les anciennes passes restent dans leurs journaux, sans être comptées.
+- Aucune étape n'est marquée « non applicable » sans citer la phrase de la doc qui la justifie.
+- Aucune fiche n'est marquée « vérifiée » avant que a) à f) aient chacune un fichier de preuve contrôlé.
+- `data/institutions.json` n'est alimenté qu'à partir de la fiche relue de l'institution, jamais de mémoire.
+- Le travail se fait une institution à la fois, sans sous-agent, dans l'ordre du classeur de référence (`data/perimetre.csv`).
