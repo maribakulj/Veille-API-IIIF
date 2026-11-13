@@ -726,14 +726,14 @@
     "slug": "bodleian",
     "nom": "Bodleian Libraries (Oxford)",
     "pays": "Royaume-Uni",
-    "statut_audit": "partiel (ancienne méthode)",
+    "statut_audit": "en cours (méthode v2, 2 étapes sur 7 à compléter)",
     "checklist": {
-      "a_doc_lue": "partiel (developer/iiif, data, terms, FAQ en partie)",
-      "b_endpoints_doc": "fait",
-      "c_config_avant_tests": "fait (bodleian.json, 12 entrées)",
-      "d_quota_dans_doc": "fait (ancienne méthode)",
-      "e_tests_endpoints": "fait (13 appels, sans en-tête)",
-      "f_web": "partiel",
+      "a_doc_lue": "fait (5 pages lues en entier : developer, iiif, data, terms, faq)",
+      "b_endpoints_doc": "fait (manifestes, canvases, images, collections, search ; /account exige une authentification)",
+      "c_config_avant_tests": "fait (scripts/config/bodleian.json)",
+      "d_quota_dans_doc": "fait : aucun quota ; « if you are expecting to harvest a significant number of manifests, we would ask that you get in touch »",
+      "e_tests_endpoints": "fait (passe v2 : 12 requêtes, aucun en-tête de limite, aucun 403/429)",
+      "f_web": "partiel (liste iiif-discuss 2017 lue ; billet blog IA lu en résumé seulement)",
       "g_crash_test": "à faire (après audit)"
     },
     "limites_documentees": [],
@@ -749,13 +749,14 @@
         "sources/bodleian/SHA256SUMS"
       ],
       "b_endpoints_doc": [
-        "institutions/bodleian.md"
+        "sources/bodleian/raw/02.html",
+        "sources/bodleian/raw/03.html"
       ],
       "c_config_avant_tests": [
         "scripts/config/bodleian.json"
       ],
       "d_quota_dans_doc": [
-        "institutions/bodleian.md"
+        "sources/bodleian/SHA256SUMS"
       ],
       "e_tests_endpoints": [
         "tests/bodleian.log"
@@ -763,7 +764,55 @@
       "f_web": [
         "institutions/bodleian.md"
       ]
-    }
+    },
+    "sources": [
+      {
+        "url": "https://digital.bodleian.ox.ac.uk/developer/",
+        "date": "2026-11-13",
+        "etiquette": "officielle",
+        "preuve": "sources/bodleian/SHA256SUMS"
+      },
+      {
+        "url": "https://digital.bodleian.ox.ac.uk/developer/iiif/",
+        "date": "2026-11-13",
+        "etiquette": "officielle",
+        "preuve": "sources/bodleian/SHA256SUMS"
+      },
+      {
+        "url": "https://digital.bodleian.ox.ac.uk/developer/data/",
+        "date": "2026-11-13",
+        "etiquette": "officielle",
+        "preuve": "sources/bodleian/SHA256SUMS"
+      },
+      {
+        "url": "https://digital.bodleian.ox.ac.uk/terms/",
+        "date": "2026-11-13",
+        "etiquette": "officielle",
+        "preuve": "sources/bodleian/SHA256SUMS"
+      },
+      {
+        "url": "https://digital.bodleian.ox.ac.uk/faq/",
+        "date": "2026-11-13",
+        "etiquette": "officielle",
+        "preuve": "sources/bodleian/SHA256SUMS"
+      }
+    ],
+    "web": [
+      {
+        "url": "https://groups.google.com/g/iiif-discuss/c/Z3GVdj6s61w",
+        "date": "2017-11-13",
+        "etiquette": "officielle-équipe (liste IIIF, message de l'équipe Digital Bodleian)",
+        "citation": "« could you please use the \"User-Agent\" header to give some contact details or a pointer to a project page? » ; « consider adding a small break between requests; even a 500ms delay » ; « If you do get blocked for abuse, I would imagine the service providers would prefer that block to be temporary. » ; « We would like to avoid automated throttling of our connections if at all possible »",
+        "preuve": "institutions/bodleian.md (étape f)"
+      },
+      {
+        "url": "https://blogs.bodleian.ox.ac.uk/digital/",
+        "date": "non lu en entier",
+        "etiquette": "officielle (blog Digital Bodleian, billet « Implementing our AI Policy: hypothetical use cases »)",
+        "citation": "Résumé : le dépôt a subi des problèmes de moissonnage non annoncé, y compris de bots IA qui ignorent les limites d'usage normales ; un accès en volume passe par une voie sanctionnée. Citation exacte non relue.",
+        "preuve": "institutions/bodleian.md (étape f)"
+      }
+    ]
   },
   {
     "slug": "cudl",

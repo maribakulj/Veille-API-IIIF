@@ -81,3 +81,15 @@ Note sur la requête 8 : elle est un doublon ajouté par erreur avant correction
 - d) **trouvé** — source : `https://digital.bodleian.ox.ac.uk/developer/iiif/` (lu par WebFetch, 2026-11-13) : « if are expecting to harvest a significant number of manifests, we would ask that you get in touch with us and let us know. » ; « You can do this by contacting our digital support team, or by adding your e-mail address to the User-Agent string. » ; contact en tête de page : « Digital Bodleian Support: digital-bodleian@bodleian.ox.ac.uk ». Le message doit venir de l'utilisateur (la veille n'écrit pas).
 
 Conclusion : moyen d'interroger le quota : **non**. Le seul moyen annoncé est le contact (d) pour un moissonnage important. Aucun fichier `scripts/config/bodleian-quota.json` écrit (aucun endpoint documenté à sonder).
+
+## Passe méthode v2 (2026-11-13)
+
+- **a)** 5 pages lues en entier (`sources/bodleian/`, `SHA256SUMS`, `FETCH.log`).
+- **b)** Endpoints tirés de la doc : `iiif/manifest/{id}.json`, `iiif/canvas`, `iiif/image/{id}/info.json` et `{region}/{size}/…`, `iiif/collection/top|all|{id}`, `/search`, `/collections`, `/partners`. `/account/*` exige une authentification (401 sans compte).
+- **c)** `scripts/config/bodleian.json` (12 entrées, réexécutée le 2026-11-13 22:03–22:04 UTC).
+- **d)** Aucun quota publié. La doc dit : « if you are expecting to harvest a significant number of manifests, we would ask that you get in touch with us and let us know. »
+- **e)** Passe v2 : 12 requêtes, aucun en-tête de limite, aucun 403 ni 429. Les 301/303 ne sont pas suivis (consignés comme tels).
+- **f)** Liste iiif-discuss, 13 novembre 2017, message de l'équipe Digital Bodleian : demande d'un contact dans le User-Agent, une pause d'environ 500 ms, préférence pour un blocage temporaire, rejet du throttling automatique si possible. **Ancien (2017)**. Billet du blog sur la politique IA : lu en résumé seulement, citation exacte à relire.
+- **g)** À faire après l'audit complet.
+
+**Conclusion** : aucune limite chiffrée publiée. Demande explicite de prévenir avant un moissonnage important. Notre User-Agent contient un lien vers le dépôt (conforme à la demande de 2017).

@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="apple-touch-icon" sizes="180x180" href="/icons/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/icons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/icons/favicon-16x16.png">
+    <link rel="icon" href="/icons/favicon.svg" sizes="any" type="image/svg+xml">
+    <link rel=”mask-icon” href="/icons/favicon.svg" color="#aaaaaa">
+    <link rel="manifest" href="/icons/site.webmanifest">
+    <link rel="mask-icon" href="/icons/safari-pinned-tab.svg" color="#5bbad5">
+    <meta name="apple-mobile-web-app-title" content="Digital Bodleian">
+    <meta name="application-name" content="Digital Bodleian">
+    <meta name="msapplication-TileColor" content="#b91d47">
+    <meta name="theme-color" content="#ffffff">
+
+
+    <link rel="search" href="https://digital.bodleian.ox.ac.uk/search.xml" type="application/opensearchdescription+xml" title="Digital Bodleian"/>
+    <link rel="preconnect" href="https://fonts.googleapis.com/">
+    <link rel="preconnect" href="https://fonts.gstatic.com/">
+    <link rel="preconnect" href="https://iiif.bodleian.ox.ac.uk/">
+
+    <link href="/static/global/base.css" rel="preload" as="style">
+    <link href="/static/global/base.css" type="text/css" rel="stylesheet">
+
+    <link rel="stylesheet" type="text/css" href="/static/wpcc/cookieconsent.min.css"/>
+    <script src="/static/wpcc/cookieconsent.min.js" defer></script>
+    <title>
+   Digital Bodleian | Frequently asked questions
+    </title>
+
+        <script>
+            window.dataLayer = window.dataLayer || [];
+        </script>
+        <!-- Google Tag Manager -->
+        <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+                new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+            j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+            'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+        })(window,document,'script','dataLayer','GTM-M7Z6S2Q');</script>
+        <!-- End Google Tag Manager -->
+
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "abstract": "Frequently asked questions",
+        "name": "Frequently asked questions",
+        "creator": {
+            "@type": "Organization",
+            "url": "https://www.bodleian.ox.ac.uk",
+            "name": "Bodleian Libraries",
+            "logo": "https://iiif.bodleian.ox.ac.uk/iiif/image/f27e28db-0b08-4f16-9bdf-3565f591fb71/full/256,/0/default.jpg",
+            "address": {
+                "@type": "PostalAddress",
+                "addressLocality": "Oxford",
+                "addressRegion": "Oxfordshire",
+                "postalCode": "OX1 3BG",
+                "streetAddress": "Bodleian Libraries, Broad Street"
+            }
+        }    }
+    </script>
+</head>
+<body class="site-body">
+<!-- Changing this id value will likely cause the height calculations for the object viewer to be off. -->
+<nav id="main-navigation" class="navbar has-shadow" role="navigation" aria-label="main navigation">
+    <div class="navbar-brand db-navbar-brand is-bg-db-green px-3">
+        <a class="navbar-item is-marginless is-paddingless has-tooltip-bottom" href="/"
+           aria-label="Digital Bodleian homepage" data-tooltip="Digital Bodleian homepage">
+            <img class="db-logo" src="/static/global/images/db-logo.svg" width="223" height="57" alt="Digital Bodleian Logo">
+        </a>
+
+        <a role="button" class="navbar-burger burger has-text-white" aria-label="menu" aria-expanded="false" data-target="top-navbar">
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+        </a>
+    </div>
+
+    <div id="top-navbar" class="navbar-menu">
+        <div class="navbar-start">
+            <a class="navbar-item has-text-weight-semibold is-uppercase " href="/search/">
+                Search
+            </a>
+
+            <a class="navbar-item has-text-weight-semibold is-uppercase " href="/browse/">
+                Browse
+            </a>
+
+            <div class="navbar-item has-dropdown is-hoverable">
+                <a class="navbar-link has-text-weight-semibold is-uppercase" href="#">About</a>
+                <div class="navbar-dropdown is-white is-blurred-bg-medium">
+                    <a class="navbar-item " href="/about/">About Digital Bodleian</a>
+                    <a class="navbar-item is-active" href="/faq/">FAQs</a>
+                    <a class="navbar-item " href="/help/">Help</a>
+                    <a class="navbar-item " href="/developer/">API Documentation</a>
+                    <a class="navbar-item " href="/terms/">Terms of Use</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="navbar-end px-5">
+            <a class="navbar-item is-size-5" id="login-link" href="/login/?next=/faq/">
+                <i class="fa fa-user"></i>&nbsp;&nbsp;Log in
+            </a>
+            <a class="navbar-item is-marginless has-tooltip-bottom" href="https://www.ox.ac.uk/"
+               aria-label="University of Oxford homepage" data-tooltip="University of Oxford homepage">
+                <img src="/static/global/images/oxweb-logo-square.svg" width="98" height="98" alt="University of Oxford Logo">
+            </a>
+        </div>
+    </div>
+</nav>
+
+<script type="application/javascript">
+    document.addEventListener('DOMContentLoaded', () => {
+        // The 'next' variable on the login link should be the current url, including any query parameters added since page load
+        // so we update it when it's clicked
+        var loginLink = document.getElementById("login-link");
+
+        if (loginLink !== null) {
+            loginLink.onclick = function () {
+                var currentUrl = window.location.pathname + window.location.search;
+                var href = "/login/?next=" + encodeURIComponent(currentUrl);
+                this.setAttribute("href", href);
+            };
+        }
+
+        // Get all "navbar-burger" elements
+        const $navbarBurgers = Array.prototype.slice.call(document.querySelectorAll('.navbar-burger'), 0);
+
+        // Check if there are any navbar burgers
+        if ($navbarBurgers.length > 0) {
+
+            // Add a click event on each of them
+            $navbarBurgers.forEach( el => {
+                el.addEventListener('click', () => {
+                    // Get the target from the "data-target" attribute
+                    const target = el.dataset.target;
+                    const $target = document.getElementById(target);
+
+                    // Toggle the "is-active" class on both the "navbar-burger" and the "navbar-menu"
+                    el.classList.toggle('is-active');
+                    $target.classList.toggle('is-active');
+                });
+            });
+        }
+    });
+</script>    <!-- site-content is used for sticky footers -->
+    <div role="main" class="site-content">
+    <section class="hero is-large db-hero" style="background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://iiif.bodleian.ox.ac.uk/iiif/image/90032b49-ea85-4e55-8694-964fbfb63273/393,1968,4506,845/!1600,300/0/default.jpg');">
+        <div class="hero-body">
+            <div class="column">
+                <div class="column is-10-tablet is-offset-1-tablet is-7-widescreen is-offset-2-widescreen py-5 px-5">
+                    <h1 class="title is-size-2 has-text-white">Frequently asked questions</h1>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <div class="container">
+        <div class="columns">
+            <div class="column is-10-tablet is-offset-1-tablet is-7-widescreen is-offset-2-widescreen">
+                <div class="content py-5 px-5">
+<div class="block-paragraph"><h4 data-block-key="rnhqa">What’s in Digital Bodleian?</h4><p data-block-key="iejoj">Digital Bodleian contains over one million images of items from the Bodleian&#x27;s special collections, some Oxford College libraries, and other Oxford institutions. The digitized items include manuscripts and printed books from many regions and periods, as well as maps, ephemera, archives, photography, portraits, and juvenilia.</p><p data-block-key="z1of0">The images in Digital Bodleian are a mix of modern digital photography, early digital photography from the 1990s, and digitized slide collections originally assembled earlier in the 20th century.</p><h4 data-block-key="fcik8">Have all the Bodleian&#x27;s special collections been digitized?</h4><p data-block-key="7yfri">No. At present, we have fully or partially digitized around 17,000 items, and more items are being added all the time.</p><p data-block-key="itfeg">Different collections have been digitized to different extents. Items from across the special collections have been digitized, but the best-represented in Digital Bodleian are <a href="/collections/western-medieval-manuscripts/"><b>Western medieval manuscripts</b></a>, <a href="/collections/hebrew/"><b>Hebrew manuscripts</b></a>, <a href="/collections/chinese/"><b>Chinese manuscripts and printed books</b></a>, <a href="/collections/incunabula/"><b>incunabula</b></a>, <a href="/collections/portraits/"><b>portraits</b></a>, and <a href="/collections/printed-music/"><b>sheet music</b></a>.</p><p data-block-key="33a7q">A smaller number of important <a href="/collections/arabic/"><b>Arabic</b></a>, <a href="/collections/persian/"><b>Persian</b></a>, <a href="/collections/armenian/"><b>Armenian</b></a> and <a href="/collections/georgian/"><b>Georgian</b></a> manuscripts have also been digitized. Several projects to digitize 19th century archival collections will soon be underway.</p><h4 data-block-key="8oh42">Can I request that an item be digitized?</h4><p data-block-key="btivh">We are unable to digitize items on request.</p><p data-block-key="47sk0">If you require basic scans for research, Bodleian Special Collections offer a <a href="https://www.bodleian.ox.ac.uk/services/remote-access/special-collections-copying"><b>mediated copying service</b></a>. Requests are considered on a case-by-case basis and assessed according to research needs.</p><p data-block-key="85mc0">Professional photography can be ordered from <a href="https://www.bodleian.ox.ac.uk/about/work-with-us/imaging-services"><b>Bodleian Imaging Services</b></a>. Please see the Imaging Services web pages for a price guide and order form.</p><h4 data-block-key="30da3">Can I download images from Digital Bodleian?</h4><p data-block-key="3hki7">Yes. You can download images from Digital Bodleian as jpegs or PDFs (see <a href="/help/#download"><b>downloading images and metadata</b></a>). Where the Bodleian holds the copyright over an image, downloads are offered at the maximum resolution we have on file. Reduced-resolution downloads are also available.</p><h4 data-block-key="v46h">Can I reuse images from Digital Bodleian?</h4><p data-block-key="cvl1h">It depends. Please check the copyright and terms of use information displayed for the item you want to use. Most Bodleian material is made available under a <a href="https://creativecommons.org/licenses/by-nc/4.0/"><b>Creative Commons CC BY-NC 4.0 license</b></a>, meaning it can be used, with attribution, for non-commercial purposes. Our <a href="/terms/"><b>terms of use page</b></a> contains further information.</p><p data-block-key="an764">Please note that not all content in Digital Bodleian is covered by this license, such as material owned by Oxford colleges. You should always check an individual item&#x27;s copyright and terms of use information.</p><h4 data-block-key="i5tna">What’s currently being added to Digital Bodleian?</h4><p data-block-key="dda2l">The very latest additions can be seen <a href="/search/?sort=published+desc"><b>here</b></a>. At any given time, we’ll be working on several different digitization projects. Recently completed projects include <a href="https://digital.bodleian.ox.ac.uk/collections/carnegie-armenian/"><b>Armenian Manuscripts</b></a><b>,</b> <a href="/collections/manuscripts-from-german-speaking-lands/"><b>Manuscripts from German-Speaking Lands</b></a> and the <a href="/collections/chinese-digitization-project/"><b>Chinese Collections Digitization Project</b></a>.</p><h4 data-block-key="hxvn0">How does the Bodleian choose what to digitize?</h4><p data-block-key="ib166">Most of the Bodleian’s digitization work is funded externally: by large charities such as The Polonsky Foundation and The Tolkien Trust; by Oxford groups such as the Marjory Wardrop Fund and the Friends of the Bodleian; or by individual donors. These types of funding are generally allocated for specific objects or collections.</p><p data-block-key="86q9s">The Bodleian’s imaging studio also takes photography orders from publishers and researchers, and if we can, we put these images in Digital Bodleian as well.</p><p data-block-key="n44xa">Bodleian curators and conservators assess every digitization project, and we strive for balanced representation across our collections, but we are rarely in a position to outright choose what to digitize.</p><p data-block-key="7oim9">Oxford colleges manage their own digitization according to their own priorities and funding streams.</p><h4 data-block-key="kjhbx">Where can I find more information about an item?</h4><p data-block-key="b0yiu">The most current and complete information about our collections can be found in our online catalogues (regardless of whether an item has been digitized or not): <a href="http://solo.bodleian.ox.ac.uk/"><b>SOLO</b></a> for printed materials and maps, <a href="https://medieval.bodleian.ox.ac.uk/"><b>Medieval Manuscripts in Oxford Libraries</b></a> for medieval manuscripts, and <a href="https://archives.bodleian.ox.ac.uk/"><b>Bodleian Archives &amp; Manuscripts</b></a> for post-1500 archives and manuscripts. For online resources relating to Hebraica and Judaica, and Middle Eastern, North African and Asian collections, see the <a href="https://libguides.bodleian.ox.ac.uk/asian-middle-eastern-sc"><b>Bodleian Asian and Middle Eastern special collections LibGuide</b></a>.</p><p data-block-key="rbovu">While we try to include as much information about an item as possible in Digital Bodleian, the catalogues are the best and most complete source of information. Where possible, we link directly to an item&#x27;s catalogue page in the Digital Bodleian description.</p><p data-block-key="lp1n1">Please see the <a href="https://www.bodleian.ox.ac.uk/special-collections"><b>Bodleian special collections pages</b></a> for further information on finding items and catalogue descriptions, If you can’t find what you’re looking for, please email <a href="mailto:specialcollections.enquiries@bodleian.ox.ac.uk"><b>specialcollections.enquiries@bodleian.ox.ac.uk</b></a>.</p><p data-block-key="pln5i">If you have a question about a college item, please email the college library directly.</p><h4 data-block-key="g2hij">What does a “partial” digitization mean?</h4><p data-block-key="11er9">“Partial” means that we haven’t digitized every page or section of the original object. This is usually because only a particular page or section was relevant to a digitization project. Most of our partial digitizations are scans of 20th-century slide images of illuminations in medieval manuscripts. Often, these partial digitizations have detailed image-level descriptions.</p><h4 data-block-key="ozxnb">Why are there multiple versions of some items?</h4><p data-block-key="p5xz9">We’ve been digitizing our collections for nearly 30 years, and capturing analogue images for much longer than that. Some objects have been photographed several times, for different projects and with different equipment.</p><p data-block-key="cviw9">For example, 35mm slides of select pages of <a href="/search/?q=MS+Bodl+264"><b>MS. Bodl. 264</b></a> were captured over a period of about 40 years; digital photographs of the entire manuscript were captured in 1999; new digital photographs were captured, including images of the binding and composite flash images of the gold-leaf decoration, for a print facsimile <a href="/objects/ae9f6cca-ae5c-4149-8fe4-95e6eca1f73c/"><b>in 2013</b></a>. These different versions are useful for researchers trying to understand the history of scholarship around a particular object, and we have chosen to keep all of them in Digital Bodleian rather than choosing one particular version as the canonical facsimile.</p><h4 data-block-key="7d9od">Who do I contact if I want to use an image in a commercial publication?</h4><p data-block-key="cw433">Please contact <a href="mailto:imaging@bodleian.ox.ac.uk"><b>Bodleian Imaging Services</b></a> for requests to publish a Bodleian image in a commercial publication. For a price list, please see the <a href="https://www.bodleian.ox.ac.uk/about/work-with-us/imaging-services"><b>Imaging Services web pages</b></a>.</p><p data-block-key="fwa40">For enquiries regarding college images, please contact the college directly.</p><h4 data-block-key="k1ho5">What are collections, projects and partners?</h4><p data-block-key="luk0w"><b>Collections</b> are groupings that resemble the organisation of the Bodleian’s special collections. Some of these are based on place of origin, date of origin, or production method, or a combination of these. For example, the Bodleian separates its Western manuscript and archive collections into three groups: pre-1500, 1500-1800, and post-1800. With Persian manuscripts (for instance), the same temporal divisions are not observed, so you’ll find just one collection of Persian manuscripts. Other collections are “named collections”, groups of items with similar provenance, often donated or bequeathed by a particular person, such as <a href="/collections/laud/"><b>William Laud</b></a>, <a href="/collections/canonici/"><b>Matteo Luigi Canonici</b></a>, or <a href="/collections/douce/"><b>Francis Douce</b></a>.</p><p data-block-key="o4e01"><b>Projects</b> are digitization projects that have allowed us to make sets of items available online (see “How does the Bodleian choose what to digitize?”). These projects are generally funded by external donors and focus on a particular category of item (for example, 18th-century entertainment ephemera or medieval German manuscripts). Items belonging to the same digitization project were generally photographed at around the same time and have similarly detailed catalogue descriptions.</p><p data-block-key="8dqd5"><b>Partners</b> are other Oxford institutions that have made some of their digitized images available through Digital Bodleian. Most of our partners are Oxford colleges with their own libraries that take advantage of Digital Bodleian’s centralised infrastructure for ongoing digitization work. Some are colleges and museums that we partnered with in the past, for projects such as <a href="/collections/early-manuscripts-at-oxford/"><b>Early Manuscripts at Oxford</b></a> and the Oxford Digital Library.</p><h4 data-block-key="yw40s">What is IIIF?</h4><p data-block-key="fybpe">IIIF (the International Image Interoperability Framework) is a set of open technical standards used by cultural heritage institutions to make their digital image collections more easily accessible and interoperable. <a href="https://iiif.io/community/faq/"><b>Please see the IIIF website for more information</b></a>.</p><h4 data-block-key="ixarz">What is a IIIF manifest?</h4><p data-block-key="h8zqp">IIIF manifests are JSON documents which represent digital objects. They contain information used by IIIF applications to display objects, such as descriptive information and the order in which images should appear. IIIF object viewers like the Digital Bodleian viewer, <a href="http://universalviewer.io/"><b>Universal Viewer</b></a>, <a href="https://projectmirador.org/"><b>Mirador</b></a> and <a href="https://github.com/tify-iiif-viewer/tify"><b>TIFY</b></a> use manifests.</p><p data-block-key="7ywnb">All Digital Bodleian objects have a corresponding IIIF manifest. These can be accessed using the IIIF dropdown in the object viewer. We also maintain a series of <a href="https://iiif.bodleian.ox.ac.uk/iiif/collection/top"><b>IIIF collections</b></a>.</p><h4 data-block-key="63lk2">Why can’t I do full-text searching?</h4><p data-block-key="cwxp5">We don’t have full transcriptions of most of the objects in Digital Bodleian. In the rare cases where we do have transcriptions, these can be accessed on other websites (for example, <a href="https://firstfolio.bodleian.ox.ac.uk"><b>firstfolio.bodleian.ox.ac.uk</b></a> for Shakespeare’s First Folio). We will be making these transcriptions available directly via Digital Bodleian in a future update.</p><h4 data-block-key="96tu6">How are the images captured? What kind of equipment do you use?</h4><p data-block-key="76mdm">The images in Digital Bodleian come from many different sources. Most of the Bodleian’s collections were photographed by Bodleian Imaging Services, but images of college items are more likely to have been shot by freelance photographers or college staff, using a variety of equipment. Bodleian Imaging Services uses a few main pieces of kit: the “Grazer” Conservation Copy Stand for fragile bound volumes; Phase One digital cameras; Rodenstock lenses; and intermittent flash lighting.</p><h4 data-block-key="dfz5m">Where do the item descriptions come from?</h4><p data-block-key="eptvu">It depends. In many cases, the descriptions available in Digital Bodleian are copied (and sometimes abridged) from the descriptions available in our electronic catalogues. These descriptions in turn are based on printed catalogues, some published in the last decade, but others decades or centuries older.</p><p data-block-key="j0ejj">Some descriptions are much more detailed than others, depending on what sources were available at the time of digitization. We have tried to give a reference to the source of the description where we can.</p><p data-block-key="uqe6l">If you have an enquiry about a particular item’s description, please <a href="mailto:digital-bodleian@bodleian.ox.ac.uk"><b>get in touch with us</b></a>.</p><h4 data-block-key="8yrc1">Are the permalinks really permanent?</h4><p data-block-key="n48mq">We are committed to persisting any Digital Bodleian URL in the form<i> digital.bodleian.ox.ac.uk/objects/&lt;uuid&gt;</i>, <i>digital.bodleian.ox.ac.uk/objects/&lt;uuid&gt;/surfaces/&lt;uuid&gt;</i>, or <i>digital.bodleian.ox.ac.uk/inquire/p/&lt;uuid&gt;</i>.</p><p data-block-key="s3qqk">Permalinks can be obtained using the <b>Permalink</b> button in an object&#x27;s metadata panel.</p><h4 data-block-key="us47k">Can I see a full list of everything you&#x27;ve digitized?</h4><p data-block-key="8895y">By default, the <a href="/search"><b>Search page</b></a> lists everything in Digital Bodleian, alphabetically by shelfmark (including holding institution). You can use the search facet options to narrow this list down to individual institutions or collections.</p><p data-block-key="g9c94">Alternatively, individual<a href="/browse/"> <b>Collection and Partner pages</b></a> list all associated digitized items alphabetically by shelfmark.</p><h4 data-block-key="e4sby">Can I get an OAI-PMH export of all the data?</h4><p data-block-key="4ie16">No, but we do publish <a href="https://iiif.bodleian.ox.ac.uk/iiif/collection/top"><b>IIIF collections</b></a> and <a href="https://iiif.bodleian.ox.ac.uk/iiif/activity/all-changes"><b>Activity Streams</b></a>. We also have a <a href="https://digital.bodleian.ox.ac.uk/developer/data/"><b>public data API.</b></a></p></div>                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+
+<footer class="footer is-bg-db-dark-green">
+    <div class="container">
+        <div class="columns is-desktop">
+        <div class="column is-4-desktop">
+            <figure class="mr-5">
+                <img src="/static/global/images/bodleian-logo-white.svg" width="117" height="160" alt="Bodleian Libraries"/>
+            </figure>
+            <address>
+               Bodleian Libraries,<br />
+               Broad Street,<br />
+               Oxford OX1 3BG
+            </address>
+        </div>
+        <div class="column is-2-desktop">
+            <ul>
+                <li><a href="https://www.bodleian.ox.ac.uk/about">About the Bodleian Libraries</a></li>
+                <li><a href="https://www.ox.ac.uk/about">About the University of Oxford</a></li>
+                <li><a href="/about">About Digital Bodleian</a></li>
+                <li><a href="https://www.bodleian.ox.ac.uk/about/media">Press &amp; media</a></li>
+            </ul>
+        </div>
+        <div class="column is-2-desktop">
+            <ul>
+                <li><a href="https://visit.bodleian.ox.ac.uk/accessibility">Accessibility Statement</a></li>
+                <li><a href="/terms">Terms of Use</a></li>
+                <li><a href="https://glam.web.ox.ac.uk/privacy-policy-digitalbodleian-website">Privacy Policy</a></li>
+                <li><a href="https://visit.bodleian.ox.ac.uk/cookies">Cookies</a></li>
+                <li><a href="/about#contact">Contact</a></li>
+            </ul>
+        </div>
+    </div>
+    </div>
+    
+    <div class="columns is-bg-db-charcoal copyright">
+        <div class="column has-text-centered">
+            <p>© Copyright 2020 The Bodleian Libraries</p>
+        </div>
+    </div>
+</footer></body>
+<script>window.addEventListener("load", function(){window.wpcc.init({"corners":"small","colors":{"popup":{"background":"#00152e","text":"#ffffff","border":"#afb3e4"},"button":{"background":"#be0f34","text":"#ffffff"}},"position":"bottom","content":{"href":"https://visit.bodleian.ox.ac.uk/cookies","message":"We use cookies to help give you the best experience on our website. By continuing without changing your cookie settings, we assume you agree to this. Please read our cookie policy to find out more.","link":"Cookie Policy","button":"Dismiss"},"margin":"none"})});</script>
+</html>
