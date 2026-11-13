@@ -30,7 +30,7 @@ Ce qui manque : aucune limite de débit (requêtes/s, /min, /jour) n'est publié
 | # | Heure UTC | URL (sans identifiant complet) | Méthode | Statut | En-têtes de limite | Corps (résumé) | Délai depuis précédent |
 |---|---|---|---|---|---|---|---|
 | 1 | 21:04:53 | `iiif.bodleian.ox.ac.uk/` | HEAD | 303 | aucun | redirige vers `/info.json` | — |
-| 2 | (log) | `iiif.bodleian.ox.ac.uk/info.json` | GET | 200 | aucun | JSON discovery (446 o) | 2 s après la 1re |
+| 2 | (log) | `iiif.bodleian.ox.ac.uk/info.json` | GET | 200 | aucun | JSON discovery (446 o) | 51 s après la 1re (21:05:44) |
 | 3 | (log) | `iiif.bodleian.ox.ac.uk/iiif/collection/top` | GET | 200 | aucun | collection Presentation v2 (1 592 o) | ≥ 6 s |
 | 4 | 21:05:58 | `iiif.bodleian.ox.ac.uk/iiif/manifest/{uuid}.json` (v2) | GET | 200 | aucun | manifeste v2 (239 605 o) | 7 s |
 | 5 | 21:06:06 | `iiif.bodleian.ox.ac.uk/iiif/image/{id}/info.json` | GET | 200 | aucun | Image API 2 (1 131 o), 2 363 × 2 363 px | 8 s |
