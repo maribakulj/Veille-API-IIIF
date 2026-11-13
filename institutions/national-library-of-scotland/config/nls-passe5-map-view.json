@@ -1,0 +1,14 @@
+{
+  "slug": "national-library-of-scotland",
+  "min_delay_s": 6,
+  "max_requests": 15,
+  "follow_redirects": 1,
+  "note": "Passe v2 n°5 : hôte d'images des cartes (map-view.nls.uk). Le site maps.nls.uk renvoie un CAPTCHA à notre client, donc aucun identifiant n'est lisible sur ses pages ; l'identifiant 19619%2F196194600 vient d'un ticket public (dezoomify-rs #92, 2020). Un seul info.json, aucune image.",
+  "endpoints": [
+    {
+      "id": "mapview-info-json",
+      "method": "GET",
+      "url": "https://map-view.nls.uk/iiif/1/19619%2F196194600/info.json"
+    }
+  ]
+}
