@@ -1,0 +1,12 @@
+{
+  "slug": "nb-no",
+  "min_delay_s": 10,
+  "max_requests": 15,
+  "endpoints": [
+    {"id": "doc-swagger-racine", "method": "GET", "url": "https://api.nb.no/"},
+    {"id": "manifeste-c71eaa93", "method": "GET", "url": "https://api.nb.no/catalog/v1/iiif/c71eaa93d415c69059ec145899794b4e/manifest"},
+    {"id": "manifeste-ea3d85be", "method": "GET", "url": "https://api.nb.no/catalog/v1/iiif/ea3d85be891d3e04e68743c795930397/manifest"},
+    {"id": "manifeste-3ac5be14", "method": "GET", "url": "https://api.nb.no/catalog/v1/iiif/3ac5be14ba9e25974fe084f9dda75627/manifest"},
+    {"id": "oembed-item-c71eaa93", "method": "GET", "url": "https://api.nb.no/catalog/v1/oembed?url=https://www.nb.no/items/c71eaa93d415c69059ec145899794b4e"}
+  ]
+}

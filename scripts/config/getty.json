@@ -1,0 +1,14 @@
+{
+  "slug": "getty",
+  "min_delay_s": 6,
+  "max_requests": 15,
+  "endpoints": [
+    {"id": "accueil-data", "method": "GET", "url": "https://data.getty.edu/"},
+    {"id": "doc-api", "method": "GET", "url": "https://data.getty.edu/museum/collection/docs/"},
+    {"id": "activity-stream", "method": "GET", "url": "https://data.getty.edu/museum/collection/activity-stream"},
+    {"id": "sparql", "method": "GET", "url": "https://data.getty.edu/museum/collection/sparql"},
+    {"id": "sparql-ui", "method": "GET", "url": "https://data.getty.edu/museum/collection/sparql-ui"},
+    {"id": "manifeste-irises", "method": "GET", "url": "https://media.getty.edu/iiif/manifest/53be857e-41e8-4198-b45d-2e0f52d3051b"},
+    {"id": "conditions-terms-of-use", "method": "GET", "url": "https://www.getty.edu/legal/terms-of-use/"}
+  ]
+}

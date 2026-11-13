@@ -1,0 +1,14 @@
+{
+  "slug": "e-codices",
+  "min_delay_s": 6,
+  "max_requests": 15,
+  "endpoints": [
+    {"id": "accueil-en", "method": "GET", "url": "https://www.e-codices.unifr.ch/en"},
+    {"id": "conditions-utilisation", "method": "GET", "url": "https://www.e-codices.unifr.ch/en/about/terms"},
+    {"id": "manifest-fmb-cb-0100", "method": "GET", "url": "https://www.e-codices.unifr.ch/metadata/iiif/fmb-cb-0100/manifest.json"},
+    {"id": "manifest-gau-Fragment", "method": "GET", "url": "https://www.e-codices.unifr.ch/metadata/iiif/gau-Fragment/manifest.json"},
+    {"id": "collection-ubb", "method": "GET", "url": "https://www.e-codices.unifr.ch/metadata/iiif/collection/ubb.json"},
+    {"id": "recherche-plein-texte", "method": "GET", "url": "https://www.e-codices.unifr.ch/en/search?aSelectedFacets=&sQueryString=&sSearchField=fullText&iResultsPerPage=20&sSortField=score"},
+    {"id": "rss-latest", "method": "GET", "url": "https://www.e-codices.unifr.ch/rss/all/latest"}
+  ]
+}

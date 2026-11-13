@@ -1,0 +1,12 @@
+{
+  "slug": "hab",
+  "min_delay_s": 6,
+  "max_requests": 15,
+  "endpoints": [
+    {"id": "accueil-diglib", "method": "GET", "url": "https://diglib.hab.de/"},
+    {"id": "purl-iiif-167", "method": "GET", "url": "http://diglib.hab.de/?link=167"},
+    {"id": "oai-identify", "method": "GET", "url": "http://oai.hab.de/?verb=Identify"},
+    {"id": "nutzungshinweise", "method": "GET", "url": "http://diglib.hab.de/nutzungshinweise.html"},
+    {"id": "hab-bodleian-digitalisate", "method": "GET", "url": "https://hab.bodleian.ox.ac.uk/de/digitalisate/"}
+  ]
+}

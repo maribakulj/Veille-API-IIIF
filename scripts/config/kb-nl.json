@@ -1,0 +1,10 @@
+{
+  "slug": "kb-nl",
+  "min_delay_s": 6,
+  "max_requests": 15,
+  "endpoints": [
+    {"id": "racine-iiif", "method": "GET", "url": "https://iiif.kb.nl/"},
+    {"id": "sru-explain", "method": "GET", "url": "http://jsru.kb.nl/sru/sru?operation=explain"},
+    {"id": "oai-identify", "method": "GET", "url": "http://services.kb.nl/mdo/oai?verb=Identify"}
+  ]
+}

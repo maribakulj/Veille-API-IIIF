@@ -1,0 +1,8 @@
+{
+  "slug": "smithsonian",
+  "min_delay_s": 6,
+  "max_requests": 15,
+  "endpoints": [
+    {"id": "s3-metadata-index-edan", "method": "GET", "url": "https://smithsonian-open-access.s3-us-west-2.amazonaws.com/metadata/edan/index.txt"}
+  ]
+}

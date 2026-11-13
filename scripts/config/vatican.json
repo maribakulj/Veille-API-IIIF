@@ -1,0 +1,10 @@
+{
+  "slug": "vatican",
+  "min_delay_s": 10,
+  "max_requests": 15,
+  "endpoints": [
+    {"id": "accueil-digi", "method": "GET", "url": "https://digi.vatlib.it/"},
+    {"id": "manifeste-MSS_Vat.lat.683", "method": "GET", "url": "https://digi.vatlib.it/iiif/MSS_Vat.lat.683/manifest.json"},
+    {"id": "manifeste-MSS_Vat.ebr.75", "method": "GET", "url": "https://digi.vatlib.it/iiif/MSS_Vat.ebr.75/manifest.json"}
+  ]
+}
