@@ -1,0 +1,586 @@
+[
+  {
+    "slug": "mdz",
+    "nom": "Bayerische Staatsbibliothek / MDZ",
+    "pays": "Allemagne",
+    "statut_audit": "en cours (méthode v2)",
+    "checklist": {
+      "a_doc_lue": "fait",
+      "b_endpoints_doc": "fait",
+      "c_config_avant_tests": "fait",
+      "d_quota_dans_doc": "fait",
+      "e_tests_endpoints": "fait",
+      "f_web": "fait",
+      "g_crash_test": "à faire (après audit)"
+    },
+    "limites_documentees": [
+      {"nature": "Quota par 24 h", "perimetre": "Image API", "valeur": "non chiffrée", "fenetre": "24 h", "effet": "non précisé", "source": "https://www.digitale-sammlungen.de/en/interfaces", "date": "2026-11-13"},
+      {"nature": "Quota par 24 h", "perimetre": "OCR (téléchargements)", "valeur": "non chiffrée", "fenetre": "24 h", "effet": "non précisé", "source": "https://www.digitale-sammlungen.de/en/interfaces", "date": "2026-11-13"},
+      {"nature": "Illimité", "perimetre": "Presentation API", "valeur": "illimité (annoncé)", "fenetre": "–", "effet": "–", "source": "https://www.digitale-sammlungen.de/en/interfaces", "date": "2026-11-13"}
+    ],
+    "en_tetes_observes": [
+      {"nom": "x-ratelimit-limit", "valeur": "5001 (OCR) / 25001 (Image)", "endpoint": "OCR hOCR, Image API", "date": "2026-11-13", "preuve": "tests/mdz.log, tests/raw/mdz/"},
+      {"nom": "x-ratelimit-remaining", "valeur": "5000 / 25000, identique entre deux appels", "endpoint": "idem", "date": "2026-11-13", "preuve": "tests/mdz.log"},
+      {"nom": "x-ratelimit-reset", "valeur": "17 (OCR) / 3 (Image) : unité inconnue", "endpoint": "idem", "date": "2026-11-13", "preuve": "tests/mdz.log"}
+    ],
+    "blocages": [],
+    "contact": "mdz@bsb-muenchen.de (contact général)",
+    "conclusion_quota": "Quota par 24 h documenté sans chiffre ; en-têtes x-ratelimit observés, non documentés, non utilisables comme compteur",
+    "classe_quota": "règle sans chiffre publié",
+    "confiance": "moyenne",
+    "notes": "Ticket tiers (sourcelibrary-v2 #5448) : demande d'IP autorisée sans réponse au 26/10 ; affirme un « 1×1 over-quota placeholder » en 200 (non vérifié) : à détecter dans la sonde."
+  },
+  {
+    "slug": "bnf-gallica",
+    "nom": "BnF — Gallica (IIIF)",
+    "pays": "France",
+    "statut_audit": "en cours (méthode v2)",
+    "checklist": {
+      "a_doc_lue": "partiel (1 page incomplète, 1 page 403)",
+      "b_endpoints_doc": "fait",
+      "c_config_avant_tests": "fait",
+      "d_quota_dans_doc": "fait",
+      "e_tests_endpoints": "bloqué (403 anti-bot, non réessayé)",
+      "f_web": "fait (partiel)",
+      "g_crash_test": "à faire (après audit)"
+    },
+    "limites_documentees": [
+      {"nature": "Débit (ancienne page)", "perimetre": "IIIF Image (full/full, >1000 px)", "valeur": "5", "fenetre": "par minute", "effet": "429 Too Many Requests", "source": "https://api.bnf.fr/fr/node/232", "date": "2026-11-13"},
+      {"nature": "Débit (ancienne page)", "perimetre": "TexteBrut", "valeur": "5", "fenetre": "par minute", "effet": "429", "source": "https://api.bnf.fr/fr/node/232", "date": "2026-11-13"},
+      {"nature": "Débit (ancienne page)", "perimetre": "PDF", "valeur": "4", "fenetre": "par minute", "effet": "429", "source": "https://api.bnf.fr/fr/node/232", "date": "2026-11-13"},
+      {"nature": "Débit (ancienne page)", "perimetre": "highres", "valeur": "50", "fenetre": "par minute", "effet": "429", "source": "https://api.bnf.fr/fr/node/232", "date": "2026-11-13"},
+      {"nature": "Restriction annoncée (récente)", "perimetre": "IIIF, SRU, API Document", "valeur": "restrictions temporaires, modalités non définies", "fenetre": "–", "effet": "–", "source": "https://api.bnf.fr/fr/evolution-des-modalites-dacces-aux-api-de-gallica", "date": "2026-11-13"}
+    ],
+    "en_tetes_observes": [],
+    "blocages": [
+      {"date": "2026-11-13 20:33Z", "hote": "gallica.bnf.fr", "code": "403", "nature": "anti-bot (Cloudflare), 1re requête", "suite": "hôte arrêté, non réessayé"}
+    ],
+    "contact": "gallica@bnf.fr (data.gouv, lu en résumé)",
+    "conclusion_quota": "Débits publiés (5/min, 429) mais page ancienne ; la page récente annonce des restrictions dont les modalités ne sont pas définies. Pas d'en-tête, pas de clé, pas d'endpoint de statut.",
+    "classe_quota": "règle chiffrée ancienne, accès restreint annoncé",
+    "confiance": "faible",
+    "notes": "data.gouv (« limite non documentée ») contredit api.bnf.fr. Page 2748 incomplète. Page conditions : 403."
+  },
+  {
+    "slug": "loc",
+    "nom": "Library of Congress",
+    "pays": "États-Unis",
+    "statut_audit": "partiel (ancienne méthode, test par famille fait)",
+    "checklist": {
+      "a_doc_lue": "à faire (méthode v2)",
+      "b_endpoints_doc": "partiel",
+      "c_config_avant_tests": "fait (loc.json, 13 URL)",
+      "d_quota_dans_doc": "fait (ancienne méthode)",
+      "e_tests_endpoints": "partiel (JSON bloqué 403, MARCXML timeout)",
+      "f_web": "à faire (méthode v2)",
+      "g_crash_test": "à faire (après audit)"
+    },
+    "limites_documentees": [
+      {"nature": "Débit", "perimetre": "JSON/YAML loc.gov", "valeur": "20", "fenetre": "par minute", "effet": "blocage 1 h", "source": "https://www.loc.gov/apis/json-and-yaml/working-within-limits/", "date": "2026-11-13"},
+      {"nature": "Débit", "perimetre": "Text Services", "valeur": "150", "fenetre": "par minute", "effet": "blocage 1 h", "source": "https://www.loc.gov/apis/json-and-yaml/working-within-limits/", "date": "2026-11-13"},
+      {"nature": "Débit", "perimetre": "Image Services (IIIF)", "valeur": "150", "fenetre": "par minute", "effet": "blocage 1 h", "source": "https://www.loc.gov/apis/json-and-yaml/working-within-limits/", "date": "2026-11-13"},
+      {"nature": "Débit", "perimetre": "Streaming Services", "valeur": "60", "fenetre": "par minute", "effet": "blocage 1 h", "source": "https://www.loc.gov/apis/json-and-yaml/working-within-limits/", "date": "2026-11-13"},
+      {"nature": "Débit", "perimetre": "Médias /storage-services/", "valeur": "150", "fenetre": "par minute", "effet": "blocage 1 h", "source": "https://www.loc.gov/apis/json-and-yaml/working-within-limits/", "date": "2026-11-13"},
+      {"nature": "Débit", "perimetre": "MARCXML lccn.loc.gov", "valeur": "30", "fenetre": "par minute", "effet": "blocage 72 h", "source": "https://www.loc.gov/apis/json-and-yaml/working-within-limits/", "date": "2026-11-13"},
+      {"nature": "Recommandation logicielle", "perimetre": "ensemble", "valeur": "10", "fenetre": "par minute", "effet": "–", "source": "https://www.loc.gov/legal/ (cité dans la fiche, à relire)", "date": "2026-11-13"}
+    ],
+    "en_tetes_observes": [],
+    "blocages": [
+      {"date": "2026-11-13 20:34Z", "hote": "www.loc.gov", "code": "403", "nature": "défi Cloudflare « Just a moment », 2e requête", "suite": "JSON bloqué sur 2 URL, hôte non réessayé"},
+      {"date": "2026-11-13", "hote": "lccn.loc.gov", "code": "timeout", "nature": "pas de réponse à 30 s (2 essais)", "suite": "non résolu"}
+    ],
+    "contact": "non trouvé",
+    "conclusion_quota": "Débits chiffrés publiés par famille d'API. Aucun en-tête de limite observé ; aucun endpoint de statut documenté.",
+    "classe_quota": "limite documentée chiffrée",
+    "confiance": "moyenne",
+    "notes": "Test de dépassement non fait (règle : accord de Marcel). Image Services : une seule famille testée avec succès (200, sans en-tête)."
+  },
+  {
+    "slug": "internet-archive",
+    "nom": "Internet Archive",
+    "pays": "États-Unis",
+    "statut_audit": "partiel (ancienne méthode)",
+    "checklist": {
+      "a_doc_lue": "partiel (bots, md-write, index-apis ; terms vide)",
+      "b_endpoints_doc": "partiel",
+      "c_config_avant_tests": "fait (internet-archive.json)",
+      "d_quota_dans_doc": "fait (ancienne méthode)",
+      "e_tests_endpoints": "fait (10 GET, sans en-tête)",
+      "f_web": "partiel",
+      "g_crash_test": "à faire (après audit)"
+    },
+    "limites_documentees": [
+      {"nature": "Consigne qualitative", "perimetre": "bots (IIIF/advancedsearch/metadata)", "valeur": "non chiffrée : « honor 429 and Retry-After »", "fenetre": "–", "effet": "429", "source": "https://archive.org/developers/bots.html", "date": "2026-11-13"},
+      {"nature": "Task limit (clés S3)", "perimetre": "API Tasks", "valeur": "non lu (exige clés S3)", "fenetre": "–", "effet": "–", "source": "https://archive.org/developers/tasks.html", "date": "2026-11-13"}
+    ],
+    "en_tetes_observes": [],
+    "blocages": [],
+    "contact": "info@archive.org (cité par un tiers)",
+    "conclusion_quota": "Aucun quota chiffré pour advancedsearch, metadata, IIIF. Moyen partiel : API Tasks, avec clés S3 (non utilisée).",
+    "classe_quota": "aucun quota trouvé (moyen avec clé)",
+    "confiance": "moyenne",
+    "notes": "iiif.archivelab.org : échec TLS, non résolu. terms : page vide."
+  },
+  {
+    "slug": "wellcome",
+    "nom": "Wellcome Collection",
+    "pays": "Royaume-Uni",
+    "statut_audit": "partiel (ancienne méthode)",
+    "checklist": {
+      "a_doc_lue": "partiel (doc développeurs lue, /terms 404)",
+      "b_endpoints_doc": "fait",
+      "c_config_avant_tests": "fait (wellcome.json)",
+      "d_quota_dans_doc": "fait (ancienne méthode)",
+      "e_tests_endpoints": "fait (4 GET, sans en-tête)",
+      "f_web": "partiel",
+      "g_crash_test": "à faire (après audit)"
+    },
+    "limites_documentees": [
+      {"nature": "Intention", "perimetre": "endpoints publics", "valeur": "non chiffrée (RFC 012 : « would benefit from rate limiting »)", "fenetre": "–", "effet": "–", "source": "https://docs.wellcomecollection.org/request-for-comments-rfcs/012-api_architecture", "date": "2026-11-13"}
+    ],
+    "en_tetes_observes": [],
+    "blocages": [],
+    "contact": "non trouvé",
+    "conclusion_quota": "Aucun quota publié. API sans authentification, sans clé.",
+    "classe_quota": "aucun quota trouvé",
+    "confiance": "moyenne",
+    "notes": "Snapshot quotidien recommandé pour les moissonnages complets."
+  },
+  {
+    "slug": "british-library",
+    "nom": "British Library",
+    "pays": "Royaume-Uni",
+    "statut_audit": "incomplet (doc BL non lue)",
+    "checklist": {
+      "a_doc_lue": "non fait (iiif.bl.uk 403)",
+      "b_endpoints_doc": "non fait",
+      "c_config_avant_tests": "fait (british-library.json)",
+      "d_quota_dans_doc": "partiel",
+      "e_tests_endpoints": "bloqué (403 IIS, DNS api.bl.uk)",
+      "f_web": "partiel",
+      "g_crash_test": "non applicable (bloqué)"
+    },
+    "limites_documentees": [],
+    "en_tetes_observes": [],
+    "blocages": [
+      {"date": "2026-11-13 20:35Z", "hote": "iiif.bl.uk", "code": "403", "nature": "Microsoft-IIS, reproduit en curl depuis la machine de veille", "suite": "non réessayé"},
+      {"date": "2026-11-13 20:33Z", "hote": "api.bl.uk", "code": "DNS", "nature": "non résolu", "suite": "–"}
+    ],
+    "contact": "permissions@bl.uk (à confirmer)",
+    "conclusion_quota": "Non vérifiable : doc IIIF non lue, hôte bloqué.",
+    "classe_quota": "non vérifiable",
+    "confiance": "faible",
+    "notes": "Conditions : bl.uk/help/terms-of-use lue (CC-BY, aucun quota)."
+  },
+  {
+    "slug": "bodleian",
+    "nom": "Bodleian Libraries (Oxford)",
+    "pays": "Royaume-Uni",
+    "statut_audit": "partiel (ancienne méthode)",
+    "checklist": {
+      "a_doc_lue": "partiel (developer/iiif, data, terms, FAQ en partie)",
+      "b_endpoints_doc": "fait",
+      "c_config_avant_tests": "fait (bodleian.json, 12 entrées)",
+      "d_quota_dans_doc": "fait (ancienne méthode)",
+      "e_tests_endpoints": "fait (13 appels, sans en-tête)",
+      "f_web": "partiel",
+      "g_crash_test": "à faire (après audit)"
+    },
+    "limites_documentees": [],
+    "en_tetes_observes": [],
+    "blocages": [],
+    "contact": "digital-bodleian@bodleian.ox.ac.uk (moissonnage significatif)",
+    "conclusion_quota": "Aucun quota publié. Contact demandé pour un moissonnage important.",
+    "classe_quota": "aucun quota trouvé (contact)",
+    "confiance": "moyenne",
+    "notes": "La doc suggère d'ajouter un e-mail au User-Agent ; non fait (consigne du projet)."
+  },
+  {
+    "slug": "cudl",
+    "nom": "Cambridge University Library (CUDL)",
+    "pays": "Royaume-Uni",
+    "statut_audit": "partiel (ancienne méthode)",
+    "checklist": {
+      "a_doc_lue": "partiel (/terms et /help en 403)",
+      "b_endpoints_doc": "partiel",
+      "c_config_avant_tests": "fait (cudl.json)",
+      "d_quota_dans_doc": "fait (ancienne méthode)",
+      "e_tests_endpoints": "partiel (7 requêtes, cudl.link en DNS)",
+      "f_web": "non fait",
+      "g_crash_test": "à faire (après audit)"
+    },
+    "limites_documentees": [],
+    "en_tetes_observes": [],
+    "blocages": [
+      {"date": "2026-11-13", "hote": "cudl.lib.cam.ac.uk /terms", "code": "403", "nature": "anti-bot, page du site (pas un endpoint API)", "suite": "API non arrêtée, manifestes testés 200"}
+    ],
+    "contact": "non trouvé",
+    "conclusion_quota": "Aucun quota publié dans le README cudl-services (API publique sans authentification).",
+    "classe_quota": "aucun quota trouvé",
+    "confiance": "moyenne",
+    "notes": "Recherche Solr : interne. Métadonnées : cudl.link en DNS."
+  },
+  {
+    "slug": "europeana",
+    "nom": "Europeana",
+    "pays": "Union européenne",
+    "statut_audit": "partiel (ancienne méthode)",
+    "checklist": {
+      "a_doc_lue": "partiel (fair use policy, conditions)",
+      "b_endpoints_doc": "fait",
+      "c_config_avant_tests": "fait (europeana.json)",
+      "d_quota_dans_doc": "fait (ancienne méthode)",
+      "e_tests_endpoints": "fait (5 requêtes IIIF, sans en-tête)",
+      "f_web": "partiel",
+      "g_crash_test": "à faire (après audit)"
+    },
+    "limites_documentees": [
+      {"nature": "Quota par clé personnelle", "perimetre": "API de recherche / Record", "valeur": "non chiffré officiellement", "fenetre": "–", "effet": "–", "source": "https://www.europeana.eu/ (fair use policy, 2024, lue en résumé)", "date": "2026-11-13"},
+      {"nature": "Forum (non vérifié)", "perimetre": "API", "valeur": "120 requêtes / 10 s", "fenetre": "10 s", "effet": "–", "source": "fil de forum, date et portée inconnues", "date": "2026-11-13"}
+    ],
+    "en_tetes_observes": [],
+    "blocages": [
+      {"date": "2026-11-13", "hote": "pro.europeana.eu", "code": "403", "nature": "portail développeurs, lecture WebFetch", "suite": "non réessayé"}
+    ],
+    "contact": "api@europeana.eu",
+    "conclusion_quota": "Quota lié à la clé personnelle (X-Api-Key) ; pas de chiffre officiel trouvé.",
+    "classe_quota": "règle sans chiffre publié (clé)",
+    "confiance": "faible",
+    "notes": "Le 120/10 s provient d'un forum, non vérifié."
+  },
+  {
+    "slug": "e-codices",
+    "nom": "e-codices (manuscrits suisses)",
+    "pays": "Suisse",
+    "statut_audit": "partiel (ancienne méthode)",
+    "checklist": {
+      "a_doc_lue": "partiel (conditions en résumé)",
+      "b_endpoints_doc": "partiel (manifestes tiers)",
+      "c_config_avant_tests": "fait (e-codices.json)",
+      "d_quota_dans_doc": "fait (ancienne méthode)",
+      "e_tests_endpoints": "fait (7 requêtes, sans en-tête)",
+      "f_web": "non fait",
+      "g_crash_test": "à faire (après audit)"
+    },
+    "limites_documentees": [],
+    "en_tetes_observes": [],
+    "blocages": [],
+    "contact": "non trouvé",
+    "conclusion_quota": "Aucune limite annoncée dans les conditions lues.",
+    "classe_quota": "aucun quota trouvé",
+    "confiance": "moyenne",
+    "notes": "Service image non documenté (non testé)."
+  },
+  {
+    "slug": "vatican",
+    "nom": "Biblioteca Apostolica Vaticana (DigiVatLib)",
+    "pays": "Vatican",
+    "statut_audit": "partiel (ancienne méthode)",
+    "checklist": {
+      "a_doc_lue": "non fait (pages en erreur TLS)",
+      "b_endpoints_doc": "partiel (manifestes issus de sources secondaires)",
+      "c_config_avant_tests": "fait (vatican.json)",
+      "d_quota_dans_doc": "fait (ancienne méthode)",
+      "e_tests_endpoints": "fait (3 requêtes, sans en-tête)",
+      "f_web": "non fait",
+      "g_crash_test": "à faire (après audit)"
+    },
+    "limites_documentees": [],
+    "en_tetes_observes": [],
+    "blocages": [
+      {"date": "2026-11-13", "hote": "vatlib.it / spotlight.vatlib.it", "code": "TLS", "nature": "erreur de certificat à la lecture", "suite": "non lu"}
+    ],
+    "contact": "non trouvé",
+    "conclusion_quota": "Aucun quota trouvé ; doc officielle non lue.",
+    "classe_quota": "aucun quota trouvé (doc non lue)",
+    "confiance": "faible",
+    "notes": "Interdiction de téléchargement des images (extrait de recherche, non lu brut)."
+  },
+  {
+    "slug": "slub",
+    "nom": "SLUB Dresden",
+    "pays": "Allemagne",
+    "statut_audit": "partiel (ancienne méthode)",
+    "checklist": {
+      "a_doc_lue": "partiel (nutzungshinweis en résumé)",
+      "b_endpoints_doc": "partiel (URL de README tiers)",
+      "c_config_avant_tests": "fait (slub.json)",
+      "d_quota_dans_doc": "fait (ancienne méthode)",
+      "e_tests_endpoints": "fait (4 requêtes, sans en-tête)",
+      "f_web": "non fait",
+      "g_crash_test": "à faire (après audit)"
+    },
+    "limites_documentees": [],
+    "en_tetes_observes": [],
+    "blocages": [],
+    "contact": "digital@slub-dresden.de (nutzungshinweis.slub-dresden.de)",
+    "conclusion_quota": "Aucun quota trouvé.",
+    "classe_quota": "aucun quota trouvé",
+    "confiance": "faible",
+    "notes": "Aucune source officielle IIIF lue."
+  },
+  {
+    "slug": "hab",
+    "nom": "Herzog August Bibliothek (Wolfenbüttel)",
+    "pays": "Allemagne",
+    "statut_audit": "partiel (ancienne méthode)",
+    "checklist": {
+      "a_doc_lue": "partiel (Nutzungshinweise en résumé)",
+      "b_endpoints_doc": "non fait (aucun manifeste documenté trouvé)",
+      "c_config_avant_tests": "fait (hab.json)",
+      "d_quota_dans_doc": "fait (ancienne méthode)",
+      "e_tests_endpoints": "fait (5 requêtes, sans 403)",
+      "f_web": "non fait",
+      "g_crash_test": "à faire (après audit)"
+    },
+    "limites_documentees": [],
+    "en_tetes_observes": [],
+    "blocages": [],
+    "contact": "auskunft@hab.de (copyright.html)",
+    "conclusion_quota": "Aucun quota dans les Nutzungshinweise lues en résumé.",
+    "classe_quota": "aucun quota trouvé",
+    "confiance": "faible",
+    "notes": "Pas d'URL de manifeste trouvée pour diglib.hab.de."
+  },
+  {
+    "slug": "kb-nl",
+    "nom": "Koninklijke Bibliotheek (Pays-Bas)",
+    "pays": "Pays-Bas",
+    "statut_audit": "partiel (ancienne méthode)",
+    "checklist": {
+      "a_doc_lue": "partiel",
+      "b_endpoints_doc": "partiel (SRU et OAI-PMH)",
+      "c_config_avant_tests": "fait (kb-nl.json, kb-nl-suite.json)",
+      "d_quota_dans_doc": "fait (ancienne méthode)",
+      "e_tests_endpoints": "fait (7 requêtes, sans en-tête)",
+      "f_web": "non fait",
+      "g_crash_test": "à faire (après audit)"
+    },
+    "limites_documentees": [],
+    "en_tetes_observes": [],
+    "blocages": [
+      {"date": "2026-11-13", "hote": "iiif.kb.nl", "code": "DNS", "nature": "non résolu", "suite": "IIIF non testable"}
+    ],
+    "contact": "non trouvé (admin@iiif.io est celui du consortium, à ne pas confondre)",
+    "conclusion_quota": "Aucun quota trouvé pour SRU et OAI-PMH.",
+    "classe_quota": "aucun quota trouvé",
+    "confiance": "faible",
+    "notes": "IIIF non résolu : seul SRU et OAI-PMH ont été testés."
+  },
+  {
+    "slug": "kb-dk",
+    "nom": "Det Kongelige Bibliotek (Danemark)",
+    "pays": "Danemark",
+    "statut_audit": "partiel (ancienne méthode)",
+    "checklist": {
+      "a_doc_lue": "partiel (résumé WebFetch)",
+      "b_endpoints_doc": "partiel (Image API seule)",
+      "c_config_avant_tests": "fait (kb-dk.json, kb-dk-suite.json)",
+      "d_quota_dans_doc": "fait (ancienne méthode)",
+      "e_tests_endpoints": "fait (12 requêtes, sans 403 ni 429)",
+      "f_web": "non fait",
+      "g_crash_test": "à faire (après audit)"
+    },
+    "limites_documentees": [],
+    "en_tetes_observes": [],
+    "blocages": [],
+    "contact": "kb@kb.dk ; +45 3347 4747 (page API)",
+    "conclusion_quota": "Aucun quota dans les pages lues ; règlement intégral non lu.",
+    "classe_quota": "aucun quota trouvé",
+    "confiance": "faible",
+    "notes": "Les URL IIIF des tests ont été reconstituées à partir d'un résumé : à revérifier."
+  },
+  {
+    "slug": "nb-no",
+    "nom": "Nasjonalbiblioteket (Norvège)",
+    "pays": "Norvège",
+    "statut_audit": "partiel (ancienne méthode)",
+    "checklist": {
+      "a_doc_lue": "partiel (OpenAPI lue)",
+      "b_endpoints_doc": "partiel",
+      "c_config_avant_tests": "fait (nb-no.json)",
+      "d_quota_dans_doc": "fait (ancienne méthode)",
+      "e_tests_endpoints": "fait (5 requêtes, sans 403 ni 429)",
+      "f_web": "non fait",
+      "g_crash_test": "à faire (après audit)"
+    },
+    "limites_documentees": [],
+    "en_tetes_observes": [],
+    "blocages": [],
+    "contact": "nasa@nb.no (info.contact de l'OpenAPI)",
+    "conclusion_quota": "Aucun champ de quota dans la spécification OpenAPI.",
+    "classe_quota": "aucun quota trouvé",
+    "confiance": "moyenne",
+    "notes": "oEmbed en 404 : à retester."
+  },
+  {
+    "slug": "bne",
+    "nom": "Biblioteca Nacional de España",
+    "pays": "Espagne",
+    "statut_audit": "incomplet (BDH en 403)",
+    "checklist": {
+      "a_doc_lue": "non fait (datos.bne.es et bdh.bne.es en 403)",
+      "b_endpoints_doc": "non fait (aucun endpoint IIIF trouvé)",
+      "c_config_avant_tests": "fait (bne.json, bne-suite.json)",
+      "d_quota_dans_doc": "fait (ancienne méthode)",
+      "e_tests_endpoints": "partiel (3 requêtes, redirections)",
+      "f_web": "partiel",
+      "g_crash_test": "non applicable (aucun endpoint)"
+    },
+    "limites_documentees": [],
+    "en_tetes_observes": [],
+    "blocages": [
+      {"date": "2026-11-13", "hote": "datos.bne.es, bdh.bne.es", "code": "403", "nature": "lecture WebFetch", "suite": "non contourné"}
+    ],
+    "contact": "non trouvé",
+    "conclusion_quota": "Non vérifiable : doc BNE inaccessible à l'outil.",
+    "classe_quota": "non vérifiable",
+    "confiance": "faible",
+    "notes": "Piste : lire bdh.bne.es depuis un navigateur."
+  },
+  {
+    "slug": "rijksmuseum",
+    "nom": "Rijksmuseum",
+    "pays": "Pays-Bas",
+    "statut_audit": "partiel (ancienne méthode)",
+    "checklist": {
+      "a_doc_lue": "partiel (docs/search lue en résumé)",
+      "b_endpoints_doc": "fait",
+      "c_config_avant_tests": "fait (rijksmuseum.json)",
+      "d_quota_dans_doc": "fait (ancienne méthode)",
+      "e_tests_endpoints": "fait (4 requêtes, sans clé, sans 403)",
+      "f_web": "non fait",
+      "g_crash_test": "à faire (après audit)"
+    },
+    "limites_documentees": [],
+    "en_tetes_observes": [],
+    "blocages": [],
+    "contact": "générique (footer)",
+    "conclusion_quota": "API sans clé annoncée ; aucune limite trouvée. Une limite de taille de requête d'image (maxArea) est documentée.",
+    "classe_quota": "aucun quota trouvé",
+    "confiance": "moyenne",
+    "notes": "Pages data.rijksmuseum.nl/docs/api : 404."
+  },
+  {
+    "slug": "smithsonian",
+    "nom": "Smithsonian Institution (Open Access)",
+    "pays": "États-Unis",
+    "statut_audit": "partiel (clé requise)",
+    "checklist": {
+      "a_doc_lue": "partiel (EDAN, api.data.gov lues en résumé)",
+      "b_endpoints_doc": "partiel (API principale non testée sans clé)",
+      "c_config_avant_tests": "fait (smithsonian.json)",
+      "d_quota_dans_doc": "fait",
+      "e_tests_endpoints": "partiel (1 endpoint S3 sans clé)",
+      "f_web": "non fait",
+      "g_crash_test": "non applicable sans clé"
+    },
+    "limites_documentees": [
+      {"nature": "Quota par clé api.data.gov (plateforme)", "perimetre": "API api.si.edu avec clé", "valeur": "1000", "fenetre": "par heure", "effet": "429", "source": "https://api.data.gov/docs/developer-manual/ (non vérifié pour le Smithsonian)", "date": "2026-11-13"},
+      {"nature": "DEMO_KEY (plateforme)", "perimetre": "clé de démonstration", "valeur": "30 par heure par IP, 50 par jour", "fenetre": "heure / jour", "effet": "429", "source": "https://api.data.gov/docs/developer-manual/", "date": "2026-11-13"}
+    ],
+    "en_tetes_observes": [],
+    "blocages": [],
+    "contact": "non trouvé",
+    "conclusion_quota": "Oui sous condition : en-têtes X-RateLimit-* documentés par api.data.gov pour une clé valide ; non testés (clé non demandée).",
+    "classe_quota": "clé donne un quota (plateforme)",
+    "confiance": "faible",
+    "notes": "Clé requise : inscription sur api.data.gov, à décider par Marcel."
+  },
+  {
+    "slug": "getty",
+    "nom": "Getty (Open Content / Linked Art)",
+    "pays": "États-Unis",
+    "statut_audit": "partiel (ancienne méthode)",
+    "checklist": {
+      "a_doc_lue": "partiel (pages tronquées)",
+      "b_endpoints_doc": "partiel",
+      "c_config_avant_tests": "fait (getty.json)",
+      "d_quota_dans_doc": "fait (ancienne méthode)",
+      "e_tests_endpoints": "fait (7 requêtes, sans 403 ni 429)",
+      "f_web": "non fait",
+      "g_crash_test": "à faire (après audit)"
+    },
+    "limites_documentees": [],
+    "en_tetes_observes": [],
+    "blocages": [],
+    "contact": "MuseumCollections@getty.edu (données), rights@getty.edu (images)",
+    "conclusion_quota": "Aucun quota ni clé documenté (lecture partielle).",
+    "classe_quota": "aucun quota trouvé",
+    "confiance": "faible",
+    "notes": "Doc tronquée à la lecture : à relire en entier."
+  },
+  {
+    "slug": "harvard",
+    "nom": "Harvard Library",
+    "pays": "États-Unis",
+    "statut_audit": "partiel (ancienne méthode)",
+    "checklist": {
+      "a_doc_lue": "partiel",
+      "b_endpoints_doc": "partiel",
+      "c_config_avant_tests": "fait (harvard.json)",
+      "d_quota_dans_doc": "fait (ancienne méthode)",
+      "e_tests_endpoints": "fait (9 GET, sans en-tête)",
+      "f_web": "non fait",
+      "g_crash_test": "à faire (après audit)"
+    },
+    "limites_documentees": [
+      {"nature": "Débit (extrait non vérifié, wiki LibraryCloud)", "perimetre": "API LibraryCloud", "valeur": "300 requêtes", "fenetre": "par 5 minutes (1 req/s)", "effet": "–", "source": "wiki LibraryCloud, page 43287734 (extrait tronqué, attribution incertaine)", "date": "2026-11-13"}
+    ],
+    "en_tetes_observes": [],
+    "blocages": [],
+    "contact": "non trouvé",
+    "conclusion_quota": "Un débit est annoncé par un extrait de wiki non vérifié ; aucun en-tête.",
+    "classe_quota": "règle sans chiffre officiel (extrait non vérifié)",
+    "confiance": "faible",
+    "notes": "À vérifier sur la doc officielle LibraryCloud."
+  },
+  {
+    "slug": "princeton",
+    "nom": "Princeton University Library",
+    "pays": "États-Unis",
+    "statut_audit": "partiel (ancienne méthode)",
+    "checklist": {
+      "a_doc_lue": "partiel",
+      "b_endpoints_doc": "partiel",
+      "c_config_avant_tests": "fait (princeton.json)",
+      "d_quota_dans_doc": "fait (ancienne méthode)",
+      "e_tests_endpoints": "fait (8 requêtes, sans en-tête)",
+      "f_web": "non fait",
+      "g_crash_test": "à faire (après audit)"
+    },
+    "limites_documentees": [],
+    "en_tetes_observes": [],
+    "blocages": [],
+    "contact": "« contact us » du wiki DPUL",
+    "conclusion_quota": "Aucun quota trouvé.",
+    "classe_quota": "aucun quota trouvé",
+    "confiance": "faible",
+    "notes": "Robots.txt de Figgy : affirmation tierce non vérifiée."
+  },
+  {
+    "slug": "nypl",
+    "nom": "New York Public Library",
+    "pays": "États-Unis",
+    "statut_audit": "partiel (ancienne méthode)",
+    "checklist": {
+      "a_doc_lue": "partiel (v1 lue ; v2 introuvable)",
+      "b_endpoints_doc": "partiel",
+      "c_config_avant_tests": "fait (nypl.json)",
+      "d_quota_dans_doc": "fait (ancienne méthode)",
+      "e_tests_endpoints": "fait (6 requêtes, v1 en 410)",
+      "f_web": "non fait",
+      "g_crash_test": "à faire (après audit)"
+    },
+    "limites_documentees": [
+      {"nature": "Quota par jeton (API v1, désactivée)", "perimetre": "API Repo v1", "valeur": "10 000", "fenetre": "par jour", "effet": "–", "source": "doc api_documentation_v1 (NYPL)", "date": "2026-11-13"}
+    ],
+    "en_tetes_observes": [],
+    "blocages": [],
+    "contact": "repoapi@nypl.org, digitaldam@nypl.org",
+    "conclusion_quota": "Quota 10 000/jour pour une API v1 désactivée (410) ; v2 non documentée trouvée.",
+    "classe_quota": "règle chiffrée (API désactivée)",
+    "confiance": "faible",
+    "notes": "iiif.nypl.org répond en Cantaloupe 5.0.7 ; info.json non testé."
+  }
+]

@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+# Régénère BENCHMARK.xlsx à partir de data/institutions.json à chaque commit.
+# Activation (une fois) : git config core.hooksPath .githooks
+set -e
+PY="${VEILLE_PYTHON:-python3}"
+if ! "$PY" -c "import openpyxl" 2>/dev/null; then
+  echo "pre-commit : openpyxl absent pour $PY ; définir VEILLE_PYTHON (voir requirements.txt). BENCHMARK.xlsx non régénéré." >&2
+  exit 0
+fi
+"$PY" scripts/build_benchmark.py >/dev/null
+git add BENCHMARK.xlsx

@@ -9,3 +9,11 @@ débit (rate limits) et leur annonce dans la documentation et dans les réponses
 - [`institutions/`](institutions/) — une fiche par institution.
 - [`tests/`](tests/) — journaux bruts des requêtes.
 - [`REPORT.md`](REPORT.md) — synthèse, mise à jour à la fin de chaque lot.
+
+## Classeur de synthèse (BENCHMARK.xlsx)
+
+- Source unique : `data/institutions.json` (une entrée par institution).
+- Régénéré par `scripts/build_benchmark.py` (nécessite `openpyxl`, voir `requirements.txt`).
+- Régénération automatique à chaque commit : `git config core.hooksPath .githooks` (une fois).
+  Si `openpyxl` n'est pas disponible pour le Python par défaut, définir `VEILLE_PYTHON`
+  vers un Python qui l'a (ex. `/Users/marcel/.venvs/veille/bin/python`).
