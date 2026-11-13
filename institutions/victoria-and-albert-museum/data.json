@@ -4,10 +4,123 @@
   "pays": "Royaume-Uni",
   "classeur_id": "GLAM-010",
   "type": "Institution",
-  "statut_audit": "à faire",
-  "limites_documentees": [],
+  "statut_audit": "audit a–f complet ; g à faire",
+  "limites_documentees": [
+    {
+      "nature": "Indicatif de débit (« best practice », hors conditions formelles)",
+      "perimetre": "APIs du V&A",
+      "valeur": "3 000 appels",
+      "fenetre": "par jour",
+      "effet": "non précisé ; limitation formelle possible à l'avenir",
+      "verification": "officielle, lue en entier (PDF conditions 2024, relu en 2022)",
+      "source": "https://vanda-production-assets.s3.amazonaws.com/2024/06/07/09/07/45/05c6f47d-e71a-45ea-9aa5-61e3dfa21226/websites_terms_June_2024.pdf",
+      "date": "2026-11-13"
+    },
+    {
+      "nature": "Indicatif de fréquence",
+      "perimetre": "APIs du V&A",
+      "valeur": "1 requête",
+      "fenetre": "par seconde",
+      "effet": "non précisé",
+      "verification": "officielle, lue en entier (PDF conditions 2024)",
+      "source": "https://vanda-production-assets.s3.amazonaws.com/2024/06/07/09/07/45/05c6f47d-e71a-45ea-9aa5-61e3dfa21226/websites_terms_June_2024.pdf",
+      "date": "2026-11-13"
+    },
+    {
+      "nature": "Crawl-delay",
+      "perimetre": "www.vam.ac.uk, User-agent: *",
+      "valeur": "2 secondes",
+      "fenetre": "entre deux requêtes",
+      "effet": "non précisé",
+      "verification": "officielle, lue en entier",
+      "source": "https://www.vam.ac.uk/robots.txt",
+      "date": "2026-11-13"
+    },
+    {
+      "nature": "Durée maximale de conservation du contenu de l'API",
+      "perimetre": "APIs du V&A (conditions 9.3)",
+      "valeur": "4 semaines",
+      "fenetre": "–",
+      "effet": "non-respect des conditions",
+      "verification": "officielle, lue en entier",
+      "source": "https://vanda-production-assets.s3.amazonaws.com/2024/06/07/09/07/45/05c6f47d-e71a-45ea-9aa5-61e3dfa21226/websites_terms_June_2024.pdf",
+      "date": "2026-11-13"
+    },
+    {
+      "nature": "Clés d'API possibles à l'avenir",
+      "perimetre": "APIs du V&A",
+      "valeur": "droit réservé d'exiger des clés",
+      "fenetre": "–",
+      "effet": "–",
+      "verification": "officielle, lue en entier",
+      "source": "https://vanda-production-assets.s3.amazonaws.com/2024/06/07/09/07/45/05c6f47d-e71a-45ea-9aa5-61e3dfa21226/websites_terms_June_2024.pdf",
+      "date": "2026-11-13"
+    }
+  ],
   "en_tetes_observes": [],
   "blocages": [],
-  "sources": [],
-  "web": []
+  "sources": [
+    {
+      "url": "https://vanda-production-assets.s3.amazonaws.com/2024/06/07/09/07/45/05c6f47d-e71a-45ea-9aa5-61e3dfa21226/websites_terms_June_2024.pdf",
+      "date": "2026-11-13",
+      "etiquette": "officielle",
+      "preuve": "institutions/victoria-and-albert-museum/sources/pdf/SHA256SUMS"
+    },
+    {
+      "url": "https://vanda-production-assets.s3.amazonaws.com/2022/06/21/11/10/16/d9445828-b4b6-4d72-96da-9a60fdbafa14/websites_terms_June%202022.pdf",
+      "date": "2026-11-13",
+      "etiquette": "officielle",
+      "preuve": "institutions/victoria-and-albert-museum/sources/pdf/SHA256SUMS"
+    },
+    {
+      "url": "https://developers.vam.ac.uk/",
+      "date": "2026-11-13",
+      "etiquette": "officielle",
+      "preuve": "institutions/victoria-and-albert-museum/sources/SHA256SUMS"
+    },
+    {
+      "url": "https://developers.vam.ac.uk/guide/v2/images/iiif.html",
+      "date": "2026-11-13",
+      "etiquette": "officielle",
+      "preuve": "institutions/victoria-and-albert-museum/sources/SHA256SUMS"
+    },
+    {
+      "url": "https://developers.vam.ac.uk/guide/v2/quick-start.html",
+      "date": "2026-11-13",
+      "etiquette": "officielle",
+      "preuve": "institutions/victoria-and-albert-museum/sources/SHA256SUMS"
+    },
+    {
+      "url": "https://www.vam.ac.uk/robots.txt",
+      "date": "2026-11-13",
+      "etiquette": "officielle",
+      "preuve": "institutions/victoria-and-albert-museum/sources/SHA256SUMS"
+    },
+    {
+      "url": "https://api.vam.ac.uk/openapi.json",
+      "date": "2026-11-13",
+      "etiquette": "officielle",
+      "preuve": "institutions/victoria-and-albert-museum/sources/openapi/SHA256SUMS"
+    },
+    {
+      "url": "https://www.vam.ac.uk/blog/digital/va-launches-new-developer-api",
+      "date": "2026-11-13",
+      "etiquette": "officielle",
+      "preuve": "institutions/victoria-and-albert-museum/sources/SHA256SUMS"
+    }
+  ],
+  "web": [
+    {
+      "url": "https://www.vam.ac.uk/blog/digital/va-launches-new-developer-api",
+      "date": "2026-11-13",
+      "etiquette": "institution (blog du V&A)",
+      "citation": "Annonce de la nouvelle API ; aucune limite de débit mentionnée.",
+      "preuve": "institutions/victoria-and-albert-museum/sources/text/05.txt"
+    }
+  ],
+  "contact": "vaimages@vam.ac.uk (usage commercial) ; formulaire de retour de l'API",
+  "conclusion_quota": "Indicatif : 3 000 appels par jour, un par seconde (hors conditions formelles) ; le V&A se réserve des clés d'API ou une limitation formelle. Aucun en-tête de limite, aucun 429.",
+  "classe_quota": "limite documentée chiffrée (indicative)",
+  "confiance": "élevée pour la règle écrite, moyenne pour l'application",
+  "notes": "Conditions de 2022 et de 2024 identiques sur ce point (résumé de recherche erroné corrigé). full/full non plafonné (2500×1597)."
 }

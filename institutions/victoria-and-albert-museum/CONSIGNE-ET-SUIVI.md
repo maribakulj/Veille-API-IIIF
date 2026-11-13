@@ -2,57 +2,57 @@
 
 - **Dossier** : `institutions/victoria-and-albert-museum/`  ·  **Classeur de référence** : GLAM-010  ·  **Pays** : Royaume-Uni
 - **Statut d'institution** : active
-- **Dernière mise à jour du suivi** : (à renseigner à chaque modification)
+- **Dernière mise à jour du suivi** : 2026-11-14
 
 ## Suivi par étape (à cocher, avec justification et preuves)
 
 ### a) Documentation lue en entier
 > Toutes les pages de doc liées à l'API (développeurs, interfaces, conditions, FAQ, aide, mentions légales, robots.txt), téléchargées avec `scripts/fetch_doc.sh` (URL, date, SHA-256), lues en entier (`scripts/extract_text.py`).
 
-- [ ] **Pas fait**
-  - **Justification** : Pas encore traitée : l'audit suit l'ordre du classeur de référence (une institution à la fois).
-  - **Preuves** : 
+- [x] **Fait**
+  - **Justification** : Lus et hachés : page développeurs, guide quick-start et guide IIIF, page « Collections API », billet de lancement, OpenAPI (api.vam.ac.uk/openapi.json), robots.txt de www (Crawl-delay 2 lu à la main) et des hôtes api, framemark, developers (404), PDF des conditions de juin 2024 et de juin 2022 (texte extrait, section 9 lue en entier). La référence Swagger est une page JavaScript : remplacée par l'OpenAPI qu'elle charge.
+  - **Preuves** : `institutions/victoria-and-albert-museum/sources/SHA256SUMS`, `institutions/victoria-and-albert-museum/sources/suite/SHA256SUMS`, `institutions/victoria-and-albert-museum/sources/openapi/SHA256SUMS`, `institutions/victoria-and-albert-museum/sources/pdf/SHA256SUMS`
 
 ### b) Endpoints tirés de la doc
 > Liste des endpoints citée par la doc (URL, exemples). Jamais devinée. Une interdiction ou une impossibilité écrite dans la doc justifie de renoncer (citer la phrase).
 
-- [ ] **Pas fait**
-  - **Justification** : Pas encore traitée : l'audit suit l'ordre du classeur de référence (une institution à la fois).
-  - **Preuves** : 
+- [x] **Fait**
+  - **Justification** : Endpoints documentés : api.vam.ac.uk/v2/objects/search, /object/O{n}, /objects/clusters/search, /sayt/search (guide quick-start et OpenAPI) ; framemark.vam.ac.uk/collections/{id}/info.json et /full/!100,100/0/default.jpg (guide IIIF) ; iiif.vam.ac.uk/collections/{id}/manifest.json avec l'exemple O9138. Identifiant d'image lu dans la réponse de l'objet.
+  - **Preuves** : `institutions/victoria-and-albert-museum/sources/text/02.txt`, `institutions/victoria-and-albert-museum/sources/text/03.txt`, `institutions/victoria-and-albert-museum/sources/openapi/raw/01.html`
 
 ### c) Configuration écrite AVANT les tests
 > `config/<nom>.json` pilote `scripts/probe.py`, committée avant le lancement. Un endpoint absent de la doc mais non interdit se teste avec un script poli (identifiants issus de pages publiques ou d'exemples de la doc, pas de devinette).
 
-- [ ] **Pas fait**
-  - **Justification** : Pas encore traitée : l'audit suit l'ordre du classeur de référence (une institution à la fois).
-  - **Preuves** : 
+- [x] **Fait**
+  - **Justification** : Deux configurations committées avant lancement, avec les identifiants d'exemple de la doc ; résultats limités à 1 ; pauses de 6 s (très au-delà de l'indicatif d'une requête par seconde).
+  - **Preuves** : `institutions/victoria-and-albert-museum/config/vam-passe1-api-manifeste.json`, `institutions/victoria-and-albert-museum/config/vam-passe2-framemark.json`
 
 ### d) Quota cherché dans la doc
 > Pour chaque page lue : endpoint de statut, en-têtes de limite documentés, clé ou compte donnant un quota, contact pour un volume plus élevé. Chaque réponse cite sa source.
 
-- [ ] **Pas fait**
-  - **Justification** : Pas encore traitée : l'audit suit l'ordre du classeur de référence (une institution à la fois).
-  - **Preuves** : 
+- [x] **Fait**
+  - **Justification** : Aucun en-tête de limite ni endpoint de statut ; pas de clé (droit réservé d'en exiger). Limites écrites : « no more than 3,000 API calls per day at a rate of no more frequently than one request per second » (section 9.2, à titre indicatif), conservation du contenu limitée à 4 semaines, Crawl-delay 2 s sur le site (robots.txt). L'OpenAPI ne déclare que 200 et 422.
+  - **Preuves** : `institutions/victoria-and-albert-museum/sources/pdf/terms-2024.txt`, `institutions/victoria-and-albert-museum/sources/pdf/terms-2022.txt`, `institutions/victoria-and-albert-museum/sources/raw/09.html`, `institutions/victoria-and-albert-museum/sources/openapi/raw/01.html`
 
 ### e) Test systématique de chaque endpoint
 > Chaque endpoint documenté est testé (budget 15 requêtes par passe, pause ≥ 6 s, GET/HEAD, UA du projet). Redirections du même hôte suivies. Un 403 arrête son hôte, un 429 arrête l'institution. Seules les interdictions écrites dans la doc dispensent de tester.
 
-- [ ] **Pas fait**
-  - **Justification** : Pas encore traitée : l'audit suit l'ordre du classeur de référence (une institution à la fois).
-  - **Preuves** : 
+- [x] **Fait**
+  - **Justification** : Tous les endpoints documentés sont testés (2 passes, 8 requêtes de données) : API v2, manifeste, images : 200 partout, aucun en-tête de limite ni 429 ; full/full mesuré à 2500×1597. Non testés : API v1 historique et archives/search (non demandés par la doc d'exemples), /browse (paramètres non documentés par un exemple).
+  - **Preuves** : `institutions/victoria-and-albert-museum/tests/journal.log`, `institutions/victoria-and-albert-museum/tests/raw/api-objects-search-etruria.headers.txt`, `institutions/victoria-and-albert-museum/tests/raw/framemark-full-full.headers.txt`
 
 ### f) Ce que disent les gens sur le web
 > Plaintes, discussions, présentations de l'institution, politique envers les API et les bots, blogs, GitHub, forums, listes de diffusion. Sources étiquetées (officielle / institution / utilisateur / tiers), lues, citées.
 
-- [ ] **Pas fait**
-  - **Justification** : Pas encore traitée : l'audit suit l'ordre du classeur de référence (une institution à la fois).
-  - **Preuves** : 
+- [x] **Fait**
+  - **Justification** : Billet de lancement de l'API lu ; recherches web sur les bots et l'IA : aucune publication du V&A trouvée. Un résumé de recherche affirmait une règle de 2022 plus souple : relu dans le PDF de 2022, les chiffres sont identiques (erreur du résumé corrigée).
+  - **Preuves** : `institutions/victoria-and-albert-museum/sources/text/05.txt`, `institutions/victoria-and-albert-museum/sources/pdf/terms-2022.txt`
 
 ### g) Crash test progressif
 > Seulement après l'audit complet (a à f) de toutes les institutions et avec l'accord de Marcel : paliers jusqu'à 2 × la limite documentée, ou 200 req/min si illimité ou sans limite documentée. Arrêt au premier 429/403/CAPTCHA.
 
 - [ ] **Pas fait**
-  - **Justification** : Pas encore traitée : l'audit suit l'ordre du classeur de référence (une institution à la fois).
+  - **Justification** : À faire à la fin de l'audit de toutes les institutions et à l'accord de Marcel. Plafonds : le V&A indique 3 000 appels par jour et 1 par seconde (2 × = 6 000 par jour, 2 par seconde) ; un crash test dépasserait largement l'indicatif de 3 000 par jour et risque une limitation de l'adresse de Marcel.
   - **Preuves** : 
 
 ### Contrôles transversaux
@@ -60,7 +60,7 @@
 
 <!-- AUTO:DEBUT -->
 ## Contrôles automatiques (calculés depuis `tests/journal.log`)
-- Requêtes enregistrées : **7** (sessions de sonde : 1, maximum par session : 7)
+- Requêtes enregistrées : **11** (sessions de sonde : 2, maximum par session : 7)
 - Plus courte pause vers un même hôte : **6 s** (règle : ≥ 6 s)
 - Méthodes utilisées : GET (règle : GET/HEAD seulement)
 - Anomalies : aucune
