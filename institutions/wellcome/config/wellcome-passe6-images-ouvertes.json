@@ -1,0 +1,19 @@
+{
+  "slug": "wellcome",
+  "min_delay_s": 6,
+  "max_requests": 15,
+  "follow_redirects": 1,
+  "note": "Passe v2 n°6 : service d'images de l'œuvre ouverte b18035723 (identifiant public du manifeste de la passe 5). Crawl-delay 30 s appliqué par la sonde.",
+  "endpoints": [
+    {
+      "id": "iiif-image-ouverte-info-json",
+      "method": "GET",
+      "url": "https://iiif.wellcomecollection.org/image/b18035723_0001.JP2/info.json"
+    },
+    {
+      "id": "iiif-image-ouverte-derive-200",
+      "method": "GET",
+      "url": "https://iiif.wellcomecollection.org/image/b18035723_0001.JP2/full/!200,200/0/default.jpg"
+    }
+  ]
+}
