@@ -13,7 +13,9 @@ configuration :
   - plafond de requêtes par institution (défaut 15) ;
   - un 403 ou une page de défi arrête UN hôte (étiqueté « 403 anti-bot ») ;
   - un 429 ou un CAPTCHA arrête TOUTE l'institution ;
-  - un échec réseau est consigné et n'arrête que cet endpoint.
+  - un échec réseau est consigné et n'arrête que cet endpoint ;
+  - une redirection vers le MÊME hôte est suivie (1 saut par défaut, `follow_redirects` dans la
+    configuration), comptée dans le budget et soumise à la même pause ; vers un autre hôte : non suivie.
 Le journal (une ligne par requête, en-têtes de limite seulement, corps tronqué à
 200 octets) est ajouté à tests/<slug>.log.
 
@@ -111,25 +113,27 @@ def main():
     with log_path.open("a", encoding="utf-8") as log:
         log.write(f"# Session {now_utc()} — configuration {cfg_path.name} — "
                   f"sonde {Path(__file__).name} au commit {commit}\n")
-        for e in endpoints:
+        max_hops = int(cfg.get("follow_redirects", 1))  # redirections du MÊME hôte, comptées dans le budget
+        file = [(e["id"], e["url"], e.get("method", "GET"), 0) for e in endpoints]
+        while file:
+            eid, url, method, hops = file.pop(0)
             if stop_all:
-                log.write(f"{now_utc()} | {e['id']} | NON LANCÉ : arrêt de l'institution (429)\n")
+                log.write(f"{now_utc()} | {eid} | NON LANCÉ : arrêt de l'institution (429)\n")
                 continue
-            host = urllib.parse.urlsplit(e["url"]).hostname
+            host = urllib.parse.urlsplit(url).hostname
             if host in blocked_hosts:
-                log.write(f"{now_utc()} | {e['id']} | NON LANCÉ : hôte {host} arrêté (403 anti-bot)\n")
+                log.write(f"{now_utc()} | {eid} | NON LANCÉ : hôte {host} arrêté (403 anti-bot)\n")
                 continue
             if count >= max_req:
-                log.write(f"{now_utc()} | {e['id']} | NON LANCÉ : plafond de {max_req} requêtes atteint\n")
+                log.write(f"{now_utc()} | {eid} | NON LANCÉ : plafond de {max_req} requêtes atteint\n")
                 continue
             wait = delay - (time.monotonic() - last_call[host]) if host in last_call else 0
             if wait > 0:
                 time.sleep(wait)
-            method = e.get("method", "GET")
             if method not in ("GET", "HEAD"):
                 raise SystemExit(f"Méthode interdite : {method}")
             try:
-                r = fetch(e["url"], method)
+                r = fetch(url, method)
                 err = ""
             except Exception as exc:  # noqa: BLE001 - on consigne toute erreur réseau
                 r, err = None, f"{type(exc).__name__}: {exc}"
@@ -137,16 +141,16 @@ def main():
             count += 1
             if r is None:
                 verdict = "ERREUR_RÉSEAU"
-                line = f"{now_utc()} | {e['id']} | {e['url']} | {method} | {verdict} | {err}\n"
+                line = f"{now_utc()} | {eid} | {url} | {method} | {verdict} | {err}\n"
             else:
                 verdict = classify(r["status"], r["headers"], r["body"])
                 # En-têtes complets, pour pouvoir vérifier chaque conclusion.
                 hdr = "\n".join(f"{k}: {v}" for k, v in r["headers"])
-                (raw_dir / f"{e['id']}.headers.txt").write_text(
-                    f"{now_utc()} {method} {e['url']}\nHTTP {r['status']}\n{hdr}\n", encoding="utf-8")
+                (raw_dir / f"{eid}.headers.txt").write_text(
+                    f"{now_utc()} {method} {url}\nHTTP {r['status']}\n{hdr}\n", encoding="utf-8")
                 lh = "; ".join(limit_headers(r["headers"])) or "aucun en-tête de limite"
                 snippet = r["body"][:200].decode("utf-8", "replace").replace("\n", " ")
-                line = (f"{now_utc()} | {e['id']} | {e['url']} | {method} | {r['status']} {verdict} | "
+                line = (f"{now_utc()} | {eid} | {url} | {method} | {r['status']} {verdict} | "
                         f"{lh} | taille≥{len(r['body'])} | corps: {snippet}\n")
                 if verdict == "403_ANTI_BOT":
                     blocked_hosts.add(host)
@@ -154,6 +158,14 @@ def main():
                 if verdict == "STOP_INSTITUTION_429":
                     stop_all = True
                     line += "# ARRÊT de l'institution (429 / CAPTCHA). Aucun nouvel appel.\n"
+                loc = dict(r["headers"]).get("location")
+                if verdict == "REDIRECTION_NON_SUIVIE" and loc and hops < max_hops:
+                    cible = urllib.parse.urljoin(url, loc)
+                    if urllib.parse.urlsplit(cible).hostname == host:
+                        file.insert(0, (eid + "+redir", cible, method, hops + 1))
+                        line += f"# redirection vers {cible} : suivie (même hôte, comptée dans le budget)\n"
+                    else:
+                        line += f"# redirection vers {cible} : NON suivie (autre hôte)\n"
             log.write(line)
             print(line.strip()[:220])
         log.write(f"# Fin {now_utc()} — {count} requête(s) envoyée(s)\n")

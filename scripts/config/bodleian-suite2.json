@@ -1,0 +1,19 @@
+{
+  "slug": "bodleian",
+  "min_delay_s": 6,
+  "max_requests": 15,
+  "follow_redirects": 1,
+  "note": "Passe 3 : les deux routes /objects de la doc avaient répondu 301 en passe 2 (redirection vers l'adresse avec barre oblique finale, non suivie par la sonde de l'époque). La sonde suit maintenant 1 redirection du même hôte.",
+  "endpoints": [
+    {
+      "id": "data-object-exemple-suivi",
+      "method": "GET",
+      "url": "https://digital.bodleian.ox.ac.uk/objects/390fd0e8-9eae-475d-9564-ed916ab9035c"
+    },
+    {
+      "id": "data-surface-exemple-suivi",
+      "method": "GET",
+      "url": "https://digital.bodleian.ox.ac.uk/objects/390fd0e8-9eae-475d-9564-ed916ab9035c/surfaces/a024a538-aef3-44b3-ad11-51c6a8b04ea2"
+    }
+  ]
+}
