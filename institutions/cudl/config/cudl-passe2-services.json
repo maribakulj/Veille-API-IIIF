@@ -1,0 +1,19 @@
+{
+  "slug": "cudl",
+  "min_delay_s": 6,
+  "max_requests": 15,
+  "respect_robots": false,
+  "note": "Passe v2 n°2 : routes du README cudl-services sur le domaine cudl.link (« route 53 cudl.link domain »). Hôte non résolu par DNS lors de la passe Haiku. respect_robots=false car un hôte qui ne résout pas n'a pas de robots.txt lisible ; aucune requête HTTP ne peut aboutir tant que le DNS échoue.",
+  "endpoints": [
+    {
+      "id": "services-transcription-exemple-README",
+      "method": "GET",
+      "url": "https://cudl.link/v1/transcription/tei/diplomatic/internal/MS-ADD-03958/i111"
+    },
+    {
+      "id": "services-metadata",
+      "method": "GET",
+      "url": "https://cudl.link/v1/metadata/"
+    }
+  ]
+}

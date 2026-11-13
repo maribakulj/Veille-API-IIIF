@@ -1,0 +1,18 @@
+{
+  "slug": "cudl",
+  "min_delay_s": 6,
+  "max_requests": 15,
+  "follow_redirects": 1,
+  "robots_files": {
+    "cudl.lib.cam.ac.uk": "institutions/cudl/sources/wayback/robots.txt.copie-wayback.txt"
+  },
+  "note": "Passe v2 n°1. La doc officielle (page About, archive Wayback) invite à accéder au contenu par API « such as IIIF » mais ne donne aucune URL ; le README cudl-services cite l'identifiant d'exemple MS-ADD-03958. Manifeste testé avec cet identifiant de la doc. robots.txt (copie Wayback 2026-05-01) : seul /search est interdit. Le corps est enregistré pour en tirer un identifiant d'image public.",
+  "endpoints": [
+    {
+      "id": "manifeste-MS-ADD-03958",
+      "method": "GET",
+      "url": "https://cudl.lib.cam.ac.uk/iiif/MS-ADD-03958",
+      "save_body": 3000000
+    }
+  ]
+}
