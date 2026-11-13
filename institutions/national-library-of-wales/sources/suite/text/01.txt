@@ -1,0 +1,137 @@
+NLW Image servers · IIIF NLW Workshop - February 18th to 19th 2025 
+ 1.1. 
+ Overview
+ Introduction to IIIF
+ 2.1. 
+ What is IIIF
+ 2.1.1. 
+ Finding NLW Manifests
+ 2.1.2. 
+ Exercise
+ IIIF Image API
+ 3.1. 
+ Image API
+ 3.1.1. 
+ Identifier
+ 3.1.2. 
+ Region
+ 3.1.3. 
+ Size
+ 3.1.4. 
+ Rotation
+ 3.1.5. 
+ Quality
+ 3.1.6. 
+ Format
+ 3.2. 
+ Group Question
+ 3.3. 
+ File formats
+ 3.4. 
+ Uses
+ 3.5. 
+ NLW Image servers
+ 3.6. 
+ Getting started
+ 3.6.1. 
+ NLW Images
+ 3.6.2. 
+ Hosted - Internet Archive
+ 3.6.3. 
+ Static Images - Workbench
+ 3.6.4. 
+ Cantaloupe (Advanced)
+ Presentation API
+ 4.1. 
+ Presentation API
+ 4.1.1. 
+ Create a Manifest
+ 4.1.2. 
+ Setup your environment
+ 4.1.3. 
+ Edit a Manifest
+ 4.1.4. 
+ Add Structure
+ 4.1.5. 
+ Publishing your manifest
+ 4.2. 
+ NLW Manifest examples
+ Annotations
+ 5.1. 
+ Introduction
+ 5.2. 
+ Annotations
+ 5.2.1. 
+ Annotating with Mirador
+ 5.2.2. 
+ Annotating Stores
+ 5.2.3. 
+ Annotating Stores - Results
+ 5.2.4. 
+ Annotating your own content
+ 5.2.5. 
+ Linking and Viewing your Annotations
+ 5.2.6. 
+ IIIF Search API
+ 5.2.7. 
+ Publishing your annotated Manifest
+ 5.2.8. 
+ Annotating Store - Do it yourself
+ 5.2.9. 
+ Advanced annotation presentation
+ 5.3. 
+ NLW Annotations
+ IIIF & AV
+ 6.1. 
+ An introduction to AV
+ 6.1.1. 
+ Looking at a BL audio file
+ 6.1.2. 
+ Looking at the Internet Archive Videos
+ 6.1.3. 
+ Examples
+ 6.1.4. 
+ Create video Manifest
+ Tools and implementations
+ 7.1. 
+ Tools
+ 7.1.1. 
+ Exhibit
+ 7.1.2. 
+ All Maps
+ 7.1.3. 
+ FromThePage
+ Open discussion
+ 8.1. 
+ topics
+ Extras
+ 9.1. 
+ Guides
+ 9.1.1. 
+ Using non IIIF images in a manifest
+ 9.1.2. 
+ A basic Video manifest
+ Published with GitBook
+ NLW Image servers 
+ NLW Image Servers
+ This may be out of date but I believe the NLW has two Image servers. For modern collections digitised after the Newspapers project, all items have JPEG2000 and use the IIPImage server . Before then the NLW used PFF zoomify images to provide access to zoomable images. I wrote a Java library to serve PFF images over IIIF. 
+ IIPImage server images
+ An example image is as follows:
+ Newspaper: https://damsssl.llgc.org.uk/iiif/2.0/image/3406011 
+ Journal: https://damsssl.llgc.org.uk/iiif/2.0/image/2070010 
+ Cynefin: https://damsssl.llgc.org.uk/iiif/2.0/image/4527505 
+ Some interesting features:
+ Images are limited to 1200 by 1200 
+ Image limiting was brought in in version 2.1 and 3.0. It allows the server to enforce a limit for downloading the full image. It doesn't stop users from zooming into an image and its always possible to stich together the tiles to get the higher quality image. 
+ PFF Image server
+ An example image is as follows:
+ Geoff Charles image: https://damsssl.llgc.org.uk/iiif/2.0/image/1489986 
+ Wills image: https://damsssl.llgc.org.uk/iiif/2.0/image/2 
+ Some interesting features:
+ No Image limiting for these images (it used to limit without the max keywords in the info.json)
+ The info.json includes a logo 
+ It supports less IIIF features than IIPImage
+ Last modified by Glen Robson 2025-02-18 00:12:21
+ Created by Glen Robson 2025-02-17 21:37:47
+ results matching " "
+ No results matching " "

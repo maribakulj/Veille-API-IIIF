@@ -1,0 +1,40 @@
+{
+  "slug": "national-library-of-wales",
+  "min_delay_s": 6,
+  "max_requests": 15,
+  "follow_redirects": 1,
+  "note": "Passe v2 n°1 : manifestes et collections cités par la page d'atelier IIIF du NLW (sources/raw/01.html) ; manifeste du visualiseur officiel iiif.llyfrgell.cymru (lu dans la page viewer.library.wales). robots.txt lu par la sonde pour chaque hôte (404 = autorisé).",
+  "endpoints": [
+    {
+      "id": "manifeste-4389767",
+      "method": "GET",
+      "url": "https://damsssl.llgc.org.uk/iiif/2.0/4389767/manifest.json",
+      "save_body": 3000000
+    },
+    {
+      "id": "manifeste-1489984",
+      "method": "GET",
+      "url": "https://damsssl.llgc.org.uk/iiif/2.0/1489984/manifest.json"
+    },
+    {
+      "id": "journal-presse-issue-3036869",
+      "method": "GET",
+      "url": "https://damsssl.llgc.org.uk/iiif/newspaper/issue/3036869/manifest.json"
+    },
+    {
+      "id": "collection-presse-3036868",
+      "method": "GET",
+      "url": "https://damsssl.llgc.org.uk/iiif/newspapers/3036868.json"
+    },
+    {
+      "id": "fonds-3975658",
+      "method": "GET",
+      "url": "http://dams.llgc.org.uk/iiif/archive/3975658/fonds.json"
+    },
+    {
+      "id": "manifeste-llyfrgell-6086535",
+      "method": "GET",
+      "url": "https://iiif.llyfrgell.cymru/manifests/2.0/6086535/manifest.json"
+    }
+  ]
+}
