@@ -77,3 +77,71 @@ c) **Clé d'API ou compte** : non trouvé — la page interfaces ne mentionne ni
 d) **Contact officiel** : **trouvé** — mdz@bsb-muenchen.de. Sources : https://www.digitale-sammlungen.de/en/contact (lue le 2026-11-13 : « General inquiries about digitization and long-term preservation » ; adresse Ludwigstr. 16, 80539 München) ; message d'erreur de la page interfaces (2026-11-13 : « If the error persists, please get in touch via mdz@bsb-muenchen.de »). Le re3data (https://www.re3data.org/repository/r3d100010148) cite la même adresse (source secondaire).
 
 Conclusion : moyen d'interroger le quota : **non**. Aucun endpoint de statut ni en-tête documenté ; les en-têtes `x-ratelimit-*` observés ne sont ni documentés ni utilisables comme compteur. Pas de sonde ciblée lancée (rien de documenté à tester : pas de `scripts/config/mdz-quota.json`). Le chiffre des 24 h s'obtient par demande écrite à mdz@bsb-muenchen.de.
+
+## Vérification méthode v2 (2026-11-13)
+
+Statut selon la méthode v2 : **incomplet** (étape a partiellement faite : une page en échec). Le statut « vérifiée » ci-dessus est antérieur à la méthode v2 et n'est pas réécrit ici.
+
+| Étape | Fait ? | Preuves | Conclusion |
+|---|---|---|---|
+| a) Doc lue en entier | **non faite (partiel)** : 15 pages lues en entier, 1 page en échec | `sources/mdz/` : `interfaces-en.md`, `schnittstellen-de.md`, `technologies-en.md`, `technologien-de.md`, `faq-en.md`, `faq-de.md`, `contact-en.md`, `imprint-en.md`, `disclaimer-en.md`, `privacy-policy-en.md`, `download-options-en.md`, `viewer-help-en.md`, `search-help-en.md`, `bdr-oai-doc-en.md`, `rights-vgwort-en.md` (URL, date UTC, SHA-256, méthode dans chaque en-tête) | Échec : `https://www.bsb-muenchen.de/digitale-objekte/` et `/en/digitale-objekte/` renvoient 404 (curl, 2026-11-13), la recherche ne le trouve pas. Pas de page « terms of use » dédiée liée depuis la page Interfaces. Pages lues via HTML converti en texte (menus conservés), téléchargements complets (pas de troncature). |
+| b) Endpoints tirés de la doc | **fait** | `interfaces-en.md` (et `schnittstellen-de.md`, mêmes URL) ; `bdr-oai-doc-en.md` | Presentation : `/iiif/presentation/v2/{object_id}/manifest` (exemples bsb00012345 et bsb00130380_00157_u001) ; collection : `/iiif/presentation/v2/collection/top` ; Image : `/iiif/image/v2/{image_id}/{region}/{size}/{rotation}/{quality}.{format}` (exemple `bsb00109992_00001/full/full/0/default.jpg`) ; info.json : `/iiif/image/v2/{image_id}/info.json` (exemple bsb00103155_00013) ; OCR : `/ocr/{object_id}/{page_num}` (exemple bsb00000001/00010) ; BDR OAI-PMH : `http://bdr.oai.bsb-muenchen.de/OAIHandler?verb=Identify` (cité dans `bdr-oai-doc-en.md`, non demandé explicitement dans la liste de l'étape b, ajouté car la doc le cite). Non retenus : flux RSS (pas une API). Aucun endpoint de recherche n'est documenté. |
+| c) Configuration écrite avant les tests | **fait** | `scripts/config/mdz.json` mis à jour ; `python3 scripts/probe.py scripts/config/mdz.json --dry-run` lancé (7 endpoints listés, aucune requête) | Écart corrigé : la configuration ne contenait pas que des endpoints documentés. Retirés : `entree-iiif-saisie` (`/iiif/`, saisi dans institutions.csv, non cité par la doc, 404) et `racine-hote` (`/`, non cité, 404) ; retiré aussi `image-api-reduite` (`full/100,/…`, une valeur de paramètre non donnée en exemple par la doc). Ces requêtes restent consignées dans `tests/mdz.log` (entrées n° 1, 2, 10, 12 et 13 du journal ; elles ne sont pas relancées). Ajoutés : `presentation-manifeste-2`, `image-exemple-full` (exemples documentés), `bdr-oai-identify`. |
+| d) Recherche de quota dans la doc | **fait** | Pages `sources/mdz/*.md` (grep sur les termes limit/Stunden/hours/429/Retry-After/X-RateLimit/key/Konto/token) | Voir détail ci-dessous. |
+| e) Test de chaque endpoint | **fait** (3 requêtes nouvelles, pause 6 s) | `tests/mdz.log` (lignes ajoutées en fin de fichier, session 21:20:18–21:20:25 UTC) ; `tests/raw/mdz/presentation-manifeste-2.headers.txt`, `tests/raw/mdz/image-exemple-full.headers.txt`, `tests/raw/mdz/bdr-oai-identify.headers.txt` | Sonde lancée sur un fichier temporaire (`mdz-nouveaux.json`, hors dépôt) ne contenant que les 3 endpoints nouveaux, pour ne pas relancer les 5 déjà consignés. Résultats : manifest 2 → 200 (sans en-tête de limite) ; image full/full → 200 avec `x-ratelimit-limit: 25001`, `x-ratelimit-remaining: 25000`, `x-ratelimit-reset: 3` ; OAI Identify → **403** (page Apache « 403 Forbidden », premier appel vers ce `bdr.oai` ; pas de défi Cloudflare ; cause non établie). Le 403 n'est pas un quota : hôte `bdr.oai.bsb-muenchen.de` arrêté, aucune nouvelle tentative, aucun changement d'User-Agent. Budget API (`api.digitale-sammlungen.de`) : 12 requêtes au total sur 15. Aucun 429 reçu. Pas de test de dépassement. |
+| f) Ce que disent les gens sur le web | **fait** (recherche standard et étendue ; 3 tickets GitHub lus) | Voir liste ci-dessous | Peu de matière : aucune source officielle ou utilisateur ne donne de chiffre de quota. Un projet tiers décrit un blocage et une demande de débit adressée à la BSB (voir ci-dessous). |
+
+### Détail de l'étape d) (recherche de quota dans la doc)
+
+- **a) Endpoint de statut** : **non trouvé**. Aucune page lue ne cite `/status`, `/limits` ou `/me` (grep négatif sur `sources/mdz/`). Pages : `interfaces-en.md`, `schnittstellen-de.md`.
+- **b) En-têtes de limite documentés** : **aucun nom d'en-tête documenté**. La doc dit seulement : « Please note that there is a limit to the number of OCR downloads that can be made per 24 hours. » et « Please note that there is a limit to the number of requests that can be made to the Image API per 24 hours. » (`interfaces-en.md`, lignes 167, 219, 229 ; même texte en allemand dans `schnittstellen-de.md`, lignes 168, 220, 230). Les en-têtes `x-ratelimit-*` observés ne figurent dans aucune page lue. Ils ne décroissent pas : `remaining` reste à 5000 (OCR) et à 25000 (image) sur 5 appels répartis entre le 21:06 et le 21:20 UTC. Ce ne sont pas des compteurs observables.
+- **c) Clé ou compte donnant un quota** : **non trouvé**. Aucune mention de clé, jeton, compte ni inscription (grep négatif). La doc dit même : « Access to the Presentation API is unlimited. » (`interfaces-en.md`, ligne 167 ; « Der Zugang auf die Presentation API ist unbeschränkt. » dans `schnittstellen-de.md`, ligne 168).
+- **d) Contact pour un volume plus élevé** : **non trouvé en tant que tel**. Contact général : « General inquiries about digitization and long-term preservation: mdz@bsb-muenchen.de » (`contact-en.md`, lignes 131-133). Aucune page ne dit que ce contact sert à obtenir un volume API plus élevé.
+- **Autre limite documentée, hors API** : le service DaFo (téléchargement de JPEG 300 ppi) : « The maximum order size per day/user is limited due to the high amount of data… » (`download-options-en.md`, ligne 149 ; aucun chiffre). Pour une demande particulière : « please send an email (see Contact) » (`faq-en.md`, ligne 159).
+
+**Conclusion étape d) : moyen d'interroger le quota = non.** Le quota existe (documenté « per 24 hours », OCR et Image API), mais aucun endpoint de statut, aucun en-tête documenté, aucune clé ni compte ne permettent de le lire. Le chiffre s'obtient par écrit à mdz@bsb-muenchen.de (contact général, la doc ne précise pas qu'il traite les demandes de volume).
+
+### Détail de l'étape f) (ce que disent les sources web)
+
+Étiquettes : officielle / tiers. Pas de noms de personnes privées.
+
+1. **officielle**, `https://www.digitale-sammlungen.de/en/interfaces`, consultée 2026-11-13 : citations ci-dessus (limites « per 24 hours », Presentation API « unlimited »).
+2. **officielle**, `https://www.digitale-sammlungen.de/en/download-options`, consultée 2026-11-13 : « The maximum order size per day/user is limited… ». Le délai de livraison DaFo est « approximately 1–5 days » ; un résumé de recherche a annoncé « 4 weeks » : c'est faux, la page ne contient pas cette valeur (erreur de résumé, non retenue).
+3. **tiers (projet utilisateur)**, `https://github.com/Embassy-of-the-Free-Mind/sourcelibrary-v2/issues/5448`, ouvert le 2026-10-01 : « The biggest is one library (Munich) that throttles us, and the deepest is image resolution. » Le même ticket prévoit d'« Email BSB/MDZ asking for an allowlisted IP or a bulk export ». Source d'un projet tiers, non vérifiée auprès de la BSB.
+4. **tiers (projet utilisateur)**, `https://github.com/Embassy-of-the-Free-Mind/sourcelibrary-v2/issues/3502`, ouvert le 2026-08-01, commentaire du 2026-10-12 : « it waits on BSB's reply to the rate request sent 2026-10-01. » Dans la description du 2026-08-01 : « providers blocking us (403 — … 93.5% of page-level failure markers are 403) » : ce 403 concerne l'ensemble des fournisseurs, pas la BSB en particulier.
+5. **tiers (projet utilisateur)**, `https://github.com/Embassy-of-the-Free-Mind/sourcelibrary-v2/issues/3886`, ouvert le 2026-08-11 : « undocumented but clean JSON API at digitale-sammlungen.de/api/search ». Ce point est une affirmation de tiers sur un endpoint **non documenté** par la BSB ; nous ne l'avons ni testé ni utilisé.
+6. **Recherches sans résultat MDZ spécifique** : forum IIIF Discourse, dépôt dbmdz (GitHub), présentations de la BSB sur sa politique d'API, forums de questions (recherches « 429 », « 403 », « Kontingent »). Stack Overflow et Reddit n'ont pas été cherchés séparément. Recherches : 8 standard et 1 étendue. Les blogs museum-digital et Wellcome Collection qui apparaissent concernent d'autres services et ne sont pas retenus.
+
+### Pour la suite
+
+- Demander par écrit à mdz@bsb-muenchen.de le quota exact par 24 h (OCR et Image), et la nature de la réponse 403 observée sur `bdr.oai.bsb-muenchen.de` (page Apache 403 au premier appel).
+- Ne pas utiliser `/api/search` (non documenté) sans accord.
+- Refaire la vérification a) pour la page `digitale-objekte` si l'URL exacte est retrouvée.
+
+## Correction et compléments (2026-11-13, reprise directe par l'orchestrateur)
+
+- **Empreintes SHA-256 de la section « Vérification méthode v2 »** : celles déclarées dans les
+  en-têtes de `sources/mdz/*.md` **ne se recalculent pas** (testé avec plusieurs variantes).
+  Elles sont donc retirées comme preuve. La preuve valable est désormais
+  `sources/mdz/SHA256SUMS`, produit par `scripts/fetch_doc.sh` (URL dans
+  `sources/mdz/url-list.txt`, statut et date dans `sources/mdz/FETCH.log`).
+- **Étape a)** : 15 pages re-téléchargées en HTML brut (toutes HTTP 200, 2026-11-13 21:23–21:24 UTC).
+  La page `digitale-objekte` citée par le rapport précédent reste **non vérifiée** (404 au curl).
+- **Étape d)** : vérifiée dans le HTML brut. « limit … per 24 hours » pour l'Image API et pour
+  l'OCR (pages `en/interfaces` et `de/schnittstellen`, aucun chiffre). Aucun nom d'en-tête,
+  aucun endpoint de statut, aucune clé. DaFo : « maximum order size per day/user is limited »,
+  sans chiffre (`en/download-options`).
+- **Étape e)** : les 3 endpoints ajoutés ont été testés avec une configuration temporaire
+  (`mdz-nouveaux.json`) **non committée**, ce qui contrevient à la règle « configuration avant
+  tests ». Les endpoints sont maintenant dans `scripts/config/mdz.json` et leurs résultats sont
+  dans `tests/mdz.log` (session 21:20 UTC). Le 403 de `bdr.oai.bsb-muenchen.de` arrête cet hôte.
+- **Étape f)** : ticket tiers `Embassy-of-the-Free-Mind/sourcelibrary-v2#5448` (ouvert le
+  2026-10-01, commentaires jusqu'au 2026-10-26). Ce que dit le projet, **non vérifié** :
+  - il a demandé à la BSB soit une IP autorisée à 5–10 req/s, soit un export en masse ;
+  - la réponse de la BSB était toujours en attente le 2026-10-26 ;
+  - il reçoit un **« 1×1 over-quota placeholder »** de MDZ (commentaire du 2026-10-25) :
+    une réponse HTTP 200 qui n'est pas une vraie image. **Conséquence pour nos sondes** :
+    un 200 ne prouve pas qu'on n'est pas bloqué. Il faut contrôler la taille réelle de l'image
+    (en-tête `Content-Length`, et dimensions) avant de conclure « pas de blocage ».
+- **Pour le crash test** (étape g) : le signal de dépassement de MDZ peut donc être une image
+  1×1 en 200, et non un 429. Le test doit le détecter.
