@@ -1,0 +1,15 @@
+2026-11-13T23:24:49Z GET https://api.nb.no/catalog/v1/items?q=Ibsen&size=1
+HTTP 200
+server: nginx
+date: Fri, 13 Nov 2026 23:24:49 GMT
+content-type: application/hal+json
+transfer-encoding: chunked
+connection: keep-alive
+set-cookie: _nblb=69545b5189ea6647faf62108259a9318; expires=Sat, 14-Nov-26 11:24:49 GMT; max-age=43200; path=/
+strict-transport-security: max-age=31536000; includeSubdomains; preload
+x-frame-options: SAMEORIGIN
+x-content-type-options: nosniff
+content-security-policy: frame-ancestors 'self' ai.nb.no tools.nb.no produksjon.nb.no dev.produksjon.nb.no;
+access-control-allow-origin: https://www.nb.no
+access-control-allow-credentials: true
+vary: Origin
