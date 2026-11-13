@@ -1,6 +1,6 @@
 # BnF — API publiques (openapi.bnf.fr / openapiproext.bnf.fr) — `bnf-openapi`
 
-- **Statut** : en cours
+- **Statut** : **abandonnée** à la demande de Marcel (2026-11-13). Aucune requête supplémentaire ; pas de POST vers le point de jeton OAuth. Résultats partiels conservés ci-dessous.
 - **Pays** : France
 - **Point d'entrée testé** : https://openapi.bnf.fr/ (racine) ; chemins IIIF testés sous https://openapi.bnf.fr/iiif/presentation/v3/ (non documentés, voir § 3) ; https://openapiproext.bnf.fr/ (connexion non établie)
 - **Vérifié le** : 2026-11-13 (UTC)
