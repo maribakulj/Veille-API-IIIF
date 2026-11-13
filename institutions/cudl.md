@@ -73,3 +73,9 @@ Non réalisés :
 - d) **non trouvé** — aucun contact pour quota dans cudl-services ni dans les résultats de recherche. Contact général de la bibliothèque non retenu (non vérifié).
 
 Conclusion : moyen d'interroger le quota : **non**. Aucun endpoint de statut, aucun en-tête, aucune clé, aucun contact documenté. Aucun fichier `scripts/config/cudl-quota.json` écrit.
+
+## Passe méthode v2 complétée (2026-11-13)
+- a) /terms et /help : 403 (défi CloudFront), non lues. README cudl-services lu en entier. robots.txt : 403 (non lisible).
+- e) Passe v2 : 2 requêtes (manifestes `PR-FB-00886-00005-00006` et `MS-ADD-03965`), 200, aucun en-tête de limite. Les deux sont sans `.json`, comme la passe précédente.
+- f) Recherche web : aucune politique de moissonnage trouvée. Un profil d'API tiers mentionne des limites sans chiffre (non vérifié).
+- g) Crash test : non lancé, car l'hôte renvoie déjà des 403 anti-bot sur les pages de règles.

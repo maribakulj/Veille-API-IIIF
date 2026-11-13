@@ -820,13 +820,13 @@
     "pays": "Royaume-Uni",
     "statut_audit": "en cours (méthode v2)",
     "checklist": {
-      "a_doc_lue": "partiel : /terms et /help en 403 (défi anti-bot) ; README cudl-services lu en entier (GitHub)",
+      "a_doc_lue": "partiel : /terms et /help en 403 (défi CloudFront) ; README cudl-services lu en entier ; robots.txt en 403",
       "b_endpoints_doc": "fait (README cudl-services : routes de l'API publique)",
       "c_config_avant_tests": "fait (scripts/config/cudl.json, à relancer en passe v2)",
       "d_quota_dans_doc": "fait : aucun quota ; « publicly accessible and (for the most part) requires no authentication »",
-      "e_tests_endpoints": "fait (passes antérieures, tests/cudl.log ; passe v2 à faire)",
-      "f_web": "à faire",
-      "g_crash_test": "à faire (après audit)"
+      "e_tests_endpoints": "fait (passe v2 : 2 requêtes, 200, aucun en-tête de limite ; manifestes sans .json)",
+      "f_web": "fait (recherche : aucune politique de moissonnage trouvée ; une source tierce mentionne des limites non chiffrées, non vérifiée)",
+      "g_crash_test": "à faire (après audit) — bloquée par 403 sur robots et /terms"
     },
     "limites_documentees": [],
     "en_tetes_observes": [],
@@ -861,7 +861,9 @@
       "e_tests_endpoints": [
         "tests/cudl.log"
       ],
-      "f_web": []
+      "f_web": [
+        "sources/robots/SHA256SUMS"
+      ]
     },
     "sources": [
       {
@@ -883,7 +885,15 @@
         "preuve": "sources/cudl/raw/03.html"
       }
     ],
-    "web": []
+    "web": [
+      {
+        "url": "https://api-evangelist (profil tiers) / apis.io",
+        "date": "2026-11-13",
+        "etiquette": "tiers (profil d'API non officiel)",
+        "citation": "Mentionne des limites de débit sans chiffre pour l'API de Cambridge (non vérifié, non applicable tel quel à CUDL).",
+        "preuve": "institutions/cudl.md (étape f)"
+      }
+    ]
   },
   {
     "slug": "europeana",
@@ -1756,11 +1766,11 @@
     "checklist": {
       "a_doc_lue": "fait (pages IIIF, about, accueil, licensing lues ; /art/terms en 404, adresse devinée)",
       "b_endpoints_doc": "fait : aucun endpoint d'API documenté (manifestes par icône IIIF seulement)",
-      "c_config_avant_tests": "non fait (aucun endpoint documenté à tester)",
+      "c_config_avant_tests": "non applicable (aucun endpoint d'API documenté)",
       "d_quota_dans_doc": "fait : aucun quota ; usage sur autorisation",
-      "e_tests_endpoints": "non applicable (aucun endpoint documenté)",
-      "f_web": "partiel (recherche web : aucune discussion trouvée sur les quotas)",
-      "g_crash_test": "non applicable"
+      "e_tests_endpoints": "non applicable (aucun endpoint d'API documenté : seul le manifeste par icône, dont l'URL n'est pas donnée)",
+      "f_web": "fait (recherche : aucune politique spécifique ; robots.txt lu : Disallow vide, tout autorisé)",
+      "g_crash_test": "non applicable (aucun endpoint à tester)"
     },
     "limites_documentees": [
       {
@@ -1805,6 +1815,12 @@
         "date": "2026-11-13",
         "etiquette": "officielle",
         "preuve": "sources/edinburgh-art/suite/SHA256SUMS"
+      },
+      {
+        "url": "https://collections.ed.ac.uk/robots.txt",
+        "date": "2026-11-13",
+        "etiquette": "officielle",
+        "preuve": "sources/robots/SHA256SUMS"
       }
     ],
     "web": [],
@@ -1818,6 +1834,9 @@
       ],
       "d_quota_dans_doc": [
         "sources/edinburgh-art/suite/SHA256SUMS"
+      ],
+      "f_web": [
+        "sources/robots/SHA256SUMS"
       ]
     }
   }
