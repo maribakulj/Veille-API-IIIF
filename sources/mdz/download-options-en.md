@@ -1,0 +1,330 @@
+# Download Options (EN)
+
+- URL : https://www.digitale-sammlungen.de/en/download-options
+- Date de lecture (UTC) : 2026-11-13T21:19:28Z
+- SHA-256 du texte ci-dessous (UTF-8) : `7887e9dbe112f561357c48df692dfa7a5a5b65c0ed15ca658c62a30ddd3e2f05`
+- Taille HTTP du HTML : 41920 octets (téléchargement complet, non tronqué ; contrôle par curl)
+- Méthode : HTML converti en texte (balises, scripts et styles retirés ; menus de navigation conservés, répétés en tête et en pied). Pas de résumé : texte intégral de la page.
+- Lecture : intégrale ; la page est lue dans son texte converti, les liens sont dans le HTML brut conservé hors dépôt.
+
+---
+
+Search
+
+ metadata
+
+ full texts
+
+ Filter
+
+ keep active filters
+
+- 
+ Zu deutscher Sprachversion wechseln
+
+ RSS
+
+- 
+ Collections
+
+- 
+ The MDZ
+
+- 
+
+ 2D and 3D Digitization
+
+- 
+
+ Technologies and Software Development
+
+- 
+
+ Digital Long-term Preservation
+
+- 
+
+ Publications of the MDZ (In Selection)
+
+- 
+ Our Data Services
+
+- 
+
+ Download Options
+
+- 
+
+ Interfaces
+
+- 
+
+ Reproduction Orders (€)
+
+- 
+ Help
+
+- 
+
+ Search Help
+
+- 
+
+ Viewer Help
+
+- 
+
+ FAQ
+
+- 
+
+ Contact
+
+- 
+
+ Imprint
+
+- 
+
+ Privacy Policy
+
+- 
+
+ Disclaimer
+
+- 
+
+ Accessibility
+
+ Close main menu
+
+ Search
+
+ metadata
+
+ full texts
+
+ Filter
+
+ keep active filters
+
+An error occurred while serving your page
+
+Please make sure that you are using an up-to-date and supported browser (Edge, Firefox from version 68, Chrome from version 86, Safari from version 12). Otherwise we can't guarantee that the website is working as intended.
+If you are already using an up-to-date browser, please try refreshing the site.
+If the error persists, please get in touch via mdz@bsb-muenchen.de.
+
+Download Options
+
+- 
+
+ PDF/DaFo Step by Step
+
+- 
+
+ Attribution
+
+- 
+
+ Specimen copy
+
+- 
+
+ Note on the Resolution of Images
+
+Via the Mirador viewer, single images (JPEG) as well as the metadata in different formats can be downloaded (see 
+
+Viewer Help
+
+).
+
+You may also download almost all of our digital copies as a PDF in whole or in part.
+
+In addition, the MDZ offers with DaFo (Daten für die Forschung) a worldwide accessible, free service for downloading high resolution images (JPEG format, 300 ppi) and corresponding text, if already available as machine readable version. Depending on the rights statement under which a digital copy is provided, commercial use may be excluded. You can find more information on this in our 
+
+FAQ
+
+.
+
+DaFo includes most of our freely accessible online digital resources, among them many works of world’s cultural heritage. The maximum order size per day/user is limited due to the high amount of data that has to be retrieved and provided from the archive. Depending on the amount of data and the general service utilization the provision of the digital copies will take approximately 1–5 days.
+
+PDF/DaFo Step by Step
+
+- 
+
+Go to the page of a digitized item. Click the download button in the upper right corner. Depending on the presentation, you will find a download icon (down arrow) there, which will lead you, among others, to the 'PDF/DaFo' option, or the 'Download' button.
+
+- 
+
+The download menu is now open. Please change the language from German to English by clicking on the flag beneath the word 'Download'. You can choose to download data in a lower resolution immediately (PDF document) or to order data via DaFo in a higher resolution, if the digital copy is released for this service. 
+
+- 
+
+Please choose the scope of your download. The default is always set for the whole digitized object, but by changing the numbers you can also download a smaller part such as an article or a chapter. Please note the difference between image number (counting the scans) and page number (page counting in the scanned original).
+
+ Download menu
+
+- 
+
+Confirm, that you have read and agree to the conditions of use.
+
+ Confirmation of the Conditions of Use
+
+- 
+
+PDF:
+
+ You can request the download by clicking the 'GO' button in the upper box. Depending on the size of the requested file the preparation can take a few moments. Once the download is ready, a link named 'Download (size of file)' appears on the download page. You can access the PDF file by either clicking the link with the left button of your mouse – thus opening it directly in a new tab or window of your browser – or by opening the context menu with the right button of your mouse and choosing 'save target as' to download the file to your device. If you click the button 'MORE PAGES' you will come back to the original download page in order to choose and download additional excerpts of a digitized item, e.g. a different article.
+
+- 
+
+DaFo:
+
+ Enter your email address in the section for the JPEG-files. Your email address is used for notification.
+
+- 
+
+Please take note of the 
+
+privacy policy of the Bavarian State Library
+
+ concerning the personal data.
+
+- 
+
+If you are offered the checkbox 'with OCR text', you also have the option of ordering the full text of a digital copy via DaFo. If you wish to do this, please check this box. In addition to the ordered images in JPEG format, you will then receive the corresponding full text in a txt file.
+
+- 
+
+Click the 'GO' button in the box below.
+
+- 
+
+A new page is opened.
+
+- 
+
+Fill in the captcha field with the characters you see in the image (in our example: JDAGU) and confirm your input by clicking the 'send' button.
+
+ Captcha input
+
+- 
+
+You will receive a confirmation message to the email address you specified including the activation link and license information about your order. A click on the activation link directs you to a website with information about your order being activated and going to be processed soon.
+
+ Order confirmation
+
+The data will be provided within approximately 1–5 days.
+
+- 
+
+After the final processing of your order you will receive another email with all relevant details about your free of charge download. A click on the download link directs you to a website, where you can download your order. The data are available for 2 weeks. Afterwards they will be deleted automatically, as well as your email address.
+
+Attribution
+
+Please credit the pictures indicating:
+
+- 
+
+The holding library has to be indicated in any case, if this is not the Bavarian State Library the holding library is mentioned next to the 'call number'
+
+- 
+
+Call number
+
+- 
+
+Page or folio number of the image you use
+
+- 
+
+URN of the digitized object
+
+- 
+
+Only for Rights Statement NoC-NC (No copyright – non-commercial use only): 'digitized by Google'
+
+You will find the correct call number and URN on the website of the digitized object or in the BSB-catalog (OPACplus).
+
+- 
+
+Example 1: 'Bayerische Staatsbibliothek München, ESlg/4 Zool. 382-2, p. 11, urn:nbn:de:bvb:12-bsb00068689-9'
+
+- 
+
+Example 2: 'Staatliche Bibliothek Regensburg, 999/2Theol.syst.151, fol. 6v, urn:nbn:de:bvb:12-bsb11059739-6, digitized by Google'
+
+Specimen copy
+
+Once your work is published as a print publication, we kindly ask you to submit a copy / an off-print to each library whose holdings you re-use. Please indicate it as 'Belegexemplar' ('specimen copy') on your delivery.
+
+The respective postal data can be found in a list of the 
+
+addresses of the Bavarian regional state libraries
+
+.
+
+Please use the following address for sending specimen copies to the Bavarian State Library:
+
+Bayerische Staatsbibliothek
+
+Stichwort: Belegexemplar
+
+Ludwigstr. 16
+
+80539 München
+
+Note on the Resolution of Images
+
+Our 'DaFo' service provides you with images with a standard resolution of 300 ppi in relation to the dimensions of the original. Please note that image viewing programs may not output any or an incorrect value (e.g. 96 ppi or dpi) for our scans.
+
+ The MDZ
+
+ 2D and 3D Digitization
+
+ Technologies and Software Development
+
+ Digital Long-term Preservation
+
+ Publications of the MDZ (In Selection)
+
+ Our Data Services
+
+ Download Options
+
+ Interfaces
+
+ Reproduction Orders (€)
+
+ Help
+
+ Search Help
+
+ Viewer Help
+
+ FAQ
+
+- 
+
+ Contact
+
+- 
+
+ Imprint
+
+- 
+
+ Privacy Policy
+
+- 
+
+ Disclaimer
+
+- 
+
+ Accessibility
+
+- 
+
+ Sitemap
+

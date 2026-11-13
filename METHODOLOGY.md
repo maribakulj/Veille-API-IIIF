@@ -110,3 +110,28 @@ utilisateur / tiers). Les noms de personnes privées ne sont pas reproduits.
 
 **Vérification finale (par l'orchestrateur)** : contrôle que chaque étape a son fichier de
 preuve. Sinon l'institution reste « incomplète ».
+
+**g) Crash test progressif (jusqu'où peut-on aller).** Étape ajoutée le 2026-11-13 sur
+demande de Marcel. Elle provoque volontairement des blocages depuis l'IP de Marcel : elle ne
+se lance qu'après la fin de l'agent de l'institution, jamais en parallèle, et jamais sur un
+hôte déjà bloqué en 403 anti-bot.
+
+- **Plafond absolu** : le débit de test ne dépasse jamais 2 × la limite documentée, et jamais
+  plus de 60 requêtes/minute pour une institution sans limite documentée.
+- **Paliers** : on part de 1/3 de la limite documentée (ou 6 req/min sans limite documentée),
+  puis on monte par paliers de 1/3 : 1/3, 2/3, 1×, 1,5×, 2× la limite. Chaque palier dure
+  au moins 3 minutes et envoie des requêtes régulièrement espacées (pas de rafale).
+- **Arrêt immédiat** au premier 429, CAPTCHA ou 403 anti-bot. On consigne le palier, l'heure, les
+  en-têtes complets (`Retry-After`, `X-RateLimit-*`, `RateLimit-*`) et le corps tronqué.
+- **Attente** : après un blocage, on n'envoie rien vers cet hôte pendant au moins
+  `Retry-After` (ou, à défaut, la durée annoncée par la doc, ou 1 h), puis on note si
+  l'hôte répond à nouveau. Aucune reprise pendant le blocage (c'est la règle de la LoC :
+  le compteur repart à zéro si l'on insiste).
+- **Journal** : chaque palier dans `tests/crash/<slug>.log` (ajout seulement), avec le
+  nombre de requêtes, la durée et le résultat. La configuration du test est committée dans
+  `scripts/config/<slug>-crash.json` avant le lancement.
+- **Accord** : Marcel est prévenu avant chaque institution (l'IP de son Mac sera bloquée
+  pendant la durée du blocage). Pas de crash test sur MARCXML de la LoC (blocage 72 h) sans
+  accord explicite à part.
+- **Résultat** : une ligne dans la fiche : « seuil observé entre palier X et Y, en-tête Z »,
+  ou « aucun seuil atteint jusqu'à 2 × la limite documentée ».

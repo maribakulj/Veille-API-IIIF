@@ -1,0 +1,342 @@
+# Viewer Help (EN)
+
+- URL : https://www.digitale-sammlungen.de/en/viewer-help
+- Date de lecture (UTC) : 2026-11-13T21:19:28Z
+- SHA-256 du texte ci-dessous (UTF-8) : `a3018dc4449c503dc37a0ac2fc5fcd70222de6be728df4387c022a6887f53108`
+- Taille HTTP du HTML : 48620 octets (téléchargement complet, non tronqué ; contrôle par curl)
+- Méthode : HTML converti en texte (balises, scripts et styles retirés ; menus de navigation conservés, répétés en tête et en pied). Pas de résumé : texte intégral de la page.
+- Lecture : intégrale ; la page est lue dans son texte converti, les liens sont dans le HTML brut conservé hors dépôt.
+
+---
+
+Search
+
+ metadata
+
+ full texts
+
+ Filter
+
+ keep active filters
+
+- 
+ Zu deutscher Sprachversion wechseln
+
+ RSS
+
+- 
+ Collections
+
+- 
+ The MDZ
+
+- 
+
+ 2D and 3D Digitization
+
+- 
+
+ Technologies and Software Development
+
+- 
+
+ Digital Long-term Preservation
+
+- 
+
+ Publications of the MDZ (In Selection)
+
+- 
+ Our Data Services
+
+- 
+
+ Download Options
+
+- 
+
+ Interfaces
+
+- 
+
+ Reproduction Orders (€)
+
+- 
+ Help
+
+- 
+
+ Search Help
+
+- 
+
+ Viewer Help
+
+- 
+
+ FAQ
+
+- 
+
+ Contact
+
+- 
+
+ Imprint
+
+- 
+
+ Privacy Policy
+
+- 
+
+ Disclaimer
+
+- 
+
+ Accessibility
+
+ Close main menu
+
+ Search
+
+ metadata
+
+ full texts
+
+ Filter
+
+ keep active filters
+
+An error occurred while serving your page
+
+Please make sure that you are using an up-to-date and supported browser (Edge, Firefox from version 68, Chrome from version 86, Safari from version 12). Otherwise we can't guarantee that the website is working as intended.
+If you are already using an up-to-date browser, please try refreshing the site.
+If the error persists, please get in touch via mdz@bsb-muenchen.de.
+
+Viewer Help
+
+- 
+
+ Basic functions
+
+- 
+
+ Basics
+
+- 
+
+ Sharing and Posting
+
+- 
+
+ Options for keyboard navigation
+
+- 
+
+ Crop and edit image section
+
+- 
+
+ Download options
+
+- 
+
+ Meta data, tocs and search within object
+
+- 
+
+ Image tool bar und text overlay options
+
+- 
+
+ Comparison of digital objects
+
+Basic functions
+
+Basics
+
+In its basic function you can use Mirador to view digitized images. By using the scroll wheel, you can zoom in and out of the picture, with the left mouse button pressed, you can drag the image. On mobile devices just use pinch and zoom and drag the image with your finger. 
+
+The navigation bar below the image allows flipping through the pages, jumping to the beginning or end and selecting a specific image by scan number. Via the view menu in the upper viewer bar Mirador offers a number of views: You can choose between single view, book view or gallery. If the 'Book' view is selected, the view can be shifted by one image. A thumbnail bar can be optionally displayed below or to the right of the image or hidden completely.
+
+Sharing and Posting
+
+In the upper viewer bar the appropriate button offers the possibility to share links to digitized pages by e-mail, on Facebook, Pinterest, X or WhatsApp.
+
+Options for keyboard navigation
+
+Keyboard shortcut
+
+Event
+
+ctrl+left
+
+scroll to the first image
+
+left
+
+scroll to the previous image
+
+right
+
+scroll to the next image
+
+ctrl+right
+
+scroll to the last image
+
+b
+
+switch to book view
+
+g
+
+switch to gallery view
+
+s
+
+switch to single view
+
+enter
+
+toggle fullscreen mode
+
+esc
+
+switch off fullscreen mode
+
+Note: the events will only apply to the currently focussed window.
+
+Crop and edit image section
+
+In the single page view the function 'Activate selection of an image region' appears in the upper viewer bar. By dragging the mouse the required section is selected, whose size, rotation, reflection and color quality can then be changed. The link to the possibly edited image detail can be copied to the clipboard or shared via social networks.
+
+Download options
+
+The menu for the download options can also be accessed via the upper viewer bar. Offered is
+
+- 
+
+the download of single images (JPEG) in different resolutions,
+
+- 
+
+a link to our PDF/DaFo service for downloading the complete object (including full text, if available),
+
+- 
+
+the download of metadata as IIIF manifest, in MARCXML or RDF format.
+
+Meta data, tocs and search within object
+
+The left viewer sidebar offers
+
+- 
+
+metadata of the current object and a link to the page with the detailed information,
+
+- 
+
+copyright information,
+
+- 
+
+if available, table of contents that allows comfortable navigation to different sections of the object,
+
+- 
+
+a search within the volume, if full texts are available.
+
+Image tool bar und text overlay options
+
+In the upper right area of the viewer two tool bars for temporary image editing and text overlay can be expanded.
+
+The image tool bar allows (cf. the buttons from left to right)
+
+- 
+
+rotation of the image in 90° steps to the left or right,
+
+- 
+
+flipping,
+
+- 
+
+change of brightness, contrast and saturation,
+
+- 
+
+display in grayscale,
+
+- 
+
+inverting colors ('negative view').
+
+All changes can be reset to the initial state.
+
+The text overlay options underneath the image tool bar allow to select the full text in the image. In addition, the image can be overlayed with the recognized full text. The opacity of the fade can be adjusted as well as the background color of the font by using the color picker.
+
+Comparison of digital objects
+
+ Comparison of digital objects
+
+In the outer left-hand viewer bar, additional workspaces can be added via the plus button, in which further objects can be opened for comparison. After clicking on 'Add resource', enter the URL to the IIIF manifest of a digital copy, e.g. 
+
+https://api.digitale-sammlungen.de/iiif/presentation/v2/bsb00004647/manifest
+
+.
+
+Use the other buttons to switch between the windows and the full-screen view.
+
+ The MDZ
+
+ 2D and 3D Digitization
+
+ Technologies and Software Development
+
+ Digital Long-term Preservation
+
+ Publications of the MDZ (In Selection)
+
+ Our Data Services
+
+ Download Options
+
+ Interfaces
+
+ Reproduction Orders (€)
+
+ Help
+
+ Search Help
+
+ Viewer Help
+
+ FAQ
+
+- 
+
+ Contact
+
+- 
+
+ Imprint
+
+- 
+
+ Privacy Policy
+
+- 
+
+ Disclaimer
+
+- 
+
+ Accessibility
+
+- 
+
+ Sitemap
+
