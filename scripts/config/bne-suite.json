@@ -1,0 +1,10 @@
+{
+  "slug": "bne",
+  "min_delay_s": 6,
+  "max_requests": 3,
+  "endpoints": [
+    {"id": "bdh-accueil-bnesearch", "method": "GET", "url": "https://bdh.bne.es/bnesearch/Inicio.do"},
+    {"id": "bdh-rd-viewer-complutense", "method": "GET", "url": "http://bdh-rd.bne.es/viewer.vm?id=0000050739&page=1"},
+    {"id": "bdh-racine", "method": "GET", "url": "https://bdh.bne.es/"}
+  ]
+}
