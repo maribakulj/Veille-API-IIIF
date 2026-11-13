@@ -1,7 +1,7 @@
 # Privacy Policy (EN)
 
 - URL : https://www.digitale-sammlungen.de/en/privacy-policy
-- Date de lecture (UTC) : 2026-11-13T21:19:28Z
+- Date de lecture (UTC) : 2026-11-13T21:20:13Z
 - SHA-256 du texte ci-dessous (UTF-8) : `8a2bd1fe70f9f36a67172e27504beb628333151218c589602e0e3213fe90c501`
 - Taille HTTP du HTML : 27357 octets (téléchargement complet, non tronqué ; contrôle par curl)
 - Méthode : HTML converti en texte (balises, scripts et styles retirés ; menus de navigation conservés, répétés en tête et en pied). Pas de résumé : texte intégral de la page.

@@ -1,7 +1,7 @@
 # Viewer Help (EN)
 
 - URL : https://www.digitale-sammlungen.de/en/viewer-help
-- Date de lecture (UTC) : 2026-11-13T21:19:28Z
+- Date de lecture (UTC) : 2026-11-13T21:20:13Z
 - SHA-256 du texte ci-dessous (UTF-8) : `a3018dc4449c503dc37a0ac2fc5fcd70222de6be728df4387c022a6887f53108`
 - Taille HTTP du HTML : 48620 octets (téléchargement complet, non tronqué ; contrôle par curl)
 - Méthode : HTML converti en texte (balises, scripts et styles retirés ; menus de navigation conservés, répétés en tête et en pied). Pas de résumé : texte intégral de la page.

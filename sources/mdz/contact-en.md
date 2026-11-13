@@ -1,7 +1,7 @@
 # Contact (EN)
 
 - URL : https://www.digitale-sammlungen.de/en/contact
-- Date de lecture (UTC) : 2026-11-13T21:19:28Z
+- Date de lecture (UTC) : 2026-11-13T21:20:13Z
 - SHA-256 du texte ci-dessous (UTF-8) : `d5ef6f958867fd8f4ead45b403134ea7a839058c94c18859d94c4810c3b033c2`
 - Taille HTTP du HTML : 31063 octets (téléchargement complet, non tronqué ; contrôle par curl)
 - Méthode : HTML converti en texte (balises, scripts et styles retirés ; menus de navigation conservés, répétés en tête et en pied). Pas de résumé : texte intégral de la page.

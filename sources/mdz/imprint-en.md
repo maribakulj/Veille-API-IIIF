@@ -1,7 +1,7 @@
 # Imprint / mentions légales (EN)
 
 - URL : https://www.digitale-sammlungen.de/en/imprint
-- Date de lecture (UTC) : 2026-11-13T21:19:28Z
+- Date de lecture (UTC) : 2026-11-13T21:20:13Z
 - SHA-256 du texte ci-dessous (UTF-8) : `4fcf6df6b3938f594a7e2ea84a7980964d8fddb2550959df9410301af157b223`
 - Taille HTTP du HTML : 28327 octets (téléchargement complet, non tronqué ; contrôle par curl)
 - Méthode : HTML converti en texte (balises, scripts et styles retirés ; menus de navigation conservés, répétés en tête et en pied). Pas de résumé : texte intégral de la page.

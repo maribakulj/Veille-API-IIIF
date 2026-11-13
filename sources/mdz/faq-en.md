@@ -1,7 +1,7 @@
 # FAQ (EN)
 
 - URL : https://digitale-sammlungen.de/en/faq
-- Date de lecture (UTC) : 2026-11-13T21:19:28Z
+- Date de lecture (UTC) : 2026-11-13T21:20:13Z
 - SHA-256 du texte ci-dessous (UTF-8) : `d44c565d6855c62205d9f4369a002b126c2125a4526843ff532ea568bfa4c01f`
 - Taille HTTP du HTML : 60844 octets (téléchargement complet, non tronqué ; contrôle par curl)
 - Méthode : HTML converti en texte (balises, scripts et styles retirés ; menus de navigation conservés, répétés en tête et en pied). Pas de résumé : texte intégral de la page.

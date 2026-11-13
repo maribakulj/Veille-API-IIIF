@@ -1,7 +1,7 @@
 # Bavarian Digital Repository / OAI-PMH (EN), lien depuis la page Interfaces
 
 - URL : https://oai.bsb-muenchen.de/doc/en/bavarian-digital-repository
-- Date de lecture (UTC) : 2026-11-13T21:19:28Z
+- Date de lecture (UTC) : 2026-11-13T21:20:13Z
 - SHA-256 du texte ci-dessous (UTF-8) : `00903383a7ee1083e391103468f6889a2ab3792fe8d138aad505ff8e48ba7c82`
 - Taille HTTP du HTML : 31017 octets (téléchargement complet, non tronqué ; contrôle par curl)
 - Méthode : HTML converti en texte (balises, scripts et styles retirés ; menus de navigation conservés, répétés en tête et en pied). Pas de résumé : texte intégral de la page.

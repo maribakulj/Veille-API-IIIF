@@ -1,7 +1,7 @@
 # Schnittstellen (DE) — version allemande de la page API
 
 - URL : https://www.digitale-sammlungen.de/de/schnittstellen
-- Date de lecture (UTC) : 2026-11-13T21:19:28Z
+- Date de lecture (UTC) : 2026-11-13T21:20:13Z
 - SHA-256 du texte ci-dessous (UTF-8) : `a2c5ddb3f6c624e737aeda7154d66124e89fb2ec5b29ed72e89e0f0b0088ee1c`
 - Taille HTTP du HTML : 41741 octets (téléchargement complet, non tronqué ; contrôle par curl)
 - Méthode : HTML converti en texte (balises, scripts et styles retirés ; menus de navigation conservés, répétés en tête et en pied). Pas de résumé : texte intégral de la page.

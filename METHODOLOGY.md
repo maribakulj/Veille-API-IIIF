@@ -116,11 +116,16 @@ demande de Marcel. Elle provoque volontairement des blocages depuis l'IP de Marc
 se lance qu'après la fin de l'agent de l'institution, jamais en parallèle, et jamais sur un
 hôte déjà bloqué en 403 anti-bot.
 
-- **Plafond absolu** : le débit de test ne dépasse jamais 2 × la limite documentée, et jamais
-  plus de 60 requêtes/minute pour une institution sans limite documentée.
+- **Plafond absolu fixé par Marcel : 200 requêtes/minute**, quelle que soit la limite
+  documentée. Pour une API annoncée « illimitée », le test vérifie qu'elle l'est vraiment
+  jusqu'à ce plafond. Le plafond ne se dépasse jamais, et il ne s'applique pas par agent :
+  on compte toutes les requêtes de l'IP de Marcel vers l'hôte.
 - **Paliers** : on part de 1/3 de la limite documentée (ou 6 req/min sans limite documentée),
-  puis on monte par paliers de 1/3 : 1/3, 2/3, 1×, 1,5×, 2× la limite. Chaque palier dure
-  au moins 3 minutes et envoie des requêtes régulièrement espacées (pas de rafale).
+  puis on monte par paliers jusqu'à 200 req/min : 1/3, 2/3, 1×, 1,5×, 2×, puis 5×, 10×,
+  50×, 200 req/min si aucun blocage. Chaque palier dure au moins 3 minutes et envoie des
+  requêtes régulièrement espacées (pas de rafale).
+- **Ordre** : le crash test n'est lancé qu'une fois l'audit complet de l'institution terminé
+  (étapes a à f, dossier prêt). Il ne doit pas risquer de bannir l'IP avant la fin de l'audit.
 - **Arrêt immédiat** au premier 429, CAPTCHA ou 403 anti-bot. On consigne le palier, l'heure, les
   en-têtes complets (`Retry-After`, `X-RateLimit-*`, `RateLimit-*`) et le corps tronqué.
 - **Attente** : après un blocage, on n'envoie rien vers cet hôte pendant au moins
@@ -134,4 +139,5 @@ hôte déjà bloqué en 403 anti-bot.
   pendant la durée du blocage). Pas de crash test sur MARCXML de la LoC (blocage 72 h) sans
   accord explicite à part.
 - **Résultat** : une ligne dans la fiche : « seuil observé entre palier X et Y, en-tête Z »,
-  ou « aucun seuil atteint jusqu'à 2 × la limite documentée ».
+  ou « aucun blocage jusqu'à 200 req/min (plafond) : l'API est illimitée au moins jusque-là ».
+  Un test « illimité » n'est pas une preuve d'illimitation au-delà de 200 req/min.

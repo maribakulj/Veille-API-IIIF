@@ -1,7 +1,7 @@
 # Download Options (EN)
 
 - URL : https://www.digitale-sammlungen.de/en/download-options
-- Date de lecture (UTC) : 2026-11-13T21:19:28Z
+- Date de lecture (UTC) : 2026-11-13T21:20:13Z
 - SHA-256 du texte ci-dessous (UTF-8) : `7887e9dbe112f561357c48df692dfa7a5a5b65c0ed15ca658c62a30ddd3e2f05`
 - Taille HTTP du HTML : 41920 octets (téléchargement complet, non tronqué ; contrôle par curl)
 - Méthode : HTML converti en texte (balises, scripts et styles retirés ; menus de navigation conservés, répétés en tête et en pied). Pas de résumé : texte intégral de la page.

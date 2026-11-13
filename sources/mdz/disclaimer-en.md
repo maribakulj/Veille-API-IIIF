@@ -1,7 +1,7 @@
 # Disclaimer (EN)
 
 - URL : https://www.digitale-sammlungen.de/en/disclaimer
-- Date de lecture (UTC) : 2026-11-13T21:19:28Z
+- Date de lecture (UTC) : 2026-11-13T21:20:13Z
 - SHA-256 du texte ci-dessous (UTF-8) : `93a38368715fa5105125341548aafd785bc11e62158a254278daa815a9f5af9f`
 - Taille HTTP du HTML : 27688 octets (téléchargement complet, non tronqué ; contrôle par curl)
 - Méthode : HTML converti en texte (balises, scripts et styles retirés ; menus de navigation conservés, répétés en tête et en pied). Pas de résumé : texte intégral de la page.

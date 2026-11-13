@@ -1,7 +1,7 @@
 # Interfaces (EN) — page principale des API
 
 - URL : https://www.digitale-sammlungen.de/en/interfaces
-- Date de lecture (UTC) : 2026-11-13T21:19:28Z
+- Date de lecture (UTC) : 2026-11-13T21:20:13Z
 - SHA-256 du texte ci-dessous (UTF-8) : `69f321e4dbe15364c788f2c8c5584c8ec89421f8e539677fca518895b2fe4a97`
 - Taille HTTP du HTML : 41093 octets (téléchargement complet, non tronqué ; contrôle par curl)
 - Méthode : HTML converti en texte (balises, scripts et styles retirés ; menus de navigation conservés, répétés en tête et en pied). Pas de résumé : texte intégral de la page.

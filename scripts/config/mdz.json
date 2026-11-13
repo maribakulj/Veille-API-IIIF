@@ -3,12 +3,12 @@
   "min_delay_s": 6,
   "max_requests": 15,
   "endpoints": [
-    {"id": "entree-iiif-saisie", "method": "HEAD", "url": "https://api.digitale-sammlungen.de/iiif/"},
-    {"id": "racine-hote", "method": "GET", "url": "https://api.digitale-sammlungen.de/"},
     {"id": "presentation-manifeste", "method": "GET", "url": "https://api.digitale-sammlungen.de/iiif/presentation/v2/bsb00012345/manifest"},
-    {"id": "image-info-json", "method": "GET", "url": "https://api.digitale-sammlungen.de/iiif/image/v2/bsb00103155_00013/info.json"},
+    {"id": "presentation-manifeste-2", "method": "GET", "url": "https://api.digitale-sammlungen.de/iiif/presentation/v2/bsb00130380_00157_u001/manifest"},
     {"id": "presentation-collection-top", "method": "GET", "url": "https://api.digitale-sammlungen.de/iiif/presentation/v2/collection/top"},
+    {"id": "image-info-json", "method": "GET", "url": "https://api.digitale-sammlungen.de/iiif/image/v2/bsb00103155_00013/info.json"},
+    {"id": "image-exemple-full", "method": "GET", "url": "https://api.digitale-sammlungen.de/iiif/image/v2/bsb00109992_00001/full/full/0/default.jpg"},
     {"id": "ocr-hocr", "method": "GET", "url": "https://api.digitale-sammlungen.de/ocr/bsb00000001/00010"},
-    {"id": "image-api-reduite", "method": "GET", "url": "https://api.digitale-sammlungen.de/iiif/image/v2/bsb00109992_00001/full/100,/0/default.jpg"}
+    {"id": "bdr-oai-identify", "method": "GET", "url": "http://bdr.oai.bsb-muenchen.de/OAIHandler?verb=Identify"}
   ]
 }
