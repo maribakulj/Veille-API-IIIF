@@ -1,0 +1,72 @@
+{
+  "slug": "loc",
+  "min_delay_s": 7,
+  "max_requests": 15,
+  "endpoints": [
+    {
+      "id": "tile-info-json-1",
+      "method": "GET",
+      "url": "https://tile.loc.gov/image-services/iiif/service:sgp:sgpbatches:batch_dlc_anacostia_ver01:data:sn84025948:0023728866A:1942081001:0202/info.json"
+    },
+    {
+      "id": "photos-json",
+      "method": "GET",
+      "url": "https://www.loc.gov/photos/?q=anacostia&fo=json"
+    },
+    {
+      "id": "search-json",
+      "method": "GET",
+      "url": "https://www.loc.gov/search/?q=anacostia&fo=json"
+    },
+    {
+      "id": "item-json",
+      "method": "GET",
+      "url": "https://www.loc.gov/item/powmia/pwmaster_103790/?fo=json&at=item,resources"
+    },
+    {
+      "id": "doc-text-services",
+      "method": "GET",
+      "url": "https://www.loc.gov/apis/micro-services/text-services/"
+    },
+    {
+      "id": "text-services-alto",
+      "method": "GET",
+      "url": "https://tile.loc.gov/text-services/word-coordinates-service?segment=/service/ndnp/khi/batch_khi_bender_ver01/data/sn82016014/00212474198/1919121001/0753.xml&format=alto_xml&full_text=1"
+    },
+    {
+      "id": "image-info-json",
+      "method": "GET",
+      "url": "https://tile.loc.gov/image-services/iiif/service:sgp:sgpbatches:batch_dlc_anacostia_ver01:data:sn84025948:0023728866A:1942081001:0202/info.json"
+    },
+    {
+      "id": "image-thumb",
+      "method": "GET",
+      "url": "https://tile.loc.gov/image-services/iiif/service:sgp:sgpbatches:batch_dlc_anacostia_ver01:data:sn84025948:0023728866A:1942081001:0202/full/pct:10/0/default.jpg"
+    },
+    {
+      "id": "doc-streaming-services",
+      "method": "GET",
+      "url": "https://www.loc.gov/apis/micro-services/streaming-services/"
+    },
+    {
+      "id": "streaming-thumb",
+      "method": "GET",
+      "url": "https://tile.loc.gov/streaming-services/iiif/service:mbrs:ntscrm:01991429:01991429/full/,256/0/82,0/default.jpg"
+    },
+    {
+      "id": "storage-gif",
+      "method": "GET",
+      "url": "https://tile.loc.gov/storage-services/service/frd/pwmia/49/103790.gif"
+    },
+    {
+      "id": "marcxml-1",
+      "method": "GET",
+      "url": "https://lccn.loc.gov/sn82016014/marcxml"
+    },
+    {
+      "id": "marcxml-2",
+      "method": "GET",
+      "url": "https://lccn.loc.gov/sn82016014/marcxml"
+    }
+  ]
+}
