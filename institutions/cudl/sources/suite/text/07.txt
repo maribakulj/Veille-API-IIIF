@@ -1,0 +1,173 @@
+The dynamic digital library - a IIIF scoping project | Cambridge University Library 
+ skip to content 
+ Study at Cambridge 
+ About the University 
+ Research at Cambridge 
+ Search site 
+ Home 
+ Study at Cambridge 
+ Undergraduate 
+ Undergraduate courses 
+ Applying 
+ Events and open days 
+ Fees and finance 
+ Postgraduate 
+ Postgraduate courses 
+ How to apply 
+ Postgraduate events 
+ Fees and funding 
+ International
+ students 
+ Continuing education 
+ Executive and professional education 
+ Courses in education 
+ About the University 
+ How the
+ University and Colleges work 
+ Term dates and calendars 
+ History 
+ Map 
+ Visiting the University 
+ Annual reports 
+ Equality and diversity 
+ News 
+ A global university 
+ Events 
+ Public engagement 
+ Jobs 
+ Give to Cambridge 
+ Research at Cambridge 
+ For staff 
+ For Cambridge students 
+ For alumni 
+ For our researchers 
+ Business and enterprise 
+ Colleges & departments 
+ Email & phone search 
+ Give to Cambridge 
+ Libraries 
+ Museums & collections 
+ Home 
+ Research 
+ Digital Humanities 
+ Case studies 
+ Cambridge University Library 
+ Home 
+ Using the Library Using the Library overview 
+ Your library membership Your library membership overview 
+ Online resources and services 
+ Remote services Remote services overview 
+ Visit the University Library Visit the University Library overview 
+ Library service updates 
+ Accessibility and disabled library users Accessibility and disabled library users overview 
+ Research Research overview 
+ University Library Research Institute University Library Research Institute overview 
+ Digital Preservation Digital Preservation overview 
+ Digital Humanities Digital Humanities overview 
+ Open Research 
+ Research Data management 
+ Futurelib Innovation Programme Futurelib Innovation Programme overview 
+ Teaching and Learning Teaching and Learning overview 
+ Information Literacy Teaching at Cambridge 
+ What's On What's On overview 
+ Exhibitions Exhibitions overview 
+ Events Events overview 
+ The Really Popular Book Club 
+ Google Arts and Culture 
+ Search and Find Search and Find overview 
+ LibGuides - Subject guides 
+ Eresources 
+ iDiscover 
+ ArchiveSearch 
+ Reference Management 
+ Other catalogues 
+ Collections Collections overview 
+ Special Collections Special Collections overview 
+ All collections & departments All collections & departments overview 
+ Recommend an item for our collection Recommend an item for our collection overview 
+ Digital Exhibitions Digital Exhibitions overview 
+ About About overview 
+ Governance Governance overview 
+ History of the Library History of the Library overview 
+ Statement of Collecting Policy 
+ Prizes and Fellowships Prizes and Fellowships overview 
+ Library Storage Facility 
+ Press and media 
+ Support Us Support Us overview 
+ Ways to support us 
+ Contact 
+ The dynamic digital library - a IIIF scoping project 
+ Cambridge University Library 
+ Research 
+ Digital Humanities 
+ Case studies Seeing things in a new light 
+ The World isn't flat 
+ Thinking Big 
+ The dynamic digital library 
+ Board of Longitude 
+ Chinese Works 
+ Digital Pedagogy 
+ Equatorie Planetis 
+ Mingana-Lewis Palimpsest project 
+ Spanish Chapbooks 
+ The Cairo Genizah 
+ Cambridge Libraries - Digitisation Competition 2018 
+ How can we help? 
+ In 2015 Cambridge University Library was awarded funding from the Andrew W. Mellon Foundation to undertake a scoping project around the adoption of the International Image Interoperability Framework (IIIF) as a means of delivering digitised images and data. The goal of the project was to investigate some of the potential issues involved and develop a clear plan and road map for the future adoption of IIIF and potential broader application across the University.
+ The intention of this project was to gain a deeper understanding of our workflows and tools as well as to explore our digital preservation requirements. One step was to evaluate the various specifications of the JPEG2000 image format along with where and how its use might be appropriate. The aspiration was to develop a prototype IIIF-compliant implementation of the Cambridge Digital Library containing a sample of around a thousand digitised items.
+ There were a number of set-backs and challenges, but some successful outcomes that surpassed our hopes!
+ It was concluded that, currently, the full conversion to the JPEG2000 image format would be neither practical nor suitable for long term preservation. The project moved forward with a JPEG2000 format for delivery images only, on which basis we were able to evaluate our workflows and identify many potential improvements. This allowed us to achieve the goal of not only building a prototype IIIF-compliant Cambridge Digital Library , but incorporating it directly into our live website, where now nearly 250,000 images and their associated data are available through IIIF.
+ For those interested in further technical information:
+ Our preservation requirements for still images have been informed by and matched to ISO/TR 18492:2005 Long-term preservation of electronic document-based information . 
+ The JPEG2000 encoding profile used was a 6-1 lossless profile as developed by Matt McGrattan (formerly Bodleian Libraries) based on the British Library’s Robert Buckley profile .
+ Scripts and processes have been developed to implement IIIF/Shared Canvas for CDL as a whole, facilitating making all possible CDL content IIIF-compliant.
+ The IIIF Image API is implemented using the IIIF support provided by the IIP image server . An evaluation version of the Kakadu JPEG2000 software is used by IIP to decode the JP2 images.
+ IIIF Presentation API manifests are generated dynamically, on-demand, from existing metadata, allowing changes to an item’s metadata to be immediately reflected in the IIIF view of the item without any need to maintain multiple derived metadata files.
+ Keywords 
+Interoperability, Images, access, digital preservation, data, shared canvas, IIIF, digitisation, technology
+ Key People 
+Ben Outhwaite, Huw Jones, Jennie Fletcher, Tuan Pham, Maciej Pawlikowski
+ Funders 
+Andrew W. Mellon Foundation, Cambridge University Library, the Digital Preservation Coalition
+ Contact us
+ lab@cdh.cam.ac.uk 
+ Contact us
+ Cambridge University Library, West Road, Cambridge CB3 9DR, UK 
+ Email:  library@lib.cam.ac.uk 
+ Tel: +44 (0) 1223 333000 
+ Privacy and Cookie Policy
+ Privacy and Cookie Policy 
+ Social Media
+ Library blogs 
+ Instagram 
+ Twitter 
+ Facebook 
+ YouTube 
+ Join us
+ Job opportunities 
+ © 2026 University of Cambridge
+ Contact the University 
+ Accessibility 
+ Freedom of information 
+ Privacy policy and cookies 
+ Statement on Modern Slavery 
+ Terms and conditions 
+ University A-Z 
+ Study at Cambridge 
+ Undergraduate 
+ Postgraduate 
+ Continuing education 
+ Executive and professional education 
+ Courses in education 
+ About the University 
+ How the University
+ and Colleges work 
+ Give to Cambridge 
+ Jobs 
+ Map 
+ Visiting the University 
+ Research at Cambridge 
+ Research news 
+ About research at Cambridge 
+ Public engagement 
+ Spotlight on...

@@ -1,0 +1,363 @@
+GitHub - cambridge-collection/cudl-services: Middle-ware API provider and routing layer for various resources exposed by Cambridge Digital Collection Platform · GitHub 
+ Skip to content 
+ Navigation Menu
+ Sign in 
+ Products Platform GitHub Repository hosting, code review, and collaboration 
+ Copilot AI coding agent for tasks, projects, and automated work 
+ Build & Ship Actions CI/CD and automation 
+ Code Quality Quality analysis, fixes, and enforcement 
+ Codespaces Cloud development environments 
+ Secure Code Security Vulnerability detection and remediation 
+ Secret Protection Secret scanning and leak prevention 
+ All Features 
+ Developers Learn Documentation 
+ Training 
+ Certifications 
+ Build Build with Copilot 
+ Customize Copilot 
+ Integrations 
+ Explore Trending repos 
+ GitHub Sponsors 
+ Developer articles 
+ Changelog Changelog Your source for the latest features, improvements, and fixes across GitHub products, all in one place. 
+ Businesses By Stage Enterprises 
+ Team 
+ Startups 
+ Nonprofits 
+ By Industry Healthcare 
+ Financial services 
+ Manufacturing 
+ Government 
+ See all industries 
+ Evaluate GitHub Why GitHub 
+ Customer Stories 
+ Business insights 
+ Trust Center 
+ Add-ons GitHub Advanced Security Enterprise-grade code security 
+ Copilot for business Enterprise-grade AI features 
+ Premium Support Enterprise-grade 24/7 support 
+ Resources Learn & Connect Documentation 
+ Resource center 
+ Blog 
+ Events & webinars 
+ Community Forum 
+ Customer Stories 
+ Integrations 
+ Support Customer support 
+ Training 
+ GitHub Status 
+ Company About 
+ Partners 
+ Changelog 
+ GitHub Universe GitHub Universe The event for developers, by developers — talks, workshops, and what’s next for GitHub. 
+ Pricing 
+ Search / 
+ Sign in 
+ Sign up Appearance settings
+ You signed in with another tab or window. Reload to refresh your session. 
+ You signed out in another tab or window. Reload to refresh your session. 
+ You switched accounts on another tab or window. Reload to refresh your session. 
+ Dismiss alert 
+ {{ message }}
+ cambridge-collection 
+ cudl-services 
+ Repository navigation
+ Code 
+ Issues 
+ Pull requests 
+ Actions 
+ Projects 
+ Security and quality 
+ Insights 
+ More items 
+ cudl-services 
+ Public 
+ Notifications You must be signed in to change notification settings 
+ Fork 0  ( 0 ) 
+ Star 0  ( 0 ) You must be signed in to star a repository 
+ About 
+ Middle-ware API provider and routing layer for various resources exposed by Cambridge Digital Collection Platform
+ Resources 
+ Readme 
+ Apache-2.0 license 
+ Contributing 
+ Contributing 
+ Activity 
+ Custom properties 
+ Stars 
+ 0 stars 
+ Watchers 
+ 3 watching 
+ Forks 
+ 0 forks 
+ Report repository 
+ main 
+ Branches Tags 
+ Go to file 
+ Code Open more actions menu 
+ Latest commit
+ History
+ 371 Commits 
+ 371 Commits 
+ Folders and files
+ Name Name Last commit message 
+ Last commit date 
+ .github/ workflows 
+ .github/ workflows 
+ bin 
+ bin 
+ config 
+ config 
+ docker 
+ docker 
+ docs 
+ docs 
+ integration_test 
+ integration_test 
+ public 
+ public 
+ saxon 
+ saxon 
+ sql 
+ sql 
+ src 
+ src 
+ test 
+ test 
+ transforms/ transcriptions 
+ transforms/ transcriptions 
+ .dockerignore 
+ .dockerignore 
+ .editorconfig 
+ .editorconfig 
+ .eslintignore 
+ .eslintignore 
+ .eslintrc.json 
+ .eslintrc.json 
+ .gitignore 
+ .gitignore 
+ .npmignore 
+ .npmignore 
+ .prettierrc.js 
+ .prettierrc.js 
+ CONTRIBUTING.md 
+ CONTRIBUTING.md 
+ Dockerfile 
+ Dockerfile 
+ LICENSE.txt 
+ LICENSE.txt 
+ Makefile 
+ Makefile 
+ NOTICE.txt 
+ NOTICE.txt 
+ README.md 
+ README.md 
+ docker-compose.adminer.yml 
+ docker-compose.adminer.yml 
+ docker-compose.yml 
+ docker-compose.yml 
+ jest.config.js 
+ jest.config.js 
+ package-lock.json 
+ package-lock.json 
+ package.json 
+ package.json 
+ tsconfig.build.json 
+ tsconfig.build.json 
+ tsconfig.json 
+ tsconfig.json 
+ View all files 
+ Repository files navigation
+ README 
+ Contributing 
+ Apache-2.0 license 
+ More items 
+ CUDL Services
+ CUDL Services is an Express -powered JavaScript / Typescript middleware application that exposes an API
+for accessing various CUDL-related resources.
+ CUDL Services routes requests made for data by the CUDL Viewer to a PostgreSQL database, metadata document stores
+(hosted by us and externally hosted), XTF search instance and image server, and handles the responses back to the
+viewer. It also handles one route for the Darwin Correspondence Project that is unrelated to the CUDL Viewer.
+ The API is publicly accessible and (for the most part) requires no authentication, but is designed to be used primarily
+by the CUDL viewer.
+ Currently, there are 3 independent instances of CUDL Services in deployment (dev, staging, live).
+ Documentation
+ The main source of documentation for CUDL Services is this README.md 
+file. The diagrams are created using the open-source, freely available editor draw.io 
+and stored in docs/diagrams/ 
+(compressed XML) with PNG versions to insert here in docs/images/ .
+When making changes to the API, please update the documentation for a gold star ⭐
+ There is also a document on Confluence 
+which may contain some more useful details.
+ Running the application locally
+ For a quick start you can use the configuration in config/example.json5 and run the following:
+ npm install
+make docker-image
+ This will build the image that is used for running locally. Note the id of this image. Then you can
+run this build with ( but substitute your id for camdl/cudl-services:xxxx ):
+ docker container run -v $PWD/config/example.json5:/etc/cudl-services/conf.d/3_my-config.json -p 3000:3000 --name cudl-services-container camdl/cudl-services:xxxx
+ This will start services on localhost port 3000. E.g. http://localhost:3000/v1/transcription/tei/diplomatic/internal/MS-ADD-03958/i111 
+ For full details on running with docker see CUDL Services with Docker .
+ Testing transcription/translation content against a local checkout
+ The tei transcription and translation routes (see Transcription below) proxy requests to
+ teiServiceURL , which in deployment is an S3-backed HTTP service. To test against a local checkout of the data
+(e.g. cudl-data-releases ) instead of the real deployed service, serve the checkout with a static file server and
+point teiServiceURL at it:
+ npx http-server ~/projects/cudl-data-releases -p 8090 --cors -c-1
+ Then build and run cudl-services with teiServiceURL overridden to the local static server, on a different port to
+any instance you already have running:
+ npm run build
+PORT=3001 \
+NODE_CONFIG_MODULE="$PWD/build/dist-root/lib/cudl-config" \
+NODE_CONFIG_FILE="$PWD/config/example.json5" \
+NODE_CONFIG='{"teiServiceURL": "http://localhost:8090/"}' \
+node bin/cudl-services.js
+ Requests to e.g. http://localhost:3001/v1/transcription/tei/diplomatic/internal/MS-ADD-03958/i111 
+will now be served from the local checkout, including the unreleased/ fallback described in
+ Transcription .
+ Running Tests
+ You can run the tests locally by using the command:
+ docker-compose run --rm test
+ You can also run lint with the command:
+ npm run lint
+ and if you want to automatically fix any linting errors:
+ npm run fix
+ Configuration and Deployment
+ The configuration and deployment is handled by AWS CDK. You can see the code here:
+ https://github.com/cambridge-collection/cudl-cdk .
+ The README contains more details on updating the configuration and deploying services.
+See https://github.com/cambridge-collection/cudl-cdk/blob/main/src/main.ts 
+for more details on the configuration including:
+ Paths to mounted volumes that store metadata
+ PostgreSQL configuration
+ Image server host
+ Darwin XTF host
+ The external hosts responsible for returning transcription data for the Newton Project, Darwin Manuscripts Project
+and Quranic Palimpsests are configured within the transcription.js 
+route file.
+ Logging
+ You can find the CDK logs for the deployment in CloudWatch. There are separate logs
+for dev, staging and live deployments.
+ Looks for Log Groups with the names e.g. CudlDev-CudlServicesCudlServicesTaskMainLogGroup... 
+in the London (eu-west-2) region.
+ NOTE: Not everything is logged, and it will be helpful in the future to include more logging at
+the application level for debugging.
+ Routes and Responses
+ The routes in use are defined in app.js :
+ Darwin Correspondence Project (DCP)
+ Route: /v1/darwin/ 
+ Definition: routes/darwin.js 
+ Returns: Search results on the public DCP XTF index.
+ Usage: By the Drupal public DCP portal at www.darwinproject.ac.uk .
+ NB : This route is secured by an authentication token so that only the DCP Drupal instance can use it. For more on
+the Darwin Correspondence Project see DCP on the CUDL Wiki .
+ IIIF
+ Route: /v1/iiif/ 
+ Definition: routes/iiif.js 
+ Returns: An image from an IIIF-compliant image server.
+ Example Usage: When displaying collection item images in the CUDL Viewer.
+ NB: The 'iiif' route is not currently in use as the IIIF implementation is still in development.
+ Images
+ Route: /v1/images/ 
+ Definition: routes/images.js 
+ NB: The 'images' route is currently disused.
+ Membership
+ Route: /v1/rdb/membership/ 
+ Definition: routes/membership.js 
+ Returns: Title, collection id and collection order of the parent collection(s) of an item by item id.
+ Example Usage: By the CUDL and DCU XTF search instances.
+ Metadata
+ Route: /v1/metadata/ 
+ Definition: routes/metadata.js 
+ Returns: Original metadata file in specified format, e.g. JSON, TEI-XML, EAD-XML.
+ Example Usage: When the 'Download metadata' button in the CUDL Viewer is clicked.
+ Similarity
+ Route: /v1/xtf/similarity/ 
+ Definition: routes/similarity.js 
+ Returns: JSON file of a list of similar items in collections.
+ Example Usage: When loading the content for the 'Similar items' tab in the CUDL Viewer.
+ Genizah Tags
+ Route: /v1/tags/ 
+ Definition: routes/tags.js 
+ Returns: JSON file of a list of annotation tags and their weighting factors.
+ NB : The 'tags' route is not currently in use. CUDL Viewer (that is, CUDL-Viewer-Tagging-UI) uses routes defined in
+the CUDL-Viewer code instead (see CrowdsourcingController ).
+For more on Genizah Annotation see Genizah Annotation on the CUDL Wiki .
+ Transcription
+ Route: /v1/transcription/ 
+ Definition: routes/transcription.js 
+ Returns: Transcription XML file of specified type (e.g. normalized, diplomatic) from internally hosted storage or an
+external provider, transformed suitably for browser display.
+ Example Usage: When loading the content for the 'Transcription' tab in the CUDL Viewer.
+ Unreleased content fallback: The tei transcription route ( routes/cudl-tei-html-service-impl.ts ) proxies
+requests to teiServiceURL at a path such as html/data/tei/<id>/<id>-<page>.html . If that path returns a 404, the
+request is retried once against the same path nested under an unreleased/ prefix (e.g.
+ unreleased/html/data/tei/<id>/<id>-<page>.html ), to support content that has been processed but not yet publicly
+released. This is implemented generically as unreleasedFallback on delegateToExternalHTML 
+( routes/transcription-impl.ts ), so it only applies to routes that opt into it, not to the third-party proxies
+(Newton, DMP, Palimpsest).
+ Translation
+ Route: /v1/translation/ 
+ Definition: routes/translation.js 
+ Returns: Translation TEI-XML file from internally hosted storage, transformed suitably for browser display.
+ Example Usage: When loading the content for the 'Translation' tab in the CUDL Viewer.
+ Uses the same tei proxy mechanism and unreleased/ fallback as the Transcription route above.
+ Download Images
+ Route: /v1/images/download/ 
+ Definition: routes/images.ts 
+ Returns: Takes a IIIF image (with optional height and/or width params) and adds the 'watermark' rights text from JSON.
+ Example Usage: Downloading image in CUDL.
+ Resources in Deployment
+ CUDL Services sends requests to a variety of resources in its current deployments.
+ There are 3 deployments (dev, staging, live) that run in two EC2 instances deployed using the
+container service ECS on AWS. These are automatically restarted if they fail, and are accessed through
+and elastic load balancer using the route 53 cudl.link domain. They access transcriptions stored on S3.
+ In addition, there is 1 VM running for the Darwin Correspondence Project XTF instance, 2 bare metal image servers and 3
+servers external to CUDL provided by the originating projects.
+(NOTE: Transcriptions now come from s3 rather than from EBS Volumes.)
+ The document on Confluence 
+contains more details on resources.
+ Deploying Services
+ In order to deploy a new version of cudl-services you need to do the following:
+ Run npm install to install the packages required.
+ Run make docker-image to run through the tests and create a new docker image for services.
+ Commit and Push changes to Git. NOTE: By default only the main branch will cause the CI to publish the docker image that is created.
+You can edit the CI configuration by editing the file at .github/workflows/workflow.yml to remove the references to if: github.ref == 'refs/heads/main' 
+or alternatively you can manually create and push an image.
+ Check Github CI ran successfully at: https://github.com/cambridge-collection/cudl-services/actions 
+ Check that your new image exists on dockerhub at: https://hub.docker.com/repository/docker/camdl/cudl-services 
+ Update cudl-cdk src/main.ts to use the new image.
+ About 
+ Middle-ware API provider and routing layer for various resources exposed by Cambridge Digital Collection Platform
+ Resources 
+ Readme 
+ Apache-2.0 license 
+ Contributing 
+ Contributing 
+ Activity 
+ Custom properties 
+ Stars 
+ 0 stars 
+ Watchers 
+ 3 watching 
+ Forks 
+ 0 forks 
+ Report repository 
+ Releases 
+ Packages 
+ Used by 
+ Contributors 
+ Languages 
+ Footer
+ © 2026 GitHub, Inc.
+ Footer navigation
+ Terms 
+ Privacy 
+ Security 
+ Status 
+ Community 
+ Docs 
+ Contact 
+ Manage cookies
+ Do not share my personal information
+ You can’t perform that action at this time.

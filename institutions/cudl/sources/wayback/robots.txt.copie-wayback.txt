@@ -1,0 +1,11 @@
+# Copie du robots.txt de cudl.lib.cam.ac.uk lue dans la Wayback Machine
+# Raison : l'hôte renvoie 403 (CloudFront « Request blocked ») à notre sonde sur /robots.txt, /terms, /help, /about ; on n'insiste pas.
+# Lecture faite avec l'outil d'archive (ia_get_snapshot), sans envoyer de trafic à CUDL.
+# URL d'origine      : https://cudl.lib.cam.ac.uk/robots.txt
+# Capture            : 2026-05-01 03:33:09 UTC (horodatage Wayback 20260501033309), statut 200
+# URL de réplique    : https://web.archive.org/web/20260501033309/https://cudl.lib.cam.ac.uk/robots.txt
+# Lue le             : 2026-11-13
+# Texte intégral (82 caractères), recopié tel quel :
+User-agent: *
+Disallow: /search
+Sitemap: http://cudl.lib.cam.ac.uk:80/sitemap.xml

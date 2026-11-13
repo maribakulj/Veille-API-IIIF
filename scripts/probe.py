@@ -182,6 +182,7 @@ def main():
         respect_robots = bool(cfg.get("respect_robots", True))
         robots = {}  # hôte -> (règles, crawl_delay)
         max_hops = int(cfg.get("follow_redirects", 1))  # redirections du MÊME hôte, comptées dans le budget
+        opts = {e["id"]: e for e in endpoints}
         file = [(e["id"], e["url"], e.get("method", "GET"), 0) for e in endpoints]
         while file:
             eid, url, method, hops = file.pop(0)
@@ -195,6 +196,12 @@ def main():
             if count >= max_req:
                 log.write(f"{now_utc()} | {eid} | NON LANCÉ : plafond de {max_req} requêtes atteint\n")
                 continue
+            if respect_robots and host not in robots and host in cfg.get("robots_files", {}):
+                rf = REPO / cfg["robots_files"][host]
+                txt = rf.read_text(encoding="utf-8", errors="replace")
+                regles, cd, qui = lire_robots("\n".join(l for l in txt.splitlines() if not l.startswith("#")))
+                robots[host] = (regles, cd)
+                log.write(f"{now_utc()} | robots.txt:{host} | copie locale {cfg['robots_files'][host]} | {len(regles)} règle(s) pour {qui} (aucune requête envoyée)\n")
             if respect_robots and host not in robots:
                 # robots.txt de l'hôte : lu une fois par passe, compté dans le budget, même pause
                 scheme = urllib.parse.urlsplit(url).scheme
@@ -233,7 +240,8 @@ def main():
             if method not in ("GET", "HEAD"):
                 raise SystemExit(f"Méthode interdite : {method}")
             try:
-                r = fetch(url, method)
+                gros = int(opts.get(eid.split("+redir")[0], {}).get("save_body", 0))
+                r = fetch(url, method, lire=max(200, gros))
                 err = ""
             except Exception as exc:  # noqa: BLE001 - on consigne toute erreur réseau
                 r, err = None, f"{type(exc).__name__}: {exc}"
@@ -258,6 +266,9 @@ def main():
                 if verdict == "STOP_INSTITUTION_429":
                     stop_all = True
                     line += "# ARRÊT de l'institution (429 / CAPTCHA). Aucun nouvel appel.\n"
+                if gros and r["status"] < 300 and method == "GET":
+                    (raw_dir / f"{eid}.body").write_bytes(r["body"])
+                    line += f"# corps enregistré : tests/raw/{eid}.body ({len(r['body'])} octets lus)\n"
                 loc = dict(r["headers"]).get("location")
                 if verdict == "REDIRECTION_NON_SUIVIE" and loc and hops < max_hops:
                     cible = urllib.parse.urljoin(url, loc)
