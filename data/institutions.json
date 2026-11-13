@@ -1633,5 +1633,98 @@
     "sources": [],
     "web": [],
     "preuves": {}
+  },
+  {
+    "slug": "eap-bl",
+    "nom": "British Library – Endangered Archives Programme",
+    "pays": "Royaume-Uni",
+    "classeur_id": "GLAM-003",
+    "statut_audit": "en cours (méthode v2) — hôte d'images bloqué",
+    "checklist": {
+      "a_doc_lue": "fait (4 pages lues : accueil, about-programme, contact-us, bl.uk/terms ; 2 adresses devinées en 404, non utilisées)",
+      "b_endpoints_doc": "fait : aucun endpoint d'API ni IIIF décrit dans les pages lues",
+      "c_config_avant_tests": "non fait (aucun endpoint à tester)",
+      "d_quota_dans_doc": "fait : aucun quota ; restriction de téléchargement systématique (bl.uk/terms, « shall not systematically or programmatically download … any Eresource »)",
+      "e_tests_endpoints": "bloqué (iiif.bl.uk 403, voir British Library ; aucun endpoint documenté à tester)",
+      "f_web": "non fait",
+      "g_crash_test": "non applicable (aucun endpoint)"
+    },
+    "limites_documentees": [
+      {
+        "nature": "Interdiction de téléchargement systématique ou programmatique",
+        "perimetre": "Eresources (conditions générales de réutilisation)",
+        "valeur": "interdit (sans chiffre)",
+        "fenetre": "–",
+        "effet": "non précisé",
+        "verification": "officielle, lue en entier",
+        "source": "https://www.bl.uk/terms/",
+        "date": "2026-11-13"
+      }
+    ],
+    "en_tetes_observes": [],
+    "blocages": [
+      {
+        "date": "2026-11-13",
+        "hote": "iiif.bl.uk",
+        "code": "403",
+        "nature": "Microsoft-IIS (voir British Library)",
+        "suite": "non réessayé"
+      }
+    ],
+    "contact": "noticeandtakedown@bl.uk (retrait), contact-us de l'EAP",
+    "conclusion_quota": "Aucun quota publié. Le téléchargement programmatique est interdit par les conditions d'utilisation (à relire pour le périmètre EAP).",
+    "classe_quota": "interdiction de moissonnage sans quota chiffré",
+    "confiance": "moyenne",
+    "notes": "Les conditions couvrent les « Eresources » : le périmètre pour les images de l'EAP reste à confirmer auprès de la BL.",
+    "sources": [
+      {
+        "url": "https://eap.bl.uk/",
+        "date": "2026-11-13",
+        "etiquette": "officielle",
+        "preuve": "sources/eap-bl/SHA256SUMS"
+      },
+      {
+        "url": "https://eap.bl.uk/about-programme",
+        "date": "2026-11-13",
+        "etiquette": "officielle",
+        "preuve": "sources/eap-bl/SHA256SUMS"
+      },
+      {
+        "url": "https://eap.bl.uk/contact-us",
+        "date": "2026-11-13",
+        "etiquette": "officielle",
+        "preuve": "sources/eap-bl/SHA256SUMS"
+      },
+      {
+        "url": "https://www.bl.uk/terms/",
+        "date": "2026-11-13",
+        "etiquette": "officielle",
+        "preuve": "sources/eap-bl/SHA256SUMS"
+      },
+      {
+        "url": "https://www.bl.uk/help/terms-of-use",
+        "date": "2026-11-13",
+        "etiquette": "officielle",
+        "preuve": "sources/eap-bl/SHA256SUMS"
+      }
+    ],
+    "web": [],
+    "preuves": {
+      "a_doc_lue": [
+        "sources/eap-bl/SHA256SUMS",
+        "sources/eap-bl/suite/SHA256SUMS"
+      ],
+      "b_endpoints_doc": [
+        "sources/eap-bl/suite/raw/01.html"
+      ],
+      "c_config_avant_tests": [],
+      "d_quota_dans_doc": [
+        "sources/eap-bl/suite/SHA256SUMS"
+      ],
+      "e_tests_endpoints": [
+        "tests/british-library.log"
+      ],
+      "f_web": []
+    }
   }
 ]
