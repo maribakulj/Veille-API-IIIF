@@ -1,3 +1,6 @@
 # Journal de tests — Library of Congress (loc) — UTC
 # Champs : n° | heure UTC | URL | méthode | statut | en-têtes de limite | taille | délai depuis précédent | corps (200 o max)
 1 | 2026-11-13T20:34:02Z | https://tile.loc.gov/image-services/iiif/service:sgp:sgpbatches:batch_dlc_anacostia_ver01:data:sn84025948:0023728866A:1942081001:0202/info.json | GET | 200 | content-type: application/json cf-cache-status: MISS server: cloudflare cf-ray: a5a08e0fcaa6ed9a-MXP  | taille=1442 | delta=- | corps: { '@context': 'http://iiif.io/api/image/2/context.json', '@id': 'https://tile.loc.gov/image-services/iiif/service:sgp:sgpbatches:batch_dlc_anacostia_ver01:data:sn84025948:0023728866A:194208100
+2 | 2026-11-13T20:34:09Z | https://www.loc.gov/photos/?q=anacostia&fo=json | GET | 403 | content-type: text/html; charset=UTF-8 cf-mitigated: challenge server: cloudflare cf-ray: a5a08e3e0ddeee6a-MXP  | taille=5698 | delta=7s | corps: <!DOCTYPE html><html lang='en-US'><head><title>Just a moment...</title><meta http-equiv='Content-Type' content='text/html; charset=UTF-8'><meta http-equiv='X-UA-Compatible' content='IE=Edge'><meta nam
+
+# Arrêt : la requête n°2 a reçu un 403 (défi Cloudflare « Just a moment... », cf-mitigated: challenge). Règle « arrêt immédiat sur 403 » appliquée : requêtes 3 à 5 non lancées. Aucun contournement tenté.
