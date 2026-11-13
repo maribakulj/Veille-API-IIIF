@@ -3,12 +3,52 @@
   "nom": "British Library – Endangered Archives Programme",
   "pays": "Royaume-Uni",
   "classeur_id": "GLAM-003",
-  "statut_audit": "en cours (méthode v2) — hôte d'images bloqué",
+  "statut_audit": "audit a–f complet ; g à faire (sans endpoint testable)",
   "limites_documentees": [
     {
-      "nature": "Interdiction de téléchargement systématique ou programmatique",
-      "perimetre": "Eresources (conditions générales de réutilisation)",
-      "valeur": "interdit (sans chiffre)",
+      "nature": "Interdiction robots",
+      "perimetre": "manifestes IIIF de l'EAP (*/manifest*)",
+      "valeur": "interdit aux robots (User-agent: *)",
+      "fenetre": "–",
+      "effet": "non précisé",
+      "verification": "officielle, lue en entier",
+      "source": "https://eap.bl.uk/robots.txt",
+      "date": "2026-11-13"
+    },
+    {
+      "nature": "Blocage de robots d'IA nommés",
+      "perimetre": "ensemble du site",
+      "valeur": "liste de robots d'IA bloqués (ClaudeBot, GPTBot, anthropic-ai…)",
+      "fenetre": "–",
+      "effet": "Disallow: /",
+      "verification": "officielle, lue en entier",
+      "source": "https://eap.bl.uk/robots.txt",
+      "date": "2026-11-13"
+    },
+    {
+      "nature": "Crawl-delay",
+      "perimetre": "groupe MegaIndex.ru seulement",
+      "valeur": "valeur non applicable à notre User-agent",
+      "fenetre": "–",
+      "effet": "–",
+      "verification": "non applicable (groupe MegaIndex uniquement)",
+      "source": "https://eap.bl.uk/robots.txt",
+      "date": "2026-11-13"
+    },
+    {
+      "nature": "Pas de haute résolution en volume",
+      "perimetre": "images haute résolution sur demande",
+      "valeur": "pas pour de grandes quantités ni des collections entières",
+      "fenetre": "–",
+      "effet": "refus",
+      "verification": "officielle, lue en entier",
+      "source": "https://eap.bl.uk/reuse-collections-and-takedown-policy",
+      "date": "2026-11-13"
+    },
+    {
+      "nature": "Interdiction de téléchargement systématique ou programmatique (portée : Readers, à confirmer)",
+      "perimetre": "Eresources",
+      "valeur": "interdit",
       "fenetre": "–",
       "effet": "non précisé",
       "verification": "officielle, lue en entier",
@@ -19,19 +59,55 @@
   "en_tetes_observes": [],
   "blocages": [
     {
-      "date": "2026-11-13",
+      "date": "2026-11-13 20:35Z",
       "hote": "iiif.bl.uk",
       "code": "403",
-      "nature": "Microsoft-IIS (voir British Library)",
-      "suite": "non réessayé"
+      "nature": "anti-bot (voir institutions/british-library)",
+      "suite": "non réessayé ; aucun endpoint d'image documenté pour l'EAP"
     }
   ],
-  "contact": "noticeandtakedown@bl.uk (retrait), contact-us de l'EAP",
-  "conclusion_quota": "Aucun quota publié. Le téléchargement programmatique est interdit par les conditions d'utilisation (à relire pour le périmètre EAP).",
-  "classe_quota": "interdiction de moissonnage sans quota chiffré",
+  "contact": "https://eap.bl.uk/contact-us ; noticeandtakedown@bl.uk (retrait de contenu)",
+  "conclusion_quota": "Aucun quota ni en-tête. Les manifestes IIIF, présentés comme la voie d'accès aux images, sont interdits aux robots par robots.txt (« Disallow: */manifest* ») ; 128 robots d'IA sont bloqués. Pas de haute résolution en volume.",
+  "classe_quota": "interdiction de moissonnage (robots.txt), aucun quota chiffré",
   "confiance": "moyenne",
-  "notes": "Les conditions couvrent les « Eresources » : le périmètre pour les images de l'EAP reste à confirmer auprès de la BL.",
+  "notes": "Contradiction : la page « tools » présente les manifestes comme accessibles, mais robots.txt les interdit aux robots. L'hôte d'images (iiif.bl.uk) renvoie 403 anti-bot.",
   "sources": [
+    {
+      "url": "https://eap.bl.uk/tools",
+      "date": "2026-11-13",
+      "etiquette": "officielle",
+      "preuve": "institutions/eap-bl/sources/suite3/SHA256SUMS"
+    },
+    {
+      "url": "https://eap.bl.uk/reuse-collections-and-takedown-policy",
+      "date": "2026-11-13",
+      "etiquette": "officielle",
+      "preuve": "institutions/eap-bl/sources/suite3/SHA256SUMS"
+    },
+    {
+      "url": "https://eap.bl.uk/robots.txt",
+      "date": "2026-11-13",
+      "etiquette": "officielle",
+      "preuve": "institutions/eap-bl/sources/suite3/SHA256SUMS"
+    },
+    {
+      "url": "https://www.bl.uk/robots.txt",
+      "date": "2026-11-13",
+      "etiquette": "officielle",
+      "preuve": "institutions/eap-bl/sources/suite3/SHA256SUMS"
+    },
+    {
+      "url": "https://eap.bl.uk/archive-file/EAP099-1-2-5-2",
+      "date": "2026-11-13",
+      "etiquette": "officielle",
+      "preuve": "institutions/eap-bl/sources/suite3/SHA256SUMS"
+    },
+    {
+      "url": "https://training.iiif.io/annotations/basics/finding_bl.html",
+      "date": "2026-11-13",
+      "etiquette": "officielle",
+      "preuve": "institutions/eap-bl/sources/suite3/SHA256SUMS"
+    },
     {
       "url": "https://eap.bl.uk/",
       "date": "2026-11-13",
@@ -42,19 +118,19 @@
       "url": "https://eap.bl.uk/about-programme",
       "date": "2026-11-13",
       "etiquette": "officielle",
-      "preuve": "institutions/eap-bl/sources/SHA256SUMS"
+      "preuve": "institutions/eap-bl/sources/suite/SHA256SUMS"
     },
     {
       "url": "https://eap.bl.uk/contact-us",
       "date": "2026-11-13",
       "etiquette": "officielle",
-      "preuve": "institutions/eap-bl/sources/SHA256SUMS"
+      "preuve": "institutions/eap-bl/sources/suite/SHA256SUMS"
     },
     {
       "url": "https://www.bl.uk/terms/",
       "date": "2026-11-13",
       "etiquette": "officielle",
-      "preuve": "institutions/eap-bl/sources/SHA256SUMS"
+      "preuve": "institutions/eap-bl/sources/suite/SHA256SUMS"
     },
     {
       "url": "https://www.bl.uk/help/terms-of-use",
@@ -63,7 +139,28 @@
       "preuve": "institutions/eap-bl/sources/SHA256SUMS"
     }
   ],
-  "web": [],
-  "type": "Institution",
-  "donnees_a_revalider": true
+  "web": [
+    {
+      "url": "https://eap.bl.uk/robots.txt",
+      "date": "2026-11-13",
+      "etiquette": "officielle (position de l'institution envers les robots)",
+      "citation": "« Disallow: */manifest* » pour « User-agent: * » ; bloc « #Block AI crawlers » de 128 user-agents suivi de « Disallow: / ».",
+      "preuve": "institutions/eap-bl/sources/suite3/raw/03.html"
+    },
+    {
+      "url": "https://eap.bl.uk/reuse-collections-and-takedown-policy",
+      "date": "2026-11-13",
+      "etiquette": "officielle",
+      "citation": "« we are not able to do this for large numbers of images or whole collections » (images haute résolution).",
+      "preuve": "institutions/eap-bl/sources/suite3/text/02.txt"
+    },
+    {
+      "url": "https://www.theartnewspaper.com/2024/10/14/british-library-slowly-resuming-service-after-cyber-attack",
+      "date": "2024-10-14",
+      "etiquette": "tiers (presse), lu en résumé",
+      "citation": "Cyberattaque d'octobre 2023 ; restauration progressive des services en octobre 2024.",
+      "preuve": "institutions/eap-bl/fiche.md"
+    }
+  ],
+  "type": "Institution"
 }

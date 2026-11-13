@@ -8,6 +8,10 @@ Usage :
   python3 scripts/suivi.py validate   vérifie les cases cochées (justification, preuves existantes),
                                       la règle « g après a à f » et les règles de prudence (journaux)
   python3 scripts/suivi.py all        sync puis validate (utilisé par le crochet pre-commit)
+  python3 scripts/suivi.py set <slug> <a-g> <x| |~> "<justification>" [preuve ...]
+                                      coche ou décoche une étape avec justification et preuves
+  python3 scripts/suivi.py data <slug> '<json>'
+                                      fusionne des clés dans institutions/<slug>/data.json
 
 Format d'une étape dans CONSIGNE-ET-SUIVI.md :
   ### a) Titre
@@ -258,6 +262,31 @@ def cmd_validate():
     return 0
 
 
+def cmd_set(slug, code, etat, justif, preuves):
+    if code not in CODES or etat not in ("x", " ", "~"):
+        sys.exit("usage : set <slug> <a-g> <x| |~> \"justification\" [preuve ...]")
+    f = INST / slug / FICHIER
+    if not f.exists():
+        sys.exit(f"{f} absent (lancer : python3 scripts/suivi.py init)")
+    titre, desc = [(t, d) for c, t, d in ETAPES if c == code][0]
+    nouveau = bloc_etape(code, titre, desc, etat, justif, preuves)
+    t = f.read_text(encoding="utf-8")
+    t2, n = re.subn(r"### " + code + r"\) .*?(?=^### |^## |\Z)", lambda _m: nouveau + "\n", t, count=1, flags=re.S | re.M)
+    if n != 1:
+        sys.exit(f"étape {code}) introuvable dans {f}")
+    t2 = re.sub(r"(\*\*Dernière mise à jour du suivi\*\* : ).*", lambda m: m.group(1) + datetime.now().strftime("%Y-%m-%d"), t2, count=1)
+    f.write_text(t2, encoding="utf-8")
+    print(f"{slug} étape {code}) -> [{etat}]")
+
+
+def cmd_data(slug, js):
+    p = INST / slug / "data.json"
+    d = json.loads(p.read_text(encoding="utf-8")) if p.exists() else {}
+    d.update(json.loads(js))
+    p.write_text(json.dumps(d, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+    print(f"{slug} data.json mis à jour : {', '.join(json.loads(js))}")
+
+
 def main():
     cmd = sys.argv[1] if len(sys.argv) > 1 else "all"
     if cmd == "init":
@@ -269,6 +298,10 @@ def main():
     elif cmd == "all":
         cmd_sync()
         sys.exit(cmd_validate())
+    elif cmd == "set":
+        cmd_set(sys.argv[2], sys.argv[3], sys.argv[4], sys.argv[5], sys.argv[6:])
+    elif cmd == "data":
+        cmd_data(sys.argv[2], sys.argv[3])
     else:
         sys.exit(__doc__)
 

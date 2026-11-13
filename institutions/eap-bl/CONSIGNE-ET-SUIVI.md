@@ -2,57 +2,57 @@
 
 - **Dossier** : `institutions/eap-bl/`  ·  **Classeur de référence** : GLAM-003  ·  **Pays** : Royaume-Uni
 - **Statut d'institution** : active
-- **Dernière mise à jour du suivi** : (à renseigner à chaque modification)
+- **Dernière mise à jour du suivi** : 2026-11-13
 
 ## Suivi par étape (à cocher, avec justification et preuves)
 
 ### a) Documentation lue en entier
 > Toutes les pages de doc liées à l'API (développeurs, interfaces, conditions, FAQ, aide, mentions légales, robots.txt), téléchargées avec `scripts/fetch_doc.sh` (URL, date, SHA-256), lues en entier (`scripts/extract_text.py`).
 
-- [ ] **Pas fait**
-  - **Justification** : Pas encore traitée : l'audit suit l'ordre du classeur de référence (une institution à la fois).
-  - **Preuves** : 
+- [x] **Fait**
+  - **Justification** : 12 pages téléchargées avec empreintes SHA-256 (accueil, about-programme, contact-us, tools, reuse-collections-and-takedown-policy, page d'un fichier d'archive, robots.txt de eap.bl.uk et de www.bl.uk, conditions bl.uk/terms, bl.uk/help/terms-of-use, guide iiif.io) et lues via le texte extrait. Les adresses /about-eap et /terms, devinées par Haiku, renvoient 404 et ne sont pas des sources.
+  - **Preuves** : `institutions/eap-bl/sources/SHA256SUMS`, `institutions/eap-bl/sources/suite/SHA256SUMS`, `institutions/eap-bl/sources/suite3/SHA256SUMS`
 
 ### b) Endpoints tirés de la doc
 > Liste des endpoints citée par la doc (URL, exemples). Jamais devinée. Une interdiction ou une impossibilité écrite dans la doc justifie de renoncer (citer la phrase).
 
-- [ ] **Pas fait**
-  - **Justification** : Pas encore traitée : l'audit suit l'ordre du classeur de référence (une institution à la fois).
-  - **Preuves** : 
+- [x] **Fait**
+  - **Justification** : Un endpoint documenté : manifeste IIIF /archive-file/{id}/manifest (page Tools, exemple EAP099-1-2-5-2), plus un outil de téléchargement JPEG qui exige ce manifeste. Aucun service d'image, aucune API de recherche documentés.
+  - **Preuves** : `institutions/eap-bl/sources/suite3/text/01.txt`
 
 ### c) Configuration écrite AVANT les tests
 > `config/<nom>.json` pilote `scripts/probe.py`, committée avant le lancement. Un endpoint absent de la doc mais non interdit se teste avec un script poli (identifiants issus de pages publiques ou d'exemples de la doc, pas de devinette).
 
-- [ ] **Pas fait**
-  - **Justification** : Pas encore traitée : l'audit suit l'ordre du classeur de référence (une institution à la fois).
-  - **Preuves** : 
+- [x] **Fait**
+  - **Justification** : Aucune configuration de sonde écrite : le seul endpoint documenté (manifeste) est interdit aux robots par robots.txt (« Disallow: */manifest* »). Renoncer est prévu par la consigne C8.
+  - **Preuves** : `institutions/eap-bl/sources/suite3/raw/03.html`
 
 ### d) Quota cherché dans la doc
 > Pour chaque page lue : endpoint de statut, en-têtes de limite documentés, clé ou compte donnant un quota, contact pour un volume plus élevé. Chaque réponse cite sa source.
 
-- [ ] **Pas fait**
-  - **Justification** : Pas encore traitée : l'audit suit l'ordre du classeur de référence (une institution à la fois).
-  - **Preuves** : 
+- [x] **Fait**
+  - **Justification** : Aucun quota, en-tête, clé ni endpoint de statut. Règles trouvées : robots.txt interdit */manifest* à tous les robots et bloque 128 robots d'IA ; Crawl-delay 2 s rattaché au seul groupe MegaIndex ; haute résolution refusée pour de grandes quantités ; bl.uk/terms interdit le téléchargement systématique ou programmatique d'un Eresource (portée Readers, à confirmer).
+  - **Preuves** : `institutions/eap-bl/sources/suite3/raw/03.html`, `institutions/eap-bl/sources/suite3/text/02.txt`, `institutions/eap-bl/sources/suite/text/03.txt`
 
 ### e) Test systématique de chaque endpoint
 > Chaque endpoint documenté est testé (budget 15 requêtes par passe, pause ≥ 6 s, GET/HEAD, UA du projet). Redirections du même hôte suivies. Un 403 arrête son hôte, un 429 arrête l'institution. Seules les interdictions écrites dans la doc dispensent de tester.
 
-- [ ] **Pas fait**
-  - **Justification** : Pas encore traitée : l'audit suit l'ordre du classeur de référence (une institution à la fois).
-  - **Preuves** : 
+- [x] **Fait**
+  - **Justification** : Renoncement justifié par la doc (consigne C8) : robots.txt interdit */manifest* (ligne 80) ; l'hôte d'images iiif.bl.uk renvoie 403 anti-bot (journal de l'institution british-library) et aucun endpoint d'image n'est documenté pour l'EAP. Aucune requête d'API envoyée.
+  - **Preuves** : `institutions/eap-bl/sources/suite3/raw/03.html`, `institutions/british-library/tests/journal.log`
 
 ### f) Ce que disent les gens sur le web
 > Plaintes, discussions, présentations de l'institution, politique envers les API et les bots, blogs, GitHub, forums, listes de diffusion. Sources étiquetées (officielle / institution / utilisateur / tiers), lues, citées.
 
-- [ ] **Pas fait**
-  - **Justification** : Pas encore traitée : l'audit suit l'ordre du classeur de référence (une institution à la fois).
-  - **Preuves** : 
+- [x] **Fait**
+  - **Justification** : Recherches web (3) : position officielle envers les robots (robots.txt, 128 robots d'IA bloqués) et politique de réutilisation lues en entier ; cyberattaque 2023 et restauration jusqu'en 2024 (presse, tiers, résumé) ; outils tiers de téléchargement par manifeste ; aucune plainte ni politique de quota trouvée.
+  - **Preuves** : `institutions/eap-bl/sources/suite3/raw/03.html`, `institutions/eap-bl/sources/suite3/text/02.txt`, `institutions/eap-bl/fiche.md`
 
 ### g) Crash test progressif
 > Seulement après l'audit complet (a à f) de toutes les institutions et avec l'accord de Marcel : paliers jusqu'à 2 × la limite documentée, ou 200 req/min si illimité ou sans limite documentée. Arrêt au premier 429/403/CAPTCHA.
 
 - [ ] **Pas fait**
-  - **Justification** : Pas encore traitée : l'audit suit l'ordre du classeur de référence (une institution à la fois).
+  - **Justification** : À faire à la fin de l'audit de toutes les institutions et à l'accord de Marcel. Aucun endpoint de l'EAP n'est testable (robots.txt) : le crash test ne pourrait viser que l'hôte public, et seulement si robots.txt l'autorise.
   - **Preuves** : 
 
 ### Contrôles transversaux
