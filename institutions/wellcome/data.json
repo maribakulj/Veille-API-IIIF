@@ -2,29 +2,194 @@
   "slug": "wellcome",
   "nom": "Wellcome Collection",
   "pays": "Royaume-Uni",
-  "statut_audit": "partiel (ancienne méthode)",
+  "statut_audit": "audit a–f complet ; g à faire",
   "limites_documentees": [
     {
-      "nature": "Intention",
-      "perimetre": "endpoints publics",
-      "valeur": "non chiffrée (RFC 012 : « would benefit from rate limiting »)",
+      "nature": "Crawl-delay / Request-rate",
+      "perimetre": "iiif.wellcomecollection.org, User-agent: *",
+      "valeur": "30 secondes (Request-rate 1/30s)",
+      "fenetre": "entre deux requêtes",
+      "effet": "non précisé",
+      "verification": "officielle, lue en entier",
+      "source": "https://iiif.wellcomecollection.org/robots.txt",
+      "date": "2026-11-13"
+    },
+    {
+      "nature": "Limite WAF par adresse",
+      "perimetre": "iiif.wellcomecollection.org /search/ et /text/",
+      "valeur": "300 requêtes par adresse",
+      "fenetre": "5 minutes",
+      "effet": "requêtes limitées (held to)",
+      "verification": "officielle (ticket du dépôt GitHub de Wellcome, 2026-10-05), lu en entier",
+      "source": "https://github.com/wellcomecollection/platform/issues/6741",
+      "date": "2026-10-05"
+    },
+    {
+      "nature": "Budget par moissonneur ou réseau",
+      "perimetre": "API IIIF",
+      "valeur": "nombre de requêtes par minute fixé, non publié",
+      "fenetre": "par minute",
+      "effet": "limitation",
+      "verification": "officielle (blog, lu en entier, copie Wayback 2026-11-04)",
+      "source": "https://stacks.wellcomecollection.org/crawlers-floods-and-fleets-a-year-of-keeping-our-digital-collections-open-10af777199c4",
+      "date": "2026-10-16"
+    },
+    {
+      "nature": "Limite par adresse sur les images plein format",
+      "perimetre": "API IIIF (fournisseur)",
+      "valeur": "seuil non publié",
       "fenetre": "–",
+      "effet": "limitation",
+      "verification": "officielle (blog, lu en entier)",
+      "source": "https://stacks.wellcomecollection.org/crawlers-floods-and-fleets-a-year-of-keeping-our-digital-collections-open-10af777199c4",
+      "date": "2026-10-16"
+    },
+    {
+      "nature": "Instantané quotidien recommandé pour un moissonnage complet",
+      "perimetre": "catalogue",
+      "valeur": "works.json.gz (1,5 Go)",
+      "fenetre": "quotidien",
       "effet": "–",
-      "source": "https://docs.wellcomecollection.org/request-for-comments-rfcs/012-api_architecture",
-      "date": "2026-11-13",
-      "verification": "officielle, lue en entier"
+      "verification": "officielle, lue en entier",
+      "source": "https://developers.wellcomecollection.org/docs/datasets",
+      "date": "2026-11-13"
+    },
+    {
+      "nature": "Réponse prévue au dépassement (brouillon RFC)",
+      "perimetre": "DLCS / API IIIF",
+      "valeur": "429 Too Many Requests avec Retry-After",
+      "fenetre": "–",
+      "effet": "non observé",
+      "verification": "officielle (RFC docs#161, brouillon ouvert), non observée",
+      "source": "https://github.com/wellcomecollection/docs/pull/161",
+      "date": "2026-07-30"
+    },
+    {
+      "nature": "Robots d'IA bloqués",
+      "perimetre": "wellcomecollection.org",
+      "valeur": "Disallow: / pour ClaudeBot, anthropic-ai, GPTBot, Bytespider…",
+      "fenetre": "–",
+      "effet": "Disallow",
+      "verification": "officielle, lue en entier",
+      "source": "https://wellcomecollection.org/robots.txt",
+      "date": "2026-11-13"
     }
   ],
   "en_tetes_observes": [],
-  "blocages": [],
-  "contact": "non trouvé",
-  "conclusion_quota": "Aucun quota publié. API sans authentification, sans clé.",
-  "classe_quota": "aucun quota trouvé",
-  "confiance": "moyenne",
-  "notes": "Snapshot quotidien recommandé pour les moissonnages complets.",
+  "blocages": [
+    {
+      "date": "2026-11-13",
+      "hote": "iiif.wellcomecollection.org (image b18659135)",
+      "code": "401",
+      "nature": "info.json d'un matériel restreint (authentification requise)",
+      "suite": "œuvre ouverte testée à la place (passe 6)"
+    },
+    {
+      "date": "2026-11-13",
+      "hote": "stacks.wellcomecollection.org",
+      "code": "403",
+      "nature": "Medium, pour la sonde et l'outil de lecture",
+      "suite": "billets lus dans la Wayback"
+    }
+  ],
+  "contact": "https://wellcomecollection.org/ (page de contact) ; developers.wellcomecollection.org « get in touch »",
+  "conclusion_quota": "Crawl-delay 30 s et Request-rate 1/30 s sur l'hôte IIIF ; WAF : 300 requêtes par adresse en 5 minutes sur /search/ et /text/ ; budgets par moissonneur non chiffrés ; instantané quotidien pour un moissonnage complet ; s'identifier dans le User-Agent. Aucun en-tête de limite observé.",
+  "classe_quota": "limite documentée chiffrée (Crawl-delay 30 s ; 300 requêtes/5 min)",
+  "confiance": "élevée pour la politique, moyenne pour les seuils",
+  "notes": "Incident : 2 requêtes IIIF à 6 s au lieu de 30 s (bug BOM de la sonde, corrigé). info.json d'une œuvre restreinte : 401.",
   "classeur_id": "GLAM-008",
   "type": "Institution",
-  "sources": [],
-  "web": [],
-  "donnees_a_revalider": true
+  "sources": [
+    {
+      "url": "https://iiif.wellcomecollection.org/robots.txt",
+      "date": "2026-11-13",
+      "etiquette": "officielle",
+      "preuve": "institutions/wellcome/sources/v2/SHA256SUMS"
+    },
+    {
+      "url": "https://wellcomecollection.org/robots.txt",
+      "date": "2026-11-13",
+      "etiquette": "officielle",
+      "preuve": "institutions/wellcome/sources/v2/SHA256SUMS"
+    },
+    {
+      "url": "https://developers.wellcomecollection.org/docs/iiif",
+      "date": "2026-11-13",
+      "etiquette": "officielle",
+      "preuve": "institutions/wellcome/sources/v2/SHA256SUMS"
+    },
+    {
+      "url": "https://developers.wellcomecollection.org/docs/catalogue",
+      "date": "2026-11-13",
+      "etiquette": "officielle",
+      "preuve": "institutions/wellcome/sources/v2/SHA256SUMS"
+    },
+    {
+      "url": "https://developers.wellcomecollection.org/docs/datasets",
+      "date": "2026-11-13",
+      "etiquette": "officielle",
+      "preuve": "institutions/wellcome/sources/v2b/SHA256SUMS"
+    },
+    {
+      "url": "https://github.com/wellcomecollection/platform/issues/6741",
+      "date": "2026-11-13",
+      "etiquette": "officielle (dépôt GitHub)",
+      "preuve": "institutions/wellcome/sources/github/SHA256SUMS"
+    },
+    {
+      "url": "https://github.com/wellcomecollection/platform/issues/6843",
+      "date": "2026-11-13",
+      "etiquette": "officielle (dépôt GitHub)",
+      "preuve": "institutions/wellcome/sources/github/SHA256SUMS"
+    },
+    {
+      "url": "https://github.com/wellcomecollection/docs/pull/161",
+      "date": "2026-11-13",
+      "etiquette": "officielle (RFC)",
+      "preuve": "institutions/wellcome/sources/github/SHA256SUMS"
+    },
+    {
+      "url": "https://stacks.wellcomecollection.org/crawlers-floods-and-fleets-a-year-of-keeping-our-digital-collections-open-10af777199c4",
+      "date": "2026-11-13",
+      "etiquette": "officielle (blog, copie Wayback)",
+      "preuve": "institutions/wellcome/sources/wayback/stacks-blog.extraits-wayback.md"
+    },
+    {
+      "url": "https://stacks.wellcomecollection.org/ten-years-and-counting-wellcome-collection-and-iiif-9015cdcdefd8",
+      "date": "2026-11-13",
+      "etiquette": "officielle (blog, copie Wayback)",
+      "preuve": "institutions/wellcome/sources/wayback/stacks-blog.extraits-wayback.md"
+    }
+  ],
+  "web": [
+    {
+      "url": "https://github.com/wellcomecollection/platform/issues/6741",
+      "date": "2026-10-05",
+      "etiquette": "institution (ticket GitHub de Wellcome)",
+      "citation": "« One curl address hitting /search/ and /text/ at up to 26 a second: held to 300 per address in five minutes. »",
+      "preuve": "institutions/wellcome/sources/github/platform_issues_6741.json"
+    },
+    {
+      "url": "https://github.com/wellcomecollection/docs/pull/161",
+      "date": "2026-07-30",
+      "etiquette": "institution (RFC)",
+      "citation": "« Considerate, rate-limited, self-identifying bot traffic is welcome. Evasive, high traffic, inconsiderate bot traffic is not; if we deem it inconsiderate, we will attempt to block it. »",
+      "preuve": "institutions/wellcome/sources/github/docs_pulls_161_files.json"
+    },
+    {
+      "url": "https://stacks.wellcomecollection.org/crawlers-floods-and-fleets-a-year-of-keeping-our-digital-collections-open-10af777199c4",
+      "date": "2026-10-16",
+      "etiquette": "institution (blog)",
+      "citation": "« a bulk user who tells us who they are gets the benefit of the doubt » ; « say who you are in your user agent, read robots.txt, spread your requests over time and use our API »",
+      "preuve": "institutions/wellcome/sources/wayback/stacks-blog.extraits-wayback.md"
+    },
+    {
+      "url": "https://stacks.wellcomecollection.org/ten-years-and-counting-wellcome-collection-and-iiif-9015cdcdefd8",
+      "date": "2026-10-09",
+      "etiquette": "institution (blog)",
+      "citation": "« This summer a fleet of automated browsers roughly doubled the traffic to our IIIF services. IIIF is designed to be read by software, and we want it to stay that way »",
+      "preuve": "institutions/wellcome/sources/wayback/stacks-blog.extraits-wayback.md"
+    }
+  ],
+  "donnees_a_revalider": false
 }

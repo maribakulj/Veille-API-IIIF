@@ -2,57 +2,57 @@
 
 - **Dossier** : `institutions/wellcome/`  ·  **Classeur de référence** : GLAM-008  ·  **Pays** : Royaume-Uni
 - **Statut d'institution** : active
-- **Dernière mise à jour du suivi** : (à renseigner à chaque modification)
+- **Dernière mise à jour du suivi** : 2026-11-14
 
 ## Suivi par étape (à cocher, avec justification et preuves)
 
 ### a) Documentation lue en entier
 > Toutes les pages de doc liées à l'API (développeurs, interfaces, conditions, FAQ, aide, mentions légales, robots.txt), téléchargées avec `scripts/fetch_doc.sh` (URL, date, SHA-256), lues en entier (`scripts/extract_text.py`).
 
-- [ ] **Pas fait**
-  - **Justification** : Passe antérieure non conforme à la méthode v2 (AUDIT-HAIKU.md) : à refaire. Le matériel déjà présent dans ce dossier est conservé comme historique.
-  - **Preuves** : 
+- [x] **Fait**
+  - **Justification** : Lus : 5 pages de doc développeurs (accueil, IIIF, catalogue, API, datasets, exemples), robots.txt des 4 hôtes (lus à la main : Crawl-delay 30 et Request-rate 1/30s sur l'hôte IIIF), page d'accès à la recherche ; 2 tickets GitHub et le RFC docs#161 récupérés par l'API GitHub (JSON hachés) ; deux billets du blog Stacks lus dans la Wayback (403 pour la sonde : extraits verbatim avec URL de réplique, sans empreinte du texte complet). L'ancienne passe de Haiku avait lu ces pages en résumé.
+  - **Preuves** : `institutions/wellcome/sources/v2/SHA256SUMS`, `institutions/wellcome/sources/v2b/SHA256SUMS`, `institutions/wellcome/sources/github/SHA256SUMS`, `institutions/wellcome/sources/wayback/stacks-blog.extraits-wayback.md`
 
 ### b) Endpoints tirés de la doc
 > Liste des endpoints citée par la doc (URL, exemples). Jamais devinée. Une interdiction ou une impossibilité écrite dans la doc justifie de renoncer (citer la phrase).
 
-- [ ] **Pas fait**
-  - **Justification** : Passe antérieure non conforme à la méthode v2 (AUDIT-HAIKU.md) : à refaire. Le matériel déjà présent dans ce dossier est conservé comme historique.
-  - **Preuves** : 
+- [x] **Fait**
+  - **Justification** : Endpoints documentés : API Catalogue /catalogue/v2/works (doc catalogue), instantanés works.json.gz et images.json.gz (doc datasets), IIIF Image /image/{id} (doc IIIF) ; manifestes /presentation/v2|v3/{id} (billet « Every manifest is available in both version 2 and version 3 »). Les identifiants viennent de réponses de l'API.
+  - **Preuves** : `institutions/wellcome/sources/v2/text/02.txt`, `institutions/wellcome/sources/v2/text/03.txt`, `institutions/wellcome/sources/v2b/text/01.txt`
 
 ### c) Configuration écrite AVANT les tests
 > `config/<nom>.json` pilote `scripts/probe.py`, committée avant le lancement. Un endpoint absent de la doc mais non interdit se teste avec un script poli (identifiants issus de pages publiques ou d'exemples de la doc, pas de devinette).
 
-- [ ] **Pas fait**
-  - **Justification** : Passe antérieure non conforme à la méthode v2 (AUDIT-HAIKU.md) : à refaire. Le matériel déjà présent dans ce dossier est conservé comme historique.
-  - **Preuves** : 
+- [x] **Fait**
+  - **Justification** : Six configurations committées avant chaque lancement ; les identifiants (a222zvge, b18659135, b18035723) viennent de réponses précédentes ; HEAD pour les instantanés de 1,5 Go ; l'hôte IIIF est testé avec le Crawl-delay de 30 s de son robots.txt.
+  - **Preuves** : `institutions/wellcome/config/wellcome-passe1-catalogue.json`, `institutions/wellcome/config/wellcome-passe3-iiif-manifestes.json`, `institutions/wellcome/config/wellcome-passe4-images.json`, `institutions/wellcome/config/wellcome-passe6-images-ouvertes.json`
 
 ### d) Quota cherché dans la doc
 > Pour chaque page lue : endpoint de statut, en-têtes de limite documentés, clé ou compte donnant un quota, contact pour un volume plus élevé. Chaque réponse cite sa source.
 
-- [ ] **Pas fait**
-  - **Justification** : Passe antérieure non conforme à la méthode v2 (AUDIT-HAIKU.md) : à refaire. Le matériel déjà présent dans ce dossier est conservé comme historique.
-  - **Preuves** : 
+- [x] **Fait**
+  - **Justification** : Aucun en-tête de limite ni endpoint de statut ; pas de clé (« no sign up or authentication required »). Limites écrites : Crawl-delay 30 s et Request-rate 1/30s (robots.txt de l'hôte IIIF) ; 300 requêtes par adresse en 5 minutes sur /search/ et /text/ (ticket platform#6741) ; budgets par minute et limite par adresse sur le plein format non chiffrés (blog) ; instantané quotidien pour tout le catalogue ; 429 avec Retry-After envisagé (RFC, non observé).
+  - **Preuves** : `institutions/wellcome/sources/v2/raw/08.html`, `institutions/wellcome/sources/github/platform_issues_6741.json`, `institutions/wellcome/sources/wayback/stacks-blog.extraits-wayback.md`, `institutions/wellcome/sources/v2b/text/01.txt`
 
 ### e) Test systématique de chaque endpoint
 > Chaque endpoint documenté est testé (budget 15 requêtes par passe, pause ≥ 6 s, GET/HEAD, UA du projet). Redirections du même hôte suivies. Un 403 arrête son hôte, un 429 arrête l'institution. Seules les interdictions écrites dans la doc dispensent de tester.
 
-- [ ] **Pas fait**
-  - **Justification** : Passe antérieure non conforme à la méthode v2 (AUDIT-HAIKU.md) : à refaire. Le matériel déjà présent dans ce dossier est conservé comme historique.
-  - **Preuves** : 
+- [x] **Fait**
+  - **Justification** : Tous les endpoints documentés sont testés (6 passes) : catalogue, instantanés (HEAD), manifestes v2 et v3, images ouvertes ; 200 partout sauf info.json d'une œuvre restreinte (401). Aucun en-tête de limite, aucun 429. Incident : passe 3, 2 requêtes à 6 s au lieu de 30 s (BOM du robots.txt non reconnu par la sonde), corrigé pour les passes 4 à 6 (pauses de 30 s mesurées). Budget de 15 respecté par passe.
+  - **Preuves** : `institutions/wellcome/tests/journal.log`, `institutions/wellcome/tests/raw/iiif-image-ouverte-info-json.headers.txt`, `institutions/wellcome/tests/raw/catalogue-works-page1.headers.txt`
 
 ### f) Ce que disent les gens sur le web
 > Plaintes, discussions, présentations de l'institution, politique envers les API et les bots, blogs, GitHub, forums, listes de diffusion. Sources étiquetées (officielle / institution / utilisateur / tiers), lues, citées.
 
-- [ ] **Pas fait**
-  - **Justification** : Passe antérieure non conforme à la méthode v2 (AUDIT-HAIKU.md) : à refaire. Le matériel déjà présent dans ce dossier est conservé comme historique.
-  - **Preuves** : 
+- [x] **Fait**
+  - **Justification** : Sources officielles de Wellcome lues en entier : tickets platform#6741 et #6843, RFC docs#161, deux billets du blog (16 et 9 octobre 2026) : politique explicite envers les bots, limite WAF de 300 par adresse en 5 minutes, budgets par moissonneur, bots d'IA bloqués par robots.txt. Aucune plainte d'utilisateur trouvée.
+  - **Preuves** : `institutions/wellcome/sources/github/platform_issues_6741.json`, `institutions/wellcome/sources/github/docs_pulls_161_files.json`, `institutions/wellcome/sources/wayback/stacks-blog.extraits-wayback.md`
 
 ### g) Crash test progressif
 > Seulement après l'audit complet (a à f) de toutes les institutions et avec l'accord de Marcel : paliers jusqu'à 2 × la limite documentée, ou 200 req/min si illimité ou sans limite documentée. Arrêt au premier 429/403/CAPTCHA.
 
 - [ ] **Pas fait**
-  - **Justification** : Passe antérieure non conforme à la méthode v2 (AUDIT-HAIKU.md) : à refaire. Le matériel déjà présent dans ce dossier est conservé comme historique.
+  - **Justification** : À faire à la fin de l'audit de toutes les institutions et à l'accord de Marcel. Plafonds : l'hôte IIIF déclare 1 requête par 30 s (2 × = 4 req/min) et le WAF limite /search/ et /text/ à 300 par 5 minutes (2 × = 600) ; un crash test risque de déclencher un blocage de l'adresse de Marcel. Notre User-Agent s'identifie comme le demande Wellcome.
   - **Preuves** : 
 
 ### Contrôles transversaux
@@ -60,7 +60,7 @@
 
 <!-- AUTO:DEBUT -->
 ## Contrôles automatiques (calculés depuis `tests/journal.log`)
-- Requêtes enregistrées : **16** (sessions de sonde : 5, maximum par session : 6)
+- Requêtes enregistrées : **19** (sessions de sonde : 6, maximum par session : 6)
 - Plus courte pause vers un même hôte : **6 s** (règle : ≥ 6 s)
 - Méthodes utilisées : GET, HEAD (règle : GET/HEAD seulement)
 - Anomalies : aucune

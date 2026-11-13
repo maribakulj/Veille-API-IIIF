@@ -1,0 +1,22 @@
+2026-11-13T23:00:07Z GET https://iiif.wellcomecollection.org/image/b18035723_0001.JP2/full/!200,200/0/default.jpg
+HTTP 200
+content-type: image/jpeg
+transfer-encoding: chunked
+connection: keep-alive
+date: Fri, 13 Nov 2026 04:57:42 GMT
+server: Kestrel
+cache-control: public, s-maxage=2419200, max-age=2419200
+x-correlation-id: 1bd1749c-d8fa-4fd4-a66a-432a8dec002f
+x-asset-id: 2/5/b18035723_0001.JP2
+x-asset-id: 2/5/b18035723_0001.JP2
+x-thumb-match: 1
+x-proxy-destination: Thumbs
+access-control-allow-origin: *
+x-varnish: 4522613
+via: 1.1 varnish (Varnish/7.1), 1.1 99cc8edcdf0b587ea51b2753e40bf464.cloudfront.net (CloudFront)
+accept-ranges: bytes
+x-cache-hits: 0
+x-cache: Hit from cloudfront
+x-amz-cf-pop: MXP53-P8
+x-amz-cf-id: wp0eEkyf1eIcsSS6L36D6ELIs7nRwotaBYteaRRzZOIdJ6xucZ51gw==
+age: 64945
