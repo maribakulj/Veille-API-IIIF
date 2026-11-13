@@ -1,0 +1,27 @@
+{
+  "slug": "vatican",
+  "nom": "Biblioteca Apostolica Vaticana (DigiVatLib)",
+  "pays": "Vatican",
+  "statut_audit": "partiel (ancienne méthode)",
+  "limites_documentees": [],
+  "en_tetes_observes": [],
+  "blocages": [
+    {
+      "date": "2026-11-13",
+      "hote": "vatlib.it / spotlight.vatlib.it",
+      "code": "TLS",
+      "nature": "erreur de certificat à la lecture",
+      "suite": "non lu"
+    }
+  ],
+  "contact": "non trouvé",
+  "conclusion_quota": "Aucun quota trouvé ; doc officielle non lue.",
+  "classe_quota": "aucun quota trouvé (doc non lue)",
+  "confiance": "faible",
+  "notes": "Interdiction de téléchargement des images (extrait de recherche, non lu brut).",
+  "classeur_id": "GLAM-028",
+  "type": "Institution",
+  "sources": [],
+  "web": [],
+  "donnees_a_revalider": true
+}

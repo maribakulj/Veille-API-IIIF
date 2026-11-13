@@ -51,21 +51,21 @@
         "valeur": "5001 (OCR) / 25001 (Image)",
         "endpoint": "OCR hOCR, Image API",
         "date": "2026-11-13",
-        "preuve": "tests/mdz.log, tests/raw/mdz/"
+        "preuve": "institutions/mdz/tests/journal.log, institutions/mdz/tests/raw/"
       },
       {
         "nom": "x-ratelimit-remaining",
         "valeur": "5000 / 25000, identique entre deux appels",
         "endpoint": "idem",
         "date": "2026-11-13",
-        "preuve": "tests/mdz.log"
+        "preuve": "institutions/mdz/tests/journal.log"
       },
       {
         "nom": "x-ratelimit-reset",
         "valeur": "17 (OCR) / 3 (Image) : unité inconnue",
         "endpoint": "idem",
         "date": "2026-11-13",
-        "preuve": "tests/mdz.log"
+        "preuve": "institutions/mdz/tests/journal.log"
       }
     ],
     "blocages": [],
@@ -80,35 +80,35 @@
         "date": "2026-11-13",
         "etiquette": "officielle",
         "citation": "Please note that there is a limit to the number of requests that can be made to the Image API per 24 hours. / … OCR downloads … per 24 hours. / Access to the Presentation API is unlimited.",
-        "preuve": "sources/mdz/SHA256SUMS"
+        "preuve": "institutions/mdz/sources/SHA256SUMS"
       },
       {
         "url": "https://iiif.io/guides/guides/digitale-sammlungen.de/",
         "date": "2026-11-13",
         "etiquette": "officielle (guide IIIF)",
         "citation": "Aucune phrase sur les limites, quotas, clés ou erreurs (lu par extraction).",
-        "preuve": "institutions/mdz.md (étape f)"
+        "preuve": "institutions/mdz/fiche.md (étape f)"
       },
       {
         "url": "https://github.com/Embassy-of-the-Free-Mind/sourcelibrary-v2/issues/5448",
         "date": "2026-10-01 → 2026-10-26",
         "etiquette": "tiers (projet utilisateur)",
         "citation": "« Email BSB/MDZ asking for an allowlisted IP » ; « BSB's reply … is still pending » ; « 1×1 over-quota placeholder » (2026-10-25).",
-        "preuve": "institutions/mdz.md (étape f)"
+        "preuve": "institutions/mdz/fiche.md (étape f)"
       },
       {
         "url": "https://github.com/Embassy-of-the-Free-Mind/sourcelibrary-v2/issues/3886",
         "date": "2026-08-11",
         "etiquette": "tiers (projet utilisateur)",
         "citation": "« undocumented but clean JSON API at digitale-sammlungen.de/api/search » (non testé, non utilisé).",
-        "preuve": "institutions/mdz.md (étape f)"
+        "preuve": "institutions/mdz/fiche.md (étape f)"
       },
       {
         "url": "https://github.com/ProjectMirador/mirador/issues/4542",
         "date": "2026-11-13",
         "etiquette": "tiers (dépôt Mirador)",
         "citation": "Canvases 1×1 px d'un manifeste MDZ affichées comme image d'erreur (sans lien direct avec un quota).",
-        "preuve": "institutions/mdz.md (étape f)"
+        "preuve": "institutions/mdz/fiche.md (étape f)"
       }
     ],
     "sources": [
@@ -116,113 +116,113 @@
         "url": "https://www.digitale-sammlungen.de/en/interfaces",
         "date": "2026-11-13",
         "etiquette": "officielle",
-        "preuve": "sources/mdz/SHA256SUMS"
+        "preuve": "institutions/mdz/sources/SHA256SUMS"
       },
       {
         "url": "https://www.digitale-sammlungen.de/de/schnittstellen",
         "date": "2026-11-13",
         "etiquette": "officielle",
-        "preuve": "sources/mdz/SHA256SUMS"
+        "preuve": "institutions/mdz/sources/SHA256SUMS"
       },
       {
         "url": "https://www.digitale-sammlungen.de/en/faq",
         "date": "2026-11-13",
         "etiquette": "officielle",
-        "preuve": "sources/mdz/SHA256SUMS"
+        "preuve": "institutions/mdz/sources/SHA256SUMS"
       },
       {
         "url": "https://www.digitale-sammlungen.de/de/faq",
         "date": "2026-11-13",
         "etiquette": "officielle",
-        "preuve": "sources/mdz/SHA256SUMS"
+        "preuve": "institutions/mdz/sources/SHA256SUMS"
       },
       {
         "url": "https://www.digitale-sammlungen.de/en/contact",
         "date": "2026-11-13",
         "etiquette": "officielle",
-        "preuve": "sources/mdz/SHA256SUMS"
+        "preuve": "institutions/mdz/sources/SHA256SUMS"
       },
       {
         "url": "https://www.digitale-sammlungen.de/en/download-options",
         "date": "2026-11-13",
         "etiquette": "officielle",
-        "preuve": "sources/mdz/SHA256SUMS"
+        "preuve": "institutions/mdz/sources/SHA256SUMS"
       },
       {
         "url": "https://www.digitale-sammlungen.de/en/technologies-and-software-development",
         "date": "2026-11-13",
         "etiquette": "officielle",
-        "preuve": "sources/mdz/SHA256SUMS"
+        "preuve": "institutions/mdz/sources/SHA256SUMS"
       },
       {
         "url": "https://www.digitale-sammlungen.de/de/technologien-und-softwareentwicklung",
         "date": "2026-11-13",
         "etiquette": "officielle",
-        "preuve": "sources/mdz/SHA256SUMS"
+        "preuve": "institutions/mdz/sources/SHA256SUMS"
       },
       {
         "url": "https://www.digitale-sammlungen.de/en/imprint",
         "date": "2026-11-13",
         "etiquette": "officielle",
-        "preuve": "sources/mdz/SHA256SUMS"
+        "preuve": "institutions/mdz/sources/SHA256SUMS"
       },
       {
         "url": "https://www.digitale-sammlungen.de/en/disclaimer",
         "date": "2026-11-13",
         "etiquette": "officielle",
-        "preuve": "sources/mdz/SHA256SUMS"
+        "preuve": "institutions/mdz/sources/SHA256SUMS"
       },
       {
         "url": "https://www.digitale-sammlungen.de/en/privacy-policy",
         "date": "2026-11-13",
         "etiquette": "officielle",
-        "preuve": "sources/mdz/SHA256SUMS"
+        "preuve": "institutions/mdz/sources/SHA256SUMS"
       },
       {
         "url": "https://www.digitale-sammlungen.de/en/rightsstatement-vgwort",
         "date": "2026-11-13",
         "etiquette": "officielle",
-        "preuve": "sources/mdz/SHA256SUMS"
+        "preuve": "institutions/mdz/sources/SHA256SUMS"
       },
       {
         "url": "https://www.digitale-sammlungen.de/en/search-help",
         "date": "2026-11-13",
         "etiquette": "officielle",
-        "preuve": "sources/mdz/SHA256SUMS"
+        "preuve": "institutions/mdz/sources/SHA256SUMS"
       },
       {
         "url": "https://www.digitale-sammlungen.de/en/viewer-help",
         "date": "2026-11-13",
         "etiquette": "officielle",
-        "preuve": "sources/mdz/SHA256SUMS"
+        "preuve": "institutions/mdz/sources/SHA256SUMS"
       },
       {
         "url": "https://oai.bsb-muenchen.de/doc/en/bavarian-digital-repository",
         "date": "2026-11-13",
         "etiquette": "officielle",
-        "preuve": "sources/mdz/SHA256SUMS"
+        "preuve": "institutions/mdz/sources/SHA256SUMS"
       }
     ],
     "preuves": {
       "a_doc_lue": [
-        "sources/mdz/SHA256SUMS"
+        "institutions/mdz/sources/SHA256SUMS"
       ],
       "b_endpoints_doc": [
-        "scripts/config/mdz.json",
-        "sources/mdz/SHA256SUMS"
+        "institutions/mdz/config/mdz.json",
+        "institutions/mdz/sources/SHA256SUMS"
       ],
       "c_config_avant_tests": [
-        "scripts/config/mdz.json"
+        "institutions/mdz/config/mdz.json"
       ],
       "d_quota_dans_doc": [
-        "sources/mdz/SHA256SUMS",
-        "institutions/mdz.md"
+        "institutions/mdz/sources/SHA256SUMS",
+        "institutions/mdz/fiche.md"
       ],
       "e_tests_endpoints": [
-        "tests/mdz.log"
+        "institutions/mdz/tests/journal.log"
       ],
       "f_web": [
-        "institutions/mdz.md"
+        "institutions/mdz/fiche.md"
       ]
     }
   },
@@ -313,35 +313,35 @@
         "date": "2026-11-13",
         "etiquette": "officielle",
         "citation": "« Ces mesures entraînent des restrictions temporaires d'accès aux API de Gallica, notamment aux services IIIF, SRU et API Document. Les modalités d'accès à ces services sont actuellement en cours de définition. »",
-        "preuve": "sources/bnf-gallica/suite2/SHA256SUMS"
+        "preuve": "institutions/bnf-gallica/sources/suite2/SHA256SUMS"
       },
       {
         "url": "https://www.bnf.fr/fr/actualites/un-captcha-pour-gallica",
         "date": "2026-11-13",
         "etiquette": "officielle",
         "citation": "« un CAPTCHA est mis en place à compter du 18 décembre 2025 » ; case à cocher à la première recherche de la journée.",
-        "preuve": "sources/bnf-gallica/suite2/SHA256SUMS"
+        "preuve": "institutions/bnf-gallica/sources/suite2/SHA256SUMS"
       },
       {
         "url": "https://actualitte.com/article/128618/numerisation/gallica-installe-un-captcha-le-web-patrimonial-face-aux-bots",
         "date": "non lue",
         "etiquette": "presse",
         "citation": "Blocages d'IP jugés très stricts par les utilisateurs (résumé uniquement).",
-        "preuve": "institutions/bnf-gallica.md (étape f)"
+        "preuve": "institutions/bnf-gallica/fiche.md (étape f)"
       },
       {
         "url": "https://www.iatechauquotidien.com/gallica-paralysee-des-robots-dia-aspirent-massivement-ses-contenus/",
         "date": "non lue",
         "etiquette": "presse",
         "citation": "La BnF attribue les difficultés à un moissonnage automatisé en forte hausse (résumé).",
-        "preuve": "institutions/bnf-gallica.md (étape f)"
+        "preuve": "institutions/bnf-gallica/fiche.md (étape f)"
       },
       {
         "url": "https://github.com/Antonio-Faure/mnemosyne/pull/69",
         "date": "non lue",
         "etiquette": "tiers (code)",
         "citation": "403 de type Cloudflare sur les chemins SRU de Gallica, conclusion : blocage IP/ASN (non vérifié).",
-        "preuve": "institutions/bnf-gallica.md (étape f)"
+        "preuve": "institutions/bnf-gallica/fiche.md (étape f)"
       }
     ],
     "sources": [
@@ -349,71 +349,71 @@
         "url": "https://api.bnf.fr/fr/node/232",
         "date": "2026-11-13",
         "etiquette": "officielle",
-        "preuve": "sources/bnf-gallica/SHA256SUMS"
+        "preuve": "institutions/bnf-gallica/sources/SHA256SUMS"
       },
       {
         "url": "https://api.bnf.fr/fr/api-iiif-de-recuperation-des-images-de-gallica",
         "date": "2026-11-13",
         "etiquette": "officielle",
-        "preuve": "sources/bnf-gallica/SHA256SUMS"
+        "preuve": "institutions/bnf-gallica/sources/SHA256SUMS"
       },
       {
         "url": "https://www.bnf.fr/fr/portail-bnf-api-et-jeux-de-donnees",
         "date": "2026-11-13",
         "etiquette": "officielle",
-        "preuve": "sources/bnf-gallica/SHA256SUMS"
+        "preuve": "institutions/bnf-gallica/sources/SHA256SUMS"
       },
       {
         "url": "https://www.data.gouv.fr/dataservices/api-gallica-iiif",
         "date": "2026-11-13",
         "etiquette": "officielle",
-        "preuve": "sources/bnf-gallica/SHA256SUMS"
+        "preuve": "institutions/bnf-gallica/sources/SHA256SUMS"
       },
       {
         "url": "https://api.bnf.fr/fr/node/2620",
         "date": "2026-11-13",
         "etiquette": "officielle",
-        "preuve": "sources/bnf-gallica/SHA256SUMS"
+        "preuve": "institutions/bnf-gallica/sources/SHA256SUMS"
       },
       {
         "url": "https://api.bnf.fr/fr/wrapper-python-pour-les-api-gallica",
         "date": "2026-11-13",
         "etiquette": "officielle",
-        "preuve": "sources/bnf-gallica/SHA256SUMS"
+        "preuve": "institutions/bnf-gallica/sources/SHA256SUMS"
       },
       {
         "url": "https://api.bnf.fr/fr/node/2748",
         "date": "2026-11-13",
         "etiquette": "officielle (INCOMPLÈTE : délai dépassé)",
-        "preuve": "sources/bnf-gallica/suite/FETCH.log"
+        "preuve": "institutions/bnf-gallica/sources/suite/FETCH.log"
       },
       {
         "url": "https://gallica.bnf.fr/html/und/conditions-dutilisation-des-contenus-de-gallica",
         "date": "2026-11-13",
         "etiquette": "officielle (403, non lue)",
-        "preuve": "sources/bnf-gallica/FETCH.log"
+        "preuve": "institutions/bnf-gallica/sources/FETCH.log"
       }
     ],
     "preuves": {
       "a_doc_lue": [
-        "sources/bnf-gallica/SHA256SUMS",
-        "sources/bnf-gallica/suite/FETCH.log",
-        "sources/bnf-gallica/suite2/SHA256SUMS"
+        "institutions/bnf-gallica/sources/SHA256SUMS",
+        "institutions/bnf-gallica/sources/suite/FETCH.log",
+        "institutions/bnf-gallica/sources/suite2/SHA256SUMS"
       ],
       "b_endpoints_doc": [
-        "institutions/bnf-gallica.md"
+        "institutions/bnf-gallica/fiche.md"
       ],
       "c_config_avant_tests": [
-        "scripts/config/bnf-gallica.json"
+        "institutions/bnf-gallica/config/bnf-gallica.json"
       ],
       "d_quota_dans_doc": [
-        "institutions/bnf-gallica.md"
+        "institutions/bnf-gallica/fiche.md"
       ],
       "e_tests_endpoints": [
-        "tests/bnf-gallica.log"
+        "institutions/bnf-gallica/tests/journal.log"
       ],
       "f_web": [
-        "institutions/bnf-gallica.md"
+        "institutions/bnf-gallica/fiche.md"
       ]
     }
   },
@@ -530,19 +530,19 @@
         "sources/loc/SHA256SUMS"
       ],
       "b_endpoints_doc": [
-        "institutions/loc.md"
+        "institutions/loc/fiche.md"
       ],
       "c_config_avant_tests": [
-        "scripts/config/loc.json"
+        "institutions/loc/config/loc.json"
       ],
       "d_quota_dans_doc": [
-        "institutions/loc.md"
+        "institutions/loc/fiche.md"
       ],
       "e_tests_endpoints": [
-        "tests/loc.log"
+        "institutions/loc/tests/journal.log"
       ],
       "f_web": [
-        "institutions/loc.md"
+        "institutions/loc/fiche.md"
       ]
     }
   },
@@ -594,19 +594,19 @@
         "sources/internet-archive/SHA256SUMS"
       ],
       "b_endpoints_doc": [
-        "institutions/internet-archive.md"
+        "institutions/internet-archive/fiche.md"
       ],
       "c_config_avant_tests": [
-        "scripts/config/internet-archive.json"
+        "institutions/internet-archive/config/internet-archive.json"
       ],
       "d_quota_dans_doc": [
-        "institutions/internet-archive.md"
+        "institutions/internet-archive/fiche.md"
       ],
       "e_tests_endpoints": [
-        "tests/internet-archive.log"
+        "institutions/internet-archive/tests/journal.log"
       ],
       "f_web": [
-        "institutions/internet-archive.md"
+        "institutions/internet-archive/fiche.md"
       ]
     }
   },
@@ -648,19 +648,19 @@
         "sources/wellcome/SHA256SUMS"
       ],
       "b_endpoints_doc": [
-        "institutions/wellcome.md"
+        "institutions/wellcome/fiche.md"
       ],
       "c_config_avant_tests": [
-        "scripts/config/wellcome.json"
+        "institutions/wellcome/config/wellcome.json"
       ],
       "d_quota_dans_doc": [
-        "institutions/wellcome.md"
+        "institutions/wellcome/fiche.md"
       ],
       "e_tests_endpoints": [
-        "tests/wellcome.log"
+        "institutions/wellcome/tests/journal.log"
       ],
       "f_web": [
-        "institutions/wellcome.md"
+        "institutions/wellcome/fiche.md"
       ]
     }
   },
@@ -706,19 +706,19 @@
         "sources/british-library/SHA256SUMS"
       ],
       "b_endpoints_doc": [
-        "institutions/british-library.md"
+        "institutions/british-library/fiche.md"
       ],
       "c_config_avant_tests": [
-        "scripts/config/british-library.json"
+        "institutions/british-library/config/british-library.json"
       ],
       "d_quota_dans_doc": [
-        "institutions/british-library.md"
+        "institutions/british-library/fiche.md"
       ],
       "e_tests_endpoints": [
-        "tests/british-library.log"
+        "institutions/british-library/tests/journal.log"
       ],
       "f_web": [
-        "institutions/british-library.md"
+        "institutions/british-library/fiche.md"
       ]
     }
   },
@@ -730,7 +730,7 @@
     "checklist": {
       "a_doc_lue": "fait (5 pages + 2 robots + blog + politique IA + poster LIBER lus ; iiif.bodleian robots.txt en 400)",
       "b_endpoints_doc": "fait (IIIF, données ; /account non testé : authentification)",
-      "c_config_avant_tests": "fait (scripts/config/bodleian.json, 12 entrées)",
+      "c_config_avant_tests": "fait (institutions/bodleian/config/bodleian.json, 12 entrées)",
       "d_quota_dans_doc": "fait : aucun quota ; « get in touch » avant un moissonnage important",
       "e_tests_endpoints": "fait (passe v2 : 12 requêtes, aucun en-tête ni 403/429)",
       "f_web": "fait (poster LIBER 2025, blog 2026-10-01, politique IA, iiif-discuss 2017 en extraits)",
@@ -757,30 +757,30 @@
     "notes": "Le billet 2026-10-01 concerne le dépôt ORA, pas Digital Bodleian. iiif.bodleian robots.txt : 400. Poster lu visuellement.",
     "preuves": {
       "a_doc_lue": [
-        "sources/bodleian/SHA256SUMS",
-        "sources/bodleian/suite/SHA256SUMS",
-        "sources/bodleian/blog-ia/SHA256SUMS",
-        "sources/bodleian/poster/SHA256SUMS"
+        "institutions/bodleian/sources/SHA256SUMS",
+        "institutions/bodleian/sources/suite/SHA256SUMS",
+        "institutions/bodleian/sources/blog-ia/SHA256SUMS",
+        "institutions/bodleian/sources/poster/SHA256SUMS"
       ],
       "b_endpoints_doc": [
-        "sources/bodleian/text/02.txt",
-        "sources/bodleian/text/03.txt"
+        "institutions/bodleian/sources/text/02.txt",
+        "institutions/bodleian/sources/text/03.txt"
       ],
       "c_config_avant_tests": [
-        "scripts/config/bodleian.json"
+        "institutions/bodleian/config/bodleian.json"
       ],
       "d_quota_dans_doc": [
-        "sources/bodleian/text/02.txt",
-        "sources/bodleian/text/04.txt"
+        "institutions/bodleian/sources/text/02.txt",
+        "institutions/bodleian/sources/text/04.txt"
       ],
       "e_tests_endpoints": [
-        "tests/bodleian.log",
-        "tests/raw/bodleian"
+        "institutions/bodleian/tests/journal.log",
+        "institutions/bodleian/tests/raw"
       ],
       "f_web": [
-        "sources/bodleian/poster/liber2025.pdf",
-        "sources/bodleian/blog-ia/text/01.txt",
-        "sources/bodleian/poster/bodleian-ai-policy.txt"
+        "institutions/bodleian/sources/poster/liber2025.pdf",
+        "institutions/bodleian/sources/blog-ia/text/01.txt",
+        "institutions/bodleian/sources/poster/bodleian-ai-policy.txt"
       ]
     },
     "sources": [
@@ -788,61 +788,61 @@
         "url": "https://digital.bodleian.ox.ac.uk/developer/",
         "date": "2026-11-13",
         "etiquette": "officielle",
-        "preuve": "sources/bodleian/SHA256SUMS"
+        "preuve": "institutions/bodleian/sources/SHA256SUMS"
       },
       {
         "url": "https://digital.bodleian.ox.ac.uk/developer/iiif/",
         "date": "2026-11-13",
         "etiquette": "officielle",
-        "preuve": "sources/bodleian/SHA256SUMS"
+        "preuve": "institutions/bodleian/sources/SHA256SUMS"
       },
       {
         "url": "https://digital.bodleian.ox.ac.uk/developer/data/",
         "date": "2026-11-13",
         "etiquette": "officielle",
-        "preuve": "sources/bodleian/SHA256SUMS"
+        "preuve": "institutions/bodleian/sources/SHA256SUMS"
       },
       {
         "url": "https://digital.bodleian.ox.ac.uk/terms/",
         "date": "2026-11-13",
         "etiquette": "officielle",
-        "preuve": "sources/bodleian/SHA256SUMS"
+        "preuve": "institutions/bodleian/sources/SHA256SUMS"
       },
       {
         "url": "https://digital.bodleian.ox.ac.uk/faq/",
         "date": "2026-11-13",
         "etiquette": "officielle",
-        "preuve": "sources/bodleian/SHA256SUMS"
+        "preuve": "institutions/bodleian/sources/SHA256SUMS"
       },
       {
         "url": "https://digital.bodleian.ox.ac.uk/robots.txt",
         "date": "2026-11-13",
         "etiquette": "officielle",
-        "preuve": "sources/bodleian/suite/SHA256SUMS"
+        "preuve": "institutions/bodleian/sources/suite/SHA256SUMS"
       },
       {
         "url": "https://iiif.bodleian.ox.ac.uk/robots.txt",
         "date": "2026-11-13",
         "etiquette": "officielle (400)",
-        "preuve": "sources/bodleian/suite/SHA256SUMS"
+        "preuve": "institutions/bodleian/sources/suite/SHA256SUMS"
       },
       {
         "url": "https://blogs.bodleian.ox.ac.uk/digital/2026/10/01/implementing-our-ai-policy-hypothetical-use-cases/",
         "date": "2026-11-13",
         "etiquette": "institution (blog)",
-        "preuve": "sources/bodleian/blog-ia/SHA256SUMS"
+        "preuve": "institutions/bodleian/sources/blog-ia/SHA256SUMS"
       },
       {
         "url": "http://www.bodleian.ox.ac.uk/sites/default/files/bodreader/documents/media/bodleian-libraries-ai-policy.pdf",
         "date": "2026-11-13",
         "etiquette": "institution (politique IA)",
-        "preuve": "sources/bodleian/poster/SHA256SUMS"
+        "preuve": "institutions/bodleian/sources/poster/SHA256SUMS"
       },
       {
         "url": "https://zenodo.org/records/16744631",
         "date": "2026-11-13",
         "etiquette": "institution (poster LIBER 2025)",
-        "preuve": "sources/bodleian/poster/SHA256SUMS"
+        "preuve": "institutions/bodleian/sources/poster/SHA256SUMS"
       }
     ],
     "web": [
@@ -851,28 +851,28 @@
         "date": "2025-07",
         "etiquette": "institution (poster LIBER 2025)",
         "citation": "« Our websites are grinding to a halt » ; « Web scraping is bringing our websites to a crawl » ; « Companies & scrapers are ignoring robots.txt » ; « How do we limit bots without losing human users? »",
-        "preuve": "sources/bodleian/poster/liber2025.pdf"
+        "preuve": "institutions/bodleian/sources/poster/liber2025.pdf"
       },
       {
         "url": "https://blogs.bodleian.ox.ac.uk/digital/2026/10/01/implementing-our-ai-policy-hypothetical-use-cases/",
         "date": "2026-10-01",
         "etiquette": "institution (blog) — portée : dépôt ORA",
         "citation": "« avoiding the unrestricted, unannounced harvesting that has caused problems for the repository in the past. (This includes AI bots that ignore normal usage limits.) »",
-        "preuve": "sources/bodleian/blog-ia/text/01.txt"
+        "preuve": "institutions/bodleian/sources/blog-ia/text/01.txt"
       },
       {
         "url": "http://www.bodleian.ox.ac.uk/sites/default/files/bodreader/documents/media/bodleian-libraries-ai-policy.pdf",
         "date": "2026",
         "etiquette": "institution (politique IA)",
         "citation": "« we may apply technical, contractual or other measures to manage these risks while preserving legitimate research and educational use of collections. »",
-        "preuve": "sources/bodleian/poster/bodleian-ai-policy.txt"
+        "preuve": "institutions/bodleian/sources/poster/bodleian-ai-policy.txt"
       },
       {
         "url": "https://groups.google.com/g/iiif-discuss/c/Z3GVdj6s61w",
         "date": "2017-11-13",
         "etiquette": "institution (message équipe Digital Bodleian), ancien, extraits",
         "citation": "« even a 500ms delay between requests would help moderate traffic » ; « We would like to avoid automated throttling of our connections if at all possible »",
-        "preuve": "institutions/bodleian.md (étape f)"
+        "preuve": "institutions/bodleian/fiche.md (étape f)"
       }
     ],
     "classeur_id": "GLAM-002"
@@ -885,7 +885,7 @@
     "checklist": {
       "a_doc_lue": "partiel : /terms et /help en 403 (défi CloudFront) ; README cudl-services lu en entier ; robots.txt en 403",
       "b_endpoints_doc": "fait (README cudl-services : routes de l'API publique)",
-      "c_config_avant_tests": "fait (scripts/config/cudl.json, à relancer en passe v2)",
+      "c_config_avant_tests": "fait (institutions/cudl/config/cudl.json, à relancer en passe v2)",
       "d_quota_dans_doc": "fait : aucun quota ; « publicly accessible and (for the most part) requires no authentication »",
       "e_tests_endpoints": "fait (passe v2 : 2 requêtes, 200, aucun en-tête de limite ; manifestes sans .json)",
       "f_web": "fait (recherche : aucune politique de moissonnage trouvée ; une source tierce mentionne des limites non chiffrées, non vérifiée)",
@@ -909,20 +909,20 @@
     "notes": "Recherche Solr : interne. Métadonnées : cudl.link en DNS.",
     "preuves": {
       "a_doc_lue": [
-        "sources/cudl/SHA256SUMS",
-        "sources/cudl/FETCH.log"
+        "institutions/cudl/sources/SHA256SUMS",
+        "institutions/cudl/sources/FETCH.log"
       ],
       "b_endpoints_doc": [
-        "sources/cudl/raw/03.html"
+        "institutions/cudl/sources/raw/03.html"
       ],
       "c_config_avant_tests": [
-        "scripts/config/cudl.json"
+        "institutions/cudl/config/cudl.json"
       ],
       "d_quota_dans_doc": [
-        "sources/cudl/raw/03.html"
+        "institutions/cudl/sources/raw/03.html"
       ],
       "e_tests_endpoints": [
-        "tests/cudl.log"
+        "institutions/cudl/tests/journal.log"
       ],
       "f_web": [
         "sources/robots/SHA256SUMS"
@@ -933,19 +933,19 @@
         "url": "https://cudl.lib.cam.ac.uk/terms",
         "date": "2026-11-13",
         "etiquette": "officielle (403, non lue)",
-        "preuve": "sources/cudl/FETCH.log"
+        "preuve": "institutions/cudl/sources/FETCH.log"
       },
       {
         "url": "https://cudl.lib.cam.ac.uk/help",
         "date": "2026-11-13",
         "etiquette": "officielle (403, non lue)",
-        "preuve": "sources/cudl/FETCH.log"
+        "preuve": "institutions/cudl/sources/FETCH.log"
       },
       {
         "url": "https://github.com/cambridge-collection/cudl-services",
         "date": "2026-11-13",
         "etiquette": "officielle (dépôt du projet)",
-        "preuve": "sources/cudl/raw/03.html"
+        "preuve": "institutions/cudl/sources/raw/03.html"
       }
     ],
     "web": [
@@ -954,7 +954,7 @@
         "date": "2026-11-13",
         "etiquette": "tiers (profil d'API non officiel, Cambridge)",
         "citation": "Mentionne des limites de débit sans chiffre pour l'API de Cambridge (non vérifié, non applicable tel quel à CUDL).",
-        "preuve": "institutions/cudl.md (étape f)"
+        "preuve": "institutions/cudl/fiche.md (étape f)"
       }
     ]
   },
@@ -1014,19 +1014,19 @@
         "sources/europeana/SHA256SUMS"
       ],
       "b_endpoints_doc": [
-        "institutions/europeana.md"
+        "institutions/europeana/fiche.md"
       ],
       "c_config_avant_tests": [
-        "scripts/config/europeana.json"
+        "institutions/europeana/config/europeana.json"
       ],
       "d_quota_dans_doc": [
-        "institutions/europeana.md"
+        "institutions/europeana/fiche.md"
       ],
       "e_tests_endpoints": [
-        "tests/europeana.log"
+        "institutions/europeana/tests/journal.log"
       ],
       "f_web": [
-        "institutions/europeana.md"
+        "institutions/europeana/fiche.md"
       ]
     }
   },
@@ -1057,19 +1057,19 @@
         "sources/e-codices/SHA256SUMS"
       ],
       "b_endpoints_doc": [
-        "institutions/e-codices.md"
+        "institutions/e-codices/fiche.md"
       ],
       "c_config_avant_tests": [
-        "scripts/config/e-codices.json"
+        "institutions/e-codices/config/e-codices.json"
       ],
       "d_quota_dans_doc": [
-        "institutions/e-codices.md"
+        "institutions/e-codices/fiche.md"
       ],
       "e_tests_endpoints": [
-        "tests/e-codices.log"
+        "institutions/e-codices/tests/journal.log"
       ],
       "f_web": [
-        "institutions/e-codices.md"
+        "institutions/e-codices/fiche.md"
       ]
     }
   },
@@ -1108,19 +1108,19 @@
         "sources/vatican/SHA256SUMS"
       ],
       "b_endpoints_doc": [
-        "institutions/vatican.md"
+        "institutions/vatican/fiche.md"
       ],
       "c_config_avant_tests": [
-        "scripts/config/vatican.json"
+        "institutions/vatican/config/vatican.json"
       ],
       "d_quota_dans_doc": [
-        "institutions/vatican.md"
+        "institutions/vatican/fiche.md"
       ],
       "e_tests_endpoints": [
-        "tests/vatican.log"
+        "institutions/vatican/tests/journal.log"
       ],
       "f_web": [
-        "institutions/vatican.md"
+        "institutions/vatican/fiche.md"
       ]
     }
   },
@@ -1151,19 +1151,19 @@
         "sources/slub/SHA256SUMS"
       ],
       "b_endpoints_doc": [
-        "institutions/slub.md"
+        "institutions/slub/fiche.md"
       ],
       "c_config_avant_tests": [
-        "scripts/config/slub.json"
+        "institutions/slub/config/slub.json"
       ],
       "d_quota_dans_doc": [
-        "institutions/slub.md"
+        "institutions/slub/fiche.md"
       ],
       "e_tests_endpoints": [
-        "tests/slub.log"
+        "institutions/slub/tests/journal.log"
       ],
       "f_web": [
-        "institutions/slub.md"
+        "institutions/slub/fiche.md"
       ]
     }
   },
@@ -1194,19 +1194,19 @@
         "sources/hab/SHA256SUMS"
       ],
       "b_endpoints_doc": [
-        "institutions/hab.md"
+        "institutions/hab/fiche.md"
       ],
       "c_config_avant_tests": [
-        "scripts/config/hab.json"
+        "institutions/hab/config/hab.json"
       ],
       "d_quota_dans_doc": [
-        "institutions/hab.md"
+        "institutions/hab/fiche.md"
       ],
       "e_tests_endpoints": [
-        "tests/hab.log"
+        "institutions/hab/tests/journal.log"
       ],
       "f_web": [
-        "institutions/hab.md"
+        "institutions/hab/fiche.md"
       ]
     }
   },
@@ -1245,19 +1245,19 @@
         "sources/kb-nl/SHA256SUMS"
       ],
       "b_endpoints_doc": [
-        "institutions/kb-nl.md"
+        "institutions/kb-nl/fiche.md"
       ],
       "c_config_avant_tests": [
-        "scripts/config/kb-nl.json"
+        "institutions/kb-nl/config/kb-nl.json"
       ],
       "d_quota_dans_doc": [
-        "institutions/kb-nl.md"
+        "institutions/kb-nl/fiche.md"
       ],
       "e_tests_endpoints": [
-        "tests/kb-nl.log"
+        "institutions/kb-nl/tests/journal.log"
       ],
       "f_web": [
-        "institutions/kb-nl.md"
+        "institutions/kb-nl/fiche.md"
       ]
     }
   },
@@ -1288,19 +1288,19 @@
         "sources/kb-dk/SHA256SUMS"
       ],
       "b_endpoints_doc": [
-        "institutions/kb-dk.md"
+        "institutions/kb-dk/fiche.md"
       ],
       "c_config_avant_tests": [
-        "scripts/config/kb-dk.json"
+        "institutions/kb-dk/config/kb-dk.json"
       ],
       "d_quota_dans_doc": [
-        "institutions/kb-dk.md"
+        "institutions/kb-dk/fiche.md"
       ],
       "e_tests_endpoints": [
-        "tests/kb-dk.log"
+        "institutions/kb-dk/tests/journal.log"
       ],
       "f_web": [
-        "institutions/kb-dk.md"
+        "institutions/kb-dk/fiche.md"
       ]
     }
   },
@@ -1331,19 +1331,19 @@
         "sources/nb-no/SHA256SUMS"
       ],
       "b_endpoints_doc": [
-        "institutions/nb-no.md"
+        "institutions/nb-no/fiche.md"
       ],
       "c_config_avant_tests": [
-        "scripts/config/nb-no.json"
+        "institutions/nb-no/config/nb-no.json"
       ],
       "d_quota_dans_doc": [
-        "institutions/nb-no.md"
+        "institutions/nb-no/fiche.md"
       ],
       "e_tests_endpoints": [
-        "tests/nb-no.log"
+        "institutions/nb-no/tests/journal.log"
       ],
       "f_web": [
-        "institutions/nb-no.md"
+        "institutions/nb-no/fiche.md"
       ]
     }
   },
@@ -1382,19 +1382,19 @@
         "sources/bne/SHA256SUMS"
       ],
       "b_endpoints_doc": [
-        "institutions/bne.md"
+        "institutions/bne/fiche.md"
       ],
       "c_config_avant_tests": [
-        "scripts/config/bne.json"
+        "institutions/bne/config/bne.json"
       ],
       "d_quota_dans_doc": [
-        "institutions/bne.md"
+        "institutions/bne/fiche.md"
       ],
       "e_tests_endpoints": [
-        "tests/bne.log"
+        "institutions/bne/tests/journal.log"
       ],
       "f_web": [
-        "institutions/bne.md"
+        "institutions/bne/fiche.md"
       ]
     }
   },
@@ -1425,19 +1425,19 @@
         "sources/rijksmuseum/SHA256SUMS"
       ],
       "b_endpoints_doc": [
-        "institutions/rijksmuseum.md"
+        "institutions/rijksmuseum/fiche.md"
       ],
       "c_config_avant_tests": [
-        "scripts/config/rijksmuseum.json"
+        "institutions/rijksmuseum/config/rijksmuseum.json"
       ],
       "d_quota_dans_doc": [
-        "institutions/rijksmuseum.md"
+        "institutions/rijksmuseum/fiche.md"
       ],
       "e_tests_endpoints": [
-        "tests/rijksmuseum.log"
+        "institutions/rijksmuseum/tests/journal.log"
       ],
       "f_web": [
-        "institutions/rijksmuseum.md"
+        "institutions/rijksmuseum/fiche.md"
       ]
     }
   },
@@ -1491,19 +1491,19 @@
         "sources/smithsonian/SHA256SUMS"
       ],
       "b_endpoints_doc": [
-        "institutions/smithsonian.md"
+        "institutions/smithsonian/fiche.md"
       ],
       "c_config_avant_tests": [
-        "scripts/config/smithsonian.json"
+        "institutions/smithsonian/config/smithsonian.json"
       ],
       "d_quota_dans_doc": [
-        "institutions/smithsonian.md"
+        "institutions/smithsonian/fiche.md"
       ],
       "e_tests_endpoints": [
-        "tests/smithsonian.log"
+        "institutions/smithsonian/tests/journal.log"
       ],
       "f_web": [
-        "institutions/smithsonian.md"
+        "institutions/smithsonian/fiche.md"
       ]
     }
   },
@@ -1534,19 +1534,19 @@
         "sources/getty/SHA256SUMS"
       ],
       "b_endpoints_doc": [
-        "institutions/getty.md"
+        "institutions/getty/fiche.md"
       ],
       "c_config_avant_tests": [
-        "scripts/config/getty.json"
+        "institutions/getty/config/getty.json"
       ],
       "d_quota_dans_doc": [
-        "institutions/getty.md"
+        "institutions/getty/fiche.md"
       ],
       "e_tests_endpoints": [
-        "tests/getty.log"
+        "institutions/getty/tests/journal.log"
       ],
       "f_web": [
-        "institutions/getty.md"
+        "institutions/getty/fiche.md"
       ]
     }
   },
@@ -1588,19 +1588,19 @@
         "sources/harvard/SHA256SUMS"
       ],
       "b_endpoints_doc": [
-        "institutions/harvard.md"
+        "institutions/harvard/fiche.md"
       ],
       "c_config_avant_tests": [
-        "scripts/config/harvard.json"
+        "institutions/harvard/config/harvard.json"
       ],
       "d_quota_dans_doc": [
-        "institutions/harvard.md"
+        "institutions/harvard/fiche.md"
       ],
       "e_tests_endpoints": [
-        "tests/harvard.log"
+        "institutions/harvard/tests/journal.log"
       ],
       "f_web": [
-        "institutions/harvard.md"
+        "institutions/harvard/fiche.md"
       ]
     }
   },
@@ -1631,19 +1631,19 @@
         "sources/princeton/SHA256SUMS"
       ],
       "b_endpoints_doc": [
-        "institutions/princeton.md"
+        "institutions/princeton/fiche.md"
       ],
       "c_config_avant_tests": [
-        "scripts/config/princeton.json"
+        "institutions/princeton/config/princeton.json"
       ],
       "d_quota_dans_doc": [
-        "institutions/princeton.md"
+        "institutions/princeton/fiche.md"
       ],
       "e_tests_endpoints": [
-        "tests/princeton.log"
+        "institutions/princeton/tests/journal.log"
       ],
       "f_web": [
-        "institutions/princeton.md"
+        "institutions/princeton/fiche.md"
       ]
     }
   },
@@ -1685,19 +1685,19 @@
         "sources/nypl/SHA256SUMS"
       ],
       "b_endpoints_doc": [
-        "institutions/nypl.md"
+        "institutions/nypl/fiche.md"
       ],
       "c_config_avant_tests": [
-        "scripts/config/nypl.json"
+        "institutions/nypl/config/nypl.json"
       ],
       "d_quota_dans_doc": [
-        "institutions/nypl.md"
+        "institutions/nypl/fiche.md"
       ],
       "e_tests_endpoints": [
-        "tests/nypl.log"
+        "institutions/nypl/tests/journal.log"
       ],
       "f_web": [
-        "institutions/nypl.md"
+        "institutions/nypl/fiche.md"
       ]
     }
   },
@@ -1774,48 +1774,48 @@
         "url": "https://eap.bl.uk/",
         "date": "2026-11-13",
         "etiquette": "officielle",
-        "preuve": "sources/eap-bl/SHA256SUMS"
+        "preuve": "institutions/eap-bl/sources/SHA256SUMS"
       },
       {
         "url": "https://eap.bl.uk/about-programme",
         "date": "2026-11-13",
         "etiquette": "officielle",
-        "preuve": "sources/eap-bl/SHA256SUMS"
+        "preuve": "institutions/eap-bl/sources/SHA256SUMS"
       },
       {
         "url": "https://eap.bl.uk/contact-us",
         "date": "2026-11-13",
         "etiquette": "officielle",
-        "preuve": "sources/eap-bl/SHA256SUMS"
+        "preuve": "institutions/eap-bl/sources/SHA256SUMS"
       },
       {
         "url": "https://www.bl.uk/terms/",
         "date": "2026-11-13",
         "etiquette": "officielle",
-        "preuve": "sources/eap-bl/SHA256SUMS"
+        "preuve": "institutions/eap-bl/sources/SHA256SUMS"
       },
       {
         "url": "https://www.bl.uk/help/terms-of-use",
         "date": "2026-11-13",
         "etiquette": "officielle",
-        "preuve": "sources/eap-bl/SHA256SUMS"
+        "preuve": "institutions/eap-bl/sources/SHA256SUMS"
       }
     ],
     "web": [],
     "preuves": {
       "a_doc_lue": [
-        "sources/eap-bl/SHA256SUMS",
-        "sources/eap-bl/suite/SHA256SUMS"
+        "institutions/eap-bl/sources/SHA256SUMS",
+        "institutions/eap-bl/sources/suite/SHA256SUMS"
       ],
       "b_endpoints_doc": [
-        "sources/eap-bl/suite/raw/01.html"
+        "institutions/eap-bl/sources/suite/raw/01.html"
       ],
       "c_config_avant_tests": [],
       "d_quota_dans_doc": [
-        "sources/eap-bl/suite/SHA256SUMS"
+        "institutions/eap-bl/sources/suite/SHA256SUMS"
       ],
       "e_tests_endpoints": [
-        "tests/british-library.log"
+        "institutions/british-library/tests/journal.log"
       ],
       "f_web": []
     }
@@ -1859,25 +1859,25 @@
         "url": "https://collections.ed.ac.uk/art/iiif",
         "date": "2026-11-13",
         "etiquette": "officielle",
-        "preuve": "sources/edinburgh-art/SHA256SUMS"
+        "preuve": "institutions/edinburgh-art/sources/SHA256SUMS"
       },
       {
         "url": "https://collections.ed.ac.uk/art/about",
         "date": "2026-11-13",
         "etiquette": "officielle",
-        "preuve": "sources/edinburgh-art/SHA256SUMS"
+        "preuve": "institutions/edinburgh-art/sources/SHA256SUMS"
       },
       {
         "url": "https://collections.ed.ac.uk/art",
         "date": "2026-11-13",
         "etiquette": "officielle",
-        "preuve": "sources/edinburgh-art/SHA256SUMS"
+        "preuve": "institutions/edinburgh-art/sources/SHA256SUMS"
       },
       {
         "url": "https://collections.ed.ac.uk/art/licensing",
         "date": "2026-11-13",
         "etiquette": "officielle",
-        "preuve": "sources/edinburgh-art/suite/SHA256SUMS"
+        "preuve": "institutions/edinburgh-art/sources/suite/SHA256SUMS"
       },
       {
         "url": "https://collections.ed.ac.uk/robots.txt",
@@ -1889,14 +1889,14 @@
     "web": [],
     "preuves": {
       "a_doc_lue": [
-        "sources/edinburgh-art/SHA256SUMS",
-        "sources/edinburgh-art/suite/SHA256SUMS"
+        "institutions/edinburgh-art/sources/SHA256SUMS",
+        "institutions/edinburgh-art/sources/suite/SHA256SUMS"
       ],
       "b_endpoints_doc": [
-        "sources/edinburgh-art/raw/01.html"
+        "institutions/edinburgh-art/sources/raw/01.html"
       ],
       "d_quota_dans_doc": [
-        "sources/edinburgh-art/suite/SHA256SUMS"
+        "institutions/edinburgh-art/sources/suite/SHA256SUMS"
       ],
       "f_web": [
         "sources/robots/SHA256SUMS"

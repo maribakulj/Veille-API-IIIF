@@ -1,0 +1,40 @@
+{
+  "slug": "internet-archive",
+  "nom": "Internet Archive",
+  "pays": "États-Unis",
+  "statut_audit": "partiel (ancienne méthode)",
+  "limites_documentees": [
+    {
+      "nature": "Consigne qualitative",
+      "perimetre": "bots (IIIF/advancedsearch/metadata)",
+      "valeur": "non chiffrée : « honor 429 and Retry-After »",
+      "fenetre": "–",
+      "effet": "429",
+      "source": "https://archive.org/developers/bots.html",
+      "date": "2026-11-13",
+      "verification": "officielle, lue en entier"
+    },
+    {
+      "nature": "Task limit (clés S3)",
+      "perimetre": "API Tasks",
+      "valeur": "non lu (exige clés S3)",
+      "fenetre": "–",
+      "effet": "–",
+      "source": "https://archive.org/developers/tasks.html",
+      "date": "2026-11-13",
+      "verification": "non lue (clés requises)"
+    }
+  ],
+  "en_tetes_observes": [],
+  "blocages": [],
+  "contact": "info@archive.org (cité par un tiers)",
+  "conclusion_quota": "Aucun quota chiffré pour advancedsearch, metadata, IIIF. Moyen partiel : API Tasks, avec clés S3 (non utilisée).",
+  "classe_quota": "aucun quota trouvé (moyen avec clé)",
+  "confiance": "moyenne",
+  "notes": "iiif.archivelab.org : échec TLS, non résolu. terms : page vide.",
+  "classeur_id": "hors 84 (ajouté)",
+  "type": "Institution",
+  "sources": [],
+  "web": [],
+  "donnees_a_revalider": true
+}

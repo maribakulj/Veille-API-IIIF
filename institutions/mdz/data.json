@@ -1,0 +1,199 @@
+{
+  "slug": "mdz",
+  "nom": "Bayerische Staatsbibliothek / MDZ",
+  "pays": "Allemagne",
+  "statut_audit": "en cours (méthode v2)",
+  "limites_documentees": [
+    {
+      "nature": "Quota par 24 h",
+      "perimetre": "Image API",
+      "valeur": "non chiffrée",
+      "fenetre": "24 h",
+      "effet": "non précisé",
+      "source": "https://www.digitale-sammlungen.de/en/interfaces",
+      "date": "2026-11-13",
+      "verification": "officielle, lue en entier"
+    },
+    {
+      "nature": "Quota par 24 h",
+      "perimetre": "OCR (téléchargements)",
+      "valeur": "non chiffrée",
+      "fenetre": "24 h",
+      "effet": "non précisé",
+      "source": "https://www.digitale-sammlungen.de/en/interfaces",
+      "date": "2026-11-13",
+      "verification": "officielle, lue en entier"
+    },
+    {
+      "nature": "Illimité",
+      "perimetre": "Presentation API",
+      "valeur": "illimité (annoncé)",
+      "fenetre": "–",
+      "effet": "–",
+      "source": "https://www.digitale-sammlungen.de/en/interfaces",
+      "date": "2026-11-13",
+      "verification": "officielle, lue en entier"
+    }
+  ],
+  "en_tetes_observes": [
+    {
+      "nom": "x-ratelimit-limit",
+      "valeur": "5001 (OCR) / 25001 (Image)",
+      "endpoint": "OCR hOCR, Image API",
+      "date": "2026-11-13",
+      "preuve": "institutions/mdz/tests/journal.log, institutions/mdz/tests/raw/"
+    },
+    {
+      "nom": "x-ratelimit-remaining",
+      "valeur": "5000 / 25000, identique entre deux appels",
+      "endpoint": "idem",
+      "date": "2026-11-13",
+      "preuve": "institutions/mdz/tests/journal.log"
+    },
+    {
+      "nom": "x-ratelimit-reset",
+      "valeur": "17 (OCR) / 3 (Image) : unité inconnue",
+      "endpoint": "idem",
+      "date": "2026-11-13",
+      "preuve": "institutions/mdz/tests/journal.log"
+    }
+  ],
+  "blocages": [],
+  "contact": "mdz@bsb-muenchen.de (contact général)",
+  "conclusion_quota": "Quota par 24 h documenté sans chiffre ; en-têtes x-ratelimit observés, non documentés, non utilisables comme compteur",
+  "classe_quota": "règle sans chiffre publié",
+  "confiance": "moyenne",
+  "notes": "Ticket tiers (sourcelibrary-v2 #5448) : demande d'IP autorisée sans réponse au 26/10 ; affirme un « 1×1 over-quota placeholder » en 200 (non vérifié) : à détecter dans la sonde.",
+  "web": [
+    {
+      "url": "https://www.digitale-sammlungen.de/en/interfaces",
+      "date": "2026-11-13",
+      "etiquette": "officielle",
+      "citation": "Please note that there is a limit to the number of requests that can be made to the Image API per 24 hours. / … OCR downloads … per 24 hours. / Access to the Presentation API is unlimited.",
+      "preuve": "institutions/mdz/sources/SHA256SUMS"
+    },
+    {
+      "url": "https://iiif.io/guides/guides/digitale-sammlungen.de/",
+      "date": "2026-11-13",
+      "etiquette": "officielle (guide IIIF)",
+      "citation": "Aucune phrase sur les limites, quotas, clés ou erreurs (lu par extraction).",
+      "preuve": "institutions/mdz/fiche.md (étape f)"
+    },
+    {
+      "url": "https://github.com/Embassy-of-the-Free-Mind/sourcelibrary-v2/issues/5448",
+      "date": "2026-10-01 → 2026-10-26",
+      "etiquette": "tiers (projet utilisateur)",
+      "citation": "« Email BSB/MDZ asking for an allowlisted IP » ; « BSB's reply … is still pending » ; « 1×1 over-quota placeholder » (2026-10-25).",
+      "preuve": "institutions/mdz/fiche.md (étape f)"
+    },
+    {
+      "url": "https://github.com/Embassy-of-the-Free-Mind/sourcelibrary-v2/issues/3886",
+      "date": "2026-08-11",
+      "etiquette": "tiers (projet utilisateur)",
+      "citation": "« undocumented but clean JSON API at digitale-sammlungen.de/api/search » (non testé, non utilisé).",
+      "preuve": "institutions/mdz/fiche.md (étape f)"
+    },
+    {
+      "url": "https://github.com/ProjectMirador/mirador/issues/4542",
+      "date": "2026-11-13",
+      "etiquette": "tiers (dépôt Mirador)",
+      "citation": "Canvases 1×1 px d'un manifeste MDZ affichées comme image d'erreur (sans lien direct avec un quota).",
+      "preuve": "institutions/mdz/fiche.md (étape f)"
+    }
+  ],
+  "sources": [
+    {
+      "url": "https://www.digitale-sammlungen.de/en/interfaces",
+      "date": "2026-11-13",
+      "etiquette": "officielle",
+      "preuve": "institutions/mdz/sources/SHA256SUMS"
+    },
+    {
+      "url": "https://www.digitale-sammlungen.de/de/schnittstellen",
+      "date": "2026-11-13",
+      "etiquette": "officielle",
+      "preuve": "institutions/mdz/sources/SHA256SUMS"
+    },
+    {
+      "url": "https://www.digitale-sammlungen.de/en/faq",
+      "date": "2026-11-13",
+      "etiquette": "officielle",
+      "preuve": "institutions/mdz/sources/SHA256SUMS"
+    },
+    {
+      "url": "https://www.digitale-sammlungen.de/de/faq",
+      "date": "2026-11-13",
+      "etiquette": "officielle",
+      "preuve": "institutions/mdz/sources/SHA256SUMS"
+    },
+    {
+      "url": "https://www.digitale-sammlungen.de/en/contact",
+      "date": "2026-11-13",
+      "etiquette": "officielle",
+      "preuve": "institutions/mdz/sources/SHA256SUMS"
+    },
+    {
+      "url": "https://www.digitale-sammlungen.de/en/download-options",
+      "date": "2026-11-13",
+      "etiquette": "officielle",
+      "preuve": "institutions/mdz/sources/SHA256SUMS"
+    },
+    {
+      "url": "https://www.digitale-sammlungen.de/en/technologies-and-software-development",
+      "date": "2026-11-13",
+      "etiquette": "officielle",
+      "preuve": "institutions/mdz/sources/SHA256SUMS"
+    },
+    {
+      "url": "https://www.digitale-sammlungen.de/de/technologien-und-softwareentwicklung",
+      "date": "2026-11-13",
+      "etiquette": "officielle",
+      "preuve": "institutions/mdz/sources/SHA256SUMS"
+    },
+    {
+      "url": "https://www.digitale-sammlungen.de/en/imprint",
+      "date": "2026-11-13",
+      "etiquette": "officielle",
+      "preuve": "institutions/mdz/sources/SHA256SUMS"
+    },
+    {
+      "url": "https://www.digitale-sammlungen.de/en/disclaimer",
+      "date": "2026-11-13",
+      "etiquette": "officielle",
+      "preuve": "institutions/mdz/sources/SHA256SUMS"
+    },
+    {
+      "url": "https://www.digitale-sammlungen.de/en/privacy-policy",
+      "date": "2026-11-13",
+      "etiquette": "officielle",
+      "preuve": "institutions/mdz/sources/SHA256SUMS"
+    },
+    {
+      "url": "https://www.digitale-sammlungen.de/en/rightsstatement-vgwort",
+      "date": "2026-11-13",
+      "etiquette": "officielle",
+      "preuve": "institutions/mdz/sources/SHA256SUMS"
+    },
+    {
+      "url": "https://www.digitale-sammlungen.de/en/search-help",
+      "date": "2026-11-13",
+      "etiquette": "officielle",
+      "preuve": "institutions/mdz/sources/SHA256SUMS"
+    },
+    {
+      "url": "https://www.digitale-sammlungen.de/en/viewer-help",
+      "date": "2026-11-13",
+      "etiquette": "officielle",
+      "preuve": "institutions/mdz/sources/SHA256SUMS"
+    },
+    {
+      "url": "https://oai.bsb-muenchen.de/doc/en/bavarian-digital-repository",
+      "date": "2026-11-13",
+      "etiquette": "officielle",
+      "preuve": "institutions/mdz/sources/SHA256SUMS"
+    }
+  ],
+  "classeur_id": "GLAM-024",
+  "type": "Institution",
+  "donnees_a_revalider": true
+}

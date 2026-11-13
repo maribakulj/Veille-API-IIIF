@@ -1,8 +1,10 @@
 #!/usr/bin/env bash
-# Régénère BENCHMARK.xlsx à partir de data/institutions.json à chaque commit.
+# À chaque commit : (1) recopie la consigne intégrale dans chaque dossier d'institution,
+# (2) valide le suivi (cases cochées = justification + preuves existantes ; règles de prudence
+# sur les journaux), (3) régénère BENCHMARK.xlsx. Un échec de (2) bloque le commit.
 # Activation (une fois) : git config core.hooksPath .githooks
-# Python : $VEILLE_PYTHON, sinon le venv local, sinon python3. Échec = commit bloqué.
 set -e
+cd "$(git rev-parse --show-toplevel)"
 PY="${VEILLE_PYTHON:-}"
 if [ -z "$PY" ]; then
   if [ -x "$HOME/.venvs/veille/bin/python" ]; then PY="$HOME/.venvs/veille/bin/python"; else PY="python3"; fi
@@ -11,5 +13,9 @@ if ! "$PY" -c "import openpyxl" 2>/dev/null; then
   echo "pre-commit : openpyxl absent pour $PY. Installer : $PY -m pip install -r requirements.txt" >&2
   exit 1
 fi
+if ! "$PY" scripts/suivi.py all; then
+  echo "pre-commit : validation du suivi en ÉCHEC : commit bloqué (corriger les cases ci-dessus)." >&2
+  exit 1
+fi
 "$PY" scripts/build_benchmark.py >/dev/null
-git add BENCHMARK.xlsx
+git add BENCHMARK.xlsx institutions/*/CONSIGNE-ET-SUIVI.md

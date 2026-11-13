@@ -1,0 +1,30 @@
+{
+  "slug": "nypl",
+  "nom": "New York Public Library",
+  "pays": "États-Unis",
+  "statut_audit": "partiel (ancienne méthode)",
+  "limites_documentees": [
+    {
+      "nature": "Quota par jeton (API v1, désactivée)",
+      "perimetre": "API Repo v1",
+      "valeur": "10 000",
+      "fenetre": "par jour",
+      "effet": "–",
+      "source": "doc api_documentation_v1 (NYPL)",
+      "date": "2026-11-13",
+      "verification": "officielle, extrait lu (page non relue en entier)"
+    }
+  ],
+  "en_tetes_observes": [],
+  "blocages": [],
+  "contact": "repoapi@nypl.org, digitaldam@nypl.org",
+  "conclusion_quota": "Quota 10 000/jour pour une API v1 désactivée (410) ; v2 non documentée trouvée.",
+  "classe_quota": "règle chiffrée (API désactivée)",
+  "confiance": "faible",
+  "notes": "iiif.nypl.org répond en Cantaloupe 5.0.7 ; info.json non testé.",
+  "classeur_id": "hors 84 (ajouté)",
+  "type": "Institution",
+  "sources": [],
+  "web": [],
+  "donnees_a_revalider": true
+}

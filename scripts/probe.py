@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Sonde prudente des endpoints IIIF / API d'une institution.
 
-Usage :  python3 scripts/probe.py scripts/config/<slug>.json [--dry-run]
+Usage :  python3 scripts/probe.py institutions/<slug>/config/<nom>.json [--dry-run]
 
 Le fichier de configuration (un par institution) liste les endpoints à tester,
 un par un. Le script applique les règles de METHODOLOGY.md, quelle que soit la
@@ -17,7 +17,8 @@ configuration :
   - une redirection vers le MÊME hôte est suivie (1 saut par défaut, `follow_redirects` dans la
     configuration), comptée dans le budget et soumise à la même pause ; vers un autre hôte : non suivie.
 Le journal (une ligne par requête, en-têtes de limite seulement, corps tronqué à
-200 octets) est ajouté à tests/<slug>.log.
+200 octets) est ajouté à institutions/<slug>/tests/journal.log ; les en-têtes complets sont
+dans institutions/<slug>/tests/raw/.
 
 Aucune requête n'est répétée en rafale : le script ne fait jamais deux requêtes
 à moins de `min_delay_s` d'intervalle, même pour un même endpoint.
@@ -93,7 +94,10 @@ def main():
     slug = cfg["slug"]
     delay = max(DEFAULT_DELAY, float(cfg.get("min_delay_s", DEFAULT_DELAY)))
     max_req = min(DEFAULT_MAX, int(cfg.get("max_requests", DEFAULT_MAX)))
-    log_path = REPO / "tests" / f"{slug}.log"
+    base = REPO / "institutions" / slug
+    if not base.is_dir():
+        sys.exit(f"dossier d'institution introuvable : {base} (créer le dossier avant de lancer la sonde)")
+    log_path = base / "tests" / "journal.log"
     blocked_hosts = set()
     stop_all = False
     last_call = {}  # hôte -> horodatage monotonic de la dernière requête
@@ -106,7 +110,8 @@ def main():
         print(f"[dry] pause {delay}s, plafond {max_req} requêtes")
         return
 
-    raw_dir = REPO / "tests" / "raw" / slug
+    raw_dir = base / "tests" / "raw"
+    log_path.parent.mkdir(parents=True, exist_ok=True)
     raw_dir.mkdir(parents=True, exist_ok=True)
     commit = subprocess.run(["git", "-C", str(REPO), "rev-parse", "--short", "HEAD"],
                             capture_output=True, text=True).stdout.strip() or "inconnu"

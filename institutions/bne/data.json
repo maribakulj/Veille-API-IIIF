@@ -1,0 +1,27 @@
+{
+  "slug": "bne",
+  "nom": "Biblioteca Nacional de España",
+  "pays": "Espagne",
+  "statut_audit": "incomplet (BDH en 403)",
+  "limites_documentees": [],
+  "en_tetes_observes": [],
+  "blocages": [
+    {
+      "date": "2026-11-13",
+      "hote": "datos.bne.es, bdh.bne.es",
+      "code": "403",
+      "nature": "lecture WebFetch",
+      "suite": "non contourné"
+    }
+  ],
+  "contact": "non trouvé",
+  "conclusion_quota": "Non vérifiable : doc BNE inaccessible à l'outil.",
+  "classe_quota": "non vérifiable",
+  "confiance": "faible",
+  "notes": "Piste : lire bdh.bne.es depuis un navigateur.",
+  "classeur_id": "hors 84 (ajouté)",
+  "type": "Institution",
+  "sources": [],
+  "web": [],
+  "donnees_a_revalider": true
+}

@@ -1,0 +1,34 @@
+{
+  "slug": "british-library",
+  "nom": "British Library",
+  "pays": "Royaume-Uni",
+  "statut_audit": "incomplet (doc BL non lue)",
+  "limites_documentees": [],
+  "en_tetes_observes": [],
+  "blocages": [
+    {
+      "date": "2026-11-13 20:35Z",
+      "hote": "iiif.bl.uk",
+      "code": "403",
+      "nature": "Microsoft-IIS, reproduit en curl depuis la machine de veille",
+      "suite": "non réessayé"
+    },
+    {
+      "date": "2026-11-13 20:33Z",
+      "hote": "api.bl.uk",
+      "code": "DNS",
+      "nature": "non résolu",
+      "suite": "–"
+    }
+  ],
+  "contact": "permissions@bl.uk (à confirmer)",
+  "conclusion_quota": "Non vérifiable : doc IIIF non lue, hôte bloqué.",
+  "classe_quota": "non vérifiable",
+  "confiance": "faible",
+  "notes": "Conditions : bl.uk/help/terms-of-use lue (CC-BY, aucun quota).",
+  "classeur_id": "hors 84 (ajouté)",
+  "type": "Institution",
+  "sources": [],
+  "web": [],
+  "donnees_a_revalider": true
+}

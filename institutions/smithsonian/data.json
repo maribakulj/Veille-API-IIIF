@@ -1,0 +1,42 @@
+{
+  "slug": "smithsonian",
+  "nom": "Smithsonian Institution (Open Access)",
+  "pays": "États-Unis",
+  "statut_audit": "partiel (clé requise)",
+  "limites_documentees": [
+    {
+      "nature": "Quota par clé api.data.gov (plateforme)",
+      "perimetre": "API api.si.edu avec clé",
+      "valeur": "1000",
+      "fenetre": "par heure",
+      "effet": "429",
+      "source": "https://api.data.gov/docs/developer-manual/ (non vérifié pour le Smithsonian)",
+      "date": "2026-11-13",
+      "verification": "plateforme api.data.gov (non vérifiée pour le Smithsonian)",
+      "classe": "plateforme, non applicable tel quel"
+    },
+    {
+      "nature": "DEMO_KEY (plateforme)",
+      "perimetre": "clé de démonstration",
+      "valeur": "30 par heure par IP, 50 par jour",
+      "fenetre": "heure / jour",
+      "effet": "429",
+      "source": "https://api.data.gov/docs/developer-manual/",
+      "date": "2026-11-13",
+      "verification": "plateforme api.data.gov (non vérifiée pour le Smithsonian)",
+      "classe": "plateforme, non applicable tel quel"
+    }
+  ],
+  "en_tetes_observes": [],
+  "blocages": [],
+  "contact": "non trouvé",
+  "conclusion_quota": "Oui sous condition : en-têtes X-RateLimit-* documentés par api.data.gov pour une clé valide ; non testés (clé non demandée).",
+  "classe_quota": "clé donne un quota (plateforme)",
+  "confiance": "faible",
+  "notes": "Clé requise : inscription sur api.data.gov, à décider par Marcel.",
+  "classeur_id": "GLAM-032",
+  "type": "Institution",
+  "sources": [],
+  "web": [],
+  "donnees_a_revalider": true
+}

@@ -1,0 +1,27 @@
+{
+  "slug": "kb-nl",
+  "nom": "Koninklijke Bibliotheek (Pays-Bas)",
+  "pays": "Pays-Bas",
+  "statut_audit": "partiel (ancienne méthode)",
+  "limites_documentees": [],
+  "en_tetes_observes": [],
+  "blocages": [
+    {
+      "date": "2026-11-13",
+      "hote": "iiif.kb.nl",
+      "code": "DNS",
+      "nature": "non résolu",
+      "suite": "IIIF non testable"
+    }
+  ],
+  "contact": "non trouvé (admin@iiif.io est celui du consortium, à ne pas confondre)",
+  "conclusion_quota": "Aucun quota trouvé pour SRU et OAI-PMH.",
+  "classe_quota": "aucun quota trouvé",
+  "confiance": "faible",
+  "notes": "IIIF non résolu : seul SRU et OAI-PMH ont été testés.",
+  "classeur_id": "hors 84 (ajouté)",
+  "type": "Institution",
+  "sources": [],
+  "web": [],
+  "donnees_a_revalider": true
+}

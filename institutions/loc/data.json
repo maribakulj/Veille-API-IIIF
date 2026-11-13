@@ -1,0 +1,105 @@
+{
+  "slug": "loc",
+  "nom": "Library of Congress",
+  "pays": "États-Unis",
+  "statut_audit": "partiel (ancienne méthode, test par famille fait)",
+  "limites_documentees": [
+    {
+      "nature": "Débit",
+      "perimetre": "JSON/YAML loc.gov",
+      "valeur": "20",
+      "fenetre": "par minute",
+      "effet": "blocage 1 h",
+      "source": "https://www.loc.gov/apis/json-and-yaml/working-within-limits/",
+      "date": "2026-11-13",
+      "verification": "officielle, extrait lu (page non relue en entier)"
+    },
+    {
+      "nature": "Débit",
+      "perimetre": "Text Services",
+      "valeur": "150",
+      "fenetre": "par minute",
+      "effet": "blocage 1 h",
+      "source": "https://www.loc.gov/apis/json-and-yaml/working-within-limits/",
+      "date": "2026-11-13",
+      "verification": "officielle, extrait lu (page non relue en entier)"
+    },
+    {
+      "nature": "Débit",
+      "perimetre": "Image Services (IIIF)",
+      "valeur": "150",
+      "fenetre": "par minute",
+      "effet": "blocage 1 h",
+      "source": "https://www.loc.gov/apis/json-and-yaml/working-within-limits/",
+      "date": "2026-11-13",
+      "verification": "officielle, extrait lu (page non relue en entier)"
+    },
+    {
+      "nature": "Débit",
+      "perimetre": "Streaming Services",
+      "valeur": "60",
+      "fenetre": "par minute",
+      "effet": "blocage 1 h",
+      "source": "https://www.loc.gov/apis/json-and-yaml/working-within-limits/",
+      "date": "2026-11-13",
+      "verification": "officielle, extrait lu (page non relue en entier)"
+    },
+    {
+      "nature": "Débit",
+      "perimetre": "Médias /storage-services/",
+      "valeur": "150",
+      "fenetre": "par minute",
+      "effet": "blocage 1 h",
+      "source": "https://www.loc.gov/apis/json-and-yaml/working-within-limits/",
+      "date": "2026-11-13",
+      "verification": "officielle, extrait lu (page non relue en entier)"
+    },
+    {
+      "nature": "Débit",
+      "perimetre": "MARCXML lccn.loc.gov",
+      "valeur": "30",
+      "fenetre": "par minute",
+      "effet": "blocage 72 h",
+      "source": "https://www.loc.gov/apis/json-and-yaml/working-within-limits/",
+      "date": "2026-11-13",
+      "verification": "officielle, extrait lu (page non relue en entier)"
+    },
+    {
+      "nature": "Recommandation logicielle",
+      "perimetre": "ensemble",
+      "valeur": "10",
+      "fenetre": "par minute",
+      "effet": "–",
+      "source": "https://www.loc.gov/legal/ (cité dans la fiche, à relire)",
+      "date": "2026-11-13",
+      "verification": "officielle, extrait lu (page non relue en entier)"
+    }
+  ],
+  "en_tetes_observes": [],
+  "blocages": [
+    {
+      "date": "2026-11-13 20:34Z",
+      "hote": "www.loc.gov",
+      "code": "403",
+      "nature": "défi Cloudflare « Just a moment », 2e requête",
+      "suite": "JSON bloqué sur 2 URL, hôte non réessayé"
+    },
+    {
+      "date": "2026-11-13",
+      "hote": "lccn.loc.gov",
+      "code": "timeout",
+      "nature": "pas de réponse à 30 s (2 essais)",
+      "suite": "non résolu"
+    }
+  ],
+  "contact": "non trouvé",
+  "conclusion_quota": "Débits chiffrés publiés par famille d'API. Aucun en-tête de limite observé ; aucun endpoint de statut documenté.",
+  "classe_quota": "limite documentée chiffrée",
+  "confiance": "moyenne",
+  "notes": "Test de dépassement non fait (règle : accord de Marcel). Image Services : une seule famille testée avec succès (200, sans en-tête).",
+  "classeur_id": "GLAM-031",
+  "type": "Institution",
+  "sources": [],
+  "web": [],
+  "donnees_a_revalider": true
+}

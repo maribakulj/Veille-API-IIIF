@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Extrait le texte lisible des pages HTML téléchargées par fetch_doc.sh.
 
-Usage : python3 scripts/extract_text.py <dossier_sources>   (ex. sources/bnf-gallica/suite3)
+Usage : python3 scripts/extract_text.py <dossier_sources>   (ex. institutions/bnf-gallica/sources/suite3)
 Écrit <dossier>/text/NN.txt (texte brut, sans scripts ni styles) pour chaque raw/NN.html,
 et affiche pour chaque page : taille du texte et phrases contenant des termes de limite,
 de quota, de robots, d'API ou de contact. Le contrôle est reproductible : même entrée,

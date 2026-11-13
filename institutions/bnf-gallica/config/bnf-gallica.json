@@ -1,0 +1,18 @@
+{
+  "slug": "bnf-gallica",
+  "min_delay_s": 10,
+  "max_requests": 15,
+  "note": "Endpoints tirés de la doc (institutions/bnf-gallica/sources/). L'hôte gallica.bnf.fr renvoie 403 anti-bot depuis 2026-11-13 20:33Z (cf. institutions/bnf-gallica/tests/journal.log) : la règle de non-réessai s'applique, ces endpoints ne sont PAS relancés tant que l'hôte est bloqué. Pause 10 s (documentée pour Gallica).",
+  "endpoints": [
+    {
+      "id": "iiif-manifeste-exemple",
+      "method": "GET",
+      "url": "https://gallica.bnf.fr/iiif/ark:/12148/btv1b550076223/manifest.json"
+    },
+    {
+      "id": "iiif-image-native-exemple",
+      "method": "GET",
+      "url": "https://gallica.bnf.fr/iiif/ark:/12148/btv1b90017179/f15/0,1900,2400,1200/full/0/native.jpg"
+    }
+  ]
+}

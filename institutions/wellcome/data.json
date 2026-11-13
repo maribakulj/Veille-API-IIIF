@@ -1,0 +1,30 @@
+{
+  "slug": "wellcome",
+  "nom": "Wellcome Collection",
+  "pays": "Royaume-Uni",
+  "statut_audit": "partiel (ancienne méthode)",
+  "limites_documentees": [
+    {
+      "nature": "Intention",
+      "perimetre": "endpoints publics",
+      "valeur": "non chiffrée (RFC 012 : « would benefit from rate limiting »)",
+      "fenetre": "–",
+      "effet": "–",
+      "source": "https://docs.wellcomecollection.org/request-for-comments-rfcs/012-api_architecture",
+      "date": "2026-11-13",
+      "verification": "officielle, lue en entier"
+    }
+  ],
+  "en_tetes_observes": [],
+  "blocages": [],
+  "contact": "non trouvé",
+  "conclusion_quota": "Aucun quota publié. API sans authentification, sans clé.",
+  "classe_quota": "aucun quota trouvé",
+  "confiance": "moyenne",
+  "notes": "Snapshot quotidien recommandé pour les moissonnages complets.",
+  "classeur_id": "GLAM-008",
+  "type": "Institution",
+  "sources": [],
+  "web": [],
+  "donnees_a_revalider": true
+}

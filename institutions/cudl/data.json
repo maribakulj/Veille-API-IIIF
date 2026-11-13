@@ -1,0 +1,54 @@
+{
+  "slug": "cudl",
+  "nom": "Cambridge University Library (CUDL)",
+  "pays": "Royaume-Uni",
+  "statut_audit": "en cours (méthode v2)",
+  "limites_documentees": [],
+  "en_tetes_observes": [],
+  "blocages": [
+    {
+      "date": "2026-11-13",
+      "hote": "cudl.lib.cam.ac.uk /terms",
+      "code": "403",
+      "nature": "anti-bot, page du site (pas un endpoint API)",
+      "suite": "API non arrêtée, manifestes testés 200"
+    }
+  ],
+  "contact": "non trouvé",
+  "conclusion_quota": "Aucun quota publié dans le README cudl-services (API publique sans authentification).",
+  "classe_quota": "aucun quota trouvé",
+  "confiance": "moyenne",
+  "notes": "Recherche Solr : interne. Métadonnées : cudl.link en DNS.",
+  "sources": [
+    {
+      "url": "https://cudl.lib.cam.ac.uk/terms",
+      "date": "2026-11-13",
+      "etiquette": "officielle (403, non lue)",
+      "preuve": "institutions/cudl/sources/FETCH.log"
+    },
+    {
+      "url": "https://cudl.lib.cam.ac.uk/help",
+      "date": "2026-11-13",
+      "etiquette": "officielle (403, non lue)",
+      "preuve": "institutions/cudl/sources/FETCH.log"
+    },
+    {
+      "url": "https://github.com/cambridge-collection/cudl-services",
+      "date": "2026-11-13",
+      "etiquette": "officielle (dépôt du projet)",
+      "preuve": "institutions/cudl/sources/raw/03.html"
+    }
+  ],
+  "web": [
+    {
+      "url": "https://apis.io/providers/university-of-cambridge/",
+      "date": "2026-11-13",
+      "etiquette": "tiers (profil d'API non officiel, Cambridge)",
+      "citation": "Mentionne des limites de débit sans chiffre pour l'API de Cambridge (non vérifié, non applicable tel quel à CUDL).",
+      "preuve": "institutions/cudl/fiche.md (étape f)"
+    }
+  ],
+  "classeur_id": "GLAM-004",
+  "type": "Institution",
+  "donnees_a_revalider": true
+}

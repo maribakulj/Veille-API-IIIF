@@ -1,0 +1,61 @@
+{
+  "slug": "edinburgh-art",
+  "nom": "University of Edinburgh Art Collection",
+  "pays": "Royaume-Uni",
+  "classeur_id": "GLAM-005",
+  "statut_audit": "en cours (méthode v2)",
+  "limites_documentees": [
+    {
+      "nature": "Autorisation préalable pour toute utilisation des images",
+      "perimetre": "images de la collection",
+      "valeur": "autorisation requise (sans chiffre)",
+      "fenetre": "–",
+      "effet": "–",
+      "verification": "officielle, lue en entier",
+      "source": "https://collections.ed.ac.uk/art/licensing",
+      "date": "2026-11-13"
+    }
+  ],
+  "en_tetes_observes": [],
+  "blocages": [],
+  "contact": "HeritageCollections@ed.ac.uk",
+  "conclusion_quota": "Aucune API ni quota publié. Usage des images sur autorisation (recherche, étude, revue) ; usage commercial et publication à négocier.",
+  "classe_quota": "aucun quota trouvé (usage sur autorisation)",
+  "confiance": "moyenne",
+  "notes": "Pas d'API documentée : le seul accès programmatique annoncé est le manifeste par icône IIIF.",
+  "sources": [
+    {
+      "url": "https://collections.ed.ac.uk/art/iiif",
+      "date": "2026-11-13",
+      "etiquette": "officielle",
+      "preuve": "institutions/edinburgh-art/sources/SHA256SUMS"
+    },
+    {
+      "url": "https://collections.ed.ac.uk/art/about",
+      "date": "2026-11-13",
+      "etiquette": "officielle",
+      "preuve": "institutions/edinburgh-art/sources/SHA256SUMS"
+    },
+    {
+      "url": "https://collections.ed.ac.uk/art",
+      "date": "2026-11-13",
+      "etiquette": "officielle",
+      "preuve": "institutions/edinburgh-art/sources/SHA256SUMS"
+    },
+    {
+      "url": "https://collections.ed.ac.uk/art/licensing",
+      "date": "2026-11-13",
+      "etiquette": "officielle",
+      "preuve": "institutions/edinburgh-art/sources/suite/SHA256SUMS"
+    },
+    {
+      "url": "https://collections.ed.ac.uk/robots.txt",
+      "date": "2026-11-13",
+      "etiquette": "officielle",
+      "preuve": "sources/robots/SHA256SUMS"
+    }
+  ],
+  "web": [],
+  "type": "Institution",
+  "donnees_a_revalider": true
+}

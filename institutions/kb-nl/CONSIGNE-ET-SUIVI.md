@@ -1,0 +1,300 @@
+# Koninklijke Bibliotheek (Pays-Bas) — consigne et suivi
+
+- **Dossier** : `institutions/kb-nl/`  ·  **Classeur de référence** : hors 84 (ajouté)  ·  **Pays** : Pays-Bas
+- **Statut d'institution** : active
+- **Dernière mise à jour du suivi** : (à renseigner à chaque modification)
+
+## Suivi par étape (à cocher, avec justification et preuves)
+
+### a) Documentation lue en entier
+> Toutes les pages de doc liées à l'API (développeurs, interfaces, conditions, FAQ, aide, mentions légales, robots.txt), téléchargées avec `scripts/fetch_doc.sh` (URL, date, SHA-256), lues en entier (`scripts/extract_text.py`).
+
+- [ ] **Pas fait**
+  - **Justification** : Passe antérieure non conforme à la méthode v2 (AUDIT-HAIKU.md) : à refaire. Le matériel déjà présent dans ce dossier est conservé comme historique.
+  - **Preuves** : 
+
+### b) Endpoints tirés de la doc
+> Liste des endpoints citée par la doc (URL, exemples). Jamais devinée. Une interdiction ou une impossibilité écrite dans la doc justifie de renoncer (citer la phrase).
+
+- [ ] **Pas fait**
+  - **Justification** : Passe antérieure non conforme à la méthode v2 (AUDIT-HAIKU.md) : à refaire. Le matériel déjà présent dans ce dossier est conservé comme historique.
+  - **Preuves** : 
+
+### c) Configuration écrite AVANT les tests
+> `config/<nom>.json` pilote `scripts/probe.py`, committée avant le lancement. Un endpoint absent de la doc mais non interdit se teste avec un script poli (identifiants issus de pages publiques ou d'exemples de la doc, pas de devinette).
+
+- [ ] **Pas fait**
+  - **Justification** : Passe antérieure non conforme à la méthode v2 (AUDIT-HAIKU.md) : à refaire. Le matériel déjà présent dans ce dossier est conservé comme historique.
+  - **Preuves** : 
+
+### d) Quota cherché dans la doc
+> Pour chaque page lue : endpoint de statut, en-têtes de limite documentés, clé ou compte donnant un quota, contact pour un volume plus élevé. Chaque réponse cite sa source.
+
+- [ ] **Pas fait**
+  - **Justification** : Passe antérieure non conforme à la méthode v2 (AUDIT-HAIKU.md) : à refaire. Le matériel déjà présent dans ce dossier est conservé comme historique.
+  - **Preuves** : 
+
+### e) Test systématique de chaque endpoint
+> Chaque endpoint documenté est testé (budget 15 requêtes par passe, pause ≥ 6 s, GET/HEAD, UA du projet). Redirections du même hôte suivies. Un 403 arrête son hôte, un 429 arrête l'institution. Seules les interdictions écrites dans la doc dispensent de tester.
+
+- [ ] **Pas fait**
+  - **Justification** : Passe antérieure non conforme à la méthode v2 (AUDIT-HAIKU.md) : à refaire. Le matériel déjà présent dans ce dossier est conservé comme historique.
+  - **Preuves** : 
+
+### f) Ce que disent les gens sur le web
+> Plaintes, discussions, présentations de l'institution, politique envers les API et les bots, blogs, GitHub, forums, listes de diffusion. Sources étiquetées (officielle / institution / utilisateur / tiers), lues, citées.
+
+- [ ] **Pas fait**
+  - **Justification** : Passe antérieure non conforme à la méthode v2 (AUDIT-HAIKU.md) : à refaire. Le matériel déjà présent dans ce dossier est conservé comme historique.
+  - **Preuves** : 
+
+### g) Crash test progressif
+> Seulement après l'audit complet (a à f) de toutes les institutions et avec l'accord de Marcel : paliers jusqu'à 2 × la limite documentée, ou 200 req/min si illimité ou sans limite documentée. Arrêt au premier 429/403/CAPTCHA.
+
+- [ ] **Pas fait**
+  - **Justification** : Passe antérieure non conforme à la méthode v2 (AUDIT-HAIKU.md) : à refaire. Le matériel déjà présent dans ce dossier est conservé comme historique.
+  - **Preuves** : 
+
+### Contrôles transversaux
+- Budget : 15 requêtes par passe · pauses ≥ 6 s · GET/HEAD seulement · UA du projet · aucun contournement. Ces contrôles sont calculés depuis le journal (voir « Contrôles automatiques »).
+
+<!-- AUTO:DEBUT -->
+## Contrôles automatiques (calculés depuis `tests/journal.log`)
+- Requêtes enregistrées : **7** (sessions de sonde : 2, maximum par session : 4)
+- Plus courte pause vers un même hôte : **6 s** (règle : ≥ 6 s)
+- Méthodes utilisées : GET (règle : GET/HEAD seulement)
+- Anomalies : aucune
+<!-- AUTO:FIN -->
+
+## Consigne intégrale
+
+<!-- CONSIGNE:DEBUT -->
+# Consigne intégrale de Marcel (source unique)
+
+Ce fichier est recopié tel quel dans le fichier `CONSIGNE-ET-SUIVI.md` de **chaque** dossier d'institution
+(par `scripts/suivi.py sync`). Il contient d'abord les consignes de Marcel, mot pour mot et dans l'ordre
+où elles ont été données, puis la méthode (`METHODOLOGY.md`) qui les applique.
+Les consignes plus récentes l'emportent sur les plus anciennes quand elles se contredisent
+(par exemple : plus de sous-agents).
+
+## 1. Consignes de Marcel (verbatim, 2026-11-13)
+
+**C1 — mission initiale**
+> je veux que tu travaille ici sur le repo veille IIIF API sur mon github, tu mettra à jour ta branche sur github à chaque nouveau commit. Je veux que tu reprennes le travail en vérifiant toutes les institutions une par une, tu dois chercher toute la doc, toutes les infos pour chacune à fond en cherchant partout, site, code, github, articles, etc. Si tu ne trouve rien sur les quotas, la doc sur les rates limit ou tout autre élément de doc tu dois trouver pourquoi ils ne la publient pas. Je veux aussi que tu testes une par une chaque API depuis ici de manière très prudente pour essayer de voir si elles annoncent les rate limit avec des appels qui suivent la doc, si l'API les annonce quand on les appelle, etc. Je veux que tu lance une boucle et des sous agents haiku pour aller plus vite et tu dois continuer la boucle jusqu'à ce que chaque institution ait été vérifiée intégralement. Pour ça chaque agent et sous agent doit tester une par une à fond
+
+*(Remplacée par C9 : plus de sous-agents, tout est fait en direct, une institution à la fois.)*
+
+**C2 — traçabilité**
+> il faut que tout soit vérifiable et documenté et puisse être refait
+
+**C3 — étape f) (web)**
+> ou tu dois rechercher sur le net si des gens parlent de quotas, s'en plaignent, etc, s'il y a des présentations qui en parlent venant de l'institution, s'ils parlent de leur politique vis à vis des API, des bots, etc, tout ce qui est relatif à l'usage des api dans cette institution sur le web
+
+**C4 — recherche exhaustive**
+> je ne veux pas que tu t'arrêtes là, tu dois scanner tout le site de la bayerische pour trouver et tu dois chercher sur internet s'il y a des gens qui en parlent
+
+**C5 — crash test (étape g)**
+> une sorte de crash test pour voir jusqu'ou on peut aller, progressivement
+> avant de se faire bloquer (sans abuser non plus et lancer 1000 requetes/min), on fixe un seuil à 200/min, notamment pour voir si quand c'est illimité ça l'est vraiment, evidemment on ne fait ça qu'une fois que toute l'appli a été bien testée et le dossie prêt pour éviter de se faire bannir avant d'avoir finit l'audit de l'institution
+> *(précisé ensuite : plafond « 2 × la limite documentée » si une limite est documentée ; 200 req/min si annoncé illimité ou sans limite documentée)*
+
+**C6 — périmètre et ordre**
+> je veux les 84 dans l'ordre, avec la méthode complète, une par une
+> saute Gallica, Gallica c'est moi donc pas besoin
+
+**C7 — reprise après audit de Haiku**
+> je veux que tu regarde tout ce qu'a fait Haiku et que tu vérifie s'il a bien suivi les consignes, si non, tu recommence et tu refait en suivant la méthode, il faut que ce soit un par un en suivant toute la méthode de bout en bout
+
+**C8 — couverture des tests**
+> pour chaque institution tout doit être testé systématiquement, toutes les consignes doivent être suivies, si par contre dans la doc on te dit que c'est interdit ou pas possible tu laisse tomber, mais si ce n'est pas écrit tu teste avec un script adapté en suivant la doc ou s'il n'y en a pas en faisant des scripts polis
+
+**C9 — qualité et méthode de travail**
+> t'es sûr que toutes les données pertinentes y figureront et que le classeur est bien fait en suivant la consigne ?
+> tout doit être carré et sourcé
+> ton idée de base était pas mieux ? *(→ deux plafonds pour le crash test)*
+> pose toi et réflechis à la meilleur méthode pour ma consiggne *(→ une institution à la fois, pas de sous-agents, méthode v2)*
+
+**C10 — le classeur Excel**
+> je veux qu'il y en ai un dans le repo qui se mette à jour automatiquement avec toutes les infos rajoutées au fur et à mesure, je veux un fichier propre, avec des graphiques pertinents, toutes les infos pertinentes, etc
+
+**C11 — dossiers et suivi (cette consigne)**
+> je veux que tu crée un dossier par institution, dans chaque dossier il doit y avoir un fichier md avec toute l'intégralité de la consigne et à chaque étape tu dois cocher si ça a été fait avec justification
+> et evidemment tout le travail doit être fait pour chaque institution dans le dossier correspondant, sans casser la ci du fichier excel qui doit se mettre à jour automatiquement
+
+## 2. Règles de fonctionnement qui en découlent
+
+- Tout le travail d'une institution se fait **dans son dossier** `institutions/<slug>/` : fiche, sources, tests, configurations, données.
+- Chaque étape a) à g) est **cochée ou non, avec une justification et des preuves** dans `CONSIGNE-ET-SUIVI.md`. Une case cochée sans justification ou sans preuve existante bloque le commit (`scripts/suivi.py validate`).
+- Le classeur `BENCHMARK.xlsx` est régénéré à chaque commit à partir des dossiers d'institutions.
+- Si la doc dit qu'un test est interdit ou impossible : on y renonce, en citant la phrase. Si ce n'est pas écrit : on teste, avec un script adapté à la doc, ou à défaut avec un script poli (pause ≥ 6 s, User-Agent honnête, GET/HEAD, budget de 15 requêtes par passe, aucune énumération ni devinette d'identifiants : les identifiants viennent de pages publiques ou d'exemples de la doc).
+- Aucun contournement : pas de faux User-Agent, pas de changement d'IP, pas de compte d'autrui.
+- Les décisions de Marcel s'appliquent par institution : **BnF Gallica écartée**, **BnF OpenAPI abandonnée**.
+
+---
+
+# Méthode (METHODOLOGY.md, recopiée)
+
+# Méthode de la veille — quotas et rate limits des API IIIF
+
+Objectif : pour chaque institution de `institutions.csv`, savoir (1) ce que la
+documentation publique dit des quotas et limites de débit, (2) si l'API annonce
+ses limites quand on l'appelle normalement, (3) si la réponse est absente, et
+pourquoi quand elle l'est.
+
+## Règles de prudence (non négociables)
+
+- **Lecture seule** : uniquement `GET` (et `HEAD` si utile). Aucun POST, aucune
+  écriture, aucun formulaire.
+- **Endpoints publics documentés** uniquement. Pas de devinette de chemins
+  hors doc, pas de parcours d'identifiants (brute force, énumération).
+- **Pause ≥ 5 s** entre deux requêtes vers un même hôte (≥ 10 s pour
+  gallica.bnf.fr et openapi*.bnf.fr, qui ont déjà coupé des connexions après une
+  rafale).
+- **Budget ≤ 15 requêtes par institution** pour les tests d'appel. La recherche
+  documentaire (web) n'est pas comptée.
+- **Arrêt immédiat** sur 429, 503, 403 répété, connexion coupée ou captcha :
+  on consigne le code, les en-têtes (`Retry-After`, `X-RateLimit-*`,
+  `RateLimit-*`, `nextAccessTime`…) et on n'insiste pas.
+- **Pas de contournement** : on n'usurpe pas d'User-Agent de navigateur pour
+  passer un blocage, on ne fait pas tourner d'IP, on n'utilise pas de compte qui
+  n'est pas celui du projet. Un blocage est une donnée à consigner.
+- **User-Agent honnête** : `VeilleAPIIIF/0.1 (veille documentaire; github.com/maribakulj/Veille-API-IIIF)`.
+- **Aucune donnée personnelle** ni identifiant ne doit apparaître dans les
+  fichiers du dépôt. Les réponses sont résumées (en-têtes + statut + 200 octets
+  de corps au maximum), jamais recopiées en entier.
+
+## Distinguer quatre choses (à écrire séparément dans chaque fiche)
+
+- **Documenté** : la doc officielle annonce une limite, avec URL, date et citation exacte.
+- **Observé** : une réponse 429 (ou un en-tête `Retry-After`, `X-RateLimit-*`, `RateLimit-*`) a été reçue lors de nos appels. Seul ce cas établit un mécanisme de limitation.
+- **Accès refusé à ce client (403 anti-bot)** : 403 ou page de défi (Cloudflare « Just a moment », IIS 403) reçu dès la 1re ou la 2e requête. Ce n'est **pas** un quota : c'est un refus d'accès à notre client. Ne jamais l'écrire comme « limite de débit ».
+- **Non vérifié** : tout le reste. Une limite documentée mais jamais observée reste « documentée, non vérifiée ».
+
+Un 403 ne se contourne pas (pas de changement d'User-Agent vers un navigateur, pas de changement d'IP). On consigne, on arrête pour cet hôte, et on note ce qui devrait être refait autrement (navigateur de l'utilisateur, demande écrite à l'institution).
+
+## Déroulé pour une institution
+
+1. **Documentation** : chercher la doc officielle de l'API (site de
+   l'institution, portail développeurs, GitHub, wiki, page « terms of use »,
+   « fair use », « usage policy », « conditions d'utilisation »). Pour chaque
+   source, noter l'URL, la date de consultation et la phrase exacte qui parle de
+   quota / limite / débit / fréquence, ou son absence.
+2. **Recherche élargie** si la doc officielle est vide ou muette : articles,
+   billets de blog, issues GitHub, forums (IIIF Slack/Discourse, listes),
+   archives Wayback (`ia_find_snapshots`). Noter les termes cherchés.
+3. **Tests** (≤ 15 requêtes) : manifeste, image info.json, une requête de
+   recherche si documentée, puis un petit nombre d'appels répétés espacés pour
+   voir si des en-têtes de quota apparaissent. Consigner pour chaque appel :
+   horodatage UTC, URL, statut, en-têtes pertinents, taille, délai depuis
+   l'appel précédent.
+4. **Pourquoi pas publié ?** Si aucun quota n'est annoncé nulle part : chercher
+   une explication (politique de l'institution, mention d'une « fair use » sans
+   chiffre, API en beta, débit « raisonnable » non chiffré, politique de
+   l'hébergeur…). Distinguer ce qui est **trouvé** (avec source) de ce qui est
+   **supposé** (étiqueté « hypothèse »).
+5. **Fiche** : remplir `TEMPLATE.md` dans `institutions/<slug>.md`.
+
+## Format des fichiers
+
+- `institutions/<slug>.md` : une fiche par institution (gabarit `TEMPLATE.md`).
+- `tests/<slug>.log` : journal brut des requêtes (horodatage, URL, statut,
+  en-têtes pertinents), une ligne par requête.
+- `REPORT.md` : tableau de synthèse, mis à jour à la fin de chaque lot.
+
+## Statut d'une institution
+
+- `à faire` → `en cours` → `vérifiée` (fiche complète, tests faits ou arrêtés
+  pour une raison écrite) → `synthétisée` (ligne dans REPORT.md).
+- Une institution n'est « vérifiée intégralement » que si la doc, la recherche
+  élargie, les tests et la question « pourquoi pas publié ? » sont tous
+  remplis.
+
+## Méthode v2 (validée par Marcel le 2026-11-13) — checklist obligatoire
+
+Une institution n'est « vérifiée » que si TOUTES les étapes ont leur preuve dans le dépôt.
+Une étape non faite reste « non faite », et l'institution reste « incomplète ».
+
+**Ordre et parallélisme** : une institution à la fois, dans l'ordre de `institutions.csv`.
+Au plus deux agents en parallèle, sur deux institutions différentes, chacun n'écrit que
+dans son propre dossier. Aucun agent n'écrit dans un journal ou une fiche qu'un autre traite.
+Les journaux ne sont jamais réécrits : on ajoute, on ne remplace pas.
+
+**a) Doc lue en entier.** Toutes les pages de doc liées à l'API (développeurs, interfaces,
+conditions d'utilisation, FAQ, aide, mentions légales), lues en entier. Chaque page est
+sauvegardée dans `sources/<slug>/` avec URL, date UTC et empreinte SHA-256, et la fiche
+cite le fichier de preuve.
+
+**b) Endpoints tirés de la doc.** La liste des endpoints vient de la doc (citée). Jamais devinée.
+
+**c) Configuration écrite AVANT les tests.** `scripts/config/<slug>.json` liste les endpoints
+et pilote `scripts/probe.py`. Chaque requête produit un fichier d'en-têtes bruts dans `tests/raw/<slug>/`.
+
+**d) Recherche de quota dans la doc.** Pour chaque source lue : endpoint de statut, en-têtes
+de limite documentés (nom exact), clé ou compte donnant un quota, contact pour un volume plus
+élevé. Chaque réponse cite sa source.
+
+**e) Test de chaque endpoint.** Même après un 403 sur un autre endpoint de la même institution.
+Un 403 arrête son hôte, un 429 arrête l'institution et prévient Marcel. Le test de dépassement
+(provoquer un 429 pour lire `Retry-After`) n'est fait qu'avec l'accord explicite de Marcel.
+
+**f) Ce que disent les gens sur le web.** Recherche sur le net de tout ce qui concerne l'usage
+des API de l'institution : plaintes ou questions sur les quotas, blocages de bots, présentations
+de l'institution sur sa politique d'API, billets de blog, issues GitHub, forums, listes
+de diffusion, réseaux professionnels, publications de l'institution sur ses API. Chaque
+source est citée (URL, date, étiquette : officielle / présentation de l'institution /
+utilisateur / tiers). Les noms de personnes privées ne sont pas reproduits.
+
+**Vérification finale (par l'orchestrateur)** : contrôle que chaque étape a son fichier de
+preuve. Sinon l'institution reste « incomplète ».
+
+**g) Crash test progressif (jusqu'où peut-on aller).** Étape ajoutée le 2026-11-13 sur
+demande de Marcel. Elle provoque volontairement des blocages depuis l'IP de Marcel : elle ne
+se lance qu'après la fin de l'agent de l'institution, jamais en parallèle, et jamais sur un
+hôte déjà bloqué en 403 anti-bot.
+
+- **Plafond selon le cas** (retenu par Marcel le 2026-11-13) :
+  - API à **limite documentée** : paliers jusqu'à **2 × la limite documentée**, au plus.
+    Au-delà, on n'apprend rien de plus : la limite est déjà connue.
+  - API **annoncée illimitée** ou **sans limite documentée** : paliers jusqu'à **200 req/min**,
+    pour vérifier que l'annonce « illimité » tient vraiment.
+  Le plafond ne se dépasse jamais. Il porte sur toutes les requêtes de l'IP de Marcel vers
+  l'hôte, pas par agent.
+- **Paliers** : on part de 1/3 de la limite documentée (ou 6 req/min sans limite documentée),
+  puis on monte par paliers jusqu'au plafond du cas : 1/3, 2/3, 1×, 1,5×, 2× (limite
+  documentée), ou 5×, 10×, 50×, 200 req/min (API illimitée ou sans limite documentée). Chaque palier dure au moins 3 minutes et envoie des
+  requêtes régulièrement espacées (pas de rafale).
+- **Ordre** : le crash test n'est lancé qu'une fois l'audit complet de l'institution terminé
+  (étapes a à f, dossier prêt). Il ne doit pas risquer de bannir l'IP avant la fin de l'audit.
+- **Arrêt immédiat** au premier 429, CAPTCHA ou 403 anti-bot. On consigne le palier, l'heure, les
+  en-têtes complets (`Retry-After`, `X-RateLimit-*`, `RateLimit-*`) et le corps tronqué.
+- **Attente** : après un blocage, on n'envoie rien vers cet hôte pendant au moins
+  `Retry-After` (ou, à défaut, la durée annoncée par la doc, ou 1 h), puis on note si
+  l'hôte répond à nouveau. Aucune reprise pendant le blocage (c'est la règle de la LoC :
+  le compteur repart à zéro si l'on insiste).
+- **Journal** : chaque palier dans `tests/crash/<slug>.log` (ajout seulement), avec le
+  nombre de requêtes, la durée et le résultat. La configuration du test est committée dans
+  `scripts/config/<slug>-crash.json` avant le lancement.
+- **Accord** : Marcel est prévenu avant chaque institution (l'IP de son Mac sera bloquée
+  pendant la durée du blocage). Pas de crash test sur MARCXML de la LoC (blocage 72 h) sans
+  accord explicite à part.
+- **Résultat** : une ligne dans la fiche : « seuil observé entre palier X et Y, en-tête Z »,
+  ou « aucun blocage jusqu'à 2 × la limite documentée » (API limitée), ou « aucun blocage
+  jusqu'à 200 req/min » (API illimitée). Un test « illimité » n'est pas une preuve
+  d'illimitation au-delà de 200 req/min.
+
+## Règles ajoutées après l'audit du 2026-11-13 (voir AUDIT-HAIKU.md)
+
+- Le budget de 15 requêtes s'applique **par passe** d'une institution (un déroulé complet de la méthode). Les anciennes passes restent dans leurs journaux, sans être comptées.
+- Aucune étape n'est marquée « non applicable » sans citer la phrase de la doc qui la justifie.
+- Aucune fiche n'est marquée « vérifiée » avant que a) à f) aient chacune un fichier de preuve contrôlé.
+- `data/institutions.json` n'est alimenté qu'à partir de la fiche relue de l'institution, jamais de mémoire.
+- Le travail se fait une institution à la fois, sans sous-agent, dans l'ordre du classeur de référence (`data/perimetre.csv`).
+
+
+## Disposition du dépôt et règle de couverture des tests (2026-11-13, consignes C8 et C11)
+
+- **Un dossier par institution** : `institutions/<slug>/` contient tout son travail (fiche, `data.json`, `sources/`, `config/`, `tests/`) et `CONSIGNE-ET-SUIVI.md`, où **chaque étape a) à g) est cochée ou non, avec une justification et des preuves**.
+- Une case cochée sans justification ou sans preuve existante bloque le commit (`scripts/suivi.py validate`, crochet pre-commit). `BENCHMARK.xlsx` est régénéré à chaque commit depuis ces dossiers.
+- **Couverture des tests** : tout endpoint documenté est testé. **Seule une interdiction ou une impossibilité écrite dans la doc** (citation à l'appui) dispense de tester. Si rien n'est écrit : on teste, avec un script adapté à la doc ; si la doc n'en décrit pas, avec un script poli (pause ≥ 6 s, UA du projet, GET/HEAD, budget de 15 requêtes par passe, identifiants issus de pages publiques ou d'exemples de la doc, jamais énumérés ni devinés).
+- La sonde suit une redirection du même hôte (comptée dans le budget). Plusieurs passes sont possibles : chacune a son propre budget de 15 requêtes et sa configuration committée avant lancement.
+<!-- CONSIGNE:FIN -->

@@ -1,0 +1,119 @@
+{
+  "slug": "bodleian",
+  "nom": "Bodleian Libraries (Oxford)",
+  "pays": "Royaume-Uni",
+  "statut_audit": "méthode v2 complète sauf g (crash test après audit global)",
+  "limites_documentees": [
+    {
+      "nature": "Règle explicite (sans chiffre)",
+      "perimetre": "moissonnage d'un nombre important de manifestes",
+      "valeur": "prévenir l'équipe avant",
+      "fenetre": "–",
+      "effet": "non précisé",
+      "verification": "officielle, lue en entier",
+      "source": "https://digital.bodleian.ox.ac.uk/developer/iiif/",
+      "date": "2026-11-13"
+    }
+  ],
+  "en_tetes_observes": [],
+  "blocages": [],
+  "contact": "digital-bodleian@bodleian.ox.ac.uk",
+  "conclusion_quota": "Aucun quota chiffré ni en-tête. Prévenir avant un moissonnage important. La Bodleian déclare subir un scraping qui dégrade ses sites et envisage des mesures techniques.",
+  "classe_quota": "aucun quota trouvé (règle de contact, menace de mesures techniques)",
+  "confiance": "moyenne",
+  "notes": "Le billet 2026-10-01 concerne le dépôt ORA, pas Digital Bodleian. iiif.bodleian robots.txt : 400. Poster lu visuellement.",
+  "sources": [
+    {
+      "url": "https://digital.bodleian.ox.ac.uk/developer/",
+      "date": "2026-11-13",
+      "etiquette": "officielle",
+      "preuve": "institutions/bodleian/sources/SHA256SUMS"
+    },
+    {
+      "url": "https://digital.bodleian.ox.ac.uk/developer/iiif/",
+      "date": "2026-11-13",
+      "etiquette": "officielle",
+      "preuve": "institutions/bodleian/sources/SHA256SUMS"
+    },
+    {
+      "url": "https://digital.bodleian.ox.ac.uk/developer/data/",
+      "date": "2026-11-13",
+      "etiquette": "officielle",
+      "preuve": "institutions/bodleian/sources/SHA256SUMS"
+    },
+    {
+      "url": "https://digital.bodleian.ox.ac.uk/terms/",
+      "date": "2026-11-13",
+      "etiquette": "officielle",
+      "preuve": "institutions/bodleian/sources/SHA256SUMS"
+    },
+    {
+      "url": "https://digital.bodleian.ox.ac.uk/faq/",
+      "date": "2026-11-13",
+      "etiquette": "officielle",
+      "preuve": "institutions/bodleian/sources/SHA256SUMS"
+    },
+    {
+      "url": "https://digital.bodleian.ox.ac.uk/robots.txt",
+      "date": "2026-11-13",
+      "etiquette": "officielle",
+      "preuve": "institutions/bodleian/sources/suite/SHA256SUMS"
+    },
+    {
+      "url": "https://iiif.bodleian.ox.ac.uk/robots.txt",
+      "date": "2026-11-13",
+      "etiquette": "officielle (400)",
+      "preuve": "institutions/bodleian/sources/suite/SHA256SUMS"
+    },
+    {
+      "url": "https://blogs.bodleian.ox.ac.uk/digital/2026/10/01/implementing-our-ai-policy-hypothetical-use-cases/",
+      "date": "2026-11-13",
+      "etiquette": "institution (blog)",
+      "preuve": "institutions/bodleian/sources/blog-ia/SHA256SUMS"
+    },
+    {
+      "url": "http://www.bodleian.ox.ac.uk/sites/default/files/bodreader/documents/media/bodleian-libraries-ai-policy.pdf",
+      "date": "2026-11-13",
+      "etiquette": "institution (politique IA)",
+      "preuve": "institutions/bodleian/sources/poster/SHA256SUMS"
+    },
+    {
+      "url": "https://zenodo.org/records/16744631",
+      "date": "2026-11-13",
+      "etiquette": "institution (poster LIBER 2025)",
+      "preuve": "institutions/bodleian/sources/poster/SHA256SUMS"
+    }
+  ],
+  "web": [
+    {
+      "url": "https://zenodo.org/records/16744631",
+      "date": "2025-07",
+      "etiquette": "institution (poster LIBER 2025)",
+      "citation": "« Our websites are grinding to a halt » ; « Web scraping is bringing our websites to a crawl » ; « Companies & scrapers are ignoring robots.txt » ; « How do we limit bots without losing human users? »",
+      "preuve": "institutions/bodleian/sources/poster/liber2025.pdf"
+    },
+    {
+      "url": "https://blogs.bodleian.ox.ac.uk/digital/2026/10/01/implementing-our-ai-policy-hypothetical-use-cases/",
+      "date": "2026-10-01",
+      "etiquette": "institution (blog) — portée : dépôt ORA",
+      "citation": "« avoiding the unrestricted, unannounced harvesting that has caused problems for the repository in the past. (This includes AI bots that ignore normal usage limits.) »",
+      "preuve": "institutions/bodleian/sources/blog-ia/text/01.txt"
+    },
+    {
+      "url": "http://www.bodleian.ox.ac.uk/sites/default/files/bodreader/documents/media/bodleian-libraries-ai-policy.pdf",
+      "date": "2026",
+      "etiquette": "institution (politique IA)",
+      "citation": "« we may apply technical, contractual or other measures to manage these risks while preserving legitimate research and educational use of collections. »",
+      "preuve": "institutions/bodleian/sources/poster/bodleian-ai-policy.txt"
+    },
+    {
+      "url": "https://groups.google.com/g/iiif-discuss/c/Z3GVdj6s61w",
+      "date": "2017-11-13",
+      "etiquette": "institution (message équipe Digital Bodleian), ancien, extraits",
+      "citation": "« even a 500ms delay between requests would help moderate traffic » ; « We would like to avoid automated throttling of our connections if at all possible »",
+      "preuve": "institutions/bodleian/fiche.md (étape f)"
+    }
+  ],
+  "classeur_id": "GLAM-002",
+  "type": "Institution"
+}

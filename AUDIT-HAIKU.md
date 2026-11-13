@@ -31,15 +31,15 @@ méthode v2.
 | 2 | **Étape a) non faite** pour 20 institutions : aucune page de doc sauvegardée, aucune empreinte, lectures par résumé d'outil | `sources/` n'existe que pour 6 institutions ; 9 fiches citent « en résumé » ou « tronqué » |
 | 3 | **Étape f) (web) absente ou minimale** pour les 20 institutions de la première passe | aucune section dédiée dans les fiches |
 | 4 | **Configuration écrite après les tests**, pas avant, pour les 20 institutions : les `scripts/config/*.json` ont été reconstitués pour documenter des requêtes déjà faites | historique Git des configurations |
-| 5 | **Adresses devinées** (interdit par l'étape b) : Wellcome `image/v2/…` (400), MDZ `/iiif/` (404, issue du CSV), KB-DK URL « reconstituées », EAP `about-eap` et `terms` (404), Édimbourg `/art/terms` (404) | fiches wellcome, kb-dk ; tests/mdz.log ; sources/eap-bl, edinburgh-art |
+| 5 | **Adresses devinées** (interdit par l'étape b) : Wellcome `image/v2/…` (400), MDZ `/iiif/` (404, issue du CSV), KB-DK URL « reconstituées », EAP `about-eap` et `terms` (404), Édimbourg `/art/terms` (404) | fiches wellcome, kb-dk ; institutions/mdz/tests/journal.log ; institutions/eap-bl/sources, edinburgh-art |
 | 6 | **Données du classeur saisies de mémoire** : `data/institutions.json` a été alimenté à partir de rapports de conversation, pas relu fiche par fiche | commit ae3b5b9 |
-| 7 | **`institutions/eap-bl.md` n'existe pas** ; `institutions/edinburgh-art.md` ne contient que la section ajoutée, sans en-tête de fiche | `ls institutions/` |
+| 7 | **`institutions/eap-bl.md` n'existe pas** ; `institutions/edinburgh-art/fiche.md` ne contient que la section ajoutée, sans en-tête de fiche | `ls institutions/` |
 
 ### Écarts de prudence
 
 | # | Écart | Preuve |
 |---|---|---|
-| 8 | **Budget de 15 requêtes dépassé** : Bodleian 25 requêtes (13 de l'agent + 12 de ma relance), MDZ 16 | journaux `tests/bodleian.log`, `tests/mdz.log` |
+| 8 | **Budget de 15 requêtes dépassé** : Bodleian 25 requêtes (13 de l'agent + 12 de ma relance), MDZ 16 | journaux `institutions/bodleian/tests/journal.log`, `institutions/mdz/tests/journal.log` |
 | 9 | **Test hors dépôt** : MDZ a été testé avec `mdz-nouveaux.json`, configuration non committée | fiche MDZ, section « Correction » |
 | 10 | LoC : plafond de 12 requêtes de la consigne dépassé (13) | rapport de l'agent LoC |
 
@@ -76,5 +76,5 @@ méthode v2.
 
 ## Décisions de Marcel après l'audit
 
-- **BnF Gallica : écartée** (2026-11-13). C'est l'institution de Marcel, l'audit n'est pas nécessaire. Les sources déjà téléchargées restent dans `sources/bnf-gallica/` à titre d'historique, sans être poursuivies.
+- **BnF Gallica : écartée** (2026-11-13). C'est l'institution de Marcel, l'audit n'est pas nécessaire. Les sources déjà téléchargées restent dans `institutions/bnf-gallica/sources/` à titre d'historique, sans être poursuivies.
 - **BnF OpenAPI : abandonnée** (2026-11-13, déjà décidé).

@@ -1,42 +1,35 @@
 #!/usr/bin/env python3
-"""Génère BENCHMARK.xlsx à partir de data/institutions.json.
+"""Génère BENCHMARK.xlsx à partir des dossiers d'institutions.
 
-Règles :
-- Aucune valeur n'est saisie dans le classeur : tout vient de data/institutions.json.
-- Chaque preuve citée (fichier du dépôt) est VÉRIFIÉE sur le disque : OUI / NON.
-- Une limite n'est comptée comme « documentée chiffrée » que si sa vérification est
-  « officielle » ; les extraits tiers ou non vérifiés sont listés à part.
+Sources (rien n'est saisi dans le classeur) :
+  institutions/<slug>/data.json              données structurées (limites, en-têtes, blocages, sources, web)
+  institutions/<slug>/CONSIGNE-ET-SUIVI.md   étapes a à g : case, justification, preuves
+Chaque preuve citée est VÉRIFIÉE sur le disque. Une limite n'est comptée comme « officielle
+chiffrée » que si sa vérification est « officielle », qu'elle a un chiffre, que l'institution est
+active, que l'étape d) est cochée et que les données ne sont pas marquées « à revalider ».
 
 Usage : python3 scripts/build_benchmark.py   (nécessite openpyxl)
 Sortie : BENCHMARK.xlsx à la racine du dépôt.
 """
-import json
 import subprocess
 import sys
 from collections import Counter
 from datetime import datetime, timezone
 from pathlib import Path
 
-from openpyxl import Workbook
-from openpyxl.chart import BarChart, PieChart, Reference
-from openpyxl.chart.label import DataLabelList
-from openpyxl.styles import Alignment, Font, PatternFill
-from openpyxl.utils import get_column_letter
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+import suivi  # noqa: E402
+
+from openpyxl import Workbook  # noqa: E402
+from openpyxl.chart import BarChart, PieChart, Reference  # noqa: E402
+from openpyxl.chart.label import DataLabelList  # noqa: E402
+from openpyxl.styles import Alignment, Font, PatternFill  # noqa: E402
+from openpyxl.utils import get_column_letter  # noqa: E402
 
 REPO = Path(__file__).resolve().parent.parent
-DATA = REPO / "data" / "institutions.json"
 OUT = REPO / "BENCHMARK.xlsx"
-
-ETAPES = [
-    ("a_doc_lue", "a) Doc lue en entier"),
-    ("b_endpoints_doc", "b) Endpoints tirés de la doc"),
-    ("c_config_avant_tests", "c) Configuration avant tests"),
-    ("d_quota_dans_doc", "d) Quota dans la doc"),
-    ("e_tests_endpoints", "e) Test des endpoints"),
-    ("f_web", "f) Ce que disent les gens (web)"),
-    ("g_crash_test", "g) Crash test"),
-]
-ETAPES_AUDIT = ETAPES[:6]  # a à f comptées ; g après l'audit complet
+ETAPES = [(c, f"{c}) {t}") for c, t, _ in suivi.ETAPES]
+ETAPES_AUDIT = "abcdef"
 
 VERT = PatternFill("solid", fgColor="C6EFCE")
 ORANGE = PatternFill("solid", fgColor="FFEB9C")
@@ -47,47 +40,58 @@ TITRE = Font(bold=True, size=14, color="1F3A5F")
 BLANC_GRAS = Font(bold=True, color="FFFFFF")
 
 
-def couleur_etape(texte):
-    t = (texte or "").lower()
-    if t.startswith("fait"):
-        return VERT
-    if t.startswith(("partiel", "bloqué", "incomplet")):
-        return ORANGE
-    if t.startswith("non applicable") or t.startswith("non (abandonnée)"):
-        return GRIS
-    return ROUGE
+# ------------------------------------------------------------------ chargement
+def charger():
+    """Liste de dicts : data.json + 'suivi' (statut, étapes) + 'preuves' vérifiées."""
+    out = []
+    for slug in suivi.slugs():
+        d = suivi.lire_data(slug)
+        d.setdefault("slug", slug)
+        s = suivi.lire_suivi(slug)
+        statut, etapes = s if s else ("active", {})
+        d["statut_institution"] = statut
+        d["etapes"] = etapes
+        pre = []
+        for code, (_e, _j, preuves) in etapes.items():
+            for p in preuves:
+                pre.append((code, p, (REPO / p).exists()))
+        d["preuves"] = pre
+        out.append(d)
+    out.sort(key=lambda d: (d.get("classeur_id", "~") if str(d.get("classeur_id", "")).startswith("GLAM-") else "~~" + d["slug"]))
+    return out
 
 
-def est_officielle_verifiee(lim):
-    v = str(lim.get("verification", "")).lower()
-    return v.startswith("officielle")
+def etat(d, code):
+    return d["etapes"].get(code, ("?", "", []))[0]
 
 
-def a_un_chiffre(lim):
-    return any(ch.isdigit() for ch in str(lim.get("valeur", "")))
+def libelle_etat(e):
+    return {"x": "fait", " ": "pas fait", "~": "sans objet (décision de Marcel)"}.get(e, "non renseigné")
 
 
-def score(inst):
-    cl = inst.get("checklist", {})
-    return sum(1 for k, _ in ETAPES_AUDIT if str(cl.get(k, "")).lower().startswith("fait"))
+def couleur(e):
+    return {"x": VERT, " ": ROUGE, "~": GRIS}.get(e, ROUGE)
 
 
-def preuves_verifiees(inst):
-    """Retourne (ok, total, détail) en vérifiant chaque chemin sur le disque."""
-    detail = []
-    for etape, chemins in (inst.get("preuves") or {}).items():
-        for c in chemins:
-            existe = (REPO / c).exists()
-            detail.append((etape, c, existe))
-    ok = sum(1 for _, _, e in detail if e)
-    return ok, len(detail), detail
+def score(d):
+    return sum(1 for c in ETAPES_AUDIT if etat(d, c) == "x")
 
 
+def actif(d):
+    return d["statut_institution"] == "active"
+
+
+def limite_comptee(d, lim):
+    return (actif(d) and etat(d, "d") == "x" and not d.get("donnees_a_revalider")
+            and str(lim.get("verification", "")).lower().startswith("officielle")
+            and any(ch.isdigit() for ch in str(lim.get("valeur", ""))))
+
+
+# ------------------------------------------------------------------ utilitaires feuille
 def entete(ws, ligne, valeurs, largeurs=None):
     for i, v in enumerate(valeurs, start=1):
         c = ws.cell(row=ligne, column=i, value=v)
-        c.fill = ENTETE
-        c.font = BLANC_GRAS
+        c.fill, c.font = ENTETE, BLANC_GRAS
         c.alignment = Alignment(wrap_text=True, vertical="center")
     if largeurs:
         for i, w in enumerate(largeurs, start=1):
@@ -95,14 +99,14 @@ def entete(ws, ligne, valeurs, largeurs=None):
     ws.freeze_panes = ws.cell(row=ligne + 1, column=1)
 
 
-def ecrire_lignes(ws, debut, lignes):
+def ecrire(ws, debut, lignes):
     for n, vals in enumerate(lignes, start=debut):
         for c, v in enumerate(vals, start=1):
             ws.cell(row=n, column=c, value=v).alignment = Alignment(wrap_text=True, vertical="top")
     return debut + len(lignes)
 
 
-def version_depot():
+def sha():
     try:
         return subprocess.run(["git", "-C", str(REPO), "rev-parse", "--short", "HEAD"],
                               capture_output=True, text=True, check=True).stdout.strip()
@@ -110,234 +114,218 @@ def version_depot():
         return "inconnu"
 
 
-def feuille_tableau_de_bord(wb, donnees, sha):
+# ------------------------------------------------------------------ feuilles
+def tableau_de_bord(wb, D, commit):
     ws = wb.active
     ws.title = "Tableau de bord"
     ws["A1"] = "BENCHMARK IIIF — quotas et politiques d'accès des API (généré)"
     ws["A1"].font = TITRE
-    ws["A2"] = (f"Généré le {datetime.now(timezone.utc):%Y-%m-%d %H:%M} UTC · commit {sha} · "
-                f"{len(donnees)} lignes (dont abandons)")
+    ws["A2"] = f"Généré le {datetime.now(timezone.utc):%Y-%m-%d %H:%M} UTC · commit {commit} · {len(D)} dossiers d'institutions"
     ws["A3"] = ("« non trouvé » = absent des pages lues, pas une preuve d'absence de limite. "
-                "Les chiffres non officiels sont listés à part.")
-
-    actives = [d for d in donnees if "abandon" not in d.get("statut_audit", "").lower()]
-    audit_complet = sum(1 for d in actives if score(d) == len(ETAPES_AUDIT))
-    chiffrees = sum(1 for d in actives for l in d.get("limites_documentees", [])
-                    if est_officielle_verifiee(l) and a_un_chiffre(l))
-    non_verifiees = sum(1 for d in actives for l in d.get("limites_documentees", [])
-                        if not est_officielle_verifiee(l))
-    observes = sum(len(d.get("en_tetes_observes", [])) for d in actives)
-    bloques = sum(1 for d in actives for b in d.get("blocages", []) if b.get("code") == "403")
-    preuves_ok = sum(preuves_verifiees(d)[0] for d in donnees)
-    preuves_tot = sum(preuves_verifiees(d)[1] for d in donnees)
-
+                "Seules les étapes cochées avec preuves comptent.")
+    act = [d for d in D if actif(d)]
+    hors = [d for d in D if not actif(d)]
+    complet = sum(1 for d in act if score(d) == 6)
+    commence = sum(1 for d in act if score(d) > 0)
+    chiffrees = sum(1 for d in act for l in d.get("limites_documentees", []) if limite_comptee(d, l))
+    a_revalider = sum(1 for d in act if d.get("donnees_a_revalider"))
+    observes = sum(len(d.get("en_tetes_observes", [])) for d in act if etat(d, "e") == "x")
+    bloques = sum(1 for d in act for b in d.get("blocages", []) if b.get("code") == "403")
+    pre = [p for d in D for p in d["preuves"]]
+    ok_pre = sum(1 for _, _, e in pre if e)
+    kpi = [
+        ("Dossiers d'institutions", len(D)),
+        ("Actives (à auditer)", len(act)),
+        ("Écartées ou abandonnées (décision de Marcel)", len(hors)),
+        ("Audit commencé (≥ 1 étape cochée)", commence),
+        ("Audit complet (étapes a à f cochées)", complet),
+        ("Limites officielles chiffrées (étape d cochée)", chiffrees),
+        ("Institutions dont les données sont à revalider (ancienne passe)", a_revalider),
+        ("En-têtes de quota observés (étape e cochée)", observes),
+        ("Blocages 403 anti-bot consignés", bloques),
+        ("Preuves citées présentes sur le disque", f"{ok_pre} / {len(pre)}"),
+    ]
     ws["A5"] = "INDICATEURS"
     ws["A5"].font = Font(bold=True, size=12)
-    kpi = [
-        ("Institutions actives", len(actives)),
-        ("Abandons (hors périmètre)", len(donnees) - len(actives)),
-        ("Audit complet (étapes a à f)", audit_complet),
-        ("Limites officielles chiffrées", chiffrees),
-        ("Limites non officielles ou non vérifiées", non_verifiees),
-        ("En-têtes de quota observés", observes),
-        ("Blocages 403 anti-bot consignés", bloques),
-        ("Preuves présentes sur le disque", f"{preuves_ok} / {preuves_tot}"),
-    ]
     for n, (k, v) in enumerate(kpi, start=6):
         ws.cell(row=n, column=1, value=k)
         ws.cell(row=n, column=2, value=v).font = Font(bold=True)
+    ws.column_dimensions["A"].width = 58
+    ws.column_dimensions["B"].width = 18
 
-    ligne0 = 16
-    ws.cell(row=ligne0 - 1, column=1, value="AVANCEMENT DE L'AUDIT (étapes a à f)").font = Font(bold=True, size=12)
-    entete(ws, ligne0, ["Institution", "Étapes faites (sur 6)"], [46, 22])
-    for n, inst in enumerate(donnees, start=ligne0 + 1):
-        ws.cell(row=n, column=1, value=inst["nom"])
-        ws.cell(row=n, column=2, value=score(inst))
-    fin = ligne0 + len(donnees)
+    # Graphique 1 : institutions ayant fait chaque étape
+    l1 = 18
+    ws.cell(row=l1 - 1, column=1, value="ÉTAPES COCHÉES (institutions actives)").font = Font(bold=True, size=12)
+    entete(ws, l1, ["Étape", "Institutions qui l'ont faite"])
+    for n, (c, t) in enumerate(ETAPES, start=l1 + 1):
+        ws.cell(row=n, column=1, value=t)
+        ws.cell(row=n, column=2, value=sum(1 for d in act if etat(d, c) == "x"))
     g1 = BarChart()
-    g1.type = "bar"
-    g1.title = "Étapes d'audit faites (sur 6)"
-    g1.y_axis.scaling.min = 0
-    g1.y_axis.scaling.max = 6
-    g1.add_data(Reference(ws, min_col=2, min_row=ligne0, max_row=fin), titles_from_data=True)
-    g1.set_categories(Reference(ws, min_col=1, min_row=ligne0 + 1, max_row=fin))
-    g1.height, g1.width = 13, 20
+    g1.type, g1.title = "bar", "Institutions ayant fait chaque étape"
+    g1.add_data(Reference(ws, min_col=2, min_row=l1, max_row=l1 + len(ETAPES)), titles_from_data=True)
+    g1.set_categories(Reference(ws, min_col=1, min_row=l1 + 1, max_row=l1 + len(ETAPES)))
+    g1.height, g1.width = 9, 18
     ws.add_chart(g1, "D5")
 
-    # Limites officielles chiffrées par institution
-    l2 = fin + 3
-    ws.cell(row=l2 - 1, column=1, value="LIMITES OFFICIELLES CHIFFRÉES (par institution)").font = Font(bold=True, size=12)
-    entete(ws, l2, ["Institution", "Nombre de limites officielles chiffrées"])
-    for n, inst in enumerate(donnees, start=l2 + 1):
-        nb = sum(1 for l in inst.get("limites_documentees", []) if est_officielle_verifiee(l) and a_un_chiffre(l))
-        ws.cell(row=n, column=1, value=inst["nom"])
-        ws.cell(row=n, column=2, value=nb)
-    fin2 = l2 + len(donnees)
+    # Graphique 2 : répartition du nombre d'étapes faites
+    l2 = l1 + len(ETAPES) + 3
+    ws.cell(row=l2 - 1, column=1, value="AVANCEMENT (nombre d'étapes a à f cochées)").font = Font(bold=True, size=12)
+    entete(ws, l2, ["Étapes cochées", "Institutions"])
+    rep = Counter(score(d) for d in act)
+    for n, k in enumerate(range(0, 7), start=l2 + 1):
+        ws.cell(row=n, column=1, value=f"{k} sur 6")
+        ws.cell(row=n, column=2, value=rep.get(k, 0))
     g2 = BarChart()
-    g2.type = "bar"
-    g2.title = "Limites officielles chiffrées, par institution"
-    g2.add_data(Reference(ws, min_col=2, min_row=l2, max_row=fin2), titles_from_data=True)
-    g2.set_categories(Reference(ws, min_col=1, min_row=l2 + 1, max_row=fin2))
-    g2.height, g2.width = 13, 20
-    ws.add_chart(g2, "D33")
+    g2.type, g2.title = "col", "Institutions par nombre d'étapes cochées"
+    g2.add_data(Reference(ws, min_col=2, min_row=l2, max_row=l2 + 7), titles_from_data=True)
+    g2.set_categories(Reference(ws, min_col=1, min_row=l2 + 1, max_row=l2 + 7))
+    g2.height, g2.width = 9, 18
+    ws.add_chart(g2, "D25")
 
-    # Classes de quota
-    l3 = fin2 + 3
-    classes = Counter(d.get("classe_quota", "non renseigné") for d in donnees)
-    ws.cell(row=l3 - 1, column=1, value="CLASSES DE QUOTA").font = Font(bold=True, size=12)
-    entete(ws, l3, ["Classe", "Nombre d'institutions"])
-    for n, (cl, nb) in enumerate(sorted(classes.items()), start=l3 + 1):
-        ws.cell(row=n, column=1, value=cl)
-        ws.cell(row=n, column=2, value=nb)
-    fin3 = l3 + len(classes)
-    pie = PieChart()
-    pie.title = "Classes de quota"
-    pie.add_data(Reference(ws, min_col=2, min_row=l3, max_row=fin3), titles_from_data=True)
-    pie.set_categories(Reference(ws, min_col=1, min_row=l3 + 1, max_row=fin3))
-    pie.dataLabels = DataLabelList()
-    pie.dataLabels.showPercent = True
-    pie.height, pie.width = 10, 16
-    ws.add_chart(pie, "D56")
-    ws.column_dimensions["A"].width = 46
+    # Graphique 3 : classes de quota (institutions dont l'étape d est cochée)
+    l3 = l2 + 11
+    ws.cell(row=l3 - 1, column=1, value="CLASSES DE QUOTA (étape d cochée)").font = Font(bold=True, size=12)
+    classes = Counter(d.get("classe_quota", "non renseigné") for d in act if etat(d, "d") == "x")
+    entete(ws, l3, ["Classe", "Institutions"])
+    if classes:
+        for n, (cl, nb) in enumerate(sorted(classes.items()), start=l3 + 1):
+            ws.cell(row=n, column=1, value=cl)
+            ws.cell(row=n, column=2, value=nb)
+        pie = PieChart()
+        pie.title = "Classes de quota"
+        pie.add_data(Reference(ws, min_col=2, min_row=l3, max_row=l3 + len(classes)), titles_from_data=True)
+        pie.set_categories(Reference(ws, min_col=1, min_row=l3 + 1, max_row=l3 + len(classes)))
+        pie.dataLabels = DataLabelList()
+        pie.dataLabels.showPercent = True
+        pie.height, pie.width = 9, 14
+        ws.add_chart(pie, "D43")
+    else:
+        ws.cell(row=l3 + 1, column=1, value="Aucune institution n'a encore l'étape d cochée.")
 
 
-def feuille_institutions(wb, donnees):
+def feuille_institutions(wb, D):
     ws = wb.create_sheet("Institutions")
-    cols = (["Institution", "Pays", "Statut d'audit"] + [e[1] for e in ETAPES] +
-            ["Preuves présentes", "Classe de quota", "Conclusion (quota)", "Confiance", "Contact", "Notes"])
-    entete(ws, 1, cols, [34, 14, 28] + [24] * 7 + [14, 26, 60, 12, 30, 60])
-    for n, inst in enumerate(donnees, start=2):
-        cl = inst.get("checklist", {})
-        ok, tot, _ = preuves_verifiees(inst)
-        vals = [inst["nom"], inst.get("pays", ""), inst.get("statut_audit", "")]
-        vals += [cl.get(k, "non renseigné") for k, _ in ETAPES]
-        vals += [f"{ok} / {tot}", inst.get("classe_quota", ""), inst.get("conclusion_quota", ""),
-                 inst.get("confiance", ""), inst.get("contact", ""), inst.get("notes", "")]
+    cols = (["Classeur", "Institution", "Pays", "Dossier", "Statut"] + [t for _, t in ETAPES] +
+            ["Étapes a–f cochées", "Preuves présentes", "Classe de quota", "Conclusion (quota)", "Contact"])
+    entete(ws, 1, cols, [12, 40, 14, 38, 16] + [26] * 7 + [12, 14, 28, 60, 30])
+    for n, d in enumerate(D, start=2):
+        ok = sum(1 for _, _, e in d["preuves"] if e)
+        vals = [d.get("classeur_id", ""), d.get("nom", d["slug"]), d.get("pays", ""),
+                f"institutions/{d['slug']}/", d["statut_institution"]]
+        for c, _ in ETAPES:
+            e, just, _ = d["etapes"].get(c, ("?", "", []))
+            vals.append(f"{libelle_etat(e)} — {just[:110]}")
+        vals += [f"{score(d)} / 6", f"{ok} / {len(d['preuves'])}",
+                 d.get("classe_quota", "") if etat(d, "d") == "x" else "",
+                 d.get("conclusion_quota", "") if etat(d, "d") == "x" else "",
+                 d.get("contact", "") if etat(d, "d") == "x" else ""]
         for c, v in enumerate(vals, start=1):
             ws.cell(row=n, column=c, value=v).alignment = Alignment(wrap_text=True, vertical="top")
-        for c, (k, _) in enumerate(ETAPES, start=4):
-            ws.cell(row=n, column=c).fill = couleur_etape(cl.get(k, ""))
+        for i, (c, _) in enumerate(ETAPES, start=6):
+            ws.cell(row=n, column=i).fill = couleur(etat(d, c))
 
 
-def feuille_limites(wb, donnees):
+def feuille_limites(wb, D):
     ws = wb.create_sheet("Limites")
     cols = ["Institution", "Nature", "Périmètre", "Valeur", "Fenêtre", "Effet au dépassement",
-            "Vérification", "Compté comme officiel chiffré ?", "Source (URL)", "Date de lecture"]
-    entete(ws, 1, cols, [30, 24, 30, 24, 14, 24, 34, 16, 66, 14])
+            "Vérification", "Compté comme officiel chiffré ?", "Données à revalider ?", "Source (URL)", "Date de lecture"]
+    entete(ws, 1, cols, [34, 24, 30, 24, 14, 24, 34, 16, 14, 66, 14])
     lignes = []
-    for inst in donnees:
-        for lim in inst.get("limites_documentees", []):
-            compte = "oui" if (est_officielle_verifiee(lim) and a_un_chiffre(lim)) else "non"
-            lignes.append([inst["nom"], lim.get("nature"), lim.get("perimetre"), lim.get("valeur"),
-                           lim.get("fenetre"), lim.get("effet"), lim.get("verification", "non renseignée"),
-                           compte, lim.get("source"), lim.get("date")])
-    ecrire_lignes(ws, 2, lignes)
+    for d in D:
+        for l in d.get("limites_documentees", []):
+            lignes.append([d.get("nom", d["slug"]), l.get("nature"), l.get("perimetre"), l.get("valeur"),
+                           l.get("fenetre"), l.get("effet"), l.get("verification", "non renseignée"),
+                           "oui" if limite_comptee(d, l) else "non",
+                           "oui (ancienne passe)" if d.get("donnees_a_revalider") else "non",
+                           l.get("source"), l.get("date")])
+    ecrire(ws, 2, lignes or [["(aucune)"] + [""] * 10])
 
 
-def feuille_entetes(wb, donnees):
+def feuille_entetes(wb, D):
     ws = wb.create_sheet("En-têtes observés")
-    cols = ["Institution", "En-tête", "Valeur observée", "Endpoint", "Date", "Preuve (fichier du dépôt)", "Existe ?"]
-    entete(ws, 1, cols, [30, 24, 40, 40, 14, 50, 10])
+    entete(ws, 1, ["Institution", "En-tête", "Valeur observée", "Endpoint", "Date", "Preuve", "Preuve présente ?", "Données à revalider ?"],
+           [34, 24, 40, 40, 14, 50, 16, 14])
     lignes = []
-    for inst in donnees:
-        for h in inst.get("en_tetes_observes", []):
-            p = h.get("preuve", "")
-            first = p.split(",")[0].split(" ")[0] if p else ""
-            existe = "OUI" if first and (REPO / first).exists() else "NON"
-            lignes.append([inst["nom"], h.get("nom"), h.get("valeur"), h.get("endpoint"), h.get("date"), p, existe])
-    if not lignes:
-        lignes = [["(aucun)", "", "Aucun en-tête de quota observé dans les institutions auditées.", "", "", "", ""]]
-    ecrire_lignes(ws, 2, lignes)
+    for d in D:
+        for h in d.get("en_tetes_observes", []):
+            p = (h.get("preuve") or "").split(",")[0].split(" ")[0]
+            lignes.append([d.get("nom", d["slug"]), h.get("nom"), h.get("valeur"), h.get("endpoint"), h.get("date"),
+                           h.get("preuve"), "OUI" if p and (REPO / p).exists() else "NON",
+                           "oui" if d.get("donnees_a_revalider") else "non"])
+    ecrire(ws, 2, lignes or [["(aucun en-tête de quota enregistré)"] + [""] * 7])
 
 
-def feuille_blocages(wb, donnees):
+def feuille_blocages(wb, D):
     ws = wb.create_sheet("Blocages")
-    cols = ["Institution", "Date (UTC)", "Hôte", "Code", "Nature", "Suite donnée"]
-    entete(ws, 1, cols, [30, 22, 34, 12, 50, 50])
-    lignes = []
-    for inst in donnees:
-        for b in inst.get("blocages", []):
-            lignes.append([inst["nom"], b.get("date"), b.get("hote"), b.get("code"), b.get("nature"), b.get("suite")])
-    if not lignes:
-        lignes = [["(aucun)", "", "", "", "", ""]]
-    ecrire_lignes(ws, 2, lignes)
+    entete(ws, 1, ["Institution", "Date (UTC)", "Hôte", "Code", "Nature", "Suite donnée"], [34, 22, 34, 12, 50, 50])
+    lignes = [[d.get("nom", d["slug"]), b.get("date"), b.get("hote"), b.get("code"), b.get("nature"), b.get("suite")]
+              for d in D for b in d.get("blocages", [])]
+    ecrire(ws, 2, lignes or [["(aucun)"] + [""] * 5])
 
 
-def feuille_sources(wb, donnees):
+def feuille_sources(wb, D):
     ws = wb.create_sheet("Sources")
-    cols = ["Institution", "URL", "Date de lecture", "Étiquette", "Statut", "Preuve (fichier)", "Preuve présente ?"]
-    entete(ws, 1, cols, [30, 70, 14, 30, 36, 46, 14])
+    entete(ws, 1, ["Institution", "URL", "Date de lecture", "Étiquette", "Preuve (fichier)", "Preuve présente ?"],
+           [34, 70, 14, 30, 50, 14])
     lignes = []
-    for inst in donnees:
-        for s in inst.get("sources", []):
-            p = s.get("preuve", "")
-            fichier = p.split(" ")[0] if p else ""
-            present = "OUI" if fichier and (REPO / fichier).exists() else "NON"
-            lignes.append([inst["nom"], s.get("url"), s.get("date"), s.get("etiquette"),
-                           s.get("statut", ""), p, present])
-    if not lignes:
-        lignes = [["(aucune source enregistrée)", "", "", "", "", "", ""]]
-    ecrire_lignes(ws, 2, lignes)
+    for d in D:
+        for s in d.get("sources", []):
+            p = (s.get("preuve") or "").split(" ")[0]
+            lignes.append([d.get("nom", d["slug"]), s.get("url"), s.get("date"), s.get("etiquette"),
+                           s.get("preuve"), "OUI" if p and (REPO / p).exists() else "NON"])
+    ecrire(ws, 2, lignes or [["(aucune)"] + [""] * 5])
 
 
-def feuille_web(wb, donnees):
+def feuille_web(wb, D):
     ws = wb.create_sheet("Web (étape f)")
-    cols = ["Institution", "URL", "Date", "Étiquette", "Citation (texte exact ou résumé signalé)", "Preuve (fichier)"]
-    entete(ws, 1, cols, [30, 66, 16, 26, 80, 40])
-    lignes = []
-    for inst in donnees:
-        for w in inst.get("web", []):
-            lignes.append([inst["nom"], w.get("url"), w.get("date"), w.get("etiquette"),
-                           w.get("citation"), w.get("preuve")])
-    if not lignes:
-        lignes = [["(à compléter)", "", "", "", "Recherche web non encore faite pour les institutions de ce tableau.", ""]]
-    ecrire_lignes(ws, 2, lignes)
+    entete(ws, 1, ["Institution", "URL", "Date", "Étiquette", "Citation (texte exact ou résumé signalé)", "Preuve"],
+           [34, 66, 16, 30, 80, 44])
+    lignes = [[d.get("nom", d["slug"]), w.get("url"), w.get("date"), w.get("etiquette"), w.get("citation"), w.get("preuve")]
+              for d in D for w in d.get("web", [])]
+    ecrire(ws, 2, lignes or [["(aucune)"] + [""] * 5])
 
 
-def feuille_preuves(wb, donnees):
+def feuille_preuves(wb, D):
     ws = wb.create_sheet("Preuves")
-    cols = ["Institution", "Étape", "Chemin de la preuve", "Existe sur le disque ?"]
-    entete(ws, 1, cols, [30, 34, 70, 18])
-    lignes = []
-    for inst in donnees:
-        for etape, chemin, existe in preuves_verifiees(inst)[2]:
-            lignes.append([inst["nom"], etape, chemin, "OUI" if existe else "NON"])
-    ecrire_lignes(ws, 2, lignes)
+    entete(ws, 1, ["Institution", "Étape", "Chemin de la preuve", "Existe sur le disque ?"], [34, 10, 90, 18])
+    lignes = [[d.get("nom", d["slug"]), c, p, "OUI" if e else "NON"] for d in D for c, p, e in d["preuves"]]
+    ecrire(ws, 2, lignes or [["(aucune preuve citée)", "", "", ""]])
 
 
-def feuille_journal(wb, donnees, sha):
+def feuille_journal(wb, D, commit):
     ws = wb.create_sheet("Journal")
-    entete(ws, 1, ["Élément", "Valeur"], [40, 90])
-    manquantes = sum(1 for d in donnees for _, _, e in preuves_verifiees(d)[2] if not e)
+    entete(ws, 1, ["Élément", "Valeur"], [46, 100])
+    manquantes = sum(1 for d in D for _, _, e in d["preuves"] if not e)
+    anomalies = sum(len(suivi.analyser_journal(d["slug"])["anomalies"]) for d in D)
     lignes = [
         ("Généré le (UTC)", datetime.now(timezone.utc).strftime("%Y-%m-%d %H:%M:%S")),
-        ("Commit du dépôt au moment de la génération", sha),
-        ("Source de données", "data/institutions.json"),
-        ("Générateur", "scripts/build_benchmark.py"),
-        ("Méthode", "METHODOLOGY.md, « Méthode v2 » (étapes a à g)"),
-        ("Preuves manquantes sur le disque", str(manquantes)),
-        ("Règle de comptage", "Une limite est « officielle chiffrée » seulement si sa vérification commence par « officielle » et qu'elle a un chiffre."),
-        ("Règle de contenu", "Une valeur absente de la doc n'est jamais déduite d'une autre source."),
+        ("Commit du dépôt au moment de la génération", commit),
+        ("Sources", "institutions/<slug>/data.json et institutions/<slug>/CONSIGNE-ET-SUIVI.md"),
+        ("Générateur", "scripts/build_benchmark.py (appelé par .githooks/pre-commit)"),
+        ("Consigne", "CONSIGNE.md (recopiée dans chaque dossier) ; méthode : METHODOLOGY.md"),
+        ("Preuves citées manquantes sur le disque", str(manquantes)),
+        ("Anomalies de prudence dans les journaux (pause < 6 s, session > 15, méthode interdite)", str(anomalies)),
+        ("Règle de comptage des limites", "Officielle + chiffre + institution active + étape d cochée + données non marquées « à revalider »."),
     ]
-    ecrire_lignes(ws, 2, lignes)
+    ecrire(ws, 2, lignes)
 
 
 def main():
-    donnees = json.loads(DATA.read_text(encoding="utf-8"))
-    sha = version_depot()
+    D = charger()
+    commit = sha()
     wb = Workbook()
-    feuille_tableau_de_bord(wb, donnees, sha)
-    feuille_institutions(wb, donnees)
-    feuille_limites(wb, donnees)
-    feuille_entetes(wb, donnees)
-    feuille_blocages(wb, donnees)
-    feuille_sources(wb, donnees)
-    feuille_web(wb, donnees)
-    feuille_preuves(wb, donnees)
-    feuille_journal(wb, donnees, sha)
+    tableau_de_bord(wb, D, commit)
+    feuille_institutions(wb, D)
+    feuille_limites(wb, D)
+    feuille_entetes(wb, D)
+    feuille_blocages(wb, D)
+    feuille_sources(wb, D)
+    feuille_web(wb, D)
+    feuille_preuves(wb, D)
+    feuille_journal(wb, D, commit)
     wb.save(OUT)
-    manquantes = sum(1 for d in donnees for _, _, e in preuves_verifiees(d)[2] if not e)
-    print(f"écrit : {OUT} ({len(donnees)} lignes, commit {sha}, preuves manquantes : {manquantes})")
+    manq = sum(1 for d in D for _, _, e in d["preuves"] if not e)
+    print(f"écrit : {OUT} ({len(D)} institutions, commit {commit}, preuves manquantes : {manq})")
 
 
 if __name__ == "__main__":

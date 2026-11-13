@@ -1,0 +1,48 @@
+{
+  "slug": "europeana",
+  "nom": "Europeana",
+  "pays": "Union européenne",
+  "statut_audit": "partiel (ancienne méthode)",
+  "limites_documentees": [
+    {
+      "nature": "Quota par clé personnelle",
+      "perimetre": "API de recherche / Record",
+      "valeur": "non chiffré officiellement",
+      "fenetre": "–",
+      "effet": "–",
+      "source": "https://www.europeana.eu/ (fair use policy, 2024, lue en résumé)",
+      "date": "2026-11-13",
+      "verification": "officielle, extrait lu (page non relue en entier)"
+    },
+    {
+      "nature": "Forum (non vérifié)",
+      "perimetre": "API",
+      "valeur": "120 requêtes / 10 s",
+      "fenetre": "10 s",
+      "effet": "–",
+      "source": "fil de forum, date et portée inconnues",
+      "date": "2026-11-13",
+      "verification": "tierce, non vérifiée"
+    }
+  ],
+  "en_tetes_observes": [],
+  "blocages": [
+    {
+      "date": "2026-11-13",
+      "hote": "pro.europeana.eu",
+      "code": "403",
+      "nature": "portail développeurs, lecture WebFetch",
+      "suite": "non réessayé"
+    }
+  ],
+  "contact": "api@europeana.eu",
+  "conclusion_quota": "Quota lié à la clé personnelle (X-Api-Key) ; pas de chiffre officiel trouvé.",
+  "classe_quota": "règle sans chiffre publié (clé)",
+  "confiance": "faible",
+  "notes": "Le 120/10 s provient d'un forum, non vérifié.",
+  "classeur_id": "GLAM-011",
+  "type": "Plateforme / consortium",
+  "sources": [],
+  "web": [],
+  "donnees_a_revalider": true
+}

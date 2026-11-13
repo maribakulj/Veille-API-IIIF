@@ -1,0 +1,83 @@
+{
+  "slug": "bodleian",
+  "min_delay_s": 6,
+  "max_requests": 15,
+  "note": "Passe 2 (suite) : routes documentées non testées en passe 1 (institutions/bodleian/sources/text/02.txt et 03.txt), identifiants d'exemple de la doc. /account/* exclus (authentification, POST/PUT/DELETE interdits).",
+  "endpoints": [
+    {
+      "id": "iiif-collection-all",
+      "method": "GET",
+      "url": "https://iiif.bodleian.ox.ac.uk/iiif/collection/all"
+    },
+    {
+      "id": "iiif-collection-colleges",
+      "method": "GET",
+      "url": "https://iiif.bodleian.ox.ac.uk/iiif/collection/colleges"
+    },
+    {
+      "id": "iiif-activity-all-changes",
+      "method": "GET",
+      "url": "https://iiif.bodleian.ox.ac.uk/iiif/activity/all-changes"
+    },
+    {
+      "id": "iiif-canvas",
+      "method": "GET",
+      "url": "https://iiif.bodleian.ox.ac.uk/iiif/canvas/f37dd11c-a243-4b66-9a65-b8d498a114d6.json"
+    },
+    {
+      "id": "iiif-annotation",
+      "method": "GET",
+      "url": "https://iiif.bodleian.ox.ac.uk/iiif/annotation/f37dd11c-a243-4b66-9a65-b8d498a114d6.json"
+    },
+    {
+      "id": "iiif-sequence",
+      "method": "GET",
+      "url": "https://iiif.bodleian.ox.ac.uk/iiif/sequence/faeff7fb-f8a7-44b5-95ed-cff9a9ffd198_default.json"
+    },
+    {
+      "id": "iiif-annotationpage",
+      "method": "GET",
+      "url": "https://iiif.bodleian.ox.ac.uk/iiif/annotationpage/f37dd11c-a243-4b66-9a65-b8d498a114d6.json"
+    },
+    {
+      "id": "iiif-annotationlist",
+      "method": "GET",
+      "url": "https://iiif.bodleian.ox.ac.uk/iiif/annotationlist/f37dd11c-a243-4b66-9a65-b8d498a114d6.json"
+    },
+    {
+      "id": "iiif-manifeste-exemple-doc",
+      "method": "GET",
+      "url": "https://iiif.bodleian.ox.ac.uk/iiif/manifest/b73ca01f-aac8-4916-a7c6-3c8e67939a66.json"
+    },
+    {
+      "id": "data-collections-liste",
+      "method": "GET",
+      "url": "https://digital.bodleian.ox.ac.uk/collections/"
+    },
+    {
+      "id": "data-collection-exemple",
+      "method": "GET",
+      "url": "https://digital.bodleian.ox.ac.uk/collections/western-medieval-manuscripts/"
+    },
+    {
+      "id": "data-partners-liste",
+      "method": "GET",
+      "url": "https://digital.bodleian.ox.ac.uk/partners/"
+    },
+    {
+      "id": "data-partner-exemple",
+      "method": "GET",
+      "url": "https://digital.bodleian.ox.ac.uk/partners/balliol/"
+    },
+    {
+      "id": "data-object-exemple",
+      "method": "GET",
+      "url": "https://digital.bodleian.ox.ac.uk/objects/390fd0e8-9eae-475d-9564-ed916ab9035c"
+    },
+    {
+      "id": "data-surface-exemple",
+      "method": "GET",
+      "url": "https://digital.bodleian.ox.ac.uk/objects/390fd0e8-9eae-475d-9564-ed916ab9035c/surfaces/a024a538-aef3-44b3-ad11-51c6a8b04ea2"
+    }
+  ]
+}

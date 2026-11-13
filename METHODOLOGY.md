@@ -153,3 +153,11 @@ hôte déjà bloqué en 403 anti-bot.
 - Aucune fiche n'est marquée « vérifiée » avant que a) à f) aient chacune un fichier de preuve contrôlé.
 - `data/institutions.json` n'est alimenté qu'à partir de la fiche relue de l'institution, jamais de mémoire.
 - Le travail se fait une institution à la fois, sans sous-agent, dans l'ordre du classeur de référence (`data/perimetre.csv`).
+
+
+## Disposition du dépôt et règle de couverture des tests (2026-11-13, consignes C8 et C11)
+
+- **Un dossier par institution** : `institutions/<slug>/` contient tout son travail (fiche, `data.json`, `sources/`, `config/`, `tests/`) et `CONSIGNE-ET-SUIVI.md`, où **chaque étape a) à g) est cochée ou non, avec une justification et des preuves**.
+- Une case cochée sans justification ou sans preuve existante bloque le commit (`scripts/suivi.py validate`, crochet pre-commit). `BENCHMARK.xlsx` est régénéré à chaque commit depuis ces dossiers.
+- **Couverture des tests** : tout endpoint documenté est testé. **Seule une interdiction ou une impossibilité écrite dans la doc** (citation à l'appui) dispense de tester. Si rien n'est écrit : on teste, avec un script adapté à la doc ; si la doc n'en décrit pas, avec un script poli (pause ≥ 6 s, UA du projet, GET/HEAD, budget de 15 requêtes par passe, identifiants issus de pages publiques ou d'exemples de la doc, jamais énumérés ni devinés).
+- La sonde suit une redirection du même hôte (comptée dans le budget). Plusieurs passes sont possibles : chacune a son propre budget de 15 requêtes et sa configuration committée avant lancement.

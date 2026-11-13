@@ -1,0 +1,30 @@
+{
+  "slug": "harvard",
+  "nom": "Harvard Library",
+  "pays": "États-Unis",
+  "statut_audit": "partiel (ancienne méthode)",
+  "limites_documentees": [
+    {
+      "nature": "Débit (extrait non vérifié, wiki LibraryCloud)",
+      "perimetre": "API LibraryCloud",
+      "valeur": "300 requêtes",
+      "fenetre": "par 5 minutes (1 req/s)",
+      "effet": "–",
+      "source": "wiki LibraryCloud, page 43287734 (extrait tronqué, attribution incertaine)",
+      "date": "2026-11-13",
+      "verification": "tierce, non vérifiée"
+    }
+  ],
+  "en_tetes_observes": [],
+  "blocages": [],
+  "contact": "non trouvé",
+  "conclusion_quota": "Un débit est annoncé par un extrait de wiki non vérifié ; aucun en-tête.",
+  "classe_quota": "règle sans chiffre officiel (extrait non vérifié)",
+  "confiance": "faible",
+  "notes": "À vérifier sur la doc officielle LibraryCloud.",
+  "classeur_id": "GLAM-033",
+  "type": "Institution",
+  "sources": [],
+  "web": [],
+  "donnees_a_revalider": true
+}

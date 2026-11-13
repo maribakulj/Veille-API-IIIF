@@ -1,0 +1,164 @@
+{
+  "slug": "bnf-gallica",
+  "nom": "BnF — Gallica (IIIF)",
+  "pays": "France",
+  "statut_audit": "ÉCARTÉE à la demande de Marcel (2026-11-13) : Gallica est l'institution de Marcel, audit non nécessaire",
+  "limites_documentees": [
+    {
+      "nature": "Débit (ancienne page)",
+      "perimetre": "IIIF Image (full/full, >1000 px)",
+      "valeur": "5",
+      "fenetre": "par minute",
+      "effet": "429 Too Many Requests",
+      "source": "https://api.bnf.fr/fr/node/232",
+      "date": "2026-11-13",
+      "verification": "officielle, extrait lu (page non relue en entier)"
+    },
+    {
+      "nature": "Débit (ancienne page)",
+      "perimetre": "TexteBrut",
+      "valeur": "5",
+      "fenetre": "par minute",
+      "effet": "429",
+      "source": "https://api.bnf.fr/fr/node/232",
+      "date": "2026-11-13",
+      "verification": "officielle, extrait lu (page non relue en entier)"
+    },
+    {
+      "nature": "Débit (ancienne page)",
+      "perimetre": "PDF",
+      "valeur": "4",
+      "fenetre": "par minute",
+      "effet": "429",
+      "source": "https://api.bnf.fr/fr/node/232",
+      "date": "2026-11-13",
+      "verification": "officielle, extrait lu (page non relue en entier)"
+    },
+    {
+      "nature": "Débit (ancienne page)",
+      "perimetre": "highres",
+      "valeur": "50",
+      "fenetre": "par minute",
+      "effet": "429",
+      "source": "https://api.bnf.fr/fr/node/232",
+      "date": "2026-11-13",
+      "verification": "officielle, extrait lu (page non relue en entier)"
+    },
+    {
+      "nature": "Restriction annoncée (récente)",
+      "perimetre": "IIIF, SRU, API Document",
+      "valeur": "restrictions temporaires, modalités non définies",
+      "fenetre": "–",
+      "effet": "–",
+      "source": "https://api.bnf.fr/fr/evolution-des-modalites-dacces-aux-api-de-gallica",
+      "date": "2026-11-13",
+      "verification": "officielle, lue en entier"
+    }
+  ],
+  "en_tetes_observes": [],
+  "blocages": [
+    {
+      "date": "2026-11-13 20:33Z",
+      "hote": "gallica.bnf.fr",
+      "code": "403",
+      "nature": "anti-bot (Cloudflare), 1re requête",
+      "suite": "hôte arrêté, non réessayé"
+    }
+  ],
+  "contact": "gallica@bnf.fr (data.gouv, lu en résumé)",
+  "conclusion_quota": "Débits publiés (5/min, 429) mais page ancienne ; la page récente annonce des restrictions dont les modalités ne sont pas définies. Pas d'en-tête, pas de clé, pas d'endpoint de statut.",
+  "classe_quota": "hors périmètre (écartée)",
+  "confiance": "faible",
+  "notes": "data.gouv (« limite non documentée ») contredit api.bnf.fr. Page 2748 incomplète. Page conditions : 403.",
+  "web": [
+    {
+      "url": "https://api.bnf.fr/fr/evolution-des-modalites-dacces-aux-api-de-gallica",
+      "date": "2026-11-13",
+      "etiquette": "officielle",
+      "citation": "« Ces mesures entraînent des restrictions temporaires d'accès aux API de Gallica, notamment aux services IIIF, SRU et API Document. Les modalités d'accès à ces services sont actuellement en cours de définition. »",
+      "preuve": "institutions/bnf-gallica/sources/suite2/SHA256SUMS"
+    },
+    {
+      "url": "https://www.bnf.fr/fr/actualites/un-captcha-pour-gallica",
+      "date": "2026-11-13",
+      "etiquette": "officielle",
+      "citation": "« un CAPTCHA est mis en place à compter du 18 décembre 2025 » ; case à cocher à la première recherche de la journée.",
+      "preuve": "institutions/bnf-gallica/sources/suite2/SHA256SUMS"
+    },
+    {
+      "url": "https://actualitte.com/article/128618/numerisation/gallica-installe-un-captcha-le-web-patrimonial-face-aux-bots",
+      "date": "non lue",
+      "etiquette": "presse",
+      "citation": "Blocages d'IP jugés très stricts par les utilisateurs (résumé uniquement).",
+      "preuve": "institutions/bnf-gallica/fiche.md (étape f)"
+    },
+    {
+      "url": "https://www.iatechauquotidien.com/gallica-paralysee-des-robots-dia-aspirent-massivement-ses-contenus/",
+      "date": "non lue",
+      "etiquette": "presse",
+      "citation": "La BnF attribue les difficultés à un moissonnage automatisé en forte hausse (résumé).",
+      "preuve": "institutions/bnf-gallica/fiche.md (étape f)"
+    },
+    {
+      "url": "https://github.com/Antonio-Faure/mnemosyne/pull/69",
+      "date": "non lue",
+      "etiquette": "tiers (code)",
+      "citation": "403 de type Cloudflare sur les chemins SRU de Gallica, conclusion : blocage IP/ASN (non vérifié).",
+      "preuve": "institutions/bnf-gallica/fiche.md (étape f)"
+    }
+  ],
+  "sources": [
+    {
+      "url": "https://api.bnf.fr/fr/node/232",
+      "date": "2026-11-13",
+      "etiquette": "officielle",
+      "preuve": "institutions/bnf-gallica/sources/SHA256SUMS"
+    },
+    {
+      "url": "https://api.bnf.fr/fr/api-iiif-de-recuperation-des-images-de-gallica",
+      "date": "2026-11-13",
+      "etiquette": "officielle",
+      "preuve": "institutions/bnf-gallica/sources/SHA256SUMS"
+    },
+    {
+      "url": "https://www.bnf.fr/fr/portail-bnf-api-et-jeux-de-donnees",
+      "date": "2026-11-13",
+      "etiquette": "officielle",
+      "preuve": "institutions/bnf-gallica/sources/SHA256SUMS"
+    },
+    {
+      "url": "https://www.data.gouv.fr/dataservices/api-gallica-iiif",
+      "date": "2026-11-13",
+      "etiquette": "officielle",
+      "preuve": "institutions/bnf-gallica/sources/SHA256SUMS"
+    },
+    {
+      "url": "https://api.bnf.fr/fr/node/2620",
+      "date": "2026-11-13",
+      "etiquette": "officielle",
+      "preuve": "institutions/bnf-gallica/sources/SHA256SUMS"
+    },
+    {
+      "url": "https://api.bnf.fr/fr/wrapper-python-pour-les-api-gallica",
+      "date": "2026-11-13",
+      "etiquette": "officielle",
+      "preuve": "institutions/bnf-gallica/sources/SHA256SUMS"
+    },
+    {
+      "url": "https://api.bnf.fr/fr/node/2748",
+      "date": "2026-11-13",
+      "etiquette": "officielle (INCOMPLÈTE : délai dépassé)",
+      "preuve": "institutions/bnf-gallica/sources/suite/FETCH.log"
+    },
+    {
+      "url": "https://gallica.bnf.fr/html/und/conditions-dutilisation-des-contenus-de-gallica",
+      "date": "2026-11-13",
+      "etiquette": "officielle (403, non lue)",
+      "preuve": "institutions/bnf-gallica/sources/FETCH.log"
+    }
+  ],
+  "classeur_id": "GLAM-001",
+  "type": "Institution",
+  "donnees_a_revalider": true,
+  "statut_institution": "écartée"
+}
