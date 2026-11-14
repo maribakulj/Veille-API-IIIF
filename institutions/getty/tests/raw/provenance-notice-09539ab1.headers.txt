@@ -1,0 +1,14 @@
+2026-11-14T02:15:37Z GET https://data.getty.edu/provenance/09539ab1-416d-3870-810b-8a6b3b604368
+HTTP 200
+server: envoy
+date: Sat, 14 Nov 2026 02:15:37 GMT
+content-type: application/ld+json;charset=UTF-8
+content-length: 7121
+last-modified: 2025-02-20T16:13:02
+etag: "3bd5e830a1715c8587945e6e07681458bd2a0670979b592e6d9f3a98258966fd"
+link: <https://data.getty.edu/provenance/-tm-/09539ab1-416d-3870-810b-8a6b3b604368>; rel="timemap"; type="application/link-format" , <https://data.getty.edu/provenance/-tm-/09539ab1-416d-3870-810b-8a6b3b604368>; rel="timemap"; type="application/json" , <https://data.getty.edu/provenance/09539ab1-416d-3870-810b-8a6b3b604368>; rel="original timegate" , <https://data.getty.edu/provenance/09539ab1-416d-3870-810b-8a6b3b604368?_mediatype=application/ld%2Bjson>;rel="canonical";type="application/ld+json"
+vary: accept-datetime, Accept-Encoding
+x-lodgateway-capabilities: JSON-LD: 'True', Base Graph: 'https://data.getty.edu/provenance/_basegraph', Subaddressing: 'True', Versioning: 'True'
+cache-control: no-cache
+access-control-allow-origin: *
+x-envoy-upstream-service-time: 19

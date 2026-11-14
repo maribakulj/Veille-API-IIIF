@@ -1,0 +1,11 @@
+2026-11-14T02:15:31Z GET https://data.getty.edu/provenance/activity-stream
+HTTP 200
+server: envoy
+date: Sat, 14 Nov 2026 02:15:30 GMT
+content-type: application/json
+content-length: 438
+x-lodgateway-capabilities: JSON-LD: 'True', Base Graph: 'https://data.getty.edu/provenance/_basegraph', Subaddressing: 'True', Versioning: 'True'
+cache-control: no-cache
+vary: Accept-Encoding
+access-control-allow-origin: *
+x-envoy-upstream-service-time: 2815

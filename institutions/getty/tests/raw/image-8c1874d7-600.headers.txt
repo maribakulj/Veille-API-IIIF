@@ -1,0 +1,23 @@
+2026-11-14T02:16:14Z GET https://media.getty.edu/iiif/image/8c1874d7-6a1b-46a1-9cd6-0651ecc50cdd/full/!600,/0/default.jpg
+HTTP 200
+content-type: image/jpeg
+transfer-encoding: chunked
+connection: keep-alive
+date: Sat, 14 Nov 2026 02:16:14 GMT
+server: envoy
+x-powered-by: IIPImage
+last-modified: Wed, 17 Dec 2025 12:21:44 GMT
+access-control-allow-methods: GET, POST, OPTIONS
+access-control-allow-headers: Accept, Content-Type, X-Requested-With, If-Modified-Since
+access-control-max-age: 86400
+content-disposition: inline; filename="8c1874d7-6a1b-46a1-9cd6-0651ecc50cdd_600x425.jpg"
+access-control-allow-origin: *
+x-varnish: 9877389
+via: 1.1 varnish (Varnish/6.5), 1.1 c651b6f427de520af17b746abf0c7ee6.cloudfront.net (CloudFront)
+cache-control: max-age=1800
+accept-ranges: bytes
+x-envoy-upstream-service-time: 17
+x-cache: Miss from cloudfront
+x-amz-cf-pop: MXP64-P2
+x-amz-cf-id: eFaBi2poO2ZPqO_iULOrSdz50TMzZpl4HllxWq93Ko6_byIkrADeBA==
+age: 0

@@ -1,0 +1,11 @@
+2026-11-14T02:15:44Z GET https://data.getty.edu/provenance/sparql
+HTTP 400
+server: envoy
+date: Sat, 14 Nov 2026 02:15:44 GMT
+content-type: application/json
+content-length: 94
+access-control-allow-origin: *
+x-lodgateway-capabilities: JSON-LD: 'True', Base Graph: 'https://data.getty.edu/provenance/_basegraph', Subaddressing: 'True', Versioning: 'True'
+cache-control: no-cache
+vary: Accept-Encoding
+x-envoy-upstream-service-time: 2
