@@ -1,0 +1,22 @@
+2026-11-14T01:50:29Z GET https://historica.unibo.it/server/api/discover/search/objects?size=10
+HTTP 200
+content-type: application/hal+json;charset=UTF-8
+transfer-encoding: chunked
+connection: keep-alive
+date: Sat, 14 Nov 2026 01:50:28 GMT
+strict-transport-security: max-age=31536000 ; includeSubDomains
+x-frame-options: DENY
+vary: Origin
+vary: Access-Control-Request-Method
+vary: Access-Control-Request-Headers
+content-language: it,en
+x-content-type-options: nosniff
+x-xss-protection: 0
+cache-control: no-cache, no-store, max-age=0, must-revalidate
+pragma: no-cache
+expires: 0
+x-cache: Miss from cloudfront
+via: 1.1 aa8a6b223b539fa31f33a415bc124894.cloudfront.net (CloudFront)
+x-amz-cf-pop: MXP63-P8
+x-amz-cf-id: FlExOMb62EiP54VaSjdYmcCjz-zWjJPqYBjBJme420jbKVIrZG7Uug==
+referrer-policy: strict-origin-when-cross-origin

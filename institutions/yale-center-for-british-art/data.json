@@ -4,10 +4,268 @@
   "pays": "États-Unis",
   "classeur_id": "GLAM-036",
   "type": "Institution",
-  "statut_audit": "à faire",
-  "limites_documentees": [],
+  "statut_audit": "audit a–f complet (v2) ; g à faire",
+  "limites_documentees": [
+    {
+      "nature": "Utilisation excessive (non chiffrée)",
+      "perimetre": "données et services de données du YCBA (OAI-PMH, linked data, flux XML)",
+      "valeur": "« The Center reserves the right to limit or block any user or client for excessive use. »",
+      "fenetre": "–",
+      "effet": "limitation ou blocage à la discrétion du Centre",
+      "verification": "officielle, lue en entier",
+      "source": "https://britishart.yale.edu/open-data-and-data-services-terms-use",
+      "date": "2026-11-14"
+    },
+    {
+      "nature": "Identification du client",
+      "perimetre": "clients non-navigateur",
+      "valeur": "User-Agent avec détails du logiciel, e-mail et URL",
+      "fenetre": "–",
+      "effet": "–",
+      "verification": "officielle, lue en entier",
+      "source": "https://britishart.yale.edu/open-data-and-data-services-terms-use",
+      "date": "2026-11-14"
+    }
+  ],
   "en_tetes_observes": [],
-  "blocages": [],
-  "sources": [],
-  "web": []
+  "blocages": [
+    {
+      "date": "2026-11-14 02:01Z",
+      "hote": "collections.britishart.yale.edu",
+      "code": "403",
+      "nature": "défi Cloudflare « Just a moment... » dès le robots.txt",
+      "suite": "hôte arrêté, non contourné ; robots lu via Wayback"
+    },
+    {
+      "date": "2026-11-14 02:02Z",
+      "hote": "yaleits.atlassian.net",
+      "code": "202",
+      "nature": "réponse vide (page Confluence rendue en JavaScript)",
+      "suite": "non lisible, a_verifier_manuellement"
+    },
+    {
+      "date": "2026-11-14 02:05Z",
+      "hote": "collection.britishart.yale.edu",
+      "code": "DNS",
+      "nature": "nom d'hôte non résolu (robots.txt et données liées)",
+      "suite": "non testable"
+    }
+  ],
+  "sources": [
+    {
+      "url": "https://britishart.yale.edu/open-data-and-data-services-terms-use",
+      "date": "2026-11-14",
+      "etiquette": "officielle",
+      "preuve": "institutions/yale-center-for-british-art/sources/doc2/SHA256SUMS"
+    },
+    {
+      "url": "https://britishart.yale.edu/collections-data-sharing",
+      "date": "2026-11-14",
+      "etiquette": "officielle",
+      "preuve": "institutions/yale-center-for-british-art/sources/doc/SHA256SUMS"
+    },
+    {
+      "url": "https://britishart.yale.edu/terms-use",
+      "date": "2026-11-14",
+      "etiquette": "officielle",
+      "preuve": "institutions/yale-center-for-british-art/sources/doc6/SHA256SUMS"
+    },
+    {
+      "url": "https://web.archive.org/web/20260101054559/https://collections.britishart.yale.edu/robots.txt",
+      "date": "2026-11-14",
+      "etiquette": "officielle (Wayback)",
+      "preuve": "institutions/yale-center-for-british-art/sources/wayback/SHA256SUMS"
+    }
+  ],
+  "web": [
+    {
+      "categorie": "institution",
+      "url": "https://britishart.yale.edu/open-data-and-data-services-terms-use",
+      "date": "2026-11-14",
+      "etiquette": "officielle",
+      "citation": "The Center reserves the right to limit or block any user or client for excessive use.",
+      "preuve": "institutions/yale-center-for-british-art/sources/doc2/SHA256SUMS"
+    },
+    {
+      "categorie": "presentations",
+      "url": "https://www.infodocket.com/2017/06/03/nearly-70000-public-domain-images-available-online-from-yale-center-for-british-art-now-iiif-international-image-interoperability-framework-compliant/",
+      "date": "2026-11-14",
+      "etiquette": "tiers (lu)",
+      "citation": "nearly seventy thousand images of works of art in the public domain, compliant with the International Image Interoperability Framework (IIIF) ; aucune mention de limites ni de moissonnage",
+      "preuve": "institutions/yale-center-for-british-art/fiche.md"
+    },
+    {
+      "categorie": "utilisateurs",
+      "aucun_resultat": true,
+      "requete": "Yale Center for British Art IIIF OAI-PMH harvest collections data rate limit OR \"429\" OR blocked OR throttled",
+      "date": "2026-11-14",
+      "etiquette": "–",
+      "citation": "aucune plainte ni signalement de 429 ou de blocage visant le YCBA ; seulement des profils génériques d'autres institutions",
+      "preuve": "institutions/yale-center-for-british-art/fiche.md"
+    },
+    {
+      "categorie": "tickets",
+      "aucun_resultat": true,
+      "requete": "github issue manifests.collections.yale.edu OR images.collections.yale.edu 429 OR timeout OR \"rate limit\" IIIF Yale",
+      "date": "2026-11-14",
+      "etiquette": "–",
+      "citation": "aucun ticket d'outil tiers sur des 429 ou timeouts des serveurs IIIF de Yale (dépôt yale-web-technologies/manifest_server lu : une ligne de description)",
+      "preuve": "institutions/yale-center-for-british-art/fiche.md"
+    }
+  ],
+  "contact": "ycba.online@yale.edu (Collections Information Access, page Collections Data Sharing)",
+  "conclusion_quota": "Aucun quota chiffré : seulement « excessive use » (blocage discrétionnaire) et l'exigence d'un User-Agent avec contact ; OAI-PMH et IIIF répondent 200 sans en-tête de limite ; catalogue en ligne derrière Cloudflare (403).",
+  "classe_quota": "aucun quota trouvé",
+  "confiance": "moyenne",
+  "notes": "Doc LUX/IIIF Yale (Confluence) illisible (202 vide) ; LUX non testé faute d'URL d'exemple lisible. User-Agent de la sonde sans e-mail (la clause des Terms le demande) : écart non modifiable par l'agent. En-têtes de la vignette : signature S3 redigée.",
+  "a_verifier_manuellement": [
+    {
+      "url": "https://collections.britishart.yale.edu/",
+      "pourquoi": "403 Cloudflare, catalogue en ligne",
+      "a_chercher": "Liens vers des API, conditions d'usage spécifiques, bouton download"
+    },
+    {
+      "url": "https://yaleits.atlassian.net/wiki/x/NQA0jQ",
+      "pourquoi": "page Confluence (doc IIIF Yale) rendue en JavaScript, 202 vide, pas de capture Wayback",
+      "a_chercher": "Modèles d'URL de manifestes et d'images, éventuelles limites"
+    },
+    {
+      "url": "https://lux.collections.yale.edu/content/technology",
+      "pourquoi": "application JavaScript sans texte lisible",
+      "a_chercher": "Documentation de l'API LUX (Documents, Search, Facets) et limites de débit"
+    },
+    {
+      "url": "http://collection.britishart.yale.edu/id/page/object/1772",
+      "pourquoi": "DNS : l'hôte ne se résout plus depuis ce réseau",
+      "a_chercher": "Si le service de données liées existe encore ailleurs"
+    }
+  ],
+  "endpoints_documentes": [
+    {
+      "famille": "OAI-PMH LIDO (OAICat)",
+      "url": "https://harvester-bl.britishart.yale.edu/oaicatmuseum/OAIHandler?verb=Identify",
+      "statut": "teste",
+      "preuve": "institutions/yale-center-for-british-art/tests/raw/oai-identify.headers.txt"
+    },
+    {
+      "famille": "OAI GetRecord LIDO",
+      "url": "https://harvester-bl.britishart.yale.edu/oaicatmuseum/OAIHandler?verb=GetRecord&identifier=oai:tms.ycba.yale.edu:1772&metadataPrefix=lido",
+      "statut": "teste",
+      "preuve": "institutions/yale-center-for-british-art/tests/raw/oai-getrecord-lido.headers.txt"
+    },
+    {
+      "famille": "OAI ListRecords / ListIdentifiers",
+      "url": "https://harvester-bl.britishart.yale.edu/oaicatmuseum/OAIHandler?verb=ListRecords",
+      "statut": "non_teste",
+      "raison": "moissonnage volumineux de toute la collection ; le protocole est prouvé par Identify, ListSets, GetRecord"
+    },
+    {
+      "famille": "IIIF Presentation v3 (défaut)",
+      "url": "https://manifests.collections.yale.edu/ycba/obj/1772",
+      "statut": "teste",
+      "preuve": "institutions/yale-center-for-british-art/tests/raw/manifeste-v3-ycba-1772.headers.txt"
+    },
+    {
+      "famille": "IIIF Presentation v2",
+      "url": "https://manifests.collections.yale.edu/v2/ycba/obj/1772",
+      "statut": "teste",
+      "preuve": "institutions/yale-center-for-british-art/tests/raw/manifeste-v2-ycba-1772.headers.txt"
+    },
+    {
+      "famille": "IIIF Image 2 (info.json et dérivé)",
+      "url": "https://images.collections.yale.edu/iiif/2/ycba:14f52bbd-3075-40f4-9e99-6c0f149b5dcf/info.json",
+      "statut": "teste",
+      "preuve": "institutions/yale-center-for-british-art/tests/raw/image-info-json.headers.txt"
+    },
+    {
+      "famille": "Vignettes media.collections.yale.edu",
+      "url": "https://media.collections.yale.edu/thumbnail/ycba/14f52bbd-3075-40f4-9e99-6c0f149b5dcf",
+      "statut": "teste",
+      "preuve": "institutions/yale-center-for-british-art/tests/raw/media-thumbnail.headers.txt"
+    },
+    {
+      "famille": "Données liées (CIDOC CRM / N3)",
+      "url": "http://collection.britishart.yale.edu/id/page/object/1772",
+      "statut": "teste",
+      "preuve": "institutions/yale-center-for-british-art/tests/journal.log"
+    },
+    {
+      "famille": "LUX (Linked Art : Documents, Search, Facets)",
+      "url": "https://lux.collections.yale.edu/",
+      "statut": "non_teste",
+      "raison": "la doc de l'API LUX est introuvable dans le texte lisible (application JavaScript) et aucun identifiant d'exemple n'est donné ; rien n'est deviné"
+    },
+    {
+      "famille": "Catalogue en ligne et téléchargement d'images",
+      "url": "https://collections.britishart.yale.edu/",
+      "statut": "non_teste",
+      "raison": "hôte en 403 Cloudflare : on s'arrête, non contourné"
+    },
+    {
+      "famille": "Fichiers TIFF media.collections.yale.edu/tiff",
+      "url": "https://media.collections.yale.edu/tiff/ycba/14f52bbd-3075-40f4-9e99-6c0f149b5dcf.tif",
+      "statut": "non_teste",
+      "raison": "fichier TIFF haute résolution volumineux ; hors budget poli"
+    }
+  ],
+  "endpoints_ecartes": [
+    {
+      "url": "https://britishart.yale.edu/collections-data-sharing",
+      "raison": "page de doc du YCBA, pas une API"
+    },
+    {
+      "url": "https://static.britishart.yale.edu/images/ycba_logo.jpg",
+      "raison": "logo statique cité par le manifeste, pas une API de données"
+    },
+    {
+      "url": "http://iiif.io/community/consortium",
+      "raison": "page du consortium IIIF citée par la doc, hors institution"
+    },
+    {
+      "url": "https://lux.collections.yale.edu/manifest.json",
+      "raison": "manifeste d'application web (PWA) de l'interface LUX cité dans le HTML, ce n'est pas un manifeste IIIF ni une API de données"
+    }
+  ],
+  "hotes_robots": [
+    {
+      "hote": "britishart.yale.edu",
+      "resultat": "Drupal standard (Disallow /search/, /admin/…), pas de Crawl-delay",
+      "preuve": "institutions/yale-center-for-british-art/sources/doc/SHA256SUMS"
+    },
+    {
+      "hote": "collections.britishart.yale.edu",
+      "resultat": "403 Cloudflare en direct ; copie Wayback 2026-01-01 lue : Drupal standard, aucun Crawl-delay",
+      "preuve": "institutions/yale-center-for-british-art/sources/wayback/SHA256SUMS"
+    },
+    {
+      "hote": "manifests.collections.yale.edu",
+      "resultat": "robots.txt 404 : tout autorisé",
+      "preuve": "institutions/yale-center-for-british-art/sources/doc/SHA256SUMS"
+    },
+    {
+      "hote": "images.collections.yale.edu",
+      "resultat": "robots.txt 404 : tout autorisé",
+      "preuve": "institutions/yale-center-for-british-art/sources/doc/SHA256SUMS"
+    },
+    {
+      "hote": "lux.collections.yale.edu",
+      "resultat": "Disallow /view/results/ ; pas de Crawl-delay",
+      "preuve": "institutions/yale-center-for-british-art/sources/doc/SHA256SUMS"
+    },
+    {
+      "hote": "harvester-bl.britishart.yale.edu",
+      "resultat": "robots.txt 404 : tout autorisé",
+      "preuve": "institutions/yale-center-for-british-art/sources/doc2/SHA256SUMS"
+    },
+    {
+      "hote": "media.collections.yale.edu",
+      "resultat": "robots.txt 404 : tout autorisé",
+      "preuve": "institutions/yale-center-for-british-art/sources/doc4/SHA256SUMS"
+    },
+    {
+      "hote": "collection.britishart.yale.edu",
+      "resultat": "nom d'hôte non résolu (DNS) : robots.txt illisible",
+      "preuve": "institutions/yale-center-for-british-art/tests/journal.log"
+    }
+  ]
 }

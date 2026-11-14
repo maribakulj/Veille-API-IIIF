@@ -2,33 +2,232 @@
   "slug": "vatican",
   "nom": "Biblioteca Apostolica Vaticana (DigiVatLib)",
   "pays": "Vatican",
-  "statut_audit": "partiel (ancienne méthode)",
-  "limites_documentees": [],
+  "statut_audit": "audit a–f complet (v2) ; g à faire",
+  "limites_documentees": [
+    {
+      "nature": "Délai d'exploration demandé aux robots",
+      "perimetre": "digi.vatlib.it (tous robots ; Bingbot 30 s ; SemrushBot exclu)",
+      "valeur": "Crawl-delay: 10",
+      "fenetre": "1 requête / 10 s",
+      "effet": "consigne de politesse, pas de blocage observé",
+      "verification": "officielle, lue (robots.txt)",
+      "source": "https://digi.vatlib.it/robots.txt",
+      "date": "2026-11-14"
+    },
+    {
+      "nature": "Interdiction de téléchargement des images (licence de reproduction professionnelle)",
+      "perimetre": "sites web de licenciés publiant des reproductions BAV",
+      "valeur": "« Under no circumstances will downloading of the images be allowed. »",
+      "fenetre": "–",
+      "effet": "clause du contrat de licence (art. 9), ne vise pas l'API digi.vatlib.it",
+      "verification": "officielle, lue en entier",
+      "source": "https://www.vatlib.it/en/information-readers/fotoriproduzione-uso-professionale.html",
+      "date": "2026-11-14"
+    }
+  ],
   "en_tetes_observes": [],
   "blocages": [
     {
-      "date": "2026-11-13",
-      "hote": "vatlib.it / spotlight.vatlib.it",
+      "date": "2026-11-14",
+      "hote": "spotlight.vatlib.it",
       "code": "TLS",
-      "nature": "erreur de certificat à la lecture",
-      "suite": "non lu"
+      "nature": "SSLCertVerificationError (certificat intermédiaire manquant) à la sonde Python ; robots.txt lisible par curl dans fetch_doc",
+      "suite": "accueil non lu par la sonde ; listé à vérifier à la main"
+    },
+    {
+      "date": "2026-11-14",
+      "hote": "www.digitavaticana.org",
+      "code": "timeout",
+      "nature": "connexion expirée après 30 s (fetch_doc, 1 tentative)",
+      "suite": "non relancé ; listé à vérifier à la main"
     }
   ],
-  "contact": "non trouvé",
-  "conclusion_quota": "Aucun quota trouvé ; doc officielle non lue.",
-  "classe_quota": "aucun quota trouvé (doc non lue)",
-  "confiance": "faible",
-  "notes": "Interdiction de téléchargement des images (extrait de recherche, non lu brut).",
+  "contact": "bav@vatlib.it (adresse lue sur www.vatlib.it, page Contacts and offices) ; formulaire « Contact us » de digi.vatlib.it",
+  "conclusion_quota": "Aucun quota, limite de débit ni politique de moissonnage publiés pour DigiVatLib ; seule contrainte écrite : Crawl-delay 10 (digi.vatlib.it/robots.txt, aussi spotlight). 10+5 requêtes de sonde, toutes 200, aucun en-tête de limite. Les conditions de reproduction (pas de téléchargement d'images) visent les licences de publication, pas l'API.",
+  "classe_quota": "aucun quota trouvé",
+  "confiance": "moyenne",
+  "notes": "Manifestes IIIF Presentation 2 et images IIIF Image 2 level2 sans clé ; digitavaticana.org illisible (timeout) ; spotlight.vatlib.it : erreur de certificat côté sonde.",
   "classeur_id": "GLAM-028",
   "type": "Institution",
-  "sources": [],
-  "web": [],
-  "donnees_a_revalider": true,
+  "sources": [
+    {
+      "url": "https://digi.vatlib.it/robots.txt",
+      "date": "2026-11-14",
+      "etiquette": "officielle",
+      "preuve": "institutions/vatican/sources/a1/SHA256SUMS"
+    },
+    {
+      "url": "https://digi.vatlib.it/about",
+      "date": "2026-11-14",
+      "etiquette": "officielle",
+      "preuve": "institutions/vatican/sources/a2/SHA256SUMS"
+    },
+    {
+      "url": "https://digi.vatlib.it/news/",
+      "date": "2026-11-14",
+      "etiquette": "officielle",
+      "preuve": "institutions/vatican/sources/a2/SHA256SUMS"
+    },
+    {
+      "url": "https://www.vatlib.it/en/information-readers/fotoriproduzione-uso-professionale.html",
+      "date": "2026-11-14",
+      "etiquette": "officielle",
+      "preuve": "institutions/vatican/sources/a1/SHA256SUMS"
+    },
+    {
+      "url": "https://www.vaticanlibrary.va/it/disclaimer.html",
+      "date": "2026-11-14",
+      "etiquette": "officielle",
+      "preuve": "institutions/vatican/sources/a3/SHA256SUMS"
+    },
+    {
+      "url": "https://www.vatlib.it/en/the-library/contacts-and-offices.html",
+      "date": "2026-11-14",
+      "etiquette": "officielle",
+      "preuve": "institutions/vatican/sources/a2/SHA256SUMS"
+    }
+  ],
+  "web": [
+    {
+      "categorie": "utilisateurs",
+      "url": "https://groups.google.com/g/iiif-discuss/c/Fc1epNUG1N0",
+      "date": "2016-09-20",
+      "etiquette": "utilisateur",
+      "citation": "« I'm getting a 403 forbidden response for image requests to the digital vatican server. » ; cause soupçonnée (spéculation) : en-tête Referer ou bloqueur de publicités.",
+      "preuve": "institutions/vatican/sources/web/recherches-web-2026-11-14.md"
+    },
+    {
+      "categorie": "presentations",
+      "url": "https://digitalia.cultura.gov.it/article/download/2632/1840/14641",
+      "date": "2020",
+      "etiquette": "présentation de l'institution",
+      "citation": "Paola Manoni (BAV), « L'adozione del IIIF nell'ecosistema digitale della BAV », DigItalia 2-2020 : lu en texte, aucune mention de limite, quota ou bot.",
+      "preuve": "institutions/vatican/sources/web/digitalia-2020-manoni-extrait-pdftotext.txt"
+    },
+    {
+      "categorie": "institution",
+      "url": "https://parisbible.github.io/2022-10-31-bible-hunting-Italy",
+      "date": "2022-10-31",
+      "etiquette": "tiers",
+      "citation": "« Generally, the rights are reserved for the Vatican Apostolic Library and a watermark is applied to the images downloaded. » Aucune limite de débit citée.",
+      "preuve": "institutions/vatican/sources/web/recherches-web-2026-11-14.md"
+    },
+    {
+      "categorie": "tickets",
+      "aucun_resultat": true,
+      "requete": "github issue digi.vatlib.it iiif manifest harvesting Vatican Library",
+      "date": "2026-11-14",
+      "etiquette": "–",
+      "citation": "aucun ticket d'outil tiers sur digi.vatlib.it trouvé",
+      "preuve": "institutions/vatican/sources/web/recherches-web-2026-11-14.md"
+    }
+  ],
+  "donnees_a_revalider": false,
   "a_verifier_manuellement": [
     {
-      "url": "https://digi.vatlib.it/",
-      "pourquoi": "erreur TLS (certificat) depuis la sonde",
-      "a_chercher": "Conditions d'usage, IIIF, limites de la Bibliothèque vaticane"
+      "url": "https://spotlight.vatlib.it/",
+      "pourquoi": "erreur de certificat TLS depuis la sonde (pas de contournement)",
+      "a_chercher": "Conditions d'usage et API éventuelles du site Spotlight (Polonsky, Thematic Pathways)"
+    },
+    {
+      "url": "https://www.digitavaticana.org/?lang=en",
+      "pourquoi": "timeout à 30 s (fetch_doc)",
+      "a_chercher": "Page DigiVatLib alternative : conditions d'usage, IIIF, limites"
+    },
+    {
+      "url": "https://www.vatlib.it/en/the-library/photographic-laboratory.html",
+      "pourquoi": "citée par la recherche web, non téléchargée",
+      "a_chercher": "Politique de reproduction numérique et d'usage des images"
+    }
+  ],
+  "endpoints_documentes": [
+    {
+      "famille": "Manifestes IIIF Presentation 2 (digi.vatlib.it/iiif/<cote>/manifest.json)",
+      "url": "https://digi.vatlib.it/iiif/MSS_Vat.lat.683/manifest.json",
+      "statut": "teste",
+      "preuve": "institutions/vatican/tests/raw/manifeste-MSS_Vat.lat.683.headers.txt"
+    },
+    {
+      "famille": "Images IIIF Image 2 level2 (info.json et dérivés)",
+      "url": "https://digi.vatlib.it/iiifimage/MSS_Vat.lat.683/Vat.lat.683_0001_al_piatto.anteriore.jp2/info.json",
+      "statut": "teste",
+      "preuve": "institutions/vatican/tests/raw/info-json-p0001.headers.txt"
+    },
+    {
+      "famille": "Vignettes pub/digit",
+      "url": "https://digi.vatlib.it/pub/digit/MSS_Vat.lat.683/thumb/Vat.lat.683_0001_al_piatto.anteriore.tif.jpg",
+      "statut": "teste",
+      "preuve": "institutions/vatican/tests/raw/vignette-p0001.headers.txt"
+    },
+    {
+      "famille": "Accueil et notices DigiVatLib",
+      "url": "https://digi.vatlib.it/mss/detail/Vat.lat.683",
+      "statut": "teste",
+      "preuve": "institutions/vatican/tests/raw/notice-seeAlso.headers.txt"
+    },
+    {
+      "famille": "Catalogue OPAC",
+      "url": "https://opac.vatlib.it/",
+      "statut": "teste",
+      "preuve": "institutions/vatican/tests/raw/accueil-opac.headers.txt"
+    },
+    {
+      "famille": "Console des archives (mss.vatlib.it)",
+      "url": "http://www.mss.vatlib.it/arch_guii/console?service=tree",
+      "statut": "teste",
+      "preuve": "institutions/vatican/tests/raw/console-mss.headers.txt"
+    },
+    {
+      "famille": "Spotlight (projet Polonsky, Thematic Pathways)",
+      "url": "https://spotlight.vatlib.it/",
+      "statut": "non_teste",
+      "raison": "erreur de certificat TLS à la sonde (SSLCertVerificationError) ; pas de contournement, listé à vérifier à la main"
+    }
+  ],
+  "endpoints_ecartes": [
+    {
+      "url": "https://www.digitavaticana.org/?lang=en",
+      "raison": "site de présentation lié par l'accueil, pas une API ; timeout à 30 s lors de la lecture (aucune relance)"
+    },
+    {
+      "url": "https://www.vaticanlibrary.va/",
+      "raison": "site institutionnel lié par l'accueil, pas une API : seules ses conditions et robots.txt ont été lus"
+    },
+    {
+      "url": "https://rici.vatlib.it",
+      "raison": "site de projet (RICI) lié par la doc, pas une API IIIF documentée ; aucune doc d'API"
+    }
+  ],
+  "hotes_robots": [
+    {
+      "hote": "digi.vatlib.it",
+      "resultat": "Disallow /search, /about, /news, /*/detail/* ; Crawl-delay 10 ; Bingbot 30 ; SemrushBot exclu",
+      "preuve": "institutions/vatican/sources/a1/SHA256SUMS"
+    },
+    {
+      "hote": "www.vatlib.it",
+      "resultat": "robots.txt 404 : tout autorisé",
+      "preuve": "institutions/vatican/sources/a1/SHA256SUMS"
+    },
+    {
+      "hote": "spotlight.vatlib.it",
+      "resultat": "Crawl-delay 10 ; Disallow /*/catalog?q=* et ?f* ; SemrushBot exclu",
+      "preuve": "institutions/vatican/sources/a1/SHA256SUMS"
+    },
+    {
+      "hote": "opac.vatlib.it",
+      "resultat": "Allow: /$ puis Disallow: /* (tout interdit sauf l'accueil)",
+      "preuve": "institutions/vatican/sources/a3/SHA256SUMS"
+    },
+    {
+      "hote": "www.mss.vatlib.it",
+      "resultat": "robots.txt 404 : tout autorisé",
+      "preuve": "institutions/vatican/sources/a3/SHA256SUMS"
+    },
+    {
+      "hote": "www.vaticanlibrary.va",
+      "resultat": "robots.txt 404 : tout autorisé",
+      "preuve": "institutions/vatican/sources/a3/SHA256SUMS"
     }
   ]
 }

@@ -4,10 +4,202 @@
   "pays": "Allemagne",
   "classeur_id": "GLAM-026",
   "type": "Institution",
-  "statut_audit": "à faire",
-  "limites_documentees": [],
+  "statut_audit": "audit a–f complet (v2) ; g à faire",
+  "limites_documentees": [
+    {
+      "nature": "Aucune limite de débit documentée",
+      "perimetre": "digi.ub.uni-heidelberg.de (OAI, IIIF)",
+      "valeur": "« Die Universitätsbibliothek Heidelberg erhebt keine Gebühren für die Nutzung ihrer Digitalisate »",
+      "fenetre": "–",
+      "effet": "–",
+      "verification": "officielle, lue en entier",
+      "source": "https://www.ub.uni-heidelberg.de/helios/digi/nutzung/Welcome.html",
+      "date": "2026-11-14"
+    }
+  ],
   "en_tetes_observes": [],
-  "blocages": [],
-  "sources": [],
-  "web": []
+  "blocages": [
+    {
+      "hote": "digi.ub.uni-heidelberg.de",
+      "code": "200 + défi Anubis",
+      "nature": "CAPTCHA/défi JavaScript (Anubis, preuve de travail) sur pages d'ouvrage et RSS ; non contourné"
+    }
+  ],
+  "sources": [
+    {
+      "url": "https://www.ub.uni-heidelberg.de/helios/digi/nutzung/Welcome.html",
+      "date": "2026-11-14",
+      "etiquette": "officielle",
+      "preuve": "institutions/universitatsbibliothek-heidelberg/sources/doc/SHA256SUMS"
+    },
+    {
+      "url": "https://ub.uni-heidelberg.de/fr/helios/digi/dwork.html",
+      "date": "2026-11-14",
+      "etiquette": "officielle",
+      "preuve": "institutions/universitatsbibliothek-heidelberg/sources/doc2/SHA256SUMS"
+    },
+    {
+      "url": "https://digi.ub.uni-heidelberg.de/robots.txt",
+      "date": "2026-11-14",
+      "etiquette": "officielle",
+      "preuve": "institutions/universitatsbibliothek-heidelberg/sources/accueil/SHA256SUMS"
+    },
+    {
+      "url": "https://web.archive.org/web/20241219175751/https://digi.ub.uni-heidelberg.de/cgi-bin/digioai.cgi?verb=Identify",
+      "date": "2026-11-14",
+      "etiquette": "officielle (Wayback)",
+      "preuve": "institutions/universitatsbibliothek-heidelberg/sources/wayback/SHA256SUMS"
+    }
+  ],
+  "web": [
+    {
+      "categorie": "institution",
+      "aucun_resultat": true,
+      "requete": "Heidelberg University Library digi.ub.uni-heidelberg.de Anubis AI crawlers scraping blocked",
+      "date": "2026-11-14",
+      "etiquette": "–",
+      "citation": "aucune politique de bots ou de débit de l'UB Heidelberg trouvée hors des pages déjà lues ; seulement des articles généraux sur Anubis",
+      "preuve": "institutions/universitatsbibliothek-heidelberg/fiche.md"
+    },
+    {
+      "categorie": "utilisateurs",
+      "aucun_resultat": true,
+      "requete": "digi.ub.uni-heidelberg.de IIIF 429 OR 503 OR \"rate limit\" OR blocked harvesting",
+      "date": "2026-11-14",
+      "etiquette": "–",
+      "citation": "aucune plainte 429/503 ni blocage concernant digi.ub trouvé",
+      "preuve": "institutions/universitatsbibliothek-heidelberg/fiche.md"
+    },
+    {
+      "categorie": "tickets",
+      "aucun_resultat": true,
+      "requete": "github issue \"digi.ub.uni-heidelberg.de\" iiif manifest downloader OR harvester OR crawler",
+      "date": "2026-11-14",
+      "etiquette": "–",
+      "citation": "aucun ticket d'outil tiers visant Heidelberg trouvé (outils IIIF génériques seulement)",
+      "preuve": "institutions/universitatsbibliothek-heidelberg/fiche.md"
+    },
+    {
+      "categorie": "presentations",
+      "url": "https://pro.europeana.eu/page/the-universitaetsbibliothek-heidelberg-case-study",
+      "date": "2026-11-14",
+      "etiquette": "tiers (résumé de moteur, non vérifié)",
+      "citation": "la collection de l'UB Heidelberg dans Europeana était alimentée par des moissonnages du serveur OAI-PMH de l'institution (résumé de moteur ; page en 403)",
+      "preuve": "institutions/universitatsbibliothek-heidelberg/fiche.md"
+    }
+  ],
+  "contact": "ub@ub.uni-heidelberg.de (adminEmail OAI) ; it@ub.uni-heidelberg.de (page Anubis)",
+  "conclusion_quota": "Aucun quota ni limite de débit publiés ; OAI-PMH et IIIF (Presentation v2/v3, Image v2/v3) répondent 200 sans en-tête de limite ; pages d'ouvrage et RSS derrière un défi Anubis (anti-moissonnage IA), non contourné.",
+  "classe_quota": "aucun quota trouvé",
+  "confiance": "moyenne",
+  "notes": "Hôte digi.ub protégé par Anubis sur les pages web (pas sur OAI/IIIF testés). OAI sous /cgi-bin/ interdit par robots.txt : testé avec accord de Marcel (C12).",
+  "a_verifier_manuellement": [
+    {
+      "url": "https://digi.ub.uni-heidelberg.de/diglit/Cimelia1975",
+      "pourquoi": "page d'ouvrage derrière un défi Anubis (lue via Wayback 2024)",
+      "a_chercher": "Dans un navigateur : section Metadata/IIIF Manifest, mention d'une politique d'accès automatisé"
+    },
+    {
+      "url": "https://digi.ub.uni-heidelberg.de/diglit/rss?set=handschriften",
+      "pourquoi": "flux RSS derrière Anubis, page de défi seulement",
+      "a_chercher": "Vérifier que le flux existe et son format, et toute mention de fréquence"
+    },
+    {
+      "url": "https://pro.europeana.eu/page/the-universitaetsbibliothek-heidelberg-case-study",
+      "pourquoi": "WebFetch refusé (403)",
+      "a_chercher": "Passage sur le moissonnage OAI-PMH puis IIIF de Heidelberg et éventuelles limites"
+    },
+    {
+      "url": "https://digi.ub.uni-heidelberg.de/en/bpd/projekt/nutzungsbedingungen.html",
+      "pourquoi": "domaine de l'institution, page non lue par l'agent (Terms of Use for Digital Images, projet bpd), derrière Anubis possible",
+      "a_chercher": "Règles sur l'usage automatisé ou en masse"
+    }
+  ],
+  "endpoints_documentes": [
+    {
+      "famille": "OAI-PMH (Identify, ListMetadataFormats, ListSets, GetRecord)",
+      "url": "https://digi.ub.uni-heidelberg.de/cgi-bin/digioai.cgi?verb=Identify",
+      "statut": "teste",
+      "preuve": "institutions/universitatsbibliothek-heidelberg/tests/raw/oai-identify.headers.txt"
+    },
+    {
+      "famille": "OAI-PMH ListRecords / ListIdentifiers",
+      "url": "https://digi.ub.uni-heidelberg.de/cgi-bin/digioai.cgi?verb=ListRecords",
+      "statut": "non_teste",
+      "raison": "moissonnage volumineux de tout le dépôt ; le protocole est prouvé par Identify, ListSets et GetRecord"
+    },
+    {
+      "famille": "IIIF Presentation v2 : manifeste",
+      "url": "https://digi.ub.uni-heidelberg.de/diglit/iiif/aaha1928/manifest",
+      "statut": "teste",
+      "preuve": "institutions/universitatsbibliothek-heidelberg/tests/raw/manifeste-v2-aaha1928.headers.txt"
+    },
+    {
+      "famille": "IIIF Presentation v3 : manifeste",
+      "url": "https://digi.ub.uni-heidelberg.de/diglit/iiif3/aaha1928/manifest",
+      "statut": "teste",
+      "preuve": "institutions/universitatsbibliothek-heidelberg/tests/raw/manifeste-v3-aaha1928.headers.txt"
+    },
+    {
+      "famille": "IIIF Image v2 : info.json et dérivé",
+      "url": "https://digi.ub.uni-heidelberg.de/iiif/2/aaha1928%3A00000_a.jpg/info.json",
+      "statut": "teste",
+      "preuve": "institutions/universitatsbibliothek-heidelberg/tests/raw/image-info-v2.headers.txt"
+    },
+    {
+      "famille": "IIIF Image v3 : info.json",
+      "url": "https://digi.ub.uni-heidelberg.de/iiif/3/aaha1928%3A00000_a.jpg/info.json",
+      "statut": "teste",
+      "preuve": "institutions/universitatsbibliothek-heidelberg/tests/raw/image-info-v3.headers.txt"
+    },
+    {
+      "famille": "Flux RSS des collections",
+      "url": "https://digi.ub.uni-heidelberg.de/diglit/rss?set=handschriften",
+      "statut": "teste",
+      "preuve": "institutions/universitatsbibliothek-heidelberg/tests/raw/rss-handschriften.headers.txt"
+    },
+    {
+      "famille": "METS par ouvrage",
+      "url": "https://digi.ub.uni-heidelberg.de/diglit/aaha1928",
+      "statut": "non_teste",
+      "raison": "l'URL du METS se lit sur la page d'ouvrage (derrière Anubis, non contourné) ; non devinée"
+    },
+    {
+      "famille": "Téléchargement PDF des ouvrages",
+      "url": "https://digi.ub.uni-heidelberg.de/diglit/Cimelia1975",
+      "statut": "non_teste",
+      "raison": "PDF de 51 à 175 Mo : hors budget poli, et page d'ouvrage derrière Anubis non contourné"
+    }
+  ],
+  "endpoints_ecartes": [
+    {
+      "url": "https://digi.ub.uni-heidelberg.de/sitemap.xml",
+      "raison": "index de plan de site lu comme document (200) ; ce n'est pas une API"
+    },
+    {
+      "url": "https://www.ub.uni-heidelberg.de/kontakt/Welcome.html",
+      "raison": "page de contact de l'UB, pas une API"
+    },
+    {
+      "url": "https://www.ub.uni-heidelberg.de/cgi-bin/search.cgi",
+      "raison": "formulaire de recherche du site web de l'UB (page de recherche, sans paramètres) cité dans l'en-tête des pages ; ce n'est pas une API de données et le robots de www.ub ne le décrit pas"
+    }
+  ],
+  "hotes_robots": [
+    {
+      "hote": "digi.ub.uni-heidelberg.de",
+      "resultat": "15 règles pour * (Disallow /cgi-bin/, /image/, /diglit/_browse_*) ; pas de Crawl-delay ; autorisé par Marcel (C12)",
+      "preuve": "institutions/universitatsbibliothek-heidelberg/sources/accueil/SHA256SUMS"
+    },
+    {
+      "hote": "www.ub.uni-heidelberg.de",
+      "resultat": "robots Drupal standard, rien sur l'API ni de Crawl-delay",
+      "preuve": "institutions/universitatsbibliothek-heidelberg/sources/accueil/SHA256SUMS"
+    },
+    {
+      "hote": "ub.uni-heidelberg.de",
+      "resultat": "robots Drupal standard, identique à www.ub",
+      "preuve": "institutions/universitatsbibliothek-heidelberg/sources/robots-ub/SHA256SUMS"
+    }
+  ]
 }

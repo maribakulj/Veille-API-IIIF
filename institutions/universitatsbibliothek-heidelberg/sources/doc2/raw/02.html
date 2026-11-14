@@ -1,0 +1,362 @@
+
+<!DOCTYPE html>
+<!-- {"":{ "title": "! Kein Titel gesetzt !", "button": "" },
+"title": "DWork &ndash; Heidelberg Digitization Workflow"} -->
+
+
+
+<html lang="de"><head>
+  <meta charset="utf-8">
+  <title>DWork – Heidelberg Digitization Workflow</title>
+  
+  <meta name="keywords" content="">
+  <meta name="description" content="">
+  <meta http-equiv="Content-Language" content="de">
+  <meta name="organization-name" content="Universitätsbibliothek Heidelberg">
+  <meta name="organization-email" content="ub@ub.uni-heidelberg.de">
+  <meta name="city" content="Heidelberg">
+  <meta name="country" content="Germany - Deutschland">
+  <meta name="language" content="German, Deutsch, de, at, ch">
+  <meta name="robots" content="index">
+  <meta name="robots" content="follow">
+  <meta name="revisit-after" content="1 month">
+  <meta name="rating" content="General">
+  <meta http-equiv="imagetoolbar" content="no">
+  <meta name="MSSmartTagsPreventParsing" content="true">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="google-site-verification" content="Fe1egWKUFNNSp3IYTaGTmvQ_nZKTZK6L5q7QetXMfa4">
+
+  <script type="text/javascript" src="//www.ub.uni-heidelberg.de/js/jquery-1.11.1.min.js"></script>
+  <link rel="SHORTCUT ICON" href="/favicon.ico" type="image/x-icon">
+ 	<style media="screen" type="text/css">
+  	@import url(https://www.ub.uni-heidelberg.de/css/uni/core/base_ltr.css);
+  	@import url(https://www.ub.uni-heidelberg.de/css/uni/basemod_ltr_small.css);
+  	@import url(https://www.ub.uni-heidelberg.de/css/uni/content.css);
+  	@import url(https://www.ub.uni-heidelberg.de/css/uni/style_ltr.css);
+    @import url(https://www.ub.uni-heidelberg.de/css/unilayout2013_ub.css); 
+}
+  </style>
+  <link rel="stylesheet" type="text/css" href="https://www.ub.uni-heidelberg.de/css/ubhd-mod.css">
+
+  <script type="text/javascript">
+    $( document ).ready(function() {
+       var sprachumstellung =  $(".sprachumschalter").text();
+       if(sprachumstellung == '')
+          {
+             $( ".trennstrich" ).hide()
+             $( ".sprachumschalter" ).hide()
+          }
+    });
+    $(function () {
+         $('.ym-skip1[href="#"]').click(function () {  
+                   var isHidden = $( "#col1" ).is( ":hidden" );
+                   var isHidden_navi = $( "#naviMainContainer" ).is( ":hidden" );
+                   if(isHidden == true) {
+                          $('#col1').show(250); 
+                          $('#naviMainContainer').show();
+                          $( ".roundbox_white_left" ).hide();
+                          
+                          }
+                   else {
+                      if(isHidden_navi == true)
+                          {
+                           $('#naviMainContainer').show();
+                           $( ".roundbox_white_left" ).hide();
+                          } 
+                       else
+                          {
+                          $('#col1').hide(250); 
+                          }
+                   }
+          });
+          
+         $('.ym-skip2[href="#"]').click(function () { 
+                   var isHidden = $( "#col1" ).is( ":hidden" );
+                   var isHidden_einstieg = $( ".roundbox_white_left" ).is( ":hidden" );
+
+                   if(isHidden == true) {
+                          $('#col1').show(250);  
+                          $('#naviMainContainer').hide();
+                          $( ".roundbox_white_left" ).show();
+                          }
+                   else {
+                      if(isHidden_einstieg == true)
+                          {
+                           $('#naviMainContainer').hide();
+                           $( ".roundbox_white_left" ).show();
+                          }
+                       else
+                          {
+                          $('#col1').hide(250);
+                          }
+                   }
+         });
+ });
+         $("a[href^='https://www.ub.uni-heidelberg.de'], a:not([href^='http://'], [href^='#'])")
+           .click(function () {
+                var a = $(this);
+                var href=a.attr("href");
+                if ( 0 && href.test(/\?/) ) {
+                    alert("Link enthält bereits einen Querystring. Bitte &responsive=1 in Browseradresszeile ggf. selbst anfügen und neu laden.");
+                }
+                else {
+                    a.attr('href', href+'?responsive=1');
+                }
+           });
+  </script>
+
+
+
+
+</head>
+<body>
+
+	<div id="topBarInstitute">
+    <a href="#contentbegin" accesskey="6">Skip navigation</a><a name="up" id="up"></a>
+             <ul class="ym-skiplinks">
+                <li id="ym-skip1"><a class="ym-skip1" href="#">Hauptmenü</a></li>
+                <li>|</li>
+                <li id="ym-skip2"><a class="ym-skip2" href="#">Schnelleinstieg</a></li>
+                <li class="trennstrich">|</li>
+                <li class="sprachumschalter">
+			            <a accesskey="5" href="/Englisch/allg/litrech/katalog.html">English</a></li>
+             </ul>
+
+
+	</div>
+	<div id="page_margins">
+		<div id="page">
+			<div id="universitaet"> <!--// Schriftzug Universität //-->
+			    <a href="//www.uni-heidelberg.de/index.html" title="Zur Universität" accesskey="0"><img src="//www.ub.uni-heidelberg.de/nav4/grafik/layout/schriftzug_mit_siegel.gif" alt="Ruprecht-Karls-Universität Heidelberg"></a> 
+			</div>
+      <div id="institutslogo_rwd">
+        <a href="https://www.ub.uni-heidelberg.de" accesskey="1" title="Homepage Universitätsbibliothek Heidelberg"><img src="https://www.ub.uni-heidelberg.de/nav4/grafik/layout/ub_logo2.gif" alt="Universitätsbibliothek"></a>
+      </div>
+			<div id="greyBar">
+			</div>
+			<div id="main">   <!--// Beginn Seiten //-->
+        		<div id="col1">      <!--// Beginn linke Spalte//-->
+          			<div id="col1_content" class="clearfix">
+						<div class="institutslogo"> <!-- Logo-Schriftzug links - Breite: 204 px -->
+<!-- Link zur Startseite -->
+							<a href="//www.ub.uni-heidelberg.de" accesskey="1" title="Homepage Universitätsbibliothek Heidelberg"><img src="https://www.ub.uni-heidelberg.de/nav4/grafik/layout/ub_logo2.gif" alt="Universitätsbibliothek"></a>
+						</div>
+					
+       						<div id="naviMainContainer">  <!--// Beginn Haupt-Navi //-->
+            <div id="heidisuch">
+<form action="https://www.ub.uni-heidelberg.de/cgi-bin/search.cgi" name="suchform" method="get" accept-charset="UTF-8" enctype="application/x-www-form-urlencoded">
+<input type="text" id="suchfeld" name="query" class="inputSearchTop" placeholder="Schnellsuche ...">&nbsp;<input class="inputSearchRightButton" type="submit" value=""><br>
+<input type="hidden" name="q" value="homepage">
+<input type="hidden" name="sprache" value="ger">
+<input type="radio" name="wo" value="h" id="radh" checked="" onclick="jQuery('#suchfeld').autocomplete('option','disabled',false);">&nbsp;<label for="radh">HEIDI</label>&nbsp;&nbsp;<input type="radio" name="wo" value="w" id="radw" onclick="jQuery('#suchfeld').autocomplete('option','disabled',true);">&nbsp;<label for="radw">Web-Seiten</label>
+              </form>
+            </div>
+            <ul>
+              <!-- highlight: ="class="current"" -->
+              <li class="oberste"><a  href="https://www.ub.uni-heidelberg.de/fr/helios/kataloge/Welcome.html">Searching and ordering literature</a></li>
+              <li class="oberste"><a  href="https://www.ub.uni-heidelberg.de/fr/helios/Welcome.html">Digital library</a></li>
+              <li class="oberste"><a  href="https://www.ub.uni-heidelberg.de/fr/service/Welcome.html">Reader services</a></li>
+              <li class="oberste"><a  href="https://www.ub.uni-heidelberg.de/fr/fachinfo/Welcome.html">Resources by subject</a></li>
+              <li class="oberste"><a  href="https://www.ub.uni-heidelberg.de/fr/schulung/Welcome.html">Courses, Advice, E-Learning</a></li>
+              <li class="oberste"><a  href="https://www.ub.uni-heidelberg.de/fr/wir/Welcome.html">Libraries</a></li>
+              <li class="oberste"><a  href="https://www.ub.uni-heidelberg.de/fr/a-z/a.html" accesskey="3">A to Z</a></li>
+            </ul>
+							<div class="navilast">   
+							</div>
+            </div>
+            
+              <div class="roundbox_white_left">
+                <h4 style="margin-top:5px;">Schnelleinstieg</h4>
+                <ul style="line-height: 1em;">
+                  <li style="margin-bottom: 0.7em"><a href="https://www.ub.uni-heidelberg.de/de/anmeldung-und-nutzerkonto">Registration for Students</a></li>
+                  <li style="margin-bottom: 0.7em;"><a href="https://www.ub.uni-heidelberg.de/fr/allg/profil/adoeftel.html" title="Öffnungszeiten der UB Heidelberg">Öffnungszeiten</a></li>
+                  <li style="margin-bottom: 0.7em;"><a href="https://www.ub.uni-heidelberg.de/fr/service/einsteiger/ubfuereinsteiger.html">UB für Einsteiger</a></li>
+                  <li style="margin-bottom: 0.7em;"><a href="/cgi-bin/ub3d.cgi">Virtueller Rundgang</a></li>
+                  <li style="margin-bottom: 0.7em;"><a href="https://katalog.ub.uni-heidelberg.de/cgi-bin/login.cgi">Konto</a></li>
+                  <li style="margin-bottom: 0.7em;"><a href="https://www.ub.uni-heidelberg.de/fr/service/gruppenarbeitsraeume.html" title="Informationen zu den Gruppenarbeitsräumen">Gruppenarbeitsräume</a></li> 
+                  <li style="margin-bottom: 0.7em;"><a href="https://www.ub.uni-heidelberg.de/fr/service/myub.html"><em lang="EN-gb">My</em>UB</a></li>
+                  <li style="margin-bottom: 0.7em;"><a href="https://www.ub.uni-heidelberg.de/fr/schulung/literaturverwaltung/Welcome.html">Literaturverwaltung</a></li>
+                  <li style="margin-bottom: 0.7em;"><a href="https://www.ub.uni-heidelberg.de/fr/service/openaccess/Welcome.html">Elektronisches Publizieren</a></li>
+                  <li class="fz"><span class="fragezeichen">?</span>&nbsp;<a href="https://www.ub.uni-heidelberg.de/fr/service/auskunft.html" title="Auskunft der Abteilung Informationsdienste der UB Heidelberg">Fragen Sie uns!</a></li>
+                </ul>
+            </div>
+            <!-- <div style="font-size: 0.8em; margin-top: 15px;" id="facebook-link"><img alt="Icon Facebook" class="imgLeft" style="margin: 0 5px 0 2px;" src="https://www.uni-heidelberg.de/md/zentral/images/icon_facebook.jpg"> <a title="" href="https://www.facebook.com/ubheidelberg">Die UB auf Facebook</a></div>-->
+            <!-- ICONS -->
+            <div id="social-media-links">
+                <a title="Die UB auf Facebook" href="https://www.facebook.com/ubheidelberg">
+                    <img alt="Icon Facebook" src="/bilder/logo_facebook.png">
+                </a>
+                <a title="Die UB auf Youtube" href="https://www.youtube.com/channel/UCkWljtG6woFVHLOsAMWaDFw">
+                    <img alt="Icon Youtube" src="/bilder/logo_youtube.png">
+                </a>
+                <a title="Die UB auf Instagram" href="https://www.instagram.com/ubheidelberg/">
+                    <img alt="Icon Instagram" src="/bilder/logo_instagram.png">
+                </a>
+            </div>
+						</div> <!-- Ende Haupt-Navi -->
+
+                </div>
+				
+       			<div id="col2"><div id="col2_content" class="clearfix">
+                                
+<div class="noprint keyVisual"> <img src="/helios/digi/bilder/bereichsbild.jpg" alt="Bookscanner" /></div>
+
+<div class="headlineRightColumn">General contact</div>
+<div class="boxRightColumn" style="background-image:none;">
+ <div class="rightColumntext">
+  <p> <a href="mailto:digitalisierung@ub.uni-heidelberg.de"" title="mit Ihrem E-Mail-Programm eine E-Mail an Digitalisierungszentrum senden"><img alt="letter" title="mail" align="align='bottom'" src="/nav1/grafik/all/email_transp.gif" /> Digitization Department</a> <br />
+     Phone: +49 6221-54-2376<br />
+     <a href="/cgi-bin/digi/digiorder.cgi" title="Link to online order form">Online order form</a>
+  </p>
+ </div>
+</div>
+
+<div class="headlineRightColumn">Contact</div>
+<div class="boxRightColumn" style="background-image:none;">
+ <div class="rightColumntext">
+<p><a href="mailto:wiltinger@ub.uni-heidelberg.de"" title="mit Ihrem E-Mail-Programm eine E-Mail an Ass. iur. Daniel Wiltinger senden"><img alt="letter" title="mail" align="align='bottom'" src="/nav1/grafik/all/email_transp.gif" /> Ass. iur. Daniel Wiltinger</a> <br>
+Head of the Digitization Department</p>
+
+<p><a href="mailto:Effinger@ub.uni-heidelberg.de"" title="mit Ihrem E-Mail-Programm eine E-Mail an Dr. Maria Effinger senden"><img alt="letter" title="mail" align="align='bottom'" src="/nav1/grafik/all/email_transp.gif" /> Dr. Maria Effinger</a> <br>
+Head of the Departments "Special Collections" and "Publication Services"<br>
+Central project management</p>
+ </div>
+</div>
+
+<div class="headlineRightColumn">Technical staff</div>
+<div class="boxRightColumn" style="background-image:none;">
+ <div class="rightColumntext">
+<p><a href="mailto:Maylein@ub.uni-heidelberg.de "" title="mit Ihrem E-Mail-Programm eine E-Mail an Leonhard Maylein senden"><img alt="letter" title="mail" align="align='bottom'" src="/nav1/grafik/all/email_transp.gif" /> Leonhard Maylein</a> <br>
+Head of Department IT</p>
+<p><a href="mailto:barth@ub.uni-heidelberg.de"" title="mit Ihrem E-Mail-Programm eine E-Mail an Jochen Barth senden"><img alt="letter" title="mail" align="align='bottom'" src="/nav1/grafik/all/email_transp.gif" /> Jochen Barth</a> <br>
+DWork developer</p>
+ </div>
+</div>
+
+<div class="headlineRightColumn">Further Information</div>
+<div class="boxRightColumn" style="background-image:none;">
+<div class="rightColumntext">
+<ul>
+      <li><a href="https://www.ub.uni-heidelberg.de/fr/helios/digi/tech_workflow.html" title="Link zu Informationen über Technik und Workflow der Digitalisierung">Workflow and applied technique in the Digitization Department</a> (in German)</li>
+      <li><a href="https://www.ub.uni-heidelberg.de/fr/helios/digi/digilit.html">Overview of digitized volumes</a></li>
+   </ul>
+</div></div>
+
+				</div></div> <!--ENDE rechte Spalte-->
+
+				<div id="col3">       <!--// Beginn content //-->
+					<div id="col3_content" class="clearfix">
+						<div id="content"> 
+							<div id="naviHor"> <!-- Beginn horizontale Navi -->
+								<a href="https://www.ub.uni-heidelberg.de/fr/kontakt/Welcome.html" accesskey="4">Kontakt</a>  |  <a accesskey="5" href="https://www.ub.uni-heidelberg.de/Englisch/helios/digi/dwork.html">English</a><a accesskey="5" href="https://www.ub.uni-heidelberg.de/helios/digi/dwork.html">Deutsch</a>
+							</div> <!-- Ende horizontale Navi -->
+<!-- Beginn Seiteninhalt -->
+              
+
+
+    
+<!--// Beginn Breadcrumb //-->
+<div class="pathway">
+  <a href="https://www.ub.uni-heidelberg.de/fr/">Homepage ></a> &gt;  <a href="https://www.ub.uni-heidelberg.de/fr/helios/digi/Welcome.html">Digitization Department ></a> &gt; 
+<br><br></div>
+<!--// Ende Breadcrumb //-->
+
+    <a name="contentbegin"></a>
+
+
+
+     <h1 class="einzeilig">DWork &ndash; Heidelberg Digitization Workflow</h1>
+
+
+
+
+<p class="persistent">http://dwork.uni-hd.de</p>
+   <ul class="verweise">
+      <li><a href="#modules">Modules and technical requirements</a></li>
+      <li><a href="#workflow">Workflow</a></li>
+      <li><a href="#ocr">OCR converting</a></li>
+      <li><a href="#viewer">viewer</a></li>
+   </ul>
+   
+
+<img alt="DWork - Heidelberger Digitalisierungsworkflow" class="imgRight img_rwd_100" src="../../../helios/digi/bilder/dwork_logo.png"  />
+<p>The University Library of Heidelberg uses its in-house development <strong>DWork &ndash; Heidelberg Digitization Workflow</strong> to support the process flow of digitization and the web presentation of the digitized works.</p>
+<a href="../../../helios/digi/bilder/dwork_screen.jpg" title="View Dwork screenshot"><img alt="" class="imgRight" src="../../../helios/digi/bilder/dwork_screen.jpg" style="border: 1px solid #f5f5f5; width: 250px;" /></a>
+<p>The software as a web application thereby supports all single steps of the workflow from the creation of metadata, scan processing (inclusively image converting and <a href="https://www.ub.uni-heidelberg.de/fr/helios/digi/ocr.html" title="information on automatic text recognition">automatic text recognition</a>) creation of the web presentation to the storage of scans and metadata.</p>
+
+<p>The DWork concept aims to realise the <a class="extern" href="http://www.dfg.de/formulare/12_151/" title="Richtlinen der DFG als PDF">guidelines</a> provided by the <a class="extern" href="http://www.dfg.de/en/index.jsp" title="Homepage der Deutschen Forschungsgemeinschaft">Deutsche Forschungsgemeinschaft</a> (DFG) and to develop an easy to operate and transparent user interface.</p>
+
+
+<h2 id"modules">Modules and technical requirements</h2>
+<p>The technical basis of the software consists of the following  modules:</p>
+   <ol>
+      <li>Digitization workflow</li>
+      <li>Presentation</li>
+      <li>Storage</li>
+      <li>component for editions</li>
+      <li>annotation tools </li>
+      <li>authority file server (at planning stage)</li>
+   </ol>
+
+
+<p>Software is programmed in PERL. Further software requirements are:</p>
+   <ol>
+      <li>Webserver: <a class="extern" href="http://httpd.apache.org/" title="Homepage Apache Server Project">Apache 2.x</a></li>
+      <li>Database: <a class="extern" href="http://www.mysql.com/" title="Homepage MySQL">MySQL 5.x</a></li>
+      <li>Metadata and full-text search: <a class="extern" href="http://lucene.apache.org/solr/" title="Homepage SOLR">SOLR</a></li>
+      <li>Annotations module: <a class="extern" href="https://github.com/kba/anno-common" title="Github">https://github.com/kba/anno-common</a> and <a class="extern" href="https://github.com/kba/anno-frontend" title="Github">https://github.com/kba/anno-frontend</a></li>
+      <li>IIIF-Image-Server: <a class="extern" href="https://cantaloupe-project.github.io/" title="Github Cantaloupe Project">Cantaloupe Image Server</a></li>
+      <li>Editions module: <a href="http://exist-db.org" title="Information about eXistdb" class="class">eXistdb</a>
+   </ol>
+
+<a id="workflow"></a><h2>Workflow</h2>
+<p>The singleworkflow steps (General - Bibliography - Sequence - Structure - Converting + OCR &ndash; Export - Storage) are selected by a file card system. The progress within the workflow is visualised by a traffic light system so that an overview is available at any time.</p>
+
+<a id="viewer"></a><h2>Viewer</h2>
+<p>We use <a class="extern" href="https://github.com/HKIKoeln/SemToNotes">SemToNotes</a> to build our facsimile viewer and the  <a class="extern" href="https://www.w3.org/TR/annotation-model/#svg-selector" title="Homepage W3C, information on the SVG-Selector">SVG-Selector</a> to select areas.</p>
+
+<a id="ocr"></a><h2>OCR-Converting</h2>
+<p>We use Abbyy Finereader for Linux for OCR converting.</p>
+<p>For manual correction of the OCR texts we perform first tests with the software <a class="extern" href="http://thorstenv.github.io/PoCoTo/">PoCoTo</a>.</p>
+
+
+
+
+
+
+							</div>
+<div class="cleaner"></div>
+							<div class="topVariabel">
+								<a href="#up"></a><a href="#up"><img src="/nav4/grafik/layout/icon_top.gif" alt="zum Seitenanfang" width="39" height="13"></a></div>
+							</div>
+
+						</div>
+<!--// Ende content //-->
+						
+						<!-- IE Column Clearing -->
+						<div id="ie_clearing">
+							&nbsp; 
+						</div>
+					</div>
+					<br class="rechts">
+				</div> <!-- Ende 3./mittlere Spalte -->
+
+      		<!-- begin: #footer -->
+			<div id="footerBar">
+			</div> <!--// roter Balken Seitenfuss //-->
+			<div id="footer">
+        <div class="copyright">
+		Letzte Aktualisierung: 31.07.2026 &nbsp;&nbsp; © Universitätsbibliothek Heidelberg <a href="mailto:ub@ub.uni-heidelberg.de"" title="mit Ihrem E-Mail-Programm eine E-Mail an Universitaetsbibliothek Heidelberg senden"><img alt="letter" title="mail" align="align='bottom'" src="/nav1/grafik/all/email_transp.gif" /> Universitaetsbibliothek Heidelberg</a> <a href="https://www.ub.uni-heidelberg.de/wir/impressum.html">Impressum</a> ⋅ <a href="https://www.uni-heidelberg.de/datenschutzerklaerung_web.html">Datenschutz</a>&nbsp;&nbsp;&nbsp;<span id="intern"><a href="https://www.ub.uni-heidelberg.de/intern/">Intern</a>
+
+
+</span></div>
+			</div><!-- Ende footer -->
+			</div><!-- Ende page -->
+			<!-- Ende pagemargin -->
+
+
+
+
+
+</body>
+</html>

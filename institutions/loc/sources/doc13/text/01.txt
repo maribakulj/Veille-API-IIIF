@@ -1,0 +1,301 @@
+Search Results Responses | Understanding API Responses | JSON/YAML for LoC.gov | APIs at the Library of Congress | Library of Congress
+ Loading... 
+ Top of page
+ Skip to main content
+ Library of Congress 
+ Everything 
+ Audio Recordings
+ Books/Printed Material
+ Films, Videos
+ Legislation
+ Manuscripts/Mixed Material
+ Maps
+ Notated Music
+ Newspapers
+ Periodicals
+ Personal Narratives
+ Photos, Prints, Drawings
+ Software, E-Resources
+ Web Archives
+ Web Pages
+ 3D Objects
+ APIs at the Library of Congress
+ Search 
+ Toggle Search 
+ Global Menu 
+ Discover
+ Services
+ Visit
+ Education
+ Connect
+ About
+ Ask a Librarian
+ Help
+ Contact
+ Search Online Catalog
+ Copyright.gov
+ Congress.gov
+ Library of Congress 
+ More 
+ APIs at the Library of Congress 
+ JSON/YAML for LoC.gov 
+ Understanding API Responses 
+ Search Results Responses
+ Share
+ Copied!
+ Error copying link to clipboard.
+ Services
+ APIs at the Library of Congress
+ Menu 
+ APIs for LoC.gov
+ JSON/YAML for LoC.gov
+ JSON/YAML for LoC.gov
+ Making API Requests
+ API Endpoints
+ API Request Parameters
+ Understanding API Responses
+ Search Results Responses
+ Item and Resource Responses
+ Working Within Limits
+ Dynamic Examples
+ Sitemaps
+ Microservices
+ Microservices
+ Text Services
+ Image Services
+ Streaming Services
+ Additional APIs and Data Services
+ Additional APIs and Data Services
+ Congress.gov API
+ NLS BARD API
+ Chronicling America
+ PPOC - JSON HTTP API
+ Linked Data Service
+ Search/Retrieval via URL
+ Contact
+ Search Results Responses
+ API responses to search queries
+ Search Results Response Object
+ The API will respond to a query to a search results endpoint (/search, /collections, or /format) with a JSON response object containing the following attributes:
+{
+ [...],
+ "facets": Array,
+ "pagination": Object,
+ "results": Array,
+ [...]
+}
+ Facets Attribute
+ The index behind loc.gov stores a number of fields as facets ,
+ which allow users to narrow their result set by filtering on certain
+ recurring values, such as subject, location, language, and date.
+ Results can be filtered on facets by using the
+ fa parameter .
+ One facet of particular use is the partof facet,
+ which is used for collection names, custodial divisions,
+ and other subsets of collection data.
+ The facets attribute provides information about the top five facet values
+ by frequency for each facet field. The following fields, which are
+ also fields in the item object, are described above.
+ access-restricted 
+ contributor 
+ dates 
+ digitized 
+ language 
+ location 
+ online-format 
+ original-format 
+ partof 
+ subject 
+"facets": [
+ {
+ "filters": [
+ {
+ "count": 322,
+ "not": null,
+ "off": null,
+ "on": "https://www.loc.gov/collections/vietnam-era-pow-mia-database/?dates=2020/2029&fo=json",
+ "term": "2020-01-01T00:00:00Z",
+ "title": "2020 to 2029"
+ },
+ [...]
+ ]
+ },
+ [...]
+]
+ Pagination Attribute
+ When accessing the API at the /search/ or /collections/ 
+ endpoints it is possible to traverse through the pages of the result
+ programmatically using the pagination section of the response,
+ which has the following structure:
+{
+ "from": Number,
+ "results": String,
+ "last": String,
+ "total": Number,
+ "previous": String,
+ "perpage": Number,
+ "perpage_options": List,
+ "of": Number,
+ "next": String,
+ "current": Number,
+ "to": Number,
+ "page_list": List,
+ "first": String
+}
+ Description of pagination data 
+ Field 
+ Description 
+ Example 
+ from 
+ Index number of the first result item in this page of results. 
+ 26 
+ to 
+ Index number of the last result in this page of results. 
+ 50 
+ results 
+ Index numbers of the result items in this page. 
+ “26 - 50” 
+ last 
+ URL of the last page of results in the whole set of results pages. 
+ "https://www.loc.gov/search/?q=giraffe&sp=5&fo=json” 
+ of 
+ Total number of items in the results. 
+ 318 
+ previous 
+ URL of the preceding page of results. Will be null when this is the first page. 
+ "https://www.loc.gov/search/?q=giraffe&sp=1&fo=json", 
+ next 
+ URL of the next page of results. Will be null when there are not more pages. 
+ "https://www.loc.gov/search/?q=giraffe&sp=3&fo=json" 
+ perpage 
+ Number of result items on each page. 
+ 25 
+ total 
+ Total number of pages available. 
+ 5 
+ current 
+ Page number you are currently on. 
+ 2 
+ An Example Pagination Object 
+{
+ "from": 1,
+ "results": "1 - 1",
+ "last": "https://www.loc.gov/resource/20001931/1918-04-05/ed-1/?at=pagination&fo=json&sp=4",
+ "total": 8,
+ "previous": null,
+ "perpage": 1,
+ "perpage_options": [
+ 25,
+ 50,
+ 100,
+ 150
+ ],
+ "of": 8,
+ "next": "https://www.loc.gov/resource/20001931/1918-04-05/ed-1/?at=pagination&fo=json&sp=2",
+ "current": 1,
+ "to": 1,
+ "page_list": [
+ {
+ "url": null,
+ "number": 1
+ },
+ {
+ "url": "https://www.loc.gov/resource/20001931/1918-04-05/ed-1/?at=pagination&fo=json&sp=2",
+ "number": 2
+ },
+ {
+ "url": "https://www.loc.gov/resource/20001931/1918-04-05/ed-1/?at=pagination&fo=json&sp=3",
+ "number": 3
+ },
+ {
+ "url": "https://www.loc.gov/resource/20001931/1918-04-05/ed-1/?at=pagination&fo=json&sp=4",
+ "number": "..."
+ }
+ ],
+ "first": null
+}
+ Results Attribute
+ The results attribute is an array listing summary bibliographic details
+ for some sequence of the items that respond to a query, with the count
+ based on the per-page count and the sort order based on the sort-order
+ parameter. The fields for each result item are a subset of the fields
+ in the item object. In some cases, a result item field is a
+ summary of the values in the item response object field (e.g.,
+ contributor, subject).
+ The following fields are described in the section on
+ Item and Resource Responses :
+ access-restricted 
+ aka 
+ campaigns
+ contributor 
+ date 
+ dates 
+ digitized 
+ extract_timestamp 
+ group 
+ hassegments 
+ id 
+ image_url 
+ index 
+ item 
+ language 
+ location 
+ language 
+ mime_type 
+ number_field 
+ online-format 
+ original-format 
+ other_title 
+ partof 
+ publication_frequency 
+ shelf_id 
+ site 
+ subject 
+ The following fields are not taken directly from the item response object, and are either
+ specific to search result responses or summaries of their analogous item response field:
+ Field 
+ Description 
+ Type 
+ Example 
+ contributor 
+ List of persons or institutions or organizations who contributed to the creation of the item.
+ Each item consists of a string. This is a summary of the contributors field.
+facetable
+ array 
+ [{
+ "national archives and records administration":
+ "https://dev.loc.gov/search/?fa=contributor:"
+ "national+archives+and+records+administration"
+ "&fo=json"
+ }] 
+ subject 
+ List of subjects. These are separated elements of the
+ Library of Congress Subject Headings (LCSH).
+ Geography is not shown here, but rather under the location element.
+facetable
+ All elements separated by a double dash in an LCSH are tokenized. For example, an item with
+ the subject heading "Women -- Afghanistan -- Social conditions" will have [“social conditions",
+ "women's rights"] in the subject element and “afghanistan” in the location element.
+ For the full subject headings, request the JSON for the /item view
+ array 
+ ["public interest/advocacy", "history", "september 11 terrorist attacks"] 
+ index 
+ The index number of the results among all results. This starts with 1
+ and continues through all of the results in the whole set
+ (not just this page). 
+ integer 
+ 1 
+ Back to top
+ Follow Us 
+ Take our survey 
+ Accessibility 
+ Legal 
+ Inspector General 
+ External Link Disclaimer 
+ USA.gov 
+ Contact 
+ Media 
+ Donate 
+ Shop 
+ Opens in new window 
+ Download

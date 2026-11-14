@@ -1,0 +1,15 @@
+{
+  "slug": "loc",
+  "min_delay_s": 12,
+  "max_requests": 15,
+  "follow_redirects": 1,
+  "robots_disallow_autorise_par_marcel": true,
+  "note": "passe 1 : API JSON/YAML de www.loc.gov (limite documentee : 20 req/min, blocage 1 h ; recommandation legale : 10 req/min ; Crawl-Delay 5 dans robots.txt) : pause de 12 s. URL d'exemple tirees de sources/doc/raw/01.html (working-within-limits) et du chapitre Dynamic Examples. Les memes familles ont donne un 403 Cloudflare le 13/11 (archive dans tests/archive) : si 403 ou defi, on s'arrete pour cet hote (a_verifier_manuellement). /search est interdit par robots.txt : autorise par Marcel (C12). Une seule requete : un 403 Cloudflare vient aussi d'etre recu le 14/11 sur www.loc.gov/pictures/api (page de doc PPOC, defi 'Just a moment...', sources/doc42) : au premier 403 on s'arrete pour cet hote.",
+  "endpoints": [
+    {
+      "id": "item-json",
+      "method": "GET",
+      "url": "https://www.loc.gov/item/powmia/pwmaster_103790/?fo=json&at=item,resources"
+    }
+  ]
+}

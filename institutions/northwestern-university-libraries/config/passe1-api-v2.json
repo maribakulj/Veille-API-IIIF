@@ -1,0 +1,20 @@
+{
+  "slug": "northwestern-university-libraries",
+  "min_delay_s": 6,
+  "max_requests": 15,
+  "follow_redirects": 1,
+  "robots_disallow_autorise_par_marcel": true,
+  "note": "passe 1 : API v2 de api.dc.library.northwestern.edu, exemples de la doc officielle (https://api.dc.library.northwestern.edu/ : work 9f9a7032-717f-4446-a0c3-193404a4c090, search/works?query=football, oai, thumbnail, as=iiif, as=premis, as=c2pa, mcp/server-card). robots.txt de l'hôte API : 404 (tout autorisé). Les hôtes dc.library, digitalcollections et iiif.dc répondent 403 CloudFront : non contactés.",
+  "endpoints": [
+    {"id": "work", "method": "GET", "url": "https://api.dc.library.northwestern.edu/api/v2/works/9f9a7032-717f-4446-a0c3-193404a4c090", "save_body": 500000},
+    {"id": "work-iiif", "method": "GET", "url": "https://api.dc.library.northwestern.edu/api/v2/works/9f9a7032-717f-4446-a0c3-193404a4c090?as=iiif", "save_body": 2000000},
+    {"id": "search-works", "method": "GET", "url": "https://api.dc.library.northwestern.edu/api/v2/search/works?query=football&size=1", "save_body": 200000},
+    {"id": "oai-identify", "method": "GET", "url": "https://api.dc.library.northwestern.edu/api/v2/oai?verb=Identify"},
+    {"id": "oai-listmetadataformats", "method": "GET", "url": "https://api.dc.library.northwestern.edu/api/v2/oai?verb=ListMetadataFormats"},
+    {"id": "thumbnail", "method": "GET", "url": "https://api.dc.library.northwestern.edu/api/v2/works/9f9a7032-717f-4446-a0c3-193404a4c090/thumbnail?size=200&aspect=square"},
+    {"id": "work-premis", "method": "GET", "url": "https://api.dc.library.northwestern.edu/api/v2/works/9f9a7032-717f-4446-a0c3-193404a4c090?as=premis"},
+    {"id": "work-c2pa", "method": "GET", "url": "https://api.dc.library.northwestern.edu/api/v2/works/9f9a7032-717f-4446-a0c3-193404a4c090?as=c2pa"},
+    {"id": "mcp-server-card", "method": "GET", "url": "https://api.dc.library.northwestern.edu/api/v2/mcp/server-card"},
+    {"id": "work-similar", "method": "GET", "url": "https://api.dc.library.northwestern.edu/api/v2/works/9f9a7032-717f-4446-a0c3-193404a4c090/similar", "save_body": 100000}
+  ]
+}

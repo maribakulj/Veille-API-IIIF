@@ -75,9 +75,63 @@ def verrou_crash():
     return c
 
 
+def secrets():
+    """Valeurs à ne jamais écrire dans le dépôt (IP de Marcel…), lues dans ~/.veille-state/secrets.txt (hors dépôt)."""
+    try:
+        return [l.strip() for l in (STATE / "secrets.txt").read_text().splitlines() if l.strip()]
+    except OSError:
+        return []
+
+
+def redact(texte):
+    for v in secrets():
+        texte = texte.replace(v, "[IP retirée]")
+    return texte
+
+
+def redact_fichier(chemin):
+    try:
+        b = open(chemin, "rb").read()
+    except OSError:
+        return
+    t = b.decode("utf-8", "replace")
+    r = redact(t)
+    if r != t:
+        open(chemin, "wb").write(r.encode("utf-8"))
+
+
+BLOCAGE_DUREE_S = 24 * 3600
+
+
+def bloquer(host, raison=""):
+    """Hôte arrêté (403 anti-bot, défi, CAPTCHA) pour TOUS les appels et TOUS les agents pendant 24 h."""
+    e, f, p = _etat()
+    e.setdefault("bloques", {})[host] = {"depuis": time.time(), "raison": raison}
+    _ecrire(e, f, p)
+
+
+def bloque(host):
+    """Retourne la raison si l'hôte est arrêté (registre partagé), sinon None."""
+    e, f, p = _etat()
+    b = e.get("bloques", {}).get(host)
+    _ecrire(e, f, p)
+    if b and time.time() - b["depuis"] < BLOCAGE_DUREE_S:
+        return b.get("raison") or "bloqué"
+    return None
+
+
 if __name__ == "__main__":
     if len(sys.argv) >= 3 and sys.argv[1] == "attendre":
         attendre(sys.argv[2], float(sys.argv[3]) if len(sys.argv) > 3 else 6.0)
+    elif len(sys.argv) >= 3 and sys.argv[1] == "bloquer":
+        bloquer(sys.argv[2], " ".join(sys.argv[3:]))
+    elif len(sys.argv) == 3 and sys.argv[1] == "bloque":
+        r = bloque(sys.argv[2])
+        if r:
+            print(r)
+        sys.exit(0 if r else 1)
+    elif len(sys.argv) == 3 and sys.argv[1] == "redact":
+        redact_fichier(sys.argv[2])
     elif len(sys.argv) == 4 and sys.argv[1] == "noter":
         noter_delai(sys.argv[2], float(sys.argv[3]))
     else:

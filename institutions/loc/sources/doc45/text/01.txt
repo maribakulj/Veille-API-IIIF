@@ -1,0 +1,259 @@
+Technical Center - Downloads - LC Linked Data Service: Authorities and Vocabularies | Library of Congress 
+ skip navigation Library of Congress 
+ Search 
+ Linked Data Services 
+ Everything at Loc.gov 
+ Audio Recordings 
+ Books/Printed Material 
+ Films, Videos 
+ Legislation 
+ Manuscripts/Mixed Material 
+ Maps 
+ Notated Music 
+ Newspapers 
+ Periodicals 
+ Personal Narratives 
+ Photos, Prints, Drawings 
+ Software, E-Resources 
+ Archived Web Sites 
+ Web Pages 
+ 3D Objects 
+ Suggestions enabled. 
+ Search 
+ Search toggle 
+ menu 
+ Discover 
+ Services 
+ Visit 
+ Education 
+ Connect 
+ About 
+ Ask a Librarian 
+ Help 
+ Contact 
+ Search Online Catalog 
+ Copyright.gov 
+ Congress.gov 
+ The Library of Congress > Linked Data Service > Technical Center: Downloads
+ Left nav image goes here
+ Linked Data Service 
+ About 
+ Search 
+ Download 
+ Technical Center 
+ API Documentation (beta) 
+ Contact Us 
+ Privacy Policy 
+ Technical Center
+ Technical Center: Downloads | Metadata | Searching/Querying | Serializations | 
+ Sitemaps
+ Sitemaps are listed in the robots.txt file starting with sitemapindex.xml .
+ Each vocabulary or data set has all the URIs for resources in that set listed in alpha-numeric order, 50,000 at a time.
+ First classification page 
+ 20th BIBFRAME instance page 
+ Downloads
+ Bulk downloads are available from the main downloads page . There are compressed files for both RDF/XML and N-Triples serializations for each hosted
+ authority and vocabulary.
+ Downloads for individual concepts or headings are possible by:
+ Using a conventional, graphical web browser when viewing a concept or heading of interest. Links are provided to enable a download.
+ Rendering the XHTML source for a given concept or heading through a RDFa-aware processing tool, such as the RDFa Distiller 
+ offered by the W3C. For example, "Bahia grass", when processed by the RDFa distiller, yields this result .
+ Using a non-graphical user agent via the URIs assigned to the Concepts and ConceptSchemes. Examples include command-line tools like cURL 
+ and wget 
+ . Other alternatives include user agent libraries specific to programming languages. e.g., Perl: LWP::UserAgent 
+ , Java: HttpClient 
+ , Python: httplib 
+ , etc.
+ The non-graphical approach is advantageous, and represents the main design principle for the Linked Data Service. It allows programmatic access through machine-readable
+ scripting instead of requiring human interaction. Using this method, it is possible to use HTTP content negotiation 
+ over a single URI to obtain a concept or heading, and to optionally serialize it in a variety of formats. This is achieved through
+ use of the HTTP request header called "Accept". When used on a request with the MIME type of interest, the server response will send the desired format back to satisfy the request. See the supported MIME types and serializations page for more information. 
+ Some command-line usage examples include:
+ cURL
+ The first example will download the LC Subject Heading for "ActionScript (Computer program language)" in the JSON serialization. The second example will download the "creation" concept from
+ the Preservation Events vocabulary, also as JSON.
+ curl -L -H 'Accept: application/json' https://id.loc.gov/authorities/subjects/sh00000011 
+ curl -L -H 'Accept: application/json' https://id.loc.gov/vocabulary/preservationEvents/creation 
+ wget
+ The first example will download the LC Subject Heading for "ActionScript (Computer program language)" in the RDF/XML serialization. The second example will download the "creation" concept
+ from the Preservation Events vocabulary, also as RDF/XML.
+ wget -S -d 'https://id.loc.gov/authorities/subjects/sh00000011' \
+--header="Accept: application/rdf+xml" 
+ wget -S -d 'https://id.loc.gov/vocabulary/preservationEvents/creation' \
+--header="Accept: application/rdf+xml" 
+ Data updates
+ An update feed is available for each dataset officially published in ID.LOC.GOV. The feeds are serialized in the ATOM format or the Activity Streams format with each page including 100 
+ resources ordered by descending modification date.
+ ATOM update feed: 
+ The first page the feed for a given dataset is accessible by appending "/feed/1" to the scheme URI. Examples: 
+ Subjects: https://id.loc.gov/authorities/subjects/feed/1 
+ Names: https://id.loc.gov/authorities/names/feed/1 
+ Organizations: https://id.loc.gov/vocabulary/organizations/feed/1 
+ ISO 639-2: https://id.loc.gov/vocabulary/iso639-2/feed/1 
+ Activity Streams update feed: 
+ The first page of the feed for a given dataset is accessible by appending "/activitystreams/feed/1" to the scheme URI. Examples: 
+ Subjects: https://id.loc.gov/authorities/subjects/activitystreams/feed/1 
+ Names: https://id.loc.gov/authorities/names/activitystreams/feed/1 
+ Organizations: https://id.loc.gov/vocabulary/organizations/activitystreams/feed/1 
+ ISO 639-2: https://id.loc.gov/vocabulary/iso639-2/activitystreams/feed/1 
+ BIBFRAME Works: https://id.loc.gov/resources/works/activitystreams/feed/1 
+ BIBFRAME Instances: https://id.loc.gov/resources/instances/activitystreams/feed/1 
+ BIBFRAME Hubs: https://id.loc.gov/resources/hubs/activitystreams/feed/1 
+ Each resource's "type" - "Add", "Remove" or "Update" - indicates the action that happened to the resource. For an added resource, there is a "target" block. For a removed resource, there is an "origin" block. Examples:
+ "Update":
+ {
+ "type": "Update",
+ "date": "2021-09-10",
+ "actor": "http://id.loc.gov/vocabulary/organizations/dlc",
+ "object": {
+ "id": "http://id.loc.gov/authorities/subjects/sh2021004022",
+ "type": [
+ "madsrdf:Topic",
+ "madsrdf:SimpleType",
+ "madsrdf:Authority"
+ ],
+ "url": [
+ {
+ "type": "Link",
+ "href": "http://id.loc.gov/authorities/subjects/sh2021004022.rdf",
+ "mediaType": "application/rdf+xml"
+ },
+ {
+ "type": "Link",
+ "href": "http://id.loc.gov/authorities/subjects/sh2021004022.json",
+ "mediaType": "application/json"
+ },
+ {
+ "type": "Link",
+ "href": "http://id.loc.gov/authorities/subjects/sh2021004022.nt",
+ "mediaType": "application/text/plain"
+ },
+ {
+ "type": "Link",
+ "href": "http://id.loc.gov/authorities/subjects/sh2021004022.marcxml.xml",
+ "mediaType": "application/marc+xml"
+ },
+ {
+ "type": "Link",
+ "href": "http://id.loc.gov/authorities/subjects/sh2021004022.madsxml.xml",
+ "mediaType": "application/mads+xml"
+ }
+ ]
+ }
+ } 
+ "Add" with a "target" block:
+ {
+ "type": "Add",
+ "date": "1970-01-01",
+ "actor": "http://id.loc.gov/vocabulary/organizations/dlc",
+ "object": {
+ "id": "http://id.loc.gov/vocabulary/iso639-2/nzi",
+ "type": [
+ "madsrdf:Language",
+ "madsrdf:SimpleType",
+ "madsrdf:Authority",
+ "madsrdf:Language"
+ ],
+ "url": [......],
+ "target": [
+ {
+ "id": "http://id.loc.gov/vocabulary/iso639-2",
+ "type": [
+ "skos:Scheme",
+ "madsrdf:MADSScheme"
+ ]
+ },
+ {
+ "id": "http://id.loc.gov/vocabulary/iso639-2/collection_iso639-2_Bibliographic_Codes",
+ "type": [
+ "skos:Collection",
+ "madsrdf:MADSCollection"
+ ]
+ },
+ {
+ "id": "http://id.loc.gov/vocabulary/iso639-2/collection_PastPresentISO639-2Entries",
+ "type": [
+ "skos:Collection",
+ "madsrdf:MADSCollection"
+ ]
+ },
+ {
+ "id": "http://id.loc.gov/vocabulary/iso639-2/collection_iso639-2",
+ "type": [
+ "skos:Collection",
+ "madsrdf:MADSCollection"
+ ]
+ }
+ ]
+ }
+ } 
+ "Remove" with an "origin" block:
+ {
+ "type": "Remove",
+ "date": "2011-11-15",
+ "actor": "http://id.loc.gov/vocabulary/organizations/dlc",
+ "object": {
+ "id": "http://id.loc.gov/authorities/genreForms/gf2011026679",
+ "type": [
+ "madsrdf:GenreForm",
+ "madsrdf:SimpleType",
+ "madsrdf:Authority"
+ ],
+ "url": [......],
+ "origin": [
+ {
+ "id": "https://id.loc.gov/authorities/genreForms",
+ "type": [
+ "skos:Scheme",
+ "madsrdf:MADSScheme"
+ ]
+ }
+ ]
+ }
+ } 
+ Activity Streams for label updates 
+ This is a subset of the Names Activity stream. A "label update" occurs only when (one of) the authorized label(s) changes. 
+ This could result from the addition of a death date or other disambiguating information to the main label for the Name Authority. 
+ This is the most significant change to a Name Authority because it affects bibliographic descriptions citing the changed Name.
+ Consuming systems could process this stream first or in a special batch. Deprecation of a Name is not considered a label change. 
+ The regular activity stream and/or the daily atom feed will contain notice of deprecations. 
+ Label updates for names: https://id.loc.gov/authorities/names/activitystreams/label-updates/1 
+ Extracting labels from HTTP response headers
+ It is possible to determine the preferred label for a given concept or heading of interest without necessarily needing to download the entire RDF content. Requesting a concept URI with a HTTP
+ HEAD method exposes a private header called "X-PrefLabel", that is a URL-encoded representation of the preferred label.
+ For example, running cURL with the "-I" argument on the URI for "Bahia grass" performs a HTTP request using the HEAD method.
+ curl -I https://id.loc.gov/authorities/subjects/sh93007391 
+ HTTP HEAD requests return the HTTP response only, sans the body of the RDF or XHTML content. Among these headers, one would see a given header "X-PrefLabel: Bahia%20grass". It is possible to
+ use a HTTP library within the programming language of your choice to access this header. URL-decoding the value of the X-PrefLabel header yields the string "Bahia grass".
+ Why use dereferenceable URIs?
+ Having a dereferenceable URI for these Concepts -- and the ConceptSchemes to which they belong -- greatly enhances the ability to provide web services for consumers of our standards, whether
+ working in XML, or in another technology.
+ When building a web service, you need dereferenceable URIs to use the service. This URI might as well represent the data you are aiming to use. Although you could use non-dereferenceable URIs
+ in conjunction with dereferenceable Handle s or the like, it is unnecessary weight to manage.
+ Handles, etc., are not always needed for URIs under your own control. This holds true if you have the ability to rewrite URIs at the server level as data location changes over time, and build
+ with the notion of content negotiation over RESTful URIs from the start.
+ Special Note about the Library of Congress Subject Headings
+ The Library of Congress Subject Headings was the first inclusion for the LC Linked Data Service. It was an almost verbatim re-release of the system and content
+ once found at the popular prototype lcsh.info service. The primary exception is the form of the URIs.
+ Original: 
+ http://lcsh.info/{identifier} 
+ Next: 
+ http://id.loc.gov/authorities/{identifier} 
+ Current: (with the addition of so many more datasets, we introduced a new node (names, subjects, etc.). 
+ http://id.loc.gov/authorities/{dataset}/{identifier} 
+ If you have used the legacy lcsh.info metadata in an application, we advise updating to the new URIs, as we cannot guarantee a permanent redirect from old lcsh.info URIs to the new URIs at
+ id.loc.gov.
+ Follow Us 
+ Take our survey External 
+ Accessibility 
+ Legal 
+ Inspector General 
+ External Link Disclaimer 
+ USA.gov 
+ Careers 
+ Contact 
+ Media 
+ Donate 
+ Shop 
+ Congress.gov 
+ United States Copyright Office

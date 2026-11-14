@@ -1,0 +1,69 @@
+2024 Migration Guide | Collections U of T Staff Docs Skip to main content Menu Expand (external link) Document Search Copy Copied Collections U of T Staff Docs 
+ About 
+ Documentation Requesting A New Repository 
+ Ingest Instructions 
+ Metadata Instructions 
+ Metadata Elements 
+ Editing Basic Pages 
+ What is IIIF? (for staff) 
+ Transcriptions With IIIF 
+ History of Collections U of T 2024 Migration Guide 
+ This site uses Just the Docs , a documentation theme for Jekyll. 
+ Search Collections U of T Staff Docs 
+ Documentation 
+ History of Collections U of T 
+ 2024 Migration Guide 
+ 2024 Collections U of T Migration Guide 
+ “New” Collections U of T Training Kit 
+ Migration FAQ for UTL Staff 
+ 2024 Migration Timeline 
+ The New Collections U of T Platform was publicly soft launched on May 21st, 2024. You can access Collections U of T at https://collections.library.utoronto.ca/ . This guide was created in Spring 2024 to provide UTL staff with instructions and FAQs about the Collections U of T migration from Islandora 7 to the new UTL-homegrown “New Collections U of T Platform”. As of Spring 2026, this guide page is no longer updated. See linked pages for relevant and up-to-date documentation or go to the About page to find recently updated service documentation. 
+ It is with much excitement that the University of Toronto Libraries Information Technology Services announces the May 2024 soft launch of the New Collections U of T Platform for the Collections U of T Service. This migration is the result of a multi-year project by ITS staff to move the Collections U of T Service off of Islandora 7 (Drupal 7) as Drupal 7 reaches end of support on January 5, 2025 .
+ New Collections U of T Platform Training Kit 
+ Migration FAQ for UTL staff 
+ 1) Can my department resume ingesting new collections and images into the New Collections U of T Platform? 
+ 2026 update: use the Collections U of T Admin UI to edit and ingest items. Training is available in Quercus .
+ 2024: Yes, if you have an existing repository page in Collections U of T you can add new collections and items at any time after May 21st, 2024. UTL ITS will support facilitated ingest throughout 2024 as we continue monitoring the performance of the New Collections U of T Platform. Please email ITS if you need ingest and editing support. Facilitated ingest instructions can be found on the Ingest Instructions page. 
+ Please consider that the Collections U of T Service will be operating at reduced capacity from July 2024 until Summer 2025 due to ITS staffing. 
+ 2) Can my department resume editing metadata for existing collections and items again? 
+ 2026 update: use the Collections U of T Admin UI to edit and ingest items. Training is available in Quercus .
+ 2024: Yes but you need to email ITS for support until the New Collections U of T administrator interface is complete. Let us know what you need help editing and we will pass along instructions for the best way for you to submit your edits. 
+ 3) Is there an administrator login for me to login to the New Collections Platform to edit metadata, add collections, and upload digital images into New Collections U of T? 
+ 2026 update: use the Collections U of T Admin UI to edit and ingest items. Training is available in Quercus .
+ 2024: Not yet - see above. The administration login into New Collections U of T will be available later in 2025. UTL ITS is continuing to work on the Collections U of T administrator interface. 2024 will be devoted to monitoring new Collections U of T ingest, performance, and indexing. ITS will support collection owners with facilitated ingests until development on the administrator interface is completed. The new Collections U of T administrator interface is expected to roll out in late 2025. 
+ 4) Is there an administrator login for me to edit and add Basic Pages? 
+ Yes - any page with /explore/ in its URL is entirely editable by you. See Editing Basic Pages instructions. Email ITS for a login to edit /explore/ Basic Pages. 
+ 5) I never had a Collections U of T repository on Islandora. Can I add a new repository to the New Collections U of T Platform for my UTL library/archive department? 
+ 2026 update: UTL library, special collections, and archives units who meet the service requirements can request a new repository at any time.
+ 2024: Due to service capacity from July 1, 2024 to Summer 2025 we will not be adding any new repositories into New Collections U of T. You can email us to request a new repository at any time. Collections U of T service staff will review these requests and onboard new repositories beginning in Fall 2025 for you to begin using the Collections U of T service. 
+ 6) What are the Collections U of T permalinks to collections and images? 
+ The collections.library.utoronto.ca/view/PID URL is still the correct permalink to use when referencing collections and images. All old Islandora URLs will redirect to these permalinks by end of June 2024. 
+ 7) When were Islandora 7 websites taken offline? 
+ At the end of June 2024 the Islandora 7 websites were redirected to the New Collections U of T Platform. Copies of the Islandora 7 sites are captured in UTL’s Archive-It account . 
+ 8) Will my Islandora site’s page URLs be preserved in New Collections? 
+ No - but the ITS team has set up re-directs that will re-direct old Islandora URLs to the appropriate new Collections U of T website’s URLs, per collection. Remember to continue to always use the permalink URLs when sharing collections and items with students, faculty, researchers, and the public. 
+ 9) Why did UTL migrate the Collections U of T service off of Islandora? 
+ We selected a UTL-homegrown IIIF digital image collection discovery solution based on existing technology and infrastructure supported by UTL ITS and Scholars Portal. This homegrown solution is best suited to provide flexible and scaleable technology for the Collections U of T service. It also leverages existing technology and staff expertise at UTL and Scholars Portal. You can read more about our research and planning around this migration in our 2020 Code4Lib article on the topic . Additional information about the New Collections platform will published in the year ahead. 
+ 10) Can I use the Collections U of T service for hosting restricted digital collections or digital images submitted to my department from faculty or students? 
+ No. Refer to the Collections U of T service policies for more information. 
+ Have more questions? Email us! or access the new Collections U of T Teams channel .
+ Migration Timeline 
+ March 21, 2024: New Collections U of T Beta site shared with collection owners (internal U of T IP access only)
+ April-May, 2024: collection owner deadline to submit feedback about New Collections U of T Beta
+ April-May, 2024 : feedback reviewed by ITS and selected improvements implemented; web accessibility review and improvements forthcoming
+ May 21, 2024: New Collections U of T Platform goes live on collections.library.utoronto.ca and the New Collections U of T Platform soft launch date! Facilitated ingests can resume into collections.library.utoronto.ca
+ The Islandora sites will remain live and publicly accessible but no new items will be ingested into Islandora sites
+ By end of June 2024: all Islandora sites shut down ITS will work with collection owners to schedule shut down dates for each Islandora site
+ Islandora site URLs will be re-directed to the relevant collection URL on New Collections
+ Existing collections.library permalinks will remain the same - but the display will change. Example permalink: https://collections.library.utoronto.ca/view/utarmsIB:2006-23-38MS 
+ Throughout 2024-2025: Collection owners can ingest new content with support from ITS into the New Collections U of T Platform
+ New Collections will be monitored for ingest, performance, and indexing bugs
+ Ongoing web accessibility improvements
+ The Collections U of T Service will run in maintenance mode due to staff leaves
+ Development for the New Collections U of T Platform’s administrator user interface will be completed
+ Spring 2026: ITS releases New Collections U of T Platform’s administrator user interface (Admin UI). Collection owners are onboarded to self-edit and self-ingest procedures
+ 2026 onwards: additional web accessibility review; user testing and feedback gathering; iterative improvements on New Collections as requested by collection owners and triaged by ITS
+ Back to top 
+ Copyright © 2026 University of Toronto Libraries Information Technology Services.
+ Edit this page on GitHub 
+ This site uses Just the Docs , a documentation theme for Jekyll.

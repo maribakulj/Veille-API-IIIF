@@ -1,0 +1,14 @@
+{
+  "slug": "universitatsbibliothek-heidelberg",
+  "min_delay_s": 6,
+  "max_requests": 15,
+  "follow_redirects": 1,
+  "robots_disallow_autorise_par_marcel": true,
+  "note": "passe 1 : OAI-PMH de digi.ub (cgi-bin/digioai.cgi). L'URL de base vient d'une capture Wayback du 2024-12-19 de ?verb=Identify (sources/wayback) ; la doc de l'UB dit seulement 'Die Metadaten koennen per OAI-Schnittstelle abgerufen werden'. Le robots.txt interdit /cgi-bin/ : autorise par Marcel (C12). GetRecord utilise l'identifiant d'exemple annonce par Identify (oai:digi.ub.uni-heidelberg.de:165).",
+  "endpoints": [
+    {"id": "oai-identify", "method": "GET", "url": "https://digi.ub.uni-heidelberg.de/cgi-bin/digioai.cgi?verb=Identify"},
+    {"id": "oai-listmetadataformats", "method": "GET", "url": "https://digi.ub.uni-heidelberg.de/cgi-bin/digioai.cgi?verb=ListMetadataFormats"},
+    {"id": "oai-listsets", "method": "GET", "url": "https://digi.ub.uni-heidelberg.de/cgi-bin/digioai.cgi?verb=ListSets"},
+    {"id": "oai-getrecord", "method": "GET", "url": "https://digi.ub.uni-heidelberg.de/cgi-bin/digioai.cgi?verb=GetRecord&identifier=oai:digi.ub.uni-heidelberg.de:165&metadataPrefix=oai_dc"}
+  ]
+}

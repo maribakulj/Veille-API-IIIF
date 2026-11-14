@@ -1,0 +1,11 @@
+{
+  "slug": "loc",
+  "min_delay_s": 12,
+  "max_requests": 15,
+  "follow_redirects": 1,
+  "robots_disallow_autorise_par_marcel": true,
+  "note": "passe 3 : MARCXML sur lccn.loc.gov (limite documentee : 30 req/min, blocage 72 h, compteur remis a zero a chaque requete pendant le blocage). UNE seule requete, identifiant d'exemple de la doc Text Services (LCCN sn82016014). Les 2 essais du 13/11 ont expire (archive) ; le robots.txt de lccn a repondu 'No Connections Available' le 14/11 (sources/robots-lccn).",
+  "endpoints": [
+    {"id": "marcxml", "method": "GET", "url": "https://lccn.loc.gov/sn82016014/marcxml"}
+  ]
+}

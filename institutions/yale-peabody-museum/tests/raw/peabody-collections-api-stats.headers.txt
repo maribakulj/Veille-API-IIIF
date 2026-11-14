@@ -1,0 +1,17 @@
+2026-11-14T02:01:22Z GET https://peabody.collections.yale.edu/api/stats
+HTTP 200
+content-type: application/json; charset=utf-8
+content-length: 210
+connection: keep-alive
+date: Sat, 14 Nov 2026 02:01:22 GMT
+accept-ranges: bytes
+server: nginx/1.26.2
+x-powered-by: Express
+access-control-allow-origin: *
+etag: W/"d2-dpuwbD766IASvo/yZitqRQzRxFQ"
+x-varnish: 8710325 393231
+via: 1.1 varnish (Varnish/6.0), 1.1 734316c1d3a632cfdd7100bd4ffa53cc.cloudfront.net (CloudFront)
+x-cache: Miss from cloudfront
+x-amz-cf-pop: MXP63-P8
+x-amz-cf-id: YOIzk75kw6HaEOf2ZFilwCUI5TToecdfHmAVnpwO8ZFjMQXLM8C09A==
+age: 985389

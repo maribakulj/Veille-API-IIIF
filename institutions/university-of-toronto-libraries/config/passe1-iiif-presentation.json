@@ -1,0 +1,15 @@
+{
+  "slug": "university-of-toronto-libraries",
+  "min_delay_s": 6,
+  "max_requests": 15,
+  "follow_redirects": 1,
+  "robots_disallow_autorise_par_marcel": true,
+  "note": "passe 1 : URL de la doc officielle https://collections.library.utoronto.ca/explore/faq/getting_started (manifeste d'exemple utarmsIB:2001-15-2MS en /presentation/v2/, motif /presentation/PID/manifest, liste /presentation/v2/collections, motif /presentation/collections/PID avec PID paleography:root lu dans la liste) et page d'item /view/PID. robots.txt de collections.library : Allow / sauf /api/ ; iiif.library : pas de robots.txt (page HTML).",
+  "endpoints": [
+    {"id": "manifeste-v2", "method": "GET", "url": "https://iiif.library.utoronto.ca/presentation/v2/utarmsIB:2001-15-2MS/manifest", "save_body": 2000000},
+    {"id": "manifeste-sans-version", "method": "GET", "url": "https://iiif.library.utoronto.ca/presentation/utarmsIB:2001-15-2MS/manifest"},
+    {"id": "collections-liste", "method": "GET", "url": "https://iiif.library.utoronto.ca/presentation/v2/collections"},
+    {"id": "collection-paleography", "method": "GET", "url": "https://iiif.library.utoronto.ca/presentation/collections/paleography:root", "save_body": 200000},
+    {"id": "page-item", "method": "GET", "url": "https://collections.library.utoronto.ca/view/utarmsIB:2001-15-2MS"}
+  ]
+}

@@ -1,0 +1,17 @@
+{
+  "slug": "art-institute-of-chicago",
+  "min_delay_s": 6,
+  "max_requests": 15,
+  "follow_redirects": 1,
+  "robots_disallow_autorise_par_marcel": true,
+  "note": "Passe 1 : API publique api.artic.edu, exemples de la doc api.artic.edu/docs (sources/a) : artworks/27992?fields=id,title,image_id, artworks?limit=2, artworks/search?q=monet (limit=2 ajoute, parametre documente), manifeste artworks/24645/manifest.json (corps enregistre), recherche limit=0 filtre domaine public, artists?page=2&limit=10, puis HEAD du dump S3 cite par la doc (artic-api-data.s3.amazonaws.com, pas de telechargement). Doc : limite anonyme 60 req/min, grattage <= 1 req/s, en-tete AIC-User-Agent demande par courtoisie (la sonde envoie son UA honnete du projet, ne gere pas d'en-tete personnalise). www.artic.edu (IIIF Image, site) en defi Cloudflare 403 : non contacte.",
+  "endpoints": [
+    {"id": "artworks-27992-fields", "method": "GET", "url": "https://api.artic.edu/api/v1/artworks/27992?fields=id,title,image_id"},
+    {"id": "artworks-limit2", "method": "GET", "url": "https://api.artic.edu/api/v1/artworks?limit=2&fields=id,title"},
+    {"id": "artworks-search-monet", "method": "GET", "url": "https://api.artic.edu/api/v1/artworks/search?q=monet&limit=2&fields=id,title"},
+    {"id": "artworks-24645-manifest", "method": "GET", "url": "https://api.artic.edu/api/v1/artworks/24645/manifest.json", "save_body": 500000},
+    {"id": "artworks-search-pd-total", "method": "GET", "url": "https://api.artic.edu/api/v1/artworks/search?query[term][is_public_domain]=true&limit=0"},
+    {"id": "artists-page2-limit10", "method": "GET", "url": "https://api.artic.edu/api/v1/artists?page=2&limit=10&fields=id,title"},
+    {"id": "dump-head", "method": "HEAD", "url": "https://artic-api-data.s3.amazonaws.com/artic-api-data.tar.bz2"}
+  ]
+}

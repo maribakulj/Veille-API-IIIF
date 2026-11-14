@@ -2,7 +2,7 @@
   "slug": "loc",
   "nom": "Library of Congress",
   "pays": "États-Unis",
-  "statut_audit": "partiel (ancienne méthode, test par famille fait)",
+  "statut_audit": "audit a–f complet (v2) ; g à faire",
   "limites_documentees": [
     {
       "nature": "Débit",
@@ -10,9 +10,9 @@
       "valeur": "20",
       "fenetre": "par minute",
       "effet": "blocage 1 h",
+      "verification": "officielle, lue en entier",
       "source": "https://www.loc.gov/apis/json-and-yaml/working-within-limits/",
-      "date": "2026-11-13",
-      "verification": "officielle, extrait lu (page non relue en entier)"
+      "date": "2026-11-14"
     },
     {
       "nature": "Débit",
@@ -20,9 +20,9 @@
       "valeur": "150",
       "fenetre": "par minute",
       "effet": "blocage 1 h",
+      "verification": "officielle, lue en entier",
       "source": "https://www.loc.gov/apis/json-and-yaml/working-within-limits/",
-      "date": "2026-11-13",
-      "verification": "officielle, extrait lu (page non relue en entier)"
+      "date": "2026-11-14"
     },
     {
       "nature": "Débit",
@@ -30,9 +30,9 @@
       "valeur": "150",
       "fenetre": "par minute",
       "effet": "blocage 1 h",
+      "verification": "officielle, lue en entier",
       "source": "https://www.loc.gov/apis/json-and-yaml/working-within-limits/",
-      "date": "2026-11-13",
-      "verification": "officielle, extrait lu (page non relue en entier)"
+      "date": "2026-11-14"
     },
     {
       "nature": "Débit",
@@ -40,9 +40,9 @@
       "valeur": "60",
       "fenetre": "par minute",
       "effet": "blocage 1 h",
+      "verification": "officielle, lue en entier",
       "source": "https://www.loc.gov/apis/json-and-yaml/working-within-limits/",
-      "date": "2026-11-13",
-      "verification": "officielle, extrait lu (page non relue en entier)"
+      "date": "2026-11-14"
     },
     {
       "nature": "Débit",
@@ -50,68 +50,325 @@
       "valeur": "150",
       "fenetre": "par minute",
       "effet": "blocage 1 h",
+      "verification": "officielle, lue en entier",
       "source": "https://www.loc.gov/apis/json-and-yaml/working-within-limits/",
-      "date": "2026-11-13",
-      "verification": "officielle, extrait lu (page non relue en entier)"
+      "date": "2026-11-14"
     },
     {
       "nature": "Débit",
       "perimetre": "MARCXML lccn.loc.gov",
       "valeur": "30",
       "fenetre": "par minute",
-      "effet": "blocage 72 h",
+      "effet": "blocage 72 h, compteur remis à zéro à chaque requête pendant le blocage",
+      "verification": "officielle, lue en entier",
       "source": "https://www.loc.gov/apis/json-and-yaml/working-within-limits/",
-      "date": "2026-11-13",
-      "verification": "officielle, extrait lu (page non relue en entier)"
+      "date": "2026-11-14"
+    },
+    {
+      "nature": "Charge",
+      "perimetre": "tous services",
+      "valeur": "seuils variables",
+      "fenetre": "–",
+      "effet": "« rate limits may decrease and users may encounter 429 status codes or HTML pages with CAPTCHAs even when operating below the rates listed »",
+      "verification": "officielle, lue en entier",
+      "source": "https://www.loc.gov/apis/json-and-yaml/working-within-limits/",
+      "date": "2026-11-14"
+    },
+    {
+      "nature": "Pagination",
+      "perimetre": "JSON/YAML",
+      "valeur": "100 000 résultats par requête ; 1 000 par page recommandés",
+      "fenetre": "–",
+      "effet": "au-delà, non pris en charge",
+      "verification": "officielle, lue en entier",
+      "source": "https://www.loc.gov/apis/json-and-yaml/working-within-limits/",
+      "date": "2026-11-14"
     },
     {
       "nature": "Recommandation logicielle",
-      "perimetre": "ensemble",
+      "perimetre": "ensemble des applications",
       "valeur": "10",
-      "fenetre": "par minute",
+      "fenetre": "par minute, toutes machines confondues",
+      "effet": "blocage d'IP possible ; arrêt des programmes > 24 h",
+      "verification": "officielle, lue en entier",
+      "source": "https://www.loc.gov/legal/",
+      "date": "2026-11-14"
+    },
+    {
+      "nature": "Crawl-delay",
+      "perimetre": "www.loc.gov",
+      "valeur": "5",
+      "fenetre": "secondes",
       "effet": "–",
-      "source": "https://www.loc.gov/legal/ (cité dans la fiche, à relire)",
-      "date": "2026-11-13",
-      "verification": "officielle, extrait lu (page non relue en entier)"
+      "verification": "officielle, lue en entier",
+      "source": "https://www.loc.gov/robots.txt",
+      "date": "2026-11-14"
+    },
+    {
+      "nature": "Crawl-delay",
+      "perimetre": "id.loc.gov",
+      "valeur": "3",
+      "fenetre": "secondes",
+      "effet": "–",
+      "verification": "officielle, lue en entier",
+      "source": "https://id.loc.gov/robots.txt",
+      "date": "2026-11-14"
     }
   ],
   "en_tetes_observes": [],
   "blocages": [
     {
-      "date": "2026-11-13 20:34Z",
+      "date": "2026-11-14 01:57Z",
       "hote": "www.loc.gov",
       "code": "403",
-      "nature": "défi Cloudflare « Just a moment », 2e requête",
-      "suite": "JSON bloqué sur 2 URL, hôte non réessayé"
+      "nature": "défi Cloudflare (cf-mitigated: challenge) sur l'API JSON/YAML, 1re requête ; déjà 3 fois le 13/11",
+      "suite": "hôte JSON arrêté, non contourné"
     },
     {
-      "date": "2026-11-13",
-      "hote": "lccn.loc.gov",
-      "code": "timeout",
-      "nature": "pas de réponse à 30 s (2 essais)",
-      "suite": "non résolu"
+      "date": "2026-11-14 01:55Z",
+      "hote": "www.loc.gov",
+      "code": "403",
+      "nature": "défi Cloudflare sur la page de doc /pictures/api (PPOC)",
+      "suite": "page non lue ; listée à vérifier à la main"
+    },
+    {
+      "date": "2026-11-14",
+      "hote": "lccn.loc.gov / lx2.loc.gov",
+      "code": "délai",
+      "nature": "robots.txt remplacé par une page « No Connections Available » ; timeouts MARCXML le 13/11 ; MARCXML en 200 le 14/11",
+      "suite": "une seule requête par passe"
     }
   ],
-  "contact": "non trouvé",
-  "conclusion_quota": "Débits chiffrés publiés par famille d'API. Aucun en-tête de limite observé ; aucun endpoint de statut documenté.",
+  "contact": "https://www.loc.gov/apis/contact/ (formulaire Computational Data Services) ; Legal@loc.gov",
+  "conclusion_quota": "Limites chiffrées publiées par famille (JSON 20/min, Text et Image 150/min, Streaming 60/min, storage 150/min, MARCXML 30/min avec blocage 72 h ; Legal : 10/min) ; aucun en-tête de quota observé sur tile, id, SRU et MARCXML (200) ; l'API JSON de www.loc.gov refuse notre client par un défi Cloudflare (403).",
   "classe_quota": "limite documentée chiffrée",
-  "confiance": "moyenne",
-  "notes": "Test de dépassement non fait (règle : accord de Marcel). Image Services : une seule famille testée avec succès (200, sans en-tête).",
+  "confiance": "élevée",
+  "notes": "Journal du 13/11 archivé (config committée après lancement) et rejoué. Dépassement de limite non testé (réservé au crash test). JSON www.loc.gov : 403 Cloudflare, non contourné. Cinq lectures de doc ont expiré à mi-corps puis ont été refaites en espaçant les requêtes.",
   "classeur_id": "GLAM-031",
   "type": "Institution",
-  "sources": [],
-  "web": [],
+  "sources": [
+    {
+      "url": "https://www.loc.gov/apis/json-and-yaml/working-within-limits/",
+      "date": "2026-11-14",
+      "etiquette": "officielle",
+      "preuve": "institutions/loc/sources/doc/SHA256SUMS"
+    },
+    {
+      "url": "https://www.loc.gov/legal/",
+      "date": "2026-11-14",
+      "etiquette": "officielle",
+      "preuve": "institutions/loc/sources/doc/SHA256SUMS"
+    },
+    {
+      "url": "https://www.loc.gov/robots.txt",
+      "date": "2026-11-14",
+      "etiquette": "officielle",
+      "preuve": "institutions/loc/sources/robots-www/SHA256SUMS"
+    },
+    {
+      "url": "https://id.loc.gov/robots.txt",
+      "date": "2026-11-14",
+      "etiquette": "officielle",
+      "preuve": "institutions/loc/sources/doc43/SHA256SUMS"
+    }
+  ],
+  "web": [
+    {
+      "categorie": "institution",
+      "url": "https://www.loc.gov/apis/json-and-yaml/working-within-limits/",
+      "date": "2026-11-14",
+      "etiquette": "officielle",
+      "citation": "Requests that exceed the rate which loc.gov can successfully accommodate will be blocked to prevent a denial of service.",
+      "preuve": "institutions/loc/sources/doc/SHA256SUMS"
+    },
+    {
+      "categorie": "presentations",
+      "url": "https://blogs.loc.gov/thesignal/2023/06/discussing-library-of-congress-api-documentation-with-laura-wrubel-and-patrick-rourke/",
+      "date": "2026-11-14",
+      "etiquette": "présentation de l'institution (lue via Wayback 20241219024514)",
+      "citation": "We don't have API keys for loc.gov, which means that we can't control the number people are hitting the API at any one time, so we've had to add rate limiting.",
+      "preuve": "institutions/loc/sources/wayback/signal-2023.md"
+    },
+    {
+      "categorie": "tickets",
+      "url": "https://github.com/cyanheads/libofcongress-mcp-server/issues/54",
+      "date": "2026-11-14",
+      "etiquette": "tiers (lu)",
+      "citation": "LOC gives no pause length ; le serveur MCP fait une pause sur 429 « but never on a CAPTCHA » (ticket du 14/10/2026)",
+      "preuve": "institutions/loc/fiche.md"
+    },
+    {
+      "categorie": "utilisateurs",
+      "url": "https://phabricator.wikimedia.org/T435179",
+      "date": "2026-11-14",
+      "etiquette": "utilisateur/tiers (lu)",
+      "citation": "Temporary IP blocks are made if we exceed 10 requests in one minute. / They return a 200 without a machine readable cool-down for IP blocks, and the message is displayed in html. (Zotero, SRU lx2.loc.gov ; résolu le 16/09/2026 par un relèvement de limite)",
+      "preuve": "institutions/loc/fiche.md"
+    }
+  ],
   "donnees_a_revalider": true,
   "a_verifier_manuellement": [
     {
-      "url": "https://www.loc.gov/apis/",
-      "pourquoi": "403 anti-bot",
-      "a_chercher": "Page « Working within limits » : valeurs exactes (20/10 s ? 80/min ?), blocage de 1 h / 72 h"
+      "url": "https://www.loc.gov/pictures/api",
+      "pourquoi": "403 Cloudflare « Just a moment... »",
+      "a_chercher": "Documentation de l'API PPOC (limites, paramètres)"
     },
     {
-      "url": "https://lccn.loc.gov/",
-      "pourquoi": "délai dépassé",
-      "a_chercher": "Disponibilité et conditions du service lccn.loc.gov"
+      "url": "https://www.loc.gov/item/powmia/pwmaster_103790/?fo=json&at=item,resources",
+      "pourquoi": "API JSON/YAML : 403 anti-bot Cloudflare pour notre client",
+      "a_chercher": "Dans un navigateur : réponse JSON, en-têtes X-RateLimit / Retry-After éventuels"
+    },
+    {
+      "url": "https://lccn.loc.gov/robots.txt",
+      "pourquoi": "réponse « No Connections Available » au lieu d'un robots.txt",
+      "a_chercher": "Contenu réel du robots.txt de lccn.loc.gov et lx2.loc.gov"
+    },
+    {
+      "url": "https://www.loc.gov/apis/",
+      "pourquoi": "questions de quota supérieur : contact par formulaire seulement",
+      "a_chercher": "Demander à Computational Data Services si des en-têtes de limite ou un quota plus élevé existent"
+    }
+  ],
+  "endpoints_documentes": [
+    {
+      "famille": "JSON/YAML loc.gov (search, collections, item, resource)",
+      "url": "https://www.loc.gov/item/powmia/pwmaster_103790/?fo=json&at=item,resources",
+      "statut": "teste",
+      "preuve": "institutions/loc/tests/raw/item-json.headers.txt"
+    },
+    {
+      "famille": "Text Services (word-coordinates-service)",
+      "url": "https://tile.loc.gov/text-services/word-coordinates-service?segment=/service/ndnp/khi/batch_khi_bender_ver01/data/sn82016014/00212474198/1919121001/0753.xml&format=alto_xml&full_text=1",
+      "statut": "teste",
+      "preuve": "institutions/loc/tests/raw/text-services-alto.headers.txt"
+    },
+    {
+      "famille": "Image Services IIIF",
+      "url": "https://tile.loc.gov/image-services/iiif/service:sgp:sgpbatches:batch_dlc_anacostia_ver01:data:sn84025948:0023728866A:1942081001:0202/info.json",
+      "statut": "teste",
+      "preuve": "institutions/loc/tests/raw/image-info-json.headers.txt"
+    },
+    {
+      "famille": "Streaming Services",
+      "url": "https://tile.loc.gov/streaming-services/iiif/service:mbrs:ntscrm:01991429:01991429/full/,256/0/82,0/default.jpg",
+      "statut": "teste",
+      "preuve": "institutions/loc/tests/raw/streaming-thumb.headers.txt"
+    },
+    {
+      "famille": "Médias /storage-services/",
+      "url": "https://tile.loc.gov/storage-services/service/frd/pwmia/49/103790.gif",
+      "statut": "teste",
+      "preuve": "institutions/loc/tests/raw/storage-gif.headers.txt"
+    },
+    {
+      "famille": "MARCXML lccn.loc.gov",
+      "url": "https://lccn.loc.gov/sn82016014/marcxml",
+      "statut": "teste",
+      "preuve": "institutions/loc/tests/raw/marcxml.headers.txt"
+    },
+    {
+      "famille": "Linked Data Service id.loc.gov",
+      "url": "https://id.loc.gov/authorities/subjects/sh2021004022.json",
+      "statut": "teste",
+      "preuve": "institutions/loc/tests/raw/id-concept-json.headers.txt"
+    },
+    {
+      "famille": "SRU lx2.loc.gov",
+      "url": "http://lx2.loc.gov:210/lcdb?version=1.1&operation=searchRetrieve&query=%22Marv%20Throneberry%22&startRecord=1&maximumRecords=1&recordSchema=mods",
+      "statut": "teste",
+      "preuve": "institutions/loc/tests/raw/sru-lcdb.headers.txt"
+    },
+    {
+      "famille": "Chronicling America (via l'API loc.gov)",
+      "url": "https://www.loc.gov/collections/chronicling-america/?fo=json",
+      "statut": "non_teste",
+      "raison": "depuis 2025 accessible seulement par l'API JSON de www.loc.gov, déjà en 403 Cloudflare pour notre client (hôte arrêté)"
+    },
+    {
+      "famille": "PPOC JSON HTTP API",
+      "url": "https://www.loc.gov/pictures/api",
+      "statut": "non_teste",
+      "raison": "page de doc en 403 Cloudflare et chemin /pictures/search lié à l'hôte www.loc.gov arrêté après 403 ; non contourné"
+    },
+    {
+      "famille": "Congress.gov API",
+      "url": "https://api.data.gov/congress/v3?api_key=",
+      "statut": "non_teste",
+      "raison": "« An API key is required for access » : clé nécessaire, interdit par la règle sans clé ni identifiant"
+    },
+    {
+      "famille": "NLS BARD API",
+      "url": "https://www.loc.gov/apis/additional-apis/nlsbard-api/",
+      "statut": "non_teste",
+      "raison": "BARD est protégé par mot de passe et demande une candidature à une bibliothèque du réseau : compte nécessaire"
+    },
+    {
+      "famille": "Sitemaps loc.gov",
+      "url": "https://www.loc.gov/sitemap.xml",
+      "statut": "non_teste",
+      "raison": "index volumineux sur www.loc.gov, hôte arrêté après 403 Cloudflare ; id.loc.gov sitemapindex non lu pour la même raison de volume"
+    }
+  ],
+  "endpoints_ecartes": [
+    {
+      "url": "https://www.loc.gov/apis/",
+      "raison": "page de documentation générale, ce n'est pas une API"
+    },
+    {
+      "url": "https://www.loc.gov/search/opensearch.xml",
+      "raison": "descripteur OpenSearch du site cité par la page Legal ; sur www.loc.gov, hôte arrêté après 403"
+    },
+    {
+      "url": "https://tile-dev.loc.gov/download-services/",
+      "raison": "serveur de développement cité en passant par la doc ; hors production"
+    },
+    {
+      "url": "https://tile-dev.loc.gov/transfer-services/",
+      "raison": "serveur de développement cité en passant par la doc ; hors production"
+    },
+    {
+      "url": "https://tile-dev.loc.gov/text-services/",
+      "raison": "serveur de développement cité dans les exemples ; hors production"
+    },
+    {
+      "url": "https://tile.loc.gov/wordpress-services/",
+      "raison": "service cité par le menu des pages, sans doc d'usage propre ; hors liste d'API documentées"
+    },
+    {
+      "url": "https://tile.loc.gov/download-services/",
+      "raison": "service cité par le menu des pages sans doc d'usage propre"
+    }
+  ],
+  "hotes_robots": [
+    {
+      "hote": "www.loc.gov",
+      "resultat": "Crawl-Delay 5 ; Disallow /search, /pictures/search, /cgi-bin/… ; autorisé par Marcel (C12)",
+      "preuve": "institutions/loc/sources/robots-www/SHA256SUMS"
+    },
+    {
+      "hote": "tile.loc.gov",
+      "resultat": "robots.txt 404 : tout autorisé",
+      "preuve": "institutions/loc/sources/robots-tile/SHA256SUMS"
+    },
+    {
+      "hote": "lccn.loc.gov",
+      "resultat": "réponse « No Connections Available » (200 HTML) au lieu d'un robots.txt ; illisible",
+      "preuve": "institutions/loc/sources/robots-lccn/SHA256SUMS"
+    },
+    {
+      "hote": "id.loc.gov",
+      "resultat": "Crawl-delay 3, Allow / ; Applebot 30, Yeti interdit",
+      "preuve": "institutions/loc/sources/doc43/SHA256SUMS"
+    },
+    {
+      "hote": "lx2.loc.gov",
+      "resultat": "même page « No Connections Available » : robots.txt illisible",
+      "preuve": "institutions/loc/sources/doc44/SHA256SUMS"
+    },
+    {
+      "hote": "lx2.loc.gov:210",
+      "resultat": "port 210 (Metaproxy) : robots.txt de lx2.loc.gov illisible (« No Connections Available »), voir sources/doc44",
+      "preuve": "institutions/loc/sources/doc44/SHA256SUMS"
     }
   ]
 }

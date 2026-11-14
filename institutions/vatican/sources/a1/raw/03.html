@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<!--meta http-equiv="x-ua-compatible" content="IE=8;ID=EDGE;"/-->
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>404 Not Found</title>
+<style>
+    /* generali */
+    @font-face{font-family:CabinCondensed-Regular;src:url('../../style/css/fonts/CabinCondensed-Regular.ttf') format('opentype')}
+    body {
+        margin: 0;
+        font-size: 13px;
+        color: #666666;
+        font-family: "Lucida Sans Unicode", Sans-Serif;
+        overflow: hidden;
+    }
+
+    b,
+    strong,
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+        color: #1c315b;
+        /* font-weight: normal; */
+        font-family: "Lucida Sans Unicode", Sans-Serif;
+    }
+
+    a {
+        font-family: "Lucida Sans Unicode", Sans-Serif;
+        color: #1c315b;
+        text-decoration: none;
+    }
+
+    p a {
+        color: #1c315b;
+        font-weight: bold;
+    }
+
+    p a:hover {
+        color: #666666;
+    }
+
+    .cl {
+        height: 0px;
+        overflow: hidden;
+        clear: both;
+    }
+
+    .cf:before,
+    .fluid:before,
+    .cf:after,
+    .fluid:after {
+        content: "";
+        display: table;
+    }
+
+    .cf:after,
+    .fluid:after {
+        clear: both;
+    }
+
+    .fl {
+        float: left;
+    }
+
+    .fr {
+        float: right;
+    }
+
+    .text {
+        font-size: 1.05em;
+        line-height: 1.2em;
+    }
+
+    .h,
+    .msg,
+    .err {
+        display: none;
+    }
+
+    /* end generali */
+    /* struttura */
+    .fluid {
+        width: 1024px;
+        margin: 0 auto;
+        background: white;
+    }
+
+    .header {
+        font-family: "Lucida Sans Unicode", Sans-Serif;
+        width: 100%;
+        background: white;
+        z-index: 10;
+        -webkit-box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.2);
+        -moz-box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.2);
+        -o-box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.2);
+        box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.2);
+    }
+
+    .header .header-middle {
+        width: 100%;
+        border-bottom: 1px solid #d0d0d0;
+    }
+
+    .header .header-middle .fluid {
+        height: 88px;
+        position: relative;
+    }
+
+    .header .header-middle .fluid .logo {
+        overflow: hidden;
+        background: url("../../style/css/i/logo.png") no-repeat;
+        padding: 8px 0 15px 75px;
+        float: left;
+        margin: 7px 0 0 10px;
+        color: #1c315b;
+        font-size: 1.4em;
+        line-height: 1.2em;
+        display: block;
+        height: 50px;
+    }
+
+    .header .header-middle .fluid .logo:hover {
+        text-decoration: none;
+    }
+
+    .main {
+        width: 100%;
+        overflow: auto;
+        background: #f2f2f2;
+    }
+
+    .main .fluid {
+        -webkit-box-shadow: 0px 0px 4px 4px rgba(0, 0, 0, 0.15);
+        -moz-box-shadow: 0px 0px 4px 4px rgba(0, 0, 0, 0.15);
+        -o-box-shadow: 0px 0px 4px 4px rgba(0, 0, 0, 0.15);
+        box-shadow: 0px 0px 4px 4px rgba(0, 0, 0, 0.15);
+    }
+
+    .box {
+        margin: 3em;
+        min-height: 20em;
+        height: 10000em;
+    }
+
+    .history-back { float:right;
+        color: #1c315b;
+        border: 0;
+        font-size: 14px;
+        cursor: pointer;
+        transition: background-color 300ms ease-out;
+    }
+
+    .history-back:before {
+        font-family: CabinCondensed-Regular;
+        content: "<";
+        font-size: 1.2em;
+        margin-right: 5px;
+    }
+
+    .history-back:hover {
+        color: grey;
+    }
+
+    .footer {
+        background: #1c315b;
+        width: 100%;
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+    }
+
+    .footer .fluid {
+        color: white;
+        background: inherit;
+    }
+
+    .footer .fluid .half {
+        width: 45.5%;
+        padding: 3% 3%;
+        float: left;
+    }
+
+    .footer .fluid .half .copyright {
+        line-height: 20px;
+        font-size: 11px;
+    }
+
+    .footer .fluid .half .copyright > span {
+        font-size: 15px;
+    }
+
+    .footer .fluid .half > div {
+        float: left;
+        padding-left: 50px;
+    }
+
+    .footer .fluid .half > div .powered-by {
+        font-size: 16px;
+    }
+
+    .footer .fluid .half > div .logo-white {
+        background: url("../../style/css/i/logo_white.png") left center no-repeat;
+        padding-left: 50px;
+        padding-top: 15px;
+        height: 60px;
+    }
+
+    .footer .fluid .half > div a.logo-nttdata {
+        display: block;
+        background: url("../../style/css/i/logo_nttdata.png") center bottom no-repeat;
+        width: 123px;
+        height: 40px;
+    }
+
+    .footer .fluid .half:first-child {
+        padding-left: 0;
+    }
+</style>
+</head>
+<body>
+<div class="header">
+    <div class="header-middle">
+        <div class="fluid">
+            <a class="logo" href="/" title="Biblioteca Apostolica Vaticana">Biblioteca<br>Apostolica<br>Vaticana</a>
+        </div>
+    </div>
+</div>
+<div class="main">
+    <div class="fluid">
+        <div class="box">
+            <a class="history-back" href="#" onclick="javascript: window.history.back(); return false;">Torna indietro</a>
+
+            <h1>Pagina non trovata <span>:(</span></h1>
+            <p>La risorsa richiesta non è stata trovata ma in futuro potrebbe essere disponibile.</p>
+            <p>Questo stato potrebbe dipendere da:</p>
+            <ul>
+                <li>un indirizzo compilato male</li>
+                <li>un collegamento out-of-date</li>
+            </ul>
+			<br><br>
+			<a class="history-back" href="#" onclick="javascript: window.history.back(); return false;">Go Back</a>
+            <h1>Not found <span>:(</span></h1>
+            <p>Sorry, but the page you were trying to view does not exist.</p>
+            <p>It looks like this was the result of either:</p>
+            <ul>
+                <li>a mistyped address</li>
+                <li>an out-of-date link</li>
+            </ul>
+            <script>
+                var GOOG_FIXURL_LANG = (navigator.language || '').slice(0, 2), GOOG_FIXURL_SITE = location.host;
+            </script>
+        </div>
+    </div>
+</div>
+<div class="footer">
+    <div class="fluid">
+        <div class="half">
+                <span class="copyright"><span>Copyright © Biblioteca Apostolica Vaticana</span><br>
+                    Tutti i diritti riservati. I contenuti di questo sito sono protetti da copyright.
+                    Né il testo, né le immagini possono essere riprodotte, in alcuna forma,
+                    senza il permesso della  Biblioteca Apostolica Vaticana,<br>
+                    00120, Città del Vaticano.</span>
+        </div>
+        <div class="half">
+            <div>
+                <div class="powered-by">Powered by</div>
+                <div class="logo-white">Biblioteca Apostolica Vaticana<br>Cortile Belvedere<br>00120 Città del Vaticano
+                </div>
+            </div>
+            <div>
+                <div class="powered-by">Designed by</div>
+                <a class="logo-nttdata" href="http://www.nttdata.com/"
+                   title="NTT DATA"></a>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

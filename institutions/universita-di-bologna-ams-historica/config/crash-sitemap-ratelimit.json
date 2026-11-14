@@ -1,0 +1,12 @@
+{
+  "slug": "universita-di-bologna-ams-historica",
+  "endpoint": {
+    "id": "sitemap-index",
+    "url": "https://historica.unibo.it/sitemap_index.xml",
+    "method": "GET"
+  },
+  "limite_documentee_req_min": 500,
+  "source_limite": "DSpace Angular, config.example.yml : « The rateLimiter settings limit each IP to a 'limit' of 500 requests per 'windowMs' (1 minute) » (https://raw.githubusercontent.com/DSpace/dspace-angular/main/config/config.example.yml, source tierce) ; en-tête observé sur ce serveur : x-ratelimit-limit: 500 (tests/raw/sitemap-index.headers.txt)",
+  "duree_palier_s": 180,
+  "note": "sitemap_index.xml : 450 octets, 200 dans le journal (sitemap-index, 2026-11-14T01:50:04Z), répond avec x-ratelimit-limit/remaining/reset. Le plafond de la politique adaptative (CloudFront détecté) reste 60 req/min, sous la limite de 500."
+}

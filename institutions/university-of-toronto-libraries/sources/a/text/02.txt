@@ -1,0 +1,73 @@
+Reusing Collections U of T items with IIIF · FAQ - Using Collections U of T · Explore Collections U of T 
+ Skip to main content
+ Repositories 
+ Help 
+ Repositories 
+ Help 
+ Repositories 
+ Help 
+ Menu
+ FAQ - Using Collections U of T
+ Home Repositories FAQ - Using Collections U of T Reusing Collections U of T items with IIIF 
+ Quick Links 
+ FAQ - Using Collections U of T 
+ How to download images 
+ How to navigate 
+ How to search 
+ How to reuse (IIIF) 
+ Reusing Collections U of T items with IIIF 
+ On this page:
+ What is IIIF? 
+ IIIF in Collections U of T 
+ Collections U of T Identifiers and URL paths 
+ Collections U of T IIIF API Support 
+ Copyright, Reuse and Credit Information in Collections U of T 
+ What can I do with IIIF manifests? 
+ What is IIIF?
+ IIIF (International Image Interoperability Framework)   is a set of APIs and related tools created by an international community of leading cultural institutions. The IIIF community has created documentation to help you learn how to use the   IIIF APIs , how to use the   IIIF Mirador viewer , and how to   find other IIIF digitized collections   from cultural heritage institutions across the globe.
+ Below you will find additional IIIF documentation specific to Collections U of T and the University of Toronto's IIIF digital collections.
+ IIIF in Collections U of T
+ Each digitized object in Collections U of T has something called a   IIIF manifest . On an object's page, click on the Share and Reuse tab and you will see the Copy IIIF manifest button for the object.
+ Example digital object: https://collections.library.utoronto.ca/view/utarmsIB:2001-15-2MS 
+ IIIF manifests enable the reuse of the digital objects/image(s) you find in Collections U of T. The manifests are an important part of the "interoperability" of IIIF - copying the IIIF manifest is how you can reuse the digital object in external IIIF viewers and IIIF-enabled tools for the purpose of your research, teaching, or personal interest.
+ Note that IIIF manifests are accessible through URLs (links). IIIF manifest URLs point to a publicly accessible document, written in a format called JSON (or JavaScript Object Notation). Clicking on the IIIF manifest link, or pasting the URL into your browser, will lead you to a document that looks like this:
+ Example IIIF manifest: https://iiif.library.utoronto.ca/presentation/v2/utarmsIB:2001-15-2MS/manifest 
+ Instead of clicking on the IIIF manifest URL, you want to   copy   the IIIF manifest URL for the digital object you are working with and paste the IIIF manifest URL into the IIIF-enabled tool of your choice.
+ Collections U of T Identifiers and URL paths
+ When working with IIIF it can be helpful to understand Collections U of T identifiers and URL paths.
+ The URL path for a Collections U of T digital object is always   https:/collections.library.utoronto.ca/view/**PID**   - where **PID** is the identifier for the digital object.
+ Similarly, The URL path for a digital object's manifest is always   https://iiif.library.utoronto.ca/presentation/**PID**/manifest   - where, again, **PID** is the identifier for the digital object.
+ Note that IIIF collections manifests follow a different URL pattern. Collection manifests are always   https://iiif.library.utoronto.ca/presentation/collections/**PID**   - where **PID** is the identifier for the digital collection.
+ You can also access   all   Collections U of T IIIF manifests at   https://iiif.library.utoronto.ca/presentation/v2/collections .
+ Collections U of T IIIF API Support
+ Currently, Collections U of T supports two IIIF API specifications:
+ Presentation API (v2 and v3; manifests currently default to v2)
+ Image API (v2)
+ Copyright, Reuse and Credit Information in Collections U of T
+ Every collection differs in rights and reuse guidelines. When in doubt, use the contact form to consult with the collection custodian about reuse and permissions. 
+ You can refer to the "Rights" field in the digital object(s) display to look for rights information about the item you are interested in reusing. Some collections do not allow for reuse, while others do. Not all digital objects have rights information. For these, a contact email is given. 
+ What can I do with IIIF manifests?
+ Once you have copied a IIIF manifest, you can paste it into a number of open IIIF-enabled tools to reuse the digital object. Examples of tools are listed below.
+ Digital storytelling
+ Exhibit.so   - a free and simple digital storytelling and exhibits tool created by Mnemoscene and the University of St. Andrews. No login or hosting required. 
+ Omeka   - a IIIF-enabled robust digital exhibit platform. Omeka requires hosting and set up so is more complex to use in a classroom setting compared to Exhibit.so but also offers more features for reusing and presenting IIIF manifests. The University of Toronto Libraries also offers an Omeka service for U of T users through Exhibits U of T but Exhibits U of T is not currently enabled for IIIF - visit the library's website  for further details.
+ Transcribe
+ From The Page   - a subscription-based transcription tool that can pull in IIIF content. From The Page is available for anyone to sign up for. Some UTL collection owners also have transcription projects set up at https://fromthepage.com/utl . You are encouraged to contact the library or archive who maintains the item/collection you would like to incorporate into a transcription project before integrating it into your teaching or research. 
+ The IIIF website maintains a list of other IIIF-enabled tools and also offers training . 
+ Guided walkthroughs detailing examples of reusing Collections U of T digital objects within these external IIIF-enabled tools is forthcoming by Winter 2026. 
+ Examples of IIIF in student assignments and teaching?
+ Forthcoming - please  contact us  for more information. 
+ ← How to search 
+ How to reuse (IIIF) 
+ FAQ - Using Collections U of T 
+ How to download images 
+ How to navigate 
+ How to search 
+ How to reuse (IIIF) 
+ -->
+ Repositories 
+ Help 
+ -->
+ © 2026 Collections U of T . All Rights Reserved. 
+ Web Accessibility 
+ Contact Us
