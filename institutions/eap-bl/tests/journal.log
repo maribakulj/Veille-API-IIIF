@@ -1,0 +1,6 @@
+# Session 2026-11-14T01:17:59Z — configuration eap-v2-passe1-manifeste.json — sonde probe.py au commit 92d6f73
+2026-11-14T01:18:00Z | robots.txt:eap.bl.uk | https://eap.bl.uk/robots.txt | GET | 200 | 57 règle(s) pour « * »
+2026-11-14T01:18:00Z | manifeste-eap099-1-2-5-2 | robots.txt interdit https://eap.bl.uk/archive-file/EAP099-1-2-5-2/manifest (Disallow: */manifest*) ; lancé car autorisé par Marcel (C12)
+2026-11-14T01:18:06Z | manifeste-eap099-1-2-5-2 | https://eap.bl.uk/archive-file/EAP099-1-2-5-2/manifest | GET | 200 OK | aucun en-tête de limite | taille≥126749 | corps: {"@context":"http:\/\/iiif.io\/api\/presentation\/3\/context.json","id":"https:\/\/eap.bl.uk\/archive-file\/EAP099-1-2-5-2\/manifest","type":"Manifest","label":{"en":["\u0022Mahali Chuo cha Ualimu Mar
+# corps enregistré : tests/raw/manifeste-eap099-1-2-5-2.body (126749 octets lus)
+# Fin 2026-11-14T01:18:06Z — 2 requête(s) envoyée(s)

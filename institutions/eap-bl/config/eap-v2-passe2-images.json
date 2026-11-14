@@ -1,0 +1,13 @@
+{
+  "slug": "eap-bl",
+  "min_delay_s": 6,
+  "max_requests": 15,
+  "follow_redirects": 1,
+  "robots_disallow_autorise_par_marcel": true,
+  "note": "v2 passe 2 : services d'images annoncés par le manifeste de la passe 1 (tests/raw/manifeste-eap099-1-2-5-2.body : images.eap.bl.uk/EAP099/EAP099_1_2_5_2/1.jp2, profil level2, vignette full/!128,128) ; robots.txt de images.eap.bl.uk et iiif.bl.uk : 404 (sources/suite5), tout autorisé. Racine de iiif.bl.uk, hôte d'images BL cité par l'ancien audit, une requête.",
+  "endpoints": [
+    {"id": "image-info-json", "method": "GET", "url": "https://images.eap.bl.uk/EAP099/EAP099_1_2_5_2/1.jp2/info.json"},
+    {"id": "image-vignette-128", "method": "GET", "url": "https://images.eap.bl.uk/EAP099/EAP099_1_2_5_2/1.jp2/full/!128,128/0/default.jpg"},
+    {"id": "iiif-bl-uk-racine", "method": "GET", "url": "https://iiif.bl.uk/"}
+  ]
+}

@@ -239,6 +239,16 @@
       "hote": "www.bl.uk",
       "resultat": "200 : User-Agent * ; Allow /",
       "preuve": "institutions/eap-bl/sources/suite3/raw/04.html"
+    },
+    {
+      "hote": "images.eap.bl.uk",
+      "resultat": "404 (images/robots.txt is neither a file nor part of an image sequence) : aucune règle, tout autorisé",
+      "preuve": "institutions/eap-bl/sources/suite5/raw/01.html"
+    },
+    {
+      "hote": "iiif.bl.uk",
+      "resultat": "404 (page IIS File or directory not found) : aucune règle, tout autorisé",
+      "preuve": "institutions/eap-bl/sources/suite5/raw/02.html"
     }
   ],
   "endpoints_ecartes": [
