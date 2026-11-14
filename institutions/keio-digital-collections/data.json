@@ -4,7 +4,7 @@
   "pays": "Japon",
   "classeur_id": "GLAM-079",
   "type": "Institution",
-  "statut_audit": "a–e faits ; f NON FAIT (budget de recherche web de la session épuisé) ; g à faire",
+  "statut_audit": "a–f faits ; g à faire (config crash non écrite)",
   "limites_documentees": [],
   "en_tetes_observes": [],
   "blocages": [
@@ -47,12 +47,48 @@
       "preuve": "institutions/keio-digital-collections/sources/c/SHA256SUMS"
     }
   ],
-  "web": [],
+  "web": [
+    {
+      "categorie": "institution",
+      "aucun_resultat": true,
+      "requete": "Keio University Library Digital Collections API terms of use robots crawling IIIF",
+      "date": "2026-11-14",
+      "etiquette": "tiers",
+      "citation": "I didn't find any published API terms or robots/crawling policy for Keio's IIIF services (résumé de moteur, non vérifié)",
+      "preuve": "institutions/keio-digital-collections/sources/web/recherches-2026-11-14.md"
+    },
+    {
+      "categorie": "utilisateurs",
+      "aucun_resultat": true,
+      "requete": "dcollections.lib.keio.ac.jp IIIF 429 OR 503 OR blocked rate limit scraping problem",
+      "date": "2026-11-14",
+      "etiquette": "tiers",
+      "citation": "I didn't find any reports of Keio's dcollections IIIF endpoints returning 429 or 503 errors (résumé de moteur, non vérifié)",
+      "preuve": "institutions/keio-digital-collections/sources/web/recherches-2026-11-14.md"
+    },
+    {
+      "categorie": "tickets",
+      "aucun_resultat": true,
+      "requete": "github issue dcollections.lib.keio.ac.jp manifest IIIF",
+      "date": "2026-11-14",
+      "etiquette": "tiers",
+      "citation": "The search didn't turn up a GitHub issue about dcollections.lib.keio.ac.jp manifests (résumé de moteur, non vérifié)",
+      "preuve": "institutions/keio-digital-collections/sources/web/recherches-2026-11-14.md"
+    },
+    {
+      "categorie": "presentations",
+      "url": "https://core.ac.uk/download/224968624.pdf",
+      "date": "2026-11-14",
+      "etiquette": "tiers",
+      "citation": "Introduction to Digital Fujikawa, Kyoto University Library et Keio Media Center, conférence IIIF 2019 (résumé de moteur, non vérifié ; original en 403, non lu) ; apis.io lu : « no developer portal, no API key »",
+      "preuve": "institutions/keio-digital-collections/sources/web/recherches-2026-11-14.md"
+    }
+  ],
   "contact": "formulaire Contact – Keio D Collections (dcollections.lib.keio.ac.jp/en/content/contact)",
-  "conclusion_quota": "Aucun quota ni limite de débit publiés. Les conditions (page About) interdisent la reproduction des données numériques, sans parler de débit. IIIF Presentation 2 (manifeste) et IIIF Image 2 (IIPImage sur iiif.lib.keio.ac.jp) testés en 200 sans en-tête de limite ; une requête vers la page de visionneuse a subi une connexion réinitialisée (hôte arrêté, pas de contournement). Étape f (recherche web) non faite.",
+  "conclusion_quota": "Aucun quota ni limite de débit publiés. Les conditions (page About) interdisent la reproduction des données numériques, sans parler de débit. IIIF Presentation 2 et Image 2 testés en 200 sans en-tête de limite ; une connexion réinitialisée sur la visionneuse (hôte arrêté). Recherches web : aucune plainte ni ticket.",
   "classe_quota": "aucun quota trouvé",
   "confiance": "faible",
-  "notes": "Les 4 recherches web de l'étape f n'ont pas pu être faites : le budget de recherche web de la session (200 appels partagés) était épuisé au moment de traiter Keio ; à refaire quand le budget reviendra. Deux pages devinées (/en/terms, /en/api) ont répondu 404 lors de la lecture de la doc. Le robots.txt de iiif.lib.keio.ac.jp et de www.lib.keio.ac.jp répond 404.",
+  "notes": "Étape f faite le 14/11/2026 (4 recherches ; aucune plainte ni ticket trouvés ; PDF Terms_of_Service de lib.keio.ac.jp et core.ac.uk non lus : domaine Keio interdit / 403). Pages /en/terms et /en/api devinées en 404 lors de la lecture de la doc.",
   "a_verifier_manuellement": [
     {
       "url": "https://dcollections.lib.keio.ac.jp/sites/all/libraries/uv/uv.php?archive=ANT&id=Japan/1&page=1",

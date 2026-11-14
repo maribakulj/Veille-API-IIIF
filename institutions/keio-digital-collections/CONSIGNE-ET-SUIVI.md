@@ -44,9 +44,9 @@
 ### f) Ce que disent les gens sur le web
 > Plaintes, discussions, présentations de l'institution, politique envers les API et les bots, blogs, GitHub, forums, listes de diffusion. Sources étiquetées (officielle / institution / utilisateur / tiers), lues, citées.
 
-- [ ] **Pas fait**
-  - **Justification** : Pas encore traitée : l'audit suit l'ordre du classeur de référence (une institution à la fois).
-  - **Preuves** : 
+- [x] **Fait**
+  - **Justification** : 4 recherches web faites le 2026-11-14 (institution, utilisateurs, tickets, presentations) ; aucune plainte ni ticket trouvés ; apis.io lu, core.ac.uk en 403
+  - **Preuves** : `institutions/keio-digital-collections/sources/web/recherches-2026-11-14.md`
 
 ### g) Crash test progressif
 > Seulement après l'audit complet (a à f) de toutes les institutions et avec l'accord de Marcel : paliers jusqu'à 2 × la limite documentée, ou 200 req/min si illimité ou sans limite documentée. Arrêt au premier 429/403/CAPTCHA.
