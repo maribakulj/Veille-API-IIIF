@@ -15,7 +15,7 @@ x-dns-prefetch-control: off
 x-frame-options: SAMEORIGIN
 x-xss-protection: 0
 vary: Origin
-x-mps-client-ip: [IP retirée], 10.42.18.0, 3.236.169.149, 10.42.17.0, [IP retirée]
+x-mps-client-ip: [adresses IP redigées : IP publique de Marcel et IP internes AWS]
 cache-control: public, max-age=31536000, s-maxage=36000
 x-envoy-upstream-service-time: 212
 server: istio-envoy

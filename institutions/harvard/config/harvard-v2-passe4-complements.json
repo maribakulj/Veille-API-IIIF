@@ -1,0 +1,13 @@
+{
+  "slug": "harvard",
+  "min_delay_s": 6,
+  "max_requests": 15,
+  "follow_redirects": 1,
+  "robots_disallow_autorise_par_marcel": true,
+  "note": "Passe 4 (v2) : compléments documentés : proxy NRS « nrs.harvard.edu/proxy/<URN>:IMAGE/info.json » (wiki MPS Delivery API : à éviter si l'appelant peut résoudre par l'API, d'où une seule requête), verbe OAI-PMH ListIdentifiers et collection d'items « collections/2/ » (doc : « currently unavailable, under investigation » : une requête pour le constater).",
+  "endpoints": [
+    {"id": "nrs-proxy-info", "method": "GET", "url": "https://nrs.harvard.edu/proxy/URN-3:HUAM:INV204583_DYNMC:IMAGE/info.json"},
+    {"id": "oai-listidentifiers", "method": "GET", "url": "https://api.lib.harvard.edu/oai/?verb=ListIdentifiers&metadataPrefix=mods&set=scores"},
+    {"id": "lc-collections-2", "method": "GET", "url": "https://api.lib.harvard.edu/v2/collections/2/"}
+  ]
+}
