@@ -1,0 +1,11 @@
+{
+  "slug": "university-of-leicester-library",
+  "min_delay_s": 6,
+  "max_requests": 15,
+  "follow_redirects": 1,
+  "robots_disallow_autorise_par_marcel": true,
+  "note": "passe 3 : la passe 2 a suivi la chaîne de redirections du manifeste global : iiif/info/manifest.json (301) puis iiif/manifest.json (302, location lue dans tests/raw/cdm-manifeste-global+redir.headers.txt) vers https://leicester.contentdm.oclc.org/iiif/2/manifest.json ; un GET pour lire ce manifeste (liste des collections, identifiants publics).",
+  "endpoints": [
+    {"id": "cdm-manifeste-global-v2", "method": "GET", "url": "https://leicester.contentdm.oclc.org/iiif/2/manifest.json", "save_body": 500000}
+  ]
+}

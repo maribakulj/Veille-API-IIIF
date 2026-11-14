@@ -1,0 +1,55 @@
+{
+  "slug": "princeton",
+  "min_delay_s": 6,
+  "max_requests": 15,
+  "follow_redirects": 1,
+  "robots_disallow_autorise_par_marcel": true,
+  "note": "v2 passe 2 : API du musée (puam-api-docs, GitHub officiel du musée) : objects, tombstone, makers, packages, search, liste filtrée ; plus IIIF musée (manifeste, info.json) tirés de la doc ou de la réponse objets. data.artmuseum robots.txt = 404, media = 500.",
+  "endpoints": [
+    {
+      "id": "api-objet",
+      "method": "GET",
+      "url": "https://data.artmuseum.princeton.edu/objects/9449"
+    },
+    {
+      "id": "api-tombstone",
+      "method": "GET",
+      "url": "https://data.artmuseum.princeton.edu/objects/9449/tombstone"
+    },
+    {
+      "id": "api-maker",
+      "method": "GET",
+      "url": "https://data.artmuseum.princeton.edu/makers/6353"
+    },
+    {
+      "id": "api-package",
+      "method": "GET",
+      "url": "https://data.artmuseum.princeton.edu/packages/123"
+    },
+    {
+      "id": "api-search",
+      "method": "GET",
+      "url": "https://data.artmuseum.princeton.edu/search?q=blue&type=all"
+    },
+    {
+      "id": "api-objets-filtre",
+      "method": "GET",
+      "url": "https://data.artmuseum.princeton.edu/objects?maker=6353&size=5"
+    },
+    {
+      "id": "iiif-manifeste",
+      "method": "GET",
+      "url": "https://data.artmuseum.princeton.edu/iiif/objects/9449"
+    },
+    {
+      "id": "iiif-image-info",
+      "method": "GET",
+      "url": "https://media.artmuseum.princeton.edu/iiif/3/collection/x1954-13/info.json"
+    },
+    {
+      "id": "iiif-image-info-head",
+      "method": "HEAD",
+      "url": "https://media.artmuseum.princeton.edu/iiif/3/collection/x1954-13/info.json"
+    }
+  ]
+}

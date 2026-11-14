@@ -2,51 +2,51 @@
 
 - **Dossier** : `institutions/university-british-columbia-open-collections/`  ·  **Classeur de référence** : GLAM-051  ·  **Pays** : Canada
 - **Statut d'institution** : active
-- **Dernière mise à jour du suivi** : (à renseigner à chaque modification)
+- **Dernière mise à jour du suivi** : 2026-11-14
 
 ## Suivi par étape (à cocher, avec justification et preuves)
 
 ### a) Documentation lue en entier
 > Toutes les pages de doc liées à l'API (développeurs, interfaces, conditions, FAQ, aide, mentions légales, robots.txt), téléchargées avec `scripts/fetch_doc.sh` (URL, date, SHA-256), lues en entier (`scripts/extract_text.py`).
 
-- [ ] **Pas fait**
-  - **Justification** : Pas encore traitée : l'audit suit l'ordre du classeur de référence (une institution à la fois).
-  - **Preuves** : 
+- [x] **Fait**
+  - **Justification** : Doc lue : page de doc bloquée par WAF (HTTP 200 de blocage) lue en entier via Wayback 2026-02-16, dépôt GitHub de la doc, robots.txt de chaque hôte (iiif, oc-index, open, bchistory, oce-index en timeout, oce en DNS) ; URL listées à vérifier à la main.
+  - **Preuves** : `institutions/university-british-columbia-open-collections/sources/doc/SHA256SUMS`, `institutions/university-british-columbia-open-collections/sources/wayback/open-library-ubc-docs.md`, `institutions/university-british-columbia-open-collections/sources/robots-oai/FETCH.log`
 
 ### b) Endpoints tirés de la doc
 > Liste des endpoints citée par la doc (URL, exemples). Jamais devinée. Une interdiction ou une impossibilité écrite dans la doc justifie de renoncer (citer la phrase).
 
-- [ ] **Pas fait**
-  - **Justification** : Pas encore traitée : l'audit suit l'ordre du classeur de référence (une institution à la fois).
-  - **Preuves** : 
+- [x] **Fait**
+  - **Justification** : Endpoints tirés de la doc UBC (REST oc-index : collections, items, _total, search ; IIIF 2.0 ; OAI-PMH) ; non testés justifiés (POST, archive volumineuse, clé OAI exigée) dans data.json.
+  - **Preuves** : `institutions/university-british-columbia-open-collections/data.json`, `institutions/university-british-columbia-open-collections/sources/wayback/open-library-ubc-docs.md`
 
 ### c) Configuration écrite AVANT les tests
 > `config/<nom>.json` pilote `scripts/probe.py`, committée avant le lancement. Un endpoint absent de la doc mais non interdit se teste avec un script poli (identifiants issus de pages publiques ou d'exemples de la doc, pas de devinette).
 
-- [ ] **Pas fait**
-  - **Justification** : Pas encore traitée : l'audit suit l'ordre du classeur de référence (une institution à la fois).
-  - **Preuves** : 
+- [x] **Fait**
+  - **Justification** : Deux configurations committées avant lancement (passe1-api, passe2-listes), pauses 6 s, robots_disallow_autorise_par_marcel, sans clé API ; 8 et 2 requêtes.
+  - **Preuves** : `institutions/university-british-columbia-open-collections/config/passe1-api.json`, `institutions/university-british-columbia-open-collections/config/passe2-listes.json`
 
 ### d) Quota cherché dans la doc
 > Pour chaque page lue : endpoint de statut, en-têtes de limite documentés, clé ou compte donnant un quota, contact pour un volume plus élevé. Chaque réponse cite sa source.
 
-- [ ] **Pas fait**
-  - **Justification** : Pas encore traitée : l'audit suit l'ordre du classeur de référence (une institution à la fois).
-  - **Preuves** : 
+- [x] **Fait**
+  - **Justification** : Doc : requêtes sans clé « rate limited » (non chiffré), clé gratuite par e-mail, OAI exige une clé, contact library.opencollections@ubc.ca ; chiffre 10 et 200 req/min d'un tiers non vérifié ; sources dans data.json.
+  - **Preuves** : `institutions/university-british-columbia-open-collections/data.json`, `institutions/university-british-columbia-open-collections/fiche.md`
 
 ### e) Test systématique de chaque endpoint
 > Chaque endpoint documenté est testé (budget 15 requêtes par passe, pause ≥ 6 s, GET/HEAD, UA du projet). Redirections du même hôte suivies. Un 403 arrête son hôte, un 429 arrête l'institution. Seules les interdictions écrites dans la doc dispensent de tester.
 
-- [ ] **Pas fait**
-  - **Justification** : Pas encore traitée : l'audit suit l'ordre du classeur de référence (une institution à la fois).
-  - **Preuves** : 
+- [x] **Fait**
+  - **Justification** : 10 requêtes REST et IIIF sans clé : 200 (HEAD info.json 404), aucun 429, aucun en-tête de limite ; OAI non testé (clé exigée, hôte injoignable).
+  - **Preuves** : `institutions/university-british-columbia-open-collections/tests/journal.log`, `institutions/university-british-columbia-open-collections/tests/raw/rest-search-cat.headers.txt`, `institutions/university-british-columbia-open-collections/tests/raw/iiif-info-tokugawa.headers.txt`
 
 ### f) Ce que disent les gens sur le web
 > Plaintes, discussions, présentations de l'institution, politique envers les API et les bots, blogs, GitHub, forums, listes de diffusion. Sources étiquetées (officielle / institution / utilisateur / tiers), lues, citées.
 
-- [ ] **Pas fait**
-  - **Justification** : Pas encore traitée : l'audit suit l'ordre du classeur de référence (une institution à la fois).
-  - **Preuves** : 
+- [x] **Fait**
+  - **Justification** : 4 recherches web (institution, utilisateurs, tickets, présentations) ; originaux lus : apis.io rate-limits (tiers), dépôt GitHub api-evangelist ; CNI en 403, résumé de moteur marqué ; tickets sans résultat.
+  - **Preuves** : `institutions/university-british-columbia-open-collections/fiche.md`, `institutions/university-british-columbia-open-collections/data.json`
 
 ### g) Crash test progressif
 > Seulement après l'audit complet (a à f) de toutes les institutions et avec l'accord de Marcel : paliers jusqu'à 2 × la limite documentée, ou 200 req/min si illimité ou sans limite documentée. Arrêt au premier 429/403/CAPTCHA.
@@ -60,7 +60,10 @@
 
 <!-- AUTO:DEBUT -->
 ## Contrôles automatiques (calculés depuis `tests/journal.log`)
-Aucune requête enregistrée dans `tests/journal.log`.
+- Requêtes enregistrées : **13** (sessions de sonde : 2, maximum par session : 10)
+- Plus courte pause vers un même hôte : **6 s** (règle : ≥ 6 s)
+- Méthodes utilisées : GET, HEAD (règle : GET/HEAD seulement)
+- Anomalies : aucune
 <!-- AUTO:FIN -->
 
 ## Consigne intégrale

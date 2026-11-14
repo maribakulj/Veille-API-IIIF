@@ -1,0 +1,12 @@
+{
+  "slug": "getty",
+  "endpoint": {
+    "id": "info-8c1874d7",
+    "url": "https://media.getty.edu/iiif/image/8c1874d7-6a1b-46a1-9cd6-0651ecc50cdd/info.json",
+    "method": "GET"
+  },
+  "limite_documentee_req_min": null,
+  "source_limite": "aucune limite de débit documentée (https://data.getty.edu/museum/collection/docs/ : données « without restrictions », aucune mention de quota)",
+  "duree_palier_s": 180,
+  "note": "info.json IIIF Image 3 (1067 octets, IIPImage derrière CloudFront), 200 dans le journal (info-8c1874d7, 2026-11-14T02:16:08Z). Réseau CloudFront détecté : plafond 60 req/min appliqué par crash.py. Crash test à lancer par le coordinateur, pas par l'agent."
+}

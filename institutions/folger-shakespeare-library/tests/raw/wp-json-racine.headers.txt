@@ -1,0 +1,25 @@
+2026-11-14T02:28:05Z HEAD https://www.folger.edu/wp-json/
+HTTP 200
+content-type: application/json; charset=UTF-8
+connection: keep-alive
+access-control-allow-headers: Authorization, X-WP-Nonce, Content-Disposition, Content-MD5, Content-Type
+access-control-expose-headers: X-WP-Total, X-WP-TotalPages, Link
+allow: GET
+date: Sat, 14 Nov 2026 02:28:05 GMT
+link: <https://www.folger.edu/wp-json/>; rel="https://api.w.org/"
+nel: {"report_to":"heroku-nel","response_headers":["Via"],"max_age":3600,"success_fraction":0.01,"failure_fraction":0.1}
+report-to: {"group":"heroku-nel","endpoints":[{"url":"https://nel.heroku.com/reports?s=5wwZCpXqbclZo%2Fx1odiZX2hb0hExYmzoae1TMSyEwMY%3D\u0026sid=c46efe9b-d3d2-4a0c-8c76-bfafa16c5add\u0026ts=1794623285"}],"max_age":3600}
+reporting-endpoints: heroku-nel="https://nel.heroku.com/reports?s=5wwZCpXqbclZo%2Fx1odiZX2hb0hExYmzoae1TMSyEwMY%3D&sid=c46efe9b-d3d2-4a0c-8c76-bfafa16c5add&ts=1794623285"
+server: Heroku
+via: 1.1 heroku-router, 1.1 cdca2ef3838160d8a1854035c9fbb126.cloudfront.net (CloudFront)
+x-content-type-options: nosniff
+x-robots-tag: noindex
+x-ua-compatible: IE=Edge
+vary: Accept-Encoding
+x-cache: Miss from cloudfront
+x-amz-cf-pop: MXP53-P1
+x-amz-cf-id: rS674Sj2fPh4CvN9QotRC6Z1mqNdoewyqgi2V26kPfYE_l8HIfV3RA==
+x-xss-protection: 1; mode=block
+x-frame-options: SAMEORIGIN
+referrer-policy: strict-origin-when-cross-origin
+strict-transport-security: max-age=31536000

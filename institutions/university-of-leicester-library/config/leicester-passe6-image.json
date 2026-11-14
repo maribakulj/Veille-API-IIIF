@@ -1,0 +1,12 @@
+{
+  "slug": "university-of-leicester-library",
+  "min_delay_s": 6,
+  "max_requests": 15,
+  "follow_redirects": 2,
+  "robots_disallow_autorise_par_marcel": true,
+  "note": "passe 6 : IIIF Image (modèle iiif/2/{alias}:{id}/info.json). Identifiant p16445coll12:9 lu dans le manifeste d'objet de la passe 5 (tests/raw/cdm-manifeste-objet+redir+redir.body : service d'image sur cdm16445.contentdm.oclc.org, mêmes chemins servis sur leicester.contentdm.oclc.org, hôte dont le robots.txt est lu). Info.json puis vignette 200x200.",
+  "endpoints": [
+    {"id": "cdm-image-info", "method": "GET", "url": "https://leicester.contentdm.oclc.org/iiif/2/p16445coll12:9/info.json"},
+    {"id": "cdm-image-vignette", "method": "GET", "url": "https://leicester.contentdm.oclc.org/iiif/2/p16445coll12:9/full/!200,200/0/default.jpg"}
+  ]
+}

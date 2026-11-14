@@ -1,0 +1,199 @@
+GitHub - UCLALibrary/cantaloupe-delegate: A delegate script for the Cantaloupe IIIF server · GitHub 
+ Skip to content 
+ Navigation Menu
+ Sign in 
+ Products Platform GitHub Repository hosting, code review, and collaboration 
+ Copilot AI coding agent for tasks, projects, and automated work 
+ Build & Ship Actions CI/CD and automation 
+ Code Quality Quality analysis, fixes, and enforcement 
+ Codespaces Cloud development environments 
+ Secure Code Security Vulnerability detection and remediation 
+ Secret Protection Secret scanning and leak prevention 
+ All Features 
+ Developers Learn Documentation 
+ Training 
+ Certifications 
+ Build Build with Copilot 
+ Customize Copilot 
+ Integrations 
+ Explore Trending repos 
+ GitHub Sponsors 
+ Developer articles 
+ Changelog Changelog Your source for the latest features, improvements, and fixes across GitHub products, all in one place. 
+ Businesses By Stage Enterprises 
+ Team 
+ Startups 
+ Nonprofits 
+ By Industry Healthcare 
+ Financial services 
+ Manufacturing 
+ Government 
+ See all industries 
+ Evaluate GitHub Why GitHub 
+ Customer Stories 
+ Business insights 
+ Trust Center 
+ Add-ons GitHub Advanced Security Enterprise-grade code security 
+ Copilot for business Enterprise-grade AI features 
+ Premium Support Enterprise-grade 24/7 support 
+ Resources Learn & Connect Documentation 
+ Resource center 
+ Blog 
+ Events & webinars 
+ Community Forum 
+ Customer Stories 
+ Integrations 
+ Support Customer support 
+ Training 
+ GitHub Status 
+ Company About 
+ Partners 
+ Changelog 
+ GitHub Universe GitHub Universe The event for developers, by developers — talks, workshops, and what’s next for GitHub. 
+ Pricing 
+ Search / 
+ Sign in 
+ Sign up Appearance settings
+ You signed in with another tab or window. Reload to refresh your session. 
+ You signed out in another tab or window. Reload to refresh your session. 
+ You switched accounts on another tab or window. Reload to refresh your session. 
+ Dismiss alert 
+ {{ message }}
+ UCLALibrary 
+ cantaloupe-delegate 
+ Repository navigation
+ Code 
+ Issues 2  ( 2 ) 
+ Pull requests 
+ Actions 
+ Security and quality 
+ Insights 
+ More items 
+ cantaloupe-delegate 
+ Public 
+ Notifications You must be signed in to change notification settings 
+ Fork 0  ( 0 ) 
+ Star 2  ( 2 ) You must be signed in to star a repository 
+ About 
+ A delegate script for the Cantaloupe IIIF server
+ Topics 
+ cantaloupe fedora-repository hyrax iiif samvera 
+ Resources 
+ Readme 
+ BSD-3-Clause license 
+ Activity 
+ Custom properties 
+ Stars 
+ 2 stars 
+ Watchers 
+ 4 watching 
+ Forks 
+ 0 forks 
+ Report repository 
+ main 
+ Branches Tags 
+ Go to file 
+ Code Open more actions menu 
+ Latest commit
+ History
+ 33 Commits 
+ 33 Commits 
+ Folders and files
+ Name Name Last commit message 
+ Last commit date 
+ .github/ workflows 
+ .github/ workflows 
+ lib 
+ lib 
+ spec 
+ spec 
+ .env.sample 
+ .env.sample 
+ .gitignore 
+ .gitignore 
+ .rubocop.yml 
+ .rubocop.yml 
+ Gemfile 
+ Gemfile 
+ Gemfile.lock 
+ Gemfile.lock 
+ LICENSE.txt 
+ LICENSE.txt 
+ README.md 
+ README.md 
+ Rakefile 
+ Rakefile 
+ View all files 
+ Repository files navigation
+ README 
+ BSD-3-Clause license 
+ More items 
+ cantaloupe-delegate
+ A delegate script for the Cantaloupe IIIF server that serves images from an S3 bucket.
+ Running tests
+ Cantaloupe uses JRuby to evaluate its delegate. I've found JRuby installed directly from the source much more reliable than using what's available in the Ubuntu repositories. With that version of JRuby installed and configured, you can run:
+ bundle install
+bundle exec rake
+ If you install JRuby in another way, you may need to run the following commands instead:
+ jruby -S bundle install
+jruby -S bundle exec rake
+ Running Cantaloupe
+ While not needed to run the tests (those are self-contained), to start UCLA's Cantaloupe container with the required delegate environmental variables:
+ docker run -d -p 8182:8182 \
+ -e "CANTALOUPE_ENDPOINT_ADMIN_SECRET=secret" \
+ -e "CANTALOUPE_ENDPOINT_ADMIN_ENABLED=true" \
+ -e "CANTALOUPE_DELEGATE_SCRIPT_ENABLED=true" \
+ -e "CANTALOUPE_DELEGATE_SCRIPT_PATHNAME=/usr/local/cantaloupe/delegates.rb" \
+ -e "CANTALOUPE_DELEGATE_SCRIPT_CACHE_ENABLED=false" \
+ -e "CANTALOUPE_SOURCE_DELEGATE=true" \
+ -e "CANTALOUPE_S3SOURCE_LOOKUP_STRATEGY=BasicLookupStrategy" \
+ -e "CANTALOUPE_S3SOURCE_BASICLOOKUPSTRATEGY_PATH_SUFFIX=.jpg" \
+ -e "CANTALOUPE_S3SOURCE_BASICLOOKUPSTRATEGY_BUCKET_NAME=YOUR_BUCKET_NAME" \
+ -e "CANTALOUPE_S3SOURCE_SECRET_KEY=YOUR_SECRET_KEY" \
+ -e "CANTALOUPE_S3SOURCE_ACCESS_KEY_ID=YOUR_ACCESS_KEY" \
+ -e "CANTALOUPE_S3SOURCE_ENDPOINT=s3.amazonaws.com" \
+ -e "CANTALOUPE_LOG_APPLICATION_FILEAPPENDER_ENABLED=true" \
+ -e "CIPHER_TEXT=Authenticated" \
+ -e "CIPHER_KEY=ThisPasswordIsReallyHardToGuess!" \
+ -e "CANTALOUPE_LOG_APPLICATION_FILEAPPENDER_PATHNAME=/var/log/cantaloupe/cantaloupe.log" \
+ -e "DELEGATE_URL=https://raw.githubusercontent.com/UCLALibrary/cantaloupe-delegate/master/lib/delegates.rb" \
+ --name melon -v /sinai:/imageroot uclalibrary/cantaloupe:4.1.4
+ The above configuration would be used to configure an S3 backend. A different configuration could be used to configure a file system backend.
+ Assumptions about IP access
+ This version of the delegate assumes Cantaloupe is running behind the Amazon Load Balancer (ALB). This is because it relies on the 'X-Forwarded-For header' for authentication, which is easy to spoof if access to Cantaloupe isn't restricted to ALB connections. If not running behind the ALB, the IP check code in this delegate should be removed.
+ Contact
+ Feel free to send any questions, suggestions, or bug reports to this project's issues queue .
+ About 
+ A delegate script for the Cantaloupe IIIF server
+ Topics 
+ cantaloupe fedora-repository hyrax iiif samvera 
+ Resources 
+ Readme 
+ BSD-3-Clause license 
+ Activity 
+ Custom properties 
+ Stars 
+ 2 stars 
+ Watchers 
+ 4 watching 
+ Forks 
+ 0 forks 
+ Report repository 
+ Releases 
+ Packages 
+ Used by 
+ Contributors 
+ Languages 
+ Footer
+ © 2026 GitHub, Inc.
+ Footer navigation
+ Terms 
+ Privacy 
+ Security 
+ Status 
+ Community 
+ Docs 
+ Contact 
+ Manage cookies
+ Do not share my personal information
+ You can’t perform that action at this time.

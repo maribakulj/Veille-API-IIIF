@@ -1,0 +1,11 @@
+{
+  "slug": "cornell-university-library",
+  "min_delay_s": 6,
+  "max_requests": 15,
+  "follow_redirects": 1,
+  "robots_disallow_autorise_par_marcel": true,
+  "note": "Passe 1 : portail Digital Collections (Blacklight + Solr + IIIF d'apres /about, lu via Wayback). Le robots.txt de cet hote a repondu 403 (nginx, sans defi) a fetch_doc.sh ; la doc ne publie aucune URL d'API. On teste UNE page du portail (/about, citee dans la doc) pour savoir si le 403 vaut pour tout l'hote ; au premier 403 on s'arrete sur cet hote, sans contournement.",
+  "endpoints": [
+    {"id": "portail-about", "method": "GET", "url": "https://digital.library.cornell.edu/about"}
+  ]
+}

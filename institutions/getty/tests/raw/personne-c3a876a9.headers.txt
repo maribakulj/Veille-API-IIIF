@@ -1,0 +1,14 @@
+2026-11-14T02:15:08Z GET https://data.getty.edu/museum/collection/person/c3a876a9-5333-40d5-8488-6cc722058f5e
+HTTP 200
+server: envoy
+date: Sat, 14 Nov 2026 02:15:08 GMT
+content-type: application/ld+json;charset=UTF-8
+content-length: 15850
+last-modified: 2025-07-01T08:38:58
+etag: "7bd02f420156525074230a672a9e53683ec1daa0ca3fc0c2cb813087f78a64ac"
+link: <https://data.getty.edu/museum/collection/-tm-/person/c3a876a9-5333-40d5-8488-6cc722058f5e>; rel="timemap"; type="application/link-format" , <https://data.getty.edu/museum/collection/-tm-/person/c3a876a9-5333-40d5-8488-6cc722058f5e>; rel="timemap"; type="application/json" , <https://data.getty.edu/museum/collection/person/c3a876a9-5333-40d5-8488-6cc722058f5e>; rel="original timegate" , <https://data.getty.edu/museum/collection/person/c3a876a9-5333-40d5-8488-6cc722058f5e?_mediatype=application/ld%2Bjson>;rel="canonical";type="application/ld+json"
+vary: accept-datetime, Accept-Encoding
+x-lodgateway-capabilities: JSON-LD: 'True', Subaddressing: 'True', Versioning: 'True'
+cache-control: no-cache
+access-control-allow-origin: *
+x-envoy-upstream-service-time: 8

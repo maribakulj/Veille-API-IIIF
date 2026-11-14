@@ -1,0 +1,23 @@
+2026-11-14T02:16:08Z GET https://media.getty.edu/iiif/image/8c1874d7-6a1b-46a1-9cd6-0651ecc50cdd/info.json
+HTTP 200
+content-type: application/ld+json;profile="http://iiif.io/api/image/3/context.json"
+content-length: 1067
+connection: keep-alive
+date: Sat, 14 Nov 2026 02:16:08 GMT
+server: envoy
+x-powered-by: IIPImage
+last-modified: Wed, 17 Dec 2025 12:21:44 GMT
+access-control-allow-methods: GET, POST, OPTIONS
+access-control-allow-headers: Accept, Content-Type, X-Requested-With, If-Modified-Since
+access-control-max-age: 86400
+access-control-allow-origin: *
+x-varnish: 9164779
+via: 1.1 varnish (Varnish/6.5), 1.1 6d78dce8dfeea5d4f7e9bb6a979e2c5e.cloudfront.net (CloudFront)
+cache-control: max-age=1800
+accept-ranges: bytes
+x-envoy-upstream-service-time: 35
+x-cache: Miss from cloudfront
+x-amz-cf-pop: MXP64-P2
+x-amz-cf-id: xwYwFVs223-fwuAevlRmyomHeA4xk0f-Z-xDmbVfZnQoOLwZzUX3lw==
+age: 0
+content-disposition: 

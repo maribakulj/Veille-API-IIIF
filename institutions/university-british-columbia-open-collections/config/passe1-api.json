@@ -1,0 +1,50 @@
+{
+  "slug": "university-british-columbia-open-collections",
+  "min_delay_s": 6,
+  "max_requests": 15,
+  "follow_redirects": 1,
+  "robots_disallow_autorise_par_marcel": true,
+  "note": "v2 passe 1 : API REST oc-index (sans clé : la doc autorise les requêtes non enregistrées, « limited in the number of requests »), racine IIIF. Exemples tirés de la doc (Wayback 2026-02-16). Pas d'OAI (clé obligatoire dans l'en-tête, non demandée).",
+  "endpoints": [
+    {
+      "id": "rest-collection-arkley",
+      "method": "GET",
+      "url": "https://oc-index.library.ubc.ca/collections/arkley"
+    },
+    {
+      "id": "rest-total-arkley",
+      "method": "GET",
+      "url": "https://oc-index.library.ubc.ca/collections/arkley/_total"
+    },
+    {
+      "id": "rest-item-arkley",
+      "method": "GET",
+      "url": "https://oc-index.library.ubc.ca/collections/arkley/items/1.0013125"
+    },
+    {
+      "id": "rest-search-help",
+      "method": "GET",
+      "url": "https://oc-index.library.ubc.ca/search/help"
+    },
+    {
+      "id": "rest-search-cat",
+      "method": "GET",
+      "url": "https://oc-index.library.ubc.ca/search/8.5?q=cat&size=1"
+    },
+    {
+      "id": "iiif-info-tokugawa",
+      "method": "GET",
+      "url": "https://iiif.library.ubc.ca/image/cdm.tokugawa.1-0213163/info.json"
+    },
+    {
+      "id": "iiif-info-tokugawa-head",
+      "method": "HEAD",
+      "url": "https://iiif.library.ubc.ca/image/cdm.tokugawa.1-0213163/info.json"
+    },
+    {
+      "id": "iiif-manifeste-tokugawa",
+      "method": "GET",
+      "url": "https://iiif.library.ubc.ca/presentation/cdm.tokugawa.1-0213163/manifest"
+    }
+  ]
+}

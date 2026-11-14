@@ -1,0 +1,18 @@
+{
+  "slug": "norman-b-leventhal-map-education-center-boston-p",
+  "min_delay_s": 6,
+  "max_requests": 15,
+  "follow_redirects": 1,
+  "robots_disallow_autorise_par_marcel": true,
+  "note": "passe 1 : API JSON, manifeste IIIF et recherche du portail LMEC (https://www.leventhalmap.org/collections/digital-collections), API Digital Commonwealth (https://www.digitalcommonwealth.org/api : JSON, manifeste Presentation 2.0, OAI-PMH). Identifiants (9s161f21f, wd3761121) issus des liens de la page de doc LMEC. Crawl-delay 15 s (LMEC) et 5 s (DC) appliqué par la sonde.",
+  "endpoints": [
+    {"id": "lmec-search-json", "method": "GET", "url": "https://collections.leventhalmap.org/search.json?utf8=%E2%9C%93&q=boston+neck"},
+    {"id": "lmec-manifest", "method": "GET", "url": "https://collections.leventhalmap.org/search/commonwealth:9s161f21f/manifest.json", "save_body": 2000000},
+    {"id": "lmec-item-html", "method": "HEAD", "url": "https://collections.leventhalmap.org/search/commonwealth:wd3761121"},
+    {"id": "dc-search-json", "method": "GET", "url": "https://www.digitalcommonwealth.org/search.json?q=Boston"},
+    {"id": "dc-item-json", "method": "GET", "url": "https://www.digitalcommonwealth.org/search/commonwealth:9s161f21f.json"},
+    {"id": "dc-manifest", "method": "GET", "url": "https://www.digitalcommonwealth.org/search/commonwealth:9s161f21f/manifest"},
+    {"id": "dc-oai-identify", "method": "GET", "url": "https://oai.digitalcommonwealth.org/catalog/oai?verb=Identify"},
+    {"id": "dc-opensearch", "method": "GET", "url": "https://www.digitalcommonwealth.org/search/opensearch.xml"}
+  ]
+}

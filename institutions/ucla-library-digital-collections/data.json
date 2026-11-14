@@ -4,10 +4,212 @@
   "pays": "États-Unis",
   "classeur_id": "GLAM-046",
   "type": "Institution",
-  "statut_audit": "à faire",
+  "statut_audit": "audit v2 a à f complet",
   "limites_documentees": [],
-  "en_tetes_observes": [],
-  "blocages": [],
-  "sources": [],
-  "web": []
+  "en_tetes_observes": [
+    "access-control-allow-origin: * ; x-server: ursussrv1 ; aucun en-tête de limite (11 réponses)",
+    "403 text/plain de Cantaloupe/6.0-SNAPSHOT sur /iiif/1/ (endpoint v1 refusé)"
+  ],
+  "blocages": [
+    {
+      "date": "2026-11-14",
+      "hote": "iiif.library.ucla.edu",
+      "code": "403",
+      "nature": "403 text/plain de Cantaloupe sur l'endpoint IIIF Image 1.x (probablement désactivé) ; hôte arrêté par la sonde, 1 dérivé non testé ; pas de défi anti-bot"
+    }
+  ],
+  "sources": [
+    {
+      "url": "https://guides.library.ucla.edu/digital-collections/iiif",
+      "date": "2026-11-14",
+      "etiquette": "officielle",
+      "preuve": "institutions/ucla-library-digital-collections/sources/doc/SHA256SUMS"
+    },
+    {
+      "url": "https://iiif.library.ucla.edu/iiif/3",
+      "date": "2026-11-14",
+      "etiquette": "officielle",
+      "preuve": "institutions/ucla-library-digital-collections/sources/doc/SHA256SUMS"
+    },
+    {
+      "url": "https://digital.library.ucla.edu/robots.txt",
+      "date": "2026-11-14",
+      "etiquette": "officielle",
+      "preuve": "institutions/ucla-library-digital-collections/sources/doc/SHA256SUMS"
+    },
+    {
+      "url": "https://journal.code4lib.org/articles/15217",
+      "date": "2026-11-14",
+      "etiquette": "présentation de l'institution",
+      "preuve": "institutions/ucla-library-digital-collections/sources/doc/SHA256SUMS"
+    }
+  ],
+  "web": [
+    {
+      "categorie": "institution",
+      "url": "https://saadescription.wordpress.com/2026/07/14/are-the-chatbots-coming-for-our-collections-or-reflections-on-navigating-ai-for-archival-description-and-online-access/comment-page-1/",
+      "date": "2026-11-14",
+      "etiquette": "institution (billet d'une employée de UCLA Library), lu dans l'original",
+      "citation": "« This approach was certainly necessary for the UCLA Library, which introduced an Anubis “proof of work” challenge »",
+      "preuve": "institutions/ucla-library-digital-collections/fiche.md"
+    },
+    {
+      "categorie": "institution",
+      "url": "https://guides.library.ucla.edu/digital-collections/iiif",
+      "date": "2026-11-14",
+      "etiquette": "officielle",
+      "citation": "guide IIIF : lien de manifeste de chaque item, aucun quota ni règle de débit",
+      "preuve": "institutions/ucla-library-digital-collections/sources/doc/SHA256SUMS"
+    },
+    {
+      "categorie": "utilisateurs",
+      "url": "https://dukespace.lib.duke.edu/server/api/core/bitstreams/816ef134-55cf-49f6-9a8b-1e8a2324b1ff/content",
+      "date": "2026-11-14",
+      "etiquette": "tiers (rapport pilote Anubis de Duke), (résumé de moteur, non vérifié : PDF illisible par l'outil)",
+      "citation": "le moteur indique que le rapport cite UCLA Library Digital Collections parmi les sites touchés par le trafic de robots",
+      "preuve": "institutions/ucla-library-digital-collections/fiche.md"
+    },
+    {
+      "categorie": "tickets",
+      "aucun_resultat": true,
+      "requete": "github issue iiif.library.ucla.edu manifest harvest OR crawler OR downloader UCLA Library digital collections",
+      "date": "2026-11-14",
+      "etiquette": "–",
+      "citation": "aucun ticket d'outil tiers visant iiif.library.ucla.edu (seul dépôt trouvé : UCLALibrary/fester, outil de l'institution)",
+      "preuve": "institutions/ucla-library-digital-collections/fiche.md"
+    },
+    {
+      "categorie": "presentations",
+      "url": "https://groups.google.com/g/iiif-discuss/c/CBXlu7822zI",
+      "date": "2026-11-14",
+      "etiquette": "présentation de l'institution (iiif-discuss, 10/12/2019), lue dans l'original",
+      "citation": "« we are using Samvera products (Hyrax, Blacklight) and a IIIF Cantaloupe server developed as service. »",
+      "preuve": "institutions/ucla-library-digital-collections/fiche.md"
+    },
+    {
+      "categorie": "presentations",
+      "url": "https://journal.code4lib.org/articles/15217",
+      "date": "2026-11-14",
+      "etiquette": "présentation de l'institution (Code4Lib Journal), lue via fetch_doc",
+      "citation": "architecture : Bucketeer, Fester (manifestes), Cantaloupe (images) ; aucune limite de débit",
+      "preuve": "institutions/ucla-library-digital-collections/sources/doc/SHA256SUMS"
+    }
+  ],
+  "contact": "formulaire/chat UCLA Library (guides.library.ucla.edu, « Ask us ») ; dépôts github.com/UCLALibrary",
+  "conclusion_quota": "Aucun quota ni limite de débit publiés ni annoncés (11 requêtes : aucun 429, aucun en-tête de limite). Un billet d'une employée de UCLA Library indique un défi Anubis contre les robots sur les collections numériques ; le robots.txt de digital.library.ucla.edu interdit une liste de robots d'IA. 403 isolé de Cantaloupe sur /iiif/1/.",
+  "classe_quota": "aucun quota trouvé",
+  "confiance": "moyenne",
+  "notes": "Une session lancée avant commit (validateur planté sur « localhost:[YOUR_PORT » de la page GitHub docker-cantaloupe, déplacée en raw/09.html.verbatim) archivée puis rejouée.",
+  "endpoints_documentes": [
+    {
+      "famille": "IIIF Presentation : manifestes /ark:/21198/{id}/manifest",
+      "url": "https://iiif.library.ucla.edu/ark%3A%2F21198%2Fzz0002hh5q/manifest",
+      "statut": "teste",
+      "preuve": "institutions/ucla-library-digital-collections/tests/raw/manifeste-zz0002hh5q.headers.txt"
+    },
+    {
+      "famille": "IIIF Image API 2.x (Cantaloupe)",
+      "url": "https://iiif.library.ucla.edu/iiif/2/ark%3A%2F21198%2Fzz0002hh5q%2F3q288c9w/info.json",
+      "statut": "teste",
+      "preuve": "institutions/ucla-library-digital-collections/tests/raw/image-v2-info.headers.txt"
+    },
+    {
+      "famille": "IIIF Image API 3.x (Cantaloupe)",
+      "url": "https://iiif.library.ucla.edu/iiif/3/ark%3A%2F21198%2Fzz0002hh5q%2F3q288c9w/info.json",
+      "statut": "teste",
+      "preuve": "institutions/ucla-library-digital-collections/tests/raw/image-v3-info.headers.txt"
+    },
+    {
+      "famille": "IIIF Image API 1.x (Cantaloupe)",
+      "url": "https://iiif.library.ucla.edu/iiif/1/ark%3A%2F21198%2Fzz0002hh5q%2F3q288c9w/info.json",
+      "statut": "teste",
+      "preuve": "institutions/ucla-library-digital-collections/tests/raw/image-v1-info.headers.txt"
+    },
+    {
+      "famille": "Ursus : opensearch.xml du catalogue",
+      "url": "https://digital.library.ucla.edu/catalog/opensearch.xml",
+      "statut": "teste",
+      "preuve": "institutions/ucla-library-digital-collections/tests/raw/ursus-opensearch.headers.txt"
+    },
+    {
+      "famille": "Ursus : page d'item /catalog/ark:/21198/{id}",
+      "url": "https://digital.library.ucla.edu/catalog/ark:/21198/zz0002c6b5",
+      "statut": "teste",
+      "preuve": "institutions/ucla-library-digital-collections/tests/raw/ursus-item.headers.txt"
+    },
+    {
+      "famille": "Dérivé image IIIF (full/200,/0/default.jpg)",
+      "url": "https://iiif.library.ucla.edu/iiif/2/ark%3A%2F21198%2Fzz0002hh5q%2F3q288c9w/full/200,/0/default.jpg",
+      "statut": "non_teste",
+      "raison": "non lancé : l'hôte iiif.library.ucla.edu a été arrêté par la sonde après un 403 de Cantaloupe sur l'endpoint v1 (règle : un 403 arrête l'hôte, pas d'insistance)"
+    },
+    {
+      "famille": "OAI-PMH / recherche Blacklight (JSON) de digital.library.ucla.edu",
+      "url": "https://digital.library.ucla.edu/catalog",
+      "statut": "non_teste",
+      "raison": "aucune URL OAI ni API JSON citée dans la doc lue (seulement /catalog et opensearch.xml) ; un billet signale un défi Anubis ; pas d'identifiant ni de chemin deviné"
+    }
+  ],
+  "endpoints_ecartes": [
+    {
+      "url": "https://guides.library.ucla.edu/digital-collections/iiif",
+      "raison": "guide HTML lu en entier ; décrit les liens de manifeste et Mirador, aucune API propre à tester"
+    },
+    {
+      "url": "https://iiif.library.ucla.edu/viewers/mirador/",
+      "raison": "visionneuse Mirador hébergée (page applicative HTML), pas une API de données"
+    },
+    {
+      "url": "https://mcgrawcenter.github.io/mirador/?manifest=https://iiif.library.ucla.edu/ark%3A%2F21198%2Fzz0002hh5q/manifest",
+      "raison": "visionneuse tierce sur github.io (autre domaine) ; le manifeste appelé est déjà testé"
+    },
+    {
+      "url": "https://guides.library.ucla.edu/srch.php",
+      "raison": "recherche LibGuides (formulaire du site de guides), pas l'API IIIF"
+    },
+    {
+      "url": "https://github.com/UCLALibrary/ursus",
+      "raison": "dépôt de code source (page GitHub) : documentation de développement, pas une API"
+    }
+  ],
+  "hotes_robots": [
+    {
+      "hote": "iiif.library.ucla.edu",
+      "resultat": "robots.txt : 404, tout autorisé",
+      "preuve": "institutions/ucla-library-digital-collections/sources/doc/SHA256SUMS"
+    },
+    {
+      "hote": "digital.library.ucla.edu",
+      "resultat": "robots.txt lu : Disallow: / pour une liste de robots d'IA (ClaudeBot, GPTBot, CCBot, etc.), pas de groupe * ; notre User-Agent non visé : autorisé",
+      "preuve": "institutions/ucla-library-digital-collections/sources/doc/SHA256SUMS"
+    },
+    {
+      "hote": "guides.library.ucla.edu",
+      "resultat": "Crawl-delay: 10 pour *, Disallow sur /az.php?, /go.php etc. ; hôte lu seulement pour la doc",
+      "preuve": "institutions/ucla-library-digital-collections/sources/doc/SHA256SUMS"
+    },
+    {
+      "hote": "library.ucla.edu",
+      "resultat": "robots.txt : 404, tout autorisé ; hôte cité (www.library.ucla.edu aussi, 404)",
+      "preuve": "institutions/ucla-library-digital-collections/sources/doc/SHA256SUMS"
+    },
+    {
+      "hote": "www.library.ucla.edu",
+      "resultat": "robots.txt : 404, tout autorisé",
+      "preuve": "institutions/ucla-library-digital-collections/sources/doc2/SHA256SUMS"
+    }
+  ],
+  "donnees_a_revalider": false,
+  "a_verifier_manuellement": [
+    {
+      "url": "https://www.library.ucla.edu/about/policies/ucla-library-copyright-policies/",
+      "pourquoi": "politiques de la bibliothèque citées par un moteur de recherche, non lues (pas de page de conditions d'API trouvée dans la doc téléchargée)",
+      "a_chercher": "toute règle sur le moissonnage ou le débit des collections numériques"
+    },
+    {
+      "url": "https://digital.library.ucla.edu/catalog",
+      "pourquoi": "un billet signale un défi Anubis : comportement variable selon le client, non reproduit (200 sur l'item testé)",
+      "a_chercher": "défi Anubis sur le catalogue ou OAI-PMH ; politique de blocage des robots"
+    }
+  ]
 }

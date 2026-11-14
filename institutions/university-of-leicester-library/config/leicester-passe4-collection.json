@@ -1,0 +1,11 @@
+{
+  "slug": "university-of-leicester-library",
+  "min_delay_s": 6,
+  "max_requests": 15,
+  "follow_redirects": 2,
+  "robots_disallow_autorise_par_marcel": true,
+  "note": "passe 4 : manifeste de collection (modèle iiif/info/{alias}/manifest.json de la doc OCLC CONTENTdm) pour la collection p16445coll12 « Evelyn Waugh Studies » listée dans le manifeste global (tests/raw/cdm-manifeste-global-v2.body), afin d'obtenir un identifiant d'objet public pour le manifeste d'item et l'info.json d'image. Corps limité à 500 ko.",
+  "endpoints": [
+    {"id": "cdm-manifeste-collection", "method": "GET", "url": "https://leicester.contentdm.oclc.org/iiif/info/p16445coll12/manifest.json", "save_body": 500000}
+  ]
+}

@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+  <head prefix="og: http://ogp.me/ns#; dc: http://purl.org/dc/terms/#">
+  
+  
+  <!-- Canonical link to help search engines -->
+  <link rel="canonical" href="https://cornell-colab.github.io/hist2391/methods/" />
+
+  <!-- Basic meta elements -->
+  <meta charset="utf-8" />
+
+  <!-- Enable responsiveness on mobile devices -->
+  <meta name="viewport" content="width=device-width,initial-scale=1.0,shrink-to-fit=no" />
+
+  <title>
+    
+      Methods
+    
+  </title>
+
+  <!-- Dublin Core metadata for Zotero -->
+  <meta property="dc:title" content="Methods" />
+  <meta property="dc:creator" content="Digital CoLab" />
+  <meta property="dc:identifier" content="https://cornell-colab.github.io/hist2391/methods/" />
+  
+  
+  
+  <meta property="dc:source" content="HIST 2391 Manifests & Images" />
+
+  <!-- Open Graph metadata -->
+  <meta property="og:title" content="Methods" />
+  <meta property="og:url" content="https://cornell-colab.github.io/hist2391/methods/" />
+  <meta property="og:image" content="https://cornell-colab.github.io/hist2391/assets/digital-colab.png" />
+  <meta property="og:image:width" content="200" />
+  <meta property="og:image:height" content="200" />
+  <meta property="fb:admins" content="elotroalex" />
+  <meta property="fb:app_id" content="589495744558280" />
+
+
+  <meta property="og:description" content="An Ed edition">
+  <meta property="og:type" content="article" />
+
+
+  <!-- CSS link -->
+  <link rel="stylesheet" href="/hist2391/assets/css/style.css" />
+
+  <!-- Icons -->
+  <link rel="apple-touch-icon-precomposed" sizes="180x180" href="/hist2391/assets/apple-touch-icon-precomposed.png" />
+  <link rel="shortcut icon" href="/hist2391/assets/favicon.ico" />
+
+  <!-- RSS -->
+  <link rel="alternate" type="application/rss+xml" title="RSS" href="https://cornell-colab.github.io/hist2391/atom.xml" />
+</head>
+
+
+  <body class="theme-base-cyan">
+
+    <!-- This if statement decides which sidebar to use -->
+    
+    <!--
+  Target for toggling the sidebar `.sidebar-checkbox` is for regular styles, `#sidebar-checkbox` for
+  behavior.
+-->
+<input type="checkbox" class="sidebar-checkbox" id="sidebar-checkbox">
+
+<!-- Toggleable sidebar -->
+<aside class="sidebar" id="sidebar" aria-hidden="true">
+  <div class="sidebar-item">
+    <p>a collection of images and manifests for American historical maps</p>
+  </div>
+
+  <nav class="sidebar-nav">
+    <a class="sidebar-nav-item" href="/hist2391/">Home</a>
+
+    
+
+    
+    
+      
+        
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/hist2391/manifests/">Manifests</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item active" href="/hist2391/methods/">Methods</a>
+        
+      
+    
+      
+    
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/hist2391/projects/">Projects</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/hist2391/search/">Search</a>
+        
+      
+    
+
+    <!-- The code below is used for manually entered links  -->
+    <span style='cursor:pointer;' onclick="javascript:var hypothesis = document.createElement('script');
+      hypothesis.setAttribute('src','https://hypothes.is/embed.js');
+      document.head.appendChild(hypothesis);">
+    
+  <!--
+    <a class="sidebar-nav-item" href="https://via.hypothes.is/https://cornell-colab.github.io/hist2391/methods//" data-proofer-ignore>Annotate me</a>
+    <script src="https://hypothes.is/embed.js" async></script>
+  -->
+  </nav>
+
+  <div class="sidebar-item">
+    <p>
+      Built with <a href="https://minicomp.github.io/ed/">Ed.</a> Distributed under an MIT license.
+    </p>
+  </div>
+</aside>
+
+    
+
+    <!--
+      Wrap is the content to shift when toggling the sidebar. We wrap the content to avoid any CSS
+      collisions with our real content.
+    -->
+    <div class="wrap">
+      <button class="sidebar-toggle"
+          aria-label="Open navigation menu"
+          aria-expanded="false"
+          aria-controls="sidebar">
+      </button>
+      <header class="masthead">
+        <div class="container">
+          <h3 class="masthead-title">
+            <a href="/hist2391/" title="Home">HIST 2391 Manifests & Images</a>
+            <br><small>a collection of images and manifests for American historical maps</small>
+          </h3>
+        </div>
+      </header>
+
+      <main class="container content" id="main">
+        <article class="page">
+  <h1 class="page-title">Methods</h1>
+  <p>Note: This guide is a work in progress. The guide currently does not contain images. Please check back soon for updates.</p>
+
+<h1 id="methods-for-creating-and-hosting-iiif-images-and-manifests-using-github">Methods for Creating and Hosting IIIF Images and Manifests Using GitHub</h1>
+
+<p>This guide walks you through three <strong>free, easy</strong> methods for creating and hosting <a href="https://en.wikipedia.org/wiki/International_Image_Interoperability_Framework">International Image Interoperability Framework (IIIF)</a> manifests from images that you’ve downloaded to your local device. There are no fees for processing and hosting through any of these methods and all of the tools and applications used in these methods are open-source. The only requirements are an email address and a device with access to the Internet.</p>
+
+<p>Note that all of these methods rely on tools and workflows created by IIIF Technical Coordinator <a href="https://github.com/glenrobson">Glen Robson</a>. Methods get progressively harder and more intensive as you go through this guide.</p>
+
+<h2 id="introduction-iiif-and-level-0-compliance">Introduction: IIIF and Level-0 Compliance</h2>
+
+<p>The International Image Interoperability Framework describes itself as “a set of open standards for delivering high-quality, attributed digital objects online at scale.” Effectively, IIIF standardizes the way images are delivered by servers to platforms, tools, and environments on the Web using a series of Application Programming Interfaces (APIs) that allow two different computers or pieces of software to communicate with one another. Because IIIF’s Image API specifies exactly how an image’s pixels will be served to a viewer or user, it’s easy to specify exactly how much and in what way you want the image to be displayed. For more on how IIIF works, see <a href="https://iiif.io/get-started/how-iiif-works/#:~:text=IIIF%20is%20a%20way%20to,but%20cannot%20do%20much%20else.">IIIF’s How It Works</a> guide.</p>
+
+<p>Image servers can be compliant at different levels with varying parameters needed to make them work with the IIIF Image API. In this guide, all of the images we produce will be Level-0 compliant, meaning that they have the minimum amount of information needed to make them work with version 2 or version 3 of the IIIF Image API. This restricts what area of the image you can specify in an image viewer. For more on compliance, see the <a href="https://iiif.io/api/image/3.0/compliance/">IIIF’s Image API Compliance, Version 3.0.0 documentation</a>.</p>
+
+<p>An <a href="https://iiif.io/guides/using_iiif_resources/">International Image Interoperability Framework manifest</a> is a package that contains all of the information about an image or group of images served using IIIF, including the metadata, order of presentation, size specifications, etc. for a digital object. Creating manifests for your images means that you can specify metadata about that image that will display when the manifest is viewed in a IIIF-compatible viewer. There are also tools, digital exhibition platforms, and viewers that only accept manifest URLs, not just image URIs, so knowing how to create compliant images <em>and</em> manifests is useful.</p>
+
+<h2 id="method-1-internet-archive">Method 1: Internet Archive</h2>
+
+<p>The <a href="https://en.wikipedia.org/wiki/Internet_Archive">Internet Archive</a>, or archive.org, has a public upload feature that allows users to upload their own content to the Internet Archive <a href="https://en.wikipedia.org/wiki/Content_repository">repository</a> and share it with others. Images uploaded this way are automatically IIIF compliant; <a href="https://blog.archive.org/2023/09/18/making-iiif-official-at-the-internet-archive/">the Internet Archive has a partnership with IIIF</a>, so the IIIF Image API is a built-in feature of the Internet Archive’s image service. This method only works if the image you’re uploading is outside of <a href="https://en.wikipedia.org/wiki/Copyright">copyright</a>, is covered under a <a href="https://en.wikipedia.org/wiki/Creative_Commons_license">Creative Commons license</a> (see <a href="https://creativecommons.org/share-your-work/cclicenses/">CC licenses</a> for specific parameters for sharing), or is owned by you. Material with current copyrights cannot be shared this way, since all images are public.</p>
+
+<p>To create an IIIF Manifest for an image using the Internet Archive:</p>
+
+<ol>
+  <li>Create an Internet Archive account using an email and password. Note that the Internet Archive experienced cyberattacks in 2024 that allowed hackers to steal user information, so we suggest being cautious when creating accounts. I do not suggest adding your full name or personal information to your account.</li>
+  <li>Click the <strong>Upload</strong> button in the top right corner of the screen. Drag or select an image from your local machine to upload.</li>
+  <li>Once the image has loaded, add metadata to your image. The following fields are required: Description and Subject Tags. The Identifier field will default to the filename of your image.</li>
+  <li>Select “No” next to “Test Items”; this is required for this method to work.</li>
+  <li>Click the <strong>Upload and Create Your Item</strong> button at the bottom of the screen. Wait for the image to load in a new tab.</li>
+  <li>Scroll down on the new image page to the Identifier field. Copy the identifier.</li>
+  <li>Paste the identifier into the following URL scheme, without the brackets: https://iiif.archive.org/iiif/[identifier]/manifest.json.</li>
+  <li>Paste the URL into a IIIF-supported viewer, such as <a href="https://universalviewer.io">Universal Viewer</a> or <a href="https://mirador-dev.netlify.app/__tests__/integration/mirador/">Mirador</a>, to test it.</li>
+</ol>
+
+<p>Since the image is hosted through the Internet Archive already, you do not need to host it separately. This process means that you can create a manifest for almost any image that has been uploaded to the Internet Archive, as long as you have its identifier.</p>
+
+<h2 id="method-2-iiif-workbench-in-githubcom">Method 2: IIIF Workbench in GitHub.com</h2>
+
+<p>In September 2024, the Internet Archive suspended its services temporarily <a href="https://www.forbes.com/sites/larsdaniel/2024/10/20/internet-archive-breached-again-third-cyber-attack-in-october-2024/">due to cyberattacks</a>. It became necessary to find an alternate method of rendering and serving IIIF manifests for free from personal photos, images found on the Web, or . A Cantaloupe or self-hosted server does not solve the problem, since this would have to be hosted by the Cornell Reclaim Hosting space (a paid space) to be able to share images across the web instead of my local computer server.</p>
+
+<p>The caveats of this method are that IIIF Workbench is slow at rendering images with the tiler, so it can take a while for images to upload. IIIF Workbench also sometimes never generates tiles for an image—it just loads on “Generating tiles” forever, which you wouldn’t be able to tell until you’ve already waited 15 minutes for your image to load. Lastly, it does not work with an organizational GitHub account because you can’t log into organizational accounts. This means a lot of annoying manual file-editing and transferring once you’ve uploaded all of your images and manifests. Regardless, it is a free and useful alternative to the Internet Archive method.</p>
+
+<ol>
+  <li>Download images from your repository of choice. TIFFs are best, JPEG 2000s are the next best, and regular JPEGs are third best.</li>
+  <li>Check the file sizes. Export images that are over 100mb to smaller JPEGs, as close to lossless as possible. If you’re working on a Mac, you can do this in Preview by going to <strong>File</strong> &gt; <strong>Export</strong> and selecting JPEG.</li>
+  <li>Log into a personal GitHub account.</li>
+  <li>Open the <a href="https://workbench.gdmrdigital.com/login.xhtml">IIIF Workbench</a>. Allow access to your GitHub repositories.</li>
+  <li>Create a new project and upload all images to the workbench, one by one.</li>
+  <li>Wait five minutes or so for the images to process, generate tiles, upload to GitHub, and publish to the web. This may take a while, so try to have patience.</li>
+  <li>After the images load, copy the <code class="language-plaintext highlighter-rouge">info.json</code> URI that is below each image.</li>
+  <li>Open a manifest editor, such as the <a href="https://digital.bodleian.ox.ac.uk/manifest-editor/#/?_k=fsgx3h">Bodelain Manifest Editor</a>, in a browser and add a canvas.</li>
+  <li>Copy the <code class="language-plaintext highlighter-rouge">info.json</code> URI for an image onto the canvas. This section depends on what manifest editor you are using. In the Bodleian Manifest Editor, you add images in the “Canvas Metadata” section.</li>
+  <li>Manually add metadata for each image. I often copy the metadata from the repository catalog record, but you can determine your scheme and make your own fields.</li>
+  <li>Save the manifest to your local machine.</li>
+  <li>Upload the manifest file to the IIIF Workbench.</li>
+  <li>Test the manifest URIs in a viewer, such as <a href="https://universalviewer.io">Universal Viewer</a> or <a href="https://mirador-dev.netlify.app/__tests__/integration/mirador/">Mirador</a>.</li>
+</ol>
+
+<p>If you want the manifests to be hosted by a personal GitHub account, you can stop here. However, if you would like them to be hosted by an organizational GitHub account, do the following:</p>
+
+<ol>
+  <li>Open the repository on GitHub and transfer ownership of the project repository. Alternatively, you can download all images and manifest files and reupload them to the organizational GitHub account one by one.</li>
+  <li>Do a search in your repository for the personal account username. Edit files to remove the username for the personal GitHub account and replace it with organizational GitHub username. Commit your changes.</li>
+  <li>Test manifest URLs in a viewer.</li>
+</ol>
+
+<h2 id="method-3-iiif-tiler-and-githubcom">Method 3: IIIF Tiler and GitHub.com</h2>
+
+<p>Method 3 using GitHub is slightly more hands-on, but cuts out IIIF Workbench as the middleman and thus lets the user take more ownership of their processing, metadata creation, etc. This method uses a Java-run iiif-tiler on your local machine, run through command prompts on your local device, to process the images into Level 0 IIIF-compliant images. It then uses GitHub to host those images and present them using the IIIF Presentation API through GitHub Pages.</p>
+
+<p>If you are not yet familiar with how to use the command line on your device, please see <a href="https://programminghistorian.org/en/lessons/intro-to-bash">Ian Mulligan and James Baker’s Introduction to the Bash Command Line lesson</a> on Programming Historian first.</p>
+
+<p>This method is not for the faint of heart; it requires patience and attention to detail, but goes faster than the IIIF Workbench method:</p>
+
+<ol>
+  <li>Install Java on your machine. If you are on Mac, you can <a href="https://formulae.brew.sh/formula/openjdk">use Homebrew to install Java</a> or <a href="http://Java.com">install Java from Java.com</a>. If you are on Windows, you can use the <a href="http://Java.com">official Java installation instructions from Java.com</a>.</li>
+  <li>Create a directory <code class="language-plaintext highlighter-rouge">iiif-workshop</code> on your local device. You can name your folder something else, just make sure to edit the command in step 9 appropriately.</li>
+  <li>Log into your organizational or personal GitHub account. Create a new repository.</li>
+  <li>In the repository, create a “manifests” folder and an “images” folder.</li>
+  <li>Download <a href="https://github.com/glenrobson/iiif-tiler/tree/main"><code class="language-plaintext highlighter-rouge">iiif-tiler.jar</code></a> to your device and drag it in your <code class="language-plaintext highlighter-rouge">iiif-workshop</code> directory.</li>
+  <li>Download images from your repository of choice. TIFFs are best, JPEG 2000s are the next best, and JPEGs are third best.</li>
+  <li>Make sure your file names are distinct. Files must have different names or the tiler will mix them up.</li>
+  <li>Drag all of your images into the <code class="language-plaintext highlighter-rouge">iiif-workshop</code> directory.</li>
+  <li>Change directories in a command prompt to the iiif-workshop directory: <code class="language-plaintext highlighter-rouge">cd ~/iiif-workshop</code></li>
+  <li>Run the command: <code class="language-plaintext highlighter-rouge">java -jar iiif-tiler.jar</code></li>
+  <li>Wait for a folder named <code class="language-plaintext highlighter-rouge">iiif</code> to appear in the <code class="language-plaintext highlighter-rouge">iiif-workshop directory</code>. When you open the new <code class="language-plaintext highlighter-rouge">iiif</code> folder, you’ll find folders containing the tiles of each image and an <code class="language-plaintext highlighter-rouge">info.json</code> file.</li>
+  <li>Create a new directory in your GitHub repository’s images directory for each image. It’s easiest to name the directory, the image, and the manifest all the same thing so you don’t get confused.</li>
+  <li>For each image, upload the <code class="language-plaintext highlighter-rouge">info.json</code> file and all tile files into the appropriately named GitHub directory. You may have to do this in batches, since GitHub has a cap on uploads with file size and amount.</li>
+  <li>After all files have uploaded successfully, open the <code class="language-plaintext highlighter-rouge">info.json file</code> for each image and update the <code class="language-plaintext highlighter-rouge">@id</code> field to: “https://<code class="language-plaintext highlighter-rouge">YOUR-GITHUB-USERNAME</code>.github.io/<code class="language-plaintext highlighter-rouge">YOUR-REPO-NAME</code>/images/<code class="language-plaintext highlighter-rouge">YOUR-IMAGE-NAME</code>/”</li>
+  <li>Open a manifest editor in a browser and add a canvas. Copy the <code class="language-plaintext highlighter-rouge">@id</code> above and add <code class="language-plaintext highlighter-rouge">/info.json</code> to the end. Paste this URI into the canvas.</li>
+  <li>Manually add metadata for each image. I often copy the metadata from the repository catalog record, but you can determine your scheme and make your own fields.</li>
+  <li>Save the manifest to your local machine.</li>
+  <li>Upload the manifests to the manifests directory of your GitHub repository.</li>
+  <li>Open each manifest file to correct the <code class="language-plaintext highlighter-rouge">@id</code> so that it reads: “https://<code class="language-plaintext highlighter-rouge">YOUR-GITHUB-USERNAME</code>.github.io/<code class="language-plaintext highlighter-rouge">YOUR-REPO-NAME</code>/manifests/<code class="language-plaintext highlighter-rouge">YOUR-IMAGE-NAME</code>/”</li>
+  <li>Commit changes. Wait for the changes to finish processing.</li>
+  <li>Test your new manifest URLs. Your new manifest URLs should be the same as the <code class="language-plaintext highlighter-rouge">@id</code> field you just edited in step 19.</li>
+</ol>
+
+<h2 id="method-4-libvips-and-githubcom">Method 4: libvips and GitHub.com</h2>
+
+<p>Method 4 is very similar to Method 3, but uses libvips, an image-processing library, instead of IIIF-Tiler to create Level 0 IIIF-compliant image tiles. It then uses GitHub to host those images and present them using the IIIF Presentation API through GitHub Pages.</p>
+
+<ol>
+  <li>Install libvips to your local machine. Follow the <a href="https://www.libvips.org/install.html">libvips installation instructions</a>.</li>
+  <li>Log into your organizational or personal GitHub.com account.</li>
+  <li>Create a new repository. In the repository, create a <code class="language-plaintext highlighter-rouge">manifests</code> folder and an <code class="language-plaintext highlighter-rouge">images</code> folder.</li>
+  <li>On your local machine, create a new folder to store all of your images.</li>
+  <li>Download images from your repository of choice. TIFFs are best, JPEG 2000s are the next best and JPEGs are third best.</li>
+  <li>Place all images in the folder you created in step 3.</li>
+  <li>Open the command line. Change directories to the directory that your image is in, e.g.: <code class="language-plaintext highlighter-rouge">cd Downloads</code></li>
+  <li>Run a command: <code class="language-plaintext highlighter-rouge">vips dzsave yourimagename --layout iiif mypyr.zip</code></li>
+  <li>Wait for a folder named <code class="language-plaintext highlighter-rouge">mypyr.zip</code> to appear on your computer. When you open the zip file, you’ll find folders containing the tiles of your image and an <code class="language-plaintext highlighter-rouge">info.json</code> file.</li>
+  <li>Create a new folder in your GitHub repository’s images folder for each image. Going forward, it’s easiest to name the image folder and the manifest the same thing so you don’t get confused.</li>
+  <li>For each image, upload the <code class="language-plaintext highlighter-rouge">info.json file</code> and all tile files into the appropriately named image folder in your GitHub repository. You may have to do this in batches, since GitHub has a cap on uploads with file size and amount.</li>
+  <li>After all files have uploaded successfully, open the info.json file for each image and update the <code class="language-plaintext highlighter-rouge">@id</code> field to: “https://<code class="language-plaintext highlighter-rouge">YOUR-GITHUB-USERNAME</code>.github.io/<code class="language-plaintext highlighter-rouge">YOUR-REPO-NAME</code>/images/<code class="language-plaintext highlighter-rouge">YOUR-IMAGE-NAME</code>/”</li>
+  <li>Open a manifest editor in a browser and add a canvas. Copy the <code class="language-plaintext highlighter-rouge">@id</code> above and add <code class="language-plaintext highlighter-rouge">/info.json</code> to the end. Paste this URI into the canvas.</li>
+  <li>Manually add metadata for each image. I often copy the metadata from the repository catalog record, but you can determine your scheme and make your own fields.</li>
+  <li>Save the manifest to your local machine.</li>
+  <li>Upload the manifests to the manifests directory of your GitHub repository.</li>
+  <li>Open each manifest file to correct the <code class="language-plaintext highlighter-rouge">@id</code> so that it reads: “https://<code class="language-plaintext highlighter-rouge">YOUR-GITHUB-USERNAME</code>.github.io/<code class="language-plaintext highlighter-rouge">YOUR-REPO-NAME</code>/manifests/<code class="language-plaintext highlighter-rouge">YOUR-IMAGE-NAME</code>/”</li>
+  <li>Commit changes. Wait for the changes to finish processing.</li>
+  <li>Test your new manifest URLs. Your new manifest URLs should be the same as the <code class="language-plaintext highlighter-rouge">@id</code> field you just edited in step 17.</li>
+</ol>
+
+<p>Note that these methods are just some of the easiest ways you can use various programs to create static tiles and Level-0 compliant images. Given the pervasiveness and usefulness of IIIF for serving and presenting images, there are plenty of Python, Ruby, and Javascript libraries and tools for generating tiles. For more tools, see the community-built <a href="https://github.com/IIIF/awesome-iiif?tab=readme-ov-file#image-servers">Awesome IIIF GitHub repository</a>.</p>
+
+</article>
+
+      </main>
+    </div>
+
+    <script>
+
+    // Highlight search Query
+    var url = window.location.href;
+      if (url.lastIndexOf("?q=") > 0) {
+        // get the index of the parameter, add three (to account for length)
+        var stringloc = url.lastIndexOf("?q=") + 3;
+        // get the substring (query) and decode
+        var searchquery = decodeURIComponent(url.substr(stringloc));
+        // regex matches at beginning of line, end of line or word boundary, useful for poetry
+        var regex = new RegExp("(?:^|\\b)(" + searchquery + ")(?:$|\\b)", "gim");
+        // get, add mark and then set content
+        var content = document.getElementById("main").innerHTML;
+        document.getElementById("main").innerHTML = content.replace(regex, "<mark>$1</mark>");
+      }
+
+      // Support sidebar toggle
+      (function(document) {
+        var toggle = document.querySelector('.sidebar-toggle');
+        var sidebar = document.querySelector('#sidebar');
+        var sidebarNavLink = document.querySelector('.sidebar-nav-item');
+        var checkbox = document.querySelector('#sidebar-checkbox');
+
+        // Toggle sidebar
+        toggle.addEventListener('click', function(e) {
+          e.preventDefault();
+
+          checkbox.checked = !checkbox.checked;
+          toggle.setAttribute('aria-expanded', checkbox.checked);
+          sidebar.setAttribute('aria-hidden', !checkbox.checked);
+        });
+
+        // Make sure we focus on the menu once it opens to aid tab navigation
+        sidebar.addEventListener('transitionend', function() {sidebarNavLink.focus()});
+
+        // Clicking anywhere in the sidebar should close the menu
+        sidebar.addEventListener('click', function(e) {
+          checkbox.checked = false;
+          toggle.setAttribute('aria-expanded', false);
+          sidebar.setAttribute('aria-hidden', true);
+        })
+
+      })(document);
+    </script>
+
+<!-- Facebook SDK for JavaScript -->
+<script>
+  window.fbAsyncInit = function() {
+    FB.init({
+      appId      : '589495744558280',
+      xfbml      : true,
+      version    : 'v2.6'
+    });
+  };
+
+  (function(d, s, id){
+     var js, fjs = d.getElementsByTagName(s)[0];
+     if (d.getElementById(id)) {return;}
+     js = d.createElement(s); js.id = id;
+     js.src = "//connect.facebook.net/en_US/sdk.js";
+     fjs.parentNode.insertBefore(js, fjs);
+   }(document, 'script', 'facebook-jssdk'));
+</script>
+  </body>
+</html>

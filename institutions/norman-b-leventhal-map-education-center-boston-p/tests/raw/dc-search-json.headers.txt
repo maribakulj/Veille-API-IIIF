@@ -1,0 +1,20 @@
+2026-11-14T02:31:10Z GET https://www.digitalcommonwealth.org/search.json?q=Boston
+HTTP 200
+server: nginx
+date: Sat, 14 Nov 2026 02:31:10 GMT
+content-type: application/json; charset=utf-8
+content-length: 72412
+connection: keep-alive
+vary: Accept-Encoding
+x-frame-options: SAMEORIGIN
+x-xss-protection: 1; mode=block
+x-content-type-options: nosniff
+x-download-options: noopen
+x-permitted-cross-domain-policies: none
+referrer-policy: strict-origin-when-cross-origin
+etag: W/"a58e35a72181c0429daf1f2e2b680d70"
+cache-control: max-age=0, private, must-revalidate
+set-cookie: _Commonwealth-public-interface_session=ed3ab120a88e8a8b43348e068687e222; domain=www.digitalcommonwealth.org; path=/; expires=Thu, 19 Nov 2026 02:31:10 GMT; secure; HttpOnly; SameSite=Lax
+x-request-id: 7bbb43b6-ce5e-4b89-8ff0-b8a8e25fc728
+x-runtime: 0.871390
+strict-transport-security: max-age=31536000; includeSubDomains; preload;

@@ -1,0 +1,14 @@
+2026-11-14T02:15:01Z GET https://data.getty.edu/museum/collection/object/e099dc86-c28e-4ad0-8b02-d7d258caec56
+HTTP 200
+server: envoy
+date: Sat, 14 Nov 2026 02:15:01 GMT
+content-type: application/ld+json;charset=UTF-8
+content-length: 74469
+last-modified: 2026-05-05T20:19:05
+etag: "2da00d8656d4e4e1b7d0de83f55e88f179a1493f55cff6624fe0d06397f15486"
+link: <https://data.getty.edu/museum/collection/-tm-/object/e099dc86-c28e-4ad0-8b02-d7d258caec56>; rel="timemap"; type="application/link-format" , <https://data.getty.edu/museum/collection/-tm-/object/e099dc86-c28e-4ad0-8b02-d7d258caec56>; rel="timemap"; type="application/json" , <https://data.getty.edu/museum/collection/object/e099dc86-c28e-4ad0-8b02-d7d258caec56>; rel="original timegate" , <https://data.getty.edu/museum/collection/object/e099dc86-c28e-4ad0-8b02-d7d258caec56?_mediatype=application/ld%2Bjson>;rel="canonical";type="application/ld+json"
+vary: accept-datetime, Accept-Encoding
+x-lodgateway-capabilities: JSON-LD: 'True', Subaddressing: 'True', Versioning: 'True'
+cache-control: no-cache
+access-control-allow-origin: *
+x-envoy-upstream-service-time: 10

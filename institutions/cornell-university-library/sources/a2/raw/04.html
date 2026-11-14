@@ -1,0 +1,506 @@
+<!doctype html>
+<html lang="en-US">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="profile" href="https://gmpg.org/xfn/11">
+	<title>Digital Scholarship Guides</title>
+<meta name='robots' content='noindex, nofollow' />
+<link rel='dns-prefetch' href='//digitalscholarship.library.cornell.edu' />
+<link rel='dns-prefetch' href='//use.typekit.net' />
+<link rel="alternate" type="application/rss+xml" title="Digital Scholarship Guides &raquo; Feed" href="https://digitalscholarship.library.cornell.edu/?feed=rss2" />
+<link rel="alternate" type="application/rss+xml" title="Digital Scholarship Guides &raquo; Comments Feed" href="https://digitalscholarship.library.cornell.edu/?feed=comments-rss2" />
+<link rel="alternate" title="oEmbed (JSON)" type="application/json+oembed" href="https://digitalscholarship.library.cornell.edu/index.php?rest_route=%2Foembed%2F1.0%2Fembed&#038;url=https%3A%2F%2Fdigitalscholarship.library.cornell.edu%2F" />
+<link rel="alternate" title="oEmbed (XML)" type="text/xml+oembed" href="https://digitalscholarship.library.cornell.edu/index.php?rest_route=%2Foembed%2F1.0%2Fembed&#038;url=https%3A%2F%2Fdigitalscholarship.library.cornell.edu%2F&#038;format=xml" />
+		<!-- This site uses the Google Analytics by ExactMetrics plugin v10.3.0 - Using Analytics tracking - https://www.exactmetrics.com/ -->
+							<script src="//www.googletagmanager.com/gtag/js?id=G-SVMGW9DRJG"  data-cfasync="false" data-wpfc-render="false" async></script>
+			<script data-cfasync="false" data-wpfc-render="false">
+				var em_version = '10.3.0';
+				var em_track_user = true;
+				var em_no_track_reason = '';
+								var ExactMetricsDefaultLocations = {"page_location":"https:\/\/digitalscholarship.library.cornell.edu\/"};
+								if ( typeof ExactMetricsPrivacyGuardFilter === 'function' ) {
+					var ExactMetricsLocations = (typeof ExactMetricsExcludeQuery === 'object') ? ExactMetricsPrivacyGuardFilter( ExactMetricsExcludeQuery ) : ExactMetricsPrivacyGuardFilter( ExactMetricsDefaultLocations );
+				} else {
+					var ExactMetricsLocations = (typeof ExactMetricsExcludeQuery === 'object') ? ExactMetricsExcludeQuery : ExactMetricsDefaultLocations;
+				}
+
+								var disableStrs = [
+										'ga-disable-G-SVMGW9DRJG',
+									];
+
+				/* Function to detect opted out users */
+				function __gtagTrackerIsOptedOut() {
+					for (var index = 0; index < disableStrs.length; index++) {
+						if (document.cookie.indexOf(disableStrs[index] + '=true') > -1) {
+							return true;
+						}
+					}
+
+					return false;
+				}
+
+				/* Disable tracking if the opt-out cookie exists. */
+				if (__gtagTrackerIsOptedOut()) {
+					for (var index = 0; index < disableStrs.length; index++) {
+						window[disableStrs[index]] = true;
+					}
+				}
+
+				/* Opt-out function */
+				function __gtagTrackerOptout() {
+					for (var index = 0; index < disableStrs.length; index++) {
+						document.cookie = disableStrs[index] + '=true; expires=Thu, 31 Dec 2099 23:59:59 UTC; path=/';
+						window[disableStrs[index]] = true;
+					}
+				}
+
+				if ('undefined' === typeof gaOptout) {
+					function gaOptout() {
+						__gtagTrackerOptout();
+					}
+				}
+								window.dataLayer = window.dataLayer || [];
+
+				window.ExactMetricsDualTracker = {
+					helpers: {},
+					trackers: {},
+				};
+				if (em_track_user) {
+					function __gtagDataLayer() {
+						dataLayer.push(arguments);
+					}
+
+					function __gtagTracker(type, name, parameters) {
+						if (!parameters) {
+							parameters = {};
+						}
+
+						if (parameters.send_to) {
+							__gtagDataLayer.apply(null, arguments);
+							return;
+						}
+
+						if (type === 'event') {
+														parameters.send_to = exactmetrics_frontend.v4_id;
+							var hookName = name;
+							if (typeof parameters['event_category'] !== 'undefined') {
+								hookName = parameters['event_category'] + ':' + name;
+							}
+
+							if (typeof ExactMetricsDualTracker.trackers[hookName] !== 'undefined') {
+								ExactMetricsDualTracker.trackers[hookName](parameters);
+							} else {
+								__gtagDataLayer('event', name, parameters);
+							}
+							
+						} else {
+							__gtagDataLayer.apply(null, arguments);
+						}
+					}
+
+					__gtagTracker('js', new Date());
+					__gtagTracker('set', {
+						'developer_id.dNDMyYj': true,
+											});
+					if ( ExactMetricsLocations.page_location ) {
+						__gtagTracker('set', ExactMetricsLocations);
+					}
+										__gtagTracker('config', 'G-SVMGW9DRJG', {"forceSSL":"true","link_attribution":"true"} );
+										window.gtag = __gtagTracker;										(function () {
+						/* https://developers.google.com/analytics/devguides/collection/analyticsjs/ */
+						/* ga and __gaTracker compatibility shim. */
+						var noopfn = function () {
+							return null;
+						};
+						var newtracker = function () {
+							return new Tracker();
+						};
+						var Tracker = function () {
+							return null;
+						};
+						var p = Tracker.prototype;
+						p.get = noopfn;
+						p.set = noopfn;
+						p.send = function () {
+							var args = Array.prototype.slice.call(arguments);
+							args.unshift('send');
+							__gaTracker.apply(null, args);
+						};
+						var __gaTracker = function () {
+							var len = arguments.length;
+							if (len === 0) {
+								return;
+							}
+							var f = arguments[len - 1];
+							if (typeof f !== 'object' || f === null || typeof f.hitCallback !== 'function') {
+								if ('send' === arguments[0]) {
+									var hitConverted, hitObject = false, action;
+									if ('event' === arguments[1]) {
+										if ('undefined' !== typeof arguments[3]) {
+											hitObject = {
+												'eventAction': arguments[3],
+												'eventCategory': arguments[2],
+												'eventLabel': arguments[4],
+												'value': arguments[5] ? arguments[5] : 1,
+											}
+										}
+									}
+									if ('pageview' === arguments[1]) {
+										if ('undefined' !== typeof arguments[2]) {
+											hitObject = {
+												'eventAction': 'page_view',
+												'page_path': arguments[2],
+											}
+										}
+									}
+									if (typeof arguments[2] === 'object') {
+										hitObject = arguments[2];
+									}
+									if (typeof arguments[5] === 'object') {
+										Object.assign(hitObject, arguments[5]);
+									}
+									if ('undefined' !== typeof arguments[1].hitType) {
+										hitObject = arguments[1];
+										if ('pageview' === hitObject.hitType) {
+											hitObject.eventAction = 'page_view';
+										}
+									}
+									if (hitObject) {
+										action = 'timing' === arguments[1].hitType ? 'timing_complete' : hitObject.eventAction;
+										hitConverted = mapArgs(hitObject);
+										__gtagTracker('event', action, hitConverted);
+									}
+								}
+								return;
+							}
+
+							function mapArgs(args) {
+								var arg, hit = {};
+								var gaMap = {
+									'eventCategory': 'event_category',
+									'eventAction': 'event_action',
+									'eventLabel': 'event_label',
+									'eventValue': 'event_value',
+									'nonInteraction': 'non_interaction',
+									'timingCategory': 'event_category',
+									'timingVar': 'name',
+									'timingValue': 'value',
+									'timingLabel': 'event_label',
+									'page': 'page_path',
+									'location': 'page_location',
+									'title': 'page_title',
+									'referrer' : 'page_referrer',
+								};
+								for (arg in args) {
+																		if (!(!args.hasOwnProperty(arg) || !gaMap.hasOwnProperty(arg))) {
+										hit[gaMap[arg]] = args[arg];
+									} else {
+										hit[arg] = args[arg];
+									}
+								}
+								return hit;
+							}
+
+							try {
+								f.hitCallback();
+							} catch (ex) {
+							}
+						};
+						__gaTracker.create = newtracker;
+						__gaTracker.getByName = newtracker;
+						__gaTracker.getAll = function () {
+							return [];
+						};
+						__gaTracker.remove = noopfn;
+						__gaTracker.loaded = true;
+						window['__gaTracker'] = __gaTracker;
+					})();
+									} else {
+										console.log("");
+					(function () {
+						function __gtagTracker() {
+							return null;
+						}
+
+						window['__gtagTracker'] = __gtagTracker;
+						window['gtag'] = __gtagTracker;
+					})();
+									}
+			</script>
+							<!-- / Google Analytics by ExactMetrics -->
+		<style id="wp-img-auto-sizes-contain-inline-css">
+img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
+/*# sourceURL=wp-img-auto-sizes-contain-inline-css */
+</style>
+<style id="wp-emoji-styles-inline-css">
+
+	img.wp-smiley, img.emoji {
+		display: inline !important;
+		border: none !important;
+		box-shadow: none !important;
+		height: 1em !important;
+		width: 1em !important;
+		margin: 0 0.07em !important;
+		vertical-align: -0.1em !important;
+		background: none !important;
+		padding: 0 !important;
+	}
+/*# sourceURL=wp-emoji-styles-inline-css */
+</style>
+<link rel='stylesheet' id='wp-block-library-css' href='https://digitalscholarship.library.cornell.edu/wp-includes/css/dist/block-library/style.min.css?ver=7.1.4' media='all' />
+<style id="global-styles-inline-css">
+:root{--wp--preset--aspect-ratio--square: 1;--wp--preset--aspect-ratio--4-3: 4/3;--wp--preset--aspect-ratio--3-4: 3/4;--wp--preset--aspect-ratio--3-2: 3/2;--wp--preset--aspect-ratio--2-3: 2/3;--wp--preset--aspect-ratio--16-9: 16/9;--wp--preset--aspect-ratio--9-16: 9/16;--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: #abb8c3;--wp--preset--color--white: #ffffff;--wp--preset--color--pale-pink: #f78da7;--wp--preset--color--vivid-red: #cf2e2e;--wp--preset--color--luminous-vivid-orange: #ff6900;--wp--preset--color--luminous-vivid-amber: #fcb900;--wp--preset--color--light-green-cyan: #7bdcb5;--wp--preset--color--vivid-green-cyan: #00d084;--wp--preset--color--pale-cyan-blue: #8ed1fc;--wp--preset--color--vivid-cyan-blue: #0693e3;--wp--preset--color--vivid-purple: #9b51e0;--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple: linear-gradient(135deg,rgb(6,147,227) 0%,rgb(155,81,224) 100%);--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan: linear-gradient(135deg,rgb(122,220,180) 0%,rgb(0,208,130) 100%);--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange: linear-gradient(135deg,rgb(252,185,0) 0%,rgb(255,105,0) 100%);--wp--preset--gradient--luminous-vivid-orange-to-vivid-red: linear-gradient(135deg,rgb(255,105,0) 0%,rgb(207,46,46) 100%);--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray: linear-gradient(135deg,rgb(238,238,238) 0%,rgb(169,184,195) 100%);--wp--preset--gradient--cool-to-warm-spectrum: linear-gradient(135deg,rgb(74,234,220) 0%,rgb(151,120,209) 20%,rgb(207,42,186) 40%,rgb(238,44,130) 60%,rgb(251,105,98) 80%,rgb(254,248,76) 100%);--wp--preset--gradient--blush-light-purple: linear-gradient(135deg,rgb(255,206,236) 0%,rgb(152,150,240) 100%);--wp--preset--gradient--blush-bordeaux: linear-gradient(135deg,rgb(254,205,165) 0%,rgb(254,45,45) 50%,rgb(107,0,62) 100%);--wp--preset--gradient--luminous-dusk: linear-gradient(135deg,rgb(255,203,112) 0%,rgb(199,81,192) 50%,rgb(65,88,208) 100%);--wp--preset--gradient--pale-ocean: linear-gradient(135deg,rgb(255,245,203) 0%,rgb(182,227,212) 50%,rgb(51,167,181) 100%);--wp--preset--gradient--electric-grass: linear-gradient(135deg,rgb(202,248,128) 0%,rgb(113,206,126) 100%);--wp--preset--gradient--midnight: linear-gradient(135deg,rgb(2,3,129) 0%,rgb(40,116,252) 100%);--wp--preset--font-size--small: 13px;--wp--preset--font-size--medium: 20px;--wp--preset--font-size--large: 36px;--wp--preset--font-size--x-large: 42px;--wp--preset--spacing--20: 0.44rem;--wp--preset--spacing--30: 0.67rem;--wp--preset--spacing--40: 1rem;--wp--preset--spacing--50: 1.5rem;--wp--preset--spacing--60: 2.25rem;--wp--preset--spacing--70: 3.38rem;--wp--preset--spacing--80: 5.06rem;--wp--preset--shadow--natural: 6px 6px 9px rgba(0, 0, 0, 0.2);--wp--preset--shadow--deep: 12px 12px 50px rgba(0, 0, 0, 0.4);--wp--preset--shadow--sharp: 6px 6px 0px rgba(0, 0, 0, 0.2);--wp--preset--shadow--outlined: 6px 6px 0px -3px rgb(255, 255, 255), 6px 6px rgb(0, 0, 0);--wp--preset--shadow--crisp: 6px 6px 0px rgb(0, 0, 0);}.wp-block-button{--wp--preset--dimension--25: 25%;--wp--preset--dimension--50: 50%;--wp--preset--dimension--75: 75%;--wp--preset--dimension--100: 100%;}:root { --wp--style--global--content-size: 800px;--wp--style--global--wide-size: 1200px; }:where(body) { margin: 0; }.wp-site-blocks > .alignleft { float: left; margin-right: 2em; }.wp-site-blocks > .alignright { float: right; margin-left: 2em; }.wp-site-blocks > .aligncenter { justify-content: center; margin-left: auto; margin-right: auto; }:where(.wp-site-blocks) > * { margin-block-start: 24px; margin-block-end: 0; }:where(.wp-site-blocks) > :first-child { margin-block-start: 0; }:where(.wp-site-blocks) > :last-child { margin-block-end: 0; }:root { --wp--style--block-gap: 24px; }:root :where(.is-layout-flow) > :first-child{margin-block-start: 0;}:root :where(.is-layout-flow) > :last-child{margin-block-end: 0;}:root :where(.is-layout-flow) > *{margin-block-start: 24px;margin-block-end: 0;}:root :where(.is-layout-constrained) > :first-child{margin-block-start: 0;}:root :where(.is-layout-constrained) > :last-child{margin-block-end: 0;}:root :where(.is-layout-constrained) > *{margin-block-start: 24px;margin-block-end: 0;}:root :where(.is-layout-flex){gap: 24px;}:root :where(.is-layout-grid){gap: 24px;}.is-layout-flow > .alignleft{float: left;margin-inline-start: 0;margin-inline-end: 2em;}.is-layout-flow > .alignright{float: right;margin-inline-start: 2em;margin-inline-end: 0;}.is-layout-flow > .aligncenter{margin-left: auto !important;margin-right: auto !important;}.is-layout-constrained > .alignleft{float: left;margin-inline-start: 0;margin-inline-end: 2em;}.is-layout-constrained > .alignright{float: right;margin-inline-start: 2em;margin-inline-end: 0;}.is-layout-constrained > .aligncenter{margin-left: auto !important;margin-right: auto !important;}.is-layout-constrained > :where(:not(.alignleft):not(.alignright):not(.alignfull)){max-width: var(--wp--style--global--content-size);margin-left: auto !important;margin-right: auto !important;}.is-layout-constrained > .alignwide{max-width: var(--wp--style--global--wide-size);}body .is-layout-flex{display: flex;}.is-layout-flex{flex-wrap: wrap;align-items: center;}.is-layout-flex > :is(*, div){margin: 0;}body .is-layout-grid{display: grid;}.is-layout-grid > :is(*, div){margin: 0;}body{padding-top: 0px;padding-right: 0px;padding-bottom: 0px;padding-left: 0px;}:root :where(.wp-element-button, .wp-block-button__link){background-color: #32373c;border-width: 0;color: #fff;font-family: inherit;font-size: inherit;font-style: inherit;font-weight: inherit;letter-spacing: inherit;line-height: inherit;padding-top: calc(0.667em + 2px);padding-right: calc(1.333em + 2px);padding-bottom: calc(0.667em + 2px);padding-left: calc(1.333em + 2px);text-decoration: none;text-transform: inherit;}.has-black-color{color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-color{color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-color{color: var(--wp--preset--color--white) !important;}.has-pale-pink-color{color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-color{color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-color{color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-color{color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-color{color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-color{color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-color{color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-color{color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-color{color: var(--wp--preset--color--vivid-purple) !important;}.has-black-background-color{background-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-background-color{background-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-background-color{background-color: var(--wp--preset--color--white) !important;}.has-pale-pink-background-color{background-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-background-color{background-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-background-color{background-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-background-color{background-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-background-color{background-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-background-color{background-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-background-color{background-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-background-color{background-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-background-color{background-color: var(--wp--preset--color--vivid-purple) !important;}.has-black-border-color{border-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-border-color{border-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-border-color{border-color: var(--wp--preset--color--white) !important;}.has-pale-pink-border-color{border-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-border-color{border-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-border-color{border-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-border-color{border-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-border-color{border-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-border-color{border-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-border-color{border-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-border-color{border-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-border-color{border-color: var(--wp--preset--color--vivid-purple) !important;}.has-vivid-cyan-blue-to-vivid-purple-gradient-background{background: var(--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple) !important;}.has-light-green-cyan-to-vivid-green-cyan-gradient-background{background: var(--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan) !important;}.has-luminous-vivid-amber-to-luminous-vivid-orange-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange) !important;}.has-luminous-vivid-orange-to-vivid-red-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-orange-to-vivid-red) !important;}.has-very-light-gray-to-cyan-bluish-gray-gradient-background{background: var(--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray) !important;}.has-cool-to-warm-spectrum-gradient-background{background: var(--wp--preset--gradient--cool-to-warm-spectrum) !important;}.has-blush-light-purple-gradient-background{background: var(--wp--preset--gradient--blush-light-purple) !important;}.has-blush-bordeaux-gradient-background{background: var(--wp--preset--gradient--blush-bordeaux) !important;}.has-luminous-dusk-gradient-background{background: var(--wp--preset--gradient--luminous-dusk) !important;}.has-pale-ocean-gradient-background{background: var(--wp--preset--gradient--pale-ocean) !important;}.has-electric-grass-gradient-background{background: var(--wp--preset--gradient--electric-grass) !important;}.has-midnight-gradient-background{background: var(--wp--preset--gradient--midnight) !important;}.has-small-font-size{font-size: var(--wp--preset--font-size--small) !important;}.has-medium-font-size{font-size: var(--wp--preset--font-size--medium) !important;}.has-large-font-size{font-size: var(--wp--preset--font-size--large) !important;}.has-x-large-font-size{font-size: var(--wp--preset--font-size--x-large) !important;}
+:root :where(.wp-block-icon svg){width: 24px;}
+:root :where(.wp-block-pullquote){font-size: 1.5em;line-height: 1.6;}
+/*# sourceURL=global-styles-inline-css */
+</style>
+<link rel='stylesheet' id='hello-elementor-css' href='https://digitalscholarship.library.cornell.edu/wp-content/themes/hello-elementor/assets/css/reset.css?ver=3.5.1' media='all' />
+<link rel='stylesheet' id='hello-elementor-theme-style-css' href='https://digitalscholarship.library.cornell.edu/wp-content/themes/hello-elementor/assets/css/theme.css?ver=3.5.1' media='all' />
+<link rel='stylesheet' id='hello-elementor-header-footer-css' href='https://digitalscholarship.library.cornell.edu/wp-content/themes/hello-elementor/assets/css/header-footer.css?ver=3.5.1' media='all' />
+<link rel='stylesheet' id='e-sticky-css' href='https://digitalscholarship.library.cornell.edu/wp-content/plugins/elementor-pro/assets/css/modules/sticky.min.css?ver=4.2.3' media='all' />
+<link rel='stylesheet' id='elementor-frontend-css' href='https://digitalscholarship.library.cornell.edu/wp-content/plugins/elementor/assets/css/frontend.min.css?ver=4.4.0' media='all' />
+<link rel='stylesheet' id='widget-progress-tracker-css' href='https://digitalscholarship.library.cornell.edu/wp-content/plugins/elementor-pro/assets/css/widget-progress-tracker.min.css?ver=4.2.3' media='all' />
+<link rel='stylesheet' id='widget-heading-css' href='https://digitalscholarship.library.cornell.edu/wp-content/plugins/elementor/assets/css/widget-heading.min.css?ver=4.4.0' media='all' />
+<link rel='stylesheet' id='widget-table-of-contents-css' href='https://digitalscholarship.library.cornell.edu/wp-content/plugins/elementor-pro/assets/css/widget-table-of-contents.min.css?ver=4.2.3' media='all' />
+<link rel='stylesheet' id='font-awesome-5-all-css' href='https://digitalscholarship.library.cornell.edu/wp-content/plugins/elementor/assets/lib/font-awesome/css/all.min.css?ver=4.4.0' media='all' />
+<link rel='stylesheet' id='font-awesome-4-shim-css' href='https://digitalscholarship.library.cornell.edu/wp-content/plugins/elementor/assets/lib/font-awesome/css/v4-shims.min.css?ver=4.4.0' media='all' />
+<link rel='stylesheet' id='widget-image-css' href='https://digitalscholarship.library.cornell.edu/wp-content/plugins/elementor/assets/css/widget-image.min.css?ver=4.4.0' media='all' />
+<link rel='stylesheet' id='elementor-post-114-css' href='https://digitalscholarship.library.cornell.edu/wp-content/uploads/elementor/css/post-114.css?ver=1794346018' media='all' />
+<link rel='stylesheet' id='parent-style-css' href='https://digitalscholarship.library.cornell.edu/wp-content/themes/hello-elementor/style.min.css?ver=7.1.4' media='all' />
+<link rel='stylesheet' id='child-style-css' href='https://digitalscholarship.library.cornell.edu/wp-content/themes/hello-elementor-child/style.css?ver=7.1.4' media='all' />
+<link rel='stylesheet' id='freight_font-css' href='https://use.typekit.net/vcl4exk.css?ver=7.1.4' media='all' />
+<link rel='stylesheet' id='font-awesome-css' href='https://digitalscholarship.library.cornell.edu/wp-content/plugins/elementor/assets/lib/font-awesome/css/font-awesome.min.css?ver=4.7.0' media='all' />
+<link rel='stylesheet' id='elementor-gf-amiko-css' href='https://fonts.googleapis.com/css?family=Amiko:100,100italic,200,200italic,300,300italic,400,400italic,500,500italic,600,600italic,700,700italic,800,800italic,900,900italic&#038;display=swap' media='all' />
+<link rel='stylesheet' id='elementor-gf-opensans-css' href='https://fonts.googleapis.com/css?family=Open+Sans:100,100italic,200,200italic,300,300italic,400,400italic,500,500italic,600,600italic,700,700italic,800,800italic,900,900italic&#038;display=swap' media='all' />
+<script async data-wp-strategy="async" id="exactmetrics-frontend-script-js" src="https://digitalscholarship.library.cornell.edu/wp-content/plugins/google-analytics-dashboard-for-wp/assets/js/frontend-gtag.min.js?ver=10.3.0"></script>
+<script data-cfasync="false" data-wpfc-render="false" id='exactmetrics-frontend-script-js-extra'>var exactmetrics_frontend = {"js_events_tracking":"true","download_extensions":"doc,pdf,ppt,zip,xls,docx,pptx,xlsx","inbound_paths":"[{\"path\":\"\\\/go\\\/\",\"label\":\"affiliate\"},{\"path\":\"\\\/recommend\\\/\",\"label\":\"affiliate\"}]","home_url":"https:\/\/digitalscholarship.library.cornell.edu","hash_tracking":"false","v4_id":"G-SVMGW9DRJG"};</script>
+<script id="jquery-core-js" src="https://digitalscholarship.library.cornell.edu/wp-includes/js/jquery/jquery.min.js?ver=3.7.1"></script>
+<script id="jquery-migrate-js" src="https://digitalscholarship.library.cornell.edu/wp-includes/js/jquery/jquery-migrate.min.js?ver=3.4.1"></script>
+<script id="font-awesome-4-shim-js" src="https://digitalscholarship.library.cornell.edu/wp-content/plugins/elementor/assets/lib/font-awesome/js/v4-shims.min.js?ver=4.4.0"></script>
+<link rel="https://api.w.org/" href="https://digitalscholarship.library.cornell.edu/index.php?rest_route=/" /><link rel="alternate" title="JSON" type="application/json" href="https://digitalscholarship.library.cornell.edu/index.php?rest_route=/wp/v2/pages/125" /><link rel="EditURI" type="application/rsd+xml" title="RSD" href="https://digitalscholarship.library.cornell.edu/xmlrpc.php?rsd" />
+<meta name="generator" content="WordPress 7.1.4" />
+<link rel="canonical" href="https://digitalscholarship.library.cornell.edu/" />
+<link rel='shortlink' href='https://digitalscholarship.library.cornell.edu/' />
+<meta name="generator" content="Elementor 4.4.0; features: e_font_icon_svg, additional_custom_breakpoints; settings: css_print_method-external, google_font-enabled, font_display-swap">
+			<style>
+				.e-con.e-parent:nth-of-type(n+4):not(.e-lazyloaded):not(.e-no-lazyload),
+				.e-con.e-parent:nth-of-type(n+4):not(.e-lazyloaded):not(.e-no-lazyload) * {
+					background-image: none !important;
+				}
+				@media screen and (max-height: 1024px) {
+					.e-con.e-parent:nth-of-type(n+3):not(.e-lazyloaded):not(.e-no-lazyload),
+					.e-con.e-parent:nth-of-type(n+3):not(.e-lazyloaded):not(.e-no-lazyload) * {
+						background-image: none !important;
+					}
+				}
+				@media screen and (max-height: 640px) {
+					.e-con.e-parent:nth-of-type(n+2):not(.e-lazyloaded):not(.e-no-lazyload),
+					.e-con.e-parent:nth-of-type(n+2):not(.e-lazyloaded):not(.e-no-lazyload) * {
+						background-image: none !important;
+					}
+				}
+			</style>
+			<link rel="icon" href="https://digitalscholarship.library.cornell.edu/wp-content/uploads/2024/02/cropped-favicon-16x16-1-32x32.png" sizes="32x32" />
+<link rel="icon" href="https://digitalscholarship.library.cornell.edu/wp-content/uploads/2024/02/cropped-favicon-16x16-1-192x192.png" sizes="192x192" />
+<link rel="apple-touch-icon" href="https://digitalscholarship.library.cornell.edu/wp-content/uploads/2024/02/cropped-favicon-16x16-1-180x180.png" />
+<meta name="msapplication-TileImage" content="https://digitalscholarship.library.cornell.edu/wp-content/uploads/2024/02/cropped-favicon-16x16-1-270x270.png" />
+</head>
+<body class="home wp-singular page-template-default page page-id-125 wp-custom-logo wp-embed-responsive wp-theme-hello-elementor wp-child-theme-hello-elementor-child hello-elementor-default elementor-default elementor-template-full-width elementor-page-114">
+
+
+<a class="skip-link screen-reader-text" href="#PostContainer">Skip to content</a>
+
+
+<header class="cul-site-header branding">
+    <!-- logo -->
+    <div class="logo-cul">
+        <div class="cornell-logo">
+            <a href="https://www.cornell.edu" class="insignia" title="Cornell University homepage">Cornell University</a>
+            <a class="library-brand" href="https://library.cornell.edu" title="Cornell University Library homepage">Cornell University Library</a>
+        </div>
+    </div>
+    <div class="wordmark">
+        <a class="library-brand-mobile" href="https://library.cornell.edu" title="Cornell University Library homepage">Cornell University Library</a>
+    </div>
+</header>
+
+<div class="cul-site-name" id="ds-site-name">
+    <h1><a href="/">Digital Scholarship Guides</a></h1>
+    <!-- Hamburger Icon shown on mobile -->
+    <button class="hamburger-menu" aria-expanded="false" aria-controls="resourceTable">
+        <span class="hamburger-icon"></span>
+    </button>
+</div>		<div data-elementor-type="single-post" data-elementor-id="114" class="elementor elementor-114 elementor-location-single post-125 page type-page status-publish hentry" data-elementor-post-type="elementor_library">
+			<div class="elementor-element elementor-element-09bbde1 e-con-full e-flex e-con e-parent" data-id="09bbde1" data-element_type="container" data-e-type="container" data-settings="{&quot;background_background&quot;:&quot;classic&quot;}">
+				<div class="elementor-element elementor-element-b804000 elementor-hidden-tablet elementor-hidden-mobile elementor-widget elementor-widget-progress-tracker" data-id="b804000" data-element_type="widget" data-e-type="widget" data-settings="{&quot;sticky&quot;:&quot;top&quot;,&quot;direction&quot;:&quot;ltr&quot;,&quot;type&quot;:&quot;horizontal&quot;,&quot;relative_to&quot;:&quot;entire_page&quot;,&quot;percentage&quot;:&quot;no&quot;,&quot;sticky_on&quot;:[&quot;desktop&quot;,&quot;tablet&quot;,&quot;mobile&quot;],&quot;sticky_offset&quot;:0,&quot;sticky_effects_offset&quot;:0,&quot;sticky_anchor_link_offset&quot;:0}" data-widget_type="progress-tracker.default">
+				<div class="elementor-widget-container">
+					
+		<div class="elementor-scrolling-tracker elementor-scrolling-tracker-horizontal elementor-scrolling-tracker-alignment-">
+						<div class="current-progress">
+					<div class="current-progress-percentage"></div>
+				</div>
+				</div>
+						</div>
+				</div>
+				</div>
+		<div class="elementor-element elementor-element-9f8257a e-con-full e-flex e-con e-parent" data-id="9f8257a" data-element_type="container" data-e-type="container" data-settings="{&quot;background_background&quot;:&quot;classic&quot;}">
+		<div class="elementor-element elementor-element-b843cf7 e-con-full e-flex e-con e-child" data-id="b843cf7" data-element_type="container" data-e-type="container" data-settings="{&quot;background_background&quot;:&quot;classic&quot;}">
+				<div class="elementor-element elementor-element-524a278 elementor-widget__width-inherit elementor-widget elementor-widget-sidebar" data-id="524a278" data-element_type="widget" data-e-type="widget" data-widget_type="sidebar.default">
+				<div class="elementor-widget-container">
+					<div class="widget-content"><form role="search" method="get" action="https://digitalscholarship.library.cornell.edu/" class="wp-block-search__button-outside wp-block-search__icon-button wp-block-search" ><label class="wp-block-search__label screen-reader-text" for="wp-block-search__input-1" >Search</label><div class="wp-block-search__inside-wrapper" ><input class="wp-block-search__input" id="wp-block-search__input-1" placeholder="Search all guides..." value="" type="search" name="s" required /><button aria-label="Search" class="wp-block-search__button has-icon wp-element-button" type="submit" ><svg class="search-icon" viewBox="0 0 24 24" width="24" height="24">
+					<path d="M13 5c-3.3 0-6 2.7-6 6 0 1.4.5 2.7 1.3 3.7l-3.8 3.8 1.1 1.1 3.8-3.8c1 .8 2.3 1.3 3.7 1.3 3.3 0 6-2.7 6-6S16.3 5 13 5zm0 10.5c-2.5 0-4.5-2-4.5-4.5s2-4.5 4.5-4.5 4.5 2 4.5 4.5-2 4.5-4.5 4.5z"></path>
+				</svg></button></div></form></div><div class="cul-widget-desktop"><div class="widget widget_resource_guides_widget"><ul><li class=""><a href="https://digitalscholarship.library.cornell.edu/?p=407">Introduction to digital scholarship and digital humanities</a></li><li class=""><a href="https://digitalscholarship.library.cornell.edu/?p=521">GIS: Geographic Information Systems</a></li><li class=""><a href="https://digitalscholarship.library.cornell.edu/?p=2150">Black digital humanities</a></li><li class=""><a href="https://digitalscholarship.library.cornell.edu/?p=2278">News and careers in the digital humanities</a></li><li class=""><a href="https://digitalscholarship.library.cornell.edu/?p=2299">Coding resources</a></li><li class=""><a href="https://digitalscholarship.library.cornell.edu/?p=3131">Datasets</a></li><li><button class="toggle-posts"><i class="fas fa-angle-right"></i><span class="category-name">Digital Projects</span></button><ul class="posts-list" style="display: none;"><li class="subpost "><a href="https://digitalscholarship.library.cornell.edu/?p=580">Digital dissertations</a></li><li class="subpost "><a href="https://digitalscholarship.library.cornell.edu/?p=2193">Publishing DH projects</a></li></ul></li><li><button class="toggle-posts"><i class="fas fa-angle-right"></i><span class="category-name">Text as Data</span></button><ul class="posts-list" style="display: none;"><li class="subpost "><a href="https://digitalscholarship.library.cornell.edu/?p=44">Introduction to text as data</a></li><li class="subpost "><a href="https://digitalscholarship.library.cornell.edu/?p=26">Building your corpus</a></li></ul></li><li><button class="toggle-posts"><i class="fas fa-angle-right"></i><span class="category-name">Collections as Data</span></button><ul class="posts-list" style="display: none;"><li class="subpost "><a href="https://digitalscholarship.library.cornell.edu/?p=417">Introduction to Collections as Data</a></li><li class="subpost "><a href="https://digitalscholarship.library.cornell.edu/?p=1506">Collections platforms &amp; tools</a></li></ul></li><li><button class="toggle-posts"><i class="fas fa-angle-right"></i><span class="category-name">Privacy Resources</span></button><ul class="posts-list" style="display: none;"><li class="subpost "><a href="https://digitalscholarship.library.cornell.edu/?p=22">Self-defense Against Digital Harassment</a></li><li class="subpost "><a href="https://digitalscholarship.library.cornell.edu/?p=3039">Research Security</a></li></ul></li><li><button class="toggle-posts"><i class="fas fa-angle-right"></i><span class="category-name">Recommended Reading</span></button><ul class="posts-list" style="display: none;"><li class="subpost "><a href="https://digitalscholarship.library.cornell.edu/?p=448">Digital humanities publications</a></li></ul></li><li><button class="toggle-posts"><i class="fas fa-angle-right"></i><span class="category-name">Workshops</span></button><ul class="posts-list" style="display: none;"><li class="subpost "><a href="https://digitalscholarship.library.cornell.edu/?p=2636">Digital intimacy workshop</a></li><li class="subpost "><a href="https://digitalscholarship.library.cornell.edu/?p=2638">Introduction to Black Digital Humanities</a></li><li class="subpost "><a href="https://digitalscholarship.library.cornell.edu/?p=3167">Introduction to DH</a></li></ul></li><li><button class="toggle-posts"><i class="fas fa-angle-right"></i><span class="category-name">Technical Guides</span></button><ul class="posts-list" style="display: none;"><li class="subpost "><a href="https://digitalscholarship.library.cornell.edu/?p=3133">Software Tutorials</a></li></ul></li></ul></div></div><div class="cul-widget-mobile"><div class="widget widget_resource_guides_widget_responsive"><div id="resourceTable" class="resource-guides-content" style="display: none;"><table><tbody><tr><td><a href="https://digitalscholarship.library.cornell.edu/?p=407">Introduction to digital scholarship and digital humanities</a></td></tr><tr><td><a href="https://digitalscholarship.library.cornell.edu/?p=521">GIS: Geographic Information Systems</a></td></tr><tr><td><a href="https://digitalscholarship.library.cornell.edu/?p=2150">Black digital humanities</a></td></tr><tr><td><a href="https://digitalscholarship.library.cornell.edu/?p=2278">News and careers in the digital humanities</a></td></tr><tr><td><a href="https://digitalscholarship.library.cornell.edu/?p=2299">Coding resources</a></td></tr><tr><td><a href="https://digitalscholarship.library.cornell.edu/?p=3131">Datasets</a></td></tr><tr><td>Digital Projects: <a href="https://digitalscholarship.library.cornell.edu/?p=580">Digital dissertations</a></td></tr><tr><td>Digital Projects: <a href="https://digitalscholarship.library.cornell.edu/?p=2193">Publishing DH projects</a></td></tr><tr><td>Text as Data: <a href="https://digitalscholarship.library.cornell.edu/?p=44">Introduction to text as data</a></td></tr><tr><td>Text as Data: <a href="https://digitalscholarship.library.cornell.edu/?p=26">Building your corpus</a></td></tr><tr><td>Collections as Data: <a href="https://digitalscholarship.library.cornell.edu/?p=417">Introduction to Collections as Data</a></td></tr><tr><td>Collections as Data: <a href="https://digitalscholarship.library.cornell.edu/?p=1506">Collections platforms &amp; tools</a></td></tr><tr><td>Privacy Resources: <a href="https://digitalscholarship.library.cornell.edu/?p=22">Self-defense Against Digital Harassment</a></td></tr><tr><td>Privacy Resources: <a href="https://digitalscholarship.library.cornell.edu/?p=3039">Research Security</a></td></tr><tr><td>Recommended Reading: <a href="https://digitalscholarship.library.cornell.edu/?p=448">Digital humanities publications</a></td></tr><tr><td>Workshops: <a href="https://digitalscholarship.library.cornell.edu/?p=2636">Digital intimacy workshop</a></td></tr><tr><td>Workshops: <a href="https://digitalscholarship.library.cornell.edu/?p=2638">Introduction to Black Digital Humanities</a></td></tr><tr><td>Workshops: <a href="https://digitalscholarship.library.cornell.edu/?p=3167">Introduction to DH</a></td></tr><tr><td>Technical Guides: <a href="https://digitalscholarship.library.cornell.edu/?p=3133">Software Tutorials</a></td></tr></tbody></table></div></div></div>				</div>
+				</div>
+				</div>
+		<div class="elementor-element elementor-element-4f19ff95 e-con-full e-flex e-con e-child" data-id="4f19ff95" data-element_type="container" data-e-type="container" id="PostContainer">
+				<div class="elementor-element elementor-element-8a79a40 elementor-widget elementor-widget-theme-post-content" data-id="8a79a40" data-element_type="widget" data-e-type="widget" data-widget_type="theme-post-content.default">
+				<div class="elementor-widget-container">
+					
+<figure class="wp-block-image"><img decoding="async" src="https://digitalscholarship.library.cornell.edu/wp-content/uploads/2025/04/Screenshot-2025-04-25-at-3.53.48 PM-1024x422.png" alt=""/></figure>
+
+
+
+<p class="wp-block-paragraph">Welcome to the Digital Scholarship Guides site! <strong>Digital Scholarship Services</strong> is a department of Cornell University Library that supports research, teaching and consultations regarding digital scholarship and digital humanities projects. Learn more on <a href="https://www.library.cornell.edu/about/staff/central-departments/digital-scholarship/">the department website</a>. Browse content to learn about digital tools, methods and resources for your research. Feel free to use the search bar in the left sidebar to find the content you&#8217;re looking for.</p>
+
+
+
+<h3 class="wp-block-heading">About this guides site</h3>
+
+
+
+<p class="wp-block-paragraph"><strong>The guides are currently in development.</strong> Please excuse any limitations in content while we continue working. See an error or have something you&#8217;d like us to add? Reach out to us at <strong>digitalcolab@cornell.edu</strong>.</p>
+
+
+
+<div style="height:30px" aria-hidden="true" class="wp-block-spacer"></div>
+
+
+
+<div class="wp-block-buttons is-content-justification-center is-layout-flex wp-container-core-buttons-is-layout-3e41869c wp-block-buttons-is-layout-flex">
+<div class="wp-block-button"><a class="wp-block-button__link has-white-color has-text-color has-background has-link-color wp-element-button" href="https://www.library.cornell.edu/about/staff/central-departments/digital-scholarship/" style="background:linear-gradient(135deg,rgb(21,159,123) 1%,rgb(157,35,97) 98%)"><strong>Digital Scholarship Services Webpage</strong></a></div>
+
+
+
+<div class="wp-block-button"><a class="wp-block-button__link has-white-color has-text-color has-background has-link-color wp-element-button" href="mailto:digitalcolab@cornell.edu" style="background:linear-gradient(135deg,rgb(21,159,123) 1%,rgb(157,35,97) 98%)"><strong>Contact Us</strong></a></div>
+
+
+
+<div class="wp-block-button"><a class="wp-block-button__link has-white-color has-text-color has-background has-link-color wp-element-button" href="https://www.library.cornell.edu/about/staff/central-departments/digital-scholarship/get-in-touch/" style="background:linear-gradient(135deg,rgb(21,159,123) 1%,rgb(157,35,97) 98%)"><strong>Newsletter</strong></a></div>
+</div>
+
+
+
+<p class="wp-block-paragraph"></p>
+				</div>
+				</div>
+				</div>
+		<div class="elementor-element elementor-element-74c0612 e-con-full e-flex e-con e-child" data-id="74c0612" data-element_type="container" data-e-type="container">
+				<div class="elementor-element elementor-element-49f89db1 elementor-hidden-mobile elementor-toc--minimized-on-tablet elementor-widget elementor-widget-table-of-contents" data-id="49f89db1" data-element_type="widget" data-e-type="widget" data-settings="{&quot;exclude_headings_by_selector&quot;:[],&quot;headings_by_tags&quot;:[&quot;h2&quot;,&quot;h3&quot;,&quot;h4&quot;],&quot;icon&quot;:{&quot;value&quot;:&quot;&quot;,&quot;library&quot;:&quot;&quot;},&quot;marker_view&quot;:&quot;bullets&quot;,&quot;minimize_box&quot;:&quot;yes&quot;,&quot;minimized_on&quot;:&quot;tablet&quot;,&quot;hierarchical_view&quot;:&quot;yes&quot;,&quot;min_height&quot;:{&quot;unit&quot;:&quot;px&quot;,&quot;size&quot;:&quot;&quot;,&quot;sizes&quot;:[]},&quot;min_height_tablet&quot;:{&quot;unit&quot;:&quot;px&quot;,&quot;size&quot;:&quot;&quot;,&quot;sizes&quot;:[]},&quot;min_height_mobile&quot;:{&quot;unit&quot;:&quot;px&quot;,&quot;size&quot;:&quot;&quot;,&quot;sizes&quot;:[]}}" data-widget_type="table-of-contents.default">
+				<div class="elementor-widget-container">
+									<div class="elementor-toc__header">
+						<h2 class="elementor-toc__header-title">
+				on this page			</h2>
+										<div class="elementor-toc__toggle-button elementor-toc__toggle-button--expand" role="button" tabindex="0" aria-controls="elementor-toc__49f89db1" aria-expanded="true" aria-label="Open table of contents"><svg aria-hidden="true" class="e-font-icon-svg e-fas-angle-down" viewBox="0 0 320 512" xmlns="http://www.w3.org/2000/svg"><path d="M143 352.3L7 216.3c-9.4-9.4-9.4-24.6 0-33.9l22.6-22.6c9.4-9.4 24.6-9.4 33.9 0l96.4 96.4 96.4-96.4c9.4-9.4 24.6-9.4 33.9 0l22.6 22.6c9.4 9.4 9.4 24.6 0 33.9l-136 136c-9.2 9.4-24.4 9.4-33.8 0z"></path></svg></div>
+				<div class="elementor-toc__toggle-button elementor-toc__toggle-button--collapse" role="button" tabindex="0" aria-controls="elementor-toc__49f89db1" aria-expanded="true" aria-label="Close table of contents"><svg aria-hidden="true" class="e-font-icon-svg e-fas-angle-up" viewBox="0 0 320 512" xmlns="http://www.w3.org/2000/svg"><path d="M177 159.7l136 136c9.4 9.4 9.4 24.6 0 33.9l-22.6 22.6c-9.4 9.4-24.6 9.4-33.9 0L160 255.9l-96.4 96.4c-9.4 9.4-24.6 9.4-33.9 0L7 329.7c-9.4-9.4-9.4-24.6 0-33.9l136-136c9.4-9.5 24.6-9.5 34-.1z"></path></svg></div>
+					</div>
+				<div id="elementor-toc__49f89db1" class="elementor-toc__body">
+			<div class="elementor-toc__spinner-container">
+				<svg class="elementor-toc__spinner eicon-animation-spin e-font-icon-svg e-eicon-loading" aria-hidden="true" viewBox="0 0 1000 1000" xmlns="http://www.w3.org/2000/svg"><path d="M500 975V858C696 858 858 696 858 500S696 142 500 142 142 304 142 500H25C25 237 238 25 500 25S975 237 975 500 763 975 500 975Z"></path></svg>			</div>
+		</div>
+						</div>
+				</div>
+				</div>
+				</div>
+				</div>
+		
+<footer id="site-footer"  class="cul-site-footer">
+	<div class="footer-inner">
+		<p class="footer-text">
+			<a href="https://www.library.cornell.edu/copyright">© 2026</a> Cornell University Library, Ithaca, NY 14853
+		</p>
+					<nav class="site-navigation show" aria-label="Footer menu">
+				<ul id="menu-footer" class="menu"><li id="menu-item-9" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-9"><a href="https://www.library.cornell.edu/privacy">Privacy</a></li>
+<li id="menu-item-10" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-10"><a href="https://www.library.cornell.edu/web-accessibility/">Web Accessibility Assistance</a></li>
+<li id="menu-item-11" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-11"><a href="/wp-admin">Staff Login</a></li>
+</ul>			</nav>
+			</div>
+</footer>
+
+			<script>
+				( () => {
+					const lazyloadRunObserver = () => {
+						const lazyloadBackgrounds = document.querySelectorAll( `.e-con.e-parent:not(.e-lazyloaded)` );
+						const lazyloadBackgroundObserver = new IntersectionObserver( ( entries ) => {
+							entries.forEach( ( entry ) => {
+								if ( entry.isIntersecting ) {
+									let lazyloadBackground = entry.target;
+									if( lazyloadBackground ) {
+										lazyloadBackground.classList.add( 'e-lazyloaded' );
+									}
+									lazyloadBackgroundObserver.unobserve( entry.target );
+								}
+							});
+						}, { rootMargin: '200px 0px 200px 0px' } );
+						lazyloadBackgrounds.forEach( ( lazyloadBackground ) => {
+							lazyloadBackgroundObserver.observe( lazyloadBackground );
+						} );
+					};
+					const events = [
+						'DOMContentLoaded',
+						'elementor/lazyload/observe',
+					];
+					events.forEach( ( event ) => {
+						document.addEventListener( event, lazyloadRunObserver );
+					} );
+				} )();
+			</script>
+			<style id="core-block-supports-inline-css">
+.wp-container-core-buttons-is-layout-3e41869c{justify-content:center;}
+/*# sourceURL=core-block-supports-inline-css */
+</style>
+<script id="custom-script-js-extra">
+var ajax_object = {"ajax_url":"https://digitalscholarship.library.cornell.edu/wp-admin/admin-ajax.php"};
+var post_data = {"post_id":"125"};
+//# sourceURL=custom-script-js-extra
+</script>
+<script id="custom-script-js" src="https://digitalscholarship.library.cornell.edu/wp-content/themes/hello-elementor-child/assets/js/post-nav-custom.js?ver=1.0"></script>
+<script id="hello-theme-frontend-js" src="https://digitalscholarship.library.cornell.edu/wp-content/themes/hello-elementor/assets/js/hello-frontend.js?ver=3.5.1"></script>
+<script id="e-sticky-js" src="https://digitalscholarship.library.cornell.edu/wp-content/plugins/elementor-pro/assets/lib/sticky/jquery.sticky.min.js?ver=4.2.3"></script>
+<script id="elementor-webpack-runtime-js" src="https://digitalscholarship.library.cornell.edu/wp-content/plugins/elementor/assets/js/webpack.runtime.min.js?ver=4.4.0"></script>
+<script id="elementor-frontend-modules-js" src="https://digitalscholarship.library.cornell.edu/wp-content/plugins/elementor/assets/js/frontend-modules.min.js?ver=4.4.0"></script>
+<script id="jquery-ui-core-js-before">
+jQuery.uiBackCompat = true;
+//# sourceURL=jquery-ui-core-js-before
+</script>
+<script id="jquery-ui-core-js" src="https://digitalscholarship.library.cornell.edu/wp-includes/js/jquery/ui/core.min.js?ver=1.14.2"></script>
+<script id="elementor-frontend-js-before">
+var elementorFrontendConfig = {"environmentMode":{"edit":false,"wpPreview":false,"isScriptDebug":false},"i18n":{"shareOnFacebook":"Share on Facebook","shareOnX":"Share on X","pinIt":"Pin it","download":"Download","downloadImage":"Download image","fullscreen":"Fullscreen","zoom":"Zoom","share":"Share","playVideo":"Play Video","previous":"Previous","next":"Next","close":"Close","a11yCarouselPrevSlideMessage":"Previous slide","a11yCarouselNextSlideMessage":"Next slide","a11yCarouselFirstSlideMessage":"This is the first slide","a11yCarouselLastSlideMessage":"This is the last slide","a11yCarouselPaginationBulletMessage":"Go to slide"},"is_rtl":false,"breakpoints":{"xs":0,"sm":480,"md":768,"lg":1025,"xl":1440,"xxl":1600},"responsive":{"breakpoints":{"mobile":{"label":"Mobile Portrait","value":767,"default_value":767,"direction":"max","is_enabled":true},"mobile_extra":{"label":"Mobile Landscape","value":880,"default_value":880,"direction":"max","is_enabled":false},"tablet":{"label":"Tablet Portrait","value":1024,"default_value":1024,"direction":"max","is_enabled":true},"tablet_extra":{"label":"Tablet Landscape","value":1200,"default_value":1200,"direction":"max","is_enabled":false},"laptop":{"label":"Laptop","value":1366,"default_value":1366,"direction":"max","is_enabled":false},"widescreen":{"label":"Widescreen","value":2400,"default_value":2400,"direction":"min","is_enabled":false}},"hasCustomBreakpoints":false},"version":"4.4.0","is_static":false,"experimentalFeatures":{"e_font_icon_svg":true,"additional_custom_breakpoints":true,"container":true,"theme_builder_v2":true,"hello-theme-header-footer":true,"e_mcp_revision_snapshots":true,"nested-elements":true,"import-export-customization":true,"e_pro_atomic_form":true,"e_pro_collection_loop":true,"e_pro_variables":true,"e_pro_interactions":true},"urls":{"assets":"https:\/\/digitalscholarship.library.cornell.edu\/wp-content\/plugins\/elementor\/assets\/","ajaxurl":"https:\/\/digitalscholarship.library.cornell.edu\/wp-admin\/admin-ajax.php","uploadUrl":"https:\/\/digitalscholarship.library.cornell.edu\/wp-content\/uploads"},"nonces":{"floatingButtonsClickTracking":"d773de65fe","atomicFormsSendForm":"74586afe51"},"swiperClass":"swiper","settings":{"page":[],"editorPreferences":[]},"kit":{"active_breakpoints":["viewport_mobile","viewport_tablet"],"global_image_lightbox":"yes","lightbox_enable_counter":"yes","lightbox_enable_fullscreen":"yes","lightbox_enable_zoom":"yes","lightbox_enable_share":"yes","lightbox_title_src":"title","lightbox_description_src":"description","hello_header_logo_type":"logo","hello_header_menu_layout":"horizontal","hello_footer_logo_type":"logo"},"post":{"id":125,"title":"Digital%20Scholarship%20Guides","excerpt":"","featuredImage":false}};
+//# sourceURL=elementor-frontend-js-before
+</script>
+<script id="elementor-frontend-js" src="https://digitalscholarship.library.cornell.edu/wp-content/plugins/elementor/assets/js/frontend.min.js?ver=4.4.0"></script>
+<script id="toggle-posts-js" src="https://digitalscholarship.library.cornell.edu/wp-content/themes/hello-elementor-child/assets/js/toggle-posts.js?ver=1.0"></script>
+<script id="elementor-pro-webpack-runtime-js" src="https://digitalscholarship.library.cornell.edu/wp-content/plugins/elementor-pro/assets/js/webpack-pro.runtime.min.js?ver=4.2.3"></script>
+<script id="wp-hooks-js" src="https://digitalscholarship.library.cornell.edu/wp-includes/js/dist/hooks.min.js?ver=f0f188028580e8dc1255"></script>
+<script id="wp-i18n-js" src="https://digitalscholarship.library.cornell.edu/wp-includes/js/dist/i18n.min.js?ver=1dfe7db3940c23ea9216"></script>
+<script id="wp-i18n-js-after">
+wp.i18n.setLocaleData( { 'text direction\u0004ltr': [ 'ltr' ] } );
+//# sourceURL=wp-i18n-js-after
+</script>
+<script id="elementor-pro-frontend-js-before">
+var ElementorProFrontendConfig = {"ajaxurl":"https:\/\/digitalscholarship.library.cornell.edu\/wp-admin\/admin-ajax.php","nonce":"e70d99af5e","urls":{"assets":"https:\/\/digitalscholarship.library.cornell.edu\/wp-content\/plugins\/elementor-pro\/assets\/","rest":"https:\/\/digitalscholarship.library.cornell.edu\/index.php?rest_route=\/"},"settings":{"lazy_load_background_images":true},"popup":{"hasPopUps":false},"shareButtonsNetworks":{"facebook":{"title":"Facebook","has_counter":true},"twitter":{"title":"Twitter"},"linkedin":{"title":"LinkedIn","has_counter":true},"pinterest":{"title":"Pinterest","has_counter":true},"reddit":{"title":"Reddit","has_counter":true},"vk":{"title":"VK","has_counter":true},"odnoklassniki":{"title":"OK","has_counter":true},"tumblr":{"title":"Tumblr"},"digg":{"title":"Digg"},"skype":{"title":"Skype"},"stumbleupon":{"title":"StumbleUpon","has_counter":true},"mix":{"title":"Mix"},"telegram":{"title":"Telegram"},"pocket":{"title":"Pocket","has_counter":true},"xing":{"title":"XING","has_counter":true},"whatsapp":{"title":"WhatsApp"},"email":{"title":"Email"},"print":{"title":"Print"},"x-twitter":{"title":"X"},"threads":{"title":"Threads"}},"facebook_sdk":{"lang":"en_US","app_id":""},"lottie":{"defaultAnimationUrl":"https:\/\/digitalscholarship.library.cornell.edu\/wp-content\/plugins\/elementor-pro\/modules\/lottie\/assets\/animations\/default.json"}};
+//# sourceURL=elementor-pro-frontend-js-before
+</script>
+<script id="elementor-pro-frontend-js" src="https://digitalscholarship.library.cornell.edu/wp-content/plugins/elementor-pro/assets/js/frontend.min.js?ver=4.2.3"></script>
+<script id="pro-elements-handlers-js" src="https://digitalscholarship.library.cornell.edu/wp-content/plugins/elementor-pro/assets/js/elements-handlers.min.js?ver=4.2.3"></script>
+<script id="wp-emoji-settings" type="application/json">
+{"baseUrl":"https://s.w.org/images/core/emoji/17.0.2/72x72/","ext":".png","svgUrl":"https://s.w.org/images/core/emoji/17.0.2/svg/","svgExt":".svg","source":{"concatemoji":"https://digitalscholarship.library.cornell.edu/wp-includes/js/wp-emoji-release.min.js?ver=7.1.4"}}
+</script>
+<script type="module">
+/*! This file is auto-generated */
+var e="script#wp-emoji-settings",t=document.querySelector(e);if(!(t instanceof HTMLScriptElement))throw new Error("Element missing: "+e);const r=JSON.parse(t.text),s=(window._wpemojiSettings=r,"wpEmojiSettingsSupports"),o=["flag","emoji"];function i(e){try{var t={supportTests:e,timestamp:(new Date).valueOf()};sessionStorage.setItem(s,JSON.stringify(t))}catch(e){}}function c(e,t,n){e.clearRect(0,0,e.canvas.width,e.canvas.height),e.fillText(t,0,0);t=new Uint32Array(e.getImageData(0,0,e.canvas.width,e.canvas.height).data);e.clearRect(0,0,e.canvas.width,e.canvas.height),e.fillText(n,0,0);const r=new Uint32Array(e.getImageData(0,0,e.canvas.width,e.canvas.height).data);return t.every((e,t)=>e===r[t])}function p(e,t){e.clearRect(0,0,e.canvas.width,e.canvas.height),e.fillText(t,0,0);var n=e.getImageData(16,16,1,1);for(let e=0;e<n.data.length;e++)if(0!==n.data[e])return!1;return!0}function u(e,t,n,r){switch(t){case"flag":return n(e,"\ud83c\udff3\ufe0f\u200d\u26a7\ufe0f","\ud83c\udff3\ufe0f\u200b\u26a7\ufe0f")?!1:!n(e,"\ud83c\udde8\ud83c\uddf6","\ud83c\udde8\u200b\ud83c\uddf6")&&!n(e,"\ud83c\udff4\udb40\udc67\udb40\udc62\udb40\udc65\udb40\udc6e\udb40\udc67\udb40\udc7f","\ud83c\udff4\u200b\udb40\udc67\u200b\udb40\udc62\u200b\udb40\udc65\u200b\udb40\udc6e\u200b\udb40\udc67\u200b\udb40\udc7f");case"emoji":return!r(e,"\ud83e\u1fac8")}return!1}function f(e,t,n,r){let a;const s=(a="undefined"!=typeof WorkerGlobalScope&&self instanceof WorkerGlobalScope?new OffscreenCanvas(300,150):document.createElement("canvas")).getContext("2d",{willReadFrequently:!0}),o=(s.textBaseline="top",s.font="600 32px Arial",{});return e.forEach(e=>{o[e]=t(s,e,n,r)}),o}function a(e){var t=document.createElement("script");t.src=e,t.defer=!0,document.head.appendChild(t)}r.supports={everything:!0,everythingExceptFlag:!0},new Promise(t=>{let n=function(){try{var e=JSON.parse(sessionStorage.getItem(s));if("object"==typeof e&&"number"==typeof e.timestamp&&(new Date).valueOf()<e.timestamp+604800&&"object"==typeof e.supportTests)return e.supportTests}catch(e){}return null}();if(!n){if("undefined"!=typeof Worker&&"undefined"!=typeof OffscreenCanvas&&"undefined"!=typeof URL&&URL.createObjectURL&&"undefined"!=typeof Blob)try{var e="postMessage("+f.toString()+"("+[JSON.stringify(o),u.toString(),c.toString(),p.toString()].join(",")+"));",r=new Blob([e],{type:"text/javascript"});const a=new Worker(URL.createObjectURL(r),{name:"wpTestEmojiSupports"});return void(a.onmessage=e=>{i(n=e.data),a.terminate(),t(n)})}catch(e){}i(n=f(o,u,c,p))}t(n)}).then(e=>{for(const n in e)r.supports[n]=e[n],r.supports.everything=r.supports.everything&&r.supports[n],"flag"!==n&&(r.supports.everythingExceptFlag=r.supports.everythingExceptFlag&&r.supports[n]);var t;r.supports.everythingExceptFlag=r.supports.everythingExceptFlag&&!r.supports.flag,r.supports.everything||((t=r.source||{}).concatemoji?a(t.concatemoji):t.wpemoji&&t.twemoji&&(a(t.twemoji),a(t.wpemoji)))});
+//# sourceURL=https://digitalscholarship.library.cornell.edu/wp-includes/js/wp-emoji-loader.min.js
+</script>
+
+</body>
+</html>
