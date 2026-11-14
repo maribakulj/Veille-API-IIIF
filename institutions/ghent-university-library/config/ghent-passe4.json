@@ -1,0 +1,20 @@
+{
+  "slug": "ghent-university-library",
+  "min_delay_s": 6,
+  "max_requests": 15,
+  "follow_redirects": 1,
+  "robots_disallow_autorise_par_marcel": true,
+  "note": "Passe 4 : service d'images Ex Libris lu dans le manifeste Primo de Gand (1er canevas). robots.txt de eu-img02 : 403 « Missing Authentication Token » (passerelle, vu sur Leiden). info.json puis dérivé 200 px.",
+  "endpoints": [
+    {
+      "id": "exlibris-info-json",
+      "method": "GET",
+      "url": "https://eu-img02.ext.exlibrisgroup.com/iiif/2/eyJyZWdpb24iOiJldS1jZW50cmFsLTEiLCJidWNrZXQiOiJldS1zdDAxLmV4dC5leGxpYnJpc2dyb3VwLmNvbSIsImtleSI6IjMyUlVHX0lOU1Qvc3RvcmFnZS9hbG1hL0EzLzgzL0MzLzE2L0FDLzM2LzcxLzcwL0FELzJCLzM4LzNCLzUyL0MwL0MxL0QwLzkxMDAwMDA1NTE1Nl8yMDE2XzAwMDFfTUEuanBnIiwicmVwX2lkIjoiMTIyNzY3MjkxNTAwMDkxNjEiLCJpbnN0YW5jZSI6ImV1MDYiLCJpbnN0aXR1dGlvbiI6IjMyUlVHX0lOU1QiLCJ3aWR0aCI6IjM1NTIiLCJoZWlnaHQiOiI1MjE4Iiwid21LZXkiOm51bGwsIndtV2lkdGgiOm51bGwsIndtSGVpZ2h0IjpudWxsLCJ3bVBvc2l0aW9uIjpudWxsLCJ3bVJlcGVhdCI6ZmFsc2UsIm5hOTEiOm51bGx9/info.json"
+    },
+    {
+      "id": "exlibris-derive-200",
+      "method": "GET",
+      "url": "https://eu-img02.ext.exlibrisgroup.com/iiif/2/eyJyZWdpb24iOiJldS1jZW50cmFsLTEiLCJidWNrZXQiOiJldS1zdDAxLmV4dC5leGxpYnJpc2dyb3VwLmNvbSIsImtleSI6IjMyUlVHX0lOU1Qvc3RvcmFnZS9hbG1hL0EzLzgzL0MzLzE2L0FDLzM2LzcxLzcwL0FELzJCLzM4LzNCLzUyL0MwL0MxL0QwLzkxMDAwMDA1NTE1Nl8yMDE2XzAwMDFfTUEuanBnIiwicmVwX2lkIjoiMTIyNzY3MjkxNTAwMDkxNjEiLCJpbnN0YW5jZSI6ImV1MDYiLCJpbnN0aXR1dGlvbiI6IjMyUlVHX0lOU1QiLCJ3aWR0aCI6IjM1NTIiLCJoZWlnaHQiOiI1MjE4Iiwid21LZXkiOm51bGwsIndtV2lkdGgiOm51bGwsIndtSGVpZ2h0IjpudWxsLCJ3bVBvc2l0aW9uIjpudWxsLCJ3bVJlcGVhdCI6ZmFsc2UsIm5hOTEiOm51bGx9/full/!200,200/0/default.jpg"
+    }
+  ]
+}
