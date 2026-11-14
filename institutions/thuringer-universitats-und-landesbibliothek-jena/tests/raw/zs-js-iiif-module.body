@@ -1,0 +1,63 @@
+import {
+    // base
+    ViewerComponent,
+    addViewerComponent,
+
+    // toolbar
+    ToolbarGroup,
+    ToolbarButton,
+
+    // events
+    WaitForEvent,
+    ProvideToolbarModelEvent,
+    ButtonPressedEvent,
+} from './iview-client-base.es.js';
+
+class IIIFComponent extends ViewerComponent {
+    constructor(settings) {
+        super();
+        this._settings = settings;
+        this._toolbarModel = null;
+        this._iiifControllGroup = null;
+        this._iiifLinkButton = null;
+    }
+
+    handle(e) {
+        // Add toolbar button
+        if (e.type === ProvideToolbarModelEvent.TYPE) {
+            this._toolbarModel = e.model;
+            this._iiifControllGroup = new ToolbarGroup("IIIFControllGroup", 70);
+            this._toolbarModel.addGroup(this._iiifControllGroup);
+            this._iiifLinkButton = new ToolbarButton("IIIFLinkButton", "IIIF");
+            this._iiifControllGroup.addComponent(this._iiifLinkButton);
+        }
+
+        // Handle button press
+        if (e.type === ButtonPressedEvent.TYPE) {
+            if (e.button.id === "IIIFLinkButton") {
+                const iiifURL = `${this._settings.webApplicationBaseURL}/api/iiif/presentation/v2/${this._settings.derivate}/manifest`;
+                const win = window.open(iiifURL);
+                if (win) {
+                    win.focus();
+                } else {
+                    alert("Popup blocked. Please allow popups for this site.");
+                }
+            }
+        }
+    }
+
+    get handlesEvents() {
+        return [
+            ProvideToolbarModelEvent.TYPE,
+            ButtonPressedEvent.TYPE
+        ];
+    }
+
+    init() {
+        this.trigger(new WaitForEvent(this, ProvideToolbarModelEvent.TYPE));
+    }
+}
+
+// Register the component
+addViewerComponent(IIIFComponent);
+console.log("IIIF MODULE");

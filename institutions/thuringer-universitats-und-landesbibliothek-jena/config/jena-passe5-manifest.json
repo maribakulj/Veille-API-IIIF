@@ -1,0 +1,12 @@
+{
+  "slug": "thuringer-universitats-und-landesbibliothek-jena",
+  "min_delay_s": 10,
+  "max_requests": 15,
+  "follow_redirects": 1,
+  "robots_disallow_autorise_par_marcel": true,
+  "note": "Passe 5 : (1) manifeste IIIF Presentation v2 dont le motif est lu dans iiif-module.js (tests/raw/zs-js-iiif-module.body : api/iiif/presentation/v2/<derivate>/manifest) pour la derive jportal_derivate_00401748 donnee par le visionneur ; (2) page d'objet de collections.thulb.uni-jena.de tiree de son sitemap (collections-sitemap-google-1.body), corps enregistre pour y chercher des liens IIIF/OAI.",
+  "endpoints": [
+    {"id": "zs-iiif-manifest-00401748", "method": "GET", "url": "https://zs.thulb.uni-jena.de/api/iiif/presentation/v2/jportal_derivate_00401748/manifest", "save_body": 150000},
+    {"id": "collections-receive-hisbest-cover-120", "method": "GET", "url": "https://collections.thulb.uni-jena.de/receive/HisBest_cover_00000120", "save_body": 100000}
+  ]
+}
