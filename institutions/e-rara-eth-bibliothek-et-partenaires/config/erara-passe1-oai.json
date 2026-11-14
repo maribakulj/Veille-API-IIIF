@@ -1,0 +1,35 @@
+{
+  "slug": "e-rara-eth-bibliothek-et-partenaires",
+  "min_delay_s": 6,
+  "max_requests": 15,
+  "follow_redirects": 1,
+  "robots_disallow_autorise_par_marcel": true,
+  "note": "Passe 1 (OAI-PMH, base https://www.e-rara.ch/oai). Décision C12 : le robots.txt de www.e-rara.ch est « Disallow: / » pour tous sauf Googlebot et Bingbot ; l'audit est lancé quand même (autorisé par Marcel). Les pages HTML sont derrière un contrôle JavaScript (non contourné) : seules les interfaces de données sont testées. VLID 6341733 = exemple de la doc officielle (apiinfo).",
+  "endpoints": [
+    {
+      "id": "oai-identify",
+      "method": "GET",
+      "url": "https://www.e-rara.ch/oai?verb=Identify"
+    },
+    {
+      "id": "oai-listsets",
+      "method": "GET",
+      "url": "https://www.e-rara.ch/oai?verb=ListSets"
+    },
+    {
+      "id": "oai-listmetadataformats",
+      "method": "GET",
+      "url": "https://www.e-rara.ch/oai?verb=ListMetadataFormats"
+    },
+    {
+      "id": "oai-getrecord-dc",
+      "method": "GET",
+      "url": "https://www.e-rara.ch/oai?verb=GetRecord&metadataPrefix=oai_dc&identifier=6341733"
+    },
+    {
+      "id": "oai-listidentifiers-periode",
+      "method": "GET",
+      "url": "https://www.e-rara.ch/oai?verb=ListIdentifiers&metadataPrefix=oai_dc&from=2026-11-10&until=2026-11-14"
+    }
+  ]
+}
