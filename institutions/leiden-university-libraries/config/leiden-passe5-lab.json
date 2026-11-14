@@ -1,0 +1,12 @@
+{
+  "slug": "leiden-university-libraries",
+  "min_delay_s": 12,
+  "max_requests": 15,
+  "follow_redirects": 1,
+  "robots_disallow_autorise_par_marcel": true,
+  "note": "Passe v2 n°5 (rattrapage) : hôte lab.library.universiteitleiden.nl cité par la doc IIIF de Leiden (sources/iiif-docs : « Presentation API Manifests are available at /manifests », lien vers /manifests/collection.json). robots.txt de cet hôte : 404 (tout autorisé). Pause de 12 s par prudence (Crawl-delay 10 s des autres hôtes de Leiden). iiif.universiteitleiden.nl (Image API, /iiif/2) non lancé : connexion coupée par le serveur à deux lectures de robots.txt.",
+  "endpoints": [
+    {"id": "lab-manifests", "method": "GET", "url": "https://lab.library.universiteitleiden.nl/manifests"},
+    {"id": "lab-manifests-collection", "method": "GET", "url": "https://lab.library.universiteitleiden.nl/manifests/collection.json"}
+  ]
+}

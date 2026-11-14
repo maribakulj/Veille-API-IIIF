@@ -25,3 +25,7 @@ Aucune politique de débit ou de bots propre à Leiden. Un ticket tiers (mnemosy
 
 ## Conclusion
 Limite chiffrée : seulement `Crawl-delay: 10` (robots.txt). Pas de limite observée. Confiance : moyenne. Crash test (g) : plafond 200/min mais **prudence : la limite éventuelle appartient à Ex Libris**, donc une décision de Marcel est utile avant.
+
+## Rattrapage du 2026-11-14
+- Doc IIIF de Leiden (`lab.library.universiteitleiden.nl/iiif-docs`, 7 pages) lue : Image API 2.1 (base `/iiif/2`) et Presentation API 2.1 (`/manifests`), conditions d'usage = brouillon sans règle de débit. `robots.txt` : lab 404, `library.` 200 (pas de Crawl-delay), `www.library.` et `iiif.universiteitleiden.nl` : connexion coupée par le serveur (non contourné).
+- Passe 5 : `lab…/manifests` 301 puis 200, `manifests/collection.json` **200**, aucun en-tête de limite, aucun 429. `iiif.universiteitleiden.nl/iiif/2` non testé (connexion coupée, arrêt de l'hôte) : à vérifier depuis un navigateur.

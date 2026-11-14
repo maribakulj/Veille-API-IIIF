@@ -4,10 +4,191 @@
   "pays": "Suisse",
   "classeur_id": "GLAM-021",
   "type": "Institution",
-  "statut_audit": "à faire",
-  "limites_documentees": [],
+  "statut_audit": "audit a–f complet ; g à faire (config crash prête)",
+  "limites_documentees": [
+    {
+      "nature": "Crawl-delay / limite de débit",
+      "perimetre": "plume.epfl.ch",
+      "valeur": "aucune",
+      "fenetre": "–",
+      "effet": "–",
+      "verification": "officielle, lue en entier (robots.txt : Disallow /admin/ et /login seulement)",
+      "source": "https://plume.epfl.ch/robots.txt",
+      "date": "2026-11-14"
+    }
+  ],
   "en_tetes_observes": [],
   "blocages": [],
-  "sources": [],
-  "web": []
+  "sources": [
+    {
+      "url": "https://plume.epfl.ch/",
+      "date": "2026-11-14",
+      "etiquette": "officielle",
+      "preuve": "institutions/epfl-plume/sources/SHA256SUMS"
+    },
+    {
+      "url": "https://plume.epfl.ch/robots.txt",
+      "date": "2026-11-14",
+      "etiquette": "officielle",
+      "preuve": "institutions/epfl-plume/sources/SHA256SUMS"
+    },
+    {
+      "url": "https://plume.epfl.ch/s/fr/page/aide",
+      "date": "2026-11-14",
+      "etiquette": "officielle",
+      "preuve": "institutions/epfl-plume/sources/pages/SHA256SUMS"
+    },
+    {
+      "url": "https://plume.epfl.ch/s/fr/page/a-propos",
+      "date": "2026-11-14",
+      "etiquette": "officielle",
+      "preuve": "institutions/epfl-plume/sources/pages/SHA256SUMS"
+    },
+    {
+      "url": "https://plume.epfl.ch/s/fr/page/mentions-legal",
+      "date": "2026-11-14",
+      "etiquette": "officielle",
+      "preuve": "institutions/epfl-plume/sources/pages/SHA256SUMS"
+    },
+    {
+      "url": "https://plume.epfl.ch/s/fr/item",
+      "date": "2026-11-14",
+      "etiquette": "officielle",
+      "preuve": "institutions/epfl-plume/sources/pages/SHA256SUMS"
+    },
+    {
+      "url": "https://plume.epfl.ch/s/fr/page/exhibitions",
+      "date": "2026-11-14",
+      "etiquette": "officielle",
+      "preuve": "institutions/epfl-plume/sources/pages/SHA256SUMS"
+    },
+    {
+      "url": "https://plume.epfl.ch/s/fr/item/100",
+      "date": "2026-11-14",
+      "etiquette": "officielle",
+      "preuve": "institutions/epfl-plume/sources/item/SHA256SUMS"
+    }
+  ],
+  "web": [
+    {
+      "categorie": "institution",
+      "url": "https://www.epfl.ch/campus/library/collections-en/rare-books/",
+      "date": "2026-11-14",
+      "etiquette": "institution",
+      "citation": "Page « Rare books and PLUME » lue : « Thousands of images of 15th, 16th and 17th century works can be viewed and downloaded freely » ; aucune règle de débit, de bots ni d'API.",
+      "preuve": "institutions/epfl-plume/sources/web/text/03.txt"
+    },
+    {
+      "categorie": "presentations",
+      "url": "https://actu.epfl.ch/news/plume-the-epfl-library-is-putting-its-heritage-col",
+      "date": "2026-11-14",
+      "etiquette": "institution",
+      "citation": "Billet de lancement de PLUME (actu EPFL) lu : « a digital library of old documents illustrating the fields of history and philosophy of science » ; recherche plein texte par OCR ; ni IIIF ni limite de débit mentionnés.",
+      "preuve": "institutions/epfl-plume/sources/web/text/04.txt"
+    },
+    {
+      "categorie": "utilisateurs",
+      "aucun_resultat": true,
+      "requete": "\"plume.epfl.ch\" 429 OR blocked OR \"rate limit\" OR \"too many requests\" IIIF",
+      "date": "2026-11-14",
+      "etiquette": "–",
+      "citation": "Aucun retour d'utilisateur sur des 429 ou blocages de plume.epfl.ch ; seuls des résultats génériques sur les limites de débit d'autres services.",
+      "preuve": "institutions/epfl-plume/fiche.md"
+    },
+    {
+      "categorie": "tickets",
+      "aucun_resultat": true,
+      "requete": "github \"plume.epfl.ch\" iiif manifest OR omeka issue",
+      "date": "2026-11-14",
+      "etiquette": "–",
+      "citation": "Aucun ticket GitHub ou forum Omeka mentionnant plume.epfl.ch ; seuls des tickets génériques sur le module IiifServer d'Omeka S.",
+      "preuve": "institutions/epfl-plume/fiche.md"
+    },
+    {
+      "categorie": "institution",
+      "url": "https://guides.iiif.io/guides/plume.epfl.ch/",
+      "date": "2026-11-14",
+      "etiquette": "tiers (guide de la communauté IIIF)",
+      "citation": "Entrée du répertoire de guides IIIF pour plume.epfl.ch : « Copy the IIIF link towards the bottom of the page » ; aucune URL d'API ni limite.",
+      "preuve": "institutions/epfl-plume/fiche.md"
+    }
+  ],
+  "contact": "library@epfl.ch (Bibliothèque de l'EPFL ; fichiers haute définition et réutilisation)",
+  "conclusion_quota": "Aucun quota ni limite de débit publiés ; robots.txt sans Crawl-delay (Disallow /admin/ et /login). Réutilisation libre (Public Domain Mark). Aucun en-tête de limite ni 429 sur 6 requêtes (API REST Omeka S, OAI-PMH, manifeste IIIF 2, Cantaloupe, IIIF Search).",
+  "classe_quota": "aucune limite documentée",
+  "confiance": "moyenne",
+  "notes": "Plume est une instance Omeka S (modules IIIF Server, IIIF Search, OAI-PMH, Solr) avec un serveur d'images Cantaloupe (Jetty) sur le même hôte plume.epfl.ch. Aucune limite non plus dans les en-têtes (cache-control, set-cookie, pas de X-RateLimit). Le corps de l'item 100 est un manifeste de 508 ko.",
+  "endpoints_documentes": [
+    {
+      "famille": "API REST Omeka S (métadonnées JSON-LD)",
+      "url": "https://plume.epfl.ch/api/items/100",
+      "statut": "teste",
+      "preuve": "institutions/epfl-plume/tests/raw/api-item-100.headers.txt"
+    },
+    {
+      "famille": "Entrepôt OAI-PMH (Dublin Core)",
+      "url": "https://plume.epfl.ch/oai?verb=ListIdentifiers&metadataPrefix=oai_dc",
+      "statut": "teste",
+      "preuve": "institutions/epfl-plume/tests/raw/oai-listidentifiers.headers.txt"
+    },
+    {
+      "famille": "IIIF Presentation 2 (manifeste)",
+      "url": "https://plume.epfl.ch/iiif/2/100/manifest",
+      "statut": "teste",
+      "preuve": "institutions/epfl-plume/tests/raw/iiif-manifeste-100.headers.txt"
+    },
+    {
+      "famille": "IIIF Image 2 (Cantaloupe)",
+      "url": "https://plume.epfl.ch/cantaloupe/iiif/2/CHEPFL_LIPR_AXB244_01_0001.tif/info.json",
+      "statut": "teste",
+      "preuve": "institutions/epfl-plume/tests/raw/cantaloupe-info-json.headers.txt"
+    },
+    {
+      "famille": "IIIF Content Search 1",
+      "url": "https://plume.epfl.ch/iiif-search/100/search?q=ratio",
+      "statut": "teste",
+      "preuve": "institutions/epfl-plume/tests/raw/iiif-search-100.headers.txt"
+    },
+    {
+      "famille": "Téléchargement PDF complet et ALTO (fichiers originaux)",
+      "url": "https://plume.epfl.ch/svc1447-5405a1ac06eb99bbafc660bc2e34105f/original/30001432e3b0257e6d36375a40857125b91eb7db.pdf",
+      "statut": "non_teste",
+      "raison": "Aide de Plume : « tous les documents sont téléchargeables » (PDF complet, ALTO/XML) ; fichiers lourds : nos règles interdisent PDF, ALTO et texte intégral dans les tests."
+    }
+  ],
+  "endpoints_ecartes": [
+    {
+      "url": "https://plume.epfl.ch/s/fr/search",
+      "raison": "interface web de recherche destinée aux humains, sans API documentée associée ; lien « Recherche » de sources/raw/01.html"
+    },
+    {
+      "url": "https://doi.org/10.26035/epfl-plume-1404",
+      "raison": "exemple d'identifiant permanent DOI cité par les mentions légales ; résolveur tiers, pas une API de Plume"
+    },
+    {
+      "url": "https://iiif.io/api/",
+      "raison": "spécification IIIF générique citée par l'aide de Plume ; site du consortium, pas une API de l'institution"
+    },
+    {
+      "url": "https://omeka.org/s/docs/developer/api/rest_api/",
+      "raison": "documentation du logiciel Omeka S citée par Plume ; site tiers, déjà couverte par le test de l'API REST de Plume"
+    }
+  ],
+  "hotes_robots": [
+    {
+      "hote": "plume.epfl.ch",
+      "resultat": "200 (49 o) : User-agent *, Disallow /admin/ et /login, pas de Crawl-delay",
+      "preuve": "institutions/epfl-plume/sources/FETCH.log"
+    },
+    {
+      "hote": "www.epfl.ch",
+      "resultat": "200 mais corps vide (0 o) : aucune règle, tout autorisé ; hôte de la page « Rare books », non contacté par la sonde",
+      "preuve": "institutions/epfl-plume/sources/web/FETCH.log"
+    },
+    {
+      "hote": "actu.epfl.ch",
+      "resultat": "200 (58 o) : Disallow /search/ et /subscription/, pas de Crawl-delay",
+      "preuve": "institutions/epfl-plume/sources/web/FETCH.log"
+    }
+  ]
 }

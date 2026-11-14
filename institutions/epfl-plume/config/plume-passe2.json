@@ -1,0 +1,13 @@
+{
+  "slug": "epfl-plume",
+  "min_delay_s": 6,
+  "max_requests": 15,
+  "follow_redirects": 1,
+  "robots_disallow_autorise_par_marcel": true,
+  "note": "Passe v2 n°2 : services annoncés par le manifeste de l'item 100 (passe 1, tests/raw/iiif-manifeste-100.body) : service d'images Cantaloupe (CHEPFL_LIPR_AXB244_01_0001.tif), service IIIF Search 1 (/iiif-search/100/search). Même hôte plume.epfl.ch, robots.txt lu (Disallow /admin/ et /login seulement). Vignette 200 px et recherche d'un mot simple.",
+  "endpoints": [
+    {"id": "cantaloupe-info-json", "method": "GET", "url": "https://plume.epfl.ch/cantaloupe/iiif/2/CHEPFL_LIPR_AXB244_01_0001.tif/info.json"},
+    {"id": "cantaloupe-vignette-200", "method": "GET", "url": "https://plume.epfl.ch/cantaloupe/iiif/2/CHEPFL_LIPR_AXB244_01_0001.tif/full/!200,200/0/default.jpg"},
+    {"id": "iiif-search-100", "method": "GET", "url": "https://plume.epfl.ch/iiif-search/100/search?q=ratio"}
+  ]
+}

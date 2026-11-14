@@ -1,0 +1,99 @@
+Welcome — Collections API Guide 
+ Collections API Guide
+ Welcome
+ Quick Start
+ Introduction
+ Identifiers
+ Searching
+ Introduction
+ Boolean
+ Filtering
+ Introduction
+ Keyword
+ Restriction
+ Introduction
+ Miscellaneous
+ Results
+ Introduction
+ Fields (Summary)
+ Images
+ Introduction
+ IIIF
+ Data Visualisation
+ Introduction
+ Clustering
+ Powered by Jupyter Book 
+ .ipynb 
+ .pdf 
+ to have style consistency -->
+ Binder 
+ Contents
+ Overview
+ Datasets
+ Citation
+ Collections Data
+ Collections API
+ Licencing
+ Related Resources
+ Future Development
+ Contact Us
+ Changelog
+ 15 Apr 2021
+ 2009
+ Welcome ¶ 
+ The V&A Collections API provides access to the collections data and images held by the Victoria and Albert Museum in machine readable formats (currently JSON and CSV) aiding research into art & design history, provenance studies and supporting general data science exploration and visualisation.
+ Our first API was released in 2009, this second version released in 2021 follows its pioneering predecessor in many ways, but provides some new functionality allowing for ease of use with data science utilities such as Pandas , Altair , Vega ; new endpoints to query for clustering results together for ‘generous’ data overviews; different response types allowing for a quick start in exploring the data, and countable other features large and small documented through this guide.
+ Cultural heritage data can be complex to explore, every aspect of an objects’ history can be a world in itself to discover, which can make it hard to find a starting point when first looking into the data (with or without an objective in mind). While this guide provides an overview of using the API, you may find some worked examples helpful, so we have provided some Data Explorations on topics such as water lilies, machines in the C18th and the ladies of Edinburgh (from 1865 to 1880 only).
+ Overview ¶ 
+ This API guide details each endpoint in the API (an endpoint being a type of operation that can be carried out) and the parameters available for each endpoint (a parameter controls what the operation does). For the most common usage (retrieve an object record, query all object records, etc) we provide a Quick Start guide which gives some code examples in Python that can be re-used (or re-implemented in a language of your choice) in your own project, the following sections provide exhaustive details on the available endpoints and parameters:
+ Searching - All the different parameters for controlling different types and methods of searching object records
+ Filtering - All the different parameters for controlling different types and methods of filtering object records
+ Restriction - Parameters controlling whether records are included or excluded from searching or filtering
+ Results - Formats of results that can be returned from different queries
+ Images - How to retrieve object images using IIIF APIs
+ Visualisations - How to visualise the data returned from the API
+ Datasets ¶ 
+ Although the API provides an effective way to dynamically retrieve subsets of collections data, for bulk export it is less efficient than data compressed and transferred as a single file. If you have a project where you want to examine large sets of object records, please log an issue detailing your project in our GitHub repository and we will get in touch if we can help out.
+ Citation ¶ 
+ If you want to refer to our collections data and/or are using our API in an academic publication, you can cite us as follows (in BibTex):
+ Collections Data ¶ 
+ @misc { vam - 2021 - collections - data , 
+ author = { Victoria and Albert Museum }, 
+ title = { Victoria and Albert Museum Collections Data }, 
+ year = { 2021 }, 
+ note = { data retrieved via Victoria and Albert Museum Collections API , \ url { https : // developers . vam . ac . uk / }}, 
+ url = { https : // collections . vam . ac . uk / } 
+ } 
+ Collections API ¶ 
+ @software { vam - 2021 - collections - api , 
+ author = { Victoria and Albert Museum }, 
+ title = { Victoria and Albert Museum Collections API v2 }, 
+ year = 2021 , 
+ version = { 2 }, 
+ url = { https : // developers . vam . ac . uk / }, 
+ } 
+ Licencing ¶ 
+ Our collections data and images are made available under the terms of use for the V&A website, in particular section 9.3.
+ Related Resources ¶ 
+ There are many other excellent introductions and explorations of cultural heritage data using APIs, Jupyter Notebooks and other data processing techniques. Some we have found useful :
+ Programming Historian 
+ Tim Sherratt’s GLAMWork Bench 
+ National Library of Scotland Data Foundry 
+ Rijks Data 
+ British Library Labs 
+ Library of Congress Data Exploration 
+ Smithsonian 
+ Art Institute of Chicago 
+ There are many other cultural heritage collections APIs to explore, the definitive list remains with Mia Ridge 
+ Future Development ¶ 
+ The V&A participates in the Linked Art project looking at creating a shared data model to enable the interoperability of cultural heritage data between institutions, which would make some of the example data explorations much easier to write. We hope to offer a JSON-LD API in the future to assist in querying across national and international cultural heritage collections.
+ Contact Us ¶ 
+ If you have spotted any egregious typos or coding errors or see anyone suggestion that searching is better than filtering, or would like to let us know about an application you have written using our data or images, please send us a pull request or log an issue on our GitHub repository .
+ Changelog ¶ 
+ 15 Apr 2021 ¶ 
+ API v2 launched
+ 2009 ¶ 
+ API v1 launched.
+ Quick Start 
+ By Victoria and Albert Museum
+ © Copyright 2020.

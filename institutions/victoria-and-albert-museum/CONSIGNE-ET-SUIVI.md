@@ -16,16 +16,16 @@
 ### b) Endpoints tirés de la doc
 > Liste des endpoints citée par la doc (URL, exemples). Jamais devinée. Une interdiction ou une impossibilité écrite dans la doc justifie de renoncer (citer la phrase).
 
-- [ ] **Pas fait**
-  - **Justification** : DÉCOCHÉE le 2026-11-14 (verrou renforcé) : URL d'API citée par la doc et ni testée ni justifiée : https://www.vam.ac.uk/api (ajouter à endpoints_documentes, ou à endpoints_ecartes avec url + raison) | ancienne justification : Endpoints documentés : api.vam.ac.uk/v2/objects/search, /object/O{n}, /objects/clusters/search, /sayt/search (guide quick-start et OpenAPI) ; framemark.vam.ac.uk/collections/{id}/info.json et /full/!1
-  - **Preuves** : 
+- [x] **Fait**
+  - **Justification** : Endpoints tirés de la doc : API v2 (objects/search, object, clusters, sayt), manifeste iiif.vam.ac.uk, images framemark, page www.vam.ac.uk/api (API 2009 sans URL, justifiée), service MCP (POST, non testé) ; wp-json du blog testé ; collections.vam.ac.uk et /search écartés avec raison.
+  - **Preuves** : `institutions/victoria-and-albert-museum/data.json`, `institutions/victoria-and-albert-museum/sources/rattrapage/SHA256SUMS`
 
 ### c) Configuration écrite AVANT les tests
 > `config/<nom>.json` pilote `scripts/probe.py`, committée avant le lancement. Un endpoint absent de la doc mais non interdit se teste avec un script poli (identifiants issus de pages publiques ou d'exemples de la doc, pas de devinette).
 
-- [ ] **Pas fait**
-  - **Justification** : DÉCOCHÉE le 2026-11-14 (verrou renforcé) : hôte iiif.vam.ac.uk contacté (config vam-passe1-api-manifeste.json) sans entrée hotes_robots | ancienne justification : Deux configurations committées avant lancement, avec les identifiants d'exemple de la doc ; résultats limités à 1 ; pauses de 6 s (très au-delà de l'indicatif d'une requête par seconde).
-  - **Preuves** : 
+- [x] **Fait**
+  - **Justification** : Trois configurations committées avant lancement (passe 1 API/manifeste, passe 2 framemark, passe 3 wp-json), pauses de 6 s, identifiants d'exemple de la doc ; robots.txt de chaque hôte lu (iiif.vam.ac.uk 404, S3 403) et consigné dans hotes_robots.
+  - **Preuves** : `institutions/victoria-and-albert-museum/config/vam-passe1-api-manifeste.json`, `institutions/victoria-and-albert-museum/config/vam-passe2-framemark.json`, `institutions/victoria-and-albert-museum/config/vam-passe3-wpjson.json`, `institutions/victoria-and-albert-museum/sources/robots-v3/FETCH.log`
 
 ### d) Quota cherché dans la doc
 > Pour chaque page lue : endpoint de statut, en-têtes de limite documentés, clé ou compte donnant un quota, contact pour un volume plus élevé. Chaque réponse cite sa source.
@@ -37,9 +37,9 @@
 ### e) Test systématique de chaque endpoint
 > Chaque endpoint documenté est testé (budget 15 requêtes par passe, pause ≥ 6 s, GET/HEAD, UA du projet). Redirections du même hôte suivies. Un 403 arrête son hôte, un 429 arrête l'institution. Seules les interdictions écrites dans la doc dispensent de tester.
 
-- [ ] **Pas fait**
-  - **Justification** : DÉCOCHÉE le 2026-11-14 (verrou renforcé) : 5 élément(s) de rattrapage_a_faire non traités | ancienne justification : Tous les endpoints documentés sont testés (2 passes, 8 requêtes de données) : API v2, manifeste, images : 200 partout, aucun en-tête de limite ni 429 ; full/full mesuré à 2500×1597. Non testés : API v
-  - **Preuves** : 
+- [x] **Fait**
+  - **Justification** : Toutes les familles testables testées en 3 passes (12 requêtes de données) : API v2, manifeste, framemark, wp-json du blog : 200 partout, aucun en-tête de limite, aucun 429 ; MCP non testé (POST) ; API 2009 sans URL documentée.
+  - **Preuves** : `institutions/victoria-and-albert-museum/tests/journal.log`, `institutions/victoria-and-albert-museum/tests/raw/api-objects-search-etruria.headers.txt`, `institutions/victoria-and-albert-museum/tests/raw/blog-wpjson-post-67662.headers.txt`
 
 ### f) Ce que disent les gens sur le web
 > Plaintes, discussions, présentations de l'institution, politique envers les API et les bots, blogs, GitHub, forums, listes de diffusion. Sources étiquetées (officielle / institution / utilisateur / tiers), lues, citées.
@@ -60,7 +60,7 @@
 
 <!-- AUTO:DEBUT -->
 ## Contrôles automatiques (calculés depuis `tests/journal.log`)
-- Requêtes enregistrées : **11** (sessions de sonde : 2, maximum par session : 7)
+- Requêtes enregistrées : **13** (sessions de sonde : 3, maximum par session : 7)
 - Plus courte pause vers un même hôte : **6 s** (règle : ≥ 6 s)
 - Méthodes utilisées : GET (règle : GET/HEAD seulement)
 - Anomalies : aucune

@@ -1,0 +1,15 @@
+{
+  "slug": "victoria-and-albert-museum",
+  "min_delay_s": 6,
+  "max_requests": 15,
+  "follow_redirects": 1,
+  "robots_disallow_autorise_par_marcel": true,
+  "note": "Passe v2 n°3 (rattrapage) : point d'accès REST WordPress du blog du V&A annoncé par la balise <link rel=alternate> de la page du billet de lancement (sources/raw/05.html). Non documenté comme API par le V&A ; une seule requête GET, identifiant lu dans la page publique. Pause 6 s (Crawl-delay du robots.txt de www : 2 s).",
+  "endpoints": [
+    {
+      "id": "blog-wpjson-post-67662",
+      "method": "GET",
+      "url": "https://www.vam.ac.uk/blog/wp-json/wp/v2/posts/67662"
+    }
+  ]
+}

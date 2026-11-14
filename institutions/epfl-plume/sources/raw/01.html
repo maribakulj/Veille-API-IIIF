@@ -1,0 +1,527 @@
+<!DOCTYPE html><html lang="fr">	<head>
+		<meta charset="utf-8">
+<meta name="viewport" content="width&#x3D;device-width,&#x20;initial-scale&#x3D;1">		<title>Accueil · Plume</title>		<link href="&#x2F;themes&#x2F;omekalia&#x2F;asset&#x2F;lib&#x2F;splide&#x2F;css&#x2F;splide.min.css&#x3F;v&#x3D;1.0.12" media="screen" rel="stylesheet" type="text&#x2F;css">
+<link href="&#x2F;application&#x2F;asset&#x2F;css&#x2F;page-blocks.css&#x3F;v&#x3D;4.2.1" media="screen" rel="stylesheet" type="text&#x2F;css">
+<link href="&#x2F;application&#x2F;asset&#x2F;css&#x2F;iconfonts.css&#x3F;v&#x3D;4.2.1" media="screen" rel="stylesheet" type="text&#x2F;css">
+<link href="&#x2F;themes&#x2F;omekalia&#x2F;asset&#x2F;css&#x2F;style.css&#x3F;v&#x3D;1.0.12" media="screen" rel="stylesheet" type="text&#x2F;css">
+<link href="&#x2F;themes&#x2F;omekalia&#x2F;asset&#x2F;css&#x2F;font-pack--1.css&#x3F;v&#x3D;1.0.12" media="screen" rel="stylesheet" type="text&#x2F;css">
+<link href="&#x2F;s&#x2F;fr&#x2F;css-editor" media="screen" rel="stylesheet" type="text&#x2F;css">
+<link href="&#x2F;modules&#x2F;EUCookieBar&#x2F;asset&#x2F;vendor&#x2F;jquery.cookiebar&#x2F;jquery.cookiebar.css&#x3F;v&#x3D;3.4.6" media="screen" rel="stylesheet" type="text&#x2F;css">
+<link href="&#x2F;modules&#x2F;Internationalisation&#x2F;asset&#x2F;css&#x2F;language-switcher.css&#x3F;v&#x3D;3.4.20" media="screen" rel="stylesheet" type="text&#x2F;css">
+<link href="&#x2F;modules&#x2F;Internationalisation&#x2F;asset&#x2F;vendor&#x2F;flag-icon-css&#x2F;css&#x2F;flag-icon.min.css&#x3F;v&#x3D;3.4.20" media="screen" rel="stylesheet" type="text&#x2F;css">
+<link href="&#x2F;modules&#x2F;ItemSetsTree&#x2F;asset&#x2F;css&#x2F;item-sets-tree.css&#x3F;v&#x3D;0.7.5" media="screen" rel="stylesheet" type="text&#x2F;css">				<script  src="&#x2F;themes&#x2F;omekalia&#x2F;asset&#x2F;lib&#x2F;splide&#x2F;js&#x2F;splide.min.js&#x3F;v&#x3D;1.0.12"></script>
+<script  src="https&#x3A;&#x2F;&#x2F;code.jquery.com&#x2F;jquery-3.7.1.min.js"></script>
+<script  src="&#x2F;application&#x2F;asset&#x2F;js&#x2F;global.js&#x3F;v&#x3D;4.2.1"></script>
+<script  src="&#x2F;themes&#x2F;omekalia&#x2F;asset&#x2F;js&#x2F;theme.js&#x3F;v&#x3D;1.0.12"></script>
+<script >
+    //<!--
+    
+Omeka.jsTranslate = function(str) {
+    var jsTranslations = {"Something went wrong":"Quelque chose s\u2019est mal pass\u00e9","Make private":"Rendre priv\u00e9","Make public":"Rendre public","Expand":"D\u00e9plier","Collapse":"Replier","You have unsaved changes.":"Vous avez des modifications non enregistr\u00e9es.","Restore item set":"R\u00e9tablir la collection","Close icon set":"Fermer l\u2019ensemble des ic\u00f4nes","Open icon set":"Ouvrir l\u2019ensemble des ic\u00f4nes","[Untitled]":"[Sans titre]","Failed loading resource template from API":"\u00c9chec du chargement du mod\u00e8le de ressource \u00e0 partir de l\u2019API","Restore property":"Restaurer la propri\u00e9t\u00e9","There are no available pages.":"Il n\u2019y a pas de page disponible.","Please enter a valid language tag":"Entrez une \u00e9tiquette de langue valide","Title":"Titre","Description":"Description","Unknown block layout":"Bloc inconnu","Required field must be completed":"Les champs obligatoires doivent \u00eatre compl\u00e9t\u00e9s.","Cancel":"Annuler","Class":"Classe","Collapse the list of groups of blocks":"Replier la liste des groupes de blocs","Confirm download":"Confirmer le t\u00e9l\u00e9chargement","Download":"T\u00e9l\u00e9charger","Expand to display the list of groups of blocks":"D\u00e9plier pour afficher la liste des groupes de blocs","Insert Footnotes":"Ins\u00e9rer des pieds de page","Next":"Suivant","No next":"Pas de suivant","No previous":"Pas de pr\u00e9c\u00e9dent","Page metadata":"M\u00e9tadonn\u00e9es de la page","Please wait for previous group of blocks to be prepared before adding a new one.":"Veuillez attendre la finalisation du groupe de blocs pr\u00e9c\u00e9dent avant d\u2019en ajouter un autre.","Previous":"Pr\u00e9c\u00e9dent","This group does not contain any block.":"Ce groupe ne contient aucun bloc.","Url (deprecated)":"Url (obsol\u00e8te)","Remove mapping":"Supprimer l\u2019alignement","An error occurred.":"Une erreur est survenue.","Apply":"Appliquer","Close":"Fermer","Information":"Information","No":"Non","OK":"OK","Warning":"Attention","Yes":"Oui","Copy":"Copier","Message copied":"Message copi\u00e9","Search and select...":"Chercher et s\u00e9lectionner..."};
+    return (str in jsTranslations) ? jsTranslations[str] : str;
+};
+    //-->
+</script>
+<script  defer="defer" src="&#x2F;modules&#x2F;EUCookieBar&#x2F;asset&#x2F;vendor&#x2F;jquery.cookiebar&#x2F;jquery.cookiebar.js&#x3F;v&#x3D;3.4.6"></script>
+<script  defer="defer" src="&#x2F;modules&#x2F;EUCookieBar&#x2F;asset&#x2F;js&#x2F;eu-cookie-bar.js&#x3F;v&#x3D;3.4.6"></script>
+<script >
+    //<!--
+    var euCookieBarOptions = {"acceptButton":true,"acceptText":"OK","declineButton":false,"declineText":"Disable Cookies","policyButton":false,"policyText":"Privacy Policy","policyURL":"/","bottom":true,"fixed":true,"zindex":"99999","message":"<p>Ce site utilise Matomo, un outil de mesure d&rsquo;audience respectueux de la vie priv&eacute;e.&nbsp;Les donn&eacute;es collect&eacute;es sont anonymis&eacute;es et utilis&eacute;es uniquement &agrave; des fins statistiques.</p>\r\n"};
+    //-->
+</script>
+<script >
+    //<!--
+    var _paq = window._paq = window._paq || [];
+  /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
+  _paq.push(["setExcludedQueryParams", ["\/admin*"]]);
+  _paq.push(['trackPageView']);
+  _paq.push(['enableLinkTracking']);
+  (function() {
+    var u="//costcalc.epfl.ch/matomo/";
+    _paq.push(['setTrackerUrl', u+'matomo.php']);
+    _paq.push(['setSiteId', '3']);
+    var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+    g.async=true; g.src=u+'matomo.js'; s.parentNode.insertBefore(g,s);
+  })();
+    //-->
+</script>
+		<style type="text/css" media="screen">
+			:root {
+				--primary: #FF0000;
+				--secondary: #8E8E8E;
+				--secondary-light: #c7c7c7;
+				--img-bg-search-home: url(https://plume.epfl.ch/svc1447-5405a1ac06eb99bbafc660bc2e34105f/asset/64cb70f778edd2e994e76966cdcef815fd464fb6.png);				--img-bg-search: url(https://plume.epfl.ch/svc1447-5405a1ac06eb99bbafc660bc2e34105f/asset/64cb70f778edd2e994e76966cdcef815fd464fb6.png);								--icon-arrow-up: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' xml:space='preserve' style='fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2' viewBox='0 0 299 169'%3E%3Cpath d='M8.296 120.55h293.023v167.506H8.296z' style='fill:none' transform='matrix(1.0204 0 0 1.00892 -8.466 -121.625)'/%3E%3Cpath d='M288.8 352H31.3c-17.8 0-26.7-21.5-14.1-34.1l128.7-128.7c7.8-7.8 20.5-7.8 28.3 0l128.7 128.7c12.6 12.6 3.7 34.1-14.1 34.1Z' style='fill:%23FF0000;fill-rule:nonzero' transform='translate(-10.55 -183.175)'/%3E%3C/svg%3E");
+				--icon-arrow-down: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' xml:space='preserve' style='fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2' viewBox='0 0 299 169'%3E%3Cpath d='M8.296 120.55h293.023v167.506H8.296z' style='fill:none' transform='matrix(1.0204 0 0 1.00892 -8.466 -121.625)'/%3E%3Cpath d='M31.3 192h257.3c17.8 0 26.7 21.5 14.1 34.1L174.1 354.8c-7.8 7.8-20.5 7.8-28.3 0L17.2 226.1C4.6 213.5 13.5 192 31.3 192Z' style='fill:%23FF0000;fill-rule:nonzero' transform='translate(-10.45 -191.825)'/%3E%3C/svg%3E");
+				--icon-bookmark: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' xml:space='preserve' style='fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2' viewBox='0 0 384 512'%3E%3Cpath d='M0 512V48C0 21.5 21.5 0 48 0h288c26.5 0 48 21.5 48 48v464L192 400 0 512Z' style='fill:%23FF0000;fill-rule:nonzero'/%3E%3C/svg%3E");
+				--icon-map-pin: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' xml:space='preserve' style='fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2' viewBox='0 0 288 512'%3E%3Cpath d='M112 316.9v156.7l22 33c4.8 7.1 15.2 7.1 20 0l22-33V316.9c-10.4 1.9-21.1 3.1-32 3.1-10.9 0-21.6-1.1-32-3.1ZM144 0C64.5 0 0 64.5 0 144s64.5 144 144 144 144-64.5 144-144S223.5 0 144 0Zm0 76c-37.5 0-68 30.5-68 68 0 6.6-5.4 12-12 12s-12-5.4-12-12c0-50.7 41.3-92 92-92 6.6 0 12 5.4 12 12s-5.4 12-12 12Z' style='fill:%23FF0000;fill-rule:nonzero'/%3E%3C/svg%3E");
+			}
+		</style>
+
+	</head>
+
+	<body class="page&#x20;&#x20;site-page-accueil&#x20;page&#x20;accueil&#x20;home&#x20;minimal">		
+		<header class="header">
+		<div class="header__top">
+		<div class="wrap wrap--lg">
+			
+<ul class="language-switcher locale-code">
+    
+            <li>
+                            <span class="active" title="fran&#xE7;ais">fr</span>
+                    </li>
+            <li>
+                            <a href="&#x2F;s&#x2F;en&#x2F;page&#x2F;accueil" title="English&#x20;&#x28;United&#x20;States&#x29;">en</a>
+                    </li>
+    
+    </ul>
+
+			<!-- AFFICHAGE DE TEST, À SUPPRIMER AVANT MEP
+
+			<ul class="language-switcher locale-flag">
+				<li><a href="/s/site-en-francais/page/bienvenue" title="français">fr</a></li>
+				<li><span class="active" title="English (United States)">en</span></li>
+			</ul> -->
+		</div>			
+	</div>
+	
+	<div class="wrap wrap--lg with-logo-bis no-connect">
+
+		
+				<div class="header__logo--bis">
+				<img src="https://plume.epfl.ch/svc1447-5405a1ac06eb99bbafc660bc2e34105f/asset/7f9615b90aa3206c6bc13973f1ff49b713eb7c6e.png" alt="EPFL" />
+			</a>
+		</div>
+		
+		<div class="header__logo with-logo with-subtitle left">
+			<a href="/s/fr" class="site-title" class="header__logo--main">
+									<img src="https://plume.epfl.ch/svc1447-5405a1ac06eb99bbafc660bc2e34105f/asset/8bf5c0bc10cccf7fd67907708fafaee1217c7131.png" alt="Plume fr" />
+											<span class="header__subtitle screen-reader-text">Collections patrimoniales EPFL</span>
+												</a>
+		</div>
+
+		<div class="header__nav">
+			<nav>
+				<ul class="navigation">
+    <li class="active">
+        <a href="&#x2F;s&#x2F;fr&#x2F;page&#x2F;accueil" aria-current="page">Accueil</a>
+    </li>
+    <li>
+        <a href="&#x2F;s&#x2F;fr&#x2F;item">Parcourir les documents</a>
+    </li>
+    <li>
+        <a href="&#x2F;s&#x2F;fr&#x2F;item-set">Explorer les collections</a>
+    </li>
+    <li>
+        <a href="&#x2F;s&#x2F;fr&#x2F;page&#x2F;exhibitions">Expositions virtuelles</a>
+        <ul>
+            <li>
+                <a href="&#x2F;s&#x2F;fr&#x2F;page&#x2F;athanase-kircher-un-scientifique-baroque">Athanase Kircher : un scientifique baroque</a>
+            </li>
+            <li>
+                <a href="&#x2F;s&#x2F;fr&#x2F;page&#x2F;un-serenissime-incunable">Un sérénissime incunable</a>
+            </li>
+        </ul>
+    </li>
+    <li>
+        <a href="&#x2F;s&#x2F;fr&#x2F;page&#x2F;a-propos">À propos</a>
+    </li>
+    <li>
+        <a href="&#x2F;s&#x2F;fr&#x2F;page&#x2F;aide">Aide</a>
+    </li>
+</ul>			</nav>
+		</div>
+	</div>
+</header>
+
+<div class="header__search simple-search">
+	<div class="wrap wrap--lg">
+		
+<form action="/s/fr/search" id="search-form">
+	<input type="text" name="q" value=""
+		placeholder="Recherche"
+		aria-label="Recherche">
+	<button type="submit"><span class="fa fa-search"></span><span class="screen-reader-text">Recherche</span></button>
+</form>
+<div class="button-container">
+	<a href="/s/fr/search" class="button button--advanced"><span class="fas fa-plus-circle"></span>Recherche avancée</a>
+</div>
+	</div>	
+</div>
+		<div id="content" role="main">
+						
+	
+
+<div class="blocks">
+
+	
+			<h1 class="screen-reader-text">Plume fr</h1>
+	
+		<!-- Show slider if selected in theme parameters - 4 slides -->
+<section class="carousel" aria-label="Carousel Slider">
+	<div class="section__wrap section-carousel__wrap wrap wrap--lg">
+
+		<div class="carousel__slider slider splide" id="head-slider">
+
+			<div class="splide__arrows">
+				<button class="splide__arrow splide__arrow--prev">
+					<span class="fa fa-caret-left"></span><span class="screen-reader-text">Précédent</span>
+				</button>
+				<button class="splide__arrow splide__arrow--next">
+					<span class="fa fa-caret-right"></span><span class="screen-reader-text">Suivant</span>
+				</button>
+			</div>
+			
+			<div class="splide__track">
+				<div class="splide__list">
+										<div class="carousel__contents splide__slide">
+
+							<div class="carousel__thumbnail"><img src="https://plume.epfl.ch/svc1447-5405a1ac06eb99bbafc660bc2e34105f/asset/0aad7f206b23e8cf285069d63e3e864d6201cd1a.jpg" alt="" /></div>
+
+							<div class="carousel__content">
+								<h2 class="carousel__title">Bienvenue</h2>																	
+
+								<div class="carousel__edito--container">
+									<div class="carousel__edito">
+																					<div class="carousel__text">Découvrez nos livres précieux numérisés en effectuant une recherche simple ou avancée, ou en consultant directement nos collections. La visionneuse vous permet de feuilleter les documents depuis votre navigateur.</div>
+																															<div class="button__container"><a href="https://plume.epfl.ch/s/fr/item" class="button button--small">Découvrir</a></div>
+																			</div>
+								</div>
+							</div>						
+
+						</div>
+												<div class="carousel__contents splide__slide">
+
+							<div class="carousel__thumbnail"><img src="https://plume.epfl.ch/svc1447-5405a1ac06eb99bbafc660bc2e34105f/asset/0c07be509643a734fb226c2f9f611c1f514c520d.jpg" alt="" /></div>
+
+							<div class="carousel__content">
+								<h2 class="carousel__title">Exposition</h2>																	
+
+								<div class="carousel__edito--container">
+									<div class="carousel__edito">
+																					<div class="carousel__text">La Bibliothèque de l’EPFL met régulièrement à l’honneur des ouvrages remarquables. Parmi ses expositions virtuelles, l’une est consacrée à Athanase Kircher, prêtre jésuite et figure majeure de la science baroque.</div>
+																															<div class="button__container"><a href="https://plume.epfl.ch/s/fr/page/athanase-kircher-un-scientifique-baroque" class="button button--small">Voir l'exposition</a></div>
+																			</div>
+								</div>
+							</div>						
+
+						</div>
+										</div>
+			</div>
+		</div>
+		<script>
+			document.addEventListener( 'DOMContentLoaded', function () {
+				var splide = new Splide( '#head-slider', {
+					arrows: true,
+					keyboard: true,
+					type: 'loop',
+					autoplay: false,
+					pauseOnHover: true,
+					interval: 8000,
+				} );
+
+				// reference https://splidejs.com/guides/overflow/#observing-overflow
+				splide.on( 'overflow', function ( isOverflow ) {
+					splide.options = {
+						arrows    : isOverflow,
+						pagination: isOverflow,
+						drag      : isOverflow,
+					};
+				} );
+
+				splide.mount();
+			} );
+		</script>
+
+	</div>
+</section>
+
+		
+
+		<section class="collections">
+	<div class="collections__wrap wrap wrap--smd">
+		<h2 class="collections__title">Collections</h2>
+		<div class="collection__items">
+								
+					<div class="collection__item">
+						<a href="/s/fr/item-set/1">
+							<div class="collection__thumbnail">
+																	<img src="https&#x3A;&#x2F;&#x2F;plume.epfl.ch&#x2F;svc1447-5405a1ac06eb99bbafc660bc2e34105f&#x2F;asset&#x2F;6b6c8049a587836de8e1e067becec33d396ae4c5.jpg" alt="">															</div>
+
+							<h3 class="collection__title">Architecture</h3>
+						</a>
+					</div>
+					
+									
+					<div class="collection__item">
+						<a href="/s/fr/item-set/7">
+							<div class="collection__thumbnail">
+																	<img src="https&#x3A;&#x2F;&#x2F;plume.epfl.ch&#x2F;svc1447-5405a1ac06eb99bbafc660bc2e34105f&#x2F;asset&#x2F;76621400b2111d6148503db752dbdb26b90e09b8.jpg" alt="">															</div>
+
+							<h3 class="collection__title">Art militaire et génie militaire</h3>
+						</a>
+					</div>
+					
+									
+					<div class="collection__item">
+						<a href="/s/fr/item-set/3">
+							<div class="collection__thumbnail">
+																	<img src="https&#x3A;&#x2F;&#x2F;plume.epfl.ch&#x2F;svc1447-5405a1ac06eb99bbafc660bc2e34105f&#x2F;asset&#x2F;29a04db99cdb8bb2608e1226344f1556c4dfa613.jpg" alt="">															</div>
+
+							<h3 class="collection__title">Beaux-arts</h3>
+						</a>
+					</div>
+					
+									
+					<div class="collection__item">
+						<a href="/s/fr/item-set/2">
+							<div class="collection__thumbnail">
+																	<img src="https&#x3A;&#x2F;&#x2F;plume.epfl.ch&#x2F;svc1447-5405a1ac06eb99bbafc660bc2e34105f&#x2F;asset&#x2F;9a60094319cbfb7e9110325e87ad8921bec9e787.jpg" alt="">															</div>
+
+							<h3 class="collection__title">Chimie et alchimie</h3>
+						</a>
+					</div>
+					
+									
+					<div class="collection__item">
+						<a href="/s/fr/item-set/4">
+							<div class="collection__thumbnail">
+																	<img src="https&#x3A;&#x2F;&#x2F;plume.epfl.ch&#x2F;svc1447-5405a1ac06eb99bbafc660bc2e34105f&#x2F;asset&#x2F;5b02e9747c8be4de37ad80ce778e06d82759c6c0.jpg" alt="">															</div>
+
+							<h3 class="collection__title">Dictionnaires et encyclopédies</h3>
+						</a>
+					</div>
+					
+									
+					<div class="collection__item">
+						<a href="/s/fr/item-set/5">
+							<div class="collection__thumbnail">
+																	<img src="https&#x3A;&#x2F;&#x2F;plume.epfl.ch&#x2F;svc1447-5405a1ac06eb99bbafc660bc2e34105f&#x2F;asset&#x2F;065180997ab3e8b3a52be1a19c20ee84fc43a6f5.jpg" alt="">															</div>
+
+							<h3 class="collection__title">Economie rurale</h3>
+						</a>
+					</div>
+					
+									
+					<div class="collection__item">
+						<a href="/s/fr/item-set/8">
+							<div class="collection__thumbnail">
+																	<img src="https&#x3A;&#x2F;&#x2F;plume.epfl.ch&#x2F;svc1447-5405a1ac06eb99bbafc660bc2e34105f&#x2F;asset&#x2F;b0f90999560580d3aaca2d6ff99662c6b64bd843.jpg" alt="">															</div>
+
+							<h3 class="collection__title">Géographie et voyages</h3>
+						</a>
+					</div>
+					
+									
+					<div class="collection__item">
+						<a href="/s/fr/item-set/9">
+							<div class="collection__thumbnail">
+																	<img src="https&#x3A;&#x2F;&#x2F;plume.epfl.ch&#x2F;svc1447-5405a1ac06eb99bbafc660bc2e34105f&#x2F;asset&#x2F;839bb215b3e77686c07c8dc9fce4e6794aa9c826.jpg" alt="">															</div>
+
+							<h3 class="collection__title">Histoire</h3>
+						</a>
+					</div>
+					
+									
+					<div class="collection__item">
+						<a href="/s/fr/item-set/16">
+							<div class="collection__thumbnail">
+																	<img src="https&#x3A;&#x2F;&#x2F;plume.epfl.ch&#x2F;svc1447-5405a1ac06eb99bbafc660bc2e34105f&#x2F;asset&#x2F;2ac3a77e45c571cf1b87de414bf044a2c61861f5.jpg" alt="">															</div>
+
+							<h3 class="collection__title">Histoire naturelle et sciences de la nature</h3>
+						</a>
+					</div>
+					
+									
+					<div class="collection__item">
+						<a href="/s/fr/item-set/10">
+							<div class="collection__thumbnail">
+																	<img src="https&#x3A;&#x2F;&#x2F;plume.epfl.ch&#x2F;svc1447-5405a1ac06eb99bbafc660bc2e34105f&#x2F;asset&#x2F;7ea7750b7873d09c7a370bf77e148fb2f7857591.jpg" alt="">															</div>
+
+							<h3 class="collection__title">Mathématiques</h3>
+						</a>
+					</div>
+					
+									
+					<div class="collection__item">
+						<a href="/s/fr/item-set/14">
+							<div class="collection__thumbnail">
+																	<img src="https&#x3A;&#x2F;&#x2F;plume.epfl.ch&#x2F;svc1447-5405a1ac06eb99bbafc660bc2e34105f&#x2F;asset&#x2F;9b98b0cd7749e0ed7906108e77c3599ab45ee210.jpg" alt="">															</div>
+
+							<h3 class="collection__title">Musique et musicologie</h3>
+						</a>
+					</div>
+					
+									
+					<div class="collection__item">
+						<a href="/s/fr/item-set/11">
+							<div class="collection__thumbnail">
+																	<img src="https&#x3A;&#x2F;&#x2F;plume.epfl.ch&#x2F;svc1447-5405a1ac06eb99bbafc660bc2e34105f&#x2F;asset&#x2F;7f272a042489cc722935e077f1eca36feac1c836.jpg" alt="">															</div>
+
+							<h3 class="collection__title">Médecine et santé</h3>
+						</a>
+					</div>
+					
+									
+					<div class="collection__item">
+						<a href="/s/fr/item-set/6">
+							<div class="collection__thumbnail">
+																	<img src="https&#x3A;&#x2F;&#x2F;plume.epfl.ch&#x2F;svc1447-5405a1ac06eb99bbafc660bc2e34105f&#x2F;asset&#x2F;2f44764fc1b1487faa0f36541a353c97385f2b63.jpg" alt="">															</div>
+
+							<h3 class="collection__title">Peuples, mœurs et ethnologie</h3>
+						</a>
+					</div>
+					
+									
+					<div class="collection__item">
+						<a href="/s/fr/item-set/12">
+							<div class="collection__thumbnail">
+																	<img src="https&#x3A;&#x2F;&#x2F;plume.epfl.ch&#x2F;svc1447-5405a1ac06eb99bbafc660bc2e34105f&#x2F;asset&#x2F;142d4f09e4c84275b6a843b9d585855adc8855d0.jpg" alt="">															</div>
+
+							<h3 class="collection__title">Philosophie</h3>
+						</a>
+					</div>
+					
+									
+					<div class="collection__item">
+						<a href="/s/fr/item-set/13">
+							<div class="collection__thumbnail">
+																	<img src="https&#x3A;&#x2F;&#x2F;plume.epfl.ch&#x2F;svc1447-5405a1ac06eb99bbafc660bc2e34105f&#x2F;asset&#x2F;591a5593ec4755659589991b1b9816c2c38e1a6f.jpg" alt="">															</div>
+
+							<h3 class="collection__title">Physique</h3>
+						</a>
+					</div>
+					
+									
+					<div class="collection__item">
+						<a href="/s/fr/item-set/17">
+							<div class="collection__thumbnail">
+																	<img src="https&#x3A;&#x2F;&#x2F;plume.epfl.ch&#x2F;svc1447-5405a1ac06eb99bbafc660bc2e34105f&#x2F;asset&#x2F;caa8b047cd7ef80d820e38ba38d25d12f8dc99b1.jpg" alt="">															</div>
+
+							<h3 class="collection__title">Sciences criminelles</h3>
+						</a>
+					</div>
+					
+									
+					<div class="collection__item">
+						<a href="/s/fr/item-set/15">
+							<div class="collection__thumbnail">
+																	<img src="https&#x3A;&#x2F;&#x2F;plume.epfl.ch&#x2F;svc1447-5405a1ac06eb99bbafc660bc2e34105f&#x2F;asset&#x2F;f650508127a72500ec840200fc07c88bb5e65c5f.jpg" alt="">															</div>
+
+							<h3 class="collection__title">Sciences de l'ingénieur</h3>
+						</a>
+					</div>
+					
+									
+					<div class="collection__item">
+						<a href="/s/fr/item-set/18">
+							<div class="collection__thumbnail">
+																	<img src="https&#x3A;&#x2F;&#x2F;plume.epfl.ch&#x2F;svc1447-5405a1ac06eb99bbafc660bc2e34105f&#x2F;asset&#x2F;ada93a5b8dd4b9948607dfb8cdf3e079b2d68117.jpg" alt="">															</div>
+
+							<h3 class="collection__title">Techniques et arts appliqués</h3>
+						</a>
+					</div>
+					
+									
+					<div class="collection__item">
+						<a href="/s/fr/item-set/19">
+							<div class="collection__thumbnail">
+																	<img src="https&#x3A;&#x2F;&#x2F;plume.epfl.ch&#x2F;svc1447-5405a1ac06eb99bbafc660bc2e34105f&#x2F;asset&#x2F;7489c93ce67b9017897680acec72b2456ca2bef6.jpg" alt="">															</div>
+
+							<h3 class="collection__title">Théologie et religion</h3>
+						</a>
+					</div>
+					
+						</div>
+			</div>
+</section>
+		
+	 
+	<div class="blocks--container">
+		<div class="wrap wrap--xs">
+			<div class="blocks-inner page-layout-normal" style=""></div>		</div>
+	</div>
+</div>
+
+
+		</div>
+
+		
+<footer class="footer">
+	<div class="wrap wrap--lg">
+
+					<div class="footer__logo--bis">
+				<a href="https://www.epfl.ch/fr/">
+					<img src="https://plume.epfl.ch/svc1447-5405a1ac06eb99bbafc660bc2e34105f/asset/7f9615b90aa3206c6bc13973f1ff49b713eb7c6e.png" alt="EPFL" />
+				</a>
+			</div>
+						
+				<nav class="footer__nav">
+			    <div class="two-columns">
+        <div class="col-narrow">
+            <img src="https://plume.epfl.ch/svc1447-5405a1ac06eb99bbafc660bc2e34105f/asset/8bf5c0bc10cccf7fd67907708fafaee1217c7131.png" alt="Logo Plume" class="img-fluid">
+        </div>
+        <div class="col-wide">
+            <div class="footer__address">
+                <p>     Bibliothèque de l’EPFL Rolex Learning Center Station 20 CH-1015 Lausanne </p>
+            </div>    
+            <div class="footer__socials">
+			<a href="https://social.epfl.ch/@epfllibrary">
+							<img src="/themes/omekalia/asset/img/mastodon-epfl.svg" alt="mastodon">
+						</a>	
+			<a href="https://bsky.app/profile/epfllibrary.bsky.social">
+							<img src="/themes/omekalia/asset/img/bluesky-epfl.svg" alt="bluesky">
+						</a>	
+			<a href="https://www.linkedin.com/showcase/biblioth%C3%A8que-de-l'epfl">
+							<img src="/themes/omekalia/asset/img/linkedin-epfl.svg" alt="linkedin">
+						</a>																		
+																				<a href="https://www.instagram.com/epfllibrary/">
+							<img src="/themes/omekalia/asset/img/instagram-epfl.svg" alt="instagram">
+						</a>
+															<a href="https://www.facebook.com/EPFLlibrary">
+							<img src="/themes/omekalia/asset/img/facebook-epfl.svg" alt="facebook">
+						</a>
+																				<a href="https://www.youtube.com/epfllibrary">
+							<img src="/themes/omekalia/asset/img/youtube-epfl.svg" alt="youtube">
+						</a>
+            </div>
+			<div class="footer__legals">																															
+                <a href="mailto:library@epfl.ch">Contact</a>
+                <a href="https://plume.epfl.ch/s/fr/page/aide">Aide</a>
+                <a href="https://plume.epfl.ch/s/fr/page/mentions-legal">Mentions légales</a> 
+            </div>	   
+        </div>
+    </div>		</nav>
+		
+		<!-- Social Networks -->
+		
+
+			</div>
+</footer>
+		<!-- Back to top button -->
+<a id="backtotop"><span class="screen-reader-text">Retour en haut de page</span></a>
+<script>
+(function($) {
+
+	$(document).ready(function() {
+		$('header nav').addClass('closed');
+
+		// Back to top button
+		var backToTopBTN = $('#backtotop');
+		$(window).scroll(function() {
+			if ($(window).scrollTop() > 300) {
+				backToTopBTN.addClass('show');
+			} else {
+				backToTopBTN.removeClass('show');
+			}
+		});
+
+		backToTopBTN.on('click', function(e) {
+			e.preventDefault();
+			$('html, body').animate({scrollTop:0}, '300');
+		});
+
+	});
+})(jQuery);
+</script>
+	</body>
+</html>

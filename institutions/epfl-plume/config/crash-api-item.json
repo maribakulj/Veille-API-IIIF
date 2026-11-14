@@ -1,0 +1,12 @@
+{
+  "slug": "epfl-plume",
+  "endpoint": {
+    "id": "cantaloupe-info-json",
+    "url": "https://plume.epfl.ch/cantaloupe/iiif/2/CHEPFL_LIPR_AXB244_01_0001.tif/info.json",
+    "method": "GET"
+  },
+  "limite_documentee_req_min": null,
+  "source_limite": "aucune limite de débit documentée : https://plume.epfl.ch/s/fr/page/mentions-legal et https://plume.epfl.ch/robots.txt (Disallow /admin/ et /login, pas de Crawl-delay)",
+  "duree_palier_s": 180,
+  "note": "info.json Cantaloupe, 200 dans le journal (cantaloupe-info-json, 2026-11-14T01:34:49Z), réponse courte (quelques ko) ; ni PDF, ni ALTO, ni manifeste de 508 ko, ni recherche. Hôte unique plume.epfl.ch, serveur Apache sans CDN détecté."
+}

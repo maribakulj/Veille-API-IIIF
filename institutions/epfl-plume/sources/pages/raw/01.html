@@ -1,0 +1,349 @@
+<!DOCTYPE html><html lang="fr">	<head>
+		<meta charset="utf-8">
+<meta name="viewport" content="width&#x3D;device-width,&#x20;initial-scale&#x3D;1">		<title>Aide · Plume</title>		<link href="&#x2F;themes&#x2F;omekalia&#x2F;asset&#x2F;lib&#x2F;splide&#x2F;css&#x2F;splide.min.css&#x3F;v&#x3D;1.0.12" media="screen" rel="stylesheet" type="text&#x2F;css">
+<link href="&#x2F;application&#x2F;asset&#x2F;css&#x2F;page-blocks.css&#x3F;v&#x3D;4.2.1" media="screen" rel="stylesheet" type="text&#x2F;css">
+<link href="&#x2F;application&#x2F;asset&#x2F;css&#x2F;iconfonts.css&#x3F;v&#x3D;4.2.1" media="screen" rel="stylesheet" type="text&#x2F;css">
+<link href="&#x2F;themes&#x2F;omekalia&#x2F;asset&#x2F;css&#x2F;style.css&#x3F;v&#x3D;1.0.12" media="screen" rel="stylesheet" type="text&#x2F;css">
+<link href="&#x2F;themes&#x2F;omekalia&#x2F;asset&#x2F;css&#x2F;font-pack--1.css&#x3F;v&#x3D;1.0.12" media="screen" rel="stylesheet" type="text&#x2F;css">
+<link href="&#x2F;s&#x2F;fr&#x2F;css-editor" media="screen" rel="stylesheet" type="text&#x2F;css">
+<link href="&#x2F;modules&#x2F;EUCookieBar&#x2F;asset&#x2F;vendor&#x2F;jquery.cookiebar&#x2F;jquery.cookiebar.css&#x3F;v&#x3D;3.4.6" media="screen" rel="stylesheet" type="text&#x2F;css">
+<link href="&#x2F;modules&#x2F;Internationalisation&#x2F;asset&#x2F;css&#x2F;language-switcher.css&#x3F;v&#x3D;3.4.20" media="screen" rel="stylesheet" type="text&#x2F;css">
+<link href="&#x2F;modules&#x2F;Internationalisation&#x2F;asset&#x2F;vendor&#x2F;flag-icon-css&#x2F;css&#x2F;flag-icon.min.css&#x3F;v&#x3D;3.4.20" media="screen" rel="stylesheet" type="text&#x2F;css">
+<link href="&#x2F;modules&#x2F;ItemSetsTree&#x2F;asset&#x2F;css&#x2F;item-sets-tree.css&#x3F;v&#x3D;0.7.5" media="screen" rel="stylesheet" type="text&#x2F;css">				<script  src="&#x2F;themes&#x2F;omekalia&#x2F;asset&#x2F;lib&#x2F;splide&#x2F;js&#x2F;splide.min.js&#x3F;v&#x3D;1.0.12"></script>
+<script  src="https&#x3A;&#x2F;&#x2F;code.jquery.com&#x2F;jquery-3.7.1.min.js"></script>
+<script  src="&#x2F;application&#x2F;asset&#x2F;js&#x2F;global.js&#x3F;v&#x3D;4.2.1"></script>
+<script  src="&#x2F;themes&#x2F;omekalia&#x2F;asset&#x2F;js&#x2F;theme.js&#x3F;v&#x3D;1.0.12"></script>
+<script >
+    //<!--
+    
+Omeka.jsTranslate = function(str) {
+    var jsTranslations = {"Something went wrong":"Quelque chose s\u2019est mal pass\u00e9","Make private":"Rendre priv\u00e9","Make public":"Rendre public","Expand":"D\u00e9plier","Collapse":"Replier","You have unsaved changes.":"Vous avez des modifications non enregistr\u00e9es.","Restore item set":"R\u00e9tablir la collection","Close icon set":"Fermer l\u2019ensemble des ic\u00f4nes","Open icon set":"Ouvrir l\u2019ensemble des ic\u00f4nes","[Untitled]":"[Sans titre]","Failed loading resource template from API":"\u00c9chec du chargement du mod\u00e8le de ressource \u00e0 partir de l\u2019API","Restore property":"Restaurer la propri\u00e9t\u00e9","There are no available pages.":"Il n\u2019y a pas de page disponible.","Please enter a valid language tag":"Entrez une \u00e9tiquette de langue valide","Title":"Titre","Description":"Description","Unknown block layout":"Bloc inconnu","Required field must be completed":"Les champs obligatoires doivent \u00eatre compl\u00e9t\u00e9s.","Cancel":"Annuler","Class":"Classe","Collapse the list of groups of blocks":"Replier la liste des groupes de blocs","Confirm download":"Confirmer le t\u00e9l\u00e9chargement","Download":"T\u00e9l\u00e9charger","Expand to display the list of groups of blocks":"D\u00e9plier pour afficher la liste des groupes de blocs","Insert Footnotes":"Ins\u00e9rer des pieds de page","Next":"Suivant","No next":"Pas de suivant","No previous":"Pas de pr\u00e9c\u00e9dent","Page metadata":"M\u00e9tadonn\u00e9es de la page","Please wait for previous group of blocks to be prepared before adding a new one.":"Veuillez attendre la finalisation du groupe de blocs pr\u00e9c\u00e9dent avant d\u2019en ajouter un autre.","Previous":"Pr\u00e9c\u00e9dent","This group does not contain any block.":"Ce groupe ne contient aucun bloc.","Url (deprecated)":"Url (obsol\u00e8te)","Remove mapping":"Supprimer l\u2019alignement","An error occurred.":"Une erreur est survenue.","Apply":"Appliquer","Close":"Fermer","Information":"Information","No":"Non","OK":"OK","Warning":"Attention","Yes":"Oui","Copy":"Copier","Message copied":"Message copi\u00e9","Search and select...":"Chercher et s\u00e9lectionner..."};
+    return (str in jsTranslations) ? jsTranslations[str] : str;
+};
+    //-->
+</script>
+<script  defer="defer" src="&#x2F;modules&#x2F;EUCookieBar&#x2F;asset&#x2F;vendor&#x2F;jquery.cookiebar&#x2F;jquery.cookiebar.js&#x3F;v&#x3D;3.4.6"></script>
+<script  defer="defer" src="&#x2F;modules&#x2F;EUCookieBar&#x2F;asset&#x2F;js&#x2F;eu-cookie-bar.js&#x3F;v&#x3D;3.4.6"></script>
+<script >
+    //<!--
+    var euCookieBarOptions = {"acceptButton":true,"acceptText":"OK","declineButton":false,"declineText":"Disable Cookies","policyButton":false,"policyText":"Privacy Policy","policyURL":"/","bottom":true,"fixed":true,"zindex":"99999","message":"<p>Ce site utilise Matomo, un outil de mesure d&rsquo;audience respectueux de la vie priv&eacute;e.&nbsp;Les donn&eacute;es collect&eacute;es sont anonymis&eacute;es et utilis&eacute;es uniquement &agrave; des fins statistiques.</p>\r\n"};
+    //-->
+</script>
+<script >
+    //<!--
+    var _paq = window._paq = window._paq || [];
+  /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
+  _paq.push(["setExcludedQueryParams", ["\/admin*"]]);
+  _paq.push(['trackPageView']);
+  _paq.push(['enableLinkTracking']);
+  (function() {
+    var u="//costcalc.epfl.ch/matomo/";
+    _paq.push(['setTrackerUrl', u+'matomo.php']);
+    _paq.push(['setSiteId', '3']);
+    var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+    g.async=true; g.src=u+'matomo.js'; s.parentNode.insertBefore(g,s);
+  })();
+    //-->
+</script>
+		<style type="text/css" media="screen">
+			:root {
+				--primary: #FF0000;
+				--secondary: #8E8E8E;
+				--secondary-light: #c7c7c7;
+				--img-bg-search-home: url(https://plume.epfl.ch/svc1447-5405a1ac06eb99bbafc660bc2e34105f/asset/64cb70f778edd2e994e76966cdcef815fd464fb6.png);				--img-bg-search: url(https://plume.epfl.ch/svc1447-5405a1ac06eb99bbafc660bc2e34105f/asset/64cb70f778edd2e994e76966cdcef815fd464fb6.png);								--icon-arrow-up: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' xml:space='preserve' style='fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2' viewBox='0 0 299 169'%3E%3Cpath d='M8.296 120.55h293.023v167.506H8.296z' style='fill:none' transform='matrix(1.0204 0 0 1.00892 -8.466 -121.625)'/%3E%3Cpath d='M288.8 352H31.3c-17.8 0-26.7-21.5-14.1-34.1l128.7-128.7c7.8-7.8 20.5-7.8 28.3 0l128.7 128.7c12.6 12.6 3.7 34.1-14.1 34.1Z' style='fill:%23FF0000;fill-rule:nonzero' transform='translate(-10.55 -183.175)'/%3E%3C/svg%3E");
+				--icon-arrow-down: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' xml:space='preserve' style='fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2' viewBox='0 0 299 169'%3E%3Cpath d='M8.296 120.55h293.023v167.506H8.296z' style='fill:none' transform='matrix(1.0204 0 0 1.00892 -8.466 -121.625)'/%3E%3Cpath d='M31.3 192h257.3c17.8 0 26.7 21.5 14.1 34.1L174.1 354.8c-7.8 7.8-20.5 7.8-28.3 0L17.2 226.1C4.6 213.5 13.5 192 31.3 192Z' style='fill:%23FF0000;fill-rule:nonzero' transform='translate(-10.45 -191.825)'/%3E%3C/svg%3E");
+				--icon-bookmark: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' xml:space='preserve' style='fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2' viewBox='0 0 384 512'%3E%3Cpath d='M0 512V48C0 21.5 21.5 0 48 0h288c26.5 0 48 21.5 48 48v464L192 400 0 512Z' style='fill:%23FF0000;fill-rule:nonzero'/%3E%3C/svg%3E");
+				--icon-map-pin: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' xml:space='preserve' style='fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2' viewBox='0 0 288 512'%3E%3Cpath d='M112 316.9v156.7l22 33c4.8 7.1 15.2 7.1 20 0l22-33V316.9c-10.4 1.9-21.1 3.1-32 3.1-10.9 0-21.6-1.1-32-3.1ZM144 0C64.5 0 0 64.5 0 144s64.5 144 144 144 144-64.5 144-144S223.5 0 144 0Zm0 76c-37.5 0-68 30.5-68 68 0 6.6-5.4 12-12 12s-12-5.4-12-12c0-50.7 41.3-92 92-92 6.6 0 12 5.4 12 12s-5.4 12-12 12Z' style='fill:%23FF0000;fill-rule:nonzero'/%3E%3C/svg%3E");
+			}
+		</style>
+
+	</head>
+
+	<body class="page&#x20;&#x20;site-page-aide&#x20;page&#x20;aide&#x20;pageid17&#x20;minimal">		
+		<header class="header">
+		<div class="header__top">
+		<div class="wrap wrap--lg">
+			
+<ul class="language-switcher locale-code">
+    
+            <li>
+                            <span class="active" title="fran&#xE7;ais">fr</span>
+                    </li>
+            <li>
+                            <a href="&#x2F;s&#x2F;en&#x2F;page&#x2F;aide" title="English&#x20;&#x28;United&#x20;States&#x29;">en</a>
+                    </li>
+    
+    </ul>
+
+			<!-- AFFICHAGE DE TEST, À SUPPRIMER AVANT MEP
+
+			<ul class="language-switcher locale-flag">
+				<li><a href="/s/site-en-francais/page/bienvenue" title="français">fr</a></li>
+				<li><span class="active" title="English (United States)">en</span></li>
+			</ul> -->
+		</div>			
+	</div>
+	
+	<div class="wrap wrap--lg with-logo-bis no-connect">
+
+		
+				<div class="header__logo--bis">
+				<img src="https://plume.epfl.ch/svc1447-5405a1ac06eb99bbafc660bc2e34105f/asset/7f9615b90aa3206c6bc13973f1ff49b713eb7c6e.png" alt="EPFL" />
+			</a>
+		</div>
+		
+		<div class="header__logo with-logo with-subtitle left">
+			<a href="/s/fr" class="site-title" class="header__logo--main">
+									<img src="https://plume.epfl.ch/svc1447-5405a1ac06eb99bbafc660bc2e34105f/asset/8bf5c0bc10cccf7fd67907708fafaee1217c7131.png" alt="Plume fr" />
+											<span class="header__subtitle screen-reader-text">Collections patrimoniales EPFL</span>
+												</a>
+		</div>
+
+		<div class="header__nav">
+			<nav>
+				<ul class="navigation">
+    <li>
+        <a href="&#x2F;s&#x2F;fr&#x2F;page&#x2F;accueil">Accueil</a>
+    </li>
+    <li>
+        <a href="&#x2F;s&#x2F;fr&#x2F;item">Parcourir les documents</a>
+    </li>
+    <li>
+        <a href="&#x2F;s&#x2F;fr&#x2F;item-set">Explorer les collections</a>
+    </li>
+    <li>
+        <a href="&#x2F;s&#x2F;fr&#x2F;page&#x2F;exhibitions">Expositions virtuelles</a>
+        <ul>
+            <li>
+                <a href="&#x2F;s&#x2F;fr&#x2F;page&#x2F;athanase-kircher-un-scientifique-baroque">Athanase Kircher : un scientifique baroque</a>
+            </li>
+            <li>
+                <a href="&#x2F;s&#x2F;fr&#x2F;page&#x2F;un-serenissime-incunable">Un sérénissime incunable</a>
+            </li>
+        </ul>
+    </li>
+    <li>
+        <a href="&#x2F;s&#x2F;fr&#x2F;page&#x2F;a-propos">À propos</a>
+    </li>
+    <li class="active">
+        <a href="&#x2F;s&#x2F;fr&#x2F;page&#x2F;aide" aria-current="page">Aide</a>
+    </li>
+</ul>			</nav>
+		</div>
+	</div>
+</header>
+
+<div class="header__search simple-search">
+	<div class="wrap wrap--lg">
+		
+<form action="/s/fr/search" id="search-form">
+	<input type="text" name="q" value=""
+		placeholder="Recherche"
+		aria-label="Recherche">
+	<button type="submit"><span class="fa fa-search"></span><span class="screen-reader-text">Recherche</span></button>
+</form>
+<div class="button-container">
+	<a href="/s/fr/search" class="button button--advanced"><span class="fas fa-plus-circle"></span>Recherche avancée</a>
+</div>
+	</div>	
+</div>
+		<div id="content" role="main">
+						
+				<nav class="breadcrumbs wrap wrap--smd"><a href="/s/fr">Accueil</a> &gt; <span>Aide</span></nav>
+	
+
+<div class="blocks">
+
+	
+	 
+	<div class="blocks--container">
+		<div class="wrap wrap--xs">
+			<div class="blocks-inner page-layout-normal" style=""><div class="block block-html" style="padding-top: 32px; padding-bottom: 32px"><section class="faq-intro">
+<h1>Aide</h1>
+
+<p style="text-align: justify"><span style="font-size:12pt;">Dans cette rubrique, vous </span>trouvez <span style="font-size:12pt;">des explications relatives &agrave; :</span></p>
+</section>
+
+<div class="grid">
+<ul class="link-list epfl-faq-header">
+	<li><a draggable="false" href="#faq-item-1">Acc&egrave;s aux documents num&eacute;riques</a></li>
+	<li><a draggable="false" href="#faq-item-2">Affichage des r&eacute;sultats de recherche</a></li>
+	<li><a draggable="false" href="#faq-item-3">Consultation des documents num&eacute;riques</a></li>
+	<li><a draggable="false" href="#faq-item-4">T&eacute;l&eacute;chargement</a></li>
+	<li><a draggable="false" href="#faq-item-5">Outils de modifications d&#39;image</a></li>
+	<li><a draggable="false" href="#faq-item-6">R&eacute;utilisation d&#39;images</a></li>
+</ul>
+
+<div class="faq-item" id="faq-item-1">
+<h4 class="faq-item-question">Acc&egrave;s aux documents num&eacute;riques</h4>
+
+<p style="text-align: justify"><span style="font-size:12pt;">PLUME propose trois types d&#39;acc&egrave;s aux documents :</span></p>
+
+<ul>
+	<li>Tous les documents sont regroup&eacute;s et organis&eacute;s dans des collections th&eacute;matiques. L&#39;onglet <a draggable="false" href="https://plume.epfl.ch/s/fr/item-set" target="_blank"> Collections</a> du menu principal permet de parcourir les contenus de chacune des 19 collections.</li>
+	<li>La vue de l&#39;onglet <a href="https://plume.epfl.ch/s/fr/item">Parcourir</a> simule une recherche sur l&#39;ensemble des contenus et permet de visualiser la totalit&eacute; des documents.</li>
+	<li>Il est &eacute;galement possible d&rsquo;acc&eacute;der aux documents en effectuant une recherche : la barre de recherche est accessible depuis toutes les pages du site et permet de chercher des documents &agrave; partir d&rsquo;un ou plusieurs mots-cl&eacute;s.
+	<ul>
+		<li>Ces mots-cl&eacute;s peuvent &ecirc;tre combin&eacute;s avec les op&eacute;rateurs AND, OR et NOT.</li>
+		<li>AND est l&rsquo;op&eacute;rateur appliqu&eacute; par d&eacute;faut si plusieurs mots sont saisis dans la barre de recherche, tandis que l&#39;utilisation de guillemets permet de chercher une expression exacte.</li>
+		<li>La recherche porte sur tous les champs des notices d&eacute;crivant les documents num&eacute;ris&eacute;s.</li>
+		<li>Le caract&egrave;re de troncature est l&#39;ast&eacute;risque (ex. : &laquo;Rom*&raquo; pour &laquo;Rome&raquo;, &laquo;Roma&raquo;, &laquo;Roman&raquo;, &laquo;Romani&raquo;&hellip;).</li>
+		<li>Ainsi, pour visualiser l&#39;int&eacute;gralit&eacute; des notices, il suffit de taper &quot;*&quot; dans la barre de recherche. Vous pouvez &eacute;galement la barre de recherche vide et valider, la liste exhaustive des r&eacute;sultast s&#39;affichera de la m&ecirc;me mani&egrave;re</li>
+	</ul>
+	</li>
+	<li>Enfin, certains ouvrages remarquables sont pr&eacute;sent&eacute;s dans l&rsquo;onglet &laquo;&nbsp;<a href="https://plume.epfl.ch/s/fr/page/exhibitions" target="_blanck">Expositions virtuelles</a>&nbsp;&raquo;.</li>
+</ul>
+
+<p><a href="https://plume.epfl.ch/svc1447-5405a1ac06eb99bbafc660bc2e34105f/asset/1dcb2d3fad3d01820fd402ec71b742cd904fedad.png" rel="noopener noreferrer" target="_blank"><img alt="Soleil_Kircher" src="https://plume.epfl.ch/svc1447-5405a1ac06eb99bbafc660bc2e34105f/asset/1dcb2d3fad3d01820fd402ec71b742cd904fedad.png" style="max-width:80%; height:auto;" /> </a></p>
+
+<p>&nbsp;</p>
+</div>
+
+<div class="faq-item" id="faq-item-2">
+<h4 class="faq-item-question">Affichage des r&eacute;sultats de recherche</h4>
+
+<p style="text-align: justify"><span style="font-size:12pt;">Il est possible de filtrer les r&eacute;sultats d&#39;une recherche en utilisant les facettes &agrave; droite de la page (par ex. auteur, &eacute;diteur, pays, ville d&#39;&eacute;dition, etc.).</span></p>
+
+<p><img alt="Capture filtres" draggable="false" font-size:12pt="" src="https://plume.epfl.ch/svc1447-5405a1ac06eb99bbafc660bc2e34105f/asset/1203132072edda290a46cef8e1290946ca593e93.png" style="width: 251px; height: 700px;" /></p>
+
+<p>On peut revenir &agrave; la liste initiale en d&eacute;cochant les filtres.</p>
+
+<p style="text-align: justify"><span style="font-size:12pt;">Il est &eacute;galement possible d&rsquo;affiner la liste de r&eacute;sultats en param&eacute;trant :</span></p>
+
+<ul>
+	<li>le tri des r&eacute;sultats (par pertinence, titre ou date ascendant ou descendant).</li>
+	<li>le mode d&#39;affichage (liste ou mosa&iuml;que de vignettes).</li>
+</ul>
+
+<p><img alt="Capture tris" draggable="false" src="https://plume.epfl.ch/svc1447-5405a1ac06eb99bbafc660bc2e34105f/asset/b2d1e7470b5659e0ca6f4bfd345a6953ce0e0697.png" /></p>
+
+<p style="text-align: justify"><span style="font-size:12pt;">Les listes de r&eacute;sultats peuvent &ecirc;tre imprim&eacute;es.</span></p>
+
+<div class="faq-item" id="faq-item-3">
+<h4 class="faq-item-question">Consultation des documents num&eacute;riques</h4>
+
+<h5><strong>Affichage du document </strong></h5>
+
+<p style="text-align: justify"><span style="font-size:12pt;">Cliquer sur le titre du document ou la vignette d&#39;un ouvrage permet ensuite d&#39;ouvrir la notice du document : celle-ci contient les m&eacute;tadonn&eacute;es descriptives et le contenu du document num&eacute;ris&eacute; dans la visionneuse.</span></p>
+
+<h5>Recherche plein texte</h5>
+
+<p style="text-align: justify"><span style="font-size:12pt;">La loupe puis la barre de recherche de la visionneuse permet de rechercher un mot <strong>dans le texte m&ecirc;me</strong> des ouvrages.</span></p>
+
+<p style="text-align: justify"><span style="font-size:12pt;">Les marqueurs bleus symbolisent chaque occurrence du mot recherch&eacute; dans le texte de l&#39;ouvrage. Ils permettent de visualiser le mot recherch&eacute; dans son contexte et, par un clic, d&#39;acc&eacute;der &agrave; la page concern&eacute;e sur laquelle le mot s&#39;affiche avec un surlignage de couleur.</span></p>
+
+<h5>Fonctionnalit&eacute; de la visionneuse</h5>
+
+<p style="text-align: justify"><span style="font-size:12pt;">En haut &agrave; droite de la visionneuse, diff&eacute;rents r&eacute;glages et fonctionnalit&eacute;s sont disponibles&nbsp;: le changement de la disposition de la visionneuse, les autres options et outils avec le t&eacute;l&eacute;chargement ou encore les outils de modification d&#39;image et la vue plein &eacute;cran.</span></p>
+
+<p><img alt="Visionneuse Mirador" draggable="false" src="https://plume.epfl.ch/svc1447-5405a1ac06eb99bbafc660bc2e34105f/asset/575e7187dceb5e5dfa1e0e51a653a3a038190cb5.png" style="width: 450px; height: 700px;" /></p>
+
+<div class="faq-item" id="faq-item-4">
+<h4 class="faq-item-question">T&eacute;l&eacute;chargement</h4>
+
+<p style="text-align: justify"><span style="font-size:12pt;">Sur PLUME, tous les documents sont t&eacute;l&eacute;chargeables. Lorsqu&rsquo;on se rend sur le document qu&rsquo;on souhaite t&eacute;l&eacute;charger, il suffit de cliquer sur les trois points&nbsp; dans la visionneuse puis <strong>T&eacute;l&eacute;charger</strong>. Il est possible de t&eacute;l&eacute;charger l&rsquo;image de la page affich&eacute;e &agrave; l&rsquo;&eacute;cran au format jpg, de t&eacute;l&eacute;charger le PDF du document complet, ou encore de t&eacute;l&eacute;charger la transcription du texte oc&eacute;ris&eacute; du document au format alto/xml&nbsp;:</span></p>
+
+<p><img alt="Téléchargement dans la visionneuse Mirador" draggable="false" src="https://plume.epfl.ch/svc1447-5405a1ac06eb99bbafc660bc2e34105f/asset/aefa837871b8cb64b5162dca457e86a555176c82.png" style="width: 699px; height: 700px;" /></p>
+
+<h4 class="faq-item-question" id="faq-item-5">Outils de modifications d&#39;image</h4>
+
+<p style="text-align: justify"><span style="font-size:12pt;">La visionneuse Mirador permet de modifier l&#39;image affich&eacute; dans la visionneuse. Il est possible de faire de modifier l&#39;orientation, le contraste, la luminosit&eacute;, la saturation, les niveaux de gris ou encore inverser les couleurs.</span></p>
+
+<p><img alt="Visionneuse Mirador option Image" draggable="false" src="https://plume.epfl.ch/svc1447-5405a1ac06eb99bbafc660bc2e34105f/asset/575e7187dceb5e5dfa1e0e51a653a3a038190cb5.png" style="width: 450px; height: 700px;" /></p>
+</div>
+
+<div class="faq-item" id="faq-item-6">
+<h4 class="faq-item-question">R&eacute;utilisation d&#39;images</h4>
+
+<p style="text-align: justify"><span style="font-size:12pt;">La fourniture de fichiers en haute d&eacute;finition doivent &ecirc;tre adress&eacute;es par e-mail &agrave; <a draggable="false" href="mailto:library@epfl.ch">library@epfl.ch</a>.</span></p>
+</div>
+</div>
+</div>
+</div>
+</div></div>		</div>
+	</div>
+</div>
+
+
+		</div>
+
+		
+<footer class="footer">
+	<div class="wrap wrap--lg">
+
+					<div class="footer__logo--bis">
+				<a href="https://www.epfl.ch/fr/">
+					<img src="https://plume.epfl.ch/svc1447-5405a1ac06eb99bbafc660bc2e34105f/asset/7f9615b90aa3206c6bc13973f1ff49b713eb7c6e.png" alt="EPFL" />
+				</a>
+			</div>
+						
+				<nav class="footer__nav">
+			    <div class="two-columns">
+        <div class="col-narrow">
+            <img src="https://plume.epfl.ch/svc1447-5405a1ac06eb99bbafc660bc2e34105f/asset/8bf5c0bc10cccf7fd67907708fafaee1217c7131.png" alt="Logo Plume" class="img-fluid">
+        </div>
+        <div class="col-wide">
+            <div class="footer__address">
+                <p>     Bibliothèque de l’EPFL Rolex Learning Center Station 20 CH-1015 Lausanne </p>
+            </div>    
+            <div class="footer__socials">
+			<a href="https://social.epfl.ch/@epfllibrary">
+							<img src="/themes/omekalia/asset/img/mastodon-epfl.svg" alt="mastodon">
+						</a>	
+			<a href="https://bsky.app/profile/epfllibrary.bsky.social">
+							<img src="/themes/omekalia/asset/img/bluesky-epfl.svg" alt="bluesky">
+						</a>	
+			<a href="https://www.linkedin.com/showcase/biblioth%C3%A8que-de-l'epfl">
+							<img src="/themes/omekalia/asset/img/linkedin-epfl.svg" alt="linkedin">
+						</a>																		
+																				<a href="https://www.instagram.com/epfllibrary/">
+							<img src="/themes/omekalia/asset/img/instagram-epfl.svg" alt="instagram">
+						</a>
+															<a href="https://www.facebook.com/EPFLlibrary">
+							<img src="/themes/omekalia/asset/img/facebook-epfl.svg" alt="facebook">
+						</a>
+																				<a href="https://www.youtube.com/epfllibrary">
+							<img src="/themes/omekalia/asset/img/youtube-epfl.svg" alt="youtube">
+						</a>
+            </div>
+			<div class="footer__legals">																															
+                <a href="mailto:library@epfl.ch">Contact</a>
+                <a href="https://plume.epfl.ch/s/fr/page/aide">Aide</a>
+                <a href="https://plume.epfl.ch/s/fr/page/mentions-legal">Mentions légales</a> 
+            </div>	   
+        </div>
+    </div>		</nav>
+		
+		<!-- Social Networks -->
+		
+
+			</div>
+</footer>
+		<!-- Back to top button -->
+<a id="backtotop"><span class="screen-reader-text">Retour en haut de page</span></a>
+<script>
+(function($) {
+
+	$(document).ready(function() {
+		$('header nav').addClass('closed');
+
+		// Back to top button
+		var backToTopBTN = $('#backtotop');
+		$(window).scroll(function() {
+			if ($(window).scrollTop() > 300) {
+				backToTopBTN.addClass('show');
+			} else {
+				backToTopBTN.removeClass('show');
+			}
+		});
+
+		backToTopBTN.on('click', function(e) {
+			e.preventDefault();
+			$('html, body').animate({scrollTop:0}, '300');
+		});
+
+	});
+})(jQuery);
+</script>
+	</body>
+</html>
