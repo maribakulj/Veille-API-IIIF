@@ -1,0 +1,43 @@
+/{entity_index} | SLUB - LOD API documentation Skip to main content Menu Expand (external link) Document Search Copy Copied 
+ Home 
+ API endpoints /search 
+ /source 
+ /{entity_index} 
+ /{authority_provider} 
+ /reconcile 
+ Entity Types Resources 
+ Persons 
+ Organizations 
+ Events 
+ Places 
+ Works 
+ Topics 
+ Mappings MARC21 
+ Data Sources 
+ Exploratory Search 
+ Contact 
+ Try API 
+ This site uses Just the Docs , a documentation theme for Jekyll. 
+ Search SLUB - LOD API documentation 
+ LOD API documentation on GitHub 
+ API endpoints 
+ /{entity_index} 
+ Query only specific entities 
+ If one only needs results for certain entities the /{entity_index} endpoint can be used. This makes it possible to look - for example - just for results in organizations or persons.
+ Usage 
+ /{entity_index}/ {id} 
+ /{entity_index}/ search 
+ entity_index contains types 
+ persons schema.org/Person 
+ events schema.org/Event 
+ works schema.org/CreativeWork 
+ organizations schema.org/Organization 
+ topics schema.org/Thing 
+ geo schema.org/Place 
+ slub-resources schema.org/CreativeWork 
+ For usage of /{entity_index}/search , compare to /search 
+ Example 
+ $ curl -X GET "https://data.slub-dresden.de/persons/search?q=name:Erich+K%C3%A4stner" 
+ Try Me 
+ Copyright © 2019-2023 SLUB Dresden. Legal Notice , Privacy Policies: API usage , Github Pages (webpage) 
+ This site uses Just the Docs , a documentation theme for Jekyll.
