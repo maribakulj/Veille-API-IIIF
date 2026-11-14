@@ -51,9 +51,9 @@
 ### g) Crash test progressif
 > Seulement après l'audit complet (a à f) de toutes les institutions et avec l'accord de Marcel : paliers jusqu'à 2 × la limite documentée, ou 200 req/min si illimité ou sans limite documentée. Arrêt au premier 429/403/CAPTCHA.
 
-- [ ] **Pas fait**
-  - **Justification** : Crash test réservé à la fin de l'audit de toutes les institutions et à l'accord de Marcel. Plafond prévu : 200 req/min (aucune limite annoncée). Précaution : la Bodleian dit vouloir éviter le throttling automatique.
-  - **Preuves** : 
+- [x] **Fait**
+  - **Justification** : Crash test fait le 2026-11-14 : image-info-json sur iiif.bodleian.ox.ac.uk : aucun blocage jusqu'à 200 req/min (plafond 200 req/min)
+  - **Preuves** : `institutions/bodleian/tests/crash/bodleian.log`, `institutions/bodleian/tests/crash/bodleian-image-info-json.json`
 
 ### Contrôles transversaux
 - Budget : 15 requêtes par passe · pauses ≥ 6 s · GET/HEAD seulement · UA du projet · aucun contournement. Ces contrôles sont calculés depuis le journal (voir « Contrôles automatiques »).

@@ -60,3 +60,8 @@ Manifestes (`/iiif/manifest/{uuid}.json`), canvases, annotations, images (`/iiif
 - **Contexte** : la Bodleian déclare publiquement subir un scraping qui dégrade ses sites et ignore `robots.txt`, et envisage des mesures techniques. Ce n'est pas un quota publié, mais un risque de blocage ou de limitation future non annoncée.
 - **Moyen d'interroger le quota** : aucun (ni endpoint, ni en-tête, ni compte).
 - **Confiance** : moyenne à élevée pour l'absence de quota publié (pages lues en entier, 12 requêtes) ; faible pour l'absence de limite réelle côté serveur.
+
+## Crash test (étape g)
+
+Crash test fait le 2026-11-14 : image-info-json sur iiif.bodleian.ox.ac.uk : aucun blocage jusqu'à 200 req/min (plafond 200 req/min).
+Journal : `tests/crash/bodleian.log`. Un test « sans blocage » n'est pas une preuve d'illimitation au-delà du plafond.
