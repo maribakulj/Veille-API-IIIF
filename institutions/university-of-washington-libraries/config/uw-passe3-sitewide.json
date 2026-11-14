@@ -1,0 +1,11 @@
+{
+  "slug": "university-of-washington-libraries",
+  "min_delay_s": 10,
+  "max_requests": 3,
+  "follow_redirects": 1,
+  "robots_disallow_autorise_par_marcel": true,
+  "note": "Passe 3 : suite de la redirection de la passe 2 (header location de tests/raw/presentation-sitewide+redir.headers.txt) : le manifeste de collections global de la doc OCLC (/iiif/info/manifest.json) est redirige vers /iiif/2/manifest.json.",
+  "endpoints": [
+    {"id": "presentation-sitewide-final", "method": "GET", "url": "https://cdm16786.contentdm.oclc.org/iiif/2/manifest.json", "save_body": 100000}
+  ]
+}
