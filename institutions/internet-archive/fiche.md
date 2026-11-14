@@ -19,3 +19,8 @@ La passe 1 (10 requêtes par curl le 13/11) est conservée dans le journal et co
 
 ## Conclusion
 Aucun quota chiffré publié pour advancedsearch, metadata, IIIF ; seules consignes qualitatives (délais, respecter 429 et Retry-After). Seule valeur chiffrée : 60 req/min sur 5 min pour le CDX Wayback, relayée par un tiers (non vérifiée ici). Aucun en-tête de limite observé. Pourquoi non publié : hypothèse (étiquetée) : limites adaptatives par IP face au trafic automatisé (billets 2023 et 2026). Contact : info@archive.org (billet 2026). L'adresse Aitratelimit@archive.org citée par des tiers n'est pas confirmée.
+
+## Crash test (étape g)
+
+Crash test fait le 2026-11-14 : crash-iiif-info sur iiif.archive.org : aucun blocage jusqu'à 200 req/min (plafond 200 req/min).
+Journal : `tests/crash/internet-archive.log`. Un test « sans blocage » n'est pas une preuve d'illimitation au-delà du plafond.
