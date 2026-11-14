@@ -8,7 +8,7 @@ Le 14/11, l'ensemble des **93 fichiers** `institutions/*/data.json` de la branch
 
 Ces **260 lignes ne sont pas 260 défauts d'accès vérifiés**, ni 260 tâches qui exigent une intervention humaine. Aucun bilan « 260 contrôlés et terminés » n'est revendiqué.
 
-Le registre **`data/reverifications-chatgpt-2026-11-14.csv`** contient désormais **159 observations explicites**, de nature différente : URL effectivement lues, source institutionnelle de substitution, vérification de code, erreur 404/503/WAF, correction de catégorie, ressource technique non testée, etc. Toutes les observations ne correspondent pas à une URL initialement inscrite dans `a_verifier_manuellement` : certaines signalent une nouvelle source ou une incohérence du benchmark. Ces 159 observations **ne représentent pas 159 items clos**.
+Le registre **`data/reverifications-chatgpt-2026-11-14.csv`** contient désormais **211 observations explicites**, de nature différente : URL effectivement lues, source institutionnelle de substitution, vérification de code, erreur 404/503/WAF, correction de catégorie, ressource technique non testée, etc. Toutes les observations ne correspondent pas à une URL initialement inscrite dans `a_verifier_manuellement` : certaines signalent une nouvelle source ou une incohérence du benchmark. Ces 211 observations **ne représentent pas 211 items clos**.
 
 ## Rapports détaillés
 
@@ -129,3 +129,27 @@ La passe P s'attaque aux **URL initialement manuelles** en reprenant les dossier
 Les principales nouvelles découvertes sont : **le contenu historique de l'ancienne documentation National Gallery** (paramètre `limit` jusqu'à 100 = nombre de résultats, **pas de requêtes/minute**), le fichier robots de la **bibliothèque de Leiden** (distinct de l'hôte IIIF), le **JSON Image 2 du Michigan** avec tailles de tuiles, le **manifeste IIIF v2 de la NDL**, le **lien officiel du manuscrit Waseda**, les catalogues datasets ÖNB, et des textes des pages FAQ, droits et contact préalablement sous blocage.
 
 **Priorité de la suite :** lire les 207 entrées dont le contenu n'est pas démontré par les passes O/P, et distinguer dans cette file les véritables documents illisibles des URL historiques déplacées, contacts humains, robots et endpoints HTTP nécessitant une sonde. Les chiffres des sections précédentes restent des **instantanés historiques**, supplantés par le tableau ci-dessus. Données canoniques et Excel inchangés ; PR toujours brouillon.
+
+## Nouvelle mesure : lectures Q et R, dont PDF Duke (14/11/2026)
+
+**Livrables :**
+- [`VERIFICATIONS-CHATGPT-2026-11-14-Q-LECTURES.md`](VERIFICATIONS-CHATGPT-2026-11-14-Q-LECTURES.md) : **30 URL initialement manuelles** (Princeton, Harvard, Yale, Washington, Toronto, St Andrews, LIBIS, Jena, SLUB). Addendum : **PDF Duke Anubis (13 pages) lu intégralement**, avec contrôle visuel des pages 1 et 5.
+- [`VERIFICATIONS-CHATGPT-2026-11-14-R-LECTURES.md`](VERIFICATIONS-CHATGPT-2026-11-14-R-LECTURES.md) : **20 URL manuelles** (Wellcome, NLS, IA, British Library, Vatican, Bologne, Finna, etc.) et un **vrai `info.json` IIIF Image 2** de National Library of Scotland retrouvé par le guide cartographique officiel.
+- Sources nouvelles majeures : les articles institutionnels Wellcome 2026 sur les bots et sur dix années d'IIIF (DLCS / iiif-builder). Le premier décrit la **limitation par budget de moissonneur ou réseau** plutôt que des quotas publics fixes : c'est exactement une réponse pertinente au problème « institutions sans quota documenté ».
+
+**Bilan GitHub Actions confirmé :** [exécution #43614739419 réussie](https://github.com/maribakulj/Veille-API-IIIF/actions/runs/43614739419), **5 tests réussis** et génération de l'inventaire :
+
+| Indicateur | État actuel | Ce que cela mesure |
+|---|---:|---|
+| Dossiers / entrées historiques manuelles | **93 / 260** | Base inchangée |
+| **Observations totales du registre** | **211** | Peut inclure plusieurs constats par URL |
+| **Entrées avec ≥ 1 constat relié** | **155 / 260** | Ne signifie pas 155 URL closes |
+| Entrées encore sans constat relié | **105 / 260** | À reprendre en priorité |
+| Entrées ayant contenu lu par lecteur web | **11** | Selon qualification stricte du script |
+| Entrées ayant contenu extrait en copie datée | **66** | Cache ou extraction, HTTP live non certifié |
+| **Total ayant un contenu documenté dans les passes O–R** | **77 / 260** | Lecture réussie du contenu, pas contrôle HTTP technique |
+| Entrées sans contenu démontré par ces passes | **183 / 260** | Comprend contacts, anciens chemins, refus et entrées encore non tentées |
+| Entrées avec constats multiples | **33** | Historique conservé, ne pas écraser un refus par une lecture indexée |
+| Observations hors liste initiale | **23** | Sources de substitution, exemples de manifestes |
+
+Ces chiffres **supplantent** les instantanés des sections précédentes. La priorité demeure de récupérer le **contenu** des 183 autres entrées ou de justifier pourquoi le document n'est pas publiquement lisible, puis de réduire la liste destinée à une intervention humaine. Les `data.json` canoniques et `BENCHMARK.xlsx` restent inchangés en attendant la validation simultanée du pipeline ; la PR est toujours en brouillon.
