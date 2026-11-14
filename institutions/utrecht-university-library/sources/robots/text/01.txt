@@ -1,0 +1,7 @@
+User-agent: *
+Disallow: /anno
+Disallow: /manifest
+Disallow: /iiif_manifest
+Disallow: /fcgi-bin/iipsrv.fcgi
+User-agent: Googlebot-Image
+Disallow: /fcgi-bin/iipsrv.fcgi

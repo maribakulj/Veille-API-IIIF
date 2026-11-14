@@ -4,10 +4,183 @@
   "pays": "Japon",
   "classeur_id": "GLAM-078",
   "type": "Institution",
-  "statut_audit": "à faire",
-  "limites_documentees": [],
+  "statut_audit": "audit a–f complet (v2) avec site en maintenance 503 ; g impossible",
+  "limites_documentees": [
+    {
+      "nature": "Usage des images soumis à autorisation (pas de limite de débit)",
+      "perimetre": "images et données de la base Kotenseki",
+      "valeur": "autorisation préalable du Special Collections Office",
+      "fenetre": "–",
+      "effet": "–",
+      "verification": "officielle, lue via Wayback",
+      "source": "https://www.wul.waseda.ac.jp/kotenseki/about_01_en.html",
+      "date": "2026-11-14"
+    }
+  ],
   "en_tetes_observes": [],
-  "blocages": [],
-  "sources": [],
-  "web": []
+  "blocages": [
+    {
+      "date": "2026-11-14",
+      "hote": "www.waseda.jp",
+      "code": "403",
+      "nature": "403 Cloudflare 'Sorry, you have been blocked' sur robots.txt",
+      "suite": "hôte arrêté, page lue via Wayback"
+    },
+    {
+      "date": "2026-11-14",
+      "hote": "www.wul.waseda.ac.jp",
+      "code": "503",
+      "nature": "Scheduled Maintenance sur toutes les URL testées",
+      "suite": "doc lue via Wayback ; reprendre plus tard"
+    },
+    {
+      "date": "2026-11-14",
+      "hote": "archive.wul.waseda.ac.jp",
+      "code": "503",
+      "nature": "Scheduled Maintenance",
+      "suite": "non retesté"
+    },
+    {
+      "date": "2026-11-14",
+      "hote": "waseda.repo.nii.ac.jp",
+      "code": "503",
+      "nature": "maintenance JAIRO Cloud du NII (depuis 2026-10-28)",
+      "suite": "non retesté"
+    }
+  ],
+  "sources": [
+    {
+      "url": "https://www.wul.waseda.ac.jp/kotenseki/about_01_en.html",
+      "date": "2026-11-14",
+      "etiquette": "officielle (Wayback)",
+      "preuve": "institutions/waseda-university-library-kotenseki/sources/wayback/about-kotenseki-en.md"
+    },
+    {
+      "url": "https://www.waseda.jp/library/en/user/using-images/",
+      "date": "2026-11-14",
+      "etiquette": "officielle (Wayback)",
+      "preuve": "institutions/waseda-university-library-kotenseki/sources/wayback/using-images-en.md"
+    },
+    {
+      "url": "https://www.wul.waseda.ac.jp/kotenseki/index.html",
+      "date": "2026-11-14",
+      "etiquette": "officielle (Wayback)",
+      "preuve": "institutions/waseda-university-library-kotenseki/sources/wayback/kotenseki-index-ja.md"
+    },
+    {
+      "url": "https://www.wul.waseda.ac.jp/robots.txt",
+      "date": "2026-11-14",
+      "etiquette": "officielle (Wayback)",
+      "preuve": "institutions/waseda-university-library-kotenseki/sources/wayback/robots-wul.md"
+    }
+  ],
+  "web": [
+    {
+      "categorie": "institution",
+      "url": "https://www.waseda.jp/library/en/user/using-images/",
+      "date": "2026-09-18",
+      "etiquette": "officielle (Wayback)",
+      "citation": "« please apply to the Special Collections Room of the Library in advance and complete the necessary formalities » ; aucun débit ni bot cité.",
+      "preuve": "institutions/waseda-university-library-kotenseki/fiche.md"
+    },
+    {
+      "categorie": "utilisateurs",
+      "aucun_resultat": true,
+      "requete": "Waseda Kotenseki IIIF manifest rate limit OR 429 OR blocked OR scraping archive.wul.waseda.ac.jp",
+      "date": "2026-11-14",
+      "etiquette": "–",
+      "citation": "aucune plainte ni blocage rapporté ; seule la politique d'usage des images est ressortie",
+      "preuve": "institutions/waseda-university-library-kotenseki/fiche.md"
+    },
+    {
+      "categorie": "tickets",
+      "aucun_resultat": true,
+      "requete": "Waseda 古典籍総合データベース IIIF manifest github issue OR script OR crawler OR downloader",
+      "date": "2026-11-14",
+      "etiquette": "–",
+      "citation": "aucun ticket GitHub ni outil tiers trouvé",
+      "preuve": "institutions/waseda-university-library-kotenseki/fiche.md"
+    },
+    {
+      "categorie": "presentations",
+      "url": "https://www.waseda.jp/library/assets/uploads/2022/09/Fumikura_102_3.pdf",
+      "date": "2022-09-01",
+      "etiquette": "présentation de l'institution (lue via Wayback)",
+      "citation": "« 『玉篇』古典籍総合データベースの書誌情報画面。Manifest や IIIF Viewer へのリンクを掲載している » ; aucun quota.",
+      "preuve": "institutions/waseda-university-library-kotenseki/sources/wayback/fumikura-102-3.md"
+    }
+  ],
+  "contact": "tks-info@list.waseda.jp (Special Collections Office)",
+  "conclusion_quota": "Aucun quota ni limite de débit publiés ; sites wul/archive.wul en 503 maintenance et www.waseda.jp en 403 Cloudflare : IIIF non testable ; schéma d'URL du manifeste non publié.",
+  "classe_quota": "aucun quota trouvé",
+  "confiance": "faible",
+  "notes": "Hôtes en maintenance 503 le 2026-11-14 (3 passes de robots/doc + 1 passe de sonde). Lecture par Wayback. À refaire quand le site revient.",
+  "a_verifier_manuellement": [
+    {
+      "url": "https://www.wul.waseda.ac.jp/kotenseki/html/ho04/ho04_02555/index.html",
+      "pourquoi": "notice avec lien 'Manifest' dont l'URL n'est pas lisible dans la réplique texte ; site en 503",
+      "a_chercher": "href du lien Manifest et du lien IIIF Image(UV) pour établir le schéma d'URL du manifeste"
+    },
+    {
+      "url": "https://www.waseda.jp/robots.txt",
+      "pourquoi": "403 Cloudflare, robots.txt non lu",
+      "a_chercher": "règles et Crawl-delay"
+    },
+    {
+      "url": "https://www.wul.waseda.ac.jp/kotenseki/ga_IIIF/guide_UV_en.html",
+      "pourquoi": "guide du visualiseur IIIF, 503 en direct et aucune réplique",
+      "a_chercher": "limites d'usage du service IIIF"
+    }
+  ],
+  "g_impossible": {
+    "raison": "Aucun hôte testable : www.wul.waseda.ac.jp et archive.wul.waseda.ac.jp renvoient 503 (maintenance) le 2026-11-14, www.waseda.jp est en 403 Cloudflare, et l'URL du manifeste n'est pas publiée."
+  },
+  "endpoints_documentes": [
+    {
+      "famille": "Notices et visualiseur IIIF de la base Kotenseki",
+      "url": "https://www.wul.waseda.ac.jp/kotenseki/html/ho04/ho04_02555/index.html",
+      "statut": "teste",
+      "preuve": "institutions/waseda-university-library-kotenseki/tests/raw/p1-notice-ho04-02555.headers.txt"
+    },
+    {
+      "famille": "Images IIIF archive.wul.waseda.ac.jp",
+      "url": "https://archive.wul.waseda.ac.jp/kosho/he04/he04_08155/he04_08155_p0001s.jpg",
+      "statut": "teste",
+      "preuve": "institutions/waseda-university-library-kotenseki/tests/raw/p1-image-archive-he04.headers.txt"
+    },
+    {
+      "famille": "Manifestes IIIF Presentation (lien Manifest des notices)",
+      "url": "https://www.wul.waseda.ac.jp/kotenseki/html/ho04/ho04_02555/index.html",
+      "statut": "non_teste",
+      "raison": "URL du manifeste non publiée dans les sources lues et site en 503 maintenance : l'URL ne peut être ni lue ni devinée."
+    }
+  ],
+  "endpoints_ecartes": [
+    {
+      "url": "https://www.wul.waseda.ac.jp/kotenseki/ga_IIIF/guide_UV_en.html",
+      "raison": "page de guide du visualiseur testée en passe 1 (503) ; page de doc, pas une API."
+    }
+  ],
+  "hotes_robots": [
+    {
+      "hote": "www.wul.waseda.ac.jp",
+      "resultat": "503 en direct ; Wayback 2025-06 : Disallow /opactest/j_honban/, pas de Crawl-delay",
+      "preuve": "institutions/waseda-university-library-kotenseki/sources/wayback/robots-wul.md"
+    },
+    {
+      "hote": "archive.wul.waseda.ac.jp",
+      "resultat": "503 en direct ; Wayback 2026-10 : Disallow /*.pdf$, pas de Crawl-delay",
+      "preuve": "institutions/waseda-university-library-kotenseki/sources/wayback/robots-archive-wul.md"
+    },
+    {
+      "hote": "www.waseda.jp",
+      "resultat": "403 Cloudflare ; non lu (capture Wayback inutilisable)",
+      "preuve": "institutions/waseda-university-library-kotenseki/sources/wayback/waseda-jp-robots-inutilisable.md"
+    },
+    {
+      "hote": "waseda.repo.nii.ac.jp",
+      "resultat": "503 maintenance JAIRO Cloud",
+      "preuve": "institutions/waseda-university-library-kotenseki/sources/robots/FETCH.log"
+    }
+  ]
 }

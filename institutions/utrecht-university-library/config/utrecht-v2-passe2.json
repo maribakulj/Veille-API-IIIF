@@ -1,0 +1,13 @@
+{
+  "slug": "utrecht-university-library",
+  "min_delay_s": 6,
+  "max_requests": 15,
+  "follow_redirects": 1,
+  "robots_disallow_autorise_par_marcel": true,
+  "note": "v2 passe 2 : la passe 1 a donné 404 sur l'exemple de la page About IIIF (identifiant d'image sans point avant jp2). Les URL de cette passe sont lues telles quelles dans le manifeste v2 reçu en passe 1 (tests/raw/p1-manifest-v2.body) : image avec '.jp2'. /iiif_manifest et /fcgi-bin/iipsrv.fcgi sont interdits par robots.txt : test autorisé par Marcel (C12).",
+  "endpoints": [
+    {"id": "p2-image-info", "method": "GET", "url": "https://objects.library.uu.nl/fcgi-bin/iipsrv.fcgi?IIIF=/manifestation/viewer/16/02/19/160219835246961184091063990636348658778.jp2/info.json"},
+    {"id": "p2-image-150", "method": "GET", "url": "https://objects.library.uu.nl/fcgi-bin/iipsrv.fcgi?IIIF=/manifestation/viewer/16/02/19/160219835246961184091063990636348658778.jp2/full/150,/0/default.jpg"},
+    {"id": "p2-iiif-manifest-image", "method": "GET", "url": "https://objects.library.uu.nl/iiif_manifest/image:1874-309349-1"}
+  ]
+}

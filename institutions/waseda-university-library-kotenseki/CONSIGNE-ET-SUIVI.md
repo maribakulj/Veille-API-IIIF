@@ -2,51 +2,51 @@
 
 - **Dossier** : `institutions/waseda-university-library-kotenseki/`  ·  **Classeur de référence** : GLAM-078  ·  **Pays** : Japon
 - **Statut d'institution** : active
-- **Dernière mise à jour du suivi** : (à renseigner à chaque modification)
+- **Dernière mise à jour du suivi** : 2026-11-14
 
 ## Suivi par étape (à cocher, avec justification et preuves)
 
 ### a) Documentation lue en entier
 > Toutes les pages de doc liées à l'API (développeurs, interfaces, conditions, FAQ, aide, mentions légales, robots.txt), téléchargées avec `scripts/fetch_doc.sh` (URL, date, SHA-256), lues en entier (`scripts/extract_text.py`).
 
-- [ ] **Pas fait**
-  - **Justification** : Pas encore traitée : l'audit suit l'ordre du classeur de référence (une institution à la fois).
-  - **Preuves** : 
+- [x] **Fait**
+  - **Justification** : Doc lue via Wayback (sites en 503 maintenance et www.waseda.jp en 403 Cloudflare) : conditions d'usage, robots.txt, notice, bulletin Fumikura ; blocages consignés.
+  - **Preuves** : `institutions/waseda-university-library-kotenseki/sources/wayback/SHA256SUMS`, `institutions/waseda-university-library-kotenseki/sources/robots/SHA256SUMS`, `institutions/waseda-university-library-kotenseki/sources/wul/SHA256SUMS`, `institutions/waseda-university-library-kotenseki/sources/robots-retry/SHA256SUMS`
 
 ### b) Endpoints tirés de la doc
 > Liste des endpoints citée par la doc (URL, exemples). Jamais devinée. Une interdiction ou une impossibilité écrite dans la doc justifie de renoncer (citer la phrase).
 
-- [ ] **Pas fait**
-  - **Justification** : Pas encore traitée : l'audit suit l'ordre du classeur de référence (une institution à la fois).
-  - **Preuves** : 
+- [x] **Fait**
+  - **Justification** : Aucune API documentée avec URL : notice, images et manifestes listés dans endpoints_documentes (manifeste non_teste, URL non publiée) ; guide écarté.
+  - **Preuves** : `institutions/waseda-university-library-kotenseki/data.json`, `institutions/waseda-university-library-kotenseki/sources/wayback/fumikura-102-3.md`
 
 ### c) Configuration écrite AVANT les tests
 > `config/<nom>.json` pilote `scripts/probe.py`, committée avant le lancement. Un endpoint absent de la doc mais non interdit se teste avec un script poli (identifiants issus de pages publiques ou d'exemples de la doc, pas de devinette).
 
-- [ ] **Pas fait**
-  - **Justification** : Pas encore traitée : l'audit suit l'ordre du classeur de référence (une institution à la fois).
-  - **Preuves** : 
+- [x] **Fait**
+  - **Justification** : Configuration passe 1 committée avant lancement (3 requêtes), robots lus via Wayback.
+  - **Preuves** : `institutions/waseda-university-library-kotenseki/config/waseda-v2-passe1.json`
 
 ### d) Quota cherché dans la doc
 > Pour chaque page lue : endpoint de statut, en-têtes de limite documentés, clé ou compte donnant un quota, contact pour un volume plus élevé. Chaque réponse cite sa source.
 
-- [ ] **Pas fait**
-  - **Justification** : Pas encore traitée : l'audit suit l'ordre du classeur de référence (une institution à la fois).
-  - **Preuves** : 
+- [x] **Fait**
+  - **Justification** : Aucun quota ni en-tête de limite dans la doc lue : seule règle d'usage des images (autorisation préalable) ; contact tks-info@list.waseda.jp ; pas de Crawl-delay.
+  - **Preuves** : `institutions/waseda-university-library-kotenseki/fiche.md`, `institutions/waseda-university-library-kotenseki/sources/wayback/about-kotenseki-en.md`
 
 ### e) Test systématique de chaque endpoint
 > Chaque endpoint documenté est testé (budget 15 requêtes par passe, pause ≥ 6 s, GET/HEAD, UA du projet). Redirections du même hôte suivies. Un 403 arrête son hôte, un 429 arrête l'institution. Seules les interdictions écrites dans la doc dispensent de tester.
 
-- [ ] **Pas fait**
-  - **Justification** : Pas encore traitée : l'audit suit l'ordre du classeur de référence (une institution à la fois).
-  - **Preuves** : 
+- [x] **Fait**
+  - **Justification** : 3 requêtes passe 1 : 503 maintenance sur la notice, le guide et l'image ; manifeste non testé faute d'URL publiée ; aucun 429.
+  - **Preuves** : `institutions/waseda-university-library-kotenseki/tests/journal.log`, `institutions/waseda-university-library-kotenseki/tests/raw/p1-notice-ho04-02555.headers.txt`
 
 ### f) Ce que disent les gens sur le web
 > Plaintes, discussions, présentations de l'institution, politique envers les API et les bots, blogs, GitHub, forums, listes de diffusion. Sources étiquetées (officielle / institution / utilisateur / tiers), lues, citées.
 
-- [ ] **Pas fait**
-  - **Justification** : Pas encore traitée : l'audit suit l'ordre du classeur de référence (une institution à la fois).
-  - **Preuves** : 
+- [x] **Fait**
+  - **Justification** : 4 catégories : institution et présentations lues via Wayback ; utilisateurs et tickets sans résultat (requêtes notées).
+  - **Preuves** : `institutions/waseda-university-library-kotenseki/fiche.md`, `institutions/waseda-university-library-kotenseki/data.json`
 
 ### g) Crash test progressif
 > Seulement après l'audit complet (a à f) de toutes les institutions et avec l'accord de Marcel : paliers jusqu'à 2 × la limite documentée, ou 200 req/min si illimité ou sans limite documentée. Arrêt au premier 429/403/CAPTCHA.
@@ -60,7 +60,10 @@
 
 <!-- AUTO:DEBUT -->
 ## Contrôles automatiques (calculés depuis `tests/journal.log`)
-Aucune requête enregistrée dans `tests/journal.log`.
+- Requêtes enregistrées : **3** (sessions de sonde : 1, maximum par session : 3)
+- Plus courte pause vers un même hôte : **7 s** (règle : ≥ 6 s)
+- Méthodes utilisées : GET, HEAD (règle : GET/HEAD seulement)
+- Anomalies : aucune
 <!-- AUTO:FIN -->
 
 ## Consigne intégrale

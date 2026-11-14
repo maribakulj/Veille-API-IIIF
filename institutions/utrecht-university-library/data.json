@@ -4,10 +4,181 @@
   "pays": "Pays-Bas",
   "classeur_id": "GLAM-073",
   "type": "Institution",
-  "statut_audit": "à faire",
-  "limites_documentees": [],
+  "statut_audit": "audit a–f complet (v2) ; g à faire (config préparée)",
+  "limites_documentees": [
+    {
+      "nature": "Aucune limite de débit publiée",
+      "perimetre": "objects.library.uu.nl (IIIF, téléchargements)",
+      "valeur": "aucune",
+      "fenetre": "–",
+      "effet": "–",
+      "verification": "officielle, pages lues en entier ; robots.txt sans Crawl-delay",
+      "source": "https://objects.library.uu.nl/reader/1874-309349/info/iiif?page=1",
+      "date": "2026-11-14"
+    }
+  ],
   "en_tetes_observes": [],
-  "blocages": [],
-  "sources": [],
-  "web": []
+  "blocages": [
+    {
+      "date": "2026-11-14",
+      "hote": "bc.library.uu.nl",
+      "code": "DNS",
+      "nature": "DNS introuvable (hôte cité par un tiers)",
+      "suite": "non contacté"
+    }
+  ],
+  "sources": [
+    {
+      "url": "https://objects.library.uu.nl/robots.txt",
+      "date": "2026-11-14",
+      "etiquette": "officielle",
+      "preuve": "institutions/utrecht-university-library/sources/robots/SHA256SUMS"
+    },
+    {
+      "url": "https://ubu-objects.sites.uu.nl/wp-content/uploads/sites/1159/2025/09/De-nieuwe-viewer-Mirador-gebruiken.pdf",
+      "date": "2026-11-14",
+      "etiquette": "officielle",
+      "preuve": "institutions/utrecht-university-library/sources/doc/SHA256SUMS"
+    },
+    {
+      "url": "https://objects.library.uu.nl/reader/1874-309349/info/iiif?page=1",
+      "date": "2026-11-14",
+      "etiquette": "officielle",
+      "preuve": "institutions/utrecht-university-library/sources/doc2/SHA256SUMS"
+    },
+    {
+      "url": "https://www.uu.nl/en/news/utrecht-university-library-digitizes-earliest-printed-books",
+      "date": "2026-11-14",
+      "etiquette": "officielle",
+      "preuve": "institutions/utrecht-university-library/sources/doc/SHA256SUMS"
+    },
+    {
+      "url": "https://www.uu.nl/en/special-collections",
+      "date": "2026-11-14",
+      "etiquette": "officielle",
+      "preuve": "institutions/utrecht-university-library/sources/doc2/SHA256SUMS"
+    }
+  ],
+  "web": [
+    {
+      "categorie": "institution",
+      "url": "https://ubu-objects.sites.uu.nl/wp-content/uploads/sites/1159/2025/09/De-nieuwe-viewer-Mirador-gebruiken.pdf",
+      "date": "2026-11-14",
+      "etiquette": "officielle",
+      "citation": "manuel Mirador de la bibliothèque : landing page objects.library.uu.nl ; aucune règle de débit ou de moissonnage.",
+      "preuve": "institutions/utrecht-university-library/fiche.md"
+    },
+    {
+      "categorie": "utilisateurs",
+      "url": "https://groups.google.com/g/iiif-discuss/c/pfIjeo_kPCw",
+      "date": "2023-06-20",
+      "etiquette": "utilisateur/tiers (lu dans l'original)",
+      "citation": "manifeste v3 d'Utrecht non chargé dans Mirador car 'sc:Manifest' au lieu de 'Manifest' ; « Using \"type\": \"Manifest\" solved the problem » ; aucun quota évoqué.",
+      "preuve": "institutions/utrecht-university-library/fiche.md"
+    },
+    {
+      "categorie": "presentations",
+      "url": "https://www.uu.nl/en/news/utrecht-university-library-digitizes-earliest-printed-books",
+      "date": "2026-11-14",
+      "etiquette": "présentation de l'institution",
+      "citation": "« Thanks to IIIF, the international standard for exchanging digital images, the scans are easy to use and share. » ; 900 incunables d'ici 2027 ; aucune limite citée.",
+      "preuve": "institutions/utrecht-university-library/fiche.md"
+    },
+    {
+      "categorie": "tickets",
+      "aucun_resultat": true,
+      "requete": "github issue \"objects.library.uu.nl\" iiif manifest",
+      "date": "2026-11-14",
+      "etiquette": "–",
+      "citation": "recherche non exécutée : quota de recherches web de la session épuisé ; aucun ticket lu (à refaire)",
+      "preuve": "institutions/utrecht-university-library/fiche.md"
+    }
+  ],
+  "contact": "ubu.fb.digitalisering@uu.nl (équipe numérisation) ; library.specialcollections@uu.nl",
+  "conclusion_quota": "Aucun quota ni limite de débit publiés ni observés ; manifestes v2/v3 et IIPImage répondent 200 sans en-tête de limite ; robots.txt interdit /manifest, /iiif_manifest et /fcgi-bin/iipsrv.fcgi.",
+  "classe_quota": "aucun quota trouvé",
+  "confiance": "moyenne",
+  "notes": "Exemple d'image de la page About IIIF : 404 (identifiant sans point avant jp2) ; URL corrigée lue dans le manifeste. Recherche web 'tickets' non exécutée : quota de recherche épuisé. object-list = 9,8 Mo téléchargé à l'étape a.",
+  "a_verifier_manuellement": [
+    {
+      "url": "https://objects.library.uu.nl/robots.txt",
+      "pourquoi": "interdit /manifest, /iiif_manifest, /fcgi-bin/iipsrv.fcgi alors que ce sont les endpoints IIIF annoncés",
+      "a_chercher": "Demander à ubu.fb.digitalisering@uu.nl si le moissonnage IIIF est autorisé et s'il existe une limite non publiée"
+    }
+  ],
+  "endpoints_documentes": [
+    {
+      "famille": "Manifestes Presentation v2 et v3",
+      "url": "https://objects.library.uu.nl/manifest/iiif/v2/1874-309349",
+      "statut": "teste",
+      "preuve": "institutions/utrecht-university-library/tests/raw/p1-manifest-v2.headers.txt"
+    },
+    {
+      "famille": "IIIF Image API (IIPImage) : info.json et dérivés",
+      "url": "https://objects.library.uu.nl/fcgi-bin/iipsrv.fcgi?IIIF=/manifestation/viewer/16/02/19/160219835246961184091063990636348658778.jp2/info.json",
+      "statut": "teste",
+      "preuve": "institutions/utrecht-university-library/tests/raw/p2-image-info.headers.txt"
+    },
+    {
+      "famille": "Téléchargements PDF et texte intégral",
+      "url": "https://objects.library.uu.nl/download/1874-309349/pdf",
+      "statut": "teste",
+      "preuve": "institutions/utrecht-university-library/tests/raw/p1-pdf-head.headers.txt"
+    },
+    {
+      "famille": "Lecteur et métadonnées (reader)",
+      "url": "https://objects.library.uu.nl/reader/1874-309349/metadata",
+      "statut": "teste",
+      "preuve": "institutions/utrecht-university-library/tests/raw/p1-metadata.headers.txt"
+    }
+  ],
+  "endpoints_ecartes": [
+    {
+      "url": "https://ubu-objects.sites.uu.nl/wp-json/wp/v2/pages/5",
+      "raison": "lien rel=alternate de l'API REST WordPress du site de manuels, injecté par le CMS, non documenté comme API de la bibliothèque ; contenu éditorial seulement."
+    },
+    {
+      "url": "https://www.uu.nl/nieuws/universiteitsbibliotheek-ondertekent-manifest-netwerk-digitaal-erfgoed-0",
+      "raison": "variante néerlandaise de la page d'actualité déjà lue en anglais (sources/doc) ; page de nouvelles, aucune API à tester."
+    },
+    {
+      "url": "https://iiif.io/",
+      "raison": "site de la spécification IIIF cité par la page About IIIF ; ce n'est pas une API de l'institution à tester."
+    },
+    {
+      "url": "https://iipimage.sourceforge.io/documentation/iiif",
+      "raison": "documentation du logiciel IIPImage, pas une API de l'institution à tester."
+    },
+    {
+      "url": "https://utrechtuniversity.on.worldcat.org/oclc/781988440",
+      "raison": "notice WorldCat tierce (catalogue d'OCLC), hors institution ; aucune API à tester."
+    }
+  ],
+  "hotes_robots": [
+    {
+      "hote": "objects.library.uu.nl",
+      "resultat": "Disallow /anno, /manifest, /iiif_manifest, /fcgi-bin/iipsrv.fcgi ; pas de Crawl-delay ; test autorisé par Marcel (C12)",
+      "preuve": "institutions/utrecht-university-library/sources/robots/SHA256SUMS"
+    },
+    {
+      "hote": "ubu-objects.sites.uu.nl",
+      "resultat": "Disallow /wp-admin/ seulement",
+      "preuve": "institutions/utrecht-university-library/sources/robots/SHA256SUMS"
+    },
+    {
+      "hote": "www.uu.nl",
+      "resultat": "règles Drupal classiques, pas de Crawl-delay",
+      "preuve": "institutions/utrecht-university-library/sources/robots/SHA256SUMS"
+    },
+    {
+      "hote": "iipimage.sourceforge.io",
+      "resultat": "robots.txt 404 : tout autorisé",
+      "preuve": "institutions/utrecht-university-library/sources/robots2/SHA256SUMS"
+    },
+    {
+      "hote": "bc.library.uu.nl",
+      "resultat": "DNS introuvable (hôte cité par un tiers, non contacté)",
+      "preuve": "institutions/utrecht-university-library/sources/robots/FETCH.log"
+    }
+  ]
 }

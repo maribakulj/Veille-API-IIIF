@@ -1,0 +1,2 @@
+# robots.txt de iiif.qdl.qa
+En direct : 403 Cloudflare défi (../robots/raw/02.html). Wayback : seule capture proche (2026-04-02, https://web.archive.org/web/20260402065811/https://iiif.qdl.qa/robots.txt) est une page d'erreur HTTP 404 archivée : un 404 sur robots.txt signifie « tout autorisé » (RFC 9309) mais ce 404 est celui d'une capture, non du direct. Crawl-delay inconnu : on applique celui de www.qdl.qa (10 s) par prudence.

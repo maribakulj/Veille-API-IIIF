@@ -1,0 +1,17 @@
+{
+  "slug": "waseda-university-library-kotenseki",
+  "min_delay_s": 6,
+  "max_requests": 15,
+  "follow_redirects": 1,
+  "robots_disallow_autorise_par_marcel": true,
+  "note": "v2 passe 1 : www.wul.waseda.ac.jp et archive.wul.waseda.ac.jp renvoyaient 503 'Scheduled Maintenance' pour robots.txt a 02:51-02:53Z. robots.txt lus via Wayback (sources/wayback) : Disallow /opactest/j_honban/ (wul) et /*.pdf$ (archive.wul), sans Crawl-delay. Les 3 URL viennent de la doc : notice d'exemple citee par le bulletin Fumikura 102-3 (sources/wayback/fumikura-102-3.md), guide du visualiseur IIIF (page IIIF Compatible Viewer citee par la recherche web) et URL d'image d'une notice tierce. Le schema d'URL du manifeste n'est publie nulle part : non devine.",
+  "robots_files": {
+    "www.wul.waseda.ac.jp": "institutions/waseda-university-library-kotenseki/sources/wayback/robots-wul.md",
+    "archive.wul.waseda.ac.jp": "institutions/waseda-university-library-kotenseki/sources/wayback/robots-archive-wul.md"
+  },
+  "endpoints": [
+    {"id": "p1-notice-ho04-02555", "method": "GET", "url": "https://www.wul.waseda.ac.jp/kotenseki/html/ho04/ho04_02555/index.html", "save_body": 200000},
+    {"id": "p1-guide-uv-en", "method": "GET", "url": "https://www.wul.waseda.ac.jp/kotenseki/ga_IIIF/guide_UV_en.html", "save_body": 200000},
+    {"id": "p1-image-archive-he04", "method": "HEAD", "url": "https://archive.wul.waseda.ac.jp/kosho/he04/he04_08155/he04_08155_p0001s.jpg"}
+  ]
+}

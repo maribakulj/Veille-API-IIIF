@@ -1,0 +1,15 @@
+{
+  "slug": "qatar-digital-british-qatar-foundation",
+  "min_delay_s": 10,
+  "max_requests": 15,
+  "follow_redirects": 1,
+  "robots_disallow_autorise_par_marcel": true,
+  "note": "v2 passe 1 : www.qdl.qa et iiif.qdl.qa ont repondu 403 Cloudflare (Just a moment) pour robots.txt a 02:55Z : hotes arretes, le registre partage doit faire sauter ces requetes (aucune requete reelle). Les 3 URL sont les exemples de la page 'Options for embedding images' (sources/wayback/image-options.md). Crawl-delay 10 du robots.txt lu via Wayback.",
+  "robots_files": {
+    "www.qdl.qa": "institutions/qatar-digital-british-qatar-foundation/sources/wayback/robots-www-qdl.md"
+  },
+  "endpoints": [
+    {"id": "p1-manifest-doc", "method": "GET", "url": "http://www.qdl.qa/en/iiif/81055/vdc_100023807156.0x000001/manifest"},
+    {"id": "p1-image-doc", "method": "GET", "url": "http://iiif.qdl.qa/iiif/images/81055/vdc_100022582060.0x000001/Add%20MS%2023570_0183.jp2/full/!800,400/0/default.jpg"}
+  ]
+}

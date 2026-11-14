@@ -4,10 +4,176 @@
   "pays": "Qatar",
   "classeur_id": "GLAM-083",
   "type": "Plateforme / consortium",
-  "statut_audit": "à faire",
-  "limites_documentees": [],
+  "statut_audit": "audit a–f complet (v2) ; hôtes en 403 Cloudflare ; g impossible",
+  "limites_documentees": [
+    {
+      "nature": "Taille maximale d'image",
+      "perimetre": "IIIF Image API iiif.qdl.qa",
+      "valeur": "1200 pixels au plus grand côté",
+      "fenetre": "–",
+      "effet": "image plus grande non servie ; contacter QDL",
+      "verification": "officielle, lue via Wayback ; non vérifiée",
+      "source": "https://www.qdl.qa/en/image-options",
+      "date": "2026-11-14"
+    },
+    {
+      "nature": "Crawl-delay",
+      "perimetre": "www.qdl.qa (robots.txt)",
+      "valeur": "10 secondes",
+      "fenetre": "entre deux requêtes",
+      "effet": "–",
+      "verification": "officielle, lue via Wayback",
+      "source": "https://www.qdl.qa/robots.txt",
+      "date": "2026-11-14"
+    }
+  ],
   "en_tetes_observes": [],
-  "blocages": [],
-  "sources": [],
-  "web": []
+  "blocages": [
+    {
+      "date": "2026-11-14",
+      "hote": "www.qdl.qa",
+      "code": "403",
+      "nature": "défi Cloudflare 'Just a moment...' sur robots.txt",
+      "suite": "hôte arrêté ; doc lue via Wayback"
+    },
+    {
+      "date": "2026-11-14",
+      "hote": "iiif.qdl.qa",
+      "code": "403",
+      "nature": "défi Cloudflare 'Just a moment...' sur robots.txt",
+      "suite": "hôte arrêté ; aucun test d'image"
+    }
+  ],
+  "sources": [
+    {
+      "url": "https://www.qdl.qa/en/image-options",
+      "date": "2026-11-14",
+      "etiquette": "officielle (Wayback)",
+      "preuve": "institutions/qatar-digital-british-qatar-foundation/sources/wayback/image-options.md"
+    },
+    {
+      "url": "https://www.qdl.qa/en/terms-use",
+      "date": "2026-11-14",
+      "etiquette": "officielle (Wayback)",
+      "preuve": "institutions/qatar-digital-british-qatar-foundation/sources/wayback/terms-use.md"
+    },
+    {
+      "url": "https://www.qdl.qa/robots.txt",
+      "date": "2026-11-14",
+      "etiquette": "officielle (Wayback)",
+      "preuve": "institutions/qatar-digital-british-qatar-foundation/sources/wayback/robots-www-qdl.md"
+    },
+    {
+      "url": "https://www.qdl.qa/en/help-using-qatar-digital-library",
+      "date": "2026-11-14",
+      "etiquette": "officielle (Wayback)",
+      "preuve": "institutions/qatar-digital-british-qatar-foundation/sources/wayback/help-using.md"
+    }
+  ],
+  "web": [
+    {
+      "categorie": "institution",
+      "url": "https://www.qdl.qa/en/image-options",
+      "date": "2026-06-16",
+      "etiquette": "officielle (Wayback)",
+      "citation": "« The maximum size of an image that can be retrieved is currently fixed at 1200 pixels at its largest size. »",
+      "preuve": "institutions/qatar-digital-british-qatar-foundation/sources/wayback/image-options.md"
+    },
+    {
+      "categorie": "utilisateurs",
+      "aucun_resultat": true,
+      "requete": "Qatar Digital Library Cloudflare blocked OR 403 OR \"rate limit\" scraping iiif.qdl.qa",
+      "date": "2026-11-14",
+      "etiquette": "–",
+      "citation": "aucune plainte ni blocage rapporté trouvé",
+      "preuve": "institutions/qatar-digital-british-qatar-foundation/fiche.md"
+    },
+    {
+      "categorie": "tickets",
+      "aucun_resultat": true,
+      "requete": "\"qdl.qa\" iiif manifest download images script github issue",
+      "date": "2026-11-14",
+      "etiquette": "–",
+      "citation": "aucun ticket sur qdl.qa ; seuls des outils génériques de téléchargement IIIF ressortent",
+      "preuve": "institutions/qatar-digital-british-qatar-foundation/fiche.md"
+    },
+    {
+      "categorie": "presentations",
+      "url": "https://repository.ifla.org/handle/20.500.14598/6484",
+      "date": "2019-01-01",
+      "etiquette": "présentation (tiers, lue dans l'original)",
+      "citation": "« Institutional partnerships and open standards: Unlocking your archive for digital scholarship » (EAP, QDL) ; aucun quota évoqué.",
+      "preuve": "institutions/qatar-digital-british-qatar-foundation/sources/wayback/ifla-2019.md"
+    }
+  ],
+  "contact": "page Comments or concerns (qdl.qa/node/372) et Contact us de www.qdl.qa ; adresse e-mail non lue",
+  "conclusion_quota": "Aucun quota de débit publié ; image limitée à 1200 px ; Crawl-delay 10 dans robots.txt ; www.qdl.qa et iiif.qdl.qa répondent 403 Cloudflare (défi) à notre client : IIIF non testable.",
+  "classe_quota": "accès refusé à ce client (403 anti-bot)",
+  "confiance": "faible",
+  "notes": "Doc lue par Wayback. Les 2 endpoints de la doc non lancés (hôtes arrêtés par le registre). Copyright & ethical terms of reuse non lue.",
+  "a_verifier_manuellement": [
+    {
+      "url": "https://www.qdl.qa/en/iiif/81055/vdc_100023807156.0x000001/manifest",
+      "pourquoi": "manifeste d'exemple de la doc, 403 Cloudflare en direct",
+      "a_chercher": "en-têtes de limite, version du manifeste, taille"
+    },
+    {
+      "url": "https://iiif.qdl.qa/robots.txt",
+      "pourquoi": "403 Cloudflare ; capture Wayback = 404",
+      "a_chercher": "règles et Crawl-delay"
+    },
+    {
+      "url": "https://www.qdl.qa/en/copyright-and-ethical-terms-reuse",
+      "pourquoi": "page de conditions de réutilisation, aucune capture Wayback proche",
+      "a_chercher": "règles sur la réutilisation automatisée"
+    },
+    {
+      "url": "https://qdl.qa/node/372",
+      "pourquoi": "page de contact 'Comments or concerns', non lue (403, pas de capture)",
+      "a_chercher": "adresse de contact pour demander l'accès au débit élevé"
+    }
+  ],
+  "g_impossible": {
+    "raison": "Aucun hôte testable : www.qdl.qa et iiif.qdl.qa répondent 403 Cloudflare (défi « Just a moment... ») le 2026-11-14 ; aucune requête réelle possible."
+  },
+  "endpoints_documentes": [
+    {
+      "famille": "Manifestes IIIF Presentation (/en/iiif/<id>/manifest)",
+      "url": "http://www.qdl.qa/en/iiif/81055/vdc_100023807156.0x000001/manifest",
+      "statut": "non_teste",
+      "raison": "hôte www.qdl.qa en 403 Cloudflare (défi) : arrêt sans contournement, sonde : NON LANCÉ (registre partagé)."
+    },
+    {
+      "famille": "IIIF Image API 2 (IIPImage, 1200 px max)",
+      "url": "http://iiif.qdl.qa/iiif/images/81055/vdc_100022582060.0x000001/Add%20MS%2023570_0183.jp2/full/!800,400/0/default.jpg",
+      "statut": "non_teste",
+      "raison": "hôte iiif.qdl.qa en 403 Cloudflare (défi) : arrêt sans contournement, sonde : NON LANCÉ (registre partagé)."
+    }
+  ],
+  "endpoints_ecartes": [
+    {
+      "url": "http://www.qdl.qa/en/archive/81055/vdc_100023807156.0x000001",
+      "raison": "page d'archive HTML (point de départ de la règle de construction du manifeste), pas une API ; hôte en 403."
+    },
+    {
+      "url": "http://iiif.io/api/image/2.0/",
+      "raison": "spécification IIIF citée par la doc de QDL, pas une API de l'institution à tester."
+    },
+    {
+      "url": "http://iiif.io",
+      "raison": "site de la spécification IIIF cité par la doc de QDL, pas une API de l'institution."
+    }
+  ],
+  "hotes_robots": [
+    {
+      "hote": "www.qdl.qa",
+      "resultat": "403 Cloudflare en direct ; Wayback 2026-03 : Crawl-delay 10, Disallow viewers/recherches, manifestes autorisés",
+      "preuve": "institutions/qatar-digital-british-qatar-foundation/sources/wayback/SHA256SUMS"
+    },
+    {
+      "hote": "iiif.qdl.qa",
+      "resultat": "403 Cloudflare en direct ; capture Wayback = 404 : non lu",
+      "preuve": "institutions/qatar-digital-british-qatar-foundation/sources/wayback/robots-iiif-qdl.md"
+    }
+  ]
 }
