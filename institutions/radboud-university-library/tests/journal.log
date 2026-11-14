@@ -29,3 +29,12 @@
 2026-11-14T02:55:29Z | r4-manifeste-collection+redir+redir | https://bijzonderecollecties.ubn.ru.nl/iiif/2/Handschriften/manifest.json | GET | 200 OK | aucun en-tête de limite | taille≥29702 | corps: {"@context":"http://iiif.io/api/presentation/2/context.json","@id":"http://cdm21010.contentdm.oclc.org/iiif/Handschriften/manifest.json","@type":"sc:Collection","label":"Handschriften","manifests":[{"
 # corps enregistré : tests/raw/r4-manifeste-collection+redir+redir.body (29702 octets lus)
 # Fin 2026-11-14T02:55:29Z — 4 requête(s) envoyée(s)
+# Session 2026-11-14T02:55:39Z — configuration radboud-passe5-objet.json — sonde probe.py au commit 5252c8a
+2026-11-14T02:55:40Z | robots.txt:bijzonderecollecties.ubn.ru.nl | https://bijzonderecollecties.ubn.ru.nl/robots.txt | GET | 200 | 27 règle(s) pour « * » ; Crawl-delay 1.0 s
+2026-11-14T02:55:46Z | r5-manifeste-objet | https://bijzonderecollecties.ubn.ru.nl/iiif/info/Handschriften/12155/manifest.json | GET | 301 REDIRECTION_NON_SUIVIE | aucun en-tête de limite | taille≥325 | corps: <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd"> <html><head> <title>301 Moved Permanently</title> </head><body> <h1>Moved Permanently</h1> <p>The document ha
+# redirection vers https://bijzonderecollecties.ubn.ru.nl/iiif/Handschriften:12155/manifest.json : suivie (même hôte, comptée dans le budget)
+2026-11-14T02:55:52Z | r5-manifeste-objet+redir | https://bijzonderecollecties.ubn.ru.nl/iiif/Handschriften:12155/manifest.json | GET | 302 REDIRECTION_NON_SUIVIE | aucun en-tête de limite | taille≥303 | corps: <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd"> <html><head> <title>302 Found</title> </head><body> <h1>Found</h1> <p>The document has moved <a href="https:/
+# redirection vers https://bijzonderecollecties.ubn.ru.nl/iiif/2/Handschriften:12155/manifest.json : suivie (même hôte, comptée dans le budget)
+2026-11-14T02:56:00Z | r5-manifeste-objet+redir+redir | https://bijzonderecollecties.ubn.ru.nl/iiif/2/Handschriften:12155/manifest.json | GET | 200 OK | aucun en-tête de limite | taille≥500000 | corps: {"@context":"http://iiif.io/api/presentation/2/context.json","@type":"sc:Manifest","@id":"https://cdm21010.contentdm.oclc.org/iiif/Handschriften:12155/manifest.json","label":"[Book of prayer] / (Hs 61
+# corps enregistré : tests/raw/r5-manifeste-objet+redir+redir.body (500000 octets lus)
+# Fin 2026-11-14T02:56:00Z — 4 requête(s) envoyée(s)
