@@ -1,0 +1,12 @@
+{
+  "slug": "parliamentary-archives-uk",
+  "min_delay_s": 6,
+  "max_requests": 15,
+  "follow_redirects": 1,
+  "robots_disallow_autorise_par_marcel": true,
+  "note": "Passe 1 : les hôtes du catalogue (archives.parliament.uk, www.parliament.uk, developer.parliament.uk) répondent par un défi Cloudflare 'Just a moment' (403) et sont arrêtés. Seul hôte d'API du Parlement non défié : members-api.parliament.uk (annuaire d'API du Developer hub, lu via Wayback). On lit la page Swagger et le document swagger.json (corps enregistré) pour en tirer un endpoint documenté par l'API elle-même.",
+  "endpoints": [
+    {"id": "pa1-members-index", "method": "GET", "url": "https://members-api.parliament.uk/index.html"},
+    {"id": "pa1-members-swagger", "method": "GET", "url": "https://members-api.parliament.uk/swagger/v1/swagger.json", "save_body": 2000000}
+  ]
+}
