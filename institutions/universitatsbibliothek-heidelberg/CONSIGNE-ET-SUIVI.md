@@ -328,4 +328,13 @@ Au moins **4 recherches web par institution**, une par catégorie : (1) politiqu
 
 ## Sous-agents (14/11/2026)
 Le verrou agit : (a) **au lancement** des outils officiels (`probe.py`, `crash.py`, `fetch_doc.sh` appellent `suivi.py autorise <slug>` et refusent si une institution antérieure n'est pas terminée, étape g comprise) ; (b) **au commit** (`validate`). Il n'agit pas sur un `curl` direct : les sous-agents reçoivent l'interdiction de `curl`/WebFetch vers les domaines d'institutions, et on vérifie dans `tests/journal.log` et les diffs qu'aucune requête n'est partie hors des outils. Un sous-agent traite **une seule institution à la fois**, dans l'ordre, et doit finir par `python3 scripts/suivi.py porte <slug>` affichant « TERMINÉE ». Les sous-agents ne commitent pas ; le commit est refusé tant que `validate` n'est pas au vert.
+
+## Crash test : politique adaptative par réseau (14/11/2026, décision de Marcel : « il faut que ça s'adapte aux prochains »)
+`scripts/crash.py` applique seul, pour toute institution présente ou future :
+1. **Détection** : requête initiale vers l'endpoint ; les en-têtes identifient le réseau (Cloudflare, AWS CloudFront, Akamai, Fastly, Azure Front Door, Imperva, Sucuri, DataDome, HUMAN, Kasada ; liste `VENDORS` à compléter si un nouveau apparaît).
+2. **Plafond** : 200 req/min (hôte sans réseau à réputation partagée), **60 req/min** si un réseau est détecté ; dans les deux cas jamais au-delà de 2 × la limite documentée. Paliers sans limite documentée : 6, 10, 50, 200 (protégé : 6, 10, 30, 60).
+3. **Un seul test protégé à la fois, 30 min entre deux** (état dans `data/crash_reseaux_proteges.json`) ; **requête témoin** avant (Cloudflare : `cdn-cgi/trace` ; CloudFront : `aws.amazon.com/robots.txt`) : si elle est défiée, abandon.
+4. **Hôte partagé** : si un autre dossier a déjà testé le même hôte, le résultat est repris sans envoyer de requête (Leiden et Gand).
+5. Requête de détection en 403/429/CAPTCHA ou erreur : abandon, étape g « impossible » à documenter.
+6. Ordre d'exécution conseillé : hôtes sans réseau protégé d'abord, réseaux protégés en dernier.
 <!-- CONSIGNE:FIN -->

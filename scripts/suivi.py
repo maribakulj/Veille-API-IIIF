@@ -311,6 +311,28 @@ def config_avant_sessions(slug):
     return m
 
 
+def g_impossible_manques(slug, d):
+    """Étape g « impossible » (décision de Marcel 14/11/2026) : acceptée seulement si le validateur le PROUVE."""
+    m = []
+    gi = d.get("g_impossible") or {}
+    if len(gi.get("raison", "")) < 60:
+        m.append("g impossible : champ g_impossible.raison (≥ 60 caractères) absent")
+    j = INST / slug / "tests" / "journal.log"
+    if j.exists() and re.search(r"\| 200 OK \|", j.read_text(encoding="utf-8", errors="replace")):
+        m.append("g impossible refusée : le journal contient des requêtes en 200 (un hôte est testable)")
+    if (INST / slug / "tests" / "crash").exists() and list((INST / slug / "tests" / "crash").glob("*.log")):
+        m.append("g impossible refusée : un journal de crash test existe")
+    bloc = " ".join(str(b.get("hote", "")) for b in d.get("blocages", []))
+    manuel = " ".join(x.get("url", "") for x in d.get("a_verifier_manuellement", []))
+    if not d.get("a_verifier_manuellement"):
+        m.append("g impossible : a_verifier_manuellement vide")
+    for h in d.get("hotes_robots", []):
+        host = h.get("hote", "")
+        if host and host not in bloc and host not in manuel:
+            m.append(f"g impossible : l'hôte {host} n'est ni dans blocages ni dans a_verifier_manuellement")
+    return m
+
+
 def crash_manques(slug):
     """Étape g : journal de crash test existant, terminé, avec configuration committée AVANT chaque lancement."""
     j = INST / slug / "tests" / "crash" / f"{slug}.log"
@@ -427,9 +449,14 @@ def manques_complets(slug):
     if r is None:
         return ["CONSIGNE-ET-SUIVI.md absent"]
     for c in "abcdefg":
-        if r[1].get(c, (" ",))[0] != "x":
-            m.append(f"étape {c}) non cochée")
-    m += controle_v3(slug, lire_data(slug))
+        etat = r[1].get(c, (" ",))[0]
+        if etat == "x" or (c == "g" and etat == "~" and not g_impossible_manques(slug, lire_data(slug))):
+            continue
+        m.append(f"étape {c}) non cochée")
+    flat = controle_v3(slug, lire_data(slug))
+    if r[1].get("g", (" ",))[0] == "~":
+        flat = [x for x in flat if not x.startswith("aucun journal de crash test")]
+    m += flat
     m += analyser_journal(slug)["anomalies"]
     return m
 
@@ -514,6 +541,11 @@ def cmd_validate():
             elif etat == " ":
                 if len(just) < 10:
                     erreurs.append(f"{slug}: étape {code}) non cochée sans justification")
+            elif etat == "~" and code == "g" and statut == "active":
+                for manque in g_impossible_manques(slug, lire_data(slug)):
+                    erreurs.append(f"{slug}: étape g) « impossible » mais : {manque}")
+                if len(just) < 20 or not preuves:
+                    erreurs.append(f"{slug}: étape g) « impossible » sans justification ou preuve")
             elif etat == "~":
                 if statut not in ("écartée", "abandonnée"):
                     erreurs.append(f"{slug}: étape {code}) « sans objet » réservé aux institutions écartées ou abandonnées")
