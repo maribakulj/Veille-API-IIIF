@@ -4,10 +4,195 @@
   "pays": "Japon",
   "classeur_id": "GLAM-084",
   "type": "Plateforme / consortium",
-  "statut_audit": "à faire",
-  "limites_documentees": [],
-  "en_tetes_observes": [],
-  "blocages": [],
-  "sources": [],
-  "web": []
+  "statut_audit": "a–f faits ; g à faire (config crash préparée)",
+  "limites_documentees": [
+    {
+      "nature": "politique d'accès",
+      "perimetre": "robots.txt de cultural.jp",
+      "valeur": "robots d'entraînement interdits (meta-externalagent, GoogleOther, SleepBot) ; moteurs de recherche bienvenus ; 'Les métadonnées sont disponibles à https://cultural.jp/api/'",
+      "fenetre": "sans objet",
+      "effet": "interdiction de robots nommés, pas de limite chiffrée",
+      "verification": "lu dans sources/robots/raw/01.html",
+      "source": "https://cultural.jp/robots.txt",
+      "date": "2026-11-14"
+    }
+  ],
+  "en_tetes_observes": [
+    "aucun en-tête de limite (x-cache CloudFront seulement) sur 8 réponses 200"
+  ],
+  "blocages": [
+    {
+      "hote": "app.cultural.jp",
+      "nature": "robots.txt en 403 AccessDenied (XML) : hôte arrêté, pas de contournement",
+      "date": "2026-11-14",
+      "preuve": "institutions/cultural-japan/sources/robots2/FETCH.log"
+    }
+  ],
+  "sources": [
+    {
+      "url": "https://cultural.jp/about",
+      "date": "2026-11-14",
+      "etiquette": "officielle",
+      "preuve": "institutions/cultural-japan/sources/doc/SHA256SUMS"
+    },
+    {
+      "url": "https://cultural.jp/policy",
+      "date": "2026-11-14",
+      "etiquette": "officielle",
+      "preuve": "institutions/cultural-japan/sources/doc2/SHA256SUMS"
+    },
+    {
+      "url": "https://cultural.jp/contact",
+      "date": "2026-11-14",
+      "etiquette": "officielle",
+      "preuve": "institutions/cultural-japan/sources/doc2/SHA256SUMS"
+    },
+    {
+      "url": "https://api.cultural.jp/openapi.json",
+      "date": "2026-11-14",
+      "etiquette": "officielle",
+      "preuve": "institutions/cultural-japan/sources/api/SHA256SUMS"
+    },
+    {
+      "url": "https://ld.cultural.jp/doc/about-rdf.html",
+      "date": "2026-11-14",
+      "etiquette": "officielle",
+      "preuve": "institutions/cultural-japan/sources/doc/SHA256SUMS"
+    },
+    {
+      "url": "https://ld.cultural.jp/doc/about-sources.html",
+      "date": "2026-11-14",
+      "etiquette": "officielle",
+      "preuve": "institutions/cultural-japan/sources/doc2/SHA256SUMS"
+    }
+  ],
+  "web": [
+    {
+      "categorie": "institution",
+      "aucun_resultat": true,
+      "requete": "Cultural Japan cultural.jp API IIIF terms of use robots crawling",
+      "date": "2026-11-14",
+      "etiquette": "tiers",
+      "citation": "The search didn't turn up cultural.jp's own terms of use or robots/crawling policy (résumé de moteur, non vérifié) ; politique réelle lue sur le site : sources/doc2 et robots.txt",
+      "preuve": "institutions/cultural-japan/sources/web/recherches-2026-11-14.md"
+    },
+    {
+      "categorie": "utilisateurs",
+      "aucun_resultat": true,
+      "requete": "cultural.jp IIIF 429 OR 503 OR blocked rate limit scraping users complaint",
+      "date": "2026-11-14",
+      "etiquette": "tiers",
+      "citation": "I found no reports of cultural.jp returning 429 or 503 errors, blocking users, or complaints about scraping (résumé de moteur, non vérifié)",
+      "preuve": "institutions/cultural-japan/sources/web/recherches-2026-11-14.md"
+    },
+    {
+      "categorie": "tickets",
+      "aucun_resultat": true,
+      "requete": "github issue cultural.jp IIIF manifest \"cultural.jp\"",
+      "date": "2026-11-14",
+      "etiquette": "tiers",
+      "citation": "Neither turned up a GitHub issue about cultural.jp manifests (résumé de moteur, non vérifié)",
+      "preuve": "institutions/cultural-japan/sources/web/recherches-2026-11-14.md"
+    },
+    {
+      "categorie": "presentations",
+      "url": "https://www.kanzaki.com/works/2020/pub/0603ife.html",
+      "date": "2020-06-03",
+      "etiquette": "institution",
+      "citation": "« IIIF Discovery Japan aggregates manifests from some 50 sources » ; « more RDF generated from 123 thousands of IIIF manifests » (original lu)",
+      "preuve": "institutions/cultural-japan/sources/web/recherches-2026-11-14.md"
+    }
+  ],
+  "contact": "groupe Google cj-discuss (https://groups.google.com/g/cj-discuss), indiqué par https://cultural.jp/contact",
+  "classe_quota": "aucun quota trouvé",
+  "confiance": "moyenne",
+  "conclusion_quota": "Aucun quota ni limite de débit publiés. La politique du site renvoie aux conditions de chaque base source ; robots.txt de cultural.jp explique avoir interdit les robots d'entraînement (meta-externalagent 64 % des 93 168 requêtes d'une heure) mais accueille Googlebot/Bingbot et indique l'API comme voie d'accès aux métadonnées, alors que api.cultural.jp/robots.txt dit Disallow / (contradiction notée). 8 requêtes en 200 sans en-tête de limite (CloudFront). app.cultural.jp en 403.",
+  "notes": "Doc : /about, /policy, /contact, ld.cultural.jp about-rdf et about-sources, OpenAPI api.cultural.jp/openapi.json. L'API est servie aussi sur cultural.jp/api (Disallow /api/ dans robots.txt de cultural.jp) ; test fait sur api.cultural.jp avec l'option robots_disallow_autorise_par_marcel. Recherches web : aucune plainte ni ticket.",
+  "a_verifier_manuellement": [
+    {
+      "url": "https://app.cultural.jp/iiif-collection/collection.json",
+      "pourquoi": "hôte app.cultural.jp en 403 AccessDenied dès le robots.txt",
+      "a_chercher": "collection IIIF de l'application, éventuels quotas ou conditions"
+    }
+  ],
+  "endpoints_documentes": [
+    {
+      "famille": "Recherche / comptage (api.cultural.jp /search, /count)",
+      "url": "https://api.cultural.jp/count?keyword=Map",
+      "statut": "teste",
+      "preuve": "institutions/cultural-japan/tests/journal.log"
+    },
+    {
+      "famille": "Notice (/item/{id})",
+      "url": "https://api.cultural.jp/item/stanfordsw-2842816",
+      "statut": "teste",
+      "preuve": "institutions/cultural-japan/tests/journal.log"
+    },
+    {
+      "famille": "Manifeste IIIF Presentation 2 (/iiif/{id}/manifest)",
+      "url": "https://api.cultural.jp/iiif/stanfordsw-2842816/manifest",
+      "statut": "teste",
+      "preuve": "institutions/cultural-japan/tests/journal.log"
+    },
+    {
+      "famille": "Collections IIIF (/collection, /iiif/2/exhibition, /exhibition/iiif/collection/{id})",
+      "url": "https://api.cultural.jp/iiif/2/exhibition",
+      "statut": "teste",
+      "preuve": "institutions/cultural-japan/tests/journal.log"
+    },
+    {
+      "famille": "Point SPARQL RDF store",
+      "url": "https://ld.cultural.jp/sparql/",
+      "statut": "teste",
+      "preuve": "institutions/cultural-japan/tests/journal.log"
+    },
+    {
+      "famille": "Collection IIIF de l'application (app.cultural.jp/iiif-collection/collection.json)",
+      "url": "https://app.cultural.jp/iiif-collection/collection.json",
+      "statut": "non_teste",
+      "raison": "robots.txt de app.cultural.jp répond 403 AccessDenied : hôte arrêté, pas de contournement ; voir a_verifier_manuellement"
+    },
+    {
+      "famille": "Alias cultural.jp/api/ de la même API (robots.txt : métadonnées à https://cultural.jp/api/)",
+      "url": "https://cultural.jp/api/",
+      "statut": "non_teste",
+      "raison": "même API que api.cultural.jp (openapi.json : « same API ») déjà testée sur api.cultural.jp ; robots.txt de cultural.jp : Disallow /api/"
+    }
+  ],
+  "endpoints_ecartes": [
+    {
+      "url": "https://ld.cultural.jp/snorql/",
+      "raison": "interface Snorql de navigateur pour le même point SPARQL déjà testé ; page HTML, pas une API distincte"
+    },
+    {
+      "url": "https://jpsearch.go.jp/api/introduction/",
+      "raison": "API de Japan Search, autre institution hors périmètre de cet audit ; citée comme source de données par la page About"
+    },
+    {
+      "url": "https://www.kanzaki.com/works/2016/pub/image-annotator",
+      "raison": "outil tiers de visualisation de collection IIIF, pas une API de Cultural Japan"
+    }
+  ],
+  "hotes_robots": [
+    {
+      "hote": "cultural.jp",
+      "resultat": "200 : Disallow /search, /api/ ; interdit meta-externalagent, GoogleOther, SleepBot ; aucun Crawl-delay",
+      "preuve": "institutions/cultural-japan/sources/robots/raw/01.html"
+    },
+    {
+      "hote": "ld.cultural.jp",
+      "resultat": "200 : Disallow /sparql, /snorql/, /data/, /entity/ ; bots IA nommés interdits ; aucun Crawl-delay",
+      "preuve": "institutions/cultural-japan/sources/robots/raw/02.html"
+    },
+    {
+      "hote": "api.cultural.jp",
+      "resultat": "200 : User-agent * Disallow / (test autorisé par Marcel)",
+      "preuve": "institutions/cultural-japan/sources/robots2/raw/01.html"
+    },
+    {
+      "hote": "app.cultural.jp",
+      "resultat": "403 AccessDenied (XML), hôte arrêté",
+      "preuve": "institutions/cultural-japan/sources/robots2/raw/02.html"
+    }
+  ]
 }

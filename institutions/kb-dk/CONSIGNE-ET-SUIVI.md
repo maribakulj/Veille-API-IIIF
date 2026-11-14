@@ -2,51 +2,51 @@
 
 - **Dossier** : `institutions/kb-dk/`  ·  **Classeur de référence** : hors 84 (ajouté)  ·  **Pays** : Danemark
 - **Statut d'institution** : active
-- **Dernière mise à jour du suivi** : (à renseigner à chaque modification)
+- **Dernière mise à jour du suivi** : 2026-11-14
 
 ## Suivi par étape (à cocher, avec justification et preuves)
 
 ### a) Documentation lue en entier
 > Toutes les pages de doc liées à l'API (développeurs, interfaces, conditions, FAQ, aide, mentions légales, robots.txt), téléchargées avec `scripts/fetch_doc.sh` (URL, date, SHA-256), lues en entier (`scripts/extract_text.py`).
 
-- [ ] **Pas fait**
-  - **Justification** : Passe antérieure non conforme à la méthode v2 (AUDIT-HAIKU.md) : à refaire. Le matériel déjà présent dans ce dossier est conservé comme historique.
-  - **Preuves** : 
+- [x] **Fait**
+  - **Justification** : Doc relue en brut : pages API, règlements, accès aux données, api.kb.dk, README et 3 fichiers GitHub ; robots.txt de 6 hôtes
+  - **Preuves** : `institutions/kb-dk/sources/doc/SHA256SUMS`, `institutions/kb-dk/sources/robots/SHA256SUMS`, `institutions/kb-dk/sources/robots-gh/SHA256SUMS`
 
 ### b) Endpoints tirés de la doc
 > Liste des endpoints citée par la doc (URL, exemples). Jamais devinée. Une interdiction ou une impossibilité écrite dans la doc justifie de renoncer (citer la phrase).
 
-- [ ] **Pas fait**
-  - **Justification** : Passe antérieure non conforme à la méthode v2 (AUDIT-HAIKU.md) : à refaire. Le matériel déjà présent dans ce dossier est conservé comme historique.
-  - **Preuves** : 
+- [x] **Fait**
+  - **Justification** : Endpoints tirés de oai-pmh.md, cop-backend.md et image-delivery.md : OAI, COP, IIIF Image, imageService
+  - **Preuves** : `institutions/kb-dk/data.json`, `institutions/kb-dk/sources/doc/SHA256SUMS`
 
 ### c) Configuration écrite AVANT les tests
 > `config/<nom>.json` pilote `scripts/probe.py`, committée avant le lancement. Un endpoint absent de la doc mais non interdit se teste avec un script poli (identifiants issus de pages publiques ou d'exemples de la doc, pas de devinette).
 
-- [ ] **Pas fait**
-  - **Justification** : Passe antérieure non conforme à la méthode v2 (AUDIT-HAIKU.md) : à refaire. Le matériel déjà présent dans ce dossier est conservé comme historique.
-  - **Preuves** : 
+- [x] **Fait**
+  - **Justification** : Configurations kb-p2, kb-p3, kb-p4 committées avant lancement ; anciennes sessions archivées
+  - **Preuves** : `institutions/kb-dk/config/kb-p2-cop.json`, `institutions/kb-dk/config/kb-p3-iiif.json`, `institutions/kb-dk/config/kb-p4-legacy.json`, `institutions/kb-dk/tests/archive/journal-sessions-avant-config-committee.log`
 
 ### d) Quota cherché dans la doc
 > Pour chaque page lue : endpoint de statut, en-têtes de limite documentés, clé ou compte donnant un quota, contact pour un volume plus élevé. Chaque réponse cite sa source.
 
-- [ ] **Pas fait**
-  - **Justification** : Passe antérieure non conforme à la méthode v2 (AUDIT-HAIKU.md) : à refaire. Le matériel déjà présent dans ce dossier est conservé comme historique.
-  - **Preuves** : 
+- [x] **Fait**
+  - **Justification** : Quota cherché dans toute la doc relue : aucune limite, clé ni en-tête documentés ; contact kb@kb.dk
+  - **Preuves** : `institutions/kb-dk/sources/doc/SHA256SUMS`
 
 ### e) Test systématique de chaque endpoint
 > Chaque endpoint documenté est testé (budget 15 requêtes par passe, pause ≥ 6 s, GET/HEAD, UA du projet). Redirections du même hôte suivies. Un 403 arrête son hôte, un 429 arrête l'institution. Seules les interdictions écrites dans la doc dispensent de tester.
 
-- [ ] **Pas fait**
-  - **Justification** : Passe antérieure non conforme à la méthode v2 (AUDIT-HAIKU.md) : à refaire. Le matériel déjà présent dans ce dossier est conservé comme historique.
-  - **Preuves** : 
+- [x] **Fait**
+  - **Justification** : Familles testées : OAI Identify/GetRecord, COP, IIIF info.json et image, imageService ; ListSets (DNS) et ListRecords justifiés
+  - **Preuves** : `institutions/kb-dk/tests/journal.log`
 
 ### f) Ce que disent les gens sur le web
 > Plaintes, discussions, présentations de l'institution, politique envers les API et les bots, blogs, GitHub, forums, listes de diffusion. Sources étiquetées (officielle / institution / utilisateur / tiers), lues, citées.
 
-- [ ] **Pas fait**
-  - **Justification** : Passe antérieure non conforme à la méthode v2 (AUDIT-HAIKU.md) : à refaire. Le matériel déjà présent dans ce dossier est conservé comme historique.
-  - **Preuves** : 
+- [x] **Fait**
+  - **Justification** : 4 recherches web le 2026-11-14 (institution, utilisateurs, tickets, presentations) ; aucune plainte ni ticket ; Zenodo lu
+  - **Preuves** : `institutions/kb-dk/sources/web/recherches-2026-11-14.md`
 
 ### g) Crash test progressif
 > Seulement après l'audit complet (a à f) de toutes les institutions et avec l'accord de Marcel : paliers jusqu'à 2 × la limite documentée, ou 200 req/min si illimité ou sans limite documentée. Arrêt au premier 429/403/CAPTCHA.
@@ -60,7 +60,7 @@
 
 <!-- AUTO:DEBUT -->
 ## Contrôles automatiques (calculés depuis `tests/journal.log`)
-- Requêtes enregistrées : **12** (sessions de sonde : 2, maximum par session : 10)
+- Requêtes enregistrées : **22** (sessions de sonde : 3, maximum par session : 15)
 - Plus courte pause vers un même hôte : **6 s** (règle : ≥ 6 s)
 - Méthodes utilisées : GET (règle : GET/HEAD seulement)
 - Anomalies : aucune

@@ -1,0 +1,8 @@
+{
+  "slug": "keio-digital-collections",
+  "endpoint": {"id": "crash-keio-image-info", "url": "https://iiif.lib.keio.ac.jp/iipsrv/ANT/Japan/1/tif/j1_001.tif/info.json", "method": "GET"},
+  "limite_documentee_req_min": null,
+  "source_limite": "aucune limite documentée (page About de dcollections.lib.keio.ac.jp, sources/doc : aucun quota ; robots.txt sans Crawl-delay)",
+  "duree_palier_s": 180,
+  "note": "info.json IIPImage d'environ 200 octets, vu en 200 deux fois dans tests/journal.log (k1-image-info). Étape g non lancée."
+}

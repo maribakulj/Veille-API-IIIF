@@ -1,0 +1,11 @@
+{
+  "slug": "kb-dk",
+  "min_delay_s": 6,
+  "max_requests": 15,
+  "follow_redirects": 1,
+  "robots_disallow_autorise_par_marcel": true,
+  "note": "Passe 4 : ancienne syntaxe imageService (documentée comme dépréciée dans image-delivery.md), non atteinte en passe 2 (plafond de 15 requêtes avec redirections).",
+  "endpoints": [
+    {"id": "p4-imageservice-w640", "method": "GET", "url": "http://www.kb.dk/imageService/w640/online_master_arkiv_6/non-archival/Images/BILLED/2008/Billede/dk_eksp_album_191/kbb_alb_2_191_friis_011.jpg"}
+  ]
+}

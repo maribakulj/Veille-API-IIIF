@@ -1,0 +1,154 @@
+Cultural Japan RDFのソースについて - sources of data 
+ Cultural Japan 
+ About the sources of Cultural Japan RDF のソースについて 
+ Cultural Japan は、世界の主要文化遺産機関およびポータルから収集したデータをRDFに変換し、 ジャパンサーチ のSPARQLエンドポイントから取得したデータと合わせて、検索アプリケーションを通して提供しています。収集データのソースは以下の表のとおりです。
+ Cultural Japan collects source data from world's leading cultural heritage instisutions as well as portals. Then the data is converted to RDF and served through search application, toghther with data obtaind from Japan Search 's SPARQL endpoint. The sources are as follows.
+ 収集ソース一覧 List of sources 
+ RDF データセット Dataset 
+ 取得元 Source 
+ 方法/対象 Method/Target 
+ 条件 Condtions 
+ ヨーロピアナAPI 
+ Europeana Search API 
+ API parameters 
+ where , subject , title , who , what = Japan 
+ メトロポリタン美術館CSV 
+ The Metropolitan Museum of Art Open Access CSV 
+ CSV recod items 
+ items that contain (a)'Japan' in Asian Art section, OR (b)'Japanese' in all sections 
+ DPLA-API 
+ DPLA public API 
+ API parameters 
+ (a) spatial.country =Japan, AND (b) subject.name =Japan* or Art 
+ シカゴ美術館API 
+ Art Institute of Chicago API 
+ API parameter 
+ q =Japan 
+ ハーバード美術館API 
+ API | Harvard Art Museums 
+ API parameter 
+ culture =Japanese 
+ アムステルダム国立美術館API 
+ Rijksmuseum Data 
+ API parameters 
+ (a) q =Japan, AND (b) imgonly =true 
+ スタンフォードSearchWorks 
+ SearchWorks catalog : Stanford Libraries 
+ Search page 
+ (a) keyword =Japan, AND (b) online-access only =true, MINUS (c) Resource Type =Archived website, Book, Music recording; plus Naonori Kohira photo archive 
+ 在外日本美術データベース 
+ 日文研在外日本美術データベース Database of Japanese Art in Overseas Collections 
+ in addition to items from Japan Search 
+ エルミタージュ美術館、プーシキン国立美術館および他館の不足分を取得 obtained from the original database the lacking items of Hermitage Museum, Pushkin State Museum and others 
+ 米議会図書館デジタルコレクション 
+ Digital Collections | Library of Congress 
+ Collection API 
+ (a)all items of japanese-fine-prints-pre-1915, japanese-censorship-collection, fine-prints, ainu-and-ezochi-rare-collection, japanese-rare-books, AND (b) q =Japan for items of genthe, stereograph-cards 
+ ヴィクトリア・アンド・アルバート博物館API 
+ Victoria and Albert Museum API 
+ API parameter 
+ placesearch =Japan 
+ ニューヨーク近代美術館コレクション 
+ MoMA Collection (Artworks.json) 
+ JSON record items 
+ items that contain 'Japan' 
+ オーストラリア国立図書館Trove 
+ Trove - National Library of Australia API 
+ API parameter 
+ (a) q =japan& zone =map& l-availability =y, OR (b) q =japan& zone =picture& l-availability =y& l-format =Art+work 
+ クリーブランド美術館API 
+ The Cleveland Museum of Art Open Access API 
+ API parameter 
+ department =Japanese Art 
+ テイト・コレクション 
+ Search results | Tate 
+ API parameter 
+ type =artwork& q =japan 
+ メトロポリタン美術館デジタルコレクション 
+ Digital Collections from The Metropolitan Museum of Art Libraries 
+ Japanese Illustrated Books page 
+ All items 
+ IIIF-Discovery 
+ IIIF Discovery in Japan 
+ Open licensed IIIF manifests 
+ metadata property objects 
+ IIIF-Discovery-JCR 
+ IIIF Discovery for Japanese Cultural Resources 
+ 北米日本研究資料調整協議会の On occasion of 2018 Digital Scholarship Workshop をきっかけに収集した by --, collected related IIIF マニフェスト manifests 
+ metadata property objects 
+ デジタルNZ-API 
+ DigitalNZ API 
+ API parameters 
+ (a) text =japan, MINUS (b) content_partner =iNaturalist NZ, Kete New Plymouth, mychillybin 
+ ゴッホ美術館オンラインコレクション 
+ Van Gogh Museum - Japanese print collection 
+ Collection search 
+ (a)All items of Japanese prints collection, PLUS (b) keyword =Japan in general collection 
+ 英国博物館コレクション 
+ British Museum collection 
+ CSV from Collection search 
+ place =Japan& image =true, PLUS foremer research.britishmuseum search results 
+ ホノルル美術館コレクション 
+ Honolulu Museum of Art - Works of Japanese Woodblock Prints 
+ Collection list pages 
+ extracted titles, creators, images and page links 
+ ミネアポリス美術館API 
+ Open Access at Mia 
+ Metadata JSON 
+ (a) country =Japan OR (b) ( title or description or description ) contains 'Japan' 
+ フィラデルフィア美術館コレクション 
+ Philadelphia Museum of Art Collection 
+ Collection search 
+ keyword Japan , then extract some elements 
+ ブルックリン美術館API 
+ Opencollection API at Brooklyn Museum 
+ API parameters 
+ (a) geographical_location_id =5181 (Japan), OR (b) keyword =Japan, MINUS those contain 'Japan' in medium 
+ ヒューストン美術館コレクション 
+ Collections of Museum of Fine Arts, Houston 
+ Collection search 
+ (a) culture / nationalities =Japanese, AND (b) image availabele =true 
+ ウォルターズ美術館API 
+ Open Data from the Walters Art Museum 
+ API parameter 
+ keyword =Japan 
+ イェール大学図書館コレクション 
+ Yale University Library Digital Collections 
+ Open licensed IIIF manifests 
+ Search keyword=Japan, then fetched manifests for ids in results 
+ ケンブリッジ大学デジタルライブラリ 
+ Cambridge Digital Library 
+ Open licensed IIIF manifests 
+ Search keyword=Japan, then fetched manifests for ids in results 
+ ルーブル美術館コレクション 
+ Louvre site des collections 
+ API parameter 
+ placeStr =Japon 
+ チェスター・ビーティ図書館デジタルコレクション 
+ Chester Beatty's Digital Collections 
+ METS files 
+ obtained for each item in Japanese collection 
+ ボストン美術館コレクション 
+ Museum of Fine Arts Boston Collection 
+ Collection search 
+ (a) Classification : Paintings/Sculpture, Culture : Japanese, Collection : Asia ; (b) keyword : 'Spaulding Collection', Collection : Prints and Drawings ; both with images 
+ シアトル美術館コレクション 
+ Seattle Art Museum Collection 
+ Collection search 
+ Department : Asian Art, Collections : Japanese Art / Japanese Paintings & Calligraphy, Image Available : true 
+ ノートン・サイモン美術館コレクション 
+ Norton Simon Museum Collection 
+ Collection search 
+ Search keyword=Japan, with only 'Artworks with Images' 
+ ロサンゼルス・カウンティ美術館コレクション 
+ Los Angeles County Museum Collection 
+ Collection search 
+ Curation Area : Japanese art, and 'Show only results with images' checked 
+ ウスター美術館コレクション 
+ Worcester Art Museum Collection 
+ Collection search 
+ Artist / Maker / Culture : Japanese, with only 'Image Available' 
+ RDFデータは Snorql （あるいは SPARQLエンドポイント ）を通して利用できます。RDF変換の制約などは Cultural JapanのRDFについて を参照してください。
+ RDF data is available through Snorql (or SPARQ endpoint ). See also about RDF Cultural Japan for some limitation.
+Created: 2020-06-16 ; 
+Last updated: 2023-10-22

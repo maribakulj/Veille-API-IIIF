@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ja">
+<head>
+ <meta charset="UTF-8" />
+ <meta name="viewport" content="width=device-width" />
+ <title>Cultural Japan RDFのソースについて - sources of data</title>
+ <link rel="stylesheet" href="common.css"/>
+ <link rel="icon" href="cj-cube2.png"/>
+ <style>
+ code {color: green}
+ </style>
+ <script src="common.js"></script>
+</head>
+<body>
+<header>
+<a href="https://cultural.jp/">Cultural Japan</a>
+</header>
+<div class="main">
+<h1><span lang="en">About the sources of </span>Cultural Japan RDF<span lang="ja">のソースについて</span></h1>
+<p lang="ja"><a href="http://cultural.jp/">Cultural Japan</a>は、世界の主要文化遺産機関およびポータルから収集したデータをRDFに変換し、<a href="https://jpsearch.go.jp">ジャパンサーチ</a>のSPARQLエンドポイントから取得したデータと合わせて、検索アプリケーションを通して提供しています。収集データのソースは以下の表のとおりです。</p>
+<p lang="en"><a href="http://cultural.jp/">Cultural Japan</a> collects source data from world's leading cultural heritage instisutions as well as portals. Then the data is converted to RDF and served through search application, toghther with data obtaind from <a href="https://jpsearch.go.jp">Japan Search</a>'s SPARQL endpoint. The sources are as follows.</p>
+
+
+<table>
+<caption><span lang="ja">収集ソース一覧</span><span lang="en">List of sources</span></caption>
+<thead>
+<tr>
+  <th>RDF<span lang="ja">データセット</span><span lang="en"> Dataset</span></th>
+  <th><span lang="ja">取得元</span><span lang="en">Source</span></th>
+  <th><span lang="ja">方法/対象</span><span lang="en">Method/Target</span></th>
+  <th><span lang="ja">条件</span><span lang="en">Condtions</span></th>
+</tr>
+</thead>
+<tbody>
+
+<tr>
+  <td><a href="https://ld.cultural.jp/snorql/?query=SELECT+%3Fcho+%3Flabel+%3Fimage+WHERE+%7B%0D%0A%09%3Fcho+rdfs%3Alabel+%3Flabel+%3B%0D%0A++++jps%3AsourceInfo%2Fschema%3Aprovider+chname%3AヨーロピアナAPI%0D%0A%09OPTIONAL+%7B%3Fcho+schema%3Aimage+%3Fimage%7D%0D%0A%7D+LIMIT+500">ヨーロピアナAPI</a></td>
+  <td><a href="https://pro.europeana.eu/page/search">Europeana Search API</a></td>
+  <td>API parameters</td>
+  <td><code>where</code>, <code>subject</code>, <code>title</code>, <code>who</code>, <code>what</code> = Japan</td>
+<tr>
+<tr>
+  <td><a href="https://ld.cultural.jp/snorql/?query=SELECT+%3Fcho+%3Flabel+%3Fimage+WHERE+%7B%0D%0A%09%3Fcho+rdfs%3Alabel+%3Flabel+%3B%0D%0A++++jps%3AsourceInfo%2Fschema%3Aprovider+chname%3Aメトロポリタン美術館CSV%0D%0A%09OPTIONAL+%7B%3Fcho+schema%3Aimage+%3Fimage%7D%0D%0A%7D+LIMIT+500">メトロポリタン美術館CSV</a></td>
+  <td><a href="https://github.com/metmuseum/openaccess">The Metropolitan Museum of Art Open Access CSV</a></td>
+  <td>CSV recod items</td>
+  <td>items that contain (a)'Japan' in Asian Art section, OR (b)'Japanese' in all sections</td>
+<tr>
+<tr>
+  <td><a href="https://ld.cultural.jp/snorql/?query=SELECT+%3Fcho+%3Flabel+%3Fimage+WHERE+%7B%0D%0A%09%3Fcho+rdfs%3Alabel+%3Flabel+%3B%0D%0A++++jps%3AsourceInfo%2Fschema%3Aprovider+chname%3ADPLA-API%0D%0A%09OPTIONAL+%7B%3Fcho+schema%3Aimage+%3Fimage%7D%0D%0A%7D+LIMIT+500">DPLA-API</a></td>
+  <td><a href="https://pro.dp.la/developers">DPLA public API</a></td>
+  <td>API parameters</td>
+  <td>(a)<code>spatial.country</code>=Japan,  AND (b)<code>subject.name</code>=Japan* or Art</td>
+<tr>
+<tr>
+  <td><a href="https://ld.cultural.jp/snorql/?query=SELECT+%3Fcho+%3Flabel+%3Fimage+WHERE+%7B%0D%0A%09%3Fcho+rdfs%3Alabel+%3Flabel+%3B%0D%0A++++jps%3AsourceInfo%2Fschema%3Aprovider+chname%3Aシカゴ美術館API%0D%0A%09OPTIONAL+%7B%3Fcho+schema%3Aimage+%3Fimage%7D%0D%0A%7D+LIMIT+500">シカゴ美術館API</a></td>
+  <td><a href="https://aggregator-data.artic.edu/">Art Institute of Chicago API</a></td>
+  <td>API parameter</td>
+  <td><code>q</code>=Japan</td>
+<tr>
+<tr>
+  <td><a href="https://ld.cultural.jp/snorql/?query=SELECT+%3Fcho+%3Flabel+%3Fimage+WHERE+%7B%0D%0A%09%3Fcho+rdfs%3Alabel+%3Flabel+%3B%0D%0A++++jps%3AsourceInfo%2Fschema%3Aprovider+chname%3Aハーバード美術館API%0D%0A%09OPTIONAL+%7B%3Fcho+schema%3Aimage+%3Fimage%7D%0D%0A%7D+LIMIT+500">ハーバード美術館API</a></td>
+  <td><a href="https://www.harvardartmuseums.org/collections/api">API | Harvard Art Museums</a></td>
+  <td>API parameter</td>
+  <td><code>culture</code>=Japanese</td>
+<tr>
+<tr>
+  <td><a href="https://ld.cultural.jp/snorql/?query=SELECT+%3Fcho+%3Flabel+%3Fimage+WHERE+%7B%0D%0A%09%3Fcho+rdfs%3Alabel+%3Flabel+%3B%0D%0A++++jps%3AsourceInfo%2Fschema%3Aprovider+chname%3Aアムステルダム国立美術館API%0D%0A%09OPTIONAL+%7B%3Fcho+schema%3Aimage+%3Fimage%7D%0D%0A%7D+LIMIT+500">アムステルダム国立美術館API</a></td>
+  <td><a href="https://www.rijksmuseum.nl/en/api">Rijksmuseum Data</a></td>
+  <td>API parameters</td>
+  <td> (a)<code>q</code>=Japan, AND (b)<code>imgonly</code>=true</td>
+<tr>
+<tr>
+  <td><a href="https://ld.cultural.jp/snorql/?query=SELECT+%3Fcho+%3Flabel+%3Fimage+WHERE+%7B%0D%0A%09%3Fcho+rdfs%3Alabel+%3Flabel+%3B%0D%0A++++jps%3AsourceInfo%2Fschema%3Aprovider+chname%3AスタンフォードSearchWorks%0D%0A%09OPTIONAL+%7B%3Fcho+schema%3Aimage+%3Fimage%7D%0D%0A%7D+LIMIT+500">スタンフォードSearchWorks</a></td>
+  <td><a href="https://searchworks.stanford.edu">SearchWorks catalog : Stanford Libraries</a></td>
+  <td>Search page</td>
+  <td>(a)<code>keyword</code>=Japan, AND (b)<code>online-access only</code>=true, MINUS (c)<code>Resource Type</code>=Archived website, Book, Music recording; plus <a href="https://searchworks.stanford.edu/catalog?f%5Bcollection%5D%5B%5D=13886995">Naonori Kohira photo archive</a></td>
+<tr>
+<tr>
+  <td><a href="https://ld.cultural.jp/snorql/?query=SELECT+%3Fcho+%3Flabel+%3Fimage+WHERE+%7B%0D%0A%09%3Fcho+rdfs%3Alabel+%3Flabel+%3B%0D%0A++++jps%3AsourceInfo%2Fschema%3Aprovider+chname%3A在外日本美術データベース%0D%0A%09OPTIONAL+%7B%3Fcho+schema%3Aimage+%3Fimage%7D%0D%0A%7D+LIMIT+500">在外日本美術データベース</a></td>
+  <td><a href="http://lapis.nichibun.ac.jp/zai"><span lang="ja">日文研在外日本美術データベース</span><span lang="en">Database of Japanese Art in Overseas Collections</span></a></td>
+  <td>in addition to items from Japan Search</td>
+  <td><span lang="ja">エルミタージュ美術館、プーシキン国立美術館および他館の不足分を取得</span><span lang="en">obtained from the original database the lacking items of Hermitage Museum, Pushkin State Museum and others</span></td>
+<tr>
+<tr>
+  <td><a href="https://ld.cultural.jp/snorql/?query=SELECT+%3Fcho+%3Flabel+%3Fimage+WHERE+%7B%0D%0A%09%3Fcho+rdfs%3Alabel+%3Flabel+%3B%0D%0A++++jps%3AsourceInfo%2Fschema%3Aprovider+chname%3A米議会図書館デジタルコレクション%0D%0A%09OPTIONAL+%7B%3Fcho+schema%3Aimage+%3Fimage%7D%0D%0A%7D+LIMIT+500">米議会図書館デジタルコレクション</a></td>
+  <td><a href="https://www.loc.gov/collections/">Digital Collections | Library of Congress</a></td>
+  <td>Collection API</td>
+  <td>(a)all items of japanese-fine-prints-pre-1915, japanese-censorship-collection, fine-prints, ainu-and-ezochi-rare-collection, <ins datetime="2021-09-20">japanese-rare-books,</ins> AND (b)<code>q</code>=Japan for items of genthe, stereograph-cards</td>
+<tr>
+<tr>
+  <td><a href="https://ld.cultural.jp/snorql/?query=SELECT+%3Fcho+%3Flabel+%3Fimage+WHERE+%7B%0D%0A%09%3Fcho+rdfs%3Alabel+%3Flabel+%3B%0D%0A++++jps%3AsourceInfo%2Fschema%3Aprovider+chname%3Aヴィクトリア・アンド・アルバート博物館API%0D%0A%09OPTIONAL+%7B%3Fcho+schema%3Aimage+%3Fimage%7D%0D%0A%7D+LIMIT+500">ヴィクトリア・アンド・アルバート博物館API</a></td>
+  <td><a href="https://www.vam.ac.uk/api">Victoria and Albert Museum API</a></td>
+  <td>API parameter</td>
+  <td><code>placesearch</code>=Japan</td>
+<tr>
+<tr>
+  <td><a href="https://ld.cultural.jp/snorql/?query=SELECT+%3Fcho+%3Flabel+%3Fimage+WHERE+%7B%0D%0A%09%3Fcho+rdfs%3Alabel+%3Flabel+%3B%0D%0A++++jps%3AsourceInfo%2Fschema%3Aprovider+chname%3Aニューヨーク近代美術館コレクション%0D%0A%09OPTIONAL+%7B%3Fcho+schema%3Aimage+%3Fimage%7D%0D%0A%7D+LIMIT+500">ニューヨーク近代美術館コレクション</a></td>
+  <td><a href="https://github.com/MuseumofModernArt/collection">MoMA Collection (Artworks.json)</a></td>
+  <td>JSON record items</td>
+  <td>items that contain 'Japan'</td>
+<tr>
+<tr>
+  <td><a href="https://ld.cultural.jp/snorql/?query=SELECT+%3Fcho+%3Flabel+%3Fimage+WHERE+%7B%0D%0A%09%3Fcho+rdfs%3Alabel+%3Flabel+%3B%0D%0A++++jps%3AsourceInfo%2Fschema%3Aprovider+chname%3Aオーストラリア国立図書館Trove%0D%0A%09OPTIONAL+%7B%3Fcho+schema%3Aimage+%3Fimage%7D%0D%0A%7D+LIMIT+500">オーストラリア国立図書館Trove</a></td>
+  <td><a href="https://help.nla.gov.au/trove/building-with-trove/api-version-2-technical-guide">Trove - National Library of Australia API</a></td>
+  <td>API parameter</td>
+  <td>(a)<code>q</code>=japan&amp;<code>zone</code>=map&amp;<code>l-availability</code>=y, OR (b)<code>q</code>=japan&amp;<code>zone</code>=picture&amp;<code>l-availability</code>=y&amp;<code>l-format</code>=Art+work</td>
+<tr>
+<tr>
+  <td><a href="https://ld.cultural.jp/snorql/?query=SELECT+%3Fcho+%3Flabel+%3Fimage+WHERE+%7B%0D%0A%09%3Fcho+rdfs%3Alabel+%3Flabel+%3B%0D%0A++++jps%3AsourceInfo%2Fschema%3Aprovider+chname%3Aクリーブランド美術館API%0D%0A%09OPTIONAL+%7B%3Fcho+schema%3Aimage+%3Fimage%7D%0D%0A%7D+LIMIT+500">クリーブランド美術館API</a></td>
+  <td><a href="https://openaccess-api.clevelandart.org/">The Cleveland Museum of Art Open Access API</a></td>
+  <td>API parameter</td>
+  <td><code>department</code>=Japanese Art</td>
+<tr>
+<tr>
+  <td><a href="https://ld.cultural.jp/snorql/?query=SELECT+%3Fcho+%3Flabel+%3Fimage+WHERE+%7B%0D%0A%09%3Fcho+rdfs%3Alabel+%3Flabel+%3B%0D%0A++++jps%3AsourceInfo%2Fschema%3Aprovider+chname%3Aテイト・コレクション%0D%0A%09OPTIONAL+%7B%3Fcho+schema%3Aimage+%3Fimage%7D%0D%0A%7D+LIMIT+500">テイト・コレクション</a></td>
+  <td><a href="https://www.tate.org.uk/search">Search results | Tate</a></td>
+  <td>API parameter</td>
+  <td><code>type</code>=artwork&amp;<code>q</code>=japan</td>
+<tr>
+<tr>
+  <td><a href="https://ld.cultural.jp/snorql/?query=SELECT+%3Fcho+%3Flabel+%3Fimage+WHERE+%7B%0D%0A%09%3Fcho+rdfs%3Alabel+%3Flabel+%3B%0D%0A++++jps%3AsourceInfo%2Fschema%3Aprovider+chname%3Aメトロポリタン美術館デジタルコレクション%0D%0A%09OPTIONAL+%7B%3Fcho+schema%3Aimage+%3Fimage%7D%0D%0A%7D+LIMIT+500">メトロポリタン美術館デジタルコレクション</a></td>
+  <td><a href="https://libmma.contentdm.oclc.org/digital/collection/p16028coll7/search/">Digital Collections from The Metropolitan Museum of Art Libraries</a></td>
+  <td>Japanese Illustrated Books page</td>
+  <td>All items</td>
+<tr>
+<tr>
+  <td><a href="https://ld.cultural.jp/snorql/?query=SELECT+%3Fcho+%3Flabel+%3Fimage+WHERE+%7B%0D%0A%09%3Fcho+rdfs%3Alabel+%3Flabel+%3B%0D%0A++++jps%3AsourceInfo%2Fschema%3Aprovider+chname%3AIIIF-Discovery%0D%0A%09OPTIONAL+%7B%3Fcho+schema%3Aimage+%3Fimage%7D%0D%0A%7D+LIMIT+500">IIIF-Discovery</a></td>
+  <td><a href="http://iiif2.dl.itc.u-tokyo.ac.jp/s/iiif/page/home">IIIF Discovery in Japan</a></td>
+  <td>Open licensed IIIF manifests</td>
+  <td>metadata property objects</td>
+<tr>
+<tr>
+  <td><a href="https://ld.cultural.jp/snorql/?query=SELECT+%3Fcho+%3Flabel+%3Fimage+WHERE+%7B%0D%0A%09%3Fcho+rdfs%3Alabel+%3Flabel+%3B%0D%0A++++jps%3AsourceInfo%2Fschema%3Aprovider+chname%3AIIIF-Discovery-JCR%0D%0A%09OPTIONAL+%7B%3Fcho+schema%3Aimage+%3Fimage%7D%0D%0A%7D+LIMIT+500">IIIF-Discovery-JCR</a></td>
+  <td><a href="https://cj-es.s3.amazonaws.com/jpr.json">IIIF Discovery for Japanese Cultural Resources</a></td>
+  <td><span lang="ja">北米日本研究資料調整協議会の</span><span lang="en">On occasion of </span>2018 Digital Scholarship Workshop<span lang="ja">をきっかけに収集した</span><span lang="en"> by --, collected related </span>IIIF<span lang="ja">マニフェスト</span><span lang="en"> manifests </span></td>
+  <td>metadata property objects</td>
+<tr>
+<tr>
+  <td><a href="https://ld.cultural.jp/snorql/?query=SELECT+%3Fcho+%3Flabel+%3Fimage+WHERE+%7B%0D%0A%09%3Fcho+rdfs%3Alabel+%3Flabel+%3B%0D%0A++++jps%3AsourceInfo%2Fschema%3Aprovider+chname%3AデジタルNZ-API%0D%0A%09OPTIONAL+%7B%3Fcho+schema%3Aimage+%3Fimage%7D%0D%0A%7D+LIMIT+500">デジタルNZ-API</a></td>
+  <td><a href="https://digitalnz.org/developers">DigitalNZ API</a></td>
+  <td>API parameters</td>
+  <td>(a)<code>text</code>=japan, MINUS (b)<code>content_partner</code>=iNaturalist NZ, Kete New Plymouth, mychillybin</td>
+<tr>
+<tr>
+  <td><a href="https://ld.cultural.jp/snorql/?query=SELECT+%3Fcho+%3Flabel+%3Fimage+WHERE+%7B%0D%0A%09%3Fcho+rdfs%3Alabel+%3Flabel+%3B%0D%0A++++jps%3AsourceInfo%2Fschema%3Aprovider+chname%3Aゴッホ美術館オンラインコレクション%0D%0A%09OPTIONAL+%7B%3Fcho+schema%3Aimage+%3Fimage%7D%0D%0A%7D+LIMIT+500">ゴッホ美術館オンラインコレクション</a></td>
+  <td><a href="https://www.vangoghmuseum.nl/ja/japanese-prints/search/collection">Van Gogh Museum - Japanese print collection</a></td>
+  <td>Collection search</td>
+  <td>(a)All items of Japanese prints collection, PLUS (b)<code>keyword</code>=Japan in general collection</td>
+<tr>
+<tr>
+  <td><a href="https://ld.cultural.jp/snorql/?query=SELECT+%3Fcho+%3Flabel+%3Fimage+WHERE+%7B%0D%0A%09%3Fcho+rdfs%3Alabel+%3Flabel+%3B%0D%0A++++jps%3AsourceInfo%2Fschema%3Aprovider+chname%3A英国博物館コレクション%0D%0A%09OPTIONAL+%7B%3Fcho+schema%3Aimage+%3Fimage%7D%0D%0A%7D+LIMIT+500">英国博物館コレクション</a></td>
+  <td><a href="https://www.britishmuseum.org/collection">British Museum collection</a></td>
+  <td>CSV from Collection search</td>
+  <td><code>place</code>=Japan&amp;<code>image</code>=true, PLUS foremer research.britishmuseum search results</td>
+<tr>
+<tr>
+  <td><a href="https://ld.cultural.jp/snorql/?query=SELECT+%3Fcho+%3Flabel+%3Fimage+WHERE+%7B%0D%0A%09%3Fcho+rdfs%3Alabel+%3Flabel+%3B%0D%0A++++jps%3AsourceInfo%2Fschema%3Aprovider+chname%3Aホノルル美術館コレクション%0D%0A%09OPTIONAL+%7B%3Fcho+schema%3Aimage+%3Fimage%7D%0D%0A%7D+LIMIT+500">ホノルル美術館コレクション</a></td>
+  <td><a href="https://art.honolulumuseum.org/collections/9/asian-art-japanese-woodblock-prints">Honolulu Museum of Art - Works of Japanese Woodblock Prints</a></td>
+  <td>Collection list pages</td>
+  <td>extracted titles, creators, images and page links</td>
+<tr>
+<tr>
+  <td><a href="https://ld.cultural.jp/snorql/?query=SELECT+%3Fcho+%3Flabel+%3Fimage+WHERE+%7B%0D%0A%09%3Fcho+rdfs%3Alabel+%3Flabel+%3B%0D%0A++++jps%3AsourceInfo%2Fschema%3Aprovider+chname%3Aミネアポリス美術館API%0D%0A%09OPTIONAL+%7B%3Fcho+schema%3Aimage+%3Fimage%7D%0D%0A%7D+LIMIT+500">ミネアポリス美術館API</a></td>
+  <td><a href="https://collections.artsmia.org/info/open-access">Open Access at Mia</a></td>
+  <td>Metadata JSON</td>
+  <td>(a)<code>country</code>=Japan OR (b) (<code>title</code> or <code>description</code> or <code>description</code>) contains 'Japan'</td>
+<tr>
+<tr>
+  <td><a href="https://ld.cultural.jp/snorql/?query=SELECT+%3Fcho+%3Flabel+%3Fimage+WHERE+%7B%0D%0A%09%3Fcho+rdfs%3Alabel+%3Flabel+%3B%0D%0A++++jps%3AsourceInfo%2Fschema%3Aprovider+chname%3Aフィラデルフィア美術館コレクション%0D%0A%09OPTIONAL+%7B%3Fcho+schema%3Aimage+%3Fimage%7D%0D%0A%7D+LIMIT+500">フィラデルフィア美術館コレクション</a></td>
+  <td><a href="https://www.philamuseum.org/collection">Philadelphia Museum of Art Collection</a></td>
+  <td>Collection search</td>
+  <td>keyword <code>Japan</code>, then extract some elements</td>
+<tr>
+<tr>
+  <td><a href="https://ld.cultural.jp/snorql/?query=SELECT+%3Fcho+%3Flabel+%3Fimage+WHERE+%7B%0D%0A%09%3Fcho+rdfs%3Alabel+%3Flabel+%3B%0D%0A++++jps%3AsourceInfo%2Fschema%3Aprovider+chname%3Aブルックリン美術館API%0D%0A%09OPTIONAL+%7B%3Fcho+schema%3Aimage+%3Fimage%7D%0D%0A%7D+LIMIT+500">ブルックリン美術館API</a></td>
+  <td><a href="https://www.brooklynmuseum.org/opencollection/api/">Opencollection API at Brooklyn Museum</a></td>
+  <td>API parameters</td>
+  <td>(a)<code>geographical_location_id</code>=5181 (Japan), OR (b)<code>keyword</code>=Japan, MINUS those contain 'Japan' in <code>medium</code><span lang="ja"></td>
+<tr>
+<tr>
+  <td><a href="https://ld.cultural.jp/snorql/?query=SELECT+%3Fcho+%3Flabel+%3Fimage+WHERE+%7B%0D%0A%09%3Fcho+rdfs%3Alabel+%3Flabel+%3B%0D%0A++++jps%3AsourceInfo%2Fschema%3Aprovider+chname%3Aヒューストン美術館コレクション%0D%0A%09OPTIONAL+%7B%3Fcho+schema%3Aimage+%3Fimage%7D%0D%0A%7D+LIMIT+500">ヒューストン美術館コレクション</a></td>
+  <td><a href="https://emuseum.mfah.org/">Collections of Museum of Fine Arts, Houston</a></td>
+  <td>Collection search</td>
+  <td>(a)<code>culture / nationalities</code>=Japanese, AND (b)<code>image availabele</code>=true</td>
+<tr>
+<tr>
+  <td><a href="https://ld.cultural.jp/snorql/?query=SELECT+%3Fcho+%3Flabel+%3Fimage+WHERE+%7B%0D%0A%09%3Fcho+rdfs%3Alabel+%3Flabel+%3B%0D%0A++++jps%3AsourceInfo%2Fschema%3Aprovider+chname%3Aウォルターズ美術館API%0D%0A%09OPTIONAL+%7B%3Fcho+schema%3Aimage+%3Fimage%7D%0D%0A%7D+LIMIT+500">ウォルターズ美術館API</a></td>
+  <td><a href="https://api.thewalters.org/">Open Data from the Walters Art Museum</a></td>
+  <td>API parameter</td>
+  <td><code>keyword</code>=Japan</td>
+<tr>
+
+<tr>
+  <td><a href="https://ld.cultural.jp/snorql/?query=SELECT+%3Fcho+%3Flabel+%3Fimage+WHERE+%7B%0D%0A%09%3Fcho+rdfs%3Alabel+%3Flabel+.%0D%0A%09%3Fcho+jps%3AsourceInfo%2Fschema%3Aprovider+chname%3A%E3%82%A4%E3%82%A7%E3%83%BC%E3%83%AB%E5%A4%A7%E5%AD%A6%E5%9B%B3%E6%9B%B8%E9%A4%A8%E3%82%B3%E3%83%AC%E3%82%AF%E3%82%B7%E3%83%A7%E3%83%B3+.%0D%0A%09OPTIONAL+%7B%3Fcho+schema%3Aimage+%3Fimage%7D%0D%0A%7D%0D%0A">イェール大学図書館コレクション</a></td>
+  <td><a href="https://collections.library.yale.edu/">Yale University Library Digital Collections</a></td>
+  <td>Open licensed IIIF manifests</td>
+  <td>Search keyword=Japan, then fetched manifests for ids in results</td>
+<tr>
+<tr>
+  <td><a href="https://ld.cultural.jp/snorql/?query=SELECT+%3Fcho+%3Flabel+%3Fimage+WHERE+%7B%0D%0A%09%3Fcho+rdfs%3Alabel+%3Flabel+.%0D%0A%09%3Fcho+jps%3AsourceInfo%2Fschema%3Aprovider+chname%3A%E3%82%B1%E3%83%B3%E3%83%96%E3%83%AA%E3%83%83%E3%82%B8%E5%A4%A7%E5%AD%A6%E3%83%87%E3%82%B8%E3%82%BF%E3%83%AB%E3%83%A9%E3%82%A4%E3%83%96%E3%83%A9%E3%83%AA+.%0D%0A%09OPTIONAL+%7B%3Fcho+schema%3Aimage+%3Fimage%7D%0D%0A%7D%0D%0A">ケンブリッジ大学デジタルライブラリ</a></td>
+  <td><a href="https://cudl.lib.cam.ac.uk/">Cambridge Digital Library</a></td>
+  <td>Open licensed IIIF manifests</td>
+  <td>Search keyword=Japan, then fetched manifests for ids in results</td>
+<tr>
+<tr>
+  <td><a href="https://ld.cultural.jp/snorql/?query=SELECT+%3Fcho+%3Flabel+%3Fimage+WHERE+%7B%0D%0A%09%3Fcho+rdfs%3Alabel+%3Flabel+.%0D%0A%09%3Fcho+jps%3AsourceInfo%2Fschema%3Aprovider+chname%3A%E3%83%AB%E3%83%BC%E3%83%96%E3%83%AB%E7%BE%8E%E8%A1%93%E9%A4%A8%E3%82%B3%E3%83%AC%E3%82%AF%E3%82%B7%E3%83%A7%E3%83%B3+.%0D%0A%09OPTIONAL+%7B%3Fcho+schema%3Aimage+%3Fimage%7D%0D%0A%7D%0D%0A">ルーブル美術館コレクション</a></td>
+  <td><a href="https://collections.louvre.fr/">Louvre site des collections</a></td>
+  <td>API parameter</td>
+  <td><code>placeStr</code>=Japon</td>
+<tr>
+<tr>
+  <td><a href="https://ld.cultural.jp/snorql/?query=SELECT+%3Fcho+%3Flabel+%3Fimage+WHERE+%7B%0D%0A%09%3Fcho+rdfs%3Alabel+%3Flabel+.%0D%0A%09%3Fcho+jps%3AsourceInfo%2Fschema%3Aprovider+chname%3A%E3%83%81%E3%82%A7%E3%82%B9%E3%82%BF%E3%83%BC%E3%83%BB%E3%83%93%E3%83%BC%E3%83%86%E3%82%A3%E5%9B%B3%E6%9B%B8%E9%A4%A8%E3%83%87%E3%82%B8%E3%82%BF%E3%83%AB%E3%82%B3%E3%83%AC%E3%82%AF%E3%82%B7%E3%83%A7%E3%83%B3+.%0D%0A%09OPTIONAL+%7B%3Fcho+schema%3Aimage+%3Fimage%7D%0D%0A%7D%0D%0A">チェスター・ビーティ図書館デジタルコレクション</a></td>
+  <td><a href="https://viewer.cbl.ie/">Chester Beatty's Digital Collections</a></td>
+  <td><abbr title="Metadata Encoding and Transmission">METS</abbr> files</td>
+  <td>obtained for each item in <a href="https://viewer.cbl.ie/viewer/search/-/-/1/RANDOM/DC%3Ajapanesecollection/">Japanese collection</a></td>
+<!--2023-01-30-->
+<tr>
+  <td><a href="https://ld.cultural.jp/snorql/?query=SELECT+%3Fcho+%3Flabel+%3Fimage+WHERE+%7B%0D%0A%09%3Fcho+rdfs%3Alabel+%3Flabel+.%0D%0A%09%3Fcho+jps%3AsourceInfo%2Fschema%3Aprovider+chname%3A%E3%83%9C%E3%82%B9%E3%83%88%E3%83%B3%E7%BE%8E%E8%A1%93%E9%A4%A8%E3%82%B3%E3%83%AC%E3%82%AF%E3%82%B7%E3%83%A7%E3%83%B3+.%0D%0A%09OPTIONAL+%7B%3Fcho+schema%3Aimage+%3Fimage%7D%0D%0A%7D%0D%0A">ボストン美術館コレクション</a></td>
+  <td><a href="https://collections.mfa.org/collections">Museum of Fine Arts Boston Collection</td>
+  <td>Collection search</td>
+  <td>(a)<code>Classification</code>: Paintings/Sculpture, <code>Culture</code>: Japanese, <code>Collection</code>: Asia ; (b)<code>keyword</code>: 'Spaulding Collection', <code>Collection</code>: Prints and Drawings ; both with images</td>
+<tr>
+<tr>
+  <td><a href="https://ld.cultural.jp/snorql/?query=SELECT+%3Fcho+%3Flabel+%3Fimage+WHERE+%7B%0D%0A%09%3Fcho+rdfs%3Alabel+%3Flabel+.%0D%0A%09%3Fcho+jps%3AsourceInfo%2Fschema%3Aprovider+chname%3A%E3%82%B7%E3%82%A2%E3%83%88%E3%83%AB%E7%BE%8E%E8%A1%93%E9%A4%A8%E3%82%B3%E3%83%AC%E3%82%AF%E3%82%B7%E3%83%A7%E3%83%B3+.%0D%0A%09OPTIONAL+%7B%3Fcho+schema%3Aimage+%3Fimage%7D%0D%0A%7D%0D%0A">シアトル美術館コレクション</a></td>
+  <td><a href="https://art.seattleartmuseum.org/collections">Seattle Art Museum Collection</td>
+  <td>Collection search</td>
+  <td><code>Department</code>: Asian Art, <code>Collections</code>: Japanese Art / Japanese Paintings &amp; Calligraphy, <code>Image Available</code>: true</td>
+<tr>
+<!--2023-08-05-->
+<tr>
+  <td><a href="https://ld.cultural.jp/snorql/?query=SELECT+%3Fcho+%3Flabel+%3Fimage+WHERE+%7B%0D%0A%09%3Fcho+rdfs%3Alabel+%3Flabel+.%0D%0A%09%3Fcho+jps%3AsourceInfo%2Fschema%3Aprovider+chname%3A%E3%83%8E%E3%83%BC%E3%83%88%E3%83%B3%E3%83%BB%E3%82%B5%E3%82%A4%E3%83%A2%E3%83%B3%E7%BE%8E%E8%A1%93%E9%A4%A8%E3%82%B3%E3%83%AC%E3%82%AF%E3%82%B7%E3%83%A7%E3%83%B3+.%0D%0A%09OPTIONAL+%7B%3Fcho+schema%3Aimage+%3Fimage%7D%0D%0A%7D%0D%0A">ノートン・サイモン美術館コレクション</a></td>
+  <td><a href="https://www.nortonsimon.org/art/">Norton Simon Museum Collection</td>
+  <td>Collection search</td>
+  <td>Search keyword=Japan, with only 'Artworks with Images'</td>
+<tr>
+<tr>
+  <td><a href="https://ld.cultural.jp/snorql/?query=SELECT+%3Fcho+%3Flabel+%3Fimage+WHERE+%7B%0D%0A%09%3Fcho+rdfs%3Alabel+%3Flabel+.%0D%0A%09%3Fcho+jps%3AsourceInfo%2Fschema%3Aprovider+chname%3A%E3%83%AD%E3%82%B5%E3%83%B3%E3%82%BC%E3%83%AB%E3%82%B9%E3%83%BB%E3%82%AB%E3%82%A6%E3%83%B3%E3%83%86%E3%82%A3%E7%BE%8E%E8%A1%93%E9%A4%A8%E3%82%B3%E3%83%AC%E3%82%AF%E3%82%B7%E3%83%A7%E3%83%B3+.%0D%0A%09OPTIONAL+%7B%3Fcho+schema%3Aimage+%3Fimage%7D%0D%0A%7D%0D%0A">ロサンゼルス・カウンティ美術館コレクション</a></td>
+  <td><a href="https://collections.lacma.org/">Los Angeles County Museum Collection</td>
+  <td>Collection search</td>
+  <td><code>Curation Area</code>: Japanese art, and 'Show only results with images' checked</td>
+<tr>
+<tr>
+  <td><a href="https://ld.cultural.jp/snorql/?query=SELECT+%3Fcho+%3Flabel+%3Fimage+WHERE+%7B%0D%0A%09%3Fcho+rdfs%3Alabel+%3Flabel+%3B%0D%0A%09%09jps%3AsourceInfo%2Fschema%3Aprovider+chname%3A%E3%82%A6%E3%82%B9%E3%82%BF%E3%83%BC%E7%BE%8E%E8%A1%93%E9%A4%A8%E3%82%B3%E3%83%AC%E3%82%AF%E3%82%B7%E3%83%A7%E3%83%B3+.%0D%0A%09OPTIONAL+%7B%3Fcho+schema%3Aimage+%3Fimage%7D%0D%0A%7D%0D%0A">ウスター美術館コレクション</a></td>
+  <td><a href="https://www.worcesterart.org/collection/">Worcester Art Museum Collection</td>
+  <td>Collection search</td>
+  <td><code>Artist / Maker / Culture</code>: Japanese, with only 'Image Available'</td>
+<tr>
+
+</tbody>
+</table>
+
+<span lang="ja"></span><span lang="en"></span>
+<p lang="ja">RDFデータは<a href="https://ld.cultural.jp/snorql/">Snorql</a>（あるいは<a href="https://ld.cultural.jp/sparql/">SPARQLエンドポイント</a>）を通して利用できます。RDF変換の制約などは<a href="about-rdf.html">Cultural JapanのRDFについて</a>を参照してください。</p>
+<p lang="en">RDF data is available through <a href="https://ld.cultural.jp/snorql/">Snorql</a> (or <a href="https://ld.cultural.jp/sparql/">SPARQ endpoint</a>). See also <a href="about-rdf.html">about RDF Cultural Japan</a> for some limitation.</p>
+
+</div>
+<footer>
+Created: 2020-06-16 ; 
+Last updated: 2023-10-22
+</footer>
+</body>
+</html>

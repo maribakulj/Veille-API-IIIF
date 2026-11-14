@@ -2,18 +2,197 @@
   "slug": "kb-dk",
   "nom": "Det Kongelige Bibliotek (Danemark)",
   "pays": "Danemark",
-  "statut_audit": "partiel (ancienne méthode)",
+  "statut_audit": "a–f faits ; g à faire (config crash préparée)",
   "limites_documentees": [],
-  "en_tetes_observes": [],
-  "blocages": [],
-  "contact": "kb@kb.dk ; +45 3347 4747 (page API)",
-  "conclusion_quota": "Aucun quota dans les pages lues ; règlement intégral non lu.",
+  "en_tetes_observes": [
+    "aucun en-tête de limite sur toutes les réponses 200 et 301"
+  ],
+  "blocages": [
+    {
+      "hote": "oai.kb.dk",
+      "nature": "DNS non résolu (erreur réseau, pas de 403 ni 429)",
+      "date": "2026-11-14",
+      "preuve": "institutions/kb-dk/tests/journal.log"
+    }
+  ],
+  "contact": "kb@kb.dk ; +45 3347 4747 (page API de kb.dk)",
+  "conclusion_quota": "Aucun quota ni règle sur l'usage automatisé dans la doc de la KB (README GitHub, pages API et règlements, api.kb.dk). Sur les passes rejouées : OAI-PMH, COP, IIIF Image en 200 ou 301 vers https, sans en-tête de limite, aucun 403/429. Le moissonnage OAI est la voie de diffusion recommandée ; données de recherche sur demande.",
   "classe_quota": "aucun quota trouvé",
-  "confiance": "faible",
-  "notes": "Les URL IIIF des tests ont été reconstituées à partir d'un résumé : à revérifier.",
+  "confiance": "moyenne",
+  "notes": "Données réexaminées le 2026-11-14 : sessions du 13/11 (config committée après lancement) archivées dans tests/archive puis rejouées avec URL copiées verbatim de la doc. Pas de manifeste IIIF Presentation trouvé dans la doc (seulement Image API). oai.kb.dk (exemple de la doc) ne se résout pas. Les exemples COP /content et /images (http) redirigent vers https puis 404.",
   "classeur_id": "hors 84 (ajouté)",
   "type": "Institution",
-  "sources": [],
-  "web": [],
-  "donnees_a_revalider": true
+  "sources": [
+    {
+      "url": "https://github.com/Det-Kongelige-Bibliotek/access-digital-objects",
+      "date": "2026-11-14",
+      "etiquette": "officielle",
+      "preuve": "institutions/kb-dk/sources/doc/SHA256SUMS"
+    },
+    {
+      "url": "https://www.kb.dk/en/find-materials/systems-and-services/api",
+      "date": "2026-11-14",
+      "etiquette": "officielle",
+      "preuve": "institutions/kb-dk/sources/doc/SHA256SUMS"
+    },
+    {
+      "url": "https://www.kb.dk/reglementer",
+      "date": "2026-11-14",
+      "etiquette": "officielle",
+      "preuve": "institutions/kb-dk/sources/doc/SHA256SUMS"
+    },
+    {
+      "url": "https://api.kb.dk/data/documentation",
+      "date": "2026-11-14",
+      "etiquette": "officielle",
+      "preuve": "institutions/kb-dk/sources/doc/SHA256SUMS"
+    }
+  ],
+  "web": [
+    {
+      "categorie": "institution",
+      "aucun_resultat": true,
+      "requete": "Royal Danish Library kb.dk API IIIF terms of use automated access harvesting bots policy",
+      "date": "2026-11-14",
+      "etiquette": "tiers",
+      "citation": "The search didn't turn up a dedicated API terms-of-use or bot/harvesting policy from the Royal Danish Library (résumé de moteur, non vérifié)",
+      "preuve": "institutions/kb-dk/sources/web/recherches-2026-11-14.md"
+    },
+    {
+      "categorie": "utilisateurs",
+      "aucun_resultat": true,
+      "requete": "kb-images.kb.dk IIIF 429 OR 503 OR blocked OR \"too many requests\" Royal Library Denmark download problem",
+      "date": "2026-11-14",
+      "etiquette": "tiers",
+      "citation": "The search didn't turn up anything specific to kb-images.kb.dk or the Royal Library of Denmark (résumé de moteur, non vérifié)",
+      "preuve": "institutions/kb-dk/sources/web/recherches-2026-11-14.md"
+    },
+    {
+      "categorie": "tickets",
+      "aucun_resultat": true,
+      "requete": "github issue \"kb-images.kb.dk\" OR \"kb.dk/cop/oai\" harvester IIIF rate limit",
+      "date": "2026-11-14",
+      "etiquette": "tiers",
+      "citation": "I found no GitHub issue that mentions kb-images.kb.dk or the kb.dk/cop/oai endpoint together with IIIF rate limiting (résumé de moteur, non vérifié)",
+      "preuve": "institutions/kb-dk/sources/web/recherches-2026-11-14.md"
+    },
+    {
+      "categorie": "presentations",
+      "url": "https://zenodo.org/records/19429460",
+      "date": "2026-03-30",
+      "etiquette": "tiers",
+      "citation": "« Presentation on IIIF prepared for an informational meeting at the Det Kongelige Bibliotek, Copenhagen, Denmark 30 March 2026 » (original lu ; aucune limite ni endpoint)",
+      "preuve": "institutions/kb-dk/sources/web/recherches-2026-11-14.md"
+    }
+  ],
+  "donnees_a_revalider": false,
+  "a_verifier_manuellement": [
+    {
+      "url": "http://oai.kb.dk/oai/provider?verb=ListSets",
+      "pourquoi": "hôte oai.kb.dk non résolu par le DNS (exemple de la doc oai-pmh.md)",
+      "a_chercher": "savoir si l'hôte OAI a été remplacé par www.kb.dk/cop/oai/ ; ListSets de remplacement"
+    }
+  ],
+  "endpoints_documentes": [
+    {
+      "famille": "OAI-PMH (www.kb.dk/cop/oai/ : Identify, GetRecord)",
+      "url": "http://www.kb.dk/cop/oai/?verb=Identify",
+      "statut": "teste",
+      "preuve": "institutions/kb-dk/tests/journal.log"
+    },
+    {
+      "famille": "OAI-PMH ListSets sur oai.kb.dk",
+      "url": "http://oai.kb.dk/oai/provider?verb=ListSets",
+      "statut": "teste",
+      "preuve": "institutions/kb-dk/tests/journal.log"
+    },
+    {
+      "famille": "OAI-PMH ListRecords (moissonnage d'un set)",
+      "url": "http://www.kb.dk/cop/oai/?verb=ListRecords&set=oai:kb.dk:manus:judsam:2010:maj:jsmss&metadataPrefix=mods",
+      "statut": "non_teste",
+      "raison": "réponse de volume inconnu (moissonnage de tout un set, la doc demande de stocker localement) ; GetRecord et Identify testés suffisent pour observer les en-têtes"
+    },
+    {
+      "famille": "Web services COP (syndication, navigation, content, opensearch)",
+      "url": "http://www.kb.dk/cop/syndication/images/billed/2010/okt/billeder/subject2109/en/?itemsPerPage=5",
+      "statut": "teste",
+      "preuve": "institutions/kb-dk/tests/journal.log"
+    },
+    {
+      "famille": "IIIF Image API (kb-images.kb.dk : info.json, region/size)",
+      "url": "http://kb-images.kb.dk/online_master_arkiv_5/non-archival/Manus/VMANUS/2009/jun/dfs_1906_6a_16/dfs_1906_6a_16_001/info.json",
+      "statut": "teste",
+      "preuve": "institutions/kb-dk/tests/journal.log"
+    },
+    {
+      "famille": "Ancienne syntaxe imageService (dépréciée)",
+      "url": "http://www.kb.dk/imageService/w640/online_master_arkiv_6/non-archival/Images/BILLED/2008/Billede/dk_eksp_album_191/kbb_alb_2_191_friis_011.jpg",
+      "statut": "teste",
+      "preuve": "institutions/kb-dk/tests/journal.log"
+    },
+    {
+      "famille": "Services api.kb.dk (documentation, données géographiques, textes)",
+      "url": "https://api.kb.dk/data/documentation",
+      "statut": "non_teste",
+      "raison": "page de documentation seulement, aucun endpoint de données cité ; le robots.txt de api.kb.dk est en 404"
+    }
+  ],
+  "endpoints_ecartes": [
+    {
+      "url": "http://rawgit.com/Det-Kongelige-Bibliotek/access-digital-objects/master/form-demos/cop-form.html",
+      "raison": "page de démonstration de formulaire hébergée par rawgit (service tiers), pas une API de la KB"
+    },
+    {
+      "url": "http://www.openarchives.org/OAI/openarchivesprotocol.html",
+      "raison": "spécification du protocole OAI-PMH, document de standard et non un service de la KB"
+    },
+    {
+      "url": "http://iiif.io/api/image/2.1/",
+      "raison": "spécification IIIF du consortium, pas un service de la KB"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/Det-Kongelige-Bibliotek/access-digital-objects/master/oai-pmh.md",
+      "raison": "fichier de documentation Markdown de l'institution (lu en sources/doc), pas un service d'API"
+    },
+    {
+      "url": "https://www.kb.dk/find-materiale/tjenester/api",
+      "raison": "version danoise de la page API de kb.dk, page HTML de présentation sans endpoint"
+    },
+    {
+      "url": "https://www.kb.dk/services/laan-og-aflevering",
+      "raison": "page de service de prêt et de dépôt légal, sans lien avec les API de données"
+    }
+  ],
+  "hotes_robots": [
+    {
+      "hote": "www.kb.dk",
+      "resultat": "200 : User-agent * ; aucune règle sur /cop ni /imageService, aucun Crawl-delay",
+      "preuve": "institutions/kb-dk/sources/robots/raw/01.html"
+    },
+    {
+      "hote": "kb-images.kb.dk",
+      "resultat": "200 mais réponse HTML (page du site, pas un robots.txt) : aucune règle",
+      "preuve": "institutions/kb-dk/sources/robots/raw/02.html"
+    },
+    {
+      "hote": "api.kb.dk",
+      "resultat": "404 : aucun robots.txt",
+      "preuve": "institutions/kb-dk/sources/robots/raw/03.html"
+    },
+    {
+      "hote": "oai.kb.dk",
+      "resultat": "DNS non résolu (curl 6) : hôte inexistant",
+      "preuve": "institutions/kb-dk/sources/robots/FETCH.log"
+    },
+    {
+      "hote": "github.com",
+      "resultat": "200 : robots.txt de GitHub (page de doc de l'institution)",
+      "preuve": "institutions/kb-dk/sources/robots-gh/raw/01.html"
+    },
+    {
+      "hote": "raw.githubusercontent.com",
+      "resultat": "404 : aucun robots.txt",
+      "preuve": "institutions/kb-dk/sources/robots-gh/FETCH.log"
+    }
+  ]
 }
