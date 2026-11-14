@@ -1,0 +1,8 @@
+# Session 2026-11-14T02:40:40Z — configuration standrews-passe1-manifeste.json — sonde probe.py au commit acfb3dc
+2026-11-14T02:40:40Z | robots.txt:collections.st-andrews.ac.uk | https://collections.st-andrews.ac.uk/robots.txt | GET | 200 | 1 règle(s) pour « * »
+2026-11-14T02:40:40Z | sta-p1-manifeste | robots.txt interdit https://collections.st-andrews.ac.uk/77713/manifest (Disallow: /) ; lancé car autorisé par Marcel (C12)
+2026-11-14T02:40:52Z | sta-p1-manifeste | https://collections.st-andrews.ac.uk/77713/manifest | GET | 200 OK | aucun en-tête de limite | taille≥6790 | corps:                                                                                                                                                                                            {  
+# corps enregistré : tests/raw/sta-p1-manifeste.body (6790 octets lus)
+2026-11-14T02:40:52Z | sta-p1-notice | robots.txt interdit https://collections.st-andrews.ac.uk/collection/archive-collections/777989 (Disallow: /) ; lancé car autorisé par Marcel (C12)
+2026-11-14T02:41:03Z | sta-p1-notice | https://collections.st-andrews.ac.uk/collection/archive-collections/777989 | GET | 200 OK | aucun en-tête de limite | taille≥200 | corps: <!DOCTYPE html> <html lang="en">  <head>     <!-- Global site tag (gtag.js) - Google Analytics -->     <script async src="https://www.googletagmanager.com/gtag/js?id=G-LDCWK5LZZE"></script>     
+# Fin 2026-11-14T02:41:03Z — 3 requête(s) envoyée(s)

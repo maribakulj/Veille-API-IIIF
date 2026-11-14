@@ -1,0 +1,12 @@
+{
+  "slug": "university-of-st-andrews-library",
+  "min_delay_s": 10,
+  "max_requests": 15,
+  "follow_redirects": 1,
+  "robots_disallow_autorise_par_marcel": true,
+  "note": "Passe 2 : service d'image lu dans le manifeste enregistré en passe 1 (tests/raw/sta-p1-manifeste.body : service @id https://collections.st-andrews.ac.uk/iiif/2/56718~56718). info.json puis vignette 150 px (HEAD).",
+  "endpoints": [
+    {"id": "sta-p2-info-json", "method": "GET", "url": "https://collections.st-andrews.ac.uk/iiif/2/56718~56718/info.json"},
+    {"id": "sta-p2-vignette-head", "method": "HEAD", "url": "https://collections.st-andrews.ac.uk/iiif/2/56718~56718/full/150,/0/default.jpg"}
+  ]
+}
