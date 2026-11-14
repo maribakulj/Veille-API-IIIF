@@ -8,7 +8,7 @@ Le 14/11, l'ensemble des **93 fichiers** `institutions/*/data.json` de la branch
 
 Ces **260 lignes ne sont pas 260 défauts d'accès vérifiés**, ni 260 tâches qui exigent une intervention humaine. Aucun bilan « 260 contrôlés et terminés » n'est revendiqué.
 
-Le registre **`data/reverifications-chatgpt-2026-11-14.csv`** contient **30 observations explicites**, de nature différente : URL effectivement lues, source institutionnelle de substitution, vérification de code, erreur 404/503/WAF, correction de catégorie, ressource technique non testée, etc. Toutes les observations ne correspondent pas à une URL initialement inscrite dans `a_verifier_manuellement` : certaines signalent une nouvelle source ou une incohérence du benchmark. Ces 30 observations **ne représentent donc pas 30 items clos**.
+Le registre **`data/reverifications-chatgpt-2026-11-14.csv`** contient **32 observations explicites**, de nature différente : URL effectivement lues, source institutionnelle de substitution, vérification de code, erreur 404/503/WAF, correction de catégorie, ressource technique non testée, etc. Toutes les observations ne correspondent pas à une URL initialement inscrite dans `a_verifier_manuellement` : certaines signalent une nouvelle source ou une incohérence du benchmark. Ces 32 observations **ne représentent donc pas 30 items clos**.
 
 ## Rapports détaillés
 
@@ -24,6 +24,7 @@ Le registre **`data/reverifications-chatgpt-2026-11-14.csv`** contient **30 obse
 - `VERIFICATIONS-CHATGPT-2026-11-14-J.md` : GLAM-058 à GLAM-069.
 - `VERIFICATIONS-CHATGPT-2026-11-14-K.md` : GLAM-070 à GLAM-084.
 - `VERIFICATIONS-CHATGPT-2026-11-14-L.md` : institutions hors liste (Internet Archive, BL, SLUB, HAB, KB NL/DK, BNE, NYPL).
+- `VERIFICATIONS-CHATGPT-2026-11-14-M.md` : confirmation de la cible IIIF Collection Cultural Japan et licences 1MP/6MP NPM Taïwan.
 
 **L'outil de rapprochement :** `scripts/etat_reverifications.py` lit seulement les `data.json` et le registre CSV, puis génère un inventaire de reprise :
 
@@ -44,7 +45,8 @@ Il ne contacte **aucune API distante**, et ne modifie ni les données institutio
 7. **Digital Commonwealth — P1 :** API JSON / OAI / IIIF officiellement documentées ; ancienne page Institutions en 404 et OpenSearch sous Anubis.
 8. **KU Leuven, CUDL, Yale LUX, Michigan — P1 :** cartographier les couches (intérieures, APIs publiques, fournisseurs IIIF et gestionnaires de clés) sans transposer un quota global institutionnel à toutes les familles.
 9. **Waseda, e-Museum, SLV — P1 :** des guides/conditions auparavant inaccessibles sont lisibles ; manifestes ou protections d'hôtes techniques restent à vérifier.
-10. **Contacts institutionnels — P2 :** les limites volontairement non publiées ou les permissions de moissonnage (Biblissima SPARQL, e-codices, Utrecht, etc.) nécessitent une réponse humaine. Les inscrire « contact requis » et non « page web à débloquer ».
+10. **Cultural Japan/NPM Taïwan — P1 :** la collection IIIF du premier est bien référencée depuis son site, mais JSON bloqué ; les conditions officielles du second distinguent 1 MP CC0 et 6 MP CC BY 4.0, hors quotas.
+11. **Contacts institutionnels — P2 :** les limites volontairement non publiées ou les permissions de moissonnage (Biblissima SPARQL, e-codices, Utrecht, etc.) nécessitent une réponse humaine. Les inscrire « contact requis » et non « page web à débloquer ».
 
 ## État non achevé
 
