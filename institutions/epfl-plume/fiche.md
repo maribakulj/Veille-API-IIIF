@@ -32,3 +32,8 @@ Quatre recherches, une par catégorie. Institution : page « Rare books and PLUM
 - **Moyen d'interroger le quota** : aucun.
 - **Confiance** : moyenne (rien d'écrit ni d'observé ; le serveur est un Apache/PHP, Cantaloupe derrière Jetty, sans CDN détecté).
 - **Crash test (g)** : plafond 200 req/min (aucune limite documentée) ; à décider par Marcel.
+
+## Crash test (étape g)
+
+Crash test fait le 2026-11-14 : cantaloupe-info-json sur plume.epfl.ch : aucun blocage jusqu'à 200 req/min (plafond 200 req/min).
+Journal : `tests/crash/epfl-plume.log`. Un test « sans blocage » n'est pas une preuve d'illimitation au-delà du plafond.

@@ -1,0 +1,9 @@
+# Crash test 2026-11-14T07:08:13Z — configuration crash-api-item.json — endpoint cantaloupe-info-json GET https://plume.epfl.ch/cantaloupe/iiif/2/CHEPFL_LIPR_AXB244_01_0001.tif/info.json
+# réseau détecté : aucun réseau à réputation partagée connu ; plafond standard 200 req/min (décision de Marcel 14/11/2026) ; requête de détection : 200 en 0.31 s
+# limite documentée : aucune req/min (aucune limite de débit documentée : https://plume.epfl.ch/s/fr/page/mentions-legal et https://plume.epfl.ch/robots.txt (Disallow /admin/ et /login, pas de Crawl-delay)) ; paliers [6, 10, 50, 200] ; plafond 200 req/min ; 180 s par palier
+2026-11-14T07:11:04Z | palier 6 req/min | {"palier_req_min": 6, "requetes": 18, "debit_reel_req_min": 6.3, "codes": {"200": 18}, "latence_p50_s": 0.164, "latence_max_s": 1.271}
+2026-11-14T07:13:58Z | palier 10 req/min | {"palier_req_min": 10, "requetes": 30, "debit_reel_req_min": 10.3, "codes": {"200": 30}, "latence_p50_s": 0.182, "latence_max_s": 1.221}
+2026-11-14T07:16:57Z | palier 50 req/min | {"palier_req_min": 50, "requetes": 150, "debit_reel_req_min": 50.3, "codes": {"200": 150}, "latence_p50_s": 0.149, "latence_max_s": 1.488}
+2026-11-14T07:19:56Z | palier 200 req/min | {"palier_req_min": 200, "requetes": 600, "debit_reel_req_min": 200.2, "codes": {"200": 600}, "latence_p50_s": 0.147, "latence_max_s": 2.218}
+# Fin 2026-11-14T07:19:56Z — aucun blocage jusqu'à 200 req/min
+
