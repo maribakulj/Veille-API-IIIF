@@ -8,7 +8,7 @@ Le 14/11, l'ensemble des **93 fichiers** `institutions/*/data.json` de la branch
 
 Ces **260 lignes ne sont pas 260 défauts d'accès vérifiés**, ni 260 tâches qui exigent une intervention humaine. Aucun bilan « 260 contrôlés et terminés » n'est revendiqué.
 
-Le registre **`data/reverifications-chatgpt-2026-11-14.csv`** contient **32 observations explicites**, de nature différente : URL effectivement lues, source institutionnelle de substitution, vérification de code, erreur 404/503/WAF, correction de catégorie, ressource technique non testée, etc. Toutes les observations ne correspondent pas à une URL initialement inscrite dans `a_verifier_manuellement` : certaines signalent une nouvelle source ou une incohérence du benchmark. Ces 32 observations **ne représentent donc pas 30 items clos**.
+Le registre **`data/reverifications-chatgpt-2026-11-14.csv`** contient désormais **70 observations explicites**, de nature différente : URL effectivement lues, source institutionnelle de substitution, vérification de code, erreur 404/503/WAF, correction de catégorie, ressource technique non testée, etc. Toutes les observations ne correspondent pas à une URL initialement inscrite dans `a_verifier_manuellement` : certaines signalent une nouvelle source ou une incohérence du benchmark. Ces 70 observations **ne représentent pas 70 items clos**.
 
 ## Rapports détaillés
 
@@ -25,6 +25,7 @@ Le registre **`data/reverifications-chatgpt-2026-11-14.csv`** contient **32 obse
 - `VERIFICATIONS-CHATGPT-2026-11-14-K.md` : GLAM-070 à GLAM-084.
 - `VERIFICATIONS-CHATGPT-2026-11-14-L.md` : institutions hors liste (Internet Archive, BL, SLUB, HAB, KB NL/DK, BNE, NYPL).
 - `VERIFICATIONS-CHATGPT-2026-11-14-M.md` : confirmation de la cible IIIF Collection Cultural Japan et licences 1MP/6MP NPM Taïwan.
+- `VERIFICATIONS-CHATGPT-2026-11-14-N.md` : sources de code officielles UBC, NYPL et Europeana, et distinction entre couche applicative et endpoint IIIF public.
 
 **L'outil de rapprochement :** `scripts/etat_reverifications.py` lit seulement les `data.json` et le registre CSV, puis génère un inventaire de reprise :
 
@@ -32,7 +33,7 @@ Le registre **`data/reverifications-chatgpt-2026-11-14.csv`** contient **32 obse
 python scripts/etat_reverifications.py --root . --out data/etat-reverifications.csv
 ```
 
-Il ne contacte **aucune API distante**, et ne modifie ni les données institutionnelles ni `BENCHMARK.xlsx`. Ce script est **ajouté mais non exécuté dans cet environnement** ; le rapprochement et son résultat doivent être vérifiés avant tout import dans le benchmark. Le rapport créé est une file de travail, pas une vérité canonique.
+Il ne contacte **aucune API distante**, et ne modifie ni les données institutionnelles ni `BENCHMARK.xlsx`. Ce script est maintenant **exécuté avec succès en CI GitHub Actions**, avec quatre tests automatisés. Il produit un inventaire CSV en artefact téléchargeable, sans requête aux API patrimoniales : [exécution vérifiée](https://github.com/maribakulj/Veille-API-IIIF/actions/runs/43610865824). Le rapprochement ne vaut pas validation HTTP et son résultat doit être examiné avant tout import dans le benchmark. Le rapport créé est une file de travail, pas une vérité canonique.
 
 ## Corrections prioritaires avant intégration au benchmark
 
@@ -55,3 +56,25 @@ Le **travail documentaire de rattrapage a parcouru les établissements**, mais *
 Le `data.json` de référence, les étapes a–g et `BENCHMARK.xlsx` sont **inchangés** : le passage des faits retenus aux données canoniques et la régénération du classeur constituent une étape distincte, à faire de façon cohérente avec `scripts/suivi.py` et `scripts/build_benchmark.py`.
 
 Aucun test de charge, contournement de WAF, création d'identifiant ni demande institutionnelle n'a été effectué. Les quotas et droits doivent rester rattachés à leur service, leur version et leurs dates de preuve.
+
+## État vérifié du rapprochement (après les rapports A, B et N)
+
+Le script `scripts/etat_reverifications.py` a été corrigé pour **conserver tous les statuts** sur une URL : le cas de Cultural Japan combine `BLOCAGE_ACCES` et `LIEN_OFFICIEL_CIBLE_CONFIRME` ; le second ne supprime pas le premier. Les tests d'intégration sont dans `tests/test_etat_reverifications.py`.
+
+Résultats de [l'exécution GitHub Actions réussie](https://github.com/maribakulj/Veille-API-IIIF/actions/runs/43610865824) du 14/11/2026, après inscription des constats des rapports A et B :
+
+| Mesure | Résultat | Interprétation |
+| --- | ---: | --- |
+| Dossiers institutionnels lus | 93 | 2 BnF sans entrée manuelle, écartés du rattrapage |
+| Entrées manuelles initiales | 260 | Une ligne peut être une URL non consultée, un doublon ou un contact |
+| Observations inscrites au registre | 70 | Sources A, B, N et lots précédents ; pas toutes liées aux 260 lignes |
+| Entrées correspondant à au moins un constat du registre | **57** | Correspondance exacte par slug et URL normalisée, **pas 57 vérifications achevées** |
+| Entrées sans constat relié dans ce registre | **203** | Certaines sont déjà discutées dans les rapports C–M, à indexer |
+| Constats du registre sans entrée manuelle correspondante | 12 | Informations supplémentaires, nécessaires mais hors file initiale |
+| Entrées avec plusieurs constats | 1 | Cultural Japan : deux statuts, conservés ensemble |
+| Entrées répétées dans un même dossier | 2 | Signal heuristique du script |
+| Références inter-institutions | 10 | Ne pas attribuer automatiquement le service au mauvais établissement |
+
+Les **4 tests sur 4** et la production du CSV ont réussi. Les statistiques proviennent du journal de CI, non d'un recalcul approximatif.
+
+**Prochain ordre de travail :** indexer les rapports C–M dans le registre ; distinguer les statuts documentaires des contrôles HTTP ; examiner les 203 correspondances absentes ; traiter ensuite les erreurs de portée des plafonds NYPL/UBC/EPFL/Heidelberg/HAB et confirmer les endpoints IIIF. L'intégration des `data.json` avec la régénération de `BENCHMARK.xlsx` reste une étape distincte et non accomplie. Ne pas fusionner la PR.
