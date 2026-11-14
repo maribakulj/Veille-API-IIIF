@@ -11,7 +11,7 @@
 - Crawl-delay 10 (find) et 1 (handle) respectés. Aucun 429.
 
 ## Web
-- institution : open data (lu) ; présentations : billet SLV LAB (lu) ; utilisateurs et tickets : aucun résultat (recherches ciblées impossibles : plafond de recherches web de la session).
+- institution : open data (lu) ; présentations : billet SLV LAB (lu) ; utilisateurs : un 403 sur les images lié à un cookie de session, signalé par le GLAM Workbench (résumé de moteur, non vérifié), aucune plainte de 429 ; tickets : aucun résultat (recherche du 2026-11-14, 2 recherches refaites).
 
 ## Conclusion
 Aucun quota publié ni observé sur les hôtes testés ; les endpoints IIIF eux-mêmes (rosetta) refusent ce client en 403 : non testés, à vérifier à la main. Confiance faible. Étape g : configuration préparée sur l'API Primo (crash-primaws-record.json).

@@ -45,8 +45,8 @@
 > Plaintes, discussions, présentations de l'institution, politique envers les API et les bots, blogs, GitHub, forums, listes de diffusion. Sources étiquetées (officielle / institution / utilisateur / tiers), lues, citées.
 
 - [x] **Fait**
-  - **Justification** : 4 catégories couvertes : institution (guides.iiif.io), utilisateurs (recherche WebSearch + apis.io), tickets (recherche interne GitHub, WebSearch épuisé), presentations (slideshare UCD) ; aucune plainte ni politique trouvée ; limite de budget WebSearch signalée dans la fiche
-  - **Preuves** : `institutions/university-college-dublin-digital-ucd/fiche.md`, `institutions/university-college-dublin-digital-ucd/data.json`
+  - **Justification** : 4 catégories couvertes : institution (guides.iiif.io), utilisateurs (apis.io), tickets et présentations (recherches WebSearch refaites le 2026-11-14 : aucun ticket ; slideshare UCD sans débit ni robots) ; aucune plainte ni politique de débit trouvée.
+  - **Preuves** : `institutions/university-college-dublin-digital-ucd/data.json`, `institutions/university-college-dublin-digital-ucd/fiche.md`
 
 ### g) Crash test progressif
 > Seulement après l'audit complet (a à f) de toutes les institutions et avec l'accord de Marcel : paliers jusqu'à 2 × la limite documentée, ou 200 req/min si illimité ou sans limite documentée. Arrêt au premier 429/403/CAPTCHA.

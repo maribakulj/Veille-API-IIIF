@@ -8,11 +8,13 @@
 - Hôte www arrêté par le registre partagé après la page /contact (HTTP 200, formulaire reCAPTCHA pris pour un défi) : faux positif, non contourné. www.bpl.org : HTTP 202 corps vide.
 
 ## Tests
-- Passe 1 (config dc-passe1-oai-iiif.json, 10 s) : OAI Identify 200, OAI ListMetadataFormats 200, IIIF info.json 200 et dérivé pct:10 200 (Disallow / journalisé, autorisé par Marcel C12) ; search.json, item .json et manifeste du hôte www NON LANCÉS (hôte arrêté). 6 requêtes envoyées dont 2 robots.txt. Aucun en-tête RateLimit/Retry-After ; serveurs nginx, Cantaloupe 5.0.6 derrière iiif. Identifiant d'image commonwealth:hd76s0677 tiré de la page d'accueil publique.
+- Passe 1 (config dc-passe1-oai-iiif.json, 10 s) : OAI Identify 200, OAI ListMetadataFormats 200, IIIF info.json 200 et dérivé pct:10 200 (Disallow / journalisé, autorisé par Marcel C12) ; 6 requêtes envoyées dont 2 robots.txt (search.json, item .json et manifeste du hôte www non lancés en passe 1, voir passe 2). Aucun en-tête RateLimit/Retry-After ; serveurs nginx, Cantaloupe 5.0.6 derrière iiif. Identifiant d'image commonwealth:hd76s0677 tiré de la page d'accueil publique.
+
+- Passe 2 (config dc-passe2-www.json, 10 s, 2026-11-14T04:00Z, blocage reCAPTCHA levé) : search.json?q=Boston 200 (72 412 octets, JSON), item commonwealth:hd76s0677.json 200 (2 203 octets), manifeste /manifest 404 (la doc : « A 404 will be returned if no manifest is available »). 3 requêtes, aucun en-tête de limite, aucun 429.
 
 ## Web
 - institution : page API et copyright (aucun chiffre).
 - presentations, utilisateurs, tickets : aucun résultat propre à Digital Commonwealth (résumés de moteur, non vérifiés) ; requêtes consignées dans data.json. Le moteur signale un hôte de recette qc-dc3dev.bpl.org (non testé) et le dépôt boston-library/blacklight_iiif_search (non lu).
 
 ## Conclusion
-Aucun quota ni politique de débit publiés ; hypothèse non vérifiée : service public de bibliothèque sans limitation annoncée, avec la seule règle Crawl-Delay: 5. Les familles OAI et IIIF Image sont testées sans signal de limite. JSON de recherche, JSON d'item et manifeste Presentation non testés (hôte www arrêté), à lancer lors de la clôture quand le registre le permettra (24 h) : URL dans a_verifier_manuellement. Crash test (g) : config crash-iiif-info.json préparée.
+Aucun quota ni politique de débit publiés ; hypothèse non vérifiée : service public de bibliothèque sans limitation annoncée, avec la seule règle Crawl-Delay: 5. Les familles OAI et IIIF Image sont testées sans signal de limite. JSON de recherche et JSON d'item testés en 200 et manifeste en 404 (passe 2), sans signal de limite. Crash test (g) : config crash-iiif-info.json préparée.

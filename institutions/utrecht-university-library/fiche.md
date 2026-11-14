@@ -20,7 +20,7 @@
 - Institution : recherche politique d'usage et robots : rien de plus que les pages lues.
 - Utilisateurs : aucune plainte 429/503/blocage trouvée ; fil iiif-discuss de juin 2023 : un manifeste v3 d'Utrecht (hôte de développement) ne se charge pas dans Mirador car `sc:Manifest` y figure à la place de `Manifest` (corrigé par l'utilisateur côté client ; pas un quota).
 - Présentations : le guide Mirador et la dépêche de l'incunable (900 incunables prévus d'ici 2027) ; un billet IIPImage sur Utrecht existe mais n'a pas été lu.
-- Tickets : recherche non exécutée (quota de recherches web de la session épuisé), à refaire.
+- Tickets : recherche refaite le 2026-11-14 (github issue "objects.library.uu.nl" iiif manifest) : aucun ticket Utrecht ; seul le fil iiif-discuss déjà cité (résumé de moteur, non vérifié).
 
 ## Conclusion
 Limite chiffrée : aucune publiée ni observée. Les endpoints IIIF sont interdits par robots.txt mais répondent 200 sans en-tête de limite. Confiance : moyenne (peu de volume testé). Contact pour le volume : `ubu.fb.digitalisering@uu.nl`.

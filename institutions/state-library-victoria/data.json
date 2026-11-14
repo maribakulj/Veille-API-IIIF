@@ -83,30 +83,29 @@
       "preuve": "institutions/state-library-victoria/sources/b/SHA256SUMS"
     },
     {
+      "categorie": "utilisateurs",
+      "url": "https://glam-workbench.net/state-library-victoria/previews/download_image_from_iiif.html",
+      "date": "2026-11-14",
+      "etiquette": "tiers (GLAM Workbench, T. Sherratt) (résumé de moteur, non vérifié : la page est derrière un écran Anubis, le notebook GitHub brut lu partiellement n'a pas montré le passage)",
+      "citation": "résumé de moteur : une requête d'image avec l'@id du manifeste renvoie un 403, contourné en récupérant le manifeste dans une requests.Session (cookie) ; aucune plainte de 429 ni de blocage général ; autre résultat : FromThePage (content.fromthepage.com/bot-traffic-ai-training-and-infrastructure-strain/) parle de blocages IIIF en général, sans viser la SLV.",
+      "preuve": "institutions/state-library-victoria/fiche.md"
+    },
+    {
+      "categorie": "tickets",
+      "aucun_resultat": true,
+      "requete": "github issue \"rosetta.slv.vic.gov.au\" iiif",
+      "date": "2026-11-14",
+      "etiquette": "– (résumé de moteur, non vérifié)",
+      "citation": "aucun ticket GitHub mentionnant rosetta.slv.vic.gov.au ; seulement des notebooks GLAM Workbench et un article de base de connaissances Ex Libris (ordre des fichiers dans Universal Viewer), sans lien avec un débit.",
+      "preuve": "institutions/state-library-victoria/fiche.md"
+    },
+    {
       "categorie": "presentations",
       "url": "https://lab.slv.vic.gov.au/articles/exploring-slv-urls",
       "date": "2026-11-14",
       "etiquette": "institution (billet SLV LAB, T. Sherratt, 04/12/2025), lu",
       "citation": "« The SLV uses Primo for its public-facing catalogue, as well as other systems such as Rosetta and IIIF to deliver digitised content. » Aucune limite citée.",
       "preuve": "institutions/state-library-victoria/sources/v2/SHA256SUMS"
-    },
-    {
-      "categorie": "utilisateurs",
-      "aucun_resultat": true,
-      "requete": "State Library Victoria rosetta IIIF 403 Cloudflare blocked scraping manifest \"slv.vic.gov.au\" (non exécutée : plafond de recherches web de la session) ; recherches voisines sans plainte",
-      "date": "2026-11-14",
-      "etiquette": "–",
-      "citation": "aucune plainte de quota/429/blocage trouvée dans les deux recherches exécutées ; recherche ciblée non réalisée",
-      "preuve": "institutions/state-library-victoria/fiche.md"
-    },
-    {
-      "categorie": "tickets",
-      "aucun_resultat": true,
-      "requete": "github issue \"rosetta.slv.vic.gov.au\" iiif (non exécutée : plafond de recherches web de la session) ; page GLAM Workbench SLV lue (sources/b/text/07.txt)",
-      "date": "2026-11-14",
-      "etiquette": "tiers",
-      "citation": "la page GLAM Workbench (outils tiers pour SLV) ne mentionne ni limite, ni 403, ni cookie ; aucun ticket lu",
-      "preuve": "institutions/state-library-victoria/sources/b/SHA256SUMS"
     }
   ],
   "contact": "slv-lab@slv.vic.gov.au (SLV LAB) et opendata@slv.vic.gov.au (open data), cités par les pages officielles",

@@ -44,7 +44,7 @@
       "hote": "www.digitalcommonwealth.org",
       "code": "arrêt par le registre (faux positif)",
       "quand": "2026-11-14T02:31:15Z",
-      "detail": "page /contact en HTTP 200 contenant un formulaire reCAPTCHA prise pour un défi par fetch_doc.sh ; hôte arrêté 24 h ; 5 pages doc et le JSON/manifeste non lus ni testés",
+      "detail": "page /contact en HTTP 200 contenant un formulaire reCAPTCHA prise pour un défi par fetch_doc.sh ; hôte arrêté 24 h ; 5 pages doc non lues ; blocage levé (faux positif), JSON/manifeste testés en passe 2 le 2026-11-14",
       "preuve": "institutions/digital-commonwealth/sources/doc/FETCH.log"
     },
     {
@@ -175,10 +175,10 @@
     }
   ],
   "contact": "https://www.digitalcommonwealth.org/contact (formulaire ; l'API page dit « Please contact us with any questions or comments »)",
-  "conclusion_quota": "Aucun quota, en-tête de limite ni politique d'usage chiffrée publiés. Seules règles écrites : Crawl-Delay: 5 dans le robots.txt de www ; Disallow / sur iiif. (tout robot, testé avec l'autorisation de Marcel) ; copyright : aucun frais, aucune restriction pour le domaine public. Observé : OAI (2 requêtes) et IIIF Image (2 requêtes) en 200 à 10 s, sans en-tête de limite. Le JSON et le manifeste du hôte www n'ont pas pu être testés : l'hôte a été arrêté par le registre partagé après que fetch_doc.sh a pris le formulaire reCAPTCHA de la page /contact (HTTP 200) pour un défi.",
+  "conclusion_quota": "Aucun quota, en-tête de limite ni politique d'usage chiffrée publiés. Seules règles écrites : Crawl-Delay: 5 dans le robots.txt de www ; Disallow / sur iiif. (tout robot, testé avec l'autorisation de Marcel) ; copyright : aucun frais, aucune restriction pour le domaine public. Observé : OAI (2 requêtes) et IIIF Image (2 requêtes) en 200 à 10 s, sans en-tête de limite. Passe 2 sur www (faux positif reCAPTCHA de /contact levé) : search.json 200, item .json 200, manifeste 404 pour l'item testé (la doc annonce un 404 sans manifeste), sans en-tête de limite ni 429.",
   "classe_quota": "aucun quota trouvé",
   "confiance": "moyenne",
-  "notes": "Hôte www arrêté 24 h dans ~/.veille-state (raison « fetch_doc 200 2026-11-14T02:31:15Z ») : faux positif, la page /contact (200) contient un script recaptcha.net ; on n'a pas touché au registre. Pages www lues via Wayback (sources/wayback/pages-www.md). Un hôte de recette qc-dc3dev.bpl.org apparaît dans les résultats de moteur : non testé. oai. : robots.txt 404.",
+  "notes": "Hôte www arrêté 24 h dans ~/.veille-state (raison « fetch_doc 200 2026-11-14T02:31:15Z ») : faux positif, la page /contact (200) contient un script recaptcha.net ; on n'a pas touché au registre. Pages www lues via Wayback (sources/wayback/pages-www.md). Un hôte de recette qc-dc3dev.bpl.org apparaît dans les résultats de moteur : non testé. oai. : robots.txt 404. Passe 2 (2026-11-14T04:00Z, config dc-passe2-www.json, 3 requêtes à 10 s) : search.json 200 (72 412 octets), item .json 200 (2 203 octets), manifeste /manifest 404 (la doc précise : 404 si aucun manifeste disponible), aucun en-tête de limite, aucun 429.",
   "a_verifier_manuellement": [
     {
       "url": "https://www.digitalcommonwealth.org/for_institutions",
@@ -194,16 +194,6 @@
       "url": "https://www.digitalcommonwealth.org/search/opensearch.xml",
       "pourquoi": "hôte www arrêté, non lue (capture Wayback 20260925062231 existe)",
       "a_chercher": "description OpenSearch : format, limites"
-    },
-    {
-      "url": "https://www.digitalcommonwealth.org/search.json?q=Boston",
-      "pourquoi": "hôte www arrêté : JSON documenté non testé",
-      "a_chercher": "en-têtes de limite, comportement au-delà de Crawl-Delay"
-    },
-    {
-      "url": "https://www.digitalcommonwealth.org/search/commonwealth:hd76s0677/manifest",
-      "pourquoi": "hôte www arrêté : manifeste IIIF Presentation 2.0 non testé",
-      "a_chercher": "statut, en-têtes de limite"
     },
     {
       "url": "https://www.bpl.org/digitization/faq/",
@@ -239,20 +229,20 @@
     {
       "famille": "JSON de recherche (search.json)",
       "url": "https://www.digitalcommonwealth.org/search.json?q=Boston",
-      "statut": "non_teste",
-      "raison": "hôte www arrêté par le registre partagé (faux positif reCAPTCHA de /contact, 2026-11-14T02:31:15Z) : sonde refusée (journal NON LANCÉ)"
+      "statut": "teste",
+      "preuve": "institutions/digital-commonwealth/tests/raw/json-recherche.headers.txt"
     },
     {
       "famille": "JSON d'un item (.json)",
       "url": "https://www.digitalcommonwealth.org/search/commonwealth:hd76s0677.json",
-      "statut": "non_teste",
-      "raison": "hôte www arrêté par le registre partagé (faux positif reCAPTCHA de /contact) : sonde refusée (journal NON LANCÉ)"
+      "statut": "teste",
+      "preuve": "institutions/digital-commonwealth/tests/raw/json-item.headers.txt"
     },
     {
       "famille": "IIIF Presentation 2.0 : manifeste d'item",
       "url": "https://www.digitalcommonwealth.org/search/commonwealth:hd76s0677/manifest",
-      "statut": "non_teste",
-      "raison": "hôte www arrêté par le registre partagé (faux positif reCAPTCHA de /contact) : sonde refusée (journal NON LANCÉ)"
+      "statut": "teste",
+      "preuve": "institutions/digital-commonwealth/tests/raw/manifeste-item.headers.txt"
     }
   ],
   "endpoints_ecartes": [

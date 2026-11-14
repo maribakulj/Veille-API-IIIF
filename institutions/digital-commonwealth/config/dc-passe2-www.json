@@ -1,0 +1,13 @@
+{
+  "slug": "digital-commonwealth",
+  "min_delay_s": 10,
+  "max_requests": 5,
+  "follow_redirects": 1,
+  "robots_disallow_autorise_par_marcel": true,
+  "note": "Passe 2 : famille JSON et Presentation de l'hote www.digitalcommonwealth.org, non lancees en passe 1 a cause d'un faux positif reCAPTCHA du registre partage (page /contact, HTTP 200 avec formulaire), debloque. URL tirees de la doc https://www.digitalcommonwealth.org/api (sources/doc/text/04.txt) ; identifiant commonwealth:hd76s0677 de la passe 1. robots.txt www lu (Crawl-Delay 5) ; delai 10 s.",
+  "endpoints": [
+    {"id": "json-recherche", "method": "GET", "url": "https://www.digitalcommonwealth.org/search.json?q=Boston"},
+    {"id": "json-item", "method": "GET", "url": "https://www.digitalcommonwealth.org/search/commonwealth:hd76s0677.json"},
+    {"id": "manifeste-item", "method": "GET", "url": "https://www.digitalcommonwealth.org/search/commonwealth:hd76s0677/manifest"}
+  ]
+}

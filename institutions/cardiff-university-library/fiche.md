@@ -9,7 +9,7 @@
 ## Tests
 - Passe 1 (cardiff-passe1-librarysearch.json, 10 s) : page de découverte 302 puis 200 (coquille JS), siteindex.xml 200 (index vide), 4 requêtes dont robots.txt.
 - Passe 2 (cardiff-passe2-manifest.json) : manifeste IIIF Presentation 2 200 (107 ko), JSON de livraison 200 ; identifiant 12204337930002420 publié par un blog tiers lu en original. 3 requêtes dont robots.txt.
-- Passe 3 (cardiff-passe3-image.json) : service d'images annoncé par le manifeste sur eu-img02.ext.exlibrisgroup.com : NON LANCÉ (hôte arrêté par le registre après le 403 « Missing Authentication Token » de son robots.txt, réponse de passerelle d'API) ; 0 requête.
+- Passe 3 (cardiff-passe3-image.json) : service d'images annoncé par le manifeste sur eu-img02.ext.exlibrisgroup.com : lancée le 2026-11-14T04:01Z après déblocage de l'hôte (son robots.txt répond 403 « Missing Authentication Token », réponse de passerelle d'API, pas un anti-bot) : info.json 200 (1 314 octets), dérivé full/150, 200 (752 octets), sans en-tête de limite ni 429 ; 3 requêtes dont robots.txt (la sonde avait été refusée à 02:40Z).
 - Aucun en-tête RateLimit ou Retry-After sur librarysearch ; pas de 429.
 
 ## Web
@@ -17,4 +17,4 @@
 - utilisateurs et tickets : aucun résultat propre à Cardiff (résumés de moteur, non vérifiés) ; un blog tiers montre le manifeste fonctionnel dans Universal Viewer, sans mention de limite.
 
 ## Conclusion
-Aucun quota ni politique de débit publiés par Cardiff ; hypothèse non vérifiée : Cardiff s'en remet à la plateforme hébergée Ex Libris et ne publie pas de règle propre. Seule règle écrite : Crawl-delay 10 s. Observé : manifeste et JSON en 200 sans en-tête de limite ; défi Cloudflare sur le site www (pas un quota). Le service d'images Ex Libris reste à tester (URL dans a_verifier_manuellement). Crash test (g) : config crash-delivery-json.json préparée.
+Aucun quota ni politique de débit publiés par Cardiff ; hypothèse non vérifiée : Cardiff s'en remet à la plateforme hébergée Ex Libris et ne publie pas de règle propre. Seule règle écrite : Crawl-delay 10 s. Observé : manifeste et JSON en 200 sans en-tête de limite ; défi Cloudflare sur le site www (pas un quota). Le service d'images Ex Libris (eu-img02) testé en passe 3 : info.json et dérivé en 200 sans en-tête de limite. Crash test (g) : config crash-delivery-json.json préparée.
