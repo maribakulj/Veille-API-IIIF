@@ -1,0 +1,12 @@
+{
+  "slug": "cardiff-university-library",
+  "min_delay_s": 10,
+  "max_requests": 8,
+  "follow_redirects": 1,
+  "robots_disallow_autorise_par_marcel": true,
+  "note": "Passe 1 : www.cardiff.ac.uk est en 403 (defi Cloudflare des la 1re requete, robots.txt) : arret de l'hote, pages lues via Wayback. Digital Special Collections est servi par librarysearch.cardiff.ac.uk (Primo VE, URL citee par le billet scolarcardiff.wordpress.com, sources/doc-b). Crawl-delay 10 du robots.txt de cet hote. Endpoints : page collectionDiscovery citee par le billet et le guide iiif.io, sitemap annonce par robots.txt. Le motif IIIF /view/iiif/presentation/{RepresentationID}/manifest n'est pas teste faute d'identifiant public.",
+  "endpoints": [
+    {"id": "collection-discovery", "method": "GET", "url": "https://librarysearch.cardiff.ac.uk/discovery/collectionDiscovery?vid=44WHELF_CAR:44WHELF_CAR_VU1"},
+    {"id": "siteindex", "method": "GET", "url": "https://librarysearch.cardiff.ac.uk/view/scholar/siteindex.xml", "save_body": 300000}
+  ]
+}
