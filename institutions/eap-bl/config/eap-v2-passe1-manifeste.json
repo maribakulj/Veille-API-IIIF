@@ -1,0 +1,11 @@
+{
+  "slug": "eap-bl",
+  "min_delay_s": 6,
+  "max_requests": 15,
+  "follow_redirects": 1,
+  "robots_disallow_autorise_par_marcel": true,
+  "note": "v2 passe 1 : manifeste IIIF documenté par eap.bl.uk/tools (sources/suite3/text/01.txt), exemple EAP099-1-2-5-2 ; robots.txt interdit */manifest*, passe outre sur autorisation de Marcel (C12). Le corps est enregistré pour lire l'hôte du service d'images, sans rien deviner.",
+  "endpoints": [
+    {"id": "manifeste-eap099-1-2-5-2", "method": "GET", "url": "https://eap.bl.uk/archive-file/EAP099-1-2-5-2/manifest", "save_body": 2000000}
+  ]
+}
