@@ -1,0 +1,12 @@
+{
+  "slug": "hab",
+  "endpoint": {
+    "id": "hab-info-json",
+    "url": "https://iiif.hab.de/object/mss_35-helmst/image/image_00001/info.json",
+    "method": "GET"
+  },
+  "limite_documentee_req_min": null,
+  "source_limite": "aucune limite de débit documentée (http://diglib.hab.de/nutzungshinweise.html : seulement licences et mentions)",
+  "duree_palier_s": 180,
+  "note": "info.json d'image IIIF 2 (1,7 ko), 200 dans le journal (p3-hab-info-json-image-00001, 2026-11-14T03:19:06Z)."
+}
