@@ -2,51 +2,51 @@
 
 - **Dossier** : `institutions/nypl/`  ·  **Classeur de référence** : hors 84 (ajouté)  ·  **Pays** : États-Unis
 - **Statut d'institution** : active
-- **Dernière mise à jour du suivi** : (à renseigner à chaque modification)
+- **Dernière mise à jour du suivi** : 2026-11-14
 
 ## Suivi par étape (à cocher, avec justification et preuves)
 
 ### a) Documentation lue en entier
 > Toutes les pages de doc liées à l'API (développeurs, interfaces, conditions, FAQ, aide, mentions légales, robots.txt), téléchargées avec `scripts/fetch_doc.sh` (URL, date, SHA-256), lues en entier (`scripts/extract_text.py`).
 
-- [ ] **Pas fait**
-  - **Justification** : Passe antérieure non conforme à la méthode v2 (AUDIT-HAIKU.md) : à refaire. Le matériel déjà présent dans ce dossier est conservé comme historique.
-  - **Preuves** : 
+- [x] **Fait**
+  - **Justification** : Doc API Repo (accueil, conditions, inscription, v1), GitHub NYPL/digital-collections et robots.txt de chaque hôte lus ; www.nypl.org et digitalcollections.nypl.org en défi Incapsula, lus via Wayback.
+  - **Preuves** : `institutions/nypl/sources/passe1/SHA256SUMS`, `institutions/nypl/sources/passe2/SHA256SUMS`, `institutions/nypl/sources/passe3/SHA256SUMS`, `institutions/nypl/sources/wayback/nypl-incapsula.md`
 
 ### b) Endpoints tirés de la doc
 > Liste des endpoints citée par la doc (URL, exemples). Jamais devinée. Une interdiction ou une impossibilité écrite dans la doc justifie de renoncer (citer la phrase).
 
-- [ ] **Pas fait**
-  - **Justification** : Passe antérieure non conforme à la méthode v2 (AUDIT-HAIKU.md) : à refaire. Le matériel déjà présent dans ce dossier est conservé comme historique.
-  - **Preuves** : 
+- [x] **Fait**
+  - **Justification** : Endpoints tirés de la doc de l'API Repo v2 (exemples items/search, items/total) et des manifestes api-collections déjà connus ; voir data.json.
+  - **Preuves** : `institutions/nypl/data.json`, `institutions/nypl/sources/passe1/text/06.txt`
 
 ### c) Configuration écrite AVANT les tests
 > `config/<nom>.json` pilote `scripts/probe.py`, committée avant le lancement. Un endpoint absent de la doc mais non interdit se teste avec un script poli (identifiants issus de pages publiques ou d'exemples de la doc, pas de devinette).
 
-- [ ] **Pas fait**
-  - **Justification** : Passe antérieure non conforme à la méthode v2 (AUDIT-HAIKU.md) : à refaire. Le matériel déjà présent dans ce dossier est conservé comme historique.
-  - **Preuves** : 
+- [x] **Fait**
+  - **Justification** : Configuration v2 passe 1 committée avant lancement, plus configuration de crash test.
+  - **Preuves** : `institutions/nypl/config/nypl-v2-passe1.json`, `institutions/nypl/config/crash-nypl-manifeste.json`
 
 ### d) Quota cherché dans la doc
 > Pour chaque page lue : endpoint de statut, en-têtes de limite documentés, clé ou compte donnant un quota, contact pour un volume plus élevé. Chaque réponse cite sa source.
 
-- [ ] **Pas fait**
-  - **Justification** : Passe antérieure non conforme à la méthode v2 (AUDIT-HAIKU.md) : à refaire. Le matériel déjà présent dans ce dossier est conservé comme historique.
-  - **Preuves** : 
+- [x] **Fait**
+  - **Justification** : Quota cherché dans toutes les pages : 10 000 requêtes/jour/jeton (API Repo), conditions sur l'abus de quota, aucun en-tête ni endpoint de statut documenté ; contacts repoapi@ et digitaldam@.
+  - **Preuves** : `institutions/nypl/sources/passe2/text/01.txt`, `institutions/nypl/sources/passe2/text/02.txt`, `institutions/nypl/sources/passe1/text/06.txt`
 
 ### e) Test systématique de chaque endpoint
 > Chaque endpoint documenté est testé (budget 15 requêtes par passe, pause ≥ 6 s, GET/HEAD, UA du projet). Redirections du même hôte suivies. Un 403 arrête son hôte, un 429 arrête l'institution. Seules les interdictions écrites dans la doc dispensent de tester.
 
-- [ ] **Pas fait**
-  - **Justification** : Passe antérieure non conforme à la méthode v2 (AUDIT-HAIKU.md) : à refaire. Le matériel déjà présent dans ce dossier est conservé comme historique.
-  - **Preuves** : 
+- [x] **Fait**
+  - **Justification** : 5 requêtes : API v2 sans jeton 401, 2 manifestes 200, racine Cantaloupe 200 ; hôtes du site arrêtés (défi) ; info.json non testé faute d'identifiant documenté.
+  - **Preuves** : `institutions/nypl/tests/journal.log`, `institutions/nypl/tests/raw/v2-repo-total-sans-jeton.headers.txt`, `institutions/nypl/tests/raw/v2p1-manifeste-a.headers.txt`
 
 ### f) Ce que disent les gens sur le web
 > Plaintes, discussions, présentations de l'institution, politique envers les API et les bots, blogs, GitHub, forums, listes de diffusion. Sources étiquetées (officielle / institution / utilisateur / tiers), lues, citées.
 
-- [ ] **Pas fait**
-  - **Justification** : Passe antérieure non conforme à la méthode v2 (AUDIT-HAIKU.md) : à refaire. Le matériel déjà présent dans ce dossier est conservé comme historique.
-  - **Preuves** : 
+- [x] **Fait**
+  - **Justification** : 4 recherches web (une par catégorie), un original tiers lu (FromThePage) ; aucune plainte ni ticket NYPL trouvés.
+  - **Preuves** : `institutions/nypl/fiche.md`, `institutions/nypl/data.json`
 
 ### g) Crash test progressif
 > Seulement après l'audit complet (a à f) de toutes les institutions et avec l'accord de Marcel : paliers jusqu'à 2 × la limite documentée, ou 200 req/min si illimité ou sans limite documentée. Arrêt au premier 429/403/CAPTCHA.
@@ -60,8 +60,8 @@
 
 <!-- AUTO:DEBUT -->
 ## Contrôles automatiques (calculés depuis `tests/journal.log`)
-- Requêtes enregistrées : **6** (sessions de sonde : 0, maximum par session : 0)
-- Plus courte pause vers un même hôte : **9 s** (règle : ≥ 6 s)
+- Requêtes enregistrées : **14** (sessions de sonde : 1, maximum par session : 8)
+- Plus courte pause vers un même hôte : **6 s** (règle : ≥ 6 s)
 - Méthodes utilisées : GET (règle : GET/HEAD seulement)
 - Anomalies : aucune
 <!-- AUTO:FIN -->

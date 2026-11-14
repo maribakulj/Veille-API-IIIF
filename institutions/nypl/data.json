@@ -2,29 +2,212 @@
   "slug": "nypl",
   "nom": "New York Public Library",
   "pays": "États-Unis",
-  "statut_audit": "partiel (ancienne méthode)",
+  "statut_audit": "complet (a à f) ; www.nypl.org et digitalcollections.nypl.org en défi Incapsula (non contournés)",
   "limites_documentees": [
     {
-      "nature": "Quota par jeton (API v1, désactivée)",
-      "perimetre": "API Repo v1",
-      "valeur": "10 000",
-      "fenetre": "par jour",
-      "effet": "–",
-      "source": "doc api_documentation_v1 (NYPL)",
-      "date": "2026-11-13",
-      "verification": "officielle, extrait lu (page non relue en entier)"
+      "nature": "Quota par jeton",
+      "perimetre": "API Repo v2 (api.repo.nypl.org)",
+      "valeur": "10 000 requêtes par jour et par jeton",
+      "fenetre": "jour",
+      "effet": "abus de quota = accès désactivé (conditions) ; effet technique non documenté",
+      "verification": "officielle, non vérifiée (jeton requis, 401 sans jeton)",
+      "source": "https://api.repo.nypl.org/",
+      "date": "2026-11-14"
     }
   ],
-  "en_tetes_observes": [],
-  "blocages": [],
-  "contact": "repoapi@nypl.org, digitaldam@nypl.org",
-  "conclusion_quota": "Quota 10 000/jour pour une API v1 désactivée (410) ; v2 non documentée trouvée.",
-  "classe_quota": "règle chiffrée (API désactivée)",
-  "confiance": "faible",
-  "notes": "iiif.nypl.org répond en Cantaloupe 5.0.7 ; info.json non testé.",
+  "en_tetes_observes": [
+    "www-authenticate: Token realm=\"Application\" (401 sans jeton)",
+    "server: uvicorn (api-collections), nginx/Passenger (api.repo)",
+    "aucun RateLimit-*, X-RateLimit-*, Retry-After"
+  ],
+  "blocages": [
+    {
+      "date": "2026-11-14T03:21:09Z",
+      "hote": "www.nypl.org",
+      "code": "200 défi",
+      "nature": "page de défi JavaScript Incapsula à la place de robots.txt et des conditions",
+      "suite": "hôte arrêté, registre partagé marqué"
+    },
+    {
+      "date": "2026-11-14T03:21:13Z",
+      "hote": "digitalcollections.nypl.org",
+      "code": "200 défi",
+      "nature": "défi Incapsula sur robots.txt",
+      "suite": "hôte arrêté, non contacté ensuite"
+    }
+  ],
+  "contact": "repoapi@nypl.org ; digitaldam@nypl.org",
+  "conclusion_quota": "Limite documentée : 10 000 requêtes par jour et par jeton pour l'API Repo v2 (jeton obligatoire, 401 sans jeton ; arrêt annoncé au 1er août 2026). Rien de publié pour les manifestes (api-collections) ni pour iiif.nypl.org ; aucune réponse n'a montré d'en-tête de limite. Les hôtes du site sont en défi Incapsula : accès refusé à ce client, pas un quota.",
+  "classe_quota": "documentée (API Repo à jeton) ; IIIF non publiée",
+  "confiance": "moyenne",
+  "notes": "API v1 retirée (410, 2026-11-13). Image identifiers iiif.nypl.org non documentés : info.json non testé.",
   "classeur_id": "hors 84 (ajouté)",
   "type": "Institution",
-  "sources": [],
-  "web": [],
-  "donnees_a_revalider": true
+  "sources": [
+    {
+      "url": "https://api.repo.nypl.org/",
+      "date": "2026-11-14",
+      "etiquette": "officielle",
+      "preuve": "institutions/nypl/sources/passe1/SHA256SUMS"
+    },
+    {
+      "url": "https://api.repo.nypl.org/terms_conditions",
+      "date": "2026-11-14",
+      "etiquette": "officielle",
+      "preuve": "institutions/nypl/sources/passe2/SHA256SUMS"
+    },
+    {
+      "url": "https://api.repo.nypl.org/sign_up",
+      "date": "2026-11-14",
+      "etiquette": "officielle",
+      "preuve": "institutions/nypl/sources/passe2/SHA256SUMS"
+    },
+    {
+      "url": "https://github.com/NYPL/digital-collections",
+      "date": "2026-11-14",
+      "etiquette": "officielle (GitHub de l'institution)",
+      "preuve": "institutions/nypl/sources/passe3/SHA256SUMS"
+    }
+  ],
+  "web": [
+    {
+      "categorie": "institution",
+      "url": "https://api.repo.nypl.org/",
+      "date": "2026-11-14",
+      "etiquette": "officielle",
+      "citation": "« The limit per authentication token ... is 10,000 requests per day. »",
+      "preuve": "institutions/nypl/sources/passe1/text/06.txt"
+    },
+    {
+      "categorie": "utilisateurs",
+      "url": "https://content.fromthepage.com/bot-traffic-ai-training-and-infrastructure-strain/",
+      "date": "2026-11-14",
+      "etiquette": "tiers, lu dans l'original ; ne cite pas NYPL",
+      "citation": "« Nearly every digital library system we interact with has blocked FromThePage from accessing their materials »",
+      "preuve": "institutions/nypl/fiche.md"
+    },
+    {
+      "categorie": "tickets",
+      "aucun_resultat": true,
+      "requete": "github issue NYPL iiif.nypl.org OR api-collections.nypl.org manifest rate limit OR 429 OR 403",
+      "date": "2026-11-14",
+      "etiquette": "aucun résultat",
+      "citation": "aucun ticket NYPL trouvé (résumé de moteur, non vérifié)",
+      "preuve": "institutions/nypl/fiche.md"
+    },
+    {
+      "categorie": "presentations",
+      "url": "https://www.nypl.org/blog/2013/04/04/announcing-nypl-digital-collections-api",
+      "date": "2026-11-14",
+      "etiquette": "institution (résumé de moteur, non vérifié ; non lu : domaine d'institution)",
+      "citation": "billet de 2013 annonçant l'API ; aucune limite 2026 trouvée",
+      "preuve": "institutions/nypl/fiche.md"
+    }
+  ],
+  "donnees_a_revalider": true,
+  "a_verifier_manuellement": [
+    {
+      "url": "https://www.nypl.org/help/about-nypl/legal-notices/terms-conditions",
+      "pourquoi": "défi Incapsula ; Wayback renvoie un texte vide",
+      "a_chercher": "Conditions d'utilisation des images et des API IIIF, accès automatisé"
+    },
+    {
+      "url": "https://digitalcollections.nypl.org/robots.txt",
+      "pourquoi": "défi Incapsula ; seule la copie Wayback (3 règles de bots d'IA) a été lue",
+      "a_chercher": "Règles actuelles pour les autres robots, Crawl-delay"
+    },
+    {
+      "url": "https://www.nypl.org/robots.txt",
+      "pourquoi": "défi Incapsula ; Wayback vide",
+      "a_chercher": "Règles et Crawl-delay"
+    }
+  ],
+  "endpoints_documentes": [
+    {
+      "famille": "API Repo v2 (api.repo.nypl.org/api/v2/items/*)",
+      "url": "https://api.repo.nypl.org/api/v2/items/search?q=cats&publicDomainOnly=true",
+      "statut": "teste",
+      "preuve": "institutions/nypl/tests/raw/v2-repo-search-sans-jeton.headers.txt"
+    },
+    {
+      "famille": "API Repo v2 items/total",
+      "url": "https://api.repo.nypl.org/api/v2/items/total",
+      "statut": "teste",
+      "preuve": "institutions/nypl/tests/raw/v2-repo-total-sans-jeton.headers.txt"
+    },
+    {
+      "famille": "Manifestes IIIF Présentation 3 (api-collections.nypl.org/manifests/<uuid>)",
+      "url": "https://api-collections.nypl.org/manifests/333ce2c0-3144-0132-b540-3c075448cc4b",
+      "statut": "teste",
+      "preuve": "institutions/nypl/tests/raw/v2p1-manifeste-a.headers.txt"
+    },
+    {
+      "famille": "Serveur d'images Cantaloupe (iiif.nypl.org, Image API v2)",
+      "url": "https://iiif.nypl.org/",
+      "statut": "teste",
+      "preuve": "institutions/nypl/tests/raw/v2p1-iiif-racine.headers.txt"
+    },
+    {
+      "famille": "info.json / images iiif.nypl.org/iiif/<id>",
+      "url": "https://iiif.nypl.org/iiif/",
+      "statut": "non_teste",
+      "raison": "aucun identifiant d'image dans la doc ni dans les manifestes lus ; deviner un identifiant est interdit par la méthode."
+    },
+    {
+      "famille": "Site Digital Collections (digitalcollections.nypl.org)",
+      "url": "https://digitalcollections.nypl.org/",
+      "statut": "non_teste",
+      "raison": "défi JavaScript Incapsula sur robots.txt (passe1/raw/05.html) : hôte arrêté, règle C12, non contourné."
+    }
+  ],
+  "endpoints_ecartes": [
+    {
+      "url": "https://api.repo.nypl.org/api_documentation_v1",
+      "raison": "documentation de l'API v1, retirée (410 le 2026-11-13) ; aucune API à tester, remplacée par la v2 testée."
+    },
+    {
+      "url": "https://api.repo.nypl.org/sign_up",
+      "raison": "formulaire d'inscription pour obtenir un jeton : POST et compte interdits, rien à tester."
+    },
+    {
+      "url": "https://www.nypl.org/help/about-nypl/legal-notices/terms-conditions",
+      "raison": "page de conditions, pas une API ; défi Incapsula sur cet hôte."
+    },
+    {
+      "url": "https://digitalcollections.nypl.org/search/index?utf8=%E2%9C%93",
+      "raison": "formulaire de recherche du site Digital Collections cité dans la doc ; hôte en défi Incapsula : arrêté, non contourné (règle C12)."
+    }
+  ],
+  "hotes_robots": [
+    {
+      "hote": "api.repo.nypl.org",
+      "resultat": "200, commentaires seulement : tout autorisé",
+      "preuve": "institutions/nypl/sources/passe1/SHA256SUMS"
+    },
+    {
+      "hote": "iiif.nypl.org",
+      "resultat": "404 Cantaloupe : tout autorisé",
+      "preuve": "institutions/nypl/sources/passe1/SHA256SUMS"
+    },
+    {
+      "hote": "api-collections.nypl.org",
+      "resultat": "404 : tout autorisé",
+      "preuve": "institutions/nypl/sources/passe1/SHA256SUMS"
+    },
+    {
+      "hote": "www.nypl.org",
+      "resultat": "défi Incapsula, non lisible (Wayback vide)",
+      "preuve": "institutions/nypl/sources/wayback/nypl-incapsula.md"
+    },
+    {
+      "hote": "digitalcollections.nypl.org",
+      "resultat": "défi Incapsula ; copie Wayback : Disallow / pour Bytedance, Bytespider, GPTBot seulement",
+      "preuve": "institutions/nypl/sources/wayback/nypl-incapsula.md"
+    },
+    {
+      "hote": "github.com",
+      "resultat": "robots.txt de GitHub lu",
+      "preuve": "institutions/nypl/sources/passe2/SHA256SUMS"
+    }
+  ]
 }

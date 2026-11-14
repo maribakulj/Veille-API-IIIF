@@ -1,0 +1,19 @@
+2026-11-14T03:22:52Z GET https://api.repo.nypl.org/api/v2/items/search?q=cats&publicDomainOnly=true
+HTTP 401
+date: Sat, 14 Nov 2026 03:22:52 GMT
+content-type: text/plain; charset=utf-8
+transfer-encoding: chunked
+connection: keep-alive
+status: 401 Unauthorized
+cache-control: no-cache
+referrer-policy: strict-origin-when-cross-origin
+x-permitted-cross-domain-policies: none
+x-xss-protection: 1; mode=block
+www-authenticate: Token realm="Application"
+x-request-id: ff75e27a-d55f-4c47-8f4e-5d8b56fc71bf
+x-download-options: noopen
+x-runtime: 0.002676
+x-frame-options: SAMEORIGIN
+x-content-type-options: nosniff
+x-powered-by: Phusion Passenger(R) 6.1.6
+server: nginx/1.24.0 (Ubuntu) + Phusion Passenger(R) 6.1.6
