@@ -1,0 +1,19 @@
+<!DOCTYPE html><html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<script type="module" src="https://zs.thulb.uni-jena.de/modules/iview2/js/iview-client-base.es.js"></script><script type="module" src="https://zs.thulb.uni-jena.de/modules/iview2/js/iview-client-desktop.es.js"></script>
+<link rel="stylesheet" type="text/css" href="https://zs.thulb.uni-jena.de/modules/iview2/css/default.css">
+<script type="module" src="https://zs.thulb.uni-jena.de/modules/iview2/js/iview-client-mets.es.js"></script><script type="module" src="https://zs.thulb.uni-jena.de/modules/iview2/js/iview-client-logo.es.js"></script><script type="module" src="https://zs.thulb.uni-jena.de/modules/iview2/js/iview-client-metadata.es.js"></script><script type="module" src="https://zs.thulb.uni-jena.de/modules/iview2/js/iview-client-piwik.es.js"></script><script type="text/javascript" src="https://zs.thulb.uni-jena.de/webjars/bootstrap/5.3.3/js/bootstrap.bundle.min.js"></script>
+<link rel="stylesheet" type="text/css" href="https://zs.thulb.uni-jena.de/webjars/bootstrap/5.3.3/css/bootstrap.css">
+<link rel="stylesheet" type="text/css" href="https://zs.thulb.uni-jena.de/webjars/font-awesome/6.7.2/css/all.css">
+<link rel="stylesheet" type="text/css" href="https://zs.thulb.uni-jena.de/css/jp-iview.css">
+<script type="module" src="https://zs.thulb.uni-jena.de/modules/iview2/js/dfg-viewer-module.js"></script><script type="module" src="https://zs.thulb.uni-jena.de/modules/iview2/js/iiif-module.js"></script><script type="module">
+          import { MyCoReViewer } from 'https://zs.thulb.uni-jena.de/modules/iview2/js/iview-client-base.es.js';
+          window.onload = function() {
+            var json = {"resources":{"module":["https://zs.thulb.uni-jena.de/modules/iview2/js/iview-client-base.es.js","https://zs.thulb.uni-jena.de/modules/iview2/js/iview-client-desktop.es.js","https://zs.thulb.uni-jena.de/modules/iview2/js/iview-client-mets.es.js","https://zs.thulb.uni-jena.de/modules/iview2/js/iview-client-logo.es.js","https://zs.thulb.uni-jena.de/modules/iview2/js/iview-client-metadata.es.js","https://zs.thulb.uni-jena.de/modules/iview2/js/iview-client-piwik.es.js","https://zs.thulb.uni-jena.de/modules/iview2/js/dfg-viewer-module.js","https://zs.thulb.uni-jena.de/modules/iview2/js/iiif-module.js"],"css":["https://zs.thulb.uni-jena.de/modules/iview2/css/default.css","https://zs.thulb.uni-jena.de/webjars/bootstrap/5.3.3/css/bootstrap.css","https://zs.thulb.uni-jena.de/webjars/font-awesome/6.7.2/css/all.css","https://zs.thulb.uni-jena.de/css/jp-iview.css"],"script":["https://zs.thulb.uni-jena.de/webjars/bootstrap/5.3.3/js/bootstrap.bundle.min.js"]},"properties":{"derivateURL":"https://zs.thulb.uni-jena.de/servlets/MCRFileNodeServlet/jportal_derivate_00401748/","metsURL":"https://zs.thulb.uni-jena.de/servlets/MCRMETSServlet/jportal_derivate_00401748","canvas.overview.enabled":true,"maximalPageScale":"4","i18nURL":"https://zs.thulb.uni-jena.de/rsc/locale/translate/{lang}/component.mets.*,component.viewer.*","derivate":"jportal_derivate_00401748","filePath":"/ADR_Langensalza_1911_0181.tif","mobile":false,"MCR.Piwik.id":"1","adminMail":"","tileProviderPath":"https://zs.thulb.uni-jena.de/servlets/MCRTileServlet/","imageXmlPath":"https://zs.thulb.uni-jena.de/servlets/MCRTileServlet/","pdfCreatorURI":"https://zs.thulb.uni-jena.de/pdf","text.enabled":"true","logoURL":"http://mets-printer.thulb.uni-jena.de/logos/Urmel_Logo_leicht_grau.svg","doctype":"mets","webApplicationBaseURL":"https://zs.thulb.uni-jena.de/","metadataURL":"https://zs.thulb.uni-jena.de/receive/jportal_jpvolume_00623308?XSL.Transformer\u003dmycoreobject-viewer","pdfCreatorStyle":"pdf","objId":"jportal_jpvolume_00623308","lang":"de","MCR.Piwik.baseurl":"https://piwik.thulb.uni-jena.de/"}};
+            new MyCoReViewer(document.body, json.properties);
+          };
+        </script>
+</head>
+<body></body>
+</html>
