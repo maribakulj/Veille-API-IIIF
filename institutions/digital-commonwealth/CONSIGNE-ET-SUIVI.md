@@ -17,15 +17,15 @@
 > Liste des endpoints citée par la doc (URL, exemples). Jamais devinée. Une interdiction ou une impossibilité écrite dans la doc justifie de renoncer (citer la phrase).
 
 - [x] **Fait**
-  - **Justification** : 7 familles tirées de la page /api (OAI, JSON recherche, JSON item, IIIF Image info et dérivé, Presentation) dans data.json endpoints_documentes ; 1 URL de doc 404 écartée avec raison.
+  - **Justification** : 7 familles tirées de la page /api (OAI, JSON recherche, JSON item, IIIF Image info et dérivé, Presentation) dans data.json endpoints_documentes, toutes testées (statut teste avec preuve) ; 1 URL de doc 404 écartée avec raison.
   - **Preuves** : `institutions/digital-commonwealth/data.json`, `institutions/digital-commonwealth/sources/doc/text/04.txt`
 
 ### c) Configuration écrite AVANT les tests
 > `config/<nom>.json` pilote `scripts/probe.py`, committée avant le lancement. Un endpoint absent de la doc mais non interdit se teste avec un script poli (identifiants issus de pages publiques ou d'exemples de la doc, pas de devinette).
 
 - [x] **Fait**
-  - **Justification** : Configuration dc-passe1-oai-iiif.json écrite et committée (fd7ecb4) avant le lancement, pause 10 s, robots_disallow_autorise_par_marcel, 7 endpoints dont 3 que le registre a refusés ; config de crash préparée.
-  - **Preuves** : `institutions/digital-commonwealth/config/dc-passe1-oai-iiif.json`
+  - **Justification** : Configurations dc-passe1-oai-iiif.json (fd7ecb4) et dc-passe2-www.json écrites et committées avant leur lancement, pause 10 s, robots_disallow_autorise_par_marcel ; config de crash préparée.
+  - **Preuves** : `institutions/digital-commonwealth/config/dc-passe1-oai-iiif.json`, `institutions/digital-commonwealth/config/dc-passe2-www.json`
 
 ### d) Quota cherché dans la doc
 > Pour chaque page lue : endpoint de statut, en-têtes de limite documentés, clé ou compte donnant un quota, contact pour un volume plus élevé. Chaque réponse cite sa source.
@@ -38,8 +38,8 @@
 > Chaque endpoint documenté est testé (budget 15 requêtes par passe, pause ≥ 6 s, GET/HEAD, UA du projet). Redirections du même hôte suivies. Un 403 arrête son hôte, un 429 arrête l'institution. Seules les interdictions écrites dans la doc dispensent de tester.
 
 - [x] **Fait**
-  - **Justification** : OAI Identify et ListMetadataFormats, IIIF info.json et dérivé testés en 200 sans en-tête de limite ; JSON recherche, JSON item et manifeste NON LANCÉS car hôte www arrêté par le registre (faux positif reCAPTCHA), raison consignée et URL à vérifier à la main.
-  - **Preuves** : `institutions/digital-commonwealth/tests/journal.log`, `institutions/digital-commonwealth/tests/raw/iiif-info.headers.txt`, `institutions/digital-commonwealth/tests/raw/oai-identify.headers.txt`
+  - **Justification** : OAI Identify et ListMetadataFormats, IIIF info.json et dérivé testés en 200 (passe 1) ; passe 2 sur www après levée du faux positif reCAPTCHA : search.json 200, item .json 200, manifeste /manifest 404 (la doc annonce 404 sans manifeste), aucun en-tête de limite ni 429.
+  - **Preuves** : `institutions/digital-commonwealth/tests/journal.log`, `institutions/digital-commonwealth/tests/raw/iiif-info.headers.txt`, `institutions/digital-commonwealth/tests/raw/oai-identify.headers.txt`, `institutions/digital-commonwealth/tests/raw/json-recherche.headers.txt`, `institutions/digital-commonwealth/tests/raw/json-item.headers.txt`, `institutions/digital-commonwealth/tests/raw/manifeste-item.headers.txt`
 
 ### f) Ce que disent les gens sur le web
 > Plaintes, discussions, présentations de l'institution, politique envers les API et les bots, blogs, GitHub, forums, listes de diffusion. Sources étiquetées (officielle / institution / utilisateur / tiers), lues, citées.
@@ -60,7 +60,7 @@
 
 <!-- AUTO:DEBUT -->
 ## Contrôles automatiques (calculés depuis `tests/journal.log`)
-- Requêtes enregistrées : **6** (sessions de sonde : 1, maximum par session : 6)
+- Requêtes enregistrées : **10** (sessions de sonde : 2, maximum par session : 6)
 - Plus courte pause vers un même hôte : **10 s** (règle : ≥ 6 s)
 - Méthodes utilisées : GET (règle : GET/HEAD seulement)
 - Anomalies : aucune
