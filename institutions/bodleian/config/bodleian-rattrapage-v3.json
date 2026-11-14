@@ -1,0 +1,25 @@
+{
+  "slug": "bodleian",
+  "min_delay_s": 6,
+  "max_requests": 15,
+  "follow_redirects": 1,
+  "robots_disallow_autorise_par_marcel": true,
+  "note": "Rattrapage (verrou 14/11/2026) : 3 URL d'API citées par la doc developer/iiif/ et jamais testées : contexte JSON-LD /api/1/context.json, description OpenSearch /search.xml, recherche d'exemple /{id}/search/?q=unicorn&page=4 (identifiant d'exemple publié par la doc elle-même).",
+  "endpoints": [
+    {
+      "id": "api-context-json",
+      "method": "GET",
+      "url": "https://digital.bodleian.ox.ac.uk/api/1/context.json"
+    },
+    {
+      "id": "search-xml-opensearch",
+      "method": "GET",
+      "url": "https://digital.bodleian.ox.ac.uk/search.xml"
+    },
+    {
+      "id": "recherche-objet-exemple",
+      "method": "GET",
+      "url": "https://digital.bodleian.ox.ac.uk/faeff7fb-f8a7-44b5-95ed-cff9a9ffd198/search/?q=unicorn&page=4"
+    }
+  ]
+}
