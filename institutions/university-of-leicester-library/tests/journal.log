@@ -1,0 +1,9 @@
+# Session 2026-11-14T02:34:46Z — configuration leicester-passe1.json — sonde probe.py au commit a0c1acd
+2026-11-14T02:34:47Z | robots.txt:specialcollections.le.ac.uk | https://specialcollections.le.ac.uk/robots.txt | GET | 307 | robots.txt indisponible : tout est autorisé (RFC 9309)
+2026-11-14T02:34:53Z | manifeste-global | https://specialcollections.le.ac.uk/iiif/info/manifest.json | GET | 307 REDIRECTION_NON_SUIVIE | aucun en-tête de limite | taille≥183 | corps: <head><title>Document Moved</title></head> <body><h1>Object Moved</h1>This document may be found <a HREF="https://leicester.contentdm.oclc.org/iiif/info/manifest.json">here</a></body>
+# redirection vers https://leicester.contentdm.oclc.org/iiif/info/manifest.json : NON suivie (autre hôte)
+2026-11-14T02:34:59Z | dmwebservices-collections | https://specialcollections.le.ac.uk/digital/bl/dmwebservices/index.php?q=dmGetCollectionList/json | GET | 307 REDIRECTION_NON_SUIVIE | aucun en-tête de limite | taille≥194 | corps: <head><title>Document Moved</title></head> <body><h1>Object Moved</h1>This document may be found <a HREF="https://leicester.contentdm.oclc.org/digital/bl/dmwebservices/index.php">here</a></body>
+# redirection vers https://leicester.contentdm.oclc.org/digital/bl/dmwebservices/index.php : NON suivie (autre hôte)
+2026-11-14T02:35:05Z | oai-identify | https://specialcollections.le.ac.uk/oai/oai.php?verb=Identify | GET | 307 REDIRECTION_NON_SUIVIE | aucun en-tête de limite | taille≥171 | corps: <head><title>Document Moved</title></head> <body><h1>Object Moved</h1>This document may be found <a HREF="https://leicester.contentdm.oclc.org/oai/oai.php">here</a></body>
+# redirection vers https://leicester.contentdm.oclc.org/oai/oai.php : NON suivie (autre hôte)
+# Fin 2026-11-14T02:35:05Z — 4 requête(s) envoyée(s)

@@ -1,0 +1,13 @@
+{
+  "slug": "university-of-leicester-library",
+  "min_delay_s": 6,
+  "max_requests": 15,
+  "follow_redirects": 1,
+  "robots_disallow_autorise_par_marcel": true,
+  "note": "passe 2 : specialcollections.le.ac.uk redirige (307) tout vers leicester.contentdm.oclc.org (location lue dans tests/raw/*.headers.txt de la passe 1). Mêmes familles d'API sur le nouvel hôte dont le robots.txt a été lu (sources/a3, Crawl-Delay 1, Disallow /oai/ et /utils/ testés sous C12). Manifeste global = liste des collections, pas d'identifiant deviné.",
+  "endpoints": [
+    {"id": "cdm-manifeste-global", "method": "GET", "url": "https://leicester.contentdm.oclc.org/iiif/info/manifest.json", "save_body": 500000},
+    {"id": "cdm-dmwebservices-collections", "method": "GET", "url": "https://leicester.contentdm.oclc.org/digital/bl/dmwebservices/index.php?q=dmGetCollectionList/json"},
+    {"id": "cdm-oai-identify", "method": "GET", "url": "https://leicester.contentdm.oclc.org/oai/oai.php?verb=Identify"}
+  ]
+}
