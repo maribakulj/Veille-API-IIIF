@@ -1,0 +1,14 @@
+{
+  "slug": "david-rumsey-map-collection",
+  "min_delay_s": 500,
+  "max_requests": 15,
+  "follow_redirects": 1,
+  "robots_disallow_autorise_par_marcel": true,
+  "note": "Passe 2 : URL lues dans le manifeste de la passe 1 (tests/raw/manifeste-iiif.body) : service d'image IIIF 2 (info.json), miniature 96 px, service IIIF Search 1.0 (q=roma, terme libre), liste d'annotations LUNA (otherContent). Crawl-Delay 500 du robots.txt respecte. La passe 1 avait montre ratelimit-limit: 5.0 et ratelimit-reset: 1.",
+  "endpoints": [
+    {"id": "image-info-json", "method": "GET", "url": "https://www.davidrumsey.com/luna/servlet/iiif/RUMSEY~8~1~305711~90076087/info.json"},
+    {"id": "image-miniature-96", "method": "GET", "url": "https://www.davidrumsey.com/luna/servlet/iiif/RUMSEY~8~1~305711~90076087/full/!96,96/0/default.jpg"},
+    {"id": "iiif-search-service", "method": "GET", "url": "https://www.davidrumsey.com/luna/servlet/iiif/services/RUMSEY~8~1~305711~90076087/search?q=roma"},
+    {"id": "annotation-list-luna", "method": "GET", "url": "https://www.davidrumsey.com/luna/servlet/iiif/m/RUMSEY~8~1~305711~90076087/list/luna"}
+  ]
+}
