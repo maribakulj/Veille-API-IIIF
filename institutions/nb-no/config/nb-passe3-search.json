@@ -1,0 +1,10 @@
+{
+  "slug": "nb-no",
+  "min_delay_s": 6,
+  "max_requests": 15,
+  "follow_redirects": 1,
+  "note": "Passe v2 n°3 (rattrapage) : un GET unique sur l'ancienne API de recherche www.nb.no/services/search/v2/ qui avait dépassé le délai de 30 s lors de la lecture de la doc ; robots.txt de www.nb.no lu en passe 2 (/services/ non interdit, Crawl-delay 4 s respecté par min_delay_s 6).",
+  "endpoints": [
+    {"id": "ancienne-recherche-v2", "method": "GET", "url": "https://www.nb.no/services/search/v2/"}
+  ]
+}
