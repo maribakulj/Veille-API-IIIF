@@ -4,10 +4,257 @@
   "pays": "Canada",
   "classeur_id": "GLAM-051",
   "type": "Institution",
-  "statut_audit": "à faire",
-  "limites_documentees": [],
-  "en_tetes_observes": [],
-  "blocages": [],
-  "sources": [],
-  "web": []
+  "statut_audit": "audit v2 a à f complet",
+  "limites_documentees": [
+    {
+      "nature": "Requêtes sans clé API limitées (nombre non chiffré)",
+      "perimetre": "APIs Open Collections (REST, OAI-PMH, IIIF)",
+      "valeur": "« Unregistered users will be limited in the number of requests that can be made. » (aucun chiffre)",
+      "fenetre": "non précisée",
+      "effet": "« rate limited » (non précisé)",
+      "verification": "officielle, lue via réplique Wayback (2026-02-16)",
+      "source": "https://open.library.ubc.ca/docs",
+      "date": "2026-11-14"
+    },
+    {
+      "nature": "Clé API obligatoire pour l'OAI-PMH",
+      "perimetre": "oce-index.library.ubc.ca/oai",
+      "valeur": "« you need to use a registered api_key in your request header »",
+      "fenetre": "–",
+      "effet": "accès réservé aux clés enregistrées",
+      "verification": "officielle, lue via réplique Wayback (2026-02-16)",
+      "source": "https://open.library.ubc.ca/docs",
+      "date": "2026-11-14"
+    }
+  ],
+  "en_tetes_observes": [
+    "aucun en-tête de limite sur les 10 réponses (nginx/1.18.0, access-control-allow-origin: *)"
+  ],
+  "blocages": [
+    {
+      "date": "2026-11-14",
+      "hote": "open.library.ubc.ca",
+      "code": "403",
+      "nature": "WAF : page « Your request was blocked because our system detected unusual activity » renvoyée avec HTTP 200 pour /docs et /robots.txt ; non contourné"
+    },
+    {
+      "date": "2026-11-14",
+      "hote": "oce-index.library.ubc.ca",
+      "code": "timeout",
+      "nature": "délai dépassé (30 s) sur robots.txt ; hôte OAI injoignable"
+    },
+    {
+      "date": "2026-11-14",
+      "hote": "oce.library.ubc.ca",
+      "code": "DNS",
+      "nature": "nom d'hôte introuvable"
+    }
+  ],
+  "sources": [
+    {
+      "url": "https://open.library.ubc.ca/docs",
+      "date": "2026-11-14",
+      "etiquette": "officielle (Wayback)",
+      "preuve": "institutions/university-british-columbia-open-collections/sources/wayback/open-library-ubc-docs.md"
+    },
+    {
+      "url": "https://iiif.library.ubc.ca/robots.txt",
+      "date": "2026-11-14",
+      "etiquette": "officielle",
+      "preuve": "institutions/university-british-columbia-open-collections/sources/doc/SHA256SUMS"
+    },
+    {
+      "url": "https://github.com/ubc-library/docs-open-collections-api",
+      "date": "2026-11-14",
+      "etiquette": "institution",
+      "preuve": "institutions/university-british-columbia-open-collections/sources/doc/SHA256SUMS"
+    }
+  ],
+  "web": [
+    {
+      "categorie": "institution",
+      "url": "https://open.library.ubc.ca/docs",
+      "date": "2026-11-14",
+      "etiquette": "officielle (réplique Wayback 2026-02-16)",
+      "citation": "« To use the Open Collections APIs, you should first register for an API Key : Unregistered users will be limited in the number of requests that can be made. » ; « Requests without an api key will be rate limited »",
+      "preuve": "institutions/university-british-columbia-open-collections/sources/wayback/open-library-ubc-docs.md"
+    },
+    {
+      "categorie": "utilisateurs",
+      "url": "https://apis.io/rate-limits/ubc/ubc-rate-limits/",
+      "date": "2026-11-14",
+      "etiquette": "tiers (API Evangelist, profil indépendant), lu dans l'original, non vérifié par nous",
+      "citation": "« 10 requests per minute on the shared public key » (par IP) ; « 200 requests per minute on a key registered to an email address » ; « enforces it with a machine-readable HTTP 429 that names the client IP » ; « sends no Retry-After header » ; « Aggressive clients get blocked rather than throttled »",
+      "preuve": "institutions/university-british-columbia-open-collections/fiche.md"
+    },
+    {
+      "categorie": "tickets",
+      "aucun_resultat": true,
+      "requete": "\"oc-index.library.ubc.ca\" OR \"iiif.library.ubc.ca\" error 429 OR 403 OR blocked OR \"api key\" github issue",
+      "date": "2026-11-14",
+      "etiquette": "–",
+      "citation": "aucun ticket d'outil tiers visant oc-index ou iiif.library.ubc.ca (résumé de moteur, non vérifié)",
+      "preuve": "institutions/university-british-columbia-open-collections/fiche.md"
+    },
+    {
+      "categorie": "presentations",
+      "url": "https://libcal.library.ubc.ca/calendar/vancouver/apimay29",
+      "date": "2026-11-14",
+      "etiquette": "institution (atelier « Introduction to APIs » du Research Commons), résumé de moteur, non vérifié",
+      "citation": "ateliers en ligne (29 mai 2020, 21 mai 2025) sur les API REST ; aucune limite de débit citée",
+      "preuve": "institutions/university-british-columbia-open-collections/fiche.md"
+    },
+    {
+      "categorie": "presentations",
+      "url": "https://github.com/ubc-library/docs-open-collections-api",
+      "date": "2026-11-14",
+      "etiquette": "institution (GitHub officiel), lu via fetch_doc",
+      "citation": "dépôt « Documentation for the Open Collections API » (scripts, exemples) : pas de limite chiffrée",
+      "preuve": "institutions/university-british-columbia-open-collections/sources/doc/SHA256SUMS"
+    }
+  ],
+  "contact": "library.opencollections@ubc.ca (adminEmail de l'OAI, exemple de la doc) ; formulaire de contact de la doc open.library.ubc.ca/docs",
+  "conclusion_quota": "Limite documentée mais non chiffrée : les requêtes sans clé API sont limitées (« rate limited »), clé gratuite par e-mail ; OAI-PMH réservé aux clés. Un tiers (apis.io, non vérifié) cite 10 req/min par IP sans clé et 200 req/min avec clé, avec un 429 JSON sans Retry-After. 10 requêtes à ~7 s d'écart : aucun 429, aucun en-tête de limite. Le WAF de open.library.ubc.ca bloque le site web (page de blocage en HTTP 200).",
+  "classe_quota": "limite documentée non chiffrée (clé API)",
+  "confiance": "moyenne",
+  "notes": "Pas de clé demandée (consigne). Doc lue via Wayback car open.library.ubc.ca bloque par WAF ; la limite chiffrée vient d'un tiers non vérifié. Crash test : si exécuté, plafond 2 × 10 = 20 req/min seulement si le tiers est confirmé ; sinon 200 req/min d'après la méthode.",
+  "endpoints_documentes": [
+    {
+      "famille": "REST API oc-index : collections, items, _total",
+      "url": "https://oc-index.library.ubc.ca/collections/arkley",
+      "statut": "teste",
+      "preuve": "institutions/university-british-columbia-open-collections/tests/raw/rest-collection-arkley.headers.txt"
+    },
+    {
+      "famille": "REST API : item (métadonnées)",
+      "url": "https://oc-index.library.ubc.ca/collections/arkley/items/1.0013125",
+      "statut": "teste",
+      "preuve": "institutions/university-british-columbia-open-collections/tests/raw/rest-item-arkley.headers.txt"
+    },
+    {
+      "famille": "REST API : liste des collections et liste paginée",
+      "url": "https://oc-index.library.ubc.ca/collections",
+      "statut": "teste",
+      "preuve": "institutions/university-british-columbia-open-collections/tests/raw/rest-collections.headers.txt"
+    },
+    {
+      "famille": "REST API : recherche /search/8.5 (GET) et /search/help",
+      "url": "https://oc-index.library.ubc.ca/search/8.5?q=cat&size=1",
+      "statut": "teste",
+      "preuve": "institutions/university-british-columbia-open-collections/tests/raw/rest-search-cat.headers.txt"
+    },
+    {
+      "famille": "IIIF Image 2.0 (iiif.library.ubc.ca/image/)",
+      "url": "https://iiif.library.ubc.ca/image/cdm.tokugawa.1-0213163/info.json",
+      "statut": "teste",
+      "preuve": "institutions/university-british-columbia-open-collections/tests/raw/iiif-info-tokugawa.headers.txt"
+    },
+    {
+      "famille": "IIIF Presentation 2.0 (manifestes)",
+      "url": "https://iiif.library.ubc.ca/presentation/cdm.tokugawa.1-0213163/manifest",
+      "statut": "teste",
+      "preuve": "institutions/university-british-columbia-open-collections/tests/raw/iiif-manifeste-tokugawa.headers.txt"
+    },
+    {
+      "famille": "REST API : POST /search/8.5 (Query DSL ElasticSearch)",
+      "url": "https://oc-index.library.ubc.ca/search/8.5",
+      "statut": "non_teste",
+      "raison": "requête POST : interdite par la règle de la veille (GET et HEAD seulement) ; la doc ne la propose qu'en POST"
+    },
+    {
+      "famille": "REST API : téléchargement GZIP d'une collection (/download/collection)",
+      "url": "https://oc-index.library.ubc.ca/collections/arkley/download/collection",
+      "statut": "non_teste",
+      "raison": "archive potentiellement volumineuse de toute une collection : contraire à la prudence (pas de gros fichiers) ; un tiers cite 10 requêtes/min sans clé"
+    },
+    {
+      "famille": "OAI-PMH oce-index.library.ubc.ca/oai",
+      "url": "https://oce-index.library.ubc.ca/oai?verb=Identify",
+      "statut": "non_teste",
+      "raison": "la doc exige une clé API enregistrée dans l'en-tête (« you need to use a registered api_key in your request header ») : on ne demande ni n'utilise de clé ; l'hôte n'a d'ailleurs pas répondu (timeout 30 s sur robots.txt)"
+    },
+    {
+      "famille": "Variante de formats de sortie /output-format/{format}",
+      "url": "https://oc-index.library.ubc.ca/collections/arkley/items/1.0013125/output-format/ld",
+      "statut": "non_teste",
+      "raison": "variante de format du même endpoint item (déjà testé en JSON) ; budget de requêtes réduit à cause d'une limite de 10 req/min citée par un tiers"
+    }
+  ],
+  "endpoints_ecartes": [
+    {
+      "url": "https://open.library.ubc.ca/docs",
+      "raison": "page de documentation HTML de l'API (bloquée par un WAF, lue via Wayback) : décrit les API, n'est pas une API"
+    },
+    {
+      "url": "https://bchistory.library.ubc.ca/docs",
+      "raison": "miroir de la page de documentation (même page bloquée par le WAF) : n'est pas une API"
+    },
+    {
+      "url": "https://github.com/ubc-library/open-collections-api-case-wwposters",
+      "raison": "dépôt de démonstration GitHub (code Mirador) : n'est pas une API"
+    },
+    {
+      "url": "https://github.com/ubc-library/docs-open-collections-api",
+      "raison": "dépôt GitHub de la documentation et des scripts d'exemple : n'est pas une API"
+    },
+    {
+      "url": "https://researchcommons.library.ubc.ca",
+      "raison": "page de services (formation, ateliers API) du Research Commons : n'est pas une API"
+    }
+  ],
+  "hotes_robots": [
+    {
+      "hote": "open.library.ubc.ca",
+      "resultat": "robots.txt illisible : le WAF a renvoyé HTTP 200 avec une page « Your request was blocked because our system detected unusual activity » (même page que /docs) ; non contourné ; Wayback pour la doc",
+      "preuve": "institutions/university-british-columbia-open-collections/sources/doc/SHA256SUMS"
+    },
+    {
+      "hote": "bchistory.library.ubc.ca",
+      "resultat": "même page de blocage WAF (HTTP 200) pour robots.txt et /docs ; non contourné",
+      "preuve": "institutions/university-british-columbia-open-collections/sources/doc/SHA256SUMS"
+    },
+    {
+      "hote": "iiif.library.ubc.ca",
+      "resultat": "robots.txt : « User-agent: * / Disallow: » (vide : tout autorisé)",
+      "preuve": "institutions/university-british-columbia-open-collections/sources/doc/SHA256SUMS"
+    },
+    {
+      "hote": "oc-index.library.ubc.ca",
+      "resultat": "pas de robots.txt : réponse JSON « Missed Route » (HTTP 200, IP retirée) ; tout autorisé",
+      "preuve": "institutions/university-british-columbia-open-collections/sources/doc/SHA256SUMS"
+    },
+    {
+      "hote": "oce-index.library.ubc.ca",
+      "resultat": "robots.txt : délai dépassé (30 s), hôte OAI injoignable ; non testé (clé exigée)",
+      "preuve": "institutions/university-british-columbia-open-collections/sources/robots-oai/FETCH.log"
+    },
+    {
+      "hote": "oce.library.ubc.ca",
+      "resultat": "hôte introuvable (DNS) ; baseURL OAI de l'exemple de la doc, non testé",
+      "preuve": "institutions/university-british-columbia-open-collections/sources/robots-oai/FETCH.log"
+    }
+  ],
+  "donnees_a_revalider": false,
+  "a_verifier_manuellement": [
+    {
+      "url": "https://open.library.ubc.ca/docs",
+      "pourquoi": "WAF : page de blocage en HTTP 200 (non contourné) ; lue via Wayback du 2026-02-16",
+      "a_chercher": "version actuelle : chiffre exact de la limite sans clé et avec clé ; lien « terms of use » ; page d'enregistrement de la clé"
+    },
+    {
+      "url": "https://open.library.ubc.ca/robots.txt",
+      "pourquoi": "page de blocage WAF (HTTP 200) à la place du robots.txt",
+      "a_chercher": "règles de robots.txt réelles du site web (Crawl-delay)"
+    },
+    {
+      "url": "https://oce-index.library.ubc.ca/oai?verb=Identify",
+      "pourquoi": "hôte OAI injoignable (timeout 30 s) ; clé requise ; non testé",
+      "a_chercher": "si l'OAI-PMH est toujours en service et quelle limite s'applique à une clé enregistrée"
+    },
+    {
+      "url": "https://apis.io/rate-limits/ubc/ubc-rate-limits/",
+      "pourquoi": "source tierce qui cite 10 req/min sans clé et 200 req/min avec clé (non vérifié)",
+      "a_chercher": "confirmer auprès d'UBC Library (library.opencollections@ubc.ca) les chiffres officiels"
+    }
+  ]
 }

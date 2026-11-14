@@ -1,0 +1,12 @@
+{
+  "slug": "university-british-columbia-open-collections",
+  "endpoint": {
+    "id": "iiif-info-tokugawa",
+    "url": "https://iiif.library.ubc.ca/image/cdm.tokugawa.1-0213163/info.json",
+    "method": "GET"
+  },
+  "limite_documentee_req_min": null,
+  "source_limite": "aucune limite chiffrée documentée par UBC (https://open.library.ubc.ca/docs, Wayback 2026-02-16 : « Unregistered users will be limited in the number of requests that can be made. ») ; le chiffre 10 req/min d'apis.io concerne oc-index, non vérifié",
+  "duree_palier_s": 180,
+  "note": "info.json IIIF 2.0, peu coûteux, 200 dans le journal (iiif-info-tokugawa, 2026-11-14T02:25:44Z). On évite oc-index (limite tierce de 10 req/min)."
+}

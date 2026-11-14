@@ -10,3 +10,8 @@
 2026-11-14T02:25:51Z | iiif-info-tokugawa-head | https://iiif.library.ubc.ca/image/cdm.tokugawa.1-0213163/info.json | HEAD | 404 HTTP_404 | aucun en-tête de limite | taille≥0 | corps: 
 2026-11-14T02:25:58Z | iiif-manifeste-tokugawa | https://iiif.library.ubc.ca/presentation/cdm.tokugawa.1-0213163/manifest | GET | 200 OK | aucun en-tête de limite | taille≥200 | corps: {"label":"[Nihon] zukan k\u014dmoku","viewingDirection":"right-to-left","viewingHint":"paged","metadata":[{"label":"Aggregated Source Repository","value":"CONTENTdm","attrs":{"lang":"en","ns":"http:\/
 # Fin 2026-11-14T02:25:58Z — 10 requête(s) envoyée(s)
+# Session 2026-11-14T02:26:48Z — configuration passe2-listes.json — sonde probe.py au commit d21ebbe
+2026-11-14T02:26:49Z | robots.txt:oc-index.library.ubc.ca | https://oc-index.library.ubc.ca/robots.txt | GET | 200 | 0 règle(s) pour « * »
+2026-11-14T02:26:56Z | rest-collections | https://oc-index.library.ubc.ca/collections | GET | 200 OK | aucun en-tête de limite | taille≥200 | corps: {"http_code":200,"endpoint":"GET: \/collections","api_code":3000,"api_text":"List all Collections | API Version: 1","user_ip":"[IP retirée]","data":{"0":24,"310":310,"313":494,"330":641,"334":831,"361
+2026-11-14T02:27:02Z | rest-items-arkley-p10 | https://oc-index.library.ubc.ca/collections/arkley/items?limit=10&offset=0 | GET | 200 OK | aucun en-tête de limite | taille≥200 | corps: {"http_code":200,"endpoint":"GET: \/collections\/arkley\/items","api_code":3000,"api_text":"Get All Items | Hint: data.length = 0 === empty collection | API Version: 1","user_ip":"[IP retirée]","data"
+# Fin 2026-11-14T02:27:02Z — 3 requête(s) envoyée(s)
