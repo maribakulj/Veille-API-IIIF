@@ -1,0 +1,17 @@
+{
+  "slug": "harvard",
+  "min_delay_s": 6,
+  "max_requests": 15,
+  "follow_redirects": 1,
+  "robots_disallow_autorise_par_marcel": true,
+  "note": "Passe 2 (v2) : services IIIF documentés : NRS (nrs.lib.harvard.edu, exemple MANIFEST:3 de library.harvard.edu/services-tools/iiif-manifests-digital-objects), MPS Delivery API (wiki : MANIFEST:2, MANIFEST:3, THUMBNAIL, api/resolve ... :IMAGE/info.json), IIIF Image sur ids.lib.harvard.edu (exemple 25286607 de iiif.harvard.edu/about-iiif), viewer de démonstration viewer.lib.harvard.edu. robots.txt de nrs : Disallow: / (autorisé par Marcel, C12). La sonde ne suit pas les redirections vers un autre hôte : les Location seront lus dans tests/raw/*.headers.txt pour la passe 3.",
+  "endpoints": [
+    {"id": "nrs-manifest-3", "method": "GET", "url": "https://nrs.lib.harvard.edu/URN-3:HUAM:INV204583_DYNMC:MANIFEST:3"},
+    {"id": "nrs-manifest-2", "method": "GET", "url": "https://nrs.lib.harvard.edu/URN-3:HUAM:INV204583_DYNMC:MANIFEST:2"},
+    {"id": "nrs-thumbnail", "method": "GET", "url": "https://nrs.lib.harvard.edu/URN-3:HUAM:INV204583_DYNMC:THUMBNAIL"},
+    {"id": "nrs-api-resolve-info", "method": "GET", "url": "https://nrs.harvard.edu/api/resolve/URN-3:HUAM:INV204583_DYNMC:IMAGE/info.json"},
+    {"id": "ids-info-json", "method": "GET", "url": "https://ids.lib.harvard.edu/ids/iiif/25286607/info.json"},
+    {"id": "ids-image-500", "method": "GET", "url": "https://ids.lib.harvard.edu/ids/iiif/25286607/full/500,/0/default.jpg"},
+    {"id": "viewer-demo", "method": "GET", "url": "https://viewer.lib.harvard.edu/"}
+  ]
+}

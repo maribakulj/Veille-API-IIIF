@@ -1,0 +1,12 @@
+2026-11-14T01:51:40Z GET https://api.lib.harvard.edu/v2/collections/2/items
+HTTP 200
+date: Sat, 14 Nov 2026 01:51:40 GMT
+content-type: application/javascript
+transfer-encoding: chunked
+connection: keep-alive
+access-control-allow-origin: *
+access-control-allow-methods: GET,POST,DELETE,PUT
+access-control-allow-headers: Access-Control-Allow-Headers,Content-Type,Accept,X-Requested-With,X-LibraryCloud-API-Key
+access-control-expose-headers: Location
+x-envoy-upstream-service-time: 10
+server: istio-envoy
