@@ -4,10 +4,224 @@
   "pays": "États-Unis",
   "classeur_id": "GLAM-056",
   "type": "Institution",
-  "statut_audit": "à faire",
-  "limites_documentees": [],
+  "statut_audit": "méthode v2 complète sauf g (crash test impossible : hôte en défi Cloudflare Turnstile)",
+  "limites_documentees": [
+    {
+      "nature": "Règle explicite (sans chiffre)",
+      "perimetre": "API BDR : requêtes en grand nombre à haut débit",
+      "valeur": "non chiffrée",
+      "fenetre": "–",
+      "effet": "possible blocage Cloudflare",
+      "verification": "officielle, lue en entier",
+      "source": "https://github.com/Brown-University-Library/bdr_api_documentation/wiki",
+      "date": "2026-11-14"
+    },
+    {
+      "nature": "Crawl-delay robots.txt",
+      "perimetre": "repository.library.brown.edu",
+      "valeur": "30 s",
+      "fenetre": "entre requêtes",
+      "effet": "non précisé",
+      "verification": "officielle, robots.txt lu",
+      "source": "https://repository.library.brown.edu/robots.txt",
+      "date": "2026-11-14"
+    }
+  ],
   "en_tetes_observes": [],
-  "blocages": [],
-  "sources": [],
-  "web": []
+  "blocages": [
+    {
+      "date": "2026-11-14",
+      "hote": "repository.library.brown.edu",
+      "code": "défi Turnstile (CAPTCHA Cloudflare)",
+      "nature": "page « Verification required » avec widget Cloudflare Turnstile sur /studio/api-docs/ à 02:30:44Z (200 HTML, pas un 403)",
+      "suite": "hôte arrêté dans le registre partagé ; API non testées ; doc lue via Wayback"
+    }
+  ],
+  "sources": [
+    {
+      "url": "https://repository.library.brown.edu/robots.txt",
+      "date": "2026-11-14",
+      "etiquette": "officielle",
+      "preuve": "institutions/brown-university-digital-repository/sources/doc/SHA256SUMS"
+    },
+    {
+      "url": "https://repository.library.brown.edu/studio/api-docs/",
+      "date": "2026-11-14",
+      "etiquette": "officielle (défi Turnstile ; lue via Wayback)",
+      "preuve": "institutions/brown-university-digital-repository/sources/wayback/api-docs-20250331.md"
+    },
+    {
+      "url": "https://library.brown.edu/robots.txt",
+      "date": "2026-11-14",
+      "etiquette": "officielle",
+      "preuve": "institutions/brown-university-digital-repository/sources/doc/SHA256SUMS"
+    },
+    {
+      "url": "https://brown-university-library.github.io/bdr-api-tools",
+      "date": "2026-11-14",
+      "etiquette": "institution",
+      "preuve": "institutions/brown-university-digital-repository/sources/doc/SHA256SUMS"
+    },
+    {
+      "url": "https://iiif.io/guides/guides/repository.library.brown.edu",
+      "date": "2026-11-14",
+      "etiquette": "tiers (IIIF)",
+      "preuve": "institutions/brown-university-digital-repository/sources/doc/SHA256SUMS"
+    },
+    {
+      "url": "https://github.com/Brown-University-Library/bdr_api_documentation/wiki",
+      "date": "2026-11-14",
+      "etiquette": "officielle",
+      "preuve": "institutions/brown-university-digital-repository/sources/wiki/SHA256SUMS"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/wiki/Brown-University-Library/bdr_api_documentation/Overview.md",
+      "date": "2026-11-14",
+      "etiquette": "officielle",
+      "preuve": "institutions/brown-university-digital-repository/sources/wiki2/SHA256SUMS"
+    },
+    {
+      "url": "https://github.com/robots.txt",
+      "date": "2026-11-14",
+      "etiquette": "tiers",
+      "preuve": "institutions/brown-university-digital-repository/sources/github/SHA256SUMS"
+    }
+  ],
+  "web": [
+    {
+      "categorie": "institution",
+      "url": "https://github.com/Brown-University-Library/bdr_api_documentation/wiki",
+      "date": "2026-11-14",
+      "etiquette": "officielle (wiki de l'institution)",
+      "citation": "« In Spring 2025 we added features from Cloudflare to protect against bot traffic. This may affect users of the API, particularly if you are requesting a large volume of items at a high rate. If you experience issues with the API that you believe are related to these changes, please reach out to us by creating an issue. »",
+      "preuve": "institutions/brown-university-digital-repository/sources/wiki/raw/02.html"
+    },
+    {
+      "categorie": "presentations",
+      "url": "https://brown-university-library.github.io/bdr-api-tools",
+      "date": "2026-11-14",
+      "etiquette": "institution (outils de la bibliothèque)",
+      "citation": "« We've had to enable certain protections to prevent problems due to excessive bot-traffic. If you're on VPN, you'll minimize the chance of being blocked when the BDR-APIs are accessed. »",
+      "preuve": "institutions/brown-university-digital-repository/sources/doc/text/06.txt"
+    },
+    {
+      "categorie": "tickets",
+      "aucun_resultat": true,
+      "requete": "\"repository.library.brown.edu\" iiif manifest github issue 429 OR 403 OR \"too many requests\" ; page des tickets du dépôt bdr_api_documentation lue : aucun ticket",
+      "date": "2026-11-14",
+      "etiquette": "–",
+      "citation": "Aucun ticket d'outil tiers sur des 429/403 de repository.library.brown.edu ; la page des tickets du dépôt de l'institution n'en contient aucun (lue).",
+      "preuve": "institutions/brown-university-digital-repository/sources/github2/text/03.txt"
+    },
+    {
+      "categorie": "utilisateurs",
+      "aucun_resultat": true,
+      "requete": "\"Brown Digital Repository\" API scraping blocked Cloudflare researchers bdr download collection forum",
+      "date": "2026-11-14",
+      "etiquette": "–",
+      "citation": "Aucune plainte d'utilisateur sur le BDR trouvée (résumé de moteur, non vérifié).",
+      "preuve": "institutions/brown-university-digital-repository/fiche.md"
+    }
+  ],
+  "contact": "https://github.com/Brown-University-Library/bdr_api_documentation/issues (ticket) ; formulaire Google indiqué sur la page de défi",
+  "conclusion_quota": "Aucun quota chiffré ni en-tête de limite documenté. L'API (Item, Collection, Search) est derrière une protection Cloudflare ajoutée au printemps 2025 : la page de doc elle-même renvoie un défi Turnstile à notre client. robots.txt : Crawl-delay 30 s. Non testé (défi = arrêt de l'hôte).",
+  "classe_quota": "aucun quota trouvé (protection anti-bot Cloudflare Turnstile, accès refusé à ce client ; Crawl-delay 30 s)",
+  "confiance": "moyenne",
+  "notes": "Incident : fetch_doc.sh a envoyé 3 requêtes à repository.library.brown.edu en 6 s (robots.txt 02:30:41Z, api-docs 02:30:44Z, studio 02:30:47Z) alors que le robots.txt demande Crawl-delay: 30 ; l'outil ne lit pas ce délai et n'a pas reconnu le défi (apostrophe typographique) ; hôte bloqué ensuite à la main dans le registre partagé. Ensuite library.brown.edu : délai 30 s respecté (noter). Pages ?p=185 et ?p=19 du blog : 410 Gone.",
+  "a_verifier_manuellement": [
+    {
+      "url": "https://repository.library.brown.edu/studio/api-docs/",
+      "pourquoi": "défi Cloudflare Turnstile ; page lue via Wayback (capture 2025-03-31)",
+      "a_chercher": "mention éventuelle de quota ou de politique de débit dans la version actuelle, et exemples d'URL IIIF (manifeste, image)"
+    },
+    {
+      "url": "https://repository.library.brown.edu/api/items/bdr:80246/",
+      "pourquoi": "API non testée : hôte en défi, pas de contournement",
+      "a_chercher": "statut, en-têtes de limite éventuels, passage du défi pour un client non navigateur"
+    }
+  ],
+  "endpoints_documentes": [
+    {
+      "famille": "Item API /api/items/{pid}/",
+      "url": "https://repository.library.brown.edu/api/items/bdr:80246/",
+      "statut": "non_teste",
+      "raison": "hôte arrêté : défi Cloudflare Turnstile reçu à 02:30:44Z ; la sonde l'a sauté (journal, 02:34:58Z) ; pas de contournement",
+      "preuve": "institutions/brown-university-digital-repository/tests/journal.log"
+    },
+    {
+      "famille": "Collection API /api/collections/",
+      "url": "https://repository.library.brown.edu/api/collections/",
+      "statut": "non_teste",
+      "raison": "hôte arrêté : défi Cloudflare Turnstile reçu à 02:30:44Z ; la sonde l'a sauté (journal, 02:34:58Z) ; pas de contournement",
+      "preuve": "institutions/brown-university-digital-repository/tests/journal.log"
+    },
+    {
+      "famille": "Search API /api/search/ (Solr)",
+      "url": "https://repository.library.brown.edu/api/search/?q=primary_title:irish&rows=25",
+      "statut": "non_teste",
+      "raison": "hôte arrêté : défi Cloudflare Turnstile reçu à 02:30:44Z ; la sonde l'a sauté (journal, 02:34:58Z) ; pas de contournement",
+      "preuve": "institutions/brown-university-digital-repository/tests/journal.log"
+    }
+  ],
+  "endpoints_ecartes": [
+    {
+      "url": "https://repository.library.brown.edu/studio/",
+      "raison": "page d'accueil du site (HTML), pas une API ; elle a aussi renvoyé le défi Turnstile"
+    },
+    {
+      "url": "https://repository.library.brown.edu/iiif/",
+      "raison": "IIIF non décrit par la doc d'API et interdit par robots.txt (Disallow: /iiif, /iiif/image) ; hôte en défi"
+    },
+    {
+      "url": "https://github.com/Brown-University-Library/bdr-api-tools",
+      "raison": "dépôt de scripts (documentation de développement), pas une API de l'institution"
+    },
+    {
+      "url": "https://iiif.io/guides/guides/repository.library.brown.edu",
+      "raison": "page de guide du consortium IIIF qui renvoie à /studio/, pas une API"
+    },
+    {
+      "url": "https://iiif.io/api",
+      "raison": "documentation des spécifications IIIF du consortium (domaine tiers), pas une API de l'institution"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/wiki/Brown-University-Library/bdr_api_documentation/Search-API-examples.md",
+      "raison": "page de documentation du wiki (fichier Markdown sur GitHub) lue en entier ; l'API qu'elle décrit est la Search API listée"
+    }
+  ],
+  "hotes_robots": [
+    {
+      "hote": "repository.library.brown.edu",
+      "resultat": "robots.txt lu : Crawl-delay: 30 ; Disallow /storage, /iiif, /iiif/image, /services, /viewers ; /api/ non interdit",
+      "preuve": "institutions/brown-university-digital-repository/sources/wayback/robots-20250401.md"
+    },
+    {
+      "hote": "library.brown.edu",
+      "resultat": "robots.txt lu : Crawl-delay: 30, Disallow sur de nombreux chemins (/find, /dashboard, etc.), pas /create/",
+      "preuve": "institutions/brown-university-digital-repository/sources/doc/SHA256SUMS"
+    },
+    {
+      "hote": "github.com",
+      "resultat": "robots.txt lu (200), hôte cité seulement pour la doc de l'institution",
+      "preuve": "institutions/brown-university-digital-repository/sources/github/SHA256SUMS"
+    },
+    {
+      "hote": "brown-university-library.github.io",
+      "resultat": "robots.txt : 404, tout autorisé",
+      "preuve": "institutions/brown-university-digital-repository/sources/robots-tiers/SHA256SUMS"
+    },
+    {
+      "hote": "iiif.io",
+      "resultat": "robots.txt : 200, 22 octets (contenu lu, aucune restriction de nos pages)",
+      "preuve": "institutions/brown-university-digital-repository/sources/robots-tiers/SHA256SUMS"
+    },
+    {
+      "hote": "raw.githubusercontent.com",
+      "resultat": "robots.txt : 404, tout autorisé",
+      "preuve": "institutions/brown-university-digital-repository/sources/robots-tiers/SHA256SUMS"
+    }
+  ],
+  "g_impossible": {
+    "raison": "repository.library.brown.edu a renvoyé un défi Cloudflare Turnstile à notre client le 2026-11-14 : hôte arrêté, aucun endpoint testable donc aucun crash test possible (règle : pas de contournement)."
+  }
 }

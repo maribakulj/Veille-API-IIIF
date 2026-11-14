@@ -2,51 +2,51 @@
 
 - **Dossier** : `institutions/brown-university-digital-repository/`  ·  **Classeur de référence** : GLAM-056  ·  **Pays** : États-Unis
 - **Statut d'institution** : active
-- **Dernière mise à jour du suivi** : (à renseigner à chaque modification)
+- **Dernière mise à jour du suivi** : 2026-11-14
 
 ## Suivi par étape (à cocher, avec justification et preuves)
 
 ### a) Documentation lue en entier
 > Toutes les pages de doc liées à l'API (développeurs, interfaces, conditions, FAQ, aide, mentions légales, robots.txt), téléchargées avec `scripts/fetch_doc.sh` (URL, date, SHA-256), lues en entier (`scripts/extract_text.py`).
 
-- [ ] **Pas fait**
-  - **Justification** : Pas encore traitée : l'audit suit l'ordre du classeur de référence (une institution à la fois).
-  - **Preuves** : 
+- [x] **Fait**
+  - **Justification** : Doc API lue : wiki GitHub (Overview, Item, Collection, Search), page api-docs via Wayback (défi), robots.txt de chaque hôte, outils bdr-api-tools, blog 410.
+  - **Preuves** : `institutions/brown-university-digital-repository/sources/doc/SHA256SUMS`, `institutions/brown-university-digital-repository/sources/wayback/api-docs-20250331.md`, `institutions/brown-university-digital-repository/sources/wiki2/SHA256SUMS`, `institutions/brown-university-digital-repository/sources/robots-tiers/SHA256SUMS`
 
 ### b) Endpoints tirés de la doc
 > Liste des endpoints citée par la doc (URL, exemples). Jamais devinée. Une interdiction ou une impossibilité écrite dans la doc justifie de renoncer (citer la phrase).
 
-- [ ] **Pas fait**
-  - **Justification** : Pas encore traitée : l'audit suit l'ordre du classeur de référence (une institution à la fois).
-  - **Preuves** : 
+- [x] **Fait**
+  - **Justification** : Trois familles d'API (Item, Collection, Search) tirées de la doc, IIIF non documenté et interdit par robots.txt, listes dans data.json.
+  - **Preuves** : `institutions/brown-university-digital-repository/sources/wiki2/SHA256SUMS`, `institutions/brown-university-digital-repository/data.json`
 
 ### c) Configuration écrite AVANT les tests
 > `config/<nom>.json` pilote `scripts/probe.py`, committée avant le lancement. Un endpoint absent de la doc mais non interdit se teste avec un script poli (identifiants issus de pages publiques ou d'exemples de la doc, pas de devinette).
 
-- [ ] **Pas fait**
-  - **Justification** : Pas encore traitée : l'audit suit l'ordre du classeur de référence (une institution à la fois).
-  - **Preuves** : 
+- [x] **Fait**
+  - **Justification** : Configuration passe1-api.json écrite et committée avant le lancement (commit ff1c711), Crawl-delay 30 respecté.
+  - **Preuves** : `institutions/brown-university-digital-repository/config/passe1-api.json`
 
 ### d) Quota cherché dans la doc
 > Pour chaque page lue : endpoint de statut, en-têtes de limite documentés, clé ou compte donnant un quota, contact pour un volume plus élevé. Chaque réponse cite sa source.
 
-- [ ] **Pas fait**
-  - **Justification** : Pas encore traitée : l'audit suit l'ordre du classeur de référence (une institution à la fois).
-  - **Preuves** : 
+- [x] **Fait**
+  - **Justification** : Aucun quota, en-tête de limite, clé ou contact de volume dans la doc ; seulement la mention de protection Cloudflare et Crawl-delay 30 ; voir fiche.
+  - **Preuves** : `institutions/brown-university-digital-repository/fiche.md`, `institutions/brown-university-digital-repository/sources/wiki/SHA256SUMS`
 
 ### e) Test systématique de chaque endpoint
 > Chaque endpoint documenté est testé (budget 15 requêtes par passe, pause ≥ 6 s, GET/HEAD, UA du projet). Redirections du même hôte suivies. Un 403 arrête son hôte, un 429 arrête l'institution. Seules les interdictions écrites dans la doc dispensent de tester.
 
-- [ ] **Pas fait**
-  - **Justification** : Pas encore traitée : l'audit suit l'ordre du classeur de référence (une institution à la fois).
-  - **Preuves** : 
+- [x] **Fait**
+  - **Justification** : Sonde lancée : 0 requête, hôte arrêté après défi Turnstile (registre partagé) ; trois API non_teste avec raison, pas de contournement.
+  - **Preuves** : `institutions/brown-university-digital-repository/tests/journal.log`
 
 ### f) Ce que disent les gens sur le web
 > Plaintes, discussions, présentations de l'institution, politique envers les API et les bots, blogs, GitHub, forums, listes de diffusion. Sources étiquetées (officielle / institution / utilisateur / tiers), lues, citées.
 
-- [ ] **Pas fait**
-  - **Justification** : Pas encore traitée : l'audit suit l'ordre du classeur de référence (une institution à la fois).
-  - **Preuves** : 
+- [x] **Fait**
+  - **Justification** : 4 catégories : institution et présentations (lus), tickets et utilisateurs sans résultat avec requête ; voir data.json.
+  - **Preuves** : `institutions/brown-university-digital-repository/fiche.md`, `institutions/brown-university-digital-repository/data.json`
 
 ### g) Crash test progressif
 > Seulement après l'audit complet (a à f) de toutes les institutions et avec l'accord de Marcel : paliers jusqu'à 2 × la limite documentée, ou 200 req/min si illimité ou sans limite documentée. Arrêt au premier 429/403/CAPTCHA.
