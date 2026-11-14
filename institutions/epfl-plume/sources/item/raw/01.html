@@ -1,0 +1,526 @@
+<!DOCTYPE html><html lang="fr">	<head>
+		<meta charset="utf-8">
+<meta name="viewport" content="width&#x3D;device-width,&#x20;initial-scale&#x3D;1">		<title>Analyse des infiniment petits · Plume</title>		<link href="&#x2F;themes&#x2F;omekalia&#x2F;asset&#x2F;lib&#x2F;splide&#x2F;css&#x2F;splide.min.css&#x3F;v&#x3D;1.0.12" media="screen" rel="stylesheet" type="text&#x2F;css">
+<link href="&#x2F;modules&#x2F;Common&#x2F;asset&#x2F;css&#x2F;common-dialog.css&#x3F;v&#x3D;3.4.94" media="screen" rel="stylesheet" type="text&#x2F;css">
+<link href="&#x2F;modules&#x2F;IiifServer&#x2F;asset&#x2F;css&#x2F;iiif-server.css&#x3F;v&#x3D;3.6.34" media="screen" rel="stylesheet" type="text&#x2F;css">
+<link href="&#x2F;application&#x2F;asset&#x2F;css&#x2F;resource-page-blocks.css&#x3F;v&#x3D;4.2.1" media="screen" rel="stylesheet" type="text&#x2F;css">
+<link href="&#x2F;modules&#x2F;Mirador&#x2F;asset&#x2F;css&#x2F;mirador.css&#x3F;v&#x3D;3.4.17" media="screen" rel="stylesheet" type="text&#x2F;css">
+<link href="&#x2F;application&#x2F;asset&#x2F;css&#x2F;iconfonts.css&#x3F;v&#x3D;4.2.1" media="screen" rel="stylesheet" type="text&#x2F;css">
+<link href="&#x2F;themes&#x2F;omekalia&#x2F;asset&#x2F;css&#x2F;style.css&#x3F;v&#x3D;1.0.12" media="screen" rel="stylesheet" type="text&#x2F;css">
+<link href="&#x2F;themes&#x2F;omekalia&#x2F;asset&#x2F;css&#x2F;font-pack--1.css&#x3F;v&#x3D;1.0.12" media="screen" rel="stylesheet" type="text&#x2F;css">
+<link href="&#x2F;s&#x2F;fr&#x2F;css-editor" media="screen" rel="stylesheet" type="text&#x2F;css">
+<link href="&#x2F;modules&#x2F;EUCookieBar&#x2F;asset&#x2F;vendor&#x2F;jquery.cookiebar&#x2F;jquery.cookiebar.css&#x3F;v&#x3D;3.4.6" media="screen" rel="stylesheet" type="text&#x2F;css">
+<link href="&#x2F;modules&#x2F;Internationalisation&#x2F;asset&#x2F;css&#x2F;language-switcher.css&#x3F;v&#x3D;3.4.20" media="screen" rel="stylesheet" type="text&#x2F;css">
+<link href="&#x2F;modules&#x2F;Internationalisation&#x2F;asset&#x2F;vendor&#x2F;flag-icon-css&#x2F;css&#x2F;flag-icon.min.css&#x3F;v&#x3D;3.4.20" media="screen" rel="stylesheet" type="text&#x2F;css">
+<link href="&#x2F;modules&#x2F;ItemSetsTree&#x2F;asset&#x2F;css&#x2F;item-sets-tree.css&#x3F;v&#x3D;0.7.5" media="screen" rel="stylesheet" type="text&#x2F;css">				<script  src="&#x2F;themes&#x2F;omekalia&#x2F;asset&#x2F;lib&#x2F;splide&#x2F;js&#x2F;splide.min.js&#x3F;v&#x3D;1.0.12"></script>
+<script  src="https&#x3A;&#x2F;&#x2F;code.jquery.com&#x2F;jquery-3.7.1.min.js"></script>
+<script type="importmap">
+    {
+    "imports": {
+        "mirador": "/modules/Mirador/asset/vendor/mirador-esm/mirador.js?v=3.4.17",
+        "mirador-dl-plugin": "/modules/Mirador/asset/vendor/mirador-esm/plugin-dl.js?v=3.4.17",
+        "mirador-image-tools": "/modules/Mirador/asset/vendor/mirador-esm/plugin-image-tools.js?v=3.4.17",
+        "mirador-ocr-helper": "/modules/Mirador/asset/vendor/mirador-esm/plugin-ocr-helper.js?v=3.4.17",
+        "mirador-share-plugin": "/modules/Mirador/asset/vendor/mirador-esm/plugin-share.js?v=3.4.17",
+        "mirador-textoverlay": "/modules/Mirador/asset/vendor/mirador-esm/plugin-textoverlay.js?v=3.4.17"
+    }
+}
+</script>
+<script  defer="defer" src="&#x2F;modules&#x2F;Common&#x2F;asset&#x2F;js&#x2F;common-dialog.js&#x3F;v&#x3D;3.4.94"></script>
+<script  defer="defer" src="&#x2F;modules&#x2F;IiifServer&#x2F;asset&#x2F;js&#x2F;iiif-server.js&#x3F;v&#x3D;3.6.34"></script>
+<script >
+    //<!--
+    window.__miradorPlugins = ["dl","image-tools","ocr-helper","share","textoverlay"];
+window.__miradorPluginPackages = {"dl":"mirador-dl-plugin","image-tools":"mirador-image-tools","ocr-helper":"mirador-ocr-helper","share":"mirador-share-plugin","textoverlay":"mirador-textoverlay"};
+    //-->
+</script>
+<script type="module" src="&#x2F;modules&#x2F;Mirador&#x2F;asset&#x2F;js&#x2F;mirador-4.mjs&#x3F;v&#x3D;3.4.17"></script>
+<script >
+    //<!--
+    if (typeof miradors === 'undefined') {
+    miradors = {};
+}
+miradors['mirador-1'] = {
+    "id": "mirador-1",
+    "language": "fr",
+    "windows": [
+        {
+            "manifestId": "https://plume.epfl.ch/iiif/2/100/manifest",
+            "loadedManifest": "https://plume.epfl.ch/iiif/2/100/manifest"
+        }
+    ],
+    "language": "fr",
+    "window": {
+        "allowClose": false,
+        "allowFullscreen": true,
+        "allowMaximize": false,
+        "allowTopMenuButton": true,
+        "allowWindowSideBar": true,
+        "sideBarPanel": "info",
+        "defaultSideBarPanel": "attribution",
+        "sideBarOpenByDefault": true,
+        "defaultView": "single",
+        "forceDrawAnnotations": false,
+        "hideWindowTitle": true,
+        "highlightAllAnnotations": false,
+        "showLocalePicker": true,
+        "sideBarOpen": true,
+        "switchCanvasOnSearch": true,
+        "panels": {
+            "info": true,
+            "attribution": true,
+            "canvas": true,
+            "annotations": true,
+            "search": true,
+            "layers": true
+        }
+    },
+    "osdConfig": {
+        "maxZoomPixelRatio": 10
+    },
+    "thumbnailNavigation": {
+        "defaultPosition": "far-bottom",
+        "displaySettings": true
+    },
+    "workspace": {
+        "showZoomControls": true,
+        "type": "mosaic",
+        "allowNewWindows": false,
+        "isWorkspaceAddVisible": false
+    },
+    "workspaceControlPanel": {
+        "enabled": false
+    }
+};
+window.globalMiradorPlugins = miradors['mirador-1'].globalMiradorPlugins;
+    //-->
+</script>
+<script  src="&#x2F;application&#x2F;asset&#x2F;js&#x2F;global.js&#x3F;v&#x3D;4.2.1"></script>
+<script  src="&#x2F;themes&#x2F;omekalia&#x2F;asset&#x2F;js&#x2F;theme.js&#x3F;v&#x3D;1.0.12"></script>
+<script >
+    //<!--
+    
+Omeka.jsTranslate = function(str) {
+    var jsTranslations = {"Something went wrong":"Quelque chose s\u2019est mal pass\u00e9","Make private":"Rendre priv\u00e9","Make public":"Rendre public","Expand":"D\u00e9plier","Collapse":"Replier","You have unsaved changes.":"Vous avez des modifications non enregistr\u00e9es.","Restore item set":"R\u00e9tablir la collection","Close icon set":"Fermer l\u2019ensemble des ic\u00f4nes","Open icon set":"Ouvrir l\u2019ensemble des ic\u00f4nes","[Untitled]":"[Sans titre]","Failed loading resource template from API":"\u00c9chec du chargement du mod\u00e8le de ressource \u00e0 partir de l\u2019API","Restore property":"Restaurer la propri\u00e9t\u00e9","There are no available pages.":"Il n\u2019y a pas de page disponible.","Please enter a valid language tag":"Entrez une \u00e9tiquette de langue valide","Title":"Titre","Description":"Description","Unknown block layout":"Bloc inconnu","Required field must be completed":"Les champs obligatoires doivent \u00eatre compl\u00e9t\u00e9s.","Cancel":"Annuler","Class":"Classe","Collapse the list of groups of blocks":"Replier la liste des groupes de blocs","Confirm download":"Confirmer le t\u00e9l\u00e9chargement","Download":"T\u00e9l\u00e9charger","Expand to display the list of groups of blocks":"D\u00e9plier pour afficher la liste des groupes de blocs","Insert Footnotes":"Ins\u00e9rer des pieds de page","Next":"Suivant","No next":"Pas de suivant","No previous":"Pas de pr\u00e9c\u00e9dent","Page metadata":"M\u00e9tadonn\u00e9es de la page","Please wait for previous group of blocks to be prepared before adding a new one.":"Veuillez attendre la finalisation du groupe de blocs pr\u00e9c\u00e9dent avant d\u2019en ajouter un autre.","Previous":"Pr\u00e9c\u00e9dent","This group does not contain any block.":"Ce groupe ne contient aucun bloc.","Url (deprecated)":"Url (obsol\u00e8te)","Remove mapping":"Supprimer l\u2019alignement","An error occurred.":"Une erreur est survenue.","Apply":"Appliquer","Close":"Fermer","Information":"Information","No":"Non","OK":"OK","Warning":"Attention","Yes":"Oui","Copy":"Copier","Message copied":"Message copi\u00e9","Search and select...":"Chercher et s\u00e9lectionner..."};
+    return (str in jsTranslations) ? jsTranslations[str] : str;
+};
+    //-->
+</script>
+<script  defer="defer" src="&#x2F;modules&#x2F;EUCookieBar&#x2F;asset&#x2F;vendor&#x2F;jquery.cookiebar&#x2F;jquery.cookiebar.js&#x3F;v&#x3D;3.4.6"></script>
+<script  defer="defer" src="&#x2F;modules&#x2F;EUCookieBar&#x2F;asset&#x2F;js&#x2F;eu-cookie-bar.js&#x3F;v&#x3D;3.4.6"></script>
+<script >
+    //<!--
+    var euCookieBarOptions = {"acceptButton":true,"acceptText":"OK","declineButton":false,"declineText":"Disable Cookies","policyButton":false,"policyText":"Privacy Policy","policyURL":"/","bottom":true,"fixed":true,"zindex":"99999","message":"<p>Ce site utilise Matomo, un outil de mesure d&rsquo;audience respectueux de la vie priv&eacute;e.&nbsp;Les donn&eacute;es collect&eacute;es sont anonymis&eacute;es et utilis&eacute;es uniquement &agrave; des fins statistiques.</p>\r\n"};
+    //-->
+</script>
+<script >
+    //<!--
+    var _paq = window._paq = window._paq || [];
+  /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
+  _paq.push(["setExcludedQueryParams", ["\/admin*"]]);
+  _paq.push(['trackPageView']);
+  _paq.push(['enableLinkTracking']);
+  (function() {
+    var u="//costcalc.epfl.ch/matomo/";
+    _paq.push(['setTrackerUrl', u+'matomo.php']);
+    _paq.push(['setSiteId', '3']);
+    var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+    g.async=true; g.src=u+'matomo.js'; s.parentNode.insertBefore(g,s);
+  })();
+    //-->
+</script>
+		<style type="text/css" media="screen">
+			:root {
+				--primary: #FF0000;
+				--secondary: #8E8E8E;
+				--secondary-light: #c7c7c7;
+				--img-bg-search-home: url(https://plume.epfl.ch/svc1447-5405a1ac06eb99bbafc660bc2e34105f/asset/64cb70f778edd2e994e76966cdcef815fd464fb6.png);				--img-bg-search: url(https://plume.epfl.ch/svc1447-5405a1ac06eb99bbafc660bc2e34105f/asset/64cb70f778edd2e994e76966cdcef815fd464fb6.png);								--icon-arrow-up: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' xml:space='preserve' style='fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2' viewBox='0 0 299 169'%3E%3Cpath d='M8.296 120.55h293.023v167.506H8.296z' style='fill:none' transform='matrix(1.0204 0 0 1.00892 -8.466 -121.625)'/%3E%3Cpath d='M288.8 352H31.3c-17.8 0-26.7-21.5-14.1-34.1l128.7-128.7c7.8-7.8 20.5-7.8 28.3 0l128.7 128.7c12.6 12.6 3.7 34.1-14.1 34.1Z' style='fill:%23FF0000;fill-rule:nonzero' transform='translate(-10.55 -183.175)'/%3E%3C/svg%3E");
+				--icon-arrow-down: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' xml:space='preserve' style='fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2' viewBox='0 0 299 169'%3E%3Cpath d='M8.296 120.55h293.023v167.506H8.296z' style='fill:none' transform='matrix(1.0204 0 0 1.00892 -8.466 -121.625)'/%3E%3Cpath d='M31.3 192h257.3c17.8 0 26.7 21.5 14.1 34.1L174.1 354.8c-7.8 7.8-20.5 7.8-28.3 0L17.2 226.1C4.6 213.5 13.5 192 31.3 192Z' style='fill:%23FF0000;fill-rule:nonzero' transform='translate(-10.45 -191.825)'/%3E%3C/svg%3E");
+				--icon-bookmark: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' xml:space='preserve' style='fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2' viewBox='0 0 384 512'%3E%3Cpath d='M0 512V48C0 21.5 21.5 0 48 0h288c26.5 0 48 21.5 48 48v464L192 400 0 512Z' style='fill:%23FF0000;fill-rule:nonzero'/%3E%3C/svg%3E");
+				--icon-map-pin: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' xml:space='preserve' style='fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2' viewBox='0 0 288 512'%3E%3Cpath d='M112 316.9v156.7l22 33c4.8 7.1 15.2 7.1 20 0l22-33V316.9c-10.4 1.9-21.1 3.1-32 3.1-10.9 0-21.6-1.1-32-3.1ZM144 0C64.5 0 0 64.5 0 144s64.5 144 144 144 144-64.5 144-144S223.5 0 144 0Zm0 76c-37.5 0-68 30.5-68 68 0 6.6-5.4 12-12 12s-12-5.4-12-12c0-50.7 41.3-92 92-92 6.6 0 12 5.4 12 12s-5.4 12-12 12Z' style='fill:%23FF0000;fill-rule:nonzero'/%3E%3C/svg%3E");
+			}
+		</style>
+
+	</head>
+
+	<body class="item&#x20;resource&#x20;show&#x20;minimal">		
+		<header class="header">
+		<div class="header__top">
+		<div class="wrap wrap--lg">
+			
+<ul class="language-switcher locale-code">
+    
+            <li>
+                            <span class="active" title="fran&#xE7;ais">fr</span>
+                    </li>
+            <li>
+                            <a href="&#x2F;s&#x2F;en&#x2F;item&#x2F;100" title="English&#x20;&#x28;United&#x20;States&#x29;">en</a>
+                    </li>
+    
+    </ul>
+
+			<!-- AFFICHAGE DE TEST, À SUPPRIMER AVANT MEP
+
+			<ul class="language-switcher locale-flag">
+				<li><a href="/s/site-en-francais/page/bienvenue" title="français">fr</a></li>
+				<li><span class="active" title="English (United States)">en</span></li>
+			</ul> -->
+		</div>			
+	</div>
+	
+	<div class="wrap wrap--lg with-logo-bis no-connect">
+
+		
+				<div class="header__logo--bis">
+				<img src="https://plume.epfl.ch/svc1447-5405a1ac06eb99bbafc660bc2e34105f/asset/7f9615b90aa3206c6bc13973f1ff49b713eb7c6e.png" alt="EPFL" />
+			</a>
+		</div>
+		
+		<div class="header__logo with-logo with-subtitle left">
+			<a href="/s/fr" class="site-title" class="header__logo--main">
+									<img src="https://plume.epfl.ch/svc1447-5405a1ac06eb99bbafc660bc2e34105f/asset/8bf5c0bc10cccf7fd67907708fafaee1217c7131.png" alt="Plume fr" />
+											<span class="header__subtitle screen-reader-text">Collections patrimoniales EPFL</span>
+												</a>
+		</div>
+
+		<div class="header__nav">
+			<nav>
+				<ul class="navigation">
+    <li>
+        <a href="&#x2F;s&#x2F;fr&#x2F;page&#x2F;accueil">Accueil</a>
+    </li>
+    <li>
+        <a href="&#x2F;s&#x2F;fr&#x2F;item">Parcourir les documents</a>
+    </li>
+    <li>
+        <a href="&#x2F;s&#x2F;fr&#x2F;item-set">Explorer les collections</a>
+    </li>
+    <li>
+        <a href="&#x2F;s&#x2F;fr&#x2F;page&#x2F;exhibitions">Expositions virtuelles</a>
+        <ul>
+            <li>
+                <a href="&#x2F;s&#x2F;fr&#x2F;page&#x2F;athanase-kircher-un-scientifique-baroque">Athanase Kircher : un scientifique baroque</a>
+            </li>
+            <li>
+                <a href="&#x2F;s&#x2F;fr&#x2F;page&#x2F;un-serenissime-incunable">Un sérénissime incunable</a>
+            </li>
+        </ul>
+    </li>
+    <li>
+        <a href="&#x2F;s&#x2F;fr&#x2F;page&#x2F;a-propos">À propos</a>
+    </li>
+    <li>
+        <a href="&#x2F;s&#x2F;fr&#x2F;page&#x2F;aide">Aide</a>
+    </li>
+</ul>			</nav>
+		</div>
+	</div>
+</header>
+
+<div class="header__search simple-search">
+	<div class="wrap wrap--lg">
+		
+<form action="/s/fr/search" id="search-form">
+	<input type="text" name="q" value=""
+		placeholder="Recherche"
+		aria-label="Recherche">
+	<button type="submit"><span class="fa fa-search"></span><span class="screen-reader-text">Recherche</span></button>
+</form>
+<div class="button-container">
+	<a href="/s/fr/search" class="button button--advanced"><span class="fas fa-plus-circle"></span>Recherche avancée</a>
+</div>
+	</div>	
+</div>
+		<div id="content" role="main">
+						
+            <nav class="breadcrumbs wrap wrap--lg"><a href="/s/fr">Accueil</a>  &gt; <a href="https://plume.epfl.ch/s/fr/item-set/10">Mathématiques</a> &gt; <span>Analyse des infiniment petits</span></nav>
+            <div class="blocks">
+        <div class="page-title"><h1><span class="title">Analyse des infiniment petits</span></h1></div>
+    <div class="wrap wrap--xl">
+
+        
+        
+                        <div class="regions-container two-sections">
+                                    <div class="region region--section section1">
+                        <div class="metadata">
+                            
+<div class="block resource-block block-iiif-manifest-link">
+    <button class="button&#x20;iiif-copy&#x20;iiif-copy-with-label" type="button" draggable="true" aria-haspopup="dialog" aria-label="Partager&#x20;le&#x20;manifeste&#x20;IIIF" title="Glisser-d&#xE9;poser&#x20;cette&#x20;ic&#xF4;ne&#x20;IIIF&#x20;ou&#x20;copier-coller&#x20;le&#x20;manifeste&#x20;IIIF" data-iiif-url="https&#x3A;&#x2F;&#x2F;plume.epfl.ch&#x2F;iiif&#x2F;2&#x2F;100&#x2F;manifest" data-iiif-drag-url="https&#x3A;&#x2F;&#x2F;plume.epfl.ch&#x2F;iiif&#x2F;2&#x2F;100&#x2F;manifest&#x3F;manifest&#x3D;https&#x3A;&#x2F;&#x2F;plume.epfl.ch&#x2F;iiif&#x2F;2&#x2F;100&#x2F;manifest" data-iiif-icon="&#x2F;modules&#x2F;IiifServer&#x2F;asset&#x2F;img&#x2F;iiif.png&#x3F;v&#x3D;3.6.34" data-flag-copy-on-click="1" data-flag-drag-icon="1" data-flag-copy-button="" data-flag-what-is-iiif="" data-text-copied="Url&#x20;du&#x20;manifeste&#x20;IIIF&#x20;copi&#xE9;&#x20;dans&#x20;le&#x20;presse-papier&#xA0;&#x21;" data-text-failed="Impossible&#x20;de&#x20;copier&#x20;l&#x2019;url&#x20;dans&#x20;le&#x20;presse-papiers&#x20;&#x21;" data-text-share="Partager&#x20;le&#x20;manifeste&#x20;IIIF" data-text-drag="Glisser-d&#xE9;poser&#x20;l&#x2019;ic&#xF4;ne&#x20;IIIF&#x20;pour&#x20;ajouter&#x20;la&#x20;ressource&#x20;&#xE0;&#x20;toute&#x20;visionneuse&#x20;IIIF." data-text-or="ou" data-text-copy-paste="Copier-coller&#x20;l&#x2019;url&#x20;du&#x20;manifeste&#x20;IIIF&#x20;dans&#x20;toute&#x20;visionneuse&#x20;IIIF." data-text-copy="Copier" data-text-close="Fermer" data-text-what-is-iiif="Qu&#x2019;est-ce&#x20;que&#x20;IIIF&#x20;&#x3F;"><img src="&#x2F;modules&#x2F;IiifServer&#x2F;asset&#x2F;img&#x2F;iiif.png&#x3F;v&#x3D;3.6.34" alt="" aria-hidden="true" draggable="false" /><span class="iiif-copy-label">Manifeste&#x20;IIIF</span></button>
+</div>
+
+<a class="button link-original download-file" title="T&#xE9;l&#xE9;charger&#x20;le&#x20;fichier&#x20;&#x28;203&#x20;MB&#x29;" aria-label="T&#xE9;l&#xE9;charger&#x20;le&#x20;fichier&#x20;&#x28;203&#x20;MB&#x29;" href="https&#x3A;&#x2F;&#x2F;plume.epfl.ch&#x2F;svc1447-5405a1ac06eb99bbafc660bc2e34105f&#x2F;original&#x2F;30001432e3b0257e6d36375a40857125b91eb7db.pdf" download="CHEPFL_LIPR_AXB244_01.pdf" target="_self">
+    <span class="button-download o-icon- fa fa-download"></span>
+</a>
+
+<div class="block resource-block block-mirador">
+    
+<div id="mirador-1" class="mirador viewer"></div>
+</div>
+
+                                                                                </div>
+                    </div>
+                
+                                    <div class="region region--section section2">
+                        <div class="metadata">
+                            <dl>
+    <div class="property">
+        <dt>
+        Auteur                </dt>
+                        <dd class="value literal" lang="">
+                        <span class="value-content">L&#039;Hospital, Guillaume François Antoine de</span>
+                                            </dd>
+            </div>
+    <div class="property">
+        <dt>
+        Titre                </dt>
+                        <dd class="value literal" lang="">
+                        <span class="value-content">Analyse des infiniment petits, pour l&#039;intelligence des lignes courbes</span>
+                                            </dd>
+            </div>
+    <div class="property">
+        <dt>
+        Editeur                </dt>
+                        <dd class="value literal" lang="">
+                        <span class="value-content">Paris : chez Alex Jombert</span>
+                                            </dd>
+            </div>
+    <div class="property">
+        <dt>
+        Date                </dt>
+                        <dd class="value literal" lang="">
+                        <span class="value-content">1781</span>
+                                            </dd>
+            </div>
+    <div class="property">
+        <dt>
+        Siècle                </dt>
+                        <dd class="value literal" lang="">
+                        <span class="value-content">XVIIIe.</span>
+                                            </dd>
+            </div>
+    <div class="property">
+        <dt>
+        volume                </dt>
+                        <dd class="value literal" lang="">
+                        <span class="value-content">1</span>
+                                            </dd>
+            </div>
+    <div class="property">
+        <dt>
+        nombre de vues                </dt>
+                        <dd class="value literal" lang="">
+                        <span class="value-content">265</span>
+                                            </dd>
+            </div>
+    <div class="property">
+        <dt>
+        Sujet                </dt>
+                        <dd class="value literal" lang="">
+                        <span class="value-content">Mathématiques</span>
+                                            </dd>
+            </div>
+    <div class="property">
+        <dt>
+        Type                </dt>
+                        <dd class="value literal" lang="">
+                        <span class="value-content">imprimé</span>
+                                            </dd>
+            </div>
+    <div class="property">
+        <dt>
+        Langue                </dt>
+                        <dd class="value literal" lang="">
+                        <span class="value-content">Français</span>
+                                            </dd>
+            </div>
+    <div class="property">
+        <dt>
+        Détenteur des droits                </dt>
+                        <dd class="value literal" lang="">
+                        <span class="value-content">Bibliothèque de l&#039;EPFL</span>
+                                            </dd>
+            </div>
+    <div class="property">
+        <dt>
+        Licence d&#039;utilisation                </dt>
+                        <dd class="value uri" lang="">
+                        <span class="value-content"><a class="uri-value-link" target="_blank" href="https&#x3A;&#x2F;&#x2F;creativecommons.org&#x2F;publicdomain&#x2F;mark&#x2F;1.0&#x2F;deed.en">public domain mark</a></span>
+                                            </dd>
+            </div>
+    <div class="property">
+        <dt>
+        DOI                </dt>
+                        <dd class="value uri" lang="">
+                        <span class="value-content"><a class="uri-value-link" target="_blank" href="https&#x3A;&#x2F;&#x2F;doi.org&#x2F;10.26035&#x2F;epfl-plume-2016">https://doi.org/10.26035/epfl-plume-2016</a></span>
+                                            </dd>
+            </div>
+    <div class="property">
+        <dt>
+        Catalogue Beast                 </dt>
+                        <dd class="value uri" lang="">
+                        <span class="value-content"><a class="uri-value-link" target="_blank" href="https&#x3A;&#x2F;&#x2F;epfl.swisscovery.ch&#x2F;permalink&#x2F;41SLSP_EPF&#x2F;1353vaj&#x2F;alma990058394570205516">Voir dans le catalogue</a></span>
+                                            </dd>
+            </div>
+    <div class="property">
+        <dt>
+        Citation bibliographique                </dt>
+                        <dd class="value literal" lang="">
+                        <span class="value-content">Guillaume François Antoine de L&#039;Hospital, Analyse des infiniment petits, pour l&#039;intelligence des lignes courbes, Paris : chez Alex Jombert, 1781.</span>
+                                            </dd>
+            </div>
+    <div class="property">
+        <dt>
+        cote                </dt>
+                        <dd class="value literal" lang="">
+                        <span class="value-content">AXB244_01</span>
+                                            </dd>
+            </div>
+    <div class="property">
+        <dt>
+        Droits d’accès                </dt>
+                        <dd class="value literal" lang="">
+                        <span class="value-content">Libre</span>
+                                            </dd>
+            </div>
+    <div class="property">
+        <dt>
+        Description matérielle                </dt>
+                        <dd class="value literal" lang="">
+                        <span class="value-content">1 vol. de texte (XIX, 234 p.)</span>
+                                            </dd>
+                        <dd class="value literal" lang="">
+                        <span class="value-content">Reliure pleine toile noire en deux volumes (Texte, Figures). Titre sali et maladroitement réparé, autrement intérieur correct.</span>
+                                            </dd>
+            </div>
+    <div class="property">
+        <dt>
+        Table des matières                </dt>
+                        <dd class="value literal" lang="">
+                        <span class="value-content">r1, ANALYSE DES INFINIMENT PETITS, 5-265, r1-1;r1-2;r1-3;r1-4;r1-5;r1-6;r1-7;r1-8;r1-9;r1-10;r1-11;r1-12;r1-13<br />
+r1-1, EPITRE, 7-10<br />
+r1-2, PRÉFACE, 11-23<br />
+r1-3, TABLE, 24<br />
+r1-4, SECTION PREMIERE Ou l&#039;on donne les regles de ce calcul., 25-47<br />
+r1-5, SECTION II. Usage du calcul des différences pour trouver les Tangentes de toutes fines de lignes courbes, 48-88<br />
+r1-6, SECTION III. Usage du calcul des différences pour trouver les plus grandes &amp; les moindres appliquées, ou se réduisent les questions De Maximis &amp; minimis., 89-106<br />
+r1-7, SECTION IV. Usage du calcul des différences pour trouver les points d&#039;inflexion &amp; de rebroussement, 107-128<br />
+r1-8, SECTION V. Usage du calcul des différences pour trouver les Développées., 129-166<br />
+r1-9, SECTION VI. Usage du calcul des différences pour trouver les Caustiques par réflexion., 167-183<br />
+r1-10, SECTION VII. Usage du calcul des différences pour trouver les Caustiques par réfraction., 184-195<br />
+r1-11, SECTION VIII. Usage du calcul des différences pour trouver les points des lignes courbes qui touchent une infinité de lignes données de position , droites ou courbes., 196-209<br />
+r1-12, SECTION IX. Solution de quelques Problêmes qui dépendent des Méthodes précédentes., 210-239<br />
+r1-13, SECTION X. Nouvelle maniére de se servir du calcul des differences dans les courbes géométriques d’ou l&#039;on déduit, la Méthode de MM. Descartes &amp; Hudde., 240-265</span>
+                                            </dd>
+            </div>
+</dl>
+                        </div>
+                    </div>
+                            </div>
+
+            
+                
+        <script type="application/ld+json">{"@context":"https:\/\/plume.epfl.ch\/api-context","@id":"https:\/\/plume.epfl.ch\/api\/items\/100","@type":["o:Item","dctype:Text"],"o:id":100,"o:is_public":true,"o:owner":{"@id":"https:\/\/plume.epfl.ch\/api\/users\/1","o:id":1},"o:resource_class":{"@id":"https:\/\/plume.epfl.ch\/api\/resource_classes\/31","o:id":31},"o:resource_template":{"@id":"https:\/\/plume.epfl.ch\/api\/resource_templates\/2","o:id":2},"o:thumbnail":{"@id":"https:\/\/plume.epfl.ch\/api\/assets\/123","o:id":123},"o:title":"Analyse des infiniment petits","thumbnail_display_urls":{"large":"https:\/\/plume.epfl.ch\/svc1447-5405a1ac06eb99bbafc660bc2e34105f\/asset\/68271c3800874caac19b17e35123b6f8e4864eb7.jpg","medium":"https:\/\/plume.epfl.ch\/svc1447-5405a1ac06eb99bbafc660bc2e34105f\/asset\/68271c3800874caac19b17e35123b6f8e4864eb7.jpg","square":"https:\/\/plume.epfl.ch\/svc1447-5405a1ac06eb99bbafc660bc2e34105f\/asset\/68271c3800874caac19b17e35123b6f8e4864eb7.jpg"},"o:created":{"@value":"2024-07-08T13:17:40+00:00","@type":"http:\/\/www.w3.org\/2001\/XMLSchema#dateTime"},"o:modified":{"@value":"2024-07-31T07:35:50+00:00","@type":"http:\/\/www.w3.org\/2001\/XMLSchema#dateTime"},"o:primary_media":{"@id":"https:\/\/plume.epfl.ch\/api\/media\/137284","o:id":137284},"o:media":[{"@id":"https:\/\/plume.epfl.ch\/api\/media\/29329","o:id":29329},{"@id":"https:\/\/plume.epfl.ch\/api\/media\/29330","o:id":29330},{"@id":"https:\/\/plume.epfl.ch\/api\/media\/29331","o:id":29331},{"@id":"https:\/\/plume.epfl.ch\/api\/media\/29332","o:id":29332},{"@id":"https:\/\/plume.epfl.ch\/api\/media\/29333","o:id":29333},{"@id":"https:\/\/plume.epfl.ch\/api\/media\/29334","o:id":29334},{"@id":"https:\/\/plume.epfl.ch\/api\/media\/29335","o:id":29335},{"@id":"https:\/\/plume.epfl.ch\/api\/media\/29336","o:id":29336},{"@id":"https:\/\/plume.epfl.ch\/api\/media\/29337","o:id":29337},{"@id":"https:\/\/plume.epfl.ch\/api\/media\/29338","o:id":29338},{"@id":"https:\/\/plume.epfl.ch\/api\/media\/29339","o:id":29339},{"@id":"https:\/\/plume.epfl.ch\/api\/media\/29340","o:id":29340},{"@id":"https:\/\/plume.epfl.ch\/api\/media\/29341","o:id":29341},{"@id":"https:\/\/plume.epfl.ch\/api\/media\/29342","o:id":29342},{"@id":"https:\/\/plume.epfl.ch\/api\/media\/29343","o:id":29343},{"@id":"https:\/\/plume.epfl.ch\/api\/media\/29344","o:id":29344},{"@id":"https:\/\/plume.epfl.ch\/api\/media\/29345","o:id":29345},{"@id":"https:\/\/plume.epfl.ch\/api\/media\/29346","o:id":29346},{"@id":"https:\/\/plume.epfl.ch\/api\/media\/29347","o:id":29347},{"@id":"https:\/\/plume.epfl.ch\/api\/media\/29348","o:id":29348},{"@id":"https:\/\/plume.epfl.ch\/api\/media\/29349","o:id":29349},{"@id":"https:\/\/plume.epfl.ch\/api\/media\/29350","o:id":29350},{"@id":"https:\/\/plume.epfl.ch\/api\/media\/29351","o:id":29351},{"@id":"https:\/\/plume.epfl.ch\/api\/media\/29352","o:id":29352},{"@id":"https:\/\/plume.epfl.ch\/api\/media\/29353","o:id":29353},{"@id":"https:\/\/plume.epfl.ch\/api\/media\/29354","o:id":29354},{"@id":"https:\/\/plume.epfl.ch\/api\/media\/29355","o:id":29355},{"@id":"https:\/\/plume.epfl.ch\/api\/media\/29356","o:id":29356},{"@id":"https:\/\/plume.epfl.ch\/api\/media\/29357","o:id":29357},{"@id":"https:\/\/plume.epfl.ch\/api\/media\/29358","o:id":29358},{"@id":"https:\/\/plume.epfl.ch\/api\/media\/29359","o:id":29359},{"@id":"https:\/\/plume.epfl.ch\/api\/media\/29360","o:id":29360},{"@id":"https:\/\/plume.epfl.ch\/api\/media\/29361","o:id":29361},{"@id":"https:\/\/plume.epfl.ch\/api\/media\/29362","o:id":29362},{"@id":"https:\/\/plume.epfl.ch\/api\/media\/29363","o:id":29363},{"@id":"https:\/\/plume.epfl.ch\/api\/media\/29364","o:id":29364},{"@id":"https:\/\/plume.epfl.ch\/api\/media\/29365","o:id":29365},{"@id":"https:\/\/plume.epfl.ch\/api\/media\/29366","o:id":29366},{"@id":"https:\/\/plume.epfl.ch\/api\/media\/29367","o:id":29367},{"@id":"https:\/\/plume.epfl.ch\/api\/media\/29368","o:id":29368},{"@id":"https:\/\/plume.epfl.ch\/api\/media\/29369","o:id":29369},{"@id":"https:\/\/plume.epfl.ch\/api\/media\/29370","o:id":29370},{"@id":"https:\/\/plume.epfl.ch\/api\/media\/29371","o:id":29371},{"@id":"https:\/\/plume.epfl.ch\/api\/media\/29372","o:id":29372},{"@id":"https:\/\/plume.epfl.ch\/api\/media\/29373","o:id":29373},{"@id":"https:\/\/plume.epfl.ch\/api\/media\/29374","o:id":29374},{"@id":"https:\/\/plume.epfl.ch\/api\/media\/29375","o:id":29375},{"@id":"https:\/\/plume.epfl.ch\/api\/media\/29376","o:id":29376},{"@id":"https:\/\/plume.epfl.ch\/api\/media\/29377","o:id":29377},{"@id":"https:\/\/plume.epfl.ch\/api\/media\/29378","o:id":29378},{"@id":"https:\/\/plume.epfl.ch\/api\/media\/29379","o:id":29379},{"@id":"https:\/\/plume.epfl.ch\/api\/media\/29380","o:id":29380},{"@id":"https:\/\/plume.epfl.ch\/api\/media\/29381","o:id":29381},{"@id":"https:\/\/plume.epfl.ch\/api\/media\/29382","o:id":29382},{"@id":"https:\/\/plume.epfl.ch\/api\/media\/29383","o:id":29383},{"@id":"https:\/\/plume.epfl.ch\/api\/media\/29384","o:id":29384},{"@id":"https:\/\/plume.epfl.ch\/api\/media\/29385","o:id":29385},{"@id":"https:\/\/plume.epfl.ch\/api\/media\/29386","o:id":29386},{"@id":"https:\/\/plume.epfl.ch\/api\/media\/29387","o:id":29387},{"@id":"https:\/\/plume.epfl.ch\/api\/media\/29388","o:id":29388},{"@id":"https:\/\/plume.epfl.ch\/api\/media\/29389","o:id":29389},{"@id":"https:\/\/plume.epfl.ch\/api\/media\/29390","o:id":29390},{"@id":"https:\/\/plume.epfl.ch\/api\/media\/29391","o:id":29391},{"@id":"https:\/\/plume.epfl.ch\/api\/media\/29392","o:id":29392},{"@id":"https:\/\/plume.epfl.ch\/api\/media\/29393","o:id":29393},{"@id":"https:\/\/plume.epfl.ch\/api\/media\/29394","o:id":29394},{"@id":"https:\/\/plume.epfl.ch\/api\/media\/29395","o:id":29395},{"@id":"https:\/\/plume.epfl.ch\/api\/media\/29396","o:id":29396},{"@id":"https:\/\/plume.epfl.ch\/api\/media\/29397","o:id":29397},{"@id":"https:\/\/plume.epfl.ch\/api\/media\/29398","o:id":29398},{"@id":"https:\/\/plume.epfl.ch\/api\/media\/29399","o:id":29399},{"@id":"https:\/\/plume.epfl.ch\/api\/media\/29400","o:id":29400},{"@id":"https:\/\/plume.epfl.ch\/api\/media\/29401","o:id":29401},{"@id":"https:\/\/plume.epfl.ch\/api\/media\/29402","o:id":29402},{"@id":"https:\/\/plume.epfl.ch\/api\/media\/29403","o:id":29403},{"@id":"https:\/\/plume.epfl.ch\/api\/media\/29404","o:id":29404},{"@id":"https:\/\/plume.epfl.ch\/api\/media\/29405","o:id":29405},{"@id":"https:\/\/plume.epfl.ch\/api\/media\/29406","o:id":29406},{"@id":"https:\/\/plume.epfl.ch\/api\/media\/29407","o:id":29407},{"@id":"https:\/\/plume.epfl.ch\/api\/media\/29408","o:id":29408},{"@id":"https:\/\/plume.epfl.ch\/api\/media\/29409","o:id":29409},{"@id":"https:\/\/plume.epfl.ch\/api\/media\/29410","o:id":29410},{"@id":"https:\/\/plume.epfl.ch\/api\/media\/29411","o:id":29411},{"@id":"https:\/\/plume.epfl.ch\/api\/media\/29412","o:id":29412},{"@id":"https:\/\/plume.epfl.ch\/api\/media\/29413","o:id":29413},{"@id":"https:\/\/plume.epfl.ch\/api\/media\/29414","o:id":29414},{"@id":"https:\/\/plume.epfl.ch\/api\/media\/29415","o:id":29415},{"@id":"https:\/\/plume.epfl.ch\/api\/media\/29416","o:id":29416},{"@id":"https:\/\/plume.epfl.ch\/api\/media\/29417","o:id":29417},{"@id":"https:\/\/plume.epfl.ch\/api\/media\/29418","o:id":29418},{"@id":"https:\/\/plume.epfl.ch\/api\/media\/29419","o:id":29419},{"@id":"https:\/\/plume.epfl.ch\/api\/media\/29420","o:id":29420},{"@id":"https:\/\/plume.epfl.ch\/api\/media\/29421","o:id":29421},{"@id":"https:\/\/plume.epfl.ch\/api\/media\/29422","o:id":29422},{"@id":"https:\/\/plume.epfl.ch\/api\/media\/29423","o:id":29423},{"@id":"https:\/\/plume.epfl.ch\/api\/media\/29424","o:id":29424},{"@id":"https:\/\/plume.epfl.ch\/api\/media\/29425","o:id":29425},{"@id":"https:\/\/plume.epfl.ch\/api\/media\/29426","o:id":29426},{"@id":"https:\/\/plume.epfl.ch\/api\/media\/29427","o:id":29427},{"@id":"https:\/\/plume.epfl.ch\/api\/media\/29428","o:id":29428},{"@id":"https:\/\/plume.epfl.ch\/api\/media\/29429","o:id":29429},{"@id":"https:\/\/plume.epfl.ch\/api\/media\/29430","o:id":29430},{"@id":"https:\/\/plume.epfl.ch\/api\/media\/29431","o:id":29431},{"@id":"https:\/\/plume.epfl.ch\/api\/media\/29432","o:id":29432},{"@id":"https:\/\/plume.epfl.ch\/api\/media\/29433","o:id":29433},{"@id":"https:\/\/plume.epfl.ch\/api\/media\/29434","o:id":29434},{"@id":"https:\/\/plume.epfl.ch\/api\/media\/29435","o:id":29435},{"@id":"https:\/\/plume.epfl.ch\/api\/media\/29436","o:id":29436},{"@id":"https:\/\/plume.epfl.ch\/api\/media\/29437","o:id":29437},{"@id":"https:\/\/plume.epfl.ch\/api\/media\/29438","o:id":29438},{"@id":"https:\/\/plume.epfl.ch\/api\/media\/29439","o:id":29439},{"@id":"https:\/\/plume.epfl.ch\/api\/media\/29440","o:id":29440},{"@id":"https:\/\/plume.epfl.ch\/api\/media\/29441","o:id":29441},{"@id":"https:\/\/plume.epfl.ch\/api\/media\/29442","o:id":29442},{"@id":"https:\/\/plume.epfl.ch\/api\/media\/29443","o:id":29443},{"@id":"https:\/\/plume.epfl.ch\/api\/media\/29444","o:id":29444},{"@id":"https:\/\/plume.epfl.ch\/api\/media\/29445","o:id":29445},{"@id":"https:\/\/plume.epfl.ch\/api\/media\/29446","o:id":29446},{"@id":"https:\/\/plume.epfl.ch\/api\/media\/29447","o:id":29447},{"@id":"https:\/\/plume.epfl.ch\/api\/media\/29448","o:id":29448},{"@id":"https:\/\/plume.epfl.ch\/api\/media\/29449","o:id":29449},{"@id":"https:\/\/plume.epfl.ch\/api\/media\/29450","o:id":29450},{"@id":"https:\/\/plume.epfl.ch\/api\/media\/29451","o:id":29451},{"@id":"https:\/\/plume.epfl.ch\/api\/media\/29452","o:id":29452},{"@id":"https:\/\/plume.epfl.ch\/api\/media\/29453","o:id":29453},{"@id":"https:\/\/plume.epfl.ch\/api\/media\/29454","o:id":29454},{"@id":"https:\/\/plume.epfl.ch\/api\/media\/29455","o:id":29455},{"@id":"https:\/\/plume.epfl.ch\/api\/media\/29456","o:id":29456},{"@id":"https:\/\/plume.epfl.ch\/api\/media\/29457","o:id":29457},{"@id":"https:\/\/plume.epfl.ch\/api\/media\/29458","o:id":29458},{"@id":"https:\/\/plume.epfl.ch\/api\/media\/29459","o:id":29459},{"@id":"https:\/\/plume.epfl.ch\/api\/media\/29460","o:id":29460},{"@id":"https:\/\/plume.epfl.ch\/api\/media\/29461","o:id":29461},{"@id":"https:\/\/plume.epfl.ch\/api\/media\/29462","o:id":29462},{"@id":"https:\/\/plume.epfl.ch\/api\/media\/29463","o:id":29463},{"@id":"https:\/\/plume.epfl.ch\/api\/media\/29464","o:id":29464},{"@id":"https:\/\/plume.epfl.ch\/api\/media\/29465","o:id":29465},{"@id":"https:\/\/plume.epfl.ch\/api\/media\/29466","o:id":29466},{"@id":"https:\/\/plume.epfl.ch\/api\/media\/29467","o:id":29467},{"@id":"https:\/\/plume.epfl.ch\/api\/media\/29468","o:id":29468},{"@id":"https:\/\/plume.epfl.ch\/api\/media\/29469","o:id":29469},{"@id":"https:\/\/plume.epfl.ch\/api\/media\/29470","o:id":29470},{"@id":"https:\/\/plume.epfl.ch\/api\/media\/29471","o:id":29471},{"@id":"https:\/\/plume.epfl.ch\/api\/media\/29472","o:id":29472},{"@id":"https:\/\/plume.epfl.ch\/api\/media\/29473","o:id":29473},{"@id":"https:\/\/plume.epfl.ch\/api\/media\/29474","o:id":29474},{"@id":"https:\/\/plume.epfl.ch\/api\/media\/29475","o:id":29475},{"@id":"https:\/\/plume.epfl.ch\/api\/media\/29476","o:id":29476},{"@id":"https:\/\/plume.epfl.ch\/api\/media\/29477","o:id":29477},{"@id":"https:\/\/plume.epfl.ch\/api\/media\/29478","o:id":29478},{"@id":"https:\/\/plume.epfl.ch\/api\/media\/29479","o:id":29479},{"@id":"https:\/\/plume.epfl.ch\/api\/media\/29480","o:id":29480},{"@id":"https:\/\/plume.epfl.ch\/api\/media\/29481","o:id":29481},{"@id":"https:\/\/plume.epfl.ch\/api\/media\/29482","o:id":29482},{"@id":"https:\/\/plume.epfl.ch\/api\/media\/29483","o:id":29483},{"@id":"https:\/\/plume.epfl.ch\/api\/media\/29484","o:id":29484},{"@id":"https:\/\/plume.epfl.ch\/api\/media\/29485","o:id":29485},{"@id":"https:\/\/plume.epfl.ch\/api\/media\/29486","o:id":29486},{"@id":"https:\/\/plume.epfl.ch\/api\/media\/29487","o:id":29487},{"@id":"https:\/\/plume.epfl.ch\/api\/media\/29488","o:id":29488},{"@id":"https:\/\/plume.epfl.ch\/api\/media\/29489","o:id":29489},{"@id":"https:\/\/plume.epfl.ch\/api\/media\/29490","o:id":29490},{"@id":"https:\/\/plume.epfl.ch\/api\/media\/29491","o:id":29491},{"@id":"https:\/\/plume.epfl.ch\/api\/media\/29492","o:id":29492},{"@id":"https:\/\/plume.epfl.ch\/api\/media\/29493","o:id":29493},{"@id":"https:\/\/plume.epfl.ch\/api\/media\/29494","o:id":29494},{"@id":"https:\/\/plume.epfl.ch\/api\/media\/29495","o:id":29495},{"@id":"https:\/\/plume.epfl.ch\/api\/media\/29496","o:id":29496},{"@id":"https:\/\/plume.epfl.ch\/api\/media\/29497","o:id":29497},{"@id":"https:\/\/plume.epfl.ch\/api\/media\/29498","o:id":29498},{"@id":"https:\/\/plume.epfl.ch\/api\/media\/29499","o:id":29499},{"@id":"https:\/\/plume.epfl.ch\/api\/media\/29500","o:id":29500},{"@id":"https:\/\/plume.epfl.ch\/api\/media\/29501","o:id":29501},{"@id":"https:\/\/plume.epfl.ch\/api\/media\/29502","o:id":29502},{"@id":"https:\/\/plume.epfl.ch\/api\/media\/29503","o:id":29503},{"@id":"https:\/\/plume.epfl.ch\/api\/media\/29504","o:id":29504},{"@id":"https:\/\/plume.epfl.ch\/api\/media\/29505","o:id":29505},{"@id":"https:\/\/plume.epfl.ch\/api\/media\/29506","o:id":29506},{"@id":"https:\/\/plume.epfl.ch\/api\/media\/29507","o:id":29507},{"@id":"https:\/\/plume.epfl.ch\/api\/media\/29508","o:id":29508},{"@id":"https:\/\/plume.epfl.ch\/api\/media\/29509","o:id":29509},{"@id":"https:\/\/plume.epfl.ch\/api\/media\/29510","o:id":29510},{"@id":"https:\/\/plume.epfl.ch\/api\/media\/29511","o:id":29511},{"@id":"https:\/\/plume.epfl.ch\/api\/media\/29512","o:id":29512},{"@id":"https:\/\/plume.epfl.ch\/api\/media\/29513","o:id":29513},{"@id":"https:\/\/plume.epfl.ch\/api\/media\/29514","o:id":29514},{"@id":"https:\/\/plume.epfl.ch\/api\/media\/29515","o:id":29515},{"@id":"https:\/\/plume.epfl.ch\/api\/media\/29516","o:id":29516},{"@id":"https:\/\/plume.epfl.ch\/api\/media\/29517","o:id":29517},{"@id":"https:\/\/plume.epfl.ch\/api\/media\/29518","o:id":29518},{"@id":"https:\/\/plume.epfl.ch\/api\/media\/29519","o:id":29519},{"@id":"https:\/\/plume.epfl.ch\/api\/media\/29520","o:id":29520},{"@id":"https:\/\/plume.epfl.ch\/api\/media\/29521","o:id":29521},{"@id":"https:\/\/plume.epfl.ch\/api\/media\/29522","o:id":29522},{"@id":"https:\/\/plume.epfl.ch\/api\/media\/29523","o:id":29523},{"@id":"https:\/\/plume.epfl.ch\/api\/media\/29524","o:id":29524},{"@id":"https:\/\/plume.epfl.ch\/api\/media\/29525","o:id":29525},{"@id":"https:\/\/plume.epfl.ch\/api\/media\/29526","o:id":29526},{"@id":"https:\/\/plume.epfl.ch\/api\/media\/29527","o:id":29527},{"@id":"https:\/\/plume.epfl.ch\/api\/media\/29528","o:id":29528},{"@id":"https:\/\/plume.epfl.ch\/api\/media\/29529","o:id":29529},{"@id":"https:\/\/plume.epfl.ch\/api\/media\/29530","o:id":29530},{"@id":"https:\/\/plume.epfl.ch\/api\/media\/29531","o:id":29531},{"@id":"https:\/\/plume.epfl.ch\/api\/media\/29532","o:id":29532},{"@id":"https:\/\/plume.epfl.ch\/api\/media\/29533","o:id":29533},{"@id":"https:\/\/plume.epfl.ch\/api\/media\/29534","o:id":29534},{"@id":"https:\/\/plume.epfl.ch\/api\/media\/29535","o:id":29535},{"@id":"https:\/\/plume.epfl.ch\/api\/media\/29536","o:id":29536},{"@id":"https:\/\/plume.epfl.ch\/api\/media\/29537","o:id":29537},{"@id":"https:\/\/plume.epfl.ch\/api\/media\/29538","o:id":29538},{"@id":"https:\/\/plume.epfl.ch\/api\/media\/29539","o:id":29539},{"@id":"https:\/\/plume.epfl.ch\/api\/media\/29540","o:id":29540},{"@id":"https:\/\/plume.epfl.ch\/api\/media\/29541","o:id":29541},{"@id":"https:\/\/plume.epfl.ch\/api\/media\/29542","o:id":29542},{"@id":"https:\/\/plume.epfl.ch\/api\/media\/29543","o:id":29543},{"@id":"https:\/\/plume.epfl.ch\/api\/media\/29544","o:id":29544},{"@id":"https:\/\/plume.epfl.ch\/api\/media\/29545","o:id":29545},{"@id":"https:\/\/plume.epfl.ch\/api\/media\/29546","o:id":29546},{"@id":"https:\/\/plume.epfl.ch\/api\/media\/29547","o:id":29547},{"@id":"https:\/\/plume.epfl.ch\/api\/media\/29548","o:id":29548},{"@id":"https:\/\/plume.epfl.ch\/api\/media\/29549","o:id":29549},{"@id":"https:\/\/plume.epfl.ch\/api\/media\/29550","o:id":29550},{"@id":"https:\/\/plume.epfl.ch\/api\/media\/29551","o:id":29551},{"@id":"https:\/\/plume.epfl.ch\/api\/media\/29552","o:id":29552},{"@id":"https:\/\/plume.epfl.ch\/api\/media\/29553","o:id":29553},{"@id":"https:\/\/plume.epfl.ch\/api\/media\/29554","o:id":29554},{"@id":"https:\/\/plume.epfl.ch\/api\/media\/29555","o:id":29555},{"@id":"https:\/\/plume.epfl.ch\/api\/media\/29556","o:id":29556},{"@id":"https:\/\/plume.epfl.ch\/api\/media\/29557","o:id":29557},{"@id":"https:\/\/plume.epfl.ch\/api\/media\/29558","o:id":29558},{"@id":"https:\/\/plume.epfl.ch\/api\/media\/29559","o:id":29559},{"@id":"https:\/\/plume.epfl.ch\/api\/media\/29560","o:id":29560},{"@id":"https:\/\/plume.epfl.ch\/api\/media\/29561","o:id":29561},{"@id":"https:\/\/plume.epfl.ch\/api\/media\/29562","o:id":29562},{"@id":"https:\/\/plume.epfl.ch\/api\/media\/29563","o:id":29563},{"@id":"https:\/\/plume.epfl.ch\/api\/media\/29564","o:id":29564},{"@id":"https:\/\/plume.epfl.ch\/api\/media\/29565","o:id":29565},{"@id":"https:\/\/plume.epfl.ch\/api\/media\/29566","o:id":29566},{"@id":"https:\/\/plume.epfl.ch\/api\/media\/29567","o:id":29567},{"@id":"https:\/\/plume.epfl.ch\/api\/media\/29568","o:id":29568},{"@id":"https:\/\/plume.epfl.ch\/api\/media\/29569","o:id":29569},{"@id":"https:\/\/plume.epfl.ch\/api\/media\/29570","o:id":29570},{"@id":"https:\/\/plume.epfl.ch\/api\/media\/29571","o:id":29571},{"@id":"https:\/\/plume.epfl.ch\/api\/media\/29572","o:id":29572},{"@id":"https:\/\/plume.epfl.ch\/api\/media\/29573","o:id":29573},{"@id":"https:\/\/plume.epfl.ch\/api\/media\/29574","o:id":29574},{"@id":"https:\/\/plume.epfl.ch\/api\/media\/29575","o:id":29575},{"@id":"https:\/\/plume.epfl.ch\/api\/media\/29576","o:id":29576},{"@id":"https:\/\/plume.epfl.ch\/api\/media\/29577","o:id":29577},{"@id":"https:\/\/plume.epfl.ch\/api\/media\/29578","o:id":29578},{"@id":"https:\/\/plume.epfl.ch\/api\/media\/29579","o:id":29579},{"@id":"https:\/\/plume.epfl.ch\/api\/media\/29580","o:id":29580},{"@id":"https:\/\/plume.epfl.ch\/api\/media\/29581","o:id":29581},{"@id":"https:\/\/plume.epfl.ch\/api\/media\/29582","o:id":29582},{"@id":"https:\/\/plume.epfl.ch\/api\/media\/29583","o:id":29583},{"@id":"https:\/\/plume.epfl.ch\/api\/media\/29584","o:id":29584},{"@id":"https:\/\/plume.epfl.ch\/api\/media\/29585","o:id":29585},{"@id":"https:\/\/plume.epfl.ch\/api\/media\/29586","o:id":29586},{"@id":"https:\/\/plume.epfl.ch\/api\/media\/29587","o:id":29587},{"@id":"https:\/\/plume.epfl.ch\/api\/media\/29588","o:id":29588},{"@id":"https:\/\/plume.epfl.ch\/api\/media\/29589","o:id":29589},{"@id":"https:\/\/plume.epfl.ch\/api\/media\/29590","o:id":29590},{"@id":"https:\/\/plume.epfl.ch\/api\/media\/29591","o:id":29591},{"@id":"https:\/\/plume.epfl.ch\/api\/media\/29592","o:id":29592},{"@id":"https:\/\/plume.epfl.ch\/api\/media\/29593","o:id":29593},{"@id":"https:\/\/plume.epfl.ch\/api\/media\/68190","o:id":68190},{"@id":"https:\/\/plume.epfl.ch\/api\/media\/137284","o:id":137284}],"o:item_set":[{"@id":"https:\/\/plume.epfl.ch\/api\/item_sets\/10","o:id":10}],"o:site":[{"@id":"https:\/\/plume.epfl.ch\/api\/sites\/1","o:id":1},{"@id":"https:\/\/plume.epfl.ch\/api\/sites\/2","o:id":2}],"dcterms:creator":[{"type":"literal","property_id":2,"property_label":"Creator","is_public":true,"@value":"L'Hospital, Guillaume Fran\u00e7ois Antoine de"}],"dcterms:title":[{"type":"literal","property_id":1,"property_label":"Title","is_public":true,"@value":"Analyse des infiniment petits, pour l'intelligence des lignes courbes"}],"dcterms:publisher":[{"type":"literal","property_id":5,"property_label":"Publisher","is_public":true,"@value":"Paris : chez Alex Jombert"}],"dcterms:date":[{"type":"literal","property_id":7,"property_label":"Date","is_public":true,"@value":"1781"}],"dcterms:temporal":[{"type":"literal","property_id":41,"property_label":"Temporal Coverage","is_public":true,"@value":"XVIIIe."}],"bibo:volume":[{"type":"literal","property_id":122,"property_label":"volume","is_public":true,"@value":"1"}],"bibo:numPages":[{"type":"literal","property_id":106,"property_label":"number of pages","is_public":true,"@value":"265"}],"dcterms:subject":[{"type":"literal","property_id":3,"property_label":"Subject","is_public":true,"@value":"Math\u00e9matiques"}],"dcterms:type":[{"type":"literal","property_id":8,"property_label":"Type","is_public":true,"@value":"imprim\u00e9"}],"dcterms:language":[{"type":"literal","property_id":12,"property_label":"Language","is_public":true,"@value":"Fran\u00e7ais"}],"dcterms:rightsHolder":[{"type":"literal","property_id":50,"property_label":"Rights Holder","is_public":true,"@value":"Biblioth\u00e8que de l'EPFL"}],"dcterms:rights":[{"type":"uri","property_id":15,"property_label":"Rights","is_public":true,"@id":"https:\/\/creativecommons.org\/publicdomain\/mark\/1.0\/deed.en","o:label":"public domain mark"}],"dcterms:identifier":[{"type":"uri","property_id":10,"property_label":"Identifier","is_public":true,"@id":"https:\/\/doi.org\/10.26035\/epfl-plume-2016"}],"dcterms:isFormatOf":[{"type":"uri","property_id":37,"property_label":"Is Format Of","is_public":true,"@id":"https:\/\/epfl.swisscovery.ch\/permalink\/41SLSP_EPF\/1353vaj\/alma990058394570205516","o:label":"Voir dans le catalogue"}],"dcterms:bibliographicCitation":[{"type":"literal","property_id":48,"property_label":"Bibliographic Citation","is_public":true,"@value":"Guillaume Fran\u00e7ois Antoine de L'Hospital, Analyse des infiniment petits, pour l'intelligence des lignes courbes, Paris : chez Alex Jombert, 1781."}],"bibo:locator":[{"type":"literal","property_id":105,"property_label":"locator","is_public":true,"@value":"AXB244_01"}],"dcterms:accessRights":[{"type":"literal","property_id":47,"property_label":"Access Rights","is_public":true,"@value":"Libre"}],"dcterms:extent":[{"type":"literal","property_id":25,"property_label":"Extent","is_public":true,"@value":"1 vol. de texte (XIX, 234 p.)"},{"type":"literal","property_id":25,"property_label":"Extent","is_public":true,"@value":"Reliure pleine toile noire en deux volumes (Texte, Figures). Titre sali et maladroitement r\u00e9par\u00e9, autrement int\u00e9rieur correct."}],"dcterms:tableOfContents":[{"type":"literal","property_id":18,"property_label":"Table Of Contents","is_public":true,"@value":"r1, ANALYSE DES INFINIMENT PETITS, 5-265, r1-1;r1-2;r1-3;r1-4;r1-5;r1-6;r1-7;r1-8;r1-9;r1-10;r1-11;r1-12;r1-13\nr1-1, EPITRE, 7-10\nr1-2, PR\u00c9FACE, 11-23\nr1-3, TABLE, 24\nr1-4, SECTION PREMIERE Ou l'on donne les regles de ce calcul., 25-47\nr1-5, SECTION II. Usage du calcul des diff\u00e9rences pour trouver les Tangentes de toutes fines de lignes courbes, 48-88\nr1-6, SECTION III. Usage du calcul des diff\u00e9rences pour trouver les plus grandes & les moindres appliqu\u00e9es, ou se r\u00e9duisent les questions De Maximis & minimis., 89-106\nr1-7, SECTION IV. Usage du calcul des diff\u00e9rences pour trouver les points d'inflexion & de rebroussement, 107-128\nr1-8, SECTION V. Usage du calcul des diff\u00e9rences pour trouver les D\u00e9velopp\u00e9es., 129-166\nr1-9, SECTION VI. Usage du calcul des diff\u00e9rences pour trouver les Caustiques par r\u00e9flexion., 167-183\nr1-10, SECTION VII. Usage du calcul des diff\u00e9rences pour trouver les Caustiques par r\u00e9fraction., 184-195\nr1-11, SECTION VIII. Usage du calcul des diff\u00e9rences pour trouver les points des lignes courbes qui touchent une infinit\u00e9 de lignes donn\u00e9es de position , droites ou courbes., 196-209\nr1-12, SECTION IX. Solution de quelques Probl\u00eames qui d\u00e9pendent des M\u00e9thodes pr\u00e9c\u00e9dentes., 210-239\nr1-13, SECTION X. Nouvelle mani\u00e9re de se servir du calcul des differences dans les courbes g\u00e9om\u00e9triques d\u2019ou l'on d\u00e9duit, la M\u00e9thode de MM. Descartes & Hudde., 240-265"}]}</script>    </div>
+</div>
+<script type="text/javascript">
+$(document).ready(function() {
+    $('body .regions-container a').each(function() {
+        var href = $(this).attr('href');
+        // Vérifie si le lien commence par http ou https et s'il ne provient pas du même domaine
+        if (href && href.indexOf('http') === 0 && this.hostname !== window.location.hostname) {
+            $(this).attr('target', '_blank'); // Ajoute target="_blank"
+            $(this).attr('title', 'Ouvre un nouvel onglet'); // Ajoute un titre
+            $(this).append('<span class="fas fa-external-link-square-alt"></span>'); // Ajoute l'icône après le libellé du lien
+        }
+    });
+    $('body .regions-container a.resource-link').each(function() {
+        var href = $(this).attr('href');
+        if (this.hostname == window.location.hostname) {
+            $(this).find('img').remove(); // Supprime les images
+            $(this).append('<span class="o-icon-uri"></span>'); // Ajoute l'icône après le libellé du lien
+        }
+    });
+
+
+});
+</script>		</div>
+
+		
+<footer class="footer">
+	<div class="wrap wrap--lg">
+
+					<div class="footer__logo--bis">
+				<a href="https://www.epfl.ch/fr/">
+					<img src="https://plume.epfl.ch/svc1447-5405a1ac06eb99bbafc660bc2e34105f/asset/7f9615b90aa3206c6bc13973f1ff49b713eb7c6e.png" alt="EPFL" />
+				</a>
+			</div>
+						
+				<nav class="footer__nav">
+			    <div class="two-columns">
+        <div class="col-narrow">
+            <img src="https://plume.epfl.ch/svc1447-5405a1ac06eb99bbafc660bc2e34105f/asset/8bf5c0bc10cccf7fd67907708fafaee1217c7131.png" alt="Logo Plume" class="img-fluid">
+        </div>
+        <div class="col-wide">
+            <div class="footer__address">
+                <p>     Bibliothèque de l’EPFL Rolex Learning Center Station 20 CH-1015 Lausanne </p>
+            </div>    
+            <div class="footer__socials">
+			<a href="https://social.epfl.ch/@epfllibrary">
+							<img src="/themes/omekalia/asset/img/mastodon-epfl.svg" alt="mastodon">
+						</a>	
+			<a href="https://bsky.app/profile/epfllibrary.bsky.social">
+							<img src="/themes/omekalia/asset/img/bluesky-epfl.svg" alt="bluesky">
+						</a>	
+			<a href="https://www.linkedin.com/showcase/biblioth%C3%A8que-de-l'epfl">
+							<img src="/themes/omekalia/asset/img/linkedin-epfl.svg" alt="linkedin">
+						</a>																		
+																				<a href="https://www.instagram.com/epfllibrary/">
+							<img src="/themes/omekalia/asset/img/instagram-epfl.svg" alt="instagram">
+						</a>
+															<a href="https://www.facebook.com/EPFLlibrary">
+							<img src="/themes/omekalia/asset/img/facebook-epfl.svg" alt="facebook">
+						</a>
+																				<a href="https://www.youtube.com/epfllibrary">
+							<img src="/themes/omekalia/asset/img/youtube-epfl.svg" alt="youtube">
+						</a>
+            </div>
+			<div class="footer__legals">																															
+                <a href="mailto:library@epfl.ch">Contact</a>
+                <a href="https://plume.epfl.ch/s/fr/page/aide">Aide</a>
+                <a href="https://plume.epfl.ch/s/fr/page/mentions-legal">Mentions légales</a> 
+            </div>	   
+        </div>
+    </div>		</nav>
+		
+		<!-- Social Networks -->
+		
+
+			</div>
+</footer>
+		<!-- Back to top button -->
+<a id="backtotop"><span class="screen-reader-text">Retour en haut de page</span></a>
+<script>
+(function($) {
+
+	$(document).ready(function() {
+		$('header nav').addClass('closed');
+
+		// Back to top button
+		var backToTopBTN = $('#backtotop');
+		$(window).scroll(function() {
+			if ($(window).scrollTop() > 300) {
+				backToTopBTN.addClass('show');
+			} else {
+				backToTopBTN.removeClass('show');
+			}
+		});
+
+		backToTopBTN.on('click', function(e) {
+			e.preventDefault();
+			$('html, body').animate({scrollTop:0}, '300');
+		});
+
+	});
+})(jQuery);
+</script>
+	</body>
+</html>

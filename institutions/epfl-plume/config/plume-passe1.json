@@ -1,0 +1,13 @@
+{
+  "slug": "epfl-plume",
+  "min_delay_s": 6,
+  "max_requests": 15,
+  "follow_redirects": 1,
+  "robots_disallow_autorise_par_marcel": true,
+  "note": "Passe v2 n°1 : interfaces citées par les pages « À propos » et « Mentions légales » de Plume : API REST Omeka S (https://plume.epfl.ch/api, ici /api/items/100, identifiant lu dans la liste publique des documents), entrepôt OAI-PMH (URL de la doc, ListIdentifiers) et manifeste IIIF 2 de l'item 100 (lien « manifeste IIIF » de sources/item/raw/01.html). robots.txt : Disallow /admin/ et /login seulement, pas de Crawl-delay.",
+  "endpoints": [
+    {"id": "api-item-100", "method": "GET", "url": "https://plume.epfl.ch/api/items/100", "save_body": 300000},
+    {"id": "oai-listidentifiers", "method": "GET", "url": "https://plume.epfl.ch/oai?verb=ListIdentifiers&metadataPrefix=oai_dc"},
+    {"id": "iiif-manifeste-100", "method": "GET", "url": "https://plume.epfl.ch/iiif/2/100/manifest", "save_body": 2000000}
+  ]
+}
