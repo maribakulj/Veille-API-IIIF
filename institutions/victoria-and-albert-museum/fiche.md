@@ -25,6 +25,10 @@
 
 Aucun 429. Aucun en-tête `Retry-After`, `X-RateLimit-*`, `RateLimit-*`. Nos requêtes sont espacées de 6 s, bien au-delà de l'indicatif d'une par seconde.
 
+## Rattrapage du 2026-11-14
+- Lus : guide `welcome.html` (licence : section 9.3 des conditions), page `www.vam.ac.uk/api` (aucune URL de l'API de 2009), page `articles/terms-of-use`, billets « IIIF at the V&A » et « V&A MCP Server » (aucune limite de débit). `iiif.vam.ac.uk/robots.txt` : 404 ; hôte S3 des PDF : 403 AccessDenied (pas de robots.txt lisible).
+- Passe 3 : `www.vam.ac.uk/blog/wp-json/wp/v2/posts/67662` : **200**, aucun en-tête de limite. Service MCP (`mcp.vam.ac.uk/mcp/`) non testé : protocole par POST.
+
 ## Web
 
 - Billet de lancement de l'API (blog du V&A, lu) : décrit les nouveautés, aucune limite.

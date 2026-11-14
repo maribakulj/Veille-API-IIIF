@@ -1,0 +1,29 @@
+V&A MCP Server: Introduction & Feedback - V&A AI Sandpit Skip to article frontmatter Skip to article content 
+ Open Menu 
+ Made with MyST 
+ Search CTRL ⌘ K 
+ V&A AI Sandpit Updates Resources
+ Task Bibliography
+ Topic Bibliography
+ Subject Bibliography
+ Made with MyST 
+ Downloads 
+ V&A MCP Server: Introduction & Feedback
+ Shehar Bano 
+ November 24, 2025 
+ Since the recent rise of AI applications including services like ChatGPT and Claude, researchers and developers have explored many ways to reduce hallucination of answers. These include interactive refinement, prompt tuning, fine-tuning the models themselves, and most commonly supplying additional information in the prompt and restricting the model’s answer to that context. This is known as RAG (Retrieval Augmented Generation).
+ Recently, however, a new approach has emerged: MCP (Model Context Protocol).
+ MCP is a standard way for connecting AI applications to external systems so they can access information or perform tasks directly. As the official documentation puts it:
+ “Think of MCP like a USB-C port for AI applications. Just as USB-C provides a standardized way to connect electronic devices, MCP provides a standardized way to connect AI applications to external systems.” 
+ These external systems can include APIs such as the V&A Collection API, databases, search tools, or even specialised prompts.
+ So, what problem does MCP solve?
+ Before MCP, if you asked an AI application for a weather update and it had access to the live web, it might pull information from multiple sites, some reliable, some not. If a trusted site offered an API instead, the application might not know how to use it correctly. This is where MCP comes in.
+ Suppose your trusted weather service provides an MCP for their API and you enable it in your AI app. The next time you ask for a weather update, the AI app automatically queries the API through MCP and returns the specific, reliable information you wanted.
+ Like many organisations in the cultural heritage sector, we at the V&A have been exploring how chatbots can offer new ways for users to discover our collections. The V&A Collections API is the primary way, external systems access our collections data, but as noted AI apps are often poor at using APIs they’ve never seen before, frequently producing hallucinated or invalid parameters.
+ To test whether MCP can address this challenge, we are launching a trial V&A MCP service. This service enables users to tell their AI application to query the V&A Collections API even if it has no prior knowledge of how the API works. We expect this to reduce hallucination and improve the accuracy of results.
+ Below is an example of responses from an AI application (Claude), with and without MCP enabled:
+ Claude without MCP Claude with MCP 
+ Without MCP, an AI application must crawl the web for answers, risking inaccurate or incomplete information. However, with MCP, it can query the V&A Collections API directly and return precise, trustworthy results.
+ The service is now available for trial use here: https:// mcp .vam .ac .uk /mcp/ .
+ You can use this service with any AI application that supports remote MCP server connections by simply adding our server URL to the application’s MCP settings.
+ You can share your thoughts on the V&A MCP service on our GitHub platform here: V&A Github Discussions . As this is an experimental release, we especially welcome feedback to help us refine and improve it.
