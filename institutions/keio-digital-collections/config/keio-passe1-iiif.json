@@ -1,0 +1,14 @@
+{
+  "slug": "keio-digital-collections",
+  "min_delay_s": 6,
+  "max_requests": 15,
+  "follow_redirects": 1,
+  "robots_disallow_autorise_par_marcel": true,
+  "note": "Passe 1 : URL lues dans la page de notice https://dcollections.lib.keio.ac.jp/en/anatomia/japan1 (sources/f) : manifeste IIIF (lien « IIIF Manifest »), info.json du service d'image IIPImage de la première page (même chemin que la vignette citée), page-visionneuse Universal Viewer (uv.php). Pas de téléchargement d'image ni de PDF : les conditions d'utilisation (About, sources/doc) interdisent la reproduction des données numériques. robots.txt de dcollections : /search/ interdit, rien sur les manifestes ; iiif.lib.keio.ac.jp : robots.txt 404.",
+  "endpoints": [
+    {"id": "k1-manifeste", "method": "GET", "url": "https://dcollections.lib.keio.ac.jp/sites/default/files/iiif/ANT/Japan/1/manifest.json", "save_body": 500000},
+    {"id": "k1-image-info", "method": "GET", "url": "https://iiif.lib.keio.ac.jp/iipsrv/ANT/Japan/1/tif/j1_001.tif/info.json"},
+    {"id": "k1-image-info-repete", "method": "GET", "url": "https://iiif.lib.keio.ac.jp/iipsrv/ANT/Japan/1/tif/j1_001.tif/info.json"},
+    {"id": "k1-visionneuse-uv", "method": "GET", "url": "https://dcollections.lib.keio.ac.jp/sites/all/libraries/uv/uv.php?archive=ANT&id=Japan/1&page=1"}
+  ]
+}
