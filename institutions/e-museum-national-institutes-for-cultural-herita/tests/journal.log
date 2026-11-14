@@ -1,0 +1,7 @@
+# Session 2026-11-14T03:06:01Z — configuration emuseum-v2-passe1.json — sonde probe.py au commit e97aeaf
+2026-11-14T03:06:03Z | robots.txt:emuseum.nich.go.jp | https://emuseum.nich.go.jp/robots.txt | GET | 302 | robots.txt indisponible : tout est autorisé (RFC 9309)
+2026-11-14T03:06:10Z | v2p1-manifeste-100005000 | https://emuseum.nich.go.jp/iiifapi/100005000/manifest.json | GET | 200 OK | aucun en-tête de limite | taille≥14559 | corps: {"@context":"http://iiif.io/api/presentation/2/context.json","@id":"https://emuseum.nich.go.jp/iiifapi/100005000/manifest.json","@type":"sc:Manifest","label":[{"@value":"e国宝 - 周茂叔愛蓮図",
+# corps enregistré : tests/raw/v2p1-manifeste-100005000.body (14559 octets lus)
+2026-11-14T03:06:17Z | v2p1-opensearch-description | https://emuseum.nich.go.jp/description/eKokuho_ja.xml | GET | 200 OK | aucun en-tête de limite | taille≥799 | corps: <?xml version="1.0" encoding="UTF-8"?> <OpenSearchDescription xmlns="http://a9.com/-/spec/opensearch/1.1/">  	<ShortName>eKokuho</ShortName>  	<Description>National Treasures and Important Cultur
+# corps enregistré : tests/raw/v2p1-opensearch-description.body (799 octets lus)
+# Fin 2026-11-14T03:06:17Z — 3 requête(s) envoyée(s)
