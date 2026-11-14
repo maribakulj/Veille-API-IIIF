@@ -1,0 +1,50 @@
+17. How to use NDL Search API | NDL Search | National Diet Library 
+ Jump to main content 
+ Open Search Open Menu 
+ Help 
+ 17. How to use NDL Search API 
+ Table of contents 17-1. NDL Search API 
+ 17-2. Terms of use 
+ 17-3. Application for use 
+ 17-4. General notes 
+ If you want to use NDL Search API, please follow the terms and conditions below. 
+ 17-1. NDL Search API 
+ The list of NDL Search API is as follows. 
+ Search API: You can search the metadata of NDL Search. ・SRU ・OpenSearch ・OpenURL 
+ Harvest API: You can download the metadata of NDL Search. 
+ OAI-PMH (in Japanese) * Since it uses caches, response performance changes depending on the situation. 
+ Thumbnail API (in Japanese): You can display thumbnail images which NDL Search stores. 
+ * If you want to know the details of the API, please refer to “ NDL Search API Specification .” (in Japanese) 
+ 17-2. Terms of use 
+ In some cases, prior application is required for using NDL Search API. 
+ (1) For commercial companies or organizations 
+ You must fill out the application form except when you want to use metadata which is licensed by metadata providing institutions. Please check “ The list of API-providing databases ” to see whether the metadata you want to use is licensed or not. You must fill out the application form if you want to use the Thumbnail API. 
+ (2) For individuals or non-profit organizations 
+ (A) For non-profit uses 
+ If you don’t make a profit from using the metadata, an application is not required. Please follow the terms of “ The list of API-providing databases .” If you can’t judge whether your use falls under for-profit uses or not, please contact us using the application form. 
+ (B) For for-profit uses 
+ If you receive profits (even if it's a deficit) from using the metadata (ex. advertising revenue), you must fill out the application form except for metadata licensed by metadata providing institutions. Please check “ The list of API-providing databases ” to see whether the metadata you want to use are licensed or not. If you can’t judge whether your use falls under for-profit uses or not, please contact us using the application form . 
+ (3) If you use the API on a continuous basis 
+ We would appreciate your cooperation for understanding actual usage of the API from the application form . If you use the API on a continuous basis, please tell us about your usage and your contact information. * We will send you notifications of the API changes (in Japanese). 
+ 17-3. Application for use 
+ The application form is below. “ Application Programming Interface (API) of the NDL Search: Application Form ” We will check the application form and make a reply. * In the case that the metadata you want to use is provided by institutions other than the NDL, we will share the information in your application with the metadata providing institution. In some occasions, the institution might not allow the use of the metadata. 
+ 17-4. General notes 
+ (1) Large amounts of requests 
+ We restrict the number of concurrent accesses to prevent server overload. When we receive a large amounts of requests from a particular IP address on a continuous basis, we might block access to the website. 
+ (2) Credit 
+ You must credit NDL Search API, on a website or application using the API. Also, you must credit the metadata providing database and institution in the case that credit is needed. 
+ Example: when the metadata license is CC BY 
+ This service uses NDL Search API. Metadata Source: ABC Digital Collection (DEF institution) Licensed CC BY 
+ (3) Disclaimer 
+ The National Diet Library (NDL) prepares the content of the websites of the National Diet Library with due care, but disclaims all responsibility for any acts done by using the information or resources on our websites. 
+ The NDL does not endorse or sell the metadata on our websites. Furthermore, the NDL bears no responsibility for the accuracy, legality or safety of external websites or their content. 
+ Please note that the content and URLs of our websites may be changed without notice, and the NDL may take down the websites in case of system maintenance, etc. 
+ 言語：日本語 
+ How to access the materials Read materials via the Internet 
+ Request a photocopy of the material 
+ Read materials at the library 
+ National Diet Library Home Page Contact Us 
+ News 
+ Privacy Policy 
+ Site Policy 
+ © 2024- National Diet Library, Japan. Page Num. 6516

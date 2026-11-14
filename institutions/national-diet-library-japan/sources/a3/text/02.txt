@@ -1,0 +1,51 @@
+API仕様の概要 | NDLサーチ | 国立国会図書館 
+ 本文へ移動 
+ 検索を開く メニューを開く 
+ ヘルプ 17. APIのご利用について 
+ API仕様の概要 
+ 目次 1. 提供APIの種類 
+ 2. リクエスト例 
+ 3. API仕様書（日本語版） 
+ 4. API仕様書（英語版）/API specifications in English 
+ 5. 関連ページ 
+ API仕様の概要 
+ 1. 提供APIの種類 
+ 各APIの入力・出力形式、アクセスURL（ベースURL）は以下の通りです。 
+ 種類 プロトコル 入力形式 出力形式 アクセスURL 
+ 検索用API SRU OpenSearch OpenURL URL URL URL XML XML(RSS) HTML https://ndlsearch.ndl.go.jp/api/sru https://ndlsearch.ndl.go.jp/api/opensearch https://ndlsearch.ndl.go.jp/api/openurl 
+ ハーベスト用API OAI-PMH URL XML https://ndlsearch.ndl.go.jp/api/oaipmh 
+ ※SRW、Z39.50は2020年3月2日をもってサービスを終了いたしました。 
+ 国立国会図書館サーチで検索できるデータのうち、許諾が得られたもののみをAPIで提供しています。詳細は、「 API提供対象DP一覧 」をご覧ください。 国立国会図書館サーチが持つメタデータは、「 国立国会図書館ダブリンコアメタデータ記述（DC-NDL） 」に従っています。したがって、各プロトコルで返戻されるデータの形式も、このDC-NDLを基本形としています。詳細は「 DC-NDL（RDF）フォーマット仕様 」をご覧ください。 
+ 2. リクエスト例 
+ 2018年以降に出版されていて、タイトルに「桜」を含むものを検索する（SRU） 
+ https://ndlsearch.ndl.go.jp/api/sru?operation=searchRetrieve&maximumRecords=10&query=title%3d%22%E6%A1%9C%22%20AND%20from%3d%222018%22 結果： こちら ※CQLは、 title="桜" AND from="2018" となります。ただし、実際のリクエストURLは、これをUTF-8にてエンコードしたものをqueryに付加したURLです。（「 title="桜" AND from="2018" 」をエンコードしたものは、「 title%3d%22%E6%A1%9C%22%20AND%20from%3d%222018%22 」です。） 
+ タイトルに「マリーアントワネット」を含み、かつ分類（NDC）が「2（歴史）」の国立国会図書館蔵書を検索する（OpenSearch） https://ndlsearch.ndl.go.jp/api/opensearch?cnt=10&title=%e3%83%9e%e3%83%aa%e3%83%bc%e3%82%a2%e3%83%b3%e3%83%88%e3%83%af%e3%83%8d%e3%83%83%e3%83%88&ndc=2&dpid=iss-ndl-opac 結果： こちら ※NDCは前方一致検索です。 
+ 著者に「夏目漱石」を含むものを検索する（OpenURL） https://ndlsearch.ndl.go.jp/api/openurl?au=%e5%a4%8f%e7%9b%ae%e6%bc%b1%e7%9f%b3 結果： こちら ※実際のリクエストURLは、UTF-8にてエンコードしたものをqueryに付加したURLです。 
+ DC-NDL（RDF） ver.3系で2026年1月30日に更新された国立国会図書館デジタルコレクションのメタデータを取得する（OAI-PMH） https://ndlsearch.ndl.go.jp/api/oaipmh?verb=ListRecords&metadataPrefix=dcndl_v3&set=ndl-dl&from=2026-01-30&until=2026-01-30 結果： こちら 
+ 3. API仕様書（日本語版） 
+ 国立国会図書館サーチ 外部提供インタフェース仕様書（第1.5版） 2026.9.25 （PDF） 附録1．データプロバイダ一覧と外部提供インタフェース対応表 （PDF） 
+ 附録2．データグループID・mediaType一覧 （PDF） 
+ 附録3．コレクションコード・Access Rights一覧 （PDF） 
+ DC-NDL(RDF)のフォーマット仕様は「 DC-NDL（RDF）フォーマット仕様 」のページをご参照ください。 
+ 4. API仕様書（英語版）/API specifications in English 
+ 英語版は、2023年12月までの旧・国立国会図書館サーチのAPIに準じた内容を掲載しています。 NDL Search API Specifications(Ver.1.24) is written about the former system of NDL Search until December 2023. 
+ NDL Search API Specifications(Ver.1.24) 2022.08.29(all) （PDF） 
+ NDL Search API Specifications(Ver.1.24) 2022.08.29 （PDF） Appendix 1. List of data providers and their corresponding Application Programming Interface (API) （PDF） 
+ Appendix 2. OpenURL – genre specified and its corresponding data provider （PDF） 
+ Appendix 3. Examples of returned data at each interface （PDF） 
+ Appendix 4. List of Collection Codes and Access Rights （PDF） 
+ Return formats are DC-NDL(RDF) and DC(Dublin Core). For more details, see the DC-NDL (RDF) Format Specifications page (Japanese page only) and Standards for Digital Information . 
+ 5. 関連ページ 
+ 17. APIのご利用について 
+ API提供対象データプロバイダ一覧 
+ 国立国会図書館サーチが提供するOAI-PMH 
+ 国立国会図書館サーチAPI活用リンク集 
+ Language：English 
+ 資料にアクセスするための手段 インターネットで資料を読む 
+ 資料のコピーを入手する 
+ 図書館で資料を読む 
+ 国立国会図書館ホームページ お問い合わせ 
+ お知らせ 
+ プライバシーポリシー 
+ サイトポリシー 
+ © 2024- National Diet Library, Japan. 画面番号 5901

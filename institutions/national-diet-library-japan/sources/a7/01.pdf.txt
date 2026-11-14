@@ -1,0 +1,217 @@
+                                                                                                                                                    国立国会図書館
+                                                                                                                                                作成日：平成30年5月15日
+                                                                                                                                                更新日：平成30年7月25日
+
+                                      国立国会図書館 デジタルコレクション IIIFインタフェース詳細仕様
+
+1. プレゼンテーションAPI：マニフェストURI
+   書式：{scheme}://{server}/{prefix}/{identifier}/manifest.json
+                                                        ManufestURIの例：
+ 1-1 リクエスト                                              https://www.dl.ndl.go.jp/api/iiif/1234567/manifest.json
+    No. 項目                           項目名称               デジタルコレクションで要求する値
+     1 scheme                        スキーマ               https
+     2 server                        サーバ名               www.dl.ndl.go.jp
+     3 prefix                        プレフィックス            /api/iiif/
+
+    4    identifier                  識別子                （永続的識別子の数字部分）
+
+    5    manifest.json               マニフェスト             manifest.json
+
+ 1-2 レスポンス(json形式)
+    No. 項目                           項目名称               デジタルコレクションからの出力値
+    1    @context                    コンテキスト             http://iiif.io/api/presentation/2/context.json
+    2    @id                         ID                 https://www.dl.ndl.go.jp/api/iiif/（永続的識別子の数字部分）/manifest.json
+    3    @type                       タイプ                sc:Manifest
+    4    license                     ライセンス              http://dl.ndl.go.jp/ja/iiif_license.html
+                                     アトリビューション
+    5    attribution                                    国立国会図書館 National Diet Library, JAPAN
+                                     （コピーライト情報 等）
+    6    description                 説明                 （abstract/要約を出力）
+    7    label                       ラベル                （title/タイトル）＋「. 」（半角ピリオド+半角スペース)＋（volume/巻次）
+    8    logo                        ロゴ                 http://dl.ndl.go.jp/resources/images/dlicon.png
+    9    metadata                    メタデータ              （マニフェストあたり1つ出力する）
+
+                                                        （図書のメタ簡易表示で出している英語項目名）
+                                                        ・永続的識別子： Persistent ID
+                                                        ・タイトル： Title
+                                                        ・著者： Creator
+                                                        ・出版者： Publisher
+                                                        ・出版年： Publication Date
+                                                        ・西暦年： Publication Date (W3CDTF fortmat)
+                                                        ・シリーズ名： Series Title
+                                                        ・ISBN： ISBN
+    10           label               メタデータラベル           ・ISSN： ISSN
+                                                        ・JP番号： JPNO
+                                                        ・原資料URL： Source (URL)
+                                                        ・備考： Notes
+                                                        ・請求記号： Call Number
+                                                        ・書誌ID： Bibliographic ID
+                                                        ・DOI： DOI
+                                                        ・公開範囲： Access Restrictions
+                                                        ・電子化時の注記： Note
+                                                        ・デジデポ閲覧画面のURL： URL
+
+                                                        上記の各項目について、その値を出力する。複数の値があった場合には、「||」区切りで繰り返し出力する。タイト
+                                                        ル・シリーズ名は複数あった場合は、以下に準拠する。
+                                                        ・タイトルは 「. 」（半角ピリオド+半角スペース)区切りで出力する。複数の値があった場合には、「. 」（半角ピリオド+
+    11           value               メタデータ値
+                                                        半角スペース)区切りで繰り返し出力する。
+                                                        ・シリーズ名は「. 」（半角ピリオド+半角スペース)区切りで出力する。複数の値があった場合には、1件のみ出力す
+                                                        る。
+                                                        http://dl.ndl.go.jp/api/oaipmh?verb=GetRecord&metadataPrefix=dcndl_porta&identifier=oai:dl.ndl.go.jp:（永続的識
+    12   seeAlso                     参照URI
+                                                        別子）
+    13   viewingDirection            表示方向               （アイテムの「並び順」を出力する）
+    14   sequences                   シーケンス              （マニフェストあたり1つ出力する）
+    15           @type               タイプ                sc:Sequence
+    16           @id                 ID                 （設定しない）
+    17           thumbnail           サムネイル              （シーケンスあたり1つ出力する）
+                                                        https://www.dl.ndl.go.jp/api/iiif/（永続的識別子の数字部分/表題紙サムネイルのコンテンツ番号
+    18                   @id         ID
+                                                        /full/full/0/default.jpg
+    19                   @type       タイプ                dctypes:Image
+    20                   format      フォーマット             image/jpeg
+    21           viewingHint         表示ヒント              individuals
+
+
+
+
+                                                                                1
+                                                                                                                                 国立国会図書館
+                                                                                                                             作成日：平成30年5月15日
+                                                                                                                             更新日：平成30年7月25日
+22        canvases                                 カンバス      （シーケンスあたり1つ出力する）
+23                @id                              ID        https://www.dl.ndl.go.jp/api/iiif/（永続的識別子の数字部分)/canvas/(数字)
+24                @type                            タイプ       sc:Canvas
+25                width                            横幅        横幅（ピクセル値）
+26                height                           縦幅        縦幅（ピクセル値）
+27                label                            ラベル       （コンテンツのコマ番号を出力する）
+28                thumbnail                        サムネイル     （カンバスあたり1つ出力する）
+                                                             https://www.dl.ndl.go.jp/api/iiif/（永続的識別子の数字部分/コマサムネイルのコンテンツ番号）
+29                        @id                      ID
+                                                             /full/full/0/default.jpg
+30                        @type                    タイプ       dctypes:Image
+31                        format                   フォーマット    image/jpeg
+32                images                           画像
+33                        @id                      ID        （設定しない）
+34                        @type                    タイプ       oa:Annotation
+35                        motivation               モチベーション   sc:painting
+36                        resource                 リソース      （画像あたり1つ出力する）
+                                                             https://www.dl.ndl.go.jp/api/iiif/（永続的識別子の数字部分/提供用コンテンツのコンテンツ番号）
+37                              @id                ID
+                                                             /full/full/0/default.jpg
+38                              @type              タイプ       dctypes:Image
+39                              format             フォーマット    image/jpeg
+40                              width              横幅        横幅（ピクセル値）
+41                              height             縦幅        縦幅（ピクセル値）
+42                              service            サービス      （リソースあたり1つ出力する）
+43                                       @context コンテキスト     http://iiif.io/api/image/2/context.json
+44                                       @id       ID        https://www.dl.ndl.go.jp/api/iiif/（永続的識別子の数字部分/提供用コンテンツのコンテンツ番号）
+45                                       profile   プロファイル    http://iiif.io/api/image/2/level1.json
+46                        on                                 https://www.dl.ndl.go.jp/api/iiif/（永続的識別子の数字部分)/canvas/(数字)
+47   structures                                    範囲        （目次情報を持つ場合マニフェストあたり1つ出力する）
+48        @id                                      ID        https://www.dl.ndl.go.jp/api/iiif/（永続的識別子の数字部分/range/（目次ID）
+49        @type                                    タイプ       sc:Range
+50        label                                              （目次テーブルの「目次名」を出力）
+51        viewingHint                                        （設定しない）
+52        members                                            （設定しない）
+53        ranges                                             （設定しない）
+54        canvases                                           https://www.dl.ndl.go.jp/api/iiif/（永続的識別子の数字部分/提供用コンテンツのコンテンツ番号）/info.json
+
+
+
+
+                                                                                   2
+                                                                                                                                                                国立国会図書館
+                                                                                                                                                            作成日：平成30年5月15日
+                                                                                                                                                            更新日：平成30年7月25日
+2. 画像API：画像リクエストURI
+   書式： {scheme}://{server}/{prefix}/{identifier}/{region}/{size}/{rotation}/{quality}.{format}
+
+                                                                     ・３コマ目の画像リクエストURIの例：
+                                                                     https://www.dl.ndl.go.jp/api/iiif/1234567/R0000003/full/full/0/default.jpg
+
+                                                                     ・領域及びサイズを変えた例：
+ 2-1 リクエスト                                                           https://www.dl.ndl.go.jp/api/iiif/1234567/R0000003/735,969,916,1400/pct:50/0/default.jpg
+    No. 項目                                     項目名称                  デジタルコレクションで要求する値
+     1    scheme                               スキーマ                  https
+     2    server                               サーバ名                  www.dl.ndl.go.jp
+     3    prefix                               プレフィックス               /api/iiif/
+     4    identifier                           識別子                   （永続的識別子の数字部分/コンテンツファイル名）
+     5    region                               切り出し範囲                full、（x,y,w,hでピクセル指定）、（pct:x,y,w,hでパーセンテージ指定）
+     6    size                                 大きさ                   full、（w,hでピクセル指定）、（pct:nでパーセンテージ指定）
+                                                                     0
+                                                                     準拠レベル1で必須の「0(回転なし)」に対応する。
+                                                                     下記は対応しない
+     7    rotation                             角度
+                                                                       ・90、180、270（準拠レベル2。supports：rotationBy90s）
+                                                                       ・任意の回転角度：（supports：rotationArbitrary）
+                                                                       ・!（反転）
+
+                                                                     default
+                                                                     準拠レベル1で必須の「default」に対応する。
+     8    quality                              品質
+                                                                     下記は対応しない
+                                                                      ・color、gray、bitonal（準拠レベル2以上）
+
+                                                                     jpg
+                                                                     準拠レベル1で必須の「jpg」に対応する。
+     9    format                               拡張子                   下記は対応しない
+                                                                       ・png（準拠レベル2以上で必須）
+                                                                       ・tif,gif,pdf,jp2,webp
+
+ 2-2 レスポンス
+  リクエストで指定した内容に対応する画像データ
+  レスポンス画像の最大サイズは5000ピクセルとする。最大サイズ以上の画像は縦横の長い方のサイズを最大サイズに合わせて調整する。
+
+3. 画像API：画像情報リクエストURI
+   書式：{scheme}://{server}/{prefix}/{identifier}/info.json
+
+ 3-1 リクエスト
+    No. 項目                                     項目名称                  デジタルコレクションで要求する値
+     1    scheme                               スキーマ                  https
+     2    server                               サーバ名                  www.dl.ndl.go.jp
+     3    prefix                               プレフィックス               /api/iiif/
+     4    identifier                           識別子                   （永続的識別子の数字部分/提供用コンテンツのコンテンツ番号）
+     5    info.json                            情報                    info.json
+
+ 3-2 レスポンス(json形式)
+    No. 項目                                     項目名称                  デジタルコレクションからの出力値
+     1    @context                             コンテキスト                http://iiif.io/api/image/2/context.json
+     2    @id                                  ID                    https://www.dl.ndl.go.jp/api/iiif/（永続的識別子の数字部分/提供用コンテンツのコンテンツ番号）
+     3    @type                                タイプ                   dctypes:Image
+     4    protocol                             プロトコル                 http://iiif.io/api/image
+     5    width                                画像の横幅                 横幅（ピクセル値）
+     6    height                               画像の縦幅                 縦幅（ピクセル値）
+     7    profile                              プロファイル                http://iiif.io/api/image/2/level1.json
+     8            formats                      画像フォーマット              jpg
+     9            qualities                    クオリティ                 default
+
+                                                                     以下を出力する
+     10           supports                     サポート                  ・regionByPct
+                                                                     ・sizeByWh
+
+     11           maxHeight                    最大縦幅                  （設定しない）
+     12           maxWidth                     最大横幅                  （設定しない）
+
+                                                                     推奨サイズの配列を出力する。tilesのscaleFactorsと対応する。
+                                                                     例）width:1024、height:1024、maxZoomLevel:5、minZoomLevel:0の場合
+     11   sizes                                推奨サイズ                 [{width:16,height:16}.{width:32,height:32}.
+                                                                     {width:64,height:64}.{width:128,height:128}.
+                                                                     {width:256,height:256}.{width:1024,height:1024}]
+
+     12           width                        横幅                    推奨の横幅（ピクセル値）
+     13           height                       縦幅                    推奨の縦幅（ピクセル値）
+     14   tiles                                推奨タイル領域               タイルの定義情報
+     15           width                        横幅                    1024
+     16           height                       縦幅                    1024
+
+                                                                     返却できる倍率のリスト
+     17           scaleFactors                 スケールファクター
+                                                                     例）width:1024、height:1024、maxZoomLevel:5、minZoomLevel:0の場合、[1,2,4,8,16,32]
+
+
+
+
+                                                                                            3
+

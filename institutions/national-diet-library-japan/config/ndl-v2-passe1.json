@@ -1,0 +1,18 @@
+{
+  "slug": "national-diet-library-japan",
+  "min_delay_s": 6,
+  "max_requests": 15,
+  "follow_redirects": 1,
+  "robots_disallow_autorise_par_marcel": true,
+  "note": "Passe 1 : NDL Search (OpenSearch, SRU, OpenURL, OAI-PMH Identify/ListMetadataFormats/ListSets ; exemples de la spécification, cnt/maximumRecords ramenés à 1 ; /api est en Disallow dans le robots.txt, autorisé par Marcel C12) et manifeste IIIF NDL Digital Collections (guide officiel IIIF_interface_Jp.pdf ; /api/iiif/ est en Allow). Identifiant 2542679 : manifeste public vu dans un résultat de recherche web, jamais deviné.",
+  "endpoints": [
+    {"id": "v2p1-ndlsearch-opensearch", "method": "GET", "url": "https://ndlsearch.ndl.go.jp/api/opensearch?cnt=1&title=%e3%83%9e%e3%83%aa%e3%83%bc%e3%82%a2%e3%83%b3%e3%83%88%e3%83%af%e3%83%8d%e3%83%83%e3%83%88&ndc=2&dpid=iss-ndl-opac"},
+    {"id": "v2p1-ndlsearch-sru", "method": "GET", "url": "https://ndlsearch.ndl.go.jp/api/sru?operation=searchRetrieve&maximumRecords=1&query=title%3d%22%E6%A1%9C%22%20AND%20from%3d%222018%22"},
+    {"id": "v2p1-ndlsearch-openurl", "method": "GET", "url": "https://ndlsearch.ndl.go.jp/api/openurl?au=%e5%a4%8f%e7%9b%ae%e6%bc%b1%e7%9f%b3"},
+    {"id": "v2p1-oaipmh-identify", "method": "GET", "url": "https://ndlsearch.ndl.go.jp/api/oaipmh?verb=Identify"},
+    {"id": "v2p1-oaipmh-listmetadataformats", "method": "GET", "url": "https://ndlsearch.ndl.go.jp/api/oaipmh?verb=ListMetadataFormats"},
+    {"id": "v2p1-oaipmh-listsets", "method": "GET", "url": "https://ndlsearch.ndl.go.jp/api/oaipmh?verb=ListSets"},
+    {"id": "v2p1-opensearch-description", "method": "GET", "url": "https://ndlsearch.ndl.go.jp/api/opensearch_description"},
+    {"id": "v2p1-dl-iiif-manifeste", "method": "GET", "url": "https://www.dl.ndl.go.jp/api/iiif/2542679/manifest.json", "save_body": 3000000}
+  ]
+}
