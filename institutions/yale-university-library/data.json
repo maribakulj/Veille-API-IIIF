@@ -4,10 +4,210 @@
   "pays": "États-Unis",
   "classeur_id": "GLAM-035",
   "type": "Institution",
-  "statut_audit": "à faire",
+  "statut_audit": "audit a–f avec blocage : défi AWS WAF (202) sur les pages HTML ; OAI et IIIF Image non testés ; g impossible",
   "limites_documentees": [],
   "en_tetes_observes": [],
-  "blocages": [],
-  "sources": [],
-  "web": []
+  "blocages": [
+    {
+      "date": "2026-11-14",
+      "hote": "collections.library.yale.edu",
+      "code": "202",
+      "nature": "défi JavaScript AWS WAF (x-amzn-waf-action: challenge, corps vide) sur /catalog/16945082",
+      "suite": "arrêt de l'hôte, aucun contournement ; passe 2 non lancée"
+    },
+    {
+      "date": "2026-11-14",
+      "hote": "web.library.yale.edu",
+      "code": "403",
+      "nature": "403 à la lecture directe du catalogue de services (sources/a5) ; lue dans la Wayback",
+      "suite": "page lue via internet-archive"
+    },
+    {
+      "date": "2026-11-14",
+      "hote": "iiif.library.yale.edu",
+      "code": "DNS",
+      "nature": "hôte deviné par moi, DNS introuvable (sources/a1/FETCH.log)",
+      "suite": "aucune"
+    }
+  ],
+  "sources": [
+    {
+      "url": "https://collections.library.yale.edu/robots.txt",
+      "date": "2026-11-14",
+      "etiquette": "officielle",
+      "preuve": "institutions/yale-university-library/sources/a1/SHA256SUMS"
+    },
+    {
+      "url": "https://collections.library.yale.edu/help_guide",
+      "date": "2026-11-14",
+      "etiquette": "officielle",
+      "preuve": "institutions/yale-university-library/sources/a2/SHA256SUMS"
+    },
+    {
+      "url": "https://web.library.yale.edu/lit/servicecatalog/164929",
+      "date": "2026-11-14",
+      "etiquette": "officielle (Wayback)",
+      "preuve": "institutions/yale-university-library/sources/wayback/service-catalog-dcs.md"
+    },
+    {
+      "url": "https://web.library.yale.edu/sites/default/files/files/faq_oatodigitalrepresentations_pdworks_21mar2012.pdf",
+      "date": "2026-11-14",
+      "etiquette": "officielle (2012)",
+      "preuve": "institutions/yale-university-library/sources/a7/SHA256SUMS"
+    }
+  ],
+  "web": [
+    {
+      "categorie": "institution",
+      "url": "https://web.library.yale.edu/sites/default/files/files/faq_oatodigitalrepresentations_pdworks_21mar2012.pdf",
+      "date": "2026-11-14",
+      "etiquette": "officielle (2012)",
+      "citation": "There are no restrictions on Yale's service for machine harvesting of metadata (http://oai.odai.yale.edu/xcol/) built on the Open Archives Protocol for Metadata Harvesting (OAI-PMH).",
+      "preuve": "institutions/yale-university-library/sources/a7/faq.txt"
+    },
+    {
+      "categorie": "utilisateurs",
+      "url": "https://github.com/adequatelimited/voynich/pull/55",
+      "date": "2026-11-14",
+      "etiquette": "tiers",
+      "citation": "the manifest route is a different endpoint and was never blocked ; the catalog landing URL still answers automated requests with HTTP 202 and an empty body.",
+      "preuve": "institutions/yale-university-library/fiche.md"
+    },
+    {
+      "categorie": "tickets",
+      "url": "https://github.com/Antonio-Faure/mnemosyne/pull/24",
+      "date": "2026-11-14",
+      "etiquette": "tiers",
+      "citation": "connecteur de manifestes Yale ; aucune règle de débit, 429 ni défi cité dans la page.",
+      "preuve": "institutions/yale-university-library/fiche.md"
+    },
+    {
+      "categorie": "presentations",
+      "aucun_resultat": true,
+      "requete": "Yale Library digital collections system migration Blacklight IIIF presentation Samvera Hyrax yul-dc talk OR blog",
+      "date": "2026-11-14",
+      "etiquette": "–",
+      "citation": "aucune présentation de l'institution sur les limites ou le trafic ; seul un billet Samvera Connect 2017 est signalé (résumé de moteur, non vérifié)",
+      "preuve": "institutions/yale-university-library/fiche.md"
+    }
+  ],
+  "contact": "library.helpdesk@yale.edu (catalogue de services de la bibliothèque, Wayback)",
+  "conclusion_quota": "Aucun quota publié ; défi AWS WAF (202 vide, x-amzn-waf-action: challenge) sur les pages HTML du catalogue ; manifeste IIIF en 200 sans en-tête de limite ; OAI et IIIF Image non testés.",
+  "classe_quota": "accès refusé à ce client (défi WAF), aucun quota trouvé",
+  "confiance": "faible",
+  "notes": "Poursuite des requêtes vers collections.library.yale.edu refusée par le contrôle d'autorisation après le défi ; décision prudente : arrêt de l'hôte.",
+  "g_impossible": {
+    "raison": "Défi AWS WAF (202, x-amzn-waf-action: challenge) reçu sur collections.library.yale.edu dès la passe 1 et poursuite des requêtes refusée par le contrôle d'autorisation : aucun crash test possible sur cet hôte sans risque de blocage ou de contournement."
+  },
+  "a_verifier_manuellement": [
+    {
+      "url": "https://collections.library.yale.edu/catalog/16945082",
+      "pourquoi": "défi AWS WAF : 202 à corps vide, x-amzn-waf-action: challenge (tests/raw/catalogue-item.headers.txt)",
+      "a_chercher": "Ouvrir la page dans un navigateur ; chercher une mention d'accès automatisé ou de limite dans le pied de page et l'aide"
+    },
+    {
+      "url": "https://collections.library.yale.edu/catalog/oai?verb=Identify",
+      "pourquoi": "point d'accès OAI cité par le manifeste, non testé : poursuite refusée après défi WAF",
+      "a_chercher": "Tester dans un navigateur ou par e-mail : limites de moissonnage OAI et en-têtes de débit"
+    },
+    {
+      "url": "https://collections.library.yale.edu/iiif/2/32352934/info.json",
+      "pourquoi": "service d'images IIIF 2 cité par le manifeste, non testé : poursuite refusée après défi WAF",
+      "a_chercher": "En-têtes de limite sur info.json et sur un dérivé d'image ; limite de débit de l'image server (yul-dc-iiif-imageserver)"
+    },
+    {
+      "url": "https://collections.library.yale.edu/catalog/opensearch.xml",
+      "pourquoi": "202 à corps vide (défi probable) à la lecture par fetch_doc (sources/a9)",
+      "a_chercher": "Contenu du descripteur OpenSearch dans un navigateur"
+    },
+    {
+      "url": "https://web.library.yale.edu/lit/servicecatalog/164929",
+      "pourquoi": "403 en direct ; lue seulement dans la Wayback (capture 2025-07-19)",
+      "a_chercher": "Version actuelle de la fiche « Digital Collections System Access »"
+    }
+  ],
+  "endpoints_documentes": [
+    {
+      "famille": "IIIF Presentation : manifeste /manifests/{oid}",
+      "url": "https://collections.library.yale.edu/manifests/16945082",
+      "statut": "teste",
+      "preuve": "institutions/yale-university-library/tests/raw/manifeste-16945082.headers.txt"
+    },
+    {
+      "famille": "Pages HTML du catalogue (Blacklight)",
+      "url": "https://collections.library.yale.edu/catalog/16945082",
+      "statut": "teste",
+      "preuve": "institutions/yale-university-library/tests/raw/catalogue-item.headers.txt"
+    },
+    {
+      "famille": "OAI-PMH /catalog/oai",
+      "url": "https://collections.library.yale.edu/catalog/oai?verb=Identify",
+      "statut": "non_teste",
+      "raison": "défi AWS WAF reçu sur le même hôte à la passe 1 ; poursuite des requêtes refusée par le contrôle d'autorisation, donc arrêt de l'hôte (consigne : jamais de contournement)"
+    },
+    {
+      "famille": "IIIF Image 2 /iiif/2/{id}",
+      "url": "https://collections.library.yale.edu/iiif/2/32352934/info.json",
+      "statut": "non_teste",
+      "raison": "défi AWS WAF reçu sur le même hôte à la passe 1 ; poursuite des requêtes refusée par le contrôle d'autorisation, donc arrêt de l'hôte (consigne : jamais de contournement)"
+    },
+    {
+      "famille": "OAI-PMH ancien (FAQ 2012)",
+      "url": "http://oai.odai.yale.edu/xcol/",
+      "statut": "non_teste",
+      "raison": "adresse d'un document de 2012 (FAQ), probablement remplacée ; test suspendu avec l'arrêt de l'audit des requêtes Yale après le défi WAF, à vérifier à la main"
+    },
+    {
+      "famille": "OpenSearch /catalog/opensearch.xml",
+      "url": "https://collections.library.yale.edu/catalog/opensearch.xml",
+      "statut": "non_teste",
+      "raison": "202 à corps vide (défi probable) déjà reçu à la lecture de doc ; pas relancé sur un hôte en défi"
+    },
+    {
+      "famille": "PDF /pdfs/{oid}.pdf et téléchargement TIFF",
+      "url": "https://collections.library.yale.edu/pdfs/16945082.pdf",
+      "statut": "non_teste",
+      "raison": "fichiers volumineux, Disallow dans robots.txt pour /pdfs/ ; téléchargement intégral exclu par le briefing"
+    }
+  ],
+  "endpoints_ecartes": [
+    {
+      "url": "https://guides.library.yale.edu/yul-iiif",
+      "raison": "URL devinée dans ma liste de doc : 404 constaté (sources/a1/FETCH.log), aucune API"
+    },
+    {
+      "url": "https://iiif.library.yale.edu/robots.txt",
+      "raison": "hôte deviné par moi : DNS introuvable (sources/a1/FETCH.log), aucune API"
+    },
+    {
+      "url": "https://manifests.collections.yale.edu/robots.txt",
+      "raison": "hôte des musées (YCBA, YUAG) : 404 constaté, institution distincte de la bibliothèque (GLAM-036/037)"
+    },
+    {
+      "url": "https://images.collections.yale.edu/robots.txt",
+      "raison": "hôte deviné : 404 sans corps (sources/a1/FETCH.log), aucune API de la bibliothèque"
+    }
+  ],
+  "hotes_robots": [
+    {
+      "hote": "collections.library.yale.edu",
+      "resultat": "Disallow /manifests/, /pdfs/, /mirador/ (tous robots) ; GPTBot : /iiif/ et /annotation/ aussi ; aucun Crawl-delay ; testé quand même (C12)",
+      "preuve": "institutions/yale-university-library/sources/a1/SHA256SUMS"
+    },
+    {
+      "hote": "library.yale.edu",
+      "resultat": "robots Drupal standard : chemins techniques interdits ; aucune règle d'API",
+      "preuve": "institutions/yale-university-library/sources/a1/SHA256SUMS"
+    },
+    {
+      "hote": "manifests.collections.yale.edu",
+      "resultat": "robots.txt 404 (tout autorisé)",
+      "preuve": "institutions/yale-university-library/sources/a1/SHA256SUMS"
+    },
+    {
+      "hote": "images.collections.yale.edu",
+      "resultat": "robots.txt 404 sans corps (tout autorisé)",
+      "preuve": "institutions/yale-university-library/sources/a1/SHA256SUMS"
+    }
+  ]
 }
