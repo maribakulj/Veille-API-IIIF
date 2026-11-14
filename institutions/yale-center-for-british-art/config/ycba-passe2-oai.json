@@ -1,0 +1,13 @@
+{
+  "slug": "yale-center-for-british-art",
+  "min_delay_s": 6,
+  "max_requests": 15,
+  "follow_redirects": 1,
+  "robots_disallow_autorise_par_marcel": true,
+  "note": "passe 2 : OAI-PMH LIDO annonce par https://britishart.yale.edu/collections-data-sharing (« Our LIDO XML is available via ... OAI-PMH », base https://harvester-bl.britishart.yale.edu/oaicatmuseum/). Le chemin du gestionnaire (OAIHandler) est celui de la page de demonstration OAICat servie a cette base (sources/doc2/raw/03.html : baseURL .../oaicat/OAIHandler). harvester-bl.../robots.txt = 404. Trois verbes legers.",
+  "endpoints": [
+    {"id": "oai-identify", "method": "GET", "url": "https://harvester-bl.britishart.yale.edu/oaicatmuseum/OAIHandler?verb=Identify"},
+    {"id": "oai-listmetadataformats", "method": "GET", "url": "https://harvester-bl.britishart.yale.edu/oaicatmuseum/OAIHandler?verb=ListMetadataFormats"},
+    {"id": "oai-listsets", "method": "GET", "url": "https://harvester-bl.britishart.yale.edu/oaicatmuseum/OAIHandler?verb=ListSets"}
+  ]
+}

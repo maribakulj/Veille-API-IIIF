@@ -321,6 +321,10 @@ def main():
             log.write(line)
             print(line.strip()[:220])
         log.write(f"# Fin {now_utc()} — {count} requête(s) envoyée(s)\n")
+    # Données personnelles : aucune valeur de ~/.veille-state/secrets.txt (IP de Marcel, parfois renvoyée dans un en-tête)
+    # ne doit rester dans les fichiers produits.
+    for _f in list(raw_dir.glob("*")) + [log_path]:
+        _hl.redact_fichier(_f)
 
 
 if __name__ == "__main__":

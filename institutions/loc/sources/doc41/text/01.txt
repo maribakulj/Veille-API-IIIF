@@ -1,0 +1,44 @@
+Library of Congress SRU Servers 
+ The Library of Congress  »  Standards  »  SRU 
+ SRU Web Pages 
+ Standards Pages 
+ All Library Pages 
+ sru home  »  LC SRU Servers 
+ LC SRU Servers 
+ The following Library of Congress servers are available for SRU access. (These are Z39.50 databases, accessible via Index Data's MetaProxy , functioning as an SRU/Z39.50 gateway.)
+ Library of Congress Online Catalog 
+ SRU Base URL (and Explain record): http://lx2.loc.gov:210/LCDB? 
+ Sample search. 
+ "Marv Throneberry ", return 2 MODS records 
+ http://lx2.loc.gov:210/lcdb?version=1.1&operation=searchRetrieve
+ &query="Marv Throneberry"
+ &startRecord=1&maximumRecords=5&recordSchema=mods 
+ National Library Service for the Blind and Print Disabled 
+ SRU Base URL (and Explain record): http://lx2.loc.gov:210/NLSBPH? 
+ Sample search. 
+ Search for: Publisher=CNIB and date=2005; return 10 MARCXML records
+ http://lx2.loc.gov:210/NLSBPH?operation=searchRetrieve&version=1.1&
+ query=dc.publisher=CNIB%20AND%20dc.date=2005&maximumRecords=10&recordSchema=marcxml 
+ Handbook of Latin American Studies 
+ SRU Base URL (and Explain record): http://lx2.loc.gov:210/HLAS? 
+ Sample search. 
+ Search for: Geographic Name=Peru ; return 3 Dublin Core records 
+ http://lx2.loc.gov:210/HLAS?operation=searchRetrieve&version=1.1&
+ query=bath.geographicName=Peru&maximumRecords=3&recordSchema=dc 
+ Library of Congress Name Authority File
+ SRU Base URL (and Explain record): http://lx2.loc.gov:210/NAF? 
+ Sample search. 
+ Search for: Personal name = Roosevelt; return 20 MADS records 
+ http://lx2.loc.gov:210/NAF?operation=searchRetrieve&version=1.1&
+ query=query=bath.personalName=roosevelt&maximumRecords=20&recordSchema=mads 
+ Library of Congress Subject Authority File
+ SRU Base URL (and Explain record): http://lx2.loc.gov:210/SAF? 
+ Sample search. 
+ Search for: Subject genre = documentary; return 20 MADS records 
+ http://lx2.loc.gov:210/SAF?operation=searchRetrieve&version=1.1&
+ query=bath.subjectGenre=documentary&maximumRecords=20&recordSchema=mads 
+ sru home  »  LC SRU Servers 
+ The 
+ Library of Congress  »  Standards  »  SRU 
+ October 1, 2019 
+ Contact Us

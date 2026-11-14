@@ -2,29 +2,304 @@
   "slug": "harvard",
   "nom": "Harvard Library",
   "pays": "États-Unis",
-  "statut_audit": "partiel (ancienne méthode)",
+  "statut_audit": "audit a–f complet (v2) ; g à faire",
   "limites_documentees": [
     {
-      "nature": "Débit (extrait non vérifié, wiki LibraryCloud)",
-      "perimetre": "API LibraryCloud",
+      "nature": "Limite de débit LibraryCloud",
+      "perimetre": "api.lib.harvard.edu (Items, Collections ; OAI présumé sur le même service)",
       "valeur": "300 requêtes",
-      "fenetre": "par 5 minutes (1 req/s)",
-      "effet": "–",
-      "source": "wiki LibraryCloud, page 43287734 (extrait tronqué, attribution incertaine)",
-      "date": "2026-11-13",
-      "verification": "tierce, non vérifiée"
+      "fenetre": "en moyenne par 5 minutes (60 req/min) ; « no more once per second »",
+      "effet": "au-delà : « the client will receive a 5 minute timeout before they can resume requests »",
+      "verification": "officielle, lue en entier ; non observée (aucun 429 en 11 requêtes à 6 s d'intervalle)",
+      "source": "https://harvardwiki.atlassian.net/wiki/spaces/LibraryStaffDoc/pages/43287734/LibraryCloud+APIs",
+      "date": "2026-11-14"
+    },
+    {
+      "nature": "Pagination LibraryCloud",
+      "perimetre": "Items API",
+      "valeur": "limit entre 0 et 250 (10 par défaut) ; pagination jusqu'à 100 000 enregistrements (maxPageableSet)",
+      "fenetre": "–",
+      "effet": "au-delà : réduire la requête",
+      "verification": "officielle, lue en entier",
+      "source": "https://harvardwiki.atlassian.net/wiki/spaces/LibraryStaffDoc/pages/43287734/LibraryCloud+APIs",
+      "date": "2026-11-14"
+    },
+    {
+      "nature": "Proxy NRS sans garantie",
+      "perimetre": "nrs.harvard.edu/proxy/…",
+      "valeur": "« causes additional load on the Name Resolution Service (NRS), does not provide performance guarantees, and can be slower than expected »",
+      "fenetre": "–",
+      "effet": "recommandation d'utiliser l'API de résolution",
+      "verification": "officielle, lue en entier",
+      "source": "https://harvardwiki.atlassian.net/wiki/spaces/LibraryStaffDoc/pages/357175231/MPS+Delivery+API",
+      "date": "2026-11-14"
     }
   ],
   "en_tetes_observes": [],
-  "blocages": [],
-  "contact": "non trouvé",
-  "conclusion_quota": "Un débit est annoncé par un extrait de wiki non vérifié ; aucun en-tête.",
-  "classe_quota": "règle sans chiffre officiel (extrait non vérifié)",
-  "confiance": "faible",
-  "notes": "À vérifier sur la doc officielle LibraryCloud.",
+  "blocages": [
+    {
+      "date": "2026-11-14",
+      "hote": "viewer.lib.harvard.edu",
+      "code": "202",
+      "nature": "défi AWS WAF (x-amzn-waf-action: challenge, corps vide)",
+      "suite": "arrêt sur cet hôte, non contourné"
+    },
+    {
+      "date": "2026-11-14",
+      "hote": "mps.lib.harvard.edu",
+      "code": "202",
+      "nature": "robots.txt : réponse 202 vide (même mécanisme), mais manifestes et images répondent 200",
+      "suite": "robots.txt non lisible ; pas de contournement"
+    },
+    {
+      "date": "2026-11-14",
+      "hote": "enterprisearchitecture.harvard.edu",
+      "code": "403",
+      "nature": "Access Denied (Akamai)",
+      "suite": "lu via Wayback ; non contourné"
+    }
+  ],
+  "contact": "LTS Support (Library Technology Services, Harvard Library), lien du wiki « LibraryCloud » : « If you have questions or need to report a problem when using LibraryCloud APIs, please contact LTS Support »",
+  "conclusion_quota": "LibraryCloud (api.lib.harvard.edu) : limite documentée de 300 requêtes / 5 minutes en moyenne, timeout de 5 minutes au-delà, « no more once per second » (wiki officiel LTS). Services IIIF (NRS, MPS, ids) : aucune limite publiée. 29 requêtes de sonde en 4 passes, aucun 429 ; défi AWS WAF (202) sur viewer.lib.harvard.edu et sur le robots.txt de mps.lib.harvard.edu ; 500 sur collections/2 déjà annoncé « currently unavailable » par la doc.",
+  "classe_quota": "limite chiffrée documentée (LibraryCloud) ; IIIF sans limite publiée",
+  "confiance": "moyenne",
+  "notes": "Aucun en-tête de limite dans les réponses ; réponses derrière istio-envoy. Adresse IP de Marcel présente dans l'en-tête x-mps-client-ip de MPS : redigée dans les fichiers du dépôt.",
   "classeur_id": "GLAM-033",
   "type": "Institution",
-  "sources": [],
-  "web": [],
-  "donnees_a_revalider": true
+  "sources": [
+    {
+      "url": "https://harvardwiki.atlassian.net/wiki/spaces/LibraryStaffDoc/pages/43287734/LibraryCloud+APIs",
+      "date": "2026-11-14",
+      "etiquette": "officielle",
+      "preuve": "institutions/harvard/sources/a2/SHA256SUMS"
+    },
+    {
+      "url": "https://harvardwiki.atlassian.net/wiki/spaces/LibraryStaffDoc/pages/357175231/MPS+Delivery+API",
+      "date": "2026-11-14",
+      "etiquette": "officielle",
+      "preuve": "institutions/harvard/sources/a2/SHA256SUMS"
+    },
+    {
+      "url": "https://harvardwiki.atlassian.net/wiki/spaces/LibraryStaffDoc/pages/43355218/LibraryCloud+OAI-PMH+Data+Provider",
+      "date": "2026-11-14",
+      "etiquette": "officielle",
+      "preuve": "institutions/harvard/sources/a2/SHA256SUMS"
+    },
+    {
+      "url": "https://library.harvard.edu/services-tools/iiif-manifests-digital-objects",
+      "date": "2026-11-14",
+      "etiquette": "officielle",
+      "preuve": "institutions/harvard/sources/a1/SHA256SUMS"
+    },
+    {
+      "url": "https://library.harvard.edu/services-tools/harvard-library-apis-datasets",
+      "date": "2026-11-14",
+      "etiquette": "officielle",
+      "preuve": "institutions/harvard/sources/a1/SHA256SUMS"
+    },
+    {
+      "url": "https://iiif.harvard.edu/about-iiif",
+      "date": "2026-11-14",
+      "etiquette": "officielle",
+      "preuve": "institutions/harvard/sources/a1/SHA256SUMS"
+    },
+    {
+      "url": "https://web.archive.org/web/20260210010253/https://enterprisearchitecture.harvard.edu/api-principles-and-practices-use-api-gateway-and-portal",
+      "date": "2026-11-14",
+      "etiquette": "officielle (réplique Wayback)",
+      "preuve": "institutions/harvard/sources/wayback/enterprisearchitecture-api-gateway-20260210.md"
+    }
+  ],
+  "web": [
+    {
+      "categorie": "institution",
+      "url": "https://harvardwiki.atlassian.net/wiki/spaces/LibraryStaffDoc/pages/43287734/LibraryCloud+APIs",
+      "date": "2026-11-14",
+      "etiquette": "officielle",
+      "citation": "« The LibraryCloud API is limited to an average of 300 requests per 5 minutes; if, after 5 minutes, that limit is exceeded, the client will receive a 5 minute timeout before they can resume requests. Please limit your requests to no more once per second. »",
+      "preuve": "institutions/harvard/sources/web/recherches-web-2026-11-14.md"
+    },
+    {
+      "categorie": "presentations",
+      "url": "https://2023.code4lib.org/talks/international-image-interoperability-framework-iiif-infrastructure-redesign-at-harvard-library",
+      "date": "2023",
+      "etiquette": "présentation de l'institution",
+      "citation": "Talk code4lib 2023 de l'équipe LTS sur la refonte de l'infrastructure IIIF ; lu : aucune mention de limite de débit ni de bots.",
+      "preuve": "institutions/harvard/sources/web/recherches-web-2026-11-14.md"
+    },
+    {
+      "categorie": "utilisateurs",
+      "aucun_resultat": true,
+      "requete": "api.lib.harvard.edu LibraryCloud 429 OR 503 OR blocked OR timeout problem users forum",
+      "date": "2026-11-14",
+      "etiquette": "–",
+      "citation": "aucun fil ni plainte d'utilisateur sur LibraryCloud ou les services IIIF de Harvard trouvé",
+      "preuve": "institutions/harvard/sources/web/recherches-web-2026-11-14.md"
+    },
+    {
+      "categorie": "tickets",
+      "aucun_resultat": true,
+      "requete": "github issue mps.lib.harvard.edu OR nrs.lib.harvard.edu OR iiif.lib.harvard.edu IIIF manifest rate limit OR blocked OR 403",
+      "date": "2026-11-14",
+      "etiquette": "–",
+      "citation": "aucun ticket d'outil tiers sur les services IIIF de la Harvard Library trouvé",
+      "preuve": "institutions/harvard/sources/web/recherches-web-2026-11-14.md"
+    }
+  ],
+  "donnees_a_revalider": false,
+  "a_verifier_manuellement": [
+    {
+      "url": "https://viewer.lib.harvard.edu/",
+      "pourquoi": "défi AWS WAF (202, x-amzn-waf-action: challenge) à la sonde",
+      "a_chercher": "Aide et conditions du Viewer ; comportement des requêtes automatisées"
+    },
+    {
+      "url": "https://mps.lib.harvard.edu/robots.txt",
+      "pourquoi": "202 vide (défi) à la lecture directe",
+      "a_chercher": "Contenu réel du robots.txt de MPS dans un navigateur"
+    },
+    {
+      "url": "https://enterprisearchitecture.harvard.edu/api-principles-and-practices-use-api-gateway-and-portal",
+      "pourquoi": "403 Akamai ; lu par Wayback (capture du 2026-02-10)",
+      "a_chercher": "Politique de débit éventuelle de la passerelle API de HUIT (Apigee) applicable à LibraryCloud"
+    },
+    {
+      "url": "https://harvardwiki.atlassian.net/wiki/spaces/LibraryStaffDoc/pages/43286896/LTS+Support",
+      "pourquoi": "page de contact lue sans formulaire exploitable",
+      "a_chercher": "Adresse ou formulaire LTS Support pour demander une limite plus élevée"
+    }
+  ],
+  "endpoints_documentes": [
+    {
+      "famille": "LibraryCloud Items API (api.lib.harvard.edu/v2/items)",
+      "url": "https://api.lib.harvard.edu/v2/items?q=peanuts&limit=1",
+      "statut": "teste",
+      "preuve": "institutions/harvard/tests/raw/lc-items-q-peanuts.headers.txt"
+    },
+    {
+      "famille": "LibraryCloud Collections API",
+      "url": "https://api.lib.harvard.edu/v2/collections?limit=1",
+      "statut": "teste",
+      "preuve": "institutions/harvard/tests/raw/lc-collections.headers.txt"
+    },
+    {
+      "famille": "LibraryCloud OAI-PMH Data Provider",
+      "url": "https://api.lib.harvard.edu/oai/?verb=Identify",
+      "statut": "teste",
+      "preuve": "institutions/harvard/tests/raw/oai-identify.headers.txt"
+    },
+    {
+      "famille": "NRS : résolution (MANIFEST, THUMBNAIL, api/resolve, proxy)",
+      "url": "https://nrs.lib.harvard.edu/URN-3:HUAM:INV204583_DYNMC:MANIFEST:3",
+      "statut": "teste",
+      "preuve": "institutions/harvard/tests/raw/nrs-manifest-3.headers.txt"
+    },
+    {
+      "famille": "MPS manifestes IIIF 2 et 3",
+      "url": "https://mps.lib.harvard.edu/iiif/3/URN-3:HUAM:INV204583_DYNMC",
+      "statut": "teste",
+      "preuve": "institutions/harvard/tests/raw/mps-manifest-3.headers.txt"
+    },
+    {
+      "famille": "MPS images et info.json (IIIF Image 2)",
+      "url": "https://mps.lib.harvard.edu/assets/images/drs:25286607/info.json",
+      "statut": "teste",
+      "preuve": "institutions/harvard/tests/raw/mps-info-json.headers.txt"
+    },
+    {
+      "famille": "IIIF Image sur ids.lib.harvard.edu",
+      "url": "https://ids.lib.harvard.edu/ids/iiif/25286607/full/500,/0/default.jpg",
+      "statut": "teste",
+      "preuve": "institutions/harvard/tests/raw/ids-image-500.headers.txt"
+    },
+    {
+      "famille": "Harvard Library Viewer (Mirador)",
+      "url": "https://viewer.lib.harvard.edu/",
+      "statut": "non_teste",
+      "raison": "défi AWS WAF reçu au premier essai (202, x-amzn-waf-action: challenge) : on ne contourne pas ; listé à vérifier à la main"
+    }
+  ],
+  "endpoints_ecartes": [
+    {
+      "url": "https://iiif.lib.harvard.edu/manifests/ids:11927378",
+      "raison": "ancien format de manifeste cité par un résultat de recherche, absent de la doc officielle actuelle (library.harvard.edu cite nrs.lib.harvard.edu ... MANIFEST:3) ; testé dans l'ancienne passe archivée (redirection)"
+    },
+    {
+      "url": "https://github.com/harvard-library",
+      "raison": "dépôts du code source de LibraryCloud cités par le wiki ; pas une API à tester, consulté seulement comme piste de doc"
+    },
+    {
+      "url": "https://nrs.harvard.edu/urn-3:HUL.OIS:librarycloud",
+      "raison": "lien de résolution de nom vers la page de doc LibraryCloud, pas une API ; son contenu est la doc déjà lue"
+    },
+    {
+      "url": "https://enterprisearchitecture.harvard.edu/api-principles-and-practices-use-api-gateway-and-portal",
+      "raison": "page de doc HUIT (norme de passerelle API), pas une API ; 403 Akamai non contourné, lue via Wayback"
+    },
+    {
+      "url": "https://nrs.harvard.edu/urn-3:&lt;authority&gt;:&lt;resourceName&gt;:IMAGE/info.json",
+      "raison": "gabarit de la doc MPS (placeholders authority/resourceName) : testé avec l'identifiant d'exemple HUAM:INV204583_DYNMC via api/resolve et proxy NRS"
+    },
+    {
+      "url": "https://nrs.harvard.edu/urn-3:&lt;authority&gt;:&lt;resourceName&gt;:MANIFEST",
+      "raison": "gabarit de la doc MPS (placeholders) : testé avec l'identifiant d'exemple HUAM:INV204583_DYNMC (MANIFEST:2 et :3 sur nrs.lib.harvard.edu)"
+    }
+  ],
+  "hotes_robots": [
+    {
+      "hote": "api.lib.harvard.edu",
+      "resultat": "robots.txt 404 : tout autorisé",
+      "preuve": "institutions/harvard/sources/a1/SHA256SUMS"
+    },
+    {
+      "hote": "iiif.lib.harvard.edu",
+      "resultat": "robots.txt 404 (Cannot GET) : tout autorisé",
+      "preuve": "institutions/harvard/sources/a1/SHA256SUMS"
+    },
+    {
+      "hote": "mps.lib.harvard.edu",
+      "resultat": "202 vide (défi AWS WAF) : illisible, non contourné",
+      "preuve": "institutions/harvard/sources/a1/SHA256SUMS"
+    },
+    {
+      "hote": "nrs.lib.harvard.edu",
+      "resultat": "User-agent: * Disallow: / (autorisé par Marcel, C12)",
+      "preuve": "institutions/harvard/sources/a1/SHA256SUMS"
+    },
+    {
+      "hote": "nrs.harvard.edu",
+      "resultat": "User-agent: * Disallow: / (autorisé par Marcel, C12)",
+      "preuve": "institutions/harvard/sources/a3/SHA256SUMS"
+    },
+    {
+      "hote": "ids.lib.harvard.edu",
+      "resultat": "robots.txt 404 : tout autorisé",
+      "preuve": "institutions/harvard/sources/a3/SHA256SUMS"
+    },
+    {
+      "hote": "viewer.lib.harvard.edu",
+      "resultat": "202 vide (défi AWS WAF) : illisible, non contourné",
+      "preuve": "institutions/harvard/sources/a3/SHA256SUMS"
+    },
+    {
+      "hote": "library.harvard.edu",
+      "resultat": "Disallow /search, /admin, etc. : pages de doc autorisées",
+      "preuve": "institutions/harvard/sources/a1/SHA256SUMS"
+    },
+    {
+      "hote": "harvardwiki.atlassian.net",
+      "resultat": "Crawl-delay: 1 ; /wiki/ autorisé",
+      "preuve": "institutions/harvard/sources/a1/SHA256SUMS"
+    },
+    {
+      "hote": "iiif.harvard.edu",
+      "resultat": "robots.txt 404 : tout autorisé",
+      "preuve": "institutions/harvard/sources/a1/SHA256SUMS"
+    },
+    {
+      "hote": "enterprisearchitecture.harvard.edu",
+      "resultat": "403 Akamai (non contourné) : page lue via Wayback",
+      "preuve": "institutions/harvard/sources/wayback/enterprisearchitecture-api-gateway-20260210.md"
+    }
+  ]
 }

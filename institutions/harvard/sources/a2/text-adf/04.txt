@@ -1,0 +1,101 @@
+This describes functionality of the Media Presentation Service (MPS) platform implemented in 2025 and is intended for Harvard curators, collection managers and technologists responsible for managing and delivering images and associated content — such as machine-readable text when available — in online catalogs, websites and other local delivery and content management systems. 
+Format Support
+MPS will deliver files sourced as JPEG2000 (JP2) as web-accessible JPEG files.
+Functionality
+MPS is designed to ingest and deliver IIIF manifests of single images as well as image sequences (page-turned objects, or PTOs) that are supplied from multiple repository sources. In addition, MPS incorporates full text search capabilities that support CJK.
+Delivery can be restricted to the Harvard community or open to the public via Harvard Key.
+MPS will deliver IIIF manifests and images to the IIIF viewer hosted by LTS, simply called the Viewer, which is based on Mirador open source software. However, it is also possible to use the MPS API to request delivery of images and IIIF manifests directly by using additional URL parameters, described further on. It is also possible to request delivery of images with specific regions, size and orientation as well as an info.json file for a particular image.
+API Syntax
+Overview
+Still images from the Digital Repository Service (DRS) marked as deliverable have a default behavior of returning the still image directly. Still images sourced from other repositories than the DRS have a default behavior of returning the still image in the presentation layer (Viewer). Page-turned objects (PTOs) by default go to the presentation of the PTO (in Viewer).  
+Delivery of a still image using default rotation, size and quality
+To link to a default access copy of an image, where the image is not rotated and at the maximum size & quality specified by the repository that deposited it, the following syntax should be used: 
+https://nrs.harvard.edu/URN-3:<authority>:<resourceName>
+where:
+<authority>
+ is a repository-specific URN authority path
+<resourceName>
+ is an object-specific resource name 
+This is image delivery URN for still images and object delivery URN for page-turned objects
+Supported behaviors:
+:IMAGE
+:VIEW
+:MANIFEST
+Resolves to a request for the specification version of IIIF manifest currently supported by LTS
+:MANIFEST:2
+Resolves to a request of a manifest adhering specifically to version 2 of the IIIF specification
+:MANIFEST:3
+Resolves to a request of a manifest adhering specifically to version 3 of the IIIF specification
+:THUMBNAIL
+Resolves to a request of an image that is 250 x 250 pixels in proportional height or width
+:MIRADOR:2
+Resolves to a request to present an image using version 2 of the Mirador IIIF viewer
+:MIRADOR:3
+Resolves to a request to present an image using version 3 of the Mirador IIIF viewer
+If no behavior is specified, the default behavior is 
+:IMAGE
+.
+The best practice for delivering images directly is to use the following syntax:
+https://nrs.harvard.edu/URN-3:<authority>:<resourceName>:IMAGE
+The best practice for delivering images in the Viewer is to use the following syntax:
+https://nrs.harvard.edu/URN-3:<authority>:<resourceName>:VIEW
+Delivery of a  page-turned object in the Viewer
+To link to a default display of a page-turned image object in the Viewer, use the following syntax:
+https://nrs.harvard.edu/URN-3:<authority>:<resourceName>
+where:
+<authority>
+ is a repository-specific URN authority path
+<resourceName>
+ is an object-specific resource name 
+This is image delivery URN for still images and object delivery URN for page-turned objects
+Supported behaviors:
+:VIEW
+:MANIFEST
+:THUMBNAIL
+If no behavior is specified, the default behavior is 
+:VIEW
+.
+LTS proxy service for image delivery that can’t support redirects of API resolution calls
+For consumers that need to avoid redirects, the following syntax may be used:
+https://nrs.harvard.edu/proxy/<URN>:<BEHAVIOR>
+The following behaviors are supported in the above proxy solution.
+nrs.harvard.edu/proxy/<URN>:IMAGE
+nrs.harvard.edu/proxy/<URN>:THUMBNAIL
+nrs.harvard.edu/proxy/<URN>:IMAGE/info.json
+Please note that the proxy solution causes additional load on the Name Resolution Service (NRS), does not provide performance guarantees, and can be slower than expected.  If the solution can support an API lookup, the calling solution should instead request the resolution of the target URL by calling the NRS API as follows:
+https://nrs.harvard.edu/api/resolve/<URN>
+The following behaviors are supported in the above API solution:
+nrs.harvard.edu/api/resolve/<URN>:IMAGE
+nrs.harvard.edu/api/resolve/<URN>:THUMBNAIL
+nrs.harvard.edu/api/resolve/<URN>:IMAGE/info.json
+Delivery of a page-turned object open to a particular page image
+MPS supports an object delivery URN with an ‘n’ parameter. For example, if the object delivery URN is 
+https://nrs.harvard.edu/urn-3:FHCL:476796
+, 
+https://nrs.harvard.edu/urn-3:FHCL:476796?n=25
+ will deliver the object open to view the page image of sequence 25. This approach is based on page offsets, and will eventually be deprecated for unique IDs corresponding to pages in a page-turned object.
+Delivery of a still image with particular size and rotation
+To deliver an image of particular size and rotation directly to the browser use the following syntax:
+https://nrs.harvard.edu/urn-3:<authority>:<resourceName>:IMAGE/region/size/rotation/default.jpg
+where 
+<authority>
+ is a repository-specific URN authority path
+<resourceName>
+ is an object-specific resource name 
+This is image delivery URN for still images 
+IMAGE
+ is the syntax to request the image outside the context of the HL Viewer
+For /region/size/rotation/ syntax see: 
+  (for version 2 of IIIF Image API)
+  (for version 3 of IIIF Image API)
+Delivery of a thumbnail
+To deliver a thumbnail image of a defined size use the following syntax:
+https://nrs.harvard.edu/urn-3:<authority>:<resourceName>:THUMBNAIL
+Delivery of a IIIF Manifest
+To deliver a IIIF Manifest associated with an image or a page-turned object use the following syntax:
+https://nrs.harvard.edu/urn-3:<authority>:<resourceName>:MANIFEST
+Delivery of info.json for an image
+To request delivery of info.json for an image use the following syntax:
+https://nrs.harvard.edu/urn-3:<authority>:<resourceName>:IMAGE/info.json
+Setting delivery size
+The default policy for images delivered by MPS is set to 5,000 pixels in the longest dimension. Curators depositing images in the DRS can set a lower or higher delivery size for their images on a file-by-file basis. This is considered image-based policy, and it would override the default policy.

@@ -1,0 +1,14 @@
+{
+  "slug": "vatican",
+  "min_delay_s": 10,
+  "max_requests": 15,
+  "follow_redirects": 1,
+  "robots_disallow_autorise_par_marcel": true,
+  "note": "Passe 2 (v2) : services d'image IIIF Image 2 annoncés par le manifeste MSS_Vat.lat.683 (identifiants lus dans tests/raw/manifeste-MSS_Vat.lat.683.body, passe 1) : info.json de la première vue, un dérivé de 200 px de large, la vignette et la page de notice (seeAlso) citées par le même manifeste. Crawl-delay 10 de digi.vatlib.it/robots.txt.",
+  "endpoints": [
+    {"id": "info-json-p0001", "method": "GET", "url": "https://digi.vatlib.it/iiifimage/MSS_Vat.lat.683/Vat.lat.683_0001_al_piatto.anteriore.jp2/info.json"},
+    {"id": "image-200px-p0001", "method": "GET", "url": "https://digi.vatlib.it/iiifimage/MSS_Vat.lat.683/Vat.lat.683_0001_al_piatto.anteriore.jp2/full/200,/0/default.jpg"},
+    {"id": "vignette-p0001", "method": "GET", "url": "https://digi.vatlib.it/pub/digit/MSS_Vat.lat.683/thumb/Vat.lat.683_0001_al_piatto.anteriore.tif.jpg"},
+    {"id": "notice-seeAlso", "method": "GET", "url": "https://digi.vatlib.it/mss/detail/Vat.lat.683"}
+  ]
+}

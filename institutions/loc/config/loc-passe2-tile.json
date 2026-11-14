@@ -1,0 +1,15 @@
+{
+  "slug": "loc",
+  "min_delay_s": 12,
+  "max_requests": 15,
+  "follow_redirects": 1,
+  "robots_disallow_autorise_par_marcel": true,
+  "note": "passe 2 : microservices sur tile.loc.gov (Text Services 150/min, Image Services 150/min, Streaming 60/min, /storage-services/ 150/min ; blocage 1 h). Exemples tires de la doc (sources/doc/raw/05.html, 06.html, 07.html, 01.html). tile.loc.gov/robots.txt = 404 (sources/robots-tile) : tout autorise. Pause 12 s par prudence (limite recommandee 10 req/min).",
+  "endpoints": [
+    {"id": "text-services-alto", "method": "GET", "url": "https://tile.loc.gov/text-services/word-coordinates-service?segment=/service/ndnp/khi/batch_khi_bender_ver01/data/sn82016014/00212474198/1919121001/0753.xml&format=alto_xml&full_text=1"},
+    {"id": "image-info-json", "method": "GET", "url": "https://tile.loc.gov/image-services/iiif/service:sgp:sgpbatches:batch_dlc_anacostia_ver01:data:sn84025948:0023728866A:1942081001:0202/info.json"},
+    {"id": "image-thumb", "method": "GET", "url": "https://tile.loc.gov/image-services/iiif/service:sgp:sgpbatches:batch_dlc_anacostia_ver01:data:sn84025948:0023728866A:1942081001:0202/full/pct:10/0/default.jpg"},
+    {"id": "streaming-thumb", "method": "GET", "url": "https://tile.loc.gov/streaming-services/iiif/service:mbrs:ntscrm:01991429:01991429/full/,256/0/82,0/default.jpg"},
+    {"id": "storage-gif", "method": "GET", "url": "https://tile.loc.gov/storage-services/service/frd/pwmia/49/103790.gif"}
+  ]
+}

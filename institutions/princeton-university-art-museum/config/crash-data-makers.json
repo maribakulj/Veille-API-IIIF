@@ -1,0 +1,8 @@
+{
+  "slug": "princeton-university-art-museum",
+  "endpoint": {"id": "makers-6353", "url": "https://data.artmuseum.princeton.edu/makers/6353", "method": "GET"},
+  "limite_documentee_req_min": null,
+  "source_limite": "aucune limite de débit documentée (https://github.com/Princeton-University-Art-Museum/puam-api-docs README : seulement « size ... up to a maximum of 500 » par requête)",
+  "duree_palier_s": 180,
+  "note": "Fiche maker JSON de l'API data.artmuseum.princeton.edu, 200 dans le journal (makers-6353, 2026-11-14T02:01:17Z). Petite réponse, pas de recherche ni de zip. Hôte sans réseau protégé visible (nginx/Express)."
+}

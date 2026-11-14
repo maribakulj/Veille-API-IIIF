@@ -1,0 +1,349 @@
+Streaming Services | Microservices | APIs at the Library of Congress | Library of Congress
+ Loading... 
+ Top of page
+ Skip to main content
+ Library of Congress 
+ Everything 
+ Audio Recordings
+ Books/Printed Material
+ Films, Videos
+ Legislation
+ Manuscripts/Mixed Material
+ Maps
+ Notated Music
+ Newspapers
+ Periodicals
+ Personal Narratives
+ Photos, Prints, Drawings
+ Software, E-Resources
+ Web Archives
+ Web Pages
+ 3D Objects
+ APIs at the Library of Congress
+ Search 
+ Toggle Search 
+ Global Menu 
+ Discover
+ Services
+ Visit
+ Education
+ Connect
+ About
+ Ask a Librarian
+ Help
+ Contact
+ Search Online Catalog
+ Copyright.gov
+ Congress.gov
+ Library of Congress 
+ More 
+ APIs at the Library of Congress 
+ Microservices 
+ Streaming Services
+ Share
+ Copied!
+ Error copying link to clipboard.
+ Services
+ APIs at the Library of Congress
+ Menu 
+ APIs for LoC.gov
+ JSON/YAML for LoC.gov
+ JSON/YAML for LoC.gov
+ Making API Requests
+ API Endpoints
+ API Request Parameters
+ Understanding API Responses
+ Search Results Responses
+ Item and Resource Responses
+ Working Within Limits
+ Dynamic Examples
+ Sitemaps
+ Microservices
+ Microservices
+ Text Services
+ Image Services
+ Streaming Services
+ Additional APIs and Data Services
+ Additional APIs and Data Services
+ Congress.gov API
+ NLS BARD API
+ Chronicling America
+ PPOC - JSON HTTP API
+ Linked Data Service
+ Search/Retrieval via URL
+ Contact
+ Streaming Services
+ An audio and video (A/V) delivery API for the Library of Congress.
+ Introduction 
+ Streaming services is an audio and video (A/V) delivery API based largely on the IIIF Image 2 API which image
+ services implements. In a similar manner,
+ A/V files are accessible by a URI that specifies the region, size, rotation, temporal region, quality
+ characteristics and format of the
+ requested file. A URI can also be constructed to request basic technical information about the resource to support
+ client applications. This API was
+ conceived of to facilitate systematic reuse of AV resources in digital AV repositories maintained by cultural
+ heritage organizations. It could be
+ adopted by any AV repository or service, and can be used to retrieve static AV in response to a properly constructed
+ URI.
+ A/V API IIIF Prototype 
+Although the IIIF community has implemented an A/V standard for including A/V
+resources in the Canvas model for the IIIF Presentations model, we felt as
+though a major opportunity has been missed to treat A/V content with the same
+basic service model that made the IIIF Image API so practicle and widely
+adopted.
+Thus the primary goal of our prototype was to demonstrate this practicle approach to
+A/V content. The ability to cite temporal regions of A/V content with simple
+HTTP GET requests provides durable and easily embedded citations for primary
+resources without the unnessessary complexity of requiring the IIIF
+Presentation API's canvas model.
+The secondary goal of the prototype was to demonstrate that the simple
+addressing of temporal segments could be leveraged to build out broader
+services like Adaptive HTTP Live Streaming. This is much like the IIIF Image API
+that is leveraged to build deep zoom images for web exploration of high resolution
+content that cant easily be accessed otherwise on the web.
+ IIIF Service Patterns 
+In general, we sought to reuse as many of the constructs of the Image API. Not
+all of the features were implemented so we could focus on some of the harder
+problems in the prototype. The A/V API decided to inherit the region, scaling,
+rotation, and quality parameters of the Image API both because they are useful
+but also familiar to Image API users for selecting subregions of interest. Only
+scaling was implemented as it was neccessary to construct the Adaptive
+ HTTP Live Streaming (HLS) 
+representation. Partial support for the quality parameter was implemented
+as several output formats where required to produce the useful examples.
+ Rate limits
+ For rate limits, see Working within Limits 
+ URI Syntax 
+ The IIIF AV API can be called in two ways:
+ Request an AV segment, which may be part of a larger AV segment. 
+ Request a description of the AV characteristics and functionality available for that AV. 
+ Both convey the request’s information in the path segments of the URI,
+ rather than as query parameters. This makes responses easier to cache,
+ either at the server or by standard web-caching infrastructure. It also
+ permits a minimal implementation using pre-computed files in a matching
+ directory structure.
+ There are four parameters shared by the requests, and other IIIF
+ specifications. The combination of these parameters forms the a/v's Base URI and
+ identifies the underlying image content. It is constructed according to
+ the following URI Template ( RFC6570 ):
+{scheme}://{server}{/prefix}/{identifier}
+ Parameter 
+ Description 
+ scheme 
+ Indicates the use of the HTTPS protocol in calling
+ the service.
+ server 
+ The host server on which the service resides.
+ prefix 
+ The path on the host server to the service. This prefix is
+ optional, but may be useful when the host server supports
+ multiple services. The prefix may contain multiple path
+ segments, delimited by slashes, but all other special
+ characters must be encoded. See URI Encoding and Decoding
+ for more information.
+ identifier 
+ The identifier of the requested image. This may be an
+ ark, URN, filename, or other identifier. Special characters
+ must be URI encoded.
+ A/V information Request 
+ One can query the server to retrieve detailed information about a given A/V file. This data includes the available
+ formats, quality and orientations for
+ the selecte file. This information is retrieved from the following url:
+{scheme}://{server}/{prefix}/{identifier}/info.json
+ The returned info.json will include the following information:
+{
+ '@context': 'https://iiif.io/api/av/0/context.json',
+ '@id': the url,
+ 'protocol': 'https://iiif.io/api/av',
+ 'height': the original height of the A/V file,
+ 'width': the original width of the A/V file,
+ 'duration': the A/V files duration,
+ 'captions': An array of captions for the A/V file,
+ 'tiles': [{
+ 'width': 512,
+ 'scaleFactors': 2**(number of levels)
+ }],
+ 'profile': [
+ "https://iiif.io/api/av/0/level2.json",
+ {
+ 'formats': Supported formats,
+ 'qualities': Supported qualities,
+ 'supports': [
+ # The base URI of the service will redirect to the Image
+ # Information document.
+ 'baseUriRedirect',
+ # The CORS HTTP header is provided on all responses.
+ 'cors',
+ # The JSON-LD media type is provided when JSON-LD is requested.
+ 'jsonldMediaType',
+ # The image may be rotated around the vertical axis, resulting
+ # in a left-to-right mirroring of the content.
+ 'mirroring',
+ # Regions of images may be requested by percentage.
+ 'regionByPct',
+ # Regions of images may be requested by pixel dimensions.
+ 'regionByPx',
+ # Rotation of images may be requested by degrees other than
+ # multiples of 90.
+ # Rotation of images may be requested by degrees in multiples
+ # of 90.
+ 'rotationBy90s',
+ # Size of video given in the sizes field of the AV
+ # Information document may be requested using the w,h syntax.
+ 'sizeByWhListed',
+ # Size of images may be requested in the form "!w,h".
+ 'sizeByForcedWh',
+ # Size of images may be requested in the form ",h".
+ 'sizeByH',
+ # Size of images may be requested in the form "pct:n".
+ 'sizeByPct',
+ # Size of images may be requested in the form "w,".
+ 'sizeByW',
+ # Size of images may be requested in the form "w,h".
+ 'sizeByWh',
+ ],
+ }],
+ }
+ A/V Request Syntax 
+ Request for an A/V resource conform to the following URI template which mirrosr the functionality of those found in
+ the image-services API:
+{scheme}://{server}{/prefix}/{identifier}/{region}/{size}/{rotation}/{temporal_region}/{quality}.{format}
+ scheme - Indicates the use of the HTTPS protocol in calling the service.
+ server - The host server on which the service resides. The parameter may also include a port number.
+ prefix - The path on the host server to the service. This prefix is optional, but may be useful when the
+ host server supports multiple services.
+ The prefix may contain multiple path segments, delimited by slashes, but all other special characters must be
+ encoded. See URI Encoding and Decoding
+ for more information.
+ identifier - The identifier of the requested A/V file. This may be an URN, filename, or other
+ identifier. Special characters must be URI encoded.
+ region - The region parameter defines the rectangular portion of the full A/V file to be returned. Region
+ can be specified by pixel coordinates,
+ percentage or by the value “full”, which specifies that the entire A/V file should be returned.
+ size - The size parameter determines the dimensions to which the extracted region is to be scaled.
+ rotation - The rotation parameter specifies mirroring and rotation. A leading exclamation mark ("!")
+ indicates that the A/V file should be
+ mirrored by reflection on the vertical axis before any rotation is applied. The numerical value represents the
+ number of degrees of clockwise
+ rotation, and may be any floating point number from 0 to 360.
+ temporal region - The temporal parameter determines the offset, duration, interval
+ duration, skip interval of the audio/video.
+ quality - The quality parameter determines whether the A/V file is delivered in color, grayscale or black
+ and white.
+ format - The format of the returned A/V file is expressed as an extension at the end of the URI.
+ Adaptive HLS
+ HLS is based around the
+ delivery of two text files, the Playlist and Master Playlist, both of which
+ use the .m3u8 extension. The Master Playlist list the resolutions supported,
+ while the Playlist simply lists all of the segments for a given resolution.
+ Here is a Master Playlist url using our IIIF-like A/V API:
+ https://tile.loc.gov/streaming-services/iiif/service:mbrs:ntscrm:01856600:01856600/full/full/0/full/default.m3u8
+ Notice that it uses the full parameter when describing the height, width of
+ the output. The HLS Master Playlist document is small enough to include here
+ for clarity:
+ #EXTM3U
+ #EXT-X-VERSION:3
+ #EXT-X-STREAM-INF:BANDWIDTH=5000000,RESOLUTION=1920x1080
+ /streaming-services/iiif/service:mbrs:ntscrm:01856600:01856600/full/,1080/0/full/default.m3u8
+ #EXT-X-STREAM-INF:BANDWIDTH=2800000,RESOLUTION=1280x720
+ /streaming-services/iiif/service:mbrs:ntscrm:01856600:01856600/full/,720/0/full/default.m3u8
+ #EXT-X-STREAM-INF:BANDWIDTH=1400000,RESOLUTION=960x540
+ /streaming-services/iiif/service:mbrs:ntscrm:01856600:01856600/full/,540/0/full/default.m3u8
+ #EXT-X-STREAM-INF:BANDWIDTH=800000,RESOLUTION=640x360
+ /streaming-services/iiif/service:mbrs:ntscrm:01856600:01856600/full/,360/0/full/default.m3u8
+ Each Playlist then provides a specific resolution using the short hand
+ ,height 
+ parameter to preserve aspect ratio. For example the highest resoultion
+ adaptation stream lists all of its urls for the complete video in 10 second
+ segments.
+ ##EXTM3U
+ #EXT-X-VERSION:3
+ #EXT-X-TARGETDURATION:10
+ #EXT-X-MEDIA-SEQUENCE:0
+ #EXTINF:10.000000,
+ /streaming-services/iiif/service:mbrs:ntscrm:01856600:01856600/full/,1080/0/0.000000,10.000000/default.ts
+ #EXTINF:10.000000,
+ /streaming-services/iiif/service:mbrs:ntscrm:01856600:01856600/full/,1080/0/10.000000,10.000000/default.ts
+ ...
+ #EXTINF:10.000000,
+ /streaming-services/iiif/service:mbrs:ntscrm:01856600:01856600/full/,1080/0/1750.000000,10.000000/default.ts
+ #EXTINF:5.334000,
+ /streaming-services/iiif/service:mbrs:ntscrm:01856600:01856600/full/,1080/0/1760.000000,5.334000/default.ts
+ #EXT-X-ENDLIST
+ Examples 
+ Full Region 
+Our IIIF-like A/V API is not primarily focused on delivering full video
+conversion though we admit that decision is based more on our specific goals
+than on a broad concensus.
+Many microservices are acutally leveraged only for internal consumption so
+we imagine there may be uses inside an organization where the service is
+long running and is simply used to generate long term stored
+derivatives from a high resolution A/V source file.
+In those cases we simply remind the community that caching is optional and
+API's serve a multitude of audiences and may need to be scope appropriately.
+ Example: Deliver the full A/V resource, in this case scaled to a height of 240, while preserving aspect ratio:
+ https://tile.loc.gov/streaming-services/iiif/service:mbrs:ntscrm:01203776:01203776/full/,240/0/full/default.mp4
+ Video tag is not supported in your browser.
+ Continuous Region 
+ Simple segmentation of A/V content that is citable with a simple url is 90% of
+ what makes our IIIF A/V API foundational to researchers. Byte range requests
+ are simply woefully insufficent to satisfy these requirements. They are
+ opaque to the novice end user, fragile in the light of reprocessing, and
+ simply not web addressable thus have a high barrier to use for citation.
+ Our approach returns its emphasis to the IIIF Image API as a foundational
+ architectural pattern and illuminates the breadth of basic use cases
+ difficult to satisfy with the Canvas focused A/V Presentation API from IIIF.
+ Example: Return a video starting at 35 seconds, for a duration of 13 seconds:
+ https://tile.loc.gov/streaming-services/iiif/service:mbrs:ntscrm:01991430:01991430/full/full/0/35,15/default.mp4
+ Video tag is not supported in your browser.
+ Still Frame
+ useful for web presentations without having to generate static frames and
+ for machine learning with computer vision and OCR.
+ Example: Return the still frame of a video at 30 seconds. Requires an mimetype corresponding to an image.:
+ https://tile.loc.gov/streaming-services/iiif/service:mbrs:ntscrm:01991429:01991429/full/,256/0/82,0/default.jpg
+ Speed Up / Slow Down
+ Being able to play audio and video at specific playback rates is important
+ for accessibiliy and for both research and citation in cases where an event
+ is more clearly illustrated at different speeds.
+ Example: Play the ten seconds starting at thirty seconds at double speed:
+ https://tile.loc.gov/streaming-services/iiif/service:mbrs:ntscrm:02035391:02035391/full/,256/0/30,10,5/default.mp4
+ Video tag is not supported in your browser.
+ Example: Play the ten seconds starting at thirty seconds at half speed:
+ https://tile.loc.gov/streaming-services/iiif/service:mbrs:ntscrm:02035391:02035391/full/,256/0/30,10,20/default.mp4
+ Video tag is not supported in your browser.
+ Preview Clip
+ We have all used websites that give us meaningful preview clips when we hover
+ to help determine our level of interest as researchers. Preview clips are
+ an industry standard and having simple urls to generate them on the fly is
+ an invaluable resource.
+ Example: Play the first 5 minutes as a 10 clip that shows a skips 30 seconds intervals:
+ https://tile.loc.gov/streaming-services/iiif/service:mbrs:ntscrm:00068306:00068306/full/,256/0/0,300,10,30/default.mp4
+ Video tag is not supported in your browser.
+ Audio
+ Most of the features we described above are easily implemented for audio alone
+ though we choose to bypass this feature to focus on harder issues. Some urls
+ work while others may not for now.
+ https://tile.loc.gov/streaming-services/iiif/service:mbrsrs:mbrsjukebox:dlc_victor_12_01_b12_11:dlc_victor_12_01_b12_11/full/full/0/full/default.mp3
+ Captions
+ While we did not implement temporal region support for returning sub-sections
+ of A/V captions, we did implement on-the-fly caption file format conversion since
+ our source files where DFXP 
+ and our final HLS implementation required WebVTT .
+ While only currently supporting WebVTT, we could easily support many more formats
+ which could prove useful to researchers wanting to access the captions for
+ analysis in new and creative ways.
+ https://tile.loc.gov/streaming-services/iiif/media:webcasts:2020:Jason_Reynolds:data:2020_Jason_Reynolds_22_1280x720_2000/full/full/0/full/default.vtt
+ Back to top
+ Follow Us 
+ Take our survey 
+ Accessibility 
+ Legal 
+ Inspector General 
+ External Link Disclaimer 
+ USA.gov 
+ Contact 
+ Media 
+ Donate 
+ Shop 
+ Opens in new window 
+ Download

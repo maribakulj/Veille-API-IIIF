@@ -1,0 +1,12 @@
+{
+  "slug": "vatican",
+  "endpoint": {
+    "id": "info-json-p0001",
+    "url": "https://digi.vatlib.it/iiifimage/MSS_Vat.lat.683/Vat.lat.683_0001_al_piatto.anteriore.jp2/info.json",
+    "method": "GET"
+  },
+  "limite_documentee_req_min": null,
+  "source_limite": "aucune limite de débit documentée ; digi.vatlib.it/robots.txt demande seulement « Crawl-delay: 10 » (≈ 6 req/min) pour tous les robots, à signaler à Marcel avant le crash test",
+  "duree_palier_s": 180,
+  "note": "info.json IIIF Image 2 (peu coûteux), 200 dans le journal (info-json-p0001, 2026-11-14T01:44:27Z). Manifeste évité (446 ko)."
+}

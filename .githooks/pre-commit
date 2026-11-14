@@ -16,6 +16,17 @@ if [ -z "$PY" ]; then
   if [ -x "$HOME/.venvs/veille/bin/python" ]; then PY="$HOME/.venvs/veille/bin/python"; else PY="python3"; fi
 fi
 export VEILLE_REPO="$ROOT" VEILLE_DATA="$MAIN/data"
+# Données personnelles : aucune valeur de ~/.veille-state/secrets.txt (IP de Marcel…) ne doit entrer dans un commit.
+if [ -f "$HOME/.veille-state/secrets.txt" ]; then
+  while IFS= read -r secret; do
+    [ -z "$secret" ] && continue
+    if git diff --cached -U0 | grep -E '^\+' | grep -v '^+++' | grep -qF -- "$secret"; then
+      echo "pre-commit : DONNÉE PERSONNELLE : une valeur de ~/.veille-state/secrets.txt (IP de Marcel) figure dans ce commit." >&2
+      echo "Retirer la valeur (remplacer par [IP retirée]) dans les fichiers indiqués par : git diff --cached | grep -nF '<valeur>'" >&2
+      exit 1
+    fi
+  done < "$HOME/.veille-state/secrets.txt"
+fi
 if [[ "$BR" == lot/* ]]; then
   LOT="${BR#lot/}"
   export VEILLE_LOT="$LOT"

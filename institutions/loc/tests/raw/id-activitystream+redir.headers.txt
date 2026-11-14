@@ -1,0 +1,22 @@
+2026-11-14T01:58:27Z GET https://id.loc.gov/authorities/subjects/activitystreams/feed/1.json
+HTTP 200
+date: Sat, 14 Nov 2026 01:58:27 GMT
+content-type: application/activity+json; charset=utf-8
+transfer-encoding: chunked
+connection: keep-alive
+x-frame-options: DENY
+x-xss-protection: 1
+x-content-type-options: nosniff
+access-control-allow-origin: *
+access-control-allow-method: HEAD, POST, GET, OPTIONS
+access-control-allow-headers: Content-Type, Access-Control-Allow-Headers, Authorization, X-Requested-With
+access-control-expose-headers: Content-Type, Cache-Control, X-URI, X-PrefLabel, X-PrefLabel-Escaped, X-PrefLabel-Encoded
+strict-transport-security: max-age=31536000
+server: cloudflare
+cache-control: public, max-age=604800
+vary: Accept-Encoding
+x-varnish: 15346262 2295087
+age: 251617
+via: 1.1 varnish (Varnish/6.0)
+cf-cache-status: DYNAMIC
+cf-ray: a5a26943a8454be3-MXP

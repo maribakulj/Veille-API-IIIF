@@ -1,0 +1,20 @@
+2026-11-14T01:53:44Z GET https://mps.lib.harvard.edu/assets/images/drs:25286607/info.json
+HTTP 200
+date: Sat, 14 Nov 2026 01:53:44 GMT
+content-type: application/json; charset=utf-8
+content-length: 904
+connection: keep-alive
+vary: Origin
+access-control-allow-credentials: true
+origin-agent-cluster: ?1
+referrer-policy: no-referrer
+strict-transport-security: max-age=15552000; includeSubDomains
+x-content-type-options: nosniff
+x-dns-prefetch-control: off
+x-frame-options: SAMEORIGIN
+x-xss-protection: 0
+x-mps-client-ip: [adresses IP redigées : IP publique de Marcel et IP internes AWS]
+cache-control: no-cache, no-store, must-revalidate
+etag: W/"388-XQCIqyR4O8nN432d+Y7axRSCCfs"
+x-envoy-upstream-service-time: 45
+server: istio-envoy

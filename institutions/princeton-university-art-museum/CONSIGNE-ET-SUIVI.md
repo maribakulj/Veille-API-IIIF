@@ -2,51 +2,51 @@
 
 - **Dossier** : `institutions/princeton-university-art-museum/`  ·  **Classeur de référence** : GLAM-042  ·  **Pays** : États-Unis
 - **Statut d'institution** : active
-- **Dernière mise à jour du suivi** : (à renseigner à chaque modification)
+- **Dernière mise à jour du suivi** : 2026-11-14
 
 ## Suivi par étape (à cocher, avec justification et preuves)
 
 ### a) Documentation lue en entier
 > Toutes les pages de doc liées à l'API (développeurs, interfaces, conditions, FAQ, aide, mentions légales, robots.txt), téléchargées avec `scripts/fetch_doc.sh` (URL, date, SHA-256), lues en entier (`scripts/extract_text.py`).
 
-- [ ] **Pas fait**
-  - **Justification** : Pas encore traitée : l'audit suit l'ordre du classeur de référence (une institution à la fois).
-  - **Preuves** : 
+- [x] **Fait**
+  - **Justification** : Doc lue en entier : dépôt GitHub puam-api-docs (README, objects, makers, packages, search), page À propos static, billet CDH ; site artmuseum en défi Cloudflare lu via Wayback (conditions, robots.txt).
+  - **Preuves** : `institutions/princeton-university-art-museum/sources/a/SHA256SUMS`, `institutions/princeton-university-art-museum/sources/b/SHA256SUMS`, `institutions/princeton-university-art-museum/sources/c/SHA256SUMS`, `institutions/princeton-university-art-museum/sources/wayback/terms-and-conditions.md`, `institutions/princeton-university-art-museum/sources/wayback/robots-artmuseum.md`
 
 ### b) Endpoints tirés de la doc
 > Liste des endpoints citée par la doc (URL, exemples). Jamais devinée. Une interdiction ou une impossibilité écrite dans la doc justifie de renoncer (citer la phrase).
 
-- [ ] **Pas fait**
-  - **Justification** : Pas encore traitée : l'audit suit l'ordre du classeur de référence (une institution à la fois).
-  - **Preuves** : 
+- [x] **Fait**
+  - **Justification** : Endpoints tirés de la doc GitHub : objects, makers, packages, search, manifestes IIIF, Image API, zips statiques ; endpoints_documentes et endpoints_ecartes dans data.json.
+  - **Preuves** : `institutions/princeton-university-art-museum/data.json`, `institutions/princeton-university-art-museum/sources/c/SHA256SUMS`
 
 ### c) Configuration écrite AVANT les tests
 > `config/<nom>.json` pilote `scripts/probe.py`, committée avant le lancement. Un endpoint absent de la doc mais non interdit se teste avec un script poli (identifiants issus de pages publiques ou d'exemples de la doc, pas de devinette).
 
-- [ ] **Pas fait**
-  - **Justification** : Pas encore traitée : l'audit suit l'ordre du classeur de référence (une institution à la fois).
-  - **Preuves** : 
+- [x] **Fait**
+  - **Justification** : Deux configurations (passe 1 data, passe 2 media/static) committées avant chaque lancement (commits 83dbc66 et 523f3af).
+  - **Preuves** : `institutions/princeton-university-art-museum/config/puam-passe1-data.json`, `institutions/princeton-university-art-museum/config/puam-passe2-media-static.json`
 
 ### d) Quota cherché dans la doc
 > Pour chaque page lue : endpoint de statut, en-têtes de limite documentés, clé ou compte donnant un quota, contact pour un volume plus élevé. Chaque réponse cite sa source.
 
-- [ ] **Pas fait**
-  - **Justification** : Pas encore traitée : l'audit suit l'ordre du classeur de référence (une institution à la fois).
-  - **Preuves** : 
+- [x] **Fait**
+  - **Justification** : Recherche de quota dans chaque source : aucune limite de débit, aucun en-tête de limite, pas de clé ni de compte ; seul plafond size 500 ; contact via issues GitHub du dépôt.
+  - **Preuves** : `institutions/princeton-university-art-museum/sources/c/SHA256SUMS`, `institutions/princeton-university-art-museum/sources/b/SHA256SUMS`, `institutions/princeton-university-art-museum/data.json`
 
 ### e) Test systématique de chaque endpoint
 > Chaque endpoint documenté est testé (budget 15 requêtes par passe, pause ≥ 6 s, GET/HEAD, UA du projet). Redirections du même hôte suivies. Un 403 arrête son hôte, un 429 arrête l'institution. Seules les interdictions écrites dans la doc dispensent de tester.
 
-- [ ] **Pas fait**
-  - **Justification** : Pas encore traitée : l'audit suit l'ordre du classeur de référence (une institution à la fois).
-  - **Preuves** : 
+- [x] **Fait**
+  - **Justification** : 18 requêtes en 2 passes (data, manifeste, media IIIF 3/2, HEAD collection et zips) : toutes 200, aucun 429, aucun en-tête de limite ; artmuseum.princeton.edu en 403 Cloudflare, non contacté.
+  - **Preuves** : `institutions/princeton-university-art-museum/tests/journal.log`, `institutions/princeton-university-art-museum/tests/raw/objects-9449.headers.txt`
 
 ### f) Ce que disent les gens sur le web
 > Plaintes, discussions, présentations de l'institution, politique envers les API et les bots, blogs, GitHub, forums, listes de diffusion. Sources étiquetées (officielle / institution / utilisateur / tiers), lues, citées.
 
-- [ ] **Pas fait**
-  - **Justification** : Pas encore traitée : l'audit suit l'ordre du classeur de référence (une institution à la fois).
-  - **Preuves** : 
+- [x] **Fait**
+  - **Justification** : Quatre recherches web (institution, utilisateurs, tickets, présentations) ; talk IIIF 2018, session MCN et billet CDH lus ; aucune plainte ni limite trouvée ; deux catégories sans résultat consignées.
+  - **Preuves** : `institutions/princeton-university-art-museum/fiche.md`, `institutions/princeton-university-art-museum/data.json`
 
 ### g) Crash test progressif
 > Seulement après l'audit complet (a à f) de toutes les institutions et avec l'accord de Marcel : paliers jusqu'à 2 × la limite documentée, ou 200 req/min si illimité ou sans limite documentée. Arrêt au premier 429/403/CAPTCHA.
@@ -60,7 +60,10 @@
 
 <!-- AUTO:DEBUT -->
 ## Contrôles automatiques (calculés depuis `tests/journal.log`)
-Aucune requête enregistrée dans `tests/journal.log`.
+- Requêtes enregistrées : **18** (sessions de sonde : 2, maximum par session : 10)
+- Plus courte pause vers un même hôte : **6 s** (règle : ≥ 6 s)
+- Méthodes utilisées : GET, HEAD (règle : GET/HEAD seulement)
+- Anomalies : aucune
 <!-- AUTO:FIN -->
 
 ## Consigne intégrale
@@ -349,4 +352,7 @@ Le verrou agit : (a) **au lancement** des outils officiels (`probe.py`, `crash.p
 - **Politesse partagée** (`scripts/hostlock.py`, registre `~/.veille-state`) : ≥ 6 s entre deux requêtes vers un même hôte, tous agents confondus ; au plus 30 requêtes/min au total ; un crash test (verrou exclusif) suspend tout autre trafic.
 - **Intégration** par le coordinateur seulement : `python3 scripts/integrer_lot.py <ID> [--push]` (périmètre, fusion sans commit, validation globale, régénération du classeur ; fusion annulée si un contrôle échoue).
 - Limites connues : un `curl` direct ou une copie locale modifiée de `scripts/` par un agent n'est pas empêché techniquement ; le commit ne peut pas porter ces modifications, et l'intégration revérifie le périmètre.
+
+## Données personnelles (14/11/2026)
+Le dépôt GitHub est **public**. Aucune donnée personnelle de Marcel (adresse IP) ne doit y figurer. Les valeurs sensibles sont listées dans `~/.veille-state/secrets.txt` (hors dépôt) : le hook de commit refuse tout commit qui les ajoute ; `probe.py` et `fetch_doc.sh` les remplacent par « [IP retirée] » dans les fichiers qu'ils produisent. Certains serveurs renvoient l'IP du client dans un en-tête (ex. `x-mps-client-ip`).
 <!-- CONSIGNE:FIN -->
