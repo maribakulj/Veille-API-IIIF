@@ -2,57 +2,57 @@
 
 - **Dossier** : `institutions/e-codices/`  ·  **Classeur de référence** : GLAM-018  ·  **Pays** : Suisse
 - **Statut d'institution** : active
-- **Dernière mise à jour du suivi** : (à renseigner à chaque modification)
+- **Dernière mise à jour du suivi** : 2026-11-14
 
 ## Suivi par étape (à cocher, avec justification et preuves)
 
 ### a) Documentation lue en entier
 > Toutes les pages de doc liées à l'API (développeurs, interfaces, conditions, FAQ, aide, mentions légales, robots.txt), téléchargées avec `scripts/fetch_doc.sh` (URL, date, SHA-256), lues en entier (`scripts/extract_text.py`).
 
-- [ ] **Pas fait**
-  - **Justification** : Passe antérieure non conforme à la méthode v2 (AUDIT-HAIKU.md) : à refaire. Le matériel déjà présent dans ce dossier est conservé comme historique.
-  - **Preuves** : 
+- [x] **Fait**
+  - **Justification** : Lus et hachés : robots.txt de 3 hôtes, Terms of Use (OAI), Web Application, Imaging, Metadata, Privacy, Contact. Pages /about/iiif, /about, /guidelines en 404.
+  - **Preuves** : `institutions/e-codices/sources/v2/SHA256SUMS`, `institutions/e-codices/sources/b/SHA256SUMS`, `institutions/e-codices/sources/c/SHA256SUMS`
 
 ### b) Endpoints tirés de la doc
 > Liste des endpoints citée par la doc (URL, exemples). Jamais devinée. Une interdiction ou une impossibilité écrite dans la doc justifie de renoncer (citer la phrase).
 
-- [ ] **Pas fait**
-  - **Justification** : Passe antérieure non conforme à la méthode v2 (AUDIT-HAIKU.md) : à refaire. Le matériel déjà présent dans ce dossier est conservé comme historique.
-  - **Preuves** : 
+- [x] **Fait**
+  - **Justification** : Endpoints : OAI e-codices.ch/oai/{de,en,fr,it}/oai.php (cités par les conditions) ; IIIF non documenté : manifestes et collections /metadata/iiif/… (tiers), images lues dans le manifeste (media.e-codices.ch/iip/…).
+  - **Preuves** : `institutions/e-codices/sources/v2/text/02.txt`, `institutions/e-codices/sources/v2/text/03.txt`
 
 ### c) Configuration écrite AVANT les tests
 > `config/<nom>.json` pilote `scripts/probe.py`, committée avant le lancement. Un endpoint absent de la doc mais non interdit se teste avec un script poli (identifiants issus de pages publiques ou d'exemples de la doc, pas de devinette).
 
-- [ ] **Pas fait**
-  - **Justification** : Passe antérieure non conforme à la méthode v2 (AUDIT-HAIKU.md) : à refaire. Le matériel déjà présent dans ce dossier est conservé comme historique.
-  - **Preuves** : 
+- [x] **Fait**
+  - **Justification** : 3 configurations committées avant lancement ; robots.txt de chaque hôte lu avant.
+  - **Preuves** : `institutions/e-codices/config/e-codices-v2-passe1-oai.json`, `institutions/e-codices/config/e-codices-v2-passe2-iiif.json`, `institutions/e-codices/config/e-codices-v2-passe3-images.json`
 
 ### d) Quota cherché dans la doc
 > Pour chaque page lue : endpoint de statut, en-têtes de limite documentés, clé ou compte donnant un quota, contact pour un volume plus élevé. Chaque réponse cite sa source.
 
-- [ ] **Pas fait**
-  - **Justification** : Passe antérieure non conforme à la méthode v2 (AUDIT-HAIKU.md) : à refaire. Le matériel déjà présent dans ce dossier est conservé comme historique.
-  - **Preuves** : 
+- [x] **Fait**
+  - **Justification** : Aucun quota, en-tête de limite ni endpoint de statut dans les pages lues ; robots.txt ouverts.
+  - **Preuves** : `institutions/e-codices/sources/v2/text/02.txt`, `institutions/e-codices/sources/v2/raw/01.html`
 
 ### e) Test systématique de chaque endpoint
 > Chaque endpoint documenté est testé (budget 15 requêtes par passe, pause ≥ 6 s, GET/HEAD, UA du projet). Redirections du même hôte suivies. Un 403 arrête son hôte, un 429 arrête l'institution. Seules les interdictions écrites dans la doc dispensent de tester.
 
-- [ ] **Pas fait**
-  - **Justification** : Passe antérieure non conforme à la méthode v2 (AUDIT-HAIKU.md) : à refaire. Le matériel déjà présent dans ce dossier est conservé comme historique.
-  - **Preuves** : 
+- [x] **Fait**
+  - **Justification** : Toutes les familles documentées ou découvertes testées (3 passes, 8 requêtes de données) : OAI, manifeste, collection, info.json, dérivé : 200, aucun 429 ni en-tête de limite. ListRecords non lancé (volume).
+  - **Preuves** : `institutions/e-codices/tests/journal.log`, `institutions/e-codices/tests/raw/oai-en-identify.headers.txt`, `institutions/e-codices/tests/raw/media-info-json.headers.txt`
 
 ### f) Ce que disent les gens sur le web
 > Plaintes, discussions, présentations de l'institution, politique envers les API et les bots, blogs, GitHub, forums, listes de diffusion. Sources étiquetées (officielle / institution / utilisateur / tiers), lues, citées.
 
-- [ ] **Pas fait**
-  - **Justification** : Passe antérieure non conforme à la méthode v2 (AUDIT-HAIKU.md) : à refaire. Le matériel déjà présent dans ce dossier est conservé comme historique.
-  - **Preuves** : 
+- [x] **Fait**
+  - **Justification** : 5 recherches web (politique, plaintes/429, tickets GitHub, présentations, trafic de bots) : aucun quota ; 503 intermittents rapportés par un vérificateur de liens ; crawlers tiers ; catégorie présentations : aucun résultat.
+  - **Preuves** : `institutions/e-codices/fiche.md`
 
 ### g) Crash test progressif
 > Seulement après l'audit complet (a à f) de toutes les institutions et avec l'accord de Marcel : paliers jusqu'à 2 × la limite documentée, ou 200 req/min si illimité ou sans limite documentée. Arrêt au premier 429/403/CAPTCHA.
 
 - [ ] **Pas fait**
-  - **Justification** : Passe antérieure non conforme à la méthode v2 (AUDIT-HAIKU.md) : à refaire. Le matériel déjà présent dans ce dossier est conservé comme historique.
+  - **Justification** : À faire à la fin et avec l'accord de Marcel : plafond 200 req/min sur e-codices.unifr.ch, e-codices.ch et media.e-codices.ch ; 503 intermittents déjà rapportés par un tiers : prudence.
   - **Preuves** : 
 
 ### Contrôles transversaux
@@ -60,7 +60,7 @@
 
 <!-- AUTO:DEBUT -->
 ## Contrôles automatiques (calculés depuis `tests/journal.log`)
-- Requêtes enregistrées : **15** (sessions de sonde : 3, maximum par session : 7)
+- Requêtes enregistrées : **18** (sessions de sonde : 4, maximum par session : 7)
 - Plus courte pause vers un même hôte : **6 s** (règle : ≥ 6 s)
 - Méthodes utilisées : GET (règle : GET/HEAD seulement)
 - Anomalies : aucune
@@ -311,4 +311,7 @@ hôte déjà bloqué en 403 anti-bot.
 - `robots.txt` indisponible (4xx) : tout est autorisé ; erreur serveur ou réseau : tout est traité comme interdit (RFC 9309). La lecture de `robots.txt` compte dans le budget de la passe.
 
 **Incident du 2026-11-13 (Wellcome)** : le `robots.txt` de `iiif.wellcomecollection.org` commence par un BOM invisible ; la sonde ne reconnaissait alors pas `User-agent: *` et ignorait `Crawl-delay: 30`. Deux requêtes sont parties à 6 s d'écart au lieu de 30 s (passe 3 de Wellcome). Corrigé : la sonde retire le BOM et lit aussi `Request-rate`. Règle : **lire à l'étape a) le `robots.txt` de chaque hôte avec les yeux**, y compris `Crawl-delay` et `Request-rate`, en plus de la lecture par la sonde ; le résultat est consigné dans la fiche.
+
+## Étape f — minimum exigé (décision du 14/11/2026, après remarque de Marcel)
+Au moins **4 recherches web par institution**, une par catégorie : (1) politique/doc de l'institution sur API, bots, moissonnage ; (2) plaintes ou retours d'utilisateurs (429, 503, blocages, forums, listes iiif-discuss) ; (3) tickets GitHub/GitLab d'outils tiers qui l'interrogent ; (4) présentations, billets de blog ou articles de l'institution. Chaque piste utile est **lue dans l'original** quand c'est possible (résumé de moteur = indice seulement) et étiquetée (officielle / institution / utilisateur / tiers). Les catégories sans résultat sont notées « aucun résultat ».
 <!-- CONSIGNE:FIN -->

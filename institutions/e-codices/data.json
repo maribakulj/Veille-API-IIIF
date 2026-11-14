@@ -2,18 +2,89 @@
   "slug": "e-codices",
   "nom": "e-codices (manuscrits suisses)",
   "pays": "Suisse",
-  "statut_audit": "partiel (ancienne méthode)",
-  "limites_documentees": [],
+  "statut_audit": "audit a–f complet (v2) ; g à faire",
+  "limites_documentees": [
+    {
+      "nature": "Libre usage des métadonnées OAI",
+      "perimetre": "interfaces OAI",
+      "valeur": "« released for free use and are not subject to any copyright »",
+      "fenetre": "–",
+      "effet": "–",
+      "verification": "officielle, lue en entier",
+      "source": "https://www.e-codices.unifr.ch/en/about/terms",
+      "date": "2026-11-14"
+    }
+  ],
   "en_tetes_observes": [],
   "blocages": [],
-  "contact": "non trouvé",
-  "conclusion_quota": "Aucune limite annoncée dans les conditions lues.",
+  "contact": "formulaire Contact – e-codices (e-codices.unifr.ch/en/about/contact)",
+  "conclusion_quota": "Aucun quota ni limite de débit publiés ; interface OAI documentée et testée ; IIIF (manifestes et images) testé ; 503 intermittents rapportés par un tiers sur les pages de recherche.",
   "classe_quota": "aucun quota trouvé",
   "confiance": "moyenne",
-  "notes": "Service image non documenté (non testé).",
+  "notes": "Ancien audit à la main remplacé (avait manqué l'OAI). ListRecords non lancé.",
   "classeur_id": "GLAM-018",
   "type": "Plateforme / consortium",
-  "sources": [],
-  "web": [],
-  "donnees_a_revalider": true
+  "sources": [
+    {
+      "url": "https://www.e-codices.unifr.ch/en/about/terms",
+      "date": "2026-11-14",
+      "etiquette": "officielle",
+      "preuve": "institutions/e-codices/sources/v2/SHA256SUMS"
+    },
+    {
+      "url": "https://www.e-codices.unifr.ch/en/about/webapplication",
+      "date": "2026-11-14",
+      "etiquette": "officielle",
+      "preuve": "institutions/e-codices/sources/v2/SHA256SUMS"
+    },
+    {
+      "url": "https://www.e-codices.unifr.ch/robots.txt",
+      "date": "2026-11-14",
+      "etiquette": "officielle",
+      "preuve": "institutions/e-codices/sources/v2/SHA256SUMS"
+    },
+    {
+      "url": "https://e-codices.ch/robots.txt",
+      "date": "2026-11-14",
+      "etiquette": "officielle",
+      "preuve": "institutions/e-codices/sources/b/SHA256SUMS"
+    },
+    {
+      "url": "https://media.e-codices.ch/robots.txt",
+      "date": "2026-11-14",
+      "etiquette": "officielle",
+      "preuve": "institutions/e-codices/sources/c/SHA256SUMS"
+    }
+  ],
+  "web": [
+    {
+      "url": "https://github.com/SexyCodicology/Digitized-Medieval-Manuscripts-app/issues/133",
+      "date": "2026-11-14",
+      "etiquette": "utilisateur/tiers, non vérifié (résumé de moteur)",
+      "citation": "un vérificateur de liens enregistre des 503 et délais dépassés sur les pages de recherche e-codices.",
+      "preuve": "institutions/e-codices/fiche.md"
+    },
+    {
+      "url": "https://github.com/Antonio-Faure/mnemosyne/pull/36",
+      "date": "2026-11-14",
+      "etiquette": "tiers",
+      "citation": "connecteur collection-based : collection.json puis manifestes par manuscrit ; aucune limite citée.",
+      "preuve": "institutions/e-codices/fiche.md"
+    },
+    {
+      "url": "https://github.com/Embassy-of-the-Free-Mind/sourcelibrary-v2/issues/1426",
+      "date": "2026-11-14",
+      "etiquette": "tiers",
+      "citation": "collection.json à la racine, environ 2 800 manuscrits ; aucune limite citée.",
+      "preuve": "institutions/e-codices/fiche.md"
+    }
+  ],
+  "donnees_a_revalider": false,
+  "a_verifier_manuellement": [
+    {
+      "url": "https://www.e-codices.unifr.ch/en/about/contact",
+      "pourquoi": "lue ; aucune règle de débit",
+      "a_chercher": "Demander par e-mail à e-codices s'il existe une limite non publiée pour le moissonnage IIIF/OAI"
+    }
+  ]
 }

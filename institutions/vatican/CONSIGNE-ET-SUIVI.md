@@ -311,4 +311,7 @@ hôte déjà bloqué en 403 anti-bot.
 - `robots.txt` indisponible (4xx) : tout est autorisé ; erreur serveur ou réseau : tout est traité comme interdit (RFC 9309). La lecture de `robots.txt` compte dans le budget de la passe.
 
 **Incident du 2026-11-13 (Wellcome)** : le `robots.txt` de `iiif.wellcomecollection.org` commence par un BOM invisible ; la sonde ne reconnaissait alors pas `User-agent: *` et ignorait `Crawl-delay: 30`. Deux requêtes sont parties à 6 s d'écart au lieu de 30 s (passe 3 de Wellcome). Corrigé : la sonde retire le BOM et lit aussi `Request-rate`. Règle : **lire à l'étape a) le `robots.txt` de chaque hôte avec les yeux**, y compris `Crawl-delay` et `Request-rate`, en plus de la lecture par la sonde ; le résultat est consigné dans la fiche.
+
+## Étape f — minimum exigé (décision du 14/11/2026, après remarque de Marcel)
+Au moins **4 recherches web par institution**, une par catégorie : (1) politique/doc de l'institution sur API, bots, moissonnage ; (2) plaintes ou retours d'utilisateurs (429, 503, blocages, forums, listes iiif-discuss) ; (3) tickets GitHub/GitLab d'outils tiers qui l'interrogent ; (4) présentations, billets de blog ou articles de l'institution. Chaque piste utile est **lue dans l'original** quand c'est possible (résumé de moteur = indice seulement) et étiquetée (officielle / institution / utilisateur / tiers). Les catégories sans résultat sont notées « aucun résultat ».
 <!-- CONSIGNE:FIN -->
