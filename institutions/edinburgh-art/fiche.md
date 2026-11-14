@@ -38,3 +38,8 @@ La passe 2 a respecté le `Crawl-Delay` : ses requêtes sont espacées de 500 s 
 - **403 / 429** : aucun.
 - **Moyen d'interroger le quota** : aucun endpoint de statut ; les en-têtes d'une requête normale de manifeste donnent une valeur.
 - **Confiance** : moyenne.
+
+## Crash test (étape g)
+
+Crash test fait le 2026-11-14 : manifeste-record-112492 sur collections.ed.ac.uk : aucun blocage jusqu'à 200 req/min (plafond 200 req/min).
+Journal : `tests/crash/edinburgh-art.log`. Un test « sans blocage » n'est pas une preuve d'illimitation au-delà du plafond.

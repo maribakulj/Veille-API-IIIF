@@ -1,0 +1,9 @@
+# Crash test 2026-11-14T06:55:58Z — configuration crash-collections-manifest.json — endpoint manifeste-record-112492 GET https://collections.ed.ac.uk/art/record/112492/1/manifest.json
+# réseau détecté : aucun réseau à réputation partagée connu ; plafond standard 200 req/min (décision de Marcel 14/11/2026) ; requête de détection : 200 en 0.62 s
+# limite documentée : aucune req/min (aucune limite de débit documentée pour collections.ed.ac.uk (robots.txt : 0 règle pour *). Le Crawl-delay 500 s de https://images.is.ed.ac.uk/robots.txt concerne l'hôte LUNA, pas celui-ci) ; paliers [6, 10, 50, 200] ; plafond 200 req/min ; 180 s par palier
+2026-11-14T06:58:48Z | palier 6 req/min | {"palier_req_min": 6, "requetes": 18, "debit_reel_req_min": 6.3, "codes": {"200": 18}, "latence_p50_s": 0.296, "latence_max_s": 0.977}
+2026-11-14T07:01:42Z | palier 10 req/min | {"palier_req_min": 10, "requetes": 30, "debit_reel_req_min": 10.3, "codes": {"200": 30}, "latence_p50_s": 0.284, "latence_max_s": 2.601}
+2026-11-14T07:04:42Z | palier 50 req/min | {"palier_req_min": 50, "requetes": 150, "debit_reel_req_min": 50.3, "codes": {"200": 150}, "latence_p50_s": 0.281, "latence_max_s": 1.181}
+2026-11-14T07:07:42Z | palier 200 req/min | {"palier_req_min": 200, "requetes": 600, "debit_reel_req_min": 199.9, "codes": {"200": 599, "None": 1}, "latence_p50_s": 0.284, "latence_max_s": 20.054}
+# Fin 2026-11-14T07:07:42Z — aucun blocage jusqu'à 200 req/min
+
