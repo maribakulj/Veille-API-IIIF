@@ -204,6 +204,16 @@
       "hote": "query.biblissima.fr",
       "resultat": "401 (non public)",
       "preuve": "institutions/biblissima-plateforme-iiif/sources/c/FETCH.log"
+    },
+    {
+      "hote": "demos.biblissima.fr",
+      "resultat": "404 : pas de robots.txt, tout autorisé (RFC 9309)",
+      "preuve": "institutions/biblissima-plateforme-iiif/sources/f/FETCH.log"
+    },
+    {
+      "hote": "projet.biblissima.fr",
+      "resultat": "200 (2 027 o) : robots.txt Drupal standard, * autorisé sauf /core/, /profiles/ et fichiers système ; pas de Crawl-delay",
+      "preuve": "institutions/biblissima-plateforme-iiif/sources/e/FETCH.log"
     }
   ],
   "rattrapage_a_faire": [

@@ -1,0 +1,678 @@
+Project:SPARQL examples — Référentiels d’autorité Biblissima 
+ Discover Biblissima
+ close 
+ Home Biblissima
+ Biblissima Portal
+ .po -->
+ Point d'accès au patrimoine écrit du Moyen Âge et de la Renaissance en Occident du VIII e au XVIII e siècle
+ -->
+ An entry point to the written heritage of the Middle Ages and the Renaissance in Western Europe, from the 8th to the 18th century.
+ IIIF Collections
+ A search engine of interoperable digitized manuscripts and rare books
+ Biblissima Authority Files
+ Collaborative platform to manage and publish Biblissima authority data
+ Biblissima Tools
+ Help for reading and learning classical languages, XML editing tools and environments
+ IIIF360
+ Expertise service around IIIF standards
+ Subscribe to the newsletter 
+ Contact us 
+ Project | Demos | Documentation 
+ menu 
+ Project : SPARQL examples 
+ De Référentiels d’autorité Biblissima
+ Aller à la navigation 
+ Aller à la recherche 
+ Sommaire
+ 1 Exemples de requêtes SPARQL 
+ 1.1 Tous les triplets d'une entité donnée 
+ 1.2 Toutes les propriétés d'une entité d'un certain type 
+ 1.3 Principaux types d'entités (classes avec un alignement externe) 
+ 1.4 Vue globale des types d'entités 
+ 1.5 Lieux (liste complète) 
+ 1.6 Lieux géolocalisés (carte) 
+ 1.7 Personnes physiques (liste complète) 
+ 1.8 Organisations (liste complète) 
+ 1.9 Oeuvres (liste complète) 
+ 1.10 Manuscrits (liste complète) 
+ 1.11 Manuscrits (répartition par bibliothèque) 
+ 1.12 Manuscrits numérisés (répartition par bibnum) 
+ 1.13 Bibliothèques numériques IIIF 
+ 1.14 Jeux de données 
+ 1.15 Entités associées à un jeu de données 
+ 1.16 Personnes avec 2 ID bbma 
+ 1.17 Organisations avec RCR et disposant de moins de 20 cotes 
+ 1.18 Manuscrits détruits 
+ 1.19 Entités alignées vers le catalogue BnF 
+ 1.20 Entités alignées avec la DNB 
+ 1.21 Entités alignées avec Persée ou IdRef 
+ 1.22 Entités personnes issues des bases de l'IRHT 
+ 1.23 Données sur les items numérisés 
+ 1.24 Entités fusionnées/redirigées 
+ 1.25 Entités avec manifest archive.org 
+ 1.26 Standards de métadonnées référencés dans la propriété "seeAlso" (IIIF) 
+ 1.27 Entités avec bibliographie, en récupérant le QID du référentiel biblio pour chaque entrée 
+ 1.28 Inscriptions des CIFM 
+ 1.29 Liste des cotes citées dans les articles de la revue ALMA (Persée) 
+ Exemples de requêtes SPARQL 
+ Cette page liste des exemples de requêtes SPARQL permettant d'interroger en profondeur les données RDF des Référentiels Biblissima. Chaque requête peut être lancée en cliquant sur le lien "Ouvrir la requête" qui ouvre une interface de requête dédiée.
+ Tous les triplets d'une entité donnée 
+ # Tous les triplets d'une entité donnée 
+ SELECT ?p ?propLabel ?o 
+ WHERE 
+ { 
+ wd : Q1000 ?p ?o . 
+ OPTIONAL { 
+ ?prop wikibase : directClaim ?p ; 
+ rdfs : label ?propLabel . 
+ FILTER ( lang ( ?propLabel ) = 'fr' ) . 
+ } 
+ } 
+ ↗ Ouvrir la requête 
+ Toutes les propriétés d'une entité d'un certain type 
+ # Principaux types d'entités
+Q167 = organisation
+Q168 = être humain
+Q26719 = lieu géographique
+Q32795 = famille
+Q32810 = manuscrit
+Q345196 = manuscrit en plusieurs volumes
+Q113619 = imprimé
+Q257483 = inscription
+Q282950 = oeuvre
+Q304387 = descripteur
+Q120868 = document cartographique
+Q120861 = reliure
+Q317415 = référence biblique
+ # Toutes les propriétés d'une entité d'un certain type 
+ SELECT DISTINCT ?prop ?propLabel 
+ WHERE 
+ { 
+ ?item wdt : P2 wd : Q168 ; 
+ ?p ?o . 
+ ?prop wikibase : directClaim ?p ; 
+ rdfs : label ?propLabel . 
+ FILTER ( lang ( ?propLabel ) = 'fr' ) . 
+ FILTER ( ! regex ( ?propLabel , "identifiant" , "i" )) . 
+ FILTER ( ! regex ( ?propLabel , "ID" )) . 
+ } 
+ ↗ Ouvrir la requête 
+ Principaux types d'entités (classes avec un alignement externe) 
+ # Principaux types d'entités 
+ SELECT DISTINCT ?classe ?classeLabel 
+ WHERE 
+ { 
+ ?item wdt : P2 ?classe . 
+ ?classe wdt : P52 ?equivalent ; 
+ rdfs : label ?classeLabel . 
+ FILTER ( lang ( ?classeLabel ) = 'fr' ) . 
+ } 
+ ↗ Ouvrir la requête 
+ Vue globale des types d'entités 
+ # Vue globale des types d'entités 
+ SELECT ?label ( count ( ?entity ) as ?count ) 
+ WHERE { 
+ VALUES ?filter { 
+ wd : Q168 
+ wd : Q26719 
+ wd : Q32795 
+ wd : Q167 
+ wd : Q32810 
+ wd : Q113619 
+ wd : Q120865 
+ wd : Q120869 
+ wd : Q120868 
+ wd : Q282950 
+ wd : Q304387 
+ wd : Q317415 
+ wd : Q460025 
+ wd : Q120861 
+ wd : Q345196 
+ wd : Q26716 
+ wd : Q257483 
+ } 
+ { 
+ ?entity wdt : P2 ?filter . 
+ ?filter rdfs : label ?label . 
+ } 
+ UNION { ?entity wdt : P2 ?label } 
+ FILTER ( LANG ( ?label ) = "fr" ) 
+ } 
+ GROUP BY ?label 
+ ORDER BY DESC ( ?count ) 
+ ↗ Ouvrir la requête 
+ Lieux (liste complète) 
+ # Lieux (liste complète) 
+ SELECT ?entity ?entityLabel ?categoryLabel ?countryLabel ?typeLabel ?idBbma 
+ WHERE 
+ { 
+ ?entity wdt : P2 wd : Q26719 . 
+ #wd:P129 wdt:P108 ?formatterUrl . 
+ OPTIONAL { 
+ ?type wdt : P2 wd : Q26718 . 
+ ?entity wdt : P2 ?type . 
+ } 
+ OPTIONAL { 
+ ?entity wdt : P172 ?country . 
+ ?country rdfs : label ?countryLabel . 
+ } 
+ OPTIONAL { 
+ ?entity wdt : P169 ?category . 
+ ?category rdfs : label ?categoryLabel . 
+ } 
+ OPTIONAL { ?entity wdt : P129 ?idBbma } 
+ # BIND(IRI(REPLACE(?idBbma, '^(.+)$', ?formatterUrl)) AS ?url). 
+ # (URI(REPLACE(?p1630,'\\$1',?id)) AS ?url) 
+ ?entity rdfs : label ?entityLabel . 
+ FILTER ( lang ( ?entityLabel ) = 'fr' ) . 
+ FILTER ( lang ( ?categoryLabel ) = 'fr' ) . 
+ FILTER ( lang ( ?countryLabel ) = 'fr' ) . 
+ } 
+ ORDER BY ?entityLabel 
+ ↗ Ouvrir la requête 
+ Lieux géolocalisés (carte) 
+ # Lieux géolocalisés (carte) 
+ SELECT ?entity ?entityLabel ?coord 
+ WHERE 
+ { 
+ ?entity wdt : P2 wd : Q26719 ; 
+ p : P276 ?coordinate . 
+ ?coordinate ps : P276 ?coord . 
+ ?coordinate psv : P276 ?coordinate_node . 
+ ?entity rdfs : label ?entityLabel . 
+ FILTER ( lang ( ?entityLabel ) = 'fr' ) . 
+ } 
+ ↗ Ouvrir la requête 
+ Personnes physiques (liste complète) 
+ # Personnes physiques (liste complète) 
+ SELECT ?entity ?entityLabel ?sexLabel ( year ( ?dateBirth ) as ?YearBirth ) ( year ( ?dateDeath ) as ?YearDeath ) ?idBbma 
+ WHERE 
+ { 
+ ?entity wdt : P2 wd : Q168 ; 
+ OPTIONAL { 
+ ?entity wdt : P95 ?sex . 
+ ?sex rdfs : label ?sexLabel . 
+ } 
+ OPTIONAL { ?entity wdt : P57 ?dateBirth } 
+ OPTIONAL { ?entity wdt : P62 ?dateDeath } 
+ OPTIONAL { ?entity wdt : P129 ?idBbma } 
+ ?entity rdfs : label ?entityLabel . 
+ FILTER ( lang ( ?entityLabel ) = 'fr' ) . 
+ FILTER ( lang ( ?sexLabel ) = 'fr' ) . 
+ } 
+ ORDER BY ?entityLabel 
+ ↗ Ouvrir la requête 
+ Organisations (liste complète) 
+ # Organisations (liste complète) 
+ SELECT ?entity ?entityLabel ?placeLabel ?idBbma 
+ WHERE 
+ { 
+ ?entity wdt : P2 wd : Q167 ; 
+ OPTIONAL { 
+ ?entity wdt : P201 ?place . 
+ ?place rdfs : label ?placeLabel . 
+ } 
+ OPTIONAL { ?entity wdt : P129 ?idBbma } 
+ ?entity rdfs : label ?entityLabel . 
+ FILTER ( lang ( ?entityLabel ) = 'fr' ) . 
+ FILTER ( lang ( ?placeLabel ) = 'fr' ) . 
+ } 
+ ORDER BY ?entityLabel 
+ ↗ Ouvrir la requête 
+Variante avec GROUP_CONCAT pour gérer les lignes dupliquées (car deux localisations possibles pour la même entité : ex. Q80035 et Q81293)
+ # Organisations (liste complète) 
+ SELECT ?entity ?entityLabel ( GROUP_CONCAT ( DISTINCT ( ?place ); separator = ", " ) AS ?places ) ( GROUP_CONCAT ( DISTINCT ( ?label ); separator = ", " ) AS ?place_labels ) ?idBbma 
+ WHERE 
+ { 
+ ?entity wdt : P2 wd : Q167 . 
+ OPTIONAL { 
+ ?entity wdt : P201 ?place . 
+ ?place rdfs : label ?label . 
+ } 
+ OPTIONAL { ?entity wdt : P129 ?idBbma } 
+ } 
+ GROUP BY ?entity ?entityLabel ?idBbma 
+ ORDER BY ?entityLabel 
+ ↗ Ouvrir la requête 
+ Oeuvres (liste complète) 
+ # Oeuvres (liste complète) 
+ SELECT ?entity ?entityLabel ?authorLabel ?idBbma 
+ WHERE 
+ { 
+ ?entity wdt : P2 wd : Q282950 ; 
+ OPTIONAL { ?entity wdt : P129 ?idBbma } 
+ OPTIONAL { 
+ ?entity wdt : P354 ?author . 
+ ?author rdfs : label ?authorLabel . 
+ } 
+ ?entity rdfs : label ?entityLabel . 
+ FILTER ( lang ( ?entityLabel ) = 'fr' ) . 
+ FILTER ( lang ( ?authorLabel ) = 'fr' ) . 
+ } 
+ ORDER BY ?entityLabel 
+ ↗ Ouvrir la requête 
+ Manuscrits (liste complète) 
+ # Manuscrits (liste complète) 
+ SELECT ?entity ?entityLabel ?digitUrl ?manifestUrl ?idBbma 
+ WHERE 
+ { 
+ ?entity wdt : P2 wd : Q32810 ; 
+ wdt : P195 ?shelfmark . 
+ OPTIONAL { ?entity wdt : P197 ?digitUrl } 
+ OPTIONAL { ?entity wdt : P196 ?manifestUrl } 
+ #OPTIONAL { ?entity wdt:P194 ?collection } 
+ OPTIONAL { ?entity wdt : P129 ?idBbma } 
+ ?entity rdfs : label ?entityLabel . 
+ FILTER ( lang ( ?entityLabel ) = 'fr' ) . 
+ } 
+ ORDER BY ?entityLabel 
+ ↗ Ouvrir la requête 
+ Manuscrits (répartition par bibliothèque) 
+ # Manuscrits (répartition par bibliothèque) 
+ SELECT ?collectionLabel ( COUNT ( ?entity ) AS ?count ) 
+ WHERE 
+ { 
+ { ?entity wdt : P2 wd : Q32810 } UNION { ?entity wdt : P2 wd : Q113619 } 
+ ?entity wdt : P194 ?collection . 
+ ?collection rdfs : label ?collectionLabel . 
+ FILTER ( lang ( ?collectionLabel ) = 'fr' ) . 
+ } 
+ GROUP BY ?collectionLabel 
+ ORDER BY ?count 
+ ↗ Ouvrir la requête 
+ Manuscrits numérisés (répartition par bibnum) 
+ # Manuscrits numérisés (répartition par bibnum) 
+ SELECT ?digital_library ( COUNT ( ?entity ) AS ?number_of_digitized_objects ) 
+ WHERE 
+ { 
+ { ?entity wdt : P2 wd : Q32810 } UNION { ?entity wdt : P2 wd : Q113619 } 
+ ?entity p : P197 ?digiStmt . 
+ ?digiStmt ps : P197 ?digitUrl ; 
+ pq : P191 ?digiLib . 
+ ?digiLib rdfs : label ?digital_library . 
+ } 
+ GROUP BY ?digital_library 
+ ↗ Ouvrir la requête 
+ Bibliothèques numériques IIIF 
+ # Bibliothèques numériques IIIF 
+ SELECT ?entity ?entityLabel ( GROUP_CONCAT ( DISTINCT ( ?operatorLabel ); separator = "; " ) AS ?institution ) ?website ?licenseLabel ?iiifcollectionUrl ?seeAlsoFormat 
+ WHERE 
+ { 
+ ?entity wdt : P2 wd : Q32805 ; 
+ wdt : P193 wd : Q32808 . 
+ OPTIONAL { 
+ ?entity wdt : P200 ?operator . 
+ ?operator rdfs : label ?operatorLabel . 
+ } 
+ OPTIONAL { ?entity wdt : P188 ?website } 
+ OPTIONAL { 
+ ?entity wdt : P187 ?license . 
+ ?license rdfs : label ?licenseLabel . 
+ } 
+ OPTIONAL { ?entity wdt : P189 ?iiifcollectionUrl } 
+ OPTIONAL { ?entity wdt : P192 ?seeAlsoFormat } 
+ #FILTER EXISTS { ?entity wdt:P193 wd:Q32808 } 
+ ?entity rdfs : label ?entityLabel . 
+ FILTER ( lang ( ?entityLabel ) = 'fr' ) . 
+ FILTER ( lang ( ?operatorLabel ) = 'fr' ) . 
+ FILTER ( lang ( ?licenseLabel ) = 'fr' ) . 
+ } 
+ GROUP BY ?entity ?entityLabel ?website ?licenseLabel ?iiifcollectionUrl ?seeAlsoFormat 
+ ORDER BY ?institution 
+ ↗ Ouvrir la requête 
+ Jeux de données 
+ PREFIX schema : <http://schema.org/> 
+ #Jeux de données 
+ SELECT DISTINCT ?entity ?entityLabel ?description ?url ?operatorLabel ?licenceLabel ?propId ?propId_label 
+ WHERE 
+ { 
+ ?entity wdt : P2 wd : Q313297 . 
+ ?entity rdfs : label ?entityLabel . 
+ FILTER ( lang ( ?entityLabel ) = 'fr' ) . 
+ OPTIONAL { 
+ ?entity schema : description ?description . 
+ FILTER ( lang ( ?description ) = 'fr' ) 
+ } 
+ OPTIONAL { 
+ ?entity wdt : P188 ?url . 
+ } 
+ OPTIONAL { 
+ ?entity wdt : P200 ?operator . 
+ ?operator rdfs : label ?operatorLabel . 
+ FILTER ( lang ( ?operatorLabel ) = 'fr' ) . 
+ } 
+ OPTIONAL { 
+ ?entity wdt : P187 ?licence . 
+ ?licence rdfs : label ?licenceLabel . 
+ FILTER ( lang ( ?licenceLabel ) = 'fr' ) . 
+ } 
+ OPTIONAL { 
+ ?entity wdt : P363 ?propId . 
+ ?propId rdfs : label ?propId_label . 
+ FILTER ( lang ( ?propId_label ) = 'fr' ) 
+ } 
+ } 
+ ORDER BY ?entity 
+ ↗ Ouvrir la requête 
+ Entités associées à un jeu de données 
+ # Entités associées à un jeu de données 
+ SELECT ?entity ?entityLabel ?entityTypeLabel ?id ?sourceUrl 
+ WHERE { 
+ #--- cibler un ou plusieurs dataset en particulier 
+ VALUES ?dataset { 
+ wd : Q313323 # Regecart 
+ #wd:Q287582 # BVH 
+ } 
+ #--- cibler un ou plusieurs types d'entité (optionnel, laisser décommenter pour requêter sur tous les types) 
+ #VALUES ?entityType { 
+ #wd:Q32810 # manuscrit 
+ #wd:Q113619 # imprimé 
+ #} 
+ ?dataset wdt : P2 wd : Q313297 ; # type "jeu de données" 
+ wdt : P363 ?propId . # prop id du dataset (propriété d'identifiant) 
+ ?propId wikibase : directClaim ?propIdDirect . 
+ ?entity ?propIdDirect ?id ; # entité avec cette prop id 
+ wdt : P2 ?entityType ; 
+ rdfs : label ?entityLabel . 
+ ?entityType rdfs : label ?entityTypeLabel . 
+ FILTER ( lang ( ?entityLabel ) = 'fr' ) . 
+ FILTER ( lang ( ?entityTypeLabel ) = 'fr' ) . 
+ # construit l'url de l'entité sur le site source 
+ ?propId wdt : P108 ?formatterUrl . 
+ BIND ( IRI ( REPLACE ( ?id , '^(.+)$' , ?formatterUrl )) AS ?sourceUrl ). 
+ } 
+ ↗ Ouvrir la requête 
+ Personnes avec 2 ID bbma 
+ SELECT ?entity ?entityLabel ( count ( ?idBbma ) as ?id ) 
+ WHERE 
+ { 
+ ?entity wdt : P2 wd : Q168 ; 
+ wdt : P129 ?idBbma ; 
+ rdfs : label ?entityLabel . 
+ FILTER ( lang ( ?entityLabel ) = 'fr' ) . 
+ } 
+ GROUP BY ?entity ?entityLabel ?id 
+ HAVING ( ?id > 1 ) 
+ ↗ Ouvrir la requête 
+ Organisations avec RCR et disposant de moins de 20 cotes 
+ SELECT ?org ?orgLabel ?placeLabel ( count ( ?item ) as ?count ) 
+ WHERE 
+ { 
+ { ?item wdt : P2 wd : Q32810 } UNION { ?item wdt : P2 wd : Q113619 } 
+ ?item wdt : P194 ?org . 
+ ?org wdt : P2 wd : Q167 ; 
+ wdt : P201 ?place ; 
+ wdt : P202 ?rcr . 
+ ?org rdfs : label ?orgLabel . 
+ ?place rdfs : label ?placeLabel . 
+ FILTER ( lang ( ?orgLabel ) = 'fr' ) . 
+ FILTER ( lang ( ?placeLabel ) = 'fr' ) . 
+ } 
+ GROUP BY ?org ?orgLabel ?placeLabel 
+ HAVING ( ?count < 20 ) 
+ ORDER BY ?orgLabel 
+ ↗ Ouvrir la requête 
+ Manuscrits détruits 
+ PREFIX p : <https://data.biblissima.fr/prop/> 
+ PREFIX ps : <https://data.biblissima.fr/prop/statement/> 
+ PREFIX pq : <https://data.biblissima.fr/prop/qualifier/> 
+ SELECT ?item ?itemLabel 
+ WHERE 
+ { 
+ ?item p : P2 [ 
+ ps : P2 wd : Q32810 ; 
+ pq : P281 wd : Q120866 
+ ] . 
+ ?item rdfs : label ?itemLabel . 
+ FILTER ( lang ( ?itemLabel ) = 'fr' ) . 
+ } 
+ ↗ Ouvrir la requête 
+ Entités alignées vers le catalogue BnF 
+ SELECT ?entity ?bnfId ?bnfUri ?entityLabel 
+ WHERE { 
+ ?entity wdt : P109 ?bnfId . 
+ wd : P109 wdt : P108 ?formatterUrl . 
+ BIND ( IRI ( REPLACE ( ?bnfId , '^(.+)$' , ?formatterUrl )) AS ?bnfUri ). 
+ ?entity rdfs : label ?entityLabel . 
+ FILTER ( lang ( ?entityLabel ) = 'fr' ) . 
+ } 
+ ↗ Ouvrir la requête 
+ Entités alignées avec la DNB 
+ SELECT ?entity ?gndId ?gndUri ?entityLabel 
+ WHERE { 
+ ?entity wdt : P111 ?gndId . 
+ wd : P111 wdt : P108 ?formatterUrl . 
+ BIND ( IRI ( REPLACE ( ?gndId , '^(.+)$' , ?formatterUrl )) AS ?gndUri ). 
+ ?entity rdfs : label ?entityLabel . 
+ FILTER ( lang ( ?entityLabel ) = 'fr' ) . 
+ } 
+ ↗ Ouvrir la requête 
+ Entités alignées avec Persée ou IdRef 
+ # Entités alignées avec Persée ou IdRef 
+ SELECT ?entity ?entityLabel ( GROUP_CONCAT ( DISTINCT ( ?typeLabel ); separator = ", " ) AS ?type_label ) ( GROUP_CONCAT ( DISTINCT ( ?uri ); separator = "###" ) AS ?url ) 
+ WHERE { 
+ ?entity ?property ?Id ; 
+ wdt : P2 ?type . 
+ ?type rdfs : label ?typeLabel . 
+ ?prop wikibase : directClaim ?property ; 
+ rdf : type wikibase : Property ; 
+ wikibase : propertyType wikibase : ExternalId ; 
+ wdt : P108 ?formatterUrl . 
+ FILTER ( CONTAINS ( ?formatterUrl , "persee" ) || CONTAINS ( ?formatterUrl , "idref" ) ) . 
+ BIND ( IRI ( REPLACE ( ?Id , '^(.+)$' , ?formatterUrl )) AS ?uri ) . 
+ ?entity rdfs : label ?entityLabel . 
+ FILTER ( LANG ( ?entityLabel ) = 'fr' ) . 
+ FILTER ( LANG ( ?typeLabel ) = "fr" ) . 
+ } 
+ GROUP BY ?entity ?entityLabel 
+ ↗ Ouvrir la requête 
+ Entités personnes issues des bases de l'IRHT 
+ # Entités personnes issues des bases de l'IRHT 
+ SELECT DISTINCT ?entity 
+ ( GROUP_CONCAT ( ?idbbma ; separator = "###" ) AS ?id_portail_biblissima ) 
+ ( GROUP_CONCAT ( ?idbibale ; separator = "###" ) AS ?id_bibale ) 
+ ( GROUP_CONCAT ( ?idjonas ; separator = "###" ) AS ?id_jonas ) 
+ ( GROUP_CONCAT ( ?idpinakes ; separator = "###" ) AS ?id_pinakes ) 
+ ( GROUP_CONCAT ( ?idinitiale ; separator = "###" ) AS ?id_initiale ) 
+ WHERE 
+ { 
+ ?entity wdt : P2 wd : Q168 . 
+ OPTIONAL { ?entity wdt : P129 ?idbbma } 
+ OPTIONAL { ?entity wdt : P140 ?idjonas } 
+ OPTIONAL { ?entity wdt : P131 ?idbibale } 
+ OPTIONAL { ?entity wdt : P145 ?idpinakes } 
+ OPTIONAL { ?entity wdt : P139 ?idinitiale } 
+ FILTER ( ?idjonas != "" || ?idbibale != "" || ?idpinakes != "" || ?idinitiale != "" ) 
+ } 
+ GROUP BY ?entity 
+ ↗ Ouvrir la requête 
+ Données sur les items numérisés 
+ PREFIX p : <https://data.biblissima.fr/prop/> 
+ PREFIX pq : <https://data.biblissima.fr/prop/qualifier/> 
+ # Données sur les items numérisés 
+ SELECT ?entity ?idbbma 
+ ( GROUP_CONCAT ( DISTINCT ?surrogates ; SEPARATOR = "###" ) AS ?surrogate ) 
+ ( GROUP_CONCAT ( DISTINCT ?manifests ; SEPARATOR = "###" ) AS ?manifest ) 
+ ( GROUP_CONCAT ( DISTINCT ?digitTypeLabel ; SEPARATOR = "###" ) AS ?type_label ) 
+ ( GROUP_CONCAT ( DISTINCT ?dsTypeLabel ; SEPARATOR = "###" ) AS ?ds_type_label ) 
+ WHERE { 
+ VALUES ?filter { 
+ wd : Q32810 
+ wd : Q113619 
+ } 
+ ?entity wdt : P129 ?uncleaned_idbbma ; 
+ wdt : P2 ?filter ; 
+ wdt : P197 ?surrogates ; 
+ OPTIONAL { 
+ ?entity p : P197 ?ds_stmt . 
+ ?ds_stmt pq : P279 ?dsType . 
+ ?dsType rdfs : label ?_dsTypeLabel . 
+ FILTER (( LANG ( ?_dsTypeLabel )) = "fr" ) 
+ } 
+ OPTIONAL { 
+ ?entity wdt : P196 ?manifests ; 
+ OPTIONAL { 
+ ?entity p : P196 ?manifest_stmt . 
+ ?manifest_stmt pq : P279 ?digitType . 
+ ?digitType rdfs : label ?_digitTypeLabel . 
+ FILTER (( LANG ( ?_digitTypeLabel )) = "fr" ) 
+ } 
+ } 
+ BIND ( REPLACE ( ?uncleaned_idbbma , '^[im]data' , '' ) AS ?idbbma ) 
+ BIND ( COALESCE ( ?_dsTypeLabel , "<no label>" ) AS ?dsTypeLabel ) 
+ BIND ( COALESCE ( ?_digitTypeLabel , "<no label>" ) AS ?digitTypeLabel ). 
+ } 
+ GROUP BY ?entity ?idbbma 
+ ORDER BY ?entity 
+ LIMIT 20000 
+ ↗ Ouvrir la requête 
+ Entités fusionnées/redirigées 
+ SELECT ?olditem ?newItem ?newItemLabel 
+ WHERE { 
+ ?olditem owl : sameAs ?newItem . 
+ ?newItem rdfs : label ?newItemLabel . 
+ FILTER ( lang ( ?newItemLabel ) = 'fr' ) . 
+ } 
+ LIMIT 1000 
+ ↗ Ouvrir la requête 
+ Entités avec manifest archive.org 
+ PREFIX p : <https://data.biblissima.fr/prop/> 
+ PREFIX ps : <https://data.biblissima.fr/prop/statement/> 
+ PREFIX pq : <https://data.biblissima.fr/prop/qualifier/> 
+ SELECT ?entity ?manifest_url 
+ WHERE 
+ { 
+ { ?entity wdt : P2 wd : Q32810 } UNION { ?entity wdt : P2 wd : Q113619 } 
+ ?entity p : P196 ?mfStmt . 
+ ?mfStmt ps : P196 ?manifest_url ; 
+ pq : P191 wd : Q78754 . 
+ } 
+ ↗ Ouvrir la requête 
+ Standards de métadonnées référencés dans la propriété "seeAlso" (IIIF) 
+ SELECT DISTINCT ?schema 
+ WHERE { 
+ ?entity wdt : P2 wd : Q32805 ; 
+ wdt : P192 ?schema . 
+ } 
+ ↗ Ouvrir la requête 
+ Entités avec bibliographie, en récupérant le QID du référentiel biblio pour chaque entrée 
+ PREFIX p : <https://data.biblissima.fr/prop/> 
+ PREFIX ps : <https://data.biblissima.fr/prop/statement/> 
+ PREFIX pq : <https://data.biblissima.fr/prop/qualifier/> 
+ SELECT 
+ ?entity 
+ ?entityLabel 
+ ( GROUP_CONCAT ( DISTINCT ?biblio_qid ; SEPARATOR = "###" ) AS ?biblios_qids ) 
+ WHERE { 
+ ?entity p : P379 ?biblio_stmt . 
+ ?biblio_stmt pq : P380 ?QID ; 
+ ps : P379 ?biblio_value . 
+ BIND ( CONCAT ( ?biblio_value , "%%" , ?QID ) AS ?biblio_qid ) 
+ ?entity rdfs : label ?entityLabel . 
+ FILTER ( lang ( ?entityLabel ) = 'fr' ) . 
+ } 
+ GROUP BY ?entity ?entityLabel 
+ ORDER BY ( ?entityLabel ) 
+ ↗ Ouvrir la requête 
+ Inscriptions des CIFM 
+ PREFIX p : <https://data.biblissima.fr/prop/> 
+ SELECT ?entity ?label ?labelBbma ?idBbma ( GROUP_CONCAT ( DISTINCT ?manifests ; SEPARATOR = "###" ) AS ?manifest ) 
+ WHERE 
+ { 
+ ?entity wdt : P2 wd : Q257483 ; 
+ rdfs : label ?label ; 
+ wdt : P195 ?labelBbma . 
+ OPTIONAL { ?entity wdt : P129 ?idBbma } 
+ OPTIONAL { 
+ ?entity wdt : P196 ?manifests ; 
+ OPTIONAL { 
+ ?entity p : P196 ?manifest_stmt . 
+ } 
+ } 
+ FILTER langMatches ( LANG ( ?label ), "fr" ) 
+ FILTER ( regex ( ?label , "CIFM" )) . 
+ } 
+ GROUP BY ?entity ?label ?labelBbma ?idBbma 
+ ↗ Ouvrir la requête 
+ Liste des cotes citées dans les articles de la revue ALMA (Persée) 
+ PREFIX schema : <http://schema.org/> 
+ PREFIX pq : <https://data.biblissima.fr/prop/qualifier/> 
+ PREFIX p : <https://data.biblissima.fr/prop/> 
+ SELECT ?biblio_entity ?biblio_label ?biblio_pages ?biblio_url ?data_entity ?data_entity_label 
+ WHERE { 
+ VALUES ?entity_type { 
+ wd : Q32810 # manuscrit 
+ wd : Q113619 # imprimé 
+ } 
+ ?data_entity wdt : P2 ?entity_type ; 
+ rdfs : label ?data_entity_label ; 
+ p : P379 ?biblio_stmt . 
+ ?biblio_stmt pq : P380 ?biblio_qid . 
+ OPTIONAL { 
+ ?biblio_stmt pq : P381 ?biblio_pages . 
+ } 
+ OPTIONAL { 
+ ?biblio_stmt pq : P197 ?biblio_url . 
+ FILTER ( CONTAINS ( STR ( ?biblio_url ), "persee" )) 
+ } 
+ BIND ( IRI ( CONCAT ( STR ( "https://biblio.biblissima.fr/entity/" ), ?biblio_qid )) AS ?biblio_entity ) 
+ FILTER ( LANG ( ?data_entity_label ) = 'fr' ) 
+ SERVICE <https://query.biblissima.fr/api/sparql/biblio> { 
+ ?biblio_entity <https://biblio.biblissima.fr/prop/direct/P3> <https://biblio.biblissima.fr/entity/Q7043> ; # articles de ALMA 
+ rdfs : label ?biblio_label . 
+ FILTER ( LANG ( ?biblio_label ) = 'fr' ) 
+ } 
+ } 
+ ORDER BY ?data_entity_label 
+ ↗ Ouvrir la requête 
+ Récupérée de " https://data.biblissima.fr/w/index.php?title=Project:SPARQL_examples&oldid=2697187 "
+ Menu de navigation
+ Outils personnels 
+ français 
+ Se connecter 
+ Espaces de noms 
+ Page de projet 
+ Discussion 
+ français 
+ Affichages 
+ Lire 
+ Voir le texte source 
+ Voir l’historique 
+ Plus 
+ Rechercher
+ Page d’accueil 
+ Rechercher 
+ Modifications récentes (compte requis) 
+ Consulter 
+ Liste des types d'entités 
+ Liste des entités 
+ Liste des propriétés 
+ Accès SPARQL 
+ Interface SPARQL (accès restreint) 
+ Requêtes SPARQL d'exemple 
+ Contribuer 
+ Créer une entité 
+ Créer une propriété 
+ Fusionner des entités 
+ Liens 
+ Portail Biblissima 
+ IIIF Collections 
+ Site institutionnel 
+ Autres instances Wikibase 
+ Biblio Biblissima 
+ Lexico Biblissima 
+ Outils 
+ Pages liées 
+ Suivi des pages liées 
+ Pages spéciales 
+ Version imprimable 
+ Lien permanent 
+ Informations sur la page 
+ Dans d’autres projets 
+ Dans d’autres langues 
+ Ajouter des liens 
+ La dernière modification de cette page a été faite le 28 octobre 2026 à 21:21.
+ Le contenu est disponible sous licence Licence Ouverte/Open License 2.0 sauf mention contraire.
+ API 
+ À propos 
+ Contribuer
