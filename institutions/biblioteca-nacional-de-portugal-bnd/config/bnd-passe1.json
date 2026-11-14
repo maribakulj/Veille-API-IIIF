@@ -1,0 +1,18 @@
+{
+  "slug": "biblioteca-nacional-de-portugal-bnd",
+  "min_delay_s": 6,
+  "max_requests": 15,
+  "follow_redirects": 0,
+  "robots_disallow_autorise_par_marcel": true,
+  "note": "Passe 1 : familles citées par https://opendata.bnportugal.gov.pt (OAI-PMH oai.bnportugal.gov.pt, URN service, PURL purl.pt de eng_persistent_ids.htm) et par la page About de la BND ; manifeste IIIF dont l'URL est lue sur une page publique tierce (Biblissima, notice IL. 2) : https://permalinkbnd.bnportugal.gov.pt/iiif/69264/manifest, identifiant non deviné. robots.txt : bndigital, permalinkbnd et purl.pt = Disallow: / (autorisé par Marcel, C12) ; oai/urn = 404.",
+  "endpoints": [
+    {"id": "iiif-manifeste", "method": "GET", "url": "https://permalinkbnd.bnportugal.gov.pt/iiif/69264/manifest", "save_body": 200000},
+    {"id": "oai-identify", "method": "GET", "url": "https://oai.bnportugal.gov.pt/servlet/OAIHandler?verb=Identify"},
+    {"id": "oai-listmetadataformats", "method": "GET", "url": "https://oai.bnportugal.gov.pt/servlet/OAIHandler?verb=ListMetadataFormats"},
+    {"id": "urn-bnp-accesso", "method": "GET", "url": "https://urn.bnportugal.gov.pt/accesso.urn"},
+    {"id": "urn-porbase-base", "method": "GET", "url": "https://urn.porbase.org"},
+    {"id": "purl-ressource", "method": "GET", "url": "https://purl.pt/32689"},
+    {"id": "purl-jpg", "method": "GET", "url": "https://purl.pt/32689/1"},
+    {"id": "bnd-recherche-html", "method": "GET", "url": "https://bndigital.bnportugal.gov.pt/en/records?search=&sort=-PURL_ID,_score"}
+  ]
+}

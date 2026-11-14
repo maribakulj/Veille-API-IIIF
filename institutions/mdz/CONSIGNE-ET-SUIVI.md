@@ -2,51 +2,51 @@
 
 - **Dossier** : `institutions/mdz/`  ·  **Classeur de référence** : GLAM-024  ·  **Pays** : Allemagne
 - **Statut d'institution** : active
-- **Dernière mise à jour du suivi** : (à renseigner à chaque modification)
+- **Dernière mise à jour du suivi** : 2026-11-14
 
 ## Suivi par étape (à cocher, avec justification et preuves)
 
 ### a) Documentation lue en entier
 > Toutes les pages de doc liées à l'API (développeurs, interfaces, conditions, FAQ, aide, mentions légales, robots.txt), téléchargées avec `scripts/fetch_doc.sh` (URL, date, SHA-256), lues en entier (`scripts/extract_text.py`).
 
-- [ ] **Pas fait**
-  - **Justification** : Passe antérieure non conforme à la méthode v2 (AUDIT-HAIKU.md) : à refaire. Le matériel déjà présent dans ce dossier est conservé comme historique.
-  - **Preuves** : 
+- [x] **Fait**
+  - **Justification** : Toutes les pages de doc API/FAQ/aide/conditions lues en entier (fetch_doc, SHA-256), doc OAI-PMH BDR, robots.txt des 4 hôtes (www, api, oai, bdr) téléchargés et lus, hôte bdr en 403/500 documenté avec réplique Wayback verbatim.
+  - **Preuves** : `institutions/mdz/sources/SHA256SUMS`, `institutions/mdz/sources/robots/SHA256SUMS`, `institutions/mdz/sources/wayback/bdr-oai-identify.md`
 
 ### b) Endpoints tirés de la doc
 > Liste des endpoints citée par la doc (URL, exemples). Jamais devinée. Une interdiction ou une impossibilité écrite dans la doc justifie de renoncer (citer la phrase).
 
-- [ ] **Pas fait**
-  - **Justification** : Passe antérieure non conforme à la méthode v2 (AUDIT-HAIKU.md) : à refaire. Le matériel déjà présent dans ce dossier est conservé comme historique.
-  - **Preuves** : 
+- [x] **Fait**
+  - **Justification** : Endpoints tirés de la page interfaces et de la doc OAI : manifeste, collection top, Image info.json et images, OCR hOCR, RSS, OAI-PMH ; URL non-API écartées avec raison dans data.json.
+  - **Preuves** : `institutions/mdz/data.json`, `institutions/mdz/sources/interfaces-en.md`
 
 ### c) Configuration écrite AVANT les tests
 > `config/<nom>.json` pilote `scripts/probe.py`, committée avant le lancement. Un endpoint absent de la doc mais non interdit se teste avec un script poli (identifiants issus de pages publiques ou d'exemples de la doc, pas de devinette).
 
-- [ ] **Pas fait**
-  - **Justification** : Passe antérieure non conforme à la méthode v2 (AUDIT-HAIKU.md) : à refaire. Le matériel déjà présent dans ce dossier est conservé comme historique.
-  - **Preuves** : 
+- [x] **Fait**
+  - **Justification** : Configuration mdz-passe1.json écrite et committée (21b73aa) avant le lancement ; sessions antérieures non conformes archivées dans tests/archive/ ; config crash préparée.
+  - **Preuves** : `institutions/mdz/config/mdz-passe1.json`, `institutions/mdz/config/crash-info-json.json`, `institutions/mdz/tests/archive/journal-sessions-avant-config-committee.log`
 
 ### d) Quota cherché dans la doc
 > Pour chaque page lue : endpoint de statut, en-têtes de limite documentés, clé ou compte donnant un quota, contact pour un volume plus élevé. Chaque réponse cite sa source.
 
-- [ ] **Pas fait**
-  - **Justification** : Passe antérieure non conforme à la méthode v2 (AUDIT-HAIKU.md) : à refaire. Le matériel déjà présent dans ce dossier est conservé comme historique.
-  - **Preuves** : 
+- [x] **Fait**
+  - **Justification** : Recherche de quota dans chaque page lue : limites par 24 h Image/OCR sans chiffre, Presentation illimitée, plafond PDF par jour/utilisateur, en-têtes x-ratelimit non documentés, contacts mdz@ et oai@ ; sources citées dans data.json.
+  - **Preuves** : `institutions/mdz/data.json`, `institutions/mdz/fiche.md`
 
 ### e) Test systématique de chaque endpoint
 > Chaque endpoint documenté est testé (budget 15 requêtes par passe, pause ≥ 6 s, GET/HEAD, UA du projet). Redirections du même hôte suivies. Un 403 arrête son hôte, un 429 arrête l'institution. Seules les interdictions écrites dans la doc dispensent de tester.
 
-- [ ] **Pas fait**
-  - **Justification** : Passe antérieure non conforme à la méthode v2 (AUDIT-HAIKU.md) : à refaire. Le matériel déjà présent dans ce dossier est conservé comme historique.
-  - **Preuves** : 
+- [x] **Fait**
+  - **Justification** : Toutes les familles testées par la sonde : 8 endpoints en 200, x-ratelimit sur Image/OCR ; OAI BDR en 403 anti-bot, hôte arrêté sans contournement, URL en a_verifier_manuellement ; aucun 429.
+  - **Preuves** : `institutions/mdz/tests/journal.log`, `institutions/mdz/tests/raw/ocr-hocr.headers.txt`, `institutions/mdz/tests/raw/bdr-oai-identify.headers.txt`
 
 ### f) Ce que disent les gens sur le web
 > Plaintes, discussions, présentations de l'institution, politique envers les API et les bots, blogs, GitHub, forums, listes de diffusion. Sources étiquetées (officielle / institution / utilisateur / tiers), lues, citées.
 
-- [ ] **Pas fait**
-  - **Justification** : Passe antérieure non conforme à la méthode v2 (AUDIT-HAIKU.md) : à refaire. Le matériel déjà présent dans ce dossier est conservé comme historique.
-  - **Preuves** : 
+- [x] **Fait**
+  - **Justification** : 4 recherches web (institution, utilisateurs, tickets, presentations) ; tickets sourcelibrary-v2 #5448 et Mirador #4542 lus en original ; catégories sans piste marquées ; engine summaries étiquetés.
+  - **Preuves** : `institutions/mdz/data.json`, `institutions/mdz/fiche.md`
 
 ### g) Crash test progressif
 > Seulement après l'audit complet (a à f) de toutes les institutions et avec l'accord de Marcel : paliers jusqu'à 2 × la limite documentée, ou 200 req/min si illimité ou sans limite documentée. Arrêt au premier 429/403/CAPTCHA.
@@ -60,9 +60,9 @@
 
 <!-- AUTO:DEBUT -->
 ## Contrôles automatiques (calculés depuis `tests/journal.log`)
-- Requêtes enregistrées : **16** (sessions de sonde : 1, maximum par session : 3)
+- Requêtes enregistrées : **12** (sessions de sonde : 1, maximum par session : 12)
 - Plus courte pause vers un même hôte : **6 s** (règle : ≥ 6 s)
-- Méthodes utilisées : GET, HEAD (règle : GET/HEAD seulement)
+- Méthodes utilisées : GET (règle : GET/HEAD seulement)
 - Anomalies : aucune
 <!-- AUTO:FIN -->
 

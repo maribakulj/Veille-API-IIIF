@@ -1,0 +1,19 @@
+{
+  "slug": "mdz",
+  "min_delay_s": 6,
+  "max_requests": 15,
+  "follow_redirects": 0,
+  "robots_disallow_autorise_par_marcel": true,
+  "note": "Passe 1 (rejeu v3) : tous les endpoints cités par https://www.digitale-sammlungen.de/en/interfaces (Presentation v2 manifestes + collection top, Image info.json + dérivé + exemple de la doc, OCR hOCR, flux RSS) et l'OAI-PMH BDR (http, doc oai.bsb-muenchen.de). robots.txt : www = Disallow vide ; oai = Crawl-delay 5 ; api = 404 ; bdr = 500 (lu par la sonde).",
+  "endpoints": [
+    {"id": "presentation-manifeste", "method": "GET", "url": "https://api.digitale-sammlungen.de/iiif/presentation/v2/bsb00012345/manifest"},
+    {"id": "presentation-manifeste-2", "method": "GET", "url": "https://api.digitale-sammlungen.de/iiif/presentation/v2/bsb00130380_00157_u001/manifest"},
+    {"id": "presentation-collection-top", "method": "GET", "url": "https://api.digitale-sammlungen.de/iiif/presentation/v2/collection/top"},
+    {"id": "image-info-json", "method": "GET", "url": "https://api.digitale-sammlungen.de/iiif/image/v2/bsb00103155_00013/info.json"},
+    {"id": "image-derive-200", "method": "GET", "url": "https://api.digitale-sammlungen.de/iiif/image/v2/bsb00109992_00001/full/200,/0/default.jpg"},
+    {"id": "image-exemple-full", "method": "GET", "url": "https://api.digitale-sammlungen.de/iiif/image/v2/bsb00109992_00001/full/full/0/default.jpg"},
+    {"id": "ocr-hocr", "method": "GET", "url": "https://api.digitale-sammlungen.de/ocr/bsb00000001/00010"},
+    {"id": "rss-mdz", "method": "GET", "url": "https://www.digitale-sammlungen.de/rss/mdz.xml"},
+    {"id": "bdr-oai-identify", "method": "GET", "url": "http://bdr.oai.bsb-muenchen.de/OAIHandler?verb=Identify"}
+  ]
+}

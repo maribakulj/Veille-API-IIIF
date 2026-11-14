@@ -1,0 +1,11 @@
+{
+  "slug": "harvard-art-museums",
+  "min_delay_s": 6,
+  "max_requests": 15,
+  "follow_redirects": 0,
+  "robots_disallow_autorise_par_marcel": true,
+  "note": "Passe 3 : ids.lib.harvard.edu a répondu 302 vers mps.lib.harvard.edu/assets/images/drs:501084284/info.json (location lue dans tests/raw/ids-info-json.headers.txt) ; robots.txt de mps.lib.harvard.edu : 202 sans corps (sources/a5), lu par la sonde aussi.",
+  "endpoints": [
+    {"id": "mps-info-json", "method": "GET", "url": "https://mps.lib.harvard.edu/assets/images/drs:501084284/info.json"}
+  ]
+}

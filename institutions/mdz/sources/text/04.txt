@@ -1,0 +1,117 @@
+Schnittstellen | MDZ 
+ Suche in 
+ Metadaten 
+ Volltexten 
+ Filter 
+ aktive Filter beibehalten 
+ Switch language to English 
+ RSS 
+ Sammlungen 
+ Das MDZ 
+ 2D- und 3D-Digitalisierung
+ Technologien und Softwareentwicklung
+ Langzeitarchivierung
+ Publikationen des MDZ (in Auswahl)
+ Unsere Daten-Services 
+ Download-Möglichkeiten
+ Schnittstellen
+ Reproaufträge (€)
+ Hilfe 
+ Hilfe zur Suche
+ Hilfe zum Viewer
+ FAQ
+ Kontakt
+ Impressum
+ Datenschutzerklärung
+ Disclaimer
+ Barrierefreiheit
+ Hauptmenü schließen
+ Suche in 
+ Metadaten 
+ Volltexten 
+ Filter 
+ aktive Filter beibehalten 
+ Leider ist ein Fehler bei der Darstellung aufgetreten
+ Bitte stellen Sie sicher, dass Sie einen aktuellen, unterstützten Browser verwenden (Edge, Firefox ab Version 68, Chrome ab Version 86, Safari ab Version 12).
+ Ist dies der Fall, laden Sie bitte die Seite neu.
+Mit älteren, nicht unterstützten Browsern (bspw. Internet Explorer) ist die Nutzung unseres Angebots nicht in vollem Umfang möglich.
+Besteht der Fehler weiterhin, wenden Sie sich bitte an mdz@bsb-muenchen.de .
+Schnittstellen
+ IIIF-APIs
+ Presentation API
+ Image API
+ Bayerisches Digitales Repositorium
+ RSS-Feed
+IIIF-APIs
+Sie können die Inhalte der Bayerischen Staatsbibliothek, die im IIIF-Standard angeboten werden, über die APIs (Application Programming Interface) direkt in Webangebote integrieren, ohne dass Sie die Daten selbst herunterladen und vorhalten müssen.
+Bitte beachten Sie bei der Nachnutzung eines Digitalisats jeweils den Rechtehinweis, unter dem es bereitgestellt wird. Ggf. ist eine kommerzielle Nutzung ausgeschlossen. Nähere Informationen dazu finden Sie in unseren 
+ FAQ 
+.
+Die im Folgenden beschriebenen Schnittstellen liefern ihre Antworten mit dem 
+ Access-Control-Allow-Origin: * 
+ Header aus, der es erlaubt die Daten direkt in client-seitigen JavaScript-Anwendungen zu verwenden. Die Bayerische Staatsbibliothek bietet die 
+ IIIF Presentation API 
+ und die 
+ IIIF Image API 
+ an. Erstere erlaubt es auf sogenannte Manifeste im JSON-LD Format für die digitalisierten Objekte zuzugreifen. Aus diesen heraus werden die Endpunkte der Image API für die verschiedenen Faksimile-Bilder referenziert. An jedem dieser Endpunkte ist eine info.json-Datei vorhanden, die es erlaubt, sofort Informationen über das Bild abzurufen.
+Presentation API
+Über diese Schnittstelle können Sie auf die Metadaten eines Objektes im JSON-Format zugreifen, die sogenannten Manifeste. Sie finden dort neben einer Reihe von bibliographischen Metadaten (.metadata) eine Datenstruktur, die alle Seiten ("Canvases") eines Objektes auflistet (.sequences[0].canvases). Jeder dieser Canvas-Einträge verweist (unter .images[0].resource.service[@id]) auf die entsprechende Image-API, unter der das Bild für die Seite zugänglich ist. 
+Falls vorhanden, wird OCR (Volltext) für die Seite unter .seeAlso[@id] im hOCR-Format verlinkt. Bitte beachten Sie, dass die Zahl an OCR-Downloads, die pro 24 Stunden gemacht werden können, beschränkt ist. Der Zugang auf die Presentation API ist unbeschränkt.
+URL IIIF-Manifest: 
+ https://api.digitale-sammlungen.de/iiif/presentation/v2/{object_id}/manifest 
+Beispiele für ein Manifest:
+ https://api.digitale-sammlungen.de/iiif/presentation/v2/bsb00012345/manifest 
+ https://api.digitale-sammlungen.de/iiif/presentation/v2/bsb00130380_00157_u001/manifest 
+Zugrunde liegende Spezifikation: 
+ https://iiif.io/api/presentation/2.1/ 
+URL Top-Collection: 
+ https://api.digitale-sammlungen.de/iiif/presentation/v2/collection/top 
+Zugrunde liegende Spezifikation: 
+ https://iiif.io/api/presentation/2.1/#collection 
+Image API
+Über diese Schnittstelle können Sie auf die Digitalisat-Bilddaten in den Digitalen Sammlungen zugreifen. Über die URL können Sie steuern, welchen Ausschnitt Sie in welcher Größe, welcher Rotation und welchem Format bekommen möchten. Für mehr Details konsultieren Sie bitte die 
+ Dokumentation der IIIF Image API 
+ .
+ https://api.digitale-sammlungen.de/iiif/image/v2/{image_id}/{region}/{size}/{rotation}/{quality}.{format} 
+Beispiel für eine Bild-Datei:
+ https://api.digitale-sammlungen.de/iiif/image/v2/bsb00109992_00001/full/full/0/default.jpg 
+ https://api.digitale-sammlungen.de/iiif/image/v2/{image_id}/info.json 
+Beispiel für eine info.json-Datei:
+ https://api.digitale-sammlungen.de/iiif/image/v2/bsb00103155_00013/info.json 
+Zugrunde liegende Spezifikation: 
+ https://iiif.io/api/image/2.1/ 
+Bitte beachten Sie, dass die Zahl an Requests, die pro 24 Stunden an die Image API gerichtet werden können, begrenzt ist.
+ https://api.digitale-sammlungen.de/ocr/{object_id}/{page_num} 
+Beispiel für eine OCR-XML-Datei:
+ https://api.digitale-sammlungen.de/ocr/bsb00000001/00010 
+Bitte beachten Sie, dass die Zahl an OCR-Downloads, die pro 24 Stunden gemacht werden können, beschränkt ist.
+Besuchen Sie uns auch auf 
+ Github 
+. Dort finden Sie vom MDZ entwickelte IIIF-OpenSource-Software.
+Bayerisches Digitales Repositorium
+Mit dem 
+ Bayerischen Digitalen Repositorium (BDR) 
+ wird eine frei zugängliche Schnittstelle angeboten, über die Metadaten für Digitale Objekte bezogen werden können, die an der Bayerischen Staatsbibliothek produziert oder in Kooperation mit ihr entstanden sind. Das BDR ist ein dem OAI Protocol for Metadata Harvesting (OAI-PMH) entsprechendes Repositorium.
+RSS-Feed
+Der 
+ RSS-Feed des Münchener DigitalisierungsZentrums 
+ präsentiert die 50 aktuellsten Neuzugänge in den Digitalen Sammlungen in der Reihenfolge ihrer Online-Bereitstellung.
+ Das MDZ
+ 2D- und 3D-Digitalisierung
+ Technologien und Softwareentwicklung
+ Langzeitarchivierung
+ Publikationen des MDZ (in Auswahl)
+ Unsere Daten-Services
+ Download-Möglichkeiten
+ Schnittstellen
+ Reproaufträge (€)
+ Hilfe
+ Hilfe zur Suche
+ Hilfe zum Viewer
+ FAQ
+ Kontakt
+ Impressum
+ Datenschutzerklärung
+ Disclaimer
+ Barrierefreiheit
+ Inhaltsverzeichnis

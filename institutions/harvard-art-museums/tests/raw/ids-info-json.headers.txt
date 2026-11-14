@@ -1,0 +1,21 @@
+2026-11-14T01:55:16Z GET https://ids.lib.harvard.edu/mps/501084284/info.json
+HTTP 302
+date: Sat, 14 Nov 2026 01:55:16 GMT
+content-type: text/plain; charset=utf-8
+content-length: 87
+connection: keep-alive
+access-control-allow-origin: *
+access-control-allow-credentials: true
+content-security-policy: default-src 'self';base-uri 'self';font-src 'self' https: data:;form-action 'self';frame-ancestors 'self';img-src 'self' data:;object-src 'none';script-src 'self';script-src-attr 'none';style-src 'self' https: 'unsafe-inline';upgrade-insecure-requests
+origin-agent-cluster: ?1
+referrer-policy: no-referrer
+strict-transport-security: max-age=15552000; includeSubDomains
+x-content-type-options: nosniff
+x-dns-prefetch-control: off
+x-frame-options: SAMEORIGIN
+x-xss-protection: 0
+access-control-allow-methods: GET
+location: https://mps.lib.harvard.edu/assets/images/drs:501084284/info.json
+vary: Accept
+x-envoy-upstream-service-time: 2
+server: istio-envoy
