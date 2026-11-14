@@ -1,0 +1,12 @@
+{
+  "slug": "university-of-st-andrews-library",
+  "endpoint": {
+    "id": "info-json-collections",
+    "url": "https://collections.st-andrews.ac.uk/iiif/2/56718~56718/info.json",
+    "method": "GET"
+  },
+  "limite_documentee_req_min": null,
+  "source_limite": "aucune limite de débit documentée (robots.txt de www.st-andrews.ac.uk : seulement Crawl-delay 10 ; robots.txt de collections.st-andrews.ac.uk : Disallow /)",
+  "duree_palier_s": 180,
+  "note": "info.json Image API v2 (Cantaloupe 4.1.4), 200 dans le journal (sta-p2-info-json, 2026-11-14T02:41:28Z), réponse courte. Hôte soumis à Disallow / (testé avec l'accord de Marcel, C12). Le Crawl-delay de 10 s de www est ici dépassé volontairement par le crash test, à valider à la fin."
+}

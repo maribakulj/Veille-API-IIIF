@@ -6,3 +6,10 @@
 2026-11-14T02:40:52Z | sta-p1-notice | robots.txt interdit https://collections.st-andrews.ac.uk/collection/archive-collections/777989 (Disallow: /) ; lancé car autorisé par Marcel (C12)
 2026-11-14T02:41:03Z | sta-p1-notice | https://collections.st-andrews.ac.uk/collection/archive-collections/777989 | GET | 200 OK | aucun en-tête de limite | taille≥200 | corps: <!DOCTYPE html> <html lang="en">  <head>     <!-- Global site tag (gtag.js) - Google Analytics -->     <script async src="https://www.googletagmanager.com/gtag/js?id=G-LDCWK5LZZE"></script>     
 # Fin 2026-11-14T02:41:03Z — 3 requête(s) envoyée(s)
+# Session 2026-11-14T02:41:17Z — configuration standrews-passe2-images.json — sonde probe.py au commit cb5791a
+2026-11-14T02:41:18Z | robots.txt:collections.st-andrews.ac.uk | https://collections.st-andrews.ac.uk/robots.txt | GET | 200 | 1 règle(s) pour « * »
+2026-11-14T02:41:18Z | sta-p2-info-json | robots.txt interdit https://collections.st-andrews.ac.uk/iiif/2/56718~56718/info.json (Disallow: /) ; lancé car autorisé par Marcel (C12)
+2026-11-14T02:41:28Z | sta-p2-info-json | https://collections.st-andrews.ac.uk/iiif/2/56718~56718/info.json | GET | 200 OK | aucun en-tête de limite | taille≥200 | corps: {"@context":"http://iiif.io/api/image/2/context.json","@id":"https://collections.st-andrews.ac.uk/iiif/2/56718~56718","protocol":"http://iiif.io/api/image","width":6144,"height":4096,"sizes":[{"width"
+2026-11-14T02:41:28Z | sta-p2-vignette-head | robots.txt interdit https://collections.st-andrews.ac.uk/iiif/2/56718~56718/full/150,/0/default.jpg (Disallow: /) ; lancé car autorisé par Marcel (C12)
+2026-11-14T02:41:40Z | sta-p2-vignette-head | https://collections.st-andrews.ac.uk/iiif/2/56718~56718/full/150,/0/default.jpg | HEAD | 200 OK | aucun en-tête de limite | taille≥0 | corps: 
+# Fin 2026-11-14T02:41:40Z — 3 requête(s) envoyée(s)

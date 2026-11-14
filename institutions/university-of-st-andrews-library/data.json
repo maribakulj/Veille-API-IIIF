@@ -1,13 +1,246 @@
 {
-  "slug": "university-of-st-andrews-library",
-  "nom": "University of St Andrews Library",
-  "pays": "Royaume-Uni",
-  "classeur_id": "GLAM-068",
-  "type": "Institution",
-  "statut_audit": "à faire",
-  "limites_documentees": [],
-  "en_tetes_observes": [],
-  "blocages": [],
-  "sources": [],
-  "web": []
+ "slug": "university-of-st-andrews-library",
+ "nom": "University of St Andrews Library",
+ "pays": "Royaume-Uni",
+ "classeur_id": "GLAM-068",
+ "type": "Institution",
+ "statut_audit": "méthode v2 complète sauf g (crash test à la fin)",
+ "limites_documentees": [
+  {
+   "nature": "Crawl-delay (robots.txt)",
+   "perimetre": "www.st-andrews.ac.uk",
+   "valeur": "10 s",
+   "fenetre": "entre requêtes",
+   "effet": "demande de courtoisie, non appliquée par réponse HTTP observée",
+   "verification": "lue dans robots.txt ; respectée (pause de 10 s) ; non observée côté serveur",
+   "source": "https://www.st-andrews.ac.uk/robots.txt",
+   "date": "2026-11-14"
+  },
+  {
+   "nature": "Interdiction robots (sans chiffre)",
+   "perimetre": "collections.st-andrews.ac.uk, tous chemins (User-agent * : Disallow /)",
+   "valeur": "Disallow: /",
+   "fenetre": "–",
+   "effet": "demande de ne pas robotiser, non appliquée par réponse HTTP observée",
+   "verification": "lue ; testée malgré tout (C12) : 200 partout",
+   "source": "https://collections.st-andrews.ac.uk/robots.txt",
+   "date": "2026-11-14"
+  }
+ ],
+ "en_tetes_observes": [
+  {
+   "hote": "collections.st-andrews.ac.uk",
+   "en_tete": "x-powered-by: Cantaloupe/4.1.4 ; server: Jetty",
+   "signification": "serveur d'images IIIF ; aucun en-tête RateLimit, Retry-After ni X-RateLimit",
+   "preuve": "institutions/university-of-st-andrews-library/tests/raw/sta-p2-info-json.headers.txt"
+  }
+ ],
+ "blocages": [],
+ "sources": [
+  {
+   "url": "https://collections.st-andrews.ac.uk/robots.txt",
+   "date": "2026-11-14",
+   "etiquette": "officielle",
+   "preuve": "institutions/university-of-st-andrews-library/sources/doc/SHA256SUMS"
+  },
+  {
+   "url": "https://www.st-andrews.ac.uk/robots.txt",
+   "date": "2026-11-14",
+   "etiquette": "officielle",
+   "preuve": "institutions/university-of-st-andrews-library/sources/doc/SHA256SUMS"
+  },
+  {
+   "url": "https://collections.st-andrews.ac.uk/",
+   "date": "2026-11-14",
+   "etiquette": "officielle",
+   "preuve": "institutions/university-of-st-andrews-library/sources/doc/SHA256SUMS"
+  },
+  {
+   "url": "https://exhibit.st-andrews.ac.uk/docs",
+   "date": "2026-11-14",
+   "etiquette": "officielle (outil Exhibit)",
+   "preuve": "institutions/university-of-st-andrews-library/sources/exhibit/SHA256SUMS"
+  },
+  {
+   "url": "https://exhibit.st-andrews.ac.uk/robots.txt",
+   "date": "2026-11-14",
+   "etiquette": "officielle",
+   "preuve": "institutions/university-of-st-andrews-library/sources/exhibit/SHA256SUMS"
+  },
+  {
+   "url": "https://www.st-andrews.ac.uk/library/about/librariesandmuseums/servicedefinitions/digital-reproductions/",
+   "date": "2026-11-14",
+   "etiquette": "officielle (définition de service)",
+   "preuve": "institutions/university-of-st-andrews-library/sources/exhibit/SHA256SUMS"
+  },
+  {
+   "url": "https://museumblog.wp.st-andrews.ac.uk/robots.txt",
+   "date": "2026-11-14",
+   "etiquette": "officielle",
+   "preuve": "institutions/university-of-st-andrews-library/sources/exhibit/SHA256SUMS"
+  },
+  {
+   "url": "https://www.st-andrews.ac.uk/collections/about/",
+   "date": "2025-03-03",
+   "etiquette": "officielle (via Wayback)",
+   "preuve": "institutions/university-of-st-andrews-library/sources/wayback/collections-about.md"
+  },
+  {
+   "url": "https://www.st-andrews.ac.uk/collections/use-collections/digitisation-service/",
+   "date": "2026-10-19",
+   "etiquette": "officielle (via Wayback)",
+   "preuve": "institutions/university-of-st-andrews-library/sources/wayback/digitisation-service.md"
+  },
+  {
+   "url": "https://www.st-andrews.ac.uk/terms/",
+   "date": "2026-11-07",
+   "etiquette": "officielle (via Wayback)",
+   "preuve": "institutions/university-of-st-andrews-library/sources/wayback/terms.md"
+  }
+ ],
+ "web": [
+  {
+   "categorie": "institution",
+   "url": "https://www.st-andrews.ac.uk/collections/about/",
+   "date": "2025-03-03",
+   "etiquette": "officielle (via Wayback)",
+   "citation": "« To re-use any of our records/images in other IIIF tools, copy the \"IIIF Manifest\" link found on the record pages » ; aucune mention de quota ni de moissonnage",
+   "preuve": "institutions/university-of-st-andrews-library/sources/wayback/collections-about.md"
+  },
+  {
+   "categorie": "institution",
+   "url": "https://www.st-andrews.ac.uk/collections/use-collections/digitisation-service/",
+   "date": "2026-10-19",
+   "etiquette": "officielle (via Wayback)",
+   "citation": "« In most cases, you should be able to request copies of images for non-commercial use at no charge. »",
+   "preuve": "institutions/university-of-st-andrews-library/sources/wayback/digitisation-service.md"
+  },
+  {
+   "categorie": "utilisateurs",
+   "aucun_resultat": true,
+   "requete": "\"collections.st-andrews.ac.uk\" 429 OR 403 OR blocked OR \"rate limit\" iiif download",
+   "date": "2026-11-14",
+   "etiquette": "résumé de moteur, non vérifié",
+   "citation": "aucune plainte ni fil sur un 429 ou un blocage de collections.st-andrews.ac.uk dans les résultats",
+   "preuve": "institutions/university-of-st-andrews-library/fiche.md"
+  },
+  {
+   "categorie": "tickets",
+   "aucun_resultat": true,
+   "requete": "github issue \"collections.st-andrews.ac.uk\" iiif manifest",
+   "date": "2026-11-14",
+   "etiquette": "résumé de moteur, non vérifié",
+   "citation": "aucun ticket GitHub citant collections.st-andrews.ac.uk dans les résultats",
+   "preuve": "institutions/university-of-st-andrews-library/fiche.md"
+  },
+  {
+   "categorie": "presentations",
+   "aucun_resultat": true,
+   "requete": "St Andrews University Collections blog IIIF Exhibit Mnemoscene digital collections presentation conference",
+   "date": "2026-11-14",
+   "etiquette": "résumé de moteur, non vérifié",
+   "citation": "aucune présentation de l'institution sur sa politique d'API ou de quotas ; le billet « A guide to Exhibit » du blog des musées renvoie 410 (Gone) ; la doc Exhibit lue ne parle pas de quota",
+   "preuve": "institutions/university-of-st-andrews-library/sources/exhibit/FETCH.log"
+  }
+ ],
+ "contact": "unicolls@st-andrews.ac.uk (University Collections) ; museumenquiries@st-andrews.ac.uk (Museums)",
+ "conclusion_quota": "Aucun quota, en-tête de limite ni politique de moissonnage publiés. Le robots.txt de collections.st-andrews.ac.uk interdit tout robot (« User-agent: * / Disallow: / ») et celui de www.st-andrews.ac.uk fixe Crawl-delay: 10 (testé malgré tout avec l'accord de Marcel, C12, pause portée à 10 s). La page « About » (Wayback) invite à réutiliser les images via le lien « IIIF Manifest ». 4 requêtes sondes (manifeste, notice, info.json, vignette) : 200, aucun 429, aucun en-tête de limite ; serveur d'images Cantaloupe 4.1.4.",
+ "classe_quota": "aucun quota trouvé (robots.txt Disallow /, Crawl-delay 10 sur www)",
+ "confiance": "moyenne",
+ "notes": "Les pages www.st-andrews.ac.uk/collections/about et /library/special-collections/... renvoient aujourd'hui la page d'accueil des collections (19 984 o identiques) : contenu de About lu via Wayback. eprints.st-andrews.ac.uk : DNS introuvable depuis ici. L'identifiant de manifeste 77713 vient d'un guide IIIF public (tiers). Le service d'images est sur le même hôte que le site : /iiif/2/{id}~{id}.",
+ "a_verifier_manuellement": [
+  {
+   "url": "https://eprints.st-andrews.ac.uk/assets/university/library/documents/IIF%20resources.pdf",
+   "pourquoi": "DNS introuvable depuis ce réseau (curl 6, 2026-11-14)",
+   "a_chercher": "document « IIF resources » de la bibliothèque : consignes IIIF éventuelles"
+  },
+  {
+   "url": "https://www.st-andrews.ac.uk/collections/about",
+   "pourquoi": "la page live renvoie la page d'accueil des collections (même contenu qu'à la racine) ; seule la capture Wayback de mars 2025 donne le texte « About »",
+   "a_chercher": "texte actuel sur IIIF et réemploi, mention de quota ou de moissonnage"
+  },
+  {
+   "url": "https://www.st-andrews.ac.uk/library/special-collections/help-and-support/find-and-research-materials",
+   "pourquoi": "la page live renvoie aussi la page d'accueil des collections",
+   "a_chercher": "aide pour trouver le manifeste IIIF, liens vers la doc Exhibit, conditions d'usage"
+  },
+  {
+   "url": "https://www.st-andrews.ac.uk/terms/",
+   "pourquoi": "lue via Wayback seulement sur la 1re page (6 000 caractères sur 15 093)",
+   "a_chercher": "clauses sur l'accès automatisé ou les robots dans la suite de la page"
+  }
+ ],
+ "endpoints_documentes": [
+  {
+   "famille": "IIIF Presentation v2 : manifeste d'objet (/{id}/manifest)",
+   "url": "https://collections.st-andrews.ac.uk/77713/manifest",
+   "statut": "teste",
+   "preuve": "institutions/university-of-st-andrews-library/tests/raw/sta-p1-manifeste.headers.txt"
+  },
+  {
+   "famille": "IIIF Image API v2 (/iiif/2/{id}~{id}/info.json et dérivés, Cantaloupe)",
+   "url": "https://collections.st-andrews.ac.uk/iiif/2/56718~56718/info.json",
+   "statut": "teste",
+   "preuve": "institutions/university-of-st-andrews-library/tests/raw/sta-p2-info-json.headers.txt"
+  },
+  {
+   "famille": "Pages notice de la base Collections",
+   "url": "https://collections.st-andrews.ac.uk/collection/archive-collections/777989",
+   "statut": "teste",
+   "preuve": "institutions/university-of-st-andrews-library/tests/raw/sta-p1-notice.headers.txt"
+  },
+  {
+   "famille": "Recherche collections.st-andrews.ac.uk/search/ et Funnelback (suggest.json)",
+   "url": "https://collections.st-andrews.ac.uk/search/",
+   "statut": "non_teste",
+   "raison": "interface de recherche de la page d'accueil, annoncée en panne (« ongoing issues with our Collections Search ») et sans API documentée ; aucun exemple de requête à suivre"
+  },
+  {
+   "famille": "Outil Exhibit (exhibit.st-andrews.ac.uk)",
+   "url": "https://exhibit.st-andrews.ac.uk/docs",
+   "statut": "non_teste",
+   "raison": "application de narration qui consomme les manifestes ; docs lues (sources/exhibit), aucune API de données ni quota documentés à appeler"
+  }
+ ],
+ "endpoints_ecartes": [
+  {
+   "url": "https://exhibit.st-andrews.ac.uk/docs",
+   "raison": "page de documentation de l'outil Exhibit téléchargée et lue (sources/exhibit), non une API"
+  },
+  {
+   "url": "https://collections.st-andrews.ac.uk/",
+   "raison": "page d'accueil téléchargée et lue (sources/doc) ; renvoie la page d'accueil des collections, non une API"
+  },
+  {
+   "url": "https://www.st-andrews.ac.uk/search",
+   "raison": "moteur de recherche Funnelback du site institutionnel www (cité dans l'en-tête de la page d'accueil), interdit par robots.txt de www (Disallow /search/) et sans API documentée ; non testé"
+  }
+ ],
+ "hotes_robots": [
+  {
+   "hote": "collections.st-andrews.ac.uk",
+   "resultat": "200 : une longue liste de robots IA puis « User-agent: * / Disallow: / » (tout interdit) ; testé malgré tout (C12)",
+   "preuve": "institutions/university-of-st-andrews-library/sources/doc/raw/01.html"
+  },
+  {
+   "hote": "www.st-andrews.ac.uk",
+   "resultat": "200 : Crawl-delay 10 ; Disallow /collections/, /search/, /s/ …",
+   "preuve": "institutions/university-of-st-andrews-library/sources/doc/raw/03.html"
+  },
+  {
+   "hote": "exhibit.st-andrews.ac.uk",
+   "resultat": "200 : User-agent * ; Disallow vide (tout autorisé)",
+   "preuve": "institutions/university-of-st-andrews-library/sources/exhibit/raw/01.html"
+  },
+  {
+   "hote": "museumblog.wp.st-andrews.ac.uk",
+   "resultat": "200 : User-agent * ; Disallow des actions de calendrier ; pas de Crawl-delay",
+   "preuve": "institutions/university-of-st-andrews-library/sources/exhibit/raw/03.html"
+  },
+  {
+   "hote": "eprints.st-andrews.ac.uk",
+   "resultat": "DNS introuvable depuis ce réseau (curl 6) : robots.txt non lu",
+   "preuve": "institutions/university-of-st-andrews-library/sources/eprints/FETCH.log"
+  }
+ ]
 }

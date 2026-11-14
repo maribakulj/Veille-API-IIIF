@@ -2,51 +2,51 @@
 
 - **Dossier** : `institutions/university-of-st-andrews-library/`  ·  **Classeur de référence** : GLAM-068  ·  **Pays** : Royaume-Uni
 - **Statut d'institution** : active
-- **Dernière mise à jour du suivi** : (à renseigner à chaque modification)
+- **Dernière mise à jour du suivi** : 2026-11-14
 
 ## Suivi par étape (à cocher, avec justification et preuves)
 
 ### a) Documentation lue en entier
 > Toutes les pages de doc liées à l'API (développeurs, interfaces, conditions, FAQ, aide, mentions légales, robots.txt), téléchargées avec `scripts/fetch_doc.sh` (URL, date, SHA-256), lues en entier (`scripts/extract_text.py`).
 
-- [ ] **Pas fait**
-  - **Justification** : Pas encore traitée : l'audit suit l'ordre du classeur de référence (une institution à la fois).
-  - **Preuves** : 
+- [x] **Fait**
+  - **Justification** : Doc lue : robots.txt de 5 hôtes (un en échec DNS), accueil, doc Exhibit, définition de service ; pages About, digitisation et terms lues via Wayback car la page live renvoie l'accueil ; URL manuelles listées
+  - **Preuves** : `institutions/university-of-st-andrews-library/sources/doc/SHA256SUMS`, `institutions/university-of-st-andrews-library/sources/exhibit/SHA256SUMS`, `institutions/university-of-st-andrews-library/sources/wayback/collections-about.md`
 
 ### b) Endpoints tirés de la doc
 > Liste des endpoints citée par la doc (URL, exemples). Jamais devinée. Une interdiction ou une impossibilité écrite dans la doc justifie de renoncer (citer la phrase).
 
-- [ ] **Pas fait**
-  - **Justification** : Pas encore traitée : l'audit suit l'ordre du classeur de référence (une institution à la fois).
-  - **Preuves** : 
+- [x] **Fait**
+  - **Justification** : Endpoints tirés des pages publiques et du manifeste : manifeste, Image API, notices testés ; recherche et Exhibit non testés avec raison dans data.json
+  - **Preuves** : `institutions/university-of-st-andrews-library/data.json`
 
 ### c) Configuration écrite AVANT les tests
 > `config/<nom>.json` pilote `scripts/probe.py`, committée avant le lancement. Un endpoint absent de la doc mais non interdit se teste avec un script poli (identifiants issus de pages publiques ou d'exemples de la doc, pas de devinette).
 
-- [ ] **Pas fait**
-  - **Justification** : Pas encore traitée : l'audit suit l'ordre du classeur de référence (une institution à la fois).
-  - **Preuves** : 
+- [x] **Fait**
+  - **Justification** : Deux configurations committées avant chaque lancement, pause 10 s (Crawl-delay), GET/HEAD seulement, Disallow autorisé par Marcel (C12)
+  - **Preuves** : `institutions/university-of-st-andrews-library/config/standrews-passe1-manifeste.json`, `institutions/university-of-st-andrews-library/config/standrews-passe2-images.json`
 
 ### d) Quota cherché dans la doc
 > Pour chaque page lue : endpoint de statut, en-têtes de limite documentés, clé ou compte donnant un quota, contact pour un volume plus élevé. Chaque réponse cite sa source.
 
-- [ ] **Pas fait**
-  - **Justification** : Pas encore traitée : l'audit suit l'ordre du classeur de référence (une institution à la fois).
-  - **Preuves** : 
+- [x] **Fait**
+  - **Justification** : Recherche de quota dans chaque source : aucun quota ni en-tête ; Disallow / et Crawl-delay 10 ; contact unicolls@st-andrews.ac.uk ; conclusion dans fiche.md
+  - **Preuves** : `institutions/university-of-st-andrews-library/fiche.md`, `institutions/university-of-st-andrews-library/data.json`
 
 ### e) Test systématique de chaque endpoint
 > Chaque endpoint documenté est testé (budget 15 requêtes par passe, pause ≥ 6 s, GET/HEAD, UA du projet). Redirections du même hôte suivies. Un 403 arrête son hôte, un 429 arrête l'institution. Seules les interdictions écrites dans la doc dispensent de tester.
 
-- [ ] **Pas fait**
-  - **Justification** : Pas encore traitée : l'audit suit l'ordre du classeur de référence (une institution à la fois).
-  - **Preuves** : 
+- [x] **Fait**
+  - **Justification** : 2 passes : manifeste, notice, info.json, vignette testés (200, aucun 429) ; recherche et Exhibit non testés avec raison
+  - **Preuves** : `institutions/university-of-st-andrews-library/tests/journal.log`, `institutions/university-of-st-andrews-library/tests/raw/sta-p2-info-json.headers.txt`
 
 ### f) Ce que disent les gens sur le web
 > Plaintes, discussions, présentations de l'institution, politique envers les API et les bots, blogs, GitHub, forums, listes de diffusion. Sources étiquetées (officielle / institution / utilisateur / tiers), lues, citées.
 
-- [ ] **Pas fait**
-  - **Justification** : Pas encore traitée : l'audit suit l'ordre du classeur de référence (une institution à la fois).
-  - **Preuves** : 
+- [x] **Fait**
+  - **Justification** : 4 catégories couvertes (institution via Wayback ; utilisateurs, tickets, presentations aucun résultat avec requête) ; originaux lus quand disponibles
+  - **Preuves** : `institutions/university-of-st-andrews-library/sources/wayback/digitisation-service.md`, `institutions/university-of-st-andrews-library/data.json`, `institutions/university-of-st-andrews-library/fiche.md`
 
 ### g) Crash test progressif
 > Seulement après l'audit complet (a à f) de toutes les institutions et avec l'accord de Marcel : paliers jusqu'à 2 × la limite documentée, ou 200 req/min si illimité ou sans limite documentée. Arrêt au premier 429/403/CAPTCHA.
@@ -60,9 +60,9 @@
 
 <!-- AUTO:DEBUT -->
 ## Contrôles automatiques (calculés depuis `tests/journal.log`)
-- Requêtes enregistrées : **3** (sessions de sonde : 1, maximum par session : 3)
-- Plus courte pause vers un même hôte : **11 s** (règle : ≥ 6 s)
-- Méthodes utilisées : GET (règle : GET/HEAD seulement)
+- Requêtes enregistrées : **6** (sessions de sonde : 2, maximum par session : 3)
+- Plus courte pause vers un même hôte : **10 s** (règle : ≥ 6 s)
+- Méthodes utilisées : GET, HEAD (règle : GET/HEAD seulement)
 - Anomalies : aucune
 <!-- AUTO:FIN -->
 
