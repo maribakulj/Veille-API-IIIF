@@ -44,3 +44,20 @@
 5. Le rapport complète les recherches documentaires antérieures, sans cocher de nouvelles étapes a–g ni actualiser `BENCHMARK.xlsx` avant contrôle du pipeline.
 
 **Synthèse :** 30 URL exactes tentées ; certaines récupérées, d'autres refusées. Les dates des copies et le statut de contenu sont préservés avant tout éventuel retrait de l'onglet manuel.
+
+## Complément PDF : Duke University Libraries, rapport Anubis intégral retrouvé
+
+**URL manuelle originale :** https://dukespace.lib.duke.edu/server/api/core/bitstreams/816ef134-55cf-49f6-9a8b-1e8a2324b1ff/content
+
+Le **PDF complet de 13 pages** `Anubis Pilot Project Report`, rédigé par **Sean Aery, 26 juin 2025**, a été **ouvert dans le lecteur PDF web**, son texte parcouru, et les pages 1 et 5 **contrôlées visuellement** (captures). Le rapport H précédent signalait un PDF tronqué : pour le **contenu documentaire**, cette lacune est maintenant résolue.
+
+**Faits explicitement documentés et vérifiables :**
+- Période du pilote **1er mai – 10 juin 2025** ; trois plateformes : **Duke Digital Repository**, **Archives & Manuscripts / ArcLight**, **Books & Media Catalog**. Anubis a été installé le 2 mai sur les deux premières, le 3 juin sur le catalogue (rapport pp. 2 et 4).
+- Pendant le pilote, Duke rapporte environ **90 %** de trafic filtré sur ces trois applications, soit plus de **4 millions** de requêtes indésirables par jour ; chiffres **par application** : **DDR 71,0 %**, **ArcLight 94,6 %**, **Catalog 92,4 %** (pp. 1, 2, 5). **Ce ne sont pas des quotas d'API**.
+- Anubis est décrit comme un **proxy WAF** avec règles `allow`, `deny`, `challenge`, et preuve de travail JavaScript, avec configuration mutualisée ou par application. Les mécanismes avancés de **request rate-throttling** sont cités parmi les fonctions des produits commerciaux plus sophistiqués qui *manquent à Anubis* dans le cadre de ce pilote (pp. 10–11). **L'installation d'Anubis ne publie donc pas un plafond `requests/min`.**
+- Des robots bien identifiés (Google, Bing, Internet Archive) sont autorisés, d'autres doivent relever un défi. Duke recommande encore de clarifier `robots.txt`/sitemaps et de distinguer bons et mauvais bots (pp. 1 et 12).
+- Les requêtes entre le dépôt et ArcLight sont interdépendantes ; la dégradation d'un service peut affecter l'autre (pp. 3 et 13).
+
+**Conclusion :** le document explique pourquoi un client automatisé peut voir un défi malgré une documentation librement disponible. **Il ne suffit pas à établir que les routes IIIF de Duke ont un taux maximal fixe ni que les règles de ce pilote sont inchangées en novembre 2026.** Il fournit une politique institutionnelle et un contexte technique de premier rang, plutôt qu'une preuve de quota.
+
+La PDF `IIF resources.pdf` de St Andrews n'a en revanche pas pu être ouverte par le lecteur PDF web sur l'ancien domaine `eprints.st-andrews.ac.uk` ; son lien actuel apparaît ailleurs sur `www.st-andrews.ac.uk/assets/university/library/documents/IIF%20resources.pdf`, dont le contenu reste à contrôler.
