@@ -11,6 +11,7 @@ active, que l'étape d) est cochée et que les données ne sont pas marquées «
 Usage : python3 scripts/build_benchmark.py   (nécessite openpyxl)
 Sortie : BENCHMARK.xlsx à la racine du dépôt.
 """
+import re
 import subprocess
 from urllib.parse import urlsplit
 import sys
@@ -250,18 +251,47 @@ def feuille_limites(wb, D):
     ecrire(ws, 2, lignes or [["(aucune)"] + [""] * 10])
 
 
+LIMITE_RE = re.compile(r"(?i)^(x-)?(ratelimit|rate-limit|x-rate|retry-after|x-retry|quota|x-quota|x-.*rate.?limit|x-throttl|throttl|cf-mitigated)")
+
+
+def _entetes_bruts(slug):
+    """Lit tests/raw/*.headers.txt (écrits par la sonde) : {fichier: (date, méthode, url, statut, [(nom, valeur)])}."""
+    out = []
+    for f in sorted((suivi.INST / slug / "tests" / "raw").glob("*.headers.txt")):
+        try:
+            lignes = f.read_text(encoding="utf-8", errors="replace").splitlines()
+        except OSError:
+            continue
+        if len(lignes) < 2:
+            continue
+        m = re.match(r"(\S+)\s+(\S+)\s+(\S+)", lignes[0])
+        st = lignes[1].replace("HTTP", "").strip()
+        h = [tuple(l.split(": ", 1)) for l in lignes[2:] if ": " in l]
+        out.append((f, m.group(1) if m else "", m.group(2) if m else "", m.group(3) if m else "", st, h))
+    return out
+
+
 def feuille_entetes(wb, D):
+    """Construit l'onglet DIRECTEMENT depuis les en-têtes bruts enregistrés (objectif, complet), une ligne par en-tête de limite."""
     ws = wb.create_sheet("En-têtes observés")
-    entete(ws, 1, ["Institution", "En-tête", "Valeur observée", "Endpoint", "Date", "Preuve", "Preuve présente ?", "Données à revalider ?"],
-           [34, 24, 40, 40, 14, 50, 16, 14])
+    entete(ws, 1, ["Institution", "GLAM", "Hôte", "En-tête de limite", "Valeur observée", "Réponse", "Date (UTC)", "Preuve (fichier brut)", "Réponses enregistrées", "Données à revalider ?"],
+           [34, 11, 34, 26, 40, 10, 22, 60, 12, 12])
     lignes = []
     for d in D:
-        for h in d.get("en_tetes_observes", []):
-            p = (h.get("preuve") or "").split(",")[0].split(" ")[0]
-            lignes.append([d.get("nom", d["slug"]), h.get("nom"), h.get("valeur"), h.get("endpoint"), h.get("date"),
-                           h.get("preuve"), "OUI" if p and (REPO / p).exists() else "NON",
-                           "oui" if d.get("donnees_a_revalider") else "non"])
-    ecrire(ws, 2, lignes or [["(aucun en-tête de quota enregistré)"] + [""] * 7])
+        brut = _entetes_bruts(d["slug"])
+        trouves = 0
+        for f, date, meth, url, st, hs in brut:
+            for k, v in hs:
+                if LIMITE_RE.match(k):
+                    trouves += 1
+                    lignes.append([d.get("nom", d["slug"]), d.get("classeur_id"), urlsplit(url).netloc, k, v, st, date,
+                                   str(f.relative_to(REPO)), len(brut), "oui" if d.get("donnees_a_revalider") else "non"])
+        if not trouves:
+            lignes.append([d.get("nom", d["slug"]), d.get("classeur_id"), "—", "(aucun en-tête de limite)",
+                           f"observé sur {len(brut)} réponse(s) enregistrée(s)" if brut else "aucune réponse enregistrée (hôtes bloqués ou non testés)",
+                           "", "", "", len(brut), "oui" if d.get("donnees_a_revalider") else "non"])
+    ecrire(ws, 2, lignes)
+    ws.auto_filter.ref = f"A1:J{len(lignes) + 1}"
 
 
 def feuille_blocages(wb, D):
