@@ -23,3 +23,21 @@ Captures suivantes du même chemin : 2024-05-17 statut 404 (https://services.lib
 
 ## 3. Page libis.be/mirador-iiif-en
 Captures : 2019-05-12 statut 301 ; 2024-07-06 statut 302 (http://www.libis.be/mirador-iiif-en). Aucun texte lisible : la page est une redirection dans les captures ; en direct, libis.be/mirador-iiif-en renvoie 404 (sources/v2/FETCH.log).
+
+## 4. robots.txt de repository.teneo.libis.be (capture du 2025-07-09, statut 200)
+URL de réplique : https://web.archive.org/web/20250709230138/https://repository.teneo.libis.be/robots.txt
+Texte verbatim :
+
+    User-agent: DataForSeoBot
+    Disallow: /
+
+    User-agent: bingbot
+    Disallow: /
+
+    User-agent: DeadLinkChecker
+    Disallow: /
+
+    User-agent: *
+    Disallow: /
+
+(Aucun Crawl-delay.)

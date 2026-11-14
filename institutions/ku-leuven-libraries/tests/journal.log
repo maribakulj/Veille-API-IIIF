@@ -11,3 +11,13 @@
 2026-11-14T02:54:11Z | teneo-delivery | robots.txt interdit https://repository.teneo.libis.be/delivery/DeliveryManagerServlet?dps_pid=IE17414261 (Disallow: /) ; lancé car autorisé par Marcel (C12)
 2026-11-14T02:54:41Z | teneo-delivery | https://repository.teneo.libis.be/delivery/DeliveryManagerServlet?dps_pid=IE17414261 | HEAD | ERREUR_RÉSEAU | TimeoutError: timed out
 # Fin 2026-11-14T02:54:41Z — 7 requête(s) envoyée(s)
+# Session 2026-11-14T02:55:32Z — configuration ku-leuven-v2-passe2.json — sonde probe.py au commit b21d41a
+2026-11-14T02:55:52Z | robots.txt:services.libis.be | http://services.libis.be/robots.txt | GET | ERREUR_RÉSEAU | TimeoutError : tout est traité comme interdit
+2026-11-14T02:55:52Z | p2-manifest-IE11541569 | robots.txt interdit http://services.libis.be/m2/manifest/IE11541569 (Disallow: /) ; lancé car autorisé par Marcel (C12)
+2026-11-14T02:56:23Z | p2-manifest-IE11541569 | http://services.libis.be/m2/manifest/IE11541569 | HEAD | ERREUR_RÉSEAU | TimeoutError: timed out
+2026-11-14T02:56:43Z | robots.txt:resolver.libis.be | http://resolver.libis.be/robots.txt | GET | ERREUR_RÉSEAU | TimeoutError : tout est traité comme interdit
+2026-11-14T02:56:43Z | p2-resolver-thumbnail-reessai | robots.txt interdit http://resolver.libis.be/IE978853/thumbnail (Disallow: /) ; lancé car autorisé par Marcel (C12)
+2026-11-14T02:57:13Z | p2-resolver-thumbnail-reessai | http://resolver.libis.be/IE978853/thumbnail | HEAD | ERREUR_RÉSEAU | TimeoutError: timed out
+2026-11-14T02:57:13Z | robots.txt:kuleuven.limo.libis.be | https://kuleuven.limo.libis.be/robots.txt | GET | 200 | 3 règle(s) pour « * » ; Crawl-delay 10.0 s
+2026-11-14T02:57:23Z | p2-limo-collection | https://kuleuven.limo.libis.be/discovery/collectionDiscovery?vid=32KUL_KUL:KULeuven&collectionId=81475525920001488 | HEAD | 200 OK | aucun en-tête de limite | taille≥0 | corps: 
+# Fin 2026-11-14T02:57:23Z — 6 requête(s) envoyée(s)
