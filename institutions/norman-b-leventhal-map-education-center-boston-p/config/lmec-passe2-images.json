@@ -1,0 +1,12 @@
+{
+  "slug": "norman-b-leventhal-map-education-center-boston-p",
+  "min_delay_s": 15,
+  "max_requests": 15,
+  "follow_redirects": 1,
+  "robots_disallow_autorise_par_marcel": true,
+  "note": "passe 2 : IIIF Image 2.0 (https://www.digitalcommonwealth.org/api, section Image 2.0 : info.json et requête d'image). Identifiant d'image commonwealth:9s161f22q lu dans le manifeste de la passe 1 (service du canevas, tests/raw/lmec-manifest.body). robots.txt de iiif.digitalcommonwealth.org = Disallow: / : testé quand même (consigne C12, Disallow journalisé). Pause portée à 15 s par prudence : le robots.txt de collections.leventhalmap.org contient un Crawl-Delay: 15 sans ligne User-agent (non appliqué par la sonde en passe 1, qui a espacé de 6 s).",
+  "endpoints": [
+    {"id": "iiif-image-info", "method": "GET", "url": "https://iiif.digitalcommonwealth.org/iiif/2/commonwealth:9s161f22q/info.json"},
+    {"id": "iiif-image-vignette", "method": "GET", "url": "https://iiif.digitalcommonwealth.org/iiif/2/commonwealth:9s161f22q/full/!200,200/0/default.jpg"}
+  ]
+}

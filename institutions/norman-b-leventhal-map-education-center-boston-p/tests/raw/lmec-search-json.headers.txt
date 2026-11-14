@@ -1,0 +1,24 @@
+2026-11-14T02:30:43Z GET https://collections.leventhalmap.org/search.json?utf8=%E2%9C%93&q=boston+neck
+HTTP 200
+server: nginx/1.18.0 (Ubuntu)
+date: Sat, 14 Nov 2026 02:30:43 GMT
+content-type: application/json; charset=utf-8
+content-length: 86828
+connection: keep-alive
+x-frame-options: SAMEORIGIN
+x-xss-protection: 0
+x-content-type-options: nosniff
+x-permitted-cross-domain-policies: none
+referrer-policy: strict-origin-when-cross-origin
+etag: W/"9a987e18dfd2d3c83976e87a45ae15c3"
+cache-control: max-age=0, private, must-revalidate
+set-cookie: _lmec_collections_session=qw4gDXPHaJRDl3jnBlaT7Dxkl6oyvKAfx04u1NBNc8XTGdfKtN4Xf%2Bjxj9zBzDlmy6lEK5Tht0vLcxdft70KqJVzlEuJAVFPvm6Ej1wYPKlWy7Ba07HDwlqPJTohvb4RAvOWg0tsJfQyD3RSjAUbX869%2BIm3NiE3gE53mtZP%2Bk0OKLhiH1CScylpfpKKjG57dBhR0eygVMH%2FmCpxObE4YaWU7lJMxNw%2BOssYaneNIHF5ef9RWYezKezW9PR1Jj9Y09arN3nfhrb3zh22OhzmiCxLMkkclyLmcUXjkfcN0ZhJAeDV1bvSiJCbbhGPZRT5%2BxlUB%2BBmcPcqGZWE3cml4rdttfuC2m7X205QvJCcVNvNii%2ByswGGg6rhOJo6CeGQplIO1z5H3ignu7OClA%3D%3D--T0aoMuwuw%2FBJ3%2FCY--UimPjgoNsTY4sa0NnyHzJw%3D%3D; path=/; secure; httponly; samesite=lax
+x-request-id: d3f117ee-ea4b-4f5c-86c2-1241c0d76ad5
+x-runtime: 0.302642
+strict-transport-security: max-age=63072000; includeSubDomains
+access-control-allow-origin: *
+access-control-allow-methods: GET, HEAD, OPTIONS
+access-control-allow-headers: Content-Type, Accept, Range
+access-control-max-age: 86400
+strict-transport-security: max-age=31536000; includeSubDomains; preload;
+access-control-allow-private-network: true

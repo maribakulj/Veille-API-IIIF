@@ -1,0 +1,87 @@
+API - Digital Commonwealth 
+ Skip to search 
+ Skip to main content 
+ Digital Commonwealth 
+ Sign Up / Log In 
+ Search for 
+ Search 
+ Search
+ Basic 
+ Advanced 
+ Explore
+ Map 
+ Collections 
+ Institutions 
+ Formats 
+ For Educators
+ Primary Source Sets 
+ Lesson Plans 
+ Using Primary Sources 
+ Searching Digital Commonwealth 
+ For Institutions
+ How to Contribute Collections 
+ Digitization Services 
+ Frequently Asked Questions 
+ Collection Development Policy 
+ About
+ About Digital Commonwealth 
+ News & Announcements 
+ Copyright & Terms of Use 
+ Harmful Content Statement 
+ Accessibility Statement 
+ Partners 
+ API 
+ Contact Us 
+ API
+ APIs (Application Programming Interface) provide programmatic machine-based interaction with metadata and image
+ content from items in the Digital Commonwealth collections, allowing this content to be used in other
+ applications and data services.
+ Please contact us with any questions or comments.
+ OAI-PMH
+ Metadata records for all collections and items are accessible in the Digital
+ Commonwealth OAI-PMH feed.
+ Base URL:
+ https://oai.digitalcommonwealth.org/catalog/oai 
+ JSON
+ Search results and item detail pages are available as JSON. To retrieve a page as JSON, append
+ .json to the page url, as in the examples below:
+ Search results:
+# normal, return HTML
+https://www.digitalcommonwealth.org/search?q=Boston
+# return JSON
+https://www.digitalcommonwealth.org/search.json?q=Boston
+ Item detail:
+# normal, return HTML
+https://www.digitalcommonwealth.org/search/commonwealth:abcd12345
+# return JSON
+https://www.digitalcommonwealth.org/search/commonwealth:abcd12345.json
+ For more details, see the
+ guide to publicly-accessible JSON API fields .
+ IIIF
+ Digital Commonwealth supports the following
+ International Image Interoperability Framework APIs:
+ Image 2.0
+ Base URL:
+ https://iiif.digitalcommonwealth.org/iiif/2/ 
+ To request a IIIF Image response, you will need the image identifier.
+ Images have different identifiers than the parent item. To find the image identifier,
+ right-click on the image in a browser window and view or copy the image URL. The
+ image identifier is part of the URL string, as in:
+ https://bpldcassets.blob.core.windows.net/derivatives/images/IMAGE_ID/image_thumbnail_300.jpg 
+ The image identifier can then be used to construct a URL to create a valid IIIF Image request:
+# image information request
+https://iiif.digitalcommonwealth.org/iiif/2/IMAGE_ID/info.json
+# full image, 50% size, as JPEG
+https://iiif.digitalcommonwealth.org/iiif/2/IMAGE_ID/full/pct:50/0/default.jpg
+ Presentation 2.0
+ IIIF Presentation manifests in JSON-LD can be returned by appending /manifest to the
+ URL for the item detail page. (A 404 will be returned if no manifest is available.)
+# normal, return HTML
+https://www.digitalcommonwealth.org/search/commonwealth:abcd12345
+# return IIIF manifest
+https://www.digitalcommonwealth.org/search/commonwealth:abcd12345/manifest
+ Digital Commonwealth 
+ Digital Commonwealth 
+ Contact Us   
+ Privacy Policy   
+ Accessibility Statement

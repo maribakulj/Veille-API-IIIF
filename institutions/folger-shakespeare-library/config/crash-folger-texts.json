@@ -1,0 +1,12 @@
+{
+  "slug": "folger-shakespeare-library",
+  "endpoint": {
+    "id": "folger-texts-download",
+    "url": "https://www.folger.edu/explore/shakespeares-works/download/",
+    "method": "HEAD"
+  },
+  "limite_documentee_req_min": null,
+  "source_limite": "aucune limite de débit documentée (https://www.folger.edu/terms-of-use/ et https://www.folger.edu/copyright-policy/ : pas de règle de débit ; robots.txt de www.folger.edu : seulement Disallow: /admin/*)",
+  "duree_palier_s": 180,
+  "note": "HEAD de la page de téléchargement des textes sur www.folger.edu, 200 dans le journal (folger-texts-download, 2026-11-14T02:23:36Z). Page peu coûteuse en HEAD ; les hôtes de collections (digitalcollections, catalog) sont défiés et exclus."
+}

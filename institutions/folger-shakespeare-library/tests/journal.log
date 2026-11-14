@@ -1,0 +1,24 @@
+# Session 2026-11-14T02:19:08Z — configuration folger-passe1.json — sonde probe.py au commit 99c308a
+2026-11-14T02:19:08Z | robots.txt:digitalcollections.folger.edu | https://digitalcollections.folger.edu/robots.txt | GET | 200 | 2 règle(s) pour « * » ; Crawl-delay 120.0 s
+2026-11-14T02:21:09Z | digitalcollections-racine | https://digitalcollections.folger.edu/ | GET | 302 REDIRECTION_NON_SUIVIE | aucun en-tête de limite | taille≥59 | corps: <a href="/turnstile-challenge?destination=%2F">Found</a>.  
+# redirection vers https://digitalcollections.folger.edu/turnstile-challenge?destination=%2F : suivie (même hôte, comptée dans le budget)
+2026-11-14T02:23:09Z | digitalcollections-racine+redir | https://digitalcollections.folger.edu/turnstile-challenge?destination=%2F | GET | 200 OK | aucun en-tête de limite | taille≥200 | corps: <html lang="en">   <head>     <meta charset="UTF-8">     <title>Verifying Connection</title>     <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer referrerpolicy="no-refe
+2026-11-14T02:23:09Z | robots.txt:luna.folger.edu | https://luna.folger.edu/robots.txt | GET | 200 | 1 règle(s) pour « * »
+2026-11-14T02:23:16Z | luna-notice-blog | https://luna.folger.edu/luna/servlet/s/r5941p | GET | 301 REDIRECTION_NON_SUIVIE | aucun en-tête de limite | taille≥60 | corps: Redirecting to https://digitalcollections.folger.edu/img9150
+# redirection vers https://digitalcollections.folger.edu/img9150 : NON suivie (autre hôte)
+2026-11-14T02:23:16Z | robots.txt:flgr.sh | https://flgr.sh/robots.txt | GET | 200 | 1 règle(s) pour « * »
+2026-11-14T02:23:23Z | flgr-sh-hamlet-xml | https://flgr.sh/txtfssHamxml | HEAD | 301 REDIRECTION_NON_SUIVIE | aucun en-tête de limite | taille≥0 | corps: 
+# redirection vers https://folger-main-site-assets.s3.amazonaws.com/uploads/2022/11/hamlet_XML_FolgerShakespeare.zip : NON suivie (autre hôte)
+2026-11-14T02:23:29Z | robots.txt:www.folger.edu | https://www.folger.edu/robots.txt | GET | 200 | 1 règle(s) pour « * »
+2026-11-14T02:23:36Z | folger-texts-download | https://www.folger.edu/explore/shakespeares-works/download/ | HEAD | 200 OK | aucun en-tête de limite | taille≥0 | corps: 
+2026-11-14T02:23:38Z | robots.txt:catalog.folger.edu | https://catalog.folger.edu/robots.txt | GET | 200 | 3 règle(s) pour « * » ; Crawl-delay 5.0 s
+2026-11-14T02:23:49Z | catalog-racine | https://catalog.folger.edu/ | GET | 202 OK | aucun en-tête de limite | taille≥0 | corps: 
+2026-11-14T02:23:57Z | robots.txt:hamnet.folger.edu | http://hamnet.folger.edu/robots.txt | GET | 200 | 1 règle(s) pour « * »
+2026-11-14T02:24:04Z | hamnet-legacy | http://hamnet.folger.edu/cgi-bin/Pwebrecon.cgi | HEAD | 301 REDIRECTION_NON_SUIVIE | aucun en-tête de limite | taille≥0 | corps: 
+# redirection vers https://hamnet.folger.edu/cgi-bin/Pwebrecon.cgi : suivie (même hôte, comptée dans le budget)
+2026-11-14T02:24:11Z | hamnet-legacy+redir | https://hamnet.folger.edu/cgi-bin/Pwebrecon.cgi | HEAD | 301 REDIRECTION_NON_SUIVIE | aucun en-tête de limite | taille≥0 | corps: 
+# Fin 2026-11-14T02:24:11Z — 14 requête(s) envoyée(s)
+# Session 2026-11-14T02:27:58Z — configuration folger-passe2-wpjson.json — sonde probe.py au commit ef87424
+2026-11-14T02:27:58Z | robots.txt:www.folger.edu | https://www.folger.edu/robots.txt | GET | 200 | 1 règle(s) pour « * »
+2026-11-14T02:28:05Z | wp-json-racine | https://www.folger.edu/wp-json/ | HEAD | 200 OK | aucun en-tête de limite | taille≥0 | corps: 
+# Fin 2026-11-14T02:28:05Z — 2 requête(s) envoyée(s)

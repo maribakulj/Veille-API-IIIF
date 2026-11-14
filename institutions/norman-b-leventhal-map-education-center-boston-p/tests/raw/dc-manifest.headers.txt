@@ -1,0 +1,26 @@
+2026-11-14T02:31:27Z GET https://www.digitalcommonwealth.org/search/commonwealth:9s161f21f/manifest
+HTTP 200
+server: nginx
+date: Sat, 14 Nov 2026 02:31:27 GMT
+content-type: application/json; charset=utf-8
+content-length: 5039
+connection: keep-alive
+vary: Accept-Encoding
+x-frame-options: SAMEORIGIN
+x-xss-protection: 1; mode=block
+x-content-type-options: nosniff
+x-download-options: noopen
+x-permitted-cross-domain-policies: none
+referrer-policy: strict-origin-when-cross-origin
+vary: Accept
+etag: W/"c62edce3656ac36b34c845687e400324"
+cache-control: max-age=0, private, must-revalidate
+set-cookie: _Commonwealth-public-interface_session=867a5a79a62b0faefb29dedd168a7de1; domain=www.digitalcommonwealth.org; path=/; expires=Thu, 19 Nov 2026 02:31:27 GMT; secure; HttpOnly; SameSite=Lax
+x-request-id: 18e469ac-20ab-4645-bfbe-212029c86c31
+x-runtime: 0.025987
+access-control-allow-origin: *
+access-control-allow-methods: GET, HEAD, OPTIONS
+access-control-allow-headers: Content-Type, Accept, Range
+access-control-max-age: 86400
+strict-transport-security: max-age=31536000; includeSubDomains; preload;
+access-control-allow-private-network: true

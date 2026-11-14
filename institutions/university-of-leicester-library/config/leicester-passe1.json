@@ -1,0 +1,13 @@
+{
+  "slug": "university-of-leicester-library",
+  "min_delay_s": 6,
+  "max_requests": 15,
+  "follow_redirects": 1,
+  "robots_disallow_autorise_par_marcel": true,
+  "note": "passe 1 : Special Collections Online (CONTENTdm, specialcollections.le.ac.uk). Billet de la bibliothèque (staffblogs.le.ac.uk/library/2023/07/20/how-to-use-iiif-with-special-collections-online/) : manifestes en manifest.json, IIIF fourni par CONTENTdm ; modèles d'URL de la doc OCLC CONTENTdm (iiif/info/manifest.json, bl/dmwebservices, OAI) ; aucun identifiant d'objet deviné, le manifeste global liste les collections. robots.txt de specialcollections : Disallow /oai/ et /utils/ (testés sous C12), Crawl-Delay 1.",
+  "endpoints": [
+    {"id": "manifeste-global", "method": "GET", "url": "https://specialcollections.le.ac.uk/iiif/info/manifest.json", "save_body": 500000},
+    {"id": "dmwebservices-collections", "method": "GET", "url": "https://specialcollections.le.ac.uk/digital/bl/dmwebservices/index.php?q=dmGetCollectionList/json"},
+    {"id": "oai-identify", "method": "GET", "url": "https://specialcollections.le.ac.uk/oai/oai.php?verb=Identify"}
+  ]
+}

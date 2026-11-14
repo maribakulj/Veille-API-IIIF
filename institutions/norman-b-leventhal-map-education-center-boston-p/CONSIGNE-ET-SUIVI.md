@@ -2,51 +2,51 @@
 
 - **Dossier** : `institutions/norman-b-leventhal-map-education-center-boston-p/`  ·  **Classeur de référence** : GLAM-062  ·  **Pays** : États-Unis
 - **Statut d'institution** : active
-- **Dernière mise à jour du suivi** : (à renseigner à chaque modification)
+- **Dernière mise à jour du suivi** : 2026-11-14
 
 ## Suivi par étape (à cocher, avec justification et preuves)
 
 ### a) Documentation lue en entier
 > Toutes les pages de doc liées à l'API (développeurs, interfaces, conditions, FAQ, aide, mentions légales, robots.txt), téléchargées avec `scripts/fetch_doc.sh` (URL, date, SHA-256), lues en entier (`scripts/extract_text.py`).
 
-- [ ] **Pas fait**
-  - **Justification** : Pas encore traitée : l'audit suit l'ordre du classeur de référence (une institution à la fois).
-  - **Preuves** : 
+- [x] **Fait**
+  - **Justification** : Doc lue : page Digital Collections LMEC, API Digital Commonwealth, copyright, dépôts GitHub bplmaps, guide cartinal, robots.txt de chaque hôte (hachés dans SHA256SUMS)
+  - **Preuves** : `institutions/norman-b-leventhal-map-education-center-boston-p/sources/a1/SHA256SUMS`, `institutions/norman-b-leventhal-map-education-center-boston-p/sources/a2/SHA256SUMS`
 
 ### b) Endpoints tirés de la doc
 > Liste des endpoints citée par la doc (URL, exemples). Jamais devinée. Une interdiction ou une impossibilité écrite dans la doc justifie de renoncer (citer la phrase).
 
-- [ ] **Pas fait**
-  - **Justification** : Pas encore traitée : l'audit suit l'ordre du classeur de référence (une institution à la fois).
-  - **Preuves** : 
+- [x] **Fait**
+  - **Justification** : Familles d'API tirées de la doc : JSON, manifeste Presentation 2.0, OAI-PMH, OpenSearch, IIIF Image 2.0 ; toutes testées, exemples fictifs écartés avec raison
+  - **Preuves** : `institutions/norman-b-leventhal-map-education-center-boston-p/data.json`
 
 ### c) Configuration écrite AVANT les tests
 > `config/<nom>.json` pilote `scripts/probe.py`, committée avant le lancement. Un endpoint absent de la doc mais non interdit se teste avec un script poli (identifiants issus de pages publiques ou d'exemples de la doc, pas de devinette).
 
-- [ ] **Pas fait**
-  - **Justification** : Pas encore traitée : l'audit suit l'ordre du classeur de référence (une institution à la fois).
-  - **Preuves** : 
+- [x] **Fait**
+  - **Justification** : Configurations passe 1 et 2 committées avant lancement (2a72b32, puis commit passe 2), pauses 6 s puis 15 s ; Disallow de iiif journalisé (C12)
+  - **Preuves** : `institutions/norman-b-leventhal-map-education-center-boston-p/config/lmec-passe1.json`, `institutions/norman-b-leventhal-map-education-center-boston-p/config/lmec-passe2-images.json`
 
 ### d) Quota cherché dans la doc
 > Pour chaque page lue : endpoint de statut, en-têtes de limite documentés, clé ou compte donnant un quota, contact pour un volume plus élevé. Chaque réponse cite sa source.
 
-- [ ] **Pas fait**
-  - **Justification** : Pas encore traitée : l'audit suit l'ordre du classeur de référence (une institution à la fois).
-  - **Preuves** : 
+- [x] **Fait**
+  - **Justification** : Recherche de quota dans chaque source : aucune limite chiffrée, Crawl-Delay 15 s et 5 s relevés, usage non commercial pour le matériel sous droit
+  - **Preuves** : `institutions/norman-b-leventhal-map-education-center-boston-p/fiche.md`, `institutions/norman-b-leventhal-map-education-center-boston-p/data.json`
 
 ### e) Test systématique de chaque endpoint
 > Chaque endpoint documenté est testé (budget 15 requêtes par passe, pause ≥ 6 s, GET/HEAD, UA du projet). Redirections du même hôte suivies. Un 403 arrête son hôte, un 429 arrête l'institution. Seules les interdictions écrites dans la doc dispensent de tester.
 
-- [ ] **Pas fait**
-  - **Justification** : Pas encore traitée : l'audit suit l'ordre du classeur de référence (une institution à la fois).
-  - **Preuves** : 
+- [x] **Fait**
+  - **Justification** : 14 requêtes en 2 passes : toutes les familles d'API testées en 200, aucun 429, aucun en-tête de limite
+  - **Preuves** : `institutions/norman-b-leventhal-map-education-center-boston-p/tests/journal.log`
 
 ### f) Ce que disent les gens sur le web
 > Plaintes, discussions, présentations de l'institution, politique envers les API et les bots, blogs, GitHub, forums, listes de diffusion. Sources étiquetées (officielle / institution / utilisateur / tiers), lues, citées.
 
-- [ ] **Pas fait**
-  - **Justification** : Pas encore traitée : l'audit suit l'ordre du classeur de référence (une institution à la fois).
-  - **Preuves** : 
+- [x] **Fait**
+  - **Justification** : 4 recherches web, une par catégorie ; lus : wiki GitHub des champs de l'API et annonce IIIF Consortium ; aucune plainte ni ticket trouvé
+  - **Preuves** : `institutions/norman-b-leventhal-map-education-center-boston-p/data.json`, `institutions/norman-b-leventhal-map-education-center-boston-p/fiche.md`
 
 ### g) Crash test progressif
 > Seulement après l'audit complet (a à f) de toutes les institutions et avec l'accord de Marcel : paliers jusqu'à 2 × la limite documentée, ou 200 req/min si illimité ou sans limite documentée. Arrêt au premier 429/403/CAPTCHA.
@@ -60,7 +60,10 @@
 
 <!-- AUTO:DEBUT -->
 ## Contrôles automatiques (calculés depuis `tests/journal.log`)
-Aucune requête enregistrée dans `tests/journal.log`.
+- Requêtes enregistrées : **14** (sessions de sonde : 2, maximum par session : 11)
+- Plus courte pause vers un même hôte : **6 s** (règle : ≥ 6 s)
+- Méthodes utilisées : GET, HEAD (règle : GET/HEAD seulement)
+- Anomalies : aucune
 <!-- AUTO:FIN -->
 
 ## Consigne intégrale

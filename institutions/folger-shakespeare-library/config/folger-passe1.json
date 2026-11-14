@@ -1,0 +1,16 @@
+{
+  "slug": "folger-shakespeare-library",
+  "min_delay_s": 6,
+  "max_requests": 15,
+  "follow_redirects": 1,
+  "robots_disallow_autorise_par_marcel": true,
+  "note": "passe 1 : points d'entrée cités par la doc/le site du Folger (aucune URL d'API IIIF documentée ; digitalcollections.folger.edu a montré un défi Turnstile lors du téléchargement de la doc, une seule requête pour consigner les en-têtes). Les pages www.folger.edu ont déjà répondu 200 à fetch_doc.",
+  "endpoints": [
+    {"id": "digitalcollections-racine", "method": "GET", "url": "https://digitalcollections.folger.edu/"},
+    {"id": "luna-notice-blog", "method": "GET", "url": "https://luna.folger.edu/luna/servlet/s/r5941p"},
+    {"id": "flgr-sh-hamlet-xml", "method": "HEAD", "url": "https://flgr.sh/txtfssHamxml"},
+    {"id": "folger-texts-download", "method": "HEAD", "url": "https://www.folger.edu/explore/shakespeares-works/download/"},
+    {"id": "catalog-racine", "method": "GET", "url": "https://catalog.folger.edu/"},
+    {"id": "hamnet-legacy", "method": "HEAD", "url": "http://hamnet.folger.edu/cgi-bin/Pwebrecon.cgi"}
+  ]
+}

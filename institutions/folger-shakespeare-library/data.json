@@ -4,10 +4,260 @@
   "pays": "États-Unis",
   "classeur_id": "GLAM-057",
   "type": "Institution",
-  "statut_audit": "à faire",
-  "limites_documentees": [],
+  "statut_audit": "audit a–f complet (v2) ; g à faire",
+  "limites_documentees": [
+    {
+      "nature": "Crawl-delay robots.txt",
+      "perimetre": "catalog.folger.edu",
+      "valeur": "Crawl-delay: 5",
+      "fenetre": "5 s entre requêtes",
+      "effet": "demande de pause (non contraignant)",
+      "verification": "officielle, lue (robots.txt)",
+      "source": "https://catalog.folger.edu/robots.txt",
+      "date": "2026-11-14"
+    },
+    {
+      "nature": "Crawl-delay robots.txt",
+      "perimetre": "digitalcollections.folger.edu",
+      "valeur": "Crawl-delay: 120",
+      "fenetre": "120 s entre requêtes",
+      "effet": "demande de pause (non contraignant)",
+      "verification": "officielle, lue (robots.txt)",
+      "source": "https://digitalcollections.folger.edu/robots.txt",
+      "date": "2026-11-14"
+    }
+  ],
   "en_tetes_observes": [],
-  "blocages": [],
-  "sources": [],
-  "web": []
+  "blocages": [
+    {
+      "hote": "digitalcollections.folger.edu",
+      "nature": "défi Cloudflare Turnstile (302 vers /turnstile-challenge)",
+      "preuve": "institutions/folger-shakespeare-library/tests/raw/digitalcollections-racine+redir.headers.txt"
+    },
+    {
+      "hote": "catalog.folger.edu",
+      "nature": "défi AWS WAF (202 vide, x-amzn-waf-action: challenge)",
+      "preuve": "institutions/folger-shakespeare-library/tests/raw/catalog-racine.headers.txt"
+    },
+    {
+      "hote": "findingaids.folger.edu",
+      "nature": "403 défi Cloudflare (robots.txt)",
+      "preuve": "institutions/folger-shakespeare-library/sources/a2/FETCH.log"
+    }
+  ],
+  "sources": [
+    {
+      "url": "https://www.folger.edu/terms-of-use/",
+      "date": "2026-11-14",
+      "etiquette": "officielle",
+      "preuve": "institutions/folger-shakespeare-library/sources/a2/SHA256SUMS"
+    },
+    {
+      "url": "https://www.folger.edu/copyright-policy/",
+      "date": "2026-11-14",
+      "etiquette": "officielle",
+      "preuve": "institutions/folger-shakespeare-library/sources/a2/SHA256SUMS"
+    },
+    {
+      "url": "https://www.folger.edu/permissions",
+      "date": "2026-11-14",
+      "etiquette": "officielle",
+      "preuve": "institutions/folger-shakespeare-library/sources/a3/SHA256SUMS"
+    },
+    {
+      "url": "https://www.folger.edu/blogs/collation/enter-miranda-new-digital-platform",
+      "date": "2026-11-14",
+      "etiquette": "institution",
+      "preuve": "institutions/folger-shakespeare-library/sources/a1/SHA256SUMS"
+    },
+    {
+      "url": "https://www.folger.edu/blogs/collation/and-thats-iiif-to-you-too/",
+      "date": "2026-11-14",
+      "etiquette": "institution",
+      "preuve": "institutions/folger-shakespeare-library/sources/a1/SHA256SUMS"
+    },
+    {
+      "url": "https://www.folger.edu/explore/shakespeares-works/download/",
+      "date": "2026-11-14",
+      "etiquette": "officielle",
+      "preuve": "institutions/folger-shakespeare-library/sources/a1/SHA256SUMS"
+    },
+    {
+      "url": "https://wiki.folger.edu/collections-architecture-portal/Introduction_to_the_platform",
+      "date": "2026-11-14",
+      "etiquette": "institution (Wayback 2024-08-10)",
+      "preuve": "institutions/folger-shakespeare-library/sources/wayback/wiki-miranda.md"
+    }
+  ],
+  "web": [
+    {
+      "categorie": "institution",
+      "url": "https://www.folger.edu/copyright-policy/",
+      "date": "2026-11-14",
+      "etiquette": "officielle",
+      "citation": "« Unless noted in the Restrictions section below, the Folger licenses the content on Folger websites under a Creative Commons Attribution-ShareAlike 4.0 International License. » ; aucune règle de bots ni de débit.",
+      "preuve": "institutions/folger-shakespeare-library/sources/a2/SHA256SUMS"
+    },
+    {
+      "categorie": "utilisateurs",
+      "aucun_resultat": true,
+      "requete": "Folger digital collections \"Verifying that you're human\" OR 429 OR blocked downloading images script Folger Shakespeare Library",
+      "date": "2026-11-14",
+      "etiquette": "–",
+      "citation": "aucune plainte 429/503/blocage visant Folger trouvée (résultats génériques sur le scraping)",
+      "preuve": "institutions/folger-shakespeare-library/fiche.md"
+    },
+    {
+      "categorie": "tickets",
+      "url": "https://github.com/vanda/Folger_iiif_uv",
+      "date": "2026-11-14",
+      "etiquette": "tiers",
+      "citation": "greffon WordPress (fork de ParsonsTKO/Folger_iiif_uv) intégrant Universal Viewer ; aucune URL de manifeste ni limite citée.",
+      "preuve": "institutions/folger-shakespeare-library/fiche.md"
+    },
+    {
+      "categorie": "presentations",
+      "url": "https://wiki.folger.edu/collections-architecture-portal/Introduction_to_the_platform",
+      "date": "2026-11-14",
+      "etiquette": "présentation de l'institution (Wayback 2024-08-10)",
+      "citation": "« a GraphQL API for asset consumption » ; « Cantaloupe » ; aucune limite.",
+      "preuve": "institutions/folger-shakespeare-library/sources/wayback/wiki-miranda.md"
+    }
+  ],
+  "contact": "webmaster@folger.edu (terms of use) ; catalog@folger.edu (catalogue) ; editions@folger.edu (textes)",
+  "conclusion_quota": "Aucun quota ni limite de débit publiés. Crawl-delay 5 s (catalog) et 120 s (digitalcollections) dans les robots.txt ; collections numériques et catalogue derrière un défi anti-bot (Turnstile, AWS WAF) : refus d'accès, pas un quota. Aucune URL IIIF documentée.",
+  "classe_quota": "aucun quota trouvé",
+  "confiance": "moyenne",
+  "notes": "Hôtes principaux (digitalcollections, catalog, findingaids) non lisibles par la sonde : à vérifier à la main. collections.folger.edu et wiki.folger.edu n'ont plus de DNS (lus dans Wayback). Lecture V&A refusée par le système de permissions (non contournée).",
+  "a_verifier_manuellement": [
+    {
+      "url": "https://digitalcollections.folger.edu/",
+      "pourquoi": "défi Cloudflare Turnstile : la sonde ne peut pas lire le site ni les manifestes IIIF",
+      "a_chercher": "Dans un navigateur : lien « manifeste IIIF » d'une notice, page développeurs/API, mentions de quota ; robots.txt (Crawl-delay 120 vu)"
+    },
+    {
+      "url": "https://catalog.folger.edu/",
+      "pourquoi": "défi AWS WAF (202, x-amzn-waf-action: challenge)",
+      "a_chercher": "Pages d'aide /help/hacking/docextract-internals et /kb (API, export, limites)"
+    },
+    {
+      "url": "https://findingaids.folger.edu/robots.txt",
+      "pourquoi": "403 (défi Cloudflare)",
+      "a_chercher": "robots.txt et conditions d'usage des instruments de recherche"
+    },
+    {
+      "url": "https://folger-main-site-assets.s3.amazonaws.com/uploads/2022/11/hamlet_XML_FolgerShakespeare.zip",
+      "pourquoi": "cible du lien court flgr.sh, non suivie (autre hôte) ; robots.txt du bucket en 403 AccessDenied",
+      "a_chercher": "Vérifier le téléchargement des textes et d'éventuelles limites"
+    },
+    {
+      "url": "https://www.vam.ac.uk/blog/digital/iiif-wordpress-and-shakespeare-too",
+      "pourquoi": "lecture refusée par le système de permissions (domaine tiers institutionnel)",
+      "a_chercher": "Si le billet donne une URL de manifeste du Folger ou une limite"
+    }
+  ],
+  "endpoints_documentes": [
+    {
+      "famille": "IIIF Presentation / Image (Miranda, Cantaloupe)",
+      "url": "https://digitalcollections.folger.edu/",
+      "statut": "non_teste",
+      "raison": "aucune URL de manifeste ni d'image dans la doc ; l'hôte renvoie un défi Cloudflare Turnstile (302 puis page Verifying Connection), non contourné"
+    },
+    {
+      "famille": "API GraphQL Miranda",
+      "url": "https://wiki.folger.edu/collections-architecture-portal/Introduction_to_the_platform",
+      "statut": "non_teste",
+      "raison": "plateforme Miranda retirée, wiki.folger.edu sans DNS, aucun point d'accès GraphQL public documenté"
+    },
+    {
+      "famille": "Catalogue TIND",
+      "url": "https://catalog.folger.edu/",
+      "statut": "teste",
+      "preuve": "institutions/folger-shakespeare-library/tests/raw/catalog-racine.headers.txt"
+    },
+    {
+      "famille": "Téléchargements Folger Digital Texts (flgr.sh vers S3)",
+      "url": "https://flgr.sh/txtfssHamxml",
+      "statut": "teste",
+      "preuve": "institutions/folger-shakespeare-library/tests/raw/flgr-sh-hamlet-xml.headers.txt"
+    },
+    {
+      "famille": "Ancienne notice LUNA",
+      "url": "https://luna.folger.edu/luna/servlet/s/r5941p",
+      "statut": "teste",
+      "preuve": "institutions/folger-shakespeare-library/tests/raw/luna-notice-blog.headers.txt"
+    },
+    {
+      "famille": "API REST WordPress (annoncée en en-tête Link)",
+      "url": "https://www.folger.edu/wp-json/",
+      "statut": "teste",
+      "preuve": "institutions/folger-shakespeare-library/tests/raw/wp-json-racine.headers.txt"
+    }
+  ],
+  "endpoints_ecartes": [
+    {
+      "url": "https://collections.folger.edu/",
+      "raison": "ancien hôte de Miranda : pas de résolution DNS (curl: Could not resolve host, sources/a1/FETCH.log), rien à tester"
+    },
+    {
+      "url": "http://collections.folger.edu/search",
+      "raison": "ancien hôte sans DNS ; lien cité dans un billet de 2017"
+    },
+    {
+      "url": "http://wiki.folger.edu/collections-architecture-portal",
+      "raison": "hôte sans DNS (sources/a2/FETCH.log) ; contenu lu via Wayback"
+    },
+    {
+      "url": "https://findingaids.folger.edu/dfodaly2002.xml",
+      "raison": "hôte en 403 défi Cloudflare (robots.txt) : on n'insiste pas ; page listée à vérifier à la main"
+    },
+    {
+      "url": "https://user-testing.folger.edu/",
+      "raison": "environnement de test cité dans une page ; non documenté comme API publique, hors périmètre"
+    },
+    {
+      "url": "https://www.folger.edu/collation-tags/iiif/",
+      "raison": "page d'étiquettes du blog WordPress (liste de billets), contenu éditorial et non une API ; pages de blog lues en HTML dans sources/a1"
+    },
+    {
+      "url": "https://www.folger.edu/search/",
+      "raison": "page de recherche du site web WordPress, formulaire HTML sans API documentée ; non testée, aucune doc de recherche programmatique"
+    },
+    {
+      "url": "https://www.folger.edu/static/site.webmanifest",
+      "raison": "manifeste d'application web (icônes PWA), sans rapport avec IIIF ni une API de données"
+    }
+  ],
+  "hotes_robots": [
+    {
+      "hote": "www.folger.edu",
+      "resultat": "Disallow: /admin/* seulement",
+      "preuve": "institutions/folger-shakespeare-library/sources/a1/SHA256SUMS"
+    },
+    {
+      "hote": "digitalcollections.folger.edu",
+      "resultat": "liste de mauvais robots ; groupe * : Crawl-delay 120 + règles Drupal",
+      "preuve": "institutions/folger-shakespeare-library/sources/a2/SHA256SUMS"
+    },
+    {
+      "hote": "catalog.folger.edu",
+      "resultat": "Crawl-delay 5 ; Disallow /rss, /search, exports",
+      "preuve": "institutions/folger-shakespeare-library/sources/a2/SHA256SUMS"
+    },
+    {
+      "hote": "luna.folger.edu",
+      "resultat": "signaux Cloudflare Content-Signal (ai-train=no) ; Allow / pour notre UA",
+      "preuve": "institutions/folger-shakespeare-library/sources/a3/SHA256SUMS"
+    },
+    {
+      "hote": "hamnet.folger.edu",
+      "resultat": "même robots Cloudflare Content-Signal, Allow /",
+      "preuve": "institutions/folger-shakespeare-library/sources/a3/SHA256SUMS"
+    },
+    {
+      "hote": "flgr.sh",
+      "resultat": "même robots Cloudflare Content-Signal, Allow /",
+      "preuve": "institutions/folger-shakespeare-library/sources/a3/SHA256SUMS"
+    }
+  ]
 }
