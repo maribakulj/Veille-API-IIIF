@@ -1,0 +1,11 @@
+{
+  "slug": "national-gallery-of-art-library",
+  "min_delay_s": 6,
+  "max_requests": 15,
+  "follow_redirects": 1,
+  "robots_disallow_autorise_par_marcel": true,
+  "note": "v2 passe 2 : libraryimage.nga.gov (manifestes et visionneuse de la NGA Library), URL citee par le guide IIIF 'National Gallery of Art Library' (https://iiif.io/guides/guides/library.nga.gov/, sources/iiifio) : manifeste d'exemple 99682033504896 et visionneuse Universal Viewer. robots.txt de libraryimage.nga.gov : 404 (tout autorise, sources/li). Le corps du manifeste est enregistre pour y lire l'URL du service d'image (passe 3).",
+  "endpoints": [
+    {"id": "libraryimage-manifeste", "method": "GET", "url": "https://libraryimage.nga.gov/manifest/mms/99682033504896.json", "save_body": 3000000}
+  ]
+}

@@ -1,0 +1,10 @@
+# Session 2026-11-14T02:15:42Z — configuration nga-v2-passe1-api-library.json — sonde probe.py au commit 06b682f
+2026-11-14T02:15:44Z | robots.txt:api.nga.gov | https://api.nga.gov/robots.txt | GET | 200 | 0 règle(s) pour « * » ; Crawl-delay 10.0 s
+2026-11-14T02:16:01Z | api-nga-racine | https://api.nga.gov/ | GET | 301 REDIRECTION_NON_SUIVIE | aucun en-tête de limite | taille≥200 | corps: <!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN"> <html><head> <title>301 Moved Permanently</title> </head><body> <h1>Moved Permanently</h1> <p>The document has moved <a href="https://www.nga.gov">he
+# redirection vers https://www.nga.gov : NON suivie (autre hôte)
+2026-11-14T02:16:07Z | robots.txt:library.nga.gov | https://library.nga.gov/robots.txt | GET | 200 | 3 règle(s) pour « * » ; Crawl-delay 10.0 s
+2026-11-14T02:16:20Z | library-accueil | https://library.nga.gov/ | GET | 302 REDIRECTION_NON_SUIVIE | aucun en-tête de limite | taille≥0 | corps: 
+# redirection vers https://library.nga.gov/mng/login : suivie (même hôte, comptée dans le budget)
+2026-11-14T02:16:31Z | library-accueil+redir | https://library.nga.gov/mng/login | GET | 302 REDIRECTION_NON_SUIVIE | aucun en-tête de limite | taille≥0 | corps: 
+2026-11-14T02:16:41Z | library-sitemap-index | https://library.nga.gov/view/scholar/siteindex.xml | GET | 200 OK | aucun en-tête de limite | taille≥200 | corps: <?xml version="1.0" encoding="UTF-8" standalone="yes"?> <sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">	 	<sitemap> 		<loc>https://library.nga.gov/view/scholar/PrimoVE-I/sitemap?map
+# Fin 2026-11-14T02:16:41Z — 6 requête(s) envoyée(s)
