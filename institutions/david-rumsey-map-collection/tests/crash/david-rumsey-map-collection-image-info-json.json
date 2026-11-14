@@ -1,0 +1,52 @@
+{
+  "slug": "david-rumsey-map-collection",
+  "hote": "www.davidrumsey.com",
+  "reseaux": [],
+  "plafond_req_min": 200,
+  "endpoint": "image-info-json",
+  "limite_documentee_req_min": null,
+  "paliers": [
+    {
+      "palier_req_min": 6,
+      "requetes": 18,
+      "debit_reel_req_min": 6.3,
+      "codes": {
+        "200": 18
+      },
+      "latence_p50_s": 0.446,
+      "latence_max_s": 0.588
+    },
+    {
+      "palier_req_min": 10,
+      "requetes": 30,
+      "debit_reel_req_min": 10.3,
+      "codes": {
+        "200": 30
+      },
+      "latence_p50_s": 0.443,
+      "latence_max_s": 0.473
+    },
+    {
+      "palier_req_min": 50,
+      "requetes": 150,
+      "debit_reel_req_min": 50.2,
+      "codes": {
+        "200": 150
+      },
+      "latence_p50_s": 0.444,
+      "latence_max_s": 0.76
+    },
+    {
+      "palier_req_min": 200,
+      "requetes": 600,
+      "debit_reel_req_min": 199.6,
+      "codes": {
+        "200": 600
+      },
+      "latence_p50_s": 0.441,
+      "latence_max_s": 2.453
+    }
+  ],
+  "arret": null,
+  "conclusion": "aucun blocage jusqu'à 200 req/min"
+}

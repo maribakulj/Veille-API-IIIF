@@ -17,3 +17,8 @@ Institution : droits et permissions. Utilisateurs : fil iiif-discuss (redirectio
 
 ## Conclusion
 Limite chiffrée : aucune publiée ; `ratelimit-limit: 5.0` observé sur le manifeste (unité non documentée) ; Crawl-Delay 500 s = consigne de politesse. Confiance : moyenne. Crash test préparé : `config/crash-info-json.json` (à lancer à la fin).
+
+## Crash test (étape g)
+
+Crash test fait le 2026-11-14 : image-info-json sur www.davidrumsey.com : aucun blocage jusqu'à 200 req/min (plafond 200 req/min).
+Journal : `tests/crash/david-rumsey-map-collection.log`. Un test « sans blocage » n'est pas une preuve d'illimitation au-delà du plafond.
