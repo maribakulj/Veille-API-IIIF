@@ -1,0 +1,11 @@
+{
+  "slug": "osterreichische-nationalbibliothek-onb",
+  "min_delay_s": 6,
+  "max_requests": 15,
+  "follow_redirects": 1,
+  "robots_disallow_autorise_par_marcel": true,
+  "note": "Passe 5 : la liste ABO de la passe 4 a publie l'identifiant https://iiif.onb.ac.at/presentation/ABO/Z165851607/resource/00000001.json ; test de la famille /resource avec cet identifiant (jamais devine : lu dans une reponse precedente).",
+  "endpoints": [
+    {"id": "resource-abo-Z165851607-00000001json", "method": "GET", "url": "https://iiif.onb.ac.at/presentation/ABO/Z165851607/resource/00000001.json"}
+  ]
+}
