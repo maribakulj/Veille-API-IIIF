@@ -340,4 +340,13 @@ Le verrou agit : (a) **au lancement** des outils officiels (`probe.py`, `crash.p
 4. **Hôte partagé** : si un autre dossier a déjà testé le même hôte, le résultat est repris sans envoyer de requête (Leiden et Gand).
 5. Requête de détection en 403/429/CAPTCHA ou erreur : abandon, étape g « impossible » à documenter.
 6. Ordre d'exécution conseillé : hôtes sans réseau protégé d'abord, réseaux protégés en dernier.
+
+## Boucle parallèle par lots (14/11/2026, décision de Marcel : 5 agents)
+- `data/lots.json` répartit les institutions restantes en 5 lots (A à E, tourniquet par ordre du classeur). **L'ordre strict s'applique à l'intérieur d'un lot**, pas entre lots.
+- Chaque agent travaille dans son worktree `.lots/lot-<ID>` (branche `lot/<ID>`), brief commun `data/BRIEF-AGENT.md`.
+- **Au lancement** : `probe.py`, `crash.py` et `fetch_doc.sh` appellent `suivi.py autorise <slug>` *dans le dépôt principal* : refus si l'institution n'est pas dans le lot de l'agent, ou si une institution antérieure du même lot n'est pas terminée.
+- **Au commit** : le hook (lu dans le dépôt principal, donc non modifiable par un agent) refuse tout fichier hors de `institutions/<slug>/` des institutions du lot et valide le lot ; le classeur n'est pas régénéré par les agents.
+- **Politesse partagée** (`scripts/hostlock.py`, registre `~/.veille-state`) : ≥ 6 s entre deux requêtes vers un même hôte, tous agents confondus ; au plus 30 requêtes/min au total ; un crash test (verrou exclusif) suspend tout autre trafic.
+- **Intégration** par le coordinateur seulement : `python3 scripts/integrer_lot.py <ID> [--push]` (périmètre, fusion sans commit, validation globale, régénération du classeur ; fusion annulée si un contrôle échoue).
+- Limites connues : un `curl` direct ou une copie locale modifiée de `scripts/` par un agent n'est pas empêché techniquement ; le commit ne peut pas porter ces modifications, et l'intégration revérifie le périmètre.
 <!-- CONSIGNE:FIN -->
