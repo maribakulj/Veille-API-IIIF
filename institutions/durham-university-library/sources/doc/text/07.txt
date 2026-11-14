@@ -1,0 +1,167 @@
+Notes on getting started with IIIF at Durham - Samvera - Samvera Wiki 
+ Atlassian uses cookies to improve your browsing experience, perform analytics and research, and conduct advertising. Accept all cookies to indicate that you agree to our use of cookies on your device. 
+ Atlassian cookies and tracking notice , (opens new window) 
+ Atlassian uses cookies to improve your browsing experience, perform analytics and research, and conduct advertising. Accept all cookies to indicate that you agree to our use of cookies on your device. Atlassian cookies and tracking notice , (opens new window) 
+ Preferences Only necessary Accept all 
+ Collapse sidebar Switch sites or apps 
+ Confluence 
+ Create Create 
+ Help 
+ Log in 
+ Samvera 
+ Spaces 
+ Apps 
+ Samvera 
+ More actions 
+ Back to top 
+ Shortcuts 
+ Interest Group and Working Group Hub Interest Group and Working Group Hub 
+ Samvera Meeting & Events Calendar Samvera Meeting & Events Calendar 
+ Samvera Partner Calls Samvera Partner Calls 
+ Tech Calls Tech Calls 
+ Meeting notes in space Meeting notes in space 
+ Content 
+ Results will update as you type. 
+ Getting Started in the Samvera Community 
+ Samvera Partners 
+ Annual Reports 
+ How Does the Samvera Community Work? 
+ Interest Group (IG) and Working Group (WG) Hub 
+ Hyrax Interest Group 
+ Hyrax Maintenance Working Group 
+ Hyrax-Valkyrie Development Working Group 
+ Samvera Branch Renaming Working Group 
+ Samvera Digital Preservation Interest Group 
+ Samvera Hyku Interest Group 
+ Developer Team Management Interest Group 
+ Samvera Roadmaps Working Group 
+ Samvera User Experience Interest Group 
+ Template for Working Group Charter 
+ Samvera IGs and WGs Completed 
+ Hydra Page Turner Interest Group 
+ 2015-03-26 Meeting Agenda/Notes 
+ Current modeling practices 
+ Mapping Page Turner Solutions 
+ Page Turners : The Landscape 
+ Page Turners - Current, Future and Requirements 
+ Thursday 9th July, 2015 
+ Thursday 12th March 
+ Thursday 14th May, 2015 
+ Thursday 19th February, 2015 
+ Thursday 23rd July, 2015 
+ Thursday 25th June, 2015 
+ Thursday 26th February 
+ Thursday 28th May, 2015 
+ Notes on getting started with IIIF at Durham 
+ Connect 3 Structure Working Group 
+ Hydra RDF Working Group 
+ Sufia Documentation for Managers Working Group (SDMWG - "sdimwig") 
+ Sufia User Interface Working Group 
+ Hydra Web Presence Working Group 
+ Samvera Governance Working Group 
+ Archived Interest and Working Groups 
+ Samvera Metadata Interest Group 
+ Component Maintenance Interest Group 
+ Samvera Outreach & Engagement Working Group 
+ Samvera Website Migration Working Group 
+ Samvera Research Data Working Group Charter 
+ Samvera Virtual Connect 2023 Planning Committee 
+ Samvera Community Participation Sustainability Working Group - Draft 
+ Proposed: Samvera End User Documentation Working Group 
+ Connect 2023 Program Committee 
+ Samvera Repository Management Interest Group 
+ Hyrax Fedora 6 Working Group 
+ Samvera Virtual Connect 2024 Planning Committee 
+ Documentation Interest Group 
+ Community Guidelines Working Group charter 
+ Samvera Accessibility Working Group 
+ Github Processes and Permissions Working Group Charter 
+ Samvera AI Working Group 
+ Samvera Partnership Review Working Group 
+ Samvera Code Submission Guidelines Working Group 
+ Samvera Partner Calls 
+ Notes from Tech Meetings and Calls 
+ Samvera Events Calendar 
+ Templates, slides and logos for presentations and articles 
+ Samvera Connect Meetings 
+ Samvera Virtual Connect 
+ Community Development Sprints 
+ Samvera Partner Meetings 
+ Samvera Regional Meetings 
+ Publicity and marketing materials 
+ Glossary 
+ Developers 
+ Code Copyright Statement 
+ Samvera Board membership 
+ Show more below 
+ You‘re viewing this with anonymous access, so some content might be blocked. 
+ Close 
+ Samvera
+ /
+ Notes on getting started with IIIF at Durham
+ Published Jun 16, 2017 
+ More actions 
+ Samvera Community Wiki
+ Notes on getting started with IIIF at Durham
+ By Bill Branan 
+ Jun 16, 2017
+ 2 min 
+ Add a reaction
+ Creating manifests
+ Manifests can be very complex, and it is clear from looking at existing examples that they can look quite different and still work. If you add tables of contents, annotations etc. they get even more convoluted, but to get a basic manifest you only need a few variables. I adapted an existing METS creating program to write manifests - most of the variables go into the metadata section (title, date, description of the thing) but you also need the base name of your image files (assuming these are in a numbered sequence), the separate subdirectories your image files and manifest will be in, and the name of the manifest file you will generate. You also need the height and width of each image (either calculated at the time of creation or beforehand and the label (e.g. f.1r etc.) for each image. I found it easier to do this in an external file as manuscript foliation is often not standard so a csv file is called in to populate an array for the label values.
+ You should be able to view/download any manifest with a browser to see working examples.
+ Using Mirador to display a search result
+ Mirador 2 is a good looking but complex viewer, built upon a whole lot of Javascript libraries. Although it is built upon linked data and does so much effortlessly it does need user intervention in some ways that make it work. The default opening screen "Add item" is rather a nonplussing thing to hit first off, and not easy to suppress - the viewer seems more of a human-driven desktop tool than an automatic one. Given the json-based IIIF system I would expect you to be able to send json to Mirador to tell it what to display, but it is not obvious how to do this. Looking at the simple base index.html file it is the final section of Javascript that does the data loading and configuration
+   <script type="text/javascript"> 
+    $(function() { 
+       Mirador({ 
+         "id": "viewer", 
+         "data": [ 
+           { "manifestUri": "http://www.example.org/manifests/manifest1.json", "location": "Example Organisation Library"}, 
+      { "manifestUri": "http://www.example.org/manifests/manifest1.json", "location": "Example Organisation Library"}        ], 
+         "windowObjects": [] 
+       }); 
+     }); 
+   </script> 
+ If we are using Mirador as a result viewer we want to get a single (for the sake of simplicity) manifest into the data array, but that will still land you on the "Add item" screen. The only way I've found to carry on to see the images instead is to add some extra values and insert your manifest twice, once in the data array and again as the loadedManifest value within windowObjects
+ $(function() { 
+       Mirador({ 
+         "id": "viewer", 
+         "currentWorkspaceType": "singleObject", 
+         "saveSession": false, 
+         "layout": "1x1", 
+         "data": [ 
+ {            "manifestUri": "http://www.example.org/manifests/subdir/subdir/manifest.json"      } ], 
+         "windowObjects": [ 
+           {            "loadedManifest": "http://www.example.org/manifests/subdir/subdir/manifest.json", 
+             "viewType" : "ImageView", 
+            } 
+         ] 
+       }); 
+     });  
+ Finally in a link you may want to jump to a page, which means adding a canvas. For the example below there are two variables: the variable fragment of the manifest url path "dul/clb/clb1-94" and the page number to open "2". So with some very ugly Javascript to retrieve and build in these two parameters, and saveSession set to false to remove the hash session ID, https://iiif.durham.ac.uk/mview.html?p1=dul/clb/clb1-94&p2=2 gives you
+     $(function() { 
+       Mirador({ 
+         "id": "viewer", 
+         "currentWorkspaceType": "singleObject", 
+         "saveSession": false, 
+         "layout": "1x1", 
+         "data": [ 
+  {            "manifestUri": "https://iiif.durham.ac.uk/manifests/dul/clb/clb1-94.json"      } ], 
+         "windowObjects": [ 
+           {            "loadedManifest": "https://iiif.durham.ac.uk/manifests/dul/clb/clb1-94.json", 
+             "viewType" : "ImageView", 
+              "canvasID": "https://iiif.durham.ac.uk/manifests/dul/clb/clb1-94/canvas/p2" 
+            } 
+         ] 
+       }); 
+     });  
+ and a means of using Mirador to display a search result.
+ Collapse action bar 
+ Table of contents 
+ Open Details Panel 
+ View all comments 
+ Open Rovo Chat 
+ Add a comment
+ Add a reaction
+ {"serverDuration": 25, "requestCorrelationId": "12718dab406f4140a1d7307ad736f9ed"}

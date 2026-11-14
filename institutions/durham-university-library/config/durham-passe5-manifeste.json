@@ -1,0 +1,12 @@
+{
+  "slug": "durham-university-library",
+  "min_delay_s": 6,
+  "max_requests": 15,
+  "follow_redirects": 1,
+  "robots_disallow_autorise_par_marcel": true,
+  "note": "Passe 5 : manifeste d'objet cité par la page publique durhampriory.ac.uk/using-the-features-of-iiif/ (sources/doc/raw/06.html) : https://iiif.durham.ac.uk/manifests/trifle/32150/t1/mh/m5/t1mhm50tr805/manifest ; visionneuse mview.html citée par le wiki Samvera (sources/doc/raw/07.html).",
+  "endpoints": [
+    {"id": "dur-p5-manifeste-objet", "method": "GET", "url": "https://iiif.durham.ac.uk/manifests/trifle/32150/t1/mh/m5/t1mhm50tr805/manifest", "save_body": 600000},
+    {"id": "dur-p5-mview", "method": "GET", "url": "https://iiif.durham.ac.uk/mview.html?p1=dul/clb/clb1-94&p2=2"}
+  ]
+}

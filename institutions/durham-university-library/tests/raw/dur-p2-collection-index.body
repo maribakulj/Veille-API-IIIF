@@ -1,0 +1,977 @@
+
+{
+  "@context": "http://iiif.io/api/presentation/2/context.json",
+  "@id": "https://iiif.durham.ac.uk/manifests/trifle/collection/index",
+  "@type": "sc:Collection",
+  "label": "Durham University IIIF Collections",
+  "description": "List of all the collections of material within Durham University Library and Collections that have been digitised and made available via IIIF.",
+  "logo": "https://iiif.durham.ac.uk/images/logos/duruni_logo.png",
+  "collections": [
+    {
+      "@id": "https://iiif.durham.ac.uk/manifests/trifle/collection/32150/t2c7s75dc36q",
+      "@type": "sc:Collection",
+      "label": "Sudan Archive",
+      "thumbnail":[{"@id":"https://iiif.durham.ac.uk/iiif/trifle/32150/t1/m3/n2/t1m3n203z18r/51ae06adc12a96e7c786f972b0bba712.jp2/123,514,5331,5903/full/0/default.jpg",
+      "@type":"dctypes:Image",
+      "format":"image/jpeg",
+      "width":400,
+      "height":400}]
+
+    },
+    {
+      "@id": "https://iiif.durham.ac.uk/manifests/trifle/collection/32150/t2cq237hr92g",
+      "@type": "sc:Collection",
+      "label": "Durham Cathedral Archive",
+      "thumbnail":[{"@id":"https://iiif.durham.ac.uk/iiif/trifle/32150/t2/mz/02/t2mz029p5201/6ea181292817b7a879990284219b5d7b.jp2/1150,7970,7421,5365/full/0/default.jpg",
+      "@type":"dctypes:Image",
+      "format":"image/jpeg",
+      "width":400,
+      "height":400}]
+
+    },
+    {
+      "@id": "https://iiif.durham.ac.uk/manifests/trifle/collection/32150/t1c08612n52t",
+      "@type": "sc:Collection",
+      "label": "Cosin manuscripts",
+      "thumbnail":[{"@id":"https://iiif.durham.ac.uk/iiif/trifle/32150/t1/m4/q7/t1m4q77fr328/ec664c6daec0055c6ad0a0551fea6d15.jp2/2710,699,1507,1478/full/0/default.jpg",
+      "@type":"dctypes:Image",
+      "format":"image/jpeg",
+      "width":400,
+      "height":400}]
+    },
+    {
+      "@id": "https://iiif.durham.ac.uk/manifests/trifle/collection/32150/t1cxp68kg203",
+      "@type": "sc:Collection",
+      "label": "Cosin letters",
+      "thumbnail":[{"@id":"https://iiif.durham.ac.uk/iiif/trifle/32150/t1/m2/f7/t1m2f75r800g/077905b5945b0f40de66c8288910c79c.jp2/1791,41,2023,1915/full/0/default.jpg",
+      "@type":"dctypes:Image",
+      "format":"image/jpeg",
+      "width":400,
+      "height":400}]
+    },
+    {
+      "@id": "https://iiif.durham.ac.uk/manifests/trifle/collection/32150/t1c3197xm04q",
+      "@type": "sc:Collection",
+      "label": "Durham University Records",
+      "thumbnail":[{"@id":"https://iiif.durham.ac.uk/iiif/trifle/32150/t2/m6/10/t2m6108vb50g/ac1f3f290f84cf161c207d1291af01e8.jp2/601,288,4657,3740/full/0/default.jpg",
+      "@type":"dctypes:Image",
+      "format":"image/jpeg",
+      "width":400,
+      "height":400}]
+
+    },
+    {
+      "@id": "https://iiif.durham.ac.uk/manifests/trifle/collection/32150/t2cs1784k72c",
+      "@type": "sc:Collection",
+      "label": "DULASC - Printed books",
+      "thumbnail":[{"@id":"https://iiif.durham.ac.uk/iiif/trifle/32150/t2/mc/f9/t2mcf95jb921/fb0bc7de297655ccfdff2700e964176f.jp2/104,161,1944,1693/full/0/default.jpg",
+      "@type":"dctypes:Image",
+      "format":"image/jpeg",
+      "width":400,
+      "height":400}]
+
+    },
+    {
+      "@id": "https://iiif.durham.ac.uk/manifests/trifle/collection/32150/t1c6108vb245",
+      "@type": "sc:Collection",
+      "label": "Durham University Library Additional Manuscripts",
+      "thumbnail":[{"@id":"https://iiif.durham.ac.uk/iiif/trifle/32150/t1/mg/x4/t1mgx41mj13t/d039f8b9331c107ebb2de9e5aa90bce7.jp2/2652,125,2483,1967/full/0/default.jpg",
+      "@type":"dctypes:Image",
+      "format":"image/jpeg",
+      "width":400,
+      "height":400}]
+
+    },
+    {
+      "@id": "https://iiif.durham.ac.uk/manifests/trifle/collection/32150/t2c6h440s44b",
+      "@type": "sc:Collection",
+      "label": "Church Commission Durham Bishopric Records",
+      "thumbnail":[{"@id":"https://iiif.durham.ac.uk/iiif/trifle/32150/t1/mb/g2/t1mbg257f729/63f590c677f976eedc9b4999030abe1b.jp2/17,35,5302,3832/full/0/default.jpg",
+      "@type":"dctypes:Image",
+      "format":"image/jpeg",
+      "width":400,
+      "height":400}]
+
+    },
+    {
+      "@id": "https://iiif.durham.ac.uk/manifests/trifle/collection/32150/t2c7m01bk68j",
+      "@type": "sc:Collection",
+      "label": "Durham Cathedral Library manuscript books",
+      "thumbnail":[{"@id":"https://iiif.durham.ac.uk/iiif/trifle/32150/t1/mx/g9/t1mxg94hp57f/7c48dd537d83fabaad42c92c5bf3019a.jp2/3962,2544,2044,1998/full/0/default.jpg",
+      "@type":"dctypes:Image",
+      "format":"image/jpeg",
+      "width":400,
+      "height":400}]
+    },
+    {
+      "@id": "https://iiif.durham.ac.uk/manifests/trifle/collection/32150/t2c8623hx722",
+      "@type": "sc:Collection",
+      "label": "Durham Cathedral Library - Hunter manuscripts",
+      "thumbnail":[{"@id":"https://iiif.durham.ac.uk/iiif/trifle/32150/t1/m2/f7/t1m2f75r801v/d983e4a0445b252467c4f9e7d6bd5419.jp2/276,498,919,820/full/0/default.jpg",
+      "@type":"dctypes:Image",
+      "format":"image/jpeg",
+      "width":400,
+      "height":400}]
+    },
+    {
+      "@id": "https://iiif.durham.ac.uk/manifests/trifle/collection/32150/t1c3484zg88m",
+      "@type": "sc:Collection",
+      "label": "Durham Cathedral Library Incunabula and early printed books",
+      "thumbnail":[{"@id":"https://iiif.durham.ac.uk/iiif/trifle/32150/t1/m6/h4/t1m6h440s50t/7c3881f08db2324ebe430562318630cf.jp2/224,793,1787,1619/full/0/default.jpg",
+      "@type":"dctypes:Image",
+      "format":"image/jpeg",
+      "width":400,
+      "height":400}]
+    },
+    {
+      "@id": "https://iiif.durham.ac.uk/manifests/trifle/collection/32150/t1cnv935284t",
+      "@type": "sc:Collection",
+      "label": "Durham Diocesan Records",
+      "thumbnail":[{"@id":"https://iiif.durham.ac.uk/iiif/trifle/32150/t1/m0/v8/t1m0v838107m/5166d548ea99e53a7e13421ec7167b5e.jp2/78,3100,3216,2513/full/0/default.jpg",
+      "@type":"dctypes:Image",
+      "format":"image/jpeg",
+      "width":400,
+      "height":400}]
+    },
+    {
+      "@id": "https://iiif.durham.ac.uk/manifests/trifle/collection/32150/t2c8336h1881",
+      "@type": "sc:Collection",
+      "label": "Mickleton and Spearman Manuscripts",
+      "thumbnail":[{"@id":"https://iiif.durham.ac.uk/iiif/trifle/32150/t2/m1/25/t2m12579s53h/4b266e2fbc0944c0afe0db1e14ac99a7.jp2/2488,1094,2116,1869/full/0/default.jpg",
+      "@type":"dctypes:Image",
+      "format":"image/jpeg",
+      "width":400,
+      "height":400}]
+    },
+    {
+      "@id": "https://iiif.durham.ac.uk/manifests/trifle/collection/32150/t1c02870v84r",
+      "@type": "sc:Collection",
+      "label": "Abbott Literary Manuscripts",
+      "thumbnail":[{"@id":"https://iiif.durham.ac.uk/iiif/trifle/32150/t1/m4/74/t1m47429922j/609380b9e163028efcd048c950074343.jp2/4417,785,4374,3533/full/0/default.jpg",
+      "@type":"dctypes:Image",
+      "format":"image/jpeg",
+      "width":400,
+      "height":400}]
+
+    },
+    {
+      "@id": "https://iiif.durham.ac.uk/manifests/trifle/collection/32150/t1cvd66vz88m",
+      "@type": "sc:Collection",
+      "label": "Surtees Raine Manuscripts",
+      "thumbnail":[{"@id":"https://iiif.durham.ac.uk/iiif/trifle/32150/t1/mm/s3/t1mms35t8865/be38d635eb690cbe1a4e20c2fc43b4d8.jp2/2841,177,2533,2374/full/0/default.jpg",
+      "@type":"dctypes:Image",
+      "format":"image/jpeg",
+      "width":400,
+      "height":400}]
+    },
+    {
+      "@id": "https://iiif.durham.ac.uk/manifests/trifle/collection/32150/t2c2r36tx52q",
+      "@type": "sc:Collection",
+      "label": "Elliott Manuscripts",
+      "thumbnail":[{"@id":"https://iiif.durham.ac.uk/iiif/trifle/32150/t1/mr/20/t1mr207tp393/bcc4e5fc6991d6ca65cb43fe43307630.jp2/1077,100,1598,2208/full/0/default.jpg",
+      "@type":"dctypes:Image",
+      "format":"image/jpeg",
+      "width":400,
+      "height":400}]
+
+    },
+    {
+      "@id": "https://iiif.durham.ac.uk/manifests/trifle/collection/32150/t1cdv13zt20s",
+      "@type": "sc:Collection",
+      "label": "Gibson Plans",
+      "thumbnail":[{"@id":"https://iiif.durham.ac.uk/iiif/trifle/32150/t1/ms/b3/t1msb397830w/85feb5c751ead62bd94cdfb598252a1f.jp2/197,61,4371,3788/full/0/default.jpg",
+      "@type":"dctypes:Image",
+      "format":"image/jpeg",
+      "width":400,
+      "height":400}]
+    },
+    {
+      "@id": "https://iiif.durham.ac.uk/manifests/trifle/collection/32150/t1ch702q636r",
+      "@type": "sc:Collection",
+      "label": "Ord of Sands Hall Papers",
+      "thumbnail":[{"@id":"https://iiif.durham.ac.uk/iiif/trifle/32150/t1/mt/14/t1mt148fh15g/4ee7943a8e56b76a25ffbddc8c3e750c.jp2/515,63,3668,2580/full/0/default.jpg",
+      "@type":"dctypes:Image",
+      "format":"image/jpeg",
+      "width":400,
+      "height":400}]
+
+    },
+    {
+      "@id": "https://iiif.durham.ac.uk/manifests/trifle/collection/32150/t2cqn59q396k",
+      "@type": "sc:Collection",
+      "label": "Bamburgh Library",
+      "thumbnail":[{"@id":"https://iiif.durham.ac.uk/iiif/trifle/32150/t1/mc/c0/t1mcc08hg06v/3c82c024e1e52431aae55a4536e8b15d.jp2/3249,311,2584,2475/full/0/default.jpg",
+      "@type":"dctypes:Image",
+      "format":"image/jpeg",
+      "width":400,
+      "height":400}]
+    },
+    {
+      "@id": "https://iiif.durham.ac.uk/manifests/trifle/collection/32150/t2cm039k4883",
+      "@type": "sc:Collection",
+      "label": "Hidden Collection",
+      "thumbnail":[{"@id":"https://iiif.durham.ac.uk/iiif/trifle/32150/t1/mp/v6/t1mpv63g0312/86f7636d901c1961f8d4f56c830db35f.jp2/full/full/0/default.jpg",
+      "@type":"dctypes:Image",
+      "format":"image/jpeg",
+      "width":400,
+      "height":400}]
+    },
+    {
+      "@id": "https://iiif.durham.ac.uk/manifests/trifle/collection/32150/t1cdn39x1520",
+      "@type": "sc:Collection",
+      "label": "Abbas Hilmi II Papers",
+      "thumbnail":[{"@id":"https://iiif.durham.ac.uk/iiif/trifle/32150/t1/mq/23/t1mq237hs14f/a2ca6c9aea2a0fd0851a3aadad457b5b.jp2/2788,250,2273,1778/full/0/default.jpg",
+      "@type":"dctypes:Image",
+      "format":"image/jpeg",
+      "width":400,
+      "height":400}]
+    },
+    {
+      "@id": "https://iiif.durham.ac.uk/manifests/trifle/collection/32150/t2c2514nk48b",
+      "@type": "sc:Collection",
+      "label": "Durham University Library Miscellaneous Photograph Albums",
+      "thumbnail":[{"@id":"https://iiif.durham.ac.uk/iiif/trifle/32150/t1/mm/p4/t1mmp48sc82q/9169e12d1776b68a5745c35f7bba56cb.jp2/12,17,2742,2175/full/0/default.jpg",
+      "@type":"dctypes:Image",
+      "format":"image/jpeg",
+      "width":400,
+      "height":400}]
+    },
+    {
+      "@id": "https://iiif.durham.ac.uk/manifests/trifle/collection/32150/t2cjs956f80s",
+      "@type": "sc:Collection",
+      "label": "Fillinghams' Photographs",
+      "thumbnail":[{"@id":"https://iiif.durham.ac.uk/iiif/trifle/32150/t2/m2/f7/t2m2f75r8199/7fd04d29e9fd8b69292e927f740768a8.jp2/899,265,6284,4769/full/0/default.jpg",
+      "@type":"dctypes:Image",
+      "format":"image/jpeg",
+      "width":400,
+      "height":400}]
+
+    },
+    {
+      "@id": "https://iiif.durham.ac.uk/manifests/trifle/collection/32150/t2cq524jn767",
+      "@type": "sc:Collection",
+      "label": "Gibby photographic prints",
+      "thumbnail":[{"@id":"https://iiif.durham.ac.uk/iiif/trifle/32150/t1/md/21/t1md217qp524/393859c4257593af598f4c4370bbc3b9.jp2/548,-20,1369,1104/full/0/default.jpg",
+      "@type":"dctypes:Image",
+      "format":"image/jpeg",
+      "width":400,
+      "height":400}]
+    },
+    {
+      "@id": "https://iiif.durham.ac.uk/manifests/trifle/collection/32150/t1cgt54kn00p",
+      "@type": "sc:Collection",
+      "label": "Bentley Beetham Collection",
+      "thumbnail":[{"@id":"https://iiif.durham.ac.uk/iiif/trifle/32150/t2/m4/74/t2m47429936g/f87e48a64a8ba45bb7afdee9d9386fa6.jp2/87,95,3482,2712/full/0/default.jpg",
+      "@type":"dctypes:Image",
+      "format":"image/jpeg",
+      "width":400,
+      "height":400}]
+    },
+    {
+      "@id": "https://iiif.durham.ac.uk/manifests/trifle/collection/32150/t2c0g354f205",
+      "@type": "sc:Collection",
+      "label": "Cosin's Library",
+      "thumbnail":[{"@id":"https://iiif.durham.ac.uk/iiif/trifle/32150/t1/m6/q1/t1m6q182k518/63e129478fa645a06cc66c72ccd860a0.jp2/2190,237,2826,3085/full/0/default.jpg",
+      "@type":"dctypes:Image",
+      "format":"image/jpeg",
+      "width":400,
+      "height":400}]
+    },
+    {
+      "@id": "https://iiif.durham.ac.uk/manifests/trifle/collection/32150/t2cfj2362083",
+      "@type": "sc:Collection",
+      "label": "Durham Bishopric Halmote Court Records",
+      "thumbnail":[{"@id":"https://iiif.durham.ac.uk/iiif/trifle/32150/t1/m1/j9/t1m1j92g838d/e31dc698c9c2fa59d37c9401168d2e65.jp2/391,848,12561,8579/full/0/default.jpg",
+      "@type":"dctypes:Image",
+      "format":"image/jpeg",
+      "width":400,
+      "height":400}]
+
+    },
+    {
+      "@id": "https://iiif.durham.ac.uk/manifests/trifle/collection/32150/t2ctx31qh68g",
+      "@type": "sc:Collection",
+      "label": "Durham City Guild Records",
+      "thumbnail":[{"@id":"https://iiif.durham.ac.uk/iiif/trifle/32150/t1/mt/x3/t1mtx31qj06m/8f1504f2bc01505692f1d02cac46e5cc.jp2/31,67,4829,3900/full/0/default.jpg",
+      "@type":"dctypes:Image",
+      "format":"image/jpeg",
+      "width":400,
+      "height":400}]
+
+    },
+    {
+      "@id": "https://iiif.durham.ac.uk/manifests/trifle/collection/32150/t2cnp193916s",
+      "@type": "sc:Collection",
+      "label": "Greatorex Photographs",
+      "thumbnail":[{"@id":"https://iiif.durham.ac.uk/iiif/trifle/32150/t1/mn/s0/t1mns0646150/8f2b8a31912efae35b4c85a631e4c31a.jp2/59,31,2336,1293/full/0/default.jpg",
+      "@type":"dctypes:Image",
+      "format":"image/jpeg",
+      "width":400,
+      "height":400}]
+    },
+    {
+      "@id": "https://iiif.durham.ac.uk/manifests/trifle/collection/32150/t1cfn106x926",
+      "@type": "sc:Collection",
+      "label": "Durham Probate Records",
+      "thumbnail":[{"@id":"https://iiif.durham.ac.uk/iiif/trifle/32150/t1/mf/q9/t1mfq977t906/02f676a80c843c2e0ff8a77a93c5e9c0.jp2/49,86,5394,4733/full/0/default.jpg",
+      "@type":"dctypes:Image",
+      "format":"image/jpeg",
+      "width":400,
+      "height":400}]
+    },
+    {
+      "@id": "https://iiif.durham.ac.uk/manifests/trifle/collection/32150/t1cv979v3040",
+      "@type": "sc:Collection",
+      "label": "Crayke Deeds",
+      "thumbnail":[{"@id":"https://iiif.durham.ac.uk/iiif/trifle/32150/t1/mc/53/t1mc534fp164/a97daa78faa953cda930f228ff16862c.jp2/1,90,4085,3652/full/0/default.jpg",
+      "@type":"dctypes:Image",
+      "format":"image/jpeg",
+      "width":400,
+      "height":400}]
+    },
+    {
+      "@id": "https://iiif.durham.ac.uk/manifests/trifle/collection/32150/t1c3f462540f",
+      "@type": "sc:Collection",
+      "label": "Durham Mint coins",
+      "thumbnail":[{"@id":"https://iiif.durham.ac.uk/iiif/trifle/32150/t2/mg/44/t2mg445cd389/7446b5027f78814d14ef2f003215a7ae.jp2/1880,182,1939,1858/full/0/default.jpg",
+      "@type":"dctypes:Image",
+      "format":"image/jpeg",
+      "width":400,
+      "height":400}]
+    },
+    {
+      "@id": "https://iiif.durham.ac.uk/manifests/trifle/museum/collection/Museum",
+      "@type": "sc:Collection",
+      "label": "Museum objects",
+      "thumbnail":[{"@id":"https://iiif.durham.ac.uk/iiif/trifle/22/07/29/220729f0cef20da3937c7fae0f90438e/99a69f6130449fadffa26dd86dcac535.jp2/283,112,2431,1947/full/0/default.jpg",
+      "@type":"dctypes:Image",
+      "format":"image/jpeg",
+      "width":400,
+      "height":400}]
+    },
+    {
+      "@id": "https://iiif.durham.ac.uk/manifests/trifle/collection/32150/t2cgh93gz485",
+      "@type": "sc:Collection",
+      "label": "Gibson volumes",
+      "thumbnail":[{"@id":"https://iiif.durham.ac.uk/iiif/trifle/32150/t1/mt/43/t1mt435gd298/0563bcac0b1d2ace5ac9be6cea2eb52f.jp2/27,32,1949,1312/full/0/default.jpg",
+      "@type":"dctypes:Image",
+      "format":"image/jpeg",
+      "width":400,
+      "height":400}]
+    },
+    {
+      "@id": "https://iiif.durham.ac.uk/manifests/trifle/collection/32150/t2cj9602060q",
+      "@type": "sc:Collection",
+      "label": "Old University Manuscripts",
+      "thumbnail":[{"@id":"https://iiif.durham.ac.uk/iiif/trifle/32150/t1/md/j5/t1mdj52w492z/b546f27de1f303b96212200919478bee.jp2/136,42,3514,3210/full/0/default.jpg",
+      "@type":"dctypes:Image",
+      "format":"image/jpeg",
+      "width":400,
+      "height":400}]
+
+    },
+    {
+      "@id": "https://iiif.durham.ac.uk/manifests/trifle/collection/32150/t2ct148fh132",
+      "@type": "sc:Collection",
+      "label": "Baker Baker Papers",
+      "thumbnail":[{"@id":"https://iiif.durham.ac.uk/iiif/trifle/32150/t1/m2/51/t1m2514nk81q/542fafb969268be9b09f0556fb45ad81.jp2/full/full/0/default.jpg",
+      "@type":"dctypes:Image",
+      "format":"image/jpeg",
+      "width":400,
+      "height":400}]
+    },
+    {
+      "@id": "https://iiif.durham.ac.uk/manifests/trifle/collection/32150/t2cpg15bd89b",
+      "@type": "sc:Collection",
+      "label": "Earl Grey Papers",
+      "thumbnail":[{"@id":"https://iiif.durham.ac.uk/iiif/trifle/32150/t1/mf/n1/t1mfn106z56c/d42c2596a73daac0c0dbf47bf7909fd0.jp2/30,564,3073,2293/full/0/default.jpg",
+      "@type":"dctypes:Image",
+      "format":"image/jpeg",
+      "width":400,
+      "height":400}]
+
+    },
+    {
+      "@id": "https://iiif.durham.ac.uk/manifests/trifle/collection/32150/t1c0p096689b",
+      "@type": "sc:Collection",
+      "label": "Howard Library Manuscripts",
+      "thumbnail":[{"@id":"https://iiif.durham.ac.uk/iiif/trifle/32150/t1/m0/c4/t1m0c483j621/ac19490caf5af6d7c8f5f2439226d0e6.jp2/145,70,2474,2056/full/0/default.jpg",
+      "@type":"dctypes:Image",
+      "format":"image/jpeg",
+      "width":400,
+      "height":400}]
+
+    },
+    {
+      "@id": "https://iiif.durham.ac.uk/manifests/trifle/collection/32150/t2cng451h48h",
+      "@type": "sc:Collection",
+      "label": "County Durham Land Tax",
+      "thumbnail":[{"@id":"https://iiif.durham.ac.uk/iiif/trifle/32150/t1/m2/n4/t1m2n49t205f/604eb112346e519fe757c1198d9607cc.jp2/42,86,2082,1575/full/0/default.jpg",
+      "@type":"dctypes:Image",
+      "format":"image/jpeg",
+      "width":400,
+      "height":400}]
+    },
+    {
+      "@id": "https://iiif.durham.ac.uk/manifests/trifle/collection/32150/t2c41687h44g",
+      "@type": "sc:Collection",
+      "label": "I. J. C. Foster Papers",
+      "thumbnail":[{"@id":"https://iiif.durham.ac.uk/iiif/trifle/32150/t2/m0/z7/t2m0z708w57r/aac17f98f6fcfdd033518f25e8334126.jp2/4281,2703,1302,1036/full/0/default.jpg",
+      "@type":"dctypes:Image",
+      "format":"image/jpeg",
+      "width":400,
+      "height":400}]
+    },
+    {
+      "@id": "https://iiif.durham.ac.uk/manifests/trifle/collection/32150/t2cng451h49w",
+      "@type": "sc:Collection",
+      "label": "Durham University Observatory Records",
+      "thumbnail":[{"@id":"https://iiif.durham.ac.uk/iiif/trifle/32150/t2/m1/54/t2m1544bp33r/4513eb0531ec8dbafdced9e444cffe82.jp2/171,71,4344,2821/full/0/default.jpg",
+      "@type":"dctypes:Image",
+      "format":"image/jpeg",
+      "width":400,
+      "height":400}]
+
+    },
+    {
+      "@id": "https://iiif.durham.ac.uk/manifests/trifle/collection/32150/t1c8p58pc95g",
+      "@type": "sc:Collection",
+      "label": "Small Gifts and Deposits",
+      "thumbnail":[{"@id":"https://iiif.durham.ac.uk/iiif/trifle/32150/t2/m1/v5/t2m1v53jx23n/98696af48138b6c917c992ca39293b3c.jp2/46,1639,3029,1724/full/0/default.jpg",
+      "@type":"dctypes:Image",
+      "format":"image/jpeg",
+      "width":400,
+      "height":400}]
+    },
+    {
+      "@id": "https://iiif.durham.ac.uk/manifests/trifle/collection/32150/t1c1544bp104",
+      "@type": "sc:Collection",
+      "label": "Thomas Hogg Manuscripts",
+      "thumbnail":[{"@id":"https://iiif.durham.ac.uk/iiif/trifle/32150/t2/m5/42/t2m5425kb02c/68ab296c6020c7df705a3079bd3ac71b.jp2/2601,102,1979,1985/full/0/default.jpg",
+      "@type":"dctypes:Image",
+      "format":"image/jpeg",
+      "width":400,
+      "height":400}]
+    },
+    {
+      "@id": "https://iiif.durham.ac.uk/manifests/trifle/collection/32150/t2c2v23vt36g",
+      "@type": "sc:Collection",
+      "label": "Palatinate of Durham",
+      "thumbnail":[{"@id":"https://iiif.durham.ac.uk/iiif/trifle/32150/t1/mn/00/t1mn009w256b/432d2faffd7f4442742fb6e5216864e0.jp2/3029,428,2546,2363/full/0/default.jpg",
+      "@type":"dctypes:Image",
+      "format":"image/jpeg",
+      "width":400,
+      "height":400}]
+    },
+    {
+      "@id": "https://iiif.durham.ac.uk/manifests/trifle/collection/32150/t1c9g54xh64c",
+      "@type": "sc:Collection",
+      "label": "Ushaw College Library printed books",
+      "thumbnail":[{"@id":"https://iiif.durham.ac.uk/iiif/trifle/32150/t2/ms/j1/t2msj139226r/311e14d2a4c4beda1fea6b535dba0d0f.jp2/4165,294,3693,4483/full/0/default.jpg",
+      "@type":"dctypes:Image",
+      "format":"image/jpeg",
+      "width":400,
+      "height":400}]
+
+    },
+    {
+      "@id": "https://iiif.durham.ac.uk/manifests/trifle/collection/32150/t2cn009w229s",
+      "@type": "sc:Collection",
+      "label": "Malcolm MacDonald Papers",
+      "thumbnail":[{"@id":"https://iiif.durham.ac.uk/iiif/trifle/32150/t1/mz/p3/t1mzp38wd14c/ac28ba07768981abfc68dbe84ae37e33.jp2/1673,198,1485,1674/full/0/default.jpg",
+      "@type":"dctypes:Image",
+      "format":"image/jpeg",
+      "width":400,
+      "height":400}]
+
+    },
+    {
+      "@id": "https://iiif.durham.ac.uk/manifests/trifle/collection/32150/t1c2b88qc16f",
+      "@type": "sc:Collection",
+      "label": "Porter Family Correspondence",
+      "thumbnail":[{"@id":"https://iiif.durham.ac.uk/iiif/trifle/32150/t2/mh/d7/t2mhd76s037w/3abc748a0feeb0f20cc5bb84a332bb1a.jp2/2721,160,2455,2000/full/0/default.jpg",
+      "@type":"dctypes:Image",
+      "format":"image/jpeg",
+      "width":400,
+      "height":400}]
+    },
+    {
+      "@id": "https://iiif.durham.ac.uk/manifests/trifle/collection/32150/t2c5q47rn73f",
+      "@type": "sc:Collection",
+      "label": "Charles Thorp Papers",
+      "thumbnail":[{"@id":"https://iiif.durham.ac.uk/iiif/trifle/32150/t2/mh/q3/t2mhq37vn89s/77e4d66270a5aa6a531852990b8c72bd.jp2/699,917,1863,1310/full/0/default.jpg",
+      "@type":"dctypes:Image",
+      "format":"image/jpeg",
+      "width":400,
+      "height":400}]
+    },
+    {
+      "@id": "https://iiif.durham.ac.uk/manifests/trifle/collection/32150/t2c8336h189d",
+      "@type": "sc:Collection",
+      "label": "Arabic Manuscripts",
+      "thumbnail":[{"@id":"https://iiif.durham.ac.uk/iiif/trifle/32150/t2/m5/d8/t2m5d86p066j/71e2ba4846ed2dbad319795444a4fd00.jp2/2904,1486,2200,2112/full/0/default.jpg",
+      "@type":"dctypes:Image",
+      "format":"image/jpeg",
+      "width":400,
+      "height":400}]
+    },
+    {
+      "@id": "https://iiif.durham.ac.uk/manifests/trifle/collection/32150/t2cn009w230q",
+      "@type": "sc:Collection",
+      "label": "Persian manuscripts",
+      "thumbnail":[{"@id":"https://iiif.durham.ac.uk/iiif/trifle/32150/t1/mq/52/t1mq524jp12m/c4873d468429269dc71ffa2018934bb4.jp2/2783,1472,1771,1709/full/0/default.jpg",
+      "@type":"dctypes:Image",
+      "format":"image/jpeg",
+      "width":400,
+      "height":400}]
+    },
+    {
+      "@id": "https://iiif.durham.ac.uk/manifests/trifle/collection/32150/t1ck930bx03t",
+      "@type": "sc:Collection",
+      "label": "Chinese manuscripts",
+      "thumbnail":[{"@id":"https://iiif.durham.ac.uk/iiif/trifle/32150/t1/mt/43/t1mt435gd40j/7b8917280342a0d7ea13a8bec0ffb007.jp2/2670,299,2642,3241/full/0/default.jpg",
+      "@type":"dctypes:Image",
+      "format":"image/jpeg",
+      "width":400,
+      "height":400}]
+    },
+    {
+      "@id": "https://iiif.durham.ac.uk/manifests/trifle/collection/32150/t1c6h440s448",
+      "@type": "sc:Collection",
+      "label": "Thomas Wright, 1711-1786, of Byers Green",
+      "thumbnail":[{"@id":"https://iiif.durham.ac.uk/iiif/trifle/32150/t2/m5/m6/t2m5m60qr92b/fde157285c2426d76a0518e41e2fa95d.jp2/1730,855,2902,3226/full/0/default.jpg",
+      "@type":"dctypes:Image",
+      "format":"image/jpeg",
+      "width":400,
+      "height":400}]
+    },
+    {
+      "@id": "https://iiif.durham.ac.uk/manifests/trifle/collection/32150/t1c0p096691n",
+      "@type": "sc:Collection",
+      "label": "Chester Deanery Manor Records",
+      "thumbnail":[{"@id":"https://iiif.durham.ac.uk/iiif/trifle/32150/t2/mk/w5/t2mkw52j846q/672ae8f707d80e47888e48ae28ef70c5.jp2/68,186,2111,2082/full/0/default.jpg",
+      "@type":"dctypes:Image",
+      "format":"image/jpeg",
+      "width":400,
+      "height":400}]
+    },
+    {
+      "@id": "https://iiif.durham.ac.uk/manifests/trifle/collection/32150/t1cbk1289904",
+      "@type": "sc:Collection",
+      "label": "Van Mildert Papers",
+      "thumbnail":[{"@id":"https://iiif.durham.ac.uk/iiif/trifle/32150/t2/mv/q2/t2mvq27zn80c/1a6fe3460dd468b0c5cae744be9c3539.jp2/115,435,3768,4616/full/0/default.jpg",
+      "@type":"dctypes:Image",
+      "format":"image/jpeg",
+      "width":400,
+      "height":400}]
+    },
+    {
+      "@id": "https://iiif.durham.ac.uk/manifests/trifle/collection/32150/t1crx913p933",
+      "@type": "sc:Collection",
+      "label": "Cremation Society of Great Britain",
+      "thumbnail":[{"@id":"https://iiif.durham.ac.uk/iiif/trifle/32150/t1/mj/w8/t1mjw827c20m/84ee7bd20fdd631d4546c72067d32414.jp2/578,575,4242,2603/full/0/default.jpg",
+      "@type":"dctypes:Image",
+      "format":"image/jpeg",
+      "width":400,
+      "height":400}]
+    },
+    {
+      "@id": "https://iiif.durham.ac.uk/manifests/trifle/collection/32150/t2cq811kj61x",
+      "@type": "sc:Collection",
+      "label": "Mawsons Papers",
+      "thumbnail":[{"@id":"https://iiif.durham.ac.uk/iiif/trifle/32150/t2/m2/z1/t2m2z10wq71m/e29277365d5d0aeb3e5de7d9db0443d1.jp2/272,161,3514,3352/full/0/default.jpg",
+      "@type":"dctypes:Image",
+      "format":"image/jpeg",
+      "width":400,
+      "height":400}]
+
+    },
+    {
+      "@id": "https://iiif.durham.ac.uk/manifests/trifle/collection/32150/t2cwp988j830",
+      "@type": "sc:Collection",
+      "label": "Routh Library",
+      "thumbnail":[{"@id":"https://iiif.durham.ac.uk/iiif/trifle/32150/t2/mb/56/t2mb5644s00h/f47f4b00a1ceefe8f9d6dd593d5735a6.jp2/685,431,6594,5328/full/0/default.jpg",
+      "@type":"dctypes:Image",
+      "format":"image/jpeg",
+      "width":400,
+      "height":400}]
+
+    },
+    {
+      "@id": "https://iiif.durham.ac.uk/manifests/trifle/collection/32150/t1c6d56zw621",
+      "@type": "sc:Collection",
+      "label": "Ushaw MS",
+      "thumbnail":[{"@id":"https://iiif.durham.ac.uk/iiif/trifle/32150/t1/m6/10/t1m6108vb80f/c89062f607fabc32e3ab0ac838c48f64.jp2/37,25,3635,4001/full/0/default.jpg",
+      "@type":"dctypes:Image",
+      "format":"image/jpeg",
+      "width":400,
+      "height":400}]
+    },
+    {
+      "@id": "https://iiif.durham.ac.uk/manifests/trifle/collection/32150/t2cmp48sc77m",
+      "@type": "sc:Collection",
+      "label": "Fenwick (Hylton) Deeds",
+      "thumbnail":[{"@id":"https://iiif.durham.ac.uk/iiif/trifle/32150/t2/mf/47/t2mf4752h175/0cda5a63aa27a6db2f546a7b81e28422.jp2/2487,528,2018,2085/full/0/default.jpg",
+      "@type":"dctypes:Image",
+      "format":"image/jpeg",
+      "width":400,
+      "height":400}]
+
+    },
+    {
+      "@id": "https://iiif.durham.ac.uk/manifests/trifle/collection/32150/t1c2j62s486d",
+      "@type": "sc:Collection",
+      "label": "Durham Castle Buildings Archive",
+      "thumbnail":[{"@id":"https://iiif.durham.ac.uk/iiif/trifle/32150/t2/mq/n5/t2mqn59q4444/87efe300e48eaae8ce3ce3a38f2ead20.jp2/200,258,7145,5840/full/0/default.jpg",
+      "@type":"dctypes:Image",
+      "format":"image/jpeg",
+      "width":400,
+      "height":400}]
+
+    },
+    {
+      "@id": "https://iiif.durham.ac.uk/manifests/trifle/collection/32150/t2cfj236210d",
+      "@type": "sc:Collection",
+      "label": "Wharton Papers",
+      "thumbnail":[{"@id":"https://iiif.durham.ac.uk/iiif/trifle/32150/t2/mg/x4/t2mgx41mj10r/4ad0ee7da1ad5f3a62882e3d7aee775f.jp2/92,395,2773,1959/full/0/default.jpg",
+      "@type":"dctypes:Image",
+      "format":"image/jpeg",
+      "width":400,
+      "height":400}]
+
+    },
+    {
+      "@id": "https://iiif.durham.ac.uk/manifests/trifle/collection/32150/t1cbk128992w",
+      "@type": "sc:Collection",
+      "label": "Cookson Papers",
+      "thumbnail":[{"@id":"https://iiif.durham.ac.uk/iiif/trifle/32150/t1/mx/s5/t1mxs55mc46q/079160957f81c4502f2faa6d22c8abf5.jp2/56,393,1884,1192/full/0/default.jpg",
+      "@type":"dctypes:Image",
+      "format":"image/jpeg",
+      "width":400,
+      "height":400}]
+
+    },
+    {
+      "@id": "https://iiif.durham.ac.uk/manifests/trifle/collection/32150/t1c9z902z867",
+      "@type": "sc:Collection",
+      "label": "Dowthwaite, Bunny and Bacon deeds (BRA 1260)",
+      "thumbnail":[{"@id":"https://iiif.durham.ac.uk/iiif/trifle/32150/t1/m7/w6/t1m7w62f8772/cdba71ae108eac40c3989b788f247ee1.jp2/full/full/0/default.jpg",
+      "@type":"dctypes:Image",
+      "format":"image/jpeg",
+      "width":400,
+      "height":400}]
+    },
+    {
+      "@id": "https://iiif.durham.ac.uk/manifests/trifle/collection/32150/t1cz316q158x",
+      "@type": "sc:Collection",
+      "label": "Dixon-Johnson Papers",
+      "thumbnail":[{"@id":"https://iiif.durham.ac.uk/iiif/trifle/32150/t2/md/50/t2md504rk77q/3f3e018b205aa5403c41a53bc380b8c2.jp2/224,130,8531,4978/full/0/default.jpg",
+      "@type":"dctypes:Image",
+      "format":"image/jpeg",
+      "width":400,
+      "height":400}]
+
+    },
+    {
+      "@id": "https://iiif.durham.ac.uk/manifests/trifle/collection/32150/t2c4j03cz67k",
+      "@type": "sc:Collection",
+      "label": "Weardale Chest",
+      "thumbnail":[{"@id":"https://iiif.durham.ac.uk/iiif/trifle/32150/t1/m0/57/t1m05741s251/a095a18d114f2a56302c9f5c470513a1.jp2/full/full/0/default.jpg",
+      "@type":"dctypes:Image",
+      "format":"image/jpeg",
+      "width":400,
+      "height":400}]
+    },
+    {
+      "@id": "https://iiif.durham.ac.uk/manifests/trifle/collection/32150/t1cfb494841w",
+      "@type": "sc:Collection",
+      "label": "Sanskrit Manuscript",
+      "thumbnail":[{"@id":"https://iiif.durham.ac.uk/iiif/trifle/32150/t1/mj/w8/t1mjw827c380/3f361ad93fc5915e7e10b9c7ee64a0f9.jp2/3026,209,2694,3348/full/0/default.jpg",
+      "@type":"dctypes:Image",
+      "format":"image/jpeg",
+      "width":400,
+      "height":400}]
+
+    },
+    {
+      "@id": "https://iiif.durham.ac.uk/manifests/trifle/collection/32150/t1cd217qp50n",
+      "@type": "sc:Collection",
+      "label": "Clavering Manuscripts",
+      "thumbnail":[{"@id":"https://iiif.durham.ac.uk/iiif/trifle/32150/t1/mp/c2/t1mpc289j655/1979fc3ef875750a458d51c7f16dd256.jp2/20,463,2814,2049/full/0/default.jpg",
+      "@type":"dctypes:Image",
+      "format":"image/jpeg",
+      "width":400,
+      "height":400}]
+
+    },
+    {
+      "@id": "https://iiif.durham.ac.uk/manifests/trifle/collection/32150/t1c8g84mm272",
+      "@type": "sc:Collection",
+      "label": "Early maps and prints of County Durham",
+      "thumbnail":[{"@id":"https://iiif.durham.ac.uk/iiif/trifle/32150/t1/mx/92/t1mx920fx47f/7ef5256dc3eeef2e698cc17bad795888.jp2/full/full/0/default.jpg",
+      "@type":"dctypes:Image",
+      "format":"image/jpeg",
+      "width":400,
+      "height":400}]
+
+    },
+    {
+      "@id": "https://iiif.durham.ac.uk/manifests/trifle/collection/32150/t2cwm117n97t",
+      "@type": "sc:Collection",
+      "label": "Architectural and Archaeological Society of Durham and Northumberland",
+      "thumbnail":[{"@id":"https://iiif.durham.ac.uk/iiif/trifle/32150/t2/mc/r5/t2mcr56n149z/bdada24797bc2b563c98b75a1e89b013.jp2/381,1069,1592,1627/full/0/default.jpg",
+      "@type":"dctypes:Image",
+      "format":"image/jpeg",
+      "width":400,
+      "height":400}]
+
+    },
+    {
+      "@id": "https://iiif.durham.ac.uk/manifests/trifle/collection/32150/t2c73666449z",
+      "@type": "sc:Collection",
+      "label": "Lambton, Earl of Durham Papers",
+      "thumbnail":[{"@id":"https://iiif.durham.ac.uk/iiif/trifle/32150/t1/m3/77/t1m37720d37q/cce205dcfb6a46ebacd8114c9346a02f.jp2/38,632,3418,3204/full/0/default.jpg",
+      "@type":"dctypes:Image",
+      "format":"image/jpeg",
+      "width":400,
+      "height":400}]
+    },
+    {
+      "@id": "https://iiif.durham.ac.uk/manifests/trifle/collection/32150/t1c2514nk52b",
+      "@type": "sc:Collection",
+      "label": "Topographical prints - Northumberland",
+      "thumbnail":[{"@id":"https://iiif.durham.ac.uk/iiif/trifle/32150/t1/mw/w7/t1mww72bc16j/c96ea22f8f08202b582060cca0920d70.jp2/869,80,2771,2210/full/0/default.jpg",
+      "@type":"dctypes:Image",
+      "format":"image/jpeg",
+      "width":400,
+      "height":400}]
+    },
+    {
+      "@id": "https://iiif.durham.ac.uk/manifests/trifle/collection/32150/t1c9s161619s",
+      "@type": "sc:Collection",
+      "label": "Local broadsides (Durham and Northumberland)",
+      "thumbnail":[{"@id":"https://iiif.durham.ac.uk/iiif/trifle/32150/t2/mv/m4/t2mvm40xs08t/8301acee66c08c833dbb9ecbc7b7d819.jp2/153,345,2665,2366/full/0/default.jpg",
+      "@type":"dctypes:Image",
+      "format":"image/jpeg",
+      "width":400,
+      "height":400}]
+    },
+    {
+      "@id": "https://iiif.durham.ac.uk/manifests/trifle/collection/32150/t2czg64tk943",
+      "@type": "sc:Collection",
+      "label": "Topographical prints - Yorkshire",
+      "thumbnail":[{"@id":"https://iiif.durham.ac.uk/iiif/trifle/32150/t1/md/50/t1md504rm08x/ba4da9020ba1070646da6dc24ab4134e.jp2/1039,446,3259,2504/full/0/default.jpg",
+      "@type":"dctypes:Image",
+      "format":"image/jpeg",
+      "width":400,
+      "height":400}]
+
+    },
+    {
+      "@id": "https://iiif.durham.ac.uk/manifests/trifle/collection/32150/t1chm50tr74m",
+      "@type": "sc:Collection",
+      "label": "Durham University Archaeological Museum Excavation Archive",
+      "thumbnail":[{"@id":"https://iiif.durham.ac.uk/iiif/trifle/32150/t1/m5/t3/t1m5t34sk21v/6178705bf741bb18274f2331b08b1b94.jp2/668,552,2731,2000/full/0/default.jpg",
+      "@type":"dctypes:Image",
+      "format":"image/jpeg",
+      "width":400,
+      "height":400}]
+
+    },
+    {
+      "@id": "https://iiif.durham.ac.uk/manifests/trifle/collection/32150/t1ccz30ps660",
+      "@type": "sc:Collection",
+      "label": "Kellett Collection",
+      "thumbnail":[{"@id":"https://iiif.durham.ac.uk/iiif/trifle/32150/t1/m5/13/t1m5138jf35j/d165360cc5f22bd83f6755b477d0b100.jp2/354,168,2598,2817/full/0/default.jpg",
+      "@type":"dctypes:Image",
+      "format":"image/jpeg",
+      "width":400,
+      "height":400}]
+
+    },
+    {
+      "@id": "https://iiif.durham.ac.uk/manifests/trifle/collection/32150/t1c2v23vt39j",
+      "@type": "sc:Collection",
+      "label": "Donald Hawley Papers",
+      "thumbnail":[{"@id":"https://iiif.durham.ac.uk/iiif/trifle/32150/t2/mn/s0/t2mns0646631/d2a2bb5b7acd69a5b5d59173fa831f23.jp2/519,1174,2413,1254/full/0/default.jpg",
+      "@type":"dctypes:Image",
+      "format":"image/jpeg",
+      "width":400,
+      "height":400}]
+
+    },
+    {
+      "@id": "https://iiif.durham.ac.uk/manifests/trifle/collection/32150/t2cm900nt44q",
+      "@type": "sc:Collection",
+      "label": "Whitehead Collection",
+      "thumbnail":[{"@id":"https://iiif.durham.ac.uk/iiif/trifle/32150/t1/mm/32/t1mm326m252p/44c96c9d0aa4268ae9bebe98a391f763.jp2/548,528,2571,2451/full/0/default.jpg",
+      "@type":"dctypes:Image",
+      "format":"image/jpeg",
+      "width":400,
+      "height":400}]
+    },
+    {
+      "@id": "https://iiif.durham.ac.uk/manifests/trifle/collection/32150/t1c8c97kq439",
+      "@type": "sc:Collection",
+      "label": "Wylde Family Papers",
+      "thumbnail":[{"@id":"https://iiif.durham.ac.uk/iiif/trifle/32150/t2/m5/71/t2m5712m714d/be2efc3bddee323964cbf4aeee5a3e81.jp2/738,349,2424,2423/full/0/default.jpg",
+      "@type":"dctypes:Image",
+      "format":"image/jpeg",
+      "width":400,
+      "height":400}]
+
+    },
+    {
+      "@id": "https://iiif.durham.ac.uk/manifests/trifle/collection/32150/t1cwm117p022",
+      "@type": "sc:Collection",
+      "label": "Grindon Deeds",
+      "thumbnail":[{"@id":"https://iiif.durham.ac.uk/iiif/trifle/32150/t2/mc/53/t2mc534fp71c/fdda9306edffa357b933f1579103dc95.jp2/108,460,3809,2646/full/0/default.jpg",
+      "@type":"dctypes:Image",
+      "format":"image/jpeg",
+      "width":400,
+      "height":400}]
+
+    },
+    {
+      "@id": "https://iiif.durham.ac.uk/manifests/trifle/collection/32150/t1cn870zq83m",
+      "@type": "sc:Collection",
+      "label": "J J Howe Collection",
+      "thumbnail":[{"@id":"https://iiif.durham.ac.uk/iiif/trifle/32150/t1/mq/b9/t1mqb98mg10t/f174c9344135fcf7783ea6e35a36577c.jp2/142,74,2788,1727/full/0/default.jpg",
+      "@type":"dctypes:Image",
+      "format":"image/jpeg",
+      "width":400,
+      "height":400}]
+
+    },
+    {
+      "@id": "https://iiif.durham.ac.uk/manifests/trifle/collection/32150/t2c6682x3943",
+      "@type": "sc:Collection",
+      "label": "Durham Cathedral Additional Manuscripts",
+      "thumbnail":[{"@id":"https://iiif.durham.ac.uk/iiif/trifle/32150/t2/md/b7/t2mdb78tc66z/c0642c213193a7742254b24b508d1e8a.jp2/73,495,3577,2875/full/0/default.jpg",
+      "@type":"dctypes:Image",
+      "format":"image/jpeg",
+      "width":400,
+      "height":400}]
+    },
+    {
+      "@id": "https://iiif.durham.ac.uk/manifests/trifle/collection/32150/t1cgm80hv36x",
+      "@type": "sc:Collection",
+      "label": "Canonesses Regular of the Holy Sepulchre Archive",
+      "thumbnail":[{"@id":"https://iiif.durham.ac.uk/iiif/trifle/32150/t2/m2/80/t2m2801pg84v/cfe5797a4926311400ba3aa0c7e12cbf.jp2/full/full/0/default.jpg",
+      "@type":"dctypes:Image",
+      "format":"image/jpeg",
+      "width":400,
+      "height":400}]
+    },
+    {
+      "@id": "https://iiif.durham.ac.uk/manifests/trifle/collection/32150/t2cht24wj44q",
+      "@type": "sc:Collection",
+      "label": "County Durham 1:2500 Ordnance Survey Maps",
+      "thumbnail":[{"@id":"https://iiif.durham.ac.uk/iiif/trifle/32150/t1/m6/q1/t1m6q182k96j/1bf258ca2fd281ceb4d3e8fc4684bb10.jp2/131,173,9784,6955/full/0/default.jpg",
+      "@type":"dctypes:Image",
+      "format":"image/jpeg",
+      "width":400,
+      "height":400}]
+    },
+    {
+      "@id": "https://iiif.durham.ac.uk/manifests/trifle/collection/32150/t2csf268509j",
+      "@type": "sc:Collection",
+      "label": "Backhouse Papers",
+      "thumbnail":[{"@id":"https://iiif.durham.ac.uk/iiif/trifle/32150/t1/m2/51/t1m2514nm408/70516a9748bc5c7be563217a9212de56.jp2/2921,78,2573,3091/full/0/default.jpg",
+      "@type":"dctypes:Image",
+      "format":"image/jpeg",
+      "width":400,
+      "height":400}]
+    },
+    {
+      "@id": "https://iiif.durham.ac.uk/manifests/trifle/collection/32150/t2cx920fw887",
+      "@type": "sc:Collection",
+      "label": "Edis Photographic Negatives",
+      "thumbnail":[{"@id":"https://iiif.durham.ac.uk/iiif/trifle/32150/t1/m2/80/t1m2801ph105/3b5d7e147c899081bd213dac4b4eeb0a.jp2/4522,2342,4853,4994/full/0/default.jpg",
+      "@type":"dctypes:Image",
+      "format":"image/jpeg",
+      "width":400,
+      "height":400}]
+    },
+    {
+      "@id": "https://iiif.durham.ac.uk/manifests/trifle/collection/32150/t2ctm70mv21r",
+      "@type": "sc:Collection",
+      "label": "A I Doyle Collection",
+      "thumbnail":[{"@id":"https://iiif.durham.ac.uk/iiif/trifle/32150/t2/mg/f0/t2mgf06g352q/40c7c4365311ef010f26ce8336ab3811.jp2/752,1002,2088,1984/full/0/default.jpg",
+      "@type":"dctypes:Image",
+      "format":"image/jpeg",
+      "width":400,
+      "height":400}]
+    },
+    {
+      "@id": "https://iiif.durham.ac.uk/manifests/trifle/collection/32150/t1c1r66j1160",
+      "@type": "sc:Collection",
+      "label": "Shipperdson Papers",
+      "thumbnail":[{"@id":"https://iiif.durham.ac.uk/iiif/trifle/32150/t2/mg/15/t2mg158bj14g/55cbc3688991e1f636ecf9e02f907941.jp2/full/full/0/default.jpg",
+      "@type":"dctypes:Image",
+      "format":"image/jpeg",
+      "width":400,
+      "height":400}]
+
+    },
+    {
+      "@id": "https://iiif.durham.ac.uk/manifests/trifle/collection/32150/t2ck643b119v",
+      "@type": "sc:Collection",
+      "label": "Miscellaneous Photographs",
+      "thumbnail":[{"@id":"https://iiif.durham.ac.uk/iiif/trifle/32150/t2/mt/t4/t2mtt44pn75s/6056a520808d1b0a851c35baf50ff2a0.jp2/full/full/0/default.jpg",
+      "@type":"dctypes:Image",
+      "format":"image/jpeg",
+      "width":400,
+      "height":400}]
+    },
+    {
+      "@id": "https://iiif.durham.ac.uk/manifests/trifle/collection/32150/t1cp8418n269",
+      "@type": "sc:Collection",
+      "label": "Else Headlam-Morley Papers",
+      "thumbnail":[{"@id":"https://iiif.durham.ac.uk/iiif/trifle/32150/t2/mk/93/t2mk930bz14n/3cecb1fa7be8129fccb1b3d20c5208f5.jp2/full/full/0/default.jpg",
+      "@type":"dctypes:Image",
+      "format":"image/jpeg",
+      "width":400,
+      "height":400}]
+    },
+    {
+      "@id": "https://iiif.durham.ac.uk/manifests/trifle/collection/32150/t2cgq67jr186",
+      "@type": "sc:Collection",
+      "label": "Gordon Manley Papers",
+      "thumbnail":[{"@id":"https://iiif.durham.ac.uk/iiif/trifle/32150/t1/mh/m5/t1mhm50ts74n/f33719d504c0162c7a7d44ed719d5808.jp2/full/full/0/default.jpg",
+      "@type":"dctypes:Image",
+      "format":"image/jpeg",
+      "width":400,
+      "height":400}]
+    },
+ {
+      "@id": "https://iiif.durham.ac.uk/manifests/trifle/collection/32150/t2c6m311p30d",
+      "@type": "sc:Collection",
+      "label": "Korean Manuscripts",
+      "thumbnail":[{"@id":"https://iiif.durham.ac.uk/iiif/trifle/32150/t1/mm/g7/t1mmg74qn150/f9b546d9fae2c6c33c7606fa0930c9a3.jp2/full/full/0/default.jpg",
+      "@type":"dctypes:Image",
+      "format":"image/jpeg",
+      "width":400,
+      "height":400}]
+},
+    {
+      "@id": "https://iiif.durham.ac.uk/manifests/trifle/collection/32150/t1cb5644r538",
+      "@type": "sc:Collection",
+      "label": "Museum collections",
+      "thumbnail":[{"@id":"https://iiif.durham.ac.uk/iiif/trifle/32150/t2/mt/h8/t2mth83m027d/5a333e0e201f474eb722e23fc53e644c.jp2/full/full/0/default.jpg",
+      "@type":"dctypes:Image",
+      "format":"image/jpeg",
+      "width":400,
+      "height":400}]
+    },
+    {
+      "@id": "https://iiif.durham.ac.uk/manifests/trifle/collection/32150/t2chx11xf28g",
+      "@type": "sc:Collection",
+      "label": "Gibby Photographic Negatives"
+    }
+
+
+
+  ]
+}
+

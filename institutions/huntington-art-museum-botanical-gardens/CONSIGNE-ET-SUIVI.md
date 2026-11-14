@@ -2,51 +2,51 @@
 
 - **Dossier** : `institutions/huntington-art-museum-botanical-gardens/`  ·  **Classeur de référence** : GLAM-058  ·  **Pays** : États-Unis
 - **Statut d'institution** : active
-- **Dernière mise à jour du suivi** : (à renseigner à chaque modification)
+- **Dernière mise à jour du suivi** : 2026-11-14
 
 ## Suivi par étape (à cocher, avec justification et preuves)
 
 ### a) Documentation lue en entier
 > Toutes les pages de doc liées à l'API (développeurs, interfaces, conditions, FAQ, aide, mentions légales, robots.txt), téléchargées avec `scripts/fetch_doc.sh` (URL, date, SHA-256), lues en entier (`scripts/extract_text.py`).
 
-- [ ] **Pas fait**
-  - **Justification** : Pas encore traitée : l'audit suit l'ordre du classeur de référence (une institution à la fois).
-  - **Preuves** : 
+- [x] **Fait**
+  - **Justification** : Doc lue : robots.txt des hôtes (hdl, cdm16003, emuseum, help.oclc), guide de recherche, doc OCLC IIIF ; www.huntington.org en 429 puis lu via Wayback (droits, using-library, robots) ; URL manuelles listées
+  - **Preuves** : `institutions/huntington-art-museum-botanical-gardens/sources/doc/SHA256SUMS`, `institutions/huntington-art-museum-botanical-gardens/sources/oclc/SHA256SUMS`, `institutions/huntington-art-museum-botanical-gardens/sources/wayback/library-rights-permissions.md`, `institutions/huntington-art-museum-botanical-gardens/sources/emuseum/SHA256SUMS`
 
 ### b) Endpoints tirés de la doc
 > Liste des endpoints citée par la doc (URL, exemples). Jamais devinée. Une interdiction ou une impossibilité écrite dans la doc justifie de renoncer (citer la phrase).
 
-- [ ] **Pas fait**
-  - **Justification** : Pas encore traitée : l'audit suit l'ordre du classeur de référence (une institution à la fois).
-  - **Preuves** : 
+- [x] **Fait**
+  - **Justification** : Endpoints tirés de la doc OCLC CONTENTdm (manifestes item/collection/site, Image API) et du guide IIIF ; 8 familles dans data.json, non testées justifiées
+  - **Preuves** : `institutions/huntington-art-museum-botanical-gardens/data.json`, `institutions/huntington-art-museum-botanical-gardens/sources/oclc/SHA256SUMS`
 
 ### c) Configuration écrite AVANT les tests
 > `config/<nom>.json` pilote `scripts/probe.py`, committée avant le lancement. Un endpoint absent de la doc mais non interdit se teste avec un script poli (identifiants issus de pages publiques ou d'exemples de la doc, pas de devinette).
 
-- [ ] **Pas fait**
-  - **Justification** : Pas encore traitée : l'audit suit l'ordre du classeur de référence (une institution à la fois).
-  - **Preuves** : 
+- [x] **Fait**
+  - **Justification** : Trois configurations committées avant chaque lancement (commits 9b2ccca et suivants), 6 s entre requêtes, GET/HEAD seulement
+  - **Preuves** : `institutions/huntington-art-museum-botanical-gardens/config/huntington-passe1-iiif.json`, `institutions/huntington-art-museum-botanical-gardens/config/huntington-passe2-redirections.json`, `institutions/huntington-art-museum-botanical-gardens/config/huntington-passe3-images.json`
 
 ### d) Quota cherché dans la doc
 > Pour chaque page lue : endpoint de statut, en-têtes de limite documentés, clé ou compte donnant un quota, contact pour un volume plus élevé. Chaque réponse cite sa source.
 
-- [ ] **Pas fait**
-  - **Justification** : Pas encore traitée : l'audit suit l'ordre du classeur de référence (une institution à la fois).
-  - **Preuves** : 
+- [x] **Fait**
+  - **Justification** : Recherche de quota dans chaque source : aucun quota, en-tête ni endpoint de statut ; seul Crawl-Delay 1 (robots.txt) ; contact reference@huntington.org ; conclusion dans fiche.md
+  - **Preuves** : `institutions/huntington-art-museum-botanical-gardens/fiche.md`, `institutions/huntington-art-museum-botanical-gardens/data.json`
 
 ### e) Test systématique de chaque endpoint
 > Chaque endpoint documenté est testé (budget 15 requêtes par passe, pause ≥ 6 s, GET/HEAD, UA du projet). Redirections du même hôte suivies. Un 403 arrête son hôte, un 429 arrête l'institution. Seules les interdictions écrites dans la doc dispensent de tester.
 
-- [ ] **Pas fait**
-  - **Justification** : Pas encore traitée : l'audit suit l'ordre du classeur de référence (une institution à la fois).
-  - **Preuves** : 
+- [x] **Fait**
+  - **Justification** : 3 passes, 8 familles examinées : manifestes, info.json, vignette, collection, site, page objet testés ; OAI, eMuseum (403), www (429) non testés avec raison
+  - **Preuves** : `institutions/huntington-art-museum-botanical-gardens/tests/journal.log`, `institutions/huntington-art-museum-botanical-gardens/tests/raw/hdl-p3-info-doc-cdm.headers.txt`
 
 ### f) Ce que disent les gens sur le web
 > Plaintes, discussions, présentations de l'institution, politique envers les API et les bots, blogs, GitHub, forums, listes de diffusion. Sources étiquetées (officielle / institution / utilisateur / tiers), lues, citées.
 
-- [ ] **Pas fait**
-  - **Justification** : Pas encore traitée : l'audit suit l'ordre du classeur de référence (une institution à la fois).
-  - **Preuves** : 
+- [x] **Fait**
+  - **Justification** : 4 catégories couvertes (institution, utilisateurs, tickets, presentations), originaux lus (iiif-discuss, OCLC, Wayback) ; catégories sans piste marquées aucun résultat
+  - **Preuves** : `institutions/huntington-art-museum-botanical-gardens/sources/web/SHA256SUMS`, `institutions/huntington-art-museum-botanical-gardens/data.json`, `institutions/huntington-art-museum-botanical-gardens/fiche.md`
 
 ### g) Crash test progressif
 > Seulement après l'audit complet (a à f) de toutes les institutions et avec l'accord de Marcel : paliers jusqu'à 2 × la limite documentée, ou 200 req/min si illimité ou sans limite documentée. Arrêt au premier 429/403/CAPTCHA.
@@ -60,7 +60,10 @@
 
 <!-- AUTO:DEBUT -->
 ## Contrôles automatiques (calculés depuis `tests/journal.log`)
-Aucune requête enregistrée dans `tests/journal.log`.
+- Requêtes enregistrées : **27** (sessions de sonde : 3, maximum par session : 14)
+- Plus courte pause vers un même hôte : **6 s** (règle : ≥ 6 s)
+- Méthodes utilisées : GET, HEAD (règle : GET/HEAD seulement)
+- Anomalies : aucune
 <!-- AUTO:FIN -->
 
 ## Consigne intégrale

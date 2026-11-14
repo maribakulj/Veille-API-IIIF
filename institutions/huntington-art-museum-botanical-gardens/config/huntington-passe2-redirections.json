@@ -1,0 +1,14 @@
+{
+  "slug": "huntington-art-museum-botanical-gardens",
+  "min_delay_s": 6,
+  "max_requests": 15,
+  "follow_redirects": 1,
+  "robots_disallow_autorise_par_marcel": true,
+  "note": "Passe 2 : suite des redirections lues dans tests/raw/hdl-p1-*.headers.txt de la passe 1 (location : /iiif/{alias}:{id}/manifest.json puis /iiif/2/{alias}:{id}/manifest.json). Le manifeste est enregistré pour y lire les identifiants publics des pages (info.json en 501 'Unsupported source format' sur l'identifiant 1503 en passe 1). Collection et site en HEAD.",
+  "endpoints": [
+    {"id": "hdl-p2-manifeste-final-cdm", "method": "GET", "url": "https://cdm16003.contentdm.oclc.org/iiif/2/p16003coll14:1503/manifest.json", "save_body": 2000000},
+    {"id": "hdl-p2-manifeste-final-hdl", "method": "HEAD", "url": "https://hdl.huntington.org/iiif/2/p16003coll14:1503/manifest.json"},
+    {"id": "hdl-p2-collection-final-head", "method": "HEAD", "url": "https://cdm16003.contentdm.oclc.org/iiif/2/p16003coll14/manifest.json"},
+    {"id": "hdl-p2-site-final-head", "method": "HEAD", "url": "https://cdm16003.contentdm.oclc.org/iiif/2/manifest.json"}
+  ]
+}

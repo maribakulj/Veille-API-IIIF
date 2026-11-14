@@ -1,13 +1,289 @@
 {
-  "slug": "durham-university-library",
-  "nom": "Durham University Library",
-  "pays": "Royaume-Uni",
-  "classeur_id": "GLAM-063",
-  "type": "Institution",
-  "statut_audit": "à faire",
-  "limites_documentees": [],
-  "en_tetes_observes": [],
-  "blocages": [],
-  "sources": [],
-  "web": []
+ "slug": "durham-university-library",
+ "nom": "Durham University Library",
+ "pays": "Royaume-Uni",
+ "classeur_id": "GLAM-063",
+ "type": "Institution",
+ "statut_audit": "méthode v2 complète sauf g (crash test à la fin)",
+ "limites_documentees": [
+  {
+   "nature": "Interdiction robots (sans chiffre)",
+   "perimetre": "iiif.durham.ac.uk, tous chemins",
+   "valeur": "Disallow: /",
+   "fenetre": "–",
+   "effet": "demande de ne pas robotiser, non appliquée par réponse HTTP observée",
+   "verification": "lue en direct et via Wayback (2025-07-02) ; testée malgré tout (C12) : 200 partout",
+   "source": "https://iiif.durham.ac.uk/robots.txt",
+   "date": "2026-11-14"
+  }
+ ],
+ "en_tetes_observes": [
+  {
+   "hote": "iiif.durham.ac.uk",
+   "en_tete": "server: Apache ; access-control-allow-origin: *",
+   "signification": "aucun en-tête RateLimit, Retry-After ni X-RateLimit sur 14 réponses",
+   "preuve": "institutions/durham-university-library/tests/raw/dur-p5-manifeste-objet.headers.txt"
+  }
+ ],
+ "blocages": [
+  {
+   "hote": "www.durham.ac.uk",
+   "code": "403",
+   "nature": "page d'erreur CloudFront « Request blocked » dès robots.txt",
+   "date": "2026-11-14",
+   "preuve": "institutions/durham-university-library/sources/doc/raw/05.html",
+   "suite": "hôte arrêté, robots.txt lu via Wayback"
+  }
+ ],
+ "sources": [
+  {
+   "url": "https://libguides.durham.ac.uk/asc-digitised-collections-online/iiif",
+   "date": "2026-11-14",
+   "etiquette": "officielle (guide)",
+   "preuve": "institutions/durham-university-library/sources/doc/SHA256SUMS"
+  },
+  {
+   "url": "https://libguides.durham.ac.uk/c.php?g=684734&p=5130357",
+   "date": "2026-11-14",
+   "etiquette": "officielle (guide, partage et réemploi)",
+   "preuve": "institutions/durham-university-library/sources/guide/SHA256SUMS"
+  },
+  {
+   "url": "https://libguides.durham.ac.uk/c.php?g=684734&p=5273095",
+   "date": "2026-11-14",
+   "etiquette": "officielle (guide, takedown)",
+   "preuve": "institutions/durham-university-library/sources/guide/SHA256SUMS"
+  },
+  {
+   "url": "https://iiif.durham.ac.uk/robots.txt",
+   "date": "2026-11-14",
+   "etiquette": "officielle",
+   "preuve": "institutions/durham-university-library/sources/doc/SHA256SUMS"
+  },
+  {
+   "url": "https://libguides.durham.ac.uk/robots.txt",
+   "date": "2026-11-14",
+   "etiquette": "officielle",
+   "preuve": "institutions/durham-university-library/sources/doc/SHA256SUMS"
+  },
+  {
+   "url": "https://collections.durham.ac.uk/robots.txt",
+   "date": "2026-11-14",
+   "etiquette": "officielle (404)",
+   "preuve": "institutions/durham-university-library/sources/collections/SHA256SUMS"
+  },
+  {
+   "url": "https://reed.dur.ac.uk/robots.txt",
+   "date": "2026-11-14",
+   "etiquette": "officielle",
+   "preuve": "institutions/durham-university-library/sources/reed/SHA256SUMS"
+  },
+  {
+   "url": "https://n2t.durham.ac.uk/robots.txt",
+   "date": "2026-11-14",
+   "etiquette": "officielle (404)",
+   "preuve": "institutions/durham-university-library/sources/guide/SHA256SUMS"
+  },
+  {
+   "url": "https://www.durhampriory.ac.uk/using-the-features-of-iiif/",
+   "date": "2026-11-14",
+   "etiquette": "institution (projet Priory)",
+   "preuve": "institutions/durham-university-library/sources/doc/SHA256SUMS"
+  },
+  {
+   "url": "https://samvera.atlassian.net/wiki/spaces/samvera/pages/405211929/Notes+on+getting+started+with+IIIF+at+Durham",
+   "date": "2026-11-14",
+   "etiquette": "tiers (wiki Samvera)",
+   "preuve": "institutions/durham-university-library/sources/doc/SHA256SUMS"
+  },
+  {
+   "url": "https://www.durham.ac.uk/robots.txt",
+   "date": "2026-05-01",
+   "etiquette": "officielle (via Wayback)",
+   "preuve": "institutions/durham-university-library/sources/wayback/www-durham-robots.md"
+  },
+  {
+   "url": "https://iiif.durham.ac.uk/robots.txt",
+   "date": "2025-07-02",
+   "etiquette": "officielle (via Wayback)",
+   "preuve": "institutions/durham-university-library/sources/wayback/iiif-durham-robots.md"
+  },
+  {
+   "url": "https://dur.ac.uk/departments/library/museums-and-galleries/using-our-collections/publishing-images/",
+   "date": "2025-10-11",
+   "etiquette": "officielle (via Wayback)",
+   "preuve": "institutions/durham-university-library/sources/wayback/publishing-images.md"
+  },
+  {
+   "url": "https://durham.ac.uk/departments/library/about-us/policies/public-sector-information-psi-policy",
+   "date": "2025-08-08",
+   "etiquette": "officielle (via Wayback)",
+   "preuve": "institutions/durham-university-library/sources/wayback/psi-policy.md"
+  }
+ ],
+ "web": [
+  {
+   "categorie": "institution",
+   "url": "https://libguides.durham.ac.uk/asc-digitised-collections-online/iiif",
+   "date": "2026-03-27",
+   "etiquette": "officielle (guide de l'institution)",
+   "citation": "« We currently implement version 2 of the image and presentation apis for images only. » ; « the images can be re-used in other IIIF systems. » ; aucune mention de quota ni de moissonnage",
+   "preuve": "institutions/durham-university-library/sources/doc/text/02.txt"
+  },
+  {
+   "categorie": "institution",
+   "url": "https://durham.ac.uk/departments/library/about-us/policies/public-sector-information-psi-policy",
+   "date": "2025-08-08",
+   "etiquette": "officielle (via Wayback)",
+   "citation": "« The Library undertakes digitisation and facilitates re-use where copyright law, data protection and the availability of funding permits this. »",
+   "preuve": "institutions/durham-university-library/sources/wayback/psi-policy.md"
+  },
+  {
+   "categorie": "utilisateurs",
+   "aucun_resultat": true,
+   "requete": "\"iiif.durham.ac.uk\" 429 OR 403 OR \"rate limit\" OR blocked download manifest",
+   "date": "2026-11-14",
+   "etiquette": "résumé de moteur, non vérifié",
+   "citation": "aucun fil ni plainte sur un 429, un 403 ou un blocage de iiif.durham.ac.uk dans les résultats",
+   "preuve": "institutions/durham-university-library/fiche.md"
+  },
+  {
+   "categorie": "tickets",
+   "aucun_resultat": true,
+   "requete": "github issue \"iiif.durham.ac.uk\" manifest error",
+   "date": "2026-11-14",
+   "etiquette": "résumé de moteur, non vérifié",
+   "citation": "aucun ticket GitHub citant iiif.durham.ac.uk dans les résultats",
+   "preuve": "institutions/durham-university-library/fiche.md"
+  },
+  {
+   "categorie": "presentations",
+   "url": "https://www.durhampriory.ac.uk/using-the-features-of-iiif/",
+   "date": "2019-03",
+   "etiquette": "institution (billet du projet Durham Priory Library Recreated)",
+   "citation": "« The Priory project has followed the IIIF standards for making our images of Priory books as open and usable as possible. » ; ne parle ni de quota ni de débit",
+   "preuve": "institutions/durham-university-library/sources/doc/text/06.txt"
+  }
+ ],
+ "contact": "main.library@durham.ac.uk (lu dans le guide libguides) ; pg.library@durham.ac.uk (cité par un résumé de moteur, non vérifié)",
+ "conclusion_quota": "Aucun quota, en-tête de limite ni politique de moissonnage publiés. Le robots.txt de iiif.durham.ac.uk est « User-agent: * / Disallow: / » (interdit tout robot ; identique en 2025 via Wayback) : seule règle écrite, testée malgré tout avec l'accord de Marcel (C12). Durham annonce des API IIIF v2 (images et presentation) ouvertes au réemploi. 20 requêtes sondes sur iiif.durham.ac.uk, n2t et reed.dur.ac.uk : aucun 429, aucun en-tête de limite. www.durham.ac.uk répond 403 (CloudFront) dès robots.txt : refus d'accès à notre client, pas un quota.",
+ "classe_quota": "aucun quota trouvé (robots.txt Disallow / sur l'hôte IIIF ; 403 CloudFront sur www)",
+ "confiance": "moyenne",
+ "notes": "Le manifeste d'exemple cité par le wiki Samvera (manifests/dul/clb/clb1-94.json) renvoie 404 aujourd'hui (réponse réelle). Les manifestes d'objets sont à l'adresse /manifests/trifle/32150/.../manifest, trouvée dans la page publique durhampriory.ac.uk. La visionneuse et l'index Omeka S de collections.durham.ac.uk partagent le même site que la racine de iiif.durham.ac.uk.",
+ "a_verifier_manuellement": [
+  {
+   "url": "https://www.durham.ac.uk/robots.txt",
+   "pourquoi": "403 CloudFront en direct ; lu seulement via Wayback (capture du 2026-05-01)",
+   "a_chercher": "robots.txt actuel (blocage des robots IA, llms.txt)"
+  },
+  {
+   "url": "https://www.durham.ac.uk/departments/library/about-us/policies/",
+   "pourquoi": "hôte www.durham.ac.uk en 403 : politiques de la Library non lues en entier (PSI et Publishing Images lues via Wayback, première page seulement)",
+   "a_chercher": "politique d'usage des collections numérisées, accès automatisé, quotas"
+  },
+  {
+   "url": "https://discover.durham.ac.uk/",
+   "pourquoi": "catalogue Primo cité par le guide, non testé ni lu (interface de recherche, pas d'API documentée)",
+   "a_chercher": "conditions d'usage, lien vers manifestes IIIF, limites"
+  }
+ ],
+ "endpoints_documentes": [
+  {
+   "famille": "IIIF Presentation v2 : manifeste d'objet (/manifests/trifle/32150/.../manifest)",
+   "url": "https://iiif.durham.ac.uk/manifests/trifle/32150/t1/mh/m5/t1mhm50tr805/manifest",
+   "statut": "teste",
+   "preuve": "institutions/durham-university-library/tests/raw/dur-p5-manifeste-objet.headers.txt"
+  },
+  {
+   "famille": "IIIF Presentation v2 : collection d'index et sous-collections (/manifests/trifle/collection/...)",
+   "url": "https://iiif.durham.ac.uk/manifests/trifle/collection/index",
+   "statut": "teste",
+   "preuve": "institutions/durham-university-library/tests/raw/dur-p2-collection-index.headers.txt"
+  },
+  {
+   "famille": "IIIF Image API v2 (/iiif/trifle/.../info.json, régions, tailles)",
+   "url": "https://iiif.durham.ac.uk/iiif/trifle/32150/t1/m3/n2/t1m3n203z18r/51ae06adc12a96e7c786f972b0bba712.jp2/info.json",
+   "statut": "teste",
+   "preuve": "institutions/durham-university-library/tests/raw/dur-p3-info-json.headers.txt"
+  },
+  {
+   "famille": "Visionneuse Mirador et collection viewer Jalava (iiif.durham.ac.uk/mview.html, /jalava/)",
+   "url": "https://iiif.durham.ac.uk/jalava/",
+   "statut": "teste",
+   "preuve": "institutions/durham-university-library/tests/raw/dur-p1-jalava.headers.txt"
+  },
+  {
+   "famille": "Notices METS par ark (n2t.durham.ac.uk puis reed.dur.ac.uk XTF)",
+   "url": "https://n2t.durham.ac.uk/ark:/32150/s1xp68kg331.xml",
+   "statut": "teste",
+   "preuve": "institutions/durham-university-library/tests/raw/dur-p1-mets-ark-head.headers.txt"
+  },
+  {
+   "famille": "Catalogue Discover (Primo) discover.durham.ac.uk",
+   "url": "https://discover.durham.ac.uk/discovery/search?vid=44DUR_INST:VU1",
+   "statut": "non_teste",
+   "raison": "interface de recherche Primo en JavaScript, sans API documentée par Durham dans les pages lues ; aucune URL d'API à suivre"
+  },
+  {
+   "famille": "Site institutionnel www.durham.ac.uk (pages de la Library)",
+   "url": "https://www.durham.ac.uk/departments/library/",
+   "statut": "non_teste",
+   "raison": "403 CloudFront (« Request blocked ») dès robots.txt le 2026-11-14 : hôte arrêté ; aucune API documentée sur ce site"
+  }
+ ],
+ "endpoints_ecartes": [
+  {
+   "url": "https://libguides.durham.ac.uk/asc-digitised-collections-online/iiif",
+   "raison": "page de documentation du guide téléchargée et lue (sources/doc), non une API"
+  },
+  {
+   "url": "https://iiif.durham.ac.uk/manifests/dul/clb/clb1-94.json",
+   "raison": "exemple du wiki Samvera : testé en passe 1, 404 (réponse réelle) ; l'URL n'existe plus"
+  },
+  {
+   "url": "https://www.durhampriory.ac.uk/wp-includes/wlwmanifest.xml",
+   "raison": "lien WordPress générique présent dans l'en-tête HTML du site du projet Priory (blog), pas une API du Durham University Library ni d'IIIF ; non testé"
+  },
+  {
+   "url": "https://www.durhampriory.ac.uk/wp-json/wp/v2/pages/39",
+   "raison": "lien WordPress générique présent dans l'en-tête HTML du site du projet Priory (blog), pas une API du Durham University Library ni d'IIIF ; non testé"
+  }
+ ],
+ "hotes_robots": [
+  {
+   "hote": "iiif.durham.ac.uk",
+   "resultat": "200 : User-agent * ; Disallow / (tout interdit) ; pas de Crawl-delay ; testé malgré tout (C12)",
+   "preuve": "institutions/durham-university-library/sources/doc/raw/03.html"
+  },
+  {
+   "hote": "libguides.durham.ac.uk",
+   "resultat": "200 : liste de robots IA (Amazonbot, Applebot-Extended, FacebookBot…) en Disallow /",
+   "preuve": "institutions/durham-university-library/sources/doc/raw/01.html"
+  },
+  {
+   "hote": "www.durham.ac.uk",
+   "resultat": "403 en direct (CloudFront) ; via Wayback 2026-05-01 : Disallow vide pour *, Disallow /*.json ; pas de Crawl-delay",
+   "preuve": "institutions/durham-university-library/sources/wayback/www-durham-robots.md"
+  },
+  {
+   "hote": "collections.durham.ac.uk",
+   "resultat": "404 (pas de robots.txt) : tout autorisé",
+   "preuve": "institutions/durham-university-library/sources/collections/raw/01.html"
+  },
+  {
+   "hote": "n2t.durham.ac.uk",
+   "resultat": "404 (pas de robots.txt) : tout autorisé",
+   "preuve": "institutions/durham-university-library/sources/guide/raw/01.html"
+  },
+  {
+   "hote": "reed.dur.ac.uk",
+   "resultat": "200 : Disallow de pages de parcours /xtf/search?browse-all ; pas de Crawl-delay",
+   "preuve": "institutions/durham-university-library/sources/reed/raw/01.html"
+  },
+  {
+   "hote": "www.durhampriory.ac.uk",
+   "resultat": "200 : Disallow /wp-admin/",
+   "preuve": "institutions/durham-university-library/sources/collections/raw/04.html"
+  }
+ ]
 }

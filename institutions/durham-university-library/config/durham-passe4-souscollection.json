@@ -1,0 +1,11 @@
+{
+  "slug": "durham-university-library",
+  "min_delay_s": 6,
+  "max_requests": 15,
+  "follow_redirects": 1,
+  "robots_disallow_autorise_par_marcel": true,
+  "note": "Passe 4 : la sous-collection Sudan Archive pèse 16 407 o (HEAD, tests/raw/dur-p3-souscollection-head.headers.txt) : GET enregistré pour lire une URL de manifeste d'objet publiée par Durham.",
+  "endpoints": [
+    {"id": "dur-p4-souscollection", "method": "GET", "url": "https://iiif.durham.ac.uk/manifests/trifle/collection/32150/t2c7s75dc36q", "save_body": 100000}
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "slug": "university-of-st-andrews-library",
+  "min_delay_s": 10,
+  "max_requests": 15,
+  "follow_redirects": 1,
+  "robots_disallow_autorise_par_marcel": true,
+  "note": "Passe 1 : le robots.txt de collections.st-andrews.ac.uk interdit tout (User-agent * Disallow /) ; testé avec l'accord de Marcel (C12). Le robots.txt de www.st-andrews.ac.uk donne Crawl-delay: 10 : pause portée à 10 s. Manifeste d'exemple cité par un guide IIIF public (https://collections.st-andrews.ac.uk/77713/manifest), enregistré pour y lire les services d'image ; page de notice citée par la page d'accueil des collections.",
+  "endpoints": [
+    {"id": "sta-p1-manifeste", "method": "GET", "url": "https://collections.st-andrews.ac.uk/77713/manifest", "save_body": 600000},
+    {"id": "sta-p1-notice", "method": "GET", "url": "https://collections.st-andrews.ac.uk/collection/archive-collections/777989"}
+  ]
+}

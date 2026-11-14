@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="profile" href="http://gmpg.org/xfn/11">
+
+
+<title>Using the features of IIIF &#8211; Durham Priory Library Recreated</title>
+<meta name='robots' content='max-image-preview:large' />
+
+
+<link rel="alternate" type="application/rss+xml" title="Durham Priory Library Recreated &raquo; Feed" href="https://www.durhampriory.ac.uk/feed/" />
+<link rel="alternate" type="application/rss+xml" title="Durham Priory Library Recreated &raquo; Comments Feed" href="https://www.durhampriory.ac.uk/comments/feed/" />
+
+<style id='global-styles-inline-css' type='text/css'>
+body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: #abb8c3;--wp--preset--color--white: #ffffff;--wp--preset--color--pale-pink: #f78da7;--wp--preset--color--vivid-red: #cf2e2e;--wp--preset--color--luminous-vivid-orange: #ff6900;--wp--preset--color--luminous-vivid-amber: #fcb900;--wp--preset--color--light-green-cyan: #7bdcb5;--wp--preset--color--vivid-green-cyan: #00d084;--wp--preset--color--pale-cyan-blue: #8ed1fc;--wp--preset--color--vivid-cyan-blue: #0693e3;--wp--preset--color--vivid-purple: #9b51e0;--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple: linear-gradient(135deg,rgba(6,147,227,1) 0%,rgb(155,81,224) 100%);--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan: linear-gradient(135deg,rgb(122,220,180) 0%,rgb(0,208,130) 100%);--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange: linear-gradient(135deg,rgba(252,185,0,1) 0%,rgba(255,105,0,1) 100%);--wp--preset--gradient--luminous-vivid-orange-to-vivid-red: linear-gradient(135deg,rgba(255,105,0,1) 0%,rgb(207,46,46) 100%);--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray: linear-gradient(135deg,rgb(238,238,238) 0%,rgb(169,184,195) 100%);--wp--preset--gradient--cool-to-warm-spectrum: linear-gradient(135deg,rgb(74,234,220) 0%,rgb(151,120,209) 20%,rgb(207,42,186) 40%,rgb(238,44,130) 60%,rgb(251,105,98) 80%,rgb(254,248,76) 100%);--wp--preset--gradient--blush-light-purple: linear-gradient(135deg,rgb(255,206,236) 0%,rgb(152,150,240) 100%);--wp--preset--gradient--blush-bordeaux: linear-gradient(135deg,rgb(254,205,165) 0%,rgb(254,45,45) 50%,rgb(107,0,62) 100%);--wp--preset--gradient--luminous-dusk: linear-gradient(135deg,rgb(255,203,112) 0%,rgb(199,81,192) 50%,rgb(65,88,208) 100%);--wp--preset--gradient--pale-ocean: linear-gradient(135deg,rgb(255,245,203) 0%,rgb(182,227,212) 50%,rgb(51,167,181) 100%);--wp--preset--gradient--electric-grass: linear-gradient(135deg,rgb(202,248,128) 0%,rgb(113,206,126) 100%);--wp--preset--gradient--midnight: linear-gradient(135deg,rgb(2,3,129) 0%,rgb(40,116,252) 100%);--wp--preset--duotone--dark-grayscale: url('#wp-duotone-dark-grayscale');--wp--preset--duotone--grayscale: url('#wp-duotone-grayscale');--wp--preset--duotone--purple-yellow: url('#wp-duotone-purple-yellow');--wp--preset--duotone--blue-red: url('#wp-duotone-blue-red');--wp--preset--duotone--midnight: url('#wp-duotone-midnight');--wp--preset--duotone--magenta-yellow: url('#wp-duotone-magenta-yellow');--wp--preset--duotone--purple-green: url('#wp-duotone-purple-green');--wp--preset--duotone--blue-orange: url('#wp-duotone-blue-orange');--wp--preset--font-size--small: 13px;--wp--preset--font-size--medium: 20px;--wp--preset--font-size--large: 36px;--wp--preset--font-size--x-large: 42px;}.has-black-color{color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-color{color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-color{color: var(--wp--preset--color--white) !important;}.has-pale-pink-color{color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-color{color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-color{color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-color{color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-color{color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-color{color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-color{color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-color{color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-color{color: var(--wp--preset--color--vivid-purple) !important;}.has-black-background-color{background-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-background-color{background-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-background-color{background-color: var(--wp--preset--color--white) !important;}.has-pale-pink-background-color{background-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-background-color{background-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-background-color{background-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-background-color{background-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-background-color{background-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-background-color{background-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-background-color{background-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-background-color{background-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-background-color{background-color: var(--wp--preset--color--vivid-purple) !important;}.has-black-border-color{border-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-border-color{border-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-border-color{border-color: var(--wp--preset--color--white) !important;}.has-pale-pink-border-color{border-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-border-color{border-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-border-color{border-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-border-color{border-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-border-color{border-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-border-color{border-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-border-color{border-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-border-color{border-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-border-color{border-color: var(--wp--preset--color--vivid-purple) !important;}.has-vivid-cyan-blue-to-vivid-purple-gradient-background{background: var(--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple) !important;}.has-light-green-cyan-to-vivid-green-cyan-gradient-background{background: var(--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan) !important;}.has-luminous-vivid-amber-to-luminous-vivid-orange-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange) !important;}.has-luminous-vivid-orange-to-vivid-red-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-orange-to-vivid-red) !important;}.has-very-light-gray-to-cyan-bluish-gray-gradient-background{background: var(--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray) !important;}.has-cool-to-warm-spectrum-gradient-background{background: var(--wp--preset--gradient--cool-to-warm-spectrum) !important;}.has-blush-light-purple-gradient-background{background: var(--wp--preset--gradient--blush-light-purple) !important;}.has-blush-bordeaux-gradient-background{background: var(--wp--preset--gradient--blush-bordeaux) !important;}.has-luminous-dusk-gradient-background{background: var(--wp--preset--gradient--luminous-dusk) !important;}.has-pale-ocean-gradient-background{background: var(--wp--preset--gradient--pale-ocean) !important;}.has-electric-grass-gradient-background{background: var(--wp--preset--gradient--electric-grass) !important;}.has-midnight-gradient-background{background: var(--wp--preset--gradient--midnight) !important;}.has-small-font-size{font-size: var(--wp--preset--font-size--small) !important;}.has-medium-font-size{font-size: var(--wp--preset--font-size--medium) !important;}.has-large-font-size{font-size: var(--wp--preset--font-size--large) !important;}.has-x-large-font-size{font-size: var(--wp--preset--font-size--x-large) !important;}
+</style>
+
+
+
+
+
+
+<style id="tesseract-site-banner-inline-css" type="text/css">.site-header,
+	.main-navigation ul ul a,
+	#header-right-menu ul ul a,
+	.site-header .cart-content-details { background-color: rgb(110, 43, 98); }
+	.site-header .cart-content-details:after { border-bottom-color: rgb(110, 43, 98); }
+
+	.home .site-header,
+	.home .main-navigation ul ul a,
+	.home #header-right ul ul a,
+	.home .site-header .cart-content-details { background-color: rgba(110, 43, 98, 1); }
+	.home .site-header .cart-content-details:after { border-bottom-color: rgba(110, 43, 98, 1); }
+
+	.site-header,
+	.site-header h1,
+	.site-header h2,
+	.site-header h3,
+	.site-header h4,
+	.site-header h5,
+	.site-header h6 { color: #ffffff!important; }
+
+	#masthead .search-field { color: #ffffff; }
+	#masthead .search-field.watermark { color: #ccc; }
+
+	.site-header a,
+	.main-navigation ul ul a,
+	#header-right-menu ul ul a,
+	.menu-open,
+	.dashicons.menu-open,
+	.menu-close,
+	.dashicons.menu-close { color: #ffffff; }
+
+	.site-header a:hover,
+	.main-navigation ul ul a:hover,
+	#header-right-menu ul ul a:hover,
+	.menu-open:hover,
+	.dashicons.menu-open:hover,
+	.menu-close:hover,
+	.dashicons.menu-open:hover { color: #fcf40f; }
+
+	/* Header logo height */
+
+	#site-banner .site-logo img {
+		height: 40px;
+		}
+
+	#masthead {
+		padding-top: 10px;
+		padding-bottom: 10px;
+		}
+
+	/* Header width props */
+
+	#site-banner-left {
+		width: 60%;
+		}
+
+	#site-banner-right {
+		width: 40%;
+		}
+	#site-banner-left {
+				width: 100%;
+			}
+
+			#site-banner-right {
+				display: none;
+				padding: 0;
+				margin: 0;
+			}
+		
+		.icon-shopping-cart, .woocart-header .cart-arrow, .woocart-header .cart-contents {
+			color: #fff;
+		}
+	
+</style>
+
+<style id='tesseract-footer-banner-inline-css' type='text/css'>
+#colophon {
+		background-color: #6e2b62;
+		color: #ffffff
+	}
+
+	#colophon .search-field { color: #ffffff; }
+	#colophon .search-field.watermark { color: #ccc; }
+
+	#colophon h1,
+	#colophon h2,
+	#colophon h3,
+	#colophon h4,
+	#colophon h5,
+	#colophon h6 { color: #ffffff; }
+
+	#colophon a { color: #ffffff; }
+
+	#colophon a:hover { color: #eded3d; }
+
+	#horizontal-menu-before,
+	#horizontal-menu-after { border-color: rgba(255, 255, 255, 0.25); }
+
+	#footer-banner.footbar-active { border-color: rgba(255, 255, 255, 0.15); }
+
+	#footer-banner .site-logo img { height: 40px; }
+
+	#colophon {
+		padding-top: 10px;
+		padding-bottom: 10px;
+		}
+
+	#horizontal-menu-wrap {
+		width: 60%;
+		}
+
+	#footer-banner-right	{
+		width: 40%;
+		}
+
+	
+</style>
+
+
+<style id='tesseract-sidr-style-inline-css' type='text/css'>
+.sidr {
+		background-color: #6e2b62;
+		}
+
+	.sidr .sidr-class-menu-item a,
+	.sidr .sidr-class-menu-item span { color: #fff; }
+
+
+	.sidr .sidr-class-menu-item ul li a,
+	.sidr .sidr-class-menu-item ul li span {
+		color: rgba(255, 15, , 0.8);
+	}
+
+	.sidr .sidr-class-menu-item a:hover,
+	.sidr .sidr-class-menu-item span:hover,
+	.sidr .sidr-class-menu-item:first-child a:hover,
+	.sidr .sidr-class-menu-item:first-child span:hover { color: #fff; }
+
+	.sidr .sidr-class-menu-item ul li a:hover,
+	.sidr .sidr-class-menu-item ul li span:hover,
+	.sidr .sidr-class-menu-item ul li:first-child a:hover,
+	.sidr .sidr-class-menu-item ul li:first-child span:hover { color: rgba(255, 15, , 0.8); }
+
+	.sidr ul li > a:hover,
+	.sidr ul li > span:hover,
+	.sidr > div > ul > li:first-child > a:hover,
+	.sidr > div > ul > li:first-child > span:hover,
+	.sidr ul li ul li:hover > a,
+	.sidr ul li ul li:hover > span {
+		background: rgba(0, 0, 0, 0.2);
+
+		}
+
+	/* Shadows and Separators */
+
+	.sidr ul li > a,
+	.sidr ul li > span,
+	#sidr-id-header-button-container-inner > * {
+		-webkit-box-shadow: inset 0 -1px rgba( 0 ,0 ,0 , 0.2);
+		-moz-box-shadow: inset 0 -1px rgba( 0 ,0 ,0 , 0.2);
+		box-shadow: inset 0 -1px rgba( 0 ,0 ,0 , 0.2);
+	}
+
+	.sidr > div > ul > li:last-of-type > a,
+	.sidr > div > ul > li:last-of-type > span,
+	#sidr-id-header-button-container-inner > *:last-of-type {
+		box-shadow: none;
+		}
+
+	.sidr ul.sidr-class-hr-social li a,
+	.sidr ul.sidr-class-hr-social li a:first-child {
+		-webkit-box-shadow: 0 1px 0 0px rgba( 0 ,0 ,0, .25);
+		-moz-box-shadow: 0 1px 0 0px rgba( 0 ,0 ,0, .25);
+		box-shadow: 0 1px 0 0px rgba( 0 ,0 ,0, .25);
+	}
+
+	/* Header Right side content */
+
+	.sidr-class-search-field,
+	.sidr-class-search-form input[type='search'] {
+		background: rgba(255, 255, 255, 0.15);
+		color: ;
+	}
+
+	.sidr-class-hr-social {
+		background: rgba(255, 255, 255, 0.15);
+	}
+
+	#sidr-id-header-button-container-inner,
+	#sidr-id-header-button-container-inner > h1,
+	#sidr-id-header-button-container-inner > h2,
+	#sidr-id-header-button-container-inner > h3,
+	#sidr-id-header-button-container-inner > h4,
+	#sidr-id-header-button-container-inner > h5,
+	#sidr-id-header-button-container-inner > h6 {
+		background: rgba(0, 0, 0, 0.2);
+		color: ;
+	}
+
+	#sidr-id-header-button-container-inner a,
+	#sidr-id-header-button-container-inner button {
+		color: ;
+	}
+
+	#sidr-id-header-button-container-inner a:hover,
+	#sidr-id-header-button-container-inner button:hover {
+		color: ;
+	}
+
+	/*
+	.sidr ul li > a,
+	.sidr ul li > span,
+	#header-button-container *,
+	#sidr-id-header-button-container-inner button {
+		-webkit-box-shadow: inset 0 -1px rgba(255, 255, 255, 0.1);
+		-moz-box-shadow: inset 0 -1px rgba(255, 255, 255, 0.1);
+		box-shadow: inset 0 -1px rgba(255, 255, 255, 0.1);
+	}
+	*/
+	
+</style>
+
+
+
+
+/* <![CDATA[ */
+var tesseract_vars = {"hpad":"","fpad":""};
+/* ]]> */
+</script>
+
+<link rel="https://api.w.org/" href="https://www.durhampriory.ac.uk/wp-json/" /><link rel="alternate" type="application/json" href="https://www.durhampriory.ac.uk/wp-json/wp/v2/posts/809" />
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="https://www.durhampriory.ac.uk/wp-includes/wlwmanifest.xml" /> 
+<meta name="generator" content="WordPress 6.0.3" />
+<link rel="canonical" href="https://www.durhampriory.ac.uk/using-the-features-of-iiif/" />
+<link rel='shortlink' href='https://www.durhampriory.ac.uk/?p=809' />
+<link rel="alternate" type="application/json+oembed" href="https://www.durhampriory.ac.uk/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fwww.durhampriory.ac.uk%2Fusing-the-features-of-iiif%2F" />
+<link rel="alternate" type="text/xml+oembed" href="https://www.durhampriory.ac.uk/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fwww.durhampriory.ac.uk%2Fusing-the-features-of-iiif%2F&#038;format=xml" />
+<noscript><style>#sidebar-footer aside {border: none!important;}</style></noscript><style type="text/css">.recentcomments a{display:inline !important;padding:0 !important;margin:0 !important;}</style><style type="text/css" id="custom-background-css">
+body.custom-background { background-color: #fffff0; }
+</style>
+	<link rel="icon" href="https://www.durhampriory.ac.uk/wp-content/uploads/2016/06/cropped-dplricon-32x32.gif" sizes="32x32" />
+<link rel="icon" href="https://www.durhampriory.ac.uk/wp-content/uploads/2016/06/cropped-dplricon-192x192.gif" sizes="192x192" />
+<link rel="apple-touch-icon" href="https://www.durhampriory.ac.uk/wp-content/uploads/2016/06/cropped-dplricon-180x180.gif" />
+<meta name="msapplication-TileImage" content="https://www.durhampriory.ac.uk/wp-content/uploads/2016/06/cropped-dplricon-270x270.gif" />
+		<style type="text/css" id="wp-custom-css">
+			p {margin-bottom:1em}		</style>
+		
+<!--[if gte IE 9]>
+  <style type="text/css">
+    .gradient {
+       filter: none;
+    }
+  </style>
+<![endif]-->
+
+</head>
+
+
+<body class="post-template-default single single-post postid-809 single-format-standard custom-background frontend fullwidth group-blog">
+
+<div id="page" class="hfeed site">
+
+	<a class="skip-link screen-reader-text" href="#content">Skip to content</a>
+
+	
+    <header id="masthead" class="site-header pos-relative menusize-autowidth no-header-image" role="banner">
+
+        <div id="site-banner" class="cf nothing logo">
+
+            <div id="site-banner-main" class="no-right">
+
+                <div id="mobile-menu-trigger-wrap" class="cf"><a class="menu-open dashicons dashicons-menu" href="#" id="mobile-menu-trigger"></a></div>
+
+                <div id="site-banner-left">
+					<div id="site-banner-left-inner">
+
+						                            <div class="site-branding ">
+                                                                    <h1 class="site-logo"><a href="https://www.durhampriory.ac.uk/" rel="home"><img src="https://www.durhampriory.ac.uk/wp-content/uploads/2016/06/DPL_White_Logo.png" alt="logo" /></a></h1>
+                                                            </div><!-- .site-branding -->
+                        
+                        
+                                <nav id="site-navigation" class="hideit main-navigation top-navigation autowidth" role="navigation">
+                                    <ul id="menu-header" class="nav-menu"><li id="menu-item-161" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-161"><a href="https://www.durhampriory.ac.uk/about-the-project/">About the project</a>
+<ul class="sub-menu">
+	<li id="menu-item-257" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-257"><a href="https://www.durhampriory.ac.uk/about-the-project/technology/">Technology</a></li>
+	<li id="menu-item-419" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-419"><a href="https://www.durhampriory.ac.uk/about-the-project/evidence/">Evidence</a></li>
+</ul>
+</li>
+<li id="menu-item-162" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-162"><a href="https://www.durhampriory.ac.uk/partners/">Partners</a></li>
+<li id="menu-item-357" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-357"><a href="https://www.durhampriory.ac.uk/list-of-digitised-durham-priory-library-books/">Books digitised so far</a></li>
+<li id="menu-item-214" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-214"><a href="https://www.durhampriory.ac.uk/digitised-priory-books/">Durham Priory Project blog</a></li>
+</ul>                                </nav><!-- #site-navigation -->
+
+                      	
+            		</div>
+            	</div>
+
+                
+<div id="site-banner-right" class="banner-right nothing">
+
+            
+
+	                    
+			
+   
+
+	 
+
+</div>
+            </div>
+
+        </div>
+
+    </header><!-- #masthead -->
+
+
+    <div id="content" class="cf site-content">
+		<div id="primary" class="full-width-page no-sidebar">
+		<main id="main" class="site-main" role="main">
+<h2 class="title">Using the features of IIIF</h2>
+
+		
+			
+<article id="post-809" class="post-809 post type-post status-publish format-standard hentry category-dplr-maincat tag-iiif">
+
+			<header class="entry-header">
+			<h1 class="entry-title">Using the features of IIIF</h1>		</header><!-- .entry-header -->
+	
+	<div class="entry-content">
+        <div class="entry-meta">
+	        <span class="posted-on">Posted by <span class="author vcard"><a class="url fn n" href="https://www.durhampriory.ac.uk/author/rih/">Richard Higgins</a></span> on <a href="https://www.durhampriory.ac.uk/using-the-features-of-iiif/" rel="bookmark"><time class="entry-date published" datetime="2019-03-28T12:47:29+00:00">28th March 2019</time><time class="updated" datetime="2019-04-03T14:24:16+01:00">3rd April 2019</time></a></span>		</div><!-- .entry-meta -->
+		
+	<p>The Priory project has followed the <a href="https://iiif.io/about/">IIIF standards</a> for making our images of Priory books as open and usable as possible. In return we have already gained many benefits, not just from sharing technology but also access to Priory books held and digitised by other institutions. Part of working with open source software and standards is the obligation to participate in their development: simply using them helps to spread the influence and build their reputation, but where possible it is important to contribute towards development.</p>
+<p>As creators and end-users of the project infrastructure we can identify different requirements which may not be apparent (or at the time relevant) to others. When talking about the origins, creation and subsequent use of books there is a need to be able to take the audience to a particular place on a specific page of a book to illustrate the point. This has been difficult so far in IIIF: at best a browser-specific solution got you near, but there wasn&#8217;t a part of the standard that combined the precision of the image api (here is the part of the image to look at) with the scope of the presentation api (here we are at a page within a book). So when a new IIIF api was announced for <a href="https://preview.iiif.io/api/import-to-viewers/api/content-state/0.2/">content state</a> &#8211; &#8220;to describe a standardized format which enables the sharing of a particular view of one or more IIIF Presentation API resources&#8221; &#8211; it seemed that a solution was available, a neutral way of expressing the specific target within the image within the book. In section 4.1 the api defines the correct way to express the resource in JSON, so all that was needed was to build a tool to create the JSON and enable a browser to use it to perform the required action.</p>
+<p>The JSON required is</p>
+<code>{  "@context": "http://iiif.io/api/presentation/0/context.json",
+  "id": "https://example.org/import/1",
+  "type": "Annotation",
+  "motivation": ["highlighting"],
+  "target": {
+     "id": "https://example.org/object1/canvas7#xywh=1000,2000,1000,2000",
+     "type": "Canvas",
+     "partOf": [{
+        "id": "https://example.org/object1/manifest",
+        "type": "Manifest"
+     }]   }}
+</code>
+<p>most of this is boilerplate, but lines 6 and 9 are significant and require input. Three values are required: the manifest, the canvas and an area on that canvas defined as xywh coordinates. Any viewer displaying a page will know the manifest and canvas ids, so retrieving them is straightforward, all that is required is a means of identifying and storing the xywh values. An existing tool <a href="https://bl.ocks.org/mejackreed/6936585f435b60aa9451ae2bc1c199f2">https://bl.ocks.org/mejackreed/6936585f435b60aa9451ae2bc1c199f2</a> provided this function, so could be adapted to provide access to the three required variables. Added to a means of browsing manifests, this can be used to navigate to the relevant image with a tool like <a href="http://fautedemieux.net/DULIIIFimager.html?2=https://iiif.durham.ac.uk/manifests/trifle/32150/t1/mh/m5/t1mhm50tr805/manifest">http://fautedemieux.net/DULIIIFimager.html?2=https://iiif.durham.ac.uk/manifests/trifle/32150/t1/mh/m5/t1mhm50tr805/manifest</a> here clicking on either image cropper button gives access to the image.</p>
+<p>For another example, using an image hosted by the Wellcome Institute, <a href="https://search.wellcomelibrary.org/iii/encore/record/C__Rb2935798">an artist&#8217;s interpretation</a> of designer DNA channels which selectively transport cargo through a biological membrane (CC-BY Michael Northrop/Wellcome Images). In the picture there are a lot of blue balls (the image has been chosen as one I have no technical knowledge about). If one of them is significant and I need to draw attention to it, then something along the lines of fifth one down third one from the left is probably inadequate. Drawing a box around it is a more reliable means of getting the right one.</p>
+				<img src="https://www.durhampriory.ac.uk/wp-content/uploads/2019/03/leafcrop1.jpg" alt="CC-BY Michael Northrop/Wellcome Images" itemprop="image" height="991" width="1914" title="leafcrop1" onerror="this.style.display='none'"  />
+						CC-BY Michael Northrop/Wellcome Images
+	<p>Information about the image and the selected area can be viewed and copied, along with the correct JSON required by the api. This is displayed in readable text but copied encoded as base 64, the recommended way of passing text via http. More about the code for this can be found at <a href="https://github.com/higginsr/IIIFTreeCreeper">https://github.com/higginsr/IIIFTreeCreeper</a></p>
+<p>The other half of the task is to process this in a viewer and display it correctly. There are several viewers available, and the point of the api is that this will work with any viewer, but we needed to start somewhere so decided to add the feature to our existing <a href="http://projectmirador.org/">Mirador</a> viewer. We use a modified version of Mirador 2: as development on Mirador 2 has now ceased and work is well under way on Mirador 3 it was easier to work with the production version 2 rather than 3, but it was clearly not worth doing too much work on an about to become obsolete version. What we could establish was a demonstration of the way it could look and work that would make adding it to Mirador 3 easier later on.</p>
+<p>The early test version zoomed in on the target area and placed it centre screen, which worked up to a point. Zooming depends upon the size of the image and the size of the target: a small image with a large area selected is not easy to define, and the focus of a small area selected in an image at maximum zoom raises similar problems. The answer was to use the annotation facility of the viewer (a standard IIIF feature) to draw a box defined by the xywh value. Once this had been added there was still a need to add an explanation as to what the box meant, which could also be done using the standard annotation features by adding it as a resource. An extra javascript file was added containing the functions to recognise and process the JSON.</p>
+So you can now view the right blue ball:<br />
+<a href="https://iiif.durham.ac.uk/index.html?iiif-content=eyJAY29udGV4dCI6ICJodHRwOi8vaWlpZi5pby9hcGkvcHJlc2VudGF0aW9uLzAvY29udGV4dC5qc29uIiwgImlkIjogImh0dHBzOi8vd2VsbGNvbWVsaWJyYXJ5Lm9yZy9paWlmL2IyOTM1Nzk4Ni9jYW52YXMvYzBfeHl3aD04ODIsMjM3MSwxMDAsMTAyIiwgInR5cGUiOiAiQW5ub3RhdGlvbiIsICJtb3RpdmF0aW9uIjogWyJoaWdobGlnaHRpbmciXSwgInJlc291cmNlIjp7InR5cGUiOiJkY3R5cGVzOlRleHQiLCJmb3JtYXQiOiJ0ZXh0L3BsYWluIiwiY2hhcnMiOiJUaGlzIGlzIHRoZSBibHVlIGJhbGwgdGhhdCBJJ20gdGFsa2luZyBhYm91dCJ9LCAidGFyZ2V0IjogeyJpZCI6Imh0dHBzOi8vd2VsbGNvbWVsaWJyYXJ5Lm9yZy9paWlmL2IyOTM1Nzk4Ni9jYW52YXMvYzAjeHl3aD04ODIsMjM3MSwxMDAsMTAyIiwidHlwZSI6IkNhbnZhcyIsInBhcnRPZiI6eyJpZCI6ICJodHRwczovL3dlbGxjb21lbGlicmFyeS5vcmcvaWlpZi9iMjkzNTc5ODYvbWFuaWZlc3QiLCJ0eXBlIjoiTWFuaWZlc3QifX19">https://iiif.durham.ac.uk/index.html?iiif-content=eyJAY29udGV4dCI6ICJodHRwOi8vaWlpZi5pby9hcGkvcHJlc2VudGF0aW9uLzAvY29udGV4dC5qc29uIiwgImlkIjogImh0dHBzOi8vd2VsbGNvbWVsaWJyYXJ5Lm9yZy9paWlmL2IyOTM1Nzk4Ni9jYW52YXMvYzBfeHl3aD04ODIsMjM3MSwxMDAsMTAyIiwgInR5cGUiOiAiQW5ub3RhdGlvbiIsICJtb3RpdmF0aW9uIjogWyJoaWdobGlnaHRpbmciXSwgInJlc291cmNlIjp7InR5cGUiOiJkY3R5cGVzOlRleHQiLCJmb3JtYXQiOiJ0ZXh0L3BsYWluIiwiY2hhcnMiOiJUaGlzIGlzIHRoZSBibHVlIGJhbGwgdGhhdCBJJ20gdGFsa2luZyBhYm91dCJ9LCAidGFyZ2V0IjogeyJpZCI6Imh0dHBzOi8vd2VsbGNvbWVsaWJyYXJ5Lm9yZy9paWlmL2IyOTM1Nzk4Ni9jYW52YXMvYzAjeHl3aD04ODIsMjM3MSwxMDAsMTAyIiwidHlwZSI6IkNhbnZhcyIsInBhcnRPZiI6eyJpZCI6ICJodHRwczovL3dlbGxjb21lbGlicmFyeS5vcmcvaWlpZi9iMjkzNTc5ODYvbWFuaWZlc3QiLCJ0eXBlIjoiTWFuaWZlc3QifX19</a><br />
+or find a small house on a large map:<br />
+<a href="https://iiif.durham.ac.uk/index.html?iiif-content=eyJAY29udGV4dCI6ICJodHRwOi8vaWlpZi5pby9hcGkvcHJlc2VudGF0aW9uLzAvY29udGV4dC5qc29uIiwgImlkIjogImh0dHBzOi8vaWlpZi5kdXJoYW0uYWMudWsvbWFuaWZlc3RzL3RyaWZsZS8zMjE1MC90MS9tdi9xMi90MW12cTI3em40MzIvY2FudmFzL3QxdHZtNDB4czE0Nl94eXdoPTk3ODcsMTI1NzEsMTY0LDkzIiwgInR5cGUiOiAiQW5ub3RhdGlvbiIsICJtb3RpdmF0aW9uIjogWyJoaWdobGlnaHRpbmciXSwgInJlc291cmNlIjp7InR5cGUiOiJkY3R5cGVzOlRleHQiLCJmb3JtYXQiOiJ0ZXh0L3BsYWluIiwiY2hhcnMiOiJMdWR3ZWxsLCBTdGFuaG9wZSBQYXJrIFF1YXJ0ZXIgdGl0aGUgbWFwIn0sICJ0YXJnZXQiOiB7ImlkIjoiaHR0cHM6Ly9paWlmLmR1cmhhbS5hYy51ay9tYW5pZmVzdHMvdHJpZmxlLzMyMTUwL3QxL212L3EyL3QxbXZxMjd6bjQzMi9jYW52YXMvdDF0dm00MHhzMTQ2I3h5d2g9OTc4NywxMjU3MSwxNjQsOTMiLCJ0eXBlIjoiQ2FudmFzIiwicGFydE9mIjp7ImlkIjogImh0dHBzOi8vaWlpZi5kdXJoYW0uYWMudWsvbWFuaWZlc3RzL3RyaWZsZS8zMjE1MC90MS9tdi9xMi90MW12cTI3em40MzIvbWFuaWZlc3QiLCJ0eXBlIjoiTWFuaWZlc3QifX19">https://iiif.durham.ac.uk/index.html?iiif-content=eyJAY29udGV4dCI6ICJodHRwOi8vaWlpZi5pby9hcGkvcHJlc2VudGF0aW9uLzAvY29udGV4dC5qc29uIiwgImlkIjogImh0dHBzOi8vaWlpZi5kdXJoYW0uYWMudWsvbWFuaWZlc3RzL3RyaWZsZS8zMjE1MC90MS9tdi9xMi90MW12cTI3em40MzIvY2FudmFzL3QxdHZtNDB4czE0Nl94eXdoPTk3ODcsMTI1NzEsMTY0LDkzIiwgInR5cGUiOiAiQW5ub3RhdGlvbiIsICJtb3RpdmF0aW9uIjogWyJoaWdobGlnaHRpbmciXSwgInJlc291cmNlIjp7InR5cGUiOiJkY3R5cGVzOlRleHQiLCJmb3JtYXQiOiJ0ZXh0L3BsYWluIiwiY2hhcnMiOiJMdWR3ZWxsLCBTdGFuaG9wZSBQYXJrIFF1YXJ0ZXIgdGl0aGUgbWFwIn0sICJ0YXJnZXQiOiB7ImlkIjoiaHR0cHM6Ly9paWlmLmR1cmhhbS5hYy51ay9tYW5pZmVzdHMvdHJpZmxlLzMyMTUwL3QxL212L3EyL3QxbXZxMjd6bjQzMi9jYW52YXMvdDF0dm00MHhzMTQ2I3h5d2g9OTc4NywxMjU3MSwxNjQsOTMiLCJ0eXBlIjoiQ2FudmFzIiwicGFydE9mIjp7ImlkIjogImh0dHBzOi8vaWlpZi5kdXJoYW0uYWMudWsvbWFuaWZlc3RzL3RyaWZsZS8zMjE1MC90MS9tdi9xMi90MW12cTI3em40MzIvbWFuaWZlc3QiLCJ0eXBlIjoiTWFuaWZlc3QifX19</a><br />
+and for the Priory Project point to the feature in St John&#8217;s College, Oxford MS 154 that shows that it was a Durham Priory book:<br />
+<a href="https://iiif.durham.ac.uk/index.html?iiif-content=eyJAY29udGV4dCI6ICJodHRwOi8vaWlpZi5pby9hcGkvcHJlc2VudGF0aW9uLzAvY29udGV4dC5qc29uIiwKICJpZCI6ICJodHRwczovL2lpaWYuYm9kbGVpYW4ub3guYWMudWsvaWlpZi9jYW52YXMvYzk5YWRlMWItYjcxMS00Yjk0LWI2YjAtZjViMGVkZDlmYTcwLmpzb25feHl3aD0xNTQ2LDM3OCwxMDQ4LDIwNCIsCiAgInR5cGUiOiJBbm5vdGF0aW9uIiwKICAibW90aXZhdGlvbiI6ImhpZ2hsaWdodGluZyIsCiAgInJlc291cmNlIjp7InR5cGUiOiJkY3R5cGVzOlRleHQiLCJmb3JtYXQiOiJ0ZXh0L3BsYWluIiwiY2hhcnMiOiJEdXJoYW0gUHJpb3J5IGV4IGxpYnJpcyJ9LAogICJ0YXJnZXQiOnsKICAgICJpZCI6Imh0dHBzOi8vaWlpZi5ib2RsZWlhbi5veC5hYy51ay9paWlmL2NhbnZhcy9jOTlhZGUxYi1iNzExLTRiOTQtYjZiMC1mNWIwZWRkOWZhNzAuanNvbiN4eXdoPTE1NDYsMzc4LDEwNDgsMjA0IiwKICAgICJ0eXBlIjoiQ2FudmFzIiwKICAgICJwYXJ0T2YiOnsiaWQiOiAiaHR0cHM6Ly9paWlmLmJvZGxlaWFuLm94LmFjLnVrL2lpaWYvbWFuaWZlc3QvNTgzNmNiMDMtYTg3Yi00MGI4LWJiNTUtN2JkNDM4Y2RjZDQ4Lmpzb24iLCJ0eXBlIjoiTWFuaWZlc3QifQogIH0KfQ==">https://iiif.durham.ac.uk/index.html?iiif-content=eyJAY29udGV4dCI6ICJodHRwOi8vaWlpZi5pby9hcGkvcHJlc2VudGF0aW9uLzAvY29udGV4dC5qc29uIiwKICJpZCI6ICJodHRwczovL2lpaWYuYm9kbGVpYW4ub3guYWMudWsvaWlpZi9jYW52YXMvYzk5YWRlMWItYjcxMS00Yjk0LWI2YjAtZjViMGVkZDlmYTcwLmpzb25feHl3aD0xNTQ2LDM3OCwxMDQ4LDIwNCIsCiAgInR5cGUiOiJBbm5vdGF0aW9uIiwKICAibW90aXZhdGlvbiI6ImhpZ2hsaWdodGluZyIsCiAgInJlc291cmNlIjp7InR5cGUiOiJkY3R5cGVzOlRleHQiLCJmb3JtYXQiOiJ0ZXh0L3BsYWluIiwiY2hhcnMiOiJEdXJoYW0gUHJpb3J5IGV4IGxpYnJpcyJ9LAogICJ0YXJnZXQiOnsKICAgICJpZCI6Imh0dHBzOi8vaWlpZi5ib2RsZWlhbi5veC5hYy51ay9paWlmL2NhbnZhcy9jOTlhZGUxYi1iNzExLTRiOTQtYjZiMC1mNWIwZWRkOWZhNzAuanNvbiN4eXdoPTE1NDYsMzc4LDEwNDgsMjA0IiwKICAgICJ0eXBlIjoiQ2FudmFzIiwKICAgICJwYXJ0T2YiOnsiaWQiOiAiaHR0cHM6Ly9paWlmLmJvZGxlaWFuLm94LmFjLnVrL2lpaWYvbWFuaWZlc3QvNTgzNmNiMDMtYTg3Yi00MGI4LWJiNTUtN2JkNDM4Y2RjZDQ4Lmpzb24iLCJ0eXBlIjoiTWFuaWZlc3QifQogIH0KfQ==</a>
+			</div><!-- .entry-content -->
+
+</article><!-- #post-## -->
+			
+		
+		</main><!-- #main -->
+	</div><!-- #primary -->
+
+	</div><!-- #content -->
+
+	<footer id="colophon" class="site-footer" role="contentinfo">
+
+		
+    	<div id="footer-banner" class="cf menu-only-menu mother-branding footer-autowidth">
+            <div id="horizontal-menu-wrap" class="only-menu none-before">
+
+                
+                
+					<section id="footer-horizontal-menu" class="cf none-before"><ul id="menu-footer" class="nav-menu"><li id="menu-item-164" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-164"><a href="https://www.durhampriory.ac.uk/copyright/">Copyright</a></li>
+<li id="menu-item-215" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-215"><a href="https://www.durhampriory.ac.uk/funding/">Funding</a></li>
+</ul></section>
+              	
+            </div><!-- EOF horizontal-menu-wrap -->
+
+            <div id="footer-banner-right" class="designer"><div class="table"><div class="table-cell"></div></div></div>
+      	</div><!-- EOF footer-banner -->
+
+	</footer><!-- #colophon -->
+</div><!-- #page -->
+
+
+
+
+
+
+
+</body>
+</html>

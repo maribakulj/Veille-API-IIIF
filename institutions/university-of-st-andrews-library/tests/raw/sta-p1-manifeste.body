@@ -1,0 +1,79 @@
+
+                    
+                    
+                  
+                    
+                    
+                    
+                    
+                    
+                    {
+                        "@context": "http://iiif.io/api/presentation/2/context.json",
+                        "@type": "sc:Manifest",
+                        "@id": "https://collections.st-andrews.ac.uk/77713/manifest",
+                        "label": "Winchester Cathedral.",
+                            "attribution": "Image courtesy of University of St Andrews Libraries and Museums.",
+                        "logo": "https://collections.st-andrews.ac.uk/uv/logo.png",
+                        "metadata": [
+                                { "label": "Identifier", "value": "ALB-16-4"},
+                            { "label": "Title", "value": "Winchester Cathedral."},
+                                {"label": "Descriptive Title", "value": "<p>Winchester Cathedral.<br></p>"},
+                                { "label": "Date", "value": "ca. 1880" },
+                            { "label": "Record URL", "value": "<a href='https://collections.st-andrews.ac.uk/item/winchester-cathedral/77713'>https://collections.st-andrews.ac.uk/item/winchester-cathedral/77713</a>"},
+                                { "label": "Format", "value": "photographic prints,photograph albums" }, 
+                                { "label": "Subjects", "value": " <a href='https://collections.st-andrews.ac.uk/search/?query=Subject:\"architecture%20-%20Gothic\"&form=grid&mode=query'>architecture - Gothic</a>,<a href='https://collections.st-andrews.ac.uk/search/?query=Subject:\"architecture%20-%20Norman%2FRomanesque\"&form=grid&mode=query'>architecture - Norman/Romanesque</a>,<a href='https://collections.st-andrews.ac.uk/search/?query=Subject:\"cathedrals\"&form=grid&mode=query'>cathedrals</a>,<a href='https://collections.st-andrews.ac.uk/search/?query=Subject:\"churchyards\"&form=grid&mode=query'>churchyards</a>,<a href='https://collections.st-andrews.ac.uk/search/?query=Subject:\"towers%20unclassified\"&form=grid&mode=query'>towers unclassified</a>"},
+                                { "label": "Department", "value": "Special Collections - Photographic Collections" },
+                                { "label": "Parent", "value": "<a href='https://collections.st-andrews.ac.uk/album-book-portfolio/general-album-16/355530'>General Album 16</a> (Album/Book/Portfolio)" },
+                                { "label": "Record level", "value": "Item" },
+                                { "label": "Conditions of use", "value": "Free of known copyright restrictions." },
+                                { "label": "Credit line", "value": "Image Courtesy of the University of St Andrews Library, ID ALB-16-4" },
+                            { "label": "IRN", "value": "77713"},
+                            { "label": "Image delivery", "value": "Working in partnership with <a href='https://kakadusoftware.com/'>Kakadu</a> to deliver high quality image reproductions via IIIF."}
+                        ],
+                            "sequences": [
+                                {
+                                    "@type": "sc:Sequence",
+                                    "viewingHint" :"individuals",
+                                    "viewingDirection" :"left-to-right",
+                                    "canvases": [
+                                                {
+                                                    "@type": "sc:Canvas",
+                                                    "@id": "https://collections.st-andrews.ac.uk/77713/manifest/canvas/56718",
+                                                    "otherContent": [
+                                                        { "@id":"https://collections.st-andrews.ac.uk/annotation/77713/56718", "@type":"sc:AnnotationList"},
+                                                        { "@id":"https://collections.st-andrews.ac.uk/ai/anno/all/77713/56718/6144/4096", "@type":"sc:AnnotationList"}
+                                                    ],
+                                                    "label": "img0092",
+                                                    "width":6144
+                                                    ,"height":4096,
+                                                    "thumbnail" : {
+                                                        "@id" : "https://collections.st-andrews.ac.uk/media/56718/56718.thumb.jpg",
+                                                        "@type": "dctypes:Image",
+                                                        "width": 100,
+                                                        "height": 100
+                                                    },
+                                                    "images": [
+                                                        {
+                                                            "@type": "dctypes:Image",
+                                                            "motivation": "sc:painting",
+                                                            "on": "https://collections.st-andrews.ac.uk/77713/manifest/canvas/56718",
+                                                            "resource": {
+                                                                "@type": "dctypes:Image",
+                                                                "@id": "https://collections.st-andrews.ac.uk/iiif/2/56718~56718/full/full/0/default.jpg",
+                                                                "format": "image/jpeg"
+                                                                    ,"width":6144
+                                                                    ,"height":4096,
+                                                                "service": {
+                                                                    "@context": "http://iiif.io/api/image/2/context.json",
+                                                                    "@id": "https://collections.st-andrews.ac.uk/iiif/2/56718~56718",
+                                                                    "profile": "http://iiif.io/api/image/2/level1.json"
+                                                                }
+                                                            }
+                                                        }
+                                                    ]
+                                                }
+                                                
+                                    ]
+                                }
+                            ]
+                    }

@@ -1,0 +1,15 @@
+# See http://www.robotstxt.org/robotstxt.html for documentation on how to use the robots.txt file
+User-agent: *
+Disallow: /xtf/search?browse-all=yes;startDoc=21;startDoc
+Disallow: /xtf/search?browse-all=yes;startDoc=41;startDoc
+Disallow: /xtf/search?browse-all=yes;startDoc=61;startDoc
+Disallow: /xtf/search?browse-all=yes;startDoc=81;startDoc
+Disallow: /xtf/search?browse-all=yes;startDoc=101;startDoc
+Disallow: /xtf/search?browse-all=yes;startDoc%3D21;startDoc
+Disallow: /xtf/search?browse-all=yes;startDoc%3D41;startDoc
+Disallow: /xtf/search?browse-all=yes;startDoc%3D61;startDoc
+Disallow: /xtf/search?browse-all=yes;startDoc%3D81;startDoc
+Disallow: /xtf/search?browse-all=yes;startDoc%3D101;startDoc
+Disallow: /xtf/search?*startDoc=*startDoc=
+Disallow: /xtf/search?*startDoc%3D*startDoc%3D
+sitemap: https://reed.dur.ac.uk/xtf/docs/xtfsitemap.xml

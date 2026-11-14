@@ -1,0 +1,12 @@
+{
+  "slug": "durham-university-library",
+  "endpoint": {
+    "id": "info-json-iiif-durham",
+    "url": "https://iiif.durham.ac.uk/iiif/trifle/32150/t1/m3/n2/t1m3n203z18r/51ae06adc12a96e7c786f972b0bba712.jp2/info.json",
+    "method": "GET"
+  },
+  "limite_documentee_req_min": null,
+  "source_limite": "aucune limite de débit documentée (libguides.durham.ac.uk/asc-digitised-collections-online/iiif : aucun chiffre ; robots.txt de iiif.durham.ac.uk : seulement Disallow /)",
+  "duree_palier_s": 180,
+  "note": "info.json Image API v2, 200 dans le journal (dur-p3-info-json, 2026-11-14T02:35:33Z), réponse courte. Hôte soumis à Disallow / (testé avec l'accord de Marcel, C12)."
+}

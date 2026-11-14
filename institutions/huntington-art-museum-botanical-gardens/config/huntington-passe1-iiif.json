@@ -1,0 +1,18 @@
+{
+  "slug": "huntington-art-museum-botanical-gardens",
+  "min_delay_s": 6,
+  "max_requests": 15,
+  "follow_redirects": 1,
+  "robots_disallow_autorise_par_marcel": true,
+  "note": "Passe 1 : API IIIF de CONTENTdm (doc OCLC help.oclc.org, patterns /iiif/info/{alias}/{id}/manifest.json et /digital/iiif/2/{alias}:{id}/info.json) sur l'identifiant p16003coll14/1503 cité par une page publique (catalogue Biblissima, manuscrit HM 64) ; hôtes hdl.huntington.org (domaine public) et cdm16003.contentdm.oclc.org (hôte du manifeste). Manifestes de collection et du site entier en HEAD seulement (potentiellement très gros). Pas d'OAI ni de dmwebservices (non documentés par l'institution).",
+  "endpoints": [
+    {"id": "hdl-p1-manifeste-cdm", "method": "GET", "url": "https://cdm16003.contentdm.oclc.org/iiif/info/p16003coll14/1503/manifest.json"},
+    {"id": "hdl-p1-info-cdm", "method": "GET", "url": "https://cdm16003.contentdm.oclc.org/digital/iiif/2/p16003coll14:1503/info.json"},
+    {"id": "hdl-p1-vignette-cdm", "method": "GET", "url": "https://cdm16003.contentdm.oclc.org/digital/iiif/2/p16003coll14:1503/full/150,/0/default.jpg"},
+    {"id": "hdl-p1-manifeste-hdl", "method": "GET", "url": "https://hdl.huntington.org/iiif/info/p16003coll14/1503/manifest.json"},
+    {"id": "hdl-p1-info-hdl", "method": "GET", "url": "https://hdl.huntington.org/digital/iiif/2/p16003coll14:1503/info.json"},
+    {"id": "hdl-p1-collection-head", "method": "HEAD", "url": "https://cdm16003.contentdm.oclc.org/iiif/info/p16003coll14/manifest.json"},
+    {"id": "hdl-p1-site-head", "method": "HEAD", "url": "https://cdm16003.contentdm.oclc.org/iiif/info/manifest.json"},
+    {"id": "hdl-p1-page-objet", "method": "GET", "url": "https://hdl.huntington.org/digital/collection/p16003coll14/id/1503"}
+  ]
+}

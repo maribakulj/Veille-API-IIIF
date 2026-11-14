@@ -1,0 +1,92 @@
+{
+  "@context": "http://iiif.io/api/presentation/2/context.json",
+  "@id": "https://iiif.durham.ac.uk/manifests/trifle/32150/t1/mh/m5/t1mhm50tr805/manifest",
+  "@type": "sc:Manifest",
+  "label": "ABL 590 - Letter from John Wolcot to James Northcote",
+  "description": "Letter from J. Wolcot to Mr Northcote at Sir Joshua Reynolds's, Leicester Fields, London; a Damn'd Bitch as common as the air named Oliver has conceived a bastard child and he has sent her to London with money. He requests Northcote to provide her with money (that he will send) and see if she has got rid of the child. He has been working on painting landscapes and requests information and a landscape painting to be sent to him.\nDigitised February 2013",
+  "related": [
+    {
+      "@id": "http://reed.dur.ac.uk/xtf/view?docId=ark/32150_s12r36tx52b.xml#abbottlm-693",
+      "label": "Catalogue record"
+    }
+  ],
+  "seeAlso": {
+    "@id": "https://palimpsest.dur.ac.uk/resolver/?source_record_ssim=schmit%3Aark%3A%2F32150%2Fs12r36tx52b%23abbottlm-693",
+    "format": "application/marc",
+    "profile": "http://www.loc.gov/standards/marcxml"
+  },
+  "logo": "https://iiif.durham.ac.uk/images/logos/duruni_logo.png",
+  "license": "http://creativecommons.org/licenses/by-nc-nd/4.0/legalcode",
+  "attribution": "Durham University Library",
+  "metadata": [
+    {
+      "label": "Published",
+      "value": "[1774]"
+    }
+  ],
+  "sequences": [
+    {
+      "@id": "https://iiif.durham.ac.uk/manifests/trifle/32150/t1/mh/m5/t1mhm50tr805/sequence/default",
+      "@type": "sc:Sequence",
+      "label": "default",
+      "viewingHint": "paged",
+      "canvases": [
+        {
+          "@id": "https://iiif.durham.ac.uk/manifests/trifle/32150/t1/mh/m5/t1mhm50tr805/canvas/t1tdj52w6235",
+          "@type": "sc:Canvas",
+          "label": "r",
+          "width": 8840,
+          "height": 5520,
+          "images": [
+            {
+              "@id": "https://iiif.durham.ac.uk/manifests/trifle/32150/t1/mh/m5/t1mhm50tr805/annotation/canvas_t1tdj52w6235",
+              "@type": "oa:Annotation",
+              "motivation": "sc:painting",
+              "resource": {
+                "@id": "https://iiif.durham.ac.uk/iiif/trifle/32150/t1/mh/m5/t1mhm50tr805/0595258343dbe2ff7e036696c1b88f57.jp2/full/full/0/default.jpg",
+                "@type": "dctypes:Image",
+                "format": "image/jpeg",
+                "width": 8840,
+                "height": 5520,
+                "service": {
+                  "@context": "http://iiif.io/api/image/2/context.json",
+                  "@id": "https://iiif.durham.ac.uk/iiif/trifle/32150/t1/mh/m5/t1mhm50tr805/0595258343dbe2ff7e036696c1b88f57.jp2",
+                  "profile": "http://iiif.io/api/image/2/level1.json"
+                }
+              },
+              "on": "https://iiif.durham.ac.uk/manifests/trifle/32150/t1/mh/m5/t1mhm50tr805/canvas/t1tdj52w6235"
+            }
+          ]
+        },
+        {
+          "@id": "https://iiif.durham.ac.uk/manifests/trifle/32150/t1/mh/m5/t1mhm50tr805/canvas/t1tbc386k899",
+          "@type": "sc:Canvas",
+          "label": "v",
+          "width": 8960,
+          "height": 5540,
+          "images": [
+            {
+              "@id": "https://iiif.durham.ac.uk/manifests/trifle/32150/t1/mh/m5/t1mhm50tr805/annotation/canvas_t1tbc386k899",
+              "@type": "oa:Annotation",
+              "motivation": "sc:painting",
+              "resource": {
+                "@id": "https://iiif.durham.ac.uk/iiif/trifle/32150/t1/mh/m5/t1mhm50tr805/c3aae1b5445165f15e71a71e1953dc57.jp2/full/full/0/default.jpg",
+                "@type": "dctypes:Image",
+                "format": "image/jpeg",
+                "width": 8960,
+                "height": 5540,
+                "service": {
+                  "@context": "http://iiif.io/api/image/2/context.json",
+                  "@id": "https://iiif.durham.ac.uk/iiif/trifle/32150/t1/mh/m5/t1mhm50tr805/c3aae1b5445165f15e71a71e1953dc57.jp2",
+                  "profile": "http://iiif.io/api/image/2/level1.json"
+                }
+              },
+              "on": "https://iiif.durham.ac.uk/manifests/trifle/32150/t1/mh/m5/t1mhm50tr805/canvas/t1tbc386k899"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "within": "https://iiif.durham.ac.uk/manifests/trifle/collection/32150/t1c02870v84r"
+}

@@ -1,0 +1,15 @@
+{
+  "slug": "huntington-art-museum-botanical-gardens",
+  "min_delay_s": 6,
+  "max_requests": 15,
+  "follow_redirects": 1,
+  "robots_disallow_autorise_par_marcel": true,
+  "note": "Passe 3 : Image API. Identifiant de page p16003coll14:1102 lu dans le manifeste enregistré en passe 2 (tests/raw/hdl-p2-manifeste-final-cdm.body, champ service @id). Pattern documenté par OCLC /digital/iiif/2/{alias}:{id}/info.json (501 en passe 1 sur l'identifiant composé 1503) et pattern donné par le manifeste /iiif/2/{alias}:{id}.",
+  "endpoints": [
+    {"id": "hdl-p3-info-doc-cdm", "method": "GET", "url": "https://cdm16003.contentdm.oclc.org/digital/iiif/2/p16003coll14:1102/info.json"},
+    {"id": "hdl-p3-info-manifeste-cdm", "method": "GET", "url": "https://cdm16003.contentdm.oclc.org/iiif/2/p16003coll14:1102/info.json"},
+    {"id": "hdl-p3-vignette-cdm", "method": "GET", "url": "https://cdm16003.contentdm.oclc.org/iiif/2/p16003coll14:1102/full/150,/0/default.jpg"},
+    {"id": "hdl-p3-info-hdl", "method": "GET", "url": "https://hdl.huntington.org/iiif/2/p16003coll14:1102/info.json"},
+    {"id": "hdl-p3-vignette-hdl", "method": "HEAD", "url": "https://hdl.huntington.org/iiif/2/p16003coll14:1102/full/150,/0/default.jpg"}
+  ]
+}

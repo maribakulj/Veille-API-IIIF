@@ -1,0 +1,14 @@
+{
+  "slug": "durham-university-library",
+  "min_delay_s": 6,
+  "max_requests": 15,
+  "follow_redirects": 1,
+  "robots_disallow_autorise_par_marcel": true,
+  "note": "Passe 1 : manifeste d'exemple cité par la page publique du wiki Samvera (https://iiif.durham.ac.uk/manifests/dul/clb/clb1-94.json), enregistré pour y lire les identifiants d'images ; index de collection (cité par une page de formation IIIF) et fichier METS ark cité par le guide libguides en HEAD seulement ; page jalava citée par le guide. robots.txt de iiif.durham.ac.uk : Disallow / (autorisé à tester par Marcel, C12).",
+  "endpoints": [
+    {"id": "dur-p1-manifeste-clb", "method": "GET", "url": "https://iiif.durham.ac.uk/manifests/dul/clb/clb1-94.json", "save_body": 2000000},
+    {"id": "dur-p1-collection-index-head", "method": "HEAD", "url": "https://iiif.durham.ac.uk/manifests/trifle/collection/index"},
+    {"id": "dur-p1-mets-ark-head", "method": "HEAD", "url": "https://n2t.durham.ac.uk/ark:/32150/s1xp68kg331.xml"},
+    {"id": "dur-p1-jalava", "method": "GET", "url": "https://iiif.durham.ac.uk/jalava/"}
+  ]
+}

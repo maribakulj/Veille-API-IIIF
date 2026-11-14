@@ -1,0 +1,62 @@
+Retrieve full-size images from IIIF servers 
+ Groups Groups
+ Conversations
+ All groups and messages
+ Send feedback to Google
+ Help
+ Training
+ Sign in 
+ Groups Groups
+ IIIF Discuss
+ Conversations
+ About
+ Privacy  •  Terms 
+  
+  
+  
+  
+ Retrieve full-size images from IIIF servers 
+ 238 views
+ Skip to first unread message 
+  
+ Peter Robinson
+ unread, Jan 22, 2025, 5:42:39 PM 1/22/25 
+  
+  
+  
+ Reply to author
+ Sign in to reply to author
+ Forward
+ Sign in to forward
+ Delete
+ You do not have permission to delete messages in this group
+ Copy link
+ Report message
+ Show original message
+ Either email addresses are anonymous for this group or you need the view member email addresses permission to view the original message
+ to IIIF Discuss 
+ Folks 
+ For various reasons (which might be the subject of a separate post) I would like retrieve full size images from IIIF servers. So far as I can see, this is a fairly straightforward process, at least in theory. Presume that the manifest of the image you are looking for is at address 
+ https://cdm16003.contentdm.oclc.org/digital/iiif/p15150coll7/2448/info.json 
+ (folio 41v of the Ellesmere manuscript of the Canterbury Tales, in the Huntington library)
+ The full image of this page is at
+ https://cdm16003.contentdm.oclc.org/digital/iiif/p15150coll7/2448/full/full/0/default.jpg 
+ This brings us back the full 2416x3000 pixel image. Nice!
+ However, some libraries which will remain nameless do NOT return the full-size image. Instead, the image at /full/full/0/default.jgp is at a much lower resolution. The IIIF viewer is able to zoom in on the image because it has access to the tiles made from the original image. But there does not seem to be any way of bringing. back the full size image from the manifest alone.
+ Some questions:
+ 1. Is this behaviour of placing a lower resolution image at /fullfull/0/default.jpg in line with IIIF protocols?
+ 2. Have I missed something? is there another address I should be trying? (full/max/0/default.jpg returns the same reduced quality image)
+ Another possibility is to rebuild the full-size originals from the tile sources. I'd rather avoid this, of course.
+ Advice please.
+ Peter
+  Reply all 
+  Reply to author 
+  Forward 
+  
+ 0 new messages 
+  
+ Search
+ Clear search
+ Close search
+ Google apps
+ Main menu

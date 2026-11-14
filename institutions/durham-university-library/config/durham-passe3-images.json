@@ -1,0 +1,14 @@
+{
+  "slug": "durham-university-library",
+  "min_delay_s": 6,
+  "max_requests": 15,
+  "follow_redirects": 1,
+  "robots_disallow_autorise_par_marcel": true,
+  "note": "Passe 3 : URL lues dans le corps enregistré de l'index de collection (tests/raw/dur-p2-collection-index.body) : sous-collection Sudan Archive en HEAD (taille inconnue), service d'image de sa vignette (info.json, puis vignette 400x400 déjà publiée) ; METS : location lue dans tests/raw/dur-p1-mets-ark-head.headers.txt (hôte reed.dur.ac.uk, robots.txt lu dans sources/reed).",
+  "endpoints": [
+    {"id": "dur-p3-souscollection-head", "method": "HEAD", "url": "https://iiif.durham.ac.uk/manifests/trifle/collection/32150/t2c7s75dc36q"},
+    {"id": "dur-p3-info-json", "method": "GET", "url": "https://iiif.durham.ac.uk/iiif/trifle/32150/t1/m3/n2/t1m3n203z18r/51ae06adc12a96e7c786f972b0bba712.jp2/info.json"},
+    {"id": "dur-p3-vignette", "method": "GET", "url": "https://iiif.durham.ac.uk/iiif/trifle/32150/t1/m3/n2/t1m3n203z18r/51ae06adc12a96e7c786f972b0bba712.jp2/123,514,5331,5903/full/0/default.jpg"},
+    {"id": "dur-p3-reed-mets-head", "method": "HEAD", "url": "http://reed.dur.ac.uk/xtf/view?docId=ark/32150_s1xp68kg331.xml"}
+  ]
+}
