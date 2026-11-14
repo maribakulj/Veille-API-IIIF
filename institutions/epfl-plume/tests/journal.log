@@ -1,0 +1,8 @@
+# Session 2026-11-14T01:34:12Z — configuration plume-passe1.json — sonde probe.py au commit bd20cb9
+2026-11-14T01:34:12Z | robots.txt:plume.epfl.ch | https://plume.epfl.ch/robots.txt | GET | 200 | 2 règle(s) pour « * »
+2026-11-14T01:34:19Z | api-item-100 | https://plume.epfl.ch/api/items/100 | GET | 200 OK | aucun en-tête de limite | taille≥23770 | corps: {"@context":"https:\/\/plume.epfl.ch\/api-context","@id":"https:\/\/plume.epfl.ch\/api\/items\/100","@type":["o:Item","dctype:Text"],"o:id":100,"o:is_public":true,"o:owner":{"@id":"https:\/\/plume.epf
+# corps enregistré : tests/raw/api-item-100.body (23770 octets lus)
+2026-11-14T01:34:25Z | oai-listidentifiers | https://plume.epfl.ch/oai?verb=ListIdentifiers&metadataPrefix=oai_dc | GET | 200 OK | aucun en-tête de limite | taille≥200 | corps: <?xml version="1.0" encoding="UTF-8" standalone="yes"?> <?xml-stylesheet type="text/xsl" href="/modules/OaiPmhRepository/asset/xsl/oai-pmh-repository.xsl?v=3.4.14"?> <?oai-pmh-repository-assets css="/
+2026-11-14T01:34:32Z | iiif-manifeste-100 | https://plume.epfl.ch/iiif/2/100/manifest | GET | 200 OK | aucun en-tête de limite | taille≥508647 | corps: {     "@context": "http://iiif.io/api/presentation/2/context.json",     "@id": "https://plume.epfl.ch/iiif/2/100/manifest",     "@type": "sc:Manifest",     "label": "Analyse des infiniment petits",   
+# corps enregistré : tests/raw/iiif-manifeste-100.body (508647 octets lus)
+# Fin 2026-11-14T01:34:32Z — 4 requête(s) envoyée(s)
