@@ -75,9 +75,36 @@ def verrou_crash():
     return c
 
 
+def secrets():
+    """Valeurs à ne jamais écrire dans le dépôt (IP de Marcel…), lues dans ~/.veille-state/secrets.txt (hors dépôt)."""
+    try:
+        return [l.strip() for l in (STATE / "secrets.txt").read_text().splitlines() if l.strip()]
+    except OSError:
+        return []
+
+
+def redact(texte):
+    for v in secrets():
+        texte = texte.replace(v, "[IP retirée]")
+    return texte
+
+
+def redact_fichier(chemin):
+    try:
+        b = open(chemin, "rb").read()
+    except OSError:
+        return
+    t = b.decode("utf-8", "replace")
+    r = redact(t)
+    if r != t:
+        open(chemin, "wb").write(r.encode("utf-8"))
+
+
 if __name__ == "__main__":
     if len(sys.argv) >= 3 and sys.argv[1] == "attendre":
         attendre(sys.argv[2], float(sys.argv[3]) if len(sys.argv) > 3 else 6.0)
+    elif len(sys.argv) == 3 and sys.argv[1] == "redact":
+        redact_fichier(sys.argv[2])
     elif len(sys.argv) == 4 and sys.argv[1] == "noter":
         noter_delai(sys.argv[2], float(sys.argv[3]))
     else:

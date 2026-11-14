@@ -1,0 +1,13 @@
+{
+  "slug": "europeana",
+  "min_delay_s": 6,
+  "max_requests": 15,
+  "follow_redirects": 1,
+  "robots_disallow_autorise_par_marcel": true,
+  "note": "Passe v2 n°4 (lot D) : API IIIF plein texte documentée dans « IIIF APIs Documentation » (sources/v2c/text/02.txt, sections 4 et 5) : page d'annotations (URL issue du manifeste de la passe 2), recherche dans un seul item (iiif.europeana.eu/presentation/[RECORD_ID]/search, record du manifeste), recherche transversale api.europeana.eu/fulltext/search.json (paramètres query/profile de la doc, aucune clé annoncée : « You don't need an API key for this API! »).",
+  "endpoints": [
+    {"id": "iiif-annopage", "method": "GET", "url": "https://iiif.europeana.eu/presentation/9200396/BibliographicResource_3000118436165/annopage/0090019?lang=fr", "save_body": 20000},
+    {"id": "iiif-search-item", "method": "GET", "url": "https://iiif.europeana.eu/presentation/9200396/BibliographicResource_3000118436165/search?q=paris"},
+    {"id": "fulltext-search", "method": "GET", "url": "https://api.europeana.eu/fulltext/search.json?query=fulltext%3Aparis&profile=minimal"}
+  ]
+}

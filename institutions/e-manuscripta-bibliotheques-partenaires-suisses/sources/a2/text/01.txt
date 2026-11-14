@@ -1,0 +1,153 @@
+e-manuscripta OAI | ZB Data Map 
+ Direkt zum Hauptinhalt 
+ ZB Data Map 
+ Alle anzeigen 
+ Suchen 
+ Bücher 
+ Anmelden 
+ Info
+ Inhalt
+ Details
+ Version #17
+ Erstellt: vor 4 Jahren von Team Bibliotheksinformatik 
+ Zuletzt aktualisiert: vor 3 Monaten von Team Bibliotheksinformatik 
+ Aktionen
+ Versionen 
+ Exportieren 
+ HTML-Datei .html 
+ PDF-Datei .pdf 
+ Textdatei .txt 
+ Markdown-Datei .md 
+ Schnittstellentyp 
+ OAI 
+ Schnittstellentyp 
+ offen 
+ Schnittstellentyp 
+ Volltext 
+ Seitennavigation
+ OAI-Sets 
+ ZB-Sets 
+ emanuszuz 
+ emanuszuzneb 
+ emanuszuzcmi 
+ doi 
+ Verfügbare Metadaten-Formate 
+ Abfrage-Beispiele 
+ e-manuscripta Volltexte 
+ Buchnavigation
+ Data Map der Zentralbibliothek Zürich
+ Überblick
+ 2 Seiten 
+ Über die Data Map
+ Systemübersicht
+ Systeme und Schnittstellen
+ 26 Seiten 
+ Alma und PrimoVE
+ Alma Linked Data
+ Alma OAI (limitiert)
+ Alma SRU
+ Alma - Digitale Repräsentationen und IIIF
+ Alma REST API (geschlossen)
+ Primo REST API Search (geschlossen)
+ e-codices
+ e-manuscripta und e-rara
+ e-manuscripta IIIF
+ e-manuscripta OAI
+ e-manuscripta SRU
+ e-rara IIIF
+ e-rara OAI
+ e-rara SRU
+ Graphikportal
+ Kartenportal
+ Memobase
+ swisscollections
+ ZBcollections (CMI STAR)
+ ZBcollections OAI
+ ZBcollections SRU
+ ZORA
+ Zurich Open Platform (ZOP, DSpace) OAI
+ Zurich Open Platform (ZOP, DSpace) REST
+ Zurich Open Platform (ZOP, DSpace) IIIF
+ Technologien
+ 3 Seiten 
+ International Image Interoperability Framework (IIIF)
+ Open Archives Initiative Protocol for Metadata Harvesting (OAI-PMH)
+ Search/Retrieve via URL (SRU)
+ Hilfsmittel
+ 1 Seite 
+ Jupyter-Notebooks der Zentralbibliothek Zürich
+ Bücher 
+ Data Map der Zentralbi...
+ Systeme und Schnittste...
+ e-manuscripta OAI
+ e-manuscripta OAI
+ Basis-URL:
+ https://www.e-manuscripta.ch/oai?
+ OAI-Sets
+ Komplette Liste der verfügbaren Sets:
+ https://www.e-manuscripta.ch/oai?verb=ListSets 
+ Jede Kollektion im e-manuscripta-GUI wie z.B. "Karten", "Briefe", "Bilder" hat im Hintergrund ein gleichnamiges OAI-Set (in lowercase, z.B. "karten"). Jede Kollektion hat eine eigene VLID (Systemnummer).
+ ZB-Sets
+ Neben den auch via GUI verfügbaren Kollektionen gibt es weitere OAI-Sets, die sich durch ihre Herkunft definieren. Für die ZB gibt es drei solche Sets.
+ emanuszuz
+ Enthält Handschriften (z.B. Einzelbriefe), die in Alma erschlossen werden oder aus der Aleph-Handschriftendatenbank EBI04 migriert wurden: ZB-Ressourcen aus den Kollektionen "Briefe", "Texte" und "Varia".
+ emanuszuzneb
+ Enthält Ressourcen, die in Alma erschlossen werden oder aus der bibliographischen Datenbank Aleph EBI01 migriert wurden: Alle digitalisierten ZB-Karten der Kollektion "Karten" sowie den Grossteil der digitalisierten ZB-Bilder aus der Kollektion "Bilder" (Bilder, die in der Graphischen Sammlung erschlossen wurden).
+ emanuszuzcmi
+ Enthält Einzeldokumente aus Nachlässen, die in CMI Star erschlossen werden (Briefe, Bilder etc.).
+ doi
+ https://www.e-manuscripta.ch/oai/?verb=ListRecords&metadataPrefix=oai_dc&set=doi 
+Set wird zum Import der Daten aus E-Manuscripta nach Primo / swisscovery verwendet.
+Anzeige aller importieren Daten aus E-Manuscripta in Primo:
+ https://uzb.swisscovery.ch/discovery/search?query=facet_source_code,contains,UZB_EManuscripta,AND&tab=LibraryCatalog&search_scope=MyInstitution&vid=41SLSP_UZB:UZB&mode=advanced 
+ Verfügbare Metadaten-Formate
+ https://www.e-manuscripta.ch/oai?verb=ListMetadataFormats 
+ Beispiel:
+ <metadataPrefix>oai_dc</metadataPrefix>
+ Abfrage-Beispiele
+ GetRecord (Identifier: VLID)
+ https://www.e-manuscripta.ch/oai?verb=GetRecord&metadataPrefix=oai_dc&identifier=3071845 
+ ListRecords
+ Nach Zeitraum:
+ https://www.e-manuscripta.ch/oai/?verb=ListRecords&metadataPrefix=oai_dc&set=emanuszuz&from=2021-09-01&until=2021-09-08 
+ Alternativer URL-Aufbau (siehe Set):
+https://www.e-manuscripta.ch/emanuszuz/oai/?verb=ListRecords&metadataPrefix=oai_dc&from=2021-08-23&until=2021-08-29
+ mit Resumption Token:
+ https://www.e-manuscripta.ch/emanuszuz/oai/?verb=ListRecords&resumptionToken=0x9a4e81f38f5a22a1a20daeee10ed1d0d-cursor_p_3D10_p_26from__p_3D2021-09-01T00_p_253A00_p_253A00Z_p_26metadataPrefix_p_3Doai_dc_p_26batch_size_p_3D11_p_26until_p_3D2021-09-09T23_p_253A59_p_253A59Z 
+ Nach Set:
+ https://www.e-manuscripta.ch/oai?verb=ListRecords&metadataPrefix=oai_dc&set=maps 
+ ListIdentifiers
+ https://www.e-manuscripta.ch/oai/?verb=ListIdentifiers&metadataPrefix=oai_dc&set=emanuszuzneb 
+ ListSets
+ https://www.e-manuscripta.ch/oai?verb=ListSets 
+mit Resumption Token:
+ https://www.e-manuscripta.ch/oai?verb=ListSets&resumptionToken=cursor_p_3D10_p_26batch_size_p_3D11 
+ ListMetadataFormats
+ https://www.e-manuscripta.ch/oai?verb=ListMetadataFormats 
+ e-manuscripta Volltexte
+ Transkribierte Volltexte sind im OAI-Record im METS-Format im mets:fileGrp-Element:
+ <mets:fileGrp USE="FULLTEXT"> 
+ Beispiel-Ausschnitt aus dem OAI-Record: 
+ https://www.e-manuscripta.ch/oai?verb=GetRecord&metadataPrefix=mets&identifier=1831287 :
+ <mets:fileGrp USE="FULLTEXT">
+ <mets:file MIMETYPE="text/xml" CREATED="2025-02-06T10:31:49.966700Z" ID="ALTO1831288">
+ <mets:FLocat xlink:href="https://www.e-manuscripta.ch/download/fulltext/alto3/1831288" LOCTYPE="URL"/>
+ </mets:file>
+ <mets:file MIMETYPE="text/html" CREATED="2025-01-31T17:03:29.517000Z" ID="HTML1831288">
+ <mets:FLocat xlink:href="https://www.e-manuscripta.ch/download/fulltext/html/1831288" LOCTYPE="URL"/>
+ </mets:file>
+ <mets:file MIMETYPE="text/xml" CREATED="2025-02-06T10:31:49.991200Z" ID="ALTO1831289">
+ <mets:FLocat xlink:href="https://www.e-manuscripta.ch/download/fulltext/alto3/1831289" LOCTYPE="URL"/>
+ </mets:file>
+ </mets:fileGrp>
+ Die beiden in mets:fileGrp verschachtelten Kind-Elemente mets:Flocat enthalten je einen Link zum Volltext - einmal in HTML und einmal in ALTO XML:
+ https://www.e-manuscripta.ch/zuz/download/fulltext/html/1831288 
+ https://www.e-manuscripta.ch/zuz/download/fulltext/alto3/1831288 
+Die Volltextseiten sind auch als hOCR verfügbar:
+ https://www.e-manuscripta.ch/zuz/download/fulltext/hocr/1831288 
+ Abschnittsauswahlmodus aktivieren 
+ Vorheriges
+ e-manuscripta IIIF 
+ Nächste
+ e-manuscripta SRU 
+ nach oben

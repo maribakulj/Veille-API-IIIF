@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="Description" content="Homepage of SACHA">
+    <link rel=icon type="image/ico" href=/logo/favicon/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/gui/bootstrap-tagsinput.css">
+    <link rel="stylesheet" href="/gui/headerAndFooter.css">
+    <link rel="stylesheet" href="/gui/index.css">
+
+    <title>SACHA</title>
+</head>
+<body>
+
+
+<div class="container-fluid full-screen-container">
+    <div id="pageTitle"></div><!--if this div element is empty element: "<div/>", it doesn't work-->
+
+    <div class="full-width infotext">
+        <div class="titletext">
+            ÖNB-API-IIIF enables you to view historical books, newspapers, postcards and create collections
+            with them.
+        </div>
+        <div>
+            The objects come from various digitization projects of the Austrian National Library:
+            ABO (Austrian Books Online), ANNO (Austrian Newspapers Online), AKON (Ansichtskarten Online).
+        </div>
+        <br>
+
+    </div>
+
+    <div class="container-fluid fill infotext">
+        <div class="row justify-content-around">
+            <div class="col-sm-5">
+                <a href="/gui/manifest.html" class="button-link btn onb-button btn-block btn-primary">IIIF Manifests</a>
+            </div>
+            <div class="col-sm-5">
+                <a href="/gui/collection.html" class="button-link btn onb-button btn-block btn-primary">IIIF Collections</a>
+            </div>
+        </div>
+
+        <hr>
+
+        <div class="titletext">
+            or view the <a href="/gui/demo.html">demo with examples.</a>
+        </div>
+
+    </div>
+    <div id="logoBar"></div><!--if this div element is empty element: "<div/>", it doesn't work-->
+
+</div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script src="/gui/bootstrap-tagsinput.min.js"></script>
+<script src="/gui/sacha.js"></script>
+
+</body>
+</html>

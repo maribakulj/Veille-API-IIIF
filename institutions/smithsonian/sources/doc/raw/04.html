@@ -1,0 +1,26 @@
+</head>
+<body>
+    <img src='https://www.si.edu/sites/default/themes/siedu/logo.svg'>
+    <h2>Smithsonian Open Access API Key Sign Up (data.gov)</h2>
+    <form action="/openaccess/signup/form" method="post">
+        <label>First Name:</label>
+        <input type="text" required id="first_name" name="first_name" value="" /><br/><br/>
+        
+        <label>Last Name:</label>
+        <input type="text" required id="last_name" name="last_name" value="" /><br/><br/>
+        
+        <label>Email:</label>
+        <input type="email" required id="email" name="email" value="" /><br/><br/>
+
+    <div class="visually-hidden">
+        <label for="website">If you are human, leave this blank:</label>
+        <input type="text" id="website" name="website" tabindex="-1" autocomplete="off" />
+    </div>
+
+    <!-- Time Trap Timestamp (in seconds) -->
+    <input type="hidden" id="formLoadTime" name="formLoadTime" value="1794620804"/>
+
+        <button type="submit">Submit</button>
+    </form>
+</body>
+</html>

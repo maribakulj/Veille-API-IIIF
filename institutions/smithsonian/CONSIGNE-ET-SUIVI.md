@@ -2,51 +2,51 @@
 
 - **Dossier** : `institutions/smithsonian/`  ·  **Classeur de référence** : GLAM-032  ·  **Pays** : États-Unis
 - **Statut d'institution** : active
-- **Dernière mise à jour du suivi** : (à renseigner à chaque modification)
+- **Dernière mise à jour du suivi** : 2026-11-14
 
 ## Suivi par étape (à cocher, avec justification et preuves)
 
 ### a) Documentation lue en entier
 > Toutes les pages de doc liées à l'API (développeurs, interfaces, conditions, FAQ, aide, mentions légales, robots.txt), téléchargées avec `scripts/fetch_doc.sh` (URL, date, SHA-256), lues en entier (`scripts/extract_text.py`).
 
-- [ ] **Pas fait**
-  - **Justification** : Passe antérieure non conforme à la méthode v2 (AUDIT-HAIKU.md) : à refaire. Le matériel déjà présent dans ce dossier est conservé comme historique.
-  - **Preuves** : 
+- [x] **Fait**
+  - **Justification** : Doc lue : apiDoc (api_data.js), docs EDAN, manuel api.data.gov, GitHub, registre AWS, robots.txt de 7 hôtes (registry.opendata.aws : DNS non résolu, noté) ; pages si.edu en 403 lues via Wayback (verbatim) et listées à vérifier à la main ; SHA-256 produits.
+  - **Preuves** : `institutions/smithsonian/sources/doc/SHA256SUMS`, `institutions/smithsonian/sources/doc2/SHA256SUMS`, `institutions/smithsonian/sources/doc3/SHA256SUMS`, `institutions/smithsonian/sources/wayback/devtools.md`
 
 ### b) Endpoints tirés de la doc
 > Liste des endpoints citée par la doc (URL, exemples). Jamais devinée. Une interdiction ou une impossibilité écrite dans la doc justifie de renoncer (citer la phrase).
 
-- [ ] **Pas fait**
-  - **Justification** : Passe antérieure non conforme à la méthode v2 (AUDIT-HAIKU.md) : à refaire. Le matériel déjà présent dans ce dossier est conservé comme historique.
-  - **Preuves** : 
+- [x] **Fait**
+  - **Justification** : Endpoints tirés de api_data.js (5 routes api.si.edu, clé requise), du registre AWS (index S3) et du dépôt GitHub : statut teste ou non_teste avec raison dans data.json.
+  - **Preuves** : `institutions/smithsonian/data.json`, `institutions/smithsonian/sources/doc2/raw/02.html`
 
 ### c) Configuration écrite AVANT les tests
 > `config/<nom>.json` pilote `scripts/probe.py`, committée avant le lancement. Un endpoint absent de la doc mais non interdit se teste avec un script poli (identifiants issus de pages publiques ou d'exemples de la doc, pas de devinette).
 
-- [ ] **Pas fait**
-  - **Justification** : Passe antérieure non conforme à la méthode v2 (AUDIT-HAIKU.md) : à refaire. Le matériel déjà présent dans ce dossier est conservé comme historique.
-  - **Preuves** : 
+- [x] **Fait**
+  - **Justification** : Session ancienne archivée dans tests/archive puis rejouée : configuration smithsonian-v2-passe1.json committée avant lancement, 6 s de pause, GET seulement, sans clé ; configuration de crash préparée.
+  - **Preuves** : `institutions/smithsonian/config/smithsonian-v2-passe1.json`, `institutions/smithsonian/tests/archive/journal-sessions-avant-config-committee.log`
 
 ### d) Quota cherché dans la doc
 > Pour chaque page lue : endpoint de statut, en-têtes de limite documentés, clé ou compte donnant un quota, contact pour un volume plus élevé. Chaque réponse cite sa source.
 
-- [ ] **Pas fait**
-  - **Justification** : Passe antérieure non conforme à la méthode v2 (AUDIT-HAIKU.md) : à refaire. Le matériel déjà présent dans ce dossier est conservé comme historique.
-  - **Preuves** : 
+- [x] **Fait**
+  - **Justification** : Quota cherché dans chaque source : aucun chiffre Smithsonian ; chiffres api.data.gov (1 000/h, DEMO_KEY 30/h 50/j, en-têtes X-RateLimit-*, 429) cités ; contact openaccess@si.edu ; conclusion dans fiche.md.
+  - **Preuves** : `institutions/smithsonian/fiche.md`, `institutions/smithsonian/sources/doc/text/11.txt`
 
 ### e) Test systématique de chaque endpoint
 > Chaque endpoint documenté est testé (budget 15 requêtes par passe, pause ≥ 6 s, GET/HEAD, UA du projet). Redirections du même hôte suivies. Un 403 arrête son hôte, un 429 arrête l'institution. Seules les interdictions écrites dans la doc dispensent de tester.
 
-- [ ] **Pas fait**
-  - **Justification** : Passe antérieure non conforme à la méthode v2 (AUDIT-HAIKU.md) : à refaire. Le matériel déjà présent dans ce dossier est conservé comme historique.
-  - **Preuves** : 
+- [x] **Fait**
+  - **Justification** : 4 requêtes de sonde : S3 index 200 ; api.si.edu/stats sans clé 403 API_KEY_MISSING (refus faute de clé, hôte arrêté par la sonde) ; search et terms non lancés ; routes à clé non_teste avec raison ; aucun 429.
+  - **Preuves** : `institutions/smithsonian/tests/journal.log`, `institutions/smithsonian/tests/raw/api-stats-sans-cle.headers.txt`
 
 ### f) Ce que disent les gens sur le web
 > Plaintes, discussions, présentations de l'institution, politique envers les API et les bots, blogs, GitHub, forums, listes de diffusion. Sources étiquetées (officielle / institution / utilisateur / tiers), lues, citées.
 
-- [ ] **Pas fait**
-  - **Justification** : Passe antérieure non conforme à la méthode v2 (AUDIT-HAIKU.md) : à refaire. Le matériel déjà présent dans ce dossier est conservé comme historique.
-  - **Preuves** : 
+- [x] **Fait**
+  - **Justification** : 4 recherches web (une par catégorie) ; billet de lancement 2020 et conditions d'usage lus via Wayback ; article tiers dev.to lu ; utilisateurs et tickets sans résultat, requêtes consignées.
+  - **Preuves** : `institutions/smithsonian/data.json`, `institutions/smithsonian/sources/wayback/21st-century-diffusion.md`
 
 ### g) Crash test progressif
 > Seulement après l'audit complet (a à f) de toutes les institutions et avec l'accord de Marcel : paliers jusqu'à 2 × la limite documentée, ou 200 req/min si illimité ou sans limite documentée. Arrêt au premier 429/403/CAPTCHA.
@@ -60,8 +60,8 @@
 
 <!-- AUTO:DEBUT -->
 ## Contrôles automatiques (calculés depuis `tests/journal.log`)
-- Requêtes enregistrées : **1** (sessions de sonde : 1, maximum par session : 1)
-- Plus courte pause vers un même hôte : **—** (règle : ≥ 6 s)
+- Requêtes enregistrées : **4** (sessions de sonde : 1, maximum par session : 4)
+- Plus courte pause vers un même hôte : **8 s** (règle : ≥ 6 s)
 - Méthodes utilisées : GET (règle : GET/HEAD seulement)
 - Anomalies : aucune
 <!-- AUTO:FIN -->
@@ -352,4 +352,7 @@ Le verrou agit : (a) **au lancement** des outils officiels (`probe.py`, `crash.p
 - **Politesse partagée** (`scripts/hostlock.py`, registre `~/.veille-state`) : ≥ 6 s entre deux requêtes vers un même hôte, tous agents confondus ; au plus 30 requêtes/min au total ; un crash test (verrou exclusif) suspend tout autre trafic.
 - **Intégration** par le coordinateur seulement : `python3 scripts/integrer_lot.py <ID> [--push]` (périmètre, fusion sans commit, validation globale, régénération du classeur ; fusion annulée si un contrôle échoue).
 - Limites connues : un `curl` direct ou une copie locale modifiée de `scripts/` par un agent n'est pas empêché techniquement ; le commit ne peut pas porter ces modifications, et l'intégration revérifie le périmètre.
+
+## Données personnelles (14/11/2026)
+Le dépôt GitHub est **public**. Aucune donnée personnelle de Marcel (adresse IP) ne doit y figurer. Les valeurs sensibles sont listées dans `~/.veille-state/secrets.txt` (hors dépôt) : le hook de commit refuse tout commit qui les ajoute ; `probe.py` et `fetch_doc.sh` les remplacent par « [IP retirée] » dans les fichiers qu'ils produisent. Certains serveurs renvoient l'IP du client dans un en-tête (ex. `x-mps-client-ip`).
 <!-- CONSIGNE:FIN -->

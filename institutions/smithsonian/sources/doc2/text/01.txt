@@ -1,0 +1,35 @@
+define({
+ "name": "Smithsonian Institution Open Access API",
+ "version": "1.0.0",
+ "description": "API documentation",
+ "title": "Documentation",
+ "url": "https://api.si.edu/openaccess",
+ "sampleUrl": "https://api.si.edu/openaccess",
+ "header": {
+ "title": "Open Access API",
+ "content": " Using the Services.
+\n The Open Access API requires an API key to access the endpoints.\nPlease register with https://api.data.gov/signup/ to get a key.
+\n General Information
+\n More information about the data repository and how to use the API can be found at https://edan.si.edu/openaccess/docs/ 
+\n Click here to learn more about the Open Access Initiative at the Smithsonian 
+\n"
+ },
+ "footer": {
+ "title": "Smithsonian Institution",
+ "content": " Smithsonian Institution Office of the Chief Information Officer
+\n Terms of Use 
+\n"
+ },
+ "template": {
+ "withCompare": false,
+ "withGenerator": true
+ },
+ "defaultVersion": "0.0.0",
+ "apidoc": "0.3.0",
+ "generator": {
+ "name": "apidoc",
+ "time": "2021-06-08T12:58:54.139Z",
+ "url": "http://apidocjs.com",
+ "version": "0.17.7"
+ }
+});

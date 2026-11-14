@@ -1,0 +1,14 @@
+{
+  "slug": "smithsonian",
+  "min_delay_s": 6,
+  "max_requests": 15,
+  "follow_redirects": 1,
+  "robots_disallow_autorise_par_marcel": true,
+  "note": "Passe 1 (rejeu conforme de la session archivee du 2026-11-13T21:07:54Z, lancee avant le commit de sa configuration) : index S3 public des metadonnees (depot GitHub Smithsonian/OpenAccess et registre AWS) ; routes de l'API api.si.edu/openaccess/api/v1.0 decrites par https://edan.si.edu/openaccess/apidocs/api_data.js (stats, search, terms/:category) appelees SANS cle (aucune cle utilisee ni demandee) pour lire la reponse reelle et ses en-tetes. content/:id et category/:cat/search non appelees dans cette passe : content demande un identifiant d'objet que seule une reponse avec cle fournit.",
+  "endpoints": [
+    {"id": "s3-metadata-index-edan", "method": "GET", "url": "https://smithsonian-open-access.s3-us-west-2.amazonaws.com/metadata/edan/index.txt"},
+    {"id": "api-stats-sans-cle", "method": "GET", "url": "https://api.si.edu/openaccess/api/v1.0/stats"},
+    {"id": "api-search-sans-cle", "method": "GET", "url": "https://api.si.edu/openaccess/api/v1.0/search?q=bird&rows=1"},
+    {"id": "api-terms-culture-sans-cle", "method": "GET", "url": "https://api.si.edu/openaccess/api/v1.0/terms/culture"}
+  ]
+}

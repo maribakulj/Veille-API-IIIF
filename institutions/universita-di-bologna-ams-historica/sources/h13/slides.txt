@@ -1,0 +1,189 @@
+AMS Historica
+la migrazione al nuovo AMS Historica e il modello
+funzionale e dei dati
+
+
+Piero Grandesso
+23 ottobre 2023
+ARPAC – Settore Gestione e sviluppo della biblioteca digitale di
+Ateneo – AlmaDL
+Intro
+scaletta di oggi
+09:30–
+         Introduzione e saluti
+09:40
+09:40–   [P] La migrazione al nuovo AMS Historica e il modello
+10:30    funzionale e dei dati
+10:30–
+10:45
+         pausa   ☕
+10:45–   [C] La fruizione di AMS Historica: metadati e nameform,
+12:00    ricerca e navigazione avanzata
+12:00–
+12:15
+         pausa   ☕
+12:15–   [G] Il framework e i viewer IIIF, il workflow per la consegna
+13:30    dei materiali e le linee guida tecniche
+primo intervento
+ il vecchio AMS Historica
+     interfaccia e fruizione
+     modello dei dati
+     formato delle immagini (delivery)
+     modello gestionale
+ il nuovo AMS Historica e DSpaceGLAM
+     caratteristiche di base
+     modello dati
+ la migrazione
+     valorizzazione
+     messa in sicurezza
+Il vecchio AMS Historica
+amshistorica.unibo.it (2003/4-2023)
+ (oppure 202[34]-2023   😁)
+ diglib.cib.unibo.it → amshistorica.cib.unibo.it →
+ amshistorica.unibo.it
+ ora:
+ amshistorica.unibo.it
+una onorata carriera!
+
+
+
+
+               buon pensionamento!
+criticità
+ interfaccia e fruizione
+ modello dei dati
+ formato delle immagini (delivery)
+ modello gestionale
+interfaccia e fruizione – limiti
+ sito non responsive
+ accesso per indici statici (collezioni, autori/titoli/testate), nessuna
+ modalità di ricerca
+ presentazione dei metadati poco… immediata
+interfaccia e fruizione – desiderata
+ responsiveness dell’interfaccia
+ (senza esagerare)
+
+ più canali di accesso inclusi motore di ricerca, faccette, ricerche avanzate
+ metadati ricchi e contestuali all’opera
+modello dei dati – limiti
+ opere descritte a livello di testata, non di volume
+ Dublin Core semplice
+ nessuna standardizzazione, né Authority File, né vocabolario controllato
+ set di metadati unico per qualsiasi tipologia di materiale
+ PICO (chi/cosa/quando) per Cultura Italia – utile per entrare in
+ Europeana – ma null’altro
+ nessun metadato gestionale e nessuna informazione sui file (MAG?)
+modello dei dati – Dublin Core non qualificato
+* = obbligatorio                 Disseminazione tramite OAI-PMH,
+$ = multilingua (it + en + ar)   solo in lingua italiana (e con description
+                                 breve)
+
+*$ dc_title                        dc_identifier
+ $ dc_creator                      dc_source
+ $ dc_subject                      dc_language
+ $ dc_description (blob!)          dc_relation
+   dc_contributor                  dc_coverage
+   dc_publisher                  * dc_rights
+   dc_date                       * pico_chi
+   dc_type                       * pico_cosa
+   dc_format                     * pico_quando
+modello dei dati – desiderata
+ set di metadati specifici per ciascuna tipologia di opera o collezione
+ Dublin Core qualificato (maggiore granularità)
+ standardizzazione, identificatori
+ disseminazione e interoperabilità (e LOD)
+ multilinguismo
+formato di delivery – limiti
+ djvu x l’alta risoluzione e l’ocr (RIP ✝2005)
+ jpeg a bassa risoluzione
+ (prima 800px di larghezza, poi a 1440px…)
+ watermark ☠
+ condivisione:
+   pro: immagine statica integrabile con URL esplicita per incorporazione
+   contro: condivisione della sola immagine singola, non di opera
+   sfogliabile
+formato di delivery – desiderata
+
+
+
+
+            alta risoluzione
+            sfogliare un’opera agevolmente
+            servizi accessori (OCR etc)
+            interoperabilità
+modello gestionale – limiti
+ inserimento e aggiornamento nuove opere vincolato a IT
+ struttura poco flessibile
+ preservazione, un problema che richiede metodo, continuità (e soldi)
+modello gestionale – desiderata
+ autonomia nel caricamento, aggiornamento e correzione
+ struttura estensibile
+ preservazione e controllo dei file master
+Il nuovo (AMS) Historica
+DSpace+CRIS / DSpaceGLAM
+ repository DSpace
+ (open source, affidabilità, scalabilità, gestione e archiviazione oggetti)
+
+ + modulo CRIS
+ (dal 2009, una estensione del data model per includere le entità della ricerca e le loro
+ relazioni: autori, istituzioni, luoghi etc.; data model flessibile ed espandibile)
+
+ + GLAM
+ (vari add-on per il Cultural Heritage)
+DSpaceGLAM
+data model flessibile e con entità
+metadati tecnici e strutturali
+connessione a vocabolari controllati
+predisposizione per i LOD
+IIIF server e viewer
+OCR etc
+audio e video
+sistema di submission delle opere (SIP)
+OAIS + METS+PRISM x l’archiviazione
+DSpaceGLAM – modello dati
+ item → bitstream (bundle con vari asset + OCR etc) + metadati (x
+ tipologia)
+ collezioni → item di comune tipologia
+ entità → concetti che estendono i metadati e generano relazioni
+    persone
+    luoghi
+    fondi
+    testate
+    …
+La migrazione
+un inizio Byzzarro
+BYZART: arte bizantina, da Omeka a DSpaceGLAM
+ 76273 item! (immagini singole, 2002 audio, 52 video)
+ 30 fondi/raccolte eterogenee
+ metadati in EDM
+ bazilione di ore per pulire i metadati
+recupero e cura dei master
+ individuazione file master nell’archivio, corruzioni e lacune
+ sistemazione nomenclatura e metadati strutturali
+ integrazione file
+arricchimento dei metadati
+ Dublin Core qualificato ed esteso per tipologia/collezione
+ adozione identificatori / vocabolari controllati / standard ISO / authority
+ file
+ pulizia complessiva…
+ OpenRefine!
+workflow semiautomatico
+  modello a pipeline
+  script in bash per automatizzare il più possibile
+1) recupero file                           4A) generazione formato delivery e pacchetto
+2) generazione preview e verifica stato    SIP
+dell’opera                                 4B) generazione pacchetto di archiviazione
+3) sistemazione nomi dei file e metadati   5A) caricamento pacchetto SIP
+strutturali                                5B) archiviazione pacchetto master
+3 bis) generazione TOC (se possibile)
+Fine!
+Piero Grandesso
+ARPAC – Settore Gestione e sviluppo della biblioteca digitale di Ateneo – AlmaDL
+
+piero.grandesso2@unibo.it
+
+
+
+
+                                        www.unibo.it
+

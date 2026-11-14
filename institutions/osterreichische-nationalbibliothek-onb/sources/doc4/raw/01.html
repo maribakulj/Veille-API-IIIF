@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    
+
+    <title>ONB Labs - Machine Learning and IIIF</title>
+    <link rel="shortcut icon" href="/static/img/favicon.png"/>
+    <link rel="canonical" href="https://labs.onb.ac.at/topic/iiif-jupyter/" />
+    
+    <link rel="alternate" hreflang="de" href="https://labs.onb.ac.at/de/topic/iiif-jupyter/" />
+    
+    <link rel="alternate" hreflang="en" href="https://labs.onb.ac.at/en/topic/iiif-jupyter/" />
+    
+
+    <script>
+        window.labs_csrf_token = "52f6eb54-b430-4d75-a4c9-0580bfdef376";
+    </script>
+
+    
+
+    
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inconsolata">
+    <style type="text/css">
+    @font-face{
+        font-family: 'Karmilla';
+        src: url('/static/css/karmilla-regular-webfont.eot');
+        src: url('/static/css/karmilla-regular-webfont.woff2') format('woff2'),
+             url('/static/css/karmilla-regular-webfont.woff') format('woff'),
+             url('/static/css/karmilla-regular-webfont.ttf') format('truetype');
+        font-weight: normal;
+        font-style: normal;
+    }
+    @font-face{
+        font-family: 'Karmilla';
+        src: url('/static/css/karmilla-bold-webfont.eot');
+        src: url('/static/css/karmilla-bold-webfont.woff2') format('woff2'),
+             url('/static/css/karmilla-bold-webfont.woff') format('woff'),
+             url('/static/css/karmilla-bold-webfont.ttf') format('truetype');
+        font-weight: bold;
+        font-style: normal;
+    }
+    </style>
+
+    
+    <link rel="stylesheet" type="text/css" href="/static/css/bootstrap.min.css"/>
+    
+    <link rel="stylesheet" type="text/css" href="/static/css/labs_201910a.css"/>
+    <link rel="stylesheet" type="text/css" href="/static/css/special-pages.css"/>
+    
+      
+    
+
+    
+      
+    
+    
+    
+    
+      <!-- Matomo -->
+      <script>
+        var _paq = window._paq = window._paq || [];
+        /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
+        _paq.push(['trackPageView']);
+        _paq.push(['enableLinkTracking']);
+        (function() {
+          var u="https://analytics.onb.ac.at/";
+          _paq.push(['setTrackerUrl', u+'matomo.php']);
+          _paq.push(['setSiteId', '12']);
+          var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+          g.async=true; g.src=u+'matomo.js'; s.parentNode.insertBefore(g,s);
+        })();
+      </script>
+      <noscript><p><img referrerpolicy="no-referrer-when-downgrade" src="https://analytics.onb.ac.at/matomo.php?idsite=12&rec=1" style="border:0;" alt="" /></p></noscript>
+      <!-- End Matomo Code -->
+    
+</head>
+<body>
+
+<div id="lightbox-background">
+    <div id="lightbox-content">
+
+
+    </div>
+</div>
+
+<script src="/static/js/labs-lightbox.js"></script>
+
+
+
+
+
+<header>
+    <nav class="navbar navbar-expand-md navbar-light fixed-top p-0 pb-md-0 pt-md-2 px-md-3">
+        <a href="/en/" class="navbar-brand mx-3 ml-md-0 mr-md-3">
+            <svg id="Ebene_1" data-name="Ebene 1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 100 100"><defs><style>.cls-1{fill:none;}.cls-2{clip-path:url(#clip-path);}.cls-3</style><clipPath id="clip-path" transform="translate(0)"><rect class="cls-1" width="100" height="100"/></clipPath></defs><title>ONB Labs</title><g class="cls-2"><path class="cls-3" d="M49.54,78.94a1.2,1.2,0,0,1-.74-1.11v-15h-15a1.23,1.23,0,0,1-.85-.35,1.21,1.21,0,0,1-.35-.85V25a1.2,1.2,0,0,1,1.2-1.2H66.25a1.2,1.2,0,0,1,1.2,1.2V61.59a1.22,1.22,0,0,1-.35.85L50.85,78.68a1.21,1.21,0,0,1-1.31.26M50,100A50,50,0,1,0,0,50a50,50,0,0,0,50,50" transform="translate(0)"/></g></svg>
+
+            <div class="labs-doodle m-0 p-0 d-md-none">
+                <span class="light fine title_text_1">&lt;!--</span><!--
+            --><span class="light heavy title_text_2">ONB</span><!--
+            --><span class="light fine title_text_3">.</span><!--
+            --><span class="dark  heavy title_text_4">Labs</span><!--
+            --><span class="light fine title_text_5">--></span>
+            </div>
+        </a>
+        <button class="navbar-toggler collapsed mx-3 mr-md-0 ml-md-3" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-link"><a class="nav-link" href="/en/">Home</a></li>
+                <li class="nav-link"><a class="nav-link" href="/en/datasets/">Data Sets</a></li>
+                <li class="nav-link"><a class="nav-link" href="/en/tools/">Tools</a></li>
+                <li class="nav-link"><a class="nav-link" href="/en/tutorials/">Tutorials</a></li>
+                <li class="nav-link"><a class="nav-link" href="/artspace">Artspace</a></li>
+                <li class="nav-link"><a class="nav-link" href="/en/contribute/">Contribute</a></li>
+                <li class="nav-link"><a class="nav-link" href="/en/glossary/">Glossary</a></li>
+            </ul>
+            <span class="language-selector nav-link">
+                
+                    <a href="/de/topic/iiif-jupyter/">de</a>
+                    <a href="/en/topic/iiif-jupyter/" class="selected">en</a>
+                
+            </span>
+            <span id="user-menu" class="mt-0 nav-link">
+                
+                <a class="" style="min-width: 60px;" href="/en/login/">
+                    <button class="btn my-2 my-sm-0 logged-out" type="submit">login</button>
+                </a>
+                
+            </span>
+        </div>
+    </nav>
+</header>
+
+<div id="toast-container">
+    <span></span>
+</div>
+
+
+<main>
+
+
+    
+    
+    <div class="container">
+    
+        <section class="subsection" id="introduction" >
+            
+            
+            <h1>Machine Learning and IIIF</h1>
+            
+            
+
+            
+                
+                    <section class="sub-text"><p>Within the CLARIAH-AT project “IIIF and Machine Learning,” three use cases were developed to illustrate the application of machine learning to library datasets. Access to these datasets is facilitated using the International Image Interoperability Framework (IIIF), a widely adopted standard for delivering digital objects. This ensures that the developed applications can also be utilized for resources beyond the Austrian National Library.</p>
+</section>
+                
+            
+        </section>
+    </div>
+    
+    
+    <div class="container">
+    
+        <section class="subsection" id="topic-a" >
+            
+            
+            <h2>Topic A: Colorization of black and white images</h2>
+            
+            
+
+            
+                
+                    <section class="sub-text"><p>This <a href="https://labs.onb.ac.at/gitlab/a.rabensteiner/apply_postcards_colorizer">Jupyter notebook</a> utilizes a pretrained model for colorizing black and white images. As an example, the model is applied to a random postcard from the AKON collection. Access to this collection is provided through the link to the corresponding IIIF Collection, allowing the integration of various other collections as well.<br />
+Additionally, a <a href="https://labs.onb.ac.at/gitlab/a.rabensteiner/train_postcard_colorizer">notebook</a> has been developed that enables users to create their own colorization model using transfer learning. The specification of training data is done through a IIIF Collection. (Note that a GPU is required for reasonable training duration.)</p>
+
+<p><a href="/static/img/topics/iiif-jupyter/example_postcards.png"><img src="/static/img/topics/iiif-jupyter/example_postcards.png" alt="Four AKON postcards colored by the Siggraph17 model" /></a></p>
+</section>
+                
+            
+        </section>
+    </div>
+    
+    
+    <div class="container">
+    
+        <section class="subsection" id="topic-b" >
+            
+            
+            <h2>Topic B: Extraction of figures from books</h2>
+            
+            
+
+            
+                
+                    <section class="sub-text"><p>Another <a href="https://labs.onb.ac.at/gitlab/a.rabensteiner/extract_figures_abo">notebook</a> focuses on the detection and extraction of figures from various sources. The model used for identifying the figures is <a href="https://github.com/ultralytics/ultralytics">YOLOv8</a>. Six books from the ABO collection were annotated and subsequently used for further training of the model. The digital object from which the figures are to be extracted can be addressed via the link to the corresponding IIIF Manifest, allowing the application to be used on resources beyond the Austrian National Library (ÖNB).</p>
+
+<p><a href="/static/img/topics/iiif-jupyter/example_figureextraction.png"><img src="/static/img/topics/iiif-jupyter/example_figureextraction.png" alt="Example of extracted figures from books from the ABO corpus" /></a></p>
+</section>
+                
+            
+        </section>
+    </div>
+    
+    
+    <div class="container">
+    
+        <section class="subsection" id="topic-c" >
+            
+            
+            <h2>Topic C: Classification of figures</h2>
+            
+            
+
+            
+                
+                    <section class="sub-text"><p>An <a href="https://labs.onb.ac.at/gitlab/a.rabensteiner/resnet18_classifier_gradio">application</a> in Gradio (UI framework for machine learning applications) has been created, allowing the user to apply a model for image classification by specifying a IIIF manifest for the included images. The application utilizes the pretrained <a href="https://huggingface.co/Axon/resnet18-v1">Resnet18</a> model, capable of recognizing 1000 predefined classes of everyday objects. However, for most sources in the library domain, the application yields poor results. Nevertheless, it can be useful for specific manifests or when using a different model.</p>
+
+<p><a href="/static/img/topics/iiif-jupyter/example_gradio.png"><img src="/static/img/topics/iiif-jupyter/example_gradio.png" alt="Example of classification of figures with Resnet18 model" /></a></p>
+</section>
+                
+            
+        </section>
+    </div>
+    
+    
+    <div class="container">
+    
+        <section class="subsection" id="technologies" >
+            
+            
+            <h2>Technologies</h2>
+            
+            
+
+            
+                
+                    <section class="sub-text"><p>The developed applications use the machine learning libraries <a href="https://pytorch.org/">PyTorch</a> and <a href="https://www.ultralytics.com/">Ultralytics</a> (for the YOLOv8 model). For ease of handling and reusability, Jupyter Notebooks and Gradio components were employed. As a byproduct of the work, a small Python library was created, providing functions for querying, downloading, and annotating IIIF manifests and collections. This library is included with each of the applications and can serve as a foundation for future experiments with IIIF resources.</p>
+</section>
+                
+            
+        </section>
+    </div>
+    
+    
+    <div class="container">
+    
+        <section class="subsection" id="funding" >
+            
+            
+            <h2>Dissemination & Funding</h2>
+            
+            
+
+            
+                
+                    <section class="sub-text"><p>GitLab link to notebooks: <a href="https://labs.onb.ac.at/gitlab/explore/projects/topics/CLARIAH-AT">https://labs.onb.ac.at/gitlab/explore/projects/topics/CLARIAH-AT</a><br />
+CLARIAH-AT project page: <a href="https://clariah.at/iiif-suite/">https://clariah.at/iiif-suite/</a><br />
+GLAM Labs community: <a href="https://glamlabs.io/computational-access-to-digital-collections/">https://glamlabs.io/computational-access-to-digital-collections/</a><br />
+BVMC.Labs: <a href="https://data.cervantesvirtual.com/glam-jupyter-notebooks">https://data.cervantesvirtual.com/glam-jupyter-notebooks</a></p>
+
+<p>This work was made possible through financial support from <a href="https://clariah.at/">CLARIAH-AT</a></p>
+
+<p><img src="/static/img/topics/iiif-jupyter/clariah_logo.png" alt="Clariah Logo" /></p>
+</section>
+                
+            
+        </section>
+    </div>
+    
+
+
+</main>
+
+
+<footer class="container-fluid">
+    <section class="upper">
+        <div class="container p-0 my-0">
+            <ul class="row d-inline-block d-sm-flex">
+                <li class="col-md-3 col-lg-2 m-a-substitution"><a href="mailto:labs 'at' onb 'dot' ac 'dot' at">Contact us<noscript>: labs 'at' onb 'dot' ac 'dot' at</noscript></a></li>
+                <li class="col-md-3 col-lg-3 "><a href="/en/about/">About</a></li>
+                <li class="col-md-3 col-lg-2 logo d-none d-sm-flex"><a href="https://www.onb.ac.at" style="display: block; margin: auto;"><img alt="Logo Austrian National Library" src="/static/img/onb-logo.png"/></a></li>
+            </ul>
+            <div class="row d-sm-none mt-2">
+                <div class="col"><a href="https://www.onb.ac.at" style="display: block; margin: auto;"><img alt="Logo Austrian National Library" src="/static/img/onb-logo.png"/></a></div>
+            </div>
+        </div>
+    </section>
+
+    <section class="lower">
+        <div class="container p-0 my-0">
+            <ul class="row d-inline-block d-sm-flex">
+                <li class="col-md-3 col-lg-2"><a href="/en/terms/">Terms Of Service</a></li>
+                <li class="col-md-3 col-lg-3"><a href="https://www.onb.ac.at/en/data-protection-information/">Data protection information</a></li>
+                <li class="col-md-3 col-lg-3"><a href="https://www.onb.ac.at/en/accessibility-declaration">Accessibility declaration</a></li>
+                <li class="col-md-3 col-lg-2"><a href="https://www.onb.ac.at/en/legal-notice">Legal notice</a></li>
+            </ul>
+        </div>
+    </section>
+</footer>
+
+
+
+    <script type="text/javascript" src="/static/js/jquery.min.js"></script>
+    <script type="text/javascript" src="/static/js/bootstrap.bundle.min.js"></script>
+
+<script type="text/javascript" src="/static/js/labs.js"></script>
+
+  
+
+
+
+
+</body>
+</html>

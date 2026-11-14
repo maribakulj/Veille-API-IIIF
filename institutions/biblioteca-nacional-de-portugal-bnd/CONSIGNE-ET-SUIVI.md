@@ -2,51 +2,51 @@
 
 - **Dossier** : `institutions/biblioteca-nacional-de-portugal-bnd/`  ·  **Classeur de référence** : GLAM-029  ·  **Pays** : Portugal
 - **Statut d'institution** : active
-- **Dernière mise à jour du suivi** : (à renseigner à chaque modification)
+- **Dernière mise à jour du suivi** : 2026-11-14
 
 ## Suivi par étape (à cocher, avec justification et preuves)
 
 ### a) Documentation lue en entier
 > Toutes les pages de doc liées à l'API (développeurs, interfaces, conditions, FAQ, aide, mentions légales, robots.txt), téléchargées avec `scripts/fetch_doc.sh` (URL, date, SHA-256), lues en entier (`scripts/extract_text.py`).
 
-- [ ] **Pas fait**
-  - **Justification** : Pas encore traitée : l'audit suit l'ordre du classeur de référence (une institution à la fois).
-  - **Preuves** : 
+- [x] **Fait**
+  - **Justification** : Toute la doc BND, portail Open Data, mentions légales, 2 présentations PDF et robots.txt de 9 hôtes téléchargés avec SHA-256 et lus ; aucune page de quota.
+  - **Preuves** : `institutions/biblioteca-nacional-de-portugal-bnd/sources/a1/SHA256SUMS`, `institutions/biblioteca-nacional-de-portugal-bnd/sources/a2/SHA256SUMS`, `institutions/biblioteca-nacional-de-portugal-bnd/sources/a3/SHA256SUMS`, `institutions/biblioteca-nacional-de-portugal-bnd/sources/a4/SHA256SUMS`, `institutions/biblioteca-nacional-de-portugal-bnd/sources/a5/SHA256SUMS`
 
 ### b) Endpoints tirés de la doc
 > Liste des endpoints citée par la doc (URL, exemples). Jamais devinée. Une interdiction ou une impossibilité écrite dans la doc justifie de renoncer (citer la phrase).
 
-- [ ] **Pas fait**
-  - **Justification** : Pas encore traitée : l'audit suit l'ordre du classeur de référence (une institution à la fois).
-  - **Preuves** : 
+- [x] **Fait**
+  - **Justification** : Familles listées depuis le portail Open Data (OAI-PMH, URN, PURL, bulk, Z39.50) et la page About, manifeste IIIF découvert via un identifiant public Biblissima puis services du manifeste ; non testés justifiés dans data.json.
+  - **Preuves** : `institutions/biblioteca-nacional-de-portugal-bnd/data.json`, `institutions/biblioteca-nacional-de-portugal-bnd/sources/a3/SHA256SUMS`
 
 ### c) Configuration écrite AVANT les tests
 > `config/<nom>.json` pilote `scripts/probe.py`, committée avant le lancement. Un endpoint absent de la doc mais non interdit se teste avec un script poli (identifiants issus de pages publiques ou d'exemples de la doc, pas de devinette).
 
-- [ ] **Pas fait**
-  - **Justification** : Pas encore traitée : l'audit suit l'ordre du classeur de référence (une institution à la fois).
-  - **Preuves** : 
+- [x] **Fait**
+  - **Justification** : Configurations bnd-passe1 et bnd-passe2 écrites et committées avant lancement ; config crash préparée.
+  - **Preuves** : `institutions/biblioteca-nacional-de-portugal-bnd/config/bnd-passe1.json`, `institutions/biblioteca-nacional-de-portugal-bnd/config/bnd-passe2.json`, `institutions/biblioteca-nacional-de-portugal-bnd/config/crash-oai-identify.json`
 
 ### d) Quota cherché dans la doc
 > Pour chaque page lue : endpoint de statut, en-têtes de limite documentés, clé ou compte donnant un quota, contact pour un volume plus élevé. Chaque réponse cite sa source.
 
-- [ ] **Pas fait**
-  - **Justification** : Pas encore traitée : l'audit suit l'ordre du classeur de référence (une institution à la fois).
-  - **Preuves** : 
+- [x] **Fait**
+  - **Justification** : Recherche de quota dans chaque page lue : aucune limite, aucun endpoint de statut, pas de clé (services sans authentification), contacts bndigital@ et OpendataBNP@ ; sources dans data.json.
+  - **Preuves** : `institutions/biblioteca-nacional-de-portugal-bnd/data.json`, `institutions/biblioteca-nacional-de-portugal-bnd/fiche.md`
 
 ### e) Test systématique de chaque endpoint
 > Chaque endpoint documenté est testé (budget 15 requêtes par passe, pause ≥ 6 s, GET/HEAD, UA du projet). Redirections du même hôte suivies. Un 403 arrête son hôte, un 429 arrête l'institution. Seules les interdictions écrites dans la doc dispensent de tester.
 
-- [ ] **Pas fait**
-  - **Justification** : Pas encore traitée : l'audit suit l'ordre du classeur de référence (une institution à la fois).
-  - **Preuves** : 
+- [x] **Fait**
+  - **Justification** : Toutes les familles HTTP testées en 2 passes (20 requêtes dont robots), 200/302, aucun en-tête de limite, un délai dépassé sur purl.pt documenté ; bulk et Z39.50 non testés avec raison.
+  - **Preuves** : `institutions/biblioteca-nacional-de-portugal-bnd/tests/journal.log`, `institutions/biblioteca-nacional-de-portugal-bnd/tests/raw/iiif-manifeste.headers.txt`, `institutions/biblioteca-nacional-de-portugal-bnd/tests/raw/oai-identify.headers.txt`
 
 ### f) Ce que disent les gens sur le web
 > Plaintes, discussions, présentations de l'institution, politique envers les API et les bots, blogs, GitHub, forums, listes de diffusion. Sources étiquetées (officielle / institution / utilisateur / tiers), lues, citées.
 
-- [ ] **Pas fait**
-  - **Justification** : Pas encore traitée : l'audit suit l'ordre du classeur de référence (une institution à la fois).
-  - **Preuves** : 
+- [x] **Fait**
+  - **Justification** : 4 catégories web couvertes : institution (2 pistes lues), presentations (DCMI 2021 lu), tickets et utilisateurs sans résultat avec requête, manifeste Biblissima lu en original.
+  - **Preuves** : `institutions/biblioteca-nacional-de-portugal-bnd/data.json`, `institutions/biblioteca-nacional-de-portugal-bnd/fiche.md`
 
 ### g) Crash test progressif
 > Seulement après l'audit complet (a à f) de toutes les institutions et avec l'accord de Marcel : paliers jusqu'à 2 × la limite documentée, ou 200 req/min si illimité ou sans limite documentée. Arrêt au premier 429/403/CAPTCHA.
@@ -60,7 +60,10 @@
 
 <!-- AUTO:DEBUT -->
 ## Contrôles automatiques (calculés depuis `tests/journal.log`)
-Aucune requête enregistrée dans `tests/journal.log`.
+- Requêtes enregistrées : **22** (sessions de sonde : 2, maximum par session : 14)
+- Plus courte pause vers un même hôte : **6 s** (règle : ≥ 6 s)
+- Méthodes utilisées : GET (règle : GET/HEAD seulement)
+- Anomalies : aucune
 <!-- AUTO:FIN -->
 
 ## Consigne intégrale
@@ -349,4 +352,7 @@ Le verrou agit : (a) **au lancement** des outils officiels (`probe.py`, `crash.p
 - **Politesse partagée** (`scripts/hostlock.py`, registre `~/.veille-state`) : ≥ 6 s entre deux requêtes vers un même hôte, tous agents confondus ; au plus 30 requêtes/min au total ; un crash test (verrou exclusif) suspend tout autre trafic.
 - **Intégration** par le coordinateur seulement : `python3 scripts/integrer_lot.py <ID> [--push]` (périmètre, fusion sans commit, validation globale, régénération du classeur ; fusion annulée si un contrôle échoue).
 - Limites connues : un `curl` direct ou une copie locale modifiée de `scripts/` par un agent n'est pas empêché techniquement ; le commit ne peut pas porter ces modifications, et l'intégration revérifie le périmètre.
+
+## Données personnelles (14/11/2026)
+Le dépôt GitHub est **public**. Aucune donnée personnelle de Marcel (adresse IP) ne doit y figurer. Les valeurs sensibles sont listées dans `~/.veille-state/secrets.txt` (hors dépôt) : le hook de commit refuse tout commit qui les ajoute ; `probe.py` et `fetch_doc.sh` les remplacent par « [IP retirée] » dans les fichiers qu'ils produisent. Certains serveurs renvoient l'IP du client dans un en-tête (ex. `x-mps-client-ip`).
 <!-- CONSIGNE:FIN -->

@@ -37,16 +37,16 @@
 ### e) Test systématique de chaque endpoint
 > Chaque endpoint documenté est testé (budget 15 requêtes par passe, pause ≥ 6 s, GET/HEAD, UA du projet). Redirections du même hôte suivies. Un 403 arrête son hôte, un 429 arrête l'institution. Seules les interdictions écrites dans la doc dispensent de tester.
 
-- [ ] **Pas fait**
-  - **Justification** : DÉCOCHÉE le 2026-11-14 (verrou renforcé) : 1 élément(s) de rattrapage_a_faire non traités | ancienne justification : Chaîne complète testée (4 passes, 5 requêtes de données) : 302, 301, puis 200 pour manifeste, info.json et dérivé ; aucun 429 ni en-tête de limite.
-  - **Preuves** : 
+- [x] **Fait**
+  - **Justification** : Chaîne complète testée en 4 passes (302, 301, 200 manifeste Primo, 200 info.json et dérivé Ex Libris) sans 429 ni en-tête de limite ; OAI-PMH/SRU non testés (URL absentes des sources de Gand) ; libraryguides.ugent.be non résolu en DNS, consigné.
+  - **Preuves** : `institutions/ghent-university-library/tests/journal.log`, `institutions/ghent-university-library/sources/d/FETCH.log`, `institutions/ghent-university-library/data.json`
 
 ### f) Ce que disent les gens sur le web
 > Plaintes, discussions, présentations de l'institution, politique envers les API et les bots, blogs, GitHub, forums, listes de diffusion. Sources étiquetées (officielle / institution / utilisateur / tiers), lues, citées.
 
 - [x] **Fait**
-  - **Justification** : 1 recherche web : seulement des notices Biblissima ; aucune politique de débit ni de bots de Gand.
-  - **Preuves** : `institutions/ghent-university-library/fiche.md`
+  - **Justification** : 4 recherches web (institution, utilisateurs, tickets, présentations) : aucune politique de débit, plainte ni ticket visant Gand ; annuaire tiers apis.io lu ; catégories sans piste marquées aucun_resultat.
+  - **Preuves** : `institutions/ghent-university-library/fiche.md`, `institutions/ghent-university-library/data.json`
 
 ### g) Crash test progressif
 > Seulement après l'audit complet (a à f) de toutes les institutions et avec l'accord de Marcel : paliers jusqu'à 2 × la limite documentée, ou 200 req/min si illimité ou sans limite documentée. Arrêt au premier 429/403/CAPTCHA.
@@ -352,4 +352,7 @@ Le verrou agit : (a) **au lancement** des outils officiels (`probe.py`, `crash.p
 - **Politesse partagée** (`scripts/hostlock.py`, registre `~/.veille-state`) : ≥ 6 s entre deux requêtes vers un même hôte, tous agents confondus ; au plus 30 requêtes/min au total ; un crash test (verrou exclusif) suspend tout autre trafic.
 - **Intégration** par le coordinateur seulement : `python3 scripts/integrer_lot.py <ID> [--push]` (périmètre, fusion sans commit, validation globale, régénération du classeur ; fusion annulée si un contrôle échoue).
 - Limites connues : un `curl` direct ou une copie locale modifiée de `scripts/` par un agent n'est pas empêché techniquement ; le commit ne peut pas porter ces modifications, et l'intégration revérifie le périmètre.
+
+## Données personnelles (14/11/2026)
+Le dépôt GitHub est **public**. Aucune donnée personnelle de Marcel (adresse IP) ne doit y figurer. Les valeurs sensibles sont listées dans `~/.veille-state/secrets.txt` (hors dépôt) : le hook de commit refuse tout commit qui les ajoute ; `probe.py` et `fetch_doc.sh` les remplacent par « [IP retirée] » dans les fichiers qu'ils produisent. Certains serveurs renvoient l'IP du client dans un en-tête (ex. `x-mps-client-ip`).
 <!-- CONSIGNE:FIN -->

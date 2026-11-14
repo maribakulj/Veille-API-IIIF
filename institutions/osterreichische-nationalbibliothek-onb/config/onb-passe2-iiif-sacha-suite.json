@@ -1,0 +1,17 @@
+{
+  "slug": "osterreichische-nationalbibliothek-onb",
+  "min_delay_s": 6,
+  "max_requests": 15,
+  "follow_redirects": 1,
+  "robots_disallow_autorise_par_marcel": true,
+  "note": "Passe 2 : routes SACHA documentees non testees en passe 1, avec les identifiants publies par le manifeste REPO/7445056 de la passe 1 (canvas/1, annotation/1, sequence/normal) et par la collection jerusalem (AKON/AK114_093). Visionneuses /view/... citees par le swagger et la page demo. Pas de /resource (resourceID non publie), pas de POST /presentation/collection.",
+  "endpoints": [
+    {"id": "canvas-repo-7445056-1", "method": "GET", "url": "https://iiif.onb.ac.at/presentation/REPO/7445056/canvas/1"},
+    {"id": "annotation-repo-7445056-1", "method": "GET", "url": "https://iiif.onb.ac.at/presentation/REPO/7445056/annotation/1"},
+    {"id": "list-repo-7445056-1", "method": "GET", "url": "https://iiif.onb.ac.at/presentation/REPO/7445056/list/1"},
+    {"id": "sequence-repo-7445056-normal", "method": "GET", "url": "https://iiif.onb.ac.at/presentation/REPO/7445056/sequence/normal"},
+    {"id": "manifest-akon-AK114_093", "method": "GET", "url": "https://iiif.onb.ac.at/presentation/AKON/AK114_093/manifest/"},
+    {"id": "view-manifest-mirador-repo-7445056", "method": "GET", "url": "https://iiif.onb.ac.at/view/manifest/mirador/REPO/7445056"},
+    {"id": "view-collection-mirador-jerusalem", "method": "GET", "url": "https://iiif.onb.ac.at/view/collection/mirador/jerusalem"}
+  ]
+}

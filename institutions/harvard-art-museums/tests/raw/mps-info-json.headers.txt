@@ -1,0 +1,20 @@
+2026-11-14T01:55:48Z GET https://mps.lib.harvard.edu/assets/images/drs:501084284/info.json
+HTTP 200
+date: Sat, 14 Nov 2026 01:55:48 GMT
+content-type: application/json; charset=utf-8
+content-length: 901
+connection: keep-alive
+vary: Origin
+access-control-allow-credentials: true
+origin-agent-cluster: ?1
+referrer-policy: no-referrer
+strict-transport-security: max-age=15552000; includeSubDomains
+x-content-type-options: nosniff
+x-dns-prefetch-control: off
+x-frame-options: SAMEORIGIN
+x-xss-protection: 0
+x-mps-client-ip: [IP retirée], 10.42.1.0, [IP retirée]
+cache-control: no-cache, no-store, must-revalidate
+etag: W/"385-cJtMVCtrnurE9rjogNwEKg+N2z0"
+x-envoy-upstream-service-time: 17
+server: istio-envoy

@@ -1,0 +1,801 @@
+
+<!DOCTYPE html>
+<html class="no-js" lang="en" prefix="og: https://ogp.me/ns#">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Internet Explorer use the highest version available -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Yale University Library</title>
+    <link href="https://collections.library.yale.edu/catalog/opensearch.xml" title="Yale University Library" type="application/opensearchdescription+xml" rel="search" />
+    <link rel="icon" type="image/x-icon" href="/assets/favicon-8fc507a7c6514a5419ea23bd656bf6a2ba0397ca9ff5cda749ef5b7d0e54cfec.ico" />
+    <link rel="apple-touch-icon" sizes="120x120" href="https://collections.library.yale.edu/apple-touch-icon-precomposed.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="https://collections.library.yale.edu/apple-touch-icon.png">
+    <link rel="stylesheet" href="/assets/application-2f4885c436718aae03d46e8fa484bd9d154318542294d6efe7c3d30f9f01c9bb.css" media="all" />
+    <script src="/assets/application-dbce6d167a4ab7f7e6e446add085e5027fc90616a2e69f7aaebef153384a6274.js"></script>
+    <script type="importmap" data-turbo-track="reload" nonce="XgeJ4bWMLeL1zZ1oXW/e2g==">{
+  "imports": {
+    "range_limit": "/assets/range_limit-dcb43e30979c9bbe2469166fd360eb3b6638d48fd5d0d58d1e2cbe6f2b40fbe1.js",
+    "chart.js": "https://ga.jspm.io/npm:chart.js@4.2.0/dist/chart.js",
+    "@kurkle/color": "https://ga.jspm.io/npm:@kurkle/color@0.3.2/dist/color.esm.js",
+    "blacklight_gallery/default": "/assets/blacklight_gallery/default-407ca17557a9ec159727b8ab03899c863014dbe1b4256a112d4673f0fcdb2d19.js",
+    "blacklight_gallery/masonry": "/assets/blacklight_gallery/masonry-317868894ac47224f22e8ace2645f498d276a92d2a7c85b49f30aed62af80b0c.js",
+    "blacklight_gallery/osd_viewer": "/assets/blacklight_gallery/osd_viewer-e8c39a548c02f929e5e7df8c3b1531252fdbecdf88a017e2006a61ab86f146a5.js",
+    "blacklight_gallery/slideshow": "/assets/blacklight_gallery/slideshow-1e49cf55ee24fd934cb1915a4840d9d27360684aea753888015825fe99b549db.js",
+    "imagesloaded.min": "/assets/imagesloaded.min-1f67fb80ba6e31bcb76b9701a30fd7557ec63076d3aabf41ab712249909658c9.js",
+    "masonry.min": "/assets/masonry.min-14bfdc3bac3953a36104c1f3381aa41af6a6e2c8967a3f32a7a402dece1cf12f.js",
+    "blacklight-range-limit": "/assets/blacklight-range-limit/index-518a336ed42c5aeada0cfea22320fd23c829d10ed009fd8e999d568e6e66830a.js"
+  }
+}</script>
+<link rel="modulepreload" href="/assets/range_limit-dcb43e30979c9bbe2469166fd360eb3b6638d48fd5d0d58d1e2cbe6f2b40fbe1.js" nonce="XgeJ4bWMLeL1zZ1oXW/e2g==">
+<link rel="modulepreload" href="https://ga.jspm.io/npm:chart.js@4.2.0/dist/chart.js" nonce="XgeJ4bWMLeL1zZ1oXW/e2g==">
+<link rel="modulepreload" href="https://ga.jspm.io/npm:@kurkle/color@0.3.2/dist/color.esm.js" nonce="XgeJ4bWMLeL1zZ1oXW/e2g==">
+<link rel="modulepreload" href="/assets/blacklight_gallery/default-407ca17557a9ec159727b8ab03899c863014dbe1b4256a112d4673f0fcdb2d19.js" nonce="XgeJ4bWMLeL1zZ1oXW/e2g==">
+<link rel="modulepreload" href="/assets/blacklight_gallery/masonry-317868894ac47224f22e8ace2645f498d276a92d2a7c85b49f30aed62af80b0c.js" nonce="XgeJ4bWMLeL1zZ1oXW/e2g==">
+<link rel="modulepreload" href="/assets/blacklight_gallery/osd_viewer-e8c39a548c02f929e5e7df8c3b1531252fdbecdf88a017e2006a61ab86f146a5.js" nonce="XgeJ4bWMLeL1zZ1oXW/e2g==">
+<link rel="modulepreload" href="/assets/blacklight_gallery/slideshow-1e49cf55ee24fd934cb1915a4840d9d27360684aea753888015825fe99b549db.js" nonce="XgeJ4bWMLeL1zZ1oXW/e2g==">
+<link rel="modulepreload" href="/assets/imagesloaded.min-1f67fb80ba6e31bcb76b9701a30fd7557ec63076d3aabf41ab712249909658c9.js" nonce="XgeJ4bWMLeL1zZ1oXW/e2g==">
+<link rel="modulepreload" href="/assets/masonry.min-14bfdc3bac3953a36104c1f3381aa41af6a6e2c8967a3f32a7a402dece1cf12f.js" nonce="XgeJ4bWMLeL1zZ1oXW/e2g==">
+<link rel="modulepreload" href="/assets/blacklight-range-limit/index-518a336ed42c5aeada0cfea22320fd23c829d10ed009fd8e999d568e6e66830a.js" nonce="XgeJ4bWMLeL1zZ1oXW/e2g==">
+<script type="module" nonce="XgeJ4bWMLeL1zZ1oXW/e2g==">import "range_limit"</script>
+    <meta name="csrf-param" content="authenticity_token" />
+<meta name="csrf-token" content="1ocjJaS5VDC39rZ2_b7bYngRYDRJYUy_LwwccY9OH3yqC2pHyb30ePu8l1xD5XADJUNFRDy2LLNn3UncDSojRA" />
+    <meta name="csp-nonce" content="XgeJ4bWMLeL1zZ1oXW/e2g==" />
+    <script async src="https://siteimproveanalytics.com/js/siteanalyze_66356571.js"></script>
+    
+  </head>
+  <body class="blacklight-application blacklight-application-help_guide">
+  <!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PX75HSF"
+height="0" width="0" style="display:none;visibility:hidden" title="google tag manager"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+
+  <div id="banner" class="alert alert-warning hidden"></div>
+  <nav id="skip-link" role="navigation" aria-label="Skip links">
+      <a class="element-invisible element-focusable rounded-bottom py-2 px-3" data-turbolinks="false" href="#q">Skip to search</a>
+    <a class="element-invisible element-focusable rounded-bottom py-2 px-3" data-turbolinks="false" href="#main-container">Skip to main content</a>
+    
+  </nav>
+  <header>
+    <nav class="navbar navbar-expand-md navbar-dark bg-dark topbar" role="navigation" aria-label="Main">
+  <div class="container">
+    <a class="mb-0 navbar-brand navbar-logo" alt="Yale Library Home" href="https://library.yale.edu/">Yale University Library</a>
+    <button class="navbar-toggler navbar-toggler-right" type="button" data-bs-toggle="collapse" data-bs-target="#user-util-collapse" aria-controls="user-util-collapse" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse justify-content-md-end" id="user-util-collapse">
+      <ul class="navbar-nav">
+
+  <li class="nav-item">
+    <a class="nav-link" href="/bookmarks">Saved Items</a>
+  </li>
+
+  <li class="nav-item">
+    <a class="nav-link" href="/permission_requests">Access Requests</a>
+  </li>
+
+      <li class="nav-item">
+        <form class="button_to" method="post" action="/users/auth/openid_connect"><button class="nav-link login-button" type="submit">Log in</button><input type="hidden" name="authenticity_token" value="-HX7b_9aYlc85gfb1G_TkhcK6Z74hp_kZEL8j9Xg71WkM2YPe1qr3xS2zt4uRt02RHKmskixiHWEyGTU7TWcxg" autocomplete="off" /></form>
+      </li>
+
+  
+    <li class="nav-item"><a class="nav-link" href="http://ask.library.yale.edu/">Ask Yale Library</a>
+
+</li>
+
+    <li class="nav-item"><a class="nav-link" href="https://schedule.yale.edu/">Reserve Rooms</a>
+</li>
+
+    <li class="nav-item"><a class="nav-link" href="https://web.library.yale.edu/places/to-study">Places to Study</a>
+</li>
+</ul>
+
+    </div>
+  </div>
+
+</nav>
+<div class="navbar-expand-md navbar-dark bg-dark topbar" role="navigation" aria-label="User utilities">
+  <div class="secondary-nav">
+    <div class="row">
+      <section class="info-header">
+        <div class="dropdown">
+          <ul class="nav-link-title" data-bs-toggle="dropdown">
+            <li>
+              <a href="#" role="button" aria-expanded="true" class="research-title">Research</a>
+              <p class="nav-link-caret">
+                <img id="research-collapse-nav-bar" alt="collapse nav bar" src="/assets/header/2x-angle-up-solid-42118f6a9f91c33e3cd2e07af37391bf3b0479d9b79079cff9d8cdac6a453b2d.png" />
+              </p>
+            </li>
+          </ul>
+          <ul class="dropdown-menu">
+            <li>
+              <a href="http://search.library.yale.edu" title="" class="dropdown-item">
+                Search Quicksearch
+              </a>
+            </li>
+            <li>
+              <a href="https://search.library.yale.edu/catalog" title="Records for approximately 13 million volumes located across the University Library system." class="dropdown-item">
+                Search Library Catalog
+              </a>
+            </li>
+            <li>
+              <a href="https://library.yale.edu/explore-collections/explore/digital-collections" title="Access to digital image and text collections available from the Yale University Library." class="dropdown-item">
+                Search Digital Collections
+              </a>
+            </li>
+            <li>
+              <a href="http://archives.yale.edu" title="Finding aids describe archival and manuscript collections at Arts, Beinecke, Divinity, and Music libraries, and the Manuscripts and Archives department in Sterling." class="dropdown-item">
+                Search Archives at Yale
+              </a>
+            </li>
+            <li>
+              <a href="http://guides.library.yale.edu/" title="Use these subject guides to get started in your research, formulate a research strategy for a topic, and find information about print and electronic resources." class="dropdown-item">
+                Research Guides
+              </a>
+            </li>
+            <li>
+              <a href="http://search.library.yale.edu/databases" title="Find subject-specific databases by description. Direct links to subscribed and freely available research databases and other resources, such as encyclopedias, bibliographies and dictionaries. Some databases are also &quot;cross-searchable&quot;; that is, they may be searched at one time in combination with other databases" class="dropdown-item">
+                Find Databases by Title
+              </a>
+            </li>
+            <li>
+              <a href="http://wa4py6yj8t.search.serialssolutions.com" title="Browse or search for the descriptions of online journals and newspapers to which the library subscribes or has access to free on the Web." class="dropdown-item">
+                Find eJournals by Title
+              </a>
+            </li>
+            <li>
+              <a href="https://library.yale.edu/find-request-and-use/use/using-special-collections" title="" class="dropdown-item">
+                Guide to Using Special Collections
+              </a>
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="info-header">
+        <div class="dropdown">
+          <ul class="nav-link-title" data-bs-toggle="dropdown">
+            <li>
+              <a href="#" role="button" aria-expanded="true" class="services-title">Services</a>
+              <p class="nav-link-caret">
+                <img id="services-collapse-nav-bar" alt="collapse nav bar" src="/assets/header/2x-angle-up-solid-42118f6a9f91c33e3cd2e07af37391bf3b0479d9b79079cff9d8cdac6a453b2d.png" />
+              </p>
+            </li>
+          </ul>
+          <ul class="dropdown-menu">
+            <li>
+              <a href="https://library.yale.edu/find-request-and-use/use/using-special-collections/request-digitization" title=""  class="dropdown-item">
+                Request Digital Copies of Special Collections
+              </a>
+            </li>
+            <li>
+              <a href="https://library.yale.edu/pl" title=""  class="dropdown-item">
+                Your Personal Librarian
+              </a>
+            </li>
+            <li>
+              <a href="https://library.yale.edu/subject-specialists" title=""  class="dropdown-item">
+                Subject Specialists
+              </a>
+            </li>
+            <li>
+              <a href="http://guides.library.yale.edu/research-help" title=""  class="dropdown-item">
+                Research Support and Workshops
+              </a>
+            </li>
+            <li>
+              <a href="http://guides.library.yale.edu/citationmanagement" title="Create Bibliographies"  class="dropdown-item">
+                Citation Tools
+              </a>
+            </li>
+            <li>
+              <a href="http://guides.library.yale.edu/getit" title=""  class="dropdown-item">
+                Get It @ Yale (Borrow Direct, Interlibrary Loan, Scan &amp; Deliver)
+              </a>
+            </li>
+            <li>
+              <a href="http://guides.library.yale.edu/reserves" title=""  class="dropdown-item">
+                Course Reserves
+              </a>
+            </li>
+            <li>
+              <a href="https://guides.library.yale.edu/OffCampusAccess" title="Connect your computer to the Yale VPN (network) while off-campus."  class="dropdown-item">
+                Off-Campus Access
+              </a>
+            </li>
+            <li>
+              <a href="http://elischolar.library.yale.edu" title="A digital repository of scholarly publications at Yale"  class="dropdown-item">
+                EliScholar
+              </a>
+            </li>
+            <li>
+              <a href="http://yale.lib.overdrive.com/" title="OverDrive is a distribution platform through which users of our library can download popular eBooks and audiobooks.  From our personalized Yale University OverDrive site, we offer access to a variety of fiction and non-fiction descriptions in many different formats. "  class="dropdown-item">
+                OverDrive: Popular Audio and eBooks
+              </a>
+            </li>
+            <li>
+              <a href="https://reservations.yale.edu/bmec/" title=""  class="dropdown-item">
+                Bass Media Equipment
+              </a>
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="info-header">
+        <div class="dropdown">
+          <ul class="nav-link-title" data-bs-toggle="dropdown">
+            <li>
+              <a href="#" role="button" aria-expanded="true" class="libraries-title">Libraries & Collections</a>
+              <p class="nav-link-caret">
+                <img id="libraries-collapse-nav-bar" alt="collapse nav bar" src="/assets/header/2x-angle-up-solid-42118f6a9f91c33e3cd2e07af37391bf3b0479d9b79079cff9d8cdac6a453b2d.png" />
+              </p>
+            </li>
+          </ul>
+          <ul class="dropdown-menu">
+            <li>
+              <a href="https://web.library.yale.edu/building/haas-family-arts-library" title="Robert B. Haas Family Arts Library" class="dropdown-item">
+                Arts Library
+              </a>
+            </li>
+            <li>
+              <a href="https://library.yale.edu/bass" title="Anne T. and Robert M. Bass Library" class="dropdown-item">
+                Bass Library
+              </a>
+            </li>
+            <li>
+              <a href="https://beinecke.library.yale.edu/" title="Beinecke Rare Book &amp; Manuscript Library" class="dropdown-item">
+                Beinecke Library
+              </a>
+            </li>
+            <li>
+              <a href="https://library.yale.edu/classics" title="" class="dropdown-item">
+                Classics Library
+              </a>
+            </li>
+            <li>
+              <a href="https://library.yale.edu/divinity" title="Divinity School Library" class="dropdown-item">
+                Divinity Library
+              </a>
+            </li>
+            <li>
+              <a href="https://library.yale.edu/film" title="" class="dropdown-item">
+                Yale Film Archive
+              </a>
+            </li>
+            <li>
+              <a href="https://fortunoff.library.yale.edu/" title="Fortunoff Video Archive for Holocaust Testimonies" class="dropdown-item">
+                Fortunoff Archive
+              </a>
+            </li>
+            <li>
+              <a href="https://library.yale.edu/humanities" title="" class="dropdown-item">
+                Humanities Collections
+              </a>
+            </li>
+            <li>
+              <a href="https://web.library.yale.edu/international-collections" title="" class="dropdown-item">
+                International Collections
+              </a>
+            </li>
+            <li>
+              <a href="https://library.law.yale.edu/" title="Lillian Goldman Law Library in Memory of Sol Goldman" class="dropdown-item">
+                Law Library
+              </a>
+            </li>
+            <li>
+              <a href="https://walpole.library.yale.edu/" title="" class="dropdown-item">
+                Lewis Walpole Library
+              </a>
+            </li>
+            <li>
+              <a href="https://web.library.yale.edu/sd/dept/library-collection-services-and-operations" title="" class="dropdown-item">
+                Library Collection Services
+              </a>
+            </li>
+            <li>
+              <a href="https://library.yale.edu/mssa" title="" class="dropdown-item">
+                Manuscripts &amp; Archives
+              </a>
+            </li>
+            <li>
+              <a href="http://www.library.yale.edu/maps" title="" class="dropdown-item">
+                Map Collection
+              </a>
+            </li>
+            <li>
+              <a href="https://library.yale.edu/marx" title="" class="dropdown-item">
+                Marx Science &amp; Social Science Library
+              </a>
+            </li>
+            <li>
+              <a href="https://library.medicine.yale.edu/" title="Harvey Cushing / John Hay Whitney Medical Library" class="dropdown-item">
+                Medical Library
+              </a>
+            </li>
+            <li>
+              <a href="https://library.yale.edu/visit-and-study/libraries-locations/irving-s-gilmore-music-library" title="Irving S. Gilmore Music Library" class="dropdown-item">
+                Music Library
+              </a>
+            </li>
+            <li>
+              <a href="https://web.library.yale.edu/building/sterling-memorial-library" title="Sterling Memorial Library" class="dropdown-item">
+                Sterling Library
+              </a>
+            </li>
+            <li>
+              <a href="https://britishart.yale.edu/" title="" class="dropdown-item">
+                Yale Center for British Art
+              </a>
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="info-header">
+        <div class="dropdown">
+          <ul class="nav-link-title" data-bs-toggle="dropdown">
+            <li>
+              <a href="#" role="button" aria-expanded="false" class="information-title">Information & Policies</a>
+              <p class="nav-link-caret">
+                <img id="info-collapse-nav-bar" alt="collapse nav bar" src="/assets/header/2x-angle-up-solid-42118f6a9f91c33e3cd2e07af37391bf3b0479d9b79079cff9d8cdac6a453b2d.png" />
+              </p>
+            </li>
+          </ul>
+          <ul class="dropdown-menu">
+            <li>
+              <a href="https://library.yale.edu/visit-and-study" title="" class="dropdown-item">
+                Library Hours
+              </a>
+            </li>
+            <li>
+              <a href="https://library.yale.edu/staff-directory" title="" class="dropdown-item">
+                Departments &amp; Staff
+              </a>
+            </li>
+            <li>
+              <a href="http://guides.library.yale.edu/borrow" title="Information about accessing and borrowing print material" class="dropdown-item">
+                Borrowing &amp; Circulation
+              </a>
+            </li>
+            <li>
+              <a href="https://web.library.yale.edu/services-persons-disabilities" title="" class="dropdown-item">
+                Services for Persons with Disabilities
+              </a>
+            </li>
+            <li>
+              <a href="http://guides.library.yale.edu/copyright-guidance/copyright-basics" title="" class="dropdown-item">
+                Copyright Basics
+              </a>
+            </li>
+            <li>
+              <a href="https://web.library.yale.edu/help/scanning-printing-copying" title="" class="dropdown-item">
+                Scanning, Printing &amp; Copying
+              </a>
+            </li>
+            <li>
+              <a href="https://web.library.yale.edu/help/computers-and-wireless" title="" class="dropdown-item">
+                Computers &amp; Wireless
+              </a>
+            </li>
+            <li>
+              <a href="http://guides.library.yale.edu/about/policies" title="" class="dropdown-item">
+                Library Policies
+              </a>
+            </li>
+            <li>
+              <a href="http://guides.library.yale.edu/about" title="" class="dropdown-item">
+                About the Library
+              </a>
+            </li>
+            <li>
+              <a href="https://library.yale.edu/development" title="" class="dropdown-item">
+                Giving to the Library
+              </a>
+            </li>
+            <li>
+              <a href="https://ask.library.yale.edu/faq/174852" title="" class="dropdown-item">
+                Purchase Request
+              </a>
+            </li>
+            <li>
+              <a href="http://guides.library.yale.edu/work" title="" class="dropdown-item">
+                Working at the Library
+              </a>
+            </li>
+            <li>
+              <a href="https://guides.library.yale.edu/about/policies/access" title="" class="dropdown-item">
+                Terms Governing Use of Materials
+              </a>
+            </li>
+          </ul>
+        </div>
+      </section>
+
+    </div>
+  </div>
+</div>
+
+    
+    <div class="search-area">
+      <div class="navbar-search navbar navbar-light bg-light" role="navigation" aria-label="Search options">
+          <div class="container">
+              <form class="search-query-form" role="search" aria-label="Search" action="https://collections.library.yale.edu/catalog" accept-charset="UTF-8" method="get">
+  
+    <label for="search_field" class="sr-only">Search in</label>
+  <div class="input-group">
+        <select name="search_field" id="search_field" title="Targeted search options" class="custom-select search-field" data-search-fields-trigger="true"><option value="all_fields">All Fields</option>
+<option value="creator_tesim">Creator</option>
+<option value="title_tesim">Title</option>
+<option value="callNumber_tesim">Call Number</option>
+<option value="date_fields">Date</option>
+<option value="subjectName_tesim">Subject</option>
+<option value="orbisBibId_ssi">Catalog ID</option>
+<option value="fulltext_tesim">Full Text</option></select>
+
+    <span class="fulltext-info" id="fulltext-info">
+      <input type="radio" name="fulltext_search" id="fulltext_search_1" value="1" data-search-mode="description" />
+      <label for="fulltext_search_1">Description</label>
+      <input type="radio" name="fulltext_search" id="fulltext_search_2" value="2" data-search-mode="fulltext" />
+      <label for="fulltext_search_2">Full text</label>
+    </span>
+
+
+    <label for="q" class="sr-only">search for</label>
+    <input type="text" name="q" id="q" placeholder="Search..." class="search-q q form-control rounded-0" aria-label="search" autocomplete="" data-autocomplete-enabled="false" data-autocomplete-path="/catalog" />
+
+    <span class="input-group-append">
+      <button type="submit" class="btn btn-primary search-btn" id="search" role="button">
+        <span class="submit-search-text">Search</span>
+        <span class="blacklight-icons blacklight-icon-search" aria-hidden="true"><?xml version="1.0"?>
+<svg width="24" height="24" viewBox="0 0 24 24" aria-label="Search" role="img">
+  <title>Search</title>
+  <path fill="none" d="M0 0h24v24H0V0z"/>
+  <path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/>
+</svg>
+</span>
+      </button>
+    </span>
+
+    <span>
+      <button class="advanced_search btn btn-secondary href-button" href="/advanced">Advanced Search</button>
+    </span>
+  </div>
+</form>
+          </div>
+      </div>
+    </div>
+    
+    <div class="user-subheader" role="heading" aria-level="1">
+      <div class="user-subheader-title">
+        <a href="/">Digital Collections</a> 
+      </div>
+    </div>
+
+  </header>
+
+  <main id="main-container" class="container" role="main" aria-label="Main content">
+    
+
+    <div class="row">
+  <div class="col-md-12">
+    <div id="main-flashes" class="">
+      <div class="flash_messages">
+    
+    
+    
+    
+</div>
+
+    </div>
+  </div>
+</div>
+
+
+    <div class="row">
+      
+    <section class="col-md-12">
+      <div id="help-guide-container">
+  <div class="help-guide-title">
+    <h1>Digital Collections Help Guide</h1>
+  </div>
+  <div class="help-guide-table-of-contents">
+    <ul>
+      <li><a href="#whats-in-dc">What's in this Digital Collections site?</a></li>
+      <li><a href="#how-search-in-dc">How do I search Digital Collections?</a>
+        <ul>
+          <li><a href="#starting-search-in-dc">Starting a search and phrasing your searches</a></li>
+          <li><a href="#limiting-search-in-dc">Limiting and sorting your search results</a></li>
+          <li><a href="#fulltext-search-in-dc">Full text searching</a></li>
+          <li><a href="#advanced-search-in-dc">Advanced searching</a></li>
+        </ul>
+      </li>
+      <li><a href="#what-info-in-dc">What kind of information is available when I find an item I'm interested in?</a>
+        <ul>
+          <li><a href="#viewing-search-in-dc">Viewing your search results and item pages</a></li>
+          <li><a href="#item-viewer-in-dc">The item viewer, IIIF, and linking to materials</a></li>
+        </ul>
+      </li>
+      <li><a href="#can-download-in-dc">Can I download items? What formats can I download? How?</a></li>
+      <li><a href="#cant-view-in-dc">What does it mean if I can't view an item in Digital Collections</a></li>
+      <li><a href="#request-view-in-dc">How do I request to view an item in person?</a></li>
+      <li><a href="#reuse-images-in-dc">May I reuse images I find in Digital Collections?</a></li>
+      <li><a href="#feedback-in-dc">What if I have feedback on the site, its functionality, or Yale's descriptions?</a></li>
+      <li><a href="#additional-resources-in-dc">Additional resources</a></li>
+    </ul>
+  </div>
+
+  <div class="help-guide-dc-site">
+    <h2 id="whats-in-dc">What's in this Digital Collections site?</h2>
+    <p>This Digital Collections site provides access to millions of digitized objects from Yale Library’s collections, which include archives and manuscripts, printed books, maps, ephemera, prints and drawings, and photographic material. This site does not include Yale Library’s audiovisual digital collections, which are available via <a href="https://avcollections.library.yale.edu/">Aviary</a>, nor licensed e-resources included in the general collections.</p>
+    <p>Although the materials in Digital Collections are numerous, they represent only a portion of Yale Library’s collections. More items are being added all the time. Additionally, different collections have been digitized to different extents: some collections are digitized in their entirety, but more often, selections from larger collections are partially digitized and added to Digital Collections. These digitization decisions are prompted by researcher digitization requests and proactive curatorial decisions. </p>
+    <p>To browse all items that have been added to Digital Collections, leave the main search box on the <a href="https://collections.library.yale.edu/">Digital Collections home page</a> empty and click the search button. This will take you to a list of every item currently available.</p>
+  </div>
+
+  <div class="help-guide-search">
+    <h2 id="how-search-in-dc">How do I search Digital Collections?</h2>
+    <h3 id="starting-search-in-dc">Starting a search and phrasing your searches</h3>
+    <p>To initiate a search, enter your search terms in the main search box on the <a href="https://collections.library.yale.edu/">Digital Collections home page</a>. Once you’ve started your search, you will be able to further limit your search on the following page. You will also then be able to perform new searches using the search bar at the top of the page and by accessing the Advanced Search functionality. Access the Advanced Search by clicking the link that says “Advanced Search” that appears underneath the main search box on the Digital Collection home page.</p>
+    <p>Some tips for search phrasing include:</p>
+    <ul>
+      <li>Searches are not case sensitive.</li>
+      <li>You may search for phrases by including quotation marks (e.g. “Berkeley College”).</li>
+      <li>By default, when you enter 1-2 search terms, the system will return results in which all terms must match. When you enter 3-5 search terms, the system will return results in which all but one term must match. When you enter 6 search terms, the system will return results in which all but 2 must match. When you enter more than 6 search terms, the system will return results in which 90% of terms must match. You may add OR and NOT to change this behavior (e.g. Stiles OR Morse or art NOT British); note you must enter OR and NOT capitalized to use them in this way.</li>
+      <li>You may add a tilde (~) to search for search terms within a specified number of words of one another (e.g. “maps Asia”~5 will return results where the term maps occurs within 5 words of the term Asia).</li>
+      <li>The wildcard symbol * replaces any number of letters at the end of a search term (e.g. searching mission* will return mission, missions, missionary, and missionaries). You may not use * as the first character of a search.</li>
+      <li>The wildcard symbol ? returns items with additional characters after the ? For example, “boat?” will return results for boats and boating (but not for “boat”); searching wom?n will return both women and woman. You may not use ? as the first character of a search.</li>
+    </ul>
+    <h3 id="limiting-search-in-dc">Limiting and sorting your search results</h3>
+    <p>After you’ve run a search, you’ll see a left-hand menu that will allow you to limit your search results by the following facets:</p>
+    <ul>
+      <li>Access (Public, Yale Community Only, or Open with Permission; based on copyright and other restrictions)</li>
+      <li>Repository: Which Yale library or archive holds the physical material</li>
+      <li>Format and Genre: Text, still image, cartographic (i.e., maps), photographs, correspondence, etc.</li>
+      <li>Language of the materials</li>
+      <li>Subject (Topic): the topic covered by the material (note that library staff selectively apply this topically focused metadata)</li>
+      <li>Subject (Name): people covered in the material (note that library staff selectively apply this people-focused metadata)</li>
+      <li>Date created</li>
+      <li>Full text available</li>
+    </ul>
+    <p>If you have selected the Repository limit, you’ll be able to further limit your results by Collection title and Grouping -- this will let you find materials in specific archival collections and parts of those collections.</p>
+    <p>You’ll also see an option to sort your search results by relevance (how closely object data matches your search criteria), year of creation, and other options.</p>
+    <p>If you would like to start a completely new search, you may use the search bar at the top of the page. This will overwrite your previous search criteria.</p>
+    <h3 id="fulltext-search-in-dc">Full text searching</h3>
+    <p>The search bar at the top of the search results page gives you the option to search either the descriptions of items or the full text of the items themselves. Only a small portion of our collections have full text searching functionality, but full text searching provides a powerful way to search the content of the materials themselves. This search bar only performs new searches, rather than modifying an existing search. Additional options to view or search the full text of an individual item, where available, is provided on an item’s page.</p>
+    <h3 id="advanced-search-in-dc">Advanced Search</h3>
+    <p>The Advanced Search tool allows you to be more specific in your search queries. Access the menu by conducting an initial search; once you’ve selected Advanced Search, you’ll see a page with numerous search boxes, some tips, and an option to specify whether you want items returned from your search to match any or all of the criteria you’re outlining.</p>
+  </div>
+
+  <div class="help-guide-information">
+    <h2 id="what-info-in-dc">What kind of information is available when I find an item I'm interested in?</h2>
+    <h3 id="viewing-search-in-dc">Viewing your search results and item pages</h3>
+    <p>Once you have a set of search results, you may select items of interest to view their item record pages. The search results page will show you thumbnails of images and some basic information about the items in order to allow you to determine whether you’d like to view their full item record pages.</p>
+    <p>On the item record pages, you’ll see information about where the item is found; the item viewer; and descriptive information about the item. The descriptive information identifies the item’s title; creation information; extent; language; collection information; context in an archival collection (when relevant); subjects, formats, and genres; and access and usage rights.</p>
+    <p>Item pages also include information on how much of an item has been digitized. Items that are partially digitized (e.g., a handful of pages from a longer manuscript) indicate “partially digitized” in the extent of digitization field; items that have been fully digitized (e.g., an entire folder of archival material) indicate “completely digitized.” Items from legacy collections may lack this data. Please contact the relevant repository if you have questions.</p>
+    <h3 id="item-viewer-in-dc">The item viewer, IIIF, and linking to materials</h3>
+    <p>The Universal Viewer (where you see the online version of the item itself) is IIIF-compliant. More information about IIIF (the International Image Interoperability Framework, pronounced triple-eye-eff) is on the <a href="https://iiif.io/community/faq/">IIIF website</a>.</p>
+    <p>The Universal Viewer and IIIF allow you to do several things:</p>
+    <ul>
+      <li>Page through multipage works</li>
+      <li>Control how you’re viewing the item (e.g., as thumbnails or as individual pages)</li>
+      <li>Deeply zoom on a page and rotate images</li>
+      <li>Use the MORE INFORMATION panel to learn more about the item. Information on this panel includes
+        <ul>
+          <li>All information available on the item record page</li>
+          <li>The identification number (“Image ID”) for the single page or image being viewed</li>
+          <li>The direct link to the specific page of the item or image being viewed</li>
+        </ul>
+      </li>
+      <li><a href="#can-download-in-dc">Download the item</a></li>
+      <li>Share or embed content</li>
+      <li>See where any full text search results appear in the item, via the bottom scroll bar (only  appears for items with full text)</li>
+    </ul>
+    <p>In addition to what you see in the Universal Viewer, the Tools menu at the bottom of the item record page also allows you to utilize IIIF functionality, particularly via the IIIF manifest link. All Digital Collections objects have a corresponding IIIF manifest, which is a JSON file that allows you to view and manipulate digital objects using a variety of tools. More information about using manifests is on the <a href="https://iiif.io/get-started/how-iiif-works/">IIIF website</a>. The Tools menu also allows you to generate a citation for the item, view the item in Mirador (a IIIF viewer with different functionality than the Universal Viewer), and download a PDF of the item.</p>
+    <p>If you’d like to link to an item in Digital Collections, you may use its URL as a stable link. If you’d like to link to a specific page within a multi-page item, you may do so by navigating to your desired page within the IIIF viewer, opening the MORE INFORMATION panel, and locating the link listed under the “Link to this Image” field.</p>
+  </div>
+
+  <div class="help-guide-download">
+    <h2 id="can-download-in-dc">Can I download items? What formats can I download? How?</h2>
+    <p>To download an object, click on the download icon in the bottom left corner of the Universal Viewer. The download icon features a downward facing arrow above a horizontal bar.</p>
+    <figure class="uv_image">
+      <img alt="" src="/assets/help_guide/uv_help_guide-4395643416f546be96fae52451a0d40f73cae0b588f5b2576b18046d6b05bc36.png" />
+      <figcaption class="uv_caption">
+        <i>The download icon is a downward facing arrow over a horizontal bar located in the bottom left of the Universal Viewer.</i>
+      </figcaption>
+    </figure>
+    <p>Once you click on the icon, you will be presented with a white pop-up menu with the following options:</p>
+    <ul>
+      <li><strong>Reduced size (JPG)</strong>
+        <ul>
+          <li>This provides a JPG of the single image that is currently being displayed in the Universal Viewer</li>
+          <li>The size is indicated and has smaller dimensions than the original file uploaded to Digital Collections.</li>
+        </ul>
+      </li>
+      <li><strong>Full size (JPG)</strong>
+        <ul>
+          <li>This provides a JPG of the single image that is currently being displayed in the Universal Viewer.</li>
+          <li>In most cases, the size is indicated and has the <strong>same dimensions as the original file uploaded to Digital Collections.</strong>
+            <ul>
+              <li>For some extra-large objects (for example, scrolls or scanned negatives), the JPG may be resized to the largest dimensions available to be delivered as a JPG.</li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+      <li><strong>Full size original (TIFF)</strong>
+        <ul>
+          <li>This provides an exact copy of the original TIFF file that was uploaded to Digital Collections for the single image that is currently being displayed in the Universal Viewer.</li>
+        </ul>
+      </li>
+      <li><strong>Download as PDF</strong>
+        <ul>
+          <li>This provides a single PDF containing all images from an object.</li>
+          <li>Each scanned image is on an individual page of the PDF. The individual page also includes the image ID number (OID).</li>
+          <li>The PDF includes a cover page with the object’s title, collection title, rights, date generated, and links to the Terms of Use and object’s location in digital collections.</li>
+        </ul>
+      </li>
+    </ul>
+    <p>Click the blue link of the format you would like to download. </p>
+    <p><strong>Please note that technical metadata may be altered in the download process to reflect a lower dpi than the object was originally digitized at.</strong> You can calculate the maximum reproduction size based on an image’s dimensions. For example, this image download has dimensions of 4516 x 2951px. If we would like to find the maximum reproduction size at 300 dpi, we can divide the length and width by the dpi 300. We could print at a size of approximately 15” x 9.8” (4516/300 by 2951/300).</p>
+    <p><strong>If you are downloading a Reduced size or Full size JPG:</strong></p>
+    <ul>
+      <li>After clicking the download link, the image will open in a new browser tab. </li>
+      <li>Right click on the image and select “Save Image as.”</li>
+      <li>Save the image to your computer.</li>
+    </ul>
+    <p><strong>If you are downloading a Full size TIFF:</strong></p>
+    <ul>
+      <li>After clicking the download link, a new tab will open in your browser stating that the file will download automatically when ready.
+        <ul>
+          <li>Please note that, depending on the size of the item, the automatic download may take a few minutes to complete.</li>
+          <li>The new browser tab must remain open until the original TIFF file is finished downloading.</li>
+        </ul>
+      </li>
+      <li>The image file will download automatically when it is ready. Check your ‘downloads’ folder for the file.</li>
+      <li>The new browser tab will automatically close once the file has downloaded. This may take a few minutes.</li>
+    </ul>
+    <p><strong>If you are downloading a PDF:</strong></p>
+    <ul>
+      <li>After clicking the download link, the PDF file will open in a new browser tab.</li>
+      <li>Click on the download button (downward facing arrow above a horizontal line) to save the file to your computer.</li>
+    </ul>
+  </div>
+
+  <div class="help-guide-view-dc">
+    <h2 id="cant-view-in-dc">What does it mean if I can't view an item in Digital Collections?</h2>
+    <p>Some materials in Yale’s Digital Collections may only be viewed online by members of the Yale community, due to copyright or other restrictions. These materials are indicated by thumbnail images describing this restriction. You may limit your search by access category to exclude or include materials that are restricted to the Yale community or only open with permission.</p>
+    <p>Off-campus Yale users may login using their Yale NetID, and anyone, regardless of whether you are affiliated with Yale, is welcome to contact Yale Library staff to inquire about access to a physical copy or an emailed digital copy of the material. To do so, please use the Feedback link in the footer of the Digital Collections.</p>
+    <br>
+    <figure class="footer_image">
+      <img alt="" src="/assets/help_guide/footer-feedback-ec98a27d407a72ef9f94569aff293964d4b927c64e1717133528a7f86e346b2d.png" />
+      <figcaption class="footer_caption">
+        <i>The Feedback link in the footer of the Digital Collections website.</i>
+      </figcaption>
+    </figure>
+    <p>Additionally, some materials may only be viewed online with permission. These materials also feature a thumbnail image identifying them as only available with permission, and they fall into the Access category of Open with Permission. Some collections, such as the Henry A. Kissinger Papers, require approval from collection representatives outside of Yale University. Collections that are Open with Permission may require that patrons agree to a set of Terms & Conditions regarding use.</p>
+    <p>If you are a Yale Digital Collections user, you may log in using your Yale NetID and click on the request form link on an item’s page to request permission to view an object. If you are a non-Yale Digital Collections user, you can create an account by clicking “Log In” at the top of the page and following the "Sign up" link. Once logged in, you can click on the request form link on an item’s page to request permission to view an object.</p>
+    <p>In the “Notes” section of the request form, we ask that you please provide as much information as possible about the research you are undertaking and why you would like to view the selected object. More information allows collection approvers to make an informed response to your request.</p>
+    <h2 id="request-view-in-dc">How do I request to view an item in person?</h2>
+    <p>For archival collections, you’ll see that the Collection Information section of the item record page includes two links to <a href="https://archives.yale.edu/">Archives at Yale</a>, Yale’s finding aid database for archival collections (i.e., collection guides and inventories). If you’d like to request the item you’re viewing, you may select the “View item information in Archives at Yale” option to see the item record and request the item in Archives at Yale. If you’d like to view the full finding aid for the archival collection, you may select the “View full finding aid for…” option.</p>
+    <p>For non-archival collections, the descriptive information also includes Identifiers information at the bottom of the item page, which links to the library catalog (Orbis) record for the item. If you’d like to request to see the item in person, you can do so in the library catalog</p>
+    <p>Some objects may not have current catalog links. These objects were migrated from our previous digital collections system, FindIt. We are working on updating the links for these objects. If the catalog links are missing, users can contact the repository listed for more information about an object. To do so, please use the Feedback button in the footer of the object’s page in Digital Collections.</p>
+    <h2 id="reuse-images-in-dc">May I reuse images I find in Digital Collections?</h2>
+    <p>Images are made available through Digital Collections for research and scholarship. Permission to reuse images you find in Digital Collections depends on the item and your intended use of it. Please check the Access and Usage Rights section of the item page for the item you wish to reuse. You are solely responsible for making legal assessments regarding the use of an item and securing any necessary permissions.</p>
+    <p>Please note that we endeavor to provide factual information about copyright status and owners. Please contact Yale Library staff via the Feedback button in the footer of the Digital Collections site if you have more information on material we hold. If you are the copyright owner and believe Digital Collections has not properly attributed your work or has used it without your authorization, please contact our Copyright Librarian at <a href="mailto:copyright.librarian@yale.edu">copyright.librarian@yale.edu</a>.</p>
+    <p>For more information, see: <a href="https://guides.library.yale.edu/specialcollections/speccoll-copyrightpermissions">Guide to Using Special Collections at Yale University: Rights and Permissions</a>.</p>
+    <p>Additionally, please attribute the work in the manner specified by the applicable library or archive guidelines, without suggestion of endorsement. Attribution will help other people find the materials. Objects may have the preferred citation in the Access and Usage Rights section of the item’s record.</p>
+    <h2 id="feedback-in-dc">What if I have feedback on the site, its functionality, or Yale's descriptions?</h2>
+    <p>We welcome feedback on the Digital Collections site and how we describe the material it contains. The footer of our site includes a Feedback link; Yale Library staff will review and respond to any feedback submitted through that link.</p>
+    <h2 id="additional-resources-in-dc">Additional resources</h2>
+    <p><a href="https://library.yale.edu/find-request-and-use/use/using-special-collections">Guide to Using Special Collections at Yale Univerity</a></p>
+  </div>
+
+</div>
+    </section>
+
+    </div>
+  </main>
+
+  <footer id="section-footer" class="section section-footer">
+  <div id="zone-footer-wrapper" class="zone-wrapper zone-footer-wrapper clearfix">
+    <div id="zone-footer" class="zone zone-footer clearfix container-12">
+      <div class="grid-4 region region-footer-first" id="region-footer-first">
+        <div class="region-inner region-footer-first-inner">
+          <div class="block block-block block-8 block-block-8 odd block-without-title" id="block-block-8">
+            <div class="block-inner clearfix">
+              <div class="content clearfix">
+                <h3 class="visually-hidden">Contact Information</h3>
+                <address>
+                  <p>P.O. Box 208240<br>
+                  New Haven, CT 06520-8240<br>
+                  <span>(203) 432-1775</span></p>
+                </address>
+              </div>
+            </div>
+          </div>
+          <div class="footer-socmedia">
+            <h3 class="visually-hidden">Follow Yale Library</h3>
+            <a href="https://www.facebook.com/YaleLibrary" target="_blank" rel="noopener" aria-label="Follow Yale Library on Facebook (opens in new window)">
+              <img id="facebook" alt="Yale Library Facebook" src="/assets/soc_media/icon_facebook-d0ee8081111dbd1d4971615f55280a8be166a702cab5bcbf3a080485be3065c3.png" />
+            </a>
+            <a href="https://www.instagram.com/yalelibrary" target="_blank" rel="noopener" aria-label="Follow Yale Library on Instagram (opens in new window)">
+              <img id="instagram" alt="Yale Library Instagram" src="/assets/soc_media/icon_instagram-42cdc3dafda57372601b52e746b1776be5e1d54c1ea0afcb23f8f72af58acb1f.png" />
+            </a>
+            <a href="http://www.youtube.com/yaleuniversitylibrary" target="_blank" rel="noopener" aria-label="Watch Yale Library videos on YouTube (opens in new window)">
+              <img id="youtube" alt="Yale Library Youtube" src="/assets/soc_media/youtube_icon-88ae28431738cbf5e64d13efc31e3b3efc94948e0c9137cbe7c300fe9edcf7cb.png" />
+            </a>
+          </div>
+          <div class="footer-logo">
+            <a aria-label="Visit Yale University homepage (opens in new window)" target="_blank" rel="noopener" href="http://www.yale.edu">
+              <img class="yale-logo-img" alt="Yale University logo" src="/assets/yul_logo/yale-logo-975fd4f9d21f6e16a4d343a5207d0bda34cea3d1e2df8293f188ddf7caa12aac.svg" />
+              <span class="visually-hidden">Yale University</span>
+</a>          </div>
+        </div>
+      </div>
+      <div class="grid-4 region region-footer-second" id="region-footer-second">
+        <div class="region-inner region-footer-second-inner">
+          <div class="block block-menu block-menu-footer-navigation block-menu-menu-footer-navigation odd block-without-title" id="block-menu-menu-footer-navigation">
+            <div class="block-inner clearfix">
+              <div class="content clearfix">
+                <nav role="navigation" aria-labelledby="footer-nav-heading">
+                  <h3 id="footer-nav-heading" class="visually-hidden">Library Services</h3>
+                  <div class="footer-navigation-links">
+                    <a aria-describedby="ask-desc" href="https://ask.library.yale.edu/">Ask Yale Library</a>
+                    <span id="ask-desc" class="visually-hidden">Get research help and support</span>
+                    
+                    <a href="/my-library-accounts">My Library Accounts</a>
+                    
+                    <a aria-describedby="newsletter-desc" href="https://subscribe.yale.edu/browse?area=a0df40000006XkNAAU">Subscribe to our Newsletter</a>
+                    <span id="newsletter-desc" class="visually-hidden">Stay updated with library news and events</span>
+                    <a target="_blank" href="http://web.library.yale.edu/form/findit-feedback?findITURL=https://collections.library.yale.edu/help_guide">Feedback</a>
+                  </div>
+                </nav>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="grid-4 region region-footer-third" id="region-footer-third">
+        <div class="region-inner region-footer-third-inner">
+          <div class="block block-block block-18 block-block-18 odd block-without-title" id="block-block-18">
+            <div class="block-inner clearfix">
+              <div class="content clearfix">
+                <nav role="navigation" aria-labelledby="footer-info-heading">
+                  <h3 id="footer-info-heading" class="visually-hidden">Library Information</h3>
+                  <div class="footer-bottom-links">
+                    <a href="https://library.yale.edu/accessibility">Accessibility</a>
+                    <a href="https://library.yale.edu/giving">Giving</a>
+                    <a href="https://library.yale.edu/about-us/about/library-policies/privacy-and-data-use">Privacy and Data Use</a>
+                    <a target="_blank" rel="noopener" aria-label="Library Staff Hub (opens in new window)" href="https://yaleedu.sharepoint.com/sites/YLHUB/SitePages/Home.aspx?spStartSource=spappbar">Library Staff Hub</a>
+                  </div>
+                </nav>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="grid-12 region region-footer-footer" id="region-footer-footer">
+        <div class="region-inner region-footer-footer-inner">
+          <div class="block block-block block-10 block-block-10 odd block-without-title" id="block-block-10">
+            <div class="block-inner clearfix">
+              <div class="content clearfix">
+                <div class="footer-copyright">© 2026 Yale University Library &nbsp;&nbsp;•&nbsp;&nbsp; All Rights Reserved</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+  <div id="blacklight-modal" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
+  	  <div class="modal-dialog modal-lg" role="document">
+  	    <div class="modal-content">
+  	    </div>
+  	  </div>
+</div>
+
+  </body>
+</html>

@@ -1,0 +1,11 @@
+{
+  "slug": "yale-university-art-gallery",
+  "min_delay_s": 6,
+  "max_requests": 15,
+  "follow_redirects": 1,
+  "robots_disallow_autorise_par_marcel": true,
+  "note": "Passe 1 : manifeste IIIF Presentation 3 d'un objet YUAG, identifiant public 31719 cite par les resultats de recherche web (https://manifests.collections.yale.edu/yuag/obj/31719) ; la page artgallery.yale.edu (Cloudflare, 403) n'est pas contactee. Corps enregistre pour lire l'identifiant du service d'image (passe 2).",
+  "endpoints": [
+    {"id": "manifest-yuag-obj-31719", "method": "GET", "url": "https://manifests.collections.yale.edu/yuag/obj/31719", "save_body": 500000}
+  ]
+}

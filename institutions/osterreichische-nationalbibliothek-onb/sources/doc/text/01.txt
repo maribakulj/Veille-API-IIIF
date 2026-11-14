@@ -1,0 +1,64 @@
+Austrian National Library - API 
+ ÖNB-API
+ What we provide
+ The ÖNB-API gives programmatic access to the digital collections of the Austrian
+ National Library. It exposes the collections through standards-based
+ IIIF APIs (image tiles, manifests and full-text search),
+ together with a set of raw file, preview and OCR endpoints.
+ IIIF APIs
+ This API implements the following IIIF specifications :
+ API 
+ Version 
+ Base path 
+ Specification 
+ IIIF Presentation API 
+ 3.0 
+ /iiif/presentation/v3 
+ presentation/3.0 
+ IIIF Image API 
+ 3.0 
+ /iiif/image/v3 
+ image/3.0 
+ IIIF Content Search API 
+ 2.0 
+ /iiif/search/v2 
+ search/2.0 
+ IIIF Content Search API (deprecated) 
+ 1.0 
+ /iiif/search/v1 
+ search/1.0 
+ Raw REST endpoints (v1)
+ In addition to the IIIF APIs, the following endpoints deliver individual files and
+ derivatives for an intellectual entity ( ieId ). Files that already exist
+ in the repository are addressed by file name; OCR results can be requested page by
+ page through the OCR endpoints:
+ GET /rest/v1/ie/{ieId}/file/{fileName} – the original file or a
+ derivative stored in the repository. If an OCR file exists as
+ PAGE_COORDOCR in the intellectual entity, it can also be delivered
+ through this endpoint; use ?format=text to request its text view.
+ GET /rest/v1/ie/{ieId}/alto/{pageNumber} – OCR result for one page
+ as ALTO XML from the OCR service. pageNumber starts at
+ 1 .
+ GET /rest/v1/ie/{ieId}/txt/{pageNumber} – plain text extracted from
+ the ALTO XML for the requested page from the OCR service.
+ GET /rest/v1/ie/{ieId}/preview – a preview image.
+ GET /rest/v1/ie/{ieId}/thumbnail – a thumbnail image.
+ Getting started
+ The Jupyter notebook
+ How To ÖNB-API 
+ by ÖNB Labs introduces all IIIF APIs with examples (in German). It runs in the browser
+ without installation via
+ Binder .
+ A IIIF manifest can be opened in any IIIF-compatible viewer – for example
+ Mirador or the
+ Universal Viewer – by pasting or
+ dragging its URL into the viewer. New to IIIF? See
+ Getting started with IIIF .
+ Contact
+ Questions, feedback or need access? Contact us at
+ api@onb.ac.at .
+ © Austrian National Library 2026
+ Legal notice 
+ Data protection information 
+ Accessibility declaration 
+ Use

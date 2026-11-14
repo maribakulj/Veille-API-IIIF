@@ -37,9 +37,9 @@
 ### e) Test systématique de chaque endpoint
 > Chaque endpoint documenté est testé (budget 15 requêtes par passe, pause ≥ 6 s, GET/HEAD, UA du projet). Redirections du même hôte suivies. Un 403 arrête son hôte, un 429 arrête l'institution. Seules les interdictions écrites dans la doc dispensent de tester.
 
-- [ ] **Pas fait**
-  - **Justification** : DÉCOCHÉE le 2026-11-14 (verrou renforcé) : 2 élément(s) de rattrapage_a_faire non traités | ancienne justification : Aucun test : robots.txt de l'API interdit les robots (consigne C8 : on laisse tomber) et l'hôte renvoie 403 à la sonde (non contourné).
-  - **Preuves** : 
+- [x] **Fait**
+  - **Justification** : Passe 1 (config committée avant) : GET /api/v1/search → 403 défi Cloudflare (cf-mitigated: challenge) : arrêt sur l'hôte, non contourné ; robots.txt Disallow: / ne dispense plus (C12) mais le 403 oui ; spécification OpenAPI lue via Wayback ; rattrapage vidé.
+  - **Preuves** : `institutions/national-library-of-finland-finna/tests/journal.log`, `institutions/national-library-of-finland-finna/config/finna-passe1-api.json`, `institutions/national-library-of-finland-finna/sources/wayback/finna-openapi-et-kiwi-robots.md`
 
 ### f) Ce que disent les gens sur le web
 > Plaintes, discussions, présentations de l'institution, politique envers les API et les bots, blogs, GitHub, forums, listes de diffusion. Sources étiquetées (officielle / institution / utilisateur / tiers), lues, citées.
@@ -60,7 +60,10 @@
 
 <!-- AUTO:DEBUT -->
 ## Contrôles automatiques (calculés depuis `tests/journal.log`)
-Aucune requête enregistrée dans `tests/journal.log`.
+- Requêtes enregistrées : **2** (sessions de sonde : 1, maximum par session : 2)
+- Plus courte pause vers un même hôte : **6 s** (règle : ≥ 6 s)
+- Méthodes utilisées : GET (règle : GET/HEAD seulement)
+- Anomalies : aucune
 <!-- AUTO:FIN -->
 
 ## Consigne intégrale
@@ -349,4 +352,7 @@ Le verrou agit : (a) **au lancement** des outils officiels (`probe.py`, `crash.p
 - **Politesse partagée** (`scripts/hostlock.py`, registre `~/.veille-state`) : ≥ 6 s entre deux requêtes vers un même hôte, tous agents confondus ; au plus 30 requêtes/min au total ; un crash test (verrou exclusif) suspend tout autre trafic.
 - **Intégration** par le coordinateur seulement : `python3 scripts/integrer_lot.py <ID> [--push]` (périmètre, fusion sans commit, validation globale, régénération du classeur ; fusion annulée si un contrôle échoue).
 - Limites connues : un `curl` direct ou une copie locale modifiée de `scripts/` par un agent n'est pas empêché techniquement ; le commit ne peut pas porter ces modifications, et l'intégration revérifie le périmètre.
+
+## Données personnelles (14/11/2026)
+Le dépôt GitHub est **public**. Aucune donnée personnelle de Marcel (adresse IP) ne doit y figurer. Les valeurs sensibles sont listées dans `~/.veille-state/secrets.txt` (hors dépôt) : le hook de commit refuse tout commit qui les ajoute ; `probe.py` et `fetch_doc.sh` les remplacent par « [IP retirée] » dans les fichiers qu'ils produisent. Certains serveurs renvoient l'IP du client dans un en-tête (ex. `x-mps-client-ip`).
 <!-- CONSIGNE:FIN -->

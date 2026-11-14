@@ -2,7 +2,7 @@
   "slug": "wellcome",
   "nom": "Wellcome Collection",
   "pays": "Royaume-Uni",
-  "statut_audit": "audit a–f complet ; g à faire",
+  "statut_audit": "audit a–f complet (passes 1 à 8) ; g à faire (config crash-iiif-image-info.json prête)",
   "limites_documentees": [
     {
       "nature": "Crawl-delay / Request-rate",
@@ -294,6 +294,36 @@
       "url": "https://iiif.wellcomecollection.org/search/",
       "statut": "non_teste",
       "raison": "Chemins connus par le ticket platform#6741 (WAF : 300 requêtes par adresse en 5 minutes) ; non documentés comme API publique, et Crawl-delay 30 s : aucun test envoyé."
+    },
+    {
+      "famille": "API Catalogue v2 : images (liste)",
+      "url": "https://api.wellcomecollection.org/catalogue/v2/images?pageSize=1",
+      "statut": "teste",
+      "preuve": "institutions/wellcome/tests/raw/catalogue-images-page1.headers.txt"
+    },
+    {
+      "famille": "API Catalogue v2 : images/{id}",
+      "url": "https://api.wellcomecollection.org/catalogue/v2/images/a22a42f2",
+      "statut": "teste",
+      "preuve": "institutions/wellcome/tests/raw/catalogue-image-a22a42f2.headers.txt"
+    },
+    {
+      "famille": "API Catalogue v2 : concepts (liste)",
+      "url": "https://api.wellcomecollection.org/catalogue/v2/concepts?pageSize=1",
+      "statut": "teste",
+      "preuve": "institutions/wellcome/tests/raw/catalogue-concepts-page1.headers.txt"
+    },
+    {
+      "famille": "API Catalogue v2 : concepts/{id}",
+      "url": "https://api.wellcomecollection.org/catalogue/v2/concepts/a2233f9d",
+      "statut": "teste",
+      "preuve": "institutions/wellcome/tests/raw/catalogue-concept-a2233f9d.headers.txt"
+    },
+    {
+      "famille": "Référence de l'API catalogue (page Redoc)",
+      "url": "https://developers.wellcomecollection.org/api/catalogue",
+      "statut": "teste",
+      "preuve": "institutions/wellcome/sources/v4/FETCH.log"
     }
   ],
   "hotes_robots": [
@@ -319,24 +349,24 @@
     },
     {
       "hote": "developers.wellcomecollection.org",
-      "resultat": "pages de doc lues (200) ; robots.txt non lu",
-      "preuve": "institutions/wellcome/sources/v2/FETCH.log"
+      "resultat": "404 : robots.txt absent (page « Not Found » du site Docusaurus), tout autorisé (RFC 9309)",
+      "preuve": "institutions/wellcome/sources/robots-v3/FETCH.log"
     },
     {
       "hote": "stacks.wellcomecollection.org",
-      "resultat": "page du blog 403 à notre client ; robots.txt non lu",
-      "preuve": "institutions/wellcome/sources/v2/FETCH.log"
+      "resultat": "200 : robots.txt de Medium lu (Disallow /m/, /me/, /search?q=… ; robots d'IA bloqués) ; pages du blog en 403 pour notre client, lues dans la Wayback",
+      "preuve": "institutions/wellcome/sources/robots-v3/FETCH.log"
     }
   ],
-  "rattrapage_a_faire": [
-    "https://developers.wellcomecollection.org/robots.txt : jamais lu, à lire une fois (une requête)",
-    "https://stacks.wellcomecollection.org/robots.txt : jamais lu (la page du blog a répondu 403), à lire une fois",
-    "https://developers.wellcomecollection.org/api/catalogue : page de documentation non téléchargée par nos outils (absente des FETCH.log/url-list), à télécharger et lire avant de conclure (référence de l'API catalogue, citée dans sources/v2b/raw/02.html)"
-  ],
+  "rattrapage_a_faire": [],
   "endpoints_ecartes": [
     {
       "url": "https://developers.wellcomecollection.org/docs/iiif",
       "raison": "page de documentation IIIF téléchargée et lue : HTTP 200 dans institutions/wellcome/sources/v2/FETCH.log, listée dans sources/url-list-v2.txt, HTML dans sources/v2/raw/02.html"
+    },
+    {
+      "url": "https://developers.wellcomecollection.org/redocusaurus/plugin-redoc-0.yaml",
+      "raison": "Spécification OpenAPI statique servie par le site de documentation (pas une API de données) ; ses chemins (/works, /images, /concepts) sont testés ci-dessus."
     }
   ]
 }

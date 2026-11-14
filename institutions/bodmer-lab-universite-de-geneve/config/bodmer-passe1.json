@@ -1,0 +1,11 @@
+{
+  "slug": "bodmer-lab-universite-de-geneve",
+  "min_delay_s": 10,
+  "max_requests": 15,
+  "follow_redirects": 1,
+  "robots_disallow_autorise_par_marcel": true,
+  "note": "Passe 1 (lot D) : manifeste IIIF annoncé par la page Mirador du site (sources/a3/raw/01.html : manifestUri /fr/constellations/autographes/manifest/1072205386). Le corps est enregistré pour en extraire les URL d'images (service IIIF Image sur iiif.hedera.unige.ch) au lieu de les deviner. Pause 10 s par prudence (Crawl-delay 10 sur fondationbodmer.ch, 40 sur hedera.unige.ch ; bodmerlab.unige.ch sans Crawl-delay).",
+  "endpoints": [
+    {"id": "manifeste-autographes-1072205386", "method": "GET", "url": "https://bodmerlab.unige.ch/fr/constellations/autographes/manifest/1072205386", "save_body": 600000}
+  ]
+}

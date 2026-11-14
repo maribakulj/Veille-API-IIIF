@@ -1,0 +1,8 @@
+{
+  "slug": "mdz",
+  "endpoint": {"id": "image-info-json", "url": "https://api.digitale-sammlungen.de/iiif/image/v2/bsb00103155_00013/info.json", "method": "GET"},
+  "limite_documentee_req_min": null,
+  "source_limite": "aucune limite chiffrée documentée : https://www.digitale-sammlungen.de/en/interfaces annonce « a limit to the number of requests ... Image API per 24 hours » sans chiffre ; info.json (530 octets, 200 le 2026-11-14, sans en-tête x-ratelimit) choisi pour ne pas consommer le quota d'images",
+  "duree_palier_s": 180,
+  "note": "Crash test préparé, NON lancé (C15 : à la fin, un par un). Endpoint léger déjà vu en 200 dans tests/journal.log."
+}

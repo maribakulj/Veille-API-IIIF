@@ -4,10 +4,214 @@
   "pays": "Suisse",
   "classeur_id": "GLAM-022",
   "type": "Institution",
-  "statut_audit": "à faire",
-  "limites_documentees": [],
+  "statut_audit": "audit a–f complet ; g à faire",
+  "limites_documentees": [
+    {
+      "nature": "Crawl-delay robots.txt",
+      "perimetre": "fondationbodmer.ch (tous robots)",
+      "valeur": "10",
+      "fenetre": "secondes entre requêtes",
+      "effet": "non précisé",
+      "verification": "officielle, lue (sources/a/raw/05.html)",
+      "source": "https://fondationbodmer.ch/robots.txt",
+      "date": "2026-11-14"
+    },
+    {
+      "nature": "Crawl-delay robots.txt",
+      "perimetre": "hedera.unige.ch (plateforme, pas l'hôte d'images)",
+      "valeur": "40",
+      "fenetre": "secondes entre requêtes",
+      "effet": "non précisé",
+      "verification": "officielle, lue (sources/a2/raw/06.html)",
+      "source": "https://hedera.unige.ch/robots.txt",
+      "date": "2026-11-14"
+    },
+    {
+      "nature": "Crawl-delay robots.txt",
+      "perimetre": "www.unige.ch",
+      "valeur": "5",
+      "fenetre": "secondes entre requêtes",
+      "effet": "non précisé",
+      "verification": "réplique Wayback 2026-01-01 (le direct est derrière un défi)",
+      "source": "https://www.unige.ch/robots.txt",
+      "date": "2026-11-14"
+    },
+    {
+      "nature": "Licence et crédit",
+      "perimetre": "contenus du site Bodmer Lab ; images en accès libre",
+      "valeur": "CC BY-NC 4.0 sauf indication contraire ; crédit « The Martin Bodmer Foundation, Cologny (Geneva) » et une copie ou un lien de toute publication",
+      "fenetre": "–",
+      "effet": "conditions de réutilisation, pas un quota",
+      "verification": "officielle, lue",
+      "source": "https://fondationbodmer.ch/en/research-and-reproductions/",
+      "date": "2026-11-14"
+    }
+  ],
   "en_tetes_observes": [],
-  "blocages": [],
-  "sources": [],
-  "web": []
+  "blocages": [
+    {
+      "date": "2026-11-14",
+      "hote": "www.unige.ch",
+      "code": "défi JavaScript (F5 TSPD)",
+      "nature": "anti-bot sur 3 requêtes de fetch_doc.sh (outil sans arrêt après le premier défi)",
+      "suite": "non réessayé ; pages lues via Wayback"
+    },
+    {
+      "date": "2026-11-14",
+      "hote": "iiif.hedera.unige.ch",
+      "code": "401 sur /robots.txt seulement",
+      "nature": "robots.txt non servi ; les ressources IIIF répondent 200",
+      "suite": "lu comme indisponible (RFC 9309)"
+    }
+  ],
+  "sources": [
+    {
+      "url": "https://bodmerlab.unige.ch/",
+      "fichier": "institutions/bodmer-lab-universite-de-geneve/sources/a/SHA256SUMS"
+    },
+    {
+      "url": "https://bodmerlab.unige.ch/fr/constellations/autographes/mirador/1072205386",
+      "fichier": "institutions/bodmer-lab-universite-de-geneve/sources/a3/SHA256SUMS"
+    },
+    {
+      "url": "https://fondationbodmer.ch/en/research-and-reproductions/",
+      "fichier": "institutions/bodmer-lab-universite-de-geneve/sources/a6/SHA256SUMS"
+    }
+  ],
+  "web": [
+    {
+      "categorie": "institution",
+      "url": "https://fondationbodmer.ch/en/research-and-reproductions/",
+      "date": "2026-11-14",
+      "etiquette": "officielle (page lue via fetch_doc)",
+      "citation": "« For all open-access images obtained from sites such as e-codices, the copyrights in force remain the same. »",
+      "preuve": "institutions/bodmer-lab-universite-de-geneve/sources/a6/text/01.txt"
+    },
+    {
+      "categorie": "utilisateurs",
+      "aucun_resultat": true,
+      "requete": "Bodmer Lab unige IIIF images blocked OR \"429\" OR \"rate limit\" OR scraping forum iiif-discuss",
+      "date": "2026-11-14",
+      "etiquette": "résumé de moteur, non vérifié",
+      "citation": "aucun signalement visant Bodmer Lab ; seuls des cas d'autres institutions (Vatican 403, museum-digital) apparaissent.",
+      "preuve": "institutions/bodmer-lab-universite-de-geneve/fiche.md"
+    },
+    {
+      "categorie": "tickets",
+      "aucun_resultat": true,
+      "requete": "\"bodmerlab.unige.ch\" IIIF manifest github",
+      "date": "2026-11-14",
+      "etiquette": "résumé de moteur, non vérifié",
+      "citation": "aucun ticket d'outil tiers sur Bodmer Lab ; le guide IIIF (guides.iiif.io, page lue) indique seulement comment trouver le manifeste via le bouton Mirador.",
+      "preuve": "institutions/bodmer-lab-universite-de-geneve/fiche.md"
+    },
+    {
+      "categorie": "presentations",
+      "url": "https://web.archive.org/web/20260117162130/https://www.unige.ch/eresearch/en/services/hedera",
+      "date": "2026-11-14",
+      "etiquette": "institution (UNIGE e-Research, réplique Wayback lue)",
+      "citation": "« Visual media access through the IIIF protocol from the official IIIF endpoint of the university. » ; aucune limite de débit.",
+      "preuve": "institutions/bodmer-lab-universite-de-geneve/sources/wayback/unige-ch.md"
+    }
+  ],
+  "contact": "bodmerlab@unige.ch (site Bodmer Lab) ; eresearch@unige.ch (hedera, e-Research UNIGE)",
+  "conclusion_quota": "Aucune limite de débit publiée ni observée. Pas de doc d'API : le manifeste IIIF 2 est annoncé par la page Mirador du site (manifestUri), le service IIIF Image 2 niveau 2 est sur iiif.hedera.unige.ch (UNIGE). Contenus sous CC BY-NC 4.0 ; crédit demandé à la Fondation Martin Bodmer. Crawl-delay déclaré : 10 s (fondationbodmer.ch), 40 s (hedera.unige.ch), 5 s (www.unige.ch, réplique) ; aucun sur bodmerlab.unige.ch ni iiif.hedera.unige.ch (401).",
+  "classe_quota": "aucune limite publiée (usage courtois, Crawl-delay seulement)",
+  "confiance": "moyenne",
+  "notes": "Pas de documentation d'API chez Bodmer Lab : endpoints repris de la page Mirador (sources/a3) et des réponses. www.unige.ch derrière un défi JavaScript (F5/TSPD) : pages e-Research lues via Wayback. Hedera (hedera.unige.ch) : plateforme réservée au personnel UNIGE (compte edu-ID) pour l'écriture ; ses manifestes publics ne sont pas listés par URL dans nos sources.",
+  "rattrapage_a_faire": [],
+  "endpoints_documentes": [
+    {
+      "famille": "Manifeste IIIF 2 du site Bodmer Lab (/fr/constellations/<constellation>/manifest/<barcode>)",
+      "url": "https://bodmerlab.unige.ch/fr/constellations/autographes/manifest/1072205386",
+      "statut": "teste",
+      "preuve": "institutions/bodmer-lab-universite-de-geneve/tests/raw/manifeste-autographes-1072205386.headers.txt"
+    },
+    {
+      "famille": "Manifeste IIIF 2 hedera (iiif.hedera.unige.ch/iiif/manifests/bodmerlab/IIIFManifest_<barcode>.json)",
+      "url": "https://iiif.hedera.unige.ch/iiif/manifests/bodmerlab/IIIFManifest_1072205386.json",
+      "statut": "teste",
+      "preuve": "institutions/bodmer-lab-universite-de-geneve/tests/raw/hedera-manifeste.headers.txt"
+    },
+    {
+      "famille": "IIIF Image API 2 niveau 2 (iiif.hedera.unige.ch/iiif/2/bodmerlab/...) : info.json et dérivé",
+      "url": "https://iiif.hedera.unige.ch/iiif/2/bodmerlab/1072205386/1072205386_002.jpg/info.json",
+      "statut": "teste",
+      "preuve": "institutions/bodmer-lab-universite-de-geneve/tests/raw/hedera-info-json.headers.txt"
+    },
+    {
+      "famille": "IIIF Image API 3 hedera (exemple e-Research : iiif.hedera.unige.ch/iiif/3/gypso/...)",
+      "url": "https://iiif.hedera.unige.ch/iiif/3/gypso/ug550133/full/max/0/default.jpg",
+      "statut": "non_teste",
+      "raison": "exemple d'un autre projet (Gypsothèque) cité par e-Research ; pas une ressource de Bodmer Lab ; image pleine taille (full/max), refusée par prudence de débit"
+    },
+    {
+      "famille": "Triplestore SPARQL hedera et collections IIIF (« Browse our iiif collections »)",
+      "url": "https://hedera.unige.ch/browse/project/bodmer/detail",
+      "statut": "non_teste",
+      "raison": "URL du point SPARQL et des collections non fournie par les sources lues ; Crawl-delay 40 s, Disallow /dataset ; deviner serait inventer ; plateforme à compte edu-ID pour l'écriture"
+    }
+  ],
+  "endpoints_ecartes": [
+    {
+      "url": "https://bodmerlab.unige.ch/fr/search?keywords=",
+      "raison": "page de recherche pour humains (entrée du guide IIIF), pas une API documentée ; aucune réponse JSON annoncée"
+    },
+    {
+      "url": "https://bodmerlab.unige.ch/download_file/view_inline/166",
+      "raison": "téléchargement de fichier du site (document PDF/image), pas un endpoint d'API ni de métadonnées ; lien relevé dans sources/a/raw/03.html"
+    },
+    {
+      "url": "https://www.google.com/recaptcha/api.js",
+      "raison": "script tiers de reCAPTCHA chargé par le formulaire de contact, hors périmètre de l'institution"
+    },
+    {
+      "url": "https://fondationbodmer.ch/wp-json/wp/v2/pages/21365",
+      "raison": "lien « alternate » WordPress REST du site de la Fondation (page de contenu du site, sources/a/raw/06.html), pas une API de collections IIIF ; API CMS générique, hors périmètre de la veille IIIF"
+    }
+  ],
+  "hotes_robots": [
+    {
+      "hote": "bodmerlab.unige.ch",
+      "resultat": "200 : 16 Disallow sur /application/* et captcha ; aucun Crawl-delay ; manifestes autorisés",
+      "preuve": "institutions/bodmer-lab-universite-de-geneve/sources/a/FETCH.log"
+    },
+    {
+      "hote": "fondationbodmer.ch",
+      "resultat": "200 (30 o) : User-agent *, Crawl-delay 10",
+      "preuve": "institutions/bodmer-lab-universite-de-geneve/sources/a/FETCH.log"
+    },
+    {
+      "hote": "iiif.hedera.unige.ch",
+      "resultat": "401 : robots.txt non servi, lu comme indisponible",
+      "preuve": "institutions/bodmer-lab-universite-de-geneve/sources/a2/FETCH.log"
+    },
+    {
+      "hote": "hedera.unige.ch",
+      "resultat": "200 : Disallow /dataset /admin /login /mfa-login /oauth2, Crawl-delay 40",
+      "preuve": "institutions/bodmer-lab-universite-de-geneve/sources/a2/FETCH.log"
+    },
+    {
+      "hote": "www.unige.ch (réplique Wayback 2026-01-01)",
+      "resultat": "Crawl-delay 5, Disallow techniques ; direct derrière défi JavaScript",
+      "preuve": "institutions/bodmer-lab-universite-de-geneve/sources/wayback/unige-ch.md"
+    }
+  ],
+  "a_verifier_manuellement": [
+    {
+      "url": "https://www.unige.ch/eresearch/en/services/hedera",
+      "pourquoi": "défi JavaScript F5 le 2026-11-14 ; lue sur Wayback 2026-01-17",
+      "a_chercher": "conditions d'usage, tarifs (page Pricing), FAQ et éventuelle limite de débit de l'endpoint IIIF de l'UNIGE"
+    },
+    {
+      "url": "https://www.unige.ch/eresearch/en/services/hedera/what-iiif",
+      "pourquoi": "défi JavaScript le 2026-11-14 ; lue sur Wayback 2026-01-23 (4500 caractères sur 4759)",
+      "a_chercher": "fin de page, rien d'attendu sur les limites"
+    },
+    {
+      "url": "https://www.unige.ch/robots.txt",
+      "pourquoi": "défi JavaScript le 2026-11-14 ; lue sur Wayback 2026-01-01",
+      "a_chercher": "Crawl-delay et Disallow actuels (5 s en janvier 2026)"
+    }
+  ]
 }

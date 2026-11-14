@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="Description" content="You can view manifests in SACHA from this page.">
+    <link rel=icon type="image/ico" href=/logo/favicon/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/gui/bootstrap-tagsinput.css">
+    <link rel="stylesheet" href="/gui/headerAndFooter.css">
+    <link rel="stylesheet" href="/gui/index.css">
+
+    <title>SACHA</title>
+</head>
+<body>
+<div class="container-fluid full-screen-container">
+    <div id="pageTitle"></div><!--if this div element is empty element: "<div/>", it doesn't work-->
+
+    <div class="font full-width infotext">
+        <div class="titletext">
+            In SACHA, a manifest, as defined in the Presentation API, refers to a digitized object.
+        </div>
+        <div>
+            A digitized object
+            can be a book or a similar object from the library(newspaper, magazine).
+            Every manifest has a unique id, which is its URL.
+            Every digitized book has a project name unique id. The project name and the id are included in the manifest
+            URLs in the following
+            scheme:
+            <pre><code>http://iiif.onb.ac.at/presentation/{project name}/{id}/manifest/</code></pre>
+            There are currently three digitization projects with the following names: ABO(Austrian Books Online),
+            ANNO(AustriaN Newspapers Online) and AKON(AnsichtsKarten ONline).
+            You can either type in the full URL or just the id(project name will be inferred) of a digitized book
+            in order to view it. SACHA provides two viewers to view the manifests: <a href="http://projectmirador.org/">Mirador</a>
+            and <a href="http://universalviewer.io/">Universal Viewer</a>.
+            You can also view manifests from institutions other than the Austrian National Library by typing the URL.
+            For more information, you can read the <a href="/api/">documentation</a>.
+        </div>
+    </div>
+    <hr>
+
+    <div class="font fill container-fluid">
+        <!--<form target="_blank" method="post">-->
+        <form method="post">
+            <div class="table-responsive">
+                <table class="table table-hover table-striped text-center">
+                    <thead>
+                    <tr>
+                        <th class="text-center">MANIFEST ID OR URL</th>
+                        <th class="text-center">IIIF MANIFEST</th>
+                        <th class="text-center">MIRADOR VIEWER</th>
+                        <th class="text-center">MIRADOR3 VIEWER</th>
+                        <th class="text-center">UNIVERSAL VIEWER</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td>
+                            <input id="inputID" class="form-control"
+                                   name="input"
+                                   type="text" value="+Z196807705" required
+                                   title="Manifest URL is the unique identifier for every manifest but you can directly put in the id(barcode or anno id).">
+                        </td>
+                        <td>
+                            <button type="submit" class="btn btn-primary onb-button" formaction="/view/manifest/json">
+                                <span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span>
+                            </button>
+                        </td>
+                        <td>
+                            <button type="submit" class="btn btn-primary onb-button"
+                                    formaction="/view/manifest/mirador">
+                                <span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span>
+                            </button>
+                        </td>
+                        <td>
+                            <button type="submit" class="btn btn-primary onb-button"
+                                    formaction="/view/manifest/mirador3">
+                                <span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span>
+                            </button>
+                        </td>
+                        <td>
+                            <button type="submit" class="btn btn-primary onb-button"
+                                    formaction="/view/manifest/universalviewer">
+                                <span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span>
+                            </button>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </form>
+
+    </div>
+    <div id="logoBar"></div><!--if this div element is empty element: "<div/>", it doesn't work-->
+
+</div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script src="/gui/bootstrap-tagsinput.min.js"></script>
+<script src="/gui/sacha.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,12 @@
+{
+  "slug": "harvard-art-museums",
+  "min_delay_s": 6,
+  "max_requests": 15,
+  "follow_redirects": 0,
+  "robots_disallow_autorise_par_marcel": true,
+  "note": "Passe 2 : nrs.harvard.edu a répondu 303 vers ids.lib.harvard.edu/mps/501084284 (location lue dans tests/raw/image-*.headers.txt de la passe 1) ; robots.txt de ids.lib.harvard.edu : 404 (sources/a4). Image API info.json et dérivé 200 px.",
+  "endpoints": [
+    {"id": "ids-info-json", "method": "GET", "url": "https://ids.lib.harvard.edu/mps/501084284/info.json"},
+    {"id": "ids-derive-200", "method": "GET", "url": "https://ids.lib.harvard.edu/mps/501084284/full/200,/0/default.jpg"}
+  ]
+}

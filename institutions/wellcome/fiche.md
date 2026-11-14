@@ -15,7 +15,7 @@
 - **Doc développeurs** : API Catalogue et IIIF « no sign up or authentication required » ; « if you require a full harvest of the catalogue, you should use the daily snapshot instead of the API » (`works.json.gz`, 1,5 Go).
 - **`wellcomecollection.org/robots.txt`** : `*` autorisé sauf `/account` ; robots d'IA bloqués (ClaudeBot, anthropic-ai, GPTBot, Bytespider…).
 
-## Tests (6 passes, configurations committées avant chaque lancement)
+## Tests (8 passes, configurations committées avant chaque lancement)
 
 | Passe | Endpoint | Résultat |
 |---|---|---|
@@ -26,6 +26,10 @@
 | 4 | `iiif…/image/b18659135_0001.jp2/info.json` | **401** (matériel restreint) ; dérivé `!200,200` : **200** |
 | 5 | `iiif…/presentation/v3/b18035723` (œuvre ouverte) | **200** |
 | 6 | `iiif…/image/b18035723_0001.JP2/info.json` et dérivé | **200** ×2 |
+| 7 | `api…/catalogue/v2/images?pageSize=1` et `concepts?pageSize=1` (référence `developers…/api/catalogue`, lue en entier, aucune mention de limite) | **200** ×2 |
+| 8 | `api…/catalogue/v2/images/a22a42f2` et `concepts/a2233f9d` (identifiants de la passe 7) | **200** ×2 |
+
+Rattrapage : `robots.txt` de developers.wellcomecollection.org (404, tout autorisé) et de stacks.wellcomecollection.org (Medium, 200) lus ; référence `/api/catalogue` téléchargée (`sources/v4`).
 
 Aucun 429. Aucun en-tête `Retry-After`, `X-RateLimit-*`, `RateLimit-*`.
 

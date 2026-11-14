@@ -1,0 +1,16 @@
+2026-11-14T01:40:28Z GET https://api.digitale-sammlungen.de/iiif/image/v2/bsb00109992_00001/full/200,/0/default.jpg
+HTTP 200
+date: Sat, 14 Nov 2026 01:40:28 GMT
+content-type: image/jpeg
+content-length: 5974
+connection: keep-alive
+x-ratelimit-limit: 25001
+x-ratelimit-remaining: 25000
+x-ratelimit-reset: 3
+cache-control: public, max-age=604800, must-revalidate
+link: <https://api.digitale-sammlungen.de/iiif/image/v2/bsb00109992_00001/full/200,/0/default.jpg>; rel="canonical", <http://iiif.io/api/image/2/level2.json>; rel="profile"
+last-modified: Thu, 30 Nov 2017 13:52:24 GMT
+etag: W/"0080a9f7727726783617077919407ceec77865f5ae67d908b87ab0b42ef55fc9"
+access-control-allow-origin: *
+strict-transport-security: max-age=31536000; includeSubDomains
+x-proxy-cache: MISS

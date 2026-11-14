@@ -1,0 +1,18 @@
+2026-11-14T01:29:41Z GET https://iiif.europeana.eu/presentation/9200396/BibliographicResource_3000118436165/search?q=paris
+HTTP 200
+date: Sat, 14 Nov 2026 01:29:41 GMT
+content-type: application/ld+json;profile="http://iiif.io/api/presentation/2/context.json";charset=UTF-8
+transfer-encoding: chunked
+connection: keep-alive
+vary: Accept-Encoding
+vary: Origin
+vary: Access-Control-Request-Method
+vary: Access-Control-Request-Headers
+access-control-allow-origin: *
+reporting-endpoints: cf-csp-endpoint="https://csp-reporting.cloudflare.com/cdn-cgi/script_monitor/report?m=gh9JSjBk3ayCxlDwygh2cECHctCf9xqjGT.taFkGamI-1794619781.2169547-1.0.1.1-6Smvg3N4YKlDU_jNqdGTVUoxiAXkmz6q1ZfQfqg_uwqGclDDO7EfKmtnrHbbXFwfqhCofqZRJ9EiHSbq.OdrZ6GhlNteVNwFdwgIYBCzt7oSuQHFHyJ4pVpgXYFIloTUumSJxs9Uq2PvnpvyIXlotIo7PWqO0d_25uHyBv404bHqNnB8k2L2x1oKrW6JKKlA"
+strict-transport-security: max-age=31536000; includeSubDomains
+cf-cache-status: DYNAMIC
+content-security-policy-report-only: script-src 'unsafe-inline' 'unsafe-eval'; connect-src 'none'; report-uri https://csp-reporting.cloudflare.com/cdn-cgi/script_monitor/report?m=gh9JSjBk3ayCxlDwygh2cECHctCf9xqjGT.taFkGamI-1794619781.2169547-1.0.1.1-6Smvg3N4YKlDU_jNqdGTVUoxiAXkmz6q1ZfQfqg_uwqGclDDO7EfKmtnrHbbXFwfqhCofqZRJ9EiHSbq.OdrZ6GhlNteVNwFdwgIYBCzt7oSuQHFHyJ4pVpgXYFIloTUumSJxs9Uq2PvnpvyIXlotIo7PWqO0d_25uHyBv404bHqNnB8k2L2x1oKrW6JKKlA; report-to cf-csp-endpoint
+report-to: {"group":"cf-csp-endpoint","max_age":86400,"endpoints":[{"url":"https://csp-reporting.cloudflare.com/cdn-cgi/script_monitor/report?m=gh9JSjBk3ayCxlDwygh2cECHctCf9xqjGT.taFkGamI-1794619781.2169547-1.0.1.1-6Smvg3N4YKlDU_jNqdGTVUoxiAXkmz6q1ZfQfqg_uwqGclDDO7EfKmtnrHbbXFwfqhCofqZRJ9EiHSbq.OdrZ6GhlNteVNwFdwgIYBCzt7oSuQHFHyJ4pVpgXYFIloTUumSJxs9Uq2PvnpvyIXlotIo7PWqO0d_25uHyBv404bHqNnB8k2L2x1oKrW6JKKlA"}]}
+server: cloudflare
+cf-ray: a5a23f209bf4bc94-MXP

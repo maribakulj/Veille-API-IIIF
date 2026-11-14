@@ -1,0 +1,11 @@
+{
+  "slug": "yale-university-art-gallery",
+  "min_delay_s": 6,
+  "max_requests": 15,
+  "follow_redirects": 1,
+  "robots_disallow_autorise_par_marcel": true,
+  "note": "Passe 3 : variante v2 du manifeste, documentee par le guide de formation IIIF « Finding Yale manuscripts » (https://training.iiif.io/advanced_iiif/basics/finding_yale.html : « insert v2/ after the yale.edu part »), sur l'objet 31719 deja lu en passe 1.",
+  "endpoints": [
+    {"id": "manifest-v2-yuag-obj-31719", "method": "GET", "url": "https://manifests.collections.yale.edu/v2/yuag/obj/31719"}
+  ]
+}

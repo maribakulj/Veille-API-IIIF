@@ -88,6 +88,42 @@
       "etiquette": "–",
       "citation": "Aucun retour spécifique à Gand ; résultats sur UNC, Duke, Loughborough",
       "preuve": "institutions/ghent-university-library/fiche.md"
+    },
+    {
+      "categorie": "institution",
+      "aucun_resultat": true,
+      "requete": "Ghent University Library IIIF adore.ugent.be manifest API terms of use rate limit",
+      "date": "2026-11-14",
+      "etiquette": "résumé de moteur, non vérifié",
+      "citation": "aucune politique de débit ni conditions d'usage d'API de Gand trouvées ; annuaire apis.io sans valeur chiffrée (« Rate Limit Signal : derived »).",
+      "preuve": "institutions/ghent-university-library/fiche.md"
+    },
+    {
+      "categorie": "utilisateurs",
+      "aucun_resultat": true,
+      "requete": "libcatalog.ugent.be OR \"Ghent University Library\" IIIF 429 OR blocked OR \"too many requests\" scraper",
+      "date": "2026-11-14",
+      "etiquette": "résumé de moteur, non vérifié",
+      "citation": "aucune plainte ni blocage visant Gand ; résultats génériques sur le rate limiting.",
+      "preuve": "institutions/ghent-university-library/fiche.md"
+    },
+    {
+      "categorie": "tickets",
+      "aucun_resultat": true,
+      "requete": "github issue \"adore.ugent.be\" IIIF (passe précédente) + recherche passe 2 sans résultat spécifique",
+      "date": "2026-11-14",
+      "etiquette": "résumé de moteur, non vérifié",
+      "citation": "aucun ticket d'outil tiers sur des limites de Gand.",
+      "preuve": "institutions/ghent-university-library/fiche.md"
+    },
+    {
+      "categorie": "presentations",
+      "aucun_resultat": true,
+      "requete": "Ghent University Library Ex Libris Primo IIIF Alma Viewer digital collections presentation blog",
+      "date": "2026-11-14",
+      "etiquette": "résumé de moteur, non vérifié",
+      "citation": "aucun billet de Gand sur l'API ; annonce Ex Libris Rapido (Alma/Primo) et mention de Gand parmi les utilisateurs IIIF belges (meemoo, page non lisible : 404).",
+      "preuve": "institutions/ghent-university-library/fiche.md"
     }
   ],
   "donnees_a_revalider": false,
@@ -121,6 +157,12 @@
       "url": "https://eu-img02.ext.exlibrisgroup.com/iiif/2/",
       "statut": "teste",
       "preuve": "institutions/ghent-university-library/tests/raw/exlibris-info-json.headers.txt"
+    },
+    {
+      "famille": "OAI-PMH 2.0 et SRU 1.1 (cités par un annuaire tiers apis.io, pas par une doc de Gand)",
+      "url": "https://apis.io/providers/ghent/",
+      "statut": "non_teste",
+      "raison": "URL des services non fournie par une source de l'université (annuaire tiers seulement, sans URL d'endpoint relevée) : deviner serait inventer ; moissonnage OAI hors périmètre IIIF"
     }
   ],
   "hotes_robots": [
@@ -148,9 +190,13 @@
       "hote": "lib.ugent.be",
       "resultat": "200 (65 octets) : Allow: /",
       "preuve": "institutions/ghent-university-library/sources/FETCH.log"
+    },
+    {
+      "hote": "libraryguides.ugent.be",
+      "resultat": "hôte non résolu (DNS) : curl (6) Could not resolve host, le 2026-11-14 ; robots.txt inexistant faute d'hôte",
+      "preuve": "institutions/ghent-university-library/sources/d/FETCH.log"
     }
   ],
-  "rattrapage_a_faire": [
-    "https://libraryguides.ugent.be/robots.txt : hôte non résolu (DNS) lors du téléchargement de la doc ; à revérifier par sonde."
-  ]
+  "rattrapage_a_faire": [],
+  "endpoints_ecartes": []
 }

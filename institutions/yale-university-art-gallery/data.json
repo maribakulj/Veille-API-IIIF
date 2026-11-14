@@ -4,10 +4,219 @@
   "pays": "États-Unis",
   "classeur_id": "GLAM-037",
   "type": "Institution",
-  "statut_audit": "à faire",
+  "statut_audit": "méthode v2 complète a à f (artgallery.yale.edu en défi Cloudflare : Wayback) ; g préparée",
   "limites_documentees": [],
   "en_tetes_observes": [],
-  "blocages": [],
-  "sources": [],
-  "web": []
+  "blocages": [
+    {
+      "hote": "artgallery.yale.edu",
+      "code": 403,
+      "nature": "défi Cloudflare « Just a moment... » dès la 1re requête (robots.txt) : refus d'accès à notre client, pas un quota ; non contourné, pages lues via Wayback",
+      "date": "2026-11-14"
+    },
+    {
+      "hote": "yaleits.atlassian.net",
+      "code": 202,
+      "nature": "pages wiki rendues par JavaScript : réponse 202 vide pour 4 pages (HTML sans contenu) ; lecture impossible sans navigateur",
+      "date": "2026-11-14"
+    }
+  ],
+  "sources": [
+    {
+      "url": "https://artgallery.yale.edu/using-collection/using-images",
+      "date": "2026-11-14",
+      "etiquette": "officielle (Wayback)",
+      "preuve": "institutions/yale-university-art-gallery/sources/wayback/using-images.md"
+    },
+    {
+      "url": "https://artgallery.yale.edu/terms-and-conditions",
+      "date": "2026-11-14",
+      "etiquette": "officielle (Wayback)",
+      "preuve": "institutions/yale-university-art-gallery/sources/wayback/terms-and-conditions.md"
+    },
+    {
+      "url": "https://artgallery.yale.edu/robots.txt",
+      "date": "2026-11-14",
+      "etiquette": "officielle (Wayback)",
+      "preuve": "institutions/yale-university-art-gallery/sources/wayback/robots-artgallery.md"
+    },
+    {
+      "url": "https://guides.iiif.io/guides/artgallery.yale.edu/",
+      "date": "2026-11-14",
+      "etiquette": "tiers (guide IIIF)",
+      "preuve": "institutions/yale-university-art-gallery/sources/doc/SHA256SUMS"
+    },
+    {
+      "url": "https://manifests.collections.yale.edu/yuag/obj/31719",
+      "date": "2026-11-14",
+      "etiquette": "officielle (API)",
+      "preuve": "institutions/yale-university-art-gallery/tests/raw/manifest-yuag-obj-31719.headers.txt"
+    }
+  ],
+  "web": [
+    {
+      "categorie": "institution",
+      "url": "https://artgallery.yale.edu/terms-and-conditions",
+      "date": "2023-03",
+      "etiquette": "officielle (Wayback)",
+      "citation": "« The Gallery’s collection data is available in human- and machine-readable formats via its website and online systems. » ; accès « without further application, authorization, or fees » ; aucune limite de débit",
+      "preuve": "institutions/yale-university-art-gallery/sources/wayback/terms-and-conditions.md"
+    },
+    {
+      "categorie": "presentations",
+      "url": "https://news.yale.edu/2025/02/24/breaking-digital-silos-share-cultural-heritage-collections",
+      "date": "2025-02-24",
+      "etiquette": "institution (Yale News, lu)",
+      "citation": "« a standard web application programming interface (API) that allows a museum’s digital systems to interact intuitively » ; rien sur les limites",
+      "preuve": "institutions/yale-university-art-gallery/fiche.md"
+    },
+    {
+      "categorie": "utilisateurs",
+      "aucun_resultat": true,
+      "requete": "manifests.collections.yale.edu OR images.collections.yale.edu 429 OR \"rate limit\" OR blocked IIIF harvest Yale users",
+      "date": "2026-11-14",
+      "etiquette": "tiers",
+      "citation": "aucune plainte ni retour d'utilisateur sur des 429 ou blocages des API IIIF de Yale ; le guide IIIF « Finding Yale manuscripts » (lu) ne parle ni de limites ni de moissonnage",
+      "preuve": "institutions/yale-university-art-gallery/fiche.md"
+    },
+    {
+      "categorie": "tickets",
+      "aucun_resultat": true,
+      "requete": "github issue \"collections.yale.edu\" IIIF manifest yuag error OR timeout OR throttle",
+      "date": "2026-11-14",
+      "etiquette": "tiers",
+      "citation": "aucun ticket GitHub/GitLab d'un outil tiers sur les API IIIF de Yale dans les résultats (résultats génériques)",
+      "preuve": "institutions/yale-university-art-gallery/fiche.md"
+    }
+  ],
+  "contact": "yuagrights@yale.edu (droits et reproductions, pas d'adresse API trouvée)",
+  "conclusion_quota": "Aucun quota, aucune limite de débit, aucun en-tête de limite : ni dans les conditions et pages d'usage de la Gallery (lues via Wayback), ni dans les 12 réponses des API IIIF (manifests, images, media). Seule règle écrite : accès ouvert sans autorisation ni frais, avec attribution. Le site web artgallery.yale.edu est derrière un défi Cloudflare (403) et son robots.txt bloque ~150 agents d'IA nommés ; les API IIIF (hôtes collections.yale.edu) n'ont pas de robots.txt (404).",
+  "classe_quota": "aucun quota trouvé",
+  "confiance": "moyenne",
+  "notes": "Les API IIIF de la YUAG sont servies par le système collections.yale.edu (LUX / Yale) : manifestes v3 (et v2 via /v2/), images Cantaloupe 4.1.9, miniatures redirigées 307 vers un S3 signé (hôte non suivi). canvas/ et annopage/ des identifiants du manifeste répondent 404. Ne pas tester artgallery.yale.edu en direct (défi Cloudflare).",
+  "a_verifier_manuellement": [
+    {
+      "url": "https://artgallery.yale.edu/using-collection",
+      "pourquoi": "défi Cloudflare 403 sur artgallery.yale.edu ; seules les captures Wayback (using-images, terms-and-conditions, robots.txt) ont été lues.",
+      "a_chercher": "toute mention actuelle de l'accès machine, d'une API, d'un moissonnage ou d'un contact technique ; page /using-collection et sous-pages rights-and-reproductions."
+    },
+    {
+      "url": "https://yaleits.atlassian.net/wiki/x/NQA0jQ",
+      "pourquoi": "wiki Atlassian rendu par JavaScript (réponse 202 vide) ; il décrit les schémas d'URL des manifestes et images de Yale.",
+      "a_chercher": "limites de débit, règles de moissonnage, contact pour de gros volumes ; pages voisines x/Q4D3Z, x/TQDQZ, x/JgDOZ, x/OYDXog (LUX)."
+    },
+    {
+      "url": "https://lux.collections.yale.edu/",
+      "pourquoi": "documentation de l'API LUX (Linked Art) non lue : hors périmètre direct de la YUAG, portail Yale-wide, robots.txt 200 lu.",
+      "a_chercher": "conditions d'usage de l'API LUX et limites applicables aux objets YUAG."
+    }
+  ],
+  "endpoints_documentes": [
+    {
+      "famille": "Presentation API 3 : manifestes /yuag/obj/{id}",
+      "url": "https://manifests.collections.yale.edu/yuag/obj/{id}",
+      "statut": "teste",
+      "preuve": "institutions/yale-university-art-gallery/tests/journal.log"
+    },
+    {
+      "famille": "Presentation API 2 : variante /v2/yuag/obj/{id}",
+      "url": "https://manifests.collections.yale.edu/v2/yuag/obj/{id}",
+      "statut": "teste",
+      "preuve": "institutions/yale-university-art-gallery/tests/journal.log"
+    },
+    {
+      "famille": "Image API 2 : info.json et images (Cantaloupe)",
+      "url": "https://images.collections.yale.edu/iiif/2/yuag:{uuid}/info.json",
+      "statut": "teste",
+      "preuve": "institutions/yale-university-art-gallery/tests/journal.log"
+    },
+    {
+      "famille": "Miniatures media.collections.yale.edu",
+      "url": "https://media.collections.yale.edu/thumbnail/yuag/{uuid}",
+      "statut": "teste",
+      "preuve": "institutions/yale-university-art-gallery/tests/journal.log"
+    },
+    {
+      "famille": "Canevas et annotation pages des manifestes",
+      "url": "https://manifests.collections.yale.edu/canvas/yuag/{uuid}",
+      "statut": "teste",
+      "preuve": "institutions/yale-university-art-gallery/tests/journal.log"
+    },
+    {
+      "famille": "Téléchargement d'images (lien « download » de la fiche objet)",
+      "url": "https://artgallery.yale.edu/collection",
+      "statut": "non_teste",
+      "raison": "hôte artgallery.yale.edu en défi Cloudflare (403) dès la 1re requête : arrêt, non contourné ; la doc (Wayback) ne décrit aucune API de téléchargement."
+    },
+    {
+      "famille": "API LUX (Linked Art, Search/Documents)",
+      "url": "https://lux.collections.yale.edu/",
+      "statut": "non_teste",
+      "raison": "portail Yale transversal, pas une API documentée par la Gallery ; la doc lue ne la cite pas ; voir à vérifier à la main."
+    }
+  ],
+  "endpoints_ecartes": [
+    {
+      "url": "https://artgallery.yale.edu/collection",
+      "raison": "site web de la collection (HTML, interface de recherche) derrière un défi Cloudflare 403, pas une API."
+    },
+    {
+      "url": "https://artgallery.yale.edu/using-collection",
+      "raison": "page de doc (HTML), pas une API ; lue via Wayback."
+    },
+    {
+      "url": "https://guides.iiif.io/guides/artgallery.yale.edu/",
+      "raison": "page de guide du consortium IIIF, pas une API de la Gallery."
+    },
+    {
+      "url": "https://prd-cds2-image-store-yuag.s3.amazonaws.com/public/thumbnail/",
+      "raison": "URL S3 signée renvoyée par une redirection 307 vers un autre hôte : la sonde ne suit pas les redirections inter-hôtes."
+    },
+    {
+      "url": "https://guides.iiif.io/assets/site.webmanifest",
+      "raison": "fichier d'icône d'application web (PWA) du site guides.iiif.io du consortium IIIF, pas une API de la Gallery."
+    }
+  ],
+  "hotes_robots": [
+    {
+      "hote": "artgallery.yale.edu",
+      "resultat": "403 (défi Cloudflare) en direct ; lu via Wayback (capture 2026-05-01) : Disallow /collection/search/grid*, /collection?* ; ~150 agents d'IA bloqués ; pas de Crawl-delay",
+      "preuve": "institutions/yale-university-art-gallery/sources/wayback/robots-artgallery.md"
+    },
+    {
+      "hote": "manifests.collections.yale.edu",
+      "resultat": "404 (tout autorisé)",
+      "preuve": "institutions/yale-university-art-gallery/sources/doc/FETCH.log"
+    },
+    {
+      "hote": "images.collections.yale.edu",
+      "resultat": "404 (tout autorisé)",
+      "preuve": "institutions/yale-university-art-gallery/sources/doc2/FETCH.log"
+    },
+    {
+      "hote": "media.collections.yale.edu",
+      "resultat": "404 (tout autorisé)",
+      "preuve": "institutions/yale-university-art-gallery/sources/doc3/FETCH.log"
+    },
+    {
+      "hote": "lux.collections.yale.edu",
+      "resultat": "200 ; User-agent: * Disallow: /view/results/ ; pas de Crawl-delay",
+      "preuve": "institutions/yale-university-art-gallery/sources/doc/raw/08.html"
+    },
+    {
+      "hote": "yaleits.atlassian.net",
+      "resultat": "200 (robots Atlassian) ; pas de Crawl-delay",
+      "preuve": "institutions/yale-university-art-gallery/sources/doc4/raw/01.html"
+    },
+    {
+      "hote": "guides.iiif.io",
+      "resultat": "page lue (200) ; robots.txt non demandé : hôte du consortium IIIF, tiers, non contacté par la sonde",
+      "preuve": "institutions/yale-university-art-gallery/sources/doc/FETCH.log"
+    },
+    {
+      "hote": "media.artgallery.yale.edu",
+      "resultat": "404 (tout autorisé)",
+      "preuve": "institutions/yale-university-art-gallery/sources/doc/FETCH.log"
+    }
+  ]
 }

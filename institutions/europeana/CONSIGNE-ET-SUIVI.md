@@ -16,9 +16,9 @@
 ### b) Endpoints tirés de la doc
 > Liste des endpoints citée par la doc (URL, exemples). Jamais devinée. Une interdiction ou une impossibilité écrite dans la doc justifie de renoncer (citer la phrase).
 
-- [ ] **Pas fait**
-  - **Justification** : DÉCOCHÉE le 2026-11-14 (verrou renforcé) : URL d'API citée par la doc et ni testée ni justifiée : https://api.europeana.eu/fulltext/search.json (ajouter à endpoints_documentes, ou à endpoints_ecartes avec url + raison); URL d'API citée par la doc et ni testée ni justifiée : https://pro.europeana.eu/pag | ancienne justification : Endpoints documentés : manifestes iiif.europeana.eu/presentation/{DATASET_ID}/{LOCAL_ID}/manifest (sans clé) et service d'images annoncé par les manifestes ; APIs Search et Record (api.europeana.eu/re
-  - **Preuves** : 
+- [x] **Fait**
+  - **Justification** : Endpoints tirés de la doc IIIF/API Suite : manifestes, images, annopage, Content Search, ressource et recherche plein texte (testés), APIs à clé justifiées non_teste, pages pro écartées avec raison ; plus aucune URL d'API citée sans traitement.
+  - **Preuves** : `institutions/europeana/data.json`, `institutions/europeana/sources/v2c/text/02.txt`, `institutions/europeana/sources/wayback/pro-europeana.md`
 
 ### c) Configuration écrite AVANT les tests
 > `config/<nom>.json` pilote `scripts/probe.py`, committée avant le lancement. Un endpoint absent de la doc mais non interdit se teste avec un script poli (identifiants issus de pages publiques ou d'exemples de la doc, pas de devinette).
@@ -37,9 +37,9 @@
 ### e) Test systématique de chaque endpoint
 > Chaque endpoint documenté est testé (budget 15 requêtes par passe, pause ≥ 6 s, GET/HEAD, UA du projet). Redirections du même hôte suivies. Un 403 arrête son hôte, un 429 arrête l'institution. Seules les interdictions écrites dans la doc dispensent de tester.
 
-- [ ] **Pas fait**
-  - **Justification** : DÉCOCHÉE le 2026-11-14 (verrou renforcé) : 6 élément(s) de rattrapage_a_faire non traités | ancienne justification : Tous les endpoints sans clé sont testés (3 passes, 5 requêtes de données) : manifestes et images : 200, aucun en-tête de limite ni 429. Renoncements justifiés : APIs Search et Record (clé exigée par l
-  - **Preuves** : 
+- [x] **Fait**
+  - **Justification** : 5 passes : manifestes, images, annopage, recherche dans un item, ressource plein texte en 200 sans en-tête de limite ni 429 ; fulltext/search.json en 401 (clé exigée) ; APIs à clé non testées avec raison ; pro.europeana.eu 403 non contourné, lu via Wayback.
+  - **Preuves** : `institutions/europeana/tests/journal.log`, `institutions/europeana/config/europeana-passe4-fulltext.json`, `institutions/europeana/config/europeana-passe5-fulltext-resource.json`, `institutions/europeana/tests/raw/fulltext-search.headers.txt`
 
 ### f) Ce que disent les gens sur le web
 > Plaintes, discussions, présentations de l'institution, politique envers les API et les bots, blogs, GitHub, forums, listes de diffusion. Sources étiquetées (officielle / institution / utilisateur / tiers), lues, citées.
@@ -60,7 +60,7 @@
 
 <!-- AUTO:DEBUT -->
 ## Contrôles automatiques (calculés depuis `tests/journal.log`)
-- Requêtes enregistrées : **15** (sessions de sonde : 4, maximum par session : 3)
+- Requêtes enregistrées : **22** (sessions de sonde : 6, maximum par session : 5)
 - Plus courte pause vers un même hôte : **6 s** (règle : ≥ 6 s)
 - Méthodes utilisées : GET, HEAD (règle : GET/HEAD seulement)
 - Anomalies : aucune
@@ -352,4 +352,7 @@ Le verrou agit : (a) **au lancement** des outils officiels (`probe.py`, `crash.p
 - **Politesse partagée** (`scripts/hostlock.py`, registre `~/.veille-state`) : ≥ 6 s entre deux requêtes vers un même hôte, tous agents confondus ; au plus 30 requêtes/min au total ; un crash test (verrou exclusif) suspend tout autre trafic.
 - **Intégration** par le coordinateur seulement : `python3 scripts/integrer_lot.py <ID> [--push]` (périmètre, fusion sans commit, validation globale, régénération du classeur ; fusion annulée si un contrôle échoue).
 - Limites connues : un `curl` direct ou une copie locale modifiée de `scripts/` par un agent n'est pas empêché techniquement ; le commit ne peut pas porter ces modifications, et l'intégration revérifie le périmètre.
+
+## Données personnelles (14/11/2026)
+Le dépôt GitHub est **public**. Aucune donnée personnelle de Marcel (adresse IP) ne doit y figurer. Les valeurs sensibles sont listées dans `~/.veille-state/secrets.txt` (hors dépôt) : le hook de commit refuse tout commit qui les ajoute ; `probe.py` et `fetch_doc.sh` les remplacent par « [IP retirée] » dans les fichiers qu'ils produisent. Certains serveurs renvoient l'IP du client dans un en-tête (ex. `x-mps-client-ip`).
 <!-- CONSIGNE:FIN -->

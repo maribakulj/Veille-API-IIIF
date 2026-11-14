@@ -1,0 +1,21 @@
+{
+  "slug": "e-manuscripta-bibliotheques-partenaires-suisses",
+  "min_delay_s": 6,
+  "max_requests": 15,
+  "follow_redirects": 1,
+  "robots_disallow_autorise_par_marcel": true,
+  "note": "Passe 1 (C12 : le Disallow: / de robots.txt n'arrête plus l'audit ; un 403/défi arrête l'hôte, sans contournement). Endpoints et exemples tirés de wiki/apiinfo (Wayback 2025-03-07) et de la data map ZB (sources/a2, a1). Pas de PDF (volume).",
+  "endpoints": [
+    {"id": "oai-identify", "method": "GET", "url": "https://www.e-manuscripta.ch/oai?verb=Identify"},
+    {"id": "oai-listsets", "method": "GET", "url": "https://www.e-manuscripta.ch/oai?verb=ListSets"},
+    {"id": "oai-listmetadataformats", "method": "GET", "url": "https://www.e-manuscripta.ch/oai?verb=ListMetadataFormats"},
+    {"id": "oai-getrecord-dc", "method": "GET", "url": "https://www.e-manuscripta.ch/oai?verb=GetRecord&metadataPrefix=oai_dc&identifier=3071845"},
+    {"id": "oai-listidentifiers", "method": "GET", "url": "https://www.e-manuscripta.ch/oai/?verb=ListIdentifiers&metadataPrefix=oai_dc&set=emanuszuz&from=2021-09-01&until=2021-09-08"},
+    {"id": "iiif-manifest-v20", "method": "GET", "url": "https://www.e-manuscripta.ch/i3f/v20/3192957/manifest"},
+    {"id": "iiif-info-v21", "method": "GET", "url": "https://www.e-manuscripta.ch/i3f/v21/3192960/info.json"},
+    {"id": "iiif-image-304", "method": "GET", "url": "https://www.e-manuscripta.ch/i3f/v21/3192960/full/304/0/default.jpg"},
+    {"id": "ris-1384091", "method": "GET", "url": "https://www.e-manuscripta.ch/zuz/download/format/ris/1384091"},
+    {"id": "fulltext-alto-1831288", "method": "GET", "url": "https://www.e-manuscripta.ch/zuz/download/fulltext/alto3/1831288"},
+    {"id": "sru-emanus-alma", "method": "GET", "url": "http://sru2.visual-library.de/emanus_alma_uzb?operation=searchRetrieve&recordSchema=mods&x-vl-dn=emanuszuzneb&x-vl-mr=2&query=rec.identifier%3D99117026923405508"}
+  ]
+}

@@ -2,103 +2,133 @@
   "slug": "mdz",
   "nom": "Bayerische Staatsbibliothek / MDZ",
   "pays": "Allemagne",
-  "statut_audit": "en cours (méthode v2)",
+  "statut_audit": "audit v2 complet a à f (rejeu v3, 2026-11-14)",
   "limites_documentees": [
     {
       "nature": "Quota par 24 h",
-      "perimetre": "Image API",
+      "perimetre": "Image API (api.digitale-sammlungen.de/iiif/image)",
       "valeur": "non chiffrée",
       "fenetre": "24 h",
       "effet": "non précisé",
+      "verification": "officielle, non vérifiée (aucun dépassement provoqué)",
       "source": "https://www.digitale-sammlungen.de/en/interfaces",
-      "date": "2026-11-13",
-      "verification": "officielle, lue en entier"
+      "date": "2026-11-14"
     },
     {
       "nature": "Quota par 24 h",
-      "perimetre": "OCR (téléchargements)",
+      "perimetre": "OCR hOCR (api.digitale-sammlungen.de/ocr)",
       "valeur": "non chiffrée",
       "fenetre": "24 h",
       "effet": "non précisé",
+      "verification": "officielle, non vérifiée",
       "source": "https://www.digitale-sammlungen.de/en/interfaces",
-      "date": "2026-11-13",
-      "verification": "officielle, lue en entier"
+      "date": "2026-11-14"
     },
     {
       "nature": "Illimité",
       "perimetre": "Presentation API",
       "valeur": "illimité (annoncé)",
-      "fenetre": "–",
-      "effet": "–",
+      "fenetre": "-",
+      "effet": "-",
+      "verification": "officielle ; 3 manifestes/collections en 200 sans en-tête de limite",
       "source": "https://www.digitale-sammlungen.de/en/interfaces",
-      "date": "2026-11-13",
-      "verification": "officielle, lue en entier"
+      "date": "2026-11-14"
+    },
+    {
+      "nature": "Plafond par jour et par utilisateur",
+      "perimetre": "commandes PDF/DaFo (hors API IIIF)",
+      "valeur": "non chiffré",
+      "fenetre": "jour",
+      "effet": "commande limitée",
+      "verification": "officielle",
+      "source": "https://www.digitale-sammlungen.de/en/download-options",
+      "date": "2026-11-14"
     }
   ],
   "en_tetes_observes": [
     {
       "nom": "x-ratelimit-limit",
-      "valeur": "5001 (OCR) / 25001 (Image)",
-      "endpoint": "OCR hOCR, Image API",
-      "date": "2026-11-13",
-      "preuve": "institutions/mdz/tests/journal.log, institutions/mdz/tests/raw/"
+      "valeur": "25001 (Image) / 5001 (OCR)",
+      "endpoint": "image-derive-200, image-exemple-full, ocr-hocr",
+      "date": "2026-11-14",
+      "preuve": "institutions/mdz/tests/raw/ocr-hocr.headers.txt"
     },
     {
       "nom": "x-ratelimit-remaining",
-      "valeur": "5000 / 25000, identique entre deux appels",
+      "valeur": "25000 / 5000, inchangé entre requêtes successives",
       "endpoint": "idem",
-      "date": "2026-11-13",
-      "preuve": "institutions/mdz/tests/journal.log"
+      "date": "2026-11-14",
+      "preuve": "institutions/mdz/tests/raw/image-derive-200.headers.txt"
     },
     {
       "nom": "x-ratelimit-reset",
-      "valeur": "17 (OCR) / 3 (Image) : unité inconnue",
+      "valeur": "3 (Image) / 17 (OCR), unité non documentée",
       "endpoint": "idem",
-      "date": "2026-11-13",
-      "preuve": "institutions/mdz/tests/journal.log"
+      "date": "2026-11-14",
+      "preuve": "institutions/mdz/tests/raw/image-derive-200.headers.txt"
     }
   ],
-  "blocages": [],
-  "contact": "mdz@bsb-muenchen.de (contact général)",
-  "conclusion_quota": "Quota par 24 h documenté sans chiffre ; en-têtes x-ratelimit observés, non documentés, non utilisables comme compteur",
+  "blocages": [
+    {
+      "hote": "bdr.oai.bsb-muenchen.de",
+      "code": "403",
+      "nature": "403 Apache (Forbidden) sur robots.txt et sur OAIHandler?verb=Identify, 2026-11-14 01:41Z ; robots.txt aussi en 500 via fetch_doc ; arrêt de l'hôte, pas de contournement"
+    }
+  ],
+  "contact": "mdz@bsb-muenchen.de (MDZ, quotas) ; oai@bsb-muenchen.de (OAI-PMH BDR)",
+  "conclusion_quota": "Limites par 24 h annoncées pour l'Image API et l'OCR sans aucun chiffre ; Presentation API annoncée illimitée ; en-têtes x-ratelimit-limit 25001 (Image) et 5001 (OCR) observés, remaining fixe à 25000/5000 sur 2 passes ; OAI BDR en 403 pour la sonde.",
   "classe_quota": "règle sans chiffre publié",
   "confiance": "moyenne",
-  "notes": "Ticket tiers (sourcelibrary-v2 #5448) : demande d'IP autorisée sans réponse au 26/10 ; affirme un « 1×1 over-quota placeholder » en 200 (non vérifié) : à détecter dans la sonde.",
+  "notes": "Placeholder 1x1 « over-quota » signalé par un tiers (sourcelibrary-v2 #5448, 2026-10-25) : non observé (aucun dépassement provoqué). Quota non chiffré ; le tiers estime environ 22 000 pages/jour (estimation d'utilisateur, non vérifiée). bdr.oai.bsb-muenchen.de : 403 Apache à notre client (HTTP, UA honnête), robots.txt de l'hôte en 403 puis 500 : pas de contournement.",
   "web": [
     {
+      "categorie": "institution",
       "url": "https://www.digitale-sammlungen.de/en/interfaces",
-      "date": "2026-11-13",
+      "date": "2026-11-14",
       "etiquette": "officielle",
-      "citation": "Please note that there is a limit to the number of requests that can be made to the Image API per 24 hours. / … OCR downloads … per 24 hours. / Access to the Presentation API is unlimited.",
+      "citation": "Please note that there is a limit to the number of requests that can be made to the Image API per 24 hours. / OCR downloads per 24 hours. / Access to the Presentation API is unlimited.",
       "preuve": "institutions/mdz/sources/SHA256SUMS"
     },
     {
-      "url": "https://iiif.io/guides/guides/digitale-sammlungen.de/",
-      "date": "2026-11-13",
-      "etiquette": "officielle (guide IIIF)",
-      "citation": "Aucune phrase sur les limites, quotas, clés ou erreurs (lu par extraction).",
-      "preuve": "institutions/mdz/fiche.md (étape f)"
+      "categorie": "institution",
+      "url": "https://github.com/dbmdz",
+      "date": "2026-11-14",
+      "etiquette": "officielle (GitHub de l'institution)",
+      "citation": "Dépôts wolpi (serveur d'images IIIF) et wolpi-pattern-resolver : aucune mention de limitation, quota ou throttling sur la page (WebFetch).",
+      "preuve": "institutions/mdz/fiche.md"
     },
     {
+      "categorie": "utilisateurs",
+      "aucun_resultat": true,
+      "requete": "api.digitale-sammlungen.de 429 OR \"too many requests\" OR blocked OR \"rate limit\" IIIF download",
+      "date": "2026-11-14",
+      "etiquette": "moteur de recherche (WebSearch)",
+      "citation": "Aucune plainte 429/blocage visant MDZ trouvée ; résultats sur d'autres institutions (museum-digital, Mannheim) sans lien avec MDZ (résumé de moteur, non vérifié).",
+      "preuve": "institutions/mdz/fiche.md"
+    },
+    {
+      "categorie": "tickets",
       "url": "https://github.com/Embassy-of-the-Free-Mind/sourcelibrary-v2/issues/5448",
-      "date": "2026-10-01 → 2026-10-26",
+      "date": "2026-10-01 -> 2026-11-07",
       "etiquette": "tiers (projet utilisateur)",
-      "citation": "« Email BSB/MDZ asking for an allowlisted IP » ; « BSB's reply … is still pending » ; « 1×1 over-quota placeholder » (2026-10-25).",
-      "preuve": "institutions/mdz/fiche.md (étape f)"
+      "citation": "« Email BSB/MDZ asking for an allowlisted IP or a bulk export » ; « The MDZ rate is unchanged; BSB's reply on the 10-01 request is still pending. » ; « 622 of the failures are MDZ « over-quota placeholder » images. »",
+      "preuve": "institutions/mdz/fiche.md"
     },
     {
-      "url": "https://github.com/Embassy-of-the-Free-Mind/sourcelibrary-v2/issues/3886",
-      "date": "2026-08-11",
-      "etiquette": "tiers (projet utilisateur)",
-      "citation": "« undocumented but clean JSON API at digitale-sammlungen.de/api/search » (non testé, non utilisé).",
-      "preuve": "institutions/mdz/fiche.md (étape f)"
-    },
-    {
+      "categorie": "tickets",
       "url": "https://github.com/ProjectMirador/mirador/issues/4542",
-      "date": "2026-11-13",
+      "date": "2026-09-15",
       "etiquette": "tiers (dépôt Mirador)",
-      "citation": "Canvases 1×1 px d'un manifeste MDZ affichées comme image d'erreur (sans lien direct avec un quota).",
-      "preuve": "institutions/mdz/fiche.md (étape f)"
+      "citation": "« The Canvases that cause the problem are a bit strange, in that they are 1x1 Pixel only » (manifeste hébergé par la BSB ; aucun lien avec un quota ni mention de limite).",
+      "preuve": "institutions/mdz/fiche.md"
+    },
+    {
+      "categorie": "presentations",
+      "url": "https://wiki.dnb.de/download/attachments/122262660/KIMWS2017_Tag1_Baumgartner_IIIF.pdf?api=v2",
+      "date": "2017",
+      "etiquette": "présentation de l'institution (BSB, KIM-Workshop 2017) (résumé de moteur, non vérifié : lecture de l'original en timeout)",
+      "citation": "Présente IIIF à la BSB (MDZ Bookshelf, digiPress, Mirador) ; le moteur n'y signale aucune limite.",
+      "preuve": "institutions/mdz/fiche.md"
     }
   ],
   "sources": [
@@ -127,12 +157,6 @@
       "preuve": "institutions/mdz/sources/SHA256SUMS"
     },
     {
-      "url": "https://www.digitale-sammlungen.de/en/contact",
-      "date": "2026-11-13",
-      "etiquette": "officielle",
-      "preuve": "institutions/mdz/sources/SHA256SUMS"
-    },
-    {
       "url": "https://www.digitale-sammlungen.de/en/download-options",
       "date": "2026-11-13",
       "etiquette": "officielle",
@@ -145,43 +169,7 @@
       "preuve": "institutions/mdz/sources/SHA256SUMS"
     },
     {
-      "url": "https://www.digitale-sammlungen.de/de/technologien-und-softwareentwicklung",
-      "date": "2026-11-13",
-      "etiquette": "officielle",
-      "preuve": "institutions/mdz/sources/SHA256SUMS"
-    },
-    {
-      "url": "https://www.digitale-sammlungen.de/en/imprint",
-      "date": "2026-11-13",
-      "etiquette": "officielle",
-      "preuve": "institutions/mdz/sources/SHA256SUMS"
-    },
-    {
       "url": "https://www.digitale-sammlungen.de/en/disclaimer",
-      "date": "2026-11-13",
-      "etiquette": "officielle",
-      "preuve": "institutions/mdz/sources/SHA256SUMS"
-    },
-    {
-      "url": "https://www.digitale-sammlungen.de/en/privacy-policy",
-      "date": "2026-11-13",
-      "etiquette": "officielle",
-      "preuve": "institutions/mdz/sources/SHA256SUMS"
-    },
-    {
-      "url": "https://www.digitale-sammlungen.de/en/rightsstatement-vgwort",
-      "date": "2026-11-13",
-      "etiquette": "officielle",
-      "preuve": "institutions/mdz/sources/SHA256SUMS"
-    },
-    {
-      "url": "https://www.digitale-sammlungen.de/en/search-help",
-      "date": "2026-11-13",
-      "etiquette": "officielle",
-      "preuve": "institutions/mdz/sources/SHA256SUMS"
-    },
-    {
-      "url": "https://www.digitale-sammlungen.de/en/viewer-help",
       "date": "2026-11-13",
       "etiquette": "officielle",
       "preuve": "institutions/mdz/sources/SHA256SUMS"
@@ -195,5 +183,93 @@
   ],
   "classeur_id": "GLAM-024",
   "type": "Institution",
-  "donnees_a_revalider": true
+  "donnees_a_revalider": true,
+  "a_verifier_manuellement": [
+    {
+      "url": "http://bdr.oai.bsb-muenchen.de/OAIHandler?verb=Identify",
+      "pourquoi": "403 Apache « You don't have permission to access this resource » reçu par la sonde (UA honnête) ; robots.txt de l'hôte : 403 (sonde) / 500 (fetch_doc)",
+      "a_chercher": "Dans un navigateur : l'OAI BDR répond-il ? en-têtes de limite, resumptionToken, et si l'hôte exige une autorisation d'IP ; écrire à oai@bsb-muenchen.de pour les règles d'accès"
+    },
+    {
+      "url": "https://www.digitale-sammlungen.de/en/contact",
+      "pourquoi": "doc lue ; aucun chiffre de quota publié",
+      "a_chercher": "Demander à mdz@bsb-muenchen.de les valeurs des quotas par 24 h (Image, OCR), l'unité de x-ratelimit-reset et le comportement au dépassement (placeholder 1x1)"
+    }
+  ],
+  "endpoints_documentes": [
+    {
+      "famille": "IIIF Presentation v2 : manifeste",
+      "url": "https://api.digitale-sammlungen.de/iiif/presentation/v2/{object_id}/manifest",
+      "statut": "teste",
+      "preuve": "institutions/mdz/tests/raw/presentation-manifeste.headers.txt"
+    },
+    {
+      "famille": "IIIF Presentation v2 : collection top",
+      "url": "https://api.digitale-sammlungen.de/iiif/presentation/v2/collection/top",
+      "statut": "teste",
+      "preuve": "institutions/mdz/tests/raw/presentation-collection-top.headers.txt"
+    },
+    {
+      "famille": "IIIF Image v2 : info.json",
+      "url": "https://api.digitale-sammlungen.de/iiif/image/v2/{image_id}/info.json",
+      "statut": "teste",
+      "preuve": "institutions/mdz/tests/raw/image-info-json.headers.txt"
+    },
+    {
+      "famille": "IIIF Image v2 : image (dérivé et exemple full/full)",
+      "url": "https://api.digitale-sammlungen.de/iiif/image/v2/{image_id}/{region}/{size}/{rotation}/{quality}.{format}",
+      "statut": "teste",
+      "preuve": "institutions/mdz/tests/raw/image-exemple-full.headers.txt"
+    },
+    {
+      "famille": "OCR hOCR par page",
+      "url": "https://api.digitale-sammlungen.de/ocr/{object_id}/{page_num}",
+      "statut": "teste",
+      "preuve": "institutions/mdz/tests/raw/ocr-hocr.headers.txt"
+    },
+    {
+      "famille": "Flux RSS des 50 derniers ajouts",
+      "url": "https://www.digitale-sammlungen.de/rss/mdz.xml",
+      "statut": "teste",
+      "preuve": "institutions/mdz/tests/raw/rss-mdz.headers.txt"
+    },
+    {
+      "famille": "OAI-PMH BDR (Identify, ListSets, ListRecords, GetRecord)",
+      "url": "http://bdr.oai.bsb-muenchen.de/OAIHandler?verb=Identify",
+      "statut": "teste",
+      "preuve": "institutions/mdz/tests/raw/bdr-oai-identify.headers.txt"
+    }
+  ],
+  "endpoints_ecartes": [
+    {
+      "url": "https://api.digitale-sammlungen.de/iiif/",
+      "raison": "point d'entrée saisi dans le classeur, absent de la doc ; 404 constaté (journal archivé, sessions anciennes) ; aucune API à tester"
+    },
+    {
+      "url": "https://api.digitale-sammlungen.de/media/stream/d5b06802-796d-48d2-9294-da640f281f32/default.mp4",
+      "raison": "flux vidéo cité dans une page de doc, pas une API documentée ; fichier multimédia volumineux, non demandé"
+    }
+  ],
+  "hotes_robots": [
+    {
+      "hote": "api.digitale-sammlungen.de",
+      "resultat": "robots.txt 404 : tout autorisé",
+      "preuve": "institutions/mdz/sources/robots/SHA256SUMS"
+    },
+    {
+      "hote": "www.digitale-sammlungen.de",
+      "resultat": "User-Agent: * ; Disallow: vide (tout autorisé), aucun Crawl-delay",
+      "preuve": "institutions/mdz/sources/robots/SHA256SUMS"
+    },
+    {
+      "hote": "oai.bsb-muenchen.de",
+      "resultat": "Disallow: /verovio ; Crawl-delay: 5 (inférieur à nos 6 s) ; plusieurs robots d'IA/SEO exclus",
+      "preuve": "institutions/mdz/sources/robots/SHA256SUMS"
+    },
+    {
+      "hote": "bdr.oai.bsb-muenchen.de",
+      "resultat": "robots.txt illisible : 500 (fetch_doc) puis 403 Apache (sonde) ; hôte arrêté, listé à vérifier à la main",
+      "preuve": "institutions/mdz/sources/robots/SHA256SUMS"
+    }
+  ]
 }

@@ -4,10 +4,233 @@
   "pays": "Autriche",
   "classeur_id": "GLAM-027",
   "type": "Institution",
-  "statut_audit": "à faire",
-  "limites_documentees": [],
+  "statut_audit": "méthode v2 complète a à f ; g préparée (crash test à la fin)",
+  "limites_documentees": [
+    {
+      "nature": "Règle explicite (sans chiffre)",
+      "perimetre": "SACHA iiif.onb.ac.at, objets ABO",
+      "valeur": "requêtes concurrentes ou en très peu de temps déconseillées",
+      "fenetre": "–",
+      "effet": "le serveur peut cesser de répondre aux requêtes suivantes",
+      "verification": "officielle, lue en entier ; non observée (aucun blocage sur 17 requêtes espacées)",
+      "source": "https://iiif.onb.ac.at/api/",
+      "date": "2026-11-14"
+    }
+  ],
   "en_tetes_observes": [],
   "blocages": [],
-  "sources": [],
-  "web": []
+  "sources": [
+    {
+      "url": "https://api.onb.ac.at/",
+      "date": "2026-11-14",
+      "etiquette": "officielle",
+      "preuve": "institutions/osterreichische-nationalbibliothek-onb/sources/doc/SHA256SUMS"
+    },
+    {
+      "url": "https://iiif.onb.ac.at/api/",
+      "date": "2026-11-14",
+      "etiquette": "officielle",
+      "preuve": "institutions/osterreichische-nationalbibliothek-onb/sources/doc/SHA256SUMS"
+    },
+    {
+      "url": "https://iiif.onb.ac.at/",
+      "date": "2026-11-14",
+      "etiquette": "officielle",
+      "preuve": "institutions/osterreichische-nationalbibliothek-onb/sources/doc/SHA256SUMS"
+    },
+    {
+      "url": "https://iiif.onb.ac.at/gui/demo.html",
+      "date": "2026-11-14",
+      "etiquette": "officielle",
+      "preuve": "institutions/osterreichische-nationalbibliothek-onb/sources/doc3/SHA256SUMS"
+    },
+    {
+      "url": "https://labs.onb.ac.at/about",
+      "date": "2026-11-14",
+      "etiquette": "officielle",
+      "preuve": "institutions/osterreichische-nationalbibliothek-onb/sources/doc/SHA256SUMS"
+    },
+    {
+      "url": "https://labs.onb.ac.at/tools/",
+      "date": "2026-11-14",
+      "etiquette": "officielle",
+      "preuve": "institutions/osterreichische-nationalbibliothek-onb/sources/doc/SHA256SUMS"
+    },
+    {
+      "url": "https://labs.onb.ac.at/en/terms/",
+      "date": "2026-11-14",
+      "etiquette": "officielle",
+      "preuve": "institutions/osterreichische-nationalbibliothek-onb/sources/doc2/SHA256SUMS"
+    },
+    {
+      "url": "https://www.onb.ac.at/en/use",
+      "date": "2026-11-14",
+      "etiquette": "officielle",
+      "preuve": "institutions/osterreichische-nationalbibliothek-onb/sources/doc2/SHA256SUMS"
+    },
+    {
+      "url": "https://labs.onb.ac.at/en/topic/iiif-jupyter/",
+      "date": "2026-11-14",
+      "etiquette": "institution",
+      "preuve": "institutions/osterreichische-nationalbibliothek-onb/sources/doc4/SHA256SUMS"
+    }
+  ],
+  "web": [
+    {
+      "categorie": "institution",
+      "url": "https://iiif.onb.ac.at/api/",
+      "date": "2026-11-14",
+      "etiquette": "officielle",
+      "citation": "« It is not recommended to send multiple concurrent requests or a lot of requests in a very short time, because this might prevent the server from responding to further requests. »",
+      "preuve": "institutions/osterreichische-nationalbibliothek-onb/sources/doc/text/03.txt"
+    },
+    {
+      "categorie": "presentations",
+      "url": "https://iiif.io/event/2019/goettingen/program/17/",
+      "date": "2019",
+      "etiquette": "institution (présentation IIIF Göttingen 2019)",
+      "citation": "« SACHA provides an implemented IIIF interface, allowing both human users and automated computational tools » ; aucune mention de limite de débit",
+      "preuve": "institutions/osterreichische-nationalbibliothek-onb/fiche.md"
+    },
+    {
+      "categorie": "utilisateurs",
+      "aucun_resultat": true,
+      "requete": "ÖNB ANNO IIIF 429 OR blocked OR \"too many requests\" OR rate limit download Austrian National Library API",
+      "date": "2026-11-14",
+      "etiquette": "tiers",
+      "citation": "aucune plainte, aucun retour d'utilisateur sur des 429/blocages de l'ÖNB dans les résultats",
+      "preuve": "institutions/osterreichische-nationalbibliothek-onb/fiche.md"
+    },
+    {
+      "categorie": "tickets",
+      "aucun_resultat": true,
+      "requete": "github issue iiif.onb.ac.at OR api.onb.ac.at OR \"ÖNB\" IIIF downloader error rate limit",
+      "date": "2026-11-14",
+      "etiquette": "tiers",
+      "citation": "aucun ticket GitHub/GitLab d'outil tiers mentionnant l'ÖNB dans les résultats (résultats génériques)",
+      "preuve": "institutions/osterreichische-nationalbibliothek-onb/fiche.md"
+    }
+  ],
+  "contact": "api@onb.ac.at (ÖNB-API) ; labs@onb.ac.at (SACHA)",
+  "conclusion_quota": "Aucun quota chiffré, aucun en-tête de limite observé (17 requêtes, 0 en-tête RateLimit/Retry-After). Seule règle écrite : mise en garde sans chiffre contre les requêtes concurrentes ou en rafale, car l'ÖNB est contractuellement tenue d'empêcher le téléchargement intégral des objets ABO (SACHA implémente des mesures de sécurité). ÖNB-API v3 non testée (aucun ieId publié).",
+  "classe_quota": "aucun quota trouvé (mise en garde sans chiffre, anti-téléchargement de masse ABO)",
+  "confiance": "moyenne",
+  "notes": "robots.txt iiif.onb.ac.at : 400 ; api.onb.ac.at : 404. Le README et les notebooks du dépôt GitLab How-To-ÖNB-API (exemples ieId) sont rendus par JavaScript. Les datasets de labs.onb.ac.at aussi.",
+  "a_verifier_manuellement": [
+    {
+      "url": "https://labs.onb.ac.at/gitlab/labs-team/how-to-oenb-api",
+      "pourquoi": "README et notebooks Jupyter rendus par JavaScript : le HTML téléchargé ne contient que l'en-tête du projet ; le notebook « How To ÖNB-API » introduit tous les IIIF de l'ÖNB-API avec exemples (ieId).",
+      "a_chercher": "un exemple d'ieId, toute mention de limite, de pause ou de clé dans le notebook ; ouvrir le dépôt dans un navigateur."
+    },
+    {
+      "url": "https://labs.onb.ac.at/en/datasets/",
+      "pourquoi": "liste des jeux de données rendue par JavaScript (page vide dans le HTML).",
+      "a_chercher": "conditions d'utilisation et limites propres à chaque jeu de données (les conditions d'usage renvoient aux jeux)."
+    },
+    {
+      "url": "https://api.onb.ac.at/",
+      "pourquoi": "les routes IIIF v3, Search v2 et REST v1 n'ont pu être testées : aucun ieId d'exemple publié, identifiants non devinables.",
+      "a_chercher": "un ieId valide, puis le comportement des routes /iiif/presentation/v3, /iiif/image/v3, /iiif/search/v2, /rest/v1/ie/{ieId}/alto|txt (en-têtes de limite, accès demandé à api@onb.ac.at : « need access »)."
+    }
+  ],
+  "endpoints_documentes": [
+    {
+      "famille": "SACHA images (info.json, redirection, image)",
+      "url": "https://iiif.onb.ac.at/images/{projectName}/{id}/{imageID}/info.json",
+      "statut": "teste",
+      "preuve": "institutions/osterreichische-nationalbibliothek-onb/tests/journal.log"
+    },
+    {
+      "famille": "SACHA manifest, canvas, sequence, collection GET",
+      "url": "https://iiif.onb.ac.at/presentation/{projectName}/{id}/manifest",
+      "statut": "teste",
+      "preuve": "institutions/osterreichische-nationalbibliothek-onb/tests/journal.log"
+    },
+    {
+      "famille": "SACHA annotation, list, resource",
+      "url": "https://iiif.onb.ac.at/presentation/{projectName}/{id}/annotation/{imageID}",
+      "statut": "teste",
+      "preuve": "institutions/osterreichische-nationalbibliothek-onb/tests/journal.log"
+    },
+    {
+      "famille": "SACHA mets et mods",
+      "url": "https://iiif.onb.ac.at/mets/{barcode}",
+      "statut": "teste",
+      "preuve": "institutions/osterreichische-nationalbibliothek-onb/tests/journal.log"
+    },
+    {
+      "famille": "SACHA visionneuses /view",
+      "url": "https://iiif.onb.ac.at/view/manifest/{viewMode}/{projectName}/{id}",
+      "statut": "teste",
+      "preuve": "institutions/osterreichische-nationalbibliothek-onb/tests/journal.log"
+    },
+    {
+      "famille": "SACHA création de collection (POST)",
+      "url": "https://iiif.onb.ac.at/presentation/collection",
+      "statut": "non_teste",
+      "raison": "méthode POST : interdite par la méthode de la veille (GET/HEAD seulement) ; la création écrit une collection côté serveur."
+    },
+    {
+      "famille": "ÖNB-API IIIF Presentation v3, Image v3",
+      "url": "https://api.onb.ac.at/iiif/presentation/v3",
+      "statut": "non_teste",
+      "raison": "aucun ieId d'exemple publié dans la doc lue ; identifiants jamais devinés ; exemples dans un notebook GitLab rendu par JavaScript (à vérifier à la main)."
+    },
+    {
+      "famille": "ÖNB-API IIIF Content Search v2 et v1",
+      "url": "https://api.onb.ac.at/iiif/search/v2",
+      "statut": "non_teste",
+      "raison": "nécessite un ieId (non publié) ; recherche à ne pas deviner ; voir à vérifier à la main."
+    },
+    {
+      "famille": "ÖNB-API REST v1 (file, alto, txt, preview, thumbnail)",
+      "url": "https://api.onb.ac.at/rest/v1/ie/{ieId}/alto/{pageNumber}",
+      "statut": "non_teste",
+      "raison": "nécessite un ieId non publié, identifiants non devinables ; ALTO/texte intégral exclus des tests peu coûteux."
+    }
+  ],
+  "endpoints_ecartes": [
+    {
+      "url": "https://iiif.io/api/presentation/3.0/",
+      "raison": "spécification IIIF publiée par le consortium IIIF, pas une API de l'institution."
+    },
+    {
+      "url": "https://mybinder.org/v2/git/https%3A%2F%2Flabs.onb.ac.at%2Fgitlab%2Flabs-team%2Fhow-to-oenb-api/HEAD",
+      "raison": "lanceur Binder tiers d'un notebook ; démarre un environnement, ce n'est pas une API de l'ÖNB."
+    },
+    {
+      "url": "https://labs.onb.ac.at/gitlab/labs-team/how-to-oenb-api.git",
+      "raison": "dépôt git (clone) cité par la page GitLab : pas une API de données, interdit par le robots.txt de labs.onb.ac.at."
+    },
+    {
+      "url": "https://labs.onb.ac.at/de/topic/iiif-jupyter/",
+      "raison": "page web de présentation ÖNB Labs (sujet « Machine Learning and IIIF »), traduction du lien de langue ; ce n'est pas une API."
+    },
+    {
+      "url": "https://labs.onb.ac.at/topic/iiif-jupyter/",
+      "raison": "page web de présentation ÖNB Labs (sujet « Machine Learning and IIIF »), traduction du lien de langue ; ce n'est pas une API."
+    }
+  ],
+  "hotes_robots": [
+    {
+      "hote": "iiif.onb.ac.at",
+      "resultat": "400 (indisponible : tout autorisé)",
+      "preuve": "institutions/osterreichische-nationalbibliothek-onb/sources/doc/FETCH.log"
+    },
+    {
+      "hote": "api.onb.ac.at",
+      "resultat": "404 (tout autorisé)",
+      "preuve": "institutions/osterreichische-nationalbibliothek-onb/sources/doc/FETCH.log"
+    },
+    {
+      "hote": "labs.onb.ac.at",
+      "resultat": "200 ; Disallow /gitlab/... ; aucun Crawl-delay actif",
+      "preuve": "institutions/osterreichische-nationalbibliothek-onb/sources/doc/raw/06.html"
+    },
+    {
+      "hote": "www.onb.ac.at",
+      "resultat": "200 ; Disallow des blogs seulement",
+      "preuve": "institutions/osterreichische-nationalbibliothek-onb/sources/doc2/raw/01.html"
+    }
+  ]
 }

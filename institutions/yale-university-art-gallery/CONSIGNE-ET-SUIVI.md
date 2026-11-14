@@ -2,51 +2,51 @@
 
 - **Dossier** : `institutions/yale-university-art-gallery/`  ·  **Classeur de référence** : GLAM-037  ·  **Pays** : États-Unis
 - **Statut d'institution** : active
-- **Dernière mise à jour du suivi** : (à renseigner à chaque modification)
+- **Dernière mise à jour du suivi** : 2026-11-14
 
 ## Suivi par étape (à cocher, avec justification et preuves)
 
 ### a) Documentation lue en entier
 > Toutes les pages de doc liées à l'API (développeurs, interfaces, conditions, FAQ, aide, mentions légales, robots.txt), téléchargées avec `scripts/fetch_doc.sh` (URL, date, SHA-256), lues en entier (`scripts/extract_text.py`).
 
-- [ ] **Pas fait**
-  - **Justification** : Pas encore traitée : l'audit suit l'ordre du classeur de référence (une institution à la fois).
-  - **Preuves** : 
+- [x] **Fait**
+  - **Justification** : Doc lue : captures Wayback de using-images, terms-and-conditions et robots.txt de artgallery.yale.edu (défi Cloudflare 403 non contourné), guide IIIF, robots.txt de 8 hôtes, wiki ITS illisible (202, listé à vérifier à la main).
+  - **Preuves** : `institutions/yale-university-art-gallery/sources/doc/SHA256SUMS`, `institutions/yale-university-art-gallery/sources/wayback/using-images.md`, `institutions/yale-university-art-gallery/sources/wayback/terms-and-conditions.md`
 
 ### b) Endpoints tirés de la doc
 > Liste des endpoints citée par la doc (URL, exemples). Jamais devinée. Une interdiction ou une impossibilité écrite dans la doc justifie de renoncer (citer la phrase).
 
-- [ ] **Pas fait**
-  - **Justification** : Pas encore traitée : l'audit suit l'ordre du classeur de référence (une institution à la fois).
-  - **Preuves** : 
+- [x] **Fait**
+  - **Justification** : Endpoints tirés de pages publiques (manifeste, services d'image, variante v2 du guide IIIF) : aucune API documentée par la Gallery ; familles teste ou non_teste avec raison dans data.json.
+  - **Preuves** : `institutions/yale-university-art-gallery/data.json`, `institutions/yale-university-art-gallery/sources/doc/text/04.txt`
 
 ### c) Configuration écrite AVANT les tests
 > `config/<nom>.json` pilote `scripts/probe.py`, committée avant le lancement. Un endpoint absent de la doc mais non interdit se teste avec un script poli (identifiants issus de pages publiques ou d'exemples de la doc, pas de devinette).
 
-- [ ] **Pas fait**
-  - **Justification** : Pas encore traitée : l'audit suit l'ordre du classeur de référence (une institution à la fois).
-  - **Preuves** : 
+- [x] **Fait**
+  - **Justification** : 3 configurations écrites et committées avant chaque passe, 6 s de pause, GET seulement, identifiants publics ; configuration de crash préparée.
+  - **Preuves** : `institutions/yale-university-art-gallery/config/yuag-passe1-manifeste.json`, `institutions/yale-university-art-gallery/config/yuag-passe2-images.json`, `institutions/yale-university-art-gallery/config/yuag-passe3-manifeste-v2.json`
 
 ### d) Quota cherché dans la doc
 > Pour chaque page lue : endpoint de statut, en-têtes de limite documentés, clé ou compte donnant un quota, contact pour un volume plus élevé. Chaque réponse cite sa source.
 
-- [ ] **Pas fait**
-  - **Justification** : Pas encore traitée : l'audit suit l'ordre du classeur de référence (une institution à la fois).
-  - **Preuves** : 
+- [x] **Fait**
+  - **Justification** : Quota cherché dans chaque page lue (conditions, usage des images, robots, guide IIIF) : aucune limite de débit, aucun en-tête, aucune clé ; contact droits yuagrights@yale.edu seulement ; conclusion dans fiche.md.
+  - **Preuves** : `institutions/yale-university-art-gallery/fiche.md`, `institutions/yale-university-art-gallery/sources/wayback/using-images.md`
 
 ### e) Test systématique de chaque endpoint
 > Chaque endpoint documenté est testé (budget 15 requêtes par passe, pause ≥ 6 s, GET/HEAD, UA du projet). Redirections du même hôte suivies. Un 403 arrête son hôte, un 429 arrête l'institution. Seules les interdictions écrites dans la doc dispensent de tester.
 
-- [ ] **Pas fait**
-  - **Justification** : Pas encore traitée : l'audit suit l'ordre du classeur de référence (une institution à la fois).
-  - **Preuves** : 
+- [x] **Fait**
+  - **Justification** : 12 requêtes, 3 passes : 200 pour manifestes v3/v2, info.json et image ; 307 miniature ; 404 canvas/annopage ; aucun en-tête de limite ; artgallery.yale.edu non testé (Cloudflare 403).
+  - **Preuves** : `institutions/yale-university-art-gallery/tests/journal.log`, `institutions/yale-university-art-gallery/tests/raw/manifest-yuag-obj-31719.headers.txt`
 
 ### f) Ce que disent les gens sur le web
 > Plaintes, discussions, présentations de l'institution, politique envers les API et les bots, blogs, GitHub, forums, listes de diffusion. Sources étiquetées (officielle / institution / utilisateur / tiers), lues, citées.
 
-- [ ] **Pas fait**
-  - **Justification** : Pas encore traitée : l'audit suit l'ordre du classeur de référence (une institution à la fois).
-  - **Preuves** : 
+- [x] **Fait**
+  - **Justification** : 4 recherches web ; Yale News 2025 et guide IIIF lus ; utilisateurs et tickets sans résultat avec requêtes consignées ; conditions via Wayback.
+  - **Preuves** : `institutions/yale-university-art-gallery/data.json`, `institutions/yale-university-art-gallery/fiche.md`
 
 ### g) Crash test progressif
 > Seulement après l'audit complet (a à f) de toutes les institutions et avec l'accord de Marcel : paliers jusqu'à 2 × la limite documentée, ou 200 req/min si illimité ou sans limite documentée. Arrêt au premier 429/403/CAPTCHA.
@@ -60,7 +60,10 @@
 
 <!-- AUTO:DEBUT -->
 ## Contrôles automatiques (calculés depuis `tests/journal.log`)
-Aucune requête enregistrée dans `tests/journal.log`.
+- Requêtes enregistrées : **12** (sessions de sonde : 3, maximum par session : 8)
+- Plus courte pause vers un même hôte : **7 s** (règle : ≥ 6 s)
+- Méthodes utilisées : GET (règle : GET/HEAD seulement)
+- Anomalies : aucune
 <!-- AUTO:FIN -->
 
 ## Consigne intégrale
@@ -349,4 +352,7 @@ Le verrou agit : (a) **au lancement** des outils officiels (`probe.py`, `crash.p
 - **Politesse partagée** (`scripts/hostlock.py`, registre `~/.veille-state`) : ≥ 6 s entre deux requêtes vers un même hôte, tous agents confondus ; au plus 30 requêtes/min au total ; un crash test (verrou exclusif) suspend tout autre trafic.
 - **Intégration** par le coordinateur seulement : `python3 scripts/integrer_lot.py <ID> [--push]` (périmètre, fusion sans commit, validation globale, régénération du classeur ; fusion annulée si un contrôle échoue).
 - Limites connues : un `curl` direct ou une copie locale modifiée de `scripts/` par un agent n'est pas empêché techniquement ; le commit ne peut pas porter ces modifications, et l'intégration revérifie le périmètre.
+
+## Données personnelles (14/11/2026)
+Le dépôt GitHub est **public**. Aucune donnée personnelle de Marcel (adresse IP) ne doit y figurer. Les valeurs sensibles sont listées dans `~/.veille-state/secrets.txt` (hors dépôt) : le hook de commit refuse tout commit qui les ajoute ; `probe.py` et `fetch_doc.sh` les remplacent par « [IP retirée] » dans les fichiers qu'ils produisent. Certains serveurs renvoient l'IP du client dans un en-tête (ex. `x-mps-client-ip`).
 <!-- CONSIGNE:FIN -->

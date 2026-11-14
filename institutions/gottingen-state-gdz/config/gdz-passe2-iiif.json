@@ -1,0 +1,13 @@
+{
+  "slug": "gottingen-state-gdz",
+  "min_delay_s": 6,
+  "max_requests": 15,
+  "follow_redirects": 1,
+  "robots_disallow_autorise_par_marcel": true,
+  "note": "Passe 2 (hôtes manifests.sub.uni-goettingen.de et images.sub.uni-goettingen.de) : IIIF Image 2 info.json et dérivé 200 px, d'après l'exemple public images.sub.uni-goettingen.de/iiif/image/gdz:PPN519929969:00000001/info.json (apis.io, iiif-proxy) ; manifeste IIIF Presentation selon le motif manifests.sub.uni-goettingen.de/iiif/presentation/PPN.../manifest (nom de fichier de vignette TIFY et guide iiif.io) ; robots.txt des deux hôtes : Disallow vide (sources/a3).",
+  "endpoints": [
+    {"id": "manifeste-ppn519929969", "method": "GET", "url": "https://manifests.sub.uni-goettingen.de/iiif/presentation/PPN519929969/manifest"},
+    {"id": "image-info-json", "method": "GET", "url": "https://images.sub.uni-goettingen.de/iiif/image/gdz:PPN519929969:00000001/info.json"},
+    {"id": "image-derive-200px", "method": "GET", "url": "https://images.sub.uni-goettingen.de/iiif/image/gdz:PPN519929969:00000001/full/200,/0/default.jpg"}
+  ]
+}
