@@ -21,7 +21,7 @@ Aucune doc de la Gallery ne décrit les API. Les adresses viennent de pages publ
 
 ## Tests (étape e)
 
-3 passes, 11 requêtes de sonde robots.txt compris (2 + 6 + 2 + …, voir journal), configurations committées avant lancement (`config/yuag-passe1…3`).
+3 passes, 12 requêtes de sonde robots.txt compris (2 + 8 + 2), configurations committées avant lancement (`config/yuag-passe1…3`).
 - Manifeste v3 (247 ko) et v2 : **200**. `info.json` et image 150 px (Cantaloupe 4.1.9, Jetty) : **200**. Miniature `media.collections.yale.edu` : **307** vers un S3 signé d'un autre hôte (non suivi). `canvas/…` et `annopage/…` (ids du manifeste) : **404**.
 - **Aucun en-tête de limite**, aucun 429, aucun 403 sur les hôtes `collections.yale.edu`.
 

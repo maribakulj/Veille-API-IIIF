@@ -38,7 +38,7 @@
 > Chaque endpoint documenté est testé (budget 15 requêtes par passe, pause ≥ 6 s, GET/HEAD, UA du projet). Redirections du même hôte suivies. Un 403 arrête son hôte, un 429 arrête l'institution. Seules les interdictions écrites dans la doc dispensent de tester.
 
 - [x] **Fait**
-  - **Justification** : 11 requêtes, 3 passes : 200 pour manifestes v3/v2, info.json et image ; 307 miniature ; 404 canvas/annopage ; aucun en-tête de limite ; artgallery.yale.edu non testé (Cloudflare 403).
+  - **Justification** : 12 requêtes, 3 passes : 200 pour manifestes v3/v2, info.json et image ; 307 miniature ; 404 canvas/annopage ; aucun en-tête de limite ; artgallery.yale.edu non testé (Cloudflare 403).
   - **Preuves** : `institutions/yale-university-art-gallery/tests/journal.log`, `institutions/yale-university-art-gallery/tests/raw/manifest-yuag-obj-31719.headers.txt`
 
 ### f) Ce que disent les gens sur le web
