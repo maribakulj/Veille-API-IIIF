@@ -2,8 +2,8 @@
 """Intègre la branche lot/<ID> dans la branche principale (coordinateur seulement).
 
 1. refuse si le diff du lot touche autre chose que institutions/<slug>/ des institutions DU LOT ;
-2. fusion sans commit, puis validation GLOBALE (toutes les étapes cochées, ordre par lot, journaux) ;
-3. si tout passe : commit de fusion + régénération du classeur ; sinon : annulation de la fusion.
+2. fusion (commit local), puis validation GLOBALE sur le résultat (toutes les étapes cochées, ordre par lot, journaux) ;
+3. si tout passe : régénération du classeur ; sinon : retour au commit précédent (rien n'est poussé).
 Usage : python3 scripts/integrer_lot.py A [--push]
 """
 import json
@@ -38,15 +38,18 @@ def main(lot, push):
     if not fichiers:
         print(f"lot {lot} : rien à intégrer")
         return 0
-    r = sh("git", "merge", "--no-commit", "--no-ff", br, check=False)
+    avant = sh("git", "rev-parse", "HEAD").stdout.strip()
+    r = sh("git", "merge", "--no-ff", "--no-verify", "-q", "-m",
+           f"Intégration du lot {lot} ({len(fichiers)} fichiers)\n\nCo-Authored-By: Claude Sonnet 5.5 <noreply@anthropic.com>", br, check=False)
     if r.returncode:
         sh("git", "merge", "--abort", check=False)
         sys.exit(f"REFUSÉ : conflit de fusion\n{r.stdout}{r.stderr}")
+    # validation GLOBALE sur le résultat fusionné (l'historique git du lot est alors visible : contrôle « configuration
+    # committée avant lancement ») ; en cas d'échec on revient au commit précédent (fusion locale, jamais poussée)
     v = subprocess.run([sys.executable, "scripts/suivi.py", "all"], cwd=REPO, capture_output=True, text=True)
     if v.returncode:
-        sh("git", "merge", "--abort", check=False)
+        sh("git", "reset", "-q", "--hard", avant)
         sys.exit("REFUSÉ : validation globale en échec, fusion annulée :\n" + "\n".join(v.stdout.splitlines()[-15:]))
-    sh("git", "commit", "--no-verify", "-q", "-m", f"Intégration du lot {lot} ({len(fichiers)} fichiers, validation globale OK)\n\nCo-Authored-By: Claude Sonnet 5.5 <noreply@anthropic.com>")
     subprocess.run([PY, "scripts/build_benchmark.py"], cwd=REPO, capture_output=True)
     sh("git", "add", "BENCHMARK.xlsx", "institutions")
     sh("git", "commit", "-q", "-m", f"Régénération du classeur après intégration du lot {lot}\n\nCo-Authored-By: Claude Sonnet 5.5 <noreply@anthropic.com>", check=False)
