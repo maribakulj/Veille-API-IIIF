@@ -1,0 +1,9 @@
+2026-11-14T03:06:12Z GET https://be-api.us.archive.org/views/v1/short/ddd_010120427_mpeg21
+HTTP 200
+content-type: application/json
+content-length: 86
+connection: keep-alive
+access-control-allow-origin: *
+x-kong-upstream-latency: 13
+x-kong-proxy-latency: 0
+via: kong/0.13.1

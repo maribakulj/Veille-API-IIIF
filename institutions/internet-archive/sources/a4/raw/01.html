@@ -1,0 +1,1561 @@
+<!DOCTYPE html>
+<!--[if IE 7]>
+<html class="ie ie7" dir="ltr" lang="en-US" prefix="og: https://ogp.me/ns#">
+<![endif]-->
+<!--[if IE 8]>
+<html class="ie ie8" dir="ltr" lang="en-US" prefix="og: https://ogp.me/ns#">
+<![endif]-->
+<!--[if !(IE 7) & !(IE 8)]><!-->
+<html dir="ltr" lang="en-US" prefix="og: https://ogp.me/ns#">
+<!--<![endif]-->
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width" />
+
+<link rel="profile" href="http://gmpg.org/xfn/11" />
+<link rel="pingback" href="https://blog.archive.org/xmlrpc.php">
+<!--[if lt IE 9]>
+<script src="https://blog.archive.org/wp-content/themes/twentytwelve/js/html5.js" type="text/javascript"></script>
+<![endif]-->
+
+		<!-- All in One SEO 5.0.4 - aioseo.com -->
+		<title>Let us serve you, but don’t bring us down - Internet Archive Blogs</title>
+	<meta name="description" content="What just happened on archive.org today, as best we know: Tens of thousands of requests per second for our public domain OCR files were launched from 64 virtual hosts on amazon&#039;s AWS services. (Even by web standards,10’s of thousands of requests per second is a lot.) This activity brought archive.org down for all users for" />
+	<meta name="robots" content="max-image-preview:large" />
+	<meta name="author" content="Brewster Kahle"/>
+	<link rel="canonical" href="https://blog.archive.org/2023/05/29/let-us-serve-you-but-dont-bring-us-down/" />
+		<meta name="generator" content="All in One SEO (AIOSEO) 5.0.4" />
+		<meta property="og:locale" content="en_US" />
+		<meta property="og:site_name" content="Internet Archive Blogs - Updates from the Internet Archive" />
+		<meta property="og:type" content="article" />
+		<meta property="og:title" content="Let us serve you, but don’t bring us down - Internet Archive Blogs" />
+		<meta property="og:description" content="What just happened on archive.org today, as best we know: Tens of thousands of requests per second for our public domain OCR files were launched from 64 virtual hosts on amazon&#039;s AWS services. (Even by web standards,10’s of thousands of requests per second is a lot.) This activity brought archive.org down for all users for" />
+		<meta property="og:url" content="https://blog.archive.org/2023/05/29/let-us-serve-you-but-dont-bring-us-down/" />
+		<meta property="og:image" content="https://blog.archive.org/wp-content/uploads/2026/09/Internet-Archive-Logo-White-on-Black-512x512-1.png" />
+		<meta property="og:image:secure_url" content="https://blog.archive.org/wp-content/uploads/2026/09/Internet-Archive-Logo-White-on-Black-512x512-1.png" />
+		<meta property="article:published_time" content="2023-05-29T02:55:11+00:00" />
+		<meta property="article:modified_time" content="2023-05-29T02:55:11+00:00" />
+		<meta name="twitter:card" content="summary_large_image" />
+		<meta name="twitter:title" content="Let us serve you, but don’t bring us down - Internet Archive Blogs" />
+		<meta name="twitter:description" content="What just happened on archive.org today, as best we know: Tens of thousands of requests per second for our public domain OCR files were launched from 64 virtual hosts on amazon&#039;s AWS services. (Even by web standards,10’s of thousands of requests per second is a lot.) This activity brought archive.org down for all users for" />
+		<meta name="twitter:image" content="https://blog.archive.org/wp-content/uploads/2026/09/Internet-Archive-Logo-White-on-Black-512x512-1.png" />
+		<script type="application/ld+json" class="aioseo-schema">
+			{"@context":"https:\/\/schema.org","@graph":[{"@type":"BlogPosting","@id":"https:\/\/blog.archive.org\/2023\/05\/29\/let-us-serve-you-but-dont-bring-us-down\/#blogposting","name":"Let us serve you, but don\u2019t bring us down - Internet Archive Blogs","headline":"Let us serve you, but don\u2019t bring us down","author":{"@id":"https:\/\/blog.archive.org\/author\/brewster\/#author"},"publisher":{"@id":"https:\/\/blog.archive.org\/#organization"},"datePublished":"2023-05-29T02:55:11-07:00","dateModified":"2023-05-29T02:55:11-07:00","inLanguage":"en-US","commentCount":46,"mainEntityOfPage":{"@id":"https:\/\/blog.archive.org\/2023\/05\/29\/let-us-serve-you-but-dont-bring-us-down\/#webpage"},"isPartOf":{"@id":"https:\/\/blog.archive.org\/2023\/05\/29\/let-us-serve-you-but-dont-bring-us-down\/#webpage"},"articleSection":"News"},{"@type":"BreadcrumbList","@id":"https:\/\/blog.archive.org\/2023\/05\/29\/let-us-serve-you-but-dont-bring-us-down\/#breadcrumblist","itemListElement":[{"@type":"ListItem","@id":"https:\/\/blog.archive.org\/#listItem","position":1,"name":"Home","item":"https:\/\/blog.archive.org\/","nextItem":{"@type":"ListItem","@id":"https:\/\/blog.archive.org\/category\/news\/#listItem","name":"News"}},{"@type":"ListItem","@id":"https:\/\/blog.archive.org\/category\/news\/#listItem","position":2,"name":"News","item":"https:\/\/blog.archive.org\/category\/news\/","nextItem":{"@type":"ListItem","@id":"https:\/\/blog.archive.org\/2023\/05\/29\/let-us-serve-you-but-dont-bring-us-down\/#listItem","name":"Let us serve you, but don\u2019t bring us down"},"previousItem":{"@type":"ListItem","@id":"https:\/\/blog.archive.org\/#listItem","name":"Home"}},{"@type":"ListItem","@id":"https:\/\/blog.archive.org\/2023\/05\/29\/let-us-serve-you-but-dont-bring-us-down\/#listItem","position":3,"name":"Let us serve you, but don\u2019t bring us down","previousItem":{"@type":"ListItem","@id":"https:\/\/blog.archive.org\/category\/news\/#listItem","name":"News"}}]},{"@type":"Organization","@id":"https:\/\/blog.archive.org\/#organization","name":"Internet Archive Blogs","description":"Updates from the Internet Archive","url":"https:\/\/blog.archive.org\/"},{"@type":"Person","@id":"https:\/\/blog.archive.org\/author\/brewster\/#author","url":"https:\/\/blog.archive.org\/author\/brewster\/","name":"Brewster Kahle","image":{"@type":"ImageObject","@id":"https:\/\/blog.archive.org\/2023\/05\/29\/let-us-serve-you-but-dont-bring-us-down\/#authorImage","url":"https:\/\/secure.gravatar.com\/avatar\/0588f0ec72fa327579a71b15505b440f32499a46f86b54051cd49b48791a3985?s=96&d=mm&r=g","width":96,"height":96,"caption":"Brewster Kahle"}},{"@type":"WebPage","@id":"https:\/\/blog.archive.org\/2023\/05\/29\/let-us-serve-you-but-dont-bring-us-down\/#webpage","url":"https:\/\/blog.archive.org\/2023\/05\/29\/let-us-serve-you-but-dont-bring-us-down\/","name":"Let us serve you, but don\u2019t bring us down - Internet Archive Blogs","description":"What just happened on archive.org today, as best we know: Tens of thousands of requests per second for our public domain OCR files were launched from 64 virtual hosts on amazon's AWS services. (Even by web standards,10\u2019s of thousands of requests per second is a lot.) This activity brought archive.org down for all users for","inLanguage":"en-US","isPartOf":{"@id":"https:\/\/blog.archive.org\/#website"},"breadcrumb":{"@id":"https:\/\/blog.archive.org\/2023\/05\/29\/let-us-serve-you-but-dont-bring-us-down\/#breadcrumblist"},"author":{"@id":"https:\/\/blog.archive.org\/author\/brewster\/#author"},"creator":{"@id":"https:\/\/blog.archive.org\/author\/brewster\/#author"},"datePublished":"2023-05-29T02:55:11-07:00","dateModified":"2023-05-29T02:55:11-07:00"},{"@type":"WebSite","@id":"https:\/\/blog.archive.org\/#website","url":"https:\/\/blog.archive.org\/","name":"Internet Archive Blogs","description":"Updates from the Internet Archive","inLanguage":"en-US","publisher":{"@id":"https:\/\/blog.archive.org\/#organization"}}]}
+		</script>
+		<!-- All in One SEO -->
+
+<link rel='dns-prefetch' href='//archive.org' />
+<link rel="alternate" type="application/rss+xml" title="Internet Archive Blogs &raquo; Feed" href="https://blog.archive.org/feed/" />
+<link rel="alternate" type="application/rss+xml" title="Internet Archive Blogs &raquo; Comments Feed" href="https://blog.archive.org/comments/feed/" />
+<link rel="alternate" type="text/calendar" title="Internet Archive Blogs &raquo; iCal Feed" href="https://blog.archive.org/events/?ical=1" />
+<link rel="alternate" type="application/rss+xml" title="Internet Archive Blogs &raquo; Let us serve you, but don’t bring us down Comments Feed" href="https://blog.archive.org/2023/05/29/let-us-serve-you-but-dont-bring-us-down/feed/" />
+<link rel="alternate" title="oEmbed (JSON)" type="application/json+oembed" href="https://blog.archive.org/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fblog.archive.org%2F2023%2F05%2F29%2Flet-us-serve-you-but-dont-bring-us-down%2F" />
+<link rel="alternate" title="oEmbed (XML)" type="text/xml+oembed" href="https://blog.archive.org/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fblog.archive.org%2F2023%2F05%2F29%2Flet-us-serve-you-but-dont-bring-us-down%2F&#038;format=xml" />
+<style id="wp-img-auto-sizes-contain-inline-css">
+img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
+/*# sourceURL=wp-img-auto-sizes-contain-inline-css */
+</style>
+<style id="wp-emoji-styles-inline-css">
+
+	img.wp-smiley, img.emoji {
+		display: inline !important;
+		border: none !important;
+		box-shadow: none !important;
+		height: 1em !important;
+		width: 1em !important;
+		margin: 0 0.07em !important;
+		vertical-align: -0.1em !important;
+		background: none !important;
+		padding: 0 !important;
+	}
+/*# sourceURL=wp-emoji-styles-inline-css */
+</style>
+<style id="wp-block-library-inline-css">
+:root{--wp-block-synced-color:#7a00df;--wp-block-synced-color--rgb:122,0,223;--wp-bound-block-color:var(--wp-block-synced-color);--wp-editor-canvas-background:#ddd;--wp-admin-theme-color:#007cba;--wp-admin-theme-color--rgb:0,124,186;--wp-admin-theme-color-darker-10:#006ba1;--wp-admin-theme-color-darker-10--rgb:0,107,160.5;--wp-admin-theme-color-darker-20:#005a87;--wp-admin-theme-color-darker-20--rgb:0,90,135;--wp-admin-border-width-focus:2px}@media (min-resolution:192dpi){:root{--wp-admin-border-width-focus:1.5px}}.wp-element-button{cursor:pointer}:root .has-very-light-gray-background-color{background-color:#eee}:root .has-very-dark-gray-background-color{background-color:#313131}:root .has-very-light-gray-color{color:#eee}:root .has-very-dark-gray-color{color:#313131}:root .has-vivid-green-cyan-to-vivid-cyan-blue-gradient-background{background:linear-gradient(135deg,#00d084,#0693e3)}:root .has-purple-crush-gradient-background{background:linear-gradient(135deg,#34e2e4,#4721fb 50%,#ab1dfe)}:root .has-hazy-dawn-gradient-background{background:linear-gradient(135deg,#faaca8,#dad0ec)}:root .has-subdued-olive-gradient-background{background:linear-gradient(135deg,#fafae1,#67a671)}:root .has-atomic-cream-gradient-background{background:linear-gradient(135deg,#fdd79a,#004a59)}:root .has-nightshade-gradient-background{background:linear-gradient(135deg,#330968,#31cdcf)}:root .has-midnight-gradient-background{background:linear-gradient(135deg,#020381,#2874fc)}:root{--wp--preset--font-size--normal:16px;--wp--preset--font-size--huge:42px}.has-regular-font-size{font-size:1em}.has-larger-font-size{font-size:2.625em}.has-normal-font-size{font-size:var(--wp--preset--font-size--normal)}.has-huge-font-size{font-size:var(--wp--preset--font-size--huge)}:root .has-text-align-center{text-align:center}:root .has-text-align-left{text-align:left}:root .has-text-align-right{text-align:right}.has-fit-text{white-space:nowrap!important}#end-resizable-editor-section{display:none}.aligncenter{clear:both}.items-justified-left{justify-content:flex-start}.items-justified-center{justify-content:center}.items-justified-right{justify-content:flex-end}.items-justified-space-between{justify-content:space-between}.screen-reader-text{word-wrap:normal!important;border:0;clip-path:inset(50%);height:1px;margin:-1px;overflow:hidden;padding:0;position:absolute;width:1px;word-break:normal!important}.screen-reader-text:focus{background-color:#ddd;clip-path:none;color:#444;display:block;font-size:1em;height:auto;left:5px;line-height:normal;padding:15px 23px 14px;text-decoration:none;top:5px;width:auto;z-index:100000}html :where(.has-border-color){border-style:solid}html :where([style^=border-color],[style*=";border-color"],[style*="; border-color"]){border-style:solid}html :where([style^=border-top-color],[style*=";border-top-color"],[style*="; border-top-color"]){border-top-style:solid}html :where([style^=border-right-color],[style*=";border-right-color"],[style*="; border-right-color"]){border-right-style:solid}html :where([style^=border-bottom-color],[style*=";border-bottom-color"],[style*="; border-bottom-color"]){border-bottom-style:solid}html :where([style^=border-left-color],[style*=";border-left-color"],[style*="; border-left-color"]){border-left-style:solid}html :where([style^=border-width],[style*=";border-width"],[style*="; border-width"]){border-style:solid}html :where([style^=border-top-width],[style*=";border-top-width"],[style*="; border-top-width"]){border-top-style:solid}html :where([style^=border-right-width],[style*=";border-right-width"],[style*="; border-right-width"]){border-right-style:solid}html :where([style^=border-bottom-width],[style*=";border-bottom-width"],[style*="; border-bottom-width"]){border-bottom-style:solid}html :where([style^=border-left-width],[style*=";border-left-width"],[style*="; border-left-width"]){border-left-style:solid}html :where(img[class*=wp-image-]){height:auto;max-width:100%}:where(figure){margin:0 0 1em}html :where(.is-position-sticky){--wp-admin--admin-bar--position-offset:var(--wp-admin--admin-bar--height,0px)}@media screen and (max-width:600px){html :where(.is-position-sticky){--wp-admin--admin-bar--position-offset:0px}}
+
+/*# sourceURL=/wp-includes/css/dist/block-library/common.min.css */
+</style>
+<style id="wp-block-image-inline-css">
+.wp-block-image>a,.wp-block-image>figure>a{display:inline-block}.wp-block-image img{box-sizing:border-box;height:auto;max-width:100%;vertical-align:bottom}@media not (prefers-reduced-motion){.wp-block-image img.hide{visibility:hidden}.wp-block-image img.show{animation:show-content-image .4s}}.wp-block-image[style*=border-radius] img,.wp-block-image[style*=border-radius]>a{border-radius:inherit}.wp-block-image.has-custom-border img{box-sizing:border-box}.wp-block-image.aligncenter{text-align:center}.wp-block-image.alignfull>a,.wp-block-image.alignwide>a{width:100%}.wp-block-image.alignfull img,.wp-block-image.alignwide img{height:auto;width:100%}.wp-block-image .aligncenter,.wp-block-image .alignleft,.wp-block-image .alignright,.wp-block-image.aligncenter,.wp-block-image.alignleft,.wp-block-image.alignright{display:table}.wp-block-image .aligncenter>figcaption,.wp-block-image .alignleft>figcaption,.wp-block-image .alignright>figcaption,.wp-block-image.aligncenter>figcaption,.wp-block-image.alignleft>figcaption,.wp-block-image.alignright>figcaption{caption-side:bottom;display:table-caption}.wp-block-image .alignleft{float:left;margin:.5em 1em .5em 0}.wp-block-image .alignright{float:right;margin:.5em 0 .5em 1em}.wp-block-image .aligncenter{margin-left:auto;margin-right:auto}.wp-block-image :where(figcaption){margin-bottom:1em;margin-top:.5em}.wp-block-image.is-style-circle-mask img{border-radius:9999px}@supports ((-webkit-mask-image:none) or (mask-image:none)) or (-webkit-mask-image:none){.wp-block-image.is-style-circle-mask img{border-radius:0;-webkit-mask-image:url('data:image/svg+xml;utf8,<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><circle cx="50" cy="50" r="50"/></svg>');mask-image:url('data:image/svg+xml;utf8,<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><circle cx="50" cy="50" r="50"/></svg>');mask-mode:alpha;-webkit-mask-position:center;mask-position:center;-webkit-mask-repeat:no-repeat;mask-repeat:no-repeat;-webkit-mask-size:contain;mask-size:contain}}:root :where(.wp-block-image.is-style-rounded img,.wp-block-image .is-style-rounded img){border-radius:9999px}.wp-block-image figure{margin:0}.wp-lightbox-container{display:flex;flex-direction:column;position:relative}.wp-lightbox-container img{cursor:zoom-in}.wp-lightbox-container img:hover+button{opacity:1}.wp-lightbox-container button{align-items:center;backdrop-filter:blur(16px) saturate(180%);background-color:rgba(90,90,90,.25);border:none;border-radius:4px;cursor:zoom-in;display:flex;height:20px;justify-content:center;opacity:0;padding:0;position:absolute;right:16px;text-align:center;top:16px;width:20px;z-index:100}@media not (prefers-reduced-motion){.wp-lightbox-container button{transition:opacity .2s ease}}.wp-lightbox-container button:focus-visible{outline:3px auto rgba(90,90,90,.25);outline:3px auto -webkit-focus-ring-color;outline-offset:3px}.wp-lightbox-container button:hover{cursor:pointer;opacity:1}.wp-lightbox-container button:focus{opacity:1}.wp-lightbox-container button:focus,.wp-lightbox-container button:hover,.wp-lightbox-container button:not(:hover):not(:active):not(.has-background){background-color:rgba(90,90,90,.25);border:none}.wp-lightbox-overlay{box-sizing:border-box;cursor:zoom-out;height:100vh;left:0;overflow:hidden;position:fixed;top:0;visibility:hidden;width:100%;z-index:100000}.wp-lightbox-overlay .wp-lightbox-close-button{align-items:center;cursor:pointer;display:flex;font-family:inherit;gap:8px;justify-content:center;line-height:1;min-height:40px;min-width:40px;padding:0 4px;position:absolute;right:calc(env(safe-area-inset-right) + 16px);top:calc(env(safe-area-inset-top) + 16px);z-index:5000000}.wp-lightbox-overlay .wp-lightbox-close-button:focus,.wp-lightbox-overlay .wp-lightbox-close-button:hover,.wp-lightbox-overlay .wp-lightbox-close-button:not(:hover):not(:active):not(.has-background){background:none;border:none}.wp-lightbox-overlay .wp-lightbox-close-button:has(.wp-lightbox-close-text:not([hidden])) .wp-lightbox-close-icon svg{height:1em;width:1em}.wp-lightbox-overlay .wp-lightbox-close-icon svg{display:block}.wp-lightbox-overlay .wp-lightbox-navigation-button-next,.wp-lightbox-overlay .wp-lightbox-navigation-button-prev{align-items:center;bottom:16px;cursor:pointer;display:flex;font-family:inherit;gap:4px;justify-content:center;line-height:1;min-height:40px;min-width:40px;padding:0 8px;position:absolute;z-index:2000002}.wp-lightbox-overlay .wp-lightbox-navigation-button-next[hidden],.wp-lightbox-overlay .wp-lightbox-navigation-button-prev[hidden]{display:none}@media (min-width:960px){.wp-lightbox-overlay .wp-lightbox-navigation-button-next,.wp-lightbox-overlay .wp-lightbox-navigation-button-prev{bottom:50%;transform:translateY(-50%)}}.wp-lightbox-overlay .wp-lightbox-navigation-button-next:focus,.wp-lightbox-overlay .wp-lightbox-navigation-button-next:hover,.wp-lightbox-overlay .wp-lightbox-navigation-button-next:not(:hover):not(:active):not(.has-background),.wp-lightbox-overlay .wp-lightbox-navigation-button-prev:focus,.wp-lightbox-overlay .wp-lightbox-navigation-button-prev:hover,.wp-lightbox-overlay .wp-lightbox-navigation-button-prev:not(:hover):not(:active):not(.has-background){background:none;border:none;padding:0 8px}.wp-lightbox-overlay .wp-lightbox-navigation-button-next:has(.wp-lightbox-navigation-text:not([hidden])) .wp-lightbox-navigation-icon svg,.wp-lightbox-overlay .wp-lightbox-navigation-button-prev:has(.wp-lightbox-navigation-text:not([hidden])) .wp-lightbox-navigation-icon svg{display:block;height:1.5em;width:1.5em}.wp-lightbox-overlay .wp-lightbox-navigation-button-prev{left:calc(env(safe-area-inset-left) + 16px)}.wp-lightbox-overlay .wp-lightbox-navigation-button-next{right:calc(env(safe-area-inset-right) + 16px)}.wp-lightbox-overlay .wp-lightbox-navigation-icon svg{vertical-align:middle}.wp-lightbox-overlay .lightbox-image-container{height:var(--wp--lightbox-container-height);left:50%;overflow:hidden;position:absolute;top:50%;transform:translate(-50%,-50%);transform-origin:top left;width:var(--wp--lightbox-container-width);z-index:2000001}.wp-lightbox-overlay .wp-block-image{align-items:center;box-sizing:border-box;display:flex;height:100%;justify-content:center;margin:0;position:relative;transform-origin:0 0;width:100%;z-index:3000000}.wp-lightbox-overlay .wp-block-image img{height:var(--wp--lightbox-image-height);min-height:var(--wp--lightbox-image-height);min-width:var(--wp--lightbox-image-width);width:var(--wp--lightbox-image-width)}.wp-lightbox-overlay .wp-block-image figcaption{display:none}.wp-lightbox-overlay button{background:none;border:none}.wp-lightbox-overlay .scrim{background-color:#fff;height:100%;opacity:.9;position:absolute;width:100%;z-index:2000000}.wp-lightbox-overlay.active{visibility:visible}@media not (prefers-reduced-motion){.wp-lightbox-overlay.active{animation:turn-on-visibility .25s both}.wp-lightbox-overlay.active img{animation:turn-on-visibility .35s both}.wp-lightbox-overlay.show-closing-animation:not(.active){animation:turn-off-visibility .35s both}.wp-lightbox-overlay.show-closing-animation:not(.active) img{animation:turn-off-visibility .25s both}.wp-lightbox-overlay.zoom.active{animation:none;opacity:1;visibility:visible}.wp-lightbox-overlay.zoom.active .lightbox-image-container{animation:lightbox-zoom-in .4s}.wp-lightbox-overlay.zoom.active .lightbox-image-container img{animation:none}.wp-lightbox-overlay.zoom.active .scrim{animation:turn-on-visibility .4s forwards}.wp-lightbox-overlay.zoom.show-closing-animation:not(.active){animation:none}.wp-lightbox-overlay.zoom.show-closing-animation:not(.active) .lightbox-image-container{animation:lightbox-zoom-out .4s}.wp-lightbox-overlay.zoom.show-closing-animation:not(.active) .lightbox-image-container img{animation:none}.wp-lightbox-overlay.zoom.show-closing-animation:not(.active) .scrim{animation:turn-off-visibility .4s forwards}}@keyframes show-content-image{0%{visibility:hidden}99%{visibility:hidden}to{visibility:visible}}@keyframes turn-on-visibility{0%{opacity:0}to{opacity:1}}@keyframes turn-off-visibility{0%{opacity:1;visibility:visible}99%{opacity:0;visibility:visible}to{opacity:0;visibility:hidden}}@keyframes lightbox-zoom-in{0%{transform:translate(calc((-100vw + var(--wp--lightbox-scrollbar-width))/2 + var(--wp--lightbox-initial-left-position)),calc(-50vh + var(--wp--lightbox-initial-top-position))) scale(var(--wp--lightbox-scale))}to{transform:translate(-50%,-50%) scale(1)}}@keyframes lightbox-zoom-out{0%{transform:translate(-50%,-50%) scale(1);visibility:visible}99%{visibility:visible}to{transform:translate(calc((-100vw + var(--wp--lightbox-scrollbar-width))/2 + var(--wp--lightbox-initial-left-position)),calc(-50vh + var(--wp--lightbox-initial-top-position))) scale(var(--wp--lightbox-scale));visibility:hidden}}
+/*# sourceURL=https://blog.archive.org/wp-includes/blocks/image/style.min.css */
+</style>
+<style id="wp-block-image-theme-inline-css">
+:root :where(.wp-block-image figcaption){color:#555;font-size:13px;text-align:center}.is-dark-theme :root :where(.wp-block-image figcaption){color:hsla(0,0%,100%,.65)}.wp-block-image{margin:0 0 1em}
+/*# sourceURL=https://blog.archive.org/wp-includes/blocks/image/theme.min.css */
+</style>
+<style id="wp-block-paragraph-inline-css">
+.is-small-text{font-size:.875em}.is-regular-text{font-size:1em}.is-large-text{font-size:2.25em}.is-larger-text{font-size:3em}.has-drop-cap:not(:focus):first-letter{float:left;font-size:8.4em;font-style:normal;font-weight:100;line-height:.68;margin:.05em .1em 0 0;text-transform:uppercase}body.rtl .has-drop-cap:not(:focus):first-letter{float:none;margin-left:.1em}p.has-drop-cap.has-background{overflow:hidden}:root :where(p.has-background){padding:1.25em 2.375em}:where(p.has-text-color:not(.has-link-color)) a{color:inherit}p.has-text-align-left[style*="writing-mode:vertical-lr"],p.has-text-align-right[style*="writing-mode:vertical-rl"]{rotate:180deg}
+/*# sourceURL=https://blog.archive.org/wp-includes/blocks/paragraph/style.min.css */
+</style>
+
+<style id="classic-theme-styles-inline-css">
+/*! This file is auto-generated */
+.wp-block-button__link{color:#fff;background-color:#32373c;border-radius:9999px;box-shadow:none;text-decoration:none;padding:calc(.667em + 2px) calc(1.333em + 2px);font-size:1.125em}.wp-block-file__button{background:#32373c;color:#fff;text-decoration:none}
+/*# sourceURL=/wp-includes/css/classic-themes.min.css */
+</style>
+
+<link rel='stylesheet' id='qi-blocks-divider-css' href='https://blog.archive.org/wp-content/plugins/qi-blocks/assets/dist/divider.css?ver=7.1.4' media='all' />
+
+<style id="global-styles-inline-css">
+:root{--wp--preset--aspect-ratio--square: 1;--wp--preset--aspect-ratio--4-3: 4/3;--wp--preset--aspect-ratio--3-4: 3/4;--wp--preset--aspect-ratio--3-2: 3/2;--wp--preset--aspect-ratio--2-3: 2/3;--wp--preset--aspect-ratio--16-9: 16/9;--wp--preset--aspect-ratio--9-16: 9/16;--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: #abb8c3;--wp--preset--color--white: #fff;--wp--preset--color--pale-pink: #f78da7;--wp--preset--color--vivid-red: #cf2e2e;--wp--preset--color--luminous-vivid-orange: #ff6900;--wp--preset--color--luminous-vivid-amber: #fcb900;--wp--preset--color--light-green-cyan: #7bdcb5;--wp--preset--color--vivid-green-cyan: #00d084;--wp--preset--color--pale-cyan-blue: #8ed1fc;--wp--preset--color--vivid-cyan-blue: #0693e3;--wp--preset--color--vivid-purple: #9b51e0;--wp--preset--color--blue: #21759b;--wp--preset--color--dark-gray: #444;--wp--preset--color--medium-gray: #9f9f9f;--wp--preset--color--light-gray: #e6e6e6;--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple: linear-gradient(135deg,rgb(6,147,227) 0%,rgb(155,81,224) 100%);--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan: linear-gradient(135deg,rgb(122,220,180) 0%,rgb(0,208,130) 100%);--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange: linear-gradient(135deg,rgb(252,185,0) 0%,rgb(255,105,0) 100%);--wp--preset--gradient--luminous-vivid-orange-to-vivid-red: linear-gradient(135deg,rgb(255,105,0) 0%,rgb(207,46,46) 100%);--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray: linear-gradient(135deg,rgb(238,238,238) 0%,rgb(169,184,195) 100%);--wp--preset--gradient--cool-to-warm-spectrum: linear-gradient(135deg,rgb(74,234,220) 0%,rgb(151,120,209) 20%,rgb(207,42,186) 40%,rgb(238,44,130) 60%,rgb(251,105,98) 80%,rgb(254,248,76) 100%);--wp--preset--gradient--blush-light-purple: linear-gradient(135deg,rgb(255,206,236) 0%,rgb(152,150,240) 100%);--wp--preset--gradient--blush-bordeaux: linear-gradient(135deg,rgb(254,205,165) 0%,rgb(254,45,45) 50%,rgb(107,0,62) 100%);--wp--preset--gradient--luminous-dusk: linear-gradient(135deg,rgb(255,203,112) 0%,rgb(199,81,192) 50%,rgb(65,88,208) 100%);--wp--preset--gradient--pale-ocean: linear-gradient(135deg,rgb(255,245,203) 0%,rgb(182,227,212) 50%,rgb(51,167,181) 100%);--wp--preset--gradient--electric-grass: linear-gradient(135deg,rgb(202,248,128) 0%,rgb(113,206,126) 100%);--wp--preset--gradient--midnight: linear-gradient(135deg,rgb(2,3,129) 0%,rgb(40,116,252) 100%);--wp--preset--font-size--small: 13px;--wp--preset--font-size--medium: 20px;--wp--preset--font-size--large: 36px;--wp--preset--font-size--x-large: 42px;--wp--preset--spacing--20: 0.44rem;--wp--preset--spacing--30: 0.67rem;--wp--preset--spacing--40: 1rem;--wp--preset--spacing--50: 1.5rem;--wp--preset--spacing--60: 2.25rem;--wp--preset--spacing--70: 3.38rem;--wp--preset--spacing--80: 5.06rem;--wp--preset--shadow--natural: 6px 6px 9px rgba(0, 0, 0, 0.2);--wp--preset--shadow--deep: 12px 12px 50px rgba(0, 0, 0, 0.4);--wp--preset--shadow--sharp: 6px 6px 0px rgba(0, 0, 0, 0.2);--wp--preset--shadow--outlined: 6px 6px 0px -3px rgb(255, 255, 255), 6px 6px rgb(0, 0, 0);--wp--preset--shadow--crisp: 6px 6px 0px rgb(0, 0, 0);}.wp-block-button{--wp--preset--dimension--25: 25%;--wp--preset--dimension--50: 50%;--wp--preset--dimension--75: 75%;--wp--preset--dimension--100: 100%;}:where(body) { margin: 0; }:where(.is-layout-flex){gap: 0.5em;}:where(.is-layout-grid){gap: 0.5em;}body .is-layout-flex{display: flex;}.is-layout-flex{flex-wrap: wrap;align-items: center;}.is-layout-flex > :is(*, div){margin: 0;}body .is-layout-grid{display: grid;}.is-layout-grid > :is(*, div){margin: 0;}body{padding-top: 0px;padding-right: 0px;padding-bottom: 0px;padding-left: 0px;}:root :where(.wp-element-button, .wp-block-button__link){background-color: #32373c;border-width: 0;color: #fff;font-family: inherit;font-size: inherit;font-style: inherit;font-weight: inherit;letter-spacing: inherit;line-height: inherit;padding-top: calc(0.667em + 2px);padding-right: calc(1.333em + 2px);padding-bottom: calc(0.667em + 2px);padding-left: calc(1.333em + 2px);text-decoration: none;text-transform: inherit;}.has-black-color{color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-color{color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-color{color: var(--wp--preset--color--white) !important;}.has-pale-pink-color{color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-color{color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-color{color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-color{color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-color{color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-color{color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-color{color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-color{color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-color{color: var(--wp--preset--color--vivid-purple) !important;}.has-blue-color{color: var(--wp--preset--color--blue) !important;}.has-dark-gray-color{color: var(--wp--preset--color--dark-gray) !important;}.has-medium-gray-color{color: var(--wp--preset--color--medium-gray) !important;}.has-light-gray-color{color: var(--wp--preset--color--light-gray) !important;}.has-black-background-color{background-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-background-color{background-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-background-color{background-color: var(--wp--preset--color--white) !important;}.has-pale-pink-background-color{background-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-background-color{background-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-background-color{background-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-background-color{background-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-background-color{background-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-background-color{background-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-background-color{background-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-background-color{background-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-background-color{background-color: var(--wp--preset--color--vivid-purple) !important;}.has-blue-background-color{background-color: var(--wp--preset--color--blue) !important;}.has-dark-gray-background-color{background-color: var(--wp--preset--color--dark-gray) !important;}.has-medium-gray-background-color{background-color: var(--wp--preset--color--medium-gray) !important;}.has-light-gray-background-color{background-color: var(--wp--preset--color--light-gray) !important;}.has-black-border-color{border-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-border-color{border-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-border-color{border-color: var(--wp--preset--color--white) !important;}.has-pale-pink-border-color{border-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-border-color{border-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-border-color{border-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-border-color{border-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-border-color{border-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-border-color{border-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-border-color{border-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-border-color{border-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-border-color{border-color: var(--wp--preset--color--vivid-purple) !important;}.has-blue-border-color{border-color: var(--wp--preset--color--blue) !important;}.has-dark-gray-border-color{border-color: var(--wp--preset--color--dark-gray) !important;}.has-medium-gray-border-color{border-color: var(--wp--preset--color--medium-gray) !important;}.has-light-gray-border-color{border-color: var(--wp--preset--color--light-gray) !important;}.has-vivid-cyan-blue-to-vivid-purple-gradient-background{background: var(--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple) !important;}.has-light-green-cyan-to-vivid-green-cyan-gradient-background{background: var(--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan) !important;}.has-luminous-vivid-amber-to-luminous-vivid-orange-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange) !important;}.has-luminous-vivid-orange-to-vivid-red-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-orange-to-vivid-red) !important;}.has-very-light-gray-to-cyan-bluish-gray-gradient-background{background: var(--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray) !important;}.has-cool-to-warm-spectrum-gradient-background{background: var(--wp--preset--gradient--cool-to-warm-spectrum) !important;}.has-blush-light-purple-gradient-background{background: var(--wp--preset--gradient--blush-light-purple) !important;}.has-blush-bordeaux-gradient-background{background: var(--wp--preset--gradient--blush-bordeaux) !important;}.has-luminous-dusk-gradient-background{background: var(--wp--preset--gradient--luminous-dusk) !important;}.has-pale-ocean-gradient-background{background: var(--wp--preset--gradient--pale-ocean) !important;}.has-electric-grass-gradient-background{background: var(--wp--preset--gradient--electric-grass) !important;}.has-midnight-gradient-background{background: var(--wp--preset--gradient--midnight) !important;}.has-small-font-size{font-size: var(--wp--preset--font-size--small) !important;}.has-medium-font-size{font-size: var(--wp--preset--font-size--medium) !important;}.has-large-font-size{font-size: var(--wp--preset--font-size--large) !important;}.has-x-large-font-size{font-size: var(--wp--preset--font-size--x-large) !important;}
+/*# sourceURL=global-styles-inline-css */
+</style>
+
+<link rel='stylesheet' id='archive_sharing_css-css' href='https://blog.archive.org/wp-content/plugins/archive-sharing-widget/public/css/archive-sharing-widget.css?ver=20181212' media='all' />
+<link rel='stylesheet' id='animate-css' href='https://blog.archive.org/wp-content/plugins/qi-blocks/assets/css/plugins/animate/animate.min.css?ver=4.1.1' media='all' />
+<link rel='stylesheet' id='qi-blocks-grid-css' href='https://blog.archive.org/wp-content/plugins/qi-blocks/assets/dist/grid.css?ver=1.5.4' media='all' />
+<link rel='stylesheet' id='qi-blocks-main-css' href='https://blog.archive.org/wp-content/plugins/qi-blocks/assets/dist/main.css?ver=1.5.4' media='all' />
+<link rel='stylesheet' id='twentytwelve-style-css' href='https://blog.archive.org/wp-content/themes/twentytwelve/style.css?ver=7.1.4' media='all' />
+<link rel='stylesheet' id='child-style-css' href='https://blog.archive.org/wp-content/themes/twentytwelve-child/style.css?ver=1.0.0' media='all' />
+<link rel='stylesheet' id='twentytwelve-fonts-css' href='https://blog.archive.org/wp-content/themes/twentytwelve/fonts/font-open-sans.css?ver=20230328' media='all' />
+<link rel='stylesheet' id='twentytwelve-block-style-css' href='https://blog.archive.org/wp-content/themes/twentytwelve/css/blocks.css?ver=20240812' media='all' />
+<script data-wp-strategy="defer" defer id="archive_analytics_js-js" src="https://archive.org/includes/athena.js?ver=ffd0d9"></script>
+<script data-wp-strategy="defer" defer id="archive_wayback_404_js-js" src="https://archive.org/web/wb404.js?ver=20181212"></script>
+<script id="jquery-core-js" src="https://blog.archive.org/wp-includes/js/jquery/jquery.min.js?ver=3.7.1"></script>
+<script id="jquery-migrate-js" src="https://blog.archive.org/wp-includes/js/jquery/jquery-migrate.min.js?ver=3.4.1"></script>
+<script data-wp-strategy="defer" defer id="twentytwelve-navigation-js" src="https://blog.archive.org/wp-content/themes/twentytwelve/js/navigation.js?ver=20250303"></script>
+<link rel="https://api.w.org/" href="https://blog.archive.org/wp-json/" /><link rel="alternate" title="JSON" type="application/json" href="https://blog.archive.org/wp-json/wp/v2/posts/26093" /><link rel="EditURI" type="application/rsd+xml" title="RSD" href="https://blog.archive.org/xmlrpc.php?rsd" />
+<meta name="generator" content="WordPress 7.1.4" />
+<link rel='shortlink' href='https://blog.archive.org/?p=26093' />
+<meta name="tec-api-version" content="v1"><meta name="tec-api-origin" content="https://blog.archive.org"><link rel="alternate" href="https://blog.archive.org/wp-json/tribe/events/v1/" /><!-- Matomo -->
+<script>
+  var _paq = window._paq = window._paq || [];
+  /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
+  _paq.push(['trackPageView']);
+  _paq.push(['enableLinkTracking']);
+  (function() {
+    var u="//apollo.archive.org/";
+    _paq.push(['setTrackerUrl', u+'matomo.php']);
+    _paq.push(['setSiteId', '1']);
+    var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+    g.async=true; g.src=u+'matomo.js'; s.parentNode.insertBefore(g,s);
+  })();
+</script>
+<!-- End Matomo Code -->
+                                                                                                                <style>.recentcomments a{display:inline !important;padding:0 !important;margin:0 !important;}</style><link rel="icon" href="https://blog.archive.org/wp-content/uploads/2023/03/ia-logo-sq-150x150.png" sizes="32x32" />
+<link rel="icon" href="https://blog.archive.org/wp-content/uploads/2023/03/ia-logo-sq-300x300.png" sizes="192x192" />
+<link rel="apple-touch-icon" href="https://blog.archive.org/wp-content/uploads/2023/03/ia-logo-sq-300x300.png" />
+<meta name="msapplication-TileImage" content="https://blog.archive.org/wp-content/uploads/2023/03/ia-logo-sq-300x300.png" />
+<script>
+  // athena.js (enqueued in functions.php) is deferred, and deferred scripts
+  // run before DOMContentLoaded.
+  document.addEventListener('DOMContentLoaded', function () {
+    'use strict';
+    if ('archive_analytics' in window) {
+      archive_analytics.service = 'blog';
+      archive_analytics.send_pageview_on_load({});
+      archive_analytics.process_url_events(window.location);
+    }
+  });
+</script>
+<meta name="monetization" content="$ilp.uphold.com/D7BwPKMQzBiD">
+</head>
+
+<body class="wp-singular post-template-default single single-post postid-26093 single-format-standard wp-embed-responsive wp-theme-twentytwelve wp-child-theme-twentytwelve-child qi-blocks-1.5.4 qodef-gutenberg--no-touch tribe-no-js custom-font-enabled">
+<div id="page" class="hfeed site">
+	<header id="masthead" class="site-header" role="banner">
+		<hgroup>
+			<h1 class="site-title"><a href="https://blog.archive.org/" title="Internet Archive Blogs" rel="home">Internet Archive Blogs</a></h1>
+			<h2 class="site-description">Updates from the Internet Archive</h2>
+		</hgroup>
+
+		
+		<nav id="site-navigation" class="main-navigation" role="navigation">
+			<button class="menu-toggle">Menu</button>
+			<a class="assistive-text" href="#content" title="Skip to content">Skip to content</a>
+			<div class="menu-menu-container"><ul id="menu-menu" class="nav-menu"><li id="menu-item-3422" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-3422"><a href="https://archive.org">archive.org</a></li>
+<li id="menu-item-7707" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-7707"><a href="https://blog.archive.org">Blog</a></li>
+<li id="menu-item-3417" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-3417"><a href="https://blog.archive.org/category/announcements/">Announcements</a></li>
+<li id="menu-item-3421" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3421"><a href="https://blog.archive.org/about/">About</a></li>
+<li id="menu-item-26197" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-26197"><a href="https://blog.archive.org/events/">Events</a></li>
+<li id="menu-item-8100" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-8100"><a href="https://blog.archive.org/developers/">Developers</a></li>
+<li id="menu-item-15172" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-15172"><a href="https://archive.org/donate/?origin=blogwww-topnavdonatebutton">Donate</a></li>
+</ul></div>		</nav><!-- #site-navigation -->
+
+	</header><!-- #masthead -->
+
+	<div id="main" class="wrapper">
+
+	<div id="primary" class="site-content">
+		<div id="content" role="main">
+
+			
+				
+	<article id="post-26093" class="post-26093 post type-post status-publish format-standard hentry category-news">
+				<header class="entry-header">
+			
+						<h1 class="entry-title">Let us serve you, but don’t bring us down</h1>
+						<div class="entry-byline">
+				Posted on <a href="https://blog.archive.org/2023/05/29/let-us-serve-you-but-dont-bring-us-down/" title="2:55 am" rel="bookmark"><time class="entry-date" datetime="2023-05-29T02:55:11-07:00">May 29, 2023</time></a><span class="by-author"> by <span class="author vcard"><a class="url fn n" href="https://blog.archive.org/author/brewster/" title="View all posts by Brewster Kahle" rel="author">Brewster Kahle</a></span></span>			</div><!-- .entry-byline -->
+		</header><!-- .entry-header -->
+
+				<div class="entry-content">
+			
+<p class="wp-block-paragraph">What just happened on archive.org today, as best we know:</p>
+
+
+
+<p class="wp-block-paragraph">Tens of thousands of requests per second for our public domain OCR files were launched from 64 virtual hosts on amazon&#8217;s AWS services. (Even by web standards,10’s of thousands of requests per second is a lot.)</p>
+
+
+
+<p class="wp-block-paragraph">This activity brought archive.org down for all users for about an hour.</p>
+
+
+
+<p class="wp-block-paragraph">We are thankful to our engineers who could scramble on a Sunday afternoon on a holiday weekend to work on this.</p>
+
+
+
+<p class="wp-block-paragraph">We got the service back up by blocking those IP addresses.</p>
+
+
+
+<p class="wp-block-paragraph">But, another 64 addresses started the same type of activity a couple of hours later.&nbsp;&nbsp;</p>
+
+
+
+<p class="wp-block-paragraph">We figured out how to block this new set, but again, with about an hour outage.<br><br>&#8212;-&nbsp;</p>
+
+
+
+<p class="wp-block-paragraph">How this could have gone better for us:</p>
+
+
+
+<p class="wp-block-paragraph">Those wanting to use our materials in bulk should start slowly, and ramp up. </p>
+
+
+
+<p class="wp-block-paragraph">Also, if you are starting a large project please contact us at <a href="mailto:info@archive.org">info@archive.org</a>, we are here to help.<br><br>If you find yourself blocked, please don&#8217;t just start again, reach out.</p>
+
+
+
+<p class="wp-block-paragraph">Again, please use the Internet Archive, but don&#8217;t bring us down in the process.</p>
+					</div><!-- .entry-content -->
+		
+		<footer class="entry-meta">
+			Posted in <a href="https://blog.archive.org/category/news/" rel="category tag">News</a> |
+			<span class="comments-link"><a href="https://blog.archive.org/2023/05/29/let-us-serve-you-but-dont-bring-us-down/#comments">46 Replies</a></span>
+								</footer><!-- .entry-meta -->
+	</article><!-- #post -->
+
+				<nav class="nav-single">
+					<h3 class="assistive-text">Post navigation</h3>
+					<span class="nav-previous"><a href="https://blog.archive.org/2023/05/20/crash-bark-boom-the-usc-sound-effects-library/" rel="prev"><span class="meta-nav">&larr;</span> CRASH! BARK! BOOM! The USC Sound Effects Library</a></span>
+					<span class="nav-next"><a href="https://blog.archive.org/2023/06/05/unveiling-the-hidden-truth-ucsf-industry-documents-library-empowers-research-into-tobacco-drug-and-related-industries/" rel="next">Unveiling the Hidden Truth: UCSF Industry Documents Library Empowers Research Into Tobacco, Drug and Related Industries <span class="meta-nav">&rarr;</span></a></span>
+				</nav><!-- .nav-single -->
+
+				
+<div id="comments" class="comments-area">
+
+	
+			<h2 class="comments-title">
+			46 thoughts on &ldquo;<span>Let us serve you, but don’t bring us down</span>&rdquo;		</h2>
+
+		<ol class="commentlist">
+					<li class="comment even thread-even depth-1" id="li-comment-436121">
+		<article id="comment-436121" class="comment">
+			<header class="comment-meta comment-author vcard">
+				<img alt='' src='https://secure.gravatar.com/avatar/6ba71ae8e256aae35db253a95d56dee557cc12e3bb75a57955d245f2279c5646?s=44&#038;d=mm&#038;r=g' srcset='https://secure.gravatar.com/avatar/6ba71ae8e256aae35db253a95d56dee557cc12e3bb75a57955d245f2279c5646?s=88&#038;d=mm&#038;r=g 2x' class='avatar avatar-44 photo' height='44' width='44' decoding='async'/><cite><b class="fn">John Abbe</b> </cite><a href="https://blog.archive.org/2023/05/29/let-us-serve-you-but-dont-bring-us-down/#comment-436121"><time datetime="2023-05-29T04:36:48-07:00">May 29, 2023 at 4:36 am</time></a>				</header><!-- .comment-meta -->
+
+				
+				
+				<section class="comment-content comment">
+				<p>The (or a) relevant musical reference: <a href="https://www.youtube.com/watch?v=z9nkzaOPP6g" rel="nofollow ugc">https://www.youtube.com/watch?v=z9nkzaOPP6g</a></p>
+								</section><!-- .comment-content -->
+
+				<div class="reply">
+								</div><!-- .reply -->
+			</article><!-- #comment-## -->
+				</li><!-- #comment-## -->
+		<li class="comment odd alt thread-odd thread-alt depth-1" id="li-comment-436122">
+		<article id="comment-436122" class="comment">
+			<header class="comment-meta comment-author vcard">
+				<img alt='' src='https://secure.gravatar.com/avatar/0fdc011dc7fbddd5884dd79e621a689795969f4aae36c60a1a4e0826c48617e7?s=44&#038;d=mm&#038;r=g' srcset='https://secure.gravatar.com/avatar/0fdc011dc7fbddd5884dd79e621a689795969f4aae36c60a1a4e0826c48617e7?s=88&#038;d=mm&#038;r=g 2x' class='avatar avatar-44 photo' height='44' width='44' decoding='async'/><cite><b class="fn">Hasford Albrecht</b> </cite><a href="https://blog.archive.org/2023/05/29/let-us-serve-you-but-dont-bring-us-down/#comment-436122"><time datetime="2023-05-29T05:15:45-07:00">May 29, 2023 at 5:15 am</time></a>				</header><!-- .comment-meta -->
+
+				
+				
+				<section class="comment-content comment">
+				<p>[quote]<br />
+Tens of thousands of requests per second for our public domain OCR files were launched from 64 virtual hosts on amazon’s AWS services. (Even by web standards,10’s of thousands of requests per second is a lot.)<br />
+[/quote]</p>
+<p>Thank you for taking the time to let your users know what happened.</p>
+<p>I was using IA earlier today and got a &#8220;server error 502&#8221; screen.  I was so surprised at seeing this I felt compelled to take a screenshot of it, if only to convince myself that what I was seeing was real.  And while getting a 502 error from IA probably wasn&#8217;t the End of the World, I admit I did trot over to the window to make sure the sun was still in the sky.</p>
+<p>(You know, just in case.)</p>
+<p>Admittedly, getting an error screen does help one to better appreciate when a website becomes available again, so it wasn&#8217;t all bad.  But it *was* surprising &#8211; and I feel all the better for knowing what happened.</p>
+								</section><!-- .comment-content -->
+
+				<div class="reply">
+								</div><!-- .reply -->
+			</article><!-- #comment-## -->
+				</li><!-- #comment-## -->
+		<li class="comment byuser comment-author-brewster bypostauthor even thread-even depth-1" id="li-comment-436123">
+		<article id="comment-436123" class="comment">
+			<header class="comment-meta comment-author vcard">
+				<img alt='' src='https://secure.gravatar.com/avatar/0588f0ec72fa327579a71b15505b440f32499a46f86b54051cd49b48791a3985?s=44&#038;d=mm&#038;r=g' srcset='https://secure.gravatar.com/avatar/0588f0ec72fa327579a71b15505b440f32499a46f86b54051cd49b48791a3985?s=88&#038;d=mm&#038;r=g 2x' class='avatar avatar-44 photo' height='44' width='44' decoding='async'/><cite><b class="fn"><a href="http://archive.org" class="url" rel="ugc external nofollow">Brewster Kahle</a></b> <span>Post author</span></cite><a href="https://blog.archive.org/2023/05/29/let-us-serve-you-but-dont-bring-us-down/#comment-436123"><time datetime="2023-05-29T05:48:13-07:00">May 29, 2023 at 5:48 am</time></a>				</header><!-- .comment-meta -->
+
+				
+				
+				<section class="comment-content comment">
+				<p>I guess the good news for us is that this does not happen very often or you would not doubt the sun in the sky.</p>
+<p>Sorry that we went down.  We appreciate your message here.</p>
+<p>-brewster</p>
+								</section><!-- .comment-content -->
+
+				<div class="reply">
+								</div><!-- .reply -->
+			</article><!-- #comment-## -->
+				<ol class="children">
+		<li class="comment odd alt depth-2" id="li-comment-436154">
+		<article id="comment-436154" class="comment">
+			<header class="comment-meta comment-author vcard">
+				<img alt='' src='https://secure.gravatar.com/avatar/ba508cc6e3e6abb1691329ade08a2f98369a32e13fa485eb780a64d9e3ff211a?s=44&#038;d=mm&#038;r=g' srcset='https://secure.gravatar.com/avatar/ba508cc6e3e6abb1691329ade08a2f98369a32e13fa485eb780a64d9e3ff211a?s=88&#038;d=mm&#038;r=g 2x' class='avatar avatar-44 photo' height='44' width='44' loading='lazy' decoding='async'/><cite><b class="fn">Terry Smith</b> </cite><a href="https://blog.archive.org/2023/05/29/let-us-serve-you-but-dont-bring-us-down/#comment-436154"><time datetime="2023-05-29T17:21:32-07:00">May 29, 2023 at 5:21 pm</time></a>				</header><!-- .comment-meta -->
+
+				
+				
+				<section class="comment-content comment">
+				<p>Check again 8 minutes later to make sure it&#8217;s REALLY there.</p>
+								</section><!-- .comment-content -->
+
+				<div class="reply">
+								</div><!-- .reply -->
+			</article><!-- #comment-## -->
+				</li><!-- #comment-## -->
+		<li class="comment even depth-2" id="li-comment-436171">
+		<article id="comment-436171" class="comment">
+			<header class="comment-meta comment-author vcard">
+				<img alt='' src='https://secure.gravatar.com/avatar/cd6fabf679cb398d658f9f91624d40a0682bffe75a15e14dbb70c01654a8b2d2?s=44&#038;d=mm&#038;r=g' srcset='https://secure.gravatar.com/avatar/cd6fabf679cb398d658f9f91624d40a0682bffe75a15e14dbb70c01654a8b2d2?s=88&#038;d=mm&#038;r=g 2x' class='avatar avatar-44 photo' height='44' width='44' loading='lazy' decoding='async'/><cite><b class="fn">Upset Librarian</b> </cite><a href="https://blog.archive.org/2023/05/29/let-us-serve-you-but-dont-bring-us-down/#comment-436171"><time datetime="2023-05-30T07:32:04-07:00">May 30, 2023 at 7:32 am</time></a>				</header><!-- .comment-meta -->
+
+				
+				
+				<section class="comment-content comment">
+				<p>I bet your engineers can work in fixing the new search engine too, because it&#8217;s a complete MESS, the changes in your search engine go beyond aesthetics, the old one wasn&#8217;t the cutest but it was working properly, now you can&#8217;t get significant results, utilizing the same keywords, with pretty simple queries, and this message pops up constantly: -&#8220;Your search did not match any items in the Archive. Try different keywords or a more general search.&#8221;</p>
+<p>New users won&#8217;t note this at all, if they never were active users of the old one, they will just think that there&#8217;s not information about what they&#8217;re looking for!!.</p>
+								</section><!-- .comment-content -->
+
+				<div class="reply">
+								</div><!-- .reply -->
+			</article><!-- #comment-## -->
+				<ol class="children">
+		<li class="comment odd alt depth-3" id="li-comment-436181">
+		<article id="comment-436181" class="comment">
+			<header class="comment-meta comment-author vcard">
+				<img alt='' src='https://secure.gravatar.com/avatar/bc754e29b28da665471736579ac5ef10ed2caeb671965369f7b9575ede01b713?s=44&#038;d=mm&#038;r=g' srcset='https://secure.gravatar.com/avatar/bc754e29b28da665471736579ac5ef10ed2caeb671965369f7b9575ede01b713?s=88&#038;d=mm&#038;r=g 2x' class='avatar avatar-44 photo' height='44' width='44' loading='lazy' decoding='async'/><cite><b class="fn">Morphism</b> </cite><a href="https://blog.archive.org/2023/05/29/let-us-serve-you-but-dont-bring-us-down/#comment-436181"><time datetime="2023-05-31T00:18:46-07:00">May 31, 2023 at 12:18 am</time></a>				</header><!-- .comment-meta -->
+
+				
+				
+				<section class="comment-content comment">
+				<p>What simple queries used to work but dont anymore?</p>
+<p>Is it a bug or it is deliberate??</p>
+								</section><!-- .comment-content -->
+
+				<div class="reply">
+								</div><!-- .reply -->
+			</article><!-- #comment-## -->
+				</li><!-- #comment-## -->
+</ol><!-- .children -->
+</li><!-- #comment-## -->
+</ol><!-- .children -->
+</li><!-- #comment-## -->
+		<li class="comment even thread-odd thread-alt depth-1" id="li-comment-436126">
+		<article id="comment-436126" class="comment">
+			<header class="comment-meta comment-author vcard">
+				<img alt='' src='https://secure.gravatar.com/avatar/3a9dbd4450e00bb68a7e6eb975ce978a0591b057eef2e0e6e2f15b88e4526935?s=44&#038;d=mm&#038;r=g' srcset='https://secure.gravatar.com/avatar/3a9dbd4450e00bb68a7e6eb975ce978a0591b057eef2e0e6e2f15b88e4526935?s=88&#038;d=mm&#038;r=g 2x' class='avatar avatar-44 photo' height='44' width='44' loading='lazy' decoding='async'/><cite><b class="fn">nobody</b> </cite><a href="https://blog.archive.org/2023/05/29/let-us-serve-you-but-dont-bring-us-down/#comment-436126"><time datetime="2023-05-29T07:07:58-07:00">May 29, 2023 at 7:07 am</time></a>				</header><!-- .comment-meta -->
+
+				
+				
+				<section class="comment-content comment">
+				<p>Pretty ironic that you&#8217;d complain about this, considering all the websites that you forced to hide behind Cloudflare or go down with your moronic scraping behavior (Pixiv being one of the examples that neutered their api because of you).</p>
+								</section><!-- .comment-content -->
+
+				<div class="reply">
+								</div><!-- .reply -->
+			</article><!-- #comment-## -->
+				</li><!-- #comment-## -->
+		<li class="comment odd alt thread-even depth-1" id="li-comment-436127">
+		<article id="comment-436127" class="comment">
+			<header class="comment-meta comment-author vcard">
+				<img alt='' src='https://secure.gravatar.com/avatar/2a4c86f158ba8603e74a50c174b81e191871b84e463ba74791a1c88cf2911b2b?s=44&#038;d=mm&#038;r=g' srcset='https://secure.gravatar.com/avatar/2a4c86f158ba8603e74a50c174b81e191871b84e463ba74791a1c88cf2911b2b?s=88&#038;d=mm&#038;r=g 2x' class='avatar avatar-44 photo' height='44' width='44' loading='lazy' decoding='async'/><cite><b class="fn">Clint F.</b> </cite><a href="https://blog.archive.org/2023/05/29/let-us-serve-you-but-dont-bring-us-down/#comment-436127"><time datetime="2023-05-29T07:44:42-07:00">May 29, 2023 at 7:44 am</time></a>				</header><!-- .comment-meta -->
+
+				
+				
+				<section class="comment-content comment">
+				<p>Any info on the zealots yet? Maybe a possible partnership or service!? (Hoping it’ll be abandoned Macintosh software based) I’m all for internet history at the couple wags of a finger, but geez; that’s at least a good 1 grand or more in AWS services! A good metaphor might be, “the vacuum of space trying to suck the moon through a bendy straw.” lmao…</p>
+								</section><!-- .comment-content -->
+
+				<div class="reply">
+								</div><!-- .reply -->
+			</article><!-- #comment-## -->
+				</li><!-- #comment-## -->
+		<li class="comment even thread-odd thread-alt depth-1" id="li-comment-436128">
+		<article id="comment-436128" class="comment">
+			<header class="comment-meta comment-author vcard">
+				<img alt='' src='https://secure.gravatar.com/avatar/1bbad30ee5579441a64e49ff5651c422e686b6a3d40a8bd3218117a95f999f71?s=44&#038;d=mm&#038;r=g' srcset='https://secure.gravatar.com/avatar/1bbad30ee5579441a64e49ff5651c422e686b6a3d40a8bd3218117a95f999f71?s=88&#038;d=mm&#038;r=g 2x' class='avatar avatar-44 photo' height='44' width='44' loading='lazy' decoding='async'/><cite><b class="fn">PRW</b> </cite><a href="https://blog.archive.org/2023/05/29/let-us-serve-you-but-dont-bring-us-down/#comment-436128"><time datetime="2023-05-29T07:45:37-07:00">May 29, 2023 at 7:45 am</time></a>				</header><!-- .comment-meta -->
+
+				
+				
+				<section class="comment-content comment">
+				<p>It is customary, when asking not to be brought down, to address the counter-party as &#8216;Bruce&#8217;.</p>
+								</section><!-- .comment-content -->
+
+				<div class="reply">
+								</div><!-- .reply -->
+			</article><!-- #comment-## -->
+				<ol class="children">
+		<li class="comment odd alt depth-2" id="li-comment-436201">
+		<article id="comment-436201" class="comment">
+			<header class="comment-meta comment-author vcard">
+				<img alt='' src='https://secure.gravatar.com/avatar/dfb5a16a9ed78ca483d717dec3db1a2b5885da942cf7dcf052483936b8f7ab40?s=44&#038;d=mm&#038;r=g' srcset='https://secure.gravatar.com/avatar/dfb5a16a9ed78ca483d717dec3db1a2b5885da942cf7dcf052483936b8f7ab40?s=88&#038;d=mm&#038;r=g 2x' class='avatar avatar-44 photo' height='44' width='44' loading='lazy' decoding='async'/><cite><b class="fn">robert</b> </cite><a href="https://blog.archive.org/2023/05/29/let-us-serve-you-but-dont-bring-us-down/#comment-436201"><time datetime="2023-06-01T00:03:42-07:00">June 1, 2023 at 12:03 am</time></a>				</header><!-- .comment-meta -->
+
+				
+				
+				<section class="comment-content comment">
+				<p>do we break into song at this point?</p>
+								</section><!-- .comment-content -->
+
+				<div class="reply">
+								</div><!-- .reply -->
+			</article><!-- #comment-## -->
+				</li><!-- #comment-## -->
+</ol><!-- .children -->
+</li><!-- #comment-## -->
+		<li class="comment even thread-even depth-1" id="li-comment-436129">
+		<article id="comment-436129" class="comment">
+			<header class="comment-meta comment-author vcard">
+				<img alt='' src='https://secure.gravatar.com/avatar/b58c434d452ecaa316eceffb2fd2d3c7a74876361b8379eb996db50881e6ce86?s=44&#038;d=mm&#038;r=g' srcset='https://secure.gravatar.com/avatar/b58c434d452ecaa316eceffb2fd2d3c7a74876361b8379eb996db50881e6ce86?s=88&#038;d=mm&#038;r=g 2x' class='avatar avatar-44 photo' height='44' width='44' loading='lazy' decoding='async'/><cite><b class="fn">Ciprian</b> </cite><a href="https://blog.archive.org/2023/05/29/let-us-serve-you-but-dont-bring-us-down/#comment-436129"><time datetime="2023-05-29T08:10:46-07:00">May 29, 2023 at 8:10 am</time></a>				</header><!-- .comment-meta -->
+
+				
+				
+				<section class="comment-content comment">
+				<p>Maybe someone tried not to be archived?</p>
+								</section><!-- .comment-content -->
+
+				<div class="reply">
+								</div><!-- .reply -->
+			</article><!-- #comment-## -->
+				</li><!-- #comment-## -->
+		<li class="comment odd alt thread-odd thread-alt depth-1" id="li-comment-436130">
+		<article id="comment-436130" class="comment">
+			<header class="comment-meta comment-author vcard">
+				<img alt='' src='https://secure.gravatar.com/avatar/234e4d439b589334bd2e683b548d351fd25992d609826d70641e1ebc881f58f4?s=44&#038;d=mm&#038;r=g' srcset='https://secure.gravatar.com/avatar/234e4d439b589334bd2e683b548d351fd25992d609826d70641e1ebc881f58f4?s=88&#038;d=mm&#038;r=g 2x' class='avatar avatar-44 photo' height='44' width='44' loading='lazy' decoding='async'/><cite><b class="fn">Tim H</b> </cite><a href="https://blog.archive.org/2023/05/29/let-us-serve-you-but-dont-bring-us-down/#comment-436130"><time datetime="2023-05-29T08:36:50-07:00">May 29, 2023 at 8:36 am</time></a>				</header><!-- .comment-meta -->
+
+				
+				
+				<section class="comment-content comment">
+				<p>&#8220;please contact us at <a href="mailto:info@archive.org">info@archive.org</a>, we are here to help.&#8221;  &#8211; I wish you&#8217;d reply to my many, many requests for help in removing a website of mine I didn&#8217;t wish indexed by Wayback (it was my fault it was, my robots.txt wasn&#8217;t accessible for a period of time)</p>
+<p>Hard to have any sympathy when you won&#8217;t act yourselves to help others.</p>
+<p>I love you guys, I do.  I&#8217;d hate to you see you go down/away.  But please, have the decency to reply to people&#8217;s emails to you.</p>
+<p>Tim</p>
+								</section><!-- .comment-content -->
+
+				<div class="reply">
+								</div><!-- .reply -->
+			</article><!-- #comment-## -->
+				</li><!-- #comment-## -->
+		<li class="comment even thread-even depth-1" id="li-comment-436131">
+		<article id="comment-436131" class="comment">
+			<header class="comment-meta comment-author vcard">
+				<img alt='' src='https://secure.gravatar.com/avatar/0d934614133bf99422136a90c8d3da002efc77dffc39d55942bb18fef388e0e1?s=44&#038;d=mm&#038;r=g' srcset='https://secure.gravatar.com/avatar/0d934614133bf99422136a90c8d3da002efc77dffc39d55942bb18fef388e0e1?s=88&#038;d=mm&#038;r=g 2x' class='avatar avatar-44 photo' height='44' width='44' loading='lazy' decoding='async'/><cite><b class="fn">mzk</b> </cite><a href="https://blog.archive.org/2023/05/29/let-us-serve-you-but-dont-bring-us-down/#comment-436131"><time datetime="2023-05-29T08:42:40-07:00">May 29, 2023 at 8:42 am</time></a>				</header><!-- .comment-meta -->
+
+				
+				
+				<section class="comment-content comment">
+				<p>it was OpenAI, 100%</p>
+								</section><!-- .comment-content -->
+
+				<div class="reply">
+								</div><!-- .reply -->
+			</article><!-- #comment-## -->
+				</li><!-- #comment-## -->
+		<li class="comment odd alt thread-odd thread-alt depth-1" id="li-comment-436134">
+		<article id="comment-436134" class="comment">
+			<header class="comment-meta comment-author vcard">
+				<img alt='' src='https://secure.gravatar.com/avatar/51530dbf50ea5f5667e4e0bc3b2179cd806e36613d3ca4670074fdcaee9dd8ac?s=44&#038;d=mm&#038;r=g' srcset='https://secure.gravatar.com/avatar/51530dbf50ea5f5667e4e0bc3b2179cd806e36613d3ca4670074fdcaee9dd8ac?s=88&#038;d=mm&#038;r=g 2x' class='avatar avatar-44 photo' height='44' width='44' loading='lazy' decoding='async'/><cite><b class="fn">Mowgli</b> </cite><a href="https://blog.archive.org/2023/05/29/let-us-serve-you-but-dont-bring-us-down/#comment-436134"><time datetime="2023-05-29T11:09:08-07:00">May 29, 2023 at 11:09 am</time></a>				</header><!-- .comment-meta -->
+
+				
+				
+				<section class="comment-content comment">
+				<p>Absolute noob  here, but is this same as a DDOS attack? If so can using something like that cloud flare thingy (no idea what they do though but have cool lava lamps) help mitigate it without effecting users?</p>
+								</section><!-- .comment-content -->
+
+				<div class="reply">
+								</div><!-- .reply -->
+			</article><!-- #comment-## -->
+				<ol class="children">
+		<li class="comment even depth-2" id="li-comment-436177">
+		<article id="comment-436177" class="comment">
+			<header class="comment-meta comment-author vcard">
+				<img alt='' src='https://secure.gravatar.com/avatar/aa96e7fd73207d5923373d4a30c758b05b0afa7c5f44c7c8024aabae18f996fb?s=44&#038;d=mm&#038;r=g' srcset='https://secure.gravatar.com/avatar/aa96e7fd73207d5923373d4a30c758b05b0afa7c5f44c7c8024aabae18f996fb?s=88&#038;d=mm&#038;r=g 2x' class='avatar avatar-44 photo' height='44' width='44' loading='lazy' decoding='async'/><cite><b class="fn">Kyle</b> </cite><a href="https://blog.archive.org/2023/05/29/let-us-serve-you-but-dont-bring-us-down/#comment-436177"><time datetime="2023-05-30T20:03:34-07:00">May 30, 2023 at 8:03 pm</time></a>				</header><!-- .comment-meta -->
+
+				
+				
+				<section class="comment-content comment">
+				<p>In effect, yes, in reality, it’s presumably not technically an “attack” since it seems like whoever did it was using the internet archive for a legitimate purpose, just way too much. But yeah, that’s functionally the same as a DDOS attack</p>
+								</section><!-- .comment-content -->
+
+				<div class="reply">
+								</div><!-- .reply -->
+			</article><!-- #comment-## -->
+				</li><!-- #comment-## -->
+</ol><!-- .children -->
+</li><!-- #comment-## -->
+		<li class="comment odd alt thread-even depth-1" id="li-comment-436137">
+		<article id="comment-436137" class="comment">
+			<header class="comment-meta comment-author vcard">
+				<img alt='' src='https://secure.gravatar.com/avatar/ac9d4727e9c4d2e4ce8f397f8b8fb3ed575dc31e88608c943de9ef3afb302939?s=44&#038;d=mm&#038;r=g' srcset='https://secure.gravatar.com/avatar/ac9d4727e9c4d2e4ce8f397f8b8fb3ed575dc31e88608c943de9ef3afb302939?s=88&#038;d=mm&#038;r=g 2x' class='avatar avatar-44 photo' height='44' width='44' loading='lazy' decoding='async'/><cite><b class="fn">Duccio Dogheria</b> </cite><a href="https://blog.archive.org/2023/05/29/let-us-serve-you-but-dont-bring-us-down/#comment-436137"><time datetime="2023-05-29T11:51:22-07:00">May 29, 2023 at 11:51 am</time></a>				</header><!-- .comment-meta -->
+
+				
+				
+				<section class="comment-content comment">
+				<p>Glad it&#8217;s all sorted out! I was scared because this afternoon I have to present our collection on the Internet Archive at a summer school on digital libraries and without access it would have been a bit difficult! 🙂 Thanks for all you are doing</p>
+								</section><!-- .comment-content -->
+
+				<div class="reply">
+								</div><!-- .reply -->
+			</article><!-- #comment-## -->
+				</li><!-- #comment-## -->
+		<li class="comment even thread-odd thread-alt depth-1" id="li-comment-436138">
+		<article id="comment-436138" class="comment">
+			<header class="comment-meta comment-author vcard">
+				<img alt='' src='https://secure.gravatar.com/avatar/ada0f02527c76be82c70d69cafed60f4ceac20749f1dc0f989f8b6ff3aa70f44?s=44&#038;d=mm&#038;r=g' srcset='https://secure.gravatar.com/avatar/ada0f02527c76be82c70d69cafed60f4ceac20749f1dc0f989f8b6ff3aa70f44?s=88&#038;d=mm&#038;r=g 2x' class='avatar avatar-44 photo' height='44' width='44' loading='lazy' decoding='async'/><cite><b class="fn">Archivist</b> </cite><a href="https://blog.archive.org/2023/05/29/let-us-serve-you-but-dont-bring-us-down/#comment-436138"><time datetime="2023-05-29T12:04:04-07:00">May 29, 2023 at 12:04 pm</time></a>				</header><!-- .comment-meta -->
+
+				
+				
+				<section class="comment-content comment">
+				<p>Did you file abuse complaint to AWS?</p>
+								</section><!-- .comment-content -->
+
+				<div class="reply">
+								</div><!-- .reply -->
+			</article><!-- #comment-## -->
+				</li><!-- #comment-## -->
+		<li class="comment odd alt thread-even depth-1" id="li-comment-436139">
+		<article id="comment-436139" class="comment">
+			<header class="comment-meta comment-author vcard">
+				<img alt='' src='https://secure.gravatar.com/avatar/b4d6f7edb33a3cb4ff19a059311bfe40e319af6c2b2b9376f476bd7cb73bb11e?s=44&#038;d=mm&#038;r=g' srcset='https://secure.gravatar.com/avatar/b4d6f7edb33a3cb4ff19a059311bfe40e319af6c2b2b9376f476bd7cb73bb11e?s=88&#038;d=mm&#038;r=g 2x' class='avatar avatar-44 photo' height='44' width='44' loading='lazy' decoding='async'/><cite><b class="fn">Ben</b> </cite><a href="https://blog.archive.org/2023/05/29/let-us-serve-you-but-dont-bring-us-down/#comment-436139"><time datetime="2023-05-29T12:04:34-07:00">May 29, 2023 at 12:04 pm</time></a>				</header><!-- .comment-meta -->
+
+				
+				
+				<section class="comment-content comment">
+				<p>Good job getting back up in such a short time, especially on a weekend. Huge congrats to the team. Also, thank you for telling us what happened! Much better than some other big companies. I took a bit of time, and found out that the IA actually has an API. Never knew about this!</p>
+<p>In my (not very good) opinion, I think that if the API had a dedicated tab on the main archive.org site, even if it was within the “More” section, it could help with situations like these. I assume the API is rate limited to a rate that the servers can reasonably keep up with.  But again, my opinion probably has many flaws. Probably why I don’t have a website haha.</p>
+<p>Again, well done on getting the site back up in such short time!</p>
+								</section><!-- .comment-content -->
+
+				<div class="reply">
+								</div><!-- .reply -->
+			</article><!-- #comment-## -->
+				</li><!-- #comment-## -->
+		<li class="comment even thread-odd thread-alt depth-1" id="li-comment-436140">
+		<article id="comment-436140" class="comment">
+			<header class="comment-meta comment-author vcard">
+				<img alt='' src='https://secure.gravatar.com/avatar/168b9741d9b3a122a4735c458d2fa8f32e80c9c5472c7a24d95de5086fe561c1?s=44&#038;d=mm&#038;r=g' srcset='https://secure.gravatar.com/avatar/168b9741d9b3a122a4735c458d2fa8f32e80c9c5472c7a24d95de5086fe561c1?s=88&#038;d=mm&#038;r=g 2x' class='avatar avatar-44 photo' height='44' width='44' loading='lazy' decoding='async'/><cite><b class="fn"><a href="https://www.node35.com" class="url" rel="ugc external nofollow">Node 35</a></b> </cite><a href="https://blog.archive.org/2023/05/29/let-us-serve-you-but-dont-bring-us-down/#comment-436140"><time datetime="2023-05-29T12:05:12-07:00">May 29, 2023 at 12:05 pm</time></a>				</header><!-- .comment-meta -->
+
+				
+				
+				<section class="comment-content comment">
+				<p>Glad IA finally resolved the issue. Hope who ever wants crawl IA so massively would ask permission first.</p>
+								</section><!-- .comment-content -->
+
+				<div class="reply">
+								</div><!-- .reply -->
+			</article><!-- #comment-## -->
+				</li><!-- #comment-## -->
+		<li class="comment odd alt thread-even depth-1" id="li-comment-436142">
+		<article id="comment-436142" class="comment">
+			<header class="comment-meta comment-author vcard">
+				<img alt='' src='https://secure.gravatar.com/avatar/dded943785e5f5c978945365a190da96bbd9078aae51733b192a4cd8334505c0?s=44&#038;d=mm&#038;r=g' srcset='https://secure.gravatar.com/avatar/dded943785e5f5c978945365a190da96bbd9078aae51733b192a4cd8334505c0?s=88&#038;d=mm&#038;r=g 2x' class='avatar avatar-44 photo' height='44' width='44' loading='lazy' decoding='async'/><cite><b class="fn">Muhammad Usama</b> </cite><a href="https://blog.archive.org/2023/05/29/let-us-serve-you-but-dont-bring-us-down/#comment-436142"><time datetime="2023-05-29T12:46:46-07:00">May 29, 2023 at 12:46 pm</time></a>				</header><!-- .comment-meta -->
+
+				
+				
+				<section class="comment-content comment">
+				<p>The amount of help I got from internet archive cannot be repaid by anything. Thanks for everything IA.</p>
+								</section><!-- .comment-content -->
+
+				<div class="reply">
+								</div><!-- .reply -->
+			</article><!-- #comment-## -->
+				</li><!-- #comment-## -->
+		<li class="comment even thread-odd thread-alt depth-1" id="li-comment-436144">
+		<article id="comment-436144" class="comment">
+			<header class="comment-meta comment-author vcard">
+				<img alt='' src='https://secure.gravatar.com/avatar/10548b8424c5bf1af35f4d22e7a9f7c736692430ae64208387a6a23529ec6e73?s=44&#038;d=mm&#038;r=g' srcset='https://secure.gravatar.com/avatar/10548b8424c5bf1af35f4d22e7a9f7c736692430ae64208387a6a23529ec6e73?s=88&#038;d=mm&#038;r=g 2x' class='avatar avatar-44 photo' height='44' width='44' loading='lazy' decoding='async'/><cite><b class="fn">macstrat</b> </cite><a href="https://blog.archive.org/2023/05/29/let-us-serve-you-but-dont-bring-us-down/#comment-436144"><time datetime="2023-05-29T13:06:15-07:00">May 29, 2023 at 1:06 pm</time></a>				</header><!-- .comment-meta -->
+
+				
+				
+				<section class="comment-content comment">
+				<p>is the also impacting the Adobe Digital Editions servers? they have been kicking back E_STREAM_ERROR&#8217;s on almost everything</p>
+								</section><!-- .comment-content -->
+
+				<div class="reply">
+								</div><!-- .reply -->
+			</article><!-- #comment-## -->
+				<ol class="children">
+		<li class="comment odd alt depth-2" id="li-comment-436184">
+		<article id="comment-436184" class="comment">
+			<header class="comment-meta comment-author vcard">
+				<img alt='' src='https://secure.gravatar.com/avatar/ea84d6b63afc3e0d55e319073fdc4851e2b1777f57b6d5b9aa8f4059e3901780?s=44&#038;d=mm&#038;r=g' srcset='https://secure.gravatar.com/avatar/ea84d6b63afc3e0d55e319073fdc4851e2b1777f57b6d5b9aa8f4059e3901780?s=88&#038;d=mm&#038;r=g 2x' class='avatar avatar-44 photo' height='44' width='44' loading='lazy' decoding='async'/><cite><b class="fn">Sivad J</b> </cite><a href="https://blog.archive.org/2023/05/29/let-us-serve-you-but-dont-bring-us-down/#comment-436184"><time datetime="2023-05-31T03:22:41-07:00">May 31, 2023 at 3:22 am</time></a>				</header><!-- .comment-meta -->
+
+				
+				
+				<section class="comment-content comment">
+				<p>Same here all of a sudden!  No solution or workaround yet&#8230;</p>
+								</section><!-- .comment-content -->
+
+				<div class="reply">
+								</div><!-- .reply -->
+			</article><!-- #comment-## -->
+				</li><!-- #comment-## -->
+		<li class="comment even depth-2" id="li-comment-436190">
+		<article id="comment-436190" class="comment">
+			<header class="comment-meta comment-author vcard">
+				<img alt='' src='https://secure.gravatar.com/avatar/edaa9e87f1e6bdb45a3ab750d129fa490de98aba6fe101205483cf98915a9370?s=44&#038;d=mm&#038;r=g' srcset='https://secure.gravatar.com/avatar/edaa9e87f1e6bdb45a3ab750d129fa490de98aba6fe101205483cf98915a9370?s=88&#038;d=mm&#038;r=g 2x' class='avatar avatar-44 photo' height='44' width='44' loading='lazy' decoding='async'/><cite><b class="fn">Bro</b> </cite><a href="https://blog.archive.org/2023/05/29/let-us-serve-you-but-dont-bring-us-down/#comment-436190"><time datetime="2023-05-31T12:56:47-07:00">May 31, 2023 at 12:56 pm</time></a>				</header><!-- .comment-meta -->
+
+				
+				
+				<section class="comment-content comment">
+				<p>I am having the same issue here.<br />
+I always get this &#8220;E_STREAM_ERROR&#8221; on Adobe Digital Editions.</p>
+								</section><!-- .comment-content -->
+
+				<div class="reply">
+								</div><!-- .reply -->
+			</article><!-- #comment-## -->
+				</li><!-- #comment-## -->
+</ol><!-- .children -->
+</li><!-- #comment-## -->
+		<li class="comment odd alt thread-even depth-1" id="li-comment-436145">
+		<article id="comment-436145" class="comment">
+			<header class="comment-meta comment-author vcard">
+				<img alt='' src='https://secure.gravatar.com/avatar/79ed8d78e1a78b5756af057e733ae1383d25bcbebb5ac920cb18949cd5e079c3?s=44&#038;d=mm&#038;r=g' srcset='https://secure.gravatar.com/avatar/79ed8d78e1a78b5756af057e733ae1383d25bcbebb5ac920cb18949cd5e079c3?s=88&#038;d=mm&#038;r=g 2x' class='avatar avatar-44 photo' height='44' width='44' loading='lazy' decoding='async'/><cite><b class="fn">Stephen Skinner</b> </cite><a href="https://blog.archive.org/2023/05/29/let-us-serve-you-but-dont-bring-us-down/#comment-436145"><time datetime="2023-05-29T13:22:50-07:00">May 29, 2023 at 1:22 pm</time></a>				</header><!-- .comment-meta -->
+
+				
+				
+				<section class="comment-content comment">
+				<p>Hello!<br />
+ I was just wondering if something is affecting the borrow books area  &#8211; the 14-day acsm and book download are running very slowly again.<br />
+ Thankyou.</p>
+								</section><!-- .comment-content -->
+
+				<div class="reply">
+								</div><!-- .reply -->
+			</article><!-- #comment-## -->
+				</li><!-- #comment-## -->
+		<li class="comment even thread-odd thread-alt depth-1" id="li-comment-436146">
+		<article id="comment-436146" class="comment">
+			<header class="comment-meta comment-author vcard">
+				<img alt='' src='https://secure.gravatar.com/avatar/fb769d3e0811233ffeea21b01ea38af8705e3dde844270c2561c8b73ecb7a2ee?s=44&#038;d=mm&#038;r=g' srcset='https://secure.gravatar.com/avatar/fb769d3e0811233ffeea21b01ea38af8705e3dde844270c2561c8b73ecb7a2ee?s=88&#038;d=mm&#038;r=g 2x' class='avatar avatar-44 photo' height='44' width='44' loading='lazy' decoding='async'/><cite><b class="fn">Richard Reynolds</b> </cite><a href="https://blog.archive.org/2023/05/29/let-us-serve-you-but-dont-bring-us-down/#comment-436146"><time datetime="2023-05-29T13:39:55-07:00">May 29, 2023 at 1:39 pm</time></a>				</header><!-- .comment-meta -->
+
+				
+				
+				<section class="comment-content comment">
+				<p>There&#8217;s really no reason to allow traffic from AWS, Azure or Google Cloud. You should block all those networks. Most traffic that originates from them is scraping and often malicious.</p>
+								</section><!-- .comment-content -->
+
+				<div class="reply">
+								</div><!-- .reply -->
+			</article><!-- #comment-## -->
+				<ol class="children">
+		<li class="comment odd alt depth-2" id="li-comment-436178">
+		<article id="comment-436178" class="comment">
+			<header class="comment-meta comment-author vcard">
+				<img alt='' src='https://secure.gravatar.com/avatar/aa96e7fd73207d5923373d4a30c758b05b0afa7c5f44c7c8024aabae18f996fb?s=44&#038;d=mm&#038;r=g' srcset='https://secure.gravatar.com/avatar/aa96e7fd73207d5923373d4a30c758b05b0afa7c5f44c7c8024aabae18f996fb?s=88&#038;d=mm&#038;r=g 2x' class='avatar avatar-44 photo' height='44' width='44' loading='lazy' decoding='async'/><cite><b class="fn">Kyle</b> </cite><a href="https://blog.archive.org/2023/05/29/let-us-serve-you-but-dont-bring-us-down/#comment-436178"><time datetime="2023-05-30T20:06:55-07:00">May 30, 2023 at 8:06 pm</time></a>				</header><!-- .comment-meta -->
+
+				
+				
+				<section class="comment-content comment">
+				<p>This is a terrible idea and fundamentally misrepresents what kind of traffic comes from the sources, on average. I guess I’d need to see a breakdown of overall traffic flowing to IA to be sure, but I’m guessing the vast majority is legitimate and not abusive.</p>
+								</section><!-- .comment-content -->
+
+				<div class="reply">
+								</div><!-- .reply -->
+			</article><!-- #comment-## -->
+				</li><!-- #comment-## -->
+		<li class="comment even depth-2" id="li-comment-436207">
+		<article id="comment-436207" class="comment">
+			<header class="comment-meta comment-author vcard">
+				<img alt='' src='https://secure.gravatar.com/avatar/aeaff2262a662184781d7b5951c9ef9c5261597535ecde382b78b12ea35ecbab?s=44&#038;d=mm&#038;r=g' srcset='https://secure.gravatar.com/avatar/aeaff2262a662184781d7b5951c9ef9c5261597535ecde382b78b12ea35ecbab?s=88&#038;d=mm&#038;r=g 2x' class='avatar avatar-44 photo' height='44' width='44' loading='lazy' decoding='async'/><cite><b class="fn">masterX244</b> </cite><a href="https://blog.archive.org/2023/05/29/let-us-serve-you-but-dont-bring-us-down/#comment-436207"><time datetime="2023-06-01T07:28:14-07:00">June 1, 2023 at 7:28 am</time></a>				</header><!-- .comment-meta -->
+
+				
+				
+				<section class="comment-content comment">
+				<p>Doesnt work in the IA context, there is legit traffic from hosting providers. Almost all data under the archiveteam collection for example got delivered via datacenters. for example.</p>
+								</section><!-- .comment-content -->
+
+				<div class="reply">
+								</div><!-- .reply -->
+			</article><!-- #comment-## -->
+				</li><!-- #comment-## -->
+</ol><!-- .children -->
+</li><!-- #comment-## -->
+		<li class="comment odd alt thread-even depth-1" id="li-comment-436147">
+		<article id="comment-436147" class="comment">
+			<header class="comment-meta comment-author vcard">
+				<img alt='' src='https://secure.gravatar.com/avatar/3912c1cce1aa6b1568971c95ad839afb83974b80aca146eca0cf013655352bc8?s=44&#038;d=mm&#038;r=g' srcset='https://secure.gravatar.com/avatar/3912c1cce1aa6b1568971c95ad839afb83974b80aca146eca0cf013655352bc8?s=88&#038;d=mm&#038;r=g 2x' class='avatar avatar-44 photo' height='44' width='44' loading='lazy' decoding='async'/><cite><b class="fn">Futur3Sn0w</b> </cite><a href="https://blog.archive.org/2023/05/29/let-us-serve-you-but-dont-bring-us-down/#comment-436147"><time datetime="2023-05-29T13:45:27-07:00">May 29, 2023 at 1:45 pm</time></a>				</header><!-- .comment-meta -->
+
+				
+				
+				<section class="comment-content comment">
+				<p>Transparency like this is why we need IA! Thank you for taking the time to update us, and for being so patient with those using your service!<br />
+Much love and respect to the team at archive.org!</p>
+								</section><!-- .comment-content -->
+
+				<div class="reply">
+								</div><!-- .reply -->
+			</article><!-- #comment-## -->
+				</li><!-- #comment-## -->
+		<li class="comment even thread-odd thread-alt depth-1" id="li-comment-436148">
+		<article id="comment-436148" class="comment">
+			<header class="comment-meta comment-author vcard">
+				<img alt='' src='https://secure.gravatar.com/avatar/5c5b9fca6d89dafee19500dbfe02c69f1efecfa6fcf0bb1d2f68bb92e13a4e6e?s=44&#038;d=mm&#038;r=g' srcset='https://secure.gravatar.com/avatar/5c5b9fca6d89dafee19500dbfe02c69f1efecfa6fcf0bb1d2f68bb92e13a4e6e?s=88&#038;d=mm&#038;r=g 2x' class='avatar avatar-44 photo' height='44' width='44' loading='lazy' decoding='async'/><cite><b class="fn">George E.</b> </cite><a href="https://blog.archive.org/2023/05/29/let-us-serve-you-but-dont-bring-us-down/#comment-436148"><time datetime="2023-05-29T14:11:15-07:00">May 29, 2023 at 2:11 pm</time></a>				</header><!-- .comment-meta -->
+
+				
+				
+				<section class="comment-content comment">
+				<p>Might be time to consider Cloudflare&#8217;s Project Gallileo.</p>
+<p><a href="https://www.cloudflare.com/galileo/" rel="nofollow ugc">https://www.cloudflare.com/galileo/</a></p>
+								</section><!-- .comment-content -->
+
+				<div class="reply">
+								</div><!-- .reply -->
+			</article><!-- #comment-## -->
+				</li><!-- #comment-## -->
+		<li class="comment odd alt thread-even depth-1" id="li-comment-436149">
+		<article id="comment-436149" class="comment">
+			<header class="comment-meta comment-author vcard">
+				<img alt='' src='https://secure.gravatar.com/avatar/5cffe267973c4808cfdc132a6e86287ceab9bd4f04afee07cc059ccc49046ad5?s=44&#038;d=mm&#038;r=g' srcset='https://secure.gravatar.com/avatar/5cffe267973c4808cfdc132a6e86287ceab9bd4f04afee07cc059ccc49046ad5?s=88&#038;d=mm&#038;r=g 2x' class='avatar avatar-44 photo' height='44' width='44' loading='lazy' decoding='async'/><cite><b class="fn">John</b> </cite><a href="https://blog.archive.org/2023/05/29/let-us-serve-you-but-dont-bring-us-down/#comment-436149"><time datetime="2023-05-29T15:09:06-07:00">May 29, 2023 at 3:09 pm</time></a>				</header><!-- .comment-meta -->
+
+				
+				
+				<section class="comment-content comment">
+				<p>You guys are amazing! You do great work, and we greatly appreciate all of your efforts! This whole &#8220;train the AI with public data&#8221; projects are getting old. How hard would it have been for the trainers to distribute those downloads over the course of several days, as well as donate a good chunk to this great service? Not hard at all, I&#8217;ll tell you that for free.</p>
+								</section><!-- .comment-content -->
+
+				<div class="reply">
+								</div><!-- .reply -->
+			</article><!-- #comment-## -->
+				</li><!-- #comment-## -->
+		<li class="comment even thread-odd thread-alt depth-1" id="li-comment-436152">
+		<article id="comment-436152" class="comment">
+			<header class="comment-meta comment-author vcard">
+				<img alt='' src='https://secure.gravatar.com/avatar/d3918fa36673bd16f72972babdb374374a6c2863532c09ebed89627417255ea3?s=44&#038;d=mm&#038;r=g' srcset='https://secure.gravatar.com/avatar/d3918fa36673bd16f72972babdb374374a6c2863532c09ebed89627417255ea3?s=88&#038;d=mm&#038;r=g 2x' class='avatar avatar-44 photo' height='44' width='44' loading='lazy' decoding='async'/><cite><b class="fn"><a href="https://twitter.com/yuki_binance" class="url" rel="ugc external nofollow">yuki</a></b> </cite><a href="https://blog.archive.org/2023/05/29/let-us-serve-you-but-dont-bring-us-down/#comment-436152"><time datetime="2023-05-29T16:07:01-07:00">May 29, 2023 at 4:07 pm</time></a>				</header><!-- .comment-meta -->
+
+				
+				
+				<section class="comment-content comment">
+				<p>I believe that you should implement a request limit per device. What is considered an abnormal number of requests from a single device?</p>
+								</section><!-- .comment-content -->
+
+				<div class="reply">
+								</div><!-- .reply -->
+			</article><!-- #comment-## -->
+				</li><!-- #comment-## -->
+		<li class="comment odd alt thread-even depth-1" id="li-comment-436156">
+		<article id="comment-436156" class="comment">
+			<header class="comment-meta comment-author vcard">
+				<img alt='' src='https://secure.gravatar.com/avatar/29307db5262dfe056175d220356ad273cdf42c600024d4f42ac44a3eddb2cde4?s=44&#038;d=mm&#038;r=g' srcset='https://secure.gravatar.com/avatar/29307db5262dfe056175d220356ad273cdf42c600024d4f42ac44a3eddb2cde4?s=88&#038;d=mm&#038;r=g 2x' class='avatar avatar-44 photo' height='44' width='44' loading='lazy' decoding='async'/><cite><b class="fn">JM</b> </cite><a href="https://blog.archive.org/2023/05/29/let-us-serve-you-but-dont-bring-us-down/#comment-436156"><time datetime="2023-05-29T17:28:34-07:00">May 29, 2023 at 5:28 pm</time></a>				</header><!-- .comment-meta -->
+
+				
+				
+				<section class="comment-content comment">
+				<p>Do you think it was a DDoS attack against the IA? Do you have a back-up server or a storage facility just in case? I would&#8217;ve flipped out yesterday had I been trying to access IA and seeing that 502 error.</p>
+								</section><!-- .comment-content -->
+
+				<div class="reply">
+								</div><!-- .reply -->
+			</article><!-- #comment-## -->
+				</li><!-- #comment-## -->
+		<li class="comment even thread-odd thread-alt depth-1" id="li-comment-436157">
+		<article id="comment-436157" class="comment">
+			<header class="comment-meta comment-author vcard">
+				<img alt='' src='https://secure.gravatar.com/avatar/f3c9ebbcafc3eef78eb48b50d6b5cd5a08f5ac97d8ea33b3e00477c170f271a2?s=44&#038;d=mm&#038;r=g' srcset='https://secure.gravatar.com/avatar/f3c9ebbcafc3eef78eb48b50d6b5cd5a08f5ac97d8ea33b3e00477c170f271a2?s=88&#038;d=mm&#038;r=g 2x' class='avatar avatar-44 photo' height='44' width='44' loading='lazy' decoding='async'/><cite><b class="fn">Doug Roberts</b> </cite><a href="https://blog.archive.org/2023/05/29/let-us-serve-you-but-dont-bring-us-down/#comment-436157"><time datetime="2023-05-29T18:18:33-07:00">May 29, 2023 at 6:18 pm</time></a>				</header><!-- .comment-meta -->
+
+				
+				
+				<section class="comment-content comment">
+				<p>Is there any way that something like cloudflare or a CDN would protect against this? I would think that the request would be made to the city in and then the CDN would make a single request to your server resulting in much lower load. But, if they were trying to download tens of thousands of individual files, perhaps this won’t work. The only other thing I can think of is some sort of rate throttling or download limit with a time out. I know that sucks but you can let a single IP address download five files let’s say, and then give them a cool off Of 30 minutes before they can download another one.</p>
+								</section><!-- .comment-content -->
+
+				<div class="reply">
+								</div><!-- .reply -->
+			</article><!-- #comment-## -->
+				</li><!-- #comment-## -->
+		<li class="comment odd alt thread-even depth-1" id="li-comment-436158">
+		<article id="comment-436158" class="comment">
+			<header class="comment-meta comment-author vcard">
+				<img alt='' src='https://secure.gravatar.com/avatar/99688b7fd1911b6be9e6f20c2011b2b07841ba73561cd225f60f57409c537ba0?s=44&#038;d=mm&#038;r=g' srcset='https://secure.gravatar.com/avatar/99688b7fd1911b6be9e6f20c2011b2b07841ba73561cd225f60f57409c537ba0?s=88&#038;d=mm&#038;r=g 2x' class='avatar avatar-44 photo' height='44' width='44' loading='lazy' decoding='async'/><cite><b class="fn">Joe T.</b> </cite><a href="https://blog.archive.org/2023/05/29/let-us-serve-you-but-dont-bring-us-down/#comment-436158"><time datetime="2023-05-29T18:45:30-07:00">May 29, 2023 at 6:45 pm</time></a>				</header><!-- .comment-meta -->
+
+				
+				
+				<section class="comment-content comment">
+				<p>First thing I thought of from the title:</p>
+<p><a href="https://archive.org/details/Elo-DontBringMeDown" rel="nofollow ugc">https://archive.org/details/Elo-DontBringMeDown</a></p>
+								</section><!-- .comment-content -->
+
+				<div class="reply">
+								</div><!-- .reply -->
+			</article><!-- #comment-## -->
+				</li><!-- #comment-## -->
+		<li class="comment even thread-odd thread-alt depth-1" id="li-comment-436160">
+		<article id="comment-436160" class="comment">
+			<header class="comment-meta comment-author vcard">
+				<img alt='' src='https://secure.gravatar.com/avatar/5e39e7733a11da1420aa8779ebdc05b69f9ff10c8d15ce7649a574c5789cc96e?s=44&#038;d=mm&#038;r=g' srcset='https://secure.gravatar.com/avatar/5e39e7733a11da1420aa8779ebdc05b69f9ff10c8d15ce7649a574c5789cc96e?s=88&#038;d=mm&#038;r=g 2x' class='avatar avatar-44 photo' height='44' width='44' loading='lazy' decoding='async'/><cite><b class="fn"><a href="http://www.friedbagels.com" class="url" rel="ugc external nofollow">Aaron Read</a></b> </cite><a href="https://blog.archive.org/2023/05/29/let-us-serve-you-but-dont-bring-us-down/#comment-436160"><time datetime="2023-05-29T20:27:39-07:00">May 29, 2023 at 8:27 pm</time></a>				</header><!-- .comment-meta -->
+
+				
+				
+				<section class="comment-content comment">
+				<p>Forgive me for perhaps sounding paranoid, but this seems like an awfully easy thing for bad-faith actors to do in order to take down archive.org at a critical time.  Like, for example, the 48 hours before a national election (in the USA or elsewhere).  Just set up 50 groups of 64 ip addresses and start sequentially slamming the servers with requests.  Is this something that Archive.org can better defend against in the future? Is there something others can do to help?</p>
+								</section><!-- .comment-content -->
+
+				<div class="reply">
+								</div><!-- .reply -->
+			</article><!-- #comment-## -->
+				</li><!-- #comment-## -->
+		<li class="comment odd alt thread-even depth-1" id="li-comment-436163">
+		<article id="comment-436163" class="comment">
+			<header class="comment-meta comment-author vcard">
+				<img alt='' src='https://secure.gravatar.com/avatar/4ab91aaa44de9e2480ea42834511bc0adfedab9b28e4ef09559ed83f92e47312?s=44&#038;d=mm&#038;r=g' srcset='https://secure.gravatar.com/avatar/4ab91aaa44de9e2480ea42834511bc0adfedab9b28e4ef09559ed83f92e47312?s=88&#038;d=mm&#038;r=g 2x' class='avatar avatar-44 photo' height='44' width='44' loading='lazy' decoding='async'/><cite><b class="fn">Far McKon</b> </cite><a href="https://blog.archive.org/2023/05/29/let-us-serve-you-but-dont-bring-us-down/#comment-436163"><time datetime="2023-05-29T21:15:20-07:00">May 29, 2023 at 9:15 pm</time></a>				</header><!-- .comment-meta -->
+
+				
+				
+				<section class="comment-content comment">
+				<p>Not all super-heros wear capes. Thanks for all your team (and you) do .</p>
+								</section><!-- .comment-content -->
+
+				<div class="reply">
+								</div><!-- .reply -->
+			</article><!-- #comment-## -->
+				</li><!-- #comment-## -->
+		<li class="comment even thread-odd thread-alt depth-1" id="li-comment-436170">
+		<article id="comment-436170" class="comment">
+			<header class="comment-meta comment-author vcard">
+				<img alt='' src='https://secure.gravatar.com/avatar/759393f2474d4a2283b8e67d539a3a6d4bdb98bf79e434480c6a728471432630?s=44&#038;d=mm&#038;r=g' srcset='https://secure.gravatar.com/avatar/759393f2474d4a2283b8e67d539a3a6d4bdb98bf79e434480c6a728471432630?s=88&#038;d=mm&#038;r=g 2x' class='avatar avatar-44 photo' height='44' width='44' loading='lazy' decoding='async'/><cite><b class="fn"><a href="http://wingedream.wordpress.com" class="url" rel="ugc external nofollow">Wingedream</a></b> </cite><a href="https://blog.archive.org/2023/05/29/let-us-serve-you-but-dont-bring-us-down/#comment-436170"><time datetime="2023-05-30T06:24:02-07:00">May 30, 2023 at 6:24 am</time></a>				</header><!-- .comment-meta -->
+
+				
+				
+				<section class="comment-content comment">
+				<p>Your clarification makes me feel happy that you guys are always in the trenches fighting.With that i,we must be full of hope.<br />
+Thanks</p>
+								</section><!-- .comment-content -->
+
+				<div class="reply">
+								</div><!-- .reply -->
+			</article><!-- #comment-## -->
+				</li><!-- #comment-## -->
+		<li class="comment odd alt thread-even depth-1" id="li-comment-436180">
+		<article id="comment-436180" class="comment">
+			<header class="comment-meta comment-author vcard">
+				<img alt='' src='https://secure.gravatar.com/avatar/44c6f43a60cb18edf89a6ed2d1f709c49848ec24a4b3f874ff50d8966272f3a1?s=44&#038;d=mm&#038;r=g' srcset='https://secure.gravatar.com/avatar/44c6f43a60cb18edf89a6ed2d1f709c49848ec24a4b3f874ff50d8966272f3a1?s=88&#038;d=mm&#038;r=g 2x' class='avatar avatar-44 photo' height='44' width='44' loading='lazy' decoding='async'/><cite><b class="fn">G</b> </cite><a href="https://blog.archive.org/2023/05/29/let-us-serve-you-but-dont-bring-us-down/#comment-436180"><time datetime="2023-05-30T21:10:46-07:00">May 30, 2023 at 9:10 pm</time></a>				</header><!-- .comment-meta -->
+
+				
+				
+				<section class="comment-content comment">
+				<p>Are you experiencing the same problem again? I just tried to borrow a book, but even though the request went through, none of the pages would load past the ones already available in the preview. Just blank space and the swirling circle. Is this bc the server is overloaded again?</p>
+<p>Thank you.</p>
+								</section><!-- .comment-content -->
+
+				<div class="reply">
+								</div><!-- .reply -->
+			</article><!-- #comment-## -->
+				</li><!-- #comment-## -->
+		<li class="comment even thread-odd thread-alt depth-1" id="li-comment-436185">
+		<article id="comment-436185" class="comment">
+			<header class="comment-meta comment-author vcard">
+				<img alt='' src='https://secure.gravatar.com/avatar/a0b476bc153ae4ab405d77561e510eeb8e0669d8e9bee5308cc1e28c562eba8c?s=44&#038;d=mm&#038;r=g' srcset='https://secure.gravatar.com/avatar/a0b476bc153ae4ab405d77561e510eeb8e0669d8e9bee5308cc1e28c562eba8c?s=88&#038;d=mm&#038;r=g 2x' class='avatar avatar-44 photo' height='44' width='44' loading='lazy' decoding='async'/><cite><b class="fn">Tom McCanna</b> </cite><a href="https://blog.archive.org/2023/05/29/let-us-serve-you-but-dont-bring-us-down/#comment-436185"><time datetime="2023-05-31T03:55:12-07:00">May 31, 2023 at 3:55 am</time></a>				</header><!-- .comment-meta -->
+
+				
+				
+				<section class="comment-content comment">
+				<p>Is this why recordings loaded as long ago as 25th May still lack the PLAY buttons?</p>
+								</section><!-- .comment-content -->
+
+				<div class="reply">
+								</div><!-- .reply -->
+			</article><!-- #comment-## -->
+				</li><!-- #comment-## -->
+		<li class="comment odd alt thread-even depth-1" id="li-comment-436187">
+		<article id="comment-436187" class="comment">
+			<header class="comment-meta comment-author vcard">
+				<img alt='' src='https://secure.gravatar.com/avatar/cba12e9920b99cb0274efe56e2527c851384d39fd8af92ff74ac3080f24dc0b7?s=44&#038;d=mm&#038;r=g' srcset='https://secure.gravatar.com/avatar/cba12e9920b99cb0274efe56e2527c851384d39fd8af92ff74ac3080f24dc0b7?s=88&#038;d=mm&#038;r=g 2x' class='avatar avatar-44 photo' height='44' width='44' loading='lazy' decoding='async'/><cite><b class="fn">Simon Ephraim</b> </cite><a href="https://blog.archive.org/2023/05/29/let-us-serve-you-but-dont-bring-us-down/#comment-436187"><time datetime="2023-05-31T07:37:59-07:00">May 31, 2023 at 7:37 am</time></a>				</header><!-- .comment-meta -->
+
+				
+				
+				<section class="comment-content comment">
+				<p>Glad you keep us informed. Happy to keep donating. Much appreciating the efforts of the IA team.<br />
+Not that I get a cardiac arrest when you are down but I start to feel less free when the greatest public library gets closed.</p>
+								</section><!-- .comment-content -->
+
+				<div class="reply">
+								</div><!-- .reply -->
+			</article><!-- #comment-## -->
+				</li><!-- #comment-## -->
+		<li class="comment even thread-odd thread-alt depth-1" id="li-comment-436198">
+		<article id="comment-436198" class="comment">
+			<header class="comment-meta comment-author vcard">
+				<img alt='' src='https://secure.gravatar.com/avatar/8b38fca8a0fbb42020ba30fd428bc6112f19d9352f11206709639df81420ae45?s=44&#038;d=mm&#038;r=g' srcset='https://secure.gravatar.com/avatar/8b38fca8a0fbb42020ba30fd428bc6112f19d9352f11206709639df81420ae45?s=88&#038;d=mm&#038;r=g 2x' class='avatar avatar-44 photo' height='44' width='44' loading='lazy' decoding='async'/><cite><b class="fn">TM</b> </cite><a href="https://blog.archive.org/2023/05/29/let-us-serve-you-but-dont-bring-us-down/#comment-436198"><time datetime="2023-05-31T22:48:58-07:00">May 31, 2023 at 10:48 pm</time></a>				</header><!-- .comment-meta -->
+
+				
+				
+				<section class="comment-content comment">
+				<p>Using this site to register copyrights will solve the problem/personally eat syndicated media and process it into intellectual property</p>
+								</section><!-- .comment-content -->
+
+				<div class="reply">
+								</div><!-- .reply -->
+			</article><!-- #comment-## -->
+				</li><!-- #comment-## -->
+		<li class="comment odd alt thread-even depth-1" id="li-comment-436206">
+		<article id="comment-436206" class="comment">
+			<header class="comment-meta comment-author vcard">
+				<img alt='' src='https://secure.gravatar.com/avatar/aace4c5b7d3af168bce3bb0d1d48e83cdbb9afbb0fad4acfe25c65ae944d6cae?s=44&#038;d=mm&#038;r=g' srcset='https://secure.gravatar.com/avatar/aace4c5b7d3af168bce3bb0d1d48e83cdbb9afbb0fad4acfe25c65ae944d6cae?s=88&#038;d=mm&#038;r=g 2x' class='avatar avatar-44 photo' height='44' width='44' loading='lazy' decoding='async'/><cite><b class="fn"><a href="https://musiceman.net" class="url" rel="ugc external nofollow">دانلود آهنگ</a></b> </cite><a href="https://blog.archive.org/2023/05/29/let-us-serve-you-but-dont-bring-us-down/#comment-436206"><time datetime="2023-06-01T07:00:39-07:00">June 1, 2023 at 7:00 am</time></a>				</header><!-- .comment-meta -->
+
+				
+				
+				<section class="comment-content comment">
+				<p>Of course, excessive growth of the site and increase in requests can be good. This is the beginning of a great transformation</p>
+								</section><!-- .comment-content -->
+
+				<div class="reply">
+								</div><!-- .reply -->
+			</article><!-- #comment-## -->
+				</li><!-- #comment-## -->
+		<li class="comment even thread-odd thread-alt depth-1" id="li-comment-436235">
+		<article id="comment-436235" class="comment">
+			<header class="comment-meta comment-author vcard">
+				<img alt='' src='https://secure.gravatar.com/avatar/ee546259c81ee578acde94d21a03f957d2b4b62298030d182a7cabf16c5ea878?s=44&#038;d=mm&#038;r=g' srcset='https://secure.gravatar.com/avatar/ee546259c81ee578acde94d21a03f957d2b4b62298030d182a7cabf16c5ea878?s=88&#038;d=mm&#038;r=g 2x' class='avatar avatar-44 photo' height='44' width='44' loading='lazy' decoding='async'/><cite><b class="fn">bart simpson</b> </cite><a href="https://blog.archive.org/2023/05/29/let-us-serve-you-but-dont-bring-us-down/#comment-436235"><time datetime="2023-06-02T17:42:15-07:00">June 2, 2023 at 5:42 pm</time></a>				</header><!-- .comment-meta -->
+
+				
+				
+				<section class="comment-content comment">
+				<p>Iam not sure if  there are trolls but many peeps are uploading porn  <a href="https://archive.org/details/belledelphinearch" rel="nofollow ugc">https://archive.org/details/belledelphinearch</a><br />
+ wtf.</p>
+								</section><!-- .comment-content -->
+
+				<div class="reply">
+								</div><!-- .reply -->
+			</article><!-- #comment-## -->
+				</li><!-- #comment-## -->
+		<li class="comment odd alt thread-even depth-1" id="li-comment-436251">
+		<article id="comment-436251" class="comment">
+			<header class="comment-meta comment-author vcard">
+				<img alt='' src='https://secure.gravatar.com/avatar/a427be3ac2da02375612e33076ee920a4952c10c8d120c927b0d2aae2320e8bc?s=44&#038;d=mm&#038;r=g' srcset='https://secure.gravatar.com/avatar/a427be3ac2da02375612e33076ee920a4952c10c8d120c927b0d2aae2320e8bc?s=88&#038;d=mm&#038;r=g 2x' class='avatar avatar-44 photo' height='44' width='44' loading='lazy' decoding='async'/><cite><b class="fn">ZV6</b> </cite><a href="https://blog.archive.org/2023/05/29/let-us-serve-you-but-dont-bring-us-down/#comment-436251"><time datetime="2023-06-04T11:28:23-07:00">June 4, 2023 at 11:28 am</time></a>				</header><!-- .comment-meta -->
+
+				
+				
+				<section class="comment-content comment">
+				<p>Borrow for 1 hour? I really appreciate your realistic explanation.<br />
+&#8211; Your site only showed me the first five pages of the book I selected.<br />
+&#8211; Then I duly registered on your site as you stated, to be able to access the book for 1 hour.<br />
+&#8211; After that, your site showed me the same, only the first five pages of the selected book.<br />
+&#8211; I really don&#8217;t see the point of registering on your site when I can&#8217;t access the book, only the first five pages.<br />
+Really disappointing.<br />
+Regards</p>
+								</section><!-- .comment-content -->
+
+				<div class="reply">
+								</div><!-- .reply -->
+			</article><!-- #comment-## -->
+				</li><!-- #comment-## -->
+		<li class="comment even thread-odd thread-alt depth-1" id="li-comment-436390">
+		<article id="comment-436390" class="comment">
+			<header class="comment-meta comment-author vcard">
+				<img alt='' src='https://secure.gravatar.com/avatar/7b0fa4b449d33b6f827ff117e18ee302316bc60835bb9af5dba87d6bf2656108?s=44&#038;d=mm&#038;r=g' srcset='https://secure.gravatar.com/avatar/7b0fa4b449d33b6f827ff117e18ee302316bc60835bb9af5dba87d6bf2656108?s=88&#038;d=mm&#038;r=g 2x' class='avatar avatar-44 photo' height='44' width='44' loading='lazy' decoding='async'/><cite><b class="fn">Matthew McRae</b> </cite><a href="https://blog.archive.org/2023/05/29/let-us-serve-you-but-dont-bring-us-down/#comment-436390"><time datetime="2023-06-09T12:06:29-07:00">June 9, 2023 at 12:06 pm</time></a>				</header><!-- .comment-meta -->
+
+				
+				
+				<section class="comment-content comment">
+				<p>Love the updates and transparency. Thanks for the note and clear insturctions on the issue at hand.</p>
+								</section><!-- .comment-content -->
+
+				<div class="reply">
+								</div><!-- .reply -->
+			</article><!-- #comment-## -->
+				</li><!-- #comment-## -->
+		<li class="comment odd alt thread-even depth-1" id="li-comment-436400">
+		<article id="comment-436400" class="comment">
+			<header class="comment-meta comment-author vcard">
+				<img alt='' src='https://secure.gravatar.com/avatar/9c44943da7c25a5806f4b74a59e36bd864bb655d4f2b632d1d785e45437e65c6?s=44&#038;d=mm&#038;r=g' srcset='https://secure.gravatar.com/avatar/9c44943da7c25a5806f4b74a59e36bd864bb655d4f2b632d1d785e45437e65c6?s=88&#038;d=mm&#038;r=g 2x' class='avatar avatar-44 photo' height='44' width='44' loading='lazy' decoding='async'/><cite><b class="fn">daelv</b> </cite><a href="https://blog.archive.org/2023/05/29/let-us-serve-you-but-dont-bring-us-down/#comment-436400"><time datetime="2023-06-11T16:20:55-07:00">June 11, 2023 at 4:20 pm</time></a>				</header><!-- .comment-meta -->
+
+				
+				
+				<section class="comment-content comment">
+				<p>June 11, 2023 Internet archive extension and chrome interoperability extinguished?</p>
+								</section><!-- .comment-content -->
+
+				<div class="reply">
+								</div><!-- .reply -->
+			</article><!-- #comment-## -->
+				</li><!-- #comment-## -->
+		</ol><!-- .commentlist -->
+
+		
+				<p class="nocomments">Comments are closed.</p>
+		
+	
+	
+</div><!-- #comments .comments-area -->
+
+			
+		</div><!-- #content -->
+	</div><!-- #primary -->
+
+
+			<div id="secondary" class="widget-area" role="complementary">
+			<aside id="block-12" class="widget widget_block widget_media_image">
+<figure class="wp-block-image size-full is-resized"><a href="https://archive.org/"><img loading="lazy" decoding="async" width="246" height="246" src="https://blog.archive.org/wp-content/uploads/2018/11/Internet-Archive-logo-black.jpg" alt="" class="wp-image-17444" style="width:110px;height:auto" srcset="https://blog.archive.org/wp-content/uploads/2018/11/Internet-Archive-logo-black.jpg 246w, https://blog.archive.org/wp-content/uploads/2018/11/Internet-Archive-logo-black-150x150.jpg 150w" sizes="auto, (max-width: 246px) 100vw, 246px" /></a></figure>
+</aside><aside id="search-2" class="widget widget_search"><form role="search" method="get" id="searchform" class="searchform" action="https://blog.archive.org/">
+				<div>
+					<label class="screen-reader-text" for="s">Search for:</label>
+					<input type="text" value="" name="s" id="s" />
+					<input type="submit" id="searchsubmit" value="Search" />
+				</div>
+			</form></aside>
+		<aside id="recent-posts-2" class="widget widget_recent_entries">
+		<h3 class="widget-title">Latest Posts</h3>
+		<ul>
+											<li>
+					<a href="https://blog.archive.org/2026/11/12/preserving-30-years-of-salon-journalism/">Preserving 30 Years of Salon Journalism</a>
+									</li>
+											<li>
+					<a href="https://blog.archive.org/2026/11/12/annual-celebration-2026-internet-archive-staff-and-friends-showcase-latest-developments/">Annual Celebration 2026: Internet Archive Staff and Friends Showcase Latest Developments</a>
+									</li>
+											<li>
+					<a href="https://blog.archive.org/2026/11/10/2027-public-domain-film-contest/">2027 Public Domain Film Contest: The Internet Archive is Looking For Creative Short Films Made By You!</a>
+									</li>
+											<li>
+					<a href="https://blog.archive.org/2026/10/29/weaving-tapestries/">Weaving ‘Tapestries’: Introducing A New Tool for Digital Storytelling and Archiving</a>
+									</li>
+											<li>
+					<a href="https://blog.archive.org/2026/10/28/celebrating-democracys-library/">From Main Street to Capitol Hill, the Case for Democracy’s Library</a>
+									</li>
+					</ul>
+
+		</aside><aside id="block-4" class="widget widget_block">
+<div class="wp-block-qi-blocks-divider qodef-block-container qodef-widget-block-bfc90e90"><div class="qi-block-divider qodef-block qodef-m qodef-layout--standard qodef-position--center"><div class="qodef-m-line"></div></div></div>
+</aside><div  class="tribe-compatibility-container" >
+	<div
+		 class="tribe-common tribe-events tribe-events-view tribe-events-view--widget-events-list tribe-events-widget" 		data-js="tribe-events-view"
+		data-view-rest-url="https://blog.archive.org/wp-json/tribe/views/v2/html"
+		data-view-manage-url="1"
+							data-view-breakpoint-pointer="c3ebd8d6-66cf-4737-acae-d5db108674ea"
+			>
+		<div class="tribe-events-widget-events-list">
+
+			<script type="application/ld+json">
+[{"@context":"http://schema.org","@type":"Event","name":"First Encounters with AI","description":"&lt;p&gt;First Encounters with AI gathers some of today\u2019s most original literary minds to explore one of the central artistic and cultural questions of our era: What happens to writing when [&hellip;]&lt;/p&gt;\\n","image":"https://blog.archive.org/wp-content/uploads/2026/11/FKP-First-Encounters-with-AI-Eventbrite.png","url":"https://blog.archive.org/event/first-encounters-with-ai/","eventAttendanceMode":"https://schema.org/OfflineEventAttendanceMode","eventStatus":"https://schema.org/EventScheduled","startDate":"2026-12-03T10:00:00-08:00","endDate":"2026-12-03T11:00:00-08:00","location":{"@type":"Place","name":"VIRTUAL","description":"","url":"","address":{"@type":"PostalAddress"},"telephone":"","sameAs":""},"organizer":{"@type":"Person","name":"Internet Archive","description":"","url":"","telephone":"","email":"","sameAs":""},"offers":{"@type":"Offer","price":"0","priceCurrency":"USD","url":"https://blog.archive.org/event/first-encounters-with-ai/","category":"primary","availability":"inStock","validFrom":"2026-11-12T00:00:00+00:00"},"performer":"Organization"}]
+</script>
+			<script data-js="tribe-events-view-data" type="application/json">
+	{"slug":"widget-events-list","prev_url":"","next_url":"","view_class":"Tribe\\Events\\Views\\V2\\Views\\Widgets\\Widget_List_View","view_slug":"widget-events-list","view_label":"View","view":null,"should_manage_url":true,"id":null,"alias-slugs":null,"title":"Let us serve you, but don\u2019t bring us down - Internet Archive Blogs","limit":"3","no_upcoming_events":true,"featured_events_only":false,"jsonld_enable":true,"tribe_is_list_widget":false,"admin_fields":{"title":{"label":"Title:","type":"text","parent_classes":"","classes":"","dependency":"","id":"widget-tribe-widget-events-list-3-title","name":"widget-tribe-widget-events-list[3][title]","options":[],"placeholder":"","value":null},"limit":{"label":"Show:","type":"number","default":5,"min":1,"max":10,"step":1,"parent_classes":"","classes":"","dependency":"","id":"widget-tribe-widget-events-list-3-limit","name":"widget-tribe-widget-events-list[3][limit]","options":[],"placeholder":"","value":null},"no_upcoming_events":{"label":"Hide this widget if there are no upcoming events.","type":"checkbox","parent_classes":"","classes":"","dependency":"","id":"widget-tribe-widget-events-list-3-no_upcoming_events","name":"widget-tribe-widget-events-list[3][no_upcoming_events]","options":[],"placeholder":"","value":null},"featured_events_only":{"label":"Limit to featured events only","type":"checkbox","parent_classes":"","classes":"","dependency":"","id":"widget-tribe-widget-events-list-3-featured_events_only","name":"widget-tribe-widget-events-list[3][featured_events_only]","options":[],"placeholder":"","value":null},"jsonld_enable":{"label":"Generate JSON-LD data","type":"checkbox","parent_classes":"","classes":"","dependency":"","id":"widget-tribe-widget-events-list-3-jsonld_enable","name":"widget-tribe-widget-events-list[3][jsonld_enable]","options":[],"placeholder":"","value":null}},"events":[31245],"url":"https:\/\/blog.archive.org\/?post_type=tribe_events&eventDisplay=widget-events-list","url_event_date":false,"bar":{"keyword":"","date":""},"today":"2026-11-13 00:00:00","now":"2026-11-13 19:06:48","home_url":"https:\/\/blog.archive.org","rest_url":"https:\/\/blog.archive.org\/wp-json\/tribe\/views\/v2\/html","rest_method":"GET","rest_nonce":"","today_url":"https:\/\/blog.archive.org\/?post_type=tribe_events&eventDisplay=widget-events-list&year=2023&monthnum=05&day=29&name=let-us-serve-you-but-dont-bring-us-down","today_title":"Click to select today's date","today_label":"Today","prev_label":"","next_label":"","date_formats":{"compact":"n\/j\/Y","month_and_year_compact":"n\/Y","month_and_year":"F Y","time_range_separator":" - ","date_time_separator":" @ "},"messages":[],"start_of_week":"1","header_title":"","header_title_element":"h1","content_title":"","show_content_title":false,"breadcrumbs":[],"backlink":false,"before_events":"","after_events":"\n<!--\nThis calendar is powered by The Events Calendar.\nhttp:\/\/evnt.is\/18wn\n-->\n","display_events_bar":false,"disable_event_search":false,"live_refresh":true,"ical":{"display_link":true,"link":{"url":"https:\/\/blog.archive.org\/?post_type=tribe_events&#038;eventDisplay=widget-events-list&#038;ical=1","text":"Export Events","title":"Use this to share calendar data with Google Calendar, Apple iCal and other compatible apps"}},"container_classes":["tribe-common","tribe-events","tribe-events-view","tribe-events-view--widget-events-list","tribe-events-widget"],"container_data":[],"is_past":false,"breakpoints":{"xsmall":500,"medium":768,"full":960},"breakpoint_pointer":"c3ebd8d6-66cf-4737-acae-d5db108674ea","is_initial_load":true,"public_views":{"list":{"view_class":"Tribe\\Events\\Views\\V2\\Views\\List_View","view_url":"https:\/\/blog.archive.org\/events\/list\/","view_label":"List","aria_label":"Display Events in List View"},"month":{"view_class":"Tribe\\Events\\Views\\V2\\Views\\Month_View","view_url":"https:\/\/blog.archive.org\/events\/month\/","view_label":"Month","aria_label":"Display Events in Month View"},"day":{"view_class":"Tribe\\Events\\Views\\V2\\Views\\Day_View","view_url":"https:\/\/blog.archive.org\/events\/today\/","view_label":"Day","aria_label":"Display Events in Day View"}},"show_latest_past":false,"past":false,"compatibility_classes":["tribe-compatibility-container"],"view_more_text":"View Calendar","view_more_title":"View more events.","view_more_link":"https:\/\/blog.archive.org\/events\/","widget_title":"Upcoming Events","hide_if_no_upcoming_events":true,"display":[],"subscribe_links":{"gcal":{"label":"Google Calendar","single_label":"Add to Google Calendar","visible":true,"block_slug":"hasGoogleCalendar"},"ical":{"label":"iCalendar","single_label":"Add to iCalendar","visible":true,"block_slug":"hasiCal"},"outlook-365":{"label":"Outlook 365","single_label":"Outlook 365","visible":true,"block_slug":"hasOutlook365"},"outlook-live":{"label":"Outlook Live","single_label":"Outlook Live","visible":true,"block_slug":"hasOutlookLive"}},"_context":{"slug":"widget-events-list"}}</script>
+
+							<header class="tribe-events-widget-events-list__header">
+					<h2 class="tribe-events-widget-events-list__header-title tribe-common-h6 tribe-common-h--alt">
+						Upcoming Events					</h2>
+				</header>
+			
+			
+				<div class="tribe-events-widget-events-list__events">
+											<div  class="tribe-common-g-row tribe-events-widget-events-list__event-row" >
+
+	<div class="tribe-events-widget-events-list__event-date-tag tribe-common-g-col">
+	<time class="tribe-events-widget-events-list__event-date-tag-datetime" datetime="2026-12-03">
+		<span class="tribe-events-widget-events-list__event-date-tag-month">
+			Dec		</span>
+		<span class="tribe-events-widget-events-list__event-date-tag-daynum tribe-common-h2 tribe-common-h4--min-medium">
+			3		</span>
+	</time>
+</div>
+
+	<div class="tribe-events-widget-events-list__event-wrapper tribe-common-g-col">
+		<article  class="tribe-events-widget-events-list__event post-31245 tribe_events type-tribe_events status-publish has-post-thumbnail hentry tribe_events_cat-book-talk" >
+			<div class="tribe-events-widget-events-list__event-details">
+
+				<header class="tribe-events-widget-events-list__event-header">
+					<div class="tribe-events-widget-events-list__event-datetime-wrapper tribe-common-b2 tribe-common-b3--min-medium">
+		<time class="tribe-events-widget-events-list__event-datetime" datetime="2026-12-03">
+		<span class="tribe-event-date-start">10:00 am</span> - <span class="tribe-event-time">11:00 am</span>	</time>
+	</div>
+					<h3 class="tribe-events-widget-events-list__event-title tribe-common-h7">
+	<a
+		href="https://blog.archive.org/event/first-encounters-with-ai/"
+		title="First Encounters with AI"
+		rel="bookmark"
+		class="tribe-events-widget-events-list__event-title-link tribe-common-anchor-thin"
+	>
+		First Encounters with AI	</a>
+</h3>
+				</header>
+
+				
+			</div>
+		</article>
+	</div>
+
+</div>
+									</div>
+
+				<div class="tribe-events-widget-events-list__view-more tribe-common-b1 tribe-common-b2--min-medium">
+	<a
+		href="https://blog.archive.org/events/"
+		class="tribe-events-widget-events-list__view-more-link tribe-common-anchor-thin"
+		title="View more events."
+	>
+		View Calendar	</a>
+</div>
+
+					</div>
+	</div>
+</div>
+<script class="tribe-events-breakpoints">
+	( function () {
+		var completed = false;
+
+		function initBreakpoints() {
+			if ( completed ) {
+				// This was fired already and completed no need to attach to the event listener.
+				document.removeEventListener( 'DOMContentLoaded', initBreakpoints );
+				return;
+			}
+
+			if ( 'undefined' === typeof window.tribe ) {
+				return;
+			}
+
+			if ( 'undefined' === typeof window.tribe.events ) {
+				return;
+			}
+
+			if ( 'undefined' === typeof window.tribe.events.views ) {
+				return;
+			}
+
+			if ( 'undefined' === typeof window.tribe.events.views.breakpoints ) {
+				return;
+			}
+
+			if ( 'function' !== typeof (window.tribe.events.views.breakpoints.setup) ) {
+				return;
+			}
+
+			var container = document.querySelectorAll( '[data-view-breakpoint-pointer="c3ebd8d6-66cf-4737-acae-d5db108674ea"]' );
+			if ( ! container ) {
+				return;
+			}
+
+			window.tribe.events.views.breakpoints.setup( container );
+			completed = true;
+			// This was fired already and completed no need to attach to the event listener.
+			document.removeEventListener( 'DOMContentLoaded', initBreakpoints );
+		}
+
+		// Try to init the breakpoints right away.
+		initBreakpoints();
+		document.addEventListener( 'DOMContentLoaded', initBreakpoints );
+	})();
+</script>
+<script data-js='tribe-events-view-nonce-data' type='application/json'>{"tvn1":"fed161cd58","tvn2":""}</script><aside id="block-6" class="widget widget_block">
+<div class="wp-block-qi-blocks-divider qodef-block-container qodef-widget-block-650a4a8a"><div class="qi-block-divider qodef-block qodef-m qodef-layout--standard qodef-position--center"><div class="qodef-m-line"></div></div></div>
+</aside><aside id="recent-comments-2" class="widget widget_recent_comments"><h3 class="widget-title">Recent Comments</h3><ul id="recentcomments"><li class="recentcomments"><span class="comment-author-link"><a href="https://cedarbill.com/" class="url" rel="ugc external nofollow">CedarBill</a></span> on <a href="https://blog.archive.org/2026/10/29/weaving-tapestries/#comment-595045">Weaving ‘Tapestries’: Introducing A New Tool for Digital Storytelling and Archiving</a></li><li class="recentcomments"><span class="comment-author-link"><a href="http://geopoliticallyincorrect.blogspot.com" class="url" rel="ugc external nofollow">Adelaide Dupont</a></span> on <a href="https://blog.archive.org/2026/10/29/weaving-tapestries/#comment-594457">Weaving ‘Tapestries’: Introducing A New Tool for Digital Storytelling and Archiving</a></li><li class="recentcomments"><span class="comment-author-link">Theokali77</span> on <a href="https://blog.archive.org/2026/10/14/celebrating-2026-internet-archive-artist-in-residence-christopher-burch/#comment-592705">Celebrating 2026 Internet Archive Artist in Residence: Christopher Burch</a></li><li class="recentcomments"><span class="comment-author-link"><a href="http://geopoliticallyincorrect.blogspot.com" class="url" rel="ugc external nofollow">Adelaide Dupont</a></span> on <a href="https://blog.archive.org/2026/10/14/building-the-hero-award/#comment-592702">Building the Hero Award: The Story Behind Taekyeom Lee’s 3D-Printed Model of the Internet Archive</a></li><li class="recentcomments"><span class="comment-author-link">Ophelia Sterling</span> on <a href="https://blog.archive.org/2026/10/02/100-years-of-student-radio-history-in-the-dlarc-college-radio-collections/#comment-590496">100+ Years of Student Radio History in the DLARC College Radio Collections</a></li></ul></aside><aside id="categories-2" class="widget widget_categories"><h3 class="widget-title">Categories</h3>
+			<ul>
+					<li class="cat-item cat-item-578"><a href="https://blog.archive.org/category/audio-archive/78rpm/">78rpm</a>
+</li>
+	<li class="cat-item cat-item-249"><a href="https://blog.archive.org/category/announcements/">Announcements</a>
+</li>
+	<li class="cat-item cat-item-328"><a href="https://blog.archive.org/category/archive-version-2/">Archive Version 2</a>
+</li>
+	<li class="cat-item cat-item-3"><a href="https://blog.archive.org/category/archive-it/">Archive-It</a>
+</li>
+	<li class="cat-item cat-item-4"><a href="https://blog.archive.org/category/audio-archive/">Audio Archive</a>
+</li>
+	<li class="cat-item cat-item-5"><a href="https://blog.archive.org/category/books-archive/">Books Archive</a>
+</li>
+	<li class="cat-item cat-item-6"><a href="https://blog.archive.org/category/cool-items/">Cool items</a>
+</li>
+	<li class="cat-item cat-item-7"><a href="https://blog.archive.org/category/education-archive/">Education Archive</a>
+</li>
+	<li class="cat-item cat-item-333"><a href="https://blog.archive.org/category/emulation/">Emulation</a>
+</li>
+	<li class="cat-item cat-item-255"><a href="https://blog.archive.org/category/event/">Event</a>
+</li>
+	<li class="cat-item cat-item-9"><a href="https://blog.archive.org/category/image-archive/">Image Archive</a>
+</li>
+	<li class="cat-item cat-item-10"><a href="https://blog.archive.org/category/jobs/">Jobs</a>
+</li>
+	<li class="cat-item cat-item-789"><a href="https://blog.archive.org/category/books-archive/lending-books/">Lending Books</a>
+</li>
+	<li class="cat-item cat-item-250"><a href="https://blog.archive.org/category/live-music-archive-2/">Live Music Archive</a>
+</li>
+	<li class="cat-item cat-item-263"><a href="https://blog.archive.org/category/movie-archive/">Movie Archive</a>
+</li>
+	<li class="cat-item cat-item-319"><a href="https://blog.archive.org/category/music/">Music</a>
+</li>
+	<li class="cat-item cat-item-12"><a href="https://blog.archive.org/category/news/">News</a>
+</li>
+	<li class="cat-item cat-item-313"><a href="https://blog.archive.org/category/newsletter/">Newsletter</a>
+</li>
+	<li class="cat-item cat-item-13"><a href="https://blog.archive.org/category/open-library/">Open Library</a>
+</li>
+	<li class="cat-item cat-item-738"><a href="https://blog.archive.org/category/event/past-event/">Past Event</a>
+</li>
+	<li class="cat-item cat-item-14"><a href="https://blog.archive.org/category/software-archive/">Software Archive</a>
+</li>
+	<li class="cat-item cat-item-164"><a href="https://blog.archive.org/category/technical/">Technical</a>
+</li>
+	<li class="cat-item cat-item-267"><a href="https://blog.archive.org/category/television-archive/">Television Archive</a>
+</li>
+	<li class="cat-item cat-item-1"><a href="https://blog.archive.org/category/uncategorized/">Uncategorized</a>
+</li>
+	<li class="cat-item cat-item-737"><a href="https://blog.archive.org/category/event/upcoming-event/">Upcoming Event</a>
+</li>
+	<li class="cat-item cat-item-15"><a href="https://blog.archive.org/category/video-archive/">Video Archive</a>
+</li>
+	<li class="cat-item cat-item-16"><a href="https://blog.archive.org/category/wayback-machine/">Wayback Machine &#8211; Web Archive</a>
+</li>
+	<li class="cat-item cat-item-794"><a href="https://blog.archive.org/category/web-data-services/">Web &amp; Data Services</a>
+</li>
+			</ul>
+
+			</aside><aside id="archives-2" class="widget widget_archive"><h3 class="widget-title">Archives</h3>		<label class="screen-reader-text" for="archives-dropdown-2">Archives</label>
+		<select id="archives-dropdown-2" name="archive-dropdown">
+			
+			<option value="">Select Month</option>
+				<option value='https://blog.archive.org/2026/11/'> November 2026 </option>
+	<option value='https://blog.archive.org/2026/10/'> October 2026 </option>
+	<option value='https://blog.archive.org/2026/09/'> September 2026 </option>
+	<option value='https://blog.archive.org/2026/08/'> August 2026 </option>
+	<option value='https://blog.archive.org/2026/07/'> July 2026 </option>
+	<option value='https://blog.archive.org/2026/06/'> June 2026 </option>
+	<option value='https://blog.archive.org/2026/05/'> May 2026 </option>
+	<option value='https://blog.archive.org/2026/04/'> April 2026 </option>
+	<option value='https://blog.archive.org/2026/03/'> March 2026 </option>
+	<option value='https://blog.archive.org/2026/02/'> February 2026 </option>
+	<option value='https://blog.archive.org/2026/01/'> January 2026 </option>
+	<option value='https://blog.archive.org/2025/12/'> December 2025 </option>
+	<option value='https://blog.archive.org/2025/11/'> November 2025 </option>
+	<option value='https://blog.archive.org/2025/10/'> October 2025 </option>
+	<option value='https://blog.archive.org/2025/09/'> September 2025 </option>
+	<option value='https://blog.archive.org/2025/08/'> August 2025 </option>
+	<option value='https://blog.archive.org/2025/07/'> July 2025 </option>
+	<option value='https://blog.archive.org/2025/06/'> June 2025 </option>
+	<option value='https://blog.archive.org/2025/05/'> May 2025 </option>
+	<option value='https://blog.archive.org/2025/04/'> April 2025 </option>
+	<option value='https://blog.archive.org/2025/03/'> March 2025 </option>
+	<option value='https://blog.archive.org/2025/02/'> February 2025 </option>
+	<option value='https://blog.archive.org/2025/01/'> January 2025 </option>
+	<option value='https://blog.archive.org/2024/12/'> December 2024 </option>
+	<option value='https://blog.archive.org/2024/11/'> November 2024 </option>
+	<option value='https://blog.archive.org/2024/10/'> October 2024 </option>
+	<option value='https://blog.archive.org/2024/09/'> September 2024 </option>
+	<option value='https://blog.archive.org/2024/08/'> August 2024 </option>
+	<option value='https://blog.archive.org/2024/07/'> July 2024 </option>
+	<option value='https://blog.archive.org/2024/06/'> June 2024 </option>
+	<option value='https://blog.archive.org/2024/05/'> May 2024 </option>
+	<option value='https://blog.archive.org/2024/04/'> April 2024 </option>
+	<option value='https://blog.archive.org/2024/03/'> March 2024 </option>
+	<option value='https://blog.archive.org/2024/02/'> February 2024 </option>
+	<option value='https://blog.archive.org/2024/01/'> January 2024 </option>
+	<option value='https://blog.archive.org/2023/12/'> December 2023 </option>
+	<option value='https://blog.archive.org/2023/11/'> November 2023 </option>
+	<option value='https://blog.archive.org/2023/10/'> October 2023 </option>
+	<option value='https://blog.archive.org/2023/09/'> September 2023 </option>
+	<option value='https://blog.archive.org/2023/08/'> August 2023 </option>
+	<option value='https://blog.archive.org/2023/07/'> July 2023 </option>
+	<option value='https://blog.archive.org/2023/06/'> June 2023 </option>
+	<option value='https://blog.archive.org/2023/05/'> May 2023 </option>
+	<option value='https://blog.archive.org/2023/04/'> April 2023 </option>
+	<option value='https://blog.archive.org/2023/03/'> March 2023 </option>
+	<option value='https://blog.archive.org/2023/02/'> February 2023 </option>
+	<option value='https://blog.archive.org/2023/01/'> January 2023 </option>
+	<option value='https://blog.archive.org/2022/12/'> December 2022 </option>
+	<option value='https://blog.archive.org/2022/11/'> November 2022 </option>
+	<option value='https://blog.archive.org/2022/10/'> October 2022 </option>
+	<option value='https://blog.archive.org/2022/09/'> September 2022 </option>
+	<option value='https://blog.archive.org/2022/08/'> August 2022 </option>
+	<option value='https://blog.archive.org/2022/07/'> July 2022 </option>
+	<option value='https://blog.archive.org/2022/06/'> June 2022 </option>
+	<option value='https://blog.archive.org/2022/05/'> May 2022 </option>
+	<option value='https://blog.archive.org/2022/04/'> April 2022 </option>
+	<option value='https://blog.archive.org/2022/03/'> March 2022 </option>
+	<option value='https://blog.archive.org/2022/02/'> February 2022 </option>
+	<option value='https://blog.archive.org/2022/01/'> January 2022 </option>
+	<option value='https://blog.archive.org/2021/12/'> December 2021 </option>
+	<option value='https://blog.archive.org/2021/11/'> November 2021 </option>
+	<option value='https://blog.archive.org/2021/10/'> October 2021 </option>
+	<option value='https://blog.archive.org/2021/09/'> September 2021 </option>
+	<option value='https://blog.archive.org/2021/08/'> August 2021 </option>
+	<option value='https://blog.archive.org/2021/07/'> July 2021 </option>
+	<option value='https://blog.archive.org/2021/06/'> June 2021 </option>
+	<option value='https://blog.archive.org/2021/05/'> May 2021 </option>
+	<option value='https://blog.archive.org/2021/04/'> April 2021 </option>
+	<option value='https://blog.archive.org/2021/03/'> March 2021 </option>
+	<option value='https://blog.archive.org/2021/02/'> February 2021 </option>
+	<option value='https://blog.archive.org/2021/01/'> January 2021 </option>
+	<option value='https://blog.archive.org/2020/12/'> December 2020 </option>
+	<option value='https://blog.archive.org/2020/11/'> November 2020 </option>
+	<option value='https://blog.archive.org/2020/10/'> October 2020 </option>
+	<option value='https://blog.archive.org/2020/09/'> September 2020 </option>
+	<option value='https://blog.archive.org/2020/08/'> August 2020 </option>
+	<option value='https://blog.archive.org/2020/07/'> July 2020 </option>
+	<option value='https://blog.archive.org/2020/06/'> June 2020 </option>
+	<option value='https://blog.archive.org/2020/05/'> May 2020 </option>
+	<option value='https://blog.archive.org/2020/04/'> April 2020 </option>
+	<option value='https://blog.archive.org/2020/03/'> March 2020 </option>
+	<option value='https://blog.archive.org/2020/02/'> February 2020 </option>
+	<option value='https://blog.archive.org/2020/01/'> January 2020 </option>
+	<option value='https://blog.archive.org/2019/12/'> December 2019 </option>
+	<option value='https://blog.archive.org/2019/11/'> November 2019 </option>
+	<option value='https://blog.archive.org/2019/10/'> October 2019 </option>
+	<option value='https://blog.archive.org/2019/09/'> September 2019 </option>
+	<option value='https://blog.archive.org/2019/08/'> August 2019 </option>
+	<option value='https://blog.archive.org/2019/07/'> July 2019 </option>
+	<option value='https://blog.archive.org/2019/06/'> June 2019 </option>
+	<option value='https://blog.archive.org/2019/05/'> May 2019 </option>
+	<option value='https://blog.archive.org/2019/04/'> April 2019 </option>
+	<option value='https://blog.archive.org/2019/03/'> March 2019 </option>
+	<option value='https://blog.archive.org/2019/02/'> February 2019 </option>
+	<option value='https://blog.archive.org/2019/01/'> January 2019 </option>
+	<option value='https://blog.archive.org/2018/12/'> December 2018 </option>
+	<option value='https://blog.archive.org/2018/11/'> November 2018 </option>
+	<option value='https://blog.archive.org/2018/10/'> October 2018 </option>
+	<option value='https://blog.archive.org/2018/09/'> September 2018 </option>
+	<option value='https://blog.archive.org/2018/08/'> August 2018 </option>
+	<option value='https://blog.archive.org/2018/07/'> July 2018 </option>
+	<option value='https://blog.archive.org/2018/06/'> June 2018 </option>
+	<option value='https://blog.archive.org/2018/05/'> May 2018 </option>
+	<option value='https://blog.archive.org/2018/04/'> April 2018 </option>
+	<option value='https://blog.archive.org/2018/03/'> March 2018 </option>
+	<option value='https://blog.archive.org/2018/02/'> February 2018 </option>
+	<option value='https://blog.archive.org/2018/01/'> January 2018 </option>
+	<option value='https://blog.archive.org/2017/12/'> December 2017 </option>
+	<option value='https://blog.archive.org/2017/11/'> November 2017 </option>
+	<option value='https://blog.archive.org/2017/10/'> October 2017 </option>
+	<option value='https://blog.archive.org/2017/09/'> September 2017 </option>
+	<option value='https://blog.archive.org/2017/08/'> August 2017 </option>
+	<option value='https://blog.archive.org/2017/07/'> July 2017 </option>
+	<option value='https://blog.archive.org/2017/06/'> June 2017 </option>
+	<option value='https://blog.archive.org/2017/05/'> May 2017 </option>
+	<option value='https://blog.archive.org/2017/04/'> April 2017 </option>
+	<option value='https://blog.archive.org/2017/03/'> March 2017 </option>
+	<option value='https://blog.archive.org/2017/02/'> February 2017 </option>
+	<option value='https://blog.archive.org/2017/01/'> January 2017 </option>
+	<option value='https://blog.archive.org/2016/12/'> December 2016 </option>
+	<option value='https://blog.archive.org/2016/11/'> November 2016 </option>
+	<option value='https://blog.archive.org/2016/10/'> October 2016 </option>
+	<option value='https://blog.archive.org/2016/09/'> September 2016 </option>
+	<option value='https://blog.archive.org/2016/08/'> August 2016 </option>
+	<option value='https://blog.archive.org/2016/07/'> July 2016 </option>
+	<option value='https://blog.archive.org/2016/06/'> June 2016 </option>
+	<option value='https://blog.archive.org/2016/05/'> May 2016 </option>
+	<option value='https://blog.archive.org/2016/04/'> April 2016 </option>
+	<option value='https://blog.archive.org/2016/03/'> March 2016 </option>
+	<option value='https://blog.archive.org/2016/02/'> February 2016 </option>
+	<option value='https://blog.archive.org/2016/01/'> January 2016 </option>
+	<option value='https://blog.archive.org/2015/12/'> December 2015 </option>
+	<option value='https://blog.archive.org/2015/11/'> November 2015 </option>
+	<option value='https://blog.archive.org/2015/10/'> October 2015 </option>
+	<option value='https://blog.archive.org/2015/09/'> September 2015 </option>
+	<option value='https://blog.archive.org/2015/07/'> July 2015 </option>
+	<option value='https://blog.archive.org/2015/06/'> June 2015 </option>
+	<option value='https://blog.archive.org/2015/05/'> May 2015 </option>
+	<option value='https://blog.archive.org/2015/04/'> April 2015 </option>
+	<option value='https://blog.archive.org/2015/03/'> March 2015 </option>
+	<option value='https://blog.archive.org/2015/02/'> February 2015 </option>
+	<option value='https://blog.archive.org/2015/01/'> January 2015 </option>
+	<option value='https://blog.archive.org/2014/12/'> December 2014 </option>
+	<option value='https://blog.archive.org/2014/11/'> November 2014 </option>
+	<option value='https://blog.archive.org/2014/10/'> October 2014 </option>
+	<option value='https://blog.archive.org/2014/09/'> September 2014 </option>
+	<option value='https://blog.archive.org/2014/08/'> August 2014 </option>
+	<option value='https://blog.archive.org/2014/07/'> July 2014 </option>
+	<option value='https://blog.archive.org/2014/06/'> June 2014 </option>
+	<option value='https://blog.archive.org/2014/05/'> May 2014 </option>
+	<option value='https://blog.archive.org/2014/04/'> April 2014 </option>
+	<option value='https://blog.archive.org/2014/03/'> March 2014 </option>
+	<option value='https://blog.archive.org/2014/02/'> February 2014 </option>
+	<option value='https://blog.archive.org/2014/01/'> January 2014 </option>
+	<option value='https://blog.archive.org/2013/12/'> December 2013 </option>
+	<option value='https://blog.archive.org/2013/11/'> November 2013 </option>
+	<option value='https://blog.archive.org/2013/10/'> October 2013 </option>
+	<option value='https://blog.archive.org/2013/09/'> September 2013 </option>
+	<option value='https://blog.archive.org/2013/08/'> August 2013 </option>
+	<option value='https://blog.archive.org/2013/07/'> July 2013 </option>
+	<option value='https://blog.archive.org/2013/06/'> June 2013 </option>
+	<option value='https://blog.archive.org/2013/05/'> May 2013 </option>
+	<option value='https://blog.archive.org/2013/04/'> April 2013 </option>
+	<option value='https://blog.archive.org/2013/03/'> March 2013 </option>
+	<option value='https://blog.archive.org/2013/02/'> February 2013 </option>
+	<option value='https://blog.archive.org/2013/01/'> January 2013 </option>
+	<option value='https://blog.archive.org/2012/12/'> December 2012 </option>
+	<option value='https://blog.archive.org/2012/11/'> November 2012 </option>
+	<option value='https://blog.archive.org/2012/10/'> October 2012 </option>
+	<option value='https://blog.archive.org/2012/09/'> September 2012 </option>
+	<option value='https://blog.archive.org/2012/08/'> August 2012 </option>
+	<option value='https://blog.archive.org/2012/07/'> July 2012 </option>
+	<option value='https://blog.archive.org/2012/06/'> June 2012 </option>
+	<option value='https://blog.archive.org/2012/05/'> May 2012 </option>
+	<option value='https://blog.archive.org/2012/04/'> April 2012 </option>
+	<option value='https://blog.archive.org/2012/03/'> March 2012 </option>
+	<option value='https://blog.archive.org/2012/02/'> February 2012 </option>
+	<option value='https://blog.archive.org/2012/01/'> January 2012 </option>
+	<option value='https://blog.archive.org/2011/12/'> December 2011 </option>
+	<option value='https://blog.archive.org/2011/11/'> November 2011 </option>
+	<option value='https://blog.archive.org/2011/10/'> October 2011 </option>
+	<option value='https://blog.archive.org/2011/09/'> September 2011 </option>
+	<option value='https://blog.archive.org/2011/08/'> August 2011 </option>
+	<option value='https://blog.archive.org/2011/07/'> July 2011 </option>
+	<option value='https://blog.archive.org/2011/06/'> June 2011 </option>
+	<option value='https://blog.archive.org/2011/05/'> May 2011 </option>
+	<option value='https://blog.archive.org/2011/04/'> April 2011 </option>
+	<option value='https://blog.archive.org/2011/03/'> March 2011 </option>
+	<option value='https://blog.archive.org/2011/02/'> February 2011 </option>
+	<option value='https://blog.archive.org/2011/01/'> January 2011 </option>
+	<option value='https://blog.archive.org/2010/12/'> December 2010 </option>
+	<option value='https://blog.archive.org/2010/11/'> November 2010 </option>
+	<option value='https://blog.archive.org/2010/10/'> October 2010 </option>
+	<option value='https://blog.archive.org/2010/09/'> September 2010 </option>
+	<option value='https://blog.archive.org/2010/08/'> August 2010 </option>
+	<option value='https://blog.archive.org/2010/07/'> July 2010 </option>
+	<option value='https://blog.archive.org/2010/06/'> June 2010 </option>
+	<option value='https://blog.archive.org/2010/05/'> May 2010 </option>
+	<option value='https://blog.archive.org/2010/04/'> April 2010 </option>
+	<option value='https://blog.archive.org/2010/03/'> March 2010 </option>
+	<option value='https://blog.archive.org/2010/02/'> February 2010 </option>
+	<option value='https://blog.archive.org/2010/01/'> January 2010 </option>
+	<option value='https://blog.archive.org/2009/12/'> December 2009 </option>
+	<option value='https://blog.archive.org/2009/10/'> October 2009 </option>
+	<option value='https://blog.archive.org/2009/09/'> September 2009 </option>
+	<option value='https://blog.archive.org/2009/08/'> August 2009 </option>
+	<option value='https://blog.archive.org/2009/07/'> July 2009 </option>
+	<option value='https://blog.archive.org/2009/06/'> June 2009 </option>
+	<option value='https://blog.archive.org/2009/05/'> May 2009 </option>
+	<option value='https://blog.archive.org/2009/04/'> April 2009 </option>
+	<option value='https://blog.archive.org/2009/03/'> March 2009 </option>
+	<option value='https://blog.archive.org/2009/02/'> February 2009 </option>
+	<option value='https://blog.archive.org/2009/01/'> January 2009 </option>
+	<option value='https://blog.archive.org/2008/12/'> December 2008 </option>
+	<option value='https://blog.archive.org/2008/11/'> November 2008 </option>
+	<option value='https://blog.archive.org/2008/09/'> September 2008 </option>
+	<option value='https://blog.archive.org/2008/08/'> August 2008 </option>
+	<option value='https://blog.archive.org/2008/06/'> June 2008 </option>
+	<option value='https://blog.archive.org/2008/05/'> May 2008 </option>
+	<option value='https://blog.archive.org/2008/04/'> April 2008 </option>
+	<option value='https://blog.archive.org/2008/03/'> March 2008 </option>
+	<option value='https://blog.archive.org/2008/02/'> February 2008 </option>
+	<option value='https://blog.archive.org/2008/01/'> January 2008 </option>
+	<option value='https://blog.archive.org/2007/12/'> December 2007 </option>
+	<option value='https://blog.archive.org/2007/10/'> October 2007 </option>
+	<option value='https://blog.archive.org/2007/09/'> September 2007 </option>
+	<option value='https://blog.archive.org/2007/08/'> August 2007 </option>
+	<option value='https://blog.archive.org/2007/07/'> July 2007 </option>
+	<option value='https://blog.archive.org/2007/06/'> June 2007 </option>
+	<option value='https://blog.archive.org/2007/05/'> May 2007 </option>
+	<option value='https://blog.archive.org/2007/04/'> April 2007 </option>
+	<option value='https://blog.archive.org/2007/03/'> March 2007 </option>
+	<option value='https://blog.archive.org/2007/02/'> February 2007 </option>
+	<option value='https://blog.archive.org/2007/01/'> January 2007 </option>
+	<option value='https://blog.archive.org/2006/12/'> December 2006 </option>
+	<option value='https://blog.archive.org/2006/11/'> November 2006 </option>
+	<option value='https://blog.archive.org/2006/10/'> October 2006 </option>
+	<option value='https://blog.archive.org/2006/09/'> September 2006 </option>
+	<option value='https://blog.archive.org/2006/08/'> August 2006 </option>
+	<option value='https://blog.archive.org/2006/02/'> February 2006 </option>
+	<option value='https://blog.archive.org/2005/11/'> November 2005 </option>
+	<option value='https://blog.archive.org/2005/10/'> October 2005 </option>
+	<option value='https://blog.archive.org/2005/09/'> September 2005 </option>
+	<option value='https://blog.archive.org/2005/03/'> March 2005 </option>
+	<option value='https://blog.archive.org/2005/02/'> February 2005 </option>
+	<option value='https://blog.archive.org/2005/01/'> January 2005 </option>
+	<option value='https://blog.archive.org/2004/12/'> December 2004 </option>
+	<option value='https://blog.archive.org/2004/10/'> October 2004 </option>
+	<option value='https://blog.archive.org/2004/03/'> March 2004 </option>
+
+		</select>
+
+			<script>
+( ( dropdownId ) => {
+	const dropdown = document.getElementById( dropdownId );
+	function onSelectChange() {
+		setTimeout( () => {
+			if ( 'escape' === dropdown.dataset.lastkey ) {
+				return;
+			}
+			if ( dropdown.value ) {
+				document.location.href = dropdown.value;
+			}
+		}, 250 );
+	}
+	function onKeyUp( event ) {
+		if ( 'Escape' === event.key ) {
+			dropdown.dataset.lastkey = 'escape';
+		} else {
+			delete dropdown.dataset.lastkey;
+		}
+	}
+	function onClick() {
+		delete dropdown.dataset.lastkey;
+	}
+	dropdown.addEventListener( 'keyup', onKeyUp );
+	dropdown.addEventListener( 'click', onClick );
+	dropdown.addEventListener( 'change', onSelectChange );
+})( "archives-dropdown-2" );
+
+//# sourceURL=WP_Widget_Archives%3A%3Awidget
+</script>
+</aside><aside id="meta-2" class="widget widget_meta"><h3 class="widget-title">Meta</h3>
+		<ul>
+						<li><a href="https://blog.archive.org/wp-login.php">Log in</a></li>
+			<li><a href="https://blog.archive.org/feed/">Entries feed</a></li>
+			<li><a href="https://blog.archive.org/comments/feed/">Comments feed</a></li>
+
+			<li><a href="https://wordpress.org/">WordPress.org</a></li>
+		</ul>
+
+		</aside>		</div><!-- #secondary -->
+		</div><!-- #main .wrapper -->
+	<footer id="colophon" role="contentinfo">
+		<div class="site-info">
+									<a href="https://wordpress.org/" class="imprint" title="Semantic Personal Publishing Platform">
+				Proudly powered by WordPress			</a>
+		</div><!-- .site-info -->
+	</footer><!-- #colophon -->
+</div><!-- #page -->
+
+<script type="speculationrules">
+{"prefetch":[{"source":"document","where":{"and":[{"href_matches":"/*"},{"not":{"href_matches":["/wp-*.php","/wp-admin/*","/wp-content/uploads/*","/wp-content/*","/wp-content/plugins/*","/wp-content/themes/twentytwelve-child/*","/wp-content/themes/twentytwelve/*","/*\\?(.+)"]}},{"not":{"selector_matches":"a[rel~=\"nofollow\"]"}},{"not":{"selector_matches":".no-prefetch, .no-prefetch a"}}]},"eagerness":"conservative"}]}
+</script>
+		<script>
+		( function ( body ) {
+			'use strict';
+			body.className = body.className.replace( /\btribe-no-js\b/, 'tribe-js' );
+		} )( document.body );
+		</script>
+		<script> /* <![CDATA[ */var tribe_l10n_datatables = {"aria":{"sort_ascending":": activate to sort column ascending","sort_descending":": activate to sort column descending"},"length_menu":"Show _MENU_ entries","empty_table":"No data available in table","info":"Showing _START_ to _END_ of _TOTAL_ entries","info_empty":"Showing 0 to 0 of 0 entries","info_filtered":"(filtered from _MAX_ total entries)","zero_records":"No matching records found","search":"Search:","all_selected_text":"All items on this page were selected. ","select_all_link":"Select all pages","clear_selection":"Clear Selection.","pagination":{"all":"All","next":"Next","previous":"Previous"},"select":{"rows":{"0":"","_":": Selected %d rows","1":": Selected 1 row"}},"datepicker":{"dayNames":["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"],"dayNamesShort":["Sun","Mon","Tue","Wed","Thu","Fri","Sat"],"dayNamesMin":["S","M","T","W","T","F","S"],"monthNames":["January","February","March","April","May","June","July","August","September","October","November","December"],"monthNamesShort":["January","February","March","April","May","June","July","August","September","October","November","December"],"monthNamesMin":["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],"nextText":"Next","prevText":"Prev","currentText":"Today","closeText":"Done","today":"Today","clear":"Clear"}};/* ]]> */ </script><link rel='stylesheet' id='tec-variables-skeleton-css' href='https://blog.archive.org/wp-content/plugins/the-events-calendar/common/build/css/variables-skeleton.css?ver=6.13.2' media='all' />
+<link rel='stylesheet' id='tribe-common-skeleton-style-css' href='https://blog.archive.org/wp-content/plugins/the-events-calendar/common/build/css/common-skeleton.css?ver=6.13.2' media='all' />
+<link rel='stylesheet' id='tribe-events-widgets-v2-events-list-skeleton-css' href='https://blog.archive.org/wp-content/plugins/the-events-calendar/build/css/widget-events-list-skeleton.css?ver=6.18.2' media='all' />
+<link rel='stylesheet' id='tec-variables-full-css' href='https://blog.archive.org/wp-content/plugins/the-events-calendar/common/build/css/variables-full.css?ver=6.13.2' media='all' />
+<link rel='stylesheet' id='tribe-common-full-style-css' href='https://blog.archive.org/wp-content/plugins/the-events-calendar/common/build/css/common-full.css?ver=6.13.2' media='all' />
+<link rel='stylesheet' id='tribe-events-widgets-v2-events-list-full-css' href='https://blog.archive.org/wp-content/plugins/the-events-calendar/build/css/widget-events-list-full.css?ver=6.18.2' media='all' />
+<script id="tec-user-agent-js" src="https://blog.archive.org/wp-content/plugins/the-events-calendar/common/build/js/user-agent.js?ver=da75d0bdea6dde3898df"></script>
+<script id="qi-blocks-main-js-extra">
+var qiBlocks = {"vars":{"arrowLeftIcon":"\u003Csvg xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" x=\"0px\" y=\"0px\" viewBox=\"0 0 34.2 32.3\" xml:space=\"preserve\" style=\"stroke-width: 2;\"\u003E\u003Cline x1=\"0.5\" y1=\"16\" x2=\"33.5\" y2=\"16\"/\u003E\u003Cline x1=\"0.3\" y1=\"16.5\" x2=\"16.2\" y2=\"0.7\"/\u003E\u003Cline x1=\"0\" y1=\"15.4\" x2=\"16.2\" y2=\"31.6\"/\u003E\u003C/svg\u003E","arrowRightIcon":"\u003Csvg xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" x=\"0px\" y=\"0px\" viewBox=\"0 0 34.2 32.3\" xml:space=\"preserve\" style=\"stroke-width: 2;\"\u003E\u003Cline x1=\"0\" y1=\"16\" x2=\"33\" y2=\"16\"/\u003E\u003Cline x1=\"17.3\" y1=\"0.7\" x2=\"33.2\" y2=\"16.5\"/\u003E\u003Cline x1=\"17.3\" y1=\"31.6\" x2=\"33.5\" y2=\"15.4\"/\u003E\u003C/svg\u003E","closeIcon":"\u003Csvg xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" x=\"0px\" y=\"0px\" viewBox=\"0 0 9.1 9.1\" xml:space=\"preserve\"\u003E\u003Cg\u003E\u003Cpath d=\"M8.5,0L9,0.6L5.1,4.5L9,8.5L8.5,9L4.5,5.1L0.6,9L0,8.5L4,4.5L0,0.6L0.6,0L4.5,4L8.5,0z\"/\u003E\u003C/g\u003E\u003C/svg\u003E","viewCartText":"View Cart"}};
+//# sourceURL=qi-blocks-main-js-extra
+</script>
+<script id="qi-blocks-main-js" src="https://blog.archive.org/wp-content/plugins/qi-blocks/assets/dist/main.js?ver=1.5.4"></script>
+<script id="tribe-common-js" src="https://blog.archive.org/wp-content/plugins/the-events-calendar/common/build/js/tribe-common.js?ver=9c44e11f3503a33e9540"></script>
+<script id="tribe-query-string-js" src="https://blog.archive.org/wp-content/plugins/the-events-calendar/common/build/js/utils/query-string.js?ver=694b0604b0c8eafed657"></script>
+<script src='https://blog.archive.org/wp-content/plugins/the-events-calendar/common/build/js/underscore-before.js'></script>
+<script id="underscore-js" src="https://blog.archive.org/wp-includes/js/underscore.min.js?ver=1.13.8"></script>
+<script src='https://blog.archive.org/wp-content/plugins/the-events-calendar/common/build/js/underscore-after.js'></script>
+<script id="wp-hooks-js" src="https://blog.archive.org/wp-includes/js/dist/hooks.min.js?ver=f0f188028580e8dc1255"></script>
+<script defer id="tribe-events-views-v2-manager-js" src="https://blog.archive.org/wp-content/plugins/the-events-calendar/build/js/views/manager.js?ver=76866c0f9c1f9f397a02"></script>
+<script id="tribe-events-views-v2-breakpoints-js" src="https://blog.archive.org/wp-content/plugins/the-events-calendar/build/js/views/breakpoints.js?ver=4208de2df2852e0b91ec"></script>
+<script id="wp-emoji-settings" type="application/json">
+{"baseUrl":"https://s.w.org/images/core/emoji/17.0.2/72x72/","ext":".png","svgUrl":"https://s.w.org/images/core/emoji/17.0.2/svg/","svgExt":".svg","source":{"concatemoji":"https://blog.archive.org/wp-includes/js/wp-emoji-release.min.js?ver=7.1.4"}}
+</script>
+<script type="module">
+/*! This file is auto-generated */
+var e="script#wp-emoji-settings",t=document.querySelector(e);if(!(t instanceof HTMLScriptElement))throw new Error("Element missing: "+e);const r=JSON.parse(t.text),s=(window._wpemojiSettings=r,"wpEmojiSettingsSupports"),o=["flag","emoji"];function i(e){try{var t={supportTests:e,timestamp:(new Date).valueOf()};sessionStorage.setItem(s,JSON.stringify(t))}catch(e){}}function c(e,t,n){e.clearRect(0,0,e.canvas.width,e.canvas.height),e.fillText(t,0,0);t=new Uint32Array(e.getImageData(0,0,e.canvas.width,e.canvas.height).data);e.clearRect(0,0,e.canvas.width,e.canvas.height),e.fillText(n,0,0);const r=new Uint32Array(e.getImageData(0,0,e.canvas.width,e.canvas.height).data);return t.every((e,t)=>e===r[t])}function p(e,t){e.clearRect(0,0,e.canvas.width,e.canvas.height),e.fillText(t,0,0);var n=e.getImageData(16,16,1,1);for(let e=0;e<n.data.length;e++)if(0!==n.data[e])return!1;return!0}function u(e,t,n,r){switch(t){case"flag":return n(e,"\ud83c\udff3\ufe0f\u200d\u26a7\ufe0f","\ud83c\udff3\ufe0f\u200b\u26a7\ufe0f")?!1:!n(e,"\ud83c\udde8\ud83c\uddf6","\ud83c\udde8\u200b\ud83c\uddf6")&&!n(e,"\ud83c\udff4\udb40\udc67\udb40\udc62\udb40\udc65\udb40\udc6e\udb40\udc67\udb40\udc7f","\ud83c\udff4\u200b\udb40\udc67\u200b\udb40\udc62\u200b\udb40\udc65\u200b\udb40\udc6e\u200b\udb40\udc67\u200b\udb40\udc7f");case"emoji":return!r(e,"\ud83e\u1fac8")}return!1}function f(e,t,n,r){let a;const s=(a="undefined"!=typeof WorkerGlobalScope&&self instanceof WorkerGlobalScope?new OffscreenCanvas(300,150):document.createElement("canvas")).getContext("2d",{willReadFrequently:!0}),o=(s.textBaseline="top",s.font="600 32px Arial",{});return e.forEach(e=>{o[e]=t(s,e,n,r)}),o}function a(e){var t=document.createElement("script");t.src=e,t.defer=!0,document.head.appendChild(t)}r.supports={everything:!0,everythingExceptFlag:!0},new Promise(t=>{let n=function(){try{var e=JSON.parse(sessionStorage.getItem(s));if("object"==typeof e&&"number"==typeof e.timestamp&&(new Date).valueOf()<e.timestamp+604800&&"object"==typeof e.supportTests)return e.supportTests}catch(e){}return null}();if(!n){if("undefined"!=typeof Worker&&"undefined"!=typeof OffscreenCanvas&&"undefined"!=typeof URL&&URL.createObjectURL&&"undefined"!=typeof Blob)try{var e="postMessage("+f.toString()+"("+[JSON.stringify(o),u.toString(),c.toString(),p.toString()].join(",")+"));",r=new Blob([e],{type:"text/javascript"});const a=new Worker(URL.createObjectURL(r),{name:"wpTestEmojiSupports"});return void(a.onmessage=e=>{i(n=e.data),a.terminate(),t(n)})}catch(e){}i(n=f(o,u,c,p))}t(n)}).then(e=>{for(const n in e)r.supports[n]=e[n],r.supports.everything=r.supports.everything&&r.supports[n],"flag"!==n&&(r.supports.everythingExceptFlag=r.supports.everythingExceptFlag&&r.supports[n]);var t;r.supports.everythingExceptFlag=r.supports.everythingExceptFlag&&!r.supports.flag,r.supports.everything||((t=r.source||{}).concatemoji?a(t.concatemoji):t.wpemoji&&t.twemoji&&(a(t.twemoji),a(t.wpemoji)))});
+//# sourceURL=https://blog.archive.org/wp-includes/js/wp-emoji-loader.min.js
+</script>
+</body>
+</html>

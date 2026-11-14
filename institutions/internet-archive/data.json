@@ -2,39 +2,280 @@
   "slug": "internet-archive",
   "nom": "Internet Archive",
   "pays": "États-Unis",
-  "statut_audit": "partiel (ancienne méthode)",
+  "statut_audit": "audit a–f complet (v2) ; g à faire",
   "limites_documentees": [
     {
       "nature": "Consigne qualitative",
-      "perimetre": "bots (IIIF/advancedsearch/metadata)",
-      "valeur": "non chiffrée : « honor 429 and Retry-After »",
+      "perimetre": "bots, API de lecture",
+      "valeur": "non chiffrée : délais entre requêtes, respecter 429 et Retry-After",
       "fenetre": "–",
       "effet": "429",
+      "verification": "officielle, lue en entier",
       "source": "https://archive.org/developers/bots.html",
-      "date": "2026-11-13",
-      "verification": "officielle, lue en entier"
+      "date": "2026-11-14"
     },
     {
-      "nature": "Task limit (clés S3)",
-      "perimetre": "API Tasks",
-      "valeur": "non lu (exige clés S3)",
+      "nature": "Limite de tâches par utilisateur",
+      "perimetre": "Tasks API (clés S3)",
+      "valeur": "non chiffrée dans la doc (exemple 500 modify_xml.php)",
       "fenetre": "–",
-      "effet": "–",
+      "effet": "429",
+      "verification": "officielle, lue ; non testée (clé requise)",
       "source": "https://archive.org/developers/tasks.html",
-      "date": "2026-11-13",
-      "verification": "non lue (clés requises)"
+      "date": "2026-11-14"
+    },
+    {
+      "nature": "Surcharge de la file d'écriture",
+      "perimetre": "ias3 (S3)",
+      "valeur": "non chiffrée",
+      "fenetre": "–",
+      "effet": "503 SlowDown",
+      "verification": "officielle, lue ; non testée (clé requise)",
+      "source": "https://archive.org/developers/ias3.html",
+      "date": "2026-11-14"
+    },
+    {
+      "nature": "Limite de débit relayée par un tiers",
+      "perimetre": "CDX Wayback",
+      "valeur": "60 requêtes/minute",
+      "fenetre": "moyenne sur 5 minutes, par IP",
+      "effet": "429 puis blocage croissant",
+      "verification": "tiers, non vérifiée (mainteneur du paquet wayback relayant le personnel IA)",
+      "source": "https://github.com/edgi-govdata-archiving/wayback/issues/153",
+      "date": "2023-12-16"
     }
   ],
   "en_tetes_observes": [],
-  "blocages": [],
-  "contact": "info@archive.org (cité par un tiers)",
-  "conclusion_quota": "Aucun quota chiffré pour advancedsearch, metadata, IIIF. Moyen partiel : API Tasks, avec clés S3 (non utilisée).",
-  "classe_quota": "aucun quota trouvé (moyen avec clé)",
+  "blocages": [
+    {
+      "hote": "iiif.archivelab.org",
+      "code": "TLS",
+      "nature": "SSLCertVerificationError : certificat non valide pour le nom d hôte (13/11 curl, 14/11 probe) ; non contourné"
+    },
+    {
+      "hote": "iiif.archive.org",
+      "code": "464",
+      "nature": "code non standard sur /robots.txt, corps vide ; sans lien avec un quota"
+    }
+  ],
+  "contact": "info@archive.org (billet officiel du 15/09/2026)",
+  "conclusion_quota": "Aucun quota chiffré publié pour advancedsearch, metadata, IIIF, Views ; consignes qualitatives (délais, 429/Retry-After). Seule valeur chiffrée : CDX Wayback 60 req/min sur 5 min, relayée par un tiers. Aucun en-tête de limite observé ; iiif.archivelab.org en erreur TLS.",
+  "classe_quota": "aucun quota trouvé",
   "confiance": "moyenne",
-  "notes": "iiif.archivelab.org : échec TLS, non résolu. terms : page vide.",
+  "notes": "Passe 1 par curl (13/11) conservée ; passe 2 par probe.py. Tasks API et Changes API exigent des clés S3 : non testées.",
   "classeur_id": "hors 84 (ajouté)",
   "type": "Institution",
-  "sources": [],
-  "web": [],
-  "donnees_a_revalider": true
+  "sources": [
+    {
+      "url": "https://archive.org/developers/bots.html",
+      "date": "2026-11-14",
+      "etiquette": "officielle",
+      "preuve": "institutions/internet-archive/sources/a1/SHA256SUMS"
+    },
+    {
+      "url": "https://archive.org/developers/tasks.html",
+      "date": "2026-11-14",
+      "etiquette": "officielle",
+      "preuve": "institutions/internet-archive/sources/a2/SHA256SUMS"
+    },
+    {
+      "url": "https://archive.org/about/terms.php",
+      "date": "2026-11-14",
+      "etiquette": "officielle (via Wayback)",
+      "preuve": "institutions/internet-archive/sources/wayback/terms.md"
+    },
+    {
+      "url": "https://blog.archive.org/2026/09/15/an-update-on-wayback-machine-access/",
+      "date": "2026-11-14",
+      "etiquette": "officielle",
+      "preuve": "institutions/internet-archive/sources/a2/SHA256SUMS"
+    },
+    {
+      "url": "https://archive.org/robots.txt",
+      "date": "2026-11-14",
+      "etiquette": "officielle",
+      "preuve": "institutions/internet-archive/sources/robots/SHA256SUMS"
+    }
+  ],
+  "web": [
+    {
+      "categorie": "institution",
+      "url": "https://blog.archive.org/2023/05/29/let-us-serve-you-but-dont-bring-us-down/",
+      "date": "2023-05-29",
+      "etiquette": "officielle",
+      "citation": "Tens of thousands of requests per second for our public domain OCR files were launched from 64 virtual hosts on amazon’s AWS services.",
+      "preuve": "institutions/internet-archive/sources/a4/SHA256SUMS"
+    },
+    {
+      "categorie": "utilisateurs",
+      "url": "https://github.com/edgi-govdata-archiving/wayback/issues/153",
+      "date": "2023-12-16",
+      "etiquette": "tiers (relaie le personnel IA, non officiel)",
+      "citation": "60 requests/minute averaged over a 5-minute window ; after a 429 stop all new requests and wait at least 60s",
+      "preuve": "institutions/internet-archive/fiche.md"
+    },
+    {
+      "categorie": "tickets",
+      "aucun_resultat": true,
+      "requete": "github issue iiif.archive.org 429 OR \"rate limit\" Internet Archive IIIF download tool",
+      "date": "2026-11-14",
+      "etiquette": "–",
+      "citation": "aucun ticket d'outil IIIF citant des limites de iiif.archive.org ; issues de internetarchive/iiif sans 429 (résumé de moteur, non vérifié)",
+      "preuve": "institutions/internet-archive/fiche.md"
+    },
+    {
+      "categorie": "presentations",
+      "url": "https://blog.archive.org/2026/09/15/an-update-on-wayback-machine-access/",
+      "date": "2026-09-15",
+      "etiquette": "officielle",
+      "citation": "has been hit by waves of high-volume automated traffic, and we've put protections in place to keep the service running",
+      "preuve": "institutions/internet-archive/sources/a2/SHA256SUMS"
+    }
+  ],
+  "donnees_a_revalider": false,
+  "a_verifier_manuellement": [
+    {
+      "url": "https://iiif.archivelab.org/iiif/mma_irises_436528/info.json",
+      "pourquoi": "erreur TLS : certificat ne correspond pas au nom d'hôte (service legacy en cours d'arrêt selon le billet 2023)",
+      "a_chercher": "vérifier dans un navigateur si l'hôte répond encore ou redirige vers iiif.archive.org"
+    },
+    {
+      "url": "https://archive.org/services/tasks.php?rate_limits=1&cmd=modify_xml.php",
+      "pourquoi": "exige des clés S3 d'un compte ; aucune clé utilisée",
+      "a_chercher": "seuil de tâches par type et en-têtes de limite avec un compte"
+    },
+    {
+      "url": "https://techdirt.com/2026/02/17/preserving-the-web-is-not-the-problem-losing-it-is",
+      "pourquoi": "403 pour l'outil de lecture (site tiers)",
+      "a_chercher": "propos de Mark Graham sur rate limiting et filtrage"
+    }
+  ],
+  "endpoints_documentes": [
+    {
+      "famille": "Advanced search",
+      "url": "https://archive.org/advancedsearch.php",
+      "statut": "teste",
+      "preuve": "institutions/internet-archive/tests/raw/p2-advancedsearch.headers.txt"
+    },
+    {
+      "famille": "Item Metadata read",
+      "url": "https://archive.org/metadata/ddd_010120427_mpeg21",
+      "statut": "teste",
+      "preuve": "institutions/internet-archive/tests/raw/p2-metadata-item.headers.txt"
+    },
+    {
+      "famille": "IIIF Presentation 3 (iiif.archive.org)",
+      "url": "https://iiif.archive.org/iiif/img-8664_202009/manifest.json",
+      "statut": "teste",
+      "preuve": "institutions/internet-archive/tests/raw/p2-iiif-manifest.headers.txt"
+    },
+    {
+      "famille": "IIIF Image 2",
+      "url": "https://iiif.archive.org/image/iiif/2/img-8664_202009%2fIMG_8664.jpg/info.json",
+      "statut": "teste",
+      "preuve": "institutions/internet-archive/tests/raw/p2-iiif-image-info.headers.txt"
+    },
+    {
+      "famille": "Views API",
+      "url": "https://be-api.us.archive.org/views/v1/short/ddd_010120427_mpeg21",
+      "statut": "teste",
+      "preuve": "institutions/internet-archive/tests/raw/p2-views-short.headers.txt"
+    },
+    {
+      "famille": "Wayback availability",
+      "url": "https://archive.org/wayback/available?url=example.com",
+      "statut": "teste",
+      "preuve": "institutions/internet-archive/tests/raw/p2-wayback-available.headers.txt"
+    },
+    {
+      "famille": "Wayback CDX",
+      "url": "https://web.archive.org/cdx/search/cdx?url=archive.org/about/&output=json&limit=2",
+      "statut": "teste",
+      "preuve": "institutions/internet-archive/tests/raw/p2-wayback-cdx.headers.txt"
+    },
+    {
+      "famille": "IIIF legacy iiif.archivelab.org",
+      "url": "https://iiif.archivelab.org/iiif/mma_irises_436528/info.json",
+      "statut": "teste",
+      "preuve": "institutions/internet-archive/tests/journal.log"
+    },
+    {
+      "famille": "Tasks API",
+      "url": "https://archive.org/services/tasks.php",
+      "statut": "non_teste",
+      "raison": "la lecture des seuils (rate_limits=1) exige des clés S3 d'un compte ; consigne : aucune clé"
+    },
+    {
+      "famille": "ias3 S3-like API",
+      "url": "https://s3.us.archive.org/",
+      "statut": "non_teste",
+      "raison": "écriture (PUT/DELETE) et clés S3 nécessaires ; GET check_limit exige une clé d'accès ; POST/PUT interdits"
+    },
+    {
+      "famille": "Changes API",
+      "url": "https://be-api.us.archive.org/changes/v1",
+      "statut": "non_teste",
+      "raison": "la doc exige des clés S3 (access et secret) pour cet appel ; aucune clé utilisée"
+    },
+    {
+      "famille": "Item Metadata write (MDAPI)",
+      "url": "https://archive.org/metadata/",
+      "statut": "non_teste",
+      "raison": "écriture par POST avec clés S3 ; POST interdit par la méthode"
+    }
+  ],
+  "endpoints_ecartes": [
+    {
+      "url": "https://archive.org/developers/",
+      "raison": "pages de documentation (Sphinx), pas des API ; lues et hachées dans sources/a1 et a2"
+    },
+    {
+      "url": "https://archive.org/services/docs/api/",
+      "raison": "copie de la doc développeurs ; lue (sources/a2) ; aucune API à tester"
+    },
+    {
+      "url": "https://archive.org/help/wayback_api.php",
+      "raison": "page de doc Wayback ; ses API (availability, CDX) sont testées séparément"
+    },
+    {
+      "url": "https://archive.org/download/ia-pex/metadata.csv",
+      "raison": "fichier de données cité dans une page de la doc (exemple de métadonnées), téléchargement de fichier d'item, pas une API ; non testé pour ne pas charger un fichier"
+    },
+    {
+      "url": "https://blog.archive.org/wp-json/wp/v2/posts/30983",
+      "raison": "lien WordPress du billet de blog (API interne du blog, non documentée comme API d'archive.org) ; aucune limite à y chercher"
+    }
+  ],
+  "hotes_robots": [
+    {
+      "hote": "archive.org",
+      "resultat": "Disallow /control/ et /report/ seulement ; pas de Crawl-delay",
+      "preuve": "institutions/internet-archive/sources/robots/SHA256SUMS"
+    },
+    {
+      "hote": "iiif.archive.org",
+      "resultat": "code 464 non standard, corps vide : traité sans règle ; pause 6 s",
+      "preuve": "institutions/internet-archive/sources/robots/FETCH.log"
+    },
+    {
+      "hote": "iiif.archivelab.org",
+      "resultat": "erreur TLS : robots.txt illisible",
+      "preuve": "institutions/internet-archive/sources/robots/FETCH.log"
+    },
+    {
+      "hote": "web.archive.org",
+      "resultat": "404 : tout autorisé",
+      "preuve": "institutions/internet-archive/sources/robots2/SHA256SUMS"
+    },
+    {
+      "hote": "be-api.us.archive.org",
+      "resultat": "404 : tout autorisé",
+      "preuve": "institutions/internet-archive/sources/robots3/SHA256SUMS"
+    },
+    {
+      "hote": "blog.archive.org",
+      "resultat": "Disallow /wp-admin/ seulement",
+      "preuve": "institutions/internet-archive/sources/robots/SHA256SUMS"
+    }
+  ]
 }

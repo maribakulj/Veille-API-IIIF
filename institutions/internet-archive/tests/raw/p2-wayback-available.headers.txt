@@ -1,0 +1,31 @@
+2026-11-14T03:06:12Z GET https://archive.org/wayback/available?url=example.com
+HTTP 200
+server: nginx/1.26.3
+date: Sat, 14 Nov 2026 03:06:12 GMT
+content-type: application/json
+content-length: 199
+connection: keep-alive
+access-control-allow-credentials: true
+access-control-allow-origin: *
+memento-location: http://web.archive.org/web/20261113195909/https://example.com/
+x-app-server: nomad-api4
+x-ts: 200
+x-tr: 518
+server-timing: TR;dur=0,Tw;dur=0,Tc;dur=1
+set-cookie: wb-api-SERVER=; Expires=Thu, 01-Jan-1970 00:00:01 GMT; path=/
+x-location: available
+x-ip: [IP retirée]
+x-rl: 0
+x-na: 0
+x-page-cache: HIT
+server-timing: HIT
+x-nid: Internet Archive
+referrer-policy: no-referrer-when-downgrade
+permissions-policy: interest-cohort=()
+x-sd: 0
+strict-transport-security: max-age=15724800
+onion-location: https://archivep75mbjunhxc6x4j5mwjmomyxb573v42baldlqu56ruil2oiad.onion/wayback/available?url=example.com
+content-security-policy: report-uri https://archive.org/services/csp-report; default-src *; img-src * data: blob:; object-src 'none'; media-src * blob:; connect-src * data:; style-src 'unsafe-inline' https://archive.org/ https://archive.org https://esm.archive.org/ https://esm.ext.archive.org/ https://offshoot.prod.archive.org/ https://av.archive.org/css/ https://av.dev.archive.org/css/ https://accounts.google.com/gsi/ https://synerg.adp.com/; script-src 'nonce-1eb78305f5b8edededd2678a5780e01e' https://archive.org/includes/ https://archive.org/includes/ https://archive.org/components/ https://archive.org/components/ https://archive.org/v/ https://archive.org/v/ https://archive.org/upload/app/ https://archive.org/offshoot_assets/ https://archive.org/offshoot_assets/ https://esm.archive.org/ https://esm.ext.archive.org/ https://polyfill.archive.org/v3/polyfill.min.js https://offshoot.prod.archive.org/ https://av.archive.org/ https://av.dev.archive.org/ https://openlibrary.org/query.json https://emularity-engine.ux-b.archive.org/ https://emularity-config.ux-b.archive.org/ https://emularity-bios.ux-b.archive.org/ https://archive.org/services/emularity/ https://archive.org/services/emularity/ 'wasm-unsafe-eval' 'sha256-CoX53XgCdkM1zegYEEpMUeYIZnv663inNm8bQv2VRbM=' https://accounts.google.com/gsi/ https://www.google.com/recaptcha/ https://www.recaptcha.net/recaptcha/ https://www.gstatic.com/recaptcha/ https://workforcenow.adp.com/ https://synerg.adp.com/ https://apollo.archive.org
+expires: Sat, 14 Nov 2026 09:06:12 GMT
+cache-control: max-age=21600
+referrer-policy: no-referrer-when-downgrade
