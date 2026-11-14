@@ -28,11 +28,16 @@ Les pages `/terms`, `/help`, `/about` et `/robots.txt` renvoient **403 CloudFron
 
 Aucun 429. Aucun en-tête `Retry-After`, `X-RateLimit-*`, `RateLimit-*`. Non testés : `/search` (interdit par `robots.txt`), `/v1/darwin` (jeton), les autres routes `cudl.link` (hôte non résolu).
 
+| 4 (14/11) | `cudl.link/v1/metadata/MS-ADD-03958` (nouvel essai) | **échec DNS** à nouveau, aucune requête HTTP partie |
+
+Robots relus le 14/11 (`sources/robots-v4`) : `cudl.lib.cam.ac.uk/robots.txt` toujours **403 CloudFront** (copie Wayback gardée), `cudl.link` DNS non résolu, `images.lib.cam.ac.uk` 404 (aucune règle). `/search` : aucune URL de requête documentée, non testé (le Disallow ne dispense plus, C12).
+
 ## Web
 
 - Profil d'API tiers (apis.io) : donne les formes `cudl.lib.cam.ac.uk/iiif/<id>` et `images.lib.cam.ac.uk/iiif/<id>.jp2/info.json`, confirmées par nos tests ; mentionne des limites sans chiffre (non vérifié).
 - **Non applicable** : les conditions de Cambridge University Press (limite de 500 PDF par heure) concernent un autre organisme ; elles ne s'appliquent pas à CUDL.
 - Presse sectorielle (GovTech, GLAM-E Lab, Scholarly Kitchen) sur les robots d'IA et les collections numérisées : **rien de spécifique à CUDL**.
+- Recherches du 14/11 (utilisateurs, tickets) : aucune plainte 429/403 ni ticket d'outil visant CUDL (résumés de moteur, non vérifiés).
 - Aucune plainte, aucune présentation de CUDL sur sa politique de moissonnage ou de bots trouvée.
 
 ## Conclusion

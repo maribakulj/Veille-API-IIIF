@@ -40,6 +40,20 @@
       "code": "DNS",
       "nature": "domaine des services non résolu",
       "suite": "routes non testables"
+    },
+    {
+      "date": "2026-11-14",
+      "hote": "cudl.lib.cam.ac.uk (/robots.txt)",
+      "code": "403",
+      "nature": "CloudFront « Request blocked », relu via fetch_doc (sources/robots-v4) ; les manifestes répondent 200 (journal 2026-11-14T01:03Z)",
+      "suite": "non contourné ; copie Wayback conservée"
+    },
+    {
+      "date": "2026-11-14",
+      "hote": "cudl.link",
+      "code": "DNS",
+      "nature": "domaine toujours non résolu (passe 4)",
+      "suite": "routes non testables ; listé dans a_verifier_manuellement"
     }
   ],
   "contact": "dl-feedback@lib.cam.ac.uk",
@@ -149,6 +163,24 @@
       "etiquette": "–",
       "citation": "Aucun retour d'utilisateur sur des blocages de CUDL trouvé (résumé de moteur, non vérifié).",
       "preuve": "institutions/cudl/fiche.md"
+    },
+    {
+      "categorie": "utilisateurs",
+      "aucun_resultat": true,
+      "requete": "Cambridge Digital Library cudl.lib.cam.ac.uk IIIF API rate limit OR \"too many requests\" OR blocked OR 403 download manifests",
+      "date": "2026-11-14",
+      "etiquette": "–",
+      "citation": "Aucune plainte 429/403 visant cudl.lib.cam.ac.uk ; seule la page de l'institution annonce près de 250 000 images servies en IIIF, sans mention de limites (résumé de moteur, non vérifié).",
+      "preuve": "institutions/cudl/fiche.md"
+    },
+    {
+      "categorie": "tickets",
+      "aucun_resultat": true,
+      "requete": "github issue images.lib.cam.ac.uk OR \"cudl.lib.cam.ac.uk\" IIIF downloader error",
+      "date": "2026-11-14",
+      "etiquette": "–",
+      "citation": "Aucun ticket d'outil tiers sur cudl ou images.lib.cam.ac.uk (résumé de moteur, non vérifié).",
+      "preuve": "institutions/cudl/fiche.md"
     }
   ],
   "classeur_id": "GLAM-004",
@@ -203,7 +235,7 @@
       "famille": "API cudl-services (/v1/metadata, /v1/transcription, /v1/translation, /v1/xtf/similarity, /v1/rdb/membership)",
       "url": "https://cudl.link/v1/metadata/",
       "statut": "non_teste",
-      "raison": "Domaine cudl.link non résolu par DNS lors des passes précédentes ; aucune requête HTTP n'a pu aboutir, donc aucune preuve d'en-têtes."
+      "raison": "Hôte cudl.link toujours non résolu par DNS (essais 2026-11-13 passe 2, 2026-11-14 passe 4 : gaierror, nslookup sans réponse) : aucune requête HTTP n'a pu partir, donc aucune preuve d'en-têtes ; journal tests/journal.log."
     },
     {
       "famille": "API cudl-services /v1/darwin (jeton)",
@@ -215,7 +247,7 @@
       "famille": "Recherche /search",
       "url": "https://cudl.lib.cam.ac.uk/search",
       "statut": "non_teste",
-      "raison": "Interdite aux robots par le robots.txt (Disallow: /search) : aucune requête envoyée."
+      "raison": "La doc lue ne décrit aucune URL de requête de recherche ; l'adresse /search n'est connue que par le Disallow du robots.txt. Deviner des paramètres de requête est interdit par la méthode ; non testé faute d'URL documentée (le Disallow n'est plus le motif, cf. C12)."
     }
   ],
   "hotes_robots": [
@@ -235,9 +267,5 @@
       "preuve": "institutions/cudl/sources/robots-v4/FETCH.log"
     }
   ],
-  "rattrapage_a_faire": [
-    "https://cudl.link/robots.txt : lire le robots.txt (hôte cité par la config cudl-passe2-services.json ; DNS non résolu aux passes précédentes, à revérifier) avec scripts/fetch_doc.sh, puis ajouter l'entrée hotes_robots.",
-    "https://images.lib.cam.ac.uk/robots.txt : jamais lu ; le lire avec scripts/fetch_doc.sh puis ajouter l'entrée hotes_robots.",
-    "https://cudl.lib.cam.ac.uk/robots.txt : seule une copie Wayback existe (live 403) ; relire en direct si l'accès est rétabli."
-  ]
+  "rattrapage_a_faire": []
 }

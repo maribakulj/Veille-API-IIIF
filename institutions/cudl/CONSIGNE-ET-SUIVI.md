@@ -23,9 +23,9 @@
 ### c) Configuration écrite AVANT les tests
 > `config/<nom>.json` pilote `scripts/probe.py`, committée avant le lancement. Un endpoint absent de la doc mais non interdit se teste avec un script poli (identifiants issus de pages publiques ou d'exemples de la doc, pas de devinette).
 
-- [ ] **Pas fait**
-  - **Justification** : DÉCOCHÉE le 2026-11-14 (verrou renforcé) : hôte cudl.link contacté (config cudl-passe2-services.json) sans entrée hotes_robots; hôte cudl.link contacté (config cudl-passe2-services.json) sans entrée hotes_robots; hôte images.lib.cam.ac.uk contacté (config cudl-passe3-images.json) sans entrée hotes_robo | ancienne justification : Trois configurations committées avant chaque lancement : passe 1 (manifeste), passe 2 (services cudl.link), passe 3 (images du manifeste). La passe 1 lit robots.txt depuis la copie Wayback (le serveur
-  - **Preuves** : 
+- [x] **Fait**
+  - **Justification** : Quatre configurations écrites et committées avant lancement (passes 1 à 4, robots_disallow_autorise_par_marcel où utile), pause 6 s, ≤ 15 requêtes par passe ; robots.txt des 3 hôtes (cudl.lib, images, cudl.link) relus ou DNS constaté, entrées hotes_robots.
+  - **Preuves** : `institutions/cudl/config/cudl-passe1.json`, `institutions/cudl/config/cudl-passe2-services.json`, `institutions/cudl/config/cudl-passe3-images.json`, `institutions/cudl/config/cudl-passe4-services-retest.json`, `institutions/cudl/sources/robots-v4/FETCH.log`
 
 ### d) Quota cherché dans la doc
 > Pour chaque page lue : endpoint de statut, en-têtes de limite documentés, clé ou compte donnant un quota, contact pour un volume plus élevé. Chaque réponse cite sa source.
@@ -37,9 +37,9 @@
 ### e) Test systématique de chaque endpoint
 > Chaque endpoint documenté est testé (budget 15 requêtes par passe, pause ≥ 6 s, GET/HEAD, UA du projet). Redirections du même hôte suivies. Un 403 arrête son hôte, un 429 arrête l'institution. Seules les interdictions écrites dans la doc dispensent de tester.
 
-- [ ] **Pas fait**
-  - **Justification** : DÉCOCHÉE le 2026-11-14 (verrou renforcé) : 3 élément(s) de rattrapage_a_faire non traités | ancienne justification : Tous les endpoints testables sont testés (passes 1 à 3) : manifeste 200, trois requêtes d'images 200, aucun en-tête de limite ni 429. Renoncements justifiés : /search interdit par robots.txt ; cudl.li
-  - **Preuves** : 
+- [x] **Fait**
+  - **Justification** : Manifestes 200 (3), images 200 (3), cudl.link non résolu en DNS (3 essais, passes 2 et 4, aucune requête HTTP), /search sans URL documentée, /v1/darwin à jeton : non testés avec raison ; aucun en-tête de limite ni 429 ; 403 CloudFront sur les pages seulement, non contourné.
+  - **Preuves** : `institutions/cudl/tests/journal.log`, `institutions/cudl/tests/raw/manifeste-MS-ADD-03958.headers.txt`, `institutions/cudl/tests/raw/image-info-json.headers.txt`, `institutions/cudl/data.json`
 
 ### f) Ce que disent les gens sur le web
 > Plaintes, discussions, présentations de l'institution, politique envers les API et les bots, blogs, GitHub, forums, listes de diffusion. Sources étiquetées (officielle / institution / utilisateur / tiers), lues, citées.
@@ -60,7 +60,7 @@
 
 <!-- AUTO:DEBUT -->
 ## Contrôles automatiques (calculés depuis `tests/journal.log`)
-- Requêtes enregistrées : **11** (sessions de sonde : 4, maximum par session : 4)
+- Requêtes enregistrées : **12** (sessions de sonde : 5, maximum par session : 4)
 - Plus courte pause vers un même hôte : **6 s** (règle : ≥ 6 s)
 - Méthodes utilisées : GET (règle : GET/HEAD seulement)
 - Anomalies : aucune
