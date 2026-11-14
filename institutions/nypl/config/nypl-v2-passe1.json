@@ -1,0 +1,15 @@
+{
+  "slug": "nypl",
+  "min_delay_s": 6,
+  "max_requests": 15,
+  "follow_redirects": 1,
+  "robots_disallow_autorise_par_marcel": true,
+  "note": "Passe v2-1 : API Repo v2 sans jeton (exemples de https://api.repo.nypl.org/ : items/total, items/search?q=cats), serveur d'images iiif.nypl.org (racine), manifestes api-collections dont les identifiants viennent du journal de la passe de 2026-11-13. Corps enregistres pour extraire un identifiant d'image. www.nypl.org et digitalcollections.nypl.org : defi Incapsula, non contactes.",
+  "endpoints": [
+    {"id": "v2-repo-total-sans-jeton", "method": "GET", "url": "https://api.repo.nypl.org/api/v2/items/total"},
+    {"id": "v2-repo-search-sans-jeton", "method": "GET", "url": "https://api.repo.nypl.org/api/v2/items/search?q=cats&publicDomainOnly=true"},
+    {"id": "v2p1-manifeste-a", "method": "GET", "url": "https://api-collections.nypl.org/manifests/333ce2c0-3144-0132-b540-3c075448cc4b", "save_body": 200000},
+    {"id": "v2p1-manifeste-b", "method": "GET", "url": "https://api-collections.nypl.org/manifests/999d3890-b7bf-0133-81d7-3c07547a230f", "save_body": 200000},
+    {"id": "v2p1-iiif-racine", "method": "GET", "url": "https://iiif.nypl.org/"}
+  ]
+}

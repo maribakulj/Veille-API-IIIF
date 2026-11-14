@@ -1,0 +1,456 @@
+GitHub - NYPL/digital-collections: Repo for NYPL's Digital Collections · GitHub 
+ Skip to content 
+ Navigation Menu
+ Sign in 
+ Products Platform GitHub Repository hosting, code review, and collaboration 
+ Copilot AI coding agent for tasks, projects, and automated work 
+ Build & Ship Actions CI/CD and automation 
+ Code Quality Quality analysis, fixes, and enforcement 
+ Codespaces Cloud development environments 
+ Secure Code Security Vulnerability detection and remediation 
+ Secret Protection Secret scanning and leak prevention 
+ All Features 
+ Developers Learn Documentation 
+ Training 
+ Certifications 
+ Build Build with Copilot 
+ Customize Copilot 
+ Integrations 
+ Explore Trending repos 
+ GitHub Sponsors 
+ Developer articles 
+ Changelog Changelog Your source for the latest features, improvements, and fixes across GitHub products, all in one place. 
+ Businesses By Stage Enterprises 
+ Team 
+ Startups 
+ Nonprofits 
+ By Industry Healthcare 
+ Financial services 
+ Manufacturing 
+ Government 
+ See all industries 
+ Evaluate GitHub Why GitHub 
+ Customer Stories 
+ Business insights 
+ Trust Center 
+ Add-ons GitHub Advanced Security Enterprise-grade code security 
+ Copilot for business Enterprise-grade AI features 
+ Premium Support Enterprise-grade 24/7 support 
+ Resources Learn & Connect Documentation 
+ Resource center 
+ Blog 
+ Events & webinars 
+ Community Forum 
+ Customer Stories 
+ Integrations 
+ Support Customer support 
+ Training 
+ GitHub Status 
+ Company About 
+ Partners 
+ Changelog 
+ GitHub Universe GitHub Universe The event for developers, by developers — talks, workshops, and what’s next for GitHub. 
+ Pricing 
+ Search / 
+ Sign in 
+ Sign up Appearance settings
+ You signed in with another tab or window. Reload to refresh your session. 
+ You signed out in another tab or window. Reload to refresh your session. 
+ You switched accounts on another tab or window. Reload to refresh your session. 
+ Dismiss alert 
+ {{ message }}
+ NYPL 
+ digital-collections 
+ Repository navigation
+ Code 
+ Issues 
+ Pull requests 7  ( 7 ) 
+ Actions 
+ Projects 
+ Security and quality 
+ Insights 
+ More items 
+ digital-collections 
+ Public 
+ Notifications You must be signed in to change notification settings 
+ Fork 0  ( 0 ) 
+ Star 3  ( 3 ) You must be signed in to star a repository 
+ About 
+ Repo for NYPL's Digital Collections
+ digital-collections.vercel.app 
+ Resources 
+ Readme 
+ Activity 
+ Custom properties 
+ Stars 
+ 3 stars 
+ Watchers 
+ 16 watching 
+ Forks 
+ 0 forks 
+ Report repository 
+ qa 
+ Branches Tags 
+ Go to file 
+ Code Open more actions menu 
+ Latest commit
+ History
+ 3,964 Commits 
+ 3,964 Commits 
+ Folders and files
+ Name Name Last commit message 
+ Last commit date 
+ .github 
+ .github 
+ .husky 
+ .husky 
+ __tests__ 
+ __tests__ 
+ app 
+ app 
+ devShims 
+ devShims 
+ locust 
+ locust 
+ playwright 
+ playwright 
+ public 
+ public 
+ .dockerignore 
+ .dockerignore 
+ .env.example 
+ .env.example 
+ .eslintrc.json 
+ .eslintrc.json 
+ .gitignore 
+ .gitignore 
+ .nvmrc 
+ .nvmrc 
+ .prettierignore 
+ .prettierignore 
+ .prettierrc.json 
+ .prettierrc.json 
+ AGENTS.md 
+ AGENTS.md 
+ CHANGELOG.md 
+ CHANGELOG.md 
+ Dockerfile 
+ Dockerfile 
+ ENVIRONMENTVARS.md 
+ ENVIRONMENTVARS.md 
+ README.md 
+ README.md 
+ appConfig.ts 
+ appConfig.ts 
+ docker-compose.yml 
+ docker-compose.yml 
+ jest.config.ts 
+ jest.config.ts 
+ jest.setup.ts 
+ jest.setup.ts 
+ jestAPI.config.ts 
+ jestAPI.config.ts 
+ logger.js 
+ logger.js 
+ middleware.ts 
+ middleware.ts 
+ newrelic.js 
+ newrelic.js 
+ next.config.js 
+ next.config.js 
+ package-lock.json 
+ package-lock.json 
+ package.json 
+ package.json 
+ playwright.config.ts 
+ playwright.config.ts 
+ tsconfig.json 
+ tsconfig.json 
+ vercel.json 
+ vercel.json 
+ View all files 
+ Repository files navigation
+ README 
+ More items 
+ Digital Collections App
+ This is the repo for the Digital Collections app (internally referred to as "DC Facelift"), using the Reservoir design system.
+ This is a Next.js project bootstrapped with create-next-app .
+ Table of contents
+ Setup and dependencies
+ Getting started with Node 
+ Getting started with Docker 
+ Getting started with Next.js 
+ Environment variables 
+ IIIF 
+ New Relic 
+ Fonts 
+ Developing
+ Testing and test scripts 
+ Linting and formatting 
+ Logging 
+ Deploying
+ Github Actions 
+ Git workflow 
+ Versioning and naming 
+ Deployments 
+ Summary of project phases 
+ Getting started with Node
+ First, install dependencies:
+ npm install 
+ Use Node version 18 or higher. If you have nvm installed on your local machine, use the following command to use Node 18.
+ nvm use 
+ If you don't already have Node 18 installed on your machine, you can install it using:
+ nvm install 18 
+ Second, run the development server:
+ npm run dev
+ # or 
+yarn dev
+ # or 
+pnpm dev 
+ Open http://localhost:3000 with your browser to see the result.
+ You can start editing the page by modifying pages/index.tsx . The page auto-updates as you edit the file.
+ The app/api directory is mapped to /api/* . Files in this directory are treated as API routes instead of React pages.
+ Getting started with Docker
+ First, install "Docker" on your local machine.
+ After installing docker, cd into the app directory and run the following commands:
+ docker-compose build # this will build the application and install dependencies 
+ docker-compose up # this will run the application 
+ After running the above commands, the application should run on http://localhost:3000/ 
+ To stop the application, open a new terminal window and run:
+ docker-compose down # this will stop the application 
+ Docker
+ Note : This application is using Docker only for production builds and not for local development. For local development, the npm run dev command is the way to go.
+ Building Docker Images
+ To build a Docker image for this application, run:
+ $ docker build -t digital-collections .
+ This command will build an image tagged ( -t ) as digital-collections using the current directory. Any changes to the application will require a new tagged image to be created to view those changes. Either remove the existing image (copy the image ID to use in the docker image rm command) and run the same command above:
+ $ docker images
+REPOSITORY TAG IMAGE ID CREATED SIZE
+digital-collections latest 73b5032a66f4 21 hours ago 1.14GB
+$ docker image rm 73b5032a66f4
+$ docker build -t digital-collections .
+ Or, create a new image:
+ $ docker build -t digital-collections-2 .
+ This will be used to build and deploy images to Docker Hub in the future.
+ Running a Docker Image
+ docker run
+ If you are using the docker CLI tool, use the following command to run an existing image in a container called mycontainer locally:
+ $ docker run -d --name mycontainer -p 3000:3000 --env-file .env digital-collections
+ This will run an existing Docker image, such as the image built from the previous step, in the background. If you want to see the latest logs from the container, run docker logs mycontainer . If you want to see the full set of logs as the Docker image is being built and run, remove the detached -d flag. The --env-file flag configures the docker container to use the local .env file where your secret credentials to run the app should be located. This file is not used when building the image, only when running the container.
+ To stop a Docker container, run:
+ $ docker stop mycontainer
+ docker-compose
+ The application can also be used with the docker-compose CLI tool. This command will read the local docker-compose.yml file and build the container using the local Dockerfile file. This is similar to running both docker build ... and docker run ... except it's all encapsulated in one command. docker-compose is typically used to orchestrate multiple containers running together. The Digital Collections App only needs one container for Next.js but the command is still useful since you only need to remember one command.
+ To build and run the application, run:
+ $ docker-compose up
+ To stop and remove the container run:
+ $ docker-compose down
+ If any changes are made to the application, the image needs to be built again. Stop the container and then run the following command:
+ $ docker-compose up --build
+ If you want to stop a container but not remove it, run:
+ $ docker-compose stop
+ and the following to restart the stopped container:
+ $ docker-compose start
+ Getting started with Next.js
+ Next.js is a frontend Javascript framework with server-side rendering.
+ Structure and routing
+ This is a Next.js 14 app that uses the App Router. This is a basic example project using that structure:
+ project/
+│
+├── app/
+│ ├── page.tsx
+│ ├── about/
+│ │ └── page.tsx
+│ └── posts/
+│ ├── page.tsx
+│ └── [id]
+│ └── page.tsx
+│
+└── components/
+ ├── header.tsx
+ └── footer.tsx
+ Folders define routes, and paths of nested folders should end in a single "leaf": a page.tsx file. Dynamic routes are wrapped in brackets. For example, the route app/blog/[slug]/page.js would map to url /blog/c where the slug is c .
+ Learn more
+ To learn more about Next.js, take a look at the following resources:
+ Next.js Documentation - learn about Next.js features and API.
+ Learn Next.js - an interactive Next.js tutorial.
+ You can also check out the Next.js GitHub repository .
+ Environment variables
+ Use .env.local for local development.
+ Local development
+ All variables should be declared in .env.local for local development. For local development, we don't have to worry about server and client environment variables and where they come from.
+ Serverside environment variables
+ If a variable is required ONLY on the SERVER side (ie. in an API endpoint), then the variable can be declared in the AWS Task Definition.
+ SERVER side methods in Next.js read environments at RUN TIME, which means they have access to environment variables on the server - these can be found by running env in the bash terminal or referenced within the app as process.env.ENV . These variables can/should be managed in qa and production environments by updating the AWS task definition and/or Terraform templates.
+ SERVER side references of environment variables can use process.env.ENV 
+ Clientside environment variables
+ If a variable is required ONLY on the CLIENT, the environment variable needs to be declared in appConfig.ts .
+ CLIENT side methods in Next.js only have access to environment variables that are declared at BUILD TIME, which means they DO NOT have access to environment variables on the server and thus do not have access to process.env.ENV . These variables should be managed in qa and production environments by either hard coding them in appConfig.ts AND/OR declaring them in the Dockerfile.
+ Currently, the only CLIENT side environment variable that we use is APP_ENV . APP_ENV drives the logic to choose between several env variables that are hard coded in appConfig.ts .
+ Example:
+ const appConfig = {
+ environment: process.env.APP_ENV || "development",
+};
+ In the future we may want to create a /config endpoint to pass environment variables from SERVER to CLIENT.
+ IIIF
+ For this application, we use IIIF as our image server.
+ We have a local instance of IIIF served via Cantaloupe . We will use the IIIF Image API to access images with our Cantaloupe server. We currently support v2.0 and have plans to upgrade our Cantaloupe server to support v 3.0 .
+ New Relic
+ If New Relic needs to run locally, run npm run dev:newrelic . You must have NEW_RELIC_LICENSE_KEY and NEW_RELIC_APP_NAME declared in .env.local in order for this to run successfully.
+ Fonts
+ This project uses next/font to automatically optimize and load Inter, a custom Google Font.
+ Testing
+ The Digital Collections app runs unit tests with Jest and React Testing Library.
+ We have two groups of tests: client side components/pages have unit tests in the jsdom environment, and the functional tests for API endpoints are in the node environment. This is due to the structure of the App Router in Next.
+ To run all tests once:
+ $ npm test:all 
+ To run all jsdom tests once:
+ $ npm test 
+ To run tests on watch mode:
+ $ npm run test:watch 
+ To run all node (API endpoints) tests once:
+ $ npm test:API 
+ If you want to run tests on only one specific file, run:
+ $ npm test -- src/[path/to/file] 
+ Test scripts
+ To run the homepage swimlane image loading test script against the qa environment, run
+ npm run homepageImageLoadingTestQa
+ (requires accessination with nypl-dams-dev)
+ To run the same test script against the production environment, run
+ npm run homepageImageLoadingTestProd
+ The test waits for the 24 swim lane images to load, including the 12 that load after scrolling, and has succeeded if it does not time out. It simulates a single user loading the homepage one time.
+ Playwright test automation
+ Install Playwright
+ npm init playwright@latest
+ Run Playwright tests
+ npm run playwright or npx playwright test
+ HTML Test reports
+ npx playwright show-report
+ Run tests in UI mode
+ npx playwright test --ui
+ Run tests in headed Chrome browser
+ npx playwright test --project=chromium --headed
+ Run a single test file
+ npx playwright test **example.spec.ts** --project=chromium
+ Run a specific test function
+ npx playwright test -g **"has title"** --project=chromium
+ Playwright Environment for Local Integration Tests
+ Playwright's feedback-form integration tests, for example, run against a dedicated DEV Google Sheet to prevent test data from polluting the Production feedback data.
+ Quick setup:
+ Open your root .env.local file
+ Ensure your SPREADSHEET_ID points to the DEV spreadsheet. Do not use the Production sheet ID.
+ Note: If you run Playwright feedback tests locally while pointing to the Production sheet ID, the assertIsDevSpreadsheet guardrail will automatically abort the test run to prevent accidental writes or deletions in Prod. 
+ Linting and formatting
+ The Digital Collections app will use eslint and prettier to lint and then format code on git commit .
+You can lint your code independently of this by running:
+ $ npm run lint 
+ Logging
+ Where do I find logs?
+ Serverside logs for this project's qa and production branches can be found in AWS Cloudwatch under the nypl-dams-dev and nypl-dams-prod accounts.
+ Clientside errors can be found in New Relic under Facelift production or Facelift QA > Browser > Errors .
+ Clientside logs (not necessarily errors) can be found under Facelift production or Facelift QA > Browser > Logs .
+ Serverside logs also appear in New Relic under APM Logs and general Logs (query "facelift").
+ For Vercel deployments, logging will appear in the console.
+ How do I add logs?
+ We structure our logs according to these NYPL standards . See logger.js for the formatting and storage of logs.
+ You SHOULD NOT use console.log if you want to add a permanent log, and make sure to clean up your debugging console.log s, because they will clutter Cloudwatch.
+ On the server side, you SHOULD use logger.[some NYPL log level](message: string) .
+ On the client side, we already use an error boundary ( error.tsx ) to handle uncaught exceptions, which sends errors to New Relic like this:
+ useEffect(() => {
+ if ((window as any).newrelic) {
+ (window as any).newrelic.noticeError(error);
+ }
+ }, [error]);
+ If you want to add other client side error logs , you SHOULD use newrelic.noticeError(message: string) as above.
+ If you want to add a client side log (that's not necessarily an error), you SHOULD use newrelic.log(message: string, {level: 'debug|error|info|trace|warn'}) , for example:
+ useEffect(() => {
+ if ((window as any).newrelic) {
+ (window as any).newrelic.log("Test log at info level", {
+ level: "info",
+ });
+ }
+ }, []);
+ New Relic logs need to be in a useEffect because we have to check that New Relic is enabled in the window.
+ Github Actions
+ All pushes to this repo will be checked with npm test and npm lint .
+QA deployments are automatically triggered by pushing changes to the qa branch. qa is deployed to AWS via Github Actions.
+ When releases are published via GitHub releases, a Github action is triggered to deploy the released code to production. (Our Github releases are based off the qa branch by default. You do not have to interact with a production or main branch when deploying code to production.)
+ Git workflow
+ Feature branches are cut from qa using
+ git checkout -b feature/DR-123/feature-name origin/qa .
+ Add your changes to the CHANGELOG.md file under ## [Unreleased] . See Keep a Changelog for formatting docs.
+ Create a pull request of the feature branch into qa .
+ After a feature branch has approved accessibility review and VQA, merge feature branch into qa for testing. Merging can be done manually or with a pull request. Pushing the changes to the remote branch will automatically trigger a deployment to the qa environment.
+ For deploying code on qa to production, see the "Deployments" section below.
+ Release naming strategy
+ This repo uses Semantic Versioning .
+ Versioning system
+ MAJOR: all phases are complete
+MINOR: phase, set of features required to meet the MVP of a phase as defined in the Product Brief or TAD.
+PATCH: feature or hotfix that supports a component or section of the MVP of a phase
+ Format: MAJOR.MINOR.PATCH
+ Deployments
+ PR previews are deployed to Vercel.
+ QA deployments are automatically triggered by pushing changes to the qa branch. qa is deployed to AWS via Github Actions .
+ Production deployments are done using Github releases, using the following process:
+ In the Github UI, navigate to the 'Releases' tab on the right
+ Click 'Draft a new release'
+ Under 'Choose a tag', type in a new tag in the format v${version-num} and create it.
+ The version-num should be a version bump of the previous release tag, following semantic versioning
+ Make sure the 'Previous tag' is set to the tag of the prior release
+ Hit 'Generate release notes' to populate the release description
+ Name the new release Release ${version-num} 
+ Finally, hit publish release and observe the deployment in github actions
+ Summary of project phases
+ 1. Homepage (complete)
+ TAD 
+ Designs 
+ 2. Top level category pages (complete)
+ These page types are:
+ All divisions 
+ All collections 
+ Swimlane landing pages 
+ 3. Search-based pages (complete)
+ Search landing
+ Basic with no search keywords (This view is also used as the “All Items” page in site navigation)
+ With keyword 
+ With suggested collections 
+ No results 
+ Collection landing page 
+ 4. Item page
+ 4a. Video and audio
+ 4b. Images
+ 4d. PDFs
+ 5. About Page
+ About 
+ Repo for NYPL's Digital Collections
+ digital-collections.vercel.app 
+ Resources 
+ Readme 
+ Activity 
+ Custom properties 
+ Stars 
+ 3 stars 
+ Watchers 
+ 16 watching 
+ Forks 
+ 0 forks 
+ Report repository 
+ Releases 
+ Packages 
+ Used by 
+ Contributors 
+ Languages 
+ Footer
+ © 2026 GitHub, Inc.
+ Footer navigation
+ Terms 
+ Privacy 
+ Security 
+ Status 
+ Community 
+ Docs 
+ Contact 
+ Manage cookies
+ Do not share my personal information
+ You can’t perform that action at this time.
