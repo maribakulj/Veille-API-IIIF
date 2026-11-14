@@ -57,7 +57,7 @@ Sources : https://www.e-manuscripta.ch/wiki/apiinfo ; https://www.e-manuscripta.
 Sources : https://www.cardiff.ac.uk/help/termsofuse ; https://www.cardiff.ac.uk/special-collections/explore ; https://www.cardiff.ac.uk/special-collections/about-us ; PDF IGeLU ci-dessus. Consultées 2026-11-14.
 
 ## Bilan de cette passe
-- **11 URL auparavant signalées pour lecture manuelle** désormais **lisibles au niveau documentaire** : Europeana 4, e-rara 3, e-manuscripta 2, Cardiff 3 = **12 URL** au total (incluant deux anciennes URL Europeana menant à la même page d'accueil). Elles ne constituent pas 12 contrôles HTTP autonomes.
+- **12 URL auparavant signalées pour lecture manuelle** désormais **lisibles au niveau documentaire** : Europeana 4, e-rara 3, e-manuscripta 2, Cardiff 3 = **12 URL** au total (incluant deux anciennes URL Europeana menant à la même page d'accueil). Elles ne constituent pas 12 contrôles HTTP autonomes.
 - **3 URL robots.txt / endpoints et le PDF restant** ne sont pas clôturés, ainsi que tous les autres dossiers non repris dans cette note.
 - Les restrictions d'accès et les étapes a–g du dépôt initial n'ont pas été réécrites ; cet audit doit être rapproché des fichiers de preuve et du script de génération Excel.
 
