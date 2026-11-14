@@ -1,0 +1,15 @@
+{
+  "slug": "leiden-university-libraries",
+  "min_delay_s": 10,
+  "max_requests": 15,
+  "follow_redirects": 1,
+  "note": "Passe 1 : manifeste IIIF d'un item dont l'identifiant (item:1520785, BPL/VGG F 3A) est publié par la page Biblissima (tiers). Pause 10 s = Crawl-delay du robots.txt de digitalcollections.universiteitleiden.nl. Les URL d'images seront lues dans le manifeste, pas devinées.",
+  "endpoints": [
+    {
+      "id": "manifeste-item-1520785",
+      "method": "GET",
+      "url": "https://digitalcollections.universiteitleiden.nl/iiif_manifest/item:1520785/manifest",
+      "save_body": 3000000
+    }
+  ]
+}
