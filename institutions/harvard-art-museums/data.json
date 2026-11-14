@@ -4,10 +4,261 @@
   "pays": "États-Unis",
   "classeur_id": "GLAM-034",
   "type": "Institution",
-  "statut_audit": "à faire",
-  "limites_documentees": [],
+  "statut_audit": "audit v2 complet a à f (rejeu v3, 2026-11-14)",
+  "limites_documentees": [
+    {
+      "nature": "Limite quotidienne recommandée",
+      "perimetre": "API de données api.harvardartmuseums.org (par clé)",
+      "valeur": "2 500 appels par jour",
+      "fenetre": "24 h",
+      "effet": "« We reserve the right to block or cancel your access to the API service without prior notice. »",
+      "verification": "officielle, lue ; non vérifiée (aucune clé utilisée, aucun dépassement provoqué)",
+      "source": "https://github.com/harvardartmuseums/api-docs",
+      "date": "2026-11-14"
+    },
+    {
+      "nature": "Clé API obligatoire",
+      "perimetre": "API de données",
+      "valeur": "apikey requis ; 401 Unauthorized si absente ou invalide",
+      "fenetre": "-",
+      "effet": "401",
+      "verification": "officielle ; 401 observé sans clé (tests/raw/api-object-sans-cle.headers.txt)",
+      "source": "https://github.com/harvardartmuseums/api-docs",
+      "date": "2026-11-14"
+    },
+    {
+      "nature": "Aucune limite documentée",
+      "perimetre": "IIIF Presentation 2.1 et Image 2.1",
+      "valeur": "aucune ; sans clé",
+      "fenetre": "-",
+      "effet": "-",
+      "verification": "officielle : « The IIIF image and presentation services are separate from our main data API. They do not require an access key. »",
+      "source": "https://github.com/harvardartmuseums/api-docs/blob/master/sections/iiif.md",
+      "date": "2026-11-14"
+    },
+    {
+      "nature": "Conditions d'usage",
+      "perimetre": "API",
+      "valeur": "non commercial ; cache max 2 semaines ; blocage possible sans préavis",
+      "fenetre": "-",
+      "effet": "accès coupé",
+      "verification": "officielle, lue",
+      "source": "https://github.com/harvardartmuseums/api-docs",
+      "date": "2026-11-14"
+    }
+  ],
   "en_tetes_observes": [],
   "blocages": [],
-  "sources": [],
-  "web": []
+  "sources": [
+    {
+      "url": "https://harvardartmuseums.org/collections/api",
+      "date": "2026-11-14",
+      "etiquette": "officielle",
+      "preuve": "institutions/harvard-art-museums/sources/a1/SHA256SUMS"
+    },
+    {
+      "url": "https://harvardartmuseums.org/terms-of-use",
+      "date": "2026-11-14",
+      "etiquette": "officielle",
+      "preuve": "institutions/harvard-art-museums/sources/a2/SHA256SUMS"
+    },
+    {
+      "url": "https://harvardartmuseums.org/licensing",
+      "date": "2026-11-14",
+      "etiquette": "officielle",
+      "preuve": "institutions/harvard-art-museums/sources/a2/SHA256SUMS"
+    },
+    {
+      "url": "https://harvardartmuseums.org/faq",
+      "date": "2026-11-14",
+      "etiquette": "officielle",
+      "preuve": "institutions/harvard-art-museums/sources/a2/SHA256SUMS"
+    },
+    {
+      "url": "https://harvardartmuseums.org/about/staff-and-contact",
+      "date": "2026-11-14",
+      "etiquette": "officielle",
+      "preuve": "institutions/harvard-art-museums/sources/a2/SHA256SUMS"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/harvardartmuseums/api-docs/master/README.md",
+      "date": "2026-11-14",
+      "etiquette": "officielle",
+      "preuve": "institutions/harvard-art-museums/sources/a3/SHA256SUMS"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/harvardartmuseums/api-docs/master/sections/iiif.md",
+      "date": "2026-11-14",
+      "etiquette": "officielle",
+      "preuve": "institutions/harvard-art-museums/sources/a3/SHA256SUMS"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/harvardartmuseums/api-docs/master/sections/image.md",
+      "date": "2026-11-14",
+      "etiquette": "officielle",
+      "preuve": "institutions/harvard-art-museums/sources/a3/SHA256SUMS"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/harvardartmuseums/api-docs/master/sections/object.md",
+      "date": "2026-11-14",
+      "etiquette": "officielle",
+      "preuve": "institutions/harvard-art-museums/sources/a3/SHA256SUMS"
+    },
+    {
+      "url": "https://harvardartmuseums.org/privacy-statement",
+      "date": "2026-11-14",
+      "etiquette": "officielle",
+      "preuve": "institutions/harvard-art-museums/sources/a3/SHA256SUMS"
+    }
+  ],
+  "web": [
+    {
+      "categorie": "institution",
+      "url": "https://github.com/harvardartmuseums/api-docs",
+      "date": "2026-11-14",
+      "etiquette": "officielle (GitHub de l'institution)",
+      "citation": "« Respect other users of the API by limiting the number of API calls to 2500 per day. » ; « We reserve the right to block or cancel your access to the API service without prior notice. »",
+      "preuve": "institutions/harvard-art-museums/sources/a3/SHA256SUMS"
+    },
+    {
+      "categorie": "utilisateurs",
+      "url": "https://github.com/harvardartmuseums/api-docs/issues/29",
+      "date": "2026-04-28 -> 2026-04-29",
+      "etiquette": "utilisateur (issue publique, lu en original)",
+      "citation": "« HTTP 429 from ids.lib.harvard.edu - Tokyo AWS IP blocked at CDN level » ; réponse du contributeur Harvard : « We've observed this issue and heard from others around the globe who are experiencing the same problem. » ; pas de liste blanche, pas de téléchargement en masse pour l'instant.",
+      "preuve": "institutions/harvard-art-museums/fiche.md"
+    },
+    {
+      "categorie": "tickets",
+      "url": "https://github.com/harvardartmuseums/api-docs/issues",
+      "date": "2026-11-14",
+      "etiquette": "tiers/institution (liste des tickets, lue en original)",
+      "citation": "Tickets ouverts : #29 (429 ids.lib.harvard.edu), #23 « IIIF search doesn't seem to be implemented? » (2023), #7 clés « undefined » (2018) ; aucun ticket sur 2 500/jour.",
+      "preuve": "institutions/harvard-art-museums/fiche.md"
+    },
+    {
+      "categorie": "presentations",
+      "url": "https://harvardartmuseums.org/article/1035",
+      "date": "2023",
+      "etiquette": "présentation de l'institution (article « The HAM API at 10 », résumé de moteur, non vérifié : 404 en lecture directe)",
+      "citation": "Article de Jeff Steward trouvé par moteur de recherche ; non lu (404).",
+      "preuve": "institutions/harvard-art-museums/fiche.md"
+    },
+    {
+      "categorie": "presentations",
+      "url": "https://www.slideshare.net/JeffSteward1/what-iiifs-or-how-dreams-come-true-at-harvard-art-museums",
+      "date": "2018-03-21",
+      "etiquette": "présentation de l'institution (IIIF New England, résumé de moteur, non vérifié)",
+      "citation": "Titre « What IIIFs or: How Dreams Come True at Harvard Art Museums » ; contenu non lu.",
+      "preuve": "institutions/harvard-art-museums/fiche.md"
+    }
+  ],
+  "contact": "feedback API : formulaire Google lié depuis le README ; GitHub harvardartmuseums/api-docs (issues) ; am_info@harvard.edu (contact général)",
+  "conclusion_quota": "API de données : 2 500 appels par jour recommandés (« Respect other users of the API by limiting the number of API calls to 2500 per day »), clé obligatoire (401 sans clé, observé) ; IIIF Presentation et Image sans clé et sans limite documentée ; aucun en-tête de limite observé ; un tiers rapporte des 429 de ids.lib.harvard.edu bloquant une IP AWS Tokyo (issue api-docs #29, avril 2026).",
+  "classe_quota": "limite documentée recommandée (2 500/jour, API clé) + blocage CDN signalé sur l'hôte d'images",
+  "confiance": "moyenne",
+  "notes": "Chaîne d'images : nrs.harvard.edu 303 vers ids.lib.harvard.edu/mps/{id} 302 vers mps.lib.harvard.edu/assets/images/drs:{id}/info.json (200). Aucune clé API utilisée : une seule requête sans clé sur /object pour confirmer le 401. 2 500/jour est une recommandation (« Respect ... »), pas un mécanisme observé. L'article « The HAM API at 10 » (harvardartmuseums.org/article/1035) donné par le moteur répond 404 : à vérifier.",
+  "a_verifier_manuellement": [
+    {
+      "url": "https://harvardartmuseums.org/article/1035",
+      "pourquoi": "article « The HAM API at 10 » indiqué par un moteur de recherche ; 404 via fetch_doc",
+      "a_chercher": "Trouver l'URL actuelle de l'article (2023) et y lire ce qui est dit des limites, des clés et des blocages"
+    },
+    {
+      "url": "https://github.com/harvardartmuseums/api-docs/issues/29",
+      "pourquoi": "429 de ids.lib.harvard.edu rapporté par un tiers (IP AWS Tokyo) : état et suites éventuelles",
+      "a_chercher": "Vérifier si le ticket a été résolu et si Harvard publie un débit toléré pour l'hôte d'images"
+    },
+    {
+      "url": "https://docs.google.com/forms/d/1Fe1H4nOhFkrLpaeBpLAnSrIMYvcAxnYWm0IU9a6IkFA/viewform",
+      "pourquoi": "formulaire de demande de clé API : nécessite un compte et l'envoi d'un formulaire (POST), interdit à la sonde",
+      "a_chercher": "Demander une clé et tester /object avec elle (en-têtes de limite, comportement au-delà de 2 500/jour)"
+    }
+  ],
+  "endpoints_documentes": [
+    {
+      "famille": "API de données REST (api.harvardartmuseums.org/{resource})",
+      "url": "https://api.harvardartmuseums.org/object",
+      "statut": "teste",
+      "preuve": "institutions/harvard-art-museums/tests/raw/api-object-sans-cle.headers.txt"
+    },
+    {
+      "famille": "IIIF Presentation 2.1 : collection top",
+      "url": "https://iiif.harvardartmuseums.org/collections/top",
+      "statut": "teste",
+      "preuve": "institutions/harvard-art-museums/tests/raw/iiif-collection-top.headers.txt"
+    },
+    {
+      "famille": "IIIF Presentation 2.1 : manifestes object et gallery",
+      "url": "https://iiif.harvardartmuseums.org/manifests/object/299843",
+      "statut": "teste",
+      "preuve": "institutions/harvard-art-museums/tests/raw/iiif-manifeste-object.headers.txt"
+    },
+    {
+      "famille": "IIIF Image 2.1 (nrs.harvard.edu puis ids.lib puis mps.lib)",
+      "url": "https://nrs.harvard.edu/urn-3:HUAM:799974",
+      "statut": "teste",
+      "preuve": "institutions/harvard-art-museums/tests/raw/mps-info-json.headers.txt"
+    },
+    {
+      "famille": "Visionneuses Mirador 2 et 3",
+      "url": "https://iiif.harvardartmuseums.org/viewers/mirador/v3",
+      "statut": "teste",
+      "preuve": "institutions/harvard-art-museums/tests/raw/mirador-v3.headers.txt"
+    },
+    {
+      "famille": "API de données avec clé : ressources object, person, exhibition... et agrégations",
+      "url": "https://api.harvardartmuseums.org/person",
+      "statut": "non_teste",
+      "raison": "la doc impose une clé API obtenue par formulaire Google (POST) : la sonde n'utilise ni clé ni formulaire ; seul le 401 sans clé a été observé sur /object"
+    },
+    {
+      "famille": "Manifeste IIIF Mirador 2 (viewers/mirador/v2)",
+      "url": "https://iiif.harvardartmuseums.org/viewers/mirador/v2",
+      "statut": "non_teste",
+      "raison": "même service et même hôte que Mirador 3 déjà testé (200) ; doublon de page HTML statique, sans valeur pour le quota"
+    }
+  ],
+  "endpoints_ecartes": [
+    {
+      "url": "https://harvardartmuseums.org/collections/iiif",
+      "raison": "URL de doc supposée sans lien dans la doc : 404 constaté (fetch_doc) ; la doc IIIF est dans sections/iiif.md"
+    },
+    {
+      "url": "https://github.com/harvardartmuseums/iiif-manifest-server",
+      "raison": "dépôt du code du serveur de manifestes cité par la doc : code source, pas un endpoint d'API"
+    }
+  ],
+  "hotes_robots": [
+    {
+      "hote": "api.harvardartmuseums.org",
+      "resultat": "User-agent * : Disallow: / (passé outre avec accord de Marcel, C12)",
+      "preuve": "institutions/harvard-art-museums/sources/a1/SHA256SUMS"
+    },
+    {
+      "hote": "iiif.harvardartmuseums.org",
+      "resultat": "robots.txt 404 : tout autorisé",
+      "preuve": "institutions/harvard-art-museums/sources/a1/SHA256SUMS"
+    },
+    {
+      "hote": "nrs.harvard.edu",
+      "resultat": "User-agent * : Disallow: / (passé outre avec accord de Marcel, C12)",
+      "preuve": "institutions/harvard-art-museums/sources/a1/SHA256SUMS"
+    },
+    {
+      "hote": "ids.lib.harvard.edu",
+      "resultat": "robots.txt 404 (Cannot GET) : tout autorisé",
+      "preuve": "institutions/harvard-art-museums/sources/a4/SHA256SUMS"
+    },
+    {
+      "hote": "mps.lib.harvard.edu",
+      "resultat": "robots.txt : 202 sans corps (fetch_doc), 301 (sonde) : indisponible, tout autorisé",
+      "preuve": "institutions/harvard-art-museums/sources/a5/SHA256SUMS"
+    },
+    {
+      "hote": "harvardartmuseums.org",
+      "resultat": "liste de robots d'IA exclus (Disallow: /), aucun groupe pour * : site autorisé aux autres robots (hôte cité)",
+      "preuve": "institutions/harvard-art-museums/sources/a1/SHA256SUMS"
+    }
+  ]
 }

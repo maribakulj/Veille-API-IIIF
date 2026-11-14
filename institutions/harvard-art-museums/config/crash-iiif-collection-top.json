@@ -1,0 +1,8 @@
+{
+  "slug": "harvard-art-museums",
+  "endpoint": {"id": "iiif-collection-top", "url": "https://iiif.harvardartmuseums.org/collections/top", "method": "GET"},
+  "limite_documentee_req_min": null,
+  "source_limite": "aucune limite documentée pour l'IIIF (https://github.com/harvardartmuseums/api-docs/blob/master/sections/iiif.md : services IIIF « separate from our main data API. They do not require an access key ») ; les 2 500 appels/jour concernent l'API de données avec clé, non testée ; collections/top : 632 octets, 200 le 2026-11-14",
+  "duree_palier_s": 180,
+  "note": "Crash test préparé, NON lancé (C15 : à la fin, un par un). Hôte iiif.harvardartmuseums.org (Heroku), pas le CDN d'images ids.lib.harvard.edu qui a bloqué des IP (issue #29)."
+}
