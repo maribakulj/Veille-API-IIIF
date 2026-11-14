@@ -4,10 +4,169 @@
   "pays": "États-Unis",
   "classeur_id": "GLAM-061",
   "type": "Institution",
-  "statut_audit": "à faire",
-  "limites_documentees": [],
+  "statut_audit": "méthode v2 complète sauf g (configuration crash prête)",
+  "limites_documentees": [
+    {
+      "nature": "Signal de contenu robots.txt (pas un quota)",
+      "perimetre": "www.blavatnikarchive.org",
+      "valeur": "search=yes, ai-train=no, use=reference",
+      "fenetre": "–",
+      "effet": "interdiction d'entraînement d'IA",
+      "verification": "officielle, robots.txt lu",
+      "source": "https://www.blavatnikarchive.org/robots.txt",
+      "date": "2026-11-14"
+    }
+  ],
   "en_tetes_observes": [],
   "blocages": [],
-  "sources": [],
-  "web": []
+  "sources": [
+    {
+      "url": "https://www.blavatnikarchive.org/robots.txt",
+      "date": "2026-11-14",
+      "etiquette": "officielle",
+      "preuve": "institutions/blavatnik-archive/sources/doc/SHA256SUMS"
+    },
+    {
+      "url": "https://www.blavatnikarchive.org/collections",
+      "date": "2026-11-14",
+      "etiquette": "officielle",
+      "preuve": "institutions/blavatnik-archive/sources/doc/SHA256SUMS"
+    },
+    {
+      "url": "https://guides.iiif.io/guides/blavatnikarchive.org/",
+      "date": "2026-11-14",
+      "etiquette": "tiers (IIIF)",
+      "preuve": "institutions/blavatnik-archive/sources/doc/SHA256SUMS"
+    },
+    {
+      "url": "https://www.blavatnikarchive.org/more/contact",
+      "date": "2026-11-14",
+      "etiquette": "officielle",
+      "preuve": "institutions/blavatnik-archive/sources/doc2/SHA256SUMS"
+    },
+    {
+      "url": "https://www.blavatnikarchive.org/more/about",
+      "date": "2026-11-14",
+      "etiquette": "officielle",
+      "preuve": "institutions/blavatnik-archive/sources/doc2/SHA256SUMS"
+    },
+    {
+      "url": "https://iiiflb.blavatnikarchive.org/robots.txt",
+      "date": "2026-11-14",
+      "etiquette": "officielle (404)",
+      "preuve": "institutions/blavatnik-archive/sources/doc2/SHA256SUMS"
+    },
+    {
+      "url": "https://www.blavatnikarchive.org/collection/periodicals",
+      "date": "2026-11-14",
+      "etiquette": "officielle",
+      "preuve": "institutions/blavatnik-archive/sources/doc3/SHA256SUMS"
+    }
+  ],
+  "web": [
+    {
+      "categorie": "institution",
+      "aucun_resultat": true,
+      "requete": "Blavatnik Archive IIIF manifest \"blavatnikarchive.org\" rate limit OR bots OR scraping OR terms of use",
+      "date": "2026-11-14",
+      "etiquette": "–",
+      "citation": "Aucune politique d'API, de bots ou de moissonnage trouvée hors robots.txt (résumé de moteur, non vérifié).",
+      "preuve": "institutions/blavatnik-archive/fiche.md"
+    },
+    {
+      "categorie": "presentations",
+      "aucun_resultat": true,
+      "requete": "\"Blavatnik Archive\" IIIF presentation OR webinar OR blog digital collections Cantaloupe",
+      "date": "2026-11-14",
+      "etiquette": "–",
+      "citation": "Seule l'entrée du guide IIIF du consortium (lue) ; aucun billet ni présentation de l'institution sur ses API.",
+      "preuve": "institutions/blavatnik-archive/sources/doc/text/03.txt"
+    },
+    {
+      "categorie": "tickets",
+      "aucun_resultat": true,
+      "requete": "github \"iiiflb.blavatnikarchive.org\" OR \"blavatnikarchive.org/item\" issue",
+      "date": "2026-11-14",
+      "etiquette": "–",
+      "citation": "Aucun ticket d'outil mentionnant ces domaines (résumé de moteur, non vérifié).",
+      "preuve": "institutions/blavatnik-archive/fiche.md"
+    },
+    {
+      "categorie": "utilisateurs",
+      "aucun_resultat": true,
+      "requete": "\"Blavatnik Archive\" website blocked OR \"429\" OR \"too many requests\" OR \"cloudflare\" researchers download images",
+      "date": "2026-11-14",
+      "etiquette": "–",
+      "citation": "Aucune plainte de blocage ou de 429 trouvée (résumé de moteur, non vérifié).",
+      "preuve": "institutions/blavatnik-archive/fiche.md"
+    }
+  ],
+  "contact": "formulaire de contact du site (« For research, usage or other requests ») ; coordonnées affichées sur /more/contact",
+  "conclusion_quota": "Aucun quota, en-tête ni doc d'API trouvés ; trois requêtes sans en-tête de limite. robots.txt : Allow / pour * sans Crawl-delay, entraînement d'IA interdit.",
+  "classe_quota": "aucun quota trouvé",
+  "confiance": "faible",
+  "notes": "Pas de doc d'API : les endpoints IIIF Image viennent des URL publiques des pages du site ; le manifeste IIIF annoncé par l'interface n'a pas d'URL visible, donc non testé. Pas de 403/défi.",
+  "a_verifier_manuellement": [],
+  "endpoints_documentes": [
+    {
+      "famille": "IIIF Image API 3 : info.json (Cantaloupe)",
+      "url": "https://iiiflb.blavatnikarchive.org/iiif/3/baf__7808769156db1c03d38b2ff69e0d07f7a38977fb73e37cc37ede639ddc9e52ae/info.json",
+      "statut": "teste",
+      "preuve": "institutions/blavatnik-archive/tests/raw/p1-image-info.headers.txt"
+    },
+    {
+      "famille": "IIIF Image API 3 : dérivé image",
+      "url": "https://iiiflb.blavatnikarchive.org/iiif/3/baf__7808769156db1c03d38b2ff69e0d07f7a38977fb73e37cc37ede639ddc9e52ae/full/^!200,200/0/default.jpg",
+      "statut": "teste",
+      "preuve": "institutions/blavatnik-archive/tests/raw/p1-image-derive.headers.txt"
+    },
+    {
+      "famille": "Pages d'item du site (/item/{id})",
+      "url": "https://www.blavatnikarchive.org/item/24496",
+      "statut": "teste",
+      "preuve": "institutions/blavatnik-archive/tests/raw/p1-item-page.headers.txt"
+    },
+    {
+      "famille": "Manifeste IIIF annoncé par l'interface (« This record has a IIIF manifest »)",
+      "url": "https://www.blavatnikarchive.org/item/24496",
+      "statut": "non_teste",
+      "raison": "l'URL du manifeste n'apparaît dans aucune page lue ni dans la doc ; pas de devinette de chemin (règle : identifiants issus de pages publiques)",
+      "preuve": "institutions/blavatnik-archive/tests/raw/p1-item-page.body"
+    }
+  ],
+  "endpoints_ecartes": [
+    {
+      "url": "https://www.blavatnikarchive.org/collections",
+      "raison": "page HTML de liste des collections, lue comme documentation ; pas une API"
+    },
+    {
+      "url": "https://guides.iiif.io/guides/blavatnikarchive.org/",
+      "raison": "page de guide du consortium IIIF (domaine tiers), pas une API de l'institution"
+    },
+    {
+      "url": "https://iiif.io/api",
+      "raison": "spécifications IIIF du consortium, pas une API de l'institution"
+    },
+    {
+      "url": "https://guides.iiif.io/assets/site.webmanifest",
+      "raison": "fichier web app manifest du site guides.iiif.io (icônes), sans rapport avec un manifeste IIIF ni avec une API de l'institution"
+    }
+  ],
+  "hotes_robots": [
+    {
+      "hote": "www.blavatnikarchive.org",
+      "resultat": "robots.txt 200 : Allow / pour *, Content-Signal ai-train=no, robots d'IA d'entraînement en Disallow /, pas de Crawl-delay",
+      "preuve": "institutions/blavatnik-archive/sources/doc/SHA256SUMS"
+    },
+    {
+      "hote": "iiiflb.blavatnikarchive.org",
+      "resultat": "robots.txt : 404 (Cantaloupe), tout autorisé",
+      "preuve": "institutions/blavatnik-archive/sources/doc2/SHA256SUMS"
+    },
+    {
+      "hote": "guides.iiif.io",
+      "resultat": "robots.txt : 200, 43 octets (Sitemap seulement), aucune restriction",
+      "preuve": "institutions/blavatnik-archive/sources/doc/SHA256SUMS"
+    }
+  ]
 }

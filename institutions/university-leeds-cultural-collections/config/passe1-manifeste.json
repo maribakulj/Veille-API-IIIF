@@ -1,0 +1,11 @@
+{
+  "slug": "university-leeds-cultural-collections",
+  "min_delay_s": 6,
+  "max_requests": 6,
+  "follow_redirects": 1,
+  "robots_disallow_autorise_par_marcel": true,
+  "note": "Passe 1 : manifeste IIIF Presentation donne en exemple par l'atelier IMC Leeds 2025 (https://imc-leeds-2025.pages.dev/examples-of-iiif-to-explore, lu). Le site explore.library.leeds.ac.uk est en defi Cloudflare (403) et n'est pas touche. robots.txt de iiif.library.leeds.ac.uk : 404, tout autorise. Corps enregistre pour tirer l'identifiant d'image du manifeste (pas de devinette).",
+  "endpoints": [
+    {"id": "p1-manifeste-hbzcdj81", "method": "GET", "url": "https://iiif.library.leeds.ac.uk/presentation/cc/hbzcdj81", "save_body": 300000}
+  ]
+}

@@ -1,0 +1,12 @@
+## Top-level collections
+Base URL: 
+Note: this url doesn't show all BDR collections -- just the top-level collections.
+## Specific-collections
+### Structure: 
+`https://repository.library.brown.edu/api/collections/[ collection-id ]`
+### Examples
+* collection includes sub-collection folders: 
+* collection includes items: 
+* subquery of items: https://repository.library.brown.edu/api/collections/403/?q=greek
+* Note: collection-api calls that return items return urls to both the web-view and the item-api view.
+---

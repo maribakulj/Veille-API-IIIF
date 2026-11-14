@@ -1,0 +1,15 @@
+# BDR-API Documentation
+The Brown Digital Repository is pleased to offer a set of Application Programming Interfaces (APIs) to access content within the BDR.
+For an introduction to APIs we recommend the introduction provided by the [Digital Public Library of America](https://pro.dp.la/developers/api-basics).
+These APIs all return JSON-formatted data about public collections and items in the BDR. 
+In the case of an exception during the request processing, a "500 / Internal Server Error" response will be returned to the client. 
+All APIs accept a callback parameter for ajax requests.
+### Important notice about Cloudflare Bot Protection
+In Spring 2025 we added features from Cloudflare to protect against bot traffic. This may affect users of the API, particularly if you are requesting a large volume of items at a high rate. If you experience issues with the API that you believe are related to these changes, please reach out to us by creating an issue.
+If you're a Brown community-member, you can minimize being impacted by these changes by connecting to the Brown network via VPN.
+## Sections
+* [[Overview]]
+* [[Item-API examples]]
+* [[Collection-API examples]]
+* [[Search-API examples]]
+---

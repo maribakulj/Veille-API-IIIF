@@ -1,0 +1,387 @@
+
+<!DOCTYPE html>	
+
+<!-- paulirish.com/2008/conditional-stylesheets-vs-css-hacks-answer-neither/ -->
+<!--[if lt IE 7]> <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if IE 7]>    <html class="no-js lt-ie9 lt-ie8" lang="en"> <![endif]-->
+<!--[if IE 8]>    <html class="no-js lt-ie9" lang="en"> <![endif]-->
+<!--[if gt IE 8]><!--> <html lang="en"> <!--<![endif]-->
+
+<head>
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-QGQJ2H3B4G"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-QGQJ2H3B4G');
+</script>
+
+	<meta charset="utf-8" />
+	
+	<!-- Set the viewport width to device width for mobile -->
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	
+	<meta name="description" content="Brown University Library website." />
+	
+	<title>Off Campus Access Service @ Brown University Library</title>
+  
+	<!-- Included CSS Files -->
+	<link rel="stylesheet" href="https://library.brown.edu/foundation/stylesheets/globals.css">
+	<link rel="stylesheet" href="https://library.brown.edu/foundation/stylesheets/typography.css">
+	<link rel="stylesheet" href="https://library.brown.edu/foundation/stylesheets/grid.css">
+	<link rel="stylesheet" href="https://library.brown.edu/foundation/stylesheets/ui.css">
+	<link rel="stylesheet" href="https://library.brown.edu/foundation/stylesheets/forms.css">
+	<link rel="stylesheet" href="https://library.brown.edu/foundation/stylesheets/orbit.css">
+	<link rel="stylesheet" href="https://library.brown.edu/foundation/stylesheets/reveal.css">
+	<link rel="stylesheet" href="https://library.brown.edu/foundation/stylesheets/app.css">
+	<link rel="stylesheet" href="https://library.brown.edu/foundation/stylesheets/mobile.css">
+	<link rel="stylesheet" href="https://library.brown.edu/foundation/stylesheets/presentation.css">
+	
+	<link rel="stylesheet" href="https://library.brown.edu/foundation/stylesheets/BULadditions.css">
+	
+	<link rel="stylesheet" href="https://library.brown.edu/foundation/stylesheets/general_foundicons.css">
+	
+	<script src="https://library.brown.edu/foundation/javascripts/jquery.min.js"></script>
+	
+	<script type="text/javascript">
+		var siteroot = "http://library.brown.edu/libweb";
+	</script>
+    	
+	<script type="text/javascript" src="https://library.brown.edu/about/js/jquery.simplemodal.1.4.3.min.js"></script>
+	
+	<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA9eBPHmvwulIBaqgq--4rc2Ro2KvpbWIQ&amp;sensor=false"></script>
+	
+	<script type="text/javascript" src="https://library.brown.edu/about/js/geo_libraries.js"></script>
+	
+	<script type="text/javascript" src="https://library.brown.edu/about/js/gmap2.js"></script>
+
+</head>
+<body>
+
+    <div class="row">    
+      <div class="twelve columns">
+  
+        <div id="header" class="container">
+    
+          <div id="header_contents">
+      
+	              <div class="BUhomelink">
+                  <a href="https://www.brown.edu"><img src="https://library.brown.edu/images/spacer.gif" width="50" alt="Brown University Homepage" title="Brown University Homepage" /></a>
+              </div> <!-- end .BUhomelink -->
+              
+              <div class="BULhomelink">
+                  <a href="https://library.brown.edu/"><img src="https://library.brown.edu/images/spacer.gif" width="440" height="30" alt="Brown University Library Homepage" title="Brown University Library Homepage" /></a>
+              </div> <!-- end .BULhomelink -->
+          
+              <div class="row">    
+                  <div class=".five.columns.offset-by-six">
+                      <p class="top_header_links">
+<a href="https://lib.brown.edu/using-library/accessing-online-resources">Accessing Online Resources</a> &nbsp;&nbsp;
+&#124;&nbsp;&nbsp; <a href="https://library.brown.edu/libweb/atoz.php">Library A&ndash;Z</a>&nbsp;&nbsp;
+&#124;&nbsp;&nbsp; <a href="https://lib.brown.edu/using-library/visiting-library/locations-hours">Hours &amp; Locations</a></p>
+                  </div> <!-- end .five.columns.offset-by-six -->
+              </div> <!-- end .row -->
+      
+          </div> <!-- end #header_contents -->
+        
+        </div> <!-- end #header -->
+      
+      </div> <!-- end twelve columns -->
+    </div> <!-- end .row -->
+
+	<div class="container">
+		
+        <div class="row">
+	<div class="twelve columns">
+				
+                <div id="search_area">
+
+	 <!-- 
+
+                    <div class="search_label"><p><label for="searchForm_lookfor">Search:</label></p></div>
+            
+                      <div class="searchHomeContent">
+                        <div class="searchHomeForm">
+                          <div class="searchform">
+                      
+                              <form method="get" action="https://search.library.brown.edu/"  name="searchForm" id="searchForm" class="search">
+                      
+                                <div>
+                                    <input name="utf8" type="hidden" value="✓" />
+
+                                    <input id="searchForm_lookfor" type="text" name="q" size="60" value="Enter keywords to search library resources" onFocus="if (value =='Enter keywords to search library resources'){value =''}" onBlur="if (value ==''){value='Enter keywords to search library resources'}"  />  
+                                
+                                    <button type="submit" id="search">
+                                        <span style="font-weight : normal ; ">Search</span>
+                                    </button>                                                      
+                                </div>                           
+                               </form>      
+                          </div>
+                        </div>
+                      </div>
+                  
+                      <p class="josiah_link_line">
+                        <a href="http://josiah.brown.edu/">Classic JOSIAH (catalog)</a> <span style="font-weight:normal;color:#ad8d89;">&nbsp;&nbsp;&#124;&nbsp;&nbsp; </span> 
+                        <a href="https://login.revproxy.brown.edu/login?url=http://newfirstsearch.oclc.org/dbname=WorldCat;done=https://library.brown.edu/;FSIP">WorldCat</a>
+                      </p>
+ -->                      
+<!-- NEW ONE BELOW -->
+
+                    <div class="search_label"><p><label for="searchForm_lookfor">Search:</label></p></div>
+            
+                      <div class="searchHomeContent">
+                        <div class="searchHomeForm">
+                          <div class="searchform">
+                      
+                              <form method="get" action="https://library.brown.edu/libweb/primo/search_widget.php"  name="searchForm" id="searchForm" class="search">
+                      
+                                <div>
+                                    <input name="utf8" type="hidden" value="✓" />
+
+                                    <input id="searchForm_lookfor" type="text" name="header_q" size="60" value="Enter keywords to search library resources" onFocus="if (value =='Enter keywords to search library resources'){value =''}" onBlur="if (value ==''){value='Enter keywords to search library resources'}"  />  
+                                
+                                    <button type="submit" id="search">
+                                        <span style="font-weight : normal ; ">Search</span>
+                                    </button>  
+                                    <br />
+                                    <div style="margin-top : 6px ; ">
+                                    	<input type="radio" name="primoQueryTrigger" id="bruknowTrigger" value="primoQueryAll" style="height : 11px ; " checked /><label for="bruknowTrigger" style="color : #efcc00 ; display : inline ; font-size : 12px ;">BruKnow</label>
+                                    	<input type="radio" name="primoQueryTrigger" id="websiteTrigger" value="googleQueryWebsite" style="height : 11px ; " /><label for="websiteTrigger" style="color : #efcc00 ; display : inline ; font-size : 12px ;">Library Website</label>
+                                    </div>                                              
+                                </div>                           
+                               </form>      
+                          </div>
+                        </div>
+                      </div>
+                  
+                      <p class="josiah_link_line">
+                        <a href="https://brown.on.worldcat.org/discovery">WorldCat</a>
+                      </p>                      
+                      
+                </div> <!-- end #search_area -->
+			
+            </div> <!-- end twelve columns -->
+		</div> <!-- end .row -->
+		
+		<div class="row">
+			
+            <div class="three columns show-on-desktops">
+				
+                <div id="navbar">
+
+	<div id="quicklinksinnernav">
+                    <div id="quicklinks">
+                      <strong>Quick Links:</strong><br />
+                      <a href="https://brown.libanswers.com/" class="ql">Ask a Librarian</a><br /> 
+                      <a href="https://bruknow.library.brown.edu/" class="ql">BruKnow (Catalog)</a><br />
+                      <a href="https://brown.on.worldcat.org/discovery" class="ql">WorldCat Discovery</a><br />
+                      <a href="https://libguides.brown.edu/az/databases" class="ql">Databases A-Z</a><br /> 
+                      <a href="https://bruknow.library.brown.edu/discovery/jsearch?vid=01BU_INST:BROWN" class="ql">Journals A-Z</a><br />
+                      <a href="https://library.brown.edu/eresources/ebooks.php" class="ql">eBooks</a><br /> 
+                      <a href="https://lib.brown.edu/using-library/course-reserves" class="ql">Course Reserves </a><br/> 
+                    </div>
+                  </div>
+                  <div id="researchinnernav">
+                    <div id="researchlinks">
+                      <strong>Research:</strong><br />
+                      <a href="https://library.brown.edu/libweb/getstarted.php" class="ql">Getting Started</a><br /> 
+                      
+			<a href="https://libguides.brown.edu/" class="ql">Guides by Subject</a> / <a href="https://libguides.brown.edu/?b=t" class="ql">Course</a><br />	
+                      
+                       <a href="https://library.brown.edu/luna/" class="ql">Instructional Images</a><br />
+                      <a href="https://library.brown.edu/collections/" class="ql">Collections</a> / <a href="https://library.brown.edu/collatoz/" class="ql">A-Z</a><br />
+                      <a href="https://libguides.brown.edu/citations" class="ql">Citation Management</a><br /> 
+                      <a href="https://libguides.brown.edu/copyright-fairuse" class="ql">Copyright &amp; Fair Use</a><br />
+                      <a href="https://cds.lib.brown.edu/" class="ql">Center for Digital Scholarship</a><br /> 
+                    </div>
+                  </div>
+                  <div id="libraryservicesinnernav">
+                    <div id="libraryserviceslinks">
+                      <strong>Library Services:</strong><br />
+                      <a href="https://lib.brown.edu/using-library/borrow-request-renew" class="ql">Borrowing</a><br /> 
+                      <a href="https://library.brown.edu/forms/" class="ql">Online Forms</a><br />
+                      <a href="https://library.brown.edu/about/specialists.php?sort=selector" class="ql">Subject Experts</a><br />
+                      <a href="https://libguides.brown.edu/tutorials/Home" class="ql">Research Tutorials</a><br /> 
+                      <a href="https://library.brown.edu/libweb/google.php" class="ql">Google Scholar</a><br />
+                      <a href="https://lib.brown.edu/using-library/visiting-library" class="ql">Visiting the Library</a><br /> 
+                      <a href="https://lib.brown.edu/about" class="ql">About the Library</a><br /> 
+                    </div>
+                  </div>
+
+                </div> <!-- end #navbar -->
+                                
+            </div> <!-- end .three columns show-on-desktops -->
+			
+
+            <div class="three columns show-on-tablets">
+				
+                <div id="navbar-tablets">
+
+				                    <div id="quicklinksinnernav-tablets">
+
+                    <div id="quicklinks">
+                      <strong>Quick Links:</strong><br />
+                      <a href="https://brown.libanswers.com/" class="ql">Ask a Librarian</a><br />
+                      <a href="https://bruknow.library.brown.edu/" class="ql">BruKnow (Catalog)</a><br />
+                      <a href="https://brown.on.worldcat.org/discovery" class="ql">WorldCat Discovery</a><br />
+                      <a href="https://libguides.brown.edu/az/databases" class="ql">Databases A-Z</a><br />
+                      <a href="https://bruknow.library.brown.edu/discovery/jsearch?vid=01BU_INST:BROWN" class="ql">Journals A-Z</a><br />
+                      <a href="https://library.brown.edu/eresources/ebooks.php" class="ql">eBooks</a><br />
+                      <a href="https://lib.brown.edu/using-library/course-reserves" class="ql">Course Reserves </a><br/>
+                    </div>
+                  </div>
+                  <div id="researchinnernav">
+                    <div id="researchlinks">
+                      <strong>Research:</strong><br />
+                      <a href="https://library.brown.edu/libweb/getstarted.php" class="ql">Getting Started</a><br />
+
+                        <a href="https://libguides.brown.edu/" class="ql">Guides by Subject</a> / <a href="https://libguides.brown.edu/?b=t" class="ql">Course</a><br />
+
+                      <a href="https://library.brown.edu/luna/" class="ql">Instructional Images</a><br />
+                      <a href="https://library.brown.edu/collections/" class="ql">Collections</a> / <a href="https://library.brown.edu/collatoz/" class="ql">A-Z</a><br />
+                      <a href="https://libguides.brown.edu/citations" class="ql">Citation Management</a><br />
+                      <a href="https://libguides.brown.edu/copyright-fairuse" class="ql">Copyright &amp; Fair Use</a><br />
+                      <a href="https://cds.lib.brown.edu/" class="ql">Center for Digital Scholarship</a><br />
+                    </div>
+                  </div>
+                  <div id="libraryservicesinnernav">
+                    <div id="libraryserviceslinks">
+                      <strong>Library Services:</strong><br />
+                      <a href="https://lib.brown.edu/using-library/borrow-request-renew" class="ql">Borrowing</a><br />
+                      <a href="https://library.brown.edu/forms/" class="ql">Online Forms</a><br />
+                      <a href="https://library.brown.edu/about/specialists.php?sort=selector" class="ql">Subject Experts</a><br />
+                      <a href="https://libguides.brown.edu/tutorials/Home" class="ql">Research Tutorials</a><br />
+                      <a href="https://library.brown.edu/libweb/google.php" class="ql">Google Scholar</a><br />
+                      <a href="https://lib.brown.edu/using-library/visiting-library" class="ql">Visiting the Library</a><br />
+                      <a href="https://lib.brown.edu/about" class="ql">About the Library</a><br />
+                    </div>
+                  </div>
+                                      
+
+                </div> <!-- end #navbar -->
+				                
+			</div> <!-- end .three columns show-on-tablets -->
+
+
+          <div class="eight columns" style="float:left;">
+
+              <h3>Page not found</h3>
+                				
+<hr />
+
+<p>It looks like you're trying to find something that's not here. The search box above may help you to find what you're looking for.</p>
+
+<p>We'd also really appreciate it if you'd <a href="http://library.brown.edu/forms/feedback.php">report the error to us using this form</a>, letting us know what page you were looking for, and how you arrived at this page. Thank you.
+
+
+ 
+		</div> <!-- end eight columns -->
+    	
+    
+    	</div> <!-- end .row -->
+        
+		
+		<div class="row">
+        
+			<div class="one columns show-on-phones">
+            
+                <div id="navbar-mobile">
+                
+	                   <div id="quicklinksinnernav-mobile">
+
+                    <div id="quicklinks">
+                      <strong>Quick Links:</strong><br />
+                      <a href="https://brown.libanswers.com/" class="ql">Ask a Librarian</a><br />
+                      <a href="https://bruknow.library.brown.edu/" class="ql">BruKnow (Catalog)</a><br />
+                      <a href="https://brown.on.worldcat.org/discovery" class="ql">WorldCat Discovery</a><br />
+                      <a href="https://libguides.brown.edu/az/databases" class="ql">Databases A-Z</a><br />
+                      <a href="https://bruknow.library.brown.edu/discovery/jsearch?vid=01BU_INST:BROWN" class="ql">Journals A-Z</a><br />
+                      <a href="https://library.brown.edu/eresources/ebooks.php" class="ql">eBooks</a><br />
+                      <a href="https://lib.brown.edu/using-library/course-reserves" class="ql">Course Reserves </a><br/>
+                    </div>
+                  </div>
+                  <div id="researchinnernav">
+                    <div id="researchlinks">
+                      <strong>Research:</strong><br />
+                      <a href="https://library.brown.edu/libweb/getstarted.php" class="ql">Getting Started</a><br />
+
+                        <a href="https://libguides.brown.edu/" class="ql">Guides by Subject</a> / <a href="https://libguides.brown.edu/?b=t" class="ql">Course</a><br />
+
+                      <a href="https://library.brown.edu/luna/" class="ql">Instructional Images</a><br />
+                      <a href="https://library.brown.edu/collections/" class="ql">Collections</a> / <a href="https://library.brown.edu/collatoz/" class="ql">A-Z</a><br />
+                      <a href="https://libguides.brown.edu/citations" class="ql">Citation Management</a><br />
+                      <a href="https://libguides.brown.edu/copyright-fairuse" class="ql">Copyright &amp; Fair Use</a><br />
+                      <a href="https://cds.lib.brown.edu/" class="ql">Center for Digital Scholarship</a><br />
+                    </div>
+                  </div>
+                  <div id="libraryservicesinnernav">
+                    <div id="libraryserviceslinks">
+                      <strong>Library Services:</strong><br />
+                      <a href="https://lib.brown.edu/using-library/borrow-request-renew" class="ql">Borrowing</a><br />
+                      <a href="https://library.brown.edu/forms/" class="ql">Online Forms</a><br />
+                      <a href="https://library.brown.edu/about/specialists.php?sort=selector" class="ql">Subject Experts</a><br />
+                      <a href="https://libguides.brown.edu/tutorials/Home" class="ql">Research Tutorials</a><br />
+                      <a href="https://library.brown.edu/libweb/google.php" class="ql">Google Scholar</a><br />
+                      <a href="https://lib.brown.edu/using-library/visiting-library" class="ql">Visiting the Library</a><br />
+                      <a href="https://lib.brown.edu/about" class="ql">About the Library</a><br />
+                    </div>
+                  </div>
+                                      
+
+                  
+                </div> <!-- end #navbar-mobile -->
+                
+			</div> <!-- end one columns show-on-phones -->
+            
+		</div> <!-- end .row -->
+
+	</div> <!-- end .container -->
+
+
+    <div id="footer">
+    
+             <div id="footer_contents">
+    
+            <div class="social_media_links">
+              <a href="https://library.brown.edu/m/"><img src="https://library.brown.edu/img_2011/moBUL_icon.png" alt="moBUL - Mobile Brown University Library"></a>
+              <a href="https://library.brown.edu/about/public_feeds.php"><img src="https://library.brown.edu/img_2011/RSS_footer_icon.png" alt="Brown University Library RSS Feeds"></a>
+              <a href="https://library.brown.edu/enewsletters/"><img src="https://library.brown.edu/img_2011/enewsletter_footer_icon.png" alt="Brown University Library E-Newsletters"></a>
+              <!--
+              <a href="https://library.brown.edu/socialwall/"><img src="https://library.brown.edu/img_2011/socialwall_footer_icon.png" alt="Brown University Library Social Media Wall"></a>          
+              -->
+              <a href="https://www.facebook.com/brownuniversitylibrary"><img src="https://library.brown.edu/img_2011/Facebook_icon.png" alt="Brown University Library Facebook"></a>
+              <a href="http://twitter.com/brownlibrary"><img src="https://library.brown.edu/img_2011/twitter_icon.png" alt="Brown University Library Twitter"></a>
+              <a href="https://library.brown.edu/gateway/lrg.php?id=67&task=home"><img src="https://library.brown.edu/images/fdlp_logo_32x29.gif" alt="Federal Depository Library Program"></a>
+            </div>
+        
+            <p><a href="https://library.brown.edu/">Brown University Library</a> &nbsp;&#124;&nbsp; Providence,&nbsp;RI&nbsp;02912 &nbsp;&#124;&nbsp; (401)&nbsp;863-2165 &nbsp;&#124;&nbsp; <a href="https://library.brown.edu/about/stafflist.php">Contact</a> &nbsp;&#124;&nbsp; <a href="https://library.brown.edu/forms/comments.php">Comments</a> &nbsp;&#124;&nbsp; <a href="https://library.brown.edu/forms/feedback.php">Website&nbsp;Feedback</a> &nbsp;&#124;&nbsp; <a href="https://library.brown.edu/sitemap.php">Site&nbsp;Map</a></p>
+            
+            <p><a href="https://library.brown.edu/intranet">Library&nbsp;Intranet</a></p>
+        
+        
+        </div> <!-- end #footer_contents -->
+    
+    </div> <!-- end #footer -->
+
+
+	<script src="../foundation/javascripts/jquery.min.js"></script>
+	<script src="../foundation/javascripts/jquery.reveal.js"></script>
+	<script src="../foundation/javascripts/jquery.orbit-1.4.0.js"></script>
+	<script src="../foundation/javascripts/jquery.customforms.js"></script>
+	<script src="../foundation/javascripts/jquery.placeholder.min.js"></script>
+	<script src="../foundation/javascripts/modernizr.foundation.js"></script>
+	<script src="../foundation/javascripts/jquery.tooltips.js"></script>
+	<script src="../foundation/javascripts/app.js"></script>
+	<script src="../foundation/presentation.js"></script>
+    
+    
+    <!-- script for chat widget -->
+	<script type="text/javascript" src="http://libraryh3lp.com/js/libraryh3lp.js?multi"></script>
+
+</body>
+
+</html>
+

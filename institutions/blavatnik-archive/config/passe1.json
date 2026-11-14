@@ -1,0 +1,13 @@
+{
+  "slug": "blavatnik-archive",
+  "min_delay_s": 6,
+  "max_requests": 8,
+  "follow_redirects": 1,
+  "robots_disallow_autorise_par_marcel": true,
+  "note": "Passe 1 : page d'item publique du site (identifiant /item/24496 tire de la page de collection lue), puis IIIF Image API 3 sur iiiflb (identifiant baf__7808... tire de la meme page de collection) : info.json et un petit derive. Aucune doc d'API officielle : endpoints deduits des URL publiques de la page, sans enumeration.",
+  "endpoints": [
+    {"id": "p1-item-page", "method": "GET", "url": "https://www.blavatnikarchive.org/item/24496", "save_body": 300000},
+    {"id": "p1-image-info", "method": "GET", "url": "https://iiiflb.blavatnikarchive.org/iiif/3/baf__7808769156db1c03d38b2ff69e0d07f7a38977fb73e37cc37ede639ddc9e52ae/info.json", "save_body": 20000},
+    {"id": "p1-image-derive", "method": "GET", "url": "https://iiiflb.blavatnikarchive.org/iiif/3/baf__7808769156db1c03d38b2ff69e0d07f7a38977fb73e37cc37ede639ddc9e52ae/full/^!200,200/0/default.jpg"}
+  ]
+}

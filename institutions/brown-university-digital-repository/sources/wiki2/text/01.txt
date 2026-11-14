@@ -1,0 +1,12 @@
+The Brown Digital Repository is most known for its [website]. But it also has an [API].
+An API ("Application Programming Interface") can be thought of as a protocol, or a structured way of communicating information. If you go to the BDR to perform a search, the webapp queries the BDR-API on that search-term. The API then returns structured data to the webapp, which uses that data to display the web-page of results you see.
+The BDR API enables people to create their own web-pages or scripts that can access BDR data.
+The BDR has a page showing [a few examples] of using the API; this wiki will document more examples, and the jupyter-notebook (experimental) file will enable folk who are familiar with using notebooks to try out the API interactively.
+__JSON note...__
+All of the data returned by the APIs is in [JSON] format -- basically a series of key-value pairs. Though JSON is generally used by computers, you can see from that linked wikipedia page that it _can_ be nicely human-readable. However our API currently only returns JSON as one long string, so it's essential for your experimenting that you install a browser plug-in/extension that will automatically format the JSON so that it's comprehensible.
+Note that different JSON plug-ins have different defaults. Some might sort the JSON key-value pairs, and some may not, so your results accessing these APIs may appear a bit different -- but the essential data will be the same.
+---
+[website]: https://repository.library.brown.edu/studio/
+[API]: https://en.wikipedia.org/wiki/API
+[a few examples]: https://repository.library.brown.edu/studio/api-docs/
+[JSON]:

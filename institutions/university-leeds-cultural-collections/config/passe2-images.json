@@ -1,0 +1,14 @@
+{
+  "slug": "university-leeds-cultural-collections",
+  "min_delay_s": 6,
+  "max_requests": 8,
+  "follow_redirects": 1,
+  "robots_disallow_autorise_par_marcel": true,
+  "note": "Passe 2 : services d'image annonces par le manifeste de la passe 1 (identifiant tire du corps enregistre, tests/raw/p1-manifeste-hbzcdj81.body) : Image API 3 info.json, Image API 2 info.json, miniature et petit derive.",
+  "endpoints": [
+    {"id": "p2-image-v3-info", "method": "GET", "url": "https://iiif.library.leeds.ac.uk/image/hbzcdj81_objects_LEEUA_1999.015.119_01.tif/info.json", "save_body": 20000},
+    {"id": "p2-image-v2-info", "method": "GET", "url": "https://iiif.library.leeds.ac.uk/image/v2/hbzcdj81_objects_LEEUA_1999.015.119_01.tif/info.json", "save_body": 20000},
+    {"id": "p2-thumbs-info", "method": "GET", "url": "https://iiif.library.leeds.ac.uk/thumbs/hbzcdj81_objects_LEEUA_1999.015.119_01.tif/info.json", "save_body": 20000},
+    {"id": "p2-thumbs-derive", "method": "GET", "url": "https://iiif.library.leeds.ac.uk/thumbs/hbzcdj81_objects_LEEUA_1999.015.119_01.tif/full/200,151/0/default.jpg"}
+  ]
+}

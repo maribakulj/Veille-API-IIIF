@@ -1,0 +1,60 @@
+## Item API info
+(Be sure to read the `JSON Note` on the [[Overview]] page.)
+The item-api returns data about an item, such as primary_title and object_type.
+If the item-id is not found, or is a private object, a 403 Forbidden response will be returned.
+Structure: `https://repository.library.brown.edu/api/items/[ item-id ]/`
+* Example: 
+## Example
+This will return data like...
+```
+{
+ "pid": "bdr:80246",
+ "fed_created_dsi": "2012-07-02T08:20:56.449Z",
+ "object_created_dsi": "2012-07-02T08:20:56.449Z",
+ "fed_last_modified_dsi": "2023-02-18T22:02:41.302Z",
+ "object_last_modified_dsi": "2023-02-18T22:02:41.302Z",
+ "storage_location_ssi": "ocfl",
+ "fed_object_size_lsi": 163363692,
+ "object_size_lsi": 163363692,
+ "rel_content_models_ssim": [
+ "commonMetadata",
+ "image-compound",
+ "archiveMETS",
+ "masterImage"
+ ],
+ "rel_object_type_ssi": "image",
+ "object_type": "image",
+[snip]
+```
+This is just the first few lines of some 400+ lines of information.
+Note that many items are part of collections, another section of the response for this item-api call is...
+```
+[snip]
+"relations": {
+ "hasAnnotation": [ ],
+ "hasDerivation": [ ],
+ "hasDescription": [ ],
+ "hasTranscript": [ ],
+ "hasTranslation": [ ],
+ "hasPart": [ ],
+ "isDerivationOf": [ ],
+ "isVersionOf": [ ],
+ "isTranscriptOf": [ ],
+ "isTranslationOf": [ ],
+ "isMemberOf": [ ],
+ "isPartOf": [ ],
+ "isMemberOfCollection": [
+ {
+ "pid": "bdr:26147",
+ "id": "bdr:26147",
+ "json_uri": ["https://repository.library.brown.edu/api/collections/bdr:26147/"](https://repository.library.brown.edu/api/collections/bdr:26147/),
+ "uri": ["https://repository.library.brown.edu/studio/collections/bdr:26147/"](https://repository.library.brown.edu/studio/collections/bdr:26147/),
+ "db_id": 575,
+ "name": "Lincoln Broadsides",
+ "description": "Brown's Lincoln Broadsides collection comprises an assortment of printed materials intended for broad public distribution in a variety of formats. Within this digital collection you will find, for example: handbills (a single sheet of text intended for wide public distribution), leaftlets (a handbill folded to create multiple leaves), small pamphlets (unbound booklets, typically stapled or sewn), souvenir cards, circulars, broadsheets, brochures. These materials encompass a relatively wide range of content and often incorporate graphic images as an adjunct to printed text. They range in date from the 1840s through the 1920s, and cover both events in which Lincoln was actually involved and those that revolved around the use of his public image.",
+ "tags": [ ],
+ "thumbnail_url": ["https://repository.library.brown.edu/storage/bdr:26147/thumbnail/"](https://repository.library.brown.edu/storage/bdr:26147/thumbnail/),
+[snip]
+```
+A nice thing about the BDR-APIs is that they offer many useful links in the response -- so you're not only offered the `collection-id`, you're given a full url (via `json_uri`) to the collection-api-call for that collection. (See [[Collection API examples]].)
+---
