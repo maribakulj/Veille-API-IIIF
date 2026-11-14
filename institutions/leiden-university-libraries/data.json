@@ -117,8 +117,8 @@
       "url": "https://lab.library.universiteitleiden.nl/iiif-docs/",
       "date": "2026-11-14",
       "etiquette": "institution",
-      "citation": "IIIF Image API 2.1 et Presentation API 2.1 ; « no (complete) index of manifests » ; Presentation v3 non planifié ; aucune règle de débit citée (résumé de moteur, non vérifié)",
-      "preuve": "institutions/leiden-university-libraries/fiche.md"
+      "citation": "Doc IIIF de Leiden lue en entier (7 pages) : Image API 2.1 et Presentation API 2.1, « there is no (complete) index of manifests at this moment », v3 non planifié ; la page « Terms and conditions » est un brouillon sans règle de débit.",
+      "preuve": "institutions/leiden-university-libraries/sources/iiif-docs/text/01.txt"
     },
     {
       "categorie": "utilisateurs",
@@ -143,12 +143,22 @@
   "conclusion_quota": "Aucun quota publié ; Crawl-delay 10 s (digitalcollections et catalogue). Chaîne d'hôtes : digitalcollections → iiif-endpoint → Primo → images Ex Libris. Aucun 429 ni en-tête de limite.",
   "classe_quota": "limite documentée chiffrée (Crawl-delay 10 s uniquement)",
   "confiance": "moyenne",
-  "notes": "Les images dépendent d'Ex Libris (CloudFront) : limite éventuelle non publiée.",
+  "notes": "Les images dépendent d'Ex Libris (CloudFront) : limite éventuelle non publiée. Rattrapage 14/11 : doc lab.library/iiif-docs lue (7 pages), passe 5 (lab /manifests 301->200, collection.json 200), robots library 200, www.library et iiif coupés.",
   "a_verifier_manuellement": [
     {
       "url": "https://www.library.universiteitleiden.nl/robots.txt",
       "pourquoi": "302 puis connexion coupée par le serveur (curl 56, Connection reset by peer)",
       "a_chercher": "robots.txt actuel : Crawl-delay, Disallow, règle sur les robots d'IA ou les API"
+    },
+    {
+      "url": "https://iiif.universiteitleiden.nl/robots.txt",
+      "pourquoi": "connexion coupée par le serveur (curl 56) à deux lectures ; hôte de l'Image API documentée (/iiif/2)",
+      "a_chercher": "robots.txt, Crawl-delay et éventuelle règle de débit ; test de /iiif/2 depuis un navigateur ou demande écrite à specialcollections@library.leidenuniv.nl"
+    },
+    {
+      "url": "https://www.library.universiteitleiden.nl/robots.txt",
+      "pourquoi": "302 puis connexion coupée (deux lectures)",
+      "a_chercher": "robots.txt de l'hôte www de la bibliothèque"
     }
   ],
   "endpoints_documentes": [
@@ -185,8 +195,8 @@
     {
       "famille": "Manifestes IIIF 2.1 de lab.library.universiteitleiden.nl (/manifests, /manifests/collection.json)",
       "url": "https://lab.library.universiteitleiden.nl/manifests/collection.json",
-      "statut": "non_teste",
-      "raison": "En cours de test par la passe 5 (config leiden-passe5-lab.json) ; statut mis à jour après lancement."
+      "statut": "teste",
+      "preuve": "institutions/leiden-university-libraries/tests/raw/lab-manifests-collection.headers.txt"
     }
   ],
   "hotes_robots": [
@@ -230,12 +240,6 @@
       "resultat": "connexion coupée par le serveur (curl 56) à la lecture de robots.txt, deux fois (rattrapage et audit initial) : arrêt de l'hôte, aucun contournement",
       "preuve": "institutions/leiden-university-libraries/sources/rattrapage/FETCH.log"
     }
-  ],
-  "rattrapage_a_faire": [
-    "https://www.library.universiteitleiden.nl/robots.txt : jamais lu (302 puis connexion coupée), hôte des pages de doc ; à relancer par sonde avec pause.",
-    "https://iiif.universiteitleiden.nl/robots.txt : jamais lu (connexion coupée) ; hôte du serveur IIIF historique.",
-    "https://lab.library.universiteitleiden.nl/iiif-docs/ : doc IIIF de Leiden jamais téléchargée (fetch_doc.sh) ni son robots.txt ; la lire en entier avant de conclure.",
-    "https://library.universiteitleiden.nl/robots.txt : hôte (sans www) vu en 404 lors du téléchargement de la doc, robots.txt non lu."
   ],
   "endpoints_ecartes": [
     {

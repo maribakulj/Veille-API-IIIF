@@ -37,9 +37,9 @@
 ### e) Test systématique de chaque endpoint
 > Chaque endpoint documenté est testé (budget 15 requêtes par passe, pause ≥ 6 s, GET/HEAD, UA du projet). Redirections du même hôte suivies. Un 403 arrête son hôte, un 429 arrête l'institution. Seules les interdictions écrites dans la doc dispensent de tester.
 
-- [ ] **Pas fait**
-  - **Justification** : DÉCOCHÉE le 2026-11-14 (verrou renforcé) : 4 élément(s) de rattrapage_a_faire non traités | ancienne justification : Toute la chaîne testée (4 passes, 6 requêtes de données) : 301, 302, puis 200 pour manifeste, info.json et dérivé ; aucun 429 ni en-tête de limite.
-  - **Preuves** : 
+- [x] **Fait**
+  - **Justification** : Toutes les familles testables testées en 5 passes : manifestes digitalcollections (301), iiif-endpoint (302), Primo v3 (200), Ex Libris Image (200), lab.library /manifests et collection.json (200) ; aucun en-tête de limite ni 429 ; iiif.universiteitleiden.nl non testé : connexion coupée à la lecture de robots.txt (arrêt, noté a_verifier_manuellement).
+  - **Preuves** : `institutions/leiden-university-libraries/tests/journal.log`, `institutions/leiden-university-libraries/config/leiden-passe5-lab.json`, `institutions/leiden-university-libraries/tests/raw/lab-manifests-collection.headers.txt`
 
 ### f) Ce que disent les gens sur le web
 > Plaintes, discussions, présentations de l'institution, politique envers les API et les bots, blogs, GitHub, forums, listes de diffusion. Sources étiquetées (officielle / institution / utilisateur / tiers), lues, citées.
@@ -60,7 +60,7 @@
 
 <!-- AUTO:DEBUT -->
 ## Contrôles automatiques (calculés depuis `tests/journal.log`)
-- Requêtes enregistrées : **9** (sessions de sonde : 4, maximum par session : 3)
+- Requêtes enregistrées : **13** (sessions de sonde : 5, maximum par session : 4)
 - Plus courte pause vers un même hôte : **10 s** (règle : ≥ 6 s)
 - Méthodes utilisées : GET (règle : GET/HEAD seulement)
 - Anomalies : aucune
