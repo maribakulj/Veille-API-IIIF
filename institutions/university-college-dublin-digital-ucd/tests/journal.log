@@ -27,3 +27,10 @@
 2026-11-14T02:51:03Z | v2p1-void | robots.txt interdit http://data.ucd.ie/.well-known/void (Disallow: /) ; lancé car autorisé par Marcel (C12)
 2026-11-14T02:51:23Z | v2p1-void | http://data.ucd.ie/.well-known/void | GET | ERREUR_RÉSEAU | TimeoutError: timed out
 # Fin 2026-11-14T02:51:23Z — 15 requête(s) envoyée(s)
+# Session 2026-11-14T02:52:01Z — configuration ucd-v2-passe2-http.json — sonde probe.py au commit 6ddf472
+2026-11-14T02:52:01Z | robots.txt:digital.ucd.ie | http://digital.ucd.ie/robots.txt | GET | 404 | robots.txt indisponible : tout est autorisé (RFC 9309)
+2026-11-14T02:52:07Z | v2p2-http-accueil-head | http://digital.ucd.ie/ | HEAD | 200 OK | aucun en-tête de limite | taille≥0 | corps: 
+2026-11-14T02:52:13Z | v2p2-http-metadata-json-head | http://digital.ucd.ie/assets/data/metadata.json | HEAD | 404 HTTP_404 | aucun en-tête de limite | taille≥0 | corps: 
+2026-11-14T02:52:20Z | v2p2-http-collection-c0097-head | http://digital.ucd.ie/c0097/ | HEAD | 404 HTTP_404 | aucun en-tête de limite | taille≥0 | corps: 
+2026-11-14T02:52:26Z | v2p2-http-item-head | http://digital.ucd.ie/items/ucdlib_001.html | HEAD | 404 HTTP_404 | aucun en-tête de limite | taille≥0 | corps: 
+# Fin 2026-11-14T02:52:26Z — 5 requête(s) envoyée(s)

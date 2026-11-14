@@ -1,0 +1,8 @@
+{
+  "slug": "university-college-dublin-digital-ucd",
+  "endpoint": {"id": "accueil-head-http", "url": "http://digital.ucd.ie/", "method": "HEAD"},
+  "limite_documentee_req_min": null,
+  "source_limite": "aucune limite documentée (ancienne doc Wayback digital.ucd.ie/research/ et /terms/ : aucune mention de quota ; site actuel : aucune page de conditions)",
+  "duree_palier_s": 180,
+  "note": "HEAD de la page d'accueil du site temporaire en http:// : 200 dans le journal (v2p2-http-accueil-head, 2026-11-14T02:52:07Z) ; la sonde Python échoue en TLS sur https (chaîne de certificats incomplète). Page statique de 17 ko, aucun coût serveur notable."
+}
