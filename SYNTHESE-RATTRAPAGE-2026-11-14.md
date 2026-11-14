@@ -8,7 +8,7 @@ Le 14/11, l'ensemble des **93 fichiers** `institutions/*/data.json` de la branch
 
 Ces **260 lignes ne sont pas 260 défauts d'accès vérifiés**, ni 260 tâches qui exigent une intervention humaine. Aucun bilan « 260 contrôlés et terminés » n'est revendiqué.
 
-Le registre **`data/reverifications-chatgpt-2026-11-14.csv`** contient désormais **114 observations explicites**, de nature différente : URL effectivement lues, source institutionnelle de substitution, vérification de code, erreur 404/503/WAF, correction de catégorie, ressource technique non testée, etc. Toutes les observations ne correspondent pas à une URL initialement inscrite dans `a_verifier_manuellement` : certaines signalent une nouvelle source ou une incohérence du benchmark. Ces 114 observations **ne représentent pas 114 items clos**.
+Le registre **`data/reverifications-chatgpt-2026-11-14.csv`** contient désormais **159 observations explicites**, de nature différente : URL effectivement lues, source institutionnelle de substitution, vérification de code, erreur 404/503/WAF, correction de catégorie, ressource technique non testée, etc. Toutes les observations ne correspondent pas à une URL initialement inscrite dans `a_verifier_manuellement` : certaines signalent une nouvelle source ou une incohérence du benchmark. Ces 159 observations **ne représentent pas 159 items clos**.
 
 ## Rapports détaillés
 
@@ -33,7 +33,7 @@ Le registre **`data/reverifications-chatgpt-2026-11-14.csv`** contient désormai
 python scripts/etat_reverifications.py --root . --out data/etat-reverifications.csv
 ```
 
-Il ne contacte **aucune API distante**, et ne modifie ni les données institutionnelles ni `BENCHMARK.xlsx`. Ce script est maintenant **exécuté avec succès en CI GitHub Actions**, avec quatre tests automatisés. Il produit un inventaire CSV en artefact téléchargeable, sans requête aux API patrimoniales : [exécution vérifiée](https://github.com/maribakulj/Veille-API-IIIF/actions/runs/43611154666). Le rapprochement ne vaut pas validation HTTP et son résultat doit être examiné avant tout import dans le benchmark. Le rapport créé est une file de travail, pas une vérité canonique.
+Il ne contacte **aucune API distante**, et ne modifie ni les données institutionnelles ni `BENCHMARK.xlsx`. Ce script est maintenant **exécuté avec succès en CI GitHub Actions**, avec cinq tests automatisés. Il produit un inventaire CSV en artefact téléchargeable, sans requête aux API patrimoniales : [exécution vérifiée](https://github.com/maribakulj/Veille-API-IIIF/actions/runs/43611154666). Le rapprochement ne vaut pas validation HTTP et son résultat doit être examiné avant tout import dans le benchmark. Le rapport créé est une file de travail, pas une vérité canonique.
 
 ## Corrections prioritaires avant intégration au benchmark
 
@@ -107,3 +107,25 @@ La reprise ne doit pas se limiter à consigner les résultats précédents : **l
 **Toujours non récupérés avec les deux lecteurs :** fichier JSON Collection de Cultural Japan, manifeste de Leeds, OpenAPI de DRI (seul le shell Swagger UI apparaît), API-docs Brown (vérification humaine), entre autres.
 
 Le nouveau CSV généré par GitHub Actions contient la colonne `lecture_documentaire`, avec les états `TEXTE_LU_PAR_LECTEUR_WEB`, `TEXTE_RECUPERE_COPIE_DATEE` et `CONTENU_NON_DEMONTRE_PAR_REPRISE_O`. **Filtrer cette colonne plutôt que renvoyer à Marcel sans distinction toutes les 260 URL.** L'historique des 403/WAF et les tests de quotas demeurent séparés et non certifiés par ces lectures. La PR reste brouillon et les `data.json` canoniques / `BENCHMARK.xlsx` ne sont pas modifiés.
+
+## Dernière mesure : lectures P et URL de manifestes complémentaires (CI du 14/11)
+
+La passe P s'attaque aux **URL initialement manuelles** en reprenant les dossiers GLAM-009 à GLAM-084 : [rapport P détaillé](VERIFICATIONS-CHATGPT-2026-11-14-P-LECTURES.md). Les extraits datés des URL d'origine sont conservés, même lorsque le lecteur HTTP alternatif échoue. Les nouveaux **JSON réellement récupérés** incluent Michigan Image v2, National Diet Library Presentation v2, et des extraits des manifestes Michigan et Heidelberg v2/v3. **Ne pas déduire des en-têtes ou des plafonds de débit d'une extraction de contenu.**
+
+**Dernier calcul vérifié :** [GitHub Actions #43613670803](https://github.com/maribakulj/Veille-API-IIIF/actions/runs/43613670803), CI réussie, cinq tests réussis :
+
+| Indicateur à date | Valeur | Lecture correcte |
+|---|---:|---|
+| Dossiers / lignes manuelles initiales | 93 / 260 | Périmètre inchangé |
+| Constats sourcés dans le registre | **159** | Inclut les découvertes hors liste |
+| Entrées ayant ≥ 1 constat lié par URL | **108 / 260** | Ne signifie ni accessible live ni terminé |
+| Entrées encore sans constat relié | **152 / 260** | File restante à rapprocher et à tenter |
+| Entrées avec contenu lu via un lecteur web | **10 / 260** | Selon états du script sur les passes précédentes |
+| Entrées avec texte/JSON récupéré en copie datée | **43 / 260** | Pas nécessairement live |
+| Entrées sans preuve de contenu selon l'inventaire des passes O/P | **207 / 260** | Inclut des pages de contact, erreurs, doublons et les rapports non rapprochés |
+| Entrées avec plusieurs observations | **29** | Ancien blocage et nouvelle extraction conservés |
+| Observations hors URL initiale | **22** | Liens manifestes et documents de substitution |
+
+Les principales nouvelles découvertes sont : **le contenu historique de l'ancienne documentation National Gallery** (paramètre `limit` jusqu'à 100 = nombre de résultats, **pas de requêtes/minute**), le fichier robots de la **bibliothèque de Leiden** (distinct de l'hôte IIIF), le **JSON Image 2 du Michigan** avec tailles de tuiles, le **manifeste IIIF v2 de la NDL**, le **lien officiel du manuscrit Waseda**, les catalogues datasets ÖNB, et des textes des pages FAQ, droits et contact préalablement sous blocage.
+
+**Priorité de la suite :** lire les 207 entrées dont le contenu n'est pas démontré par les passes O/P, et distinguer dans cette file les véritables documents illisibles des URL historiques déplacées, contacts humains, robots et endpoints HTTP nécessitant une sonde. Les chiffres des sections précédentes restent des **instantanés historiques**, supplantés par le tableau ci-dessus. Données canoniques et Excel inchangés ; PR toujours brouillon.
