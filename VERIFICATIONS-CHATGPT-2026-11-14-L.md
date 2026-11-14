@@ -62,3 +62,21 @@ Toutes les constatations de ce rapport proviennent de la lecture des dossiers `i
 4. **KB DK** : distinguer anciennes routes OAI et nouvelles infrastructures d'accès aux objets.
 5. **British Library** : portée par corpus, pas par institution entière ; le projet de manuscrits médiévaux n'est pas une règle de l'IIIF de la BL.
 6. **IA, BNE, SLUB** : les hôtes protégés, les quotas de logiciels ou de plateformes partenaires et les restrictions de copie doivent rester typés.
+
+
+## Addendum : preuve de l'authentification de la nouvelle NYPL Collections API
+
+Le code **officiel** `https://github.com/NYPL/digital-collections/blob/qa/ENVIRONMENTVARS.md` ainsi que `https://github.com/NYPL/digital-collections/blob/qa/.env.example` distingue expressément :
+- `API_URL=https://api.repo.nypl.org` avec `AUTH_TOKEN` pour l'ancienne Repo API ;
+- `COLLECTIONS_API_URL=https://api-collections.nypl.org` avec `COLLECTIONS_API_AUTH_TOKEN` pour la **nouvelle Collections API** ;
+- `QA_COLLECTIONS_API_AUTH_TOKEN` distinct pour l'environnement de qualification.
+
+Ces variables servent à l'application cliente de la NYPL et constituent une **preuve de prise en charge / utilisation d'un token d'accès**, **pas** la preuve que tous les endpoints publics exigent effectivement une authentification. Il est donc erroné de classifier `api-collections.nypl.org` « libre et sans clé » au seul motif que Swagger/OpenAPI est lisible.
+
+**Statut corrigé :** nouvelle API documentée et active du point de vue de l'application NYPL, mode d'accès public, distribution de clés et rate limits non établis. Le bandeau de l'ancienne Repo API conserve la phrase « No public API replacement is planned ». Ces deux constats ne se contredisent pas nécessairement : une nouvelle API peut être réservée aux applications internes/autorisées.
+
+Sources consultées 2026-11-14 :
+- https://github.com/NYPL/digital-collections/blob/qa/ENVIRONMENTVARS.md
+- https://github.com/NYPL/digital-collections/blob/qa/.env.example
+- https://api-collections.nypl.org/openapi.json
+- https://api.repo.nypl.org/
