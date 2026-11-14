@@ -14,3 +14,8 @@ Passe 1 (4 requêtes) : manifeste 200 (31 ko), info.json d'image 200 deux fois, 
 
 ## Conclusion
 Aucun quota ni limite de débit publiés ; interdiction écrite de reproduction des données numériques. IIIF Presentation 2 et Image 2 répondent en 200 sans en-tête de limite. Confiance faible.
+
+## Crash test (étape g)
+
+Crash test fait le 2026-11-14 : crash-keio-image-info sur iiif.lib.keio.ac.jp : aucun blocage jusqu'à 200 req/min (plafond 200 req/min).
+Journal : `tests/crash/keio-digital-collections.log`. Un test « sans blocage » n'est pas une preuve d'illimitation au-delà du plafond.

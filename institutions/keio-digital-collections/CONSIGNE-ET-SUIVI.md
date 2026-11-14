@@ -51,9 +51,9 @@
 ### g) Crash test progressif
 > Seulement après l'audit complet (a à f) de toutes les institutions et avec l'accord de Marcel : paliers jusqu'à 2 × la limite documentée, ou 200 req/min si illimité ou sans limite documentée. Arrêt au premier 429/403/CAPTCHA.
 
-- [ ] **Pas fait**
-  - **Justification** : Pas encore traitée : l'audit suit l'ordre du classeur de référence (une institution à la fois).
-  - **Preuves** : 
+- [x] **Fait**
+  - **Justification** : Crash test fait le 2026-11-14 : crash-keio-image-info sur iiif.lib.keio.ac.jp : aucun blocage jusqu'à 200 req/min (plafond 200 req/min)
+  - **Preuves** : `institutions/keio-digital-collections/tests/crash/keio-digital-collections.log`, `institutions/keio-digital-collections/tests/crash/keio-digital-collections-crash-keio-image-info.json`
 
 ### Contrôles transversaux
 - Budget : 15 requêtes par passe · pauses ≥ 6 s · GET/HEAD seulement · UA du projet · aucun contournement. Ces contrôles sont calculés depuis le journal (voir « Contrôles automatiques »).
