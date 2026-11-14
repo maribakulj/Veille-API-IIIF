@@ -1,0 +1,11 @@
+{
+  "slug": "radboud-university-library",
+  "min_delay_s": 6,
+  "max_requests": 15,
+  "follow_redirects": 2,
+  "robots_disallow_autorise_par_marcel": true,
+  "note": "Passe 4 : manifeste de collection (modèle iiif/info/{alias}/manifest.json de la doc OCLC, sources/c) pour la collection Handschriften listée dans le manifeste global (tests/raw/r3-manifeste-global-v2.body), afin d'obtenir un identifiant d'objet public. Corps limité à 500 ko.",
+  "endpoints": [
+    {"id": "r4-manifeste-collection", "method": "GET", "url": "https://bijzonderecollecties.ubn.ru.nl/iiif/info/Handschriften/manifest.json", "save_body": 500000}
+  ]
+}

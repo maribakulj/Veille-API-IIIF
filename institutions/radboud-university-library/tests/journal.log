@@ -13,3 +13,10 @@
 2026-11-14T02:53:54Z | r2-oai-identify | https://repository.ubn.ru.nl/oai/request?verb=Identify | GET | ERREUR_RÉSEAU | TimeoutError: The read operation timed out
 2026-11-14T02:54:05Z | r2-rest-communities | https://repository.ubn.ru.nl/rest/communities?limit=1 | GET | 404 HTTP_404 | aucun en-tête de limite | taille≥200 | corps: <!DOCTYPE html>             <!--[if lt IE 7]> <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->             <!--[if IE 7]>    <html class="no-js lt-ie9 lt-ie8" lang="en"> <![endif]-->  
 # Fin 2026-11-14T02:54:05Z — 4 requête(s) envoyée(s)
+# Session 2026-11-14T02:54:19Z — configuration radboud-passe3-manifeste-oai.json — sonde probe.py au commit 50cba57
+2026-11-14T02:54:19Z | robots.txt:bijzonderecollecties.ubn.ru.nl | https://bijzonderecollecties.ubn.ru.nl/robots.txt | GET | 200 | 27 règle(s) pour « * » ; Crawl-delay 1.0 s
+2026-11-14T02:54:30Z | r3-manifeste-global-v2 | https://bijzonderecollecties.ubn.ru.nl/iiif/2/manifest.json | GET | 200 OK | aucun en-tête de limite | taille≥2113 | corps: {"@context":"http://iiif.io/api/presentation/2/context.json","@id":"http://cdm21010.contentdm.oclc.org/iiif/manifest.json","@type":"sc:Collection","collections":[{"@id":"http://cdm21010.contentdm.oclc
+# corps enregistré : tests/raw/r3-manifeste-global-v2.body (2113 octets lus)
+2026-11-14T02:54:30Z | robots.txt:repository.ubn.ru.nl | https://repository.ubn.ru.nl/robots.txt | GET | 200 | 12 règle(s) pour « * » ; Crawl-delay 10.0 s
+2026-11-14T02:54:53Z | r3-oai-identify-reessai | https://repository.ubn.ru.nl/oai/request?verb=Identify | GET | 200 OK | aucun en-tête de limite | taille≥200 | corps: <?xml version="1.0" encoding="UTF-8"?><?xml-stylesheet type="text/xsl" href="static/style.xsl"?><OAI-PMH xmlns="http://www.openarchives.org/OAI/2.0/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instan
+# Fin 2026-11-14T02:54:53Z — 4 requête(s) envoyée(s)
