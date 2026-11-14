@@ -60,3 +60,17 @@
 5. **Différencier** `lecture_documentaire` (copie indexée, potentiellement ancienne) de `verification_http` (sonde), et conserver les URL de redirection / substitution comme des résultats distincts.
 
 Cette reprise est une passe documentaire ciblée, pas un test des étapes a–g. Aucun blocage n'a été contourné.
+
+## Complément : vérification des URL de manifestes *découvertes dans les notices*
+
+Les trois URL ci-dessous sont **des liens documentés dans les notices originales**; elles n'ont pas été inventées par construction d'identifiants. Les extraits ont été récupérés par l'extracteur public; leurs dates d'acquisition ne garantissent pas la réponse de la sonde depuis une autre IP.
+
+- **Michigan** : `https://quod.lib.umich.edu/cgi/i/image/api/manifest/bhl:BL004079` : **contenu JSON IIIF Presentation extrait**, avec annotation d'image, service Image 2 et toile 7 092 × 4 800. Acquis le **2026-11-14**. L'extracteur peut présenter des fragments et non l'intégralité du JSON; **ne pas qualifier de récupération intégrale** sans téléchargement intégral.
+- **Heidelberg v2** : `https://digi.ub.uni-heidelberg.de/diglit/iiif/Cimelia1975/manifest` : extrait du JSON IIIF Presentation **v2**, `sc:Manifest`, lien aux pages de l'ouvrage ; acquis le **2026-11-14**.
+- **Heidelberg v3** : `https://digi.ub.uni-heidelberg.de/diglit/iiif3/Cimelia1975/manifest` : extrait du JSON IIIF Presentation **v3**, `ImageService3` et `items` ; acquis le **2026-07-17**.
+- **Waseda** : `https://iiif.archive.waseda.jp/iiif/manifest/ktnsk/ho04_02555/manifest.json` : **connexion échouée**, même si le lien exact est retrouvé dans la notice originale datée du 18 juillet.
+- **Norvège** : le service officiel remplaçant la documentation précédente est documenté dans l'OpenAPI `https://api.nb.no/catalog/v1/items/api-docs` (OAS 3.1, JSON récupéré du 04/11) ; ce service **Catalog Search API** n'établit pas que l'ancien `/services/search/v2/` a migré à l'identique, ni que les conditions IIIF sont identiques.
+- **Göttingen** : la nouvelle page `https://www.sub.uni-goettingen.de/ueber-uns/ordnungen-und-leitlinien/digital-policies` est identifiée, mais l'extraction texte reste incomplète ; **ne pas annoncer la politique intégralement lue**.
+- **NDL Japon** : la nouvelle page de conditions `https://dl.ndl.go.jp/sitepolicy` fournit réellement une politique d'usage du site. Une traduction complète et les exceptions propres à IIIF demandent une vérification distincte; la page `/ja/terms` n'est plus la source correcte.
+
+**Distinction décisive :** l'extraction de JSON / mise en évidence des champs prouve un document lisible par un outil; elle ne prouve ni l'absence de WAF sur l'IP de la sonde, ni les en-têtes `RateLimit`, ni une capacité de moissonnage.
