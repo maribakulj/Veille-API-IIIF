@@ -1,0 +1,11 @@
+{
+  "slug": "cudl",
+  "min_delay_s": 6,
+  "max_requests": 15,
+  "robots_disallow_autorise_par_marcel": true,
+  "respect_robots": false,
+  "note": "v2 passe 4 (14/11/2026) : nouvel essai des routes cudl-services du domaine cudl.link (README cudl-services), DNS toujours non résolu avant la passe (sources/robots-v4/FETCH.log). respect_robots=false : un hôte qui ne résout pas n'a pas de robots.txt lisible. Une seule route, pour constater si le DNS résout.",
+  "endpoints": [
+    {"id": "services-metadata-retest", "method": "GET", "url": "https://cudl.link/v1/metadata/MS-ADD-03958"}
+  ]
+}

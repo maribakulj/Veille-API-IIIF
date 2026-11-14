@@ -221,8 +221,18 @@
   "hotes_robots": [
     {
       "hote": "cudl.lib.cam.ac.uk",
-      "resultat": "Live : 403 CloudFront ; copie Wayback du 2026-05-01 : User-agent * ; Disallow /search ; pas de Crawl-delay",
+      "resultat": "Live : 403 CloudFront (relu le 2026-11-14, sources/robots-v4) ; copie Wayback du 2026-05-01 : User-agent * ; Disallow /search ; pas de Crawl-delay",
       "preuve": "institutions/cudl/sources/wayback/robots.txt.copie-wayback.txt"
+    },
+    {
+      "hote": "images.lib.cam.ac.uk",
+      "resultat": "404 (robots.txt absent) : aucune règle, tout autorisé",
+      "preuve": "institutions/cudl/sources/robots-v3/raw/02.html"
+    },
+    {
+      "hote": "cudl.link",
+      "resultat": "DNS non résolu (curl code 6, nslookup sans réponse, 2026-11-13 et 2026-11-14) : aucun robots.txt lisible, aucune requête HTTP partie",
+      "preuve": "institutions/cudl/sources/robots-v4/FETCH.log"
     }
   ],
   "rattrapage_a_faire": [
