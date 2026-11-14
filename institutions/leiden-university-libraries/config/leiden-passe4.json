@@ -1,0 +1,20 @@
+{
+  "slug": "leiden-university-libraries",
+  "min_delay_s": 10,
+  "max_requests": 15,
+  "follow_redirects": 1,
+  "robots_disallow_autorise_par_marcel": true,
+  "note": "Passe 4 : service d'images Ex Libris (eu-img02.ext.exlibrisgroup.com) lu dans le manifeste Primo (1er canevas, IIIF Image 2 niveau 2). info.json puis dérivé 200 px.",
+  "endpoints": [
+    {
+      "id": "exlibris-info-json",
+      "method": "GET",
+      "url": "https://eu-img02.ext.exlibrisgroup.com/iiif/2/eyJyZWdpb24iOiJldS1jZW50cmFsLTEiLCJidWNrZXQiOiJldS1zdDAxLmV4dC5leGxpYnJpc2dyb3VwLmNvbSIsImtleSI6IjMxVUtCX0xFVS9zdG9yYWdlL2FsbWEvRkIvOEYvMjIvQ0UvNkQvRkUvMzUvREMvRTkvNDMvQjQvQUIvOTEvNjUvMjYvMTkvMTg4N18xX2l0ZW1fMTUyMDc4NV8wMDEuanAyIiwicmVwX2lkIjoiMTI1MjQ4MTc3MzAwMDI3MTEiLCJpbnN0YW5jZSI6ImV1IiwiaW5zdGl0dXRpb24iOiIzMVVLQl9MRVUiLCJ3aWR0aCI6IjMyMDYiLCJoZWlnaHQiOiI0Njg5Iiwid21LZXkiOm51bGwsIndtV2lkdGgiOm51bGwsIndtSGVpZ2h0IjpudWxsLCJ3bVBvc2l0aW9uIjpudWxsLCJ3bVJlcGVhdCI6ZmFsc2UsIm5hOTEiOm51bGx9/info.json"
+    },
+    {
+      "id": "exlibris-derive-200",
+      "method": "GET",
+      "url": "https://eu-img02.ext.exlibrisgroup.com/iiif/2/eyJyZWdpb24iOiJldS1jZW50cmFsLTEiLCJidWNrZXQiOiJldS1zdDAxLmV4dC5leGxpYnJpc2dyb3VwLmNvbSIsImtleSI6IjMxVUtCX0xFVS9zdG9yYWdlL2FsbWEvRkIvOEYvMjIvQ0UvNkQvRkUvMzUvREMvRTkvNDMvQjQvQUIvOTEvNjUvMjYvMTkvMTg4N18xX2l0ZW1fMTUyMDc4NV8wMDEuanAyIiwicmVwX2lkIjoiMTI1MjQ4MTc3MzAwMDI3MTEiLCJpbnN0YW5jZSI6ImV1IiwiaW5zdGl0dXRpb24iOiIzMVVLQl9MRVUiLCJ3aWR0aCI6IjMyMDYiLCJoZWlnaHQiOiI0Njg5Iiwid21LZXkiOm51bGwsIndtV2lkdGgiOm51bGwsIndtSGVpZ2h0IjpudWxsLCJ3bVBvc2l0aW9uIjpudWxsLCJ3bVJlcGVhdCI6ZmFsc2UsIm5hOTEiOm51bGx9/full/!200,200/0/default.jpg"
+    }
+  ]
+}

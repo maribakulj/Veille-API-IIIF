@@ -8,3 +8,8 @@
 2026-11-14T00:36:17Z | manifeste-endpoint-1520785 | https://iiif-endpoint.universiteitleiden.nl/iiif_manifest/item:1520785/manifest | GET | 302 REDIRECTION_NON_SUIVIE | aucun en-tête de limite | taille≥0 | corps: 
 # redirection vers https://catalogue.leidenuniv.nl/view/iiif/presentation/31UKB_LEU/12524817730002711/manifest?iiifVersion=3 : NON suivie (autre hôte)
 # Fin 2026-11-14T00:36:17Z — 2 requête(s) envoyée(s)
+# Session 2026-11-14T00:37:08Z — configuration leiden-passe3.json — sonde probe.py au commit 165ed15
+2026-11-14T00:37:08Z | robots.txt:catalogue.leidenuniv.nl | https://catalogue.leidenuniv.nl/robots.txt | GET | 200 | 3 règle(s) pour « * » ; Crawl-delay 10.0 s
+2026-11-14T00:37:29Z | manifeste-primo-v3 | https://catalogue.leidenuniv.nl/view/iiif/presentation/31UKB_LEU/12524817730002711/manifest?iiifVersion=3 | GET | 200 OK | aucun en-tête de limite | taille≥1940829 | corps: {   "id" : "https://catalogue.leidenuniv.nl/view/iiif/presentation/31UKB_LEU/12524817730002711/manifest?iiifVersion=3",   "type" : "Manifest",   "label" : {     "none" : [ "Miroir historial / Vincent 
+# corps enregistré : tests/raw/manifeste-primo-v3.body (1940829 octets lus)
+# Fin 2026-11-14T00:37:29Z — 2 requête(s) envoyée(s)

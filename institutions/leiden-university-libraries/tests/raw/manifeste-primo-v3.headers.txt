@@ -1,0 +1,17 @@
+2026-11-14T00:37:29Z GET https://catalogue.leidenuniv.nl/view/iiif/presentation/31UKB_LEU/12524817730002711/manifest?iiifVersion=3
+HTTP 200
+x-request-id: AV5ZwTOEnr
+p3p: CP="IDC DSP COR ADM DEVi TAIi PSA PSD IVAi IVDi CONi HIS OUR IND CNT"
+set-cookie: JSESSIONID=E74899EDD24650A0698E26764D3523EF.apd02.eu00.prod.alma.dc03.hosted.exlibrisgroup.com%3A1801; Path=/; Secure; HttpOnly; SameSite=None
+set-cookie: urm_st=1794616639047; Path=/; Secure; SameSite=None
+set-cookie: urm_se=1794617239047; Path=/; Secure; SameSite=None
+access-control-allow-origin: *
+content-security-policy: object-src blob: 'self' *.exlibrisgroup.com *.exlibrisgroup.com.cn www.google-analytics.com stats.g.doubleclick.net s3.amazonaws.com www.youtube.com youtube.com *.contentdm.oclc.org iiif.nlm.nih.gov catalogue.leidenuniv.nl studenttheses.universiteitleiden.nl ;worker-src blob: 'self' *.exlibrisgroup.com *.exlibrisgroup.com.cn www.google-analytics.com stats.g.doubleclick.net s3.amazonaws.com www.youtube.com youtube.com artic.contentdm.oclc.org catalogue.leidenuniv.nl studenttheses.universiteitleiden.nl ;upgrade-insecure-requests; report-uri /infra/CSPReportEndpoint.jsp; report-to csp-report-endpoint; 
+report-to: {"max_age":10886400,"endpoints":[{"url":"https://eu.alma.exlibrisgroup.com/infra/CSPReportEndpoint.jsp"}],"group":"csp-report-endpoint"}
+x-content-type-options: nosniff
+vary: accept-encoding
+content-type: application/json;charset=UTF-8
+transfer-encoding: chunked
+date: Sat, 14 Nov 2026 00:37:27 GMT
+strict-transport-security: max-age=1209600; includeSubDomains
+set-cookie: __Secure-UqZBpD3n3naPU20-9Fvn5i-TSO9FpMhbYtbA9YCEpg3UXgo_=v1ROo+gw__SS0; Expires=Sun, 14-Nov-2027 00:37:27 GMT; Path=/; Secure; SameSite=None
