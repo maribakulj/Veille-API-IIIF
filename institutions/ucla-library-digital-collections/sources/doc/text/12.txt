@@ -1,0 +1,210 @@
+The Code4Lib Journal – IIIF by the Numbers 
+ Mission 
+ Editorial Committee 
+ Process and Structure 
+ Code4Lib 
+ Issue 48, 2020-05-11 
+ IIIF by the Numbers
+ The UCLA Library began work on building a suite of services to support IIIF for their digital collections. The services perform image transformations and delivery as well as manifest generation and delivery. The team was unsure about whether they should use local or cloud-based infrastructure for these services, so they conducted some experiments on multiple infrastructure configurations and tested them in scenarios with varying dimensions.
+ by Joshua Gomez, Kevin S. Clarke, Anthony Vuong
+ I. Introduction
+ Organizational Context
+ In the Fall of 2018, the UCLA Library’s Software Development Team underwent a change of leadership. With that change came an effort to modernize the team by adopting Agile planning and a DevOps culture. See (Gomez, 2020) for a discussion of that process. Along with a change in our processes came a change in our software architecture goals, in which we aspire to adopt “evolutionary” architectures, such as event-driven and microservices as described in (Ford 2017). By definition, evolutionary architectures are more maintainable and easier to change over time. The goal is to avoid “setting and forgetting” a large portfolio of fragile legacy monoliths that are difficult to maintain let alone improve upon, which is the situation we are in now. Instead, we hope to continually update an ecosystem of small components.
+ Architecture
+ Prior to the new leadership and organization, the larger team had already begun work on a new digital library platform, an implementation of Samvera [ 1 ]. In an initial effort to make the new digital library less monolithic, the Services Team was tasked with designing and building an independent suite of services to support IIIF [ 2 ], and to relieve the Samvera stack of those duties. This suite consisted of three independent services:
+ Image transformation service. This service accepts a CSV containing a row for each digital image, locates the source images files, generates derivatives, and pushes them to a designated destination. We will be migrating over 3 million items out of our old legacy digital library platforms, which made heavy use of TIFFs. Therefore, if we choose to use JPEG2000, a robust transformation service capable of high throughput will be necessary.
+ Image delivery service. This service accepts a IIIF Image API [ 3 ] request and delivers a JPEG derivative to match.
+ Manifest generation & delivery service. This service accepts a IIIF Presentation API1 request and delivers the appropriate manifest. It also accepts a CSV containing a row for each collection, each work within a collection, and each image within a work, generates the IIIF manifests and stores them for later retrieval.
+ This paper is a description of the approach our team took when designing these services. 
+ II. System Design Decisions
+ When it comes to implementing IIIF infrastructure there are many decisions to be made, including (but not limited to):
+ Which file format should we use: TIFF, Pyramidal TIFF, JPEG2000 (JP2K)?
+ If we choose JP2K, should they be lossy or lossless?
+ Should we use OpenJPEG or Kakadu for transcoding?
+ Which image server should we use: Loris, Cantaloupe, or IIP?
+ Should we do file conversion in the local data center or in the cloud?
+ If in the cloud, with dedicated VMs or with serverless functions?
+ Should we put our images and server in our local data center or in the cloud?
+ If we use cloud computing, which one should we use (AWS, GCP, Azure)? 
+ Should we scale the services vertically or horizontally?
+ What should we use for caching: Redis, S3, Cloudfront?
+ We knew that we were facing more decisions than we could possibly try to answer definitively while still delivering on the implementation in a timely manner. So we had to decide what to decide. We had to ask ourselves “which questions are critical to start work? Which questions can we make a quick decision on now that would not be too difficult to change later?”
+ Quick Decisions
+ Tooling seemed the easiest set of choices for us to make as we already had some experience with them and if we changed our minds the switching costs would not be insurmountable.
+ Kakadu. We chose to use Kakadu [ 4 ], which is proprietary, instead of OpenJPEG [ 5 ], which is open source. There have been recent efforts to improve the performance of OpenJPEG, and we hope that these continue, but in our own trial runs we found Kakadu to still be faster. Furthermore, we found a pair of limitations with the obj_compress function in OpenJPEG. It was unable to perform multithreaded processing and could not work with CIELab color images. Since the price of Kakadu was quite reasonable, we deemed it an easier path. Getting an overseas software vendor approved by the campus purchasing office did present us with a six month delay, but the vendor was very accommodating with an extended development license throughout that phase.
+ Cantaloupe. We chose to use Cantaloupe [ 6 ] as our image server because our team is well versed in Java and we liked the flexibility that Cantaloupe offers with its delegate scripts. 
+ AWS. Our campus already had a discount with Amazon Web Services (AWS), so we knew that if we decided to move any portion of our services to the cloud, that AWS would be the cheapest option for us. Furthermore, it is the most mature cloud provider and we already have some applications running there, so the path to adoption was an easy one for us.
+ Decisions Needing Analysis
+ We had a lower level of confidence for the remaining decisions. Unlike those above, these decisions were not influenced by campus level agreements (like AWS). And unlike swapping out standards-compliant components with others (like Cantaloupe and Kakadu), the remaining decisions affected our own software designs, and would therefore have significant costs in developer time if we decided to backtrack. These were the issues for which we decided to run a few experiments. 
+ In these experiments we ran tests on-site and in the cloud, but the analysis was essentially about vertical versus horizontal scaling (i.e one big machine versus multiple smaller ones working in parallel).
+ Image transformation. We compared processes for creating JPEG2000 derivatives on-site versus using AWS Lambdas, and to do so for varying sizes of images and also to compare results for lossy versus lossless compression.
+ Image delivery. We compared performance of the image server on-site and in the cloud and compared the performance for varying image sizes and traffic levels.
+ III. Experiment #1 – Image Transformation
+ In this experiment we measured the length of time required to transform 1000 source TIFFs into JPEG2000 derivatives with variations along three dimensions: 
+ Hardware/Scaling: local (vertical) vs. serverless (horizontal)
+ Derivative quality: lossy vs. lossless
+ Source file size: large vs. medium
+ The large images ranged in size from 110 to 130 MB. The medium sized images ranged from 50 to 60 MB. The Kakadu compression rate used was 3, which approximately results in an 8:1 ratio.
+ The first hardware setup was a powerful VM in our datacenter to run the transformation script on all 1000 images and push the derivatives to S3 buckets. The second setup made use of AWS serverless functions, called lambdas, to distribute the load. The TIFFs were pushed to an S3 bucket, which triggered the lambdas to run the transformation and put the derivatives in the destination S3 bucket (the original TIFFs were then deleted from the staging S3 bucket). We also ran the horizontal scaling process in a slightly altered scenario in which the concurrency on the source image machine was limited and thus could not push images up to the S3 buckets as quickly.
+ Setup
+ Vertical Scaling 
+ Horizontal Scaling 
+ RedHat 7 VM in local data center
+ 8 cores (E5-2630 v3) @ 2.40 GHz
+ 8 GB memory DDR4 2133 MHz
+ Compiled version of Kakadu
+ AWS Lambda
+ 2 core Lambda function
+ 1024 MB memory
+ Compiled version of Kakadu
+ Process
+ Vertical Scaling 
+ Horizontal Scaling 
+ Run script for TIFF to JP2K conversion
+ Read TIFFs from NetApp file system in the local data center
+ Have Kakadu convert them into JP2Ks
+ Upload the JP2Ks to Cantaloupe’s S3 source bucket
+ Measure time to process 1000 images using Unix time function
+ Upload TIFFs into an S3 bucket from the local NetApp file system
+ Lambda function is triggered by the bucket event
+ Kakadu in Lambda function converts TIFF into JP2K
+ Lambda function stores JP2K in Cantaloupe’s S3 bucket
+ Measure time to process 1000 images using Cloudwatch [ 7 ] data
+ It should be noted that our intention was to find the total time needed to perform the transformations, not to find bottlenecks within each process. However, we did measure the individual parts of each process. For instance, in the local conversion, Kakadu conversion was one measurement and upload to S3 was another; for the Lambdas setup, upload time of the TIFFs was one measurement and Lambda processing was another (which included S3 upload because of the way our Lambda was written). We expected upload of TIFFs to be what was the time consuming part of the Lambda processing and the processing of the TIFFs to be what was the time consuming part of the local process — both of which proved true. We did a little tweaking of the bottlenecks (giving more CPU cores to the local processing and re-writing the upload script to take full advantage of threaded uploads), but that wasn’t really our focus. We just wanted the best performance for each method within reason. For instance, we didn’t allocate 20 CPU cores to local processing, which of course would have sped up the Kakadu processing. We stayed within the realm of what we’d normally do for a local VM.
+ Results
+ Below are several charts comparing the performance of the local (vertically scaled) setup and the serverless lambda (horizontally scaled) setup. Our results show that the lambdas perform 4 to 5 times faster than the large local machine even with the time it took to upload the TIFFs.
+ Figure 1. Local vs. Lambda: Lossy Medium Image Run Times
+ Figure 2. Local vs. Lambda: Lossless Medium Image Run Times
+ Figure 3. Local vs. Lambda: Lossy Large Image Run Times
+ Figure 4. Local vs. Lambda: Lossless Large Image Run Times
+ We also ran the tests on the lambda setup with limited concurrency on our end for the push of the TIFFs from the local data center to the S3 bucket. In these tests the local setup outperformed the cloud. Thus, the nuance here is that using the lambdas is faster, but only if you can feed them fast enough. Our first configuration usually spun up 10 to 15 individual lambdas. The AWS cap was 1000 lambdas. So our highest throughput setup could have gone even faster if we had shoveled content into the S3 buckets quicker.
+ Figure 5. Local vs. Lambda: Lossy Medium Image Run Times (Limited Concurrency)
+ Figure 6. Local vs. Lambda: Lossy Large Image Run Times (Limited Concurrency)
+ IV. Experiment #2 – Image Delivery
+ In this experiment we measured response times for image requests to Cantaloupe with variations along several dimensions:
+ Hardware/Scaling: local (vertical) vs. cloud (horizontal) (3x and 10x)
+ Source image format & quality: TIFF vs. lossless JP2K vs.lossy JP2K
+ Source image size: large vs. medium
+ Requested image size: 50% vs. full
+ Traffic: single request vs. concurrent users
+ Again, the large images ranged in size from 110 to 130 MB. The medium sized images ranged from 50 to 60 MB. 
+ The first hardware setup made use of 2 powerful VMs in our data center running our Docker container with Cantaloupe inside. The second setup made use of AWS Fargate [ 8 ] to deploy 3 of the Cantaloupe containers. Finally, we tested Fargate again, but with 10 containers instead.
+ For the concurrent user experiments, we used the load testing tool Locust [ 9 ] to simulate traffic patterns of 20, 50, 100, and 200 concurrent users. The users made requests from a list of approximately 1000 URLs picked at random from the collection. Each user waited between 5 and 15 seconds between their own requests. The Locust load test was left running for 5 minutes for each round of testing. It should be noted that all requests were made with no caching enabled. That is, all requests required a read of the source TIFF or JP2K and on-the-fly generation of the derivative JPEG.
+ Several of the collections in UCLA’s digital collections are hosted on behalf of other entities across the globe. We have some projects hosted in other regions to improve performance for the primary stakeholders. Therefore, to test local response times to content in regions beyond the west coast, we also decided to test traffic going to a Cantaloupe server in two other regions: Oregon and Germany.
+ Setup
+ Local 
+ Fargate 3x 
+ Fargate 10x 
+ 2 RedHat 7 VMs
+ 1 container per VM
+ 3 Fargate containers
+ 10 Fargate containers
+ Cantaloupe 4.1.1
+ Container specs
+ 8GB memory
+ 6 cores
+ Cantaloupe 4.1.1
+ Container specs
+ 8GB memory
+ 4 cores (Fargate max)
+ Cantaloupe 4.1.1
+ Container specs
+ 8GB memory
+ 4 cores (Fargate max)
+ Total
+ 16GB memory
+ 12 CPU cores
+ Total
+ 24GB memory
+ 12 CPU cores
+ Total
+ 80GB memory
+ 40 CPU cores
+ Results
+ Below are several charts comparing the performance of the local setup and the two Fargate setups.
+ Round 1 – Single User Requests
+ In the single image tests we found that the local setup almost always outperformed the Fargate setup. One surprising discovery was that responses for full size JPEGs derived from TIFFs were faster than for images derived from full size JP2Ks no matter the setup. Kakadu transformations are fast, but reproducing the entire image at full scale is not its strength.
+ We suspect that the limiting factor in the response times is network bandwidth to retrieve the source images, not the computing resources to process them. During these trials we noticed that the speed for an S3 GET request appears to be a gigabit at the most. The usual speed was 30-50MB/s whereas on our local NetApp storage we saw an average of approximately 400MB/s. This made a big impact on the requests for larger images, but not for the medium images. The wait times for these large file retrievals may be bogging down the containers’ resources. Thus, the 10x Fargate setup performed better than the 3x setup as it was able to distribute the load across more resources.
+ Figure 7. Large Image 50% Request
+ Figure 8. Large Image Full Request
+ Figure 9. Medium Image 50% Request
+ Figure 10. Medium Image Full Request
+ Round 2 – Multi-Region Single User Requests
+ In this round we performed the same tests as before, but sent requests from servers in Oregon and Germany. Once again, we found that full size TIFF requests were faster than full size JP2K requests. In general, the local environment has smaller response times than the Fargate setup but the distinction was negligible, especially for lossy JP2Ks. The distinction between traffic from Oregon and traffic from Germany was less noticeable on the Fargate setup than the local setup.
+ Figure 11. Large Image 50% Request – Oregon/Germany
+ Figure 12. Large Image Full Request – Oregon/Germany
+ Figure 13. Medium Image 50% Request – Oregon/Germany
+ Figure 14. Medium Image Full Request – Oregon/Germany
+ Round 3 – Concurrent User Requests
+ In general, we found that the scaled out Fargate setup (10x) performed about the same as the local VMWare setup. The VMWare had a very slight advantage with lossless JP2K requests and Fargate (10x) had a very slight advantage with lossy JP2K requests.
+ Figure 15. Randomized – Large Lossless JP2 Results (1K+ URLs / Requests)
+ Figure 16. Randomized – Large Lossy JP2 Results (1K+ URLs / Requests)
+ Figure 17. Randomized – Medium Lossless JP2 Results (1K+ URLs / Requests)
+ Figure 18. Randomized – Medium Lossy JP2 Results (1K+ URLs / Requests)
+ Figure 19. Randomized – Large TIFF Results (1K+ URLs / Requests)
+ Figure 20. Randomized – Medium TIFF Results (1K+ URLs / Requests)
+ V. Conclusions
+ Other Work
+ Caching. We tried out a few forms of caching in both our local and cloud setups of the image API service. In the local system, we configured Cantaloupe to store and deliver cached objects on the local filesystem by configuring FilesystemCache. In Fargate, we configured Cantaloupe to store and deliver our cached objects from an S3 bucket by configuring S3Cache. Fargate gave us some flexibility to also put the cached images in CloudFront, the AWS Content Delivery Network (CDN). However, we found that CloudFront could not serve as a permanent cache store as there are no guarantees on how long the CDN keeps a cached object alive. CloudFront also serves as a proxy to the backend. The connection between CloudFront and the backend has a configurable timeout limit of up to 60 seconds. This timeout proved to be an issue for our microservices requirements as we needed a larger connection timeout threshold. As a result, we dropped CloudFront and implemented Cantaloupe’s built-in S3Cache. In the future, we may address our batch timeout requirements and look into reimplementing CloudFront with S3Cache to improve performance worldwide. The cached objects stored in S3Cache do not expire and are manually purged as needed. As of now, this setup works fine for us as we do not have much volatility in the content.
+ Getty. While we were running these tests we met with our colleague Stefano Cossu, who works across the highway at the Getty. He was also running a series of experiments to determine the design of the Getty’s new IIIF infrastructure. We learned from him that he found Pyramidal TIFFs to be the best performing format, and he found IIP to be the best performing image server. (Cossu 2019) So it appears we bet on the wrong horses with our quick tooling decisions.
+ Final Decisions
+ After conducting the tests described above we made the following decisions.
+ Format: Lossy JP2K. This decision was influenced by administrative policymakers, who did not wish savvy users to be able to reconstruct high resolution images from the tiles for certain collections that aren’t fully open access. The lossy JP2K enables us to give our users high quality images without enabling reconstruction of an image that is very near to the original lossless format.
+ Derivative Generation: Use Lambdas. This was the easiest choice for us to make. The format choice above determined the desire to use JP2Ks, and the results from Test #1 clearly showed that using lambdas was superior for transforming large batches of TIFFs to JP2Ks. This fit our needs for the upcoming mass migration, but would not be the best choice for smaller scale migrations or systems with only a moderate influx of new content at any given time.
+ Image Delivery: Use Fargate (for now). The results of Test #2 were less compelling. The local setup performed about as well as the Fargate 10x setup. However, our local setup was configured with Docker Compose, a tool that our team was not equipped to support at a production level. Therefore, we opted to stick with the Fargate setup in the near term.
+ Figure 21. Architecture diagram
+ Outcomes
+ Decoupling. In the time since the experiments described in this paper were conducted the team has successfully deployed production instances of the three services in our IIIF suite. These include the image transformation and storage service, named Bucketeer [ 10 ], the manifest generation and presentation API service, named Fester [ 11 ], and the image API, which is simply our deployment of Cantaloupe. This work, along with changes made to the frontend by the Applications team, has enabled a complete decoupling of the frontend of the digital library from the backend Samvera and Fedora stack. The public interface (an instance of Blacklight) talks to its own instance of Solr and the embedded image viewer requests manifests and images from the new IIIF services. This decoupling will enable an easier evolution of our system beyond the current Fedora/Hyrax/Blacklight setup.
+ Migration. Our primary goal over the next year is to migrate content out of our legacy digital library platforms. Therefore our services are designed for uploading CSV exports out of those old systems. Upon completion of the migration we will shift focus to new content ingest and handling one-off requests to Bucketeer and Fester directly from the backend repository rather than bulk requests. In the meantime, the new services perform well and have enabled us to remove several steps performed by Hyrax during the ingest process. This was a crucial development, as we have experienced unacceptably long ingest times for bulk ingest into Hyrax.
+ Future Work
+ Kubernetes. While our experience with Fargate was a good one, we are cautious about vendor lockin. We have therefore begun reimplementing our orchestration of the containers for the suite of services using Kubernetes. We will then compare the performance of the system with a local Kubernetes cluster against a cluster in Amazon’s Elastic Kubernetes Service (EKS).
+ New IIIF Services. Now that we have deployed the IIIF suite into production we will begin work on the next phase of our IIIF services, namely Auth and Audio/Visual support. Several collections that will be migrated have restricted access policies due to copyright or sensitivity of the material. We therefore need to enable restricted access to our IIIF resources as outlined in the IIIF Auth specification. We also have several audio and video collections that will be migrated out of the legacy systems. Furthermore, as of October 2019 the UCLA Film & Television Archive is now part of the library. The archive is vast and demand for the content is high. We have therefore already begun updating Fester to support version 3.0 of the IIIF Presentation API, which accommodates time-based media in manifests. We will also explore options for our A/V counterpart to Cantaloupe. We currently use Wowza [ 12 ] for streaming media, but we will continue with our spirit of experimentation and perform some analysis to determine if it is the best fit for our needs.
+ Centralized Search Index. It is time for us to design and build a new library website. The current site is getting on in years, we now have the Film & Television Archive joining us, and the current CMS (Drupal 7) will be end of life at the end of 2021. One potential goal of the new site is to create a single search interface for all library resources. To support this, the Services Team will begin work on an aggregation service and central index.
+ Metadata outside Samvera. In an effort to continue removing responsibilities from the backend repository, we will explore using ArchiveSpace [ 13 ] for item level metadata instead of using Hyrax. This metadata would then be harvested by the central search index mentioned above.
+ VI. Acknowledgements
+ The authors would like to thank the following people:
+ Hardy Pottinger, a former developer on the Services Team, for his contributions to the services described here
+ Bill Hackenberg, our project manager, for his help in keeping the project going
+ Lisa McAualy and Dawn Childress, from UCLA’s Digital Library Program and our primary stakeholders, for their help in defining, prioritizing, and testing the service features.
+ VII. References
+ Cossu S. 2019. Getty Common Image Service: Research & Design Report [Internet]. [Modified 2019-06-27]. [Cited 2020-03-09]. Available from: https://drive.google.com/file/d/1pB2eqlSlC4Ua5ZrEEEdJTbofl0wdDApg/view?usp=sharing 
+ Ford N, Parsons R, Kua P. 2017. Building Evolutionary Architectures: Support Constant Change. Sebastopol: O’Reilly Media.
+ Gomez J. 2020. Modernizing a Software Development Team [Internet]. [Modified 2020-05-02]. [Cited 2020-05-02]. Available from https://misc.dev/posts/modernizing-a-dev-team/ 
+ VIII. Notes
+ [ 1 ] https://samvera.org/ 
+ [ 2 ] https://iiif.io 
+ [ 3 ] The Image API specifies how to request an individual image, whereas the Presentation API specifies how a set of images should be presented together (i.e. sequential order, paginated vs. single images, etc.)
+ [ 4 ] https://kakadusoftware.com/ 
+ [ 5 ] http://www.openjpeg.org/ 
+ [ 6 ] https://cantaloupe-project.github.io/ 
+ [ 7 ] Cloudwatch is a monitoring service offered by AWS
+ [ 8 ] https://aws.amazon.com/fargate/ 
+ [ 9 ] https://locust.io/ 
+ [ 10 ] https://github.com/UCLALibrary/bucketeer 
+ [ 11 ] https://github.com/UCLALibrary/fester 
+ [ 12 ] https://www.wowza.com/ 
+ [ 13 ] https://archivesspace.org/ 
+ IX. About the Authors
+ Joshua Gomez ( joshuagomez@library.ucla.edu ) is the Head of Software Development and Library Systems at the UCLA Library and a lecturer in the Department of Information Studies at UCLA. He holds a Masters of Information Management & Systems from UC Berkeley and a BA in English from USC (UCLA’s cross-town rival).
+ Kevin S. Clarke ( ksclarke@library.ucla.edu ) is a Digital Library Software Developer at the UCLA Library. He holds an MS in Information Science from UNC Chapel Hill and a BA in English from Guilford College.
+ Anthony Vuong ( avuong@library.ucla.edu ) is the Development Support Systems Architect at the UCLA Library. He studied Computer Science at UC Irvine.
+ Subscribe to comments: For this article | For all articles 
+ Leave a Reply
+ Name (required) 
+ Mail (will not be published) (required) 
+ Website 
+ Δ 
+ ISSN 1940-5758
+ Current Issue
+ Issue 61, 2025-10-21 
+ Previous Issues
+ Issue 60, 2025-04-14 
+ Issue 59, 2024-10-07 
+ Issue 58, 2023-12-04 
+ Issue 57, 2023-08-29 
+ Older Issues 
+ For Authors
+ Call for Submissions 
+ Article Guidelines 
+ Log in 
+ This work is licensed under a Creative Commons Attribution 3.0 United States License .
