@@ -1,8 +1,8 @@
 {
   "slug": "national-gallery-of-art-library",
-  "endpoint": {"id": "api-nga-racine", "url": "https://api.nga.gov/", "method": "GET"},
+  "endpoint": {"id": "image-info-json", "url": "https://api.nga.gov/iiif/428537bd-58da-4075-97e8-034b9f30f2f1/info.json", "method": "GET"},
   "limite_documentee_req_min": null,
-  "source_limite": "aucune limite documentée ; robots.txt de api.nga.gov : Crawl-delay 10 et demande de liste blanche pour tout crawl (https://api.nga.gov/robots.txt)",
+  "source_limite": "aucune limite documentée ; robots.txt de api.nga.gov : Crawl-delay 10 (6 req/min) et demande de liste blanche pour tout crawl (https://api.nga.gov/robots.txt)",
   "duree_palier_s": 180,
-  "note": "Configuration provisoire : à valider selon la réponse réelle de api.nga.gov (page racine). Si la racine n'est pas un 200 peu coûteux, g_impossible."
+  "note": "info.json d'image IIIF 2 sur api.nga.gov, 200 dans le journal (image-info-json, 2026-11-14T02:18:02Z), réponse de quelques centaines d'octets. Cloudflare détecté (en-tête server: cloudflare) : plafond adaptatif 60 req/min ; ATTENTION Crawl-delay 10 et liste blanche demandée par la NGA : à décider avant lancement."
 }

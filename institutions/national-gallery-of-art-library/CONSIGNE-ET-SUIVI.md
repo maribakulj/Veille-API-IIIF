@@ -2,51 +2,51 @@
 
 - **Dossier** : `institutions/national-gallery-of-art-library/`  ·  **Classeur de référence** : GLAM-049  ·  **Pays** : États-Unis
 - **Statut d'institution** : active
-- **Dernière mise à jour du suivi** : (à renseigner à chaque modification)
+- **Dernière mise à jour du suivi** : 2026-11-14
 
 ## Suivi par étape (à cocher, avec justification et preuves)
 
 ### a) Documentation lue en entier
 > Toutes les pages de doc liées à l'API (développeurs, interfaces, conditions, FAQ, aide, mentions légales, robots.txt), téléchargées avec `scripts/fetch_doc.sh` (URL, date, SHA-256), lues en entier (`scripts/extract_text.py`).
 
-- [ ] **Pas fait**
-  - **Justification** : Pas encore traitée : l'audit suit l'ordre du classeur de référence (une institution à la fois).
-  - **Preuves** : 
+- [x] **Fait**
+  - **Justification** : Doc lue : robots.txt de www, api, library, libraryimage, README GitHub de l'institution, guide IIIF de la Library ; pages www.nga.gov en 403 (défi Cloudflare) : Wayback lue, URLs listées à vérifier à la main (a_verifier_manuellement).
+  - **Preuves** : `institutions/national-gallery-of-art-library/sources/gh/SHA256SUMS`, `institutions/national-gallery-of-art-library/sources/h1/SHA256SUMS`, `institutions/national-gallery-of-art-library/sources/h10/SHA256SUMS`, `institutions/national-gallery-of-art-library/sources/h2/SHA256SUMS`, `institutions/national-gallery-of-art-library/sources/h3/SHA256SUMS`, `institutions/national-gallery-of-art-library/sources/h4/SHA256SUMS`, `institutions/national-gallery-of-art-library/sources/h5/SHA256SUMS`, `institutions/national-gallery-of-art-library/sources/h6/SHA256SUMS`, `institutions/national-gallery-of-art-library/sources/h7/SHA256SUMS`, `institutions/national-gallery-of-art-library/sources/h8/SHA256SUMS`, `institutions/national-gallery-of-art-library/sources/h9/SHA256SUMS`, `institutions/national-gallery-of-art-library/sources/iiifio/SHA256SUMS`, `institutions/national-gallery-of-art-library/sources/li/SHA256SUMS`, `institutions/national-gallery-of-art-library/sources/wayback/nga-open-access-images-20250428.md`
 
 ### b) Endpoints tirés de la doc
 > Liste des endpoints citée par la doc (URL, exemples). Jamais devinée. Une interdiction ou une impossibilité écrite dans la doc justifie de renoncer (citer la phrase).
 
-- [ ] **Pas fait**
-  - **Justification** : Pas encore traitée : l'audit suit l'ordre du classeur de référence (une institution à la fois).
-  - **Preuves** : 
+- [x] **Fait**
+  - **Justification** : Endpoints : manifestes et visionneuse libraryimage, service d'image api.nga.gov/iiif (guide iiif.io et manifeste), plan de site cité par robots.txt ; manifestes www.nga.gov non testés (défi) ; listés dans data.json.
+  - **Preuves** : `institutions/national-gallery-of-art-library/data.json`, `institutions/national-gallery-of-art-library/sources/iiifio/SHA256SUMS`
 
 ### c) Configuration écrite AVANT les tests
 > `config/<nom>.json` pilote `scripts/probe.py`, committée avant le lancement. Un endpoint absent de la doc mais non interdit se teste avec un script poli (identifiants issus de pages publiques ou d'exemples de la doc, pas de devinette).
 
-- [ ] **Pas fait**
-  - **Justification** : Pas encore traitée : l'audit suit l'ordre du classeur de référence (une institution à la fois).
-  - **Preuves** : 
+- [x] **Fait**
+  - **Justification** : Trois configurations committées avant leur lancement (passe 1 au commit 06b682f, passes 2 et 3 aux commits suivants).
+  - **Preuves** : `institutions/national-gallery-of-art-library/config/nga-v2-passe1-api-library.json`, `institutions/national-gallery-of-art-library/config/nga-v2-passe2-libraryimage.json`, `institutions/national-gallery-of-art-library/config/nga-v2-passe3-image-uv.json`
 
 ### d) Quota cherché dans la doc
 > Pour chaque page lue : endpoint de statut, en-têtes de limite documentés, clé ou compte donnant un quota, contact pour un volume plus élevé. Chaque réponse cite sa source.
 
-- [ ] **Pas fait**
-  - **Justification** : Pas encore traitée : l'audit suit l'ordre du classeur de référence (une institution à la fois).
-  - **Preuves** : 
+- [x] **Fait**
+  - **Justification** : Quota cherché dans chaque source lue : aucun endpoint de statut ni en-tête de limite documenté ; seuls Crawl-delay 10 (api, library) et la demande de liste blanche du robots.txt de api.nga.gov ; contact via nga.gov/contact-us (en défi).
+  - **Preuves** : `institutions/national-gallery-of-art-library/fiche.md`, `institutions/national-gallery-of-art-library/sources/h2/SHA256SUMS`, `institutions/national-gallery-of-art-library/sources/h4/SHA256SUMS`
 
 ### e) Test systématique de chaque endpoint
 > Chaque endpoint documenté est testé (budget 15 requêtes par passe, pause ≥ 6 s, GET/HEAD, UA du projet). Redirections du même hôte suivies. Un 403 arrête son hôte, un 429 arrête l'institution. Seules les interdictions écrites dans la doc dispensent de tester.
 
-- [ ] **Pas fait**
-  - **Justification** : Pas encore traitée : l'audit suit l'ordre du classeur de référence (une institution à la fois).
-  - **Preuves** : 
+- [x] **Fait**
+  - **Justification** : Tous les endpoints accessibles testés en 3 passes (200 sur manifeste, image, visionneuse, plan de site ; 301/302 non suivis sur api.nga.gov et library) ; www.nga.gov arrêté après 403 (défi), non testé ; aucun 429.
+  - **Preuves** : `institutions/national-gallery-of-art-library/tests/journal.log`, `institutions/national-gallery-of-art-library/tests/raw/libraryimage-manifeste.headers.txt`, `institutions/national-gallery-of-art-library/tests/raw/image-info-json.headers.txt`
 
 ### f) Ce que disent les gens sur le web
 > Plaintes, discussions, présentations de l'institution, politique envers les API et les bots, blogs, GitHub, forums, listes de diffusion. Sources étiquetées (officielle / institution / utilisateur / tiers), lues, citées.
 
-- [ ] **Pas fait**
-  - **Justification** : Pas encore traitée : l'audit suit l'ordre du classeur de référence (une institution à la fois).
-  - **Preuves** : 
+- [x] **Fait**
+  - **Justification** : 4 catégories web (institution : robots.txt ; tickets : mnemosyne#22 ; présentations : article IIIF 2018 ; utilisateurs : aucun résultat) avec 6 recherches WebSearch.
+  - **Preuves** : `institutions/national-gallery-of-art-library/fiche.md`, `institutions/national-gallery-of-art-library/data.json`
 
 ### g) Crash test progressif
 > Seulement après l'audit complet (a à f) de toutes les institutions et avec l'accord de Marcel : paliers jusqu'à 2 × la limite documentée, ou 200 req/min si illimité ou sans limite documentée. Arrêt au premier 429/403/CAPTCHA.
@@ -60,7 +60,7 @@
 
 <!-- AUTO:DEBUT -->
 ## Contrôles automatiques (calculés depuis `tests/journal.log`)
-- Requêtes enregistrées : **8** (sessions de sonde : 2, maximum par session : 6)
+- Requêtes enregistrées : **13** (sessions de sonde : 3, maximum par session : 6)
 - Plus courte pause vers un même hôte : **7 s** (règle : ≥ 6 s)
 - Méthodes utilisées : GET (règle : GET/HEAD seulement)
 - Anomalies : aucune
