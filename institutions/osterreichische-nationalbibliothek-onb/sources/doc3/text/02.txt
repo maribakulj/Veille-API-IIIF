@@ -1,0 +1,24 @@
+SACHA 
+ ", it doesn't work-->
+ In SACHA, a manifest, as defined in the Presentation API, refers to a digitized object.
+ A digitized object
+ can be a book or a similar object from the library(newspaper, magazine).
+ Every manifest has a unique id, which is its URL.
+ Every digitized book has a project name unique id. The project name and the id are included in the manifest
+ URLs in the following
+ scheme:
+ http://iiif.onb.ac.at/presentation/{project name}/{id}/manifest/ 
+ There are currently three digitization projects with the following names: ABO(Austrian Books Online),
+ ANNO(AustriaN Newspapers Online) and AKON(AnsichtsKarten ONline).
+ You can either type in the full URL or just the id(project name will be inferred) of a digitized book
+ in order to view it. SACHA provides two viewers to view the manifests: Mirador 
+ and Universal Viewer .
+ You can also view manifests from institutions other than the Austrian National Library by typing the URL.
+ For more information, you can read the documentation .
+ -->
+ MANIFEST ID OR URL 
+ IIIF MANIFEST 
+ MIRADOR VIEWER 
+ MIRADOR3 VIEWER 
+ UNIVERSAL VIEWER 
+ ", it doesn't work-->

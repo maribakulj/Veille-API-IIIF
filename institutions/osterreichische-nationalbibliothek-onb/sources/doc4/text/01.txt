@@ -1,0 +1,35 @@
+ONB Labs - Machine Learning and IIIF 
+ <!-- ONB . Labs --> 
+ Home 
+ Data Sets 
+ Tools 
+ Tutorials 
+ Artspace 
+ Contribute 
+ Glossary 
+ de 
+ en 
+ login 
+ Machine Learning and IIIF
+ Within the CLARIAH-AT project “IIIF and Machine Learning,” three use cases were developed to illustrate the application of machine learning to library datasets. Access to these datasets is facilitated using the International Image Interoperability Framework (IIIF), a widely adopted standard for delivering digital objects. This ensures that the developed applications can also be utilized for resources beyond the Austrian National Library.
+ Topic A: Colorization of black and white images
+ This Jupyter notebook utilizes a pretrained model for colorizing black and white images. As an example, the model is applied to a random postcard from the AKON collection. Access to this collection is provided through the link to the corresponding IIIF Collection, allowing the integration of various other collections as well.
+Additionally, a notebook has been developed that enables users to create their own colorization model using transfer learning. The specification of training data is done through a IIIF Collection. (Note that a GPU is required for reasonable training duration.)
+ Topic B: Extraction of figures from books
+ Another notebook focuses on the detection and extraction of figures from various sources. The model used for identifying the figures is YOLOv8 . Six books from the ABO collection were annotated and subsequently used for further training of the model. The digital object from which the figures are to be extracted can be addressed via the link to the corresponding IIIF Manifest, allowing the application to be used on resources beyond the Austrian National Library (ÖNB).
+ Topic C: Classification of figures
+ An application in Gradio (UI framework for machine learning applications) has been created, allowing the user to apply a model for image classification by specifying a IIIF manifest for the included images. The application utilizes the pretrained Resnet18 model, capable of recognizing 1000 predefined classes of everyday objects. However, for most sources in the library domain, the application yields poor results. Nevertheless, it can be useful for specific manifests or when using a different model.
+ Technologies
+ The developed applications use the machine learning libraries PyTorch and Ultralytics (for the YOLOv8 model). For ease of handling and reusability, Jupyter Notebooks and Gradio components were employed. As a byproduct of the work, a small Python library was created, providing functions for querying, downloading, and annotating IIIF manifests and collections. This library is included with each of the applications and can serve as a foundation for future experiments with IIIF resources.
+ Dissemination & Funding
+ GitLab link to notebooks: https://labs.onb.ac.at/gitlab/explore/projects/topics/CLARIAH-AT 
+CLARIAH-AT project page: https://clariah.at/iiif-suite/ 
+GLAM Labs community: https://glamlabs.io/computational-access-to-digital-collections/ 
+BVMC.Labs: https://data.cervantesvirtual.com/glam-jupyter-notebooks 
+ This work was made possible through financial support from CLARIAH-AT 
+ Contact us 
+ About 
+ Terms Of Service 
+ Data protection information 
+ Accessibility declaration 
+ Legal notice

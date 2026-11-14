@@ -1,0 +1,66 @@
+ONB Labs - Linked Open Data 
+ <!-- ONB . Labs --> 
+ Home 
+ Data Sets 
+ Tools 
+ Tutorials 
+ Artspace 
+ Contribute 
+ Glossary 
+ de 
+ en 
+ login 
+ Linked Open Data
+ Linked Open Data refers to openly and freely available data online, identified via Uniform Resource Identifier (URI) and accessible via HTTP. This allows to link and send requests to various data resources.
+ The Linked Open Data Set of the ONB Labs includes metadata of our historical newspapers, our historical postcards and the catalogue of the Austrian National Library.
+ Interface description
+ The download of our historical postcards (AKON) per dataset can be retrieved under
+ http://data.onb.ac.at/AKON/{akon-id}.rdf 
+ For our historical newspapers the link is
+ http://data.onb.ac.at/ANNO/{anno-id}.rdf .
+ The primary format used for our historical newspapers and postcards is the Europeana Data Model (EDM). A detailed description of the identifiers can be found under: https://iiif.onb.ac.at/api .
+ Catalogue data can be retrieved in
+ BIBFRAME via https://open-na.hosted.exlibrisgroup.com/alma/{institution-code}/bf/entity/instance/{mms-id} ,
+ JSON-LD via https://open-na.hosted.exlibrisgroup.com/alma/{institution-code}/bibs/{mms-id} or
+ RDA/RDF via https://open-na.hosted.exlibrisgroup.com/alma/{institution-code}/rda/entity/manifestation/{mms-id}.rdf .
+ The institution-code for an MMS-ID from the Network Zone is 43ACC_NETWORK, for a local one 43ACC_ONB. Additional is provided in the Ex Libris Developer Network .
+ Data
+ The metadata of over 1,380,000 newspaper issues and 42,800 periodicals is accessible via SPARQL endpoint, as download per dataset or as data dump. The same accounts for the over 38,800 historical postcards (AKON)
+ A description of the relevant attributes of the EDM-schemata can be found at our SPARQL-LAB .
+ Description Link 
+ ANNO Metadata
+ Download all ANNO metadata as EDM-XML
+ metadata_anno.tar.bz2 
+ ANNO Metadata
+ Download all ANNO metadata as BIBFRAME-XML
+ metadata_anno_bibframe.tar.bz2 
+ AKON Metadata
+ Download all AKON metadata as EDM-XML
+ metadata_akon.tar.bz2 
+ ANNO Blazegraph
+ Download all ANNO metadata as journal file for Blazegraph ( Wiki )
+ bigdata_anno.jnl.xz 
+ AKON Blazegraph
+ Download all ANNO metadata as journal file for Blazegraph ( Wiki )
+ bigdata_akon.jnl.xz 
+ ANNO+AKON Blazegraph
+ Download all ANNO+AKON metadata as journal file for Blazegraph ( Wiki )
+ bigdata_anno_akon.jnl.xz 
+ Tutorials
+ HOWTOs and Jupyter Notebooks
+ Description Link 
+ Your own Blazegraph instance
+ Wiki: Deploy your own Blazegraph using Docker, use it as your own local SPARQL Endpoint
+ Wiki SPARQL-local 
+ LOD and SACHA
+ Jupyter Notebook: Query single data fields using SPARQL (e.g.: all historical newspapers with the subject heading “Statistik”). Use the results to create your own collection in SACHA.
+ SACHA Statistik Collection.ipynb 
+ ALMA
+ Jupyter Notebook: retrieve Bibframe
+ ViewerlinksFromBibframe.ipynb 
+ Contact us 
+ About 
+ Terms Of Service 
+ Data protection information 
+ Accessibility declaration 
+ Legal notice
