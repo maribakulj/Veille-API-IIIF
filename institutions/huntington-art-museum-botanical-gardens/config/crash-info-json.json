@@ -1,0 +1,12 @@
+{
+  "slug": "huntington-art-museum-botanical-gardens",
+  "endpoint": {
+    "id": "info-json-cdm16003",
+    "url": "https://cdm16003.contentdm.oclc.org/digital/iiif/2/p16003coll14:1102/info.json",
+    "method": "GET"
+  },
+  "limite_documentee_req_min": null,
+  "source_limite": "aucune limite de débit documentée (robots.txt de hdl.huntington.org : seulement « Crawl-Delay: 1 » ; doc OCLC help.oclc.org IIIF API reference : aucun chiffre)",
+  "duree_palier_s": 180,
+  "note": "info.json Image API 2 (Cantaloupe), 200 dans le journal (hdl-p3-info-doc-cdm, 2026-11-14T02:29:20Z), réponse courte. L'hôte cdm16003.contentdm.oclc.org est mutualisé par OCLC : tenir compte du réseau détecté par crash.py."
+}

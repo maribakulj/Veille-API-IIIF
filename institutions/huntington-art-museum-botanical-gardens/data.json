@@ -1,13 +1,303 @@
 {
-  "slug": "huntington-art-museum-botanical-gardens",
-  "nom": "Huntington Library, Art Museum and Botanical Gardens",
-  "pays": "États-Unis",
-  "classeur_id": "GLAM-058",
-  "type": "Institution",
-  "statut_audit": "à faire",
-  "limites_documentees": [],
-  "en_tetes_observes": [],
-  "blocages": [],
-  "sources": [],
-  "web": []
+ "slug": "huntington-art-museum-botanical-gardens",
+ "nom": "Huntington Library, Art Museum and Botanical Gardens",
+ "pays": "États-Unis",
+ "classeur_id": "GLAM-058",
+ "type": "Institution",
+ "statut_audit": "méthode v2 complète sauf g (crash test à la fin)",
+ "limites_documentees": [
+  {
+   "nature": "Crawl-delay (robots.txt)",
+   "perimetre": "hdl.huntington.org et cdm16003.contentdm.oclc.org (robots.txt identiques, 1 903 o)",
+   "valeur": "1 s",
+   "fenetre": "entre requêtes",
+   "effet": "demande de courtoisie, non appliquée par réponse HTTP",
+   "verification": "lue dans les deux robots.txt ; non observée côté serveur",
+   "source": "https://hdl.huntington.org/robots.txt",
+   "date": "2026-11-14"
+  }
+ ],
+ "en_tetes_observes": [
+  {
+   "hote": "cdm16003.contentdm.oclc.org / hdl.huntington.org",
+   "en_tete": "x-oclc-iiif-provider: cantaloupe",
+   "signification": "serveur IIIF ; aucun en-tête RateLimit, Retry-After ni X-RateLimit",
+   "preuve": "institutions/huntington-art-museum-botanical-gardens/tests/raw/hdl-p3-info-doc-cdm.headers.txt"
+  }
+ ],
+ "blocages": [
+  {
+   "hote": "www.huntington.org",
+   "code": "429",
+   "nature": "défi « Vercel Security Checkpoint » (page HTML), dès la 1re requête (robots.txt)",
+   "date": "2026-11-14",
+   "preuve": "institutions/huntington-art-museum-botanical-gardens/sources/doc/raw/06.html",
+   "suite": "hôte arrêté, doc lue via Wayback"
+  },
+  {
+   "hote": "huntington.emuseum.com",
+   "code": "403",
+   "nature": "refus d'accès à la page d'accueil (réseau Cloudflare ; robots.txt, lui, en 200)",
+   "date": "2026-11-14",
+   "preuve": "institutions/huntington-art-museum-botanical-gardens/sources/emuseum/raw/02.html",
+   "suite": "hôte arrêté"
+  }
+ ],
+ "sources": [
+  {
+   "url": "https://hdl.huntington.org/robots.txt",
+   "date": "2026-11-14",
+   "etiquette": "officielle",
+   "preuve": "institutions/huntington-art-museum-botanical-gardens/sources/doc/SHA256SUMS"
+  },
+  {
+   "url": "https://cdm16003.contentdm.oclc.org/robots.txt",
+   "date": "2026-11-14",
+   "etiquette": "officielle",
+   "preuve": "institutions/huntington-art-museum-botanical-gardens/sources/doc/SHA256SUMS"
+  },
+  {
+   "url": "https://researchguides.huntington.org/collectionsupclose",
+   "date": "2026-11-14",
+   "etiquette": "officielle (guide de recherche)",
+   "preuve": "institutions/huntington-art-museum-botanical-gardens/sources/doc/SHA256SUMS"
+  },
+  {
+   "url": "https://help.oclc.org/Metadata_Services/CONTENTdm/Advanced_website_customization/API_Reference/IIIF_API_reference/Work_with_the_IIIF_Presentation_API",
+   "date": "2026-11-14",
+   "etiquette": "tiers (OCLC, éditeur de CONTENTdm)",
+   "preuve": "institutions/huntington-art-museum-botanical-gardens/sources/oclc/SHA256SUMS"
+  },
+  {
+   "url": "https://help.oclc.org/Metadata_Services/CONTENTdm/Advanced_website_customization/API_Reference/IIIF_API_reference/Work_with_the_IIIF_Image_API",
+   "date": "2026-11-14",
+   "etiquette": "tiers (OCLC)",
+   "preuve": "institutions/huntington-art-museum-botanical-gardens/sources/oclc/SHA256SUMS"
+  },
+  {
+   "url": "https://help.oclc.org/robots.txt",
+   "date": "2026-11-14",
+   "etiquette": "tiers (OCLC) : Crawl-delay 5",
+   "preuve": "institutions/huntington-art-museum-botanical-gardens/sources/oclc/SHA256SUMS"
+  },
+  {
+   "url": "https://iiif.io/guides/guides/hdl.huntington.org/",
+   "date": "2026-11-14",
+   "etiquette": "tiers (consortium IIIF)",
+   "preuve": "institutions/huntington-art-museum-botanical-gardens/sources/oclc/SHA256SUMS"
+  },
+  {
+   "url": "https://huntington.emuseum.com/robots.txt",
+   "date": "2026-11-14",
+   "etiquette": "officielle",
+   "preuve": "institutions/huntington-art-museum-botanical-gardens/sources/emuseum/SHA256SUMS"
+  },
+  {
+   "url": "https://www.huntington.org/robots.txt",
+   "date": "2026-05-01",
+   "etiquette": "officielle (via Wayback)",
+   "preuve": "institutions/huntington-art-museum-botanical-gardens/sources/wayback/www-huntington-org-robots.md"
+  },
+  {
+   "url": "https://huntington.org/library-rights-permissions",
+   "date": "2025-03-12",
+   "etiquette": "officielle (via Wayback)",
+   "preuve": "institutions/huntington-art-museum-botanical-gardens/sources/wayback/library-rights-permissions.md"
+  },
+  {
+   "url": "https://www.huntington.org/using-library",
+   "date": "2026-04-15",
+   "etiquette": "officielle (via Wayback)",
+   "preuve": "institutions/huntington-art-museum-botanical-gardens/sources/wayback/using-library.md"
+  },
+  {
+   "url": "https://huntington.emuseum.com/rights",
+   "date": "2023-07-09",
+   "etiquette": "officielle (via Wayback)",
+   "preuve": "institutions/huntington-art-museum-botanical-gardens/sources/wayback/emuseum-rights.md"
+  }
+ ],
+ "web": [
+  {
+   "categorie": "institution",
+   "url": "https://huntington.org/library-rights-permissions",
+   "date": "2025-03-12",
+   "etiquette": "officielle (via Wayback)",
+   "citation": "« The Huntington Library does not require that researchers request permission to quote from or publish material that is in the public domain or for which The Huntington does not own the copyright, nor does it charge for such activities. » ; la page ne dit rien de l'accès automatisé, du débit ni des API",
+   "preuve": "institutions/huntington-art-museum-botanical-gardens/sources/wayback/library-rights-permissions.md"
+  },
+  {
+   "categorie": "utilisateurs",
+   "url": "https://groups.google.com/g/iiif-discuss/c/29glMbqxmDg",
+   "date": "2025-01-22",
+   "etiquette": "utilisateur (iiif-discuss)",
+   "citation": "« Is this behaviour of placing a lower resolution image at /full/full/0/default.jpg in line with IIIF protocols? » à propos de https://cdm16003.contentdm.oclc.org/digital/iiif/p15150coll7/2448/ ; aucune plainte de 429 ou de blocage",
+   "preuve": "institutions/huntington-art-museum-botanical-gardens/sources/web/text/04.txt"
+  },
+  {
+   "categorie": "utilisateurs",
+   "aucun_resultat": true,
+   "requete": "hdl.huntington.org 429 OR 403 OR \"too many requests\" download images script iiif-discuss",
+   "date": "2026-11-14",
+   "etiquette": "résumé de moteur, non vérifié",
+   "citation": "aucun fil ni ticket sur un 429 ou un blocage de hdl.huntington.org dans les résultats",
+   "preuve": "institutions/huntington-art-museum-botanical-gardens/fiche.md"
+  },
+  {
+   "categorie": "tickets",
+   "aucun_resultat": true,
+   "requete": "github issue contentdm iiif \"hdl.huntington.org\" OR \"cdm16003.contentdm.oclc.org\"",
+   "date": "2026-11-14",
+   "etiquette": "résumé de moteur, non vérifié",
+   "citation": "aucun ticket GitHub citant hdl.huntington.org ou cdm16003.contentdm.oclc.org (seulement la doc OCLC et des gists sur un autre site CONTENTdm)",
+   "preuve": "institutions/huntington-art-museum-botanical-gardens/fiche.md"
+  },
+  {
+   "categorie": "presentations",
+   "url": "https://www.oclc.org/en/member-stories/huntington.html",
+   "date": "2026-11-14",
+   "etiquette": "tiers (étude de cas OCLC, propos de l'équipe du Huntington)",
+   "citation": "« And with CONTENTdm’s integration with IIIF, researchers worldwide can closely examine and compare these objects with material in other collections without leaving their offices. » ; ne parle ni de quota ni de débit",
+   "preuve": "institutions/huntington-art-museum-botanical-gardens/sources/web/text/02.txt"
+  },
+  {
+   "categorie": "institution",
+   "url": "https://iiif.io/guides/guides/hdl.huntington.org/",
+   "date": "2026-11-14",
+   "etiquette": "tiers (guide IIIF pour la HDL)",
+   "citation": "« Scroll down and copy the IIIF manifest link » (texte alternatif) ; la page ne mentionne pas de limite de débit",
+   "preuve": "institutions/huntington-art-museum-botanical-gardens/sources/oclc/text/05.txt"
+  }
+ ],
+ "contact": "reference@huntington.org (Library) ; artmuseum@huntington.org (Art Museum)",
+ "conclusion_quota": "Aucun quota, en-tête de limite ni politique de moissonnage publiés. Le Huntington Digital Library (hdl.huntington.org) est une instance CONTENTdm (OCLC) : IIIF Presentation et Image 2 servis par Cantaloupe (x-oclc-iiif-provider: cantaloupe), 22 requêtes sans aucun 429 ni en-tête de limite sur ces deux hôtes. Seule règle écrite : Crawl-Delay: 1 dans le robots.txt. Le site www.huntington.org a répondu 429 (page « Vercel Security Checkpoint ») dès la 1re requête et huntington.emuseum.com 403 (Cloudflare) : refus d'accès à notre client, pas des quotas.",
+ "classe_quota": "aucun quota trouvé (Crawl-delay 1 s ; défis anti-bot sur www et eMuseum)",
+ "confiance": "moyenne",
+ "notes": "Décision prise seule : le 429 (défi Vercel) du site vitrine www.huntington.org n'est pas traité comme un arrêt des hôtes d'API distincts (hdl.huntington.org, cdm16003.contentdm.oclc.org, hébergés par OCLC) mais www.huntington.org est arrêté (aucun appel ultérieur) et sa doc est lue via Wayback. Le manifeste de l'objet p16003coll14/1503 pèse 376 ko (objet composé de plusieurs pages). L'identifiant composé 1503 renvoie 501 'Unsupported source format' en Image API ; les identifiants de pages (1102) répondent 200.",
+ "a_verifier_manuellement": [
+  {
+   "url": "https://www.huntington.org/robots.txt",
+   "pourquoi": "429 (Vercel Security Checkpoint) en direct ; lu seulement via Wayback (capture du 2026-05-01)",
+   "a_chercher": "robots.txt actuel : règles IA/bots, Crawl-delay"
+  },
+  {
+   "url": "https://www.huntington.org/digital-library",
+   "pourquoi": "non téléchargée (429 sur l'hôte) et aucune capture Wayback",
+   "a_chercher": "page sur la Digital Library : conditions d'usage, IIIF, API, moissonnage"
+  },
+  {
+   "url": "https://www.huntington.org/terms-and-conditions-use-photographs",
+   "pourquoi": "hôte www arrêté (429) ; pas lue",
+   "a_chercher": "conditions d'utilisation des images, limites sur l'usage automatisé"
+  },
+  {
+   "url": "https://huntington.emuseum.com/",
+   "pourquoi": "403 Cloudflare ; seul /rights lu via Wayback (2023)",
+   "a_chercher": "API ou IIIF éventuels de l'eMuseum, conditions d'usage, robots (Content-Signal ai-train=no)"
+  },
+  {
+   "url": "https://researchguides.huntington.org/imagingservices",
+   "pourquoi": "l'adresse /libraryservices/imaging renvoie 404 ; la page /imagingservices citée par le moteur n'a pas été lue",
+   "a_chercher": "téléchargement des images HDL (bouton JPEG, PDF), limites"
+  }
+ ],
+ "endpoints_documentes": [
+  {
+   "famille": "IIIF Presentation : manifeste d'objet CONTENTdm (/iiif/info/{alias}/{id}/manifest.json puis /iiif/2/{alias}:{id}/manifest.json)",
+   "url": "https://cdm16003.contentdm.oclc.org/iiif/2/p16003coll14:1503/manifest.json",
+   "statut": "teste",
+   "preuve": "institutions/huntington-art-museum-botanical-gardens/tests/raw/hdl-p2-manifeste-final-cdm.headers.txt"
+  },
+  {
+   "famille": "IIIF Presentation : manifeste de collection",
+   "url": "https://cdm16003.contentdm.oclc.org/iiif/2/p16003coll14/manifest.json",
+   "statut": "teste",
+   "preuve": "institutions/huntington-art-museum-botanical-gardens/tests/raw/hdl-p2-collection-final-head.headers.txt"
+  },
+  {
+   "famille": "IIIF Presentation : manifeste du site (collection de collections)",
+   "url": "https://cdm16003.contentdm.oclc.org/iiif/2/manifest.json",
+   "statut": "teste",
+   "preuve": "institutions/huntington-art-museum-botanical-gardens/tests/raw/hdl-p2-site-final-head.headers.txt"
+  },
+  {
+   "famille": "IIIF Image API 2 (info.json, dérivés)",
+   "url": "https://cdm16003.contentdm.oclc.org/digital/iiif/2/p16003coll14:1102/info.json",
+   "statut": "teste",
+   "preuve": "institutions/huntington-art-museum-botanical-gardens/tests/raw/hdl-p3-info-doc-cdm.headers.txt"
+  },
+  {
+   "famille": "Page objet de la Digital Library (visionneuse CONTENTdm)",
+   "url": "https://hdl.huntington.org/digital/collection/p16003coll14/id/1503",
+   "statut": "teste",
+   "preuve": "institutions/huntington-art-museum-botanical-gardens/tests/raw/hdl-p1-page-objet.headers.txt"
+  },
+  {
+   "famille": "OAI-PMH CONTENTdm (/oai/)",
+   "url": "https://hdl.huntington.org/oai/",
+   "statut": "non_teste",
+   "raison": "non documenté par l'institution ni dans la doc OCLC IIIF lue ; apparaît seulement en Disallow dans robots.txt ; aucun exemple de requête à suivre"
+  },
+  {
+   "famille": "eMuseum du Musée d'art (huntington.emuseum.com)",
+   "url": "https://huntington.emuseum.com/",
+   "statut": "non_teste",
+   "raison": "403 Cloudflare dès la page d'accueil le 2026-11-14 (sources/emuseum/FETCH.log) : on n'insiste pas ; aucune API documentée sur ce site"
+  },
+  {
+   "famille": "Site vitrine et catalogue www.huntington.org",
+   "url": "https://www.huntington.org/collections",
+   "statut": "non_teste",
+   "raison": "429 (Vercel Security Checkpoint) dès la 1re requête le 2026-11-14 : hôte arrêté, aucune API documentée sur ce site"
+  }
+ ],
+ "endpoints_ecartes": [
+  {
+   "url": "https://cdmdemo.contentdm.oclc.org/iiif/info/oclcsample/64/manifest.json",
+   "raison": "exemple de la doc OCLC sur le site de démonstration d'OCLC, pas un hôte du Huntington : le motif est testé sur l'hôte réel cdm16003"
+  },
+  {
+   "url": "https://cdmdemo.contentdm.oclc.org/digital/iiif/2/oclcsample:64/info.json",
+   "raison": "exemple de la doc OCLC sur le site de démonstration d'OCLC, pas un hôte du Huntington : le motif est testé sur l'hôte réel cdm16003"
+  },
+  {
+   "url": "https://help.oclc.org/Metadata_Services/CONTENTdm/Advanced_website_customization/API_Reference/IIIF_API_reference",
+   "raison": "page de documentation OCLC téléchargée et lue (sources/oclc), non une API"
+  },
+  {
+   "url": "https://researchguides.huntington.org/collectionsupclose",
+   "raison": "page de guide de recherche téléchargée et lue (sources/doc), non une API"
+  },
+  {
+   "url": "https://help.oclc.org/@api/deki/pages/35941/pdf/IIIF%2bAPI%2breference.pdf?stylesheet=default",
+   "raison": "lien « Save as PDF » de la page de doc OCLC (export de la page, route /@api/deki/ que le robots.txt de help.oclc.org interdit), pas une API du Huntington"
+  }
+ ],
+ "hotes_robots": [
+  {
+   "hote": "hdl.huntington.org",
+   "resultat": "200 : User-agent * ; Disallow /digital/search/, /oai/, /cdm/search/, /ui/ etc. ; Crawl-Delay: 1",
+   "preuve": "institutions/huntington-art-museum-botanical-gardens/sources/doc/raw/01.html"
+  },
+  {
+   "hote": "cdm16003.contentdm.oclc.org",
+   "resultat": "200 : identique à hdl.huntington.org ; Crawl-Delay: 1",
+   "preuve": "institutions/huntington-art-museum-botanical-gardens/sources/doc/raw/04.html"
+  },
+  {
+   "hote": "www.huntington.org",
+   "resultat": "429 en direct (défi Vercel) ; via Wayback 2026-05-01 : Disallow /collections/search/, /search/, /calendar/ ; pas de Crawl-delay",
+   "preuve": "institutions/huntington-art-museum-botanical-gardens/sources/wayback/www-huntington-org-robots.md"
+  },
+  {
+   "hote": "huntington.emuseum.com",
+   "resultat": "200 : robots.txt Cloudflare avec Content-Signal search=yes, ai-train=no, use=reference",
+   "preuve": "institutions/huntington-art-museum-botanical-gardens/sources/emuseum/raw/01.html"
+  },
+  {
+   "hote": "help.oclc.org",
+   "resultat": "200 : Crawl-delay 5, Request-rate 1/5",
+   "preuve": "institutions/huntington-art-museum-botanical-gardens/sources/oclc/raw/01.html"
+  }
+ ]
 }
