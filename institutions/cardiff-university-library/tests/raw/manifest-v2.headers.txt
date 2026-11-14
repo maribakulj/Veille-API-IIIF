@@ -1,0 +1,17 @@
+2026-11-14T02:39:38Z GET https://librarysearch.cardiff.ac.uk/view/iiif/presentation/44WHELF_CAR/12204337930002420/manifest?iiifVersion=2
+HTTP 200
+x-request-id: Sz1NwVpQjY
+p3p: CP="IDC DSP COR ADM DEVi TAIi PSA PSD IVAi IVDi CONi HIS OUR IND CNT"
+set-cookie: JSESSIONID=0C851555A36F511BE696D01C48CF7B4E.apd08.eu00.prod.alma.dc03.hosted.exlibrisgroup.com%3A1801; Path=/; Secure; HttpOnly; SameSite=None
+set-cookie: urm_st=1794623978136; Path=/; Secure; SameSite=None
+set-cookie: urm_se=1794624578136; Path=/; Secure; SameSite=None
+access-control-allow-origin: *
+content-security-policy: object-src blob: 'self' *.exlibrisgroup.com *.exlibrisgroup.com.cn www.google-analytics.com stats.g.doubleclick.net s3.amazonaws.com www.youtube.com youtube.com *.contentdm.oclc.org iiif.nlm.nih.gov librarysearch.cardiff.ac.uk nhswaleslibrarysearch.cardiff.ac.uk kzlibrarysearch.cardiff.ac.uk sglibrarysearch.cardiff.ac.uk ;worker-src blob: 'self' *.exlibrisgroup.com *.exlibrisgroup.com.cn www.google-analytics.com stats.g.doubleclick.net s3.amazonaws.com www.youtube.com youtube.com artic.contentdm.oclc.org librarysearch.cardiff.ac.uk nhswaleslibrarysearch.cardiff.ac.uk kzlibrarysearch.cardiff.ac.uk sglibrarysearch.cardiff.ac.uk ;upgrade-insecure-requests; report-uri /infra/CSPReportEndpoint.jsp; report-to csp-report-endpoint; 
+report-to: {"max_age":10886400,"endpoints":[{"url":"https://eu.alma.exlibrisgroup.com/infra/CSPReportEndpoint.jsp"}],"group":"csp-report-endpoint"}
+x-content-type-options: nosniff
+vary: accept-encoding
+content-type: application/json;charset=UTF-8
+transfer-encoding: chunked
+date: Sat, 14 Nov 2026 02:39:38 GMT
+strict-transport-security: max-age=1209600; includeSubDomains
+set-cookie: __Secure-UqZBpD3n3naPU20-9Fvn5i-TSO9FpMhbYtbA9YCEpg3UXgo_=v1ZOo+gw__Bgv; Expires=Sun, 14-Nov-2027 02:39:38 GMT; Path=/; Secure; SameSite=None
