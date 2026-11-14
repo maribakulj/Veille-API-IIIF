@@ -1,0 +1,11 @@
+{
+  "slug": "state-library-victoria",
+  "min_delay_s": 10,
+  "max_requests": 15,
+  "follow_redirects": 1,
+  "robots_disallow_autorise_par_marcel": true,
+  "note": "v2 passe 2 : API REST publique de Primo citée par le billet SLV LAB « Exploring SLV URLs » (sources/v2/text/04.txt) : find.slv.vic.gov.au/primaws/rest/pub/sourceRecord?docId=...  (Disallow /primaws au robots.txt, lancé car autorisé par Marcel, C12 ; Crawl-delay 10 respecté). Un seul GET, notice de l'exemple de la doc.",
+  "endpoints": [
+    {"id": "p2-primaws-sourceRecord", "method": "GET", "url": "https://find.slv.vic.gov.au/primaws/rest/pub/sourceRecord?docId=alma9941325055707636&vid=61SLV_INST:SLV&recordOwner=61SLV_INST&lang=en"}
+  ]
+}

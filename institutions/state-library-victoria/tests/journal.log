@@ -1,0 +1,10 @@
+# Session 2026-11-14T03:05:49Z — configuration slv-v2-passe1.json — sonde probe.py au commit b088b48
+2026-11-14T03:05:49Z | robots.txt:handle.slv.vic.gov.au | http://handle.slv.vic.gov.au/robots.txt | GET | 301 | robots.txt indisponible : tout est autorisé (RFC 9309)
+2026-11-14T03:05:59Z | p1-handle-4338980 | http://handle.slv.vic.gov.au/10381/4338980 | HEAD | 301 REDIRECTION_NON_SUIVIE | aucun en-tête de limite | taille≥0 | corps: 
+# redirection vers https://handle.slv.vic.gov.au/10381/4338980 : suivie (même hôte, comptée dans le budget)
+2026-11-14T03:06:10Z | p1-handle-4338980+redir | https://handle.slv.vic.gov.au/10381/4338980 | HEAD | 302 REDIRECTION_NON_SUIVIE | aucun en-tête de limite | taille≥0 | corps: 
+2026-11-14T03:06:10Z | robots.txt:viewer.slv.vic.gov.au | https://viewer.slv.vic.gov.au/robots.txt | GET | 404 | robots.txt indisponible : tout est autorisé (RFC 9309)
+2026-11-14T03:06:21Z | p1-viewer-IE24074939 | https://viewer.slv.vic.gov.au/?entity=IE24074939&mode=browse | HEAD | 200 OK | aucun en-tête de limite | taille≥0 | corps: 
+2026-11-14T03:06:22Z | robots.txt:find.slv.vic.gov.au | https://find.slv.vic.gov.au/robots.txt | GET | 200 | 3 règle(s) pour « * » ; Crawl-delay 10.0 s
+2026-11-14T03:06:33Z | p1-find-fulldisplay | https://find.slv.vic.gov.au/discovery/fulldisplay?vid=61SLV_INST:SLV&search_scope=slv_local&tab=searchProfile&context=L&docid=alma9941325055707636 | HEAD | 200 OK | aucun en-tête de limite | taille≥0 | corps: 
+# Fin 2026-11-14T03:06:33Z — 7 requête(s) envoyée(s)
