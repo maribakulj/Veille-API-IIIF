@@ -4,10 +4,288 @@
   "pays": "États-Unis",
   "classeur_id": "GLAM-059",
   "type": "Plateforme / consortium",
-  "statut_audit": "à faire",
-  "limites_documentees": [],
-  "en_tetes_observes": [],
-  "blocages": [],
-  "sources": [],
-  "web": []
+  "statut_audit": "méthode v2 complète sauf g (crash test à la fin) ; hôte www arrêté par le registre (faux positif reCAPTCHA), JSON et manifeste non testés",
+  "limites_documentees": [
+    {
+      "nature": "Règle explicite (sans chiffre de quota)",
+      "perimetre": "robots.txt de www.digitalcommonwealth.org",
+      "valeur": "Crawl-Delay: 5",
+      "fenetre": "5 s entre requêtes",
+      "effet": "non précisé",
+      "verification": "officielle, lue en entier",
+      "source": "https://www.digitalcommonwealth.org/robots.txt",
+      "date": "2026-11-14"
+    },
+    {
+      "nature": "Règle explicite",
+      "perimetre": "robots.txt de iiif.digitalcommonwealth.org",
+      "valeur": "Disallow: /",
+      "fenetre": "–",
+      "effet": "interdit aux robots (testé avec l'autorisation de Marcel, C12)",
+      "verification": "officielle, lue en entier",
+      "source": "https://iiif.digitalcommonwealth.org/robots.txt",
+      "date": "2026-11-14"
+    }
+  ],
+  "en_tetes_observes": [
+    {
+      "hote": "iiif.digitalcommonwealth.org",
+      "en_tetes": "aucun en-tête de limite ; server: nginx, x-powered-by: Cantaloupe/5.0.6",
+      "preuve": "institutions/digital-commonwealth/tests/raw/iiif-info.headers.txt"
+    },
+    {
+      "hote": "oai.digitalcommonwealth.org",
+      "en_tetes": "aucun en-tête de limite ; server: nginx",
+      "preuve": "institutions/digital-commonwealth/tests/raw/oai-identify.headers.txt"
+    }
+  ],
+  "blocages": [
+    {
+      "hote": "www.digitalcommonwealth.org",
+      "code": "arrêt par le registre (faux positif)",
+      "quand": "2026-11-14T02:31:15Z",
+      "detail": "page /contact en HTTP 200 contenant un formulaire reCAPTCHA prise pour un défi par fetch_doc.sh ; hôte arrêté 24 h ; 5 pages doc et le JSON/manifeste non lus ni testés",
+      "preuve": "institutions/digital-commonwealth/sources/doc/FETCH.log"
+    },
+    {
+      "hote": "www.bpl.org",
+      "code": 202,
+      "quand": "2026-11-14T02:31:50Z",
+      "detail": "robots.txt et /digitization/faq/ : HTTP 202 corps vide (probable file d'attente anti-bot), non insisté",
+      "preuve": "institutions/digital-commonwealth/sources/doc-b/FETCH.log"
+    }
+  ],
+  "sources": [
+    {
+      "url": "https://www.digitalcommonwealth.org/robots.txt",
+      "date": "2026-11-14",
+      "etiquette": "officielle",
+      "preuve": "institutions/digital-commonwealth/sources/doc/SHA256SUMS"
+    },
+    {
+      "url": "https://www.digitalcommonwealth.org/api",
+      "date": "2026-11-14",
+      "etiquette": "officielle",
+      "preuve": "institutions/digital-commonwealth/sources/doc/SHA256SUMS"
+    },
+    {
+      "url": "https://www.digitalcommonwealth.org/",
+      "date": "2026-11-14",
+      "etiquette": "officielle",
+      "preuve": "institutions/digital-commonwealth/sources/doc/SHA256SUMS"
+    },
+    {
+      "url": "https://www.digitalcommonwealth.org/about",
+      "date": "2026-11-14",
+      "etiquette": "officielle",
+      "preuve": "institutions/digital-commonwealth/sources/doc/SHA256SUMS"
+    },
+    {
+      "url": "https://www.digitalcommonwealth.org/contact",
+      "date": "2026-11-14",
+      "etiquette": "officielle",
+      "preuve": "institutions/digital-commonwealth/sources/doc/SHA256SUMS"
+    },
+    {
+      "url": "https://iiif.digitalcommonwealth.org/robots.txt",
+      "date": "2026-11-14",
+      "etiquette": "officielle",
+      "preuve": "institutions/digital-commonwealth/sources/doc-b/SHA256SUMS"
+    },
+    {
+      "url": "https://oai.digitalcommonwealth.org/robots.txt",
+      "date": "2026-11-14",
+      "etiquette": "officielle (404)",
+      "preuve": "institutions/digital-commonwealth/sources/doc-b/SHA256SUMS"
+    },
+    {
+      "url": "https://blog.digitalcommonwealth.org/",
+      "date": "2026-11-14",
+      "etiquette": "institution (blog)",
+      "preuve": "institutions/digital-commonwealth/sources/doc-b/SHA256SUMS"
+    },
+    {
+      "url": "https://blog.digitalcommonwealth.org/robots.txt",
+      "date": "2026-11-14",
+      "etiquette": "officielle",
+      "preuve": "institutions/digital-commonwealth/sources/doc-b/SHA256SUMS"
+    },
+    {
+      "url": "https://github.com/boston-library/solr-core-conf/wiki/SolrDocument-field-reference:-public-API",
+      "date": "2026-11-14",
+      "etiquette": "institution (GitHub)",
+      "preuve": "institutions/digital-commonwealth/sources/doc-b/SHA256SUMS"
+    },
+    {
+      "url": "https://web.archive.org/web/20261005090016/https://www.digitalcommonwealth.org/copyright",
+      "date": "2026-11-14",
+      "etiquette": "tiers (Wayback)",
+      "preuve": "institutions/digital-commonwealth/sources/wayback/pages-www.md"
+    },
+    {
+      "url": "https://web.archive.org/web/20261005180051/https://www.digitalcommonwealth.org/about_dc",
+      "date": "2026-11-14",
+      "etiquette": "tiers (Wayback)",
+      "preuve": "institutions/digital-commonwealth/sources/wayback/pages-www.md"
+    }
+  ],
+  "web": [
+    {
+      "categorie": "institution",
+      "url": "https://www.digitalcommonwealth.org/api",
+      "date": "2026-11-14",
+      "etiquette": "officielle",
+      "citation": "« APIs (Application Programming Interface) provide programmatic machine-based interaction with metadata and image content from items in the Digital Commonwealth collections, allowing this content to be used in other applications and data services. » (aucune limite citée)",
+      "preuve": "institutions/digital-commonwealth/sources/doc/text/04.txt"
+    },
+    {
+      "categorie": "institution",
+      "url": "https://web.archive.org/web/20261005090016/https://www.digitalcommonwealth.org/copyright",
+      "date": "2026-10-05",
+      "etiquette": "officielle (lue via Wayback)",
+      "citation": "« Digital Commonwealth does not charge permission fees for use of such material and does not grant or deny permission to publish or otherwise distribute material in its collections. »",
+      "preuve": "institutions/digital-commonwealth/sources/wayback/pages-www.md"
+    },
+    {
+      "categorie": "presentations",
+      "aucun_resultat": true,
+      "requete": "Digital Commonwealth Boston Public Library bots AI scrapers traffic blog Hyrax OR \"Boston Library\" API developers presentation",
+      "date": "2026-11-14",
+      "etiquette": "tiers (résumé de moteur, non vérifié)",
+      "citation": "Aucune présentation ni billet de Digital Commonwealth/BPL sur la politique d'API ou les bots ; le blog officiel (58 ko lus) ne mentionne ni API ni bots.",
+      "preuve": "institutions/digital-commonwealth/sources/doc-b/text/11.txt"
+    },
+    {
+      "categorie": "utilisateurs",
+      "aucun_resultat": true,
+      "requete": "digitalcommonwealth.org API 429 OR blocked OR \"too many requests\" OR throttled",
+      "date": "2026-11-14",
+      "etiquette": "tiers (résumé de moteur, non vérifié)",
+      "citation": "Aucune plainte ni discussion sur des 429 ou blocages de Digital Commonwealth ; seuls des résultats d'autres API.",
+      "preuve": "institutions/digital-commonwealth/fiche.md"
+    },
+    {
+      "categorie": "tickets",
+      "aucun_resultat": true,
+      "requete": "github \"digitalcommonwealth.org\" search.json OR \"iiif.digitalcommonwealth.org\" issue",
+      "date": "2026-11-14",
+      "etiquette": "tiers (résumé de moteur, non vérifié)",
+      "citation": "Aucun ticket GitHub lié à la limitation de débit ; le moteur signale seulement le dépôt boston-library/blacklight_iiif_search et un README Allmaps utilisant des URL Digital Commonwealth comme exemples (non lus).",
+      "preuve": "institutions/digital-commonwealth/fiche.md"
+    }
+  ],
+  "contact": "https://www.digitalcommonwealth.org/contact (formulaire ; l'API page dit « Please contact us with any questions or comments »)",
+  "conclusion_quota": "Aucun quota, en-tête de limite ni politique d'usage chiffrée publiés. Seules règles écrites : Crawl-Delay: 5 dans le robots.txt de www ; Disallow / sur iiif. (tout robot, testé avec l'autorisation de Marcel) ; copyright : aucun frais, aucune restriction pour le domaine public. Observé : OAI (2 requêtes) et IIIF Image (2 requêtes) en 200 à 10 s, sans en-tête de limite. Le JSON et le manifeste du hôte www n'ont pas pu être testés : l'hôte a été arrêté par le registre partagé après que fetch_doc.sh a pris le formulaire reCAPTCHA de la page /contact (HTTP 200) pour un défi.",
+  "classe_quota": "aucun quota trouvé",
+  "confiance": "moyenne",
+  "notes": "Hôte www arrêté 24 h dans ~/.veille-state (raison « fetch_doc 200 2026-11-14T02:31:15Z ») : faux positif, la page /contact (200) contient un script recaptcha.net ; on n'a pas touché au registre. Pages www lues via Wayback (sources/wayback/pages-www.md). Un hôte de recette qc-dc3dev.bpl.org apparaît dans les résultats de moteur : non testé. oai. : robots.txt 404.",
+  "a_verifier_manuellement": [
+    {
+      "url": "https://www.digitalcommonwealth.org/for_institutions",
+      "pourquoi": "hôte www arrêté (registre) ; seule capture Wayback sans statut",
+      "a_chercher": "mention de moissonnage, d'API, de débit pour les institutions"
+    },
+    {
+      "url": "https://www.digitalcommonwealth.org/privacy",
+      "pourquoi": "hôte www arrêté, non lue",
+      "a_chercher": "mention de collecte automatisée"
+    },
+    {
+      "url": "https://www.digitalcommonwealth.org/search/opensearch.xml",
+      "pourquoi": "hôte www arrêté, non lue (capture Wayback 20260925062231 existe)",
+      "a_chercher": "description OpenSearch : format, limites"
+    },
+    {
+      "url": "https://www.digitalcommonwealth.org/search.json?q=Boston",
+      "pourquoi": "hôte www arrêté : JSON documenté non testé",
+      "a_chercher": "en-têtes de limite, comportement au-delà de Crawl-Delay"
+    },
+    {
+      "url": "https://www.digitalcommonwealth.org/search/commonwealth:hd76s0677/manifest",
+      "pourquoi": "hôte www arrêté : manifeste IIIF Presentation 2.0 non testé",
+      "a_chercher": "statut, en-têtes de limite"
+    },
+    {
+      "url": "https://www.bpl.org/digitization/faq/",
+      "pourquoi": "HTTP 202 corps vide, pas de contenu",
+      "a_chercher": "FAQ du programme : API, moissonnage, contact technique"
+    }
+  ],
+  "endpoints_documentes": [
+    {
+      "famille": "OAI-PMH (https://oai.digitalcommonwealth.org/catalog/oai)",
+      "url": "https://oai.digitalcommonwealth.org/catalog/oai?verb=Identify",
+      "statut": "teste",
+      "preuve": "institutions/digital-commonwealth/tests/raw/oai-identify.headers.txt"
+    },
+    {
+      "famille": "OAI-PMH ListMetadataFormats",
+      "url": "https://oai.digitalcommonwealth.org/catalog/oai?verb=ListMetadataFormats",
+      "statut": "teste",
+      "preuve": "institutions/digital-commonwealth/tests/raw/oai-listmetadataformats.headers.txt"
+    },
+    {
+      "famille": "IIIF Image 2.0 : info.json",
+      "url": "https://iiif.digitalcommonwealth.org/iiif/2/commonwealth:hd76s0677/info.json",
+      "statut": "teste",
+      "preuve": "institutions/digital-commonwealth/tests/raw/iiif-info.headers.txt"
+    },
+    {
+      "famille": "IIIF Image 2.0 : dérivé d'image",
+      "url": "https://iiif.digitalcommonwealth.org/iiif/2/commonwealth:hd76s0677/full/pct:10/0/default.jpg",
+      "statut": "teste",
+      "preuve": "institutions/digital-commonwealth/tests/raw/iiif-derive-pct10.headers.txt"
+    },
+    {
+      "famille": "JSON de recherche (search.json)",
+      "url": "https://www.digitalcommonwealth.org/search.json?q=Boston",
+      "statut": "non_teste",
+      "raison": "hôte www arrêté par le registre partagé (faux positif reCAPTCHA de /contact, 2026-11-14T02:31:15Z) : sonde refusée (journal NON LANCÉ)"
+    },
+    {
+      "famille": "JSON d'un item (.json)",
+      "url": "https://www.digitalcommonwealth.org/search/commonwealth:hd76s0677.json",
+      "statut": "non_teste",
+      "raison": "hôte www arrêté par le registre partagé (faux positif reCAPTCHA de /contact) : sonde refusée (journal NON LANCÉ)"
+    },
+    {
+      "famille": "IIIF Presentation 2.0 : manifeste d'item",
+      "url": "https://www.digitalcommonwealth.org/search/commonwealth:hd76s0677/manifest",
+      "statut": "non_teste",
+      "raison": "hôte www arrêté par le registre partagé (faux positif reCAPTCHA de /contact) : sonde refusée (journal NON LANCÉ)"
+    }
+  ],
+  "endpoints_ecartes": [
+    {
+      "url": "https://www.digitalcommonwealth.org/api-documentation",
+      "raison": "URL de doc essayée en plus de la page /api, 404 constaté (sources/doc/FETCH.log) : aucune API à tester ; la doc réelle est /api."
+    }
+  ],
+  "hotes_robots": [
+    {
+      "hote": "www.digitalcommonwealth.org",
+      "resultat": "Crawl-Delay: 5 ; Disallow des facettes, /downloads/, /saved_searches/, /users*, /feedback ; /search.json non interdit",
+      "preuve": "institutions/digital-commonwealth/sources/doc/SHA256SUMS"
+    },
+    {
+      "hote": "oai.digitalcommonwealth.org",
+      "resultat": "404 : tout autorisé (RFC 9309)",
+      "preuve": "institutions/digital-commonwealth/sources/doc-b/SHA256SUMS"
+    },
+    {
+      "hote": "iiif.digitalcommonwealth.org",
+      "resultat": "Disallow: / (testé avec l'autorisation de Marcel, C12)",
+      "preuve": "institutions/digital-commonwealth/sources/doc-b/SHA256SUMS"
+    },
+    {
+      "hote": "blog.digitalcommonwealth.org",
+      "resultat": "Disallow /wp-admin/ seulement",
+      "preuve": "institutions/digital-commonwealth/sources/doc-b/SHA256SUMS"
+    },
+    {
+      "hote": "www.bpl.org",
+      "resultat": "non lu : HTTP 202 corps vide, pas de contenu",
+      "preuve": "institutions/digital-commonwealth/sources/doc-b/FETCH.log"
+    }
+  ]
 }
