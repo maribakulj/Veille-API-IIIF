@@ -2,51 +2,51 @@
 
 - **Dossier** : `institutions/universita-di-bologna-ams-historica/`  ·  **Classeur de référence** : GLAM-030  ·  **Pays** : Italie
 - **Statut d'institution** : active
-- **Dernière mise à jour du suivi** : (à renseigner à chaque modification)
+- **Dernière mise à jour du suivi** : 2026-11-14
 
 ## Suivi par étape (à cocher, avec justification et preuves)
 
 ### a) Documentation lue en entier
 > Toutes les pages de doc liées à l'API (développeurs, interfaces, conditions, FAQ, aide, mentions légales, robots.txt), téléchargées avec `scripts/fetch_doc.sh` (URL, date, SHA-256), lues en entier (`scripts/extract_text.py`).
 
-- [ ] **Pas fait**
-  - **Justification** : Pas encore traitée : l'audit suit l'ordre du classeur de référence (une institution à la fois).
-  - **Preuves** : 
+- [x] **Fait**
+  - **Justification** : Doc lue : carte de service PDF, conditions d'utilisation, About, vie privée, page SBA, diapositives 2023, robots.txt de historica et sba (amshistorica sans robots propre) ; URL amshistorica sautées par faux positif puis relues sous historica.
+  - **Preuves** : `institutions/universita-di-bologna-ams-historica/sources/a1/SHA256SUMS`, `institutions/universita-di-bologna-ams-historica/sources/h1/SHA256SUMS`, `institutions/universita-di-bologna-ams-historica/sources/h2/SHA256SUMS`, `institutions/universita-di-bologna-ams-historica/sources/h3/SHA256SUMS`, `institutions/universita-di-bologna-ams-historica/sources/h7/SHA256SUMS`, `institutions/universita-di-bologna-ams-historica/sources/h11/SHA256SUMS`, `institutions/universita-di-bologna-ams-historica/sources/h12/SHA256SUMS`, `institutions/universita-di-bologna-ams-historica/sources/h13/SHA256SUMS`, `institutions/universita-di-bologna-ams-historica/sources/h15/SHA256SUMS`, `institutions/universita-di-bologna-ams-historica/sources/h15/charter.txt`
 
 ### b) Endpoints tirés de la doc
 > Liste des endpoints citée par la doc (URL, exemples). Jamais devinée. Une interdiction ou une impossibilité écrite dans la doc justifie de renoncer (citer la phrase).
 
-- [ ] **Pas fait**
-  - **Justification** : Pas encore traitée : l'audit suit l'ordre du classeur de référence (une institution à la fois).
-  - **Preuves** : 
+- [x] **Fait**
+  - **Justification** : Familles d'API issues de la carte de service et de la racine REST : OAI, REST, IIIF Presentation, IIIF Image, OpenSearch, sitemap ; ListRecords non testé (raison) ; 5 URL écartées avec raison.
+  - **Preuves** : `institutions/universita-di-bologna-ams-historica/data.json`, `institutions/universita-di-bologna-ams-historica/sources/h15/charter.txt`
 
 ### c) Configuration écrite AVANT les tests
 > `config/<nom>.json` pilote `scripts/probe.py`, committée avant le lancement. Un endpoint absent de la doc mais non interdit se teste avec un script poli (identifiants issus de pages publiques ou d'exemples de la doc, pas de devinette).
 
-- [ ] **Pas fait**
-  - **Justification** : Pas encore traitée : l'audit suit l'ordre du classeur de référence (une institution à la fois).
-  - **Preuves** : 
+- [x] **Fait**
+  - **Justification** : Quatre configurations (passes 1 à 4) écrites et committées avant chaque lancement ; crash-sitemap-ratelimit.json préparée pour g (limite 500 req/min).
+  - **Preuves** : `institutions/universita-di-bologna-ams-historica/config/ams-passe1-rest-oai-iiif.json`, `institutions/universita-di-bologna-ams-historica/config/ams-passe2-recherche.json`, `institutions/universita-di-bologna-ams-historica/config/ams-passe3-manifeste.json`, `institutions/universita-di-bologna-ams-historica/config/ams-passe4-image.json`, `institutions/universita-di-bologna-ams-historica/config/crash-sitemap-ratelimit.json`
 
 ### d) Quota cherché dans la doc
 > Pour chaque page lue : endpoint de statut, en-têtes de limite documentés, clé ou compte donnant un quota, contact pour un volume plus élevé. Chaque réponse cite sa source.
 
-- [ ] **Pas fait**
-  - **Justification** : Pas encore traitée : l'audit suit l'ordre du classeur de référence (une institution à la fois).
-  - **Preuves** : 
+- [x] **Fait**
+  - **Justification** : Aucun quota dans la doc ; en-têtes x-ratelimit-limit: 500 observés sur l'interface, fenêtre 1 min déduite du config.example.yml de DSpace Angular ; contact historica@unibo.it ; aucun endpoint de statut.
+  - **Preuves** : `institutions/universita-di-bologna-ams-historica/tests/raw/sitemap-index.headers.txt`, `institutions/universita-di-bologna-ams-historica/tests/raw/ui-accueil.headers.txt`, `institutions/universita-di-bologna-ams-historica/sources/h15/charter.txt`
 
 ### e) Test systématique de chaque endpoint
 > Chaque endpoint documenté est testé (budget 15 requêtes par passe, pause ≥ 6 s, GET/HEAD, UA du projet). Redirections du même hôte suivies. Un 403 arrête son hôte, un 429 arrête l'institution. Seules les interdictions écrites dans la doc dispensent de tester.
 
-- [ ] **Pas fait**
-  - **Justification** : Pas encore traitée : l'audit suit l'ordre du classeur de référence (une institution à la fois).
-  - **Preuves** : 
+- [x] **Fait**
+  - **Justification** : 15 requêtes d'API (+1 redirection suivie) en 4 passes plus 4 robots.txt ; 200 sauf 404 sur un item sans IIIF et 302 sur /oai ; aucun 429 ; tous les endpoints testés.
+  - **Preuves** : `institutions/universita-di-bologna-ams-historica/tests/journal.log`, `institutions/universita-di-bologna-ams-historica/tests/raw/oai-server-identify.headers.txt`, `institutions/universita-di-bologna-ams-historica/tests/raw/iiif-manifeste-2388a439.headers.txt`
 
 ### f) Ce que disent les gens sur le web
 > Plaintes, discussions, présentations de l'institution, politique envers les API et les bots, blogs, GitHub, forums, listes de diffusion. Sources étiquetées (officielle / institution / utilisateur / tiers), lues, citées.
 
-- [ ] **Pas fait**
-  - **Justification** : Pas encore traitée : l'audit suit l'ordre du classeur de référence (une institution à la fois).
-  - **Preuves** : 
+- [x] **Fait**
+  - **Justification** : 4 recherches web (une par catégorie) ; originaux lus : carte de service, config DSpace Angular, Zenodo OR2026, diapositives ; utilisateurs sans résultat.
+  - **Preuves** : `institutions/universita-di-bologna-ams-historica/fiche.md`, `institutions/universita-di-bologna-ams-historica/data.json`
 
 ### g) Crash test progressif
 > Seulement après l'audit complet (a à f) de toutes les institutions et avec l'accord de Marcel : paliers jusqu'à 2 × la limite documentée, ou 200 req/min si illimité ou sans limite documentée. Arrêt au premier 429/403/CAPTCHA.
@@ -60,7 +60,7 @@
 
 <!-- AUTO:DEBUT -->
 ## Contrôles automatiques (calculés depuis `tests/journal.log`)
-- Requêtes enregistrées : **16** (sessions de sonde : 3, maximum par session : 10)
+- Requêtes enregistrées : **20** (sessions de sonde : 4, maximum par session : 10)
 - Plus courte pause vers un même hôte : **6 s** (règle : ≥ 6 s)
 - Méthodes utilisées : GET (règle : GET/HEAD seulement)
 - Anomalies : aucune
