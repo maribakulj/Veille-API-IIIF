@@ -1,0 +1,12 @@
+{
+  "slug": "national-library-of-finland-finna",
+  "min_delay_s": 6,
+  "max_requests": 15,
+  "follow_redirects": 1,
+  "robots_disallow_autorise_par_marcel": true,
+  "note": "Passe 1 (C12 : Disallow de robots.txt n'arrête plus l'audit, aucun contournement de 403) : spécification OpenAPI et recherche minimale de l'API REST Finna, chemins lus dans la spécification (copie Wayback 2025-08-10). Au premier 403, on s'arrête sur l'hôte.",
+  "endpoints": [
+    {"id": "finna-search-1", "method": "GET", "url": "https://api.finna.fi/api/v1/search?lookfor=test&limit=1", "save_body": 100000},
+    {"id": "finna-openapi", "method": "GET", "url": "https://api.finna.fi/api/v1/?openapi"}
+  ]
+}
