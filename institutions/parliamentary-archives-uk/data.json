@@ -4,10 +4,248 @@
   "pays": "Royaume-Uni",
   "classeur_id": "GLAM-069",
   "type": "Institution",
-  "statut_audit": "à faire",
-  "limites_documentees": [],
+  "statut_audit": "audit a–f complet (v2) ; g à faire (members-api seulement)",
+  "limites_documentees": [
+    {
+      "nature": "Délai entre requêtes (Crawl-delay)",
+      "perimetre": "archives.parliament.uk, tous robots (User-agent: *)",
+      "valeur": "Crawl-delay: 10",
+      "fenetre": "10 secondes entre requêtes",
+      "effet": "consigne de robots.txt, pas de sanction annoncée",
+      "verification": "officielle, lue via Wayback (capture du 2025-04-13), non vérifiée en direct (défi Cloudflare)",
+      "source": "https://web.archive.org/web/20250413165414/https://archives.parliament.uk/robots.txt",
+      "date": "2026-11-14"
+    }
+  ],
   "en_tetes_observes": [],
-  "blocages": [],
-  "sources": [],
-  "web": []
+  "blocages": [
+    {
+      "hote": "archives.parliament.uk",
+      "nature": "défi Cloudflare (403, « Just a moment... »)",
+      "date": "2026-11-14",
+      "preuve": "institutions/parliamentary-archives-uk/sources/doc/FETCH.log"
+    },
+    {
+      "hote": "www.parliament.uk",
+      "nature": "défi Cloudflare (403)",
+      "date": "2026-11-14",
+      "preuve": "institutions/parliamentary-archives-uk/sources/doc/FETCH.log"
+    },
+    {
+      "hote": "developer.parliament.uk",
+      "nature": "défi Cloudflare (403)",
+      "date": "2026-11-14",
+      "preuve": "institutions/parliamentary-archives-uk/sources/doc/FETCH.log"
+    }
+  ],
+  "sources": [
+    {
+      "url": "https://archives.parliament.uk/robots.txt",
+      "date": "2026-11-14",
+      "etiquette": "officielle",
+      "preuve": "institutions/parliamentary-archives-uk/sources/wayback/archives-parliament-uk-robots.md"
+    },
+    {
+      "url": "https://www.parliament.uk/robots.txt",
+      "date": "2026-11-14",
+      "etiquette": "officielle",
+      "preuve": "institutions/parliamentary-archives-uk/sources/wayback/www-parliament-uk-robots.md"
+    },
+    {
+      "url": "https://developer.parliament.uk/robots.txt",
+      "date": "2026-11-14",
+      "etiquette": "officielle",
+      "preuve": "institutions/parliamentary-archives-uk/sources/wayback/developer-parliament-uk-robots.md"
+    },
+    {
+      "url": "https://archives.parliament.uk/",
+      "date": "2026-11-14",
+      "etiquette": "officielle",
+      "preuve": "institutions/parliamentary-archives-uk/sources/wayback/archives-parliament-uk-accueil.md"
+    },
+    {
+      "url": "https://www.parliament.uk/business/publications/parliamentary-archives/",
+      "date": "2026-11-14",
+      "etiquette": "officielle",
+      "preuve": "institutions/parliamentary-archives-uk/sources/wayback/parliament-uk-archives-page.md"
+    },
+    {
+      "url": "https://developer.parliament.uk/",
+      "date": "2026-11-14",
+      "etiquette": "officielle",
+      "preuve": "institutions/parliamentary-archives-uk/sources/wayback/developer-hub.md"
+    },
+    {
+      "url": "https://www.parliament.uk/site-information/copyright-parliament/",
+      "date": "2026-11-14",
+      "etiquette": "officielle",
+      "preuve": "institutions/parliamentary-archives-uk/sources/wayback/copyright-parliament.md"
+    },
+    {
+      "url": "https://members-api.parliament.uk/robots.txt",
+      "date": "2026-11-14",
+      "etiquette": "officielle",
+      "preuve": "institutions/parliamentary-archives-uk/sources/api-hotes/SHA256SUMS"
+    },
+    {
+      "url": "https://bills-api.parliament.uk/robots.txt",
+      "date": "2026-11-14",
+      "etiquette": "officielle",
+      "preuve": "institutions/parliamentary-archives-uk/sources/api-hotes/b/SHA256SUMS"
+    },
+    {
+      "url": "https://committees-api.parliament.uk/robots.txt",
+      "date": "2026-11-14",
+      "etiquette": "officielle",
+      "preuve": "institutions/parliamentary-archives-uk/sources/api-hotes/b/SHA256SUMS"
+    }
+  ],
+  "web": [
+    {
+      "categorie": "institution",
+      "url": "https://ukparliament.shorthandstories.com/parliamentary-archives-annual-review/index.html",
+      "date": "2026-11-14",
+      "etiquette": "institution (résumé de moteur, non vérifié)",
+      "citation": "Le bilan annuel 2021-2022 mentionne l'ajout de 150 Go au dépôt numérique, dont des ingestions routinières d'un appel d'API « Questions and Answers » : ingestion interne, pas une API publique des Archives.",
+      "preuve": "institutions/parliamentary-archives-uk/fiche.md"
+    },
+    {
+      "categorie": "utilisateurs",
+      "aucun_resultat": true,
+      "requete": "Parliamentary Archives catalogue API rate limit 429 harvesting users complaint",
+      "date": "2026-11-14",
+      "etiquette": "–",
+      "citation": "aucune plainte 429/503/blocage visant les Archives du Parlement trouvée (les résultats concernaient les National Archives, openparliament.ca, etc.)",
+      "preuve": "institutions/parliamentary-archives-uk/fiche.md"
+    },
+    {
+      "categorie": "tickets",
+      "aucun_resultat": true,
+      "requete": "github Parliamentary Archives UK iiif manifest archives.parliament.uk issue",
+      "date": "2026-11-14",
+      "etiquette": "–",
+      "citation": "aucun ticket GitHub/GitLab d'un outil interrogeant archives.parliament.uk trouvé",
+      "preuve": "institutions/parliamentary-archives-uk/fiche.md"
+    },
+    {
+      "categorie": "presentations",
+      "url": "https://ijdc.net/ijdc/article/view/10.2.12",
+      "date": "2026-11-14",
+      "etiquette": "institution (résumé de moteur, non vérifié ; original en 403 pour WebFetch)",
+      "citation": "Article « Project to Production: Digital Preservation at the Houses of Parliament, 2010–2020 » (Fryer) : dépôt Preservica relié à CALM ; aucune mention de IIIF ni de quota dans le résumé du moteur.",
+      "preuve": "institutions/parliamentary-archives-uk/fiche.md"
+    }
+  ],
+  "contact": "archives@parliament.uk (Parliamentary Archives, d'après le résumé de moteur) ; softwareengineering@parliament.uk (contact déclaré dans le swagger.json de members-api)",
+  "conclusion_quota": "Aucun quota ni limite de débit publiés. Les hôtes du catalogue des Archives (archives.parliament.uk, www.parliament.uk, developer.parliament.uk) sont derrière un défi Cloudflare (403) : documentation lue via Wayback, endpoints non testables. Le catalogue (CALM) n'a pas d'API ni de IIIF documentés ; les collections sont en cours de transfert aux National Archives (Kew). Les API de données du Parlement (members-api, bills-api, committees-api) répondent en 200 sans en-tête de limite.",
+  "classe_quota": "aucun quota trouvé",
+  "confiance": "faible",
+  "notes": "Les Archives du Parlement ne publient pas d'API ni de IIIF. Seul le robots.txt de archives.parliament.uk (lu via Wayback) donne un Crawl-delay de 10 s. Les API du Developer hub sont celles du Parlement, pas du catalogue des Archives : trois familles testées sur douze. WebFetch sur ijdc.net a répondu 403 et sur nationalarchives.gov.uk a été refusé par le système de permissions : non contourné.",
+  "a_verifier_manuellement": [
+    {
+      "url": "https://archives.parliament.uk/",
+      "pourquoi": "défi Cloudflare (403) à la sonde ; lu seulement via Wayback (capture 2025-05-24)",
+      "a_chercher": "Y a-t-il un IIIF, une API ou une règle de moissonnage du catalogue (CALM) ? Conditions « Copyright and Terms of Use » en pied de page"
+    },
+    {
+      "url": "https://archives.parliament.uk/robots.txt",
+      "pourquoi": "défi Cloudflare ; lu seulement via Wayback (capture 2025-04-13)",
+      "a_chercher": "Vérifier que « Crawl-delay: 10 » est toujours en vigueur"
+    },
+    {
+      "url": "https://www.parliament.uk/site-information/copyright-parliament/",
+      "pourquoi": "défi Cloudflare ; lu via Wayback ; la page « Parliamentary Archives: copyright and use » liée n'a pas été lue",
+      "a_chercher": "Conditions d'usage des images et du catalogue des Archives (quota, usage automatisé)"
+    },
+    {
+      "url": "https://developer.parliament.uk/",
+      "pourquoi": "défi Cloudflare ; lu via Wayback (capture 2025-05-24) ; les liens exacts des API n'ont pas été vus",
+      "a_chercher": "Politique d'usage équitable ou limites de débit des API du Parlement ; contact développeurs"
+    },
+    {
+      "url": "https://www.nationalarchives.gov.uk/archives-sector/case-studies-and-research-reports/case-studies/digital/digital-preservation/the-parliamentary-archives",
+      "pourquoi": "lecture par WebFetch refusée par le système de permissions (non contourné)",
+      "a_chercher": "Mention d'une API, de IIIF ou de l'accès en ligne aux Archives après le transfert à Kew"
+    }
+  ],
+  "endpoints_documentes": [
+    {
+      "famille": "Catalogue en ligne des Archives (CALM) : recherche et fiches",
+      "url": "https://archives.parliament.uk/collections/search",
+      "statut": "non_teste",
+      "raison": "hôte archives.parliament.uk en défi Cloudflare (403) pour la sonde ; non contourné, voir sources/doc/FETCH.log"
+    },
+    {
+      "famille": "IIIF / API d'images des Archives",
+      "url": "https://archives.parliament.uk/",
+      "statut": "non_teste",
+      "raison": "aucune API ni IIIF documentés (pages lues via Wayback) ; hôte en défi Cloudflare, donc non vérifiable en direct"
+    },
+    {
+      "famille": "API Members (Developer hub)",
+      "url": "https://members-api.parliament.uk/index.html",
+      "statut": "teste",
+      "preuve": "institutions/parliamentary-archives-uk/tests/raw/pa2-members-search.headers.txt"
+    },
+    {
+      "famille": "API Bills (Developer hub)",
+      "url": "https://bills-api.parliament.uk/swagger/v1/swagger.json",
+      "statut": "teste",
+      "preuve": "institutions/parliamentary-archives-uk/tests/raw/pa2-bills-swagger.headers.txt"
+    },
+    {
+      "famille": "API Committees (Developer hub)",
+      "url": "https://committees-api.parliament.uk/swagger/v1/swagger.json",
+      "statut": "teste",
+      "preuve": "institutions/parliamentary-archives-uk/tests/raw/pa2-committees-swagger.headers.txt"
+    },
+    {
+      "famille": "Autres API du Developer hub (Interests, Commons Votes, Lords Votes, Oral Questions, Statutory Instruments, Treaties, Erskine May, Parliament Now, Written Questions)",
+      "url": "https://developer.parliament.uk/",
+      "statut": "non_teste",
+      "raison": "API de données parlementaires hors catalogue des Archives ; même plateforme que les trois testées, adresses d'hôtes non lisibles (page en défi) et budget de la passe limité"
+    }
+  ],
+  "endpoints_ecartes": [
+    {
+      "url": "https://www.parliament.uk/site-information/copyright-parliament/open-parliament-licence/",
+      "raison": "page de licence, pas une API ; défi Cloudflare, aucune réponse lue"
+    },
+    {
+      "url": "https://archives.parliament.uk/sitemap_index.xml",
+      "raison": "plan du site cité par robots.txt, pas une API ; hôte en défi Cloudflare"
+    }
+  ],
+  "hotes_robots": [
+    {
+      "hote": "archives.parliament.uk",
+      "resultat": "403 défi Cloudflare en direct ; lu via Wayback : Crawl-delay: 10, Disallow: /wp-admin/",
+      "preuve": "institutions/parliamentary-archives-uk/sources/wayback/archives-parliament-uk-robots.md"
+    },
+    {
+      "hote": "www.parliament.uk",
+      "resultat": "403 défi Cloudflare en direct ; lu via Wayback : Disallow: /episerver/, /utils/",
+      "preuve": "institutions/parliamentary-archives-uk/sources/wayback/www-parliament-uk-robots.md"
+    },
+    {
+      "hote": "developer.parliament.uk",
+      "resultat": "403 défi Cloudflare en direct ; lu via Wayback : Disallow vide",
+      "preuve": "institutions/parliamentary-archives-uk/sources/wayback/developer-parliament-uk-robots.md"
+    },
+    {
+      "hote": "members-api.parliament.uk",
+      "resultat": "404 : aucun robots.txt, tout autorisé",
+      "preuve": "institutions/parliamentary-archives-uk/sources/api-hotes/FETCH.log"
+    },
+    {
+      "hote": "bills-api.parliament.uk",
+      "resultat": "404 : aucun robots.txt, tout autorisé",
+      "preuve": "institutions/parliamentary-archives-uk/sources/api-hotes/b/FETCH.log"
+    },
+    {
+      "hote": "committees-api.parliament.uk",
+      "resultat": "404 : aucun robots.txt, tout autorisé",
+      "preuve": "institutions/parliamentary-archives-uk/sources/api-hotes/b/FETCH.log"
+    }
+  ]
 }
