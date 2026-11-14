@@ -1,0 +1,16 @@
+{
+  "slug": "gottingen-state-gdz",
+  "min_delay_s": 6,
+  "max_requests": 15,
+  "follow_redirects": 1,
+  "robots_disallow_autorise_par_marcel": true,
+  "note": "Passe 1 (hôte gdz.sub.uni-goettingen.de) : OAI-PMH 2.0 sur /oai2/ (endpoint vu en 200 dans sources/a3, FETCH.log ; verbes standard Identify/ListMetadataFormats/ListSets/GetRecord), page de visualisation d'un ouvrage (PPN519929969, identifiant tiré de l'exemple public images.sub.uni-goettingen.de/iiif/image/gdz:PPN519929969:00000001/info.json de apis.io) et flux RSS documenté dans le pied de page du site. robots.txt de l'hôte : Disallow vide. ListRecords non lancé (volume).",
+  "endpoints": [
+    {"id": "oai-identify", "method": "GET", "url": "https://gdz.sub.uni-goettingen.de/oai2/?verb=Identify"},
+    {"id": "oai-listmetadataformats", "method": "GET", "url": "https://gdz.sub.uni-goettingen.de/oai2/?verb=ListMetadataFormats"},
+    {"id": "oai-listsets", "method": "GET", "url": "https://gdz.sub.uni-goettingen.de/oai2/?verb=ListSets"},
+    {"id": "oai-getrecord", "method": "GET", "url": "https://gdz.sub.uni-goettingen.de/oai2/?verb=GetRecord&metadataPrefix=oai_dc&identifier=oai:gdz.sub.uni-goettingen.de:PPN519929969"},
+    {"id": "viewer-ppn519929969", "method": "GET", "url": "https://gdz.sub.uni-goettingen.de/id/PPN519929969"},
+    {"id": "feed-rss", "method": "GET", "url": "https://gdz.sub.uni-goettingen.de/feed/rss"}
+  ]
+}

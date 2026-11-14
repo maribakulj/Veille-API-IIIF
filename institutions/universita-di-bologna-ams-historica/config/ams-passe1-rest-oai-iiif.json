@@ -1,0 +1,18 @@
+{
+  "slug": "universita-di-bologna-ams-historica",
+  "min_delay_s": 6,
+  "max_requests": 15,
+  "follow_redirects": 1,
+  "robots_disallow_autorise_par_marcel": true,
+  "note": "Passe 1, hôte historica.unibo.it (amshistorica.unibo.it y redirige). Endpoints : REST DSpace 8.2 (racine HAL lue en 200 dans sources/h7 ; identifiant d'item pris dans le HTML public de la page d'accueil), OAI-PMH annoncé par la carte de service (« https://historica.unibo.it/oai », sources/h15/charter.txt) et chemin standard DSpace /server/oai/request, manifeste IIIF DSpace /server/iiif/{uuid}/manifest, sitemap annoncé par robots.txt, OpenSearch (Disallow dans robots.txt : testé selon C12). Le robots.txt est sans Crawl-delay.",
+  "endpoints": [
+    {"id": "rest-racine", "method": "GET", "url": "https://historica.unibo.it/server/api"},
+    {"id": "rest-item", "method": "GET", "url": "https://historica.unibo.it/server/api/core/items/0c7014bb-b0c0-499b-a8f3-93f74ccb6d24"},
+    {"id": "rest-recherche", "method": "GET", "url": "https://historica.unibo.it/server/api/discover/search/objects?size=1"},
+    {"id": "oai-carte-service-identify", "method": "GET", "url": "https://historica.unibo.it/oai?verb=Identify"},
+    {"id": "oai-server-identify", "method": "GET", "url": "https://historica.unibo.it/server/oai/request?verb=Identify"},
+    {"id": "iiif-manifeste", "method": "GET", "url": "https://historica.unibo.it/server/iiif/0c7014bb-b0c0-499b-a8f3-93f74ccb6d24/manifest", "save_body": 2000000},
+    {"id": "opensearch-service", "method": "GET", "url": "https://historica.unibo.it/server/opensearch/service"},
+    {"id": "sitemap-index", "method": "GET", "url": "https://historica.unibo.it/sitemap_index.xml"}
+  ]
+}

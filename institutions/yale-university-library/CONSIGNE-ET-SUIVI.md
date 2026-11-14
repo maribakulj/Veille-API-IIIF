@@ -2,51 +2,51 @@
 
 - **Dossier** : `institutions/yale-university-library/`  ·  **Classeur de référence** : GLAM-035  ·  **Pays** : États-Unis
 - **Statut d'institution** : active
-- **Dernière mise à jour du suivi** : (à renseigner à chaque modification)
+- **Dernière mise à jour du suivi** : 2026-11-14
 
 ## Suivi par étape (à cocher, avec justification et preuves)
 
 ### a) Documentation lue en entier
 > Toutes les pages de doc liées à l'API (développeurs, interfaces, conditions, FAQ, aide, mentions légales, robots.txt), téléchargées avec `scripts/fetch_doc.sh` (URL, date, SHA-256), lues en entier (`scripts/extract_text.py`).
 
-- [ ] **Pas fait**
-  - **Justification** : Pas encore traitée : l'audit suit l'ordre du classeur de référence (une institution à la fois).
-  - **Preuves** : 
+- [x] **Fait**
+  - **Justification** : Doc lue : robots.txt (collections, library), aide Digital Collections, politiques, Confluence, FAQ 2012 (PDF), demande de numérisation ; catalogue de services 403 lu dans la Wayback ; pages catalogue et opensearch en 202 (défi) listées à vérifier à la main.
+  - **Preuves** : `institutions/yale-university-library/sources/a1/SHA256SUMS`, `institutions/yale-university-library/sources/a2/SHA256SUMS`, `institutions/yale-university-library/sources/a3/SHA256SUMS`, `institutions/yale-university-library/sources/a4/SHA256SUMS`, `institutions/yale-university-library/sources/a6/SHA256SUMS`, `institutions/yale-university-library/sources/a7/SHA256SUMS`, `institutions/yale-university-library/sources/a8/SHA256SUMS`, `institutions/yale-university-library/sources/a9/SHA256SUMS`, `institutions/yale-university-library/sources/a10/SHA256SUMS`, `institutions/yale-university-library/sources/wayback/service-catalog-dcs.md`
 
 ### b) Endpoints tirés de la doc
 > Liste des endpoints citée par la doc (URL, exemples). Jamais devinée. Une interdiction ou une impossibilité écrite dans la doc justifie de renoncer (citer la phrase).
 
-- [ ] **Pas fait**
-  - **Justification** : Pas encore traitée : l'audit suit l'ordre du classeur de référence (une institution à la fois).
-  - **Preuves** : 
+- [x] **Fait**
+  - **Justification** : Familles d'API tirées de l'aide et du manifeste : manifeste, catalogue, OAI, IIIF Image, OpenSearch, PDF, OAI 2012 ; 2 testées, 5 non_teste avec raison (défi WAF, arrêt de l'hôte) ; 4 URL écartées.
+  - **Preuves** : `institutions/yale-university-library/data.json`
 
 ### c) Configuration écrite AVANT les tests
 > `config/<nom>.json` pilote `scripts/probe.py`, committée avant le lancement. Un endpoint absent de la doc mais non interdit se teste avec un script poli (identifiants issus de pages publiques ou d'exemples de la doc, pas de devinette).
 
-- [ ] **Pas fait**
-  - **Justification** : Pas encore traitée : l'audit suit l'ordre du classeur de référence (une institution à la fois).
-  - **Preuves** : 
+- [x] **Fait**
+  - **Justification** : Configuration de la passe 1 écrite et committée avant lancement ; la passe 2 n'a pas été écrite ni lancée (poursuite refusée après défi WAF).
+  - **Preuves** : `institutions/yale-university-library/config/yale-passe1-collections.json`
 
 ### d) Quota cherché dans la doc
 > Pour chaque page lue : endpoint de statut, en-têtes de limite documentés, clé ou compte donnant un quota, contact pour un volume plus élevé. Chaque réponse cite sa source.
 
-- [ ] **Pas fait**
-  - **Justification** : Pas encore traitée : l'audit suit l'ordre du classeur de référence (une institution à la fois).
-  - **Preuves** : 
+- [x] **Fait**
+  - **Justification** : Aucun quota, en-tête ou contact de limite dans les pages lues ; « Rates & Charges : No » (tarifs) et « no restrictions on machine harvesting » (FAQ 2012) cités ; contact library.helpdesk@yale.edu.
+  - **Preuves** : `institutions/yale-university-library/sources/wayback/service-catalog-dcs.md`, `institutions/yale-university-library/sources/a7/faq.txt`, `institutions/yale-university-library/sources/a2/SHA256SUMS`
 
 ### e) Test systématique de chaque endpoint
 > Chaque endpoint documenté est testé (budget 15 requêtes par passe, pause ≥ 6 s, GET/HEAD, UA du projet). Redirections du même hôte suivies. Un 403 arrête son hôte, un 429 arrête l'institution. Seules les interdictions écrites dans la doc dispensent de tester.
 
-- [ ] **Pas fait**
-  - **Justification** : Pas encore traitée : l'audit suit l'ordre du classeur de référence (une institution à la fois).
-  - **Preuves** : 
+- [x] **Fait**
+  - **Justification** : Passe 1 : 2 requêtes d'API (202 défi WAF sur le catalogue, 200 sur le manifeste) ; arrêt de l'hôte à partir du défi ; familles restantes non_teste avec raison et listées dans a_verifier_manuellement.
+  - **Preuves** : `institutions/yale-university-library/tests/journal.log`, `institutions/yale-university-library/tests/raw/catalogue-item.headers.txt`, `institutions/yale-university-library/tests/raw/manifeste-16945082.headers.txt`
 
 ### f) Ce que disent les gens sur le web
 > Plaintes, discussions, présentations de l'institution, politique envers les API et les bots, blogs, GitHub, forums, listes de diffusion. Sources étiquetées (officielle / institution / utilisateur / tiers), lues, citées.
 
-- [ ] **Pas fait**
-  - **Justification** : Pas encore traitée : l'audit suit l'ordre du classeur de référence (une institution à la fois).
-  - **Preuves** : 
+- [x] **Fait**
+  - **Justification** : 4 recherches web ; originaux lus : voynich PR #55, mnemosyne PR #24, FAQ 2012 ; présentations sans résultat.
+  - **Preuves** : `institutions/yale-university-library/fiche.md`, `institutions/yale-university-library/data.json`
 
 ### g) Crash test progressif
 > Seulement après l'audit complet (a à f) de toutes les institutions et avec l'accord de Marcel : paliers jusqu'à 2 × la limite documentée, ou 200 req/min si illimité ou sans limite documentée. Arrêt au premier 429/403/CAPTCHA.
@@ -60,7 +60,10 @@
 
 <!-- AUTO:DEBUT -->
 ## Contrôles automatiques (calculés depuis `tests/journal.log`)
-Aucune requête enregistrée dans `tests/journal.log`.
+- Requêtes enregistrées : **3** (sessions de sonde : 1, maximum par session : 3)
+- Plus courte pause vers un même hôte : **6 s** (règle : ≥ 6 s)
+- Méthodes utilisées : GET (règle : GET/HEAD seulement)
+- Anomalies : aucune
 <!-- AUTO:FIN -->
 
 ## Consigne intégrale

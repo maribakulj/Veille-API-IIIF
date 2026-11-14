@@ -4,10 +4,191 @@
   "pays": "Allemagne",
   "classeur_id": "GLAM-025",
   "type": "Institution",
-  "statut_audit": "à faire",
-  "limites_documentees": [],
+  "statut_audit": "audit a–f complet (v2) ; g à faire",
+  "limites_documentees": [
+    {
+      "nature": "Politique d'ouverture des digitalisations",
+      "perimetre": "digitalisations de la SUB (dont GDZ)",
+      "valeur": "« möglichst freien Nutzung und Offenheit für verschiedene Formen der Nachnutzung (offene Schnittstellen und Vernetzung) »",
+      "fenetre": "–",
+      "effet": "aucune limite chiffrée",
+      "verification": "officielle, lue dans la Wayback",
+      "source": "https://www.sub.uni-goettingen.de/wir-ueber-uns/portrait/digital-policies-grundsaetze-fuer-die-digitalen-angebote-der-sub-goettingen/digitale-produktion/",
+      "date": "2026-11-14"
+    }
+  ],
   "en_tetes_observes": [],
   "blocages": [],
-  "sources": [],
-  "web": []
+  "sources": [
+    {
+      "url": "https://gdz.sub.uni-goettingen.de/",
+      "date": "2026-11-14",
+      "etiquette": "officielle",
+      "preuve": "institutions/gottingen-state-gdz/sources/a1/SHA256SUMS"
+    },
+    {
+      "url": "https://gdz.sub.uni-goettingen.de/site/help",
+      "date": "2026-11-14",
+      "etiquette": "officielle",
+      "preuve": "institutions/gottingen-state-gdz/sources/a2/SHA256SUMS"
+    },
+    {
+      "url": "https://www.sub.uni-goettingen.de/sammlungen/benutzen/fotografieren-und-digitalisieren",
+      "date": "2026-11-14",
+      "etiquette": "officielle",
+      "preuve": "institutions/gottingen-state-gdz/sources/a2/SHA256SUMS"
+    },
+    {
+      "url": "https://www.sub.uni-goettingen.de/digitale-bibliothek/digitale-werkzeuge/iiif-bei-der-sub-goettingen/",
+      "date": "2026-11-14",
+      "etiquette": "officielle (Wayback)",
+      "preuve": "institutions/gottingen-state-gdz/sources/wayback/iiif-bei-der-sub.md"
+    },
+    {
+      "url": "https://www.sub.uni-goettingen.de/digitale-bibliothek/digitale-werkzeuge/dokumentbetrachter-tify/",
+      "date": "2026-11-14",
+      "etiquette": "officielle (Wayback)",
+      "preuve": "institutions/gottingen-state-gdz/sources/wayback/tify.md"
+    }
+  ],
+  "web": [
+    {
+      "categorie": "institution",
+      "url": "https://www.sub.uni-goettingen.de/wir-ueber-uns/portrait/digital-policies-grundsaetze-fuer-die-digitalen-angebote-der-sub-goettingen/digitale-produktion/",
+      "date": "2026-11-14",
+      "etiquette": "officielle (Wayback)",
+      "citation": "möglichst freien Nutzung und Offenheit für verschiedene Formen der Nachnutzung (offene Schnittstellen und Vernetzung)",
+      "preuve": "institutions/gottingen-state-gdz/sources/wayback/digital-policies.md"
+    },
+    {
+      "categorie": "utilisateurs",
+      "aucun_resultat": true,
+      "requete": "GDZ Göttingen digitalisierte Drucke Download Massendownload gesperrt Fehler 429 gdz.sub.uni-goettingen.de Forum Erfahrung",
+      "date": "2026-11-14",
+      "etiquette": "–",
+      "citation": "aucune plainte ni retour d'utilisateur sur 429 ou blocage trouvé (résultats génériques sur l'erreur 429)",
+      "preuve": "institutions/gottingen-state-gdz/fiche.md"
+    },
+    {
+      "categorie": "tickets",
+      "url": "https://github.com/Embassy-of-the-Free-Mind/sourcelibrary-v2/issues/3510",
+      "date": "2026-11-14",
+      "etiquette": "tiers",
+      "citation": "images.sub.uni-goettingen.de listé avec 42 références parmi les hôtes que le proxy ne récupère pas (liste d'autorisation du proxy) ; aucune limite de débit ni 429 mentionné.",
+      "preuve": "institutions/gottingen-state-gdz/fiche.md"
+    },
+    {
+      "categorie": "presentations",
+      "url": "https://iiif.io/event/2019/goettingen/program/66/",
+      "date": "2026-11-14",
+      "etiquette": "présentation de l'institution",
+      "citation": "IIIF-compliant repositories: GDZ Digital library for historical resources ; rien sur le trafic ni les limites.",
+      "preuve": "institutions/gottingen-state-gdz/fiche.md"
+    }
+  ],
+  "contact": "gdz@sub.uni-goettingen.de (page Contact du GDZ)",
+  "conclusion_quota": "Aucun quota ni limite de débit publiés ; OAI-PMH, IIIF Presentation et IIIF Image testés (200, aucun en-tête de limite) ; politique d'ouverture sans chiffre.",
+  "classe_quota": "aucun quota trouvé",
+  "confiance": "moyenne",
+  "notes": "Pages SUB (IIIF, TIFY, Digital Policies) renvoient l'accueil en direct : lues dans la Wayback. ListRecords non lancé.",
+  "a_verifier_manuellement": [
+    {
+      "url": "https://www.sub.uni-goettingen.de/digitale-bibliothek/digitale-werkzeuge/iiif-bei-der-sub-goettingen/",
+      "pourquoi": "l'URL en direct renvoie la page d'accueil (site restructuré) ; page lue seulement dans la Wayback",
+      "a_chercher": "Nouvelle adresse actuelle de la page IIIF de la SUB et éventuelle mention de limites ou de conditions d'usage des API IIIF/OAI"
+    },
+    {
+      "url": "https://www.sub.uni-goettingen.de/wir-ueber-uns/portrait/digital-policies-grundsaetze-fuer-die-digitalen-angebote-der-sub-goettingen/digitaler-zugang/",
+      "pourquoi": "l'URL en direct renvoie l'accueil ; lue dans la Wayback",
+      "a_chercher": "Version actuelle des Digital Policies (accès, ouverture, licences)"
+    }
+  ],
+  "endpoints_documentes": [
+    {
+      "famille": "OAI-PMH 2.0 (GDZ)",
+      "url": "https://gdz.sub.uni-goettingen.de/oai2/?verb=Identify",
+      "statut": "teste",
+      "preuve": "institutions/gottingen-state-gdz/tests/raw/oai-identify.headers.txt"
+    },
+    {
+      "famille": "OAI ListMetadataFormats / ListSets / GetRecord",
+      "url": "https://gdz.sub.uni-goettingen.de/oai2/?verb=ListSets",
+      "statut": "teste",
+      "preuve": "institutions/gottingen-state-gdz/tests/raw/oai-listsets.headers.txt"
+    },
+    {
+      "famille": "OAI ListRecords",
+      "url": "https://gdz.sub.uni-goettingen.de/oai2/?verb=ListRecords",
+      "statut": "non_teste",
+      "raison": "ListRecords est volumineux et sert à moissonner ; le protocole est prouvé par Identify, ListSets et GetRecord"
+    },
+    {
+      "famille": "IIIF Presentation : manifeste",
+      "url": "https://manifests.sub.uni-goettingen.de/iiif/presentation/PPN519929969/manifest",
+      "statut": "teste",
+      "preuve": "institutions/gottingen-state-gdz/tests/raw/manifeste-ppn519929969.headers.txt"
+    },
+    {
+      "famille": "IIIF Image : info.json",
+      "url": "https://images.sub.uni-goettingen.de/iiif/image/gdz:PPN519929969:00000001/info.json",
+      "statut": "teste",
+      "preuve": "institutions/gottingen-state-gdz/tests/raw/image-info-json.headers.txt"
+    },
+    {
+      "famille": "IIIF Image : dérivé",
+      "url": "https://images.sub.uni-goettingen.de/iiif/image/gdz:PPN519929969:00000001/full/200,/0/default.jpg",
+      "statut": "teste",
+      "preuve": "institutions/gottingen-state-gdz/tests/raw/image-derive-200px.headers.txt"
+    },
+    {
+      "famille": "Flux RSS / Atom du site",
+      "url": "https://gdz.sub.uni-goettingen.de/feed/rss",
+      "statut": "teste",
+      "preuve": "institutions/gottingen-state-gdz/tests/raw/feed-rss.headers.txt"
+    }
+  ],
+  "endpoints_ecartes": [
+    {
+      "url": "https://gdz.sub.uni-goettingen.de/feed/atom",
+      "raison": "variante Atom du flux RSS testé (feed/rss) ; même application, même famille, pas de test supplémentaire"
+    },
+    {
+      "url": "https://www.zvdd.de",
+      "raison": "portail tiers (ZVDD) lié dans le pied de page, hôte hors institution ; pas une API du GDZ"
+    },
+    {
+      "url": "https://www.gutenbergdigital.de/",
+      "raison": "site tiers de facsimilé lié dans le pied de page ; pas une API du GDZ"
+    },
+    {
+      "url": "https://openbiblio.social/@just_scanned",
+      "raison": "compte Mastodon tiers lié dans le pied de page ; réseau social, pas une API du GDZ"
+    },
+    {
+      "url": "https://gdz.sub.uni-goettingen.de/api",
+      "raison": "lu par fetch_doc (200, JSON de la liste des genres, sources/a1/text/04.txt) : fournisseur interne de l'aide à la recherche, non documenté comme API publique ; aucun autre test"
+    }
+  ],
+  "hotes_robots": [
+    {
+      "hote": "gdz.sub.uni-goettingen.de",
+      "resultat": "Disallow vide : tout autorisé",
+      "preuve": "institutions/gottingen-state-gdz/sources/a1/SHA256SUMS"
+    },
+    {
+      "hote": "www.sub.uni-goettingen.de",
+      "resultat": "Allow: / : tout autorisé, aucun Crawl-delay",
+      "preuve": "institutions/gottingen-state-gdz/sources/a2/SHA256SUMS"
+    },
+    {
+      "hote": "images.sub.uni-goettingen.de",
+      "resultat": "Disallow vide : tout autorisé",
+      "preuve": "institutions/gottingen-state-gdz/sources/a3/SHA256SUMS"
+    },
+    {
+      "hote": "manifests.sub.uni-goettingen.de",
+      "resultat": "Disallow vide : tout autorisé",
+      "preuve": "institutions/gottingen-state-gdz/sources/a3/SHA256SUMS"
+    }
+  ]
 }

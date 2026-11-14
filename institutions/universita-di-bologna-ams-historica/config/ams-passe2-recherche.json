@@ -1,0 +1,12 @@
+{
+  "slug": "universita-di-bologna-ams-historica",
+  "min_delay_s": 6,
+  "max_requests": 15,
+  "follow_redirects": 1,
+  "robots_disallow_autorise_par_marcel": true,
+  "note": "Passe 2 : le manifeste IIIF de l'item 0c7014bb a répondu 404 (passe 1, tests/raw/iiif-manifeste.headers.txt) ; on lit la réponse de la recherche REST (endpoint déjà vu en 200) pour trouver, dans les métadonnées publiques, des items dont l'IIIF est activé (dspace.iiif.enabled), au lieu de deviner des identifiants. L'en-tête x-ratelimit-limit: 500 est apparu sur la réponse Express (sitemap_index.xml) de la passe 1 ; on regarde s'il apparaît aussi sur la page d'accueil de l'interface.",
+  "endpoints": [
+    {"id": "rest-recherche-10", "method": "GET", "url": "https://historica.unibo.it/server/api/discover/search/objects?size=10", "save_body": 3000000},
+    {"id": "ui-accueil", "method": "GET", "url": "https://historica.unibo.it/home"}
+  ]
+}

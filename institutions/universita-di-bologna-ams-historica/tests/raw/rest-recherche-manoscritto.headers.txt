@@ -1,0 +1,22 @@
+2026-11-14T01:51:09Z GET https://historica.unibo.it/server/api/discover/search/objects?size=10&query=manoscritto
+HTTP 200
+content-type: application/hal+json;charset=UTF-8
+transfer-encoding: chunked
+connection: keep-alive
+date: Sat, 14 Nov 2026 01:51:09 GMT
+strict-transport-security: max-age=31536000 ; includeSubDomains
+x-frame-options: DENY
+vary: Origin
+vary: Access-Control-Request-Method
+vary: Access-Control-Request-Headers
+content-language: it,en
+x-content-type-options: nosniff
+x-xss-protection: 0
+cache-control: no-cache, no-store, max-age=0, must-revalidate
+pragma: no-cache
+expires: 0
+x-cache: Miss from cloudfront
+via: 1.1 c54f448bdcf141fee207656fb0400ce4.cloudfront.net (CloudFront)
+x-amz-cf-pop: MXP63-P8
+x-amz-cf-id: 2aB9_JGHvHRosvDBb4brRxvH7v6jM5Mz-sG1M-KhKbssL5EygfDVGg==
+referrer-policy: strict-origin-when-cross-origin
