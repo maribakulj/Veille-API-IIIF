@@ -1,0 +1,100 @@
+Methods
+ a collection of images and manifests for American historical maps
+ Home 
+ Manifests 
+ Methods 
+ Projects 
+ Search 
+ Annotate me 
+ -->
+ Built with Ed. Distributed under an MIT license.
+ HIST 2391 Manifests & Images 
+ a collection of images and manifests for American historical maps 
+ Methods
+ Note: This guide is a work in progress. The guide currently does not contain images. Please check back soon for updates.
+ Methods for Creating and Hosting IIIF Images and Manifests Using GitHub
+ This guide walks you through three free, easy methods for creating and hosting International Image Interoperability Framework (IIIF) manifests from images that you’ve downloaded to your local device. There are no fees for processing and hosting through any of these methods and all of the tools and applications used in these methods are open-source. The only requirements are an email address and a device with access to the Internet.
+ Note that all of these methods rely on tools and workflows created by IIIF Technical Coordinator Glen Robson . Methods get progressively harder and more intensive as you go through this guide.
+ Introduction: IIIF and Level-0 Compliance
+ The International Image Interoperability Framework describes itself as “a set of open standards for delivering high-quality, attributed digital objects online at scale.” Effectively, IIIF standardizes the way images are delivered by servers to platforms, tools, and environments on the Web using a series of Application Programming Interfaces (APIs) that allow two different computers or pieces of software to communicate with one another. Because IIIF’s Image API specifies exactly how an image’s pixels will be served to a viewer or user, it’s easy to specify exactly how much and in what way you want the image to be displayed. For more on how IIIF works, see IIIF’s How It Works guide.
+ Image servers can be compliant at different levels with varying parameters needed to make them work with the IIIF Image API. In this guide, all of the images we produce will be Level-0 compliant, meaning that they have the minimum amount of information needed to make them work with version 2 or version 3 of the IIIF Image API. This restricts what area of the image you can specify in an image viewer. For more on compliance, see the IIIF’s Image API Compliance, Version 3.0.0 documentation .
+ An International Image Interoperability Framework manifest is a package that contains all of the information about an image or group of images served using IIIF, including the metadata, order of presentation, size specifications, etc. for a digital object. Creating manifests for your images means that you can specify metadata about that image that will display when the manifest is viewed in a IIIF-compatible viewer. There are also tools, digital exhibition platforms, and viewers that only accept manifest URLs, not just image URIs, so knowing how to create compliant images and manifests is useful.
+ Method 1: Internet Archive
+ The Internet Archive , or archive.org, has a public upload feature that allows users to upload their own content to the Internet Archive repository and share it with others. Images uploaded this way are automatically IIIF compliant; the Internet Archive has a partnership with IIIF , so the IIIF Image API is a built-in feature of the Internet Archive’s image service. This method only works if the image you’re uploading is outside of copyright , is covered under a Creative Commons license (see CC licenses for specific parameters for sharing), or is owned by you. Material with current copyrights cannot be shared this way, since all images are public.
+ To create an IIIF Manifest for an image using the Internet Archive:
+ Create an Internet Archive account using an email and password. Note that the Internet Archive experienced cyberattacks in 2024 that allowed hackers to steal user information, so we suggest being cautious when creating accounts. I do not suggest adding your full name or personal information to your account.
+ Click the Upload button in the top right corner of the screen. Drag or select an image from your local machine to upload.
+ Once the image has loaded, add metadata to your image. The following fields are required: Description and Subject Tags. The Identifier field will default to the filename of your image.
+ Select “No” next to “Test Items”; this is required for this method to work.
+ Click the Upload and Create Your Item button at the bottom of the screen. Wait for the image to load in a new tab.
+ Scroll down on the new image page to the Identifier field. Copy the identifier.
+ Paste the identifier into the following URL scheme, without the brackets: https://iiif.archive.org/iiif/[identifier]/manifest.json.
+ Paste the URL into a IIIF-supported viewer, such as Universal Viewer or Mirador , to test it.
+ Since the image is hosted through the Internet Archive already, you do not need to host it separately. This process means that you can create a manifest for almost any image that has been uploaded to the Internet Archive, as long as you have its identifier.
+ Method 2: IIIF Workbench in GitHub.com
+ In September 2024, the Internet Archive suspended its services temporarily due to cyberattacks . It became necessary to find an alternate method of rendering and serving IIIF manifests for free from personal photos, images found on the Web, or . A Cantaloupe or self-hosted server does not solve the problem, since this would have to be hosted by the Cornell Reclaim Hosting space (a paid space) to be able to share images across the web instead of my local computer server.
+ The caveats of this method are that IIIF Workbench is slow at rendering images with the tiler, so it can take a while for images to upload. IIIF Workbench also sometimes never generates tiles for an image—it just loads on “Generating tiles” forever, which you wouldn’t be able to tell until you’ve already waited 15 minutes for your image to load. Lastly, it does not work with an organizational GitHub account because you can’t log into organizational accounts. This means a lot of annoying manual file-editing and transferring once you’ve uploaded all of your images and manifests. Regardless, it is a free and useful alternative to the Internet Archive method.
+ Download images from your repository of choice. TIFFs are best, JPEG 2000s are the next best, and regular JPEGs are third best.
+ Check the file sizes. Export images that are over 100mb to smaller JPEGs, as close to lossless as possible. If you’re working on a Mac, you can do this in Preview by going to File > Export and selecting JPEG.
+ Log into a personal GitHub account.
+ Open the IIIF Workbench . Allow access to your GitHub repositories.
+ Create a new project and upload all images to the workbench, one by one.
+ Wait five minutes or so for the images to process, generate tiles, upload to GitHub, and publish to the web. This may take a while, so try to have patience.
+ After the images load, copy the info.json URI that is below each image.
+ Open a manifest editor, such as the Bodelain Manifest Editor , in a browser and add a canvas.
+ Copy the info.json URI for an image onto the canvas. This section depends on what manifest editor you are using. In the Bodleian Manifest Editor, you add images in the “Canvas Metadata” section.
+ Manually add metadata for each image. I often copy the metadata from the repository catalog record, but you can determine your scheme and make your own fields.
+ Save the manifest to your local machine.
+ Upload the manifest file to the IIIF Workbench.
+ Test the manifest URIs in a viewer, such as Universal Viewer or Mirador .
+ If you want the manifests to be hosted by a personal GitHub account, you can stop here. However, if you would like them to be hosted by an organizational GitHub account, do the following:
+ Open the repository on GitHub and transfer ownership of the project repository. Alternatively, you can download all images and manifest files and reupload them to the organizational GitHub account one by one.
+ Do a search in your repository for the personal account username. Edit files to remove the username for the personal GitHub account and replace it with organizational GitHub username. Commit your changes.
+ Test manifest URLs in a viewer.
+ Method 3: IIIF Tiler and GitHub.com
+ Method 3 using GitHub is slightly more hands-on, but cuts out IIIF Workbench as the middleman and thus lets the user take more ownership of their processing, metadata creation, etc. This method uses a Java-run iiif-tiler on your local machine, run through command prompts on your local device, to process the images into Level 0 IIIF-compliant images. It then uses GitHub to host those images and present them using the IIIF Presentation API through GitHub Pages.
+ If you are not yet familiar with how to use the command line on your device, please see Ian Mulligan and James Baker’s Introduction to the Bash Command Line lesson on Programming Historian first.
+ This method is not for the faint of heart; it requires patience and attention to detail, but goes faster than the IIIF Workbench method:
+ Install Java on your machine. If you are on Mac, you can use Homebrew to install Java or install Java from Java.com . If you are on Windows, you can use the official Java installation instructions from Java.com .
+ Create a directory iiif-workshop on your local device. You can name your folder something else, just make sure to edit the command in step 9 appropriately.
+ Log into your organizational or personal GitHub account. Create a new repository.
+ In the repository, create a “manifests” folder and an “images” folder.
+ Download iiif-tiler.jar to your device and drag it in your iiif-workshop directory.
+ Download images from your repository of choice. TIFFs are best, JPEG 2000s are the next best, and JPEGs are third best.
+ Make sure your file names are distinct. Files must have different names or the tiler will mix them up.
+ Drag all of your images into the iiif-workshop directory.
+ Change directories in a command prompt to the iiif-workshop directory: cd ~/iiif-workshop 
+ Run the command: java -jar iiif-tiler.jar 
+ Wait for a folder named iiif to appear in the iiif-workshop directory . When you open the new iiif folder, you’ll find folders containing the tiles of each image and an info.json file.
+ Create a new directory in your GitHub repository’s images directory for each image. It’s easiest to name the directory, the image, and the manifest all the same thing so you don’t get confused.
+ For each image, upload the info.json file and all tile files into the appropriately named GitHub directory. You may have to do this in batches, since GitHub has a cap on uploads with file size and amount.
+ After all files have uploaded successfully, open the info.json file for each image and update the @id field to: “https:// YOUR-GITHUB-USERNAME .github.io/ YOUR-REPO-NAME /images/ YOUR-IMAGE-NAME /”
+ Open a manifest editor in a browser and add a canvas. Copy the @id above and add /info.json to the end. Paste this URI into the canvas.
+ Manually add metadata for each image. I often copy the metadata from the repository catalog record, but you can determine your scheme and make your own fields.
+ Save the manifest to your local machine.
+ Upload the manifests to the manifests directory of your GitHub repository.
+ Open each manifest file to correct the @id so that it reads: “https:// YOUR-GITHUB-USERNAME .github.io/ YOUR-REPO-NAME /manifests/ YOUR-IMAGE-NAME /”
+ Commit changes. Wait for the changes to finish processing.
+ Test your new manifest URLs. Your new manifest URLs should be the same as the @id field you just edited in step 19.
+ Method 4: libvips and GitHub.com
+ Method 4 is very similar to Method 3, but uses libvips, an image-processing library, instead of IIIF-Tiler to create Level 0 IIIF-compliant image tiles. It then uses GitHub to host those images and present them using the IIIF Presentation API through GitHub Pages.
+ Install libvips to your local machine. Follow the libvips installation instructions .
+ Log into your organizational or personal GitHub.com account.
+ Create a new repository. In the repository, create a manifests folder and an images folder.
+ On your local machine, create a new folder to store all of your images.
+ Download images from your repository of choice. TIFFs are best, JPEG 2000s are the next best and JPEGs are third best.
+ Place all images in the folder you created in step 3.
+ Open the command line. Change directories to the directory that your image is in, e.g.: cd Downloads 
+ Run a command: vips dzsave yourimagename --layout iiif mypyr.zip 
+ Wait for a folder named mypyr.zip to appear on your computer. When you open the zip file, you’ll find folders containing the tiles of your image and an info.json file.
+ Create a new folder in your GitHub repository’s images folder for each image. Going forward, it’s easiest to name the image folder and the manifest the same thing so you don’t get confused.
+ For each image, upload the info.json file and all tile files into the appropriately named image folder in your GitHub repository. You may have to do this in batches, since GitHub has a cap on uploads with file size and amount.
+ After all files have uploaded successfully, open the info.json file for each image and update the @id field to: “https:// YOUR-GITHUB-USERNAME .github.io/ YOUR-REPO-NAME /images/ YOUR-IMAGE-NAME /”
+ Open a manifest editor in a browser and add a canvas. Copy the @id above and add /info.json to the end. Paste this URI into the canvas.
+ Manually add metadata for each image. I often copy the metadata from the repository catalog record, but you can determine your scheme and make your own fields.
+ Save the manifest to your local machine.
+ Upload the manifests to the manifests directory of your GitHub repository.
+ Open each manifest file to correct the @id so that it reads: “https:// YOUR-GITHUB-USERNAME .github.io/ YOUR-REPO-NAME /manifests/ YOUR-IMAGE-NAME /”
+ Commit changes. Wait for the changes to finish processing.
+ Test your new manifest URLs. Your new manifest URLs should be the same as the @id field you just edited in step 17.
+ Note that these methods are just some of the easiest ways you can use various programs to create static tiles and Level-0 compliant images. Given the pervasiveness and usefulness of IIIF for serving and presenting images, there are plenty of Python, Ruby, and Javascript libraries and tools for generating tiles. For more tools, see the community-built Awesome IIIF GitHub repository .

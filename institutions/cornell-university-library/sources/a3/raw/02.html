@@ -1,0 +1,592 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <link rel="shortcut icon" type="image/jpg" href="https://raw.githubusercontent.com/cul-it/library-website-branding/refs/heads/master/final/favicon.ico"/>
+    
+<title>Using Non-IIIF Images - HIST 2391 Project Guide - Digital CoLab - LibGuides at Cornell University</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noarchive" />
+<link rel="shortcut icon" type="image/jpg" href="https://raw.githubusercontent.com/cul-it/library-website-branding/refs/heads/master/final/favicon.ico"/>
+
+
+<!-- public_metadata.twig -->
+
+    <!-- auto generated dublin core metadata -->
+    <meta name="DC.Title" content="LibGuides: HIST 2391 Project Guide - Digital CoLab: Using Non-IIIF Images"/>
+    <meta name="DC.Creator" content="Kiran Mohammadi-Williams"/>
+    <meta name="DC.Subject" content=""/>
+    <meta name="DC.Description" content="This guide was created for HIST 2391 by the Digital CoLab to provide instructions and useful resources for students' final digital humanities projects. Want to use an image that does not have an IIIF Manifest? See the instructions below to request a conversion."/>
+    <meta name="DC.Publishers" content="Cornell University"/>
+    <meta name="DC.Rights" content="Copyright Cornell University 2026"/>
+    <meta name="DC.Language" content="en"/>
+    <meta name="DC.Identifier" content="https://guides.library.cornell.edu/hist2391dss/non-iiif"/>
+    <meta name="DC.Date.Created" content="Aug 13, 2024"/>
+    <meta name="DC.Date.Modified" content="Oct 20, 2026"/>
+    
+
+<meta property="og:title" content="LibGuides: HIST 2391 Project Guide - Digital CoLab: Using Non-IIIF Images">
+<meta property="og:description" content="This guide was created for HIST 2391 by the Digital CoLab to provide instructions and useful resources for students&#039; final digital humanities projects. Want to use an image that does not have an IIIF Manifest? See the instructions below to request a conversion.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://guides.library.cornell.edu/hist2391dss/non-iiif">
+    <meta property="og:image" content="https://guides.library.cornell.edu/ld.php?screenshot=bebghij.png&amp;size=facebook&amp;cb=1794622213">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="627">
+    <meta name="twitter:image" content="https://guides.library.cornell.edu/ld.php?screenshot=bebghij.png&amp;size=twitter&amp;cb=1794622213">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@springshare">
+
+
+
+<link rel="stylesheet" href="https://static-assets-us.libguides.com/web/jquery/css/jquery-ui.min.css?2691" />
+
+<link rel="stylesheet" href="https://netdna.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"/>
+
+<link rel="stylesheet" type="text/css" href="https://static-assets-us.libguides.com/web/slick-1.8.1/slick/slick.css">
+<link rel="stylesheet" type="text/css" href="https://static-assets-us.libguides.com/web/slick-1.8.1/slick/slick-theme.css">
+
+    <link rel="stylesheet" href="https://static-assets-us.libguides.com/web/css3.31.5/lg-public.min.css" />
+
+<script type="text/javascript" src="https://static-assets-us.libguides.com/web/jquery/js/1.12.4_jquery.min.js"></script>
+<script>
+    jQuery(document).ready(function () {
+                        var s_lg_guide_name = jQuery('#s-lg-guide-name');
+        if (s_lg_guide_name.length) {
+            if (jQuery.trim(s_lg_guide_name.text()) === '') {
+                s_lg_guide_name.remove();
+            }
+        }
+    });
+
+    function handleGuideMenuEscapeKey(e) {
+        if (e.key !== 'Escape') return;
+
+        const activeEl = document.activeElement;
+        if (!activeEl) return;
+
+        const menu = activeEl.closest('.s-lg-subtab-ul.dropdown-menu');
+        if (!menu) return;
+
+        e.preventDefault();
+        e.stopImmediatePropagation();
+
+        const dropdown = menu.closest('.dropdown');
+        if (!dropdown) return;
+
+        const trigger = dropdown.querySelector('.s-lg-tab-drop.dropdown-toggle');
+        menu.classList.remove('show');
+        if (trigger) {
+            trigger.setAttribute('aria-expanded', 'false');
+            trigger.focus();
+        }
+    }
+
+    document.addEventListener('keydown', handleGuideMenuEscapeKey, true);
+</script>
+
+    <script src="//code.jquery.com/ui/1.13.2/jquery-ui.min.js"></script>
+    <script>
+        jQuery.ui ||
+        document.write('<script src="https://static-assets-us.libguides.com/web/jquery/js/jquery-ui.min.js?2691">\x3C/script>');
+    </script>
+
+    <script type="text/javascript" src="https://static-assets-us.libguides.com/web/js3.31.5/lg-public.min.js"></script>
+<style>/** bs3/bootstrap_tab_box_css.twig **/
+
+                                
+#s-lg-tabs-container .nav-tabs > li > a,
+#s-lg-tabs-container .nav-tabs > li > button,
+#s-lg-tabs-container .nav-pills > li > a,
+#s-lg-tabs-container .nav-pills > li > button {
+    border: 1px solid transparent;
+             -webkit-border-radius: 4px;
+             -moz-border-radius: 4px;
+             border-radius: 4px;
+    background-color: #5c5555;
+    color: #ffffff;
+    font-weight: bold;
+    padding: 4px 15px;
+}
+
+#s-lg-tabs-container .nav-tabs {
+    border-bottom: 0;
+}
+
+#s-lg-tabs-container .nav-tabs > li#s-lg-admin-tab-add > a {
+    -webkit-border-radius: 4px 4px 0 0;
+    -moz-border-radius: 4px 4px 0 0;
+    border-radius: 4px 4px 0 0;
+}
+
+#s-lg-tabs-container .nav-tabs > li > a:hover,
+#s-lg-tabs-container .nav-tabs > li > button:hover,
+#s-lg-tabs-container .nav-pills > li > a:hover,
+#s-lg-tabs-container .nav-pills > li > button:hover {
+    border: 1px solid transparent;
+             -webkit-border-radius: 4px;
+             -moz-border-radius: 4px;
+             border-radius: 4px;
+    background-color: #a30505;
+    color: #ffffff;
+}
+
+#s-lg-tabs-container .nav-tabs > .active > a,
+#s-lg-tabs-container .nav-tabs > .active > button,
+#s-lg-tabs-container .nav-pills > .active > a,
+#s-lg-tabs-container .nav-pills > .active > button {
+    color: #ffffff;
+    cursor: default;
+    background-color: #a30505;
+    border: 1px solid transparent;
+             -webkit-border-radius: 4px;
+             -moz-border-radius: 4px;
+             border-radius: 4px;
+    border-bottom-color: transparent;
+    font-weight: bold;
+}
+
+#s-lg-tabs-container .nav-tabs > .active > .s-lg-subtab-ul > .active > a,
+#s-lg-tabs-container .nav-tabs > .active > .s-lg-subtab-ul > .active > button {
+    color: #ffffff;
+    cursor: default;
+    background-color: #a30505;
+    border-bottom-color: transparent;
+}
+
+#s-lg-tabs-container .nav-tabs > .active > a:hover,
+#s-lg-tabs-container .nav-pills > .active > a:hover,
+#s-lg-tabs-container .nav-tabs > .active > button:hover,
+#s-lg-tabs-container .nav-pills > .active > button:hover {
+    color: #ffffff;
+    cursor: pointer;
+    background-color: #a30505;
+    border: 1px solid transparent;
+             -webkit-border-radius: 4px;
+             -moz-border-radius: 4px;
+             border-radius: 4px;
+    border-bottom-color: transparent;
+    font-weight: bold;
+}
+
+#s-lg-tabs-container .nav .dropdown-toggle .caret {
+    border-top-color: #e1e1e1;
+}
+
+#s-lg-tabs-container .nav-tabs button.dropdown-toggle .caret {
+    margin-left: 2px;
+    margin-top: -3px;
+}
+
+#s-lg-tabs-container .nav-tabs > li > a.s-lg-tab-drop {
+    border-radius: 0 4px 4px 0;
+    padding: 4px 6px 4px 3px;
+    border-left: 1px solid transparent;
+}
+
+#s-lg-tabs-container .nav-tabs > li > button.s-lg-tab-drop {
+    border-radius: 0 4px 4px 0;
+    padding: 4px 6px 0px 3px;
+    border-left: 1px solid transparent;
+    margin-right: 2px;
+}
+
+#s-lg-tabs-container .nav-tabs > li > a.s-lg-tab-drop:hover {
+    border-radius: 0 4px 4px 0;
+    border-left: 1px solid #bbb;
+    padding: 4px 6px 4px 3px;
+}
+
+#s-lg-tabs-container .nav-tabs > li > button.s-lg-tab-drop:hover {
+    border-radius: 0 4px 4px 0;
+    border-left: 1px solid #bbb;
+    padding: 4px 6px 0px 3px;
+}
+
+#s-lg-tabs-container .nav-tabs > li > a.s-lg-tab-top-link,
+#s-lg-tabs-container .nav-tabs > li > a.s-lg-tab-top-link:hover,
+#s-lg-tabs-container .nav-tabs > li > button.s-lg-tab-top-link,
+#s-lg-tabs-container .nav-tabs > li > button.s-lg-tab-top-link:hover {
+    border-radius: 4px;
+    font-weight: bold;
+    padding: 4px 5px 4px 10px;
+}
+
+.nav-tabs > li > a.s-lg-tab-top-link,
+.nav-tabs > li > button.s-lg-tab-top-link {
+    margin-right: 0px;
+}
+
+#s-lg-tabs-container .nav-pills > li > a.s-lg-tab-drop,
+#s-lg-tabs-container .nav-pills > li > button.s-lg-tab-drop {
+    border-radius: 0 4px 4px 0;
+    padding: 4px 8px 4px 8px;
+    border-left: 1px solid transparent;
+    position: absolute;
+    right: 0;
+}
+
+#s-lg-tabs-container .nav-pills > li > a.s-lg-tab-drop:hover,
+#s-lg-tabs-container .nav-pills > li > button.s-lg-tab-drop:hover {
+    border-radius: 0 4px 4px 0;
+    border-left: 1px solid #bbb;
+    padding: 4px 8px 4px 8px;
+}
+
+#s-lg-tabs-container .nav-pills > li > a.s-lg-tab-top-link,
+#s-lg-tabs-container .nav-pills > li > a.s-lg-tab-top-link:hover,
+#s-lg-tabs-container .nav-pills > li > button.s-lg-tab-top-link,
+#s-lg-tabs-container .nav-pills > li > button.s-lg-tab-top-link:hover {
+    width: 100%;
+    float: left;
+    border-radius: 4px;
+    font-weight: bold;
+    padding: 4px 15px 4px 15px;
+}
+
+.s-lib-box {
+            border-color: #cccccc;
+        border-width: 1px;
+    box-shadow: 0 8px 6px -6px #AAAAAA;
+    border-radius: 4px 4px 4px 4px;
+    background-color: #ffffff;
+}
+
+.s-lib-box-std .s-lib-box-title {
+            background-color: #f1f1f1;
+        background-image: none;
+        color: #454040;
+    border-bottom: 1px solid
+        #cccccc;
+}
+
+.s-lib-box .s-lib-box-title {
+            background-color: #f1f1f1;
+        background-image: none;
+        color: #454040;
+    border-bottom: 1px solid
+        #cccccc;
+    border-radius: 3px 3px 0px 0px;
+}
+
+.s-lib-box .s-lg-box-footer {
+    border-radius: 0px 0px 3px 3px;
+}
+
+/** !bs3/bootstrap_tab_box_css.twig **/
+</style><link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="https://d2jv02qf7xgjwx.cloudfront.net/sites/45/include/cu-style.css">
+<link rel="stylesheet" type="text/css" href="//libapps.s3.amazonaws.com/sites/45/include/admin_exclusions.css">
+<script src="https://v2.libanswers.com/load_chat.php?hash=54c973fbd0a5011b7e6daf9077537d49"></script>
+<script>
+    var springStats = springStats || {};
+    springStats.saConfig = springStats.saConfig || {
+        site_id: 45,
+        tracking_parameters: {"_st_guide_id":1416789,"_st_page_id":10500596,"_st_site_id":45},
+        tracking_server_host: "guides.library.cornell.edu"
+    };
+</script>
+<script  src="https://static-assets-us.libguides.com/web/js/sa.min.js?3116"></script>
+<script>
+			springSpace.Common = springSpace.Common || { };
+			springSpace.Common.constant = {
+					PROCESSING: {
+						ACTION_DISPLAY_POLL: 159
+					}
+			};
+			springSpace.Common.baseURL = "https://guides.library.cornell.edu/";
+			
+			handleScroll=function() {
+                if (false) {
+					var target_elt = "#s-lg-page-section-10500596";
+					jQuery("html, body").animate({ scrollTop: jQuery(target_elt).offset().top }, 750);
+					if (jQuery(this).scrollTop() > 220) {
+						jQuery("#s-lib-scroll-top").fadeIn(750);
+					}
+				}
+			}
+	   </script>
+        <script>
+            // Enable tooltips.
+            jQuery(function () {
+                try {
+                    springSpace.UI.initPopOvers(false);
+                    jQuery(".az-bs-tooltip").tooltip();
+                } catch (e) { }
+            });
+        jQuery(document).ready(function () {
+            springSpace.springTrack.trackPage({_st_type_id: '1',_st_guide_id: '1416789',_st_page_id: '10500596'});
+        });
+            jQuery(document).ready(function() {
+                handleScroll();
+            });
+        </script>
+    </head>
+<body class="s-lg-guide-body">
+    <a id="s-lg-public-skiplink" class="alert-info" href="#s-lg-guide-main">Skip to Main Content</a>
+    
+    <div class="cornell-brand" role="banner" aria-label="Cornell University">
+  <div class="container">
+     <div class="cornell-logo-wrapper">
+        <div class="cornell-logo">
+          <a href="http://www.cornell.edu" class="insignia">Cornell University</a>
+          <div class="library-brand">
+            <a href="https://library.cornell.edu/">Library</a>
+          </div>
+        </div>
+      </div>
+  </div>
+</div>
+
+    <div id="s-lg-guide-header" class="container s-lib-header s-lib-side-borders">
+        <nav id="s-lib-bc" aria-label="breadcrumb">
+            <ol id="s-lib-bc-list" class="breadcrumb"><li id="s-lib-bc-customer" class="breadcrumb-item"><a href="http://www.library.cornell.edu/">Cornell University</a></li><li id="s-lib-bc-site" class="breadcrumb-item"><a href="https://guides.library.cornell.edu/">LibGuides</a></li><li id="s-lib-bc-guide" class="breadcrumb-item"><a href="https://guides.library.cornell.edu/hist2391dss">HIST 2391 Project Guide - Digital CoLab</a></li><li id="s-lib-bc-page" class="active breadcrumb-item">Using Non-IIIF Images</li></ol>
+        </nav>
+        <div class="pull-right">
+            <div id="s-lg-guide-header-search">
+                
+<div id="s-lg-guide-search-box">
+    <form role="search" id="s-lg-guide-search-form" action="https://guides.library.cornell.edu/srch.php" method="GET">
+        <div class="input-group input-group-sm">
+            <input 
+                type="text" 
+                id="s-lg-guide-search-terms" 
+                name="q" 
+                class="form-control"
+                maxlength="260" 
+                placeholder="Search this Guide">
+                
+            <label class="sr-only" for="s-lg-guide-search-terms">Search this Guide</label>
+
+                            <input type="hidden" name="guide_id" value="1416789">
+            
+            
+            <span class="input-group-btn">
+                <button class="btn btn-default" type="submit">
+                    Search
+                </button>
+            </span>
+        </div>
+    </form>
+</div>
+
+            </div>
+            
+        </div>
+        <div id="s-lg-guide-header-info">
+            <h1 id="s-lg-guide-name">HIST 2391 Project Guide - Digital CoLab: Using Non-IIIF Images</h1>
+            <div id="s-lg-guide-desc-container">
+                <span id="s-lg-guide-description">This guide was created for HIST 2391 by the Digital CoLab to provide instructions and useful resources for students' final digital humanities projects.</span>
+            </div>
+        </div>
+    </div>
+
+    <div id="s-lg-guide-tabs-title-bar" class="container s-lib-side-borders"></div>
+
+    <div id="s-lg-side-nav-content" class="container s-lib-side-borders pad-top-med">
+        <div class="row">
+            <div class="col-md-3 s-lg-tabs-side pad-bottom-med">
+                <div id="s-lg-tabs-container">
+                    <div id="s-lg-guide-tabs" role="navigation" aria-label="Guide Pages">
+                        <ul class="nav nav-pills nav-stacked split-button-nav">
+                            
+
+
+    <li class="">
+        <a title="" class="" 
+           href="https://guides.library.cornell.edu/c.php?g=1416789&amp;p=10500560" 
+            
+            
+           >
+            <span>Home</span>
+            
+        </a>
+        
+    </li>
+
+
+
+    <li class="active">
+        <a title="Want to use an image that does not have an IIIF Manifest? See the instructions below to request a conversion." class="active" 
+           href="https://guides.library.cornell.edu/hist2391dss/non-iiif" 
+            
+            
+           >
+            <span>Using Non-IIIF Images</span>
+            
+        </a>
+        
+    </li>
+
+
+
+    <li class="">
+        <a title="A list of repositories that host images and digital objects in their collections as IIIF manifests." class="" 
+           href="https://guides.library.cornell.edu/hist2391dss/find-maps" 
+            
+            
+           >
+            <span>Finding IIIF Manifests</span>
+            
+        </a>
+        
+    </li>
+
+
+
+    <li class="">
+        <a title="This page provides a basic user guide and resources for using the Digirati Exhibition Editor to create digital exhibitions of images and text." class="" 
+           href="https://guides.library.cornell.edu/hist2391dss/exhibit-so" 
+            
+            
+           >
+            <span>Digirati Exhibition Editor</span>
+            
+        </a>
+        
+    </li>
+
+                        </ul>
+                        <div class="s-lg-row margin-top-med"><div id="s-lg-col-0"><div class="s-lg-col-boxes"></div></div></div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-9">
+                <div class="s-lg-tab-content">
+                    <div id="s-lg-guide-main" class="tab-pane active" tabindex="-1">
+                        <div class="row s-lg-row"><div id="s-lg-col-1" class="col-md-12"><div class="s-lg-col-boxes"><div id="s-lg-box-wrapper-39382716" class="s-lg-box-wrapper-39382716">
+
+
+    <div id="s-lg-box-33490597-container" class="s-lib-box-container">
+        <div id="s-lg-box-33490597" class="s-lib-box s-lib-box-std">
+                            <h2 class="s-lib-box-title">
+                    Requesting IIIF Manifests
+                                    </h2>
+                        <div id="s-lg-box-collapse-33490597" >
+                <div class="s-lib-box-content">
+                    <div id="s-lg-content-78649306" class="  clearfix">
+    <p><meta charset="UTF-8" /><span style="font-family:Verdana,Geneva,sans-serif;"><span style="font-size:14px;"><strong>If you are having trouble creating a IIIF manifest or you would not like your image to be made public in any way</strong>, you can request help from Kiran at any time. If you&#39;re running into technical difficulties, Kiran can create manifests for you, especially if the deadline for the final is approaching. Just email <strong>kam535@cornell.edu</strong>.</span></span></p>
+
+<p><span style="font-family:Verdana,Geneva,sans-serif;"><span style="font-size:14px;">Please request as many images as you need; the CoLab is happy to and has the capacity to process as many images as you&#39;d like.</span></span></p>
+
+    </div>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+</div><div id="s-lg-box-wrapper-40999152" class="s-lg-box-wrapper-40999152">
+
+
+    <div id="s-lg-box-34851426-container" class="s-lib-box-container">
+        <div id="s-lg-box-34851426" class="s-lib-box s-lib-box-std">
+                            <h2 class="s-lib-box-title">
+                    Creating IIIF Images & Manifests
+                                    </h2>
+                        <div id="s-lg-box-collapse-34851426" >
+                <div class="s-lib-box-content">
+                    <div id="s-lg-content-82026653" class="  clearfix">
+    <p><span style="font-family:Verdana,Geneva,sans-serif;">The Internet Archive, or archive.org, has a public upload feature that allows users to upload their own content to the repository and share it with others. Images uploaded this way are automatically IIIF compliant, since the IIIF Image API is embedded in its image services. This method only works if the image you&rsquo;re uploading is outside of copyright, is covered under a Creative Commons license (see licenses for specific parameters for sharing), or is owned by you. <strong>Material with current copyrights cannot be shared this way, since all images are public.</strong></span></p>
+
+<p><span style="font-family:Verdana,Geneva,sans-serif;"><strong>Before you start, check the rights statement for the image you want to upload.&nbsp;</strong>If the image is under copyrighted, you may be able to create your own manifest for it, or may have to include the full rights statement in your metadata. Ask Kiran if you have questions.&nbsp;</span></p>
+
+<p><span style="font-family:Verdana,Geneva,sans-serif;">To create an IIIF Manifest for an image using the Internet Archive:</span></p>
+
+<ol class="wp-block-list">
+	<li><span style="font-family:Verdana,Geneva,sans-serif;"><strong>Create an <a href="https://archive.org/">Internet Archive</a> account using an email and password.</strong> Note that the Internet Archive experienced cyberattacks in 2024 that allowed the hackers to steal user emails, so we suggest being cautious when creating accounts. We do not suggest adding your full name, personal information, etc. to your account.</span></li>
+	<li><span style="font-family:Verdana,Geneva,sans-serif;"><strong>Go to upload&nbsp;</strong><img height="24" loading="lazy" src="data:image/png;base64,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" width="60" /><strong> in the top right corner of the screen.</strong>&nbsp;Drag or select an image from your local device to upload.</span></li>
+	<li><span style="font-family:Verdana,Geneva,sans-serif;">Once the image has loaded, <strong>add metadata to your image</strong>. Certain fields are required, including: Description and Subject Tags. You can put whatever you want in there.</span></li>
+	<li><span style="font-family:Verdana,Geneva,sans-serif;">Select <strong>Community image </strong>next to<strong>&nbsp;</strong>&quot;Collection.&quot;<strong>&nbsp;</strong>Select<strong> No</strong> next to &ldquo;Test Items&rdquo;; these settings are <em><span style="color:#800000;"><strong>required</strong></span></em> for this method to work.&nbsp;<img alt="" loading="lazy" src="https://d2jv02qf7xgjwx.cloudfront.net/accounts/406975/images/Screenshot_2025-08-25_at_10.02.58 AM.png" /></span></li>
+	<li><span style="font-family:Verdana,Geneva,sans-serif;">Click the <strong>Upload and Create Item&nbsp;</strong>button at the bottom of the screen. Wait for the image to load in a new tab.</span></li>
+	<li><span style="font-family:Verdana,Geneva,sans-serif;">Scroll down on the new image page to the <strong>Identifier</strong> field. Copy the identifier.</span></li>
+	<li><span style="font-family:Verdana,Geneva,sans-serif;">Paste the identifier into the following URL scheme: <strong>https://iiif.archive.org/iiif/<span style="color:#0000cd;">identifier</span>/manifest.json.</strong></span></li>
+	<li><span style="font-family:Verdana,Geneva,sans-serif;">To test your new manifest, paste the URL into a IIIF viewer like <a href="https://universalviewer.io/">Universal Viewer</a> or <a href="https://projectmirador.org/">Mirador</a>.</span></li>
+</ol>
+
+<p><span style="font-family:Verdana,Geneva,sans-serif;"><span style="font-size:12px;">Note that Cornell University Library, nor any member of its staff, can be held responsible for copyright infringements that occur as a result of uploading to the Internet Archive.</span></span></p>
+
+    </div>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+</div></div></div></div>
+                    </div>
+                </div>
+                <ul id="s-lg-page-prevnext" class="pager s-lib-hide">
+    <li class="previous">
+        <a class="page-link" href="https://guides.library.cornell.edu/c.php?g=1416789&p=10500560">&lt;&lt; <strong>Previous:</strong> Home</a>
+    </li>
+    <li class="next">
+        <a class="page-link" href="https://guides.library.cornell.edu/hist2391dss/find-maps"><strong>Next:</strong> Finding IIIF Manifests &gt;&gt;</a>
+    </li>
+</ul>
+
+
+            </div>
+        </div>
+    </div>
+
+    <div id="s-lib-footer-public" class="s-lib-footer footer container s-lib-side-borders">
+        <div id="s-lg-guide-header-meta" class="pad-top-sm pad-left-med clearfix">
+            <ul id="s-lg-guide-header-attributes">
+                <li id="s-lg-guide-header-updated" class="s-lg-h-separator">
+                    <span class="s-lg-guide-label">Last Updated:</span> <span class="s-lg-text-greyout">Oct 20, 2026 9:18 AM</span>
+                </li>
+                <li id="s-lg-guide-header-url" class="s-lg-h-separator">
+                    <span class="s-lg-guide-label">URL:</span> <span class="s-lg-text-greyout">https://guides.library.cornell.edu/hist2391dss</span>
+                </li>
+                <li id="s-lg-guide-print-url">
+                    <a href="javascript: window.print();"><i class="fa fa-print" aria-hidden="true" title="Print Page"></i> Print Page</a>
+                </li>
+            </ul>
+            <div id="s-lib-footer-login-link" class="pull-right pad-right-med">
+                <a href="https://cornell.libapps.com/libapps/login.php?site_id=45&target64=L2xpYmd1aWRlcy9hZG1pbl9jLnBocD9nPTE0MTY3ODkmcD0xMDUwMDU5Ng==">Login to LibApps</a>
+            </div>
+        </div>
+        <div class="pad-bottom-sm clearfix">
+            <div id="s-lib-footer-support-link" class="pull-right pad-right-med">
+                
+            </div>
+            <div id="s-lg-guide-header-subjects" class="pad-top-sm pad-left-med pad-right-med pull-left">
+                
+            </div>
+            <div id="s-lg-guide-header-tags" class="pad-top-sm pad-left-med">
+                
+            </div>
+        </div>
+    </div>
+
+    <!-- scroll_top.twig -->
+<div id="s-lib-scroll-top">
+    <a href="javascript:void(0);" onclick="jQuery('body').focus();" title="Back to Top"
+       aria-label="Back to Top">
+        <span class="fa-stack fa-lg" aria-hidden="true">
+            <i class="fa fa-square-o fa-stack-2x"></i>
+            <i class="fa fa-angle-double-up fa-stack-1x" style="position:relative; bottom:2px;"></i>
+        </span>
+    </a>
+</div>
+<!-- !scroll_top.twig -->
+
+    <div id="s-lib-alert" title=""><div id="s-lib-alert-content"></div></div>
+            
+<div class="container">
+  <div style="text-align: center" class="footer" role="contentinfo" aria-labelledby="web-compliance-link">
+    <strong><a href="https://www.library.cornell.edu/web-accessibility" id="web-compliance-link">Web Accessibility Assistance</a></strong>
+  </div>
+</div>
+
+        <!-- BEGIN: Analytics code --><!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-5TP60MKH5W"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-5TP60MKH5W', {
+  'cookie_domain': '.guides.library.cornell.edu' });
+</script><!-- END: Analytics code -->
+    </body>
+</html>
