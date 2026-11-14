@@ -4,10 +4,370 @@
   "pays": "États-Unis",
   "classeur_id": "GLAM-054",
   "type": "Institution",
-  "statut_audit": "à faire",
-  "limites_documentees": [],
-  "en_tetes_observes": [],
-  "blocages": [],
-  "sources": [],
-  "web": []
+  "statut_audit": "méthode v2 complète sauf g (crash test à la fin) ; hôte UW digitalcollections.lib.washington.edu en 403 Cloudflare, API testée sur l'hôte OCLC annoncé par les manifestes UW",
+  "limites_documentees": [
+    {
+      "nature": "Règle explicite (sans chiffre de quota)",
+      "perimetre": "robots.txt de digitalcollections.lib.washington.edu et cdm16786.contentdm.oclc.org",
+      "valeur": "Crawl-Delay: 1",
+      "fenetre": "1 s entre requêtes",
+      "effet": "non précisé",
+      "verification": "officielle, lue en entier (robots.txt)",
+      "source": "https://digitalcollections.lib.washington.edu/robots.txt",
+      "date": "2026-11-14"
+    },
+    {
+      "nature": "Règle explicite",
+      "perimetre": "conditions générales du site UW",
+      "valeur": "UW peut bloquer ou suspendre l'usage du site à tout moment",
+      "fenetre": "–",
+      "effet": "blocage / suspension",
+      "verification": "officielle, lue en entier",
+      "source": "https://www.washington.edu/online/terms/",
+      "date": "2026-11-14"
+    }
+  ],
+  "en_tetes_observes": [
+    {
+      "hote": "cdm16786.contentdm.oclc.org",
+      "en_tetes": "aucun en-tête de limite ; x-oclc-iiif-provider: cantaloupe ; cookie TS01 (pare-feu applicatif) ",
+      "preuve": "institutions/university-of-washington-libraries/tests/raw/image-info.headers.txt"
+    }
+  ],
+  "blocages": [
+    {
+      "hote": "digitalcollections.lib.washington.edu",
+      "code": 403,
+      "quand": "2026-11-14T02:23:16Z",
+      "detail": "page 403 Cloudflare (script challenge-platform) sur /ordering.html ; arrêt de l'hôte, registre partagé",
+      "preuve": "institutions/university-of-washington-libraries/sources/doc-b/FETCH.log"
+    },
+    {
+      "hote": "jewishstudies.washington.edu",
+      "code": "permission refusée",
+      "quand": "2026-11-14",
+      "detail": "WebFetch refusé par le système de permissions sur un domaine UW (domaine d'université mère interdit) : page sur la mise en place de Mirador non lue, indice de moteur seulement",
+      "preuve": "institutions/university-of-washington-libraries/fiche.md"
+    }
+  ],
+  "sources": [
+    {
+      "url": "https://digitalcollections.lib.washington.edu/robots.txt",
+      "date": "2026-11-14",
+      "etiquette": "officielle",
+      "preuve": "institutions/university-of-washington-libraries/sources/doc/SHA256SUMS"
+    },
+    {
+      "url": "https://digitalcollections.lib.washington.edu/",
+      "date": "2026-11-14",
+      "etiquette": "officielle",
+      "preuve": "institutions/university-of-washington-libraries/sources/doc/SHA256SUMS"
+    },
+    {
+      "url": "https://digitalcollections.lib.washington.edu/digital/about",
+      "date": "2026-11-14",
+      "etiquette": "officielle (coquille JS)",
+      "preuve": "institutions/university-of-washington-libraries/sources/doc/SHA256SUMS"
+    },
+    {
+      "url": "https://www.lib.washington.edu/robots.txt",
+      "date": "2026-11-14",
+      "etiquette": "officielle",
+      "preuve": "institutions/university-of-washington-libraries/sources/doc/SHA256SUMS"
+    },
+    {
+      "url": "https://www.lib.washington.edu/specialcollections/collections/digital",
+      "date": "2026-11-14",
+      "etiquette": "officielle",
+      "preuve": "institutions/university-of-washington-libraries/sources/doc/SHA256SUMS"
+    },
+    {
+      "url": "https://www.lib.washington.edu/about/policies",
+      "date": "2026-11-14",
+      "etiquette": "officielle",
+      "preuve": "institutions/university-of-washington-libraries/sources/doc/SHA256SUMS"
+    },
+    {
+      "url": "https://lib.uw.edu/robots.txt",
+      "date": "2026-11-14",
+      "etiquette": "officielle",
+      "preuve": "institutions/university-of-washington-libraries/sources/doc-b/SHA256SUMS"
+    },
+    {
+      "url": "https://lib.uw.edu/about/contact-us/",
+      "date": "2026-11-14",
+      "etiquette": "officielle",
+      "preuve": "institutions/university-of-washington-libraries/sources/doc-b/SHA256SUMS"
+    },
+    {
+      "url": "https://www.washington.edu/robots.txt",
+      "date": "2026-11-14",
+      "etiquette": "officielle",
+      "preuve": "institutions/university-of-washington-libraries/sources/doc-b/SHA256SUMS"
+    },
+    {
+      "url": "https://www.washington.edu/online/terms/",
+      "date": "2026-11-14",
+      "etiquette": "officielle (UW)",
+      "preuve": "institutions/university-of-washington-libraries/sources/doc-b/SHA256SUMS"
+    },
+    {
+      "url": "https://help.oclc.org/Metadata_Services/CONTENTdm/Advanced_website_customization/API_Reference/IIIF_API_reference",
+      "date": "2026-11-14",
+      "etiquette": "tiers (éditeur de la plateforme)",
+      "preuve": "institutions/university-of-washington-libraries/sources/doc/SHA256SUMS"
+    },
+    {
+      "url": "https://help.oclc.org/Metadata_Services/CONTENTdm/Advanced_website_customization/API_Reference/IIIF_API_reference/Work_with_the_IIIF_Presentation_API",
+      "date": "2026-11-14",
+      "etiquette": "tiers (éditeur de la plateforme)",
+      "preuve": "institutions/university-of-washington-libraries/sources/doc/SHA256SUMS"
+    },
+    {
+      "url": "https://help.oclc.org/Metadata_Services/CONTENTdm/Advanced_website_customization/API_Reference/IIIF_API_reference/Work_with_the_IIIF_Image_API",
+      "date": "2026-11-14",
+      "etiquette": "tiers (éditeur de la plateforme)",
+      "preuve": "institutions/university-of-washington-libraries/sources/doc/SHA256SUMS"
+    },
+    {
+      "url": "https://help.oclc.org/Metadata_Services/CONTENTdm/Advanced_website_customization/API_Reference/CONTENTdm_API",
+      "date": "2026-11-14",
+      "etiquette": "tiers (éditeur de la plateforme)",
+      "preuve": "institutions/university-of-washington-libraries/sources/doc-b/SHA256SUMS"
+    },
+    {
+      "url": "https://ischool.uw.edu/capstone/projects/2021/iiif-and-mirador-uw-libraries",
+      "date": "2026-11-14",
+      "etiquette": "institution (UW iSchool, projet étudiant)",
+      "preuve": "institutions/university-of-washington-libraries/sources/doc/SHA256SUMS"
+    },
+    {
+      "url": "https://cdm16786.contentdm.oclc.org/robots.txt",
+      "date": "2026-11-14",
+      "etiquette": "officielle",
+      "preuve": "institutions/university-of-washington-libraries/sources/doc-c/SHA256SUMS"
+    },
+    {
+      "url": "https://web.archive.org/web/20251009090840/https://digitalcollections.lib.washington.edu/iiif/2/kccollects:343/manifest.json",
+      "date": "2026-11-14",
+      "etiquette": "tiers (Wayback)",
+      "preuve": "institutions/university-of-washington-libraries/sources/wayback/manifest-kccollects-343.md"
+    },
+    {
+      "url": "https://help.oclc.org/Metadata_Services/CONTENTdm/Troubleshooting/CONTENTdm_monthly_pageviews_far_exceed_expected_amount",
+      "date": "2026-11-14",
+      "etiquette": "tiers (éditeur de la plateforme)",
+      "preuve": "institutions/university-of-washington-libraries/sources/doc-d/SHA256SUMS"
+    }
+  ],
+  "web": [
+    {
+      "categorie": "institution",
+      "url": "https://www.washington.edu/online/terms/",
+      "date": "2026-11-14",
+      "etiquette": "officielle (UW)",
+      "citation": "« University of Washington may block, suspend, or terminate your use of the website at any time for any reason. »",
+      "preuve": "institutions/university-of-washington-libraries/sources/doc-b/text/08.txt"
+    },
+    {
+      "categorie": "presentations",
+      "url": "https://ischool.uw.edu/capstone/projects/2021/iiif-and-mirador-uw-libraries",
+      "date": "2021",
+      "etiquette": "institution (UW iSchool, projet de capstone)",
+      "citation": "« All images in the UW Libraries Digital Collections are IIIF-compliant and viewable in Mirador, but this function is underutilized by staff and researchers. »",
+      "preuve": "institutions/university-of-washington-libraries/sources/doc/text/14.txt"
+    },
+    {
+      "categorie": "tickets",
+      "aucun_resultat": true,
+      "requete": "github issue \"digitalcollections.lib.washington.edu\" iiif OR contentdm",
+      "date": "2026-11-14",
+      "etiquette": "tiers (résumé de moteur, non vérifié)",
+      "citation": "Le moteur n'a renvoyé aucun ticket mentionnant l'hôte UW ; seuls des tickets génériques (internetarchive/iiif) sont sortis, sans lien avec UW.",
+      "preuve": "institutions/university-of-washington-libraries/fiche.md"
+    },
+    {
+      "categorie": "utilisateurs",
+      "aucun_resultat": true,
+      "requete": "\"digitalcollections.lib.washington.edu\" IIIF manifest harvesting rate limit 403",
+      "date": "2026-11-14",
+      "etiquette": "tiers (résumé de moteur, non vérifié)",
+      "citation": "Aucune plainte ni discussion sur des 429/403 propres à UW ; le moteur n'a trouvé que des cas d'autres institutions.",
+      "preuve": "institutions/university-of-washington-libraries/fiche.md"
+    },
+    {
+      "categorie": "utilisateurs",
+      "url": "https://help.oclc.org/Metadata_Services/CONTENTdm/Troubleshooting/CONTENTdm_monthly_pageviews_far_exceed_expected_amount",
+      "date": "2026-11-14",
+      "etiquette": "tiers (éditeur de la plateforme CONTENTdm, hôte des API UW)",
+      "citation": "« Performance issues and spikes in usage in CONTENTdm (classic version) are likely due to bots harvesting data from public web pages. »",
+      "preuve": "institutions/university-of-washington-libraries/sources/doc-d/text/01.txt"
+    },
+    {
+      "categorie": "institution",
+      "url": "https://help.oclc.org/Metadata_Services/CONTENTdm/Troubleshooting/CONTENTdm_monthly_pageviews_far_exceed_expected_amount",
+      "date": "2026-11-14",
+      "etiquette": "tiers (éditeur de la plateforme)",
+      "citation": "« OCLC is developing enhanced security features to address the recent increase in unauthorized traffic affecting CONTENTdm (classic version). »",
+      "preuve": "institutions/university-of-washington-libraries/sources/doc-d/text/01.txt"
+    }
+  ],
+  "contact": "https://lib.uw.edu/about/contact-us/ (UW Libraries) ; Digital Collections : lien « Contact Us » de la page d'accueil",
+  "conclusion_quota": "Aucun quota, en-tête de limite ni politique d'API publiés par UW. Les seules règles écrites sont : Crawl-delay 1 s dans le robots.txt de Digital Collections (identique sur l'hôte OCLC cdm16786), Disallow /oai/ et /digital/search/ ; conditions UW générales (blocage possible à tout moment). Observé : un 403 Cloudflare sur la 6e requête vers digitalcollections.lib.washington.edu (ordering.html, 2026-11-14T02:23:16Z) 6e requête vers cet hôte, après 5 pages servies en 200 entre 02:21:52 et 02:22:12 (intervalles de 4 à 6 s) puis une pause d'environ 1 min ; ce n'est pas un quota établi. Hôte OCLC cdm16786 : 13 requêtes en 200/301/302 à 10 s, aucun en-tête de limite. OCLC dit bloquer les moissonneurs sur CONTENTdm sans chiffre.",
+  "classe_quota": "aucun quota trouvé (blocage Cloudflare observé côté UW ; limite non chiffrée côté plateforme OCLC)",
+  "confiance": "moyenne",
+  "notes": "Pages /digital/* du site UW : coquille SPA sans contenu (33 570 octets identiques), conditions d'usage et page « Ordering & Use » non lues (403 puis hôte arrêté). Hôte OCLC cdm16786 découvert dans le manifeste UW lu via Wayback ; il sert les mêmes collections (même robots.txt, 8245 octets). Hôte arrêté 24 h dans le registre partagé : ne pas contourner.",
+  "a_verifier_manuellement": [
+    {
+      "url": "https://digitalcollections.lib.washington.edu/ordering.html",
+      "pourquoi": "403 Cloudflare (hôte arrêté), aucune capture Wayback",
+      "a_chercher": "conditions d'usage et de reproduction, mention de moissonnage, d'API, de débit"
+    },
+    {
+      "url": "https://digitalcollections.lib.washington.edu/search-tips.html",
+      "pourquoi": "non lue : hôte arrêté après le 403, aucune capture Wayback",
+      "a_chercher": "mention d'API, IIIF, OAI, limites"
+    },
+    {
+      "url": "https://digitalcollections.lib.washington.edu/digital/custom/terms",
+      "pourquoi": "page rendue en JavaScript : la coquille téléchargée ne contient aucun texte",
+      "a_chercher": "conditions d'utilisation (Terms of Use) de Digital Collections : API, moissonnage, bots"
+    },
+    {
+      "url": "https://digitalcollections.lib.washington.edu/digital/about",
+      "pourquoi": "page rendue en JavaScript (coquille vide)",
+      "a_chercher": "page « À propos » : IIIF, OAI, API, contact technique"
+    },
+    {
+      "url": "https://jewishstudies.washington.edu/sephardic-studies/reading-ladino-21st-century-mirador",
+      "pourquoi": "WebFetch refusé (domaine UW) ; trouvée dans une recherche web",
+      "a_chercher": "date et portée du déploiement de Mirador sur Digital Collections"
+    }
+  ],
+  "endpoints_documentes": [
+    {
+      "famille": "IIIF Presentation 2.1 : manifeste d'objet",
+      "url": "https://cdm16786.contentdm.oclc.org/iiif/2/kccollects:343/manifest.json",
+      "statut": "teste",
+      "preuve": "institutions/university-of-washington-libraries/tests/raw/robots-deja-lu-presentation-item+redir.headers.txt"
+    },
+    {
+      "famille": "IIIF Presentation : manifeste de collection",
+      "url": "https://cdm16786.contentdm.oclc.org/iiif/2/kccollects/manifest.json",
+      "statut": "teste",
+      "preuve": "institutions/university-of-washington-libraries/tests/raw/presentation-collection+redir.headers.txt"
+    },
+    {
+      "famille": "IIIF Presentation : manifeste global (iiif/info/manifest.json)",
+      "url": "https://cdm16786.contentdm.oclc.org/iiif/2/manifest.json",
+      "statut": "teste",
+      "preuve": "institutions/university-of-washington-libraries/tests/raw/presentation-sitewide-final.headers.txt"
+    },
+    {
+      "famille": "IIIF Image 2 : info.json",
+      "url": "https://cdm16786.contentdm.oclc.org/iiif/2/kccollects:343/info.json",
+      "statut": "teste",
+      "preuve": "institutions/university-of-washington-libraries/tests/raw/image-info.headers.txt"
+    },
+    {
+      "famille": "IIIF Image 2 : dérivé d'image",
+      "url": "https://cdm16786.contentdm.oclc.org/iiif/2/kccollects:343/full/150,/0/default.jpg",
+      "statut": "teste",
+      "preuve": "institutions/university-of-washington-libraries/tests/raw/image-derive-150.headers.txt"
+    },
+    {
+      "famille": "API CONTENTdm dmwebservices",
+      "url": "https://cdm16786.contentdm.oclc.org/bl/dmwebservices/index.php?q=dmGetCollectionList/json",
+      "statut": "teste",
+      "preuve": "institutions/university-of-washington-libraries/tests/raw/dmwebservices.headers.txt"
+    },
+    {
+      "famille": "OAI-PMH (annoncé par seeAlso du manifeste)",
+      "url": "https://cdm16786.contentdm.oclc.org/oai/oai.php?verb=GetRecord&identifier=oai:cdm16786.contentdm.oclc.org:kccollects/343&metadataPrefix=oai_qdc",
+      "statut": "teste",
+      "preuve": "institutions/university-of-washington-libraries/tests/raw/oai-getrecord.headers.txt"
+    },
+    {
+      "famille": "IIIF sur l'hôte UW digitalcollections.lib.washington.edu (/iiif/2/{alias}:{id}/manifest.json, /digital/iiif/2/.../info.json)",
+      "url": "https://digitalcollections.lib.washington.edu/iiif/2/kccollects:343/manifest.json",
+      "statut": "non_teste",
+      "raison": "hôte en 403 Cloudflare (ordering.html, 2026-11-14T02:23:16Z) : arrêt obligatoire, le registre partagé a refusé la sonde (journal : NON LANCÉ). Manifeste lu via Wayback."
+    }
+  ],
+  "endpoints_ecartes": [
+    {
+      "url": "http://digitalcollections.lib.washington.edu/cdm/search/collection/pcarch",
+      "raison": "lien de recherche web de l'ancienne interface CONTENTdm (page d'accueil), couvert par le Disallow /cdm/search/, pas une API de données ; hôte arrêté (403)."
+    },
+    {
+      "url": "https://digitalcollections.lib.washington.edu/search-tips.html",
+      "raison": "page d'aide HTML (pas une API) ; non lue car hôte arrêté après le 403, listée dans a_verifier_manuellement."
+    },
+    {
+      "url": "https://help.oclc.org/@api/deki/pages/44303/pdf/IIIF%2bAPI%2bsupport%2bsummary.pdf?stylesheet=default",
+      "raison": "export PDF interne du wiki d'aide OCLC (Disallow /@* dans son robots.txt) ; simple copie de la page déjà lue."
+    },
+    {
+      "url": "https://lib.uw.edu/search/",
+      "raison": "formulaire de recherche du site WordPress des bibliothèques (page web, pas une API IIIF) ; hors périmètre des API de données."
+    },
+    {
+      "url": "https://lib.uw.edu/wp-json/wp/v2/pages/1377",
+      "raison": "API WordPress du site éditorial lib.uw.edu, citée par un lien de page ; sans rapport avec les collections numériques IIIF, aucun test."
+    },
+    {
+      "url": "https://www.washington.edu/search/",
+      "raison": "formulaire de recherche du site UW (page web, Disallow /search/ de son robots.txt), pas une API de collections."
+    },
+    {
+      "url": "https://cdmdemo.contentdm.oclc.org/iiif/info/oclcsample/64/manifest.json",
+      "raison": "serveur de démonstration d'OCLC cité en exemple par la doc, pas un service de UW ; le motif est testé sur l'hôte cdm16786 de UW."
+    },
+    {
+      "url": "https://cdmdemo.contentdm.oclc.org/iiif/2/oclcsample:64/info.json",
+      "raison": "serveur de démonstration d'OCLC cité en exemple par la doc, pas un service de UW ; le motif est testé sur l'hôte cdm16786 de UW."
+    },
+    {
+      "url": "https://help.oclc.org/Metadata_Services/CONTENTdm/Advanced_website_customization/API_Reference/CONTENTdm_API/CISOPTR_and_OAI",
+      "raison": "page de doc OCLC inexistante (404 constaté, sources/doc-b/FETCH.log), aucune API à tester."
+    }
+  ],
+  "hotes_robots": [
+    {
+      "hote": "digitalcollections.lib.washington.edu",
+      "resultat": "Crawl-Delay: 1 ; Disallow /digital/search/, /oai/, /ui/, /config/ ; pas de règle contre les robots d'IA nommés",
+      "preuve": "institutions/university-of-washington-libraries/sources/doc/SHA256SUMS"
+    },
+    {
+      "hote": "cdm16786.contentdm.oclc.org",
+      "resultat": "identique à UW (Crawl-Delay: 1 ; Disallow /oai/ : OAI testé, autorisé par Marcel C12)",
+      "preuve": "institutions/university-of-washington-libraries/sources/doc-c/SHA256SUMS"
+    },
+    {
+      "hote": "help.oclc.org",
+      "resultat": "Crawl-delay: 5 ; Request-rate: 1/5",
+      "preuve": "institutions/university-of-washington-libraries/sources/doc/SHA256SUMS"
+    },
+    {
+      "hote": "www.lib.washington.edu",
+      "resultat": "Crawl-delay: 10 ; Disallow vide",
+      "preuve": "institutions/university-of-washington-libraries/sources/doc/SHA256SUMS"
+    },
+    {
+      "hote": "lib.uw.edu",
+      "resultat": "Disallow vide : tout autorisé",
+      "preuve": "institutions/university-of-washington-libraries/sources/doc-b/SHA256SUMS"
+    },
+    {
+      "hote": "www.washington.edu",
+      "resultat": "Disallow /?s=*, /search/, ... (pages de recherche du site)",
+      "preuve": "institutions/university-of-washington-libraries/sources/doc-b/SHA256SUMS"
+    },
+    {
+      "hote": "www.oclc.org",
+      "resultat": "non lu : hôte annoncé par la redirection du dmwebservices (page 404), non suivi car autre hôte, aucune requête envoyée",
+      "preuve": "institutions/university-of-washington-libraries/tests/raw/dmwebservices.headers.txt"
+    }
+  ],
+  "g_prepare": "config/crash-image-info.json"
 }

@@ -2,51 +2,51 @@
 
 - **Dossier** : `institutions/university-of-washington-libraries/`  ·  **Classeur de référence** : GLAM-054  ·  **Pays** : États-Unis
 - **Statut d'institution** : active
-- **Dernière mise à jour du suivi** : (à renseigner à chaque modification)
+- **Dernière mise à jour du suivi** : 2026-11-14
 
 ## Suivi par étape (à cocher, avec justification et preuves)
 
 ### a) Documentation lue en entier
 > Toutes les pages de doc liées à l'API (développeurs, interfaces, conditions, FAQ, aide, mentions légales, robots.txt), téléchargées avec `scripts/fetch_doc.sh` (URL, date, SHA-256), lues en entier (`scripts/extract_text.py`).
 
-- [ ] **Pas fait**
-  - **Justification** : Pas encore traitée : l'audit suit l'ordre du classeur de référence (une institution à la fois).
-  - **Preuves** : 
+- [x] **Fait**
+  - **Justification** : Doc lue : site Digital Collections (accueil lue, pages /digital/* = coquille JS signalées), conditions UW, doc OCLC IIIF/CONTENTdm, robots.txt des 6 hôtes contactés ; 403 Cloudflare sur ordering.html : hôte arrêté, Wayback sans capture, URL listées à vérifier à la main.
+  - **Preuves** : `institutions/university-of-washington-libraries/sources/doc/SHA256SUMS`, `institutions/university-of-washington-libraries/sources/doc-b/SHA256SUMS`, `institutions/university-of-washington-libraries/sources/doc-c/SHA256SUMS`, `institutions/university-of-washington-libraries/sources/doc-d/SHA256SUMS`, `institutions/university-of-washington-libraries/sources/wayback/manifest-kccollects-343.md`
 
 ### b) Endpoints tirés de la doc
 > Liste des endpoints citée par la doc (URL, exemples). Jamais devinée. Une interdiction ou une impossibilité écrite dans la doc justifie de renoncer (citer la phrase).
 
-- [ ] **Pas fait**
-  - **Justification** : Pas encore traitée : l'audit suit l'ordre du classeur de référence (une institution à la fois).
-  - **Preuves** : 
+- [x] **Fait**
+  - **Justification** : Endpoints tirés de la doc OCLC (Presentation 2.1.1, Image 2, dmwebservices) et du manifeste UW (OAI seeAlso) ; 8 familles dans data.json endpoints_documentes, 9 URL écartées avec raison.
+  - **Preuves** : `institutions/university-of-washington-libraries/data.json`
 
 ### c) Configuration écrite AVANT les tests
 > `config/<nom>.json` pilote `scripts/probe.py`, committée avant le lancement. Un endpoint absent de la doc mais non interdit se teste avec un script poli (identifiants issus de pages publiques ou d'exemples de la doc, pas de devinette).
 
-- [ ] **Pas fait**
-  - **Justification** : Pas encore traitée : l'audit suit l'ordre du classeur de référence (une institution à la fois).
-  - **Preuves** : 
+- [x] **Fait**
+  - **Justification** : Trois configurations (passes 1 à 3) écrites puis committées avant chaque lancement (commits de la branche lot/A), robots_disallow_autorise_par_marcel, pause 10 s, budget respecté ; config de crash préparée.
+  - **Preuves** : `institutions/university-of-washington-libraries/config/uw-passe1-iiif.json`, `institutions/university-of-washington-libraries/config/uw-passe2-cdm16786.json`, `institutions/university-of-washington-libraries/config/uw-passe3-sitewide.json`
 
 ### d) Quota cherché dans la doc
 > Pour chaque page lue : endpoint de statut, en-têtes de limite documentés, clé ou compte donnant un quota, contact pour un volume plus élevé. Chaque réponse cite sa source.
 
-- [ ] **Pas fait**
-  - **Justification** : Pas encore traitée : l'audit suit l'ordre du classeur de référence (une institution à la fois).
-  - **Preuves** : 
+- [x] **Fait**
+  - **Justification** : Recherche de quota dans chaque source : aucun endpoint de statut, aucun en-tête de limite documenté, aucune clé ou compte, contact lib.uw.edu/about/contact-us ; seuls Crawl-Delay 1 (robots) et clause de blocage des conditions UW, voir fiche et limites_documentees.
+  - **Preuves** : `institutions/university-of-washington-libraries/fiche.md`, `institutions/university-of-washington-libraries/data.json`
 
 ### e) Test systématique de chaque endpoint
 > Chaque endpoint documenté est testé (budget 15 requêtes par passe, pause ≥ 6 s, GET/HEAD, UA du projet). Redirections du même hôte suivies. Un 403 arrête son hôte, un 429 arrête l'institution. Seules les interdictions écrites dans la doc dispensent de tester.
 
-- [ ] **Pas fait**
-  - **Justification** : Pas encore traitée : l'audit suit l'ordre du classeur de référence (une institution à la fois).
-  - **Preuves** : 
+- [x] **Fait**
+  - **Justification** : Hôte UW : 4 endpoints NON LANCÉS (403 Cloudflare, arrêt obligatoire). Hôte OCLC cdm16786 annoncé par le manifeste : 13 requêtes (manifeste, collection, global, info.json, dérivé, OAI, dmwebservices) sans en-tête de limite ni 429.
+  - **Preuves** : `institutions/university-of-washington-libraries/tests/journal.log`, `institutions/university-of-washington-libraries/tests/raw/image-info.headers.txt`
 
 ### f) Ce que disent les gens sur le web
 > Plaintes, discussions, présentations de l'institution, politique envers les API et les bots, blogs, GitHub, forums, listes de diffusion. Sources étiquetées (officielle / institution / utilisateur / tiers), lues, citées.
 
-- [ ] **Pas fait**
-  - **Justification** : Pas encore traitée : l'audit suit l'ordre du classeur de référence (une institution à la fois).
-  - **Preuves** : 
+- [x] **Fait**
+  - **Justification** : 4 catégories couvertes : institution et presentations (UW lues), utilisateurs et tickets sans résultat UW (requêtes consignées, résumé de moteur non vérifié), contexte OCLC lu en original ; WebFetch d'un domaine UW refusé par les permissions, noté.
+  - **Preuves** : `institutions/university-of-washington-libraries/data.json`, `institutions/university-of-washington-libraries/fiche.md`, `institutions/university-of-washington-libraries/sources/doc-d/text/01.txt`
 
 ### g) Crash test progressif
 > Seulement après l'audit complet (a à f) de toutes les institutions et avec l'accord de Marcel : paliers jusqu'à 2 × la limite documentée, ou 200 req/min si illimité ou sans limite documentée. Arrêt au premier 429/403/CAPTCHA.
@@ -60,7 +60,7 @@
 
 <!-- AUTO:DEBUT -->
 ## Contrôles automatiques (calculés depuis `tests/journal.log`)
-- Requêtes enregistrées : **11** (sessions de sonde : 3, maximum par session : 11)
+- Requêtes enregistrées : **13** (sessions de sonde : 4, maximum par session : 11)
 - Plus courte pause vers un même hôte : **10 s** (règle : ≥ 6 s)
 - Méthodes utilisées : GET (règle : GET/HEAD seulement)
 - Anomalies : aucune
