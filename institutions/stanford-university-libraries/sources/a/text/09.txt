@@ -1,0 +1,236 @@
+GitHub - sul-dlss/stacks: Delivering digital resources to patrons. · GitHub 
+ Skip to content 
+ Navigation Menu
+ Sign in 
+ Products Platform GitHub Repository hosting, code review, and collaboration 
+ Copilot AI coding agent for tasks, projects, and automated work 
+ Build & Ship Actions CI/CD and automation 
+ Code Quality Quality analysis, fixes, and enforcement 
+ Codespaces Cloud development environments 
+ Secure Code Security Vulnerability detection and remediation 
+ Secret Protection Secret scanning and leak prevention 
+ All Features 
+ Developers Learn Documentation 
+ Training 
+ Certifications 
+ Build Build with Copilot 
+ Customize Copilot 
+ Integrations 
+ Explore Trending repos 
+ GitHub Sponsors 
+ Developer articles 
+ Changelog Changelog Your source for the latest features, improvements, and fixes across GitHub products, all in one place. 
+ Businesses By Stage Enterprises 
+ Team 
+ Startups 
+ Nonprofits 
+ By Industry Healthcare 
+ Financial services 
+ Manufacturing 
+ Government 
+ See all industries 
+ Evaluate GitHub Why GitHub 
+ Customer Stories 
+ Business insights 
+ Trust Center 
+ Add-ons GitHub Advanced Security Enterprise-grade code security 
+ Copilot for business Enterprise-grade AI features 
+ Premium Support Enterprise-grade 24/7 support 
+ Resources Learn & Connect Documentation 
+ Resource center 
+ Blog 
+ Events & webinars 
+ Community Forum 
+ Customer Stories 
+ Integrations 
+ Support Customer support 
+ Training 
+ GitHub Status 
+ Company About 
+ Partners 
+ Changelog 
+ GitHub Universe GitHub Universe The event for developers, by developers — talks, workshops, and what’s next for GitHub. 
+ Pricing 
+ Search / 
+ Sign in 
+ Sign up Appearance settings
+ You signed in with another tab or window. Reload to refresh your session. 
+ You signed out in another tab or window. Reload to refresh your session. 
+ You switched accounts on another tab or window. Reload to refresh your session. 
+ Dismiss alert 
+ {{ message }}
+ sul-dlss 
+ stacks 
+ Repository navigation
+ Code 
+ Issues 15  ( 15 ) 
+ Pull requests 15  ( 15 ) 
+ Actions 
+ Projects 
+ Wiki 
+ Security and quality 
+ Insights 
+ More items 
+ stacks 
+ Public 
+ Notifications You must be signed in to change notification settings 
+ Fork 2  ( 2 ) 
+ Star 5  ( 5 ) You must be signed in to star a repository 
+ About 
+ Delivering digital resources to patrons.
+ stacks.stanford.edu 
+ Topics 
+ access application 
+ Resources 
+ Readme 
+ Activity 
+ Custom properties 
+ Stars 
+ 5 stars 
+ Watchers 
+ 20 watching 
+ Forks 
+ 2 forks 
+ Report repository 
+ main 
+ Branches Tags 
+ Go to file 
+ Code Open more actions menu 
+ Latest commit
+ History
+ 2,231 Commits 
+ 2,231 Commits 
+ Folders and files
+ Name Name Last commit message 
+ Last commit date 
+ .github 
+ .github 
+ app 
+ app 
+ bin 
+ bin 
+ config 
+ config 
+ lib 
+ lib 
+ log 
+ log 
+ public 
+ public 
+ spec 
+ spec 
+ vendor/ assets 
+ vendor/ assets 
+ .gitignore 
+ .gitignore 
+ .rspec 
+ .rspec 
+ .rubocop.yml 
+ .rubocop.yml 
+ .rubocop_todo.yml 
+ .rubocop_todo.yml 
+ Capfile 
+ Capfile 
+ Dockerfile 
+ Dockerfile 
+ Gemfile 
+ Gemfile 
+ Gemfile.lock 
+ Gemfile.lock 
+ Jenkinsfile 
+ Jenkinsfile 
+ Procfile.dev 
+ Procfile.dev 
+ README.md 
+ README.md 
+ Rakefile 
+ Rakefile 
+ compose.yaml 
+ compose.yaml 
+ config.ru 
+ config.ru 
+ View all files 
+ Repository files navigation
+ README 
+ More items 
+ Digital Stacks
+ The Digital Stacks are the Stanford University Libraries' online systems that house and deliver digital resources to patrons. They work together with discovery systems (such as the catalog, library search engine, finding aids, etc.) to make up the Libraries' digital access services. Digital "stacks" is a convenient metaphor echoing the physical housing of books and other library material. For digital resources it manifests itself to users through the stacks.stanford.edu host name used for access URLs, identifying the virtual location where digital resources can be accessed.
+ Capabilities
+ Stacks is responsible for providing 6 endpoints
+ The stacks welcome page https://stacks.stanford.edu/ 
+ A IIIF endpoint https://stacks.stanford.edu/image/iiif/:id 
+ A legacy image service https://stacks.stanford.edu/image/:id/:file_name 
+(this issues redirects to the IIIF endpoint)
+ A streaming media authentication endpoint that issues and verifies tokens
+from the media server
+ File downloads https://stacks.stanford.edu/file/:id/:file_name 
+ Web authentication
+ IIIF Endpoint
+ Stacks acts as a proxy to an image server. The proxy is responsible for ensuring the client has the proper permissions to send the request to the image server. This work is done by querying the rights metadata from PURL. Additionally it mutates the info.json response to provide appropriate tile sizes for the users current access level.
+ Stacks started out as a proxy for the Djatoka server, but in Fall 2017, we added the capability for Stacks to proxy to any IIIF compatible image server. We switched to Canteloupe at that time. Had RIIIF been our preferred choice at that time, we could have instead pointed Stacks at a server running https://github.com/sul-dlss/image-server/ .
+ Legacy Djatoka support was removed from this codebase in July 2018.
+ Requirements
+ Ruby (2.2.2+ or greater)
+ Installation
+ Clone the repository
+ $ git clone git@github.com:sul-dlss/stacks.git
+ Change directories into the app and install dependencies
+ $ bundle install
+ Start the development server
+ $ rails s
+ Developing
+ For local development, the app will skip checks for the presence of image files and proxy the request to production image servers. You'll need to be on the Stanford VPN for this to work.
+ A IIIF image request (#2 under "Capabilities" above) to production might look like: https://stacks.stanford.edu/image/iiif/qj283wt8591%2FRT0073990001/info.json 
+ In local development, this will become: http://localhost:3000/image/iiif/qj283wt8591%2FRT0073990001/info.json .
+ Configuring
+ Configuration is handled through the RailsConfig settings.yml files.
+ Service tokens
+ Services that need to download Stanford-only files can authenticate with a JWT sent as
+ Authorization: Bearer <token> . A service token grants the same access as a Stanford user.
+A token with the download_all claim (e.g., for Argo, which copies shelved files into preservation)
+can also download every file, regardless of its rights.
+Set service_token.hmac_secret , then generate a token by running
+ RAILS_ENV=production bin/rails generate_token on the prod server.
+ Testing
+ You will want to start up the Docker container which uses RustFS to replace Amazon S3 storage:
+ $ docker compose up -d
+ The test suite (with RuboCop style inforcement) will be run with the default rake task (also run in CI)
+ $ rake
+ The specs can be run without RuboCop enforcement
+ $ rake spec
+ The RuboCop style enforcement can be run without running the tests
+ $ rake rubocop
+ About 
+ Delivering digital resources to patrons.
+ stacks.stanford.edu 
+ Topics 
+ access application 
+ Resources 
+ Readme 
+ Activity 
+ Custom properties 
+ Stars 
+ 5 stars 
+ Watchers 
+ 20 watching 
+ Forks 
+ 2 forks 
+ Report repository 
+ Releases 
+ Packages 
+ Used by 
+ Contributors 
+ Languages 
+ Footer
+ © 2026 GitHub, Inc.
+ Footer navigation
+ Terms 
+ Privacy 
+ Security 
+ Status 
+ Community 
+ Docs 
+ Contact 
+ Manage cookies
+ Do not share my personal information
+ You can’t perform that action at this time.

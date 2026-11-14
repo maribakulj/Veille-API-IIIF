@@ -1,0 +1,105 @@
+Digital Stacks 
+ Skip to main content 
+ Stanford University 
+ Stanford University Libraries 
+ Feedback 
+ Reporting from: https://api.library.stanford.edu
+ Message 
+ Your name 
+ Your email 
+ This site is protected by reCAPTCHA and the Google
+ Privacy Policy 
+ and
+ Terms of Service 
+ apply.
+ Recaptcha stuff
+ Cancel
+ API Documentation 
+ About 
+ Avaliable APIs
+ Digital Stacks 
+ Embed 
+ IIIF 
+ Library Hours 
+ PURL 
+ Feedback 
+ Digital Stacks
+ Digital Stacks, or “Stacks”, provides delivery services to access content in the Stanford Digital Library. This takes the form of streaming downloads of files, image web services, or streaming media.
+ API
+ Downloading a file
+ The base url used for this service is https://stacks.stanford.edu .
+ Summary
+ Will return binary download of content that from the Stanford Digital Library. Has access controls enabled so only authorized requests are allowed.
+ Cross-Origin Resource Sharing (CORS) is enabled for this API. 
+This API advertises HTTP Accept headers enabling partial and resumable downloads.
+ GET /file/{id}/{file_name}
+ Parameters
+ Name 
+ Located In 
+ Description 
+ Required 
+ Type 
+ Default 
+ Example 
+ id 
+ url 
+ The ID of a digital object 
+ Yes 
+ string 
+ null 
+ ab123cd4567 
+ file_name 
+ url 
+ File name with extension 
+ Yes 
+ string 
+ null 
+ test.pdf 
+ Example Requests
+ https://stacks.stanford.edu/file/qq826dq9111/neighborhood-stats_2661_20130512.csv
+ Example of using this
+ This example by Elijah Meeks demonstrates how a web application can use Digital Stacks to power a visualization.
+ http://bl.ocks.org/emeeks/757e699fed2658bcb42b
+ Downloading all files for a given object
+ The base url used for this service is https://stacks.stanford.edu .
+ Summary
+ Will return a binary download of all accessible content associated with a given object from the Stanford Digital Repository in a zip archive.
+ GET /object/{id}
+ Parameters
+ Name 
+ Located In 
+ Description 
+ Required 
+ Type 
+ Default 
+ Example 
+ id 
+ url 
+ The ID of a digital object 
+ Yes 
+ string 
+ null 
+ ab123cd4567 
+ Example Requests
+ https://stacks.stanford.edu/object/qq826dq9111
+# Will return a download of qq826dq9111.zip containing two files.
+ IIIF Services
+ Digital Stacks also serves some IIIF web services for Stanford Libraries. For more information about this implementation, see: IIIF 
+ Stanford University Libraries 
+ Hours & locations 
+ My Account 
+ Contact us 
+ System status 
+ Stanford
+ University 
+ Stanford Home (link is external) 
+ Maps & Directions (link is external) 
+ Search Stanford (link is external) 
+ Emergency Info (link is external) 
+ Terms of Use (link is external) 
+ Privacy (link is external) 
+ Copyright (link is external) 
+ Trademarks (link is external) 
+ Non-Discrimination (link is external) 
+ Accessibility (link is external) 
+ © Stanford University.   Stanford, California 94305.
