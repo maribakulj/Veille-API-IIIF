@@ -1,0 +1,23 @@
+2026-11-14T01:57:17Z GET https://tile.loc.gov/streaming-services/iiif/service:mbrs:ntscrm:01991429:01991429/full/,256/0/82,0/default.jpg
+HTTP 200
+date: Sat, 14 Nov 2026 01:57:17 GMT
+content-type: image/jpeg
+content-length: 13745
+connection: keep-alive
+access-control-allow-origin: *
+referrer-policy: no-referrer-when-downgrade
+strict-transport-security: max-age=3600; preload
+x-content-type-options: nosniff
+expires: Tue, 09 Nov 2027 21:24:59 GMT
+content-disposition: inline; filename=iiif-service_mbrs_ntscrm_01991429_01991429-full-x256-0-82x0-default.jpg
+content-security-policy: default-src 'self' loc.gov *.loc.gov; connect-src 'self' loc.gov *.loc.gov dpm.demdex.net; img-src 'self' loc.gov *.loc.gov data:; script-src 'self' loc.gov *.loc.gov assets.adobedtm.com 'unsafe-inline'; style-src 'self' loc.gov *.loc.gov 'unsafe-inline'; frame-ancestors 'self' loc.gov *.loc.gov; object-src 'none'; base-uri 'self'; upgrade-insecure-requests;
+last-modified: Fri, 13 Nov 2026 21:07:03 GMT
+x-grace: none
+x-nearside-cache: MISS
+x-nearside-cache-hits: 0
+cache-control: no-transform, max-age=31536000
+accept-ranges: bytes
+age: 361937
+cf-cache-status: HIT
+server: cloudflare
+cf-ray: a5a26791dcb50e22-MXP
