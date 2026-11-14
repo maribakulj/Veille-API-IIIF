@@ -128,6 +128,10 @@ def main(cfg_path):
     hote = urlsplit(ep["url"]).netloc
     outdir = REPO / "institutions" / slug / "tests" / "crash"
     outdir.mkdir(parents=True, exist_ok=True)
+    if _hl.bloque(hote):
+        sys.exit(f"ABANDON : hôte {hote} arrêté dans le registre partagé ({_hl.bloque(hote)}) : jamais de crash test sur un hôte bloqué")
+    if "marcxml" in ep["url"].lower() or "/marc" in ep["url"].lower():
+        sys.exit("ABANDON : crash test sur MARCXML interdit sans accord explicite à part (blocage de 72 h de la LoC)")
     # 1) hôte déjà testé par une autre institution : on reprend son résultat, on n'envoie rien
     for v in sorted((REPO / "institutions").glob("*/tests/crash/*.json")):
         try:
@@ -229,6 +233,8 @@ def main(cfg_path):
         verdict["paliers"].append(ligne)
         log.write(f"{now()} | palier {rpm} req/min | {json.dumps(ligne, ensure_ascii=False)}\n")
         log.flush()
+    if verdict["arret"]:
+        _hl.bloquer(hote, f"crash {slug} : {verdict['arret']['cause']} au palier {verdict['arret']['palier_req_min']} req/min")
     verdict["conclusion"] = (f"blocage au palier {verdict['arret']['palier_req_min']} req/min ({verdict['arret']['cause']})"
                              if verdict["arret"] else f"aucun blocage jusqu'à {plafond} req/min")
     if protege:
