@@ -1,0 +1,62 @@
+{
+  "slug": "ku-leuven-libraries",
+  "hote": "kuleuven.limo.libis.be",
+  "reseaux": [],
+  "plafond_req_min": 12,
+  "endpoint": "limo-collection",
+  "limite_documentee_req_min": 6,
+  "paliers": [
+    {
+      "palier_req_min": 2.0,
+      "requetes": 6,
+      "debit_reel_req_min": 2.4,
+      "codes": {
+        "200": 6
+      },
+      "latence_p50_s": 0.162,
+      "latence_max_s": 0.358
+    },
+    {
+      "palier_req_min": 4.0,
+      "requetes": 12,
+      "debit_reel_req_min": 4.4,
+      "codes": {
+        "200": 12
+      },
+      "latence_p50_s": 0.156,
+      "latence_max_s": 0.254
+    },
+    {
+      "palier_req_min": 6,
+      "requetes": 18,
+      "debit_reel_req_min": 6.3,
+      "codes": {
+        "200": 18
+      },
+      "latence_p50_s": 0.158,
+      "latence_max_s": 0.508
+    },
+    {
+      "palier_req_min": 9.0,
+      "requetes": 27,
+      "debit_reel_req_min": 9.3,
+      "codes": {
+        "200": 27
+      },
+      "latence_p50_s": 0.156,
+      "latence_max_s": 0.685
+    },
+    {
+      "palier_req_min": 12,
+      "requetes": 36,
+      "debit_reel_req_min": 12.3,
+      "codes": {
+        "200": 36
+      },
+      "latence_p50_s": 0.158,
+      "latence_max_s": 0.211
+    }
+  ],
+  "arret": null,
+  "conclusion": "aucun blocage jusqu'à 12 req/min"
+}

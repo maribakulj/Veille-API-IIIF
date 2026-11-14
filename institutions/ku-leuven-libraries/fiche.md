@@ -18,3 +18,8 @@
 
 ## Conclusion
 Aucun quota publié ; limite non observée ; les hôtes IIIF/Teneo de LIBIS n'ont jamais répondu depuis ce poste, donc rien n'a pu être mesuré. Confiance faible. À vérifier à la main : voir `a_verifier_manuellement`. Étape g : configuration crash préparée sur la page de collection de Limo (seul endpoint vu en 200).
+
+## Crash test (étape g)
+
+Crash test fait le 2026-11-14 : limo-collection sur kuleuven.limo.libis.be : aucun blocage jusqu'à 12 req/min (plafond 12 req/min).
+Journal : `tests/crash/ku-leuven-libraries.log`. Un test « sans blocage » n'est pas une preuve d'illimitation au-delà du plafond.

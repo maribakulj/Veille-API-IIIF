@@ -2,3 +2,9 @@
 # réseau détecté : aucun réseau à réputation partagée connu ; plafond standard 200 req/min (décision de Marcel 14/11/2026) ; requête de détection : 200 en 2.20 s
 # limite documentée : 6 req/min (Crawl-delay: 10 dans https://kuleuven.limo.libis.be/robots.txt (soit 6 req/min) ; aucune autre limite documentée) ; paliers [2.0, 4.0, 6, 9.0, 12] ; plafond 12 req/min ; 180 s par palier
 2026-11-14T09:27:39Z | palier 2.0 req/min | {"palier_req_min": 2.0, "requetes": 6, "debit_reel_req_min": 2.4, "codes": {"200": 6}, "latence_p50_s": 0.162, "latence_max_s": 0.358}
+2026-11-14T09:30:24Z | palier 4.0 req/min | {"palier_req_min": 4.0, "requetes": 12, "debit_reel_req_min": 4.4, "codes": {"200": 12}, "latence_p50_s": 0.156, "latence_max_s": 0.254}
+2026-11-14T09:33:14Z | palier 6 req/min | {"palier_req_min": 6, "requetes": 18, "debit_reel_req_min": 6.3, "codes": {"200": 18}, "latence_p50_s": 0.158, "latence_max_s": 0.508}
+2026-11-14T09:36:08Z | palier 9.0 req/min | {"palier_req_min": 9.0, "requetes": 27, "debit_reel_req_min": 9.3, "codes": {"200": 27}, "latence_p50_s": 0.156, "latence_max_s": 0.685}
+2026-11-14T09:39:03Z | palier 12 req/min | {"palier_req_min": 12, "requetes": 36, "debit_reel_req_min": 12.3, "codes": {"200": 36}, "latence_p50_s": 0.158, "latence_max_s": 0.211}
+# Fin 2026-11-14T09:39:03Z — aucun blocage jusqu'à 12 req/min
+
