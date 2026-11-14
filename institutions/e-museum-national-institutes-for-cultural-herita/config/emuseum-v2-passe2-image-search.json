@@ -1,0 +1,13 @@
+{
+  "slug": "e-museum-national-institutes-for-cultural-herita",
+  "min_delay_s": 6,
+  "max_requests": 15,
+  "follow_redirects": 1,
+  "robots_disallow_autorise_par_marcel": true,
+  "note": "Passe 2 : service d'image IIIF 2.1 (identifiant lu dans le manifeste de la passe 1 : 100005001002.tif ; info.json puis dérivé 200 px) et recherche OpenSearch RSS (modèle de la description lue en passe 1, terme tiré du titre du manifeste, itemCount=1).",
+  "endpoints": [
+    {"id": "v2p2-image-info", "method": "GET", "url": "https://emuseum.nich.go.jp/iiif/?IIIF=/100005001002.tif/info.json"},
+    {"id": "v2p2-image-derive-200", "method": "GET", "url": "https://emuseum.nich.go.jp/iiif/?IIIF=/100005001002.tif/full/!200,200/0/default.jpg"},
+    {"id": "v2p2-opensearch-rss", "method": "GET", "url": "https://emuseum.nich.go.jp/result2/?pos=1&s_lang=ja&word=%E8%93%AE&itemCount=1&d_lang=ja&mode=simple&opensearch=1"}
+  ]
+}

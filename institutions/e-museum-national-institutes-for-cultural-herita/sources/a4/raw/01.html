@@ -1,0 +1,689 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta http-equiv="X-UA-Compatible" content="IE=edge default-src * 'unsafe-eval' 'unsafe-inline' gap://ready file:; style-src 'self' 'unsafe-inline'; media-src *; img-src * 'self' filesystem: data: blob:;"/>
+<title>e-Museum - &lt;i&gt;Zhou Maoshu Admiring Lotuses&lt;/i&gt;</title>
+<meta name="keywords" content="e国宝,重要文化財,国宝">
+<meta name="description" content="文化財高精細画像公開システム(「e国宝」)">
+<script src="/assets/js/lib/jquery-min.js?v=16"></script>
+<script src="/assets/js/lib/jquery-wheel.js?v=16"></script>
+<script src="/assets/js/lib/jquery-ui-1.12.1.custom.min.js?v=16"></script>
+<script>var screenModeJs = 0;</script>
+<script>var jsesId = '';</script>
+<meta name="author" content="">
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){ dataLayer.push(arguments); }
+var _ga_granted = 'denied';
+var _ga_cookies = document.cookie.split(';');
+for (var c of _ga_cookies){
+	var carr = c.trim().split('=');
+	if (carr[0] == 'consent_cookie' && carr[1] == '1') {
+		_ga_granted = 'granted';
+	}
+}
+gtag('consent', 'default', { 'ad_storage': 'denied','analytics_storage': _ga_granted });
+</script>
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-WV7D6G5');</script>
+<!-- End Google Tag Manager -->
+
+
+	
+	
+		
+			
+			
+				<link  rel="stylesheet" href="/en/assets/css/style.css?v=16">
+				<link rel="stylesheet" href="/en/assets/css/deepview.css?v=16">
+				
+					
+					
+						<script src="/mirador/assets/js/deepview-standard.js?v=16"></script>
+						<script src="/mirador/assets/js/detail-main.js?v=16"></script>
+						<script src="/mirador/assets/js/detailview.js?v=16"></script>
+					
+				
+				<script src="/en/assets/js/jquery.matchHeight-min.js?v=16"></script>
+				<script src="/en/assets/js/jquery.cookie.js?v=16"></script>
+				<script src="/en/assets/js/common.js?v=16"></script>
+			
+
+		
+	
+
+
+
+<link rel="search" type="application/opensearchdescription+xml" title="eKokuho" href="https://emuseum.nich.go.jp/description/eKokuho_ja.xml">
+<!--通常イメージ用deepviewer-->
+
+<!-- <script src="/assets/js/jquery.matchHeight-min.js"></script>-->
+<!--<script src="/assets/js/common.js"></script>-->
+<script src="/assets/js/contentHeader.js?v=16"></script>
+
+<!-- <script src="/assets/js/detail-contentType.js"></script>-->
+<script>
+$(window).on('load resize', function(){
+	$('.detail .block').matchHeight();
+});
+</script>
+
+<!--<script src="https://unpkg.com/mirador@latest/dist/mirador.min.js"></script>-->
+<script  src="/mirador/assets/js/mirador.min.js?v=16"></script>
+<script>
+/*<![CDATA[*/
+
+	/*スマホ用画像から全画面表示する*/
+	var sp_check = false;
+	$(function(){
+		$("#icnMaxview").click(function () {
+			sp_check = true;
+			location.href= location.href + "&isfull=1";
+		});
+
+		document.addEventListener('fullscreenchange', () => {
+			if (document.fullscreenElement == null && $('#imgMainSp').css('display') == 'none' && sp_check == true) {
+				$('#imageArea').hide();
+				$('#imgMainSp').show();
+			}
+		});
+
+		function ankerSP()
+		{
+			// スマホ判定（画面幅）
+			if (window.matchMedia('(max-width: 768px)').matches) {
+				$('#_anker').show();
+			} else {
+				$('#_anker').hide();
+			}
+		}
+		$(window).on("resize", function() {
+			ankerSP();
+		});
+		ankerSP();
+	});
+
+	var titleOption = {
+		urlBtn:	'Link',
+		zoominBtn:	'Zoom In',
+		sliderRight:	'Zoom In',
+		zoomoutBtn:	'Zoom Out',
+		sliderLeft:	'Zoom Out',
+		sliderBtn:	'Zoom',
+		naviViewBtn:	'Navigation',
+		maxViewBtn:	'Fullscreen',
+		fitBtn:	'Fit',
+		commentBtn:	'Description',
+		endBtnBook:	'Last Page',
+		endBtnRoll:	'Ending',
+		topBtnBook:	'First Page',
+		topBtnRoll:	'Beginning',
+		nextBtn:	'Next',
+		prevBtn:	'Previous',
+		leftBtn:	'Scroll Left',
+		rightBtn:	'Scroll Right',
+		speedBtn:	'Speed'
+
+	};
+
+	var view_type = 'standard';
+
+	//作品によって動的に変更するオプション
+	var urlOption = {
+		base_id:	"100005",
+		part_id:	"000",
+		pict_id:	"000",
+		x:		0,
+		y:		0,
+		s:		0,
+		n:		'',	// 今何件目のデータか
+		p:		'',
+		word:		'',
+		d_lang:		"en",
+		s_lang:		'',
+		class_id:	'',
+		title:		'',
+		c_e:		'',
+		region:		'',
+		era:		'',
+		cptype:		'',
+		owner:		'',
+		pos:		'',
+		num:        '',
+		mode:       '',
+		century:    '',
+		contentsType: "standard",
+		webView: "0"
+	};
+
+	//cookie登録用ID
+	var contentsID= "100005000000";
+
+/*]]>*/
+</script>
+	<script src="/mirador/assets/js/detail.js"></script>
+<script>
+
+
+	function changeLang(selType,selLang){
+
+		base_id = urlOption.base_id;
+		part_id = urlOption.part_id;
+		pict_id = urlOption.pict_id;
+		x = urlOption.x;
+		y = urlOption.y;
+		s = urlOption.s;
+		word = urlOption.word;
+		d_lang = "";
+		if(selType = "link"){
+			d_lang = selLang;
+		} else {
+			d_lang = document.form2.selectLang.value;
+		}
+		s_lang = urlOption.s_lang;
+		class_id = urlOption.class_id;
+		title = urlOption.title;
+		c_e = urlOption.c_e;
+		region = urlOption.region;
+		era = urlOption.era;
+		cptype = urlOption.cptype;
+		owner = urlOption.owner;
+		pos = urlOption.pos;
+		num = urlOption.num;
+		mode = urlOption.mode;
+		century = urlOption.century;
+
+		url = "/detail";
+		if(base_id != ""){
+//			url += "/" + base_id;
+			url += "?content_base_id=" + base_id
+		}
+		if(part_id != "" && part_id != "000"){
+//			url += "/" + part_id;
+			url += "&content_part_id" + part_id
+		}
+		if(pict_id != "" && pict_id != "000"){
+//			url += "/" + pict_id;
+			url += "&content_pict_id" + pict_id
+		}
+
+		contentsType = urlOption.contentsType;
+
+		url +=  "&x=" + x + "&y=" + y + "&s=" + s + "&d_lang=" + d_lang + "&s_lang=" + s_lang +
+				"&word=" + word + "&class=" + class_id + "&title=" + title + "&c_e=" + c_e +
+				"&region=" + region + "&era=" + era + "&cptype=" + cptype + "&owner=" + owner +
+				"&pos=" + pos + "&num=" + num + "&mode=" + mode + "&century=" + century;
+		location.href= url;
+		//document.form2.action = url;
+		//document.form2.submit();
+	}
+
+	function totalSearch(){
+		document.form1.submit();
+	}
+
+// PBZ キーボード操作対応追加 START---------------------------------------------
+	/**
+	 * キーイベント（DOWN）
+	 *
+	 */
+	document.onkeydown = function(e) {
+		if (isEventNgCheck()) {	// イベント受付無効時
+			return;
+		}
+		var shift;
+		var contentsType;
+		var endFlag = false;
+		// Mozilla(Firefox, NN) and Opera
+		if (e != null) {
+			keycode = e.which;
+			shift   = typeof e.modifiers == 'undefined' ? e.shiftKey : e.modifiers & Event.SHIFT_MASK;
+		// Internet Explorer
+		} else {
+			keycode = event.keyCode;
+			shift   = event.shiftKey;
+		}
+//alert("down:"+keycode);
+//		if (isSlideshow() ) {	// スライドショー表示中
+//			if (keycode == '27') {	// Escキー
+//				$("#ss-closeBtn").mousedown();
+//				$("#ss-closeBtn").click();
+//				$("#ss-closeBtn").mouseout();
+//			}
+//			return;
+//		}
+		contentsType = window.Deepviewer.Config.contentsType;
+
+		if(shift) {
+			if (keycode == '191') {	// ？キー
+				if(window.Deepviewer.Config.maxViewType) {
+					eventStop(e);
+					$("#commentBtn").click();
+					$("#commentBtn").mouseout();
+				}
+			}
+		} else {
+			if (keycode == '76') {	// L（エル）キー
+				eventStop(e);
+				$("#urlBtn").mousedown();
+				$("#urlBtn").click();
+				$("#urlBtn").mouseout();
+			} else if (keycode == '35') {	// Endキー
+				if ($('#topBtn').css("display") != 'none') {
+					eventStop(e);
+					$("#topBtn").mousedown();
+					$("#topBtn").click();
+					$("#topBtn").mouseout();
+				}
+			} else if (keycode == '36') {	// Homeキー
+				if (contentsType == "book" || contentsType == "roll") {
+					eventStop(e);
+					$("#endBtn").mousedown();
+					$("#endBtn").click();
+					$("#endBtn").mouseout();
+				}
+			} else if (keycode == '71') {	// gキー
+				if (contentsType == "book") {
+					eventStop(e);
+					$('#gotoText').focus();
+				}
+			} else if (keycode == '88') {	// xキー
+				eventStop(e);
+				$("#maxViewBtn").mouseover();
+				$("#maxViewBtn").click();
+				$("#maxViewBtn").mouseout();
+			} else if (keycode == '78') {	// nキー
+				eventStop(e);
+				$("#naviViewBtn").mousedown();
+				$("#naviViewBtn").click();
+				$("#naviViewBtn").mouseout();
+			} else if (keycode == '83') {	// sキー
+				if ( contentsType == "roll") {
+					eventStop(e);
+					$("#speedBtn").mouseup();
+					$("#speedBtn").click();
+			 	}
+			} else if (keycode == '40') {//下矢印
+				eventStop(e);
+				arrow = new Deepviewer.Arrow();
+				arrow.scrollMove("scroll_bottom");
+				arrow.scrollOut();
+			} else if (keycode == '37') {//左矢印
+				eventStop(e);
+				arrow = new Deepviewer.Arrow();
+				arrow.scrollMove("scroll_left");
+				arrow.scrollOut();
+			} else if (keycode == '39') {//右矢印
+				eventStop(e);
+				arrow = new Deepviewer.Arrow();
+				arrow.scrollMove("scroll_right");
+				arrow.scrollOut();
+			} else if (keycode == '38') {//上矢印
+				eventStop(e);
+				arrow = new Deepviewer.Arrow();
+				arrow.scrollMove("scroll_top");
+				arrow.scrollOut();
+			}
+		}
+	}
+	/**
+	 * イベント処理終了（この後PRESS処理が呼ばれる為）
+	 */
+	function eventStop(e) {
+		// イベントの上位伝播を防止
+		if (e != null) {
+			e.preventDefault();
+			e.stopPropagation();
+		} else {
+			event.returnValue = false;
+			event.cancelBubble = true;
+		}
+
+	}
+	/**
+	 * スライドショー表示中チェック
+	 *
+	 * @return true:スライドショー表示中
+	 */
+//	function isSlideshow() {
+//		var flag = false;
+//
+//		if (window.Slideshow != null && window.Slideshow != 'undefined' &&  window.Slideshow.Config.stat != null &&  window.Slideshow.Config.stat === 'on' ) {	// スライドショー表示中
+//			flag = true;
+//		}
+//		return flag;
+//	}
+	/**
+	 * イベント起動無効チェック
+	 * ヘッダーの検索フィールドなどにカーソルがある場合、
+	 *
+	 *
+	 * @return true:ヘッダーの検索フィールドなどにカーソルがある場合
+	 */
+	function isEventNgCheck() {
+		var flag = false;
+		if (document.activeElement.id == "selectLang" || document.activeElement.id == "word") {
+			flag = true;
+		}
+		return flag;
+	}
+	/**
+	 * キーイベント（PRESS）
+	 *
+	 */
+	document.onkeypress = function(e) {
+		if (isEventNgCheck()) {	// イベント受付無効時
+			return;
+		}
+		var shift;
+		var contentsType;
+		// Mozilla(Firefox, NN) and Opera
+		if (e != null) {
+			keycode = e.which;
+			shift   = typeof e.modifiers == 'undefined' ? e.shiftKey : e.modifiers & Event.SHIFT_MASK;
+		// Internet Explorer
+		} else {
+			keycode = event.keyCode;
+			shift   = event.shiftKey;
+		}
+
+//alert("press:"+keycode);
+		// スライドショー表示状態かどうかチェックする
+//		if (isSlideshow() ) {	// スライドショー表示中
+//			return;
+//		} // 通常表示中
+
+		// 以降通常表示処理----------------------------------------
+		if ( window.Deepviewer === 'undefined' || window.Deepviewer == null) {
+			return ;		// 基本的にはありえないが念のため処理を入れておく
+		}
+		contentsType = window.Deepviewer.Config.contentsType;
+
+		if (shift && keycode == '32') {	// Shift+スペースキー
+			if (contentsType == "book") {
+				eventStop(e);
+				$("#nextBtn").mousedown();
+				$("#nextBtn").click();
+				$("#nextBtn").mouseout();
+			} else if (contentsType == "roll") {
+				eventStop(e);
+				$("#rightBtn").mousedown();
+				$("#rightBtn").click();
+				$("#rightBtn").mouseout();
+			}
+		} else if (!shift && keycode == '48') {	// 0（数値）キー(Shiftキー押下不可)
+			if(!(contentsType == "book" && document.activeElement.id == "gotoText") ){
+				eventStop(e);
+				$("#fitBtn").click();
+			}
+		} else if (keycode == '45') {	// -(マイナス)キー
+			eventStop(e);
+			$("#zoomoutBtn").click();
+		} else if (keycode == '43') {	// +(プラス)キー
+			eventStop(e);
+			$("#zoominBtn").click();
+		} else if (!shift && keycode == '32') {	// Spaceキー(Shiftキー押下不可)
+			if (contentsType == "book") {
+				eventStop(e);
+				$("#prevBtn").mousedown();
+				$("#prevBtn").click();
+				$("#prevBtn").mouseout();
+			} else if (contentsType == "roll") {
+				eventStop(e);
+				$("#leftBtn").mousedown();
+				$("#leftBtn").click();
+				$("#leftBtn").mouseout();
+			}
+		}
+	}
+// PBZ キーボード操作対応追加 END---------------------------------------------
+	</script>
+
+</head>
+<body>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src=https://www.googletagmanager.com/ns.html?id=GTM-WV7D6G5
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+<div id="container">
+<header id="header">
+		<div class="inner">
+
+			<h1 id="ttlSite" class="sub">
+				
+					<a href="/top?langId=en&amp;webView=0">
+						<span>
+
+						
+						
+							<img src="/en/assets/img/logo.svg" alt="National Treasures &amp; Important Cultural Properties&lt;br&gt;　of National Institutes for Cultural Heritage, Japanimage" class="pc">
+							<img src="/en/assets/img/logoS.svg" alt="" class="sp">
+						
+						<strong>
+							<span>National Treasures & Important Cultural Properties<br></span>
+							<span>of National Institutes for Cultural Heritage, Japan</span>
+						</strong>
+						</span>
+					</a>
+				
+			</h1>
+		
+		
+			<div class="icnMenu">
+				<p class="menu-trigger" id="menu-trigger"> <span></span> <span></span> <span></span></p>
+				
+			</div>
+			<div id="navi-trigger" class="naviWrap">
+				<div class="language">
+					<h3>LANGUAGE</h3>
+					<ul>
+
+							<li><a href="/detail?langId=ja&amp;webView=0&amp;content_base_id=100005&amp;content_part_id=0&amp;content_pict_id=0" class="lang_id" data-lang_id="ja">日本語</a></li>
+							<li class="current"><a href="/detail?langId=en&amp;webView=0&amp;content_base_id=100005&amp;content_part_id=0&amp;content_pict_id=0" class="lang_id" data-lang_id="en">English</a></li>
+							<li><a href="/detail?langId=zh&amp;webView=0&amp;content_base_id=100005&amp;content_part_id=0&amp;content_pict_id=0" class="lang_id" data-lang_id="zh">中文</a></li>
+							<li><a href="/detail?langId=ko&amp;webView=0&amp;content_base_id=100005&amp;content_part_id=0&amp;content_pict_id=0" class="lang_id" data-lang_id="ko">한국어</a></li>
+
+
+
+					</ul>
+				</div>
+						<!-- <button id = "debugBtn">デバッグ用</button>　 -->
+				<nav id="category">
+					<h2>Categories</h2>
+					<ul>
+							<li>	<a href="/result?langId=en&amp;class=1&amp;webView=0">Painting</a></li>
+							<li>	<a href="/result?langId=en&amp;class=2&amp;webView=0">Calligraphy</a></li>
+							<li>	<a href="/result?langId=en&amp;class=3&amp;webView=0">Sculpture</a></li>
+							<li>	<a href="/result?langId=en&amp;class=4&amp;webView=0">Architecture</a></li>
+							<li>	<a href="/result?langId=en&amp;class=5&amp;webView=0">Metalwork</a></li>
+							<li>	<a href="/result?langId=en&amp;class=6&amp;webView=0">Swords</a></li>
+							<li>	<a href="/result?langId=en&amp;class=7&amp;webView=0">Ceramics</a></li>
+							<li>	<a href="/result?langId=en&amp;class=8&amp;webView=0">Lacquerware</a></li>
+							<li>	<a href="/result?langId=en&amp;class=9&amp;webView=0">Textiles</a></li>
+							<li>	<a href="/result?langId=en&amp;class=10&amp;webView=0">Archaeology</a></li>
+							<li>	<a href="/result?langId=en&amp;class=11&amp;webView=0"><span>Historical </span><span>Materials</a></li>
+							<li>	<a href="/result?langId=en&amp;class=12&amp;webView=0"><span>Hōryūji</span><span>Treasures</span></a></li>
+					</ul>
+				</nav>
+				<ul class="btnLink">
+				<li class="howto button"><a href="/howto?&amp;langId=en&amp;webView=0">e-Museum Guide</a></li>
+				<li class="imgSave button"><a href="/savelist?&amp;langId=en&amp;webView=0">Saved Images<span id="savelistLength"></span></a></li>
+				
+				<!--<li  th:if="${webview=='1'}"><a th:href="@{/twitter/}" ><span  th:text="${twLink}" th:remove="tag"></span></a></li>-->
+				</ul>
+			</div>
+
+			<div id="search">
+				<div class="search">
+				<!-- <img src="assets/img/btnSearch1.svg" th:alt="${search}" class="sp">-->
+				
+					
+					
+						
+						<img src="/en/assets/img/btnSearch1.svg" alt="Searchimage" class="sp">
+					
+					
+					
+				
+					<div class="pc searchForm">
+						<form action="/result" method="get" name="freewordSearch">
+							<input id="freeword" type="text" name="freeword" title="search" value="" placeholder="Search Works"  maxlength="100" >
+							<input id="langId" type="hidden" name="langId" value="en" />
+							<input id="webView" type="hidden" name="webView" value="0" />
+							<input id="fwSearch" type="submit" name="fwSearch" value="Search">
+						</form>
+						<input type="reset" name="" value="Cancel" class="cancel sp">
+					</div>
+				</div>
+				<p class="button">
+					 <a href="/search?langId=en&amp;webView=0">
+					 <span class="pc">Advanced Search</span>
+						<!-- <img src="assets/img/btnSearch2.svg" th:alt="${advancedSearch}" class="sp">-->
+					
+						
+						
+							
+							<img  src="/en/assets/img/btnSearch2.svg" alt="Advanced Searchimage" class="sp">
+						
+						
+						
+					
+
+					</a>
+				 </p>
+			</div>
+
+		</div>
+	</header>
+	<div id="wrapper" class="detail">
+		<div class="inner">
+
+			<h2 id="titleName"><img src="/assets/img/icn1.svg" alt="National Treasure"><strong><span><i>Zhou Maoshu Admiring Lotuses</i></span><small></small></strong></h2>
+			<!--↑重要文化財の場合はアイコンファイル名「icn2.svg」になります。↑-->
+			
+			<ul class="pager">
+				
+			</ul>
+
+			<div id="mainContent">
+				<div class="buttons">
+					<div id="btnSave">
+						<p id="save">Save Image</p>
+					</div>
+				</div>
+				<div id="imageArea">
+					<div id="mirador" data-contentCode="100005001002"></div>
+				</div>
+				<!--スマホ用画像表示ここから-->
+				<div id="imgMainSp">
+					<div>
+						<img src="" alt="image">
+						<span id="icnMaxview"><img src="/assets/img/viewer/icnMaxview.svg" alt="全画面表示"></span>
+					</div>
+				</div>
+				<!--スマホ用画像表示ここまで-->
+				<div id="summary" class="overview">
+				<!-- 20210726 ↓ -->
+				<div class="linkIIIF"><p><a href="https://emuseum.nich.go.jp/iiifapi/100005000/manifest.json" target="_blank"><img src="/assets/img/icnIIIFpng.png" alt="">IIIF Manifest</a></p></div>
+				<!-- 20210726 ↑ -->
+					<ul>
+
+						
+							
+							
+								
+							
+						
+						
+						<li>By Kanō Masanobu
+						
+						</li>
+						
+						
+						<li>Hanging scroll</li>
+					</ul>
+					<ul>
+						<li>Ink and light color on paper</li>
+						
+						<li>84.7×33.2 cm</li>
+						<li>Muromachi period, 15th century</li>
+						
+						<li>Kyushu National Museum</li>
+						<li>A35</li>
+					</ul>
+					<!--
+					<ul th:if="${dtl.content_other_guide!=null && dtl.content_other_guide!='' || #lists.size(LinkList) > 0}" >
+						<li th:each="Link : ${LinkList}"><u><a th:href="${Link.link_url}" th:utext="${Link.link_text}"></a></u></li>
+						<li th:utext="${dtl.content_other_guide}"></li>
+					</ul>
+					-->
+				</div>
+				<div id="caption" class="textArea">
+					<p>A willow tree stands on the shore of an expansive waterfront, swaying in the gentle breeze. Beneath it are two figures in a boat drifting among lotuses. The figure on the left is possibly Zhou Maoshu (also known as Zhou Dunyi; 1017–73), a Chinese Confucian scholar of the Northern Song dynasty (960–1279) and founder of the neo-Confucian school of thought. Zhou is well known for his appreciation for the lotus, having composed “On Loving Lotuses,” a text extolling it as the noblest of flowers for how it grows in the swamp but remains clean and untainted. Japanese intellectuals of the Muromachi period (14th–16th century), who had developed an appreciation for Chinese culture from a familiarity with its literary traditions, interpreted this work as a depiction of Zhou’s fascination with lotuses, a narrative with which they were familiar.<br><br>We know from the seal at the bottom-right corner that this is a work by Kanō Masanobu (1434–1530). Masanobu was the founder of the Kanō school of painting, a lineage of painters that had dominated the industry until the late Edo period (19th century). He was also an official painter for the Ashikaga shogunate, having served the eighth shogun Yoshimasa (1436–90).<br><br>The willow tree in this work appears almost identical in design to one in a copy of Ma Yuan’s <i>Herons beneath a Willow</i> (currently owned by the Tokyo University of the Arts), a Chinese court painter of the Southern Song dynasty. It is thus likely that Masanobu had studied Southern Song Chinese court paintings from the Ashikaga shogunal family’s collection, and applied what he had learned in the creation of this work. Many ink paintings in the Muromachi period mimicked the brushwork of certain Chinese painters; this work is an example of one that takes after Ma Yuan’s style. As such, it is important not only as a work of art, but as a piece documenting the way Muromachi-period Japanese paintings were typically created with imitative brushwork.<br><br>This painting is a masterpiece that represents ink paintings of the Higashiyama cultural circle that had flourished in Kyoto during the Muromachi period, and is also the only piece by Masanobu to have been designated a National Treasure. It was once owned by the feudal Date clan.</p>
+				</div>
+			<!-- 20210726 ↓ -->
+			
+			<!-- 20210726 ↑ -->
+			<p hidden>100005</p>
+			<p hidden>0</p>
+			<p hidden>0</p>
+			</div>
+			<div class="relationArea">
+				<h3>Pieces</h3>
+				<div id="part-thumbWrapper"></div>
+			</div>
+			<!-- 20201118 ↓ -->
+			<div class="pict_grouping">
+				<input type="hidden" id="top_content_part_id" value=""/>
+				<input type="hidden" id="top_content_pict_id" value=""/>
+				<input type="hidden" id="top_content_code" value=""/>
+				
+			</div>
+			<!-- 20201118 ↑ -->
+		</div>
+	</div>
+	<label hidden id="ViewerControll">
+		<input type="hidden" value="&#39;Link&#39;"/>
+		<input type="hidden" value="&#39;Zoom In&#39;"/>
+		<input type="hidden" value="&#39;Zoom In&#39;"/>
+		<input type="hidden" value="&#39;Zoom Out&#39;"/>
+		<input type="hidden" value="&#39;Zoom Out&#39;"/>
+		<input type="hidden" value="&#39;Zoom In&#39;"/>
+		<input type="hidden" value="&#39;Navigation&#39;"/>
+		<input type="hidden" value="&#39;Fullscreen&#39;"/>
+		<input type="hidden" value="&#39;Fit&#39;"/>
+		<input type="hidden" value="&#39;Description&#39;"/>
+		<input type="hidden" value="&#39;Last Page&#39;"/>
+		<input type="hidden" value="&#39;Ending&#39;"/>
+		<input type="hidden" value="&#39;First Page&#39;"/>
+		<input type="hidden" value="&#39;Beginning&#39;"/>
+		<input type="hidden" value="&#39;Next&#39;"/>
+		<input type="hidden" value="&#39;Previous&#39;"/>
+		<input type="hidden" value="&#39;Scroll Left&#39;"/>
+		<input type="hidden" value="&#39;Scroll Right&#39;"/>
+		<input type="hidden" value="&#39;Speed&#39;"/>
+	</label>
+	<footer id="footer">
+		<div class="inner">
+			<p class="linkAbout"><a href="/about?&amp;langId=en&amp;webView=0">About e-Museum</a></p>
+			<!-- 20210726 ↓ -->
+			<!-- <p class="linkAboutIIIF"><a th:href="@{/about2(langId=${langId},webView=${webview})}" th:utext="${about2}"></a></p> -->
+			<!-- 20210726 ↑ -->
+			<address class="copyright">
+			&copy;National Institutes for Cultural Heritage
+			</address>
+		</div>
+	</footer>
+</div>
+<div id="loader">
+	
+	<div><img src="/assets/img/load.svg" width="80" height="80" alt="Loading"></div>
+</div>
+</body>
+</html>

@@ -1,0 +1,28 @@
+{
+ "facets": [ 
+ {
+ "field": "subject",
+ "terms": { 
+ "streets": 2,
+ "architecture": 1,
+ "buildings": 1,
+ "construction industry": 1,
+ "maps": 1,
+ "cities and towns": 1,
+ "historical geography": 1
+ }
+ },
+ {
+ "field": "creator",
+ "terms": { 
+ "g. & t. crampton": 1,
+ "ordnance survey (ireland)": 1
+ }
+ },
+ {
+ "field": "format",
+ "terms": { 
+ }
+ }
+ ]
+}

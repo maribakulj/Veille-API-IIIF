@@ -1,0 +1,14 @@
+# Session 2026-11-14T02:58:32Z — configuration ndl-v2-passe1.json — sonde probe.py au commit 45cd312
+2026-11-14T02:58:33Z | robots.txt:ndlsearch.ndl.go.jp | https://ndlsearch.ndl.go.jp/robots.txt | GET | 200 | 30 règle(s) pour « * »
+2026-11-14T02:58:33Z | v2p1-ndlsearch-opensearch | robots.txt interdit https://ndlsearch.ndl.go.jp/api/opensearch?cnt=1&title=%e3%83%9e%e3%83%aa%e3%83%bc%e3%82%a2%e3%83%b3%e3%83%88%e3%83%af%e3%83%8d%e3%83%83%e3%83%88&ndc=2&dpid=iss-ndl-opac (Disallow: /api) ; lancé car autorisé par Marcel (C12)
+2026-11-14T02:58:59Z | v2p1-ndlsearch-opensearch | https://ndlsearch.ndl.go.jp/api/opensearch?cnt=1&title=%e3%83%9e%e3%83%aa%e3%83%bc%e3%82%a2%e3%83%b3%e3%83%88%e3%83%af%e3%83%8d%e3%83%83%e3%83%88&ndc=2&dpid=iss-ndl-opac | GET | ERREUR_RÉSEAU | TimeoutError: The read operation timed out
+2026-11-14T02:58:59Z | v2p1-ndlsearch-sru | robots.txt interdit https://ndlsearch.ndl.go.jp/api/sru?operation=searchRetrieve&maximumRecords=1&query=title%3d%22%E6%A1%9C%22%20AND%20from%3d%222018%22 (Disallow: /api) ; lancé car autorisé par Marcel (C12)
+2026-11-14T02:59:06Z | v2p1-ndlsearch-sru | https://ndlsearch.ndl.go.jp/api/sru?operation=searchRetrieve&maximumRecords=1&query=title%3d%22%E6%A1%9C%22%20AND%20from%3d%222018%22 | GET | 429 STOP_INSTITUTION_429 | aucun en-tête de limite | taille≥200 | corps: <?xml version="1.0" encoding="UTF-8"?> <error>   <code>429</code>   <message>Too Many Requests/同時アクセス数の上限に達したため、リクエストの制限を行っています。</mess
+# ARRÊT de l'institution (429 / CAPTCHA). Aucun nouvel appel.
+2026-11-14T02:59:06Z | v2p1-ndlsearch-openurl | NON LANCÉ : arrêt de l'institution (429)
+2026-11-14T02:59:06Z | v2p1-oaipmh-identify | NON LANCÉ : arrêt de l'institution (429)
+2026-11-14T02:59:06Z | v2p1-oaipmh-listmetadataformats | NON LANCÉ : arrêt de l'institution (429)
+2026-11-14T02:59:06Z | v2p1-oaipmh-listsets | NON LANCÉ : arrêt de l'institution (429)
+2026-11-14T02:59:06Z | v2p1-opensearch-description | NON LANCÉ : arrêt de l'institution (429)
+2026-11-14T02:59:06Z | v2p1-dl-iiif-manifeste | NON LANCÉ : arrêt de l'institution (429)
+# Fin 2026-11-14T02:59:06Z — 3 requête(s) envoyée(s)

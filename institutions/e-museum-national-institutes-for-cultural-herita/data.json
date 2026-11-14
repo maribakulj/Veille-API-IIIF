@@ -4,10 +4,172 @@
   "pays": "Japon",
   "classeur_id": "GLAM-081",
   "type": "Institution",
-  "statut_audit": "à faire",
-  "limites_documentees": [],
-  "en_tetes_observes": [],
+  "statut_audit": "audit a–f complet (v2) ; g à faire",
+  "limites_documentees": [
+    {
+      "nature": "Usage du contenu numérique",
+      "perimetre": "ensemble du site e-Museum",
+      "valeur": "usage autre que ceux expressément permis par le droit d'auteur (usage personnel) strictement interdit",
+      "fenetre": "–",
+      "effet": "aucune limite de débit",
+      "verification": "officielle, lue en entier",
+      "source": "https://emuseum.nich.go.jp/about?langId=en&webView=0",
+      "date": "2026-11-14"
+    }
+  ],
+  "en_tetes_observes": [
+    {
+      "hote": "emuseum.nich.go.jp",
+      "en_tete": "access-control-allow-origin: *, server: Apache ; aucun en-tête de limite",
+      "preuve": "institutions/e-museum-national-institutes-for-cultural-herita/tests/raw/v2p1-manifeste-100005000.headers.txt"
+    }
+  ],
   "blocages": [],
-  "sources": [],
-  "web": []
+  "sources": [
+    {
+      "url": "https://emuseum.nich.go.jp/about?langId=en&webView=0",
+      "date": "2026-11-14",
+      "etiquette": "officielle",
+      "preuve": "institutions/e-museum-national-institutes-for-cultural-herita/sources/a2/SHA256SUMS"
+    },
+    {
+      "url": "https://emuseum.nich.go.jp/howto?langId=en&webView=0",
+      "date": "2026-11-14",
+      "etiquette": "officielle",
+      "preuve": "institutions/e-museum-national-institutes-for-cultural-herita/sources/a2/SHA256SUMS"
+    },
+    {
+      "url": "https://emuseum.nich.go.jp/info?langId=ja&year=2026&webView=0",
+      "date": "2026-11-14",
+      "etiquette": "officielle",
+      "preuve": "institutions/e-museum-national-institutes-for-cultural-herita/sources/a2/SHA256SUMS"
+    },
+    {
+      "url": "https://emuseum.nich.go.jp/about2?webView=0&langId=en",
+      "date": "2026-11-14",
+      "etiquette": "officielle",
+      "preuve": "institutions/e-museum-national-institutes-for-cultural-herita/sources/a3/SHA256SUMS"
+    },
+    {
+      "url": "https://emuseum.nich.go.jp/detail?langId=en&webView=0&content_base_id=100005&content_part_id=0&content_pict_id=0",
+      "date": "2026-11-14",
+      "etiquette": "officielle",
+      "preuve": "institutions/e-museum-national-institutes-for-cultural-herita/sources/a4/SHA256SUMS"
+    },
+    {
+      "url": "https://emuseum.nich.go.jp/robots.txt",
+      "date": "2026-11-14",
+      "etiquette": "officielle",
+      "preuve": "institutions/e-museum-national-institutes-for-cultural-herita/sources/a1/SHA256SUMS"
+    },
+    {
+      "url": "https://www.nich.go.jp/robots.txt",
+      "date": "2026-11-14",
+      "etiquette": "officielle",
+      "preuve": "institutions/e-museum-national-institutes-for-cultural-herita/sources/a1/SHA256SUMS"
+    }
+  ],
+  "web": [
+    {
+      "categorie": "institution",
+      "url": "https://emuseum.nich.go.jp/info?langId=ja&year=2026&webView=0",
+      "date": "2026-11-14",
+      "etiquette": "officielle (WebSearch indisponible)",
+      "citation": "2022-02-01 : « 画像を相互運用するための国際的な枠組みであるIIIFに対応しました » ; aucune politique de bots ni de quota.",
+      "preuve": "institutions/e-museum-national-institutes-for-cultural-herita/sources/a2/SHA256SUMS"
+    },
+    {
+      "categorie": "utilisateurs",
+      "url": "https://github.com/lovasoa/dezoomify/issues/597",
+      "date": "2026-11-14",
+      "etiquette": "utilisateur/tiers, lu par WebFetch",
+      "citation": "échec « Unable to load tile » sur emuseum.nich.go.jp attribué à l'index des tuiles et à la configuration ; aucun blocage ni limite cités.",
+      "preuve": "institutions/e-museum-national-institutes-for-cultural-herita/fiche.md"
+    },
+    {
+      "categorie": "tickets",
+      "url": "https://github.com/search?q=%22emuseum.nich.go.jp%22&type=issues",
+      "date": "2026-11-14",
+      "etiquette": "tiers (recherche interne GitHub)",
+      "citation": "4 résultats, un seul vraiment lié (dezoomify#597) ; aucun ticket sur 429/403/limites ; la recherche de code exige une connexion.",
+      "preuve": "institutions/e-museum-national-institutes-for-cultural-herita/fiche.md"
+    },
+    {
+      "categorie": "presentations",
+      "aucun_resultat": true,
+      "requete": "aucune recherche exécutée : WebSearch indisponible (budget de session épuisé) ; à refaire",
+      "date": "2026-11-14",
+      "etiquette": "(non vérifié)",
+      "citation": "aucune présentation consultée ; catégorie à compléter.",
+      "preuve": "institutions/e-museum-national-institutes-for-cultural-herita/fiche.md"
+    }
+  ],
+  "contact": "rubrique « FAQ and Inquiries » du site du National Center for the Promotion of Cultural Properties (page About de e-Museum)",
+  "conclusion_quota": "Aucun quota ni limite de débit publiés ni observés ; manifeste IIIF, service d'image et recherche OpenSearch répondent 200 sans en-tête de limite.",
+  "classe_quota": "aucun quota trouvé",
+  "confiance": "moyenne",
+  "notes": "Recherches WebSearch non exécutées (budget de session épuisé) : catégories institution et presentations non couvertes par une vraie recherche, voir fiche.",
+  "a_verifier_manuellement": [
+    {
+      "url": "https://colbase.nich.go.jp/",
+      "pourquoi": "application JavaScript (coquille HTML) : documentation d'API et conditions d'usage non lisibles par la sonde ; hôte voisin cité par la famille NICH",
+      "a_chercher": "API ColBase éventuelle, conditions d'usage, limite de débit"
+    },
+    {
+      "url": "https://emuseum.nich.go.jp/terms?locale=en",
+      "pourquoi": "renvoie la page d'accueil (aucune page de conditions distincte lue)",
+      "a_chercher": "Vérifier s'il existe une page de conditions d'usage séparée"
+    }
+  ],
+  "endpoints_documentes": [
+    {
+      "famille": "IIIF Presentation 2.1.1 (manifeste)",
+      "url": "https://emuseum.nich.go.jp/iiifapi/100005000/manifest.json",
+      "statut": "teste",
+      "preuve": "institutions/e-museum-national-institutes-for-cultural-herita/tests/raw/v2p1-manifeste-100005000.headers.txt"
+    },
+    {
+      "famille": "IIIF Image 2.1.1 (info.json et dérivé)",
+      "url": "https://emuseum.nich.go.jp/iiif/?IIIF=/100005001002.tif/info.json",
+      "statut": "teste",
+      "preuve": "institutions/e-museum-national-institutes-for-cultural-herita/tests/raw/v2p2-image-info.headers.txt"
+    },
+    {
+      "famille": "OpenSearch (description et RSS)",
+      "url": "https://emuseum.nich.go.jp/result2/?pos=1&s_lang=ja&word=%E8%93%AE&itemCount=1&d_lang=ja&mode=simple&opensearch=1",
+      "statut": "teste",
+      "preuve": "institutions/e-museum-national-institutes-for-cultural-herita/tests/raw/v2p2-opensearch-rss.headers.txt"
+    }
+  ],
+  "endpoints_ecartes": [
+    {
+      "url": "https://emuseum.nich.go.jp/description/eKokuho_ja.xml",
+      "raison": "description OpenSearch testée en passe 1 (200), c'est un document de description, déjà couvert par la famille OpenSearch"
+    },
+    {
+      "url": "https://iiif.io/api/presentation/2.1/",
+      "raison": "spécification IIIF générale citée par la page d'aide, pas un service de l'institution"
+    },
+    {
+      "url": "https://iiif.io/api/image/2.1/",
+      "raison": "spécification IIIF générale citée par la page d'aide, pas un service de l'institution"
+    }
+  ],
+  "hotes_robots": [
+    {
+      "hote": "emuseum.nich.go.jp",
+      "resultat": "pas de robots.txt (la page renvoyée est le site) : aucune règle",
+      "preuve": "institutions/e-museum-national-institutes-for-cultural-herita/sources/a1/SHA256SUMS"
+    },
+    {
+      "hote": "colbase.nich.go.jp",
+      "resultat": "pas de robots.txt (coquille de l'application) : aucune règle",
+      "preuve": "institutions/e-museum-national-institutes-for-cultural-herita/sources/a1/SHA256SUMS"
+    },
+    {
+      "hote": "www.nich.go.jp",
+      "resultat": "Disallow: /wp-admin/ seulement",
+      "preuve": "institutions/e-museum-national-institutes-for-cultural-herita/sources/a1/SHA256SUMS"
+    }
+  ]
 }

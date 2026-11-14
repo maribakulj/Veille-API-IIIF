@@ -1,0 +1,54 @@
+# robots.txt for dl.ndl.go.jp
+
+# すべてのUser-agent 向けのルール
+User-agent: *
+
+# 検索結果画面はクロールさせない
+Disallow: /search
+Disallow: /search/
+Disallow: /ja/search
+Disallow: /ja/search/
+Disallow: /en/search
+Disallow: /en/search/
+# デジコレはコレクション検索画面もクロールさせない
+Disallow: /collections/
+Disallow: /ja/collections/
+Disallow: /en/collections/
+
+# ログインページはクロールさせない
+Disallow: /login
+Disallow: /login/
+Disallow: /ja/login
+Disallow: /ja/login/
+Disallow: /en/login
+Disallow: /en/login/
+
+# 管理者ページはクロールさせない
+Disallow: /manage
+Disallow: /manage/
+Disallow: /ja/manage
+Disallow: /ja/manage/
+Disallow: /en/manage
+Disallow: /en/manage/
+
+# 公開調査検索結果ページはクロールさせない
+Disallow: /openinq/search
+Disallow: /openinq/search/
+Disallow: /ja/openinq/search
+Disallow: /ja/openinq/search/
+Disallow: /en/openinq/search
+Disallow: /en/openinq/search/
+
+# マイコレクションページはクロールさせない
+Disallow: /mycollection
+Disallow: /mycollection/
+Disallow: /ja/mycollection
+Disallow: /ja/mycollection/
+Disallow: /en/mycollection
+Disallow: /en/mycollection/
+
+# APIはすべてクロールさせない(ただしデジコレIIIFはクロールさせる)
+Disallow: /api/
+Allow: /api/iiif/
+
+Sitemap: https://dl.ndl.go.jp/sitemap.xml

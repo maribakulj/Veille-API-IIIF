@@ -1,0 +1,15 @@
+# robots.txt for lab.ndl.go.jp
+
+# すべてのUser-agent 向けのルール
+User-agent: *
+
+# じせデジの検索結果画面はクロールさせない
+Disallow: /dl/fulltext
+Disallow: /dl/illust
+
+# じせデジのマイページはクロールさせない
+Disallow: /dl/mypage
+
+# 画像検索の検索結果APIはクロールさせない
+Disallow: /dl/api/illustration/multi-get
+

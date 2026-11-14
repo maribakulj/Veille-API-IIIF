@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<OpenSearchDescription xmlns="http://a9.com/-/spec/opensearch/1.1/">
+
+	<ShortName>eKokuho</ShortName>
+
+	<Description>National Treasures and Important Cultural Properties of National Institutes for Cultural Heritage, Japan.</Description>
+
+	<Url type="text/html" template="https://emuseum.nich.go.jp/result2/?pos={startIndex}&amp;s_lang=ja&amp;word={searchTerms}&amp;itemCount={count}&amp;d_lang=ja&amp;mode=simple"/>
+
+	<Url type="application/rss+xml" template="https://emuseum.nich.go.jp/result2/?pos={startIndex}&amp;s_lang=ja&amp;word={searchTerms}&amp;itemCount={count}&amp;d_lang=ja&amp;mode=simple&amp;opensearch=1"/>
+
+	<Image height="16" width="16" type="image/x-icon">http://emuseum.nich.go.jp/favicon.ico</Image>
+
+</OpenSearchDescription>
