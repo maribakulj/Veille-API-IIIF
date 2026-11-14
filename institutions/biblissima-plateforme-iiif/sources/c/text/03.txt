@@ -1,0 +1,90 @@
+API Présentation (IIIF) - Documentation Biblissima+ 
+ Aller au contenu
+ Documentation Biblissima+
+ API Présentation (IIIF)
+ Initialisation de la recherche
+ Gitlab
+ Contribuer à Biblissima
+ Interopérabilité IIIF
+ Portail
+ Référentiels
+ API
+ Documentation Biblissima+
+ Gitlab
+ Contribuer à Biblissima
+ Contribuer à Biblissima
+ Vademecum Biblissima+
+ Interopérabilité IIIF
+ Interopérabilité IIIF
+ Introduction à IIIF
+ Exemples d'entrepôts IIIF
+ Module de formation à IIIF
+ Portail
+ Portail
+ Format pivot
+ Journal des mises à jour et développements
+ Référentiels
+ Référentiels
+ API
+ API
+ Référentiels Biblissima (Wikibase)
+ Référentiels Biblissima (Wikibase)
+ API Mediawiki/Wikibase
+ Interface de données liées
+ Point d'accès SPARQL
+ Réconciliation de données
+ Réconciliation de données
+ Réconcilier ses données
+ Informations techniques sur l'API
+ Réconcilier avec OpenRefine
+ Réconcilier avec Datasette
+ Portail Biblissima
+ Portail Biblissima
+ API Présentation (IIIF)
+ API Présentation (IIIF)
+ Table des matières
+ Manifestes IIIF
+ Manifestes par descripteur iconographique
+ Manifestes du module de recherche iconographique
+ Manifestes pour les documents épigraphiques
+ Collections IIIF
+ Table des matières
+ Manifestes IIIF
+ Manifestes par descripteur iconographique
+ Manifestes du module de recherche iconographique
+ Manifestes pour les documents épigraphiques
+ Collections IIIF
+ API Présentation (IIIF)
+ Le Portail Biblissima crée et expose des ressources IIIF conformes à l’API Présentation de plusieurs types et pour différents usages.
+ Pour plus d’informations sur IIIF, voir la rubrique Interopérabilité IIIF .
+ Manifestes IIIF ¶ 
+ Manifestes par descripteur iconographique ¶ 
+ Des Manifestes IIIF sont créés dynamiquement par le Portail pour rassembler toutes les images d’enluminures indexées avec un même descripteur iconographique . On peut ainsi parcourir et comparer les images sur lesquelles sont représentés tel personnage ou tel animal (réel ou imaginaire), ou encore tel monument ou objet . 
+ Ces « collections » virtuelles d’images contiennent à la fois les feuillets numérisés provenant de Gallica (numérisations intégrales disponibles via IIIF) et les images issues de Mandragore et d’Initiale (numérisations de détails, non accessibles à distance via IIIF). Ainsi du point de vue de IIIF ces Manifestes sont des agrégats de Canevas provenant de divers Manifestes sources, principalement issus de Gallica (BnF) et de ARCA (IRHT-CNRS).
+ Modèle d'URL https://portail.biblissima.fr/iiif/manifest/ark:/43093/{id_biblissima}
+ Exemple
+ Page du descripteur centaure | Manifeste JSON (API Présentation 2.1)
+ Manifestes du module de recherche iconographique ¶ 
+ Le module “Recherche d’images” du Portail génère des Manifestes à la volée en réponse à une requête formulée dans l’application. Ils combinent ainsi toutes les images numérisées d’enluminures et décors correspondant aux résultats d’une recherche.
+ Modèle d'URL https://portail.biblissima.fr/iiif/manifest?descriptors={parametres_requete}
+ Exemple
+ Résultats d’une recherche sur les termes “Planète” + “Cosmographie” + filtre “13e siècle” Manifeste JSON (API Présentation 2.1)
+ Manifestes pour les documents épigraphiques ¶ 
+ Le Portail expose les Manifestes IIIF des inscriptions numérisées par le CESCM de Poitiers dans le cadre du Corpus des inscriptions de la France médiévale (CIFM).
+ Les Manifestes sont pré-générés à partir de collections Nakala rassemblant les images et leurs métadonnées. Un script Python permet une génération par lots (code source sur Gitlab : https://gitlab.huma-num.fr/biblissima/niiif-niiif ). 
+ Les images restent hébergées dans Nakala et sont appelées via IIIF grâce au service API Image proposé par cet entrepôt de données (plus d’informations dans la documentation d’Huma-Num ).
+ Modèle d'URL https://portail.biblissima.fr/iiif/manifest/nkl.{id_nakala}.json
+ Exemple
+ Page de l’inscription CIFM II, 15 | Manifeste JSON (API Présentation 3.0) | DOI Nakala 10.34847/nkl.cc9b360k 
+ Collections IIIF ¶ 
+ Des Collections IIIF sont créées pour chaque collection de livres identifiée dans les données du Portail et disposant de documents numérisés compatibles avec les standards IIIF. Elles sont utilisées pour initialiser le visualiseur Mirador sur les pages « Collections historiques » du Portail avec l’ensemble des documents numérisés rattachés à une même collection ancienne de livres .
+ Les Collections IIIF sont aussi utilisées pour rassembler tous les Manifestes associés à une même entité dans le Portail, par exemple un manuscrit disposant de plusieurs numérisations ( exemple , exemple ), ou une édition disposant de plusieurs exemplaires numérisés dans différentes bibliothèques ( exemple ).
+ Modèle https://portail.biblissima.fr/iiif/collection/ark:/43093/{id_bbma}
+ Exemple
+ Page de la Collection Bibliothèque de l’abbaye de Saint-Denis – Collection JSON (API Présentation 2.1)
+ Dernière mise à jour:
+ April 8, 2025 
+ Retour en haut de la page
+ Équipe Portail Biblissima+ — Licence Ouverte / Open License 2.0
+ Fait avec
+ Material for MkDocs

@@ -1,0 +1,70 @@
+About | IIIF Collections of Manuscripts and Rare Books 
+ -->
+ Discover Biblissima
+ close 
+ Home Biblissima
+ Biblissima Portal
+ .po -->
+ Point d'accès au patrimoine écrit du Moyen Âge et de la Renaissance en Occident du VIII e au XVIII e siècle
+ -->
+ An entry point to the written heritage of the Middle Ages and the Renaissance in Western Europe, from the 8th to the 18th century.
+ IIIF Collections
+ A search engine of interoperable digitized manuscripts and rare books
+ Biblissima Authority Files
+ Collaborative platform to manage and publish Biblissima authority data
+ Biblissima Tools
+ Help for reading and learning classical languages, XML editing tools and environments
+ IIIF360
+ Expertise service around IIIF standards
+ Project | Demos | Documentation 
+ Contribute to Biblissima+ 
+ Subscribe to our newsletter 
+ Contact us 
+ Communauté Zenodo 
+ Gitlab 
+ -->
+ IIIF Collections - Manuscripts & Rare Books
+ help 
+ search 
+ About 
+ shopping_cart 0 
+ This is a prototype application, but it is enhanced, updated and enriched on a regular basis. 
+ We are happy to receive feedback or comments. We are also willing to collaborate with any institution that would like to be part of this effort. Please do not hesitate to contact us if you have any questions or requests: team@biblissima-condorcet.fr 
+ This website provides an experimental cross-collections search and discovery environment for IIIF-compliant manuscripts and rare books dated before 1800.
+ The general approach of this prototype is not only to harvest and index the Manifests’ metadata as present at the source, but also to reconcile, cluster and normalise some of the metadata elements in order to perform powerful search capabilities and facets. This data processing leverages the big cluster of authorities which forms the backbone of the Biblissima portal .
+ The building of the prototype relies on the following process:
+ Crawl and harvest the Manifests from the IIIF repositories (a list of crawlable endpoints in the IIIF community is maintained by Biblissima)
+ In most cases this process is done through the IIIF Collections exposed by the content providers
+ the metadata and Manifests URLs from the BnF (Arsenal Library and Manuscripts department) are harvested in a separate process, directly from the finding aids in XML-EAD
+ the manuscripts of the Polonsky project England and France (700-1200) can be searched all together in this platform, although they are referenced in two separated collections: the BnF Manifests are only present in the “Bibliothèque nationale de France (Gallica)” collection, while those from the British Library are referenced in the dedicated “The British Library, Polonsky Pre-1200 Project” collection
+ the manuscripts metadata of the Europeana Regia project (2010-2012) come from a database dump provided as part of the work on the Biblissima portal, where the data produced during this European project are still accessible. Thus, the metadata and Manifests URLs are directly collected from the Biblissima portal in this particular case
+ Extract some metadata fields from the Manifest itself, from a machine-readable resource linked from the Manifest, or by using another mechanism in special cases
+ Filter the lists of Manifests by date , when available, by evacuating all the materials explicitly dated after 1800
+ Normalise the dates formats by converting them to a date range
+ Normalise the strings of languages 
+ Reconcile and cluster entities like agents, places, names of holding institutions. This process is based on the Biblissima authority files which already have a large amount of preferred and alternate names, URIs to linked open datasets (VIAF, data.bnf.fr, GND, LoC, Wikidata, Geonames etc.)
+ Ingest the data into the Web application, which relies on these normalised and aligned data to perfom a search engine, build facets and make links to the Biblissima portal
+ The effort undertaken to develop this application seeks to build on the work being done by the IIIF Discovery Technical Specification group . In a sense it is also a way of promoting it and encouraging the institutions to implement the Discovery specifications of IIIF.
+ Ideally, such an application would rely on a common and consistent pattern to crawl and harvest IIIF resources from the different providers. The IIIF Change Discovery API aims to address this
+ Moreover, the indexing process would be easier if we could follow links to structured metadata and identify in a consistent way the different formats used throughout the Manuscripts community. A set of profiles would help with this (see 2. Content indexing of the Discovery group charter)
+ We also intend to collaborate with the IIIF Manuscripts community group to help promote best practices regarding search and discovery (e.g. use of the seeAlso property, use of profile identifiers), define mappings between existing metadata formats, etc.
+ More broadly, this domain-specific prototype can be seen as an experiment to make concrete progress towards live discovery interfaces, that would allow users to search, browse and find IIIF resources kept in institutional silos. We are willing to participate in this global effort, drawing on our experience on the Biblissima portal.
+ Credits:
+ This application is developed and maintained by the Biblissima Team:
+ Kévin Bois
+ Eduard Frunzeanu
+ Régis Robineau
+ expand_less 
+ About 
+ | 
+ Feedback welcome: team@biblissima-condorcet.fr 
+ Powered by
+ My selection
+ × 
+ Please select items from search results or item pages.
+ Export to CSV 
+ Create a IIIF Collection 
+ Remove all items 
+ New collection created: 
+ content_copy 
+ View in Mirador

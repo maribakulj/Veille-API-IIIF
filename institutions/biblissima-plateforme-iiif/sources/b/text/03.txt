@@ -1,0 +1,234 @@
+Introduction à IIIF - Documentation Biblissima+ 
+ Aller au contenu
+ Documentation Biblissima+
+ Introduction à IIIF
+ Initialisation de la recherche
+ Gitlab
+ Contribuer à Biblissima
+ Interopérabilité IIIF
+ Portail
+ Référentiels
+ API
+ Documentation Biblissima+
+ Gitlab
+ Contribuer à Biblissima
+ Contribuer à Biblissima
+ Vademecum Biblissima+
+ Interopérabilité IIIF
+ Interopérabilité IIIF
+ Introduction à IIIF
+ Introduction à IIIF
+ Table des matières
+ Constat
+ Vision
+ Communauté IIIF
+ Avantages de IIIF pour les institutions
+ Technologie (API IIIF)
+ API Image
+ Requête d’image
+ Requête d’information sur l’image
+ Implémentation
+ API Présentation
+ Principe
+ Exemples (1)
+ Exemples (2)
+ Implémentation
+ Pour approfondir
+ Exemples d'entrepôts IIIF
+ Module de formation à IIIF
+ Portail
+ Portail
+ Format pivot
+ Journal des mises à jour et développements
+ Référentiels
+ Référentiels
+ API
+ API
+ Référentiels Biblissima (Wikibase)
+ Référentiels Biblissima (Wikibase)
+ API Mediawiki/Wikibase
+ Interface de données liées
+ Point d'accès SPARQL
+ Réconciliation de données
+ Réconciliation de données
+ Réconcilier ses données
+ Informations techniques sur l'API
+ Réconcilier avec OpenRefine
+ Réconcilier avec Datasette
+ Portail Biblissima
+ Portail Biblissima
+ API Présentation (IIIF)
+ Table des matières
+ Constat
+ Vision
+ Communauté IIIF
+ Avantages de IIIF pour les institutions
+ Technologie (API IIIF)
+ API Image
+ Requête d’image
+ Requête d’information sur l’image
+ Implémentation
+ API Présentation
+ Principe
+ Exemples (1)
+ Exemples (2)
+ Implémentation
+ Pour approfondir
+ Introduction à IIIF ¶ 
+ IIIF – International Image Interoperability Framework™ – désigne à la fois une communauté et un cadre d’interopérabilité pour diffuser, présenter et annoter des images et documents audio/vidéo sur le Web. Il s’est imposé en quelques années comme un standard et une brique technologique essentielle pour décloisonner les collections numérisées des institutions patrimoniales à l’échelle mondiale.
+ Constat ¶ 
+ La raison d’être de l’initiative IIIF se fonde sur un constat général de manque d’interopérabilité entre bibliothèques et entrepôts d’images numériques disponibles sur le Web :
+ chaque entrepôt a été conçu comme un silo : les images ne sont visualisables et manipulables que dans l’emprise du site qui les met à disposition ;
+ chaque application est unique : les institutions ont développé leur propre visualiseur et défini leurs propres méthodes de diffusion de leurs images en ligne ;
+ l’utilisateur doit s’adapter à chaque environnement : il doit composer avec des interfaces de consultation différentes, ayant chacune ses fonctionnalités propres, sans passerelle possible.
+ Dans un contexte de numérisation de masse et de multiplication de l’accès aux sources en ligne, les pratiques numériques des chercheurs deviennent de plus en plus sophistiquées et cherchent à s’affranchir des barrières techniques entre les sites : 
+ pour mettre côte à côte plusieurs documents numérisés issus de bibliothèques différentes afin de les comparer ou de les annoter ; 
+ pour restituer l’état originel d’un document en regroupant virtuellement des fragments dispersés ; 
+ pour associer aux images des données produites par la recherche, telles que des transcriptions, des commentaires, du son, d’autres images.
+ Vision ¶ 
+ L’ambition de IIIF est de créer un cadre technique commun grâce auquel les fournisseurs de ressources numériques (image, son, vidéo) peuvent :
+ délivrer leurs contenus de manière standardisée sur le Web,
+ afin de les rendre consultables, manipulables et annotables,
+ par n’importe quel logiciel compatible.
+ Schéma : principe général d’interopérabilité de IIIF (trois applications différentes sont branchées à trois entrepôts IIIF). Agrandir l'image 
+ Dans cet environnement distribué et interopérable, chaque entrepôt devient un point d’accès distant potentiel auquel des applications tierces peuvent se “brancher” et réutiliser les ressources à d’autres fins, sans avoir à les dupliquer et sans en perdre le contexte.
+ En rendant accessibles de vastes corpus d’images et de ressources audiovisuelles, IIIF agit comme un facilitateur pour de nombreux projets et applications utilisant les collections des institutions culturelles et susceptibles de toucher des publics variés : portails thématiques, expositions virtuelles, plateformes de crowdsourcing , événements de type hackathon, constitution de corpus de recherche, reconstitutions virtuelles, etc.
+ Communauté IIIF ¶ 
+ Formée au tournant des années 2010 autour d’un petit noyau de bibliothèques nationales et universitaires, l’initiative IIIF est aujourd’hui portée par un consortium international d’une soixantaine d’organisations et animée par une communauté d’acteurs très divers : musées, archives, bibliothèques, instituts de recherche, sociétés de services informatiques.
+ Le rôle principal de la communauté IIIF est d’élaborer, de publier et de faire évoluer de façon concertée les spécifications techniques de IIIF à partir de cas d’usages réels et documentés.
+ Ces spécifications sont ensuite implémentées dans des logiciels et plateformes de diverses natures (serveurs d’images, visualiseurs, outils d’annotation, systèmes de gestion de contenus, etc.), garantissant ainsi leur interopérabilité.
+ Voir la carte de la communauté IIIF 
+ Voir la liste officielle de ressources et outils IIIF 
+ Avantages de IIIF pour les institutions ¶ 
+ En termes de diffusion et valorisation des collections , IIIF permet de proposer aux internautes des fonctionnalités avancées et une expérience enrichie, notamment pour :
+ Visualiser et zoomer sur des images en haute résolution de manière plus fluide et performante.
+ Appeler et manipuler une image à distance afin de modifier sa taille, lui appliquer une rotation, changer son format etc.
+ Citer et partager une image ou une région d’intérêt au moyen d’une URL stable.
+ Comparer des ressources provenant d’institutions différentes, tout en conservant les métadonnées nécessaires à la compréhension de leur contexte respectif.
+ Annoter les ressources de façon standard (modèle Web Annotation Data Model du W3C) avec du texte ou d’autres médias.
+ Rechercher en plein-texte dans les annotations associées à un document (commentaires, transcriptions, OCR etc.).
+ Combiner et remixer des ressources issues de plusieurs entrepôts afin de reconstituer virtuellement un objet ou une collection dispersée, créer un mash-up associant image, texte, son ou vidéo.
+ En termes de développement et de maintenance informatique , l’écosystème de IIIF :
+ Dispose d’un large panel de logiciels compatibles avec ses API, tant côté serveur que côté client.
+ Offre ainsi plus de souplesse dans la migration de logiciels, la couche serveur étant découplée de la couche cliente : 
+ ce qui facilite le changement de serveur d’images sans avoir à adapter les applications clientes, et vice versa ;
+ et réduit la dépendance à un logiciel ou un prestataire informatique en particulier.
+ Permet de réduire les coûts globaux sur le long terme : 
+ beaucoup de logiciels sont développés de façon communautaire et distribués sous licence libre ;
+ le développement peut être rationalisé grâce à l’utilisation de composants réutilisables et partagés entre applications.
+ Facilite le transfert et le partage de données : IIIF est entièrement basé sur les standards et l’architecture du Web (principes REST et du Linked Data , modèle Web Annotation , JSON-LD).
+ Permet de publier ses ressources une fois et de les réutiliser autant que souhaité.
+ Prend en charge les contraintes institutionnelles liées à l’authentification et aux droits
+d’accès ( IIIF Authentication API ).
+ Technologie (API IIIF) ¶ 
+ Le cadre technique défini par IIIF repose sur plusieurs protocoles ou « API » (interface de programmation applicative). Ils forment le socle commun sur lequel un écosystème d’outils et de ressources numériques interopérables peut se développer.
+ Les deux principales API sont :
+ l’API Image 
+ l’API Présentation 
+ D’autres API fonctionnant de manière conjointe et complémentaire à ces deux dernières sont actuellement publiées en version stable : voir la liste complète des API IIIF disponibles .
+ API Image ¶ 
+ L’API Image spécifie une méthode pour délivrer les pixels d’une image et la manipuler à distance à travers une syntaxe d’URL standardisée.
+ Cette syntaxe d’URL s’applique à deux types de requêtes sur une même image :
+ requête de l’image elle-même (pixels)
+ requête d’information sur l’image (JSON)
+ Requête d’image ¶ 
+ Modèle d'URL {scheme}://{server}{/prefix}/{identifier}/{region}/{size}/{rotation}/{quality}.{format}
+ Exemple (image pleine taille) https://example.org/image-service/abcd1234/full/full/0/default.jpg (API Image 2.1)
+https://example.org/image-service/abcd1234/full/max/0/default.jpg (API Image 3.0)
+ Ce mécanisme d’URL permet à un client d’appeler et manipuler une image selon des paramètres de région ( region ), de taille ( size ), de rotation ( rotation ), de qualité ( quality ) et de format ( format ). Par exemple il est possible de demander la version pleine taille d’une image, ou simplement une portion de celle-ci (zone d’intérêt au sein de l’image), de la redimensionner, de la faire pivoter ou la retourner horizontalement ou verticalement, de la passer en noir et blanc, etc.
+ NB : le paramètre identifier (“abcd1234”) est l’identifiant unique de l’image dans l’entrepôt source. Il peut s’agir d’un ARK, un URN, un simple nom de fichier, ou tout autre type d’identifiant. Les caractères spéciaux doivent être encodés. Le paramètre /prefix (“/image-service”) est optionnel.
+ Exemples
+ Tester le Image API Playground pour jouer avec les différents paramètres de l’API.
+ Exemples d’URL (API Image 2.1) :
+ https://api.digitale-sammlungen.de/iiif/image/v2/bsb00021200_00038/full/562,800/0/default.jpg (image entière, retaillée à 562x800 pixels)
+ https://api.digitale-sammlungen.de/iiif/image/v2/bsb00021200_00038/654,2223,2996,2200/800,/0/default.jpg (région d’intérêt au sein de l’image, retaillée à 800 pixels de largeur)
+ https://api.digitale-sammlungen.de/iiif/image/v2/bsb00021200_00038/654,2223,2996,2200/600,/!0/gray.png (région d’intérêt retaillée à 600 pixels de largeur, retournée sur l’axe vertical, passée en niveau de gris et au format PNG)
+ Requête d’information sur l’image ¶ 
+ Modèle d'URL {scheme}://{server}{/prefix}/{identifier}/info.json
+ Exemple https://example.org/image-service/abcd1234/info.json
+ Ce type de requête permet de fournir des métadonnées techniques sur une image, utilisables par une application cliente (visualiseur ou autre logiciel) sous la forme de données au format JSON.
+ Ces métadonnées techniques sur l’image comprennent notamment :
+ les dimensions de l’image
+ tailles préférées du serveur qui délivre l’image
+ les dimensions des tuiles d’image le cas échéant (utilisées pour le zoom)
+ des informations de conformité : version de l’API supportée par le serveur, niveau de compatibilité avec l’API Image, autres fonctionnalités supportées
+ mentions de droits ou de licence
+ Exemples
+ https://iiif.library.ucla.edu/iiif/2/ark%3A%2F21198%2Fzz00090nmj/info.json (API Image 2.1)
+ https://iiif.io/api/image/3.0/example/reference/59d09e6773341f28ea166e9f3c1e674f-gallica_ark_12148_bpt6k1526005v_f19/info.json (API Image 3.0)
+ Implémentation ¶ 
+ Notes
+ Une implémentation dynamique passe par l’installation et le paramétrage d’un serveur d’images IIIF (voir la liste des logiciels existants ). Cela permet de bénéficier des principales fonctionnalités de l’API Image (level 1 ou 2).
+ Une implémentation statique est une alternative possible à l’installation d’un logiciel dédié, qui consiste à pré-générer des tuiles d’images (level 0 de l’API Image) et de les délivrer via un serveur Web classique. NB : cela limite les possibilités de manipulation dynamique de l’image, avec ce type d’implémentation il n’est par exemple pas possible de citer une région arbitraire au sein d’une image.
+ Pour les images en hauté résolution, il est conseillé d’opter pour un format optimisé pour le zoom progressif : JPEG2000 ou TIFF Pyramidal.
+ Il convient de respecter certains pré-requis techniques dans la configuration du serveur (protocole HTTPS et entêtes HTTP CORS).
+ API Présentation ¶ 
+ Principe ¶ 
+ L’API Présentation spécifie les métadonnées (descriptives, structurelles, techniques) nécessaires à la présentation d’un objet numérique dans une interface (par exemple un visualiseur d’images, ou tout autre environnement manipulant des images et autres médias supportés par IIIF).
+ Toutes ces informations sont contenues dans un fichier appelé « Manifeste » , une sorte d’enveloppe virtuelle formant l’unité de distribution élémentaire dans l’univers IIIF. C’est en général ce fichier que vont manipuler les logiciels pour interagir avec une ressource, la visualiser, ou la transférer vers un autre outil.
+ L’API Présentation constitue à la fois :
+ un format d’échange , sérialisé en JSON-LD 
+ un modèle décrivant la représentation numérique d’un objet : la séquence ordonnée des médias qui le compose (images, audios, vidéos), sa structure interne, ses métadonnées, ses liens avec d’autres ressources, ses annotations.
+ Un Manifeste IIIF représente le plus souvent le fac-similé numérique d’un objet physique (livre, manuscrit, périodique, carte, peinture, photographie, partition, monnaie, objet archéologique, archive sonore, captation vidéo, etc.). Mais un Manifeste peut tout aussi bien représenter un objet virtuel et composite constitué d’une série d’images ou autres médias rassemblés à des fins scientifiques ou pédagogiques, et pouvant provenir de différentes collections.
+ Schéma : principales composantes d'un Manifeste IIIF. Agrandir l'image 
+ Les visualiseurs IIIF tels que Mirador ou Universal Viewer font partie des outils capables d’afficher un objet via son Manifeste et de proposer à l’utilisateur une expérience de visualisation riche.
+ Les deux images ci-dessous permettent d’illustrer où sont mobilisées les deux API Image et Présentation dans un visualiseur comme Mirador 3 :
+ Exemples (1) ¶ 
+ Manifestes : exemples par type d’institution
+ Archives :
+ Dublin City Library and Archive : Royal charters to the city of Dublin ( Manifeste JSON – Ouvrir dans Mirador )
+ Archives départementales de la Vienne : La Nouvelle République du Centre-Ouest : 8 septembre 1944-30 décembre 1945 ( Manifeste JSON – Ouvrir dans Mirador )
+ Archives fédérales suisses : Procès-verbal(-aux) des décisions 08.05.1945 ( Manifeste JSON – Ouvrir dans Mirador )
+ Bibliothèques :
+ Bibliothèque Mazarine : La Bible de Gutenberg ( Manifeste JSON – Ouvrir dans Mirador )
+ Ghent University Library : [map] Gent ( Manifeste JSON – Ouvrir dans Mirador )
+ Bayerische Staatsbibliothek : Logbook of a Ship of Sir Francis Drake’s Last Voyage ( Manifeste JSON – Ouvrir dans Mirador )
+ Musées :
+ Getty Museum : Irises ( Manifeste JSON – Ouvrir dans Mirador )
+ Statens Museum for Kunst : View of the Interior of the Colosseum ( Manifeste JSON – Ouvrir dans Mirador )
+ The Royal Collection Trust : Raphael Collection portfolio 26 ( Manifeste JSON – Ouvrir dans Mirador )
+ Exemples (2) ¶ 
+ Manifestes : exemples avancés
+ Biblissima - Reconstruction virtuelle (partielle) d’un manuscrit mutilé (Châteauroux, BM, ms. 5) : Manifeste JSON (v2) – Ouvrir dans Mirador 
+ Biblissima - Reconstruction virtuelle d’un manuscrit dispersé (« Florus dispersus ») : Manifeste JSON (v2) – Ouvrir dans Mirador 
+ Biblissima - Collection d’enluminures portant une représentation de comètes : Manifeste JSON (v2) – Ouvrir dans Mirador 
+ Biblissima - Collection d’enluminures issue d’une requête combinant les termes « Planète » et « Cosmographie » : Manifeste JSON (v2) – Ouvrir dans Mirador 
+ Library of Congress - Lettre numérisée par imagerie hyperspectrale, avec affichage de la transcription du texte et des différentes couches d’image : Manifeste JSON (v2) – Ouvrir dans Mirador 
+ Bayerische Staatsbibliothek, Munich - Livre imprimé, avec service de recherche plein-texte au sein de l’OCR Manifeste JSON (v2) || Ouvrir dans Mirador 
+ Bodleian Library, Oxford - Manuscrit arabe illustré, portant de nombreuses annotations IIIF de formes diverses (voir fols. 2b and 3a) : Manifeste JSON (v2) – Ouvrir dans Mirador 
+ Biblioteca Vaticana - Manuscrit hébreu, avec lecture de droite à gauche : Manifeste JSON (v2) – Ouvrir dans Mirador 
+ De nombreux exemples de Manifestes sont aussi accessibles sur ces deux pages :
+ IIIF Cookbook 
+ Mirador 3 Fixtures & sample IIIF data 
+ Implémentation ¶ 
+ Notes
+ Un Manifeste IIIF peut être créé de façon statique ou dynamique.
+ La production d’un Manifeste est souvent une opération spécifique à un environnement institutionnel ou informatique donné : il n’y a pas de méthode unique universellement applicable.
+ Un Manifeste résulte dans la plupart des cas de la combinaison de deux types d’informations (qui peuvent potentiellement provenir de systèmes différents) : 
+ un ensemble de métadonnées descriptives ;
+ des informations de séquence et de structure de l’objet numérique (en premier lieu la liste ordonnée des images qui le constitue, avec leurs identifiants et leurs dimensions en pixels).
+ Ces données nécessaires à la génération d’un Manifeste peuvent être structurées dans différents formats source (METS/MODS, XML-TEI, XML-EAD, tableur type CSV, base de données etc.).
+ L’API Présentation est le plus souvent utilisée de façon conjointe avec l’API Image pour gérer le zoom et l’affichage des différents dérivés d’une image (vignette, aperçu). Dans ce cas la génération d’un Manifeste implique d’être capable d’établir le lien entre une vue au sein de l’objet (par exemple une page de livre) et le service API Image de l’image correspondante.
+ Il est conseillé de vérifier la conformité des Manifestes en utilisant le validateur officiel .
+ Il convient de respecter de certains pré-requis techniques dans la configuration du serveur qui expose les Manifests (protocole HTTPS et entêtes HTTP CORS).
+ Pour approfondir ¶ 
+ Quelques ressources utiles en français : 
+ Intégrer IIIF dans le projet de refonte du site web de votre service d’archives : éléments pour CCTP et cadre de réponse (Cécile Sajdak, 2023)
+ Module de formation à IIIF (1 jour) (Régis Robineau). Site support de la formation organisée en novembre 2022 et novembre 2023 au Campus Condorcet dans le cadre du cluster 1 de Biblissima+
+ IIIF : découverte et interopérabilité sans frontières des images patrimoniales , Culture et Recherche n°143, 2022, p. 111-117
+ Vidéo de la session régionale IIIF France de la Conférence internationale IIIF 2021 (24 juin 2021).
+ Vidéos et supports de présentations du séminaire IIIF360 (24 mars 2021).
+ Visualisation et fouille des données : IIIF (Régis Robineau). Cours de Master 2 « Mediation Numérique de la Culture et des Patrimoines » (École Supérieure en Intelligence des Patrimoines, CESR, Université de Tours)
+ Adopter et utiliser les standards IIIF pour vos corpus d’images numériques (Régis Robineau). Atelier en ligne organisé dans le cadre du colloque « #dhnord2020 - La mesure des images : approches computationnelles en histoire et théorie des arts » (MESHS, 18 novembre 2020)
+ Introduction aux protocoles IIIF (Régis Robineau, 2019). Présentation faite dans le cadre de la formation au Diplôme de conservateur de bibliothèque de l’Enssib (Villeurbanne, 23 janvier 2019)
+ En anglais : 
+ Get Started — IIIF 
+ Cookbook of IIIF Recipes 
+ Awesome IIIF (liste de ressources utiles maintenue par la communauté IIIF)
+ Chaîne Youtube IIIF 
+ Dernière mise à jour:
+ January 15, 2024 
+ Retour en haut de la page
+ Équipe Portail Biblissima+ — Licence Ouverte / Open License 2.0
+ Fait avec
+ Material for MkDocs

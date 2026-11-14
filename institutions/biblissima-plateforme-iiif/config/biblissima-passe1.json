@@ -1,0 +1,36 @@
+{
+  "slug": "biblissima-plateforme-iiif",
+  "min_delay_s": 6,
+  "max_requests": 15,
+  "follow_redirects": 1,
+  "robots_disallow_autorise_par_marcel": true,
+  "note": "Passe 1 : exemples de la doc doc.biblissima.fr/api/ (sources/c) : API Wikibase (Q27392 cité par la doc de réconciliation), API de réconciliation (exemple « Isidorus Hispalensis », limit 5), identifiant d'entité /entity/Q27392, manifeste IIIF du Portail (descripteur desc57cb… donné en exemple). SPARQL (query.biblissima.fr) : non public selon la doc, non testé. robots.txt de data, portail et iiif : 404 (autorisé).",
+  "endpoints": [
+    {
+      "id": "wikibase-getentities-Q27392",
+      "method": "GET",
+      "url": "https://data.biblissima.fr/w/api.php?action=wbgetentities&ids=Q27392&format=json"
+    },
+    {
+      "id": "reconcile-fr-isidorus",
+      "method": "GET",
+      "url": "https://data.biblissima.fr/reconcile/fr/api?queries={\"q0\":{\"query\":\"Isidorus Hispalensis\",\"limit\":5}}"
+    },
+    {
+      "id": "entity-Q27392",
+      "method": "GET",
+      "url": "https://data.biblissima.fr/entity/Q27392"
+    },
+    {
+      "id": "portail-manifeste-desc57cb",
+      "method": "GET",
+      "url": "https://portail.biblissima.fr/iiif/manifest/ark:/43093/desc57cb76cd3739a24a9277b6669d95b5f3a590e771",
+      "save_body": 3000000
+    },
+    {
+      "id": "portail-collection-coldata5151",
+      "method": "GET",
+      "url": "https://portail.biblissima.fr/iiif/collection/ark:/43093/coldata5151005ea5833e5a05e2639cbb210946cb7e0609"
+    }
+  ]
+}

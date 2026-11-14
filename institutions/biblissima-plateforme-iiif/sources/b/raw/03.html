@@ -1,0 +1,2008 @@
+
+<!doctype html>
+<html lang="fr" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Documentation technique de l'infrastructure Biblissima+, observatoire des cultures écrites anciennes de l’argile à l’imprimé (ANR-21-ESRE-0005)">
+      
+      
+        <meta name="author" content="Équipe Portail Biblissima+">
+      
+      
+        <link rel="canonical" href="https://doc.biblissima.fr/iiif/introduction-iiif/">
+      
+      
+        <link rel="prev" href="../">
+      
+      
+        <link rel="next" href="../entrepots-iiif/">
+      
+      
+      <link rel="icon" href="../../assets/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.16">
+    
+    
+      
+        <title>Introduction à IIIF - Documentation Biblissima+</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.7e37652d.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Source Sans Pro";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+  
+
+
+  <script>
+  /* Add custom analytics integration here, e.g. */
+  // var property = "" 
+
+  /* Wait for page to load and application to mount */
+  document.addEventListener("DOMContentLoaded", function() {
+    //location$.subscribe(function(url) {
+      /* Matomo code */
+      var _paq = window._paq = window._paq || [];
+      _paq.push([function() {
+        var self = this;
+        /* CNIL requirement for cookies duration */
+        function getOriginalVisitorCookieTimeout() {
+          var now = new Date(),
+          nowTs = Math.round(now.getTime() / 1000),
+          visitorInfo = self.getVisitorInfo();
+          var createTs = parseInt(visitorInfo[2]);
+          var cookieTimeout = 33696000; // 13 mois en secondes
+          var originalTimeout = createTs + cookieTimeout - nowTs;
+          return originalTimeout;
+        }
+        this.setVisitorCookieTimeout( getOriginalVisitorCookieTimeout() );
+      }]);
+      // tracker methods like "setCustomDimension" should be called before "trackPageView"
+      //_paq.push(["setDomains", ["*.projet.biblissima.fr"]]);
+      _paq.push(['trackPageView']);
+      _paq.push(['enableLinkTracking']);
+      (function() {
+        var u="//piwik.biblissima.fr/";
+        _paq.push(['setTrackerUrl', u+'matomo.php']);
+        _paq.push(['setSiteId', '2']);
+        var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+        g.type='text/javascript'; g.async=true; g.src=u+'matomo.js'; s.parentNode.insertBefore(g,s);
+      })();
+      /* end Matomo code */
+    //})
+  })
+</script>
+<noscript><p><img src="//piwik.biblissima.fr/matomo.php?idsite=2&amp;rec=1" style="border:0;" alt="" /></p></noscript>
+  
+    <script>"undefined"!=typeof __md_analytics&&__md_analytics()</script>
+  
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="biblissima" data-md-color-primary="indigo" data-md-color-accent="blue">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#introduction-a-iiif" class="md-skip">
+          Aller au contenu
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="En-tête">
+    <a href="../.." title="Documentation Biblissima+" class="md-header__button md-logo" aria-label="Documentation Biblissima+" data-md-component="logo">
+      
+  <img src="../../assets/biblissima-monogramme-blanc.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Documentation Biblissima+
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Introduction à IIIF
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Rechercher" placeholder="Rechercher" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Recherche">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Effacer" aria-label="Effacer" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initialisation de la recherche
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://gitlab.huma-num.fr/biblissima/doc.biblissima" title="source.link.title" class="md-source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.0.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path fill="currentColor" d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    Gitlab
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Onglets" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../vademecum-biblissima/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Contribuer à Biblissima
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Interopérabilité IIIF
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../portail/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Portail
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../referentiels/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Référentiels
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../api/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  API
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+                
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" hidden>
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Documentation Biblissima+" class="md-nav__button md-logo" aria-label="Documentation Biblissima+" data-md-component="logo">
+      
+  <img src="../../assets/biblissima-monogramme-blanc.png" alt="logo">
+
+    </a>
+    Documentation Biblissima+
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://gitlab.huma-num.fr/biblissima/doc.biblissima" title="source.link.title" class="md-source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.0.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path fill="currentColor" d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    Gitlab
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_1" id="__nav_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Contribuer à Biblissima
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_1">
+            <span class="md-nav__icon md-icon"></span>
+            Contribuer à Biblissima
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../vademecum-biblissima/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Vademecum Biblissima+
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    Interopérabilité IIIF
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2" id="__nav_2_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Interopérabilité IIIF
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    Introduction à IIIF
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    Introduction à IIIF
+    
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table des matières">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table des matières
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#constat" class="md-nav__link">
+    <span class="md-ellipsis">
+      Constat
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#vision" class="md-nav__link">
+    <span class="md-ellipsis">
+      Vision
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#communaute-iiif" class="md-nav__link">
+    <span class="md-ellipsis">
+      Communauté IIIF
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#avantages-de-iiif-pour-les-institutions" class="md-nav__link">
+    <span class="md-ellipsis">
+      Avantages de IIIF pour les institutions
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#technologie-api-iiif" class="md-nav__link">
+    <span class="md-ellipsis">
+      Technologie (API IIIF)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Technologie (API IIIF)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#api-image" class="md-nav__link">
+    <span class="md-ellipsis">
+      API Image
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="API Image">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#requete-dimage" class="md-nav__link">
+    <span class="md-ellipsis">
+      Requête d&rsquo;image
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#requete-dinformation-sur-limage" class="md-nav__link">
+    <span class="md-ellipsis">
+      Requête d&rsquo;information sur l&rsquo;image
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#implementation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Implémentation
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#api-presentation" class="md-nav__link">
+    <span class="md-ellipsis">
+      API Présentation
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="API Présentation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#principe" class="md-nav__link">
+    <span class="md-ellipsis">
+      Principe
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#exemples-1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Exemples (1)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#exemples-2" class="md-nav__link">
+    <span class="md-ellipsis">
+      Exemples (2)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#implementation_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Implémentation
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pour-approfondir" class="md-nav__link">
+    <span class="md-ellipsis">
+      Pour approfondir
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../entrepots-iiif/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Exemples d'entrepôts IIIF
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://doc.biblissima.fr/formation-iiif/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Module de formation à IIIF
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../portail/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    Portail
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_3" id="__nav_3_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Portail
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../portail/format-pivot-biblissima/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Format pivot
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../portail/changelog/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Journal des mises à jour et développements
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../referentiels/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    Référentiels
+    
+  </span>
+  
+
+            </a>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            Référentiels
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../api/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    API
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_5" id="__nav_5_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            API
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_2" id="__nav_5_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Référentiels Biblissima (Wikibase)
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_2">
+            <span class="md-nav__icon md-icon"></span>
+            Référentiels Biblissima (Wikibase)
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../api/api-mediawiki/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    API Mediawiki/Wikibase
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../api/interface-donnees-liees/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Interface de données liées
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../api/sparql/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Point d'accès SPARQL
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_2_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_2_4" id="__nav_5_2_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Réconciliation de données
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_5_2_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_2_4">
+            <span class="md-nav__icon md-icon"></span>
+            Réconciliation de données
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../api/api-reconciliation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Réconcilier ses données
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../api/reconciliation-infos-techniques/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Informations techniques sur l'API
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../api/openrefine/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Réconcilier avec OpenRefine
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../api/datasette/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Réconcilier avec Datasette
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_3" id="__nav_5_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Portail Biblissima
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_3">
+            <span class="md-nav__icon md-icon"></span>
+            Portail Biblissima
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../api/api-presentation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    API Présentation (IIIF)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+                
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table des matières">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table des matières
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#constat" class="md-nav__link">
+    <span class="md-ellipsis">
+      Constat
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#vision" class="md-nav__link">
+    <span class="md-ellipsis">
+      Vision
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#communaute-iiif" class="md-nav__link">
+    <span class="md-ellipsis">
+      Communauté IIIF
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#avantages-de-iiif-pour-les-institutions" class="md-nav__link">
+    <span class="md-ellipsis">
+      Avantages de IIIF pour les institutions
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#technologie-api-iiif" class="md-nav__link">
+    <span class="md-ellipsis">
+      Technologie (API IIIF)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Technologie (API IIIF)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#api-image" class="md-nav__link">
+    <span class="md-ellipsis">
+      API Image
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="API Image">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#requete-dimage" class="md-nav__link">
+    <span class="md-ellipsis">
+      Requête d&rsquo;image
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#requete-dinformation-sur-limage" class="md-nav__link">
+    <span class="md-ellipsis">
+      Requête d&rsquo;information sur l&rsquo;image
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#implementation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Implémentation
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#api-presentation" class="md-nav__link">
+    <span class="md-ellipsis">
+      API Présentation
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="API Présentation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#principe" class="md-nav__link">
+    <span class="md-ellipsis">
+      Principe
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#exemples-1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Exemples (1)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#exemples-2" class="md-nav__link">
+    <span class="md-ellipsis">
+      Exemples (2)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#implementation_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Implémentation
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pour-approfondir" class="md-nav__link">
+    <span class="md-ellipsis">
+      Pour approfondir
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+  
+
+
+
+  <a href="https://gitlab.huma-num.fr/biblissima/doc.biblissima/edit/main/docs/iiif/introduction-iiif.md" title="edit.link.title" class="md-content__button md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75z"/></svg>
+  </a>
+
+<a href="https://gitlab.huma-num.fr/biblissima/doc.biblissima/-/issues/new" title="Suggérer une modification" class="md-content__button md-icon">
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9 22a1 1 0 0 1-1-1v-3H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2h-6.1l-3.7 3.71c-.2.19-.45.29-.7.29z"/></svg>
+</a>
+
+<h1 id="introduction-a-iiif">Introduction à IIIF<a class="headerlink" href="#introduction-a-iiif" title="Permanent link">&para;</a></h1>
+<p>IIIF – <em>International Image Interoperability Framework™</em> – désigne à la fois une <strong>communauté</strong> et un <strong>cadre d’interopérabilité</strong> pour diffuser, présenter et annoter des images et documents audio/vidéo sur le Web. Il s’est imposé en quelques années comme un standard et une brique technologique essentielle pour décloisonner les collections numérisées des institutions patrimoniales à l’échelle mondiale.</p>
+<h2 id="constat">Constat<a class="headerlink" href="#constat" title="Permanent link">&para;</a></h2>
+<p>La raison d&rsquo;être de l&rsquo;initiative IIIF se fonde sur un constat général de manque d&rsquo;interopérabilité entre bibliothèques et entrepôts d&rsquo;images numériques disponibles sur le Web :</p>
+<ul>
+<li>chaque entrepôt a été conçu comme un silo : les images ne sont visualisables et manipulables que dans l&rsquo;emprise du site qui les met à disposition ;</li>
+<li>chaque application est unique : les institutions ont développé leur propre visualiseur et défini leurs propres méthodes de diffusion de leurs images en ligne ;</li>
+<li>l’utilisateur doit s&rsquo;adapter à chaque environnement : il doit composer avec des interfaces de consultation différentes, ayant chacune ses fonctionnalités propres, sans passerelle possible.</li>
+</ul>
+<p>Dans un contexte de numérisation de masse et de multiplication de l’accès aux sources en ligne, les pratiques numériques des chercheurs deviennent de plus en plus sophistiquées et cherchent à s’affranchir des barrières techniques entre les sites : </p>
+<ul>
+<li>pour mettre côte à côte plusieurs documents numérisés issus de bibliothèques différentes afin de les comparer ou de les annoter ; </li>
+<li>pour restituer l’état originel d’un document en regroupant virtuellement des fragments dispersés ; </li>
+<li>pour associer aux images des données produites par la recherche, telles que des transcriptions, des commentaires, du son, d’autres images.</li>
+</ul>
+<h2 id="vision">Vision<a class="headerlink" href="#vision" title="Permanent link">&para;</a></h2>
+<p>L&rsquo;ambition de IIIF est de créer un cadre technique commun grâce auquel les fournisseurs de ressources numériques (image, son, vidéo) peuvent :</p>
+<ul>
+<li>délivrer leurs contenus de manière standardisée sur le Web,</li>
+<li>afin de les rendre consultables, manipulables et annotables,</li>
+<li>par n’importe quel logiciel compatible.</li>
+</ul>
+<figure>
+<p><img alt="Schéma IIIF (Régis Robineau)" src="../../assets/schema_iiif.svg" />
+  </p>
+<figcaption>Schéma : principe général d’interopérabilité de IIIF (trois applications différentes sont branchées à trois entrepôts IIIF). <a href="/assets/schema_iiif.svg">Agrandir l'image</a></figcaption>
+</figure>
+<p>Dans cet environnement distribué et interopérable, chaque entrepôt devient un point d&rsquo;accès distant potentiel auquel des applications tierces peuvent se &ldquo;brancher&rdquo; et réutiliser les ressources à d&rsquo;autres fins, sans avoir à les dupliquer et sans en perdre le contexte.</p>
+<p>En rendant accessibles de vastes corpus d’images et de ressources audiovisuelles, IIIF agit comme un facilitateur pour de nombreux projets et applications utilisant les collections des institutions culturelles et susceptibles de toucher des publics variés : portails thématiques, expositions virtuelles, plateformes de <em>crowdsourcing</em>, événements de type hackathon, constitution de corpus de recherche, reconstitutions virtuelles, etc.</p>
+<h2 id="communaute-iiif">Communauté IIIF<a class="headerlink" href="#communaute-iiif" title="Permanent link">&para;</a></h2>
+<p>Formée au tournant des années 2010 autour d’un petit noyau de bibliothèques nationales et universitaires, l’initiative IIIF est aujourd’hui portée par un <a href="https://iiif.io/community/consortium/">consortium international</a> d’une soixantaine d’organisations et animée par une communauté d’acteurs très divers : musées, archives, bibliothèques, instituts de recherche, sociétés de services informatiques.</p>
+<p>Le rôle principal de la communauté IIIF est d’élaborer, de publier et de faire évoluer de façon concertée les spécifications techniques de IIIF à partir de cas d’usages réels et documentés.</p>
+<p>Ces spécifications sont ensuite implémentées dans des logiciels et plateformes de diverses natures (serveurs d’images, visualiseurs, outils d’annotation, systèmes de gestion de contenus, etc.), garantissant ainsi leur interopérabilité.</p>
+<div class="admonition tip">
+<ul>
+<li>Voir la <a href="https://iiif.io/community/map/">carte de la communauté IIIF</a></li>
+<li>Voir la <a href="https://github.com/IIIF/awesome-iiif/">liste officielle de ressources et outils IIIF</a></li>
+</ul>
+</div>
+<h2 id="avantages-de-iiif-pour-les-institutions">Avantages de IIIF pour les institutions<a class="headerlink" href="#avantages-de-iiif-pour-les-institutions" title="Permanent link">&para;</a></h2>
+<p><strong>En termes de diffusion et valorisation des collections</strong>, IIIF permet de proposer aux internautes des fonctionnalités avancées et une expérience enrichie, notamment pour :</p>
+<ul>
+<li>Visualiser et zoomer sur des images en haute résolution de manière plus fluide et performante.</li>
+<li>Appeler et manipuler une image à distance afin de modifier sa taille, lui appliquer une rotation, changer son format etc.</li>
+<li>Citer et partager une image ou une région d&rsquo;intérêt au moyen d&rsquo;une URL stable.</li>
+<li>Comparer des ressources provenant d&rsquo;institutions différentes, tout en conservant les métadonnées nécessaires à la compréhension de leur contexte respectif.</li>
+<li>Annoter les ressources de façon standard (modèle <a href="https://www.w3.org/TR/annotation-model/">Web Annotation Data Model</a> du W3C) avec du texte ou d&rsquo;autres médias.</li>
+<li>Rechercher en plein-texte dans les annotations associées à un document (commentaires, transcriptions, OCR etc.).</li>
+<li>Combiner et remixer des ressources issues de plusieurs entrepôts afin de reconstituer virtuellement un objet ou une collection dispersée, créer un <em>mash-up</em> associant image, texte, son ou vidéo.</li>
+</ul>
+<p><strong>En termes de développement et de maintenance informatique</strong>, l&rsquo;écosystème de IIIF :</p>
+<ul>
+<li>Dispose d&rsquo;un large panel de logiciels compatibles avec ses API, tant côté serveur que côté client.</li>
+<li>Offre ainsi plus de souplesse dans la migration de logiciels, la couche serveur étant découplée de la couche cliente :<ul>
+<li>ce qui facilite le changement de serveur d’images sans avoir à adapter les applications clientes, et vice versa ;</li>
+<li>et réduit la dépendance à un logiciel ou un prestataire informatique en particulier.</li>
+</ul>
+</li>
+<li>Permet de réduire les coûts globaux sur le long terme :<ul>
+<li>beaucoup de logiciels sont développés de façon communautaire et distribués sous licence libre ;</li>
+<li>le développement peut être rationalisé grâce à l’utilisation de composants réutilisables et partagés entre applications.</li>
+</ul>
+</li>
+<li>Facilite le transfert et le partage de données : IIIF est entièrement basé sur les standards et l’architecture du Web (principes REST et du <em>Linked Data</em>, modèle <em>Web Annotation</em>, JSON-LD).</li>
+<li>Permet de publier ses ressources une fois et de les réutiliser autant que souhaité.</li>
+<li>Prend en charge les contraintes institutionnelles liées à l’authentification et aux droits
+d’accès (<em>IIIF Authentication API</em>).</li>
+</ul>
+<h2 id="technologie-api-iiif">Technologie (API IIIF)<a class="headerlink" href="#technologie-api-iiif" title="Permanent link">&para;</a></h2>
+<p>Le cadre technique défini par IIIF repose sur plusieurs protocoles ou « API » (interface de programmation applicative). Ils forment le socle commun sur lequel un écosystème d’outils et de ressources numériques interopérables peut se développer.</p>
+<p>Les deux principales API sont :</p>
+<ul>
+<li><strong>l&rsquo;API Image</strong></li>
+<li><strong>l&rsquo;API Présentation</strong></li>
+</ul>
+<p>D&rsquo;autres API fonctionnant de manière conjointe et complémentaire à ces deux dernières sont actuellement publiées en version stable : voir la <a href="https://iiif.io/api/">liste complète des API IIIF disponibles</a>.</p>
+<h3 id="api-image">API Image<a class="headerlink" href="#api-image" title="Permanent link">&para;</a></h3>
+<p>L&rsquo;API Image spécifie une méthode pour délivrer les pixels d’une image et la manipuler à distance à travers une syntaxe d’URL standardisée.</p>
+<p>Cette syntaxe d&rsquo;URL s&rsquo;applique à deux types de requêtes sur une même image :</p>
+<ul>
+<li><strong>requête de l&rsquo;image elle-même</strong> (pixels)</li>
+<li><strong>requête d&rsquo;information sur l&rsquo;image</strong> (JSON)</li>
+</ul>
+<h4 id="requete-dimage">Requête d&rsquo;image<a class="headerlink" href="#requete-dimage" title="Permanent link">&para;</a></h4>
+<div class="highlight"><span class="filename">Modèle d'URL</span><pre><span></span><code>{scheme}://{server}{/prefix}/{identifier}/{region}/{size}/{rotation}/{quality}.{format}
+</code></pre></div>
+<div class="highlight"><span class="filename">Exemple (image pleine taille)</span><pre><span></span><code>https://example.org/image-service/abcd1234/full/full/0/default.jpg (API Image 2.1)
+https://example.org/image-service/abcd1234/full/max/0/default.jpg (API Image 3.0)
+</code></pre></div>
+<p>Ce mécanisme d&rsquo;URL permet à un client d&rsquo;appeler et manipuler une image selon des paramètres de région (<code>region</code>), de taille (<code>size</code>), de rotation (<code>rotation</code>), de qualité (<code>quality</code>) et de format (<code>format</code>). Par exemple il est possible de demander la version pleine taille d&rsquo;une image, ou simplement une portion de celle-ci (zone d&rsquo;intérêt au sein de l&rsquo;image), de la redimensionner, de la faire pivoter ou la retourner horizontalement ou verticalement, de la passer en noir et blanc, etc.</p>
+<p>NB : le paramètre <code>identifier</code> (&ldquo;abcd1234&rdquo;) est l&rsquo;identifiant unique de l&rsquo;image dans l&rsquo;entrepôt source. Il peut s&rsquo;agir d&rsquo;un ARK, un URN, un simple nom de fichier, ou tout autre type d&rsquo;identifiant. Les caractères spéciaux doivent être encodés. Le paramètre <code>/prefix</code> (&ldquo;/image-service&rdquo;) est optionnel.</p>
+<div class="admonition example">
+<p class="admonition-title">Exemples</p>
+<p>Tester le <a href="https://www.learniiif.org/image-api/playground">Image API Playground</a> pour jouer avec les différents paramètres de l&rsquo;API.</p>
+<p>Exemples d&rsquo;URL (API Image 2.1) :</p>
+<ul>
+<li><a href="https://api.digitale-sammlungen.de/iiif/image/v2/bsb00021200_00038/full/562,800/0/default.jpg">https://api.digitale-sammlungen.de/iiif/image/v2/bsb00021200_00038/full/562,800/0/default.jpg</a> (image entière, retaillée à 562x800 pixels)</li>
+<li><a href="https://api.digitale-sammlungen.de/iiif/image/v2/bsb00021200_00038/654,2223,2996,2200/800,/0/default.jpg">https://api.digitale-sammlungen.de/iiif/image/v2/bsb00021200_00038/654,2223,2996,2200/800,/0/default.jpg</a> (région d&rsquo;intérêt au sein de l&rsquo;image, retaillée à 800 pixels de largeur)</li>
+<li><a href="https://api.digitale-sammlungen.de/iiif/image/v2/bsb00021200_00038/654,2223,2996,2200/600,/!0/gray.png">https://api.digitale-sammlungen.de/iiif/image/v2/bsb00021200_00038/654,2223,2996,2200/600,/!0/gray.png</a> (région d&rsquo;intérêt retaillée à 600 pixels de largeur, retournée sur l&rsquo;axe vertical, passée en niveau de gris et au format PNG)</li>
+</ul>
+</div>
+<h4 id="requete-dinformation-sur-limage">Requête d&rsquo;information sur l&rsquo;image<a class="headerlink" href="#requete-dinformation-sur-limage" title="Permanent link">&para;</a></h4>
+<div class="highlight"><span class="filename">Modèle d'URL</span><pre><span></span><code>{scheme}://{server}{/prefix}/{identifier}/info.json
+</code></pre></div>
+<div class="highlight"><span class="filename">Exemple</span><pre><span></span><code>https://example.org/image-service/abcd1234/info.json
+</code></pre></div>
+<p>Ce type de requête permet de fournir des métadonnées techniques sur une image, utilisables par une application cliente (visualiseur ou autre logiciel) sous la forme de données au format JSON.</p>
+<p>Ces métadonnées techniques sur l’image comprennent notamment :</p>
+<ul>
+<li>les dimensions de l’image</li>
+<li>tailles préférées du serveur qui délivre l&rsquo;image</li>
+<li>les dimensions des tuiles d&rsquo;image le cas échéant (utilisées pour le zoom)</li>
+<li>des informations de conformité : version de l’API supportée par le serveur, niveau de compatibilité avec l&rsquo;API Image, autres fonctionnalités supportées</li>
+<li>mentions de droits ou de licence</li>
+</ul>
+<div class="admonition example">
+<p class="admonition-title">Exemples</p>
+<ul>
+<li><a href="https://iiif.library.ucla.edu/iiif/2/ark%3A%2F21198%2Fzz00090nmj/info.json">https://iiif.library.ucla.edu/iiif/2/ark%3A%2F21198%2Fzz00090nmj/info.json</a> (API Image 2.1)</li>
+<li><a href="https://iiif.io/api/image/3.0/example/reference/59d09e6773341f28ea166e9f3c1e674f-gallica_ark_12148_bpt6k1526005v_f19/info.json">https://iiif.io/api/image/3.0/example/reference/59d09e6773341f28ea166e9f3c1e674f-gallica_ark_12148_bpt6k1526005v_f19/info.json</a> (API Image 3.0)</li>
+</ul>
+</div>
+<h4 id="implementation">Implémentation<a class="headerlink" href="#implementation" title="Permanent link">&para;</a></h4>
+<div class="admonition abstract">
+<p class="admonition-title">Notes</p>
+<ul>
+<li>Une implémentation dynamique passe par l&rsquo;installation et le paramétrage d&rsquo;un serveur d&rsquo;images IIIF (voir la <a href="https://github.com/IIIF/awesome-iiif/#image-servers">liste des logiciels existants</a>). Cela permet de bénéficier des principales fonctionnalités de l&rsquo;API Image (level 1 ou 2).</li>
+<li>Une implémentation statique est une alternative possible à l&rsquo;installation d&rsquo;un logiciel dédié, qui consiste à pré-générer des tuiles d&rsquo;images (level 0 de l&rsquo;API Image) et de les délivrer via un serveur Web classique. NB : cela limite les possibilités de manipulation dynamique de l&rsquo;image, avec ce type d&rsquo;implémentation il n&rsquo;est par exemple pas possible de citer une région arbitraire au sein d&rsquo;une image.</li>
+<li>Pour les images en hauté résolution, il est conseillé d&rsquo;opter pour un format optimisé pour le zoom progressif : JPEG2000 ou TIFF Pyramidal.</li>
+<li>Il convient de respecter certains <a href="../../vademecum-biblissima/#pre-requis-techniques-du-serveur-iiif">pré-requis techniques</a> dans la configuration du serveur (protocole HTTPS et entêtes HTTP CORS).</li>
+</ul>
+</div>
+<h3 id="api-presentation">API Présentation<a class="headerlink" href="#api-presentation" title="Permanent link">&para;</a></h3>
+<h4 id="principe">Principe<a class="headerlink" href="#principe" title="Permanent link">&para;</a></h4>
+<p>L’API Présentation spécifie les <strong>métadonnées (descriptives, structurelles, techniques) nécessaires à la présentation d’un objet numérique</strong> dans une interface (par exemple un visualiseur d&rsquo;images, ou tout autre environnement manipulant des images et autres médias supportés par IIIF).</p>
+<p>Toutes ces informations sont contenues dans un fichier appelé <strong>« Manifeste »</strong>, une sorte d’enveloppe virtuelle formant l’unité de distribution élémentaire dans l’univers IIIF. C’est en général ce fichier que vont manipuler les logiciels pour interagir avec une ressource, la visualiser, ou la transférer vers un autre outil.</p>
+<p>L’API Présentation constitue à la fois :</p>
+<ul>
+<li>un <strong>format d’échange</strong>, sérialisé en <a href="https://json-ld.org">JSON-LD</a></li>
+<li>un <strong>modèle décrivant la représentation numérique d’un objet</strong> : la séquence ordonnée des médias qui le compose (images, audios, vidéos), sa structure interne, ses métadonnées, ses liens avec d’autres ressources, ses annotations.</li>
+</ul>
+<p>Un Manifeste IIIF représente le plus souvent le fac-similé numérique d’un objet physique (livre, manuscrit, périodique, carte, peinture, photographie, partition, monnaie, objet archéologique, archive sonore, captation vidéo, etc.). Mais un Manifeste peut tout aussi bien représenter un objet virtuel et composite constitué d&rsquo;une série d&rsquo;images ou autres médias rassemblés à des fins scientifiques ou pédagogiques, et pouvant provenir de différentes collections.</p>
+<figure>
+<p><img alt="Schéma Manifeste IIIF (© Régis Robineau)" src="../../assets/schema_manifeste_iiif.svg" />
+  </p>
+<figcaption>Schéma : principales composantes d'un Manifeste IIIF. <a href="/assets/schema_manifeste_iiif.svg">Agrandir l'image</a></figcaption>
+</figure>
+<p>Les visualiseurs IIIF tels que <a href="https://projectmirador.org">Mirador</a> ou <a href="http://universalviewer.io/">Universal Viewer</a> font partie des outils capables d&rsquo;afficher un objet via son Manifeste et de proposer à l&rsquo;utilisateur une expérience de visualisation riche.</p>
+<p>Les deux images ci-dessous permettent d&rsquo;illustrer où sont mobilisées les deux API Image et Présentation dans un visualiseur comme Mirador 3 :</p>
+<p><img alt="" src="../../assets/mirador-iiif-api-image.png" /></p>
+<p><img alt="" src="../../assets/mirador-iiif-api-presentation.png" /></p>
+<h4 id="exemples-1">Exemples (1)<a class="headerlink" href="#exemples-1" title="Permanent link">&para;</a></h4>
+<div class="admonition example">
+<p class="admonition-title">Manifestes : exemples par type d&rsquo;institution</p>
+<p>Archives :</p>
+<ul>
+<li>Dublin City Library and Archive : <em>Royal charters to the city of Dublin</em> (<a href="https://by2022.adaptcentre.ie/iiif/v1/160821/manifest">Manifeste JSON</a> &ndash; <a href="https://portail.biblissima.fr/m3/?theme=dark&amp;context=collection&amp;iiif-content=https://by2022.adaptcentre.ie/iiif/v1/160821/manifest">Ouvrir dans Mirador</a>)</li>
+<li>Archives départementales de la Vienne : <em>La Nouvelle République du Centre-Ouest : 8 septembre 1944-30 décembre 1945</em> (<a href="https://archives-deux-sevres-vienne.fr/ark:/28387/vta563c56f414a055ae/manifest">Manifeste JSON</a> &ndash; <a href="https://portail.biblissima.fr/m3/?theme=dark&amp;context=collection&amp;iiif-content=https://archives-deux-sevres-vienne.fr/ark:/28387/vta563c56f414a055ae/manifest">Ouvrir dans Mirador</a>)</li>
+<li>Archives fédérales suisses : <em>Procès-verbal(-aux) des décisions 08.05.1945</em> (<a href="https://api.chgov.bar.admin.ch/manifests/32328752/32328752.json">Manifeste JSON</a> &ndash; <a href="https://portail.biblissima.fr/m3/?theme=dark&amp;context=collection&amp;iiif-content=https://api.chgov.bar.admin.ch/manifests/32328752/32328752.json">Ouvrir dans Mirador</a>)</li>
+</ul>
+<p>Bibliothèques :</p>
+<ul>
+<li>Bibliothèque Mazarine : <em>La Bible de Gutenberg</em> (<a href="https://mazarinum.bibliotheque-mazarine.fr/iiif/1703/manifest">Manifeste JSON</a> &ndash; <a href="https://portail.biblissima.fr/m3/?theme=dark&amp;context=collection&amp;iiif-content=https://mazarinum.bibliotheque-mazarine.fr/iiif/1703/manifest">Ouvrir dans Mirador</a>)</li>
+<li>Ghent University Library : <em>[map] Gent</em> (<a href="https://adore.ugent.be/IIIF/manifests/archive.ugent.be:8ED9BD60-2689-11E6-BB79-D668D43445F2">Manifeste JSON</a> &ndash; <a href="https://portail.biblissima.fr/m3/?theme=dark&amp;context=collection&amp;iiif-content=https://adore.ugent.be/IIIF/manifests/archive.ugent.be:8ED9BD60-2689-11E6-BB79-D668D43445F2">Ouvrir dans Mirador</a>)</li>
+<li>Bayerische Staatsbibliothek : <em>Logbook of a Ship of Sir Francis Drake’s Last Voyage</em> (<a href="https://api.digitale-sammlungen.de/iiif/presentation/v2/bsb00110131/manifest">Manifeste JSON</a> &ndash; <a href="https://portail.biblissima.fr/m3/?theme=dark&amp;context=collection&amp;iiif-content=https://api.digitale-sammlungen.de/iiif/presentation/v2/bsb00110131/manifest">Ouvrir dans Mirador</a>)</li>
+</ul>
+<p>Musées :</p>
+<ul>
+<li>Getty Museum : <em>Irises</em> (<a href="https://media.getty.edu/iiif/manifest/53be857e-41e8-4198-b45d-2e0f52d3051b">Manifeste JSON</a> &ndash; <a href="https://portail.biblissima.fr/m3/?theme=dark&amp;context=collection&amp;iiif-content=https://media.getty.edu/iiif/manifest/53be857e-41e8-4198-b45d-2e0f52d3051b">Ouvrir dans Mirador</a>)</li>
+<li>Statens Museum for Kunst : <em>View of the Interior of the Colosseum</em> (<a href="https://api.smk.dk/api/v1/iiif/manifest/?id=KMS1776">Manifeste JSON</a> &ndash; <a href="https://portail.biblissima.fr/m3/?theme=dark&amp;context=collection&amp;iiif-content=https://api.smk.dk/api/v1/iiif/manifest/?id=KMS1776">Ouvrir dans Mirador</a>)</li>
+<li>The Royal Collection Trust : <em>Raphael Collection portfolio 26</em> (<a href="https://rct.resourcespace.com/iiif/970585/">Manifeste JSON</a> &ndash; <a href="https://portail.biblissima.fr/m3/?theme=dark&amp;context=collection&amp;iiif-content=https://rct.resourcespace.com/iiif/970585/">Ouvrir dans Mirador</a>)</li>
+</ul>
+</div>
+<h4 id="exemples-2">Exemples (2)<a class="headerlink" href="#exemples-2" title="Permanent link">&para;</a></h4>
+<div class="admonition example">
+<p class="admonition-title">Manifestes : exemples avancés</p>
+<ul>
+<li>
+<p>Biblissima - Reconstruction virtuelle (partielle) d&rsquo;un manuscrit mutilé (Châteauroux, BM, ms. 5) : <a href="https://demos.biblissima.fr/iiif/metadata/BVMM/chateauroux/manifest.json">Manifeste JSON (v2)</a> &ndash; <a href="https://portail.biblissima.fr/m3/?theme=dark&amp;context=collection&amp;iiif-content=https://demos.biblissima.fr/iiif/metadata/BVMM/chateauroux/manifest.json">Ouvrir dans Mirador</a></p>
+</li>
+<li>
+<p>Biblissima - Reconstruction virtuelle d&rsquo;un manuscrit dispersé (« Florus dispersus ») : <a href="https://demos.biblissima.fr/iiif/metadata/florus-dispersus/manifest.json">Manifeste JSON (v2)</a> &ndash; <a href="https://portail.biblissima.fr/m3/?theme=dark&amp;context=collection&amp;iiif-content=https://demos.biblissima.fr/iiif/metadata/florus-dispersus/manifest.json">Ouvrir dans Mirador</a></p>
+</li>
+<li>
+<p>Biblissima - Collection d&rsquo;enluminures portant une représentation de comètes : <a href="https://portail.biblissima.fr/iiif/manifest/ark:/43093/descdbf571c2dcac868496312bf36d449401e4ac0af4">Manifeste JSON (v2)</a> &ndash; <a href="https://portail.biblissima.fr/m3/?theme=dark&amp;context=collection&amp;iiif-content=https://portail.biblissima.fr/iiif/manifest/ark:/43093/descdbf571c2dcac868496312bf36d449401e4ac0af4">Ouvrir dans Mirador</a></p>
+</li>
+<li>
+<p>Biblissima - Collection d&rsquo;enluminures issue d&rsquo;une requête combinant les termes « Planète » et « Cosmographie » : <a href="https://portail.biblissima.fr/iiif/manifest?descriptors=AND|569c70bc8f3f52b8966895b97ace86644dca444a,AND|86e65567ec9ac97ea2404af46cafa34d6f4920e7">Manifeste JSON (v2)</a> &ndash; <a href="https://portail.biblissima.fr/m3/?theme=dark&amp;context=collection&amp;iiif-content=https://portail.biblissima.fr/iiif/manifest?descriptors=AND|569c70bc8f3f52b8966895b97ace86644dca444a,AND|86e65567ec9ac97ea2404af46cafa34d6f4920e7">Ouvrir dans Mirador</a></p>
+</li>
+<li>
+<p>Library of Congress - Lettre numérisée par imagerie hyperspectrale, avec affichage de la transcription du texte et des différentes couches d&rsquo;image : <a href="https://dvp.prtd.app/hamilton/manifest.json">Manifeste JSON (v2)</a> &ndash; <a href="https://portail.biblissima.fr/m3/?theme=dark&amp;context=collection&amp;iiif-content=https://dvp.prtd.app/hamilton/manifest.json">Ouvrir dans Mirador</a></p>
+</li>
+<li>
+<p>Bayerische Staatsbibliothek, Munich - Livre imprimé, avec service de recherche plein-texte au sein de l&rsquo;OCR <a href="https://api.digitale-sammlungen.de/iiif/presentation/v2/bsb10139933/manifest">Manifeste JSON (v2)</a> || <a href="https://portail.biblissima.fr/m3/?theme=dark&amp;context=collection&amp;iiif-content=https://api.digitale-sammlungen.de/iiif/presentation/v2/bsb10139933/manifest">Ouvrir dans Mirador</a></p>
+</li>
+<li>
+<p>Bodleian Library, Oxford - Manuscrit arabe illustré, portant de nombreuses annotations IIIF de formes diverses (voir fols. 2b and 3a) : <a href="https://iiif.bodleian.ox.ac.uk/iiif/manifest/748a9d50-5a3a-440e-ab9d-567dd68b6abb.json">Manifeste JSON (v2)</a> &ndash; <a href="https://portail.biblissima.fr/m3/?theme=dark&amp;context=collection&amp;iiif-content=https://iiif.bodleian.ox.ac.uk/iiif/manifest/748a9d50-5a3a-440e-ab9d-567dd68b6abb.json">Ouvrir dans Mirador</a></p>
+</li>
+<li>
+<p>Biblioteca Vaticana - Manuscrit hébreu, avec lecture de droite à gauche : <a href="https://digi.vatlib.it/iiif/MSS_Vat.ebr.327/manifest.json">Manifeste JSON (v2)</a> &ndash; <a href="https://portail.biblissima.fr/m3/?theme=dark&amp;context=collection&amp;iiif-content=https://digi.vatlib.it/iiif/MSS_Vat.ebr.327/manifest.json">Ouvrir dans Mirador</a></p>
+</li>
+</ul>
+<p>De nombreux exemples de Manifestes sont aussi accessibles sur ces deux pages :</p>
+<ul>
+<li><a href="https://iiif.io/api/cookbook">IIIF Cookbook</a></li>
+<li><a href="https://github.com/ProjectMirador/mirador/wiki/M3-Fixtures-&amp;-sample-IIIF-data">Mirador 3 Fixtures &amp; sample IIIF data</a></li>
+</ul>
+</div>
+<h4 id="implementation_1">Implémentation<a class="headerlink" href="#implementation_1" title="Permanent link">&para;</a></h4>
+<div class="admonition abstract">
+<p class="admonition-title">Notes</p>
+<ul>
+<li>Un Manifeste IIIF peut être créé de façon statique ou dynamique.</li>
+<li>La production d&rsquo;un Manifeste est souvent une opération spécifique à un environnement institutionnel ou informatique donné : il n&rsquo;y a pas de méthode unique universellement applicable.</li>
+<li>Un Manifeste résulte dans la plupart des cas de la combinaison de deux types d&rsquo;informations (qui peuvent potentiellement provenir de systèmes différents) : <ul>
+<li>un ensemble de métadonnées descriptives ;</li>
+<li>des informations de séquence et de structure de l&rsquo;objet numérique (en premier lieu la liste ordonnée des images qui le constitue, avec leurs identifiants et leurs dimensions en pixels).</li>
+</ul>
+</li>
+<li>Ces données nécessaires à la génération d&rsquo;un Manifeste peuvent être structurées dans différents formats source (METS/MODS, XML-TEI, XML-EAD, tableur type CSV, base de données etc.).</li>
+<li>L&rsquo;API Présentation est le plus souvent utilisée de façon conjointe avec l&rsquo;API Image pour gérer le zoom et l&rsquo;affichage des différents dérivés d&rsquo;une image (vignette, aperçu). Dans ce cas la génération d&rsquo;un Manifeste implique d&rsquo;être capable d&rsquo;établir le lien entre une vue au sein de l&rsquo;objet (par exemple une page de livre) et le service API Image de l&rsquo;image correspondante.</li>
+<li>Il est conseillé de vérifier la conformité des Manifestes en utilisant le <a href="https://presentation-validator.iiif.io/">validateur officiel</a>.</li>
+<li>Il convient de respecter de certains <a href="../../vademecum-biblissima/#pre-requis-techniques-du-serveur-iiif">pré-requis techniques</a> dans la configuration du serveur qui expose les Manifests (protocole HTTPS et entêtes HTTP CORS).</li>
+</ul>
+</div>
+<h2 id="pour-approfondir">Pour approfondir<a class="headerlink" href="#pour-approfondir" title="Permanent link">&para;</a></h2>
+<p><strong>Quelques ressources utiles en français :</strong></p>
+<ul>
+<li><a href="https://zenodo.org/doi/10.5281/zenodo.8380226">Intégrer IIIF dans le projet de refonte du site web de votre service d&rsquo;archives : éléments pour CCTP et cadre de réponse</a> (Cécile Sajdak, 2023)</li>
+<li><a href="https://doc.biblissima.fr/formation-iiif/">Module de formation à IIIF (1 jour)</a> (Régis Robineau). Site support de la formation organisée en novembre 2022 et novembre 2023 au Campus Condorcet dans le cadre du cluster 1 de Biblissima+</li>
+<li><a href="https://www.culture.gouv.fr/fr/Thematiques/Enseignement-superieur-et-Recherche/La-revue-Culture-et-Recherche/La-recherche-culturelle-a-l-international">IIIF : découverte et interopérabilité sans frontières des images patrimoniales</a>, <em>Culture et Recherche</em> n°143, 2022, p. 111-117</li>
+<li><a href="https://projet.biblissima.fr/fr/formations-evenements/conference-iiif-2021-session-regionale-iiif-france">Vidéo de la session régionale IIIF France</a> de la Conférence internationale IIIF 2021 (24 juin 2021).</li>
+<li><a href="https://projet.biblissima.fr/fr/evenements/rendez-vous-iiif360-2021">Vidéos et supports de présentations du séminaire IIIF360</a> (24 mars 2021).</li>
+<li><a href="https://github.com/regisrob/Atelier_IIIF_TD_Master_CESR_2020">Visualisation et fouille des données : IIIF</a> (Régis Robineau). Cours de Master 2 « Mediation Numérique de la Culture et des Patrimoines » (École Supérieure en Intelligence des Patrimoines, CESR, Université de Tours)</li>
+<li><a href="https://github.com/regisrob/Atelier_IIIF_Conference_DHNord_2020">Adopter et utiliser les standards IIIF pour vos corpus d&rsquo;images numériques</a> (Régis Robineau). Atelier en ligne organisé dans le cadre du colloque « #dhnord2020 - La mesure des images : approches computationnelles en histoire et théorie des arts » (MESHS, 18 novembre 2020)</li>
+<li><a href="https://doi.org/10.5281/zenodo.3760306">Introduction aux protocoles IIIF</a> (Régis Robineau, 2019). Présentation faite dans le cadre de la formation au Diplôme de conservateur de bibliothèque de l&rsquo;Enssib (Villeurbanne, 23 janvier 2019)</li>
+</ul>
+<p><strong>En anglais :</strong></p>
+<ul>
+<li><a href="https://iiif.io/get-started/">Get Started — IIIF</a></li>
+<li><a href="https://iiif.io/get-started/cookbook/">Cookbook of IIIF Recipes</a></li>
+<li><a href="https://github.com/IIIF/awesome-iiif">Awesome IIIF</a> (liste de ressources utiles maintenue par la communauté IIIF)</li>
+<li><a href="https://www.youtube.com/channel/UClcQIkLdYra7ZnOmMJnC5OA">Chaîne Youtube IIIF</a></li>
+</ul>
+
+
+<!-- taken from 
+https://github.com/squidfunk/mkdocs-material/blob/master/src/partials/source-file.html -->
+
+<hr />
+<div class="md-source-file">
+<small>
+
+    <!-- mkdocs-git-revision-date-localized-plugin -->
+    
+    Dernière mise à jour:
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">January 15, 2024</span>
+    
+
+    <!-- mkdocs-git-revision-date-plugin -->
+    
+</small>
+</div>
+
+  
+
+
+  
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Retour en haut de la page
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <!-- Copyright and theme information -->
+<div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Équipe Portail Biblissima+ — Licence Ouverte / Open License 2.0
+    </div>
+  
+  
+    Fait avec
+    <a
+      href="https://squidfunk.github.io/mkdocs-material/"
+      target="_blank" rel="noopener"
+    >
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        <div class="md-social">
+  
+    
+    
+    
+    
+    <a href="https://bsky.app/profile/biblissima.bsky.social" target="_blank" rel="noopener" title="Bluesky" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--! Font Awesome Free 7.0.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path fill="currentColor" d="M407.8 294.7c-3.3-.4-6.7-.8-10-1.3 3.4.4 6.7.9 10 1.3M288 227.1c-26.1-50.7-97.1-145.2-163.1-191.8C61.6-9.4 37.5-1.7 21.6 5.5 3.3 13.8 0 41.9 0 58.4S9.1 194 15 213.9c19.5 65.7 89.1 87.9 153.2 80.7 3.3-.5 6.6-.9 10-1.4-3.3.5-6.6 1-10 1.4-93.9 14-177.3 48.2-67.9 169.9C220.6 589.1 265.1 437.8 288 361.1c22.9 76.7 49.2 222.5 185.6 103.4 102.4-103.4 28.1-156-65.8-169.9-3.3-.4-6.7-.8-10-1.3 3.4.4 6.7.9 10 1.3 64.1 7.1 133.6-15.1 153.2-80.7C566.9 194 576 75 576 58.4s-3.3-44.7-21.6-52.9c-15.8-7.1-40-14.9-103.2 29.8C385.1 81.9 314.1 176.4 288 227.1"/></svg>
+    </a>
+  
+    
+    
+      
+    
+    
+    
+    <a href="https://universites.social/@biblissima" target="_blank" rel="noopener me" title="Mastodon" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.0.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path fill="currentColor" d="M433 179.1c0-97.2-63.7-125.7-63.7-125.7-62.5-28.7-228.6-28.4-290.5 0 0 0-63.7 28.5-63.7 125.7 0 115.7-6.6 259.4 105.6 289.1 40.5 10.7 75.3 13 103.3 11.4 50.8-2.8 79.3-18.1 79.3-18.1l-1.7-36.9s-36.3 11.4-77.1 10.1c-40.4-1.4-83-4.4-89.6-54-.6-4.6-.9-9.3-.9-13.9 85.6 20.9 158.7 9.1 178.7 6.7 56.1-6.7 105-41.3 111.2-72.9 9.8-49.8 9-121.5 9-121.5zm-75.1 125.2h-46.6V190.1c0-49.7-64-51.6-64 6.9v62.5H201V197c0-58.5-64-56.6-64-6.9v114.2H90.3c0-122.1-5.2-147.9 18.4-175 25.9-28.9 79.8-30.8 103.8 6.1l11.6 19.5 11.6-19.5c24.1-37.1 78.1-34.8 103.8-6.1 23.7 27.3 18.4 53 18.4 175"/></svg>
+    </a>
+  
+    
+    
+    
+    
+    <a href="https://www.youtube.com/channel/UCaHWzwUV0xBAQ-sEdE9EtKg" target="_blank" rel="noopener" title="Youtube" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--! Font Awesome Free 7.0.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path fill="currentColor" d="M549.7 124.1c-6.2-23.7-24.8-42.3-48.3-48.6C458.9 64 288.1 64 288.1 64S117.3 64 74.7 75.5c-23.5 6.3-42 24.9-48.3 48.6C15 167 15 256.4 15 256.4s0 89.4 11.4 132.3c6.3 23.6 24.8 41.5 48.3 47.8C117.3 448 288.1 448 288.1 448s170.8 0 213.4-11.5c23.5-6.3 42-24.2 48.3-47.8 11.4-42.9 11.4-132.3 11.4-132.3s0-89.4-11.4-132.3zM232.2 337.6V175.2l142.7 81.2z"/></svg>
+    </a>
+  
+    
+    
+    
+    
+    <a href="https://projet.biblissima.fr/fr/newsletter" target="_blank" rel="noopener" title="Lettre d&#39;information Biblissima+" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.0.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path fill="currentColor" d="M48 64C21.5 64 0 85.5 0 112c0 15.1 7.1 29.3 19.2 38.4l208 156a48 48 0 0 0 57.6 0l208-156c12.1-9.1 19.2-23.3 19.2-38.4 0-26.5-21.5-48-48-48zM0 196v188c0 35.3 28.7 64 64 64h384c35.3 0 64-28.7 64-64V196L313.6 344.8c-34.1 25.6-81.1 25.6-115.2 0z"/></svg>
+    </a>
+  
+    
+    
+    
+    
+    <a href="https://github.com/biblissima/" target="_blank" rel="noopener" title="Codes source sur Github" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.0.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path fill="currentColor" d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+    </a>
+  
+    
+    
+    
+    
+    <a href="https://gitlab.huma-num.fr/biblissima" target="_blank" rel="noopener" title="Codes source sur Gitlab" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.0.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path fill="currentColor" d="m504 204.6-.7-1.8L433.6 21c-1.4-3.6-3.9-6.6-7.2-8.6-2.4-1.6-5.1-2.5-8-2.8s-5.7.1-8.4 1.1-5.1 2.7-7.1 4.8c-1.9 2.1-3.3 4.7-4.1 7.4l-47 144H161.3l-47.1-144c-.8-2.8-2.2-5.3-4.1-7.4-2-2.1-4.4-3.7-7.1-4.8-2.6-1-5.5-1.4-8.4-1.1s-5.6 1.2-8 2.8c-3.2 2-5.8 5.1-7.2 8.6L9.8 202.8l-.8 1.8c-10 26.2-11.3 55-3.5 82 7.7 26.9 24 50.7 46.4 67.6l.3.2.6.4 106 79.5c38.5 29.1 66.7 50.3 84.6 63.9 3.7 1.9 8.3 4.3 13 4.3s9.3-2.4 13-4.3c17.9-13.5 46.1-34.9 84.6-63.9l106.7-79.9.3-.3c22.4-16.9 38.7-40.6 45.6-67.5 8.6-27 7.4-55.8-2.6-82"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tracking", "navigation.sections", "navigation.top", "navigation.tabs", "navigation.indexes", "toc.follow", "content.code.copy"], "search": "../../assets/javascripts/workers/search.d50fe291.min.js", "tags": null, "translations": {"clipboard.copied": "Copi\u00e9 dans le presse-papier", "clipboard.copy": "Copier dans le presse-papier", "search.result.more.one": "1 de plus sur cette page", "search.result.more.other": "# de plus sur cette page", "search.result.none": "Aucun document trouv\u00e9", "search.result.one": "1 document trouv\u00e9", "search.result.other": "# documents trouv\u00e9s", "search.result.placeholder": "Taper pour d\u00e9marrer la recherche", "search.result.term.missing": "Non trouv\u00e9", "select.version": "S\u00e9lectionner la version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.50899def.min.js"></script>
+      
+    
+  </body>
+</html>

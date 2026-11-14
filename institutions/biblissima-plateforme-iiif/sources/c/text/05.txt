@@ -1,0 +1,60 @@
+Point d'accès SPARQL - Documentation Biblissima+ 
+ Documentation Biblissima+
+ Point d'accès SPARQL
+ Initialisation de la recherche
+ Gitlab
+ Contribuer à Biblissima
+ Interopérabilité IIIF
+ Portail
+ Référentiels
+ API
+ Documentation Biblissima+
+ Gitlab
+ Contribuer à Biblissima
+ Contribuer à Biblissima
+ Vademecum Biblissima+
+ Interopérabilité IIIF
+ Interopérabilité IIIF
+ Introduction à IIIF
+ Exemples d'entrepôts IIIF
+ Module de formation à IIIF
+ Portail
+ Portail
+ Format pivot
+ Journal des mises à jour et développements
+ Référentiels
+ Référentiels
+ API
+ API
+ Référentiels Biblissima (Wikibase)
+ Référentiels Biblissima (Wikibase)
+ API Mediawiki/Wikibase
+ Interface de données liées
+ Point d'accès SPARQL
+ Réconciliation de données
+ Réconciliation de données
+ Réconcilier ses données
+ Informations techniques sur l'API
+ Réconcilier avec OpenRefine
+ Réconcilier avec Datasette
+ Portail Biblissima
+ Portail Biblissima
+ API Présentation (IIIF)
+ Point d'accès SPARQL
+ À titre expérimental, les données des référentiels Biblissima sont interrogeables via un point d’accès SPARQL.
+ SPARQL est un langage de requête et un protocole permettant d’interroger des données structurées en RDF. 
+ Le modèle sous-jacent aux référentiels Biblissima est celui de Wikibase, l’outil de gestion et de publication utilisé par data.biblissima . Un résumé introductif de la spécification du modèle est disponible ici : https://www.mediawiki.org/wiki/Wikibase/DataModel/Primer/fr .
+ Avertissement
+ Pour des raisons de scalabilité, ce point d’accès SPARQL n’est pas encore accessible publiquement . 
+ En revanche, pour les besoins des équipes partenaires de Biblissima+, des accès peuvent être ouverts sur demande en écrivant à team(at)biblissima-condorcet.fr.
+ Exemple
+ Des requêtes SPARQL d’exemple sur les données des référentiels data.biblissima sont proposées sur cette page wiki : https://data.biblissima.fr/w/Project:SPARQL_examples 
+ Depuis avril 2026, le logiciel utilisé pour la base de données graphe (triplestore RDF) et le moteur SPARQL est QLever , développé à l’Université de Fribourg (Albert-Ludwigs-Universität Freiburg, Chair of Algorithms and Data Structures).
+ Capture d'écran de l'instance Biblissima de l'interface web de requête SPARQL fournie par QLever
+ Agrandir l'image 
+ Dernière mise à jour:
+ July 7, 2026 
+ Retour en haut de la page
+ Équipe Portail Biblissima+ — Licence Ouverte / Open License 2.0
+ Fait avec
+ Material for MkDocs
