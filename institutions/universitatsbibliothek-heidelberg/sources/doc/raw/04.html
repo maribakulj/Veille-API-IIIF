@@ -1,0 +1,374 @@
+
+<!DOCTYPE html>
+<!-- {"":{ "title": "! Kein Titel gesetzt !", "button": "" },
+"title": "Digitalisierung an der UB Heidelberg: Workflow und Technik"} -->
+
+
+
+<html lang="de"><head>
+  <meta charset="utf-8">
+  <title>Digitalisierung an der UB Heidelberg: Workflow und Technik</title>
+  
+  <meta name="keywords" content="">
+  <meta name="description" content="">
+  <meta http-equiv="Content-Language" content="de">
+  <meta name="organization-name" content="Universitätsbibliothek Heidelberg">
+  <meta name="organization-email" content="ub@ub.uni-heidelberg.de">
+  <meta name="city" content="Heidelberg">
+  <meta name="country" content="Germany - Deutschland">
+  <meta name="language" content="German, Deutsch, de, at, ch">
+  <meta name="robots" content="index">
+  <meta name="robots" content="follow">
+  <meta name="revisit-after" content="1 month">
+  <meta name="rating" content="General">
+  <meta http-equiv="imagetoolbar" content="no">
+  <meta name="MSSmartTagsPreventParsing" content="true">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="google-site-verification" content="Fe1egWKUFNNSp3IYTaGTmvQ_nZKTZK6L5q7QetXMfa4">
+
+  <script type="text/javascript" src="//www.ub.uni-heidelberg.de/js/jquery-1.11.1.min.js"></script>
+  <link rel="SHORTCUT ICON" href="/favicon.ico" type="image/x-icon">
+ 	<style media="screen" type="text/css">
+  	@import url(https://www.ub.uni-heidelberg.de/css/uni/core/base_ltr.css);
+  	@import url(https://www.ub.uni-heidelberg.de/css/uni/basemod_ltr_small.css);
+  	@import url(https://www.ub.uni-heidelberg.de/css/uni/content.css);
+  	@import url(https://www.ub.uni-heidelberg.de/css/uni/style_ltr.css);
+    @import url(https://www.ub.uni-heidelberg.de/css/unilayout2013_ub.css); 
+}
+  </style>
+  <link rel="stylesheet" type="text/css" href="https://www.ub.uni-heidelberg.de/css/ubhd-mod.css">
+
+  <script type="text/javascript">
+    $( document ).ready(function() {
+       var sprachumstellung =  $(".sprachumschalter").text();
+       if(sprachumstellung == '')
+          {
+             $( ".trennstrich" ).hide()
+             $( ".sprachumschalter" ).hide()
+          }
+    });
+    $(function () {
+         $('.ym-skip1[href="#"]').click(function () {  
+                   var isHidden = $( "#col1" ).is( ":hidden" );
+                   var isHidden_navi = $( "#naviMainContainer" ).is( ":hidden" );
+                   if(isHidden == true) {
+                          $('#col1').show(250); 
+                          $('#naviMainContainer').show();
+                          $( ".roundbox_white_left" ).hide();
+                          
+                          }
+                   else {
+                      if(isHidden_navi == true)
+                          {
+                           $('#naviMainContainer').show();
+                           $( ".roundbox_white_left" ).hide();
+                          } 
+                       else
+                          {
+                          $('#col1').hide(250); 
+                          }
+                   }
+          });
+          
+         $('.ym-skip2[href="#"]').click(function () { 
+                   var isHidden = $( "#col1" ).is( ":hidden" );
+                   var isHidden_einstieg = $( ".roundbox_white_left" ).is( ":hidden" );
+
+                   if(isHidden == true) {
+                          $('#col1').show(250);  
+                          $('#naviMainContainer').hide();
+                          $( ".roundbox_white_left" ).show();
+                          }
+                   else {
+                      if(isHidden_einstieg == true)
+                          {
+                           $('#naviMainContainer').hide();
+                           $( ".roundbox_white_left" ).show();
+                          }
+                       else
+                          {
+                          $('#col1').hide(250);
+                          }
+                   }
+         });
+ });
+         $("a[href^='https://www.ub.uni-heidelberg.de'], a:not([href^='http://'], [href^='#'])")
+           .click(function () {
+                var a = $(this);
+                var href=a.attr("href");
+                if ( 0 && href.test(/\?/) ) {
+                    alert("Link enthält bereits einen Querystring. Bitte &responsive=1 in Browseradresszeile ggf. selbst anfügen und neu laden.");
+                }
+                else {
+                    a.attr('href', href+'?responsive=1');
+                }
+           });
+  </script>
+
+
+
+
+</head>
+<body>
+
+	<div id="topBarInstitute">
+    <a href="#contentbegin" accesskey="6">Navigation überspringen</a><a name="up" id="up"></a>
+             <ul class="ym-skiplinks">
+                <li id="ym-skip1"><a class="ym-skip1" href="#">Hauptmenü</a></li>
+                <li>|</li>
+                <li id="ym-skip2"><a class="ym-skip2" href="#">Schnelleinstieg</a></li>
+                <li class="trennstrich">|</li>
+                <li class="sprachumschalter">
+			            </li>
+             </ul>
+
+
+	</div>
+	<div id="page_margins">
+		<div id="page">
+			<div id="universitaet"> <!--// Schriftzug Universität //-->
+			    <a href="//www.uni-heidelberg.de/index.html" title="Zur Universität" accesskey="0"><img src="//www.ub.uni-heidelberg.de/nav4/grafik/layout/schriftzug_mit_siegel.gif" alt="Ruprecht-Karls-Universität Heidelberg"></a> 
+			</div>
+      <div id="institutslogo_rwd">
+        <a href="https://www.ub.uni-heidelberg.de" accesskey="1" title="Homepage Universitätsbibliothek Heidelberg"><img src="https://www.ub.uni-heidelberg.de/nav4/grafik/layout/ub_logo2.gif" alt="Universitätsbibliothek"></a>
+      </div>
+			<div id="greyBar">
+			</div>
+			<div id="main">   <!--// Beginn Seiten //-->
+        		<div id="col1">      <!--// Beginn linke Spalte//-->
+          			<div id="col1_content" class="clearfix">
+						<div class="institutslogo"> <!-- Logo-Schriftzug links - Breite: 204 px -->
+<!-- Link zur Startseite -->
+							<a href="//www.ub.uni-heidelberg.de" accesskey="1" title="Homepage Universitätsbibliothek Heidelberg"><img src="https://www.ub.uni-heidelberg.de/nav4/grafik/layout/ub_logo2.gif" alt="Universitätsbibliothek"></a>
+						</div>
+					
+       						<div id="naviMainContainer">  <!--// Beginn Haupt-Navi //-->
+            <div id="heidisuch">
+<form action="https://www.ub.uni-heidelberg.de/cgi-bin/search.cgi" name="suchform" method="get" accept-charset="UTF-8" enctype="application/x-www-form-urlencoded">
+<input type="text" id="suchfeld" name="query" class="inputSearchTop" placeholder="Schnellsuche ...">&nbsp;<input class="inputSearchRightButton" type="submit" value=""><br>
+<input type="hidden" name="q" value="homepage">
+<input type="hidden" name="sprache" value="ger">
+<input type="radio" name="wo" value="h" id="radh" checked="" onclick="jQuery('#suchfeld').autocomplete('option','disabled',false);">&nbsp;<label for="radh">HEIDI</label>&nbsp;&nbsp;<input type="radio" name="wo" value="w" id="radw" onclick="jQuery('#suchfeld').autocomplete('option','disabled',true);">&nbsp;<label for="radw">Web-Seiten</label>
+              </form>
+            </div>
+            <ul>
+              <!-- highlight: ="class="current"" -->
+              <li class="oberste"><a  href="https://www.ub.uni-heidelberg.de/helios/kataloge/Welcome.html">Literatursuche und -bestellung</a></li>
+              <li class="oberste"><a  href="https://www.ub.uni-heidelberg.de/helios/Welcome.html">Digitale Bibliothek</a></li>
+              <li class="oberste"><a  href="https://www.ub.uni-heidelberg.de/service/Welcome.html">Nutzung und Service</a></li>
+              <li class="oberste"><a  href="https://www.ub.uni-heidelberg.de/fachinfo/Welcome.html">Fachbezogene Informationen</a></li>
+              <li class="oberste"><a  href="https://www.ub.uni-heidelberg.de/schulung/Welcome.html">Kurse, Beratung, E-Learning</a></li>
+              <li class="oberste"><a  href="https://www.ub.uni-heidelberg.de/wir/Welcome.html">Bibliotheken der Universität</a></li>
+              <li class="oberste"><a  href="https://www.ub.uni-heidelberg.de/a-z/a.html" accesskey="3">A bis Z</a></li>
+            </ul>
+							<div class="navilast">   
+							</div>
+            </div>
+            
+              <div class="roundbox_white_left">
+                <h4 style="margin-top:5px;">Schnelleinstieg</h4>
+                <ul style="line-height: 1em;">
+                  <li style="margin-bottom: 0.7em"><a href="https://www.ub.uni-heidelberg.de/de/anmeldung-und-nutzerkonto">Anmeldung für Studierende<br>(Erstanmeldung)</a></li>
+                  <li style="margin-bottom: 0.7em;"><a href="https://www.ub.uni-heidelberg.de/allg/profil/adoeftel.html" title="Öffnungszeiten der UB Heidelberg">Öffnungszeiten</a></li>
+                  <li style="margin-bottom: 0.7em;"><a href="https://www.ub.uni-heidelberg.de/service/einsteiger/ubfuereinsteiger.html">UB für Einsteiger</a></li>
+                  <li style="margin-bottom: 0.7em;"><a href="/cgi-bin/ub3d.cgi">Virtueller Rundgang</a></li>
+                  <li style="margin-bottom: 0.7em;"><a href="https://katalog.ub.uni-heidelberg.de/cgi-bin/login.cgi">Konto</a></li>
+                  <li style="margin-bottom: 0.7em;"><a href="https://www.ub.uni-heidelberg.de/service/gruppenarbeitsraeume.html" title="Informationen zu den Gruppenarbeitsräumen">Gruppenarbeitsräume</a></li> 
+                  <li style="margin-bottom: 0.7em;"><a href="https://www.ub.uni-heidelberg.de/service/myub.html"><em lang="EN-gb">My</em>UB</a></li>
+                  <li style="margin-bottom: 0.7em;"><a href="https://www.ub.uni-heidelberg.de/schulung/literaturverwaltung/Welcome.html">Literaturverwaltung</a></li>
+                  <li style="margin-bottom: 0.7em;"><a href="https://www.ub.uni-heidelberg.de/service/openaccess/Welcome.html">Elektronisches Publizieren</a></li>
+                  <li class="fz"><span class="fragezeichen">?</span>&nbsp;<a href="https://www.ub.uni-heidelberg.de/service/auskunft.html" title="Auskunft der Abteilung Informationsdienste der UB Heidelberg">Fragen Sie uns!</a></li>
+                </ul>
+            </div>
+            <!-- <div style="font-size: 0.8em; margin-top: 15px;" id="facebook-link"><img alt="Icon Facebook" class="imgLeft" style="margin: 0 5px 0 2px;" src="https://www.uni-heidelberg.de/md/zentral/images/icon_facebook.jpg"> <a title="" href="https://www.facebook.com/ubheidelberg">Die UB auf Facebook</a></div>-->
+            <!-- ICONS -->
+            <div id="social-media-links">
+                <a title="Die UB auf Facebook" href="https://www.facebook.com/ubheidelberg">
+                    <img alt="Icon Facebook" src="/bilder/logo_facebook.png">
+                </a>
+                <a title="Die UB auf Youtube" href="https://www.youtube.com/channel/UCkWljtG6woFVHLOsAMWaDFw">
+                    <img alt="Icon Youtube" src="/bilder/logo_youtube.png">
+                </a>
+                <a title="Die UB auf Instagram" href="https://www.instagram.com/ubheidelberg/">
+                    <img alt="Icon Instagram" src="/bilder/logo_instagram.png">
+                </a>
+            </div>
+						</div> <!-- Ende Haupt-Navi -->
+
+                </div>
+				
+       			<div id="col2"><div id="col2_content" class="clearfix">
+                                
+<div class="noprint keyVisual"> <img src="/helios/digi/bilder/bereichsbild.jpg" alt="Buchscanner" /></div>
+
+<div class="headlineRightColumn">Allgemeiner Kontakt</div>
+<div class="boxRightColumn" style="background-image:none;">
+ <div class="rightColumntext">
+  <p> <a href="mailto:digitalisierung@ub.uni-heidelberg.de"" title="mit Ihrem E-Mail-Programm eine E-Mail an Digitalisierungszentrum senden"><img alt="Brief" title="E-Mail" align="align='bottom'" src="/nav1/grafik/all/email_transp.gif" /> Digitalisierungszentrum</a><br />
+     Tel.: 06221-54-2376<br />
+     <a href="/cgi-bin/digi/digiorder.cgi" title="Link zum Online-Auftragsformular">Online-Auftragsformular</a>
+  </p>
+ </div>
+</div>
+
+<div class="headlineRightColumn">Ansprechpartner</div>
+<div class="boxRightColumn" style="background-image:none;">
+ <div class="rightColumntext">
+ <p><a href="mailto:wiltinger@ub.uni-heidelberg.de"" title="mit Ihrem E-Mail-Programm eine E-Mail an Ass. iur. Daniel Wiltinger senden"><img alt="Brief" title="E-Mail" align="align='bottom'" src="/nav1/grafik/all/email_transp.gif" /> Ass. iur. Daniel Wiltinger</a>,<br>
+    Tel. +49 6221 54-2467<br />
+    <a href="mailto:Effinger@ub.uni-heidelberg.de"" title="mit Ihrem E-Mail-Programm eine E-Mail an Dr. Maria Effinger senden"><img alt="Brief" title="E-Mail" align="align='bottom'" src="/nav1/grafik/all/email_transp.gif" /> Dr. Maria Effinger</a>,<br>
+    Tel. +49 6221 54-3561
+</p>
+ </div>
+</div>
+
+<div class="headlineRightColumn">Weitere Informationen</div>
+<div class="boxRightColumn" style="background-image:none;">
+<div class="rightColumntext">
+   <ul>
+ <li><a href="https://www.ub.uni-heidelberg.de/allg/Mitarbeiter/digitalisierung.html">Digitalisierungszentrum</a></li>
+ <li><a href="https://digi.ub.uni-heidelberg.de/diglit/rss?set=handschriften"><img src="/bilder/rss.png" border='0' alt='RSS' width="15" height="15" style="margin:5px 0 0 0;" title='RSS-Feeder: Handschriften digital'>&nbsp;Neuerscheinungen: Handschriften-digital</a> (RSS Feed 2.0)</li>
+<li><a href="https://digi.ub.uni-heidelberg.de/diglit/rss?set=druckschriften"><img src="/bilder/rss.png" border='0' alt='RSS' width="15" height="15" style="margin:5px 0 0 0;" title='RSS-Feeder: Druckschriften digital'>&nbsp;Neuerscheinungen: Druckschriften-digital</a> (RSS Feed 2.0)</li>
+</ul>
+
+</div></div>
+
+				</div></div> <!--ENDE rechte Spalte-->
+
+				<div id="col3">       <!--// Beginn content //-->
+					<div id="col3_content" class="clearfix">
+						<div id="content"> 
+							<div id="naviHor"> <!-- Beginn horizontale Navi -->
+								<a href="https://www.ub.uni-heidelberg.de/kontakt/Welcome.html" accesskey="4">Kontakt</a>  |  
+							</div> <!-- Ende horizontale Navi -->
+<!-- Beginn Seiteninhalt -->
+              
+
+
+    
+<!--// Beginn Breadcrumb //-->
+<div class="pathway">
+  <a href="https://www.ub.uni-heidelberg.de/">Startseite ></a> &gt;  <a href="https://www.ub.uni-heidelberg.de/helios/digi/Welcome.html">Digitalisierungszentrum ></a> &gt; 
+<br><br></div>
+<!--// Ende Breadcrumb //-->
+
+    <a name="contentbegin"></a>
+
+
+
+     <h1 class="einzeilig">Digitalisierung an der UB Heidelberg: Workflow und Technik</h1>
+
+
+
+
+
+
+   <ul class="verweise">
+      <li><a href="#konzeption">Konzeption</a></li>
+      <li><a href="#digitalisierung">Digitalisierung</a></li>
+      <li><a href="#qualktrl">Qualit&auml;tskontrolle / Aufbereitung</a></li>
+      <li><a href="#volltext_ocr">Volltexterfassung</a></li>
+      <li><a href="#archivierung">Archivierung</a></li>
+      <li><a href="#praesentation">Pr&auml;sentation, Benutzungsfunktionen</a></li>
+      <li><a href="#annotation">Neues Modul: Annotationen und Kommentare</a></li>
+   </ul>
+   
+<a name="konzeption"></a><h2><img alt="" class="imgRight img_rwd_100" src="/helios/digi/bilder/digiwerk2.jpg"  title="Scanvorrichtungen" />Konzeption</h2>
+
+
+<p>Gem&auml;&szlig; den Prinzipien des Open Access ist die freie und nachhaltige Bereitstellung ihrer wertvollen Hand- und Druckschriftenbest&auml;nde erkl&auml;rtes Ziel der Universit&auml;tsbibliothek Heidelberg. Dabei werden bei der Digitalisierung und der Internetpr&auml;sentation die derzeit g&uuml;ltigen Standards, die auch in der aktuellen Fassung der <a class="extern" href="https://www.dfg.de/formulare/12_151/index.jsp" title="Homepage DFG; Praxisregeln Digitalisierung">&bdquo;DFG-Praxisregeln Digitalisierung&ldquo;</a> dokumentiert sind, eingehalten.</p>
+
+<p>Um einen reibungslosen und &uuml;bersichtlichen Workflow  zu gew&auml;hrleisten, setzt die UB Heidelberg das selbstentwickelte <a class="pfeil" href="https://www.ub.uni-heidelberg.de/helios/digi/dwork.html" title="Link: Informationen zum Programm DWork">Programm <strong>DWork &ndash; Heidelberger Digitalisierungsworkflow</strong></a> f&uuml;r die Arbeitsabl&auml;ufe bei der Digitalisierung und der Webpr&auml;sentation ein. &Uuml;ber eine Web-Applikation wird einerseits die Generierung der Pr&auml;sentationen, andererseits das Archivierungssystem der Scans und der Metadaten gesteuert. Dabei unterst&uuml;tzt &bdquo;DWork&rdquo; s&auml;mtliche Einzelschritte des Workflows von der Metadatenerstellung bis hin zu den Arbeitsschritten im <strong>hauseigenen <a href="https://www.ub.uni-heidelberg.de/helios/digi/Welcome.html">Digitalisierungszentrum</a></strong> und automatisiert s&auml;mtliche Arbeitsschritte einschlie&szlig;lich der Erstellung der Webpr&auml;sentation des jeweiligen Werks.
+</p>
+
+<a name="digitalisierung"></a><h2>Digitalisierung</h2>
+<p><img  alt="Arbeiten am &bdquo;Grazer Buchtisch&ldquo;" class="imgRight img_rwd_100" src="/helios/digi/bilder/digiwerk3b.jpg" title="Grazer Buchtisch" />Zur gr&ouml;&szlig;tm&ouml;glichen Schonung der wertvollen und z.T. sehr fragilen Objekte und zur Erzielung maximaler Bearbeitungseffizienz und Bildqualit&auml;t erfolgt die Digitalisierung wertvoller Codices, wertvoller Drucke oder gro&szlig;formatiger Tafelwerke auf dem so genannten <strong>Buchtisch &bdquo;Grazer Modell&ldquo;</strong>. Der speziell zur Digitalisierung von Handschriften entwickelte Kameratisch erm&ouml;glicht durch seine Konstruktion eine kontaktlose Direktdigitalisierung fragiler Objekte. Das Buch wird mit Hilfe eines Laserstrahls exakt positioniert, das aufgeschlagene Blatt jeweils durch den milden Sog einer Unterdruckeinrichtung fixiert. Durch eine spezielle Konstruktion ist dabei das Objektiv der Kamera im rechten Winkel auf das Blatt ausgerichtet, so dass auch Verzerrungen minimiert werden k&ouml;nnen. Das Buch muss bei diesem Vorgang nicht vollst&auml;ndig aufgeschlagen werden. Aufgrund der Konstruktion mit &uuml;ber dem Buch schwebender Kamera gen&uuml;gt ein minimaler &Ouml;ffnungswinkel von etwa 90 Grad. Entsprechend werden die Seiten einzeln aufgenommen, und zwar jeweils zun&auml;chst alle Recto- und anschlie&szlig;end alle Verso-Seiten, so dass das Buch nur einmal &ndash; n&auml;mlich beim Wechsel von recto zu verso &ndash; gedreht werden muss. F&uuml;r die Aufnahmen wird eine Spiegelreflex-Digitalkamera, Typ CANON EOS 5DS, mit einer Aufl&ouml;sung von ca. 51 Mio Pixel und einer Farbtiefe von 24 Bit verwendet. Die digitalen Images werden per Firewire-Schnittstelle unmittelbar zu einem angeschlossenen PC &uuml;bertragen und ohne lokale Zwischenspeicherung auf dem Festplattensystem eines Fileservers abgelegt. Dies geschieht im kameraspezifischen Rohdatenformat, um Detailverluste, Farbverf&auml;lschungen o.&auml;. zu vermeiden und gleichzeitig die h&ouml;chstm&ouml;gliche &Uuml;bertragungsgeschwindigkeit zu erzielen.</p>
+<p>Für weniger empfindliches Material werden im Digitalisierungszentrum derzeit 2 Zeutschel-Aufsichts-Buchscanner eingesetzt: für große Vorlagen bis A0 ein <a href="https://www.zeutschel.de/produkte/os-hq/">OS HQ</a> und für kleinere Vorlagen bis A2 ein <a href="https://www.zeutschel.de/produkte/os-q2/">OS Q2</a> (Auflösung/Farbtiefe jeweils 300 dpi/24 Bit). Diese ermöglichen die Digitalisierung von Doppelseiten, die noch während der Scanphase automatisch geschnitten werden.</p>
+<p>Diese Geräteausstattung wurde im Januar 2011 um einen <a class="extern" href="http://qidenus.com/technologies/products/robotic-book-scanner/" title="Homepage Qidenus, Produktinformatonen der Firma Qidenus Technologies">Qidenus Scanroboter RBS Pro TT</a> und im Juli 2013 um einen <a class="extern" href="http://qidenus.com/technologies/products/mastered-book-scanner/" title="Homepage Qidenus">Qidenus Scanroboter RBS 3.0</a> ergänzt. Im Frühjahr 2016 wurde zusätzlich ein <a class="extern" href="http://www.book2net.net/index.php/de/produkte/buchscanner/a1/cobra-a1-buchscanner" title="Homepage book2net; Produktinformationen Cobra A1 V-Scan">Cobra A1 V-Scan</a> der Firma Microbox sowie ein Gerät zur Digitalisierung von Wasserzeichen in Betrieb genommen.</p> 
+
+<a name="qualktrl"></a>
+<h2>Qualit&auml;tskontrolle der Digitalisate und Aufbereitung f&uuml;r die Internetpr&auml;sentation</h2>
+
+<p>Nach der Digitalisierung werden die Images in das dem technischen Standard f&uuml;r die Archivierung entsprechende TIFF-Format umgewandelt und mittels professioneller Bildbearbeitungssoftware (Adobe Photoshop) so nachbearbeitet, dass Farb-, Helligkeits-, Kontrast- und Sch&auml;rfegrad weitest m&ouml;glich dem Original entsprechen. Die am Grazer Buchtisch getrennt aufgenommenen und zun&auml;chst in unterschiedlichen Verzeichnissen gespeicherten Recto- und Verso-Seiten werden maschinell umbenannt und ineinander sortiert.</p>
+
+<img  alt="Vergleich von Original und Online-Digitalisat" class="imgRight img_rwd_100" src="/helios/digi/bilder/digiwerk3.jpg" title="Durchbl&auml;ttern und Vergleichen" />
+<p>Zur Kontrolle von Vollst&auml;ndigkeit und Qualit&auml;t der Digitalisate werden die Images des gesamten Werks am Bildschirm durchgebl&auml;ttert und &uuml;berpr&uuml;ft. Fehlende oder den Qualit&auml;tsanspr&uuml;chen nicht gen&uuml;gende Seiten werden unmittelbar nachdigitalisiert und eingef&uuml;gt.</p>
+
+<p>Aus den digitalen Seiten wird unter Verwendung des <a class="extern" href="http://www.loc.gov/standards/mets/METSOverview.v2_de.html">&bdquo;Metadata Encoding and Transmission Standard&ldquo; (METS)</a> das Pr&auml;sentationsmodell eines virtuellen Buches erstellt. Dazu ist es notwendig, bibliographische Metadaten anzulegen und die Buchstruktur abzubilden. Beides geschieht mit Hilfe des <a class="pfeil" href="https://www.ub.uni-heidelberg.de/helios/digi/dwork.html" title="Link: Informationen zum Programm DWork">Programms <strong>DWork &ndash; Heidelberger Digitalisierungsworkflow</strong></a>, durch welches der gesamte Produktionsprozess automatisiert ist.</p>
+
+<p>Dieser Workflow beginnt mit dem Anlegen eines Projektnamens, wodurch der Name der XML-Datei festgelegt wird sowie die notwendigen Verzeichnisse auf dem Server erzeugt werden. Im Hintergrund werden in einer MySQL-Datenbank die Metadaten zu den digitalen B&uuml;chern verwaltet, in der mit diesem Schritt die Metadatenfelder f&uuml;r den neuen Projektnamen generiert werden. Nun werden die bibliographischen Daten des jeweiligen Werkes mithilfe des Katkey direkt aus dem lokalen Bibliothekssystem abgerufen. Anschlie&szlig;end erfolgt die Eingabe der Strukturdaten: Kapitel- und Unterkapiteleintr&auml;ge (Bezeichnung und Seitennummer des Kapitelanfangs) werden in ein freies Textfeld in einer vorgegebenen, einfachen Syntax eingegeben. Dabei ist es auch m&ouml;glich, dass eine Seite mehreren Kapitel zugeordnet wird, was immer dann wichtig ist, wenn auf der letzten Seite eines Kapitels das folgende Kapitel beginnt.</p>
+
+<p>Im n&auml;chsten Schritt werden die beim Scannen erzeugten Dateien in die Datenbank eingelesen, wobei in der Regel der bereits vorher bei der Umbenennung festgelegte Dateiname f&uuml;r die Bezeichnung der Seite &uuml;bernommen wird. Hier sind sowohl die Seiten- als auch die f&uuml;r Handschriften und &auml;ltere Drucke typische Blattbezeichnung m&ouml;glich, wodurch in der Webpr&auml;sentation die Originalz&auml;hlung angezeigt und auch als Eingabem&ouml;glichkeit f&uuml;r den &bdquo;Sprung zu Seite&ldquo; verwendet werden kann. Die Dateibenennung kann an dieser Stelle jedoch auch nach Wunsch ge&auml;ndert werden, z.B. wenn es sich um im Original nicht gez&auml;hlte Seiten oder Seiten mit Sonderz&auml;hlung handelt. Es folgen die Image-Konvertierungen (Umwandlung von TIFF in JPG, f&uuml;r jede Seite Generierung von 5 JPG-Derivaten unterschiedlicher Aufl&ouml;sung) und die OCR-Verarbeitung, die ebenfalls &uuml;ber das Workflow-Programm gesteuert werden.</p>
+
+<p>&Uuml;ber eine Exportfunktion werden abschlie&szlig;end die f&uuml;r die Pr&auml;sentation errechneten Images, die OCR-Daten und die Metadaten im METS-Format exportiert und an das auf dem Webserver der UB liegende Pr&auml;sentationssystem &uuml;bergeben sowie das Kopieren der Dateien zur Archivierung angesto&szlig;en.</p>
+
+<p>Auf der Datenebene existiert am Ende dieses Prozesses eine auch f&uuml;r die langfristige elektronische Archivierung geeignete XML-Datei. Die bibliographischen Metadaten werden darin unter Anwendung von METS gespeichert. Neben diesen reinen Erschlie&szlig;ungs-Metadaten, die im <a class="extern" href="http://www.loc.gov/standards/mods/">&bdquo;Metadata Object Description Schema&ldquo; (MODS)</a> eingebettet werden, enth&auml;lt die XML-Datei auch die Strukturdaten f&uuml;r die Navigation in der Handschrift (Abfolge der Seiten sowie die Verkn&uuml;pfung des manuell erstellten Inhaltsverzeichnisses mit den einzelnen Images). Zum Datenaustausch per OAI-Schnittstelle stehen die ebenfalls in das METS-Schema eingebettete Dublin Core Beschreibungsdaten zur Verf&uuml;gung. Da in den Dateien selbst nur reiner ASCII-Text gespeichert ist, haben sie einen nur sehr geringen Speicherbedarf von wenigen kB und enthalten zudem keinerlei propriet&auml;re Formatierungen. Ein weiterer Vorteil von XML besteht darin, dass auch zuk&uuml;nftige &Auml;nderungen, z.B. an der Definition des Erscheinungsbildes, sehr leicht umzusetzen sind.</p>
+
+<p>Jedes Werk erh&auml;lt eine zitierf&auml;hige Adressierung in Form einer persistenten URL (PURL) und eines Uniform Ressource Name (URN) und auch jede Einzelseite ist eindeutig und nachhaltig referenzierbar. Die Metadaten k&ouml;nnen per OAI-Schnittstelle abgerufen werden und enthalten alle zur Nutzung durch den <a class="extern" href="http://dfg-viewer.de">DFG-Viewer</a> notwendigen Angaben.</p>
+
+<a name="volltext_ocr"></a>
+<h2>Volltexterfassung mit <a href="http://de.wikipedia.org/wiki/Texterkennung"><abbr title="Optical Character Recognition">OCR</abbr></a></h2>
+
+<p>Bei der digitalen Pr&auml;sentation von Druckschriften ist eine Volltextsuche implementiert. Die Bilddateien vor allem der mit Antiqua-Schriften gedruckten Texte werden automatisch mit professioneller OCR-Software (<a class="extern" href="http://abbyy-finereader.de.softonic.com/">Abbyy-FineReader 11</a>) in der Extended Platform Support (EPS)-Variante auf einem Linux-Server bearbeitet. Die Images werden vor der OCR-Verarbeitung &ndash; ggf. inkl. Korrektur der Perspektive &ndash; ausgerichtet. Zur Bestimmung der Perspektive wird die diskrete <a class="extern" href="http://de.wikipedia.org/wiki/Radon-Transformation">Radon-Transformation</a> des Scans herangezogen. Das XML-Ausgabeformat enth&auml;lt neben dem erkannten Text die Koordinaten f&uuml;r die Kennzeichnung der in der Volltextsuche gefundenen Textstellen in der Pr&auml;sentation. Das Ergebnis dieser Bearbeitung sind Volltextdateien, deren Inhalt in einen Index f&uuml;r die <a class="extern" href="http://lucene.apache.org/solr/">Open-Source Suchengine SOLR</a> eingespielt wird. Somit stehen die Textinhalte f&uuml;r eine Volltextrecherche zur Verf&uuml;gung. Diese soll eine zentrale Stelle innerhalb der WWW-Pr&auml;sentation einnehmen. Auch wenn mit diesem Verfahren (&bdquo;schmutziges OCR&ldquo;) keine Vollst&auml;ndigkeit des Suchergebnisses garantiert werden kann und der Volltext nur zur Positivsuche dienen kann, so stellt es doch gegen&uuml;ber der reinen Imagepr&auml;sentation einen gro&szlig;en Mehrwert dar. Deshalb wird bei der Trefferanzeige in der Volltextsuche nicht nur das Image mit &bdquo;Highlighting&ldquo; der Fundstelle angeboten, sondern auch der OCR-Text selbst. So kann der Wissenschaftler die gefundene Textpassage selbst mit dem Image vergleichen. Zudem besteht so die M&ouml;glichkeit, bequem Zitate mit Copy & Paste in die eigenen Texte zu &uuml;bernehmen. &Uuml;ber einen kurzen <a href="https://www.ub.uni-heidelberg.de/helios/digi/ocr.html">Informationstext</a> wird der Nutzer &uuml;ber das eingesetzte Verfahren informiert.
+
+
+<h2 id="archivierung">Archivierung</h2>
+
+<p>Über das DWork-Archivmodul werden die Original-Scandateien, die Metadaten im METS-XML-Format und die Ausgaben der OCR-Verarbeitung im <a class="extern" href="https://de.wikipedia.org/wiki/BagIt" title="Portal Wikipedia; Eintrag 'BagIt'">BagIt-Format</a> gepackt und archiviert. Zu jeder Datei wird hierbei eine Prüfsumme gebildet, bzw. die vorher bereits im ermittelte Prüfsumme validiert und übernommen. An der UB Heidelberg werden die Archivdaten redundant vorgehalten. Neben der Speicherung auf Festplattensystemen wird in den TSM-Verbund der baden-württembergischen Universitätsrechenzentren archiviert. Die Prüfsummen und die Verfügbarkeit der Bandsicherungen werden regemäßig überwacht.</p>
+<p>Eine Ablieferung eines Digital Master an die Deutsche Nationalbibliothek ist vorgesehen und soll umgesetzt werden, sobald die
+dortigen Systeme für den Routinebetrieb zur Verfügung stehen.</p>
+
+<h2 id="praesentation">Digitale Pr&auml;sentation der Best&auml;nde und Benutzungsfunktionen</h2>
+
+<p>Innerhalb des Webauftritts der UB Heidelberg erh&auml;lt der Besucher freien Zutritt zu den &bdquo;digitalen B&uuml;cherregalen&ldquo;, aus denen er einzelne B&uuml;cher zur genaueren Betrachtung &bdquo;herausnehmen&ldquo; kann. Die Auswahl kann &uuml;ber <a href="https://www.ub.uni-heidelberg.de/helios/digi/digilit.html">thematisch geordnete Listen</a> geschehen bzw. über die <a href="https://www.ub.uni-heidelberg.de/wir/projekte.html">Übersicht der entsprechenden Drittmittelprojekte</a>, oder man kann sich  &ndash; wie z.B. im Falle der deutschsprachigen Palatina-Handschriften &ndash; durch eine nach Signaturen der Codices geordnete <a href="https://www.ub.uni-heidelberg.de/helios/digi/codpalgerm.html">&Uuml;bersicht</a>, die neben der kurzen inhaltlichen Benennung eine exemplarische Text- oder Bildseite, die als bildhafter Repr&auml;sentant des Codices dient, leiten lassen.</p>
+<p>Hinter dem Link zur Hand- oder Druckschrift liegt die Bildschirmpr&auml;sentation eines Buches, das auf einfache Weise nutzbar ist. So ist es m&ouml;glich, eine beliebige Seiten- bzw. Blattzahl direkt anzusteuern, an den Anfang oder das Ende des Dokuments zu springen, aber auch seitenweise vor- bzw. zur&uuml;ckzubl&auml;ttern. Zus&auml;tzlich wird jede digitale Reproduktion mit weiteren Informationen und komfortablen Navigationsm&ouml;glichkeiten angereichert. Ausgehend von einer Werkeinstiegsseite, die neben den bibliographischen Informationen wie Signatur, Autor, Titel, Herstellungsort und Datierung, auch das Inhaltsverzeichnis mit einzeln anw&auml;hlbaren Kapitel&uuml;berschriften enth&auml;lt, kann die Handschrift oder der Druck gezielt an einer bestimmten Textstelle &bdquo;ge&ouml;ffnet&ldquo; werden. &Uuml;ber eine &bdquo;Vorschau&ldquo;-Funktion kann sich der Betrachter mit Hilfe von Thumbnails einen &Uuml;berblick &uuml;ber das gesamte Werk verschaffen: Dar&uuml;ber hinaus wird eine Zoomm&ouml;glichkeit f&uuml;r die Betrachtung einzelner Details in verschiedenen Vergr&ouml;&szlig;erungsstufen sowie eine Druckfunktion angeboten. Die kompletten Hand- oder Druckschriften werden auch als pdf-Dateien zum Download bereitgestellt. Die Einbindung von Social-Bookmarks rundet die Pr&auml;sentation ab und bietet die M&ouml;glichkeit, pers&ouml;nliche Lesezeichen zu vergeben.</p>
+<p>
+
+<h2 id="annotation">Neues Modul: heiANNO – Das Heidelberger Annotationsmodul für Annotationen und Kommentare</h2>
+<p>Die in Heidelberg unter <a href="http://hd-historische-bestaende-digital.uni-hd.de" title="Übersichtsseite der digitalisierten Bestände der UB Heidelberg">„Heidelberger historische Bestände – digital“</a> online gestellten Hand- und Druckschriften können mit <a class="pfeil" href="https://www.ub.uni-heidelberg.de/service/openaccess/heianno.html" title="Informationen zu heiANNO - Das Heidelberger Annotationsmodul">heiANNO – Das Heidelberger Annotationsmodul</a> durch Wissenschaftler und Wissenschaftlerinnen weltweit annotiert werden. Jede Annotation, die über ein komfortables Webeingabeformular angebracht werden kann, ist mit dem Namen ihres Urhebers versehen, und ist eindeutig referenzierbar und damit zitierfähig. Korrekturen sind über eine Versionierung möglich, so dass jederzeit frühere Versionen einsehbar sind. Als Datenmodell für die als eigenständige, von der Anwendung DWork unabhängige (und somit für weitere Dienste nachnutzbar) programmierte Applikation fungiert das <a class="extern" href="http://www.openannotation.org/spec/core" title="Homepage Open Annotation Collaboration Model">„Open Annotation Collaboration Model (OAC Model)”</a>.</p>
+<p>Die entsprechenden Text- und Bildzonen im digitalen Faksimile können über frei zeichenbare Polygone referenziert werden. Über die Annotationen können so semantische Verknüpfungen auf externe Objekte erstellt werden. Das Annotationswerkzeug wird auch in den nächsten Jahren weiter ausgebaut werden. Zusammen mit einem Editionsmodul trägt es dazu bei, dass sich der an der UB entwickelte Digitalisierungworkflow DWork stetig von einer reinen Präsentationsoberfläche zu einer interaktiven Forschungsplattform weiterentwickelt.</p>
+
+</p>
+
+
+
+
+
+
+
+							</div>
+<div class="cleaner"></div>
+							<div class="topVariabel">
+								<a href="#up"></a><a href="#up"><img src="/nav4/grafik/layout/icon_top.gif" alt="zum Seitenanfang" width="39" height="13"></a></div>
+							</div>
+
+						</div>
+<!--// Ende content //-->
+						
+						<!-- IE Column Clearing -->
+						<div id="ie_clearing">
+							&nbsp; 
+						</div>
+					</div>
+					<br class="rechts">
+				</div> <!-- Ende 3./mittlere Spalte -->
+
+      		<!-- begin: #footer -->
+			<div id="footerBar">
+			</div> <!--// roter Balken Seitenfuss //-->
+			<div id="footer">
+        <div class="copyright">
+		Letzte Aktualisierung: 31.07.2026 &nbsp;&nbsp; © Universitätsbibliothek Heidelberg <a href="mailto:ub@ub.uni-heidelberg.de"" title="mit Ihrem E-Mail-Programm eine E-Mail an Universitaetsbibliothek Heidelberg senden"><img alt="Brief" title="E-Mail" align="align='bottom'" src="/nav1/grafik/all/email_transp.gif" /> Universitaetsbibliothek Heidelberg</a> <a href="https://www.ub.uni-heidelberg.de/wir/impressum.html">Impressum</a> ⋅ <a href="https://www.uni-heidelberg.de/datenschutzerklaerung_web.html">Datenschutz</a>&nbsp;&nbsp;&nbsp;<span id="intern"><a href="https://www.ub.uni-heidelberg.de/intern/">Intern</a>
+
+
+</span></div>
+			</div><!-- Ende footer -->
+			</div><!-- Ende page -->
+			<!-- Ende pagemargin -->
+
+
+
+
+
+</body>
+</html>

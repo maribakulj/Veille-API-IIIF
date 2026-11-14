@@ -1,0 +1,15 @@
+{
+  "slug": "universitatsbibliothek-heidelberg",
+  "min_delay_s": 6,
+  "max_requests": 15,
+  "follow_redirects": 1,
+  "robots_disallow_autorise_par_marcel": true,
+  "note": "passe 2 : IIIF. Modeles d'URL (diglit/iiif/<id>/manifest, diglit/iiif3/<id>/manifest, iiif/2|3/<id>) tires de la page d'un ouvrage (Wayback, 'IIIF Manifest: v2.1, v3.0') et d'un manifeste v3 archive (aaha1928, 2025-04-18) ; l'identifiant et le service d'image viennent de ce manifeste, rien n'est devine. Le robots.txt interdit /image/ (pas /iiif/).",
+  "endpoints": [
+    {"id": "manifeste-v2-aaha1928", "method": "GET", "url": "https://digi.ub.uni-heidelberg.de/diglit/iiif/aaha1928/manifest"},
+    {"id": "manifeste-v3-aaha1928", "method": "GET", "url": "https://digi.ub.uni-heidelberg.de/diglit/iiif3/aaha1928/manifest"},
+    {"id": "image-info-v2", "method": "GET", "url": "https://digi.ub.uni-heidelberg.de/iiif/2/aaha1928%3A00000_a.jpg/info.json"},
+    {"id": "image-info-v3", "method": "GET", "url": "https://digi.ub.uni-heidelberg.de/iiif/3/aaha1928%3A00000_a.jpg/info.json"},
+    {"id": "image-derive-200", "method": "GET", "url": "https://digi.ub.uni-heidelberg.de/iiif/2/aaha1928%3A00000_a.jpg/full/!200,200/0/default.jpg"}
+  ]
+}
