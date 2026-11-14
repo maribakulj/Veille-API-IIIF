@@ -18,3 +18,8 @@
 
 ## Conclusion
 Aucun quota ni politique de débit publiés par Cardiff ; hypothèse non vérifiée : Cardiff s'en remet à la plateforme hébergée Ex Libris et ne publie pas de règle propre. Seule règle écrite : Crawl-delay 10 s. Observé : manifeste et JSON en 200 sans en-tête de limite ; défi Cloudflare sur le site www (pas un quota). Le service d'images Ex Libris (eu-img02) testé en passe 3 : info.json et dérivé en 200 sans en-tête de limite. Crash test (g) : config crash-delivery-json.json préparée.
+
+## Crash test (étape g)
+
+Crash test fait le 2026-11-14 : delivery-json sur librarysearch.cardiff.ac.uk : aucun blocage jusqu'à 200 req/min (plafond 200 req/min).
+Journal : `tests/crash/cardiff-university-library.log`. Un test « sans blocage » n'est pas une preuve d'illimitation au-delà du plafond.
