@@ -1,0 +1,12 @@
+{
+  "slug": "hab",
+  "min_delay_s": 6,
+  "max_requests": 15,
+  "follow_redirects": 1,
+  "robots_disallow_autorise_par_marcel": true,
+  "note": "Passe 3 (v2) : info.json des services d'image cites par les manifestes lus en passe 2 (champ service.@id du premier canevas de chaque manifeste).",
+  "endpoints": [
+    {"id": "p3-hab-info-json-image-00001", "method": "GET", "url": "https://iiif.hab.de/object/mss_35-helmst/image/image_00001/info.json"},
+    {"id": "p3-bodleian-info-json-6b96e910", "method": "GET", "url": "https://iiif.bodleian.ox.ac.uk/iiif/image/6b96e910-a7f6-4dae-80a2-ec736a583f43/info.json"}
+  ]
+}
