@@ -1,0 +1,13 @@
+{
+  "slug": "national-gallery-of-art-library",
+  "min_delay_s": 10,
+  "max_requests": 15,
+  "follow_redirects": 1,
+  "robots_disallow_autorise_par_marcel": true,
+  "note": "v2 passe 1 : la doc officielle de www.nga.gov est derriere un defi Cloudflare (403 'Just a moment', sources/h7 a h10) : hote arrete, pas de test du manifeste www.nga.gov/api/v1/iiif/... (tiers : mnemosyne#22). Restent deux hotes lisibles : api.nga.gov (robots.txt : Disallow vide, Crawl-delay 10, 'contact us to apply for white listing') testé a sa racine (script poli, aucune URL de doc) et library.nga.gov (Primo, Crawl-delay 10) : page d'accueil et le sitemap cite par son robots.txt. media.nga.gov : DNS non resolu (sources/h3), non teste. Pause 10 s = Crawl-delay.",
+  "endpoints": [
+    {"id": "api-nga-racine", "method": "GET", "url": "https://api.nga.gov/"},
+    {"id": "library-accueil", "method": "GET", "url": "https://library.nga.gov/"},
+    {"id": "library-sitemap-index", "method": "GET", "url": "https://library.nga.gov/view/scholar/siteindex.xml"}
+  ]
+}

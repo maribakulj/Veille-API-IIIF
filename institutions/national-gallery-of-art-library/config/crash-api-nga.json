@@ -1,0 +1,8 @@
+{
+  "slug": "national-gallery-of-art-library",
+  "endpoint": {"id": "api-nga-racine", "url": "https://api.nga.gov/", "method": "GET"},
+  "limite_documentee_req_min": null,
+  "source_limite": "aucune limite documentée ; robots.txt de api.nga.gov : Crawl-delay 10 et demande de liste blanche pour tout crawl (https://api.nga.gov/robots.txt)",
+  "duree_palier_s": 180,
+  "note": "Configuration provisoire : à valider selon la réponse réelle de api.nga.gov (page racine). Si la racine n'est pas un 200 peu coûteux, g_impossible."
+}
