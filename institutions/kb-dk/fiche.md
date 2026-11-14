@@ -70,3 +70,8 @@ Conclusion : moyen d'interroger le quota : **non**. Piste : demander à kb@kb.dk
   2. Lire le texte intégral du règlement (Brugerreglement) sur kb.dk/reglementer et la page ophavsret : chercher « automatisk », « robot », « masse ».
   3. Demander par écrit à kb@kb.dk s'il existe une limite de débit pour l'Image API et l'OAI-PMH, et si un manifeste IIIF est prévu.
   4. Refaire un suivi des redirections http→https (suivre le Location) si l'on veut consigner la cible exacte.
+
+## Crash test (étape g)
+
+Crash test fait le 2026-11-14 : crash-kb-info sur kb-images.kb.dk : aucun blocage jusqu'à 200 req/min (plafond 200 req/min).
+Journal : `tests/crash/kb-dk.log`. Un test « sans blocage » n'est pas une preuve d'illimitation au-delà du plafond.

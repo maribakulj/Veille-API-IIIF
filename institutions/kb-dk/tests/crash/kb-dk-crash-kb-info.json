@@ -1,0 +1,52 @@
+{
+  "slug": "kb-dk",
+  "hote": "kb-images.kb.dk",
+  "reseaux": [],
+  "plafond_req_min": 200,
+  "endpoint": "crash-kb-info",
+  "limite_documentee_req_min": null,
+  "paliers": [
+    {
+      "palier_req_min": 6,
+      "requetes": 18,
+      "debit_reel_req_min": 6.3,
+      "codes": {
+        "200": 18
+      },
+      "latence_p50_s": 0.222,
+      "latence_max_s": 4.772
+    },
+    {
+      "palier_req_min": 10,
+      "requetes": 30,
+      "debit_reel_req_min": 10.3,
+      "codes": {
+        "200": 30
+      },
+      "latence_p50_s": 0.168,
+      "latence_max_s": 3.716
+    },
+    {
+      "palier_req_min": 50,
+      "requetes": 150,
+      "debit_reel_req_min": 49.9,
+      "codes": {
+        "200": 150
+      },
+      "latence_p50_s": 0.345,
+      "latence_max_s": 9.797
+    },
+    {
+      "palier_req_min": 200,
+      "requetes": 600,
+      "debit_reel_req_min": 198.6,
+      "codes": {
+        "200": 600
+      },
+      "latence_p50_s": 0.342,
+      "latence_max_s": 10.979
+    }
+  ],
+  "arret": null,
+  "conclusion": "aucun blocage jusqu'à 200 req/min"
+}
