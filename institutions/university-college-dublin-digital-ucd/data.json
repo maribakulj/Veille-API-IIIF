@@ -4,10 +4,282 @@
   "pays": "Irlande",
   "classeur_id": "GLAM-071",
   "type": "Institution",
-  "statut_audit": "à faire",
-  "limites_documentees": [],
+  "statut_audit": "audit a–f complet (v2) ; g à faire",
+  "limites_documentees": [
+    {
+      "nature": "Taille maximale d'image téléchargeable",
+      "perimetre": "ancienne plateforme (Mirador/téléchargement)",
+      "valeur": "« The largest image size that can be downloaded automatically is 2000 pixels wide »",
+      "fenetre": "–",
+      "effet": "taille d'image limitée, pas un débit",
+      "verification": "capture Wayback, non vérifiable (plateforme retirée)",
+      "source": "https://digital.ucd.ie/help/",
+      "date": "2026-11-14"
+    },
+    {
+      "nature": "Usage réservé à la recherche et à l'enseignement",
+      "perimetre": "contenu de l'ancienne plateforme",
+      "valeur": "« solely for the purposes of research and education »",
+      "fenetre": "–",
+      "effet": "usage commercial à demander à la bibliothèque",
+      "verification": "capture Wayback",
+      "source": "https://digital.ucd.ie/terms/",
+      "date": "2026-11-14"
+    }
+  ],
   "en_tetes_observes": [],
-  "blocages": [],
-  "sources": [],
-  "web": []
+  "blocages": [
+    {
+      "hote": "www.ucd.ie",
+      "code": "403",
+      "nature": "403 CloudFront « Request blocked » sur robots.txt (fetch_doc, 2026-11-14T02:46:10Z) ; hôte arrêté, lu via Wayback",
+      "preuve": "institutions/university-college-dublin-digital-ucd/sources/a2/FETCH.log"
+    },
+    {
+      "hote": "digital.ucd.ie",
+      "code": "TLS",
+      "nature": "SSLCertVerificationError en Python sur https (chaîne incomplète ; curl OK)",
+      "preuve": "institutions/university-college-dublin-digital-ucd/tests/journal.log"
+    },
+    {
+      "hote": "iiif.ucd.ie",
+      "code": "DNS",
+      "nature": "DNS inexistant (gaierror)",
+      "preuve": "institutions/university-college-dublin-digital-ucd/tests/journal.log"
+    },
+    {
+      "hote": "data.ucd.ie",
+      "code": "délai",
+      "nature": "timeout 30 s sur 6 requêtes (robots, manifeste, info.json, collection, OpenSearch, VoID) : service éteint",
+      "preuve": "institutions/university-college-dublin-digital-ucd/tests/journal.log"
+    }
+  ],
+  "sources": [
+    {
+      "url": "https://digital.ucd.ie/about",
+      "date": "2026-11-14",
+      "etiquette": "officielle",
+      "preuve": "institutions/university-college-dublin-digital-ucd/sources/a1/SHA256SUMS"
+    },
+    {
+      "url": "https://digital.ucd.ie/",
+      "date": "2026-11-14",
+      "etiquette": "officielle",
+      "preuve": "institutions/university-college-dublin-digital-ucd/sources/a1/SHA256SUMS"
+    },
+    {
+      "url": "https://digital.ucd.ie/robots.txt",
+      "date": "2026-11-14",
+      "etiquette": "officielle",
+      "preuve": "institutions/university-college-dublin-digital-ucd/sources/a1/SHA256SUMS"
+    },
+    {
+      "url": "https://digital.ucd.ie/data.html",
+      "date": "2026-11-14",
+      "etiquette": "officielle",
+      "preuve": "institutions/university-college-dublin-digital-ucd/sources/a2/SHA256SUMS"
+    },
+    {
+      "url": "https://digital.ucd.ie/docs/AccessAndReusePolicy.pdf",
+      "date": "2026-11-14",
+      "etiquette": "officielle",
+      "preuve": "institutions/university-college-dublin-digital-ucd/sources/a2/SHA256SUMS"
+    },
+    {
+      "url": "https://digital.ucd.ie/docs/UserGuideToReuse.pdf",
+      "date": "2026-11-14",
+      "etiquette": "officielle",
+      "preuve": "institutions/university-college-dublin-digital-ucd/sources/a2/SHA256SUMS"
+    },
+    {
+      "url": "https://digital.ucd.ie/docs/EthicalCataloguingGuidelines.pdf",
+      "date": "2026-11-14",
+      "etiquette": "officielle",
+      "preuve": "institutions/university-college-dublin-digital-ucd/sources/a2/SHA256SUMS"
+    },
+    {
+      "url": "https://digital.ucd.ie/browse.html",
+      "date": "2026-11-14",
+      "etiquette": "officielle",
+      "preuve": "institutions/university-college-dublin-digital-ucd/sources/a2/SHA256SUMS"
+    },
+    {
+      "url": "https://digital.ucd.ie/assets/data/metadata.json",
+      "date": "2026-11-14",
+      "etiquette": "officielle",
+      "preuve": "institutions/university-college-dublin-digital-ucd/sources/a4/SHA256SUMS"
+    },
+    {
+      "url": "https://digital.ucd.ie/research/ (Wayback 2024-12-04)",
+      "date": "2026-11-14",
+      "etiquette": "officielle, archivée",
+      "preuve": "institutions/university-college-dublin-digital-ucd/sources/wayback/ucd-ancienne-plateforme.md"
+    },
+    {
+      "url": "https://digital.ucd.ie/terms/ (Wayback 2025-01-04)",
+      "date": "2026-11-14",
+      "etiquette": "officielle, archivée",
+      "preuve": "institutions/university-college-dublin-digital-ucd/sources/wayback/ucd-ancienne-plateforme.md"
+    },
+    {
+      "url": "https://www.ucd.ie/robots.txt (Wayback 2025-10-01)",
+      "date": "2026-11-14",
+      "etiquette": "officielle, archivée",
+      "preuve": "institutions/university-college-dublin-digital-ucd/sources/wayback/ucd-ancienne-plateforme.md"
+    }
+  ],
+  "web": [
+    {
+      "categorie": "institution",
+      "url": "https://guides.iiif.io/guides/digital.ucd.ie/",
+      "date": "2026-11-14",
+      "etiquette": "tiers (communauté IIIF), lu par WebFetch",
+      "citation": "guide d'usage : cliquer l'icône IIIF puis copier le lien du manifeste ; aucune phrase sur limites ni quotas.",
+      "preuve": "institutions/university-college-dublin-digital-ucd/fiche.md"
+    },
+    {
+      "categorie": "utilisateurs",
+      "url": "https://apis.io/providers/ucd/",
+      "date": "2026-11-14",
+      "etiquette": "tiers, lu par WebFetch",
+      "citation": "seule entrée UCD Digital Library : exports de métadonnées statiques sans clé ; « Rate Limit Signal » : valeur « derived », sans source ; aucune plainte 429/503 trouvée par la recherche.",
+      "preuve": "institutions/university-college-dublin-digital-ucd/fiche.md"
+    },
+    {
+      "categorie": "tickets",
+      "url": "https://github.com/search?q=%22digital.ucd.ie%22+iiif&type=issues",
+      "date": "2026-11-14",
+      "etiquette": "tiers (recherche interne GitHub, WebSearch indisponible : budget épuisé)",
+      "citation": "aucun ticket mentionnant digital.ucd.ie ou UCD Digital Library parmi les 7 résultats (iiif-stories, fromthepage, etc.).",
+      "preuve": "institutions/university-college-dublin-digital-ucd/fiche.md"
+    },
+    {
+      "categorie": "presentations",
+      "url": "https://www.slideshare.net/eservice/iiif-and-beyond",
+      "date": "2026-11-14",
+      "etiquette": "présentation de l'institution (UCD Library), lue par WebFetch (partielle)",
+      "citation": "« Further Development at UCD » : Search API, Authentication API ; aucune mention de débit, de robots ni de politique d'API.",
+      "preuve": "institutions/university-college-dublin-digital-ucd/fiche.md"
+    }
+  ],
+  "contact": "digital.library@ucd.ie (page About du site digital.ucd.ie)",
+  "conclusion_quota": "Aucun quota ni limite de débit publiés, ni sur le site temporaire actuel (statique, sans API) ni dans la doc archivée de l'ancienne plateforme ; les API IIIF/OpenSearch de l'ancienne plateforme sont hors service (DNS, délais, 404).",
+  "classe_quota": "aucun quota trouvé",
+  "confiance": "moyenne",
+  "notes": "Plateforme retirée pour vulnérabilité ; site temporaire CollectionBuilder ; nouvelle plateforme annoncée pour 2026. TLS : la sonde Python échoue (chaîne incomplète), curl réussit. Catégories web tickets et présentations sans WebSearch propre (budget de session épuisé), voir fiche.",
+  "a_verifier_manuellement": [
+    {
+      "url": "https://www.ucd.ie/library/",
+      "pourquoi": "403 CloudFront « Request blocked » sur www.ucd.ie, hôte arrêté",
+      "a_chercher": "Page UCD Library / Digital Library : conditions d'usage, politique API, annonce de la nouvelle plateforme"
+    },
+    {
+      "url": "https://www.ucd.ie/robots.txt",
+      "pourquoi": "403 à la sonde ; lu seulement dans une capture Wayback du 2025-10-01",
+      "a_chercher": "Vérifier le contenu actuel (Crawl-delay, Disallow)"
+    },
+    {
+      "url": "https://digital.ucd.ie/",
+      "pourquoi": "la sonde Python échoue en TLS (SSLCertVerificationError) ; en-têtes https jamais relevés",
+      "a_chercher": "En-têtes de réponse (X-RateLimit-*, Retry-After) et conditions d'usage de la nouvelle plateforme dès sa mise en ligne"
+    }
+  ],
+  "endpoints_documentes": [
+    {
+      "famille": "IIIF Image 2.0 (iiif.ucd.ie/loris)",
+      "url": "https://iiif.ucd.ie/loris/ivrla:439/info.json",
+      "statut": "teste",
+      "preuve": "institutions/university-college-dublin-digital-ucd/tests/journal.log"
+    },
+    {
+      "famille": "IIIF Presentation 2.0 manifeste (data.ucd.ie)",
+      "url": "http://data.ucd.ie/api/img/manifests/ucdlib:30860",
+      "statut": "teste",
+      "preuve": "institutions/university-college-dublin-digital-ucd/tests/journal.log"
+    },
+    {
+      "famille": "IIIF info.json et collection (data.ucd.ie)",
+      "url": "http://data.ucd.ie/api/img/collection/ucdlib:30685",
+      "statut": "teste",
+      "preuve": "institutions/university-college-dublin-digital-ucd/tests/journal.log"
+    },
+    {
+      "famille": "OpenSearch (data.ucd.ie)",
+      "url": "http://data.ucd.ie/api/search/v1/?q=General+Post+Office&start=1&count=1",
+      "statut": "teste",
+      "preuve": "institutions/university-college-dublin-digital-ucd/tests/journal.log"
+    },
+    {
+      "famille": "unAPI (digital.ucd.ie)",
+      "url": "http://digital.ucd.ie/api/unAPI",
+      "statut": "teste",
+      "preuve": "institutions/university-college-dublin-digital-ucd/tests/raw/v2p1-unapi.headers.txt"
+    },
+    {
+      "famille": "Linked Data / vues JSON (digital.ucd.ie/view)",
+      "url": "http://digital.ucd.ie/view/ivrla.31285.json",
+      "statut": "teste",
+      "preuve": "institutions/university-college-dublin-digital-ucd/tests/raw/v2p1-vue-json.headers.txt"
+    },
+    {
+      "famille": "VoID Linked Data (data.ucd.ie)",
+      "url": "http://data.ucd.ie/.well-known/void",
+      "statut": "teste",
+      "preuve": "institutions/university-college-dublin-digital-ucd/tests/journal.log"
+    },
+    {
+      "famille": "Exports de métadonnées du site temporaire (CollectionBuilder)",
+      "url": "https://digital.ucd.ie/assets/data/metadata.json",
+      "statut": "teste",
+      "preuve": "institutions/university-college-dublin-digital-ucd/sources/a4/FETCH.log"
+    },
+    {
+      "famille": "API géospatiale",
+      "url": "https://digital.ucd.ie/research/",
+      "statut": "non_teste",
+      "raison": "aucun URL d'exemple complet dans la doc archivée (seulement des paramètres geoFilter) et la plateforme d'origine est retirée ; identifiants non devinables"
+    },
+    {
+      "famille": "API quantitative (getStudyList)",
+      "url": "http://data.ucd.ie/api/quant/v1/getStudyList",
+      "statut": "non_teste",
+      "raison": "même hôte data.ucd.ie que les 5 requêtes en délai dépassé (service éteint) ; arrêt pour ne pas insister sur un hôte qui ne répond pas"
+    }
+  ],
+  "endpoints_ecartes": [
+    {
+      "url": "https://digital.ucd.ie/robots.txt",
+      "raison": "404 : aucun robots.txt sur digital.ucd.ie, pas une API à tester ; lu comme fichier de règles"
+    },
+    {
+      "url": "http://data.ucd.ie/docs/apiQuant.pdf",
+      "raison": "documentation PDF de l'API quantitative sur data.ucd.ie, hôte en délai dépassé ; pas un endpoint de données"
+    },
+    {
+      "url": "http://data.ucd.ie/docs/apiLOD.pdf",
+      "raison": "documentation PDF de l'API Linked Data sur data.ucd.ie, hôte en délai dépassé ; pas un endpoint de données"
+    }
+  ],
+  "hotes_robots": [
+    {
+      "hote": "digital.ucd.ie",
+      "resultat": "404 : pas de robots.txt, tout autorisé",
+      "preuve": "institutions/university-college-dublin-digital-ucd/sources/a1/FETCH.log"
+    },
+    {
+      "hote": "www.ucd.ie",
+      "resultat": "403 CloudFront ; lu via Wayback 2025-10-01 : Disallow ciblés, pas de Crawl-delay",
+      "preuve": "institutions/university-college-dublin-digital-ucd/sources/wayback/ucd-ancienne-plateforme.md"
+    },
+    {
+      "hote": "iiif.ucd.ie",
+      "resultat": "DNS inexistant, robots.txt illisible",
+      "preuve": "institutions/university-college-dublin-digital-ucd/sources/a3/FETCH.log"
+    },
+    {
+      "hote": "data.ucd.ie",
+      "resultat": "délai dépassé, robots.txt illisible",
+      "preuve": "institutions/university-college-dublin-digital-ucd/sources/a3/FETCH.log"
+    }
+  ]
 }
