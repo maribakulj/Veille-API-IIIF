@@ -18,3 +18,7 @@
 # redirection vers https://hamnet.folger.edu/cgi-bin/Pwebrecon.cgi : suivie (même hôte, comptée dans le budget)
 2026-11-14T02:24:11Z | hamnet-legacy+redir | https://hamnet.folger.edu/cgi-bin/Pwebrecon.cgi | HEAD | 301 REDIRECTION_NON_SUIVIE | aucun en-tête de limite | taille≥0 | corps: 
 # Fin 2026-11-14T02:24:11Z — 14 requête(s) envoyée(s)
+# Session 2026-11-14T02:27:58Z — configuration folger-passe2-wpjson.json — sonde probe.py au commit ef87424
+2026-11-14T02:27:58Z | robots.txt:www.folger.edu | https://www.folger.edu/robots.txt | GET | 200 | 1 règle(s) pour « * »
+2026-11-14T02:28:05Z | wp-json-racine | https://www.folger.edu/wp-json/ | HEAD | 200 OK | aucun en-tête de limite | taille≥0 | corps: 
+# Fin 2026-11-14T02:28:05Z — 2 requête(s) envoyée(s)
