@@ -1,0 +1,17 @@
+{
+  "slug": "princeton-university-art-museum",
+  "min_delay_s": 6,
+  "max_requests": 15,
+  "follow_redirects": 1,
+  "robots_disallow_autorise_par_marcel": true,
+  "note": "Passe 2 : hotes media.artmuseum.princeton.edu (IIIF Image API 3 et 2, identifiants lus dans la doc GitHub x1954-13 et dans le manifeste de la passe 1 y1954-46, miniature !350,350 citee par le manifeste) et static.artmuseum.princeton.edu (jeux de donnees zip cites par la doc : HEAD seulement, pas de telechargement). Collection IIIF /iiif/objects/collection cite par partOf du manifeste : HEAD seulement (taille potentiellement enorme). robots.txt media : 500 en passe de doc ; static : 404.",
+  "endpoints": [
+    {"id": "media-info-v3-x1954-13", "method": "GET", "url": "https://media.artmuseum.princeton.edu/iiif/3/collection/x1954-13/info.json"},
+    {"id": "media-info-v2-y1954-46", "method": "GET", "url": "https://media.artmuseum.princeton.edu/iiif/2/collection/y1954-46/info.json"},
+    {"id": "media-thumb-y1954-46", "method": "GET", "url": "https://media.artmuseum.princeton.edu/iiif/3/collection/y1954-46/full/!350,350/0/default.jpg"},
+    {"id": "iiif-collection-head", "method": "HEAD", "url": "https://data.artmuseum.princeton.edu/iiif/objects/collection"},
+    {"id": "static-objects-zip-head", "method": "HEAD", "url": "https://static.artmuseum.princeton.edu/collection-data-sets/objects.zip"},
+    {"id": "static-makers-zip-head", "method": "HEAD", "url": "https://static.artmuseum.princeton.edu/collection-data-sets/makers.zip"},
+    {"id": "static-packages-zip-head", "method": "HEAD", "url": "https://static.artmuseum.princeton.edu/collection-data-sets/packages.zip"}
+  ]
+}

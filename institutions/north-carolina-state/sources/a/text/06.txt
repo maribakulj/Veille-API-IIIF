@@ -1,0 +1,308 @@
+Slow Looking | News | NC State University Libraries 
+ skip to Main Navigation 
+ skip to Main Content 
+ skip to Footer 
+ Accessibility feedback 
+ NC State Home 
+ Give now 
+ Navigation 
+ Search books, articles, journals, & library website 
+ Search 
+ Find & Borrow 
+ Search
+ Books & Media 
+ Articles 
+ Databases 
+ Journals 
+ Theses and Dissertations 
+ NC State Publications 
+ Special Collections 
+ Our Website 
+ Find
+ Course Reserves 
+ Software 
+ Newspapers 
+ Patents & Trademarks 
+ Standards 
+ Tests & Measurements 
+ Textbooks 
+ Ebooks 
+ Government Information 
+ Borrow & Request
+ Borrowing & Access Privileges 
+ Interlibrary Services 
+ Technology Lending 
+ Suggest a Purchase 
+ Help
+ Ask Us 
+ Request a Research Consultation 
+ Request a Technology Consultation 
+ Get Data Science Help 
+ Study & Learn 
+ Assignment Help
+ Choose a Topic 
+ Cite Sources 
+ Course Guides 
+ Evaluate Sources 
+ Find Articles 
+ Find a Book 
+ Learn on your Own 
+ All Assignment Help 
+ Workshops
+ Data and Visualization 
+ Digital Media 
+ Digital Scholarship 
+ Makerspace 
+ Research Strategy 
+ Virtual and Augmented Reality 
+ All Workshops 
+ Spaces
+ Reserve a Room 
+ Academic Success Center 
+ Quiet Study 
+ Graduate Student Spaces 
+ Explore Spaces 
+ Sensory Friendly Maps 
+ How Busy is the Hill Library? 
+ How Busy is the Hunt Library? 
+ Technology
+ Technology Lending 
+ Software 
+ Print & Copy 
+ Scanning 
+ Wireless Access 
+ Working off campus 
+ Help
+ Ask Us 
+ Request a Research Consultation 
+ Request a Technology Consultation 
+ Get Data Science Help 
+ Research & Teaching 
+ Research Support
+ Citation Management 
+ Grants & Funding 
+ Research Impact & Metrics 
+ Publishing and Copyright 
+ Data Management 
+ Open Research 
+ Faculty Spaces 
+ All Research Support 
+ Teaching Support
+ Request an Instruction Session 
+ Copyright in the Classroom 
+ Course Reserves 
+ Library Instruction Programs 
+ Open Education 
+ Learn on your Own 
+ All Teaching Support 
+ Workshops
+ Digital Scholarship 
+ Research Strategy 
+ Data and Visualization 
+ Peer Scholars 
+ All Workshops 
+ Help
+ Ask Us 
+ Request a Research Consultation 
+ Request a Technology Consultation 
+ Get Data Science Help 
+ Media & Making 
+ Digital Media
+ Audio & Music 
+ Video 
+ Photography 
+ Scanning 
+ Graphics 
+ All Digital Media 
+ Makerspace
+ 3D Printing 
+ Crafting 
+ Laser Cutting 
+ Sewing & Textiles 
+ Soldering & Electronics 
+ All Makerspace 
+ Gaming & VR
+ Esports 
+ Gaming 
+ Graphics 
+ Live Streaming 
+ Virtual & Augmented Reality 
+ 3D Scanning 
+ All Gaming & VR 
+ Workshops
+ Orientation to the Studios 
+ Digital Media Workshops 
+ Makerspace Workshops 
+ Virtual & Augmented Reality Workshops 
+ Studios
+ Hill Library Makerspace 
+ Innovation Studio 
+ Gaming and VR Studio 
+ Digital Media Lab 
+ All Media & Making Spaces 
+ Help
+ Ask Us 
+ Request a Technology Consultation 
+ Data & Visualization 
+ Data Science
+ Finding Data 
+ Preparing Data 
+ Analyzing Data 
+ Visualizing & Communicating Data 
+ Geographic Information Systems (GIS) 
+ Data Management 
+ All Data Science 
+ Workshops
+ Data & Visualization Workshops 
+ Digital Scholarship Workshops 
+ Research Strategy Workshops 
+ All Workshops 
+ Spaces
+ Data Experience Lab (DXL) 
+ Dataspace 
+ Teaching and Visualization Lab 
+ Cyma Rubin Visualization Gallery 
+ iPearl Immersion Theater 
+ The Landing 
+ All Data & Visualization Spaces 
+ Help
+ Get Data Science Help 
+ Data Science Instruction Support 
+ About 
+ Contact
+ Ask Us 
+ Staff Directory 
+ Subject Specialists 
+ Jobs 
+ Fellows Program 
+ Collections
+ About the Collections 
+ Special Collections 
+ Chancellor's Faculty Excellence Program 
+ Memberships and Consortia 
+ Our Organization
+ About the Libraries 
+ Mission & Vision 
+ Annual Reports & Strategic Plan 
+ Building Community 
+ Fact Sheet 
+ Honors & Awards 
+ Performance Measures 
+ Policies, Rules, and Guidelines 
+ Organizational Chart 
+ News & Events
+ News 
+ Events 
+ Exhibits 
+ Workshops 
+ Videos from the Libraries 
+ Visit
+ Hours 
+ Visit the Libraries 
+ Hill Library Map 
+ Hunt Library Map 
+ How Busy is the Hill Library? 
+ How Busy is the Hunt Library? 
+ Directions & Parking 
+ Libraries
+ D. H. Hill Jr. Library 
+ James B. Hunt Jr. Library 
+ Design Library 
+ Natural Resources Library 
+ Veterinary Medicine Library 
+ Campus Information Centers 
+ Get Involved
+ Giving to the Libraries 
+ Friends of the Libraries 
+ University Library Committee 
+ Academic Departmental Library Representatives 
+ Help
+ Ask Us 
+ Request a Research Consultation 
+ Request a Technology Consultation 
+ Get Data Science Help 
+ FAQ 
+ Give now 
+ Search books, articles, journals, & library website 
+ Search 
+ My Account 
+ Log Out 
+ Ask Us 
+ Hours 
+ Chat Link 
+ Libraries News | Special Collections 
+ Slow Looking
+ April 23, 2018
+ Share on Facebook 
+ Share by email 
+ By: Brian Dietz 
+ The IIIF (International Image Interoperability Framework), growing out of work started in the early 2010s, has developed a set of shared technical specifications  to support the sharing and reuse of online digitized resources. The NCSU Libraries has been involved with the IIIF community since 2016 and is one of the IIIF Consortium 's Founding Members. We've implemented the IIIF APIs for interoperability with other applications and services. This means that we've been able to use browser applications like Universal Viewer , while allowing scholars to use the same materials in their own version of an application like Mirador . Having more interoperable content available on the web from different institutions means that scholars can now explore and annotate resources from institutions around the world. It also means lots of fun experiments have been developed reusing these resources. 
+ An application we've recently learned about that demonstrates this kind of reusability is Slow Looking (here's a  nice write up on Medium about the process of "slow looking" and the app development ). Slow Looking systematizes the sort of in-depth, square by square viewing one might do when taking a really deep dive. Take a slow look at a perennial favorite of ours, from the plans for Dorton Arena .
+ Pretty great, right? Now, let's say you want to experiment with some of our other images with this app. Here's what you need:
+ The link to the Slow Looking app, including the image location parameter:
+ http://slowlooking.cogapp.com/?image= 
+ The path to an image on our IIIF image server:
+ https://iiif.lib.ncsu.edu/iiif/mc00227-003-ff0073-000-001_0004/info.json 
+ The entire URL should look like this:
+ http://slowlooking.cogapp.com/?image=https://iiif.lib.ncsu.edu/iiif/mc00227-003-ff0073-000-001_0004/info.json 
+ Replace " mc00227-003-ff0073-000-001_0004 " with the item identifier of your chosen image, found on the item's page. Copy that URL into the Slow Looking app , and enjoy. Let us know what you discover in looking slowly.
+ Inspiration for slow looking (and other kinds) can be found on Rare and Unique Digital Collections, which provides access to thousands of  images, video, audio recordings , and  textual materials  documenting NC State history and other topics. For another great resource on university history, be sure to check out our  Historical State timelines .
+ Jason Ronallo contributed significantly to this post. He has been involved with the IIIF Audio/Visual and Discovery Technical Specification groups.
+ Tags
+ digital collections , Collection Highlights 
+ Upcoming Events
+ Nov
+ 16
+ Emerging Engineers: Making Scents & Gaming Together
+ 5:00pm–7:00pm
+ Nov
+ 17
+ Making Space: Jayden Sansom ‘24, Video Game Developer
+ 6:30pm–7:30pm
+ Nov
+ 19
+ A Series of Questions - Trivia at 321 Coffee
+ 12:00pm–1:00pm
+ Nov
+ 19
+ Crafting Recess: Perler Beads
+ 1:30pm–3:30pm
+ Share this page Email
+ Email this page Opens in your default email client
+ Copy the URL of this page copy URL copied to clipboard.
+ QR code for this page
+ Contact
+ D. H. Hill Jr. Library 
+ 2 Broughton Drive 
+ Campus Box 7111 
+ Raleigh, NC 27695-7111 
+ (919) 515-3364 
+ James B. Hunt Jr. Library 
+ 1070 Partners Way
+ Campus Box 7132
+ Raleigh, NC 27606-7132
+ (919) 515-7110 
+ Libraries Administration 
+ (919) 515-7188 
+ NC State University Libraries 
+ D. H. Hill Jr. Library 
+ James B. Hunt Jr. Library 
+ Design Library 
+ Natural Resources Library 
+ Veterinary Medicine Library 
+ Accessibility at the Libraries 
+ Accessibility at NC State University 
+ Terms of Use 
+ Jobs 
+ Privacy Statement 
+ Staff Confluence Login 
+ Staff Drupal Login 
+ Follow the Libraries 
+ Facebook 
+ Instagram 
+ LinkedIn 
+ Vimeo 
+ YouTube 
+ YouTube Archive 
+ Flickr 
+ Libraries' news

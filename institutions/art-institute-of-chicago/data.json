@@ -4,10 +4,278 @@
   "pays": "États-Unis",
   "classeur_id": "GLAM-047",
   "type": "Institution",
-  "statut_audit": "à faire",
-  "limites_documentees": [],
-  "en_tetes_observes": [],
-  "blocages": [],
-  "sources": [],
-  "web": []
+  "statut_audit": "audit a–f complet ; g à faire",
+  "limites_documentees": [
+    {
+      "nature": "Limite de débit (anonyme)",
+      "perimetre": "API api.artic.edu/api/v1",
+      "valeur": "60 requêtes",
+      "fenetre": "par minute",
+      "effet": "throttling (429 présumé, non observé)",
+      "verification": "officielle, lue en entier ; en-tête x-ratelimit-limit: 60 observé",
+      "source": "https://api.artic.edu/docs/#authentication",
+      "date": "2026-11-14"
+    },
+    {
+      "nature": "Politesse de grattage de l'API",
+      "perimetre": "API api.artic.edu",
+      "valeur": "pas plus d'une requête par seconde, un seul fil, pas de scrapers en parallèle",
+      "fenetre": "–",
+      "effet": "demande de courtoisie",
+      "verification": "officielle, lue en entier",
+      "source": "https://api.artic.edu/docs/#scraping-data",
+      "date": "2026-11-14"
+    },
+    {
+      "nature": "Politesse de grattage d'images",
+      "perimetre": "IIIF Image www.artic.edu/iiif/2",
+      "valeur": "une image à la fois, délai de 1 s, taille /full/843,/0/default.jpg",
+      "fenetre": "–",
+      "effet": "demande de courtoisie",
+      "verification": "officielle, lue en entier",
+      "source": "https://api.artic.edu/docs/#scraping-images",
+      "date": "2026-11-14"
+    },
+    {
+      "nature": "Pagination (pas un quota)",
+      "perimetre": "endpoints liste et recherche",
+      "valeur": "limit ≤ 100 ; au plus 1 000 enregistrements par recherche",
+      "fenetre": "par requête / par recherche",
+      "effet": "erreur au-delà",
+      "verification": "officielle, lue en entier",
+      "source": "https://api.artic.edu/docs/#pagination",
+      "date": "2026-11-14"
+    },
+    {
+      "nature": "Tailles d'image autorisées",
+      "perimetre": "IIIF Image 2.0",
+      "valeur": "112, 200, 400, 600, 800, 843 ; 1200 et 1686 (domaine public)",
+      "fenetre": "–",
+      "effet": "accès à d'autres tailles limité",
+      "verification": "officielle, lue en entier",
+      "source": "https://api.artic.edu/docs/#image-sizes",
+      "date": "2026-11-14"
+    }
+  ],
+  "en_tetes_observes": [
+    {
+      "hote": "api.artic.edu",
+      "en_tete": "x-ratelimit-limit",
+      "valeur": "60",
+      "preuve": "institutions/art-institute-of-chicago/tests/raw/artworks-27992-fields.headers.txt"
+    },
+    {
+      "hote": "api.artic.edu",
+      "en_tete": "x-ratelimit-remaining",
+      "valeur": "57 à 59 (décompte par minute)",
+      "preuve": "institutions/art-institute-of-chicago/tests/raw/artworks-search-pd-total.headers.txt"
+    }
+  ],
+  "blocages": [
+    {
+      "date": "2026-11-14",
+      "hote": "www.artic.edu",
+      "code": "403",
+      "nature": "défi Cloudflare « Just a moment... » dès la 1re requête (robots.txt)",
+      "suite": "hôte arrêté ; IIIF Image et pages du site non testés ; lecture via Wayback"
+    },
+    {
+      "date": "2026-11-14",
+      "hote": "iiif.artic.edu",
+      "code": "DNS",
+      "nature": "nom introuvable (hôte non cité par la doc, testé via robots.txt par fetch_doc)",
+      "suite": "non testé"
+    }
+  ],
+  "sources": [
+    {
+      "url": "https://api.artic.edu/docs/",
+      "date": "2026-11-14",
+      "etiquette": "officielle",
+      "preuve": "institutions/art-institute-of-chicago/sources/a/SHA256SUMS"
+    },
+    {
+      "url": "https://github.com/art-institute-of-chicago/api-data",
+      "date": "2026-11-14",
+      "etiquette": "officielle",
+      "preuve": "institutions/art-institute-of-chicago/sources/a/SHA256SUMS"
+    },
+    {
+      "url": "https://api.artic.edu/api/v1/openapi.json",
+      "date": "2026-11-14",
+      "etiquette": "officielle",
+      "preuve": "institutions/art-institute-of-chicago/sources/b/SHA256SUMS"
+    },
+    {
+      "url": "https://github.com/art-institute-of-chicago/data-aggregator",
+      "date": "2026-11-14",
+      "etiquette": "officielle",
+      "preuve": "institutions/art-institute-of-chicago/sources/b/SHA256SUMS"
+    },
+    {
+      "url": "https://www.artic.edu/terms",
+      "date": "2026-11-14",
+      "etiquette": "officielle",
+      "preuve": "institutions/art-institute-of-chicago/sources/wayback/terms.md"
+    },
+    {
+      "url": "https://www.artic.edu/open-access/public-api",
+      "date": "2026-11-14",
+      "etiquette": "officielle",
+      "preuve": "institutions/art-institute-of-chicago/sources/wayback/public-api.md"
+    },
+    {
+      "url": "https://www.artic.edu/robots.txt",
+      "date": "2026-11-14",
+      "etiquette": "officielle",
+      "preuve": "institutions/art-institute-of-chicago/sources/wayback/robots-www.md"
+    }
+  ],
+  "web": [
+    {
+      "categorie": "institution",
+      "url": "https://api.artic.edu/docs/",
+      "date": "2026-11-14",
+      "etiquette": "officielle",
+      "citation": "« Anonymous users are throttled to 60 requests per minute. » ; « please throttle your requests to no more than one per second and avoid running multiple scrapers in parallel. »",
+      "preuve": "institutions/art-institute-of-chicago/sources/a/text/01.txt"
+    },
+    {
+      "categorie": "utilisateurs",
+      "url": "http://www.navigating.art/education/open-access-2026",
+      "date": "2026-11-14",
+      "etiquette": "utilisateur",
+      "citation": "« The AIC hosts images through a separate IIIF server, and requests to that server require a Referer header pointing to » www.artic.edu ; « Without it, the server returns a 403 error. » (article tiers, WebFetch ; aucune mention de limite de débit)",
+      "preuve": "institutions/art-institute-of-chicago/fiche.md"
+    },
+    {
+      "categorie": "tickets",
+      "url": "https://raw.githubusercontent.com/mikechao/artic-mcp/main/src/utils/RateLimiter.ts",
+      "date": "2026-11-14",
+      "etiquette": "tiers",
+      "citation": "Outil tiers artic-mcp : « Limited to 60 requests per minute per their documentation » ; export const articRateLimiter = new RateLimiter(60, 60000); aucun ticket GitHub sur des 429 de api.artic.edu.",
+      "preuve": "institutions/art-institute-of-chicago/fiche.md"
+    },
+    {
+      "categorie": "presentations",
+      "url": "https://chihacknight.org/events/2020/04/28/nikhil-trivedi",
+      "date": "2026-11-14",
+      "etiquette": "institution",
+      "citation": "Chi Hack Night 2020, nikhil trivedi (directeur de l'ingénierie de l'AIC) : « That API will be formally launched as their public API later this year » ; ni quota ni politique citée. Papier Museums and the Web 2019 « Building a Data Hub » signalé (résumé de moteur, non vérifié).",
+      "preuve": "institutions/art-institute-of-chicago/fiche.md"
+    },
+    {
+      "categorie": "utilisateurs",
+      "aucun_resultat": true,
+      "requete": "Art Institute of Chicago API \"429\" OR \"rate limit\" OR \"throttled\" 60 requests per minute issue",
+      "date": "2026-11-14",
+      "etiquette": "–",
+      "citation": "Aucune plainte d'utilisateur sur des 429 de l'API de l'AIC ; seulement des répertoires d'API qui répètent 60 req/min (résumé de moteur, non vérifié).",
+      "preuve": "institutions/art-institute-of-chicago/fiche.md"
+    }
+  ],
+  "contact": "GitHub issues https://github.com/art-institute-of-chicago/api-data/issues ; pour dépasser 60 req/min : e-mail indiqué dans api.artic.edu/docs#authentication (adresse masquée par la page)",
+  "conclusion_quota": "Limite documentée : 60 requêtes par minute pour les utilisateurs anonymes (api.artic.edu/docs, section Authentication) ; grattage : un seul fil, pas plus d'une requête par seconde. Annoncée par l'API : x-ratelimit-limit: 60 et x-ratelimit-remaining sur chaque réponse (observé 6 fois, 200). Aucun 429. Le service d'images IIIF (www.artic.edu/iiif/2) est derrière un défi Cloudflare 403 : non testé.",
+  "classe_quota": "limite documentée et annoncée en-têtes",
+  "confiance": "haute",
+  "notes": "Plafond de pagination : limit ≤ 100 et au plus 1 000 enregistrements par recherche (page×limit). Tailles d'image autorisées en IIIF : 112, 200, 400, 600, 800, 843 (1200 et 1686 pour le domaine public) ; images : un fil, 1 s de délai. Dump : https://artic-api-data.s3.amazonaws.com/artic-api-data.tar.bz2 (HEAD : 130 504 161 octets, 200), mis à jour chaque semaine. La doc demande l'en-tête AIC-User-Agent (courtoisie) : la sonde envoie l'User-Agent honnête du projet, sans en-tête personnalisé. Un article tiers (navigating.art 2026) affirme que le serveur IIIF renvoie 403 sans Referer www.artic.edu : non reproduit (ce serait un contournement). iiif.artic.edu : DNS introuvable (non cité par la doc). Le 403 de robots.txt sur le S3 du dump est un refus S3 d'URL absente, pas un défi.",
+  "a_verifier_manuellement": [
+    {
+      "url": "https://www.artic.edu/iiif/2/b3974542-b9b4-7568-fc4b-966738f61d78/info.json",
+      "pourquoi": "hôte www.artic.edu en défi Cloudflare 403 : service IIIF Image non testable par la sonde",
+      "a_chercher": "info.json (IIIF Image 2.0), en-têtes de limite éventuels, politique Referer signalée par un tiers"
+    },
+    {
+      "url": "https://www.artic.edu/robots.txt",
+      "pourquoi": "403 défi Cloudflare ; lu via Wayback (capture 2026-05-16)",
+      "a_chercher": "Version actuelle (pas de Crawl-delay ni de Disallow /iiif/ dans la capture)"
+    },
+    {
+      "url": "https://www.artic.edu/terms",
+      "pourquoi": "403 défi Cloudflare ; lu via Wayback (capture 2026-05-24)",
+      "a_chercher": "Version actuelle des conditions d'utilisation"
+    },
+    {
+      "url": "https://www.artic.edu/open-access/public-api",
+      "pourquoi": "403 défi Cloudflare ; lu via Wayback (capture 2026-04-27)",
+      "a_chercher": "Éventuelle limite chiffrée ajoutée à la page"
+    },
+    {
+      "url": "https://www.artic.edu/articles/902/public-access-to-our-public-presence-sharing-our-api",
+      "pourquoi": "article de l'institution sur son API, hôte en défi Cloudflare : non lu",
+      "a_chercher": "Politique d'usage, limites, raisons de la politique de grattage"
+    }
+  ],
+  "endpoints_documentes": [
+    {
+      "famille": "API REST api.artic.edu/api/v1 (artworks, artists, agents, search, pagination, fields)",
+      "url": "https://api.artic.edu/api/v1/artworks",
+      "statut": "teste",
+      "preuve": "institutions/art-institute-of-chicago/tests/raw/artworks-limit2.headers.txt"
+    },
+    {
+      "famille": "Manifestes IIIF Presentation (artworks/{id}/manifest.json)",
+      "url": "https://api.artic.edu/api/v1/artworks/24645/manifest.json",
+      "statut": "teste",
+      "preuve": "institutions/art-institute-of-chicago/tests/raw/artworks-24645-manifest.headers.txt"
+    },
+    {
+      "famille": "IIIF Image API 2.0 (www.artic.edu/iiif/2/{identifier}/full/{size}/0/default.jpg)",
+      "url": "https://www.artic.edu/iiif/2",
+      "statut": "non_teste",
+      "raison": "Hôte www.artic.edu en défi Cloudflare 403 dès la première requête (robots.txt) : on n'insiste pas, aucun contournement ; à vérifier à la main."
+    },
+    {
+      "famille": "Dump de données (artic-api-data.tar.bz2 sur S3)",
+      "url": "https://artic-api-data.s3.amazonaws.com/artic-api-data.tar.bz2",
+      "statut": "teste",
+      "preuve": "institutions/art-institute-of-chicago/tests/raw/dump-head.headers.txt"
+    },
+    {
+      "famille": "Recherche multiple POST /msearch et recherche POST (artwork aléatoire)",
+      "url": "https://api.artic.edu/api/v1/msearch",
+      "statut": "non_teste",
+      "raison": "Requêtes POST : la méthode du projet interdit tout POST (GET/HEAD seulement) ; la doc décrit /msearch et la recherche avec corps JSON en POST."
+    }
+  ],
+  "endpoints_ecartes": [
+    {
+      "url": "https://www.artic.edu/open-access/public-api",
+      "raison": "Page web du musée présentant l'API, pas une API ; hôte www.artic.edu en défi Cloudflare, lue via Wayback."
+    },
+    {
+      "url": "https://github.com/art-institute-of-chicago/api-data/issues",
+      "raison": "Suivi de tickets GitHub, pas une API ; lu comme source de doc."
+    },
+    {
+      "url": "https://www-test.artic.edu/iiif/2",
+      "raison": "Hôte de test cité seulement dans des exemples de réponse de la doc (www-test.artic.edu), non destiné au public ; non contacté."
+    },
+    {
+      "url": "https://publications.artic.edu/gauguin/reader/gauguinart",
+      "raison": "Publication numérique citée dans un exemple de réponse de la doc, pas un endpoint d'API ; non contactée."
+    }
+  ],
+  "hotes_robots": [
+    {
+      "hote": "api.artic.edu",
+      "resultat": "200 : « User-agent: * Disallow: » (rien d'interdit)",
+      "preuve": "institutions/art-institute-of-chicago/sources/a/raw/02.html"
+    },
+    {
+      "hote": "www.artic.edu",
+      "resultat": "403 défi Cloudflare ; réplique Wayback 2026-05-16 : quelques Disallow (/ajaxData, /artworks/recentlyViewed…), pas de Crawl-delay",
+      "preuve": "institutions/art-institute-of-chicago/sources/wayback/robots-www.md"
+    },
+    {
+      "hote": "artic-api-data.s3.amazonaws.com",
+      "resultat": "403 (refus S3, pas un défi) : indisponible, tout autorisé",
+      "preuve": "institutions/art-institute-of-chicago/tests/journal.log"
+    },
+    {
+      "hote": "iiif.artic.edu",
+      "resultat": "DNS introuvable (hôte non cité par la doc)",
+      "preuve": "institutions/art-institute-of-chicago/sources/a/FETCH.log"
+    }
+  ]
 }
