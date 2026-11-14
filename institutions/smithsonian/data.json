@@ -2,41 +2,242 @@
   "slug": "smithsonian",
   "nom": "Smithsonian Institution (Open Access)",
   "pays": "États-Unis",
-  "statut_audit": "partiel (clé requise)",
+  "statut_audit": "méthode v2 complète a à f (API à clé non testée avec clé) ; g préparée",
   "limites_documentees": [
     {
-      "nature": "Quota par clé api.data.gov (plateforme)",
-      "perimetre": "API api.si.edu avec clé",
-      "valeur": "1000",
-      "fenetre": "par heure",
-      "effet": "429",
-      "source": "https://api.data.gov/docs/developer-manual/ (non vérifié pour le Smithsonian)",
-      "date": "2026-11-13",
-      "verification": "plateforme api.data.gov (non vérifiée pour le Smithsonian)",
-      "classe": "plateforme, non applicable tel quel"
+      "nature": "Quota par clé (plateforme api.data.gov, défaut)",
+      "perimetre": "clé api.data.gov, toutes les API api.data.gov",
+      "valeur": "1 000 requêtes",
+      "fenetre": "par heure (compteur glissant)",
+      "effet": "clé bloquée temporairement, réponse 429, levée automatique après une heure",
+      "verification": "documentée par la plateforme, non vérifiée pour le Smithsonian (aucune clé utilisée)",
+      "source": "https://api.data.gov/docs/developer-manual/",
+      "date": "2026-11-14"
     },
     {
-      "nature": "DEMO_KEY (plateforme)",
-      "perimetre": "clé de démonstration",
-      "valeur": "30 par heure par IP, 50 par jour",
+      "nature": "Quota DEMO_KEY (plateforme)",
+      "perimetre": "clé de démonstration api.data.gov",
+      "valeur": "30 requêtes par IP par heure ; 50 par IP par jour",
       "fenetre": "heure / jour",
       "effet": "429",
+      "verification": "documentée par la plateforme, non vérifiée",
       "source": "https://api.data.gov/docs/developer-manual/",
-      "date": "2026-11-13",
-      "verification": "plateforme api.data.gov (non vérifiée pour le Smithsonian)",
-      "classe": "plateforme, non applicable tel quel"
+      "date": "2026-11-14"
     }
   ],
   "en_tetes_observes": [],
-  "blocages": [],
-  "contact": "non trouvé",
-  "conclusion_quota": "Oui sous condition : en-têtes X-RateLimit-* documentés par api.data.gov pour une clé valide ; non testés (clé non demandée).",
-  "classe_quota": "clé donne un quota (plateforme)",
-  "confiance": "faible",
-  "notes": "Clé requise : inscription sur api.data.gov, à décider par Marcel.",
+  "blocages": [
+    {
+      "hote": "api.si.edu",
+      "code": 403,
+      "nature": "API_KEY_MISSING : refus d'authentification de la passerelle api.data.gov (aucune clé fournie), pas un défi anti-bot ; la sonde a arrêté l'hôte",
+      "date": "2026-11-14"
+    },
+    {
+      "hote": "www.si.edu",
+      "code": 403,
+      "nature": "403 pour notre client (page /openaccess/devtools via fetch_doc), hôte sauté ; pages lues via Wayback",
+      "date": "2026-11-14"
+    },
+    {
+      "hote": "registry.opendata.aws",
+      "code": "DNS",
+      "nature": "DNS non résolu pour robots.txt (curl 6, 2026-11-14T01:50Z)",
+      "date": "2026-11-14"
+    }
+  ],
+  "contact": "openaccess@si.edu",
+  "conclusion_quota": "Aucun quota publié par le Smithsonian lui-même (doc EDAN : « all that we require is that you get a key »). Le quota est celui de la plateforme api.data.gov : 1 000 requêtes/heure par clé, DEMO_KEY 30/h et 50/jour par IP, en-têtes X-RateLimit-Limit et X-RateLimit-Remaining sur chaque réponse, 429 au dépassement, selon api.data.gov (non vérifié pour le Smithsonian, aucune clé). Données en vrac sur S3 public (sans clé) : aucune limite écrite.",
+  "classe_quota": "clé donne un quota (plateforme api.data.gov), non vérifié",
+  "confiance": "moyenne",
+  "notes": "Le 403 API_KEY_MISSING de api.si.edu (sonde, passe 1) est un refus faute de clé : la sonde l'a classé 403_ANTI_BOT et a arrêté l'hôte ; ce n'est pas un quota. robots.txt de edan.si.edu : « Disallow: / » (pages de doc lues avec l'accord de Marcel, C12). registry.opendata.aws : DNS non résolu pour robots.txt lors du fetch (la page registre avait été lue plus tôt dans la même session). github.com robots.txt : Crawl-delay: 1 seulement pour certains agents.",
   "classeur_id": "GLAM-032",
   "type": "Institution",
-  "sources": [],
-  "web": [],
-  "donnees_a_revalider": true
+  "sources": [
+    {
+      "url": "https://edan.si.edu/openaccess/apidocs/",
+      "date": "2026-11-14",
+      "etiquette": "officielle",
+      "preuve": "institutions/smithsonian/sources/doc/SHA256SUMS"
+    },
+    {
+      "url": "https://edan.si.edu/openaccess/apidocs/api_data.js",
+      "date": "2026-11-14",
+      "etiquette": "officielle",
+      "preuve": "institutions/smithsonian/sources/doc2/SHA256SUMS"
+    },
+    {
+      "url": "https://edan.si.edu/openaccess/docs/",
+      "date": "2026-11-14",
+      "etiquette": "officielle",
+      "preuve": "institutions/smithsonian/sources/doc/SHA256SUMS"
+    },
+    {
+      "url": "https://api.data.gov/docs/developer-manual/",
+      "date": "2026-11-14",
+      "etiquette": "officielle (plateforme)",
+      "preuve": "institutions/smithsonian/sources/doc/SHA256SUMS"
+    },
+    {
+      "url": "https://github.com/Smithsonian/OpenAccess",
+      "date": "2026-11-14",
+      "etiquette": "officielle",
+      "preuve": "institutions/smithsonian/sources/doc/SHA256SUMS"
+    },
+    {
+      "url": "https://registry.opendata.aws/smithsonian-open-access/",
+      "date": "2026-11-14",
+      "etiquette": "tiers (registre AWS)",
+      "preuve": "institutions/smithsonian/sources/doc/SHA256SUMS"
+    },
+    {
+      "url": "https://www.si.edu/openaccess/devtools",
+      "date": "2026-11-14",
+      "etiquette": "officielle (Wayback)",
+      "preuve": "institutions/smithsonian/sources/wayback/devtools.md"
+    },
+    {
+      "url": "https://www.si.edu/termsofuse",
+      "date": "2026-11-14",
+      "etiquette": "officielle (Wayback)",
+      "preuve": "institutions/smithsonian/sources/wayback/termsofuse.md"
+    }
+  ],
+  "web": [
+    {
+      "categorie": "institution",
+      "url": "https://www.si.edu/termsofuse",
+      "date": "2025-06-01",
+      "etiquette": "officielle (Wayback)",
+      "citation": "« application program interfaces (“APIs”). By using any of the Websites, you accept and agree to comply with the following terms » ; aucune limite de débit ni règle de moissonnage",
+      "preuve": "institutions/smithsonian/sources/wayback/termsofuse.md"
+    },
+    {
+      "categorie": "presentations",
+      "url": "https://www.si.edu/openaccess/updates/21st-century-diffusion",
+      "date": "2020-02-25",
+      "etiquette": "institution (billet de lancement, Wayback)",
+      "citation": "« An Application Programming Interface (API) hosted on data.gov, and a GitHub data repository » ; aucune limite de débit",
+      "preuve": "institutions/smithsonian/sources/wayback/21st-century-diffusion.md"
+    },
+    {
+      "categorie": "utilisateurs",
+      "aucun_resultat": true,
+      "requete": "Smithsonian Open Access API \"429\" OR \"rate limit\" OR blocked developers forum Reddit OR StackOverflow",
+      "date": "2026-11-14",
+      "etiquette": "tiers",
+      "citation": "aucun fil de forum ni plainte sur des 429/blocages de l'API Smithsonian ; seul un article tiers (dev.to, lu) dit « The Smithsonian requires a free API key from api.data.gov »",
+      "preuve": "institutions/smithsonian/fiche.md"
+    },
+    {
+      "categorie": "tickets",
+      "aucun_resultat": true,
+      "requete": "github issue Smithsonian OpenAccess api.si.edu API_KEY rate limit client library",
+      "date": "2026-11-14",
+      "etiquette": "tiers",
+      "citation": "aucun ticket sur les limites ; clients tiers (MCP, Go) traitent le 429 par une erreur ou un retry (résumé de moteur, non vérifié)",
+      "preuve": "institutions/smithsonian/fiche.md"
+    }
+  ],
+  "donnees_a_revalider": true,
+  "a_verifier_manuellement": [
+    {
+      "url": "https://www.si.edu/openaccess/devtools",
+      "pourquoi": "403 pour notre client (www.si.edu) ; lue via Wayback (capture 2025-06-12), pas en direct.",
+      "a_chercher": "toute phrase actuelle sur l'API, les clés, les limites ou un contact."
+    },
+    {
+      "url": "https://www.si.edu/openaccess",
+      "pourquoi": "hôte www.si.edu en 403, non lue en direct (sautée).",
+      "a_chercher": "FAQ et conditions d'usage de l'API ; mention de limites de débit."
+    },
+    {
+      "url": "https://api.data.gov/signup/",
+      "pourquoi": "Inscription à une clé : action de compte, que la méthode interdit (aucune clé ni identifiant).",
+      "a_chercher": "le quota réellement attribué à une clé Smithsonian (tableau de bord api.data.gov) et les en-têtes X-RateLimit-* d'une réponse avec clé ; décision de Marcel."
+    }
+  ],
+  "endpoints_documentes": [
+    {
+      "famille": "API Open Access : search, category search, content/:id, terms/:category, stats",
+      "url": "https://api.si.edu/openaccess/api/v1.0/search",
+      "statut": "non_teste",
+      "raison": "clé api_key obligatoire selon api_data.js ; sans clé, stats a répondu 403 API_KEY_MISSING (passe 1) et la sonde a arrêté l'hôte ; ne pas demander de clé (méthode) ; search et terms non lancés (hôte arrêté)."
+    },
+    {
+      "famille": "Index S3 public des métadonnées (CC0, sans clé)",
+      "url": "https://smithsonian-open-access.s3-us-west-2.amazonaws.com/metadata/edan/index.txt",
+      "statut": "teste",
+      "preuve": "institutions/smithsonian/tests/journal.log"
+    },
+    {
+      "famille": "Dépôt GitHub des métadonnées (JSON en vrac)",
+      "url": "https://github.com/Smithsonian/OpenAccess",
+      "statut": "non_teste",
+      "raison": "hôte github.com tiers : la doc est lue (page HTML), le téléchargement en vrac passe par S3 testé ci-dessus ; dépôt archivé en lecture seule."
+    }
+  ],
+  "endpoints_ecartes": [
+    {
+      "url": "https://edan.si.edu/openaccess/signup/form",
+      "raison": "formulaire d'inscription à une clé (POST, création de compte) : interdit par la méthode."
+    },
+    {
+      "url": "https://api.data.gov/signup/",
+      "raison": "formulaire d'inscription à une clé api.data.gov (POST, création de compte) : interdit par la méthode."
+    },
+    {
+      "url": "https://www.si.edu/termsofuse",
+      "raison": "page de conditions d'usage, pas une API ; lue via Wayback (403 en direct)."
+    },
+    {
+      "url": "https://www.si.edu/openaccess",
+      "raison": "page programme, pas une API ; 403 en direct, à vérifier à la main."
+    },
+    {
+      "url": "https://www.si.edu/openaccess/devtools",
+      "raison": "page de doc, pas une API ; 403 en direct, lue via Wayback."
+    },
+    {
+      "url": "https://registry.opendata.aws/smithsonian-open-access/",
+      "raison": "page du registre AWS (documentation tierce) ; le bucket S3 correspondant est testé."
+    }
+  ],
+  "hotes_robots": [
+    {
+      "hote": "edan.si.edu",
+      "resultat": "200 ; User-agent: * Disallow: / ; pas de Crawl-delay (pages de doc lues avec l'accord C12)",
+      "preuve": "institutions/smithsonian/sources/doc/raw/01.html"
+    },
+    {
+      "hote": "www.si.edu",
+      "resultat": "200 ; règles Drupal (Disallow /search/, /admin/…) ; pas de Crawl-delay",
+      "preuve": "institutions/smithsonian/sources/doc/raw/05.html"
+    },
+    {
+      "hote": "api.si.edu",
+      "resultat": "404 (tout autorisé)",
+      "preuve": "institutions/smithsonian/sources/doc/FETCH.log"
+    },
+    {
+      "hote": "api.data.gov",
+      "resultat": "404 (tout autorisé)",
+      "preuve": "institutions/smithsonian/sources/doc/FETCH.log"
+    },
+    {
+      "hote": "github.com",
+      "resultat": "200 ; Crawl-delay: 1 pour certains agents",
+      "preuve": "institutions/smithsonian/sources/doc3/raw/01.html"
+    },
+    {
+      "hote": "registry.opendata.aws",
+      "resultat": "robots.txt non lu : DNS non résolu (erreur curl 6) lors du fetch du 2026-11-14T01:50Z",
+      "preuve": "institutions/smithsonian/sources/doc3/FETCH.log"
+    },
+    {
+      "hote": "smithsonian-open-access.s3-us-west-2.amazonaws.com",
+      "resultat": "404 (tout autorisé)",
+      "preuve": "institutions/smithsonian/sources/doc/FETCH.log"
+    }
+  ]
 }

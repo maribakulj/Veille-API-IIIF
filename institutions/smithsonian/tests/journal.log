@@ -1,0 +1,9 @@
+# Session 2026-11-14T01:48:25Z — configuration smithsonian-v2-passe1.json — sonde probe.py au commit 0b8dc85
+2026-11-14T01:48:29Z | robots.txt:smithsonian-open-access.s3-us-west-2.amazonaws.com | https://smithsonian-open-access.s3-us-west-2.amazonaws.com/robots.txt | GET | 404 | robots.txt indisponible : tout est autorisé (RFC 9309)
+2026-11-14T01:48:37Z | s3-metadata-index-edan | https://smithsonian-open-access.s3-us-west-2.amazonaws.com/metadata/edan/index.txt | GET | 200 OK | aucun en-tête de limite | taille≥200 | corps: https://smithsonian-open-access.s3-us-west-2.amazonaws.com/metadata/edan/aaa/index.txt https://smithsonian-open-access.s3-us-west-2.amazonaws.com/metadata/edan/acah/index.txt https://smithsonian-open-
+2026-11-14T01:48:38Z | robots.txt:api.si.edu | https://api.si.edu/robots.txt | GET | 404 | robots.txt indisponible : tout est autorisé (RFC 9309)
+2026-11-14T01:48:48Z | api-stats-sans-cle | https://api.si.edu/openaccess/api/v1.0/stats | GET | 403 403_ANTI_BOT | aucun en-tête de limite | taille≥127 | corps: {   "error": {     "code": "API_KEY_MISSING",     "message": "No api_key was supplied. Get one at https://api.si.edu:443"   } }
+# ARRÊT de l'hôte api.si.edu (403 anti-bot). Les autres hôtes continuent.
+2026-11-14T01:48:48Z | api-search-sans-cle | NON LANCÉ : hôte api.si.edu arrêté (403 anti-bot)
+2026-11-14T01:48:48Z | api-terms-culture-sans-cle | NON LANCÉ : hôte api.si.edu arrêté (403 anti-bot)
+# Fin 2026-11-14T01:48:48Z — 4 requête(s) envoyée(s)
