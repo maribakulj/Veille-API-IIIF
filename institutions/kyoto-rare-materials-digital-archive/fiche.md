@@ -16,3 +16,8 @@
 
 ## Conclusion
 Aucun quota publié ni observé. Raison probable (hypothèse) : service académique Drupal + Cantaloupe, sans politique de débit écrite. Contact : adresse e-mail de /en/about. Étape g : à faire (crash-image-info.json préparé).
+
+## Crash test (étape g)
+
+Crash test fait le 2026-11-14 : image-info-json sur rmda.kulib.kyoto-u.ac.jp : aucun blocage jusqu'à 200 req/min (plafond 200 req/min).
+Journal : `tests/crash/kyoto-rare-materials-digital-archive.log`. Un test « sans blocage » n'est pas une preuve d'illimitation au-delà du plafond.
