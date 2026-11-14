@@ -2,51 +2,51 @@
 
 - **Dossier** : `institutions/e-manuscripta-bibliotheques-partenaires-suisses/`  ·  **Classeur de référence** : GLAM-020  ·  **Pays** : Suisse
 - **Statut d'institution** : active
-- **Dernière mise à jour du suivi** : (à renseigner à chaque modification)
+- **Dernière mise à jour du suivi** : 2026-11-14
 
 ## Suivi par étape (à cocher, avec justification et preuves)
 
 ### a) Documentation lue en entier
 > Toutes les pages de doc liées à l'API (développeurs, interfaces, conditions, FAQ, aide, mentions légales, robots.txt), téléchargées avec `scripts/fetch_doc.sh` (URL, date, SHA-256), lues en entier (`scripts/extract_text.py`).
 
-- [ ] **Pas fait**
-  - **Justification** : Pas encore traitée : l'audit suit l'ordre du classeur de référence (une institution à la fois).
-  - **Preuves** : 
+- [x] **Fait**
+  - **Justification** : Lus : robots.txt de 5 hôtes (www.e-manuscripta.ch Disallow: /, sru2.visual-library.de, data.zb.uzh.ch, www.zb.uzh.ch, opendata.swiss), 5 pages de la data map ZB (IIIF, OAI, SRU, plateformes), page ZB, fiche opendata.swiss ; le site e-manuscripta.ch sert un défi JavaScript : wiki/apiinfo (2025-03-07) et wiki/termsOfUse (2025-03-08) lues en entier dans la Wayback, extraits verbatim avec URL de réplique.
+  - **Preuves** : `institutions/e-manuscripta-bibliotheques-partenaires-suisses/sources/a1/SHA256SUMS`, `institutions/e-manuscripta-bibliotheques-partenaires-suisses/sources/a2/SHA256SUMS`, `institutions/e-manuscripta-bibliotheques-partenaires-suisses/sources/a3/SHA256SUMS`, `institutions/e-manuscripta-bibliotheques-partenaires-suisses/sources/a4/SHA256SUMS`, `institutions/e-manuscripta-bibliotheques-partenaires-suisses/sources/wayback/e-manuscripta-extraits-wayback.md`
 
 ### b) Endpoints tirés de la doc
 > Liste des endpoints citée par la doc (URL, exemples). Jamais devinée. Une interdiction ou une impossibilité écrite dans la doc justifie de renoncer (citer la phrase).
 
-- [ ] **Pas fait**
-  - **Justification** : Pas encore traitée : l'audit suit l'ordre du classeur de référence (une institution à la fois).
-  - **Preuves** : 
+- [x] **Fait**
+  - **Justification** : Endpoints tirés de wiki/apiinfo et de la data map ZB : OAI-PMH (6 verbes), IIIF Presentation v2 et Image 2.1, collection v21/top, PDF, RIS, textes ALTO/hOCR, SRU ; METS et Z39.50 non testés avec raison ; pages de doc et alias écartés avec raison dans data.json.
+  - **Preuves** : `institutions/e-manuscripta-bibliotheques-partenaires-suisses/data.json`, `institutions/e-manuscripta-bibliotheques-partenaires-suisses/sources/wayback/e-manuscripta-extraits-wayback.md`
 
 ### c) Configuration écrite AVANT les tests
 > `config/<nom>.json` pilote `scripts/probe.py`, committée avant le lancement. Un endpoint absent de la doc mais non interdit se teste avec un script poli (identifiants issus de pages publiques ou d'exemples de la doc, pas de devinette).
 
-- [ ] **Pas fait**
-  - **Justification** : Pas encore traitée : l'audit suit l'ordre du classeur de référence (une institution à la fois).
-  - **Preuves** : 
+- [x] **Fait**
+  - **Justification** : Deux configurations committées avant chaque lancement (passe 1 : 11 requêtes, passe 2 : 5) ; identifiants (3071845, 3192957, 3192960, 1384091, 1831288) pris dans les exemples de la doc ; pauses 6 s ; robots_disallow_autorise_par_marcel (C12) ; crash-oai-identify.json préparée.
+  - **Preuves** : `institutions/e-manuscripta-bibliotheques-partenaires-suisses/config/e-manuscripta-passe1.json`, `institutions/e-manuscripta-bibliotheques-partenaires-suisses/config/e-manuscripta-passe2.json`, `institutions/e-manuscripta-bibliotheques-partenaires-suisses/config/crash-oai-identify.json`
 
 ### d) Quota cherché dans la doc
 > Pour chaque page lue : endpoint de statut, en-têtes de limite documentés, clé ou compte donnant un quota, contact pour un volume plus élevé. Chaque réponse cite sa source.
 
-- [ ] **Pas fait**
-  - **Justification** : Pas encore traitée : l'audit suit l'ordre du classeur de référence (une institution à la fois).
-  - **Preuves** : 
+- [x] **Fait**
+  - **Justification** : Aucune limite de débit, quota, clé, endpoint de statut ni en-tête de limite dans apiinfo, termsOfUse, la data map ZB et la fiche opendata.swiss. Règles écrites : paquets OAI de 10 notices, délai possible sur gros METS, copie systématique soumise à accord écrit, contact générique du portail, robots.txt Disallow: / sauf Bingbot et Googlebot.
+  - **Preuves** : `institutions/e-manuscripta-bibliotheques-partenaires-suisses/sources/wayback/e-manuscripta-extraits-wayback.md`, `institutions/e-manuscripta-bibliotheques-partenaires-suisses/data.json`, `institutions/e-manuscripta-bibliotheques-partenaires-suisses/sources/a2/text/01.txt`
 
 ### e) Test systématique de chaque endpoint
 > Chaque endpoint documenté est testé (budget 15 requêtes par passe, pause ≥ 6 s, GET/HEAD, UA du projet). Redirections du même hôte suivies. Un 403 arrête son hôte, un 429 arrête l'institution. Seules les interdictions écrites dans la doc dispensent de tester.
 
-- [ ] **Pas fait**
-  - **Justification** : Pas encore traitée : l'audit suit l'ordre du classeur de référence (une institution à la fois).
-  - **Preuves** : 
+- [x] **Fait**
+  - **Justification** : 16 requêtes en 2 passes : OAI (7 appels), manifeste v20, info.json v21 et dérivé, collection v21/top, RIS, PDF (HEAD), ALTO, hOCR, SRU : 200 partout, aucun 429, aucun 403, aucun en-tête de limite ; METS et Z39.50 non testés avec raison ; robots.txt de chaque hôte lu.
+  - **Preuves** : `institutions/e-manuscripta-bibliotheques-partenaires-suisses/tests/journal.log`, `institutions/e-manuscripta-bibliotheques-partenaires-suisses/tests/raw/oai-identify.headers.txt`, `institutions/e-manuscripta-bibliotheques-partenaires-suisses/tests/raw/sru-emanus-alma.headers.txt`
 
 ### f) Ce que disent les gens sur le web
 > Plaintes, discussions, présentations de l'institution, politique envers les API et les bots, blogs, GitHub, forums, listes de diffusion. Sources étiquetées (officielle / institution / utilisateur / tiers), lues, citées.
 
-- [ ] **Pas fait**
-  - **Justification** : Pas encore traitée : l'audit suit l'ordre du classeur de référence (une institution à la fois).
-  - **Preuves** : 
+- [x] **Fait**
+  - **Justification** : 5 recherches web (institution, utilisateurs, tickets, présentations + termes) : pages officielles et partenaires lues (Wayback, data map ZB, page ZB, billet UB Basel 2022-09-08) ; aucune plainte d'utilisateur ni ticket d'outil trouvé, noté « aucun résultat » avec requête.
+  - **Preuves** : `institutions/e-manuscripta-bibliotheques-partenaires-suisses/fiche.md`, `institutions/e-manuscripta-bibliotheques-partenaires-suisses/data.json`, `institutions/e-manuscripta-bibliotheques-partenaires-suisses/sources/wayback/e-manuscripta-extraits-wayback.md`
 
 ### g) Crash test progressif
 > Seulement après l'audit complet (a à f) de toutes les institutions et avec l'accord de Marcel : paliers jusqu'à 2 × la limite documentée, ou 200 req/min si illimité ou sans limite documentée. Arrêt au premier 429/403/CAPTCHA.
@@ -60,9 +60,9 @@
 
 <!-- AUTO:DEBUT -->
 ## Contrôles automatiques (calculés depuis `tests/journal.log`)
-- Requêtes enregistrées : **13** (sessions de sonde : 1, maximum par session : 13)
+- Requêtes enregistrées : **19** (sessions de sonde : 2, maximum par session : 13)
 - Plus courte pause vers un même hôte : **6 s** (règle : ≥ 6 s)
-- Méthodes utilisées : GET (règle : GET/HEAD seulement)
+- Méthodes utilisées : GET, HEAD (règle : GET/HEAD seulement)
 - Anomalies : aucune
 <!-- AUTO:FIN -->
 

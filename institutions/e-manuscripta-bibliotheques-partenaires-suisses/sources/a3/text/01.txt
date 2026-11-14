@@ -1,0 +1,11 @@
+404 Not Found 
+ 404 Not Found
+ The path '/robots.txt' was not found.
+ Traceback (most recent call last):
+ File "/vls/libpy/cherrypy/_cprequest.py", line 656, in respond
+ response.body = self.handler()
+ File "/vls/libpy/cherrypy/lib/encoding.py", line 188, in __call__
+ self.body = self.oldhandler(*args, **kwargs)
+ File "/vls/libpy/cherrypy/_cperror.py", line 386, in __call__
+ raise self
+NotFound: (404, "The path '/robots.txt' was not found.")
