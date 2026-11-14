@@ -4,10 +4,206 @@
   "pays": "États-Unis",
   "classeur_id": "GLAM-062",
   "type": "Institution",
-  "statut_audit": "à faire",
-  "limites_documentees": [],
+  "statut_audit": "audit a–f complet (v2) ; g à faire",
+  "limites_documentees": [
+    {
+      "nature": "Crawl-delay robots.txt",
+      "perimetre": "collections.leventhalmap.org",
+      "valeur": "Crawl-Delay: 15",
+      "fenetre": "15 s entre requêtes",
+      "effet": "demande de pause (non contraignant ; ligne sans User-agent)",
+      "verification": "officielle, lue (robots.txt)",
+      "source": "https://collections.leventhalmap.org/robots.txt",
+      "date": "2026-11-14"
+    },
+    {
+      "nature": "Crawl-delay robots.txt",
+      "perimetre": "www.digitalcommonwealth.org",
+      "valeur": "Crawl-Delay: 5",
+      "fenetre": "5 s entre requêtes",
+      "effet": "demande de pause (non contraignant)",
+      "verification": "officielle, lue (robots.txt)",
+      "source": "https://www.digitalcommonwealth.org/robots.txt",
+      "date": "2026-11-14"
+    }
+  ],
   "en_tetes_observes": [],
   "blocages": [],
-  "sources": [],
-  "web": []
+  "sources": [
+    {
+      "url": "https://www.leventhalmap.org/collections/digital-collections",
+      "date": "2026-11-14",
+      "etiquette": "officielle",
+      "preuve": "institutions/norman-b-leventhal-map-education-center-boston-p/sources/a1/SHA256SUMS"
+    },
+    {
+      "url": "https://www.digitalcommonwealth.org/api",
+      "date": "2026-11-14",
+      "etiquette": "officielle",
+      "preuve": "institutions/norman-b-leventhal-map-education-center-boston-p/sources/a1/SHA256SUMS"
+    },
+    {
+      "url": "https://www.digitalcommonwealth.org/copyright",
+      "date": "2026-11-14",
+      "etiquette": "officielle",
+      "preuve": "institutions/norman-b-leventhal-map-education-center-boston-p/sources/a2/SHA256SUMS"
+    },
+    {
+      "url": "https://github.com/bplmaps/collections-api",
+      "date": "2026-11-14",
+      "etiquette": "institution (GitHub)",
+      "preuve": "institutions/norman-b-leventhal-map-education-center-boston-p/sources/a1/SHA256SUMS"
+    },
+    {
+      "url": "https://cartinal.leventhalmap.org/guides/lmec-dc-geo.html",
+      "date": "2026-11-14",
+      "etiquette": "institution",
+      "preuve": "institutions/norman-b-leventhal-map-education-center-boston-p/sources/a1/SHA256SUMS"
+    }
+  ],
+  "web": [
+    {
+      "categorie": "institution",
+      "url": "https://www.digitalcommonwealth.org/copyright",
+      "date": "2026-11-14",
+      "etiquette": "officielle",
+      "citation": "« Digital Commonwealth provides access to copyrighted materials strictly for noncommercial educational and research purposes and places no restrictions on public domain material. » ; aucune règle de débit.",
+      "preuve": "institutions/norman-b-leventhal-map-education-center-boston-p/sources/a2/SHA256SUMS"
+    },
+    {
+      "categorie": "utilisateurs",
+      "aucun_resultat": true,
+      "requete": "collections.leventhalmap.org OR digitalcommonwealth.org IIIF 429 OR \"rate limit\" OR blocked OR timeout downloading maps",
+      "date": "2026-11-14",
+      "etiquette": "–",
+      "citation": "aucune plainte 429/blocage visant ces hôtes (résultats sur d'autres serveurs)",
+      "preuve": "institutions/norman-b-leventhal-map-education-center-boston-p/fiche.md"
+    },
+    {
+      "categorie": "tickets",
+      "aucun_resultat": true,
+      "requete": "github issue allmaps OR iiif-crawler \"leventhalmap\" OR \"digitalcommonwealth\" manifest 403 OR 429 OR rate",
+      "date": "2026-11-14",
+      "etiquette": "–",
+      "citation": "aucun ticket d'Allmaps ou d'un crawler IIIF sur des erreurs 403/429 de ces hôtes",
+      "preuve": "institutions/norman-b-leventhal-map-education-center-boston-p/fiche.md"
+    },
+    {
+      "categorie": "presentations",
+      "url": "https://iiif.io/news/2023/07/05/4science-leventhal-BPL/",
+      "date": "2026-11-14",
+      "etiquette": "tiers (annonce IIIF Consortium)",
+      "citation": "« [BPL's Digital Commonwealth portal], which includes a description of available IIIF APIs » ; aucune limite citée.",
+      "preuve": "institutions/norman-b-leventhal-map-education-center-boston-p/fiche.md"
+    }
+  ],
+  "contact": "formulaire Contact de Digital Commonwealth (digitalcommonwealth.org/api : « Please contact us ») ; Leventhal Center : leventhalmap.org",
+  "conclusion_quota": "Aucun quota ni limite de débit publiés ; API JSON, IIIF (Presentation 2.0, Image 2.0) et OAI-PMH ouvertes, testées en 200 sans en-tête de limite ; seuls signaux : Crawl-Delay 15 s (LMEC) et 5 s (Digital Commonwealth) dans les robots.txt.",
+  "classe_quota": "aucun quota trouvé",
+  "confiance": "moyenne",
+  "notes": "En passe 1 la sonde a espacé de 6 s les requêtes vers collections.leventhalmap.org : son robots.txt a une ligne Crawl-Delay: 15 sans User-agent, non lue comme règle ; passe 2 à 15 s. iiif.digitalcommonwealth.org a Disallow: / testé sous C12.",
+  "a_verifier_manuellement": [
+    {
+      "url": "https://www.digitalcommonwealth.org/copyright",
+      "pourquoi": "lue (200) ; aucune règle de débit, mais l'institution pourrait en avoir une non publiée",
+      "a_chercher": "Écrire à Digital Commonwealth / BPL pour demander s'il existe une limite non publiée sur le moissonnage JSON, IIIF et OAI"
+    },
+    {
+      "url": "https://www.leventhalmap.org/robots.txt",
+      "pourquoi": "404 renvoyant une page d'erreur de 27 ko (aucun robots.txt)",
+      "a_chercher": "Vérifier qu'aucune politique de robots n'existe sur le site éditorial"
+    }
+  ],
+  "endpoints_documentes": [
+    {
+      "famille": "API JSON du portail LMEC (search.json)",
+      "url": "https://collections.leventhalmap.org/search.json?utf8=%E2%9C%93&q=boston+neck",
+      "statut": "teste",
+      "preuve": "institutions/norman-b-leventhal-map-education-center-boston-p/tests/raw/lmec-search-json.headers.txt"
+    },
+    {
+      "famille": "IIIF Presentation 2.0 : manifeste (LMEC)",
+      "url": "https://collections.leventhalmap.org/search/commonwealth:9s161f21f/manifest.json",
+      "statut": "teste",
+      "preuve": "institutions/norman-b-leventhal-map-education-center-boston-p/tests/raw/lmec-manifest.headers.txt"
+    },
+    {
+      "famille": "Notice HTML LMEC",
+      "url": "https://collections.leventhalmap.org/search/commonwealth:wd3761121",
+      "statut": "teste",
+      "preuve": "institutions/norman-b-leventhal-map-education-center-boston-p/tests/raw/lmec-item-html.headers.txt"
+    },
+    {
+      "famille": "API JSON Digital Commonwealth (recherche)",
+      "url": "https://www.digitalcommonwealth.org/search.json?q=Boston",
+      "statut": "teste",
+      "preuve": "institutions/norman-b-leventhal-map-education-center-boston-p/tests/raw/dc-search-json.headers.txt"
+    },
+    {
+      "famille": "API JSON Digital Commonwealth (notice)",
+      "url": "https://www.digitalcommonwealth.org/search/commonwealth:9s161f21f.json",
+      "statut": "teste",
+      "preuve": "institutions/norman-b-leventhal-map-education-center-boston-p/tests/raw/dc-item-json.headers.txt"
+    },
+    {
+      "famille": "IIIF Presentation 2.0 (Digital Commonwealth)",
+      "url": "https://www.digitalcommonwealth.org/search/commonwealth:9s161f21f/manifest",
+      "statut": "teste",
+      "preuve": "institutions/norman-b-leventhal-map-education-center-boston-p/tests/raw/dc-manifest.headers.txt"
+    },
+    {
+      "famille": "OAI-PMH Digital Commonwealth",
+      "url": "https://oai.digitalcommonwealth.org/catalog/oai?verb=Identify",
+      "statut": "teste",
+      "preuve": "institutions/norman-b-leventhal-map-education-center-boston-p/tests/raw/dc-oai-identify.headers.txt"
+    },
+    {
+      "famille": "OpenSearch Digital Commonwealth",
+      "url": "https://www.digitalcommonwealth.org/search/opensearch.xml",
+      "statut": "teste",
+      "preuve": "institutions/norman-b-leventhal-map-education-center-boston-p/tests/raw/dc-opensearch.headers.txt"
+    },
+    {
+      "famille": "IIIF Image 2.0 (info.json et image)",
+      "url": "https://iiif.digitalcommonwealth.org/iiif/2/commonwealth:9s161f22q/info.json",
+      "statut": "teste",
+      "preuve": "institutions/norman-b-leventhal-map-education-center-boston-p/tests/raw/iiif-image-info.headers.txt"
+    }
+  ],
+  "endpoints_ecartes": [
+    {
+      "url": "https://bpldcassets.blob.core.windows.net/derivatives/images/IMAGE_ID/image_thumbnail_300.jpg",
+      "raison": "modèle d'URL de la doc avec IMAGE_ID fictif, stockage Azure : le robots.txt répond 400 ; on ne devine pas d'identifiant, les images sont testées via le service IIIF"
+    },
+    {
+      "url": "https://github.com/boston-library/solr-core-conf/wiki/SolrDocument-field-reference:-public-API",
+      "raison": "guide des champs de l'API JSON (wiki GitHub) lu avec WebFetch : aucune limite ni conditions d'usage ; pas une API à tester"
+    },
+    {
+      "url": "https://www.digitalcommonwealth.org/search/commonwealth:abcd12345",
+      "raison": "exemple fictif de la doc (abcd12345) ; la forme de l'URL est testée avec un identifiant réel tiré de la doc LMEC"
+    }
+  ],
+  "hotes_robots": [
+    {
+      "hote": "collections.leventhalmap.org",
+      "resultat": "Crawl-Delay 15 (sans User-agent) ; Disallow facettes, /downloads/",
+      "preuve": "institutions/norman-b-leventhal-map-education-center-boston-p/sources/a1/SHA256SUMS"
+    },
+    {
+      "hote": "www.digitalcommonwealth.org",
+      "resultat": "Crawl-Delay 5 ; Disallow facettes, téléchargements",
+      "preuve": "institutions/norman-b-leventhal-map-education-center-boston-p/sources/a1/SHA256SUMS"
+    },
+    {
+      "hote": "oai.digitalcommonwealth.org",
+      "resultat": "404 : tout autorisé",
+      "preuve": "institutions/norman-b-leventhal-map-education-center-boston-p/sources/a2/SHA256SUMS"
+    },
+    {
+      "hote": "iiif.digitalcommonwealth.org",
+      "resultat": "Disallow: / (testé avec l'accord C12)",
+      "preuve": "institutions/norman-b-leventhal-map-education-center-boston-p/sources/a2/SHA256SUMS"
+    }
+  ]
 }
