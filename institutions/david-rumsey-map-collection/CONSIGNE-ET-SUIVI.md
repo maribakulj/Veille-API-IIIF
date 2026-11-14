@@ -2,51 +2,51 @@
 
 - **Dossier** : `institutions/david-rumsey-map-collection/`  ·  **Classeur de référence** : GLAM-060  ·  **Pays** : États-Unis
 - **Statut d'institution** : active
-- **Dernière mise à jour du suivi** : (à renseigner à chaque modification)
+- **Dernière mise à jour du suivi** : 2026-11-14
 
 ## Suivi par étape (à cocher, avec justification et preuves)
 
 ### a) Documentation lue en entier
 > Toutes les pages de doc liées à l'API (développeurs, interfaces, conditions, FAQ, aide, mentions légales, robots.txt), téléchargées avec `scripts/fetch_doc.sh` (URL, date, SHA-256), lues en entier (`scripts/extract_text.py`).
 
-- [ ] **Pas fait**
-  - **Justification** : Pas encore traitée : l'audit suit l'ordre du classeur de référence (une institution à la fois).
-  - **Preuves** : 
+- [x] **Fait**
+  - **Justification** : Doc lue en entier : robots.txt, accueil, à propos, droits, FAQ de l'hôte (sources/a, b, d) et doc LUNA Imaging sur IIIF (sources/c), hachées et extraites ; 404 sur /iiif et rights.html consignés.
+  - **Preuves** : `institutions/david-rumsey-map-collection/sources/a/SHA256SUMS`, `institutions/david-rumsey-map-collection/sources/b/SHA256SUMS`, `institutions/david-rumsey-map-collection/sources/c/SHA256SUMS`, `institutions/david-rumsey-map-collection/sources/d/SHA256SUMS`
 
 ### b) Endpoints tirés de la doc
 > Liste des endpoints citée par la doc (URL, exemples). Jamais devinée. Une interdiction ou une impossibilité écrite dans la doc justifie de renoncer (citer la phrase).
 
-- [ ] **Pas fait**
-  - **Justification** : Pas encore traitée : l'audit suit l'ordre du classeur de référence (une institution à la fois).
-  - **Preuves** : 
+- [x] **Fait**
+  - **Justification** : Endpoints tirés de la doc LUNA (manifeste, collection de groupe, fetchMediaSearch) et du manifeste (info.json, miniature, IIIF Search, liste d'annotations) ; 2 non testés avec raison (recherche par clic, JP2 volumineux).
+  - **Preuves** : `institutions/david-rumsey-map-collection/data.json`, `institutions/david-rumsey-map-collection/sources/c/SHA256SUMS`
 
 ### c) Configuration écrite AVANT les tests
 > `config/<nom>.json` pilote `scripts/probe.py`, committée avant le lancement. Un endpoint absent de la doc mais non interdit se teste avec un script poli (identifiants issus de pages publiques ou d'exemples de la doc, pas de devinette).
 
-- [ ] **Pas fait**
-  - **Justification** : Pas encore traitée : l'audit suit l'ordre du classeur de référence (une institution à la fois).
-  - **Preuves** : 
+- [x] **Fait**
+  - **Justification** : Configurations rumsey-passe1.json et rumsey-passe2.json committées (6e21767, 1e3da98) avant chaque sonde ; min_delay_s 500 (Crawl-Delay), 3 et 4 endpoints.
+  - **Preuves** : `institutions/david-rumsey-map-collection/config/rumsey-passe1.json`, `institutions/david-rumsey-map-collection/config/rumsey-passe2.json`
 
 ### d) Quota cherché dans la doc
 > Pour chaque page lue : endpoint de statut, en-têtes de limite documentés, clé ou compte donnant un quota, contact pour un volume plus élevé. Chaque réponse cite sa source.
 
-- [ ] **Pas fait**
-  - **Justification** : Pas encore traitée : l'audit suit l'ordre du classeur de référence (une institution à la fois).
-  - **Preuves** : 
+- [x] **Fait**
+  - **Justification** : Recherche de quota dans chaque source : Crawl-Delay 500 s (robots.txt), aucune limite dans les pages Rumsey ni dans la doc LUNA lue ; en-tête ratelimit-limit: 5.0 observé ; contact carto@davidrumsey.com.
+  - **Preuves** : `institutions/david-rumsey-map-collection/sources/a/text/01.txt`, `institutions/david-rumsey-map-collection/sources/b/text/01.txt`, `institutions/david-rumsey-map-collection/tests/raw/manifeste-iiif.headers.txt`
 
 ### e) Test systématique de chaque endpoint
 > Chaque endpoint documenté est testé (budget 15 requêtes par passe, pause ≥ 6 s, GET/HEAD, UA du projet). Redirections du même hôte suivies. Un 403 arrête son hôte, un 429 arrête l'institution. Seules les interdictions écrites dans la doc dispensent de tester.
 
-- [ ] **Pas fait**
-  - **Justification** : Pas encore traitée : l'audit suit l'ordre du classeur de référence (une institution à la fois).
-  - **Preuves** : 
+- [x] **Fait**
+  - **Justification** : 9 requêtes (2 passes) sur toutes les familles IIIF documentées : 7 endpoints en 200, aucun 429, Crawl-Delay 500 s respecté, Disallow testé avec l'accord de Marcel (C12).
+  - **Preuves** : `institutions/david-rumsey-map-collection/tests/journal.log`, `institutions/david-rumsey-map-collection/tests/raw/manifeste-iiif.headers.txt`
 
 ### f) Ce que disent les gens sur le web
 > Plaintes, discussions, présentations de l'institution, politique envers les API et les bots, blogs, GitHub, forums, listes de diffusion. Sources étiquetées (officielle / institution / utilisateur / tiers), lues, citées.
 
-- [ ] **Pas fait**
-  - **Justification** : Pas encore traitée : l'audit suit l'ordre du classeur de référence (une institution à la fois).
-  - **Preuves** : 
+- [x] **Fait**
+  - **Justification** : 4 catégories couvertes : institution (droits), utilisateurs (iiif-discuss lu + recherche), tickets (aucun résultat, requête notée), présentations (doc LUNA lue).
+  - **Preuves** : `institutions/david-rumsey-map-collection/data.json`, `institutions/david-rumsey-map-collection/fiche.md`
 
 ### g) Crash test progressif
 > Seulement après l'audit complet (a à f) de toutes les institutions et avec l'accord de Marcel : paliers jusqu'à 2 × la limite documentée, ou 200 req/min si illimité ou sans limite documentée. Arrêt au premier 429/403/CAPTCHA.
@@ -60,7 +60,7 @@
 
 <!-- AUTO:DEBUT -->
 ## Contrôles automatiques (calculés depuis `tests/journal.log`)
-- Requêtes enregistrées : **4** (sessions de sonde : 1, maximum par session : 4)
+- Requêtes enregistrées : **9** (sessions de sonde : 2, maximum par session : 5)
 - Plus courte pause vers un même hôte : **500 s** (règle : ≥ 6 s)
 - Méthodes utilisées : GET (règle : GET/HEAD seulement)
 - Anomalies : aucune
