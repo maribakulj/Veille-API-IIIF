@@ -20,3 +20,8 @@ Aucune limite publiée ; contact conseillé : `team@biblissima-condorcet.fr`.
 
 ## Conclusion
 Limite chiffrée : aucune. `limit` de la réconciliation = paramètre de requête (non un quota). Confiance : moyenne.
+
+## Crash test (étape g)
+
+Crash test fait le 2026-11-14 : wikibase-getentities-Q27392 sur data.biblissima.fr : aucun blocage jusqu'à 200 req/min (plafond 200 req/min).
+Journal : `tests/crash/biblissima-plateforme-iiif.log`. Un test « sans blocage » n'est pas une preuve d'illimitation au-delà du plafond.
