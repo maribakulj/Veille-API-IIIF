@@ -1,0 +1,13 @@
+# Session 2026-11-14T02:51:37Z — configuration ku-leuven-v2-passe1.json — sonde probe.py au commit 48eab7a
+2026-11-14T02:51:57Z | robots.txt:resolver.libis.be | http://resolver.libis.be/robots.txt | GET | ERREUR_RÉSEAU | TimeoutError : tout est traité comme interdit
+2026-11-14T02:51:57Z | resolver-representation | robots.txt interdit http://resolver.libis.be/IE978853/representation (Disallow: /) ; lancé car autorisé par Marcel (C12)
+2026-11-14T02:52:27Z | resolver-representation | http://resolver.libis.be/IE978853/representation | GET | ERREUR_RÉSEAU | TimeoutError: timed out
+2026-11-14T02:52:27Z | resolver-thumbnail | robots.txt interdit http://resolver.libis.be/IE978853/thumbnail (Disallow: /) ; lancé car autorisé par Marcel (C12)
+2026-11-14T02:52:57Z | resolver-thumbnail | http://resolver.libis.be/IE978853/thumbnail | HEAD | ERREUR_RÉSEAU | TimeoutError: timed out
+2026-11-14T02:53:19Z | robots.txt:services.libis.be | http://services.libis.be/robots.txt | GET | ERREUR_RÉSEAU | TimeoutError : tout est traité comme interdit
+2026-11-14T02:53:19Z | services-manifest-lovaniensia | robots.txt interdit http://services.libis.be/m2/manifest/BIBC_Lovaniensia (Disallow: /) ; lancé car autorisé par Marcel (C12)
+2026-11-14T02:53:51Z | services-manifest-lovaniensia | http://services.libis.be/m2/manifest/BIBC_Lovaniensia | HEAD | ERREUR_RÉSEAU | TimeoutError: timed out
+2026-11-14T02:54:11Z | robots.txt:repository.teneo.libis.be | https://repository.teneo.libis.be/robots.txt | GET | ERREUR_RÉSEAU | TimeoutError : tout est traité comme interdit
+2026-11-14T02:54:11Z | teneo-delivery | robots.txt interdit https://repository.teneo.libis.be/delivery/DeliveryManagerServlet?dps_pid=IE17414261 (Disallow: /) ; lancé car autorisé par Marcel (C12)
+2026-11-14T02:54:41Z | teneo-delivery | https://repository.teneo.libis.be/delivery/DeliveryManagerServlet?dps_pid=IE17414261 | HEAD | ERREUR_RÉSEAU | TimeoutError: timed out
+# Fin 2026-11-14T02:54:41Z — 7 requête(s) envoyée(s)

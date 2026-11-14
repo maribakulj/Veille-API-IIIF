@@ -1,0 +1,25 @@
+{
+  "slug": "ku-leuven-libraries",
+  "min_delay_s": 10,
+  "max_requests": 15,
+  "follow_redirects": 1,
+  "robots_disallow_autorise_par_marcel": true,
+  "note": "v2 passe 2 : la passe 1 a donné 4 délais dépassés (30 s) sur resolver/services/repository.teneo.libis.be, hôtes dont le robots.txt est illisible en direct (Wayback : resolver.libis.be Disallow: / sans Crawl-delay, sources/wayback/libis-wayback.md). Un seul nouvel essai par famille : manifeste IIIF d'un identifiant vu dans une capture Wayback (services.libis.be/m2/manifest/IE11541569), et la page collection de Limo (hôte qui répond : robots.txt 200, Crawl-delay 10) citée par la page officielle images-as-open-data. Identifiant d'endpoint distincts de la passe 1.",
+  "endpoints": [
+    {
+      "id": "p2-manifest-IE11541569",
+      "method": "HEAD",
+      "url": "http://services.libis.be/m2/manifest/IE11541569"
+    },
+    {
+      "id": "p2-resolver-thumbnail-reessai",
+      "method": "HEAD",
+      "url": "http://resolver.libis.be/IE978853/thumbnail"
+    },
+    {
+      "id": "p2-limo-collection",
+      "method": "HEAD",
+      "url": "https://kuleuven.limo.libis.be/discovery/collectionDiscovery?vid=32KUL_KUL:KULeuven&collectionId=81475525920001488"
+    }
+  ]
+}
