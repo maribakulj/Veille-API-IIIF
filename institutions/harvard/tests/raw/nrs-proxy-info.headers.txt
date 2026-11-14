@@ -1,0 +1,25 @@
+2026-11-14T01:55:07Z GET https://nrs.harvard.edu/proxy/URN-3:HUAM:INV204583_DYNMC:IMAGE/info.json
+HTTP 200
+date: Sat, 14 Nov 2026 01:55:07 GMT
+content-type: application/json; charset=utf-8
+content-length: 806
+connection: keep-alive
+access-control-allow-origin: *
+content-security-policy: default-src 'self';base-uri 'self';font-src 'self' https://fonts.gstatic.com https://library.harvard.edu;form-action 'self';frame-ancestors 'self';img-src 'self' data: https://library.harvard.edu;object-src 'none';script-src 'self' 'unsafe-inline' https://code.jquery.com https://cdn.jsdelivr.net https://library.harvard.edu;script-src-attr 'none';style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://library.harvard.edu;upgrade-insecure-requests;connect-src 'self';frame-src 'none'
+cross-origin-opener-policy: same-origin
+origin-agent-cluster: ?1
+referrer-policy: no-referrer
+strict-transport-security: max-age=15552000; includeSubDomains
+x-content-type-options: nosniff
+x-dns-prefetch-control: off
+x-download-options: noopen
+x-frame-options: SAMEORIGIN
+x-permitted-cross-domain-policies: none
+x-xss-protection: 0
+access-control-allow-credentials: true
+cache-control: no-cache, no-store, must-revalidate
+etag: W/"326-bpgeI1/3rD2yB/YGwRP/k142Vak"
+server: istio-envoy
+vary: Origin
+x-envoy-upstream-service-time: 119
+x-mps-client-ip: [adresses IP redigées : IP publique de Marcel et IP internes AWS]
