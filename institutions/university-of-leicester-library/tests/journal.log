@@ -30,3 +30,12 @@
 2026-11-14T02:36:41Z | cdm-manifeste-collection+redir+redir | https://leicester.contentdm.oclc.org/iiif/2/p16445coll12/manifest.json | GET | 200 OK | aucun en-tête de limite | taille≥21553 | corps: {"@context":"http://iiif.io/api/presentation/2/context.json","@id":"http://cdm16445.contentdm.oclc.org/iiif/p16445coll12/manifest.json","@type":"sc:Collection","label":"Evelyn Waugh Studies","manifest
 # corps enregistré : tests/raw/cdm-manifeste-collection+redir+redir.body (21553 octets lus)
 # Fin 2026-11-14T02:36:41Z — 4 requête(s) envoyée(s)
+# Session 2026-11-14T02:36:51Z — configuration leicester-passe5-item.json — sonde probe.py au commit e1d787c
+2026-11-14T02:36:51Z | robots.txt:leicester.contentdm.oclc.org | https://leicester.contentdm.oclc.org/robots.txt | GET | 200 | 38 règle(s) pour « * » ; Crawl-delay 1.0 s
+2026-11-14T02:36:58Z | cdm-manifeste-objet | https://leicester.contentdm.oclc.org/iiif/info/p16445coll12/12/manifest.json | GET | 301 REDIRECTION_NON_SUIVIE | aucun en-tête de limite | taille≥319 | corps: <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd"> <html><head> <title>301 Moved Permanently</title> </head><body> <h1>Moved Permanently</h1> <p>The document ha
+# redirection vers https://leicester.contentdm.oclc.org/iiif/p16445coll12:12/manifest.json : suivie (même hôte, comptée dans le budget)
+2026-11-14T02:37:04Z | cdm-manifeste-objet+redir | https://leicester.contentdm.oclc.org/iiif/p16445coll12:12/manifest.json | GET | 302 REDIRECTION_NON_SUIVIE | aucun en-tête de limite | taille≥297 | corps: <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd"> <html><head> <title>302 Found</title> </head><body> <h1>Found</h1> <p>The document has moved <a href="https:/
+# redirection vers https://leicester.contentdm.oclc.org/iiif/2/p16445coll12:12/manifest.json : suivie (même hôte, comptée dans le budget)
+2026-11-14T02:37:10Z | cdm-manifeste-objet+redir+redir | https://leicester.contentdm.oclc.org/iiif/2/p16445coll12:12/manifest.json | GET | 200 OK | aucun en-tête de limite | taille≥4756 | corps: {"@context":"http://iiif.io/api/presentation/2/context.json","@type":"sc:Manifest","@id":"https://cdm16445.contentdm.oclc.org/iiif/p16445coll12:12/manifest.json","label":"Evelyn Waugh Newsletter Vol. 
+# corps enregistré : tests/raw/cdm-manifeste-objet+redir+redir.body (4756 octets lus)
+# Fin 2026-11-14T02:37:10Z — 4 requête(s) envoyée(s)
