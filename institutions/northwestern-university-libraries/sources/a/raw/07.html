@@ -1,0 +1,1918 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8"/>
+    
+    
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-WHSMPT66');</script>
+
+
+    <meta content="IE=Edge" http-equiv="X-UA-Compatible"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <meta content="origin-when-cross-origin" name="referrer"/>
+         <title>Page Not Found: Libraries - Northwestern University</title>
+        <link href="https://www.library.northwestern.edu/404.html" rel="canonical"/>
+<link href="https://common.northwestern.edu" rel="preconnect"/>
+<meta content="https://www.library.northwestern.edu/404.html" property="og:url"/>
+<meta content="Page Not Found: Libraries - Northwestern University" property="og:title"/>
+<meta content="//common.northwestern.edu/v8/images/northwestern-thumbnail.jpg" property="og:image"/>
+    
+    
+    <meta content="86153024816977782e3a484dfbabbbb4" name="pageID"/>
+    <link href="https://common.northwestern.edu/dept/4.0/css/styles.css" media="screen" rel="stylesheet" type="text/css"/>
+    <link href="https://common.northwestern.edu/dept/4.0/css/print.css" media="print" rel="stylesheet" type="text/css"/>
+    <link href="/css/library.css" media="screen" rel="stylesheet" type="text/css"/>
+    <link href="//common.northwestern.edu/favicon.ico" rel="shortcut icon" type="image/x-icon"/>
+<link href="//common.northwestern.edu/v8/icons/favicon-16.png" rel="icon" sizes="16x16" type="image/png"/>
+<link href="//common.northwestern.edu/v8/icons/favicon-32.png" rel="icon" sizes="32x32" type="image/png"/>
+<link href="//common.northwestern.edu/v8/icons/favicon-180.png" rel="apple-touch-icon" sizes="180x180"/>
+<meta content="Northwestern" name="application-name"/>
+<meta content="#4e2a84" name="msapplication-TileColor"/>
+<meta content="//common.northwestern.edu/v8/icons/mstile-144x144.png" name="msapplication-TileImage"/>
+<meta content="#ffffff" name="theme-color"/>
+<meta content="//common.northwestern.edu/v8/icons/ieconfig.xml" name="msapplication-config"/>
+</head>
+
+<body class="standard-page">
+    
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WHSMPT66"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+
+
+        <script>document.getElementsByTagName('body')[0].setAttribute('class','standard-page no-left-nav');</script>
+
+
+    <!-- #page wrapper for mmenu -->
+    <div id="page">
+        <a class="skip-to-main" href="#main-content">Skip to main content</a>
+
+        <header>
+            <div id="top-bar"><div class="contain-1120"><div id="left"><div id="northwestern"><a href="https://www.northwestern.edu/" title="Northwestern University Home"><span class="hide-label">Northwestern University</span></a></div></div><nav aria-label="global links" id="global-links"><ul><li class="ask-us"><a href="/use-the-libraries/research-teaching/ask-us.html">Ask Us</a></li><li class="dropdown">Information For
+                      
+                                    <ul><li><a href="/alumni-visitors.html">Alumni and Visitors</a></li><li><a href="/faculty-staff.html">Faculty and Staff</a></li><li><a href="/graduate.html">Graduate and Postdoc Students</a></li><li><a href="/undergraduate.html">Undergraduate Students</a></li></ul></li><li class="accessibility"><a href="/visit/plan-your-visit/accessibility-services.html">Accessibility Services</a></li><li class="support"><a href="/about/libraries-information/support-us.html">Support Us</a></li><li><a href="https://search.library.northwestern.edu/nde/login?vid=01NWU_INST:NULV_NDE&amp;lang=en">My Account</a></li></ul></nav><div id="mobile-links"><mm-burger ease="elastic" fx="collapse" menu="mmenu" role="button" tabindex="0" title="Open the menu"/></div></div></div>
+            <div id="bottom-bar">
+                
+                <div class="wrapper">
+                    
+<div id="site-name">
+    <a href="/index.html">
+                    LIBRARIES
+            </a>
+</div>
+
+                    
+<!-- NEW springshare hours -->
+<div id="hours">
+    <!-- Main Library -->
+    <div id="springshare">
+        <span class="title"><strong>HOURS TODAY</strong></span>
+        <div id="main-hours">
+            <p>Loading Main Library hours...</p>
+        </div>
+        <!-- Mudd Library -->
+        <div id="mudd-hours">
+            <p>Loading Mudd Library hours...</p>
+        </div>
+    
+        <!-- Deering Library -->
+        <div id="deering-hours">
+            <p>Loading Deering Library hours...</p>
+        </div>
+        <div>
+            <a class="all-hours" href="/visit/plan-your-visit/hours.html">All Hours</a>
+        </div>
+    </div>
+
+
+    <!-- Mobile link -->
+    <a class="mobile" href="/visit/plan-your-visit/hours.html">Hours</a>
+</div>
+
+<script type="text/javascript">
+//<![CDATA[
+document.addEventListener("DOMContentLoaded", function () {
+    
+    const target = document.getElementById("main-hours");
+
+    fetch("https://northwestern.libcal.com/api_hours_today.php?lid=4277&format=json&systemTime=0")
+        .then(response => response.json())
+        .then(data => {
+            if (data.locations && data.locations.length > 0) {
+                const location = data.locations[0];
+                const name = location.name;
+                const hours = location.rendered;
+                const isOpen = location.times.currently_open;
+
+                const statusText = isOpen ? "Open" : "Closed";
+
+                target.innerHTML = `<strong>Main Library</strong>: ${hours}`;
+            } else {
+                target.innerHTML = "<strong>Main Library</strong>:";
+            }
+        })
+        .catch(error => {
+            console.error("Failed to load Main Library hours:", error);
+            target.innerHTML = "<p>Main Library hours unavailable.</p>";
+        });
+
+    fetch("https://northwestern.libcal.com/api_hours_today.php?lid=4489&format=json&systemTime=0")
+        .then(res => res.json())
+        .then(data => {
+            const loc = data.locations[0];
+            const name = loc.name;
+            const hours = loc.rendered;
+            const isOpen = loc.times.currently_open;
+
+            const statusText = isOpen ? "Open" : "Closed";
+
+            document.getElementById("mudd-hours").innerHTML =
+                `<strong>${name}</strong>: ${hours}`;
+        })
+        .catch(() => {
+            document.getElementById("mudd-hours").innerHTML = "<strong>${name}</strong>:";
+        });
+
+
+    fetch("https://northwestern.libcal.com/api_hours_today.php?lid=24786&format=json&systemTime=0")
+        .then(res => res.json())
+        .then(data => {
+            const loc = data.locations[0];
+            const name = loc.name;
+            const hours = loc.rendered;
+            const isOpen = loc.times.currently_open;
+
+            const statusText = isOpen ? "Open" : "Closed";
+
+            document.getElementById("deering-hours").innerHTML =
+                `<strong>${name}</strong>: ${hours}`;
+        })
+        .catch(() => {
+            document.getElementById("deering-hours").innerHTML = "<strong>${name}</strong>:";
+        });
+
+});
+//]]>
+</script>
+                </div>
+            </div>
+        </header>
+        
+        
+
+
+
+
+
+
+
+
+
+
+    <nav aria-label="main menu" id="top-nav">
+                        <ul>
+                                            <li id="menu1">
+                                             <a href="/find-borrow-request/index.html">Find, Borrow, Request <span class="dropdown-arrow"></span></a>
+                                                                                <ul aria-labelledby="menu1" class="dropdown-headings three-columns quick-links">
+            <li class="nav-links">
+                <ul>
+                    <li class="home"><a href="/find-borrow-request/index.html">Find, Borrow, Request Overview</a>
+                    </li>
+                </ul>
+                <div class="nav-wrap">
+                                    <div class="col">
+                        <ul>
+                            
+                                                        
+                                                        
+                                                                                                                                                    
+                            
+                                                                                                                        
+                                <li aria-hidden="true" class="heading">
+                                    <a href="/find-borrow-request/find/index.html">Find</a>
+                                </li>
+                                                        
+                                                                                                                                                                                        <li>
+                                                                                        <a href="/find-borrow-request/find/start-your-search.html">Start Your Search</a>
+                                                                                </li>
+                                                                                                                                <li>
+                                                                                        <a href="https://search.library.northwestern.edu/discovery/search?vid=01NWU_INST:NULVNEW&amp;lang=en">Library Catalog</a>
+                                                                                </li>
+                                                                                                                                <li>
+                                                                                        <a href="https://libguides.northwestern.edu/az.php">Databases</a>
+                                                                                </li>
+                                                                                                                                <li>
+                                                                                        <a href="https://search.library.northwestern.edu/discovery/jsearch?vid=01NWU_INST:NULVNEW&amp;lang=en">Journals A-Z</a>
+                                                                                </li>
+                                                                                                                                <li>
+                                                                                        <a href="https://dc.library.northwestern.edu/">Digital Collections</a>
+                                                                                </li>
+                                                                                                                                <li>
+                                                                                        <a href="https://findingaids.library.northwestern.edu/">Archival &amp; Manuscript Collections</a>
+                                                                                </li>
+                                                                                                                                <li>
+                                                                                        <a href="/find-borrow-request/find/course-materials.html">Course Materials</a>
+                                                                                </li>
+                                                                                                                                <li>
+                                                                                        <a href="/find-borrow-request/find/book-location-guide.html">Book Location Guide</a>
+                                                                                </li>
+                                                                                    </ul>
+                    </div>
+                                    <div class="col">
+                        <ul>
+                            
+                                                        
+                                                        
+                                                                                                                                                    
+                            
+                                                                                                                        
+                                <li aria-hidden="true" class="heading">
+                                    <a href="/find-borrow-request/borrow/index.html">Borrow</a>
+                                </li>
+                                                        
+                                                                                                                            <li>
+                                                                                        <a href="/find-borrow-request/borrow/borrowing-materials.html">Borrowing Materials</a>
+                                                                                </li>
+                                                                                                                                <li>
+                                                                                        <a href="/find-borrow-request/borrow/borrowing-policies/index.html">Borrowing Policies</a>
+                                                                                </li>
+                                                                                                                                <li>
+                                                                                        <a href="/find-borrow-request/borrow/borrow-technology-and-accessories.html">Borrow Technology &amp; Accessories</a>
+                                                                                </li>
+                                                                                                                                <li>
+                                                                                        <a href="/find-borrow-request/borrow/borrowing-without-wildcard.html">Borrowing Without a Wildcard</a>
+                                                                                </li>
+                                                                                                                                <li>
+                                                                                        <a href="/find-borrow-request/borrow/lending-to-other-institutions.html">Lending to Other Institutions</a>
+                                                                                </li>
+                                                                                                                                                </ul>
+                    </div>
+                                    <div class="col">
+                        <ul>
+                            
+                                                        
+                                                        
+                                                                                                                                                    
+                            
+                                                                                                                        
+                                <li aria-hidden="true" class="heading">
+                                    <a href="/find-borrow-request/request/index.html">Request</a>
+                                </li>
+                                                        
+                                                                                                                                                                                        <li>
+                                                                                        <a href="/find-borrow-request/request/reproductions-and-scans/index.html">Reproductions and Scans</a>
+                                                                                </li>
+                                                                                                                                <li>
+                                                                                        <a href="/find-borrow-request/request/interlibrary-loan.html">Interlibrary Loan</a>
+                                                                                </li>
+                                                                                                                                <li>
+                                                                                        <a href="https://aeon.library.northwestern.edu/logon">Request Special Collections &amp; Archives</a>
+                                                                                </li>
+                                                                                    </ul>
+                    </div>
+                                </div>
+            </li>
+
+                                                                                    <li aria-label="navigation submenu quick links" class="nav-quick-links">
+                            <ul>
+                                <li class="heading">Related Links</li>
+                                                                    <li><a href="https://libguides.northwestern.edu/">Research Guides</a></li>
+                                                                    <li><a href="/use-the-libraries/research-teaching/research-consultation/index.html">Research Consultation</a></li>
+                                                                    <li><a href="/use-the-libraries/technology-multimedia/computers-laptops.html">Computers and Laptops</a></li>
+                                                            </ul>
+                        </li>
+                                                            
+        </ul>
+                            </li>
+                                    <li id="menu2">
+                                             <a href="/use-the-libraries/index.html">Use the Libraries <span class="dropdown-arrow"></span></a>
+                                                                                <ul aria-labelledby="menu2" class="dropdown-headings three-columns quick-links">
+            <li class="nav-links">
+                <ul>
+                    <li class="home"><a href="/use-the-libraries/index.html">Use the Libraries Overview</a>
+                    </li>
+                </ul>
+                <div class="nav-wrap">
+                                    <div class="col">
+                        <ul>
+                            
+                                                        
+                                                        
+                                                                                                                                                    
+                            
+                                                                                                                        
+                                <li aria-hidden="true" class="heading">
+                                    <a href="/use-the-libraries/research-teaching/index.html">Research &amp; Teaching</a>
+                                </li>
+                                                        
+                                                                                                                                                                                        <li>
+                                                                                        <a href="/use-the-libraries/research-teaching/ask-us.html">Ask Us</a>
+                                                                                </li>
+                                                                                                                                <li>
+                                                                                        <a href="/use-the-libraries/research-teaching/subject-librarians/index.html">Liaison Librarians and Specialists</a>
+                                                                                </li>
+                                                                                                                                <li>
+                                                                                        <a href="/use-the-libraries/research-teaching/research-consultation/index.html">Research Consultation</a>
+                                                                                </li>
+                                                                                                                                <li>
+                                                                                        <a href="/use-the-libraries/research-teaching/citation-management.html">Citation Management</a>
+                                                                                </li>
+                                                                                                                                <li>
+                                                                                        <a href="https://libguides.northwestern.edu/copyrightbasics">Copyright</a>
+                                                                                </li>
+                                                                                                                                <li>
+                                                                                        <a href="/use-the-libraries/research-teaching/digital-scholarship/index.html">Digital Scholarship &amp; Data Services</a>
+                                                                                </li>
+                                                                                                                                <li>
+                                                                                        <a href="/use-the-libraries/research-teaching/evidence-synthesis/index.html">Evidence Synthesis</a>
+                                                                                </li>
+                                                                                                                                <li>
+                                                                                        <a href="/use-the-libraries/research-teaching/u.s-federal-funding-agency-public-access-policy-resources.html">Federal Grant Public Access</a>
+                                                                                </li>
+                                                                                                                                <li>
+                                                                                        <a href="/use-the-libraries/research-teaching/grants-residencies.html">Grants &amp; Residencies</a>
+                                                                                </li>
+                                                                                                                                <li>
+                                                                                        <a href="/use-the-libraries/research-teaching/open-access-publishing/index.html">Open Access Publishing</a>
+                                                                                </li>
+                                                                                                                                <li>
+                                                                                        <a href="https://libguides.northwestern.edu/datamanagement">Research Data Management</a>
+                                                                                </li>
+                                                                                                                                <li>
+                                                                                        <a href="https://libguides.northwestern.edu/">Research Guides</a>
+                                                                                </li>
+                                                                                                                                <li>
+                                                                                        <a href="/use-the-libraries/research-teaching/teach-with-libraries/index.html">Teach with the Libraries</a>
+                                                                                </li>
+                                                                                                                                <li>
+                                                                                        <a href="/use-the-libraries/research-teaching/workshops.html">Workshops</a>
+                                                                                </li>
+                                                                                    </ul>
+                    </div>
+                                    <div class="col">
+                        <ul>
+                            
+                                                        
+                                                        
+                                                                                                                                                    
+                            
+                                                                                                                        
+                                <li aria-hidden="true" class="heading">
+                                    <a href="/use-the-libraries/spaces-study-rooms/index.html">Spaces &amp; Study Rooms</a>
+                                </li>
+                                                        
+                                                                                                                            <li>
+                                                                                        <a href="/use-the-libraries/spaces-study-rooms/rooms-and-spaces/index.html">Rooms &amp; Spaces</a>
+                                                                                </li>
+                                                                                                                                <li>
+                                                                                        <a href="/use-the-libraries/spaces-study-rooms/study-carrels/index.html">Study Carrels</a>
+                                                                                </li>
+                                                                                                                                <li>
+                                                                                        <a href="/use-the-libraries/spaces-study-rooms/classrooms.html">Classrooms</a>
+                                                                                </li>
+                                                                                                                                <li>
+                                                                                        <a href="/use-the-libraries/spaces-study-rooms/library-event-space/index.html">Library Event Space</a>
+                                                                                </li>
+                                                                                                                                <li>
+                                                                                        <a href="/use-the-libraries/spaces-study-rooms/lockers/index.html">Lockers</a>
+                                                                                </li>
+                                                                                                                                                </ul>
+                    </div>
+                                    <div class="col">
+                        <ul>
+                            
+                                                        
+                                                        
+                                                                                                                                                    
+                            
+                                                                                                                        
+                                <li aria-hidden="true" class="heading">
+                                    <a href="/use-the-libraries/technology-multimedia/index.html">Technology &amp; Multimedia</a>
+                                </li>
+                                                        
+                                                                                                                                                                                        <li>
+                                                                                        <a href="/use-the-libraries/technology-multimedia/printing-and-scanning.html">Printing &amp; Scanning</a>
+                                                                                </li>
+                                                                                                                                <li>
+                                                                                        <a href="/use-the-libraries/technology-multimedia/computers-laptops.html">Computers &amp; Laptops</a>
+                                                                                </li>
+                                                                                                                                <li>
+                                                                                        <a href="/use-the-libraries/technology-multimedia/software.html">Software</a>
+                                                                                </li>
+                                                                                                                                <li>
+                                                                                        <a href="/use-the-libraries/technology-multimedia/audiovisual-production.html">Audiovisual Production</a>
+                                                                                </li>
+                                                                                                                                <li>
+                                                                                        <a href="/use-the-libraries/technology-multimedia/mitchell-multimedia-center/index.html">Mitchell Multimedia Center</a>
+                                                                                </li>
+                                                                                                                                <li>
+                                                                                        <a href="/use-the-libraries/technology-multimedia/makerlab-3d-printing/index.html">MakerLab &amp; 3D Printing</a>
+                                                                                </li>
+                                                                                                                                <li>
+                                                                                        <a href="/use-the-libraries/technology-multimedia/internet-access-connectivity/index.html">Internet Access &amp; Connectivity</a>
+                                                                                </li>
+                                                                                    </ul>
+                    </div>
+                                </div>
+            </li>
+
+                                                                                    <li aria-label="navigation submenu quick links" class="nav-quick-links">
+                            <ul>
+                                <li class="heading">Related Links</li>
+                                                                    <li><a href="/find-borrow-request/find/course-materials.html">Course Materials</a></li>
+                                                                    <li><a href="https://libguides.northwestern.edu/datamanagement">Research Data Management</a></li>
+                                                            </ul>
+                        </li>
+                                                            
+        </ul>
+                            </li>
+                                    <li id="menu3">
+                                             <a href="/libraries-collections/index.html">Libraries &amp; Collections <span class="dropdown-arrow"></span></a>
+                                                                                <ul aria-labelledby="menu3" class="dropdown-headings two-columns quick-links">
+            <li class="nav-links">
+                <ul>
+                    <li class="home"><a href="/libraries-collections/index.html">Libraries &amp; Collections Overview</a>
+                    </li>
+                </ul>
+                <div class="nav-wrap">
+                                    <div class="col">
+                        <ul>
+                            
+                                                        
+                                                        
+                                                                                                                                                    
+                            
+                                                                                                                        
+                                <li aria-hidden="true" class="heading">
+                                    <a href="/libraries-collections/distinctive-special-collections/index.html">Distinctive &amp; Special Collections</a>
+                                </li>
+                                                        
+                                                                                                                            <li>
+                                                                                        <a href="/libraries-collections/distinctive-special-collections/mccormick-library/index.html">Special Collections &amp; Archives</a>
+                                                                                </li>
+                                                                                                                                <li>
+                                                                                        <a href="/libraries-collections/distinctive-special-collections/art/index.html">Art Library</a>
+                                                                                </li>
+                                                                                                                                <li>
+                                                                                        <a href="https://dc.library.northwestern.edu/">Digital Collections</a>
+                                                                                </li>
+                                                                                                                                <li>
+                                                                                        <a href="/libraries-collections/distinctive-special-collections/government-collection/index.html">Government Information &amp; Maps Collection</a>
+                                                                                </li>
+                                                                                                                                <li>
+                                                                                        <a href="/libraries-collections/distinctive-special-collections/herskovits-library/index.html">Herskovits Library of African Studies </a>
+                                                                                </li>
+                                                                                                                                <li>
+                                                                                        <a href="/libraries-collections/distinctive-special-collections/music/index.html">Music Collection</a>
+                                                                                </li>
+                                                                                                                                <li>
+                                                                                        <a href="/libraries-collections/distinctive-special-collections/transportation-library/index.html">Transportation Library</a>
+                                                                                </li>
+                                                                                                                                                </ul>
+                    </div>
+                                    <div class="col">
+                        <ul>
+                            
+                                                        
+                                                        
+                                                                                                                                                    
+                            
+                                                                                                                        
+                                <li aria-hidden="true" class="heading">
+                                    <a href="/libraries-collections/library-buildings-locations/index.html">Library Buildings &amp; Locations</a>
+                                </li>
+                                                        
+                                                                                                                                                                                        <li>
+                                                                                        <a href="/libraries-collections/library-buildings-locations/university-library.html">University Library</a>
+                                                                                </li>
+                                                                                                                                <li>
+                                                                                        <a href="/libraries-collections/library-buildings-locations/deering-library/index.html">Deering Library</a>
+                                                                                </li>
+                                                                                                                                <li>
+                                                                                        <a href="/libraries-collections/library-buildings-locations/mudd-library/index.html">Mudd Library</a>
+                                                                                </li>
+                                                                                                                                <li>
+                                                                                        <a href="/libraries-collections/library-buildings-locations/math-library.html">Math Library</a>
+                                                                                </li>
+                                                                                                                                <li>
+                                                                                        <a href="https://galter.northwestern.edu/">Galter Library</a>
+                                                                                </li>
+                                                                                                                                <li>
+                                                                                        <a href="/libraries-collections/library-buildings-locations/oak-grove-library-center.html">Oak Grove Library Center</a>
+                                                                                </li>
+                                                                                                                                <li>
+                                                                                        <a href="https://library.law.northwestern.edu/home">Pritzker Legal Research Center</a>
+                                                                                </li>
+                                                                                                                                <li>
+                                                                                        <a href="https://library.garrett.edu/">Styberg Library</a>
+                                                                                </li>
+                                                                                    </ul>
+                    </div>
+                                </div>
+            </li>
+
+                                                                                    <li aria-label="navigation submenu quick links" class="nav-quick-links">
+                            <ul>
+                                <li class="heading">Related Links</li>
+                                                                    <li><a href="/visit/plan-your-visit/hours.html">Hours</a></li>
+                                                                    <li><a href="/visit/plan-your-visit/building-maps/index.html">Building Maps</a></li>
+                                                                    <li><a href="/visit/plan-your-visit/exhibits.html">Exhibits</a></li>
+                                                                    <li><a href="/find-borrow-request/find/book-location-guide.html">Book Location Guide</a></li>
+                                                            </ul>
+                        </li>
+                                                            
+        </ul>
+                            </li>
+                                    <li id="menu4">
+                                             <a href="/visit/index.html">Visit <span class="dropdown-arrow"></span></a>
+                                                                                <ul aria-labelledby="menu4" class="dropdown-headings two-columns quick-links">
+            <li class="nav-links">
+                <ul>
+                    <li class="home"><a href="/visit/index.html">Visit Overview</a>
+                    </li>
+                </ul>
+                <div class="nav-wrap">
+                                    <div class="col">
+                        <ul>
+                            
+                                                        
+                                                        
+                                                                                                                                                    
+                            
+                                                                                                                        
+                                <li aria-hidden="true" class="heading">
+                                    <a href="/visit/plan-your-visit/index.html">Plan Your Visit</a>
+                                </li>
+                                                        
+                                                                                                                            <li>
+                                                                                        <a href="/visit/plan-your-visit/hours.html">Hours</a>
+                                                                                </li>
+                                                                                                                                <li>
+                                                                                        <a href="/visit/plan-your-visit/building-maps/index.html">Building Maps</a>
+                                                                                </li>
+                                                                                                                                <li>
+                                                                                        <a href="/visit/plan-your-visit/policies/index.html">Policies</a>
+                                                                                </li>
+                                                                                                                                <li>
+                                                                                        <a href="/visit/plan-your-visit/accessibility-services.html">Accessibility Services</a>
+                                                                                </li>
+                                                                                                                                <li>
+                                                                                        <a href="/visit/plan-your-visit/events.html">Events</a>
+                                                                                </li>
+                                                                                                                                <li>
+                                                                                        <a href="/visit/plan-your-visit/exhibits.html">Exhibits</a>
+                                                                                </li>
+                                                                                                                                                </ul>
+                    </div>
+                                    <div class="col">
+                        <ul>
+                            
+                                                        
+                                                        
+                                                                                                                                                    
+                            
+                                                                                                                        
+                                <li aria-hidden="true" class="heading">
+                                    <a href="/visit/community-visitor-support/index.html">Community &amp; Visitor Support</a>
+                                </li>
+                                                        
+                                                                                                                            <li>
+                                                                                        <a href="/visit/community-visitor-support/alumni-resources.html">Public Access &amp; Alumni Resources</a>
+                                                                                </li>
+                                                                                                                                <li>
+                                                                                        <a href="/visit/community-visitor-support/out-of-town-visitor-resources.html">Out-of-Town Visitor Resources</a>
+                                                                                </li>
+                                                                                                                                <li>
+                                                                                        <a href="/visit/community-visitor-support/services-for-retired-faculty.html">Services for Retired Faculty</a>
+                                                                                </li>
+                                                                                                                                                </ul>
+                    </div>
+                                </div>
+            </li>
+
+                                                                                    <li aria-label="navigation submenu quick links" class="nav-quick-links">
+                            <ul>
+                                <li class="heading">Related Links</li>
+                                                                    <li><a href="/use-the-libraries/spaces-study-rooms/rooms-and-spaces/index.html">Libraries Rooms and Spaces</a></li>
+                                                                    <li><a href="/use-the-libraries/technology-multimedia/printing-and-scanning.html">Printing and Scanning</a></li>
+                                                                    <li><a href="/find-borrow-request/find/book-location-guide.html">Book Location Guide</a></li>
+                                                                    <li><a href="https://www.northwestern.edu/campus-experience/visiting-campus/parking.html">Parking</a></li>
+                                                            </ul>
+                        </li>
+                                                            
+        </ul>
+                            </li>
+                                    <li id="menu5">
+                                             <a href="/about/index.html">About <span class="dropdown-arrow"></span></a>
+                                                                                <ul aria-labelledby="menu5" class="dropdown-headings three-columns quick-links">
+            <li class="nav-links">
+                <ul>
+                    <li class="home"><a href="/about/index.html">About Overview</a>
+                    </li>
+                </ul>
+                <div class="nav-wrap">
+                                    <div class="col">
+                        <ul>
+                            
+                                                        
+                                                        
+                                                                                                                                                    
+                            
+                                                                                                                        
+                                <li aria-hidden="true" class="heading">
+                                    <a href="/about/at-a-glance/index.html">At a Glance</a>
+                                </li>
+                                                        
+                                                                                                                            <li>
+                                                                                        <a href="/about/at-a-glance/history-fast-facts.html">History &amp; Fast Facts</a>
+                                                                                </li>
+                                                                                                                                <li>
+                                                                                        <a href="/about/at-a-glance/libraries-art-architechture.html">Libraries Art &amp; Architecture</a>
+                                                                                </li>
+                                                                                                                                                </ul>
+                    </div>
+                                    <div class="col">
+                        <ul>
+                            
+                                                        
+                                                        
+                                                                                                                                                    
+                            
+                                                                                                                        
+                                <li aria-hidden="true" class="heading">
+                                    <a href="/about/our-organization/index.html">Our Organization</a>
+                                </li>
+                                                        
+                                                                                                                                                                                        <li>
+                                                                                        <a href="/about/our-organization/careers/index.html">Careers</a>
+                                                                                </li>
+                                                                                                                                <li>
+                                                                                        <a href="/about/our-organization/consortia-memberships.html">Consortia &amp; Memberships</a>
+                                                                                </li>
+                                                                                                                                <li>
+                                                                                        <a href="/about/our-organization/vision.html">Vision</a>
+                                                                                </li>
+                                                                                                                                <li>
+                                                                                        <a href="/about/our-organization/organization-chart/index.html">Organization Chart</a>
+                                                                                </li>
+                                                                                                                                <li>
+                                                                                        <a href="/about/our-organization/leadership/index.html">Leadership</a>
+                                                                                </li>
+                                                                                    </ul>
+                    </div>
+                                    <div class="col">
+                        <ul>
+                            
+                                                        
+                                                        
+                                                                                                                                                    
+                            
+                                                                                                                        
+                                <li aria-hidden="true" class="heading">
+                                    <a href="/about/libraries-information/index.html">Libraries Information</a>
+                                </li>
+                                                        
+                                                                                                                            <li>
+                                                                                        <a href="/about/libraries-information/contact-us/index.html">Contact Us</a>
+                                                                                </li>
+                                                                                                                                <li>
+                                                                                        <a href="/about/libraries-information/staff-directory/index.html">Staff Directory</a>
+                                                                                </li>
+                                                                                                                                <li>
+                                                                                        <a href="/about/libraries-information/support-us.html">Support Us</a>
+                                                                                </li>
+                                                                                                                                <li>
+                                                                                        <a href="/about/libraries-information/news-publications/index.html">News &amp; Publications</a>
+                                                                                </li>
+                                                                                                                                                </ul>
+                    </div>
+                                </div>
+            </li>
+
+                                                                                                    <li class="featured">
+                        <p class="heading">Vision</p>
+                        <img alt="Library Vision Page" src="/images/about/deering215x150.webp"/>
+                        <div class="link"><a href="/about/our-organization/vision.html">Our Vision for the Libraries</a></div>
+                    </li>
+                                        
+        </ul>
+                            </li>
+                <li id="library-search-button">
+            <a aria-expanded="false" href="#" role="button"> <span class="hide-text">Open site search</span></a>
+        </li>
+        </ul>
+        <div aria-hidden="true" id="library-search-dropdown" style="display: none;">
+            <div class="desktop-search">
+                <div class="search-form">
+                    <form action="https://search.library.northwestern.edu/discovery/search" id="desktop-search-form" method="get" role="search">
+                        <fieldset>
+                            <legend>Search options</legend>
+                            <span class="search-title">Search:</span>
+                            <input checked="checked" id="desktop-radio1" name="radio" type="radio" value="catalog"/>
+                            <label for="desktop-radio1">Catalog</label>
+                            <input id="desktop-radio2" name="radio" type="radio" value="website"/>
+                            <label for="desktop-radio2">Library Website</label>
+                        </fieldset>
+                        
+                        <label class="hide-label" for="hero-input1">Search the library</label>
+                        <input autocomplete="off" class="searchbox" id="hero-input1" placeholder="Start your search" type="text"/>
+                        <input name="as_sitesearch" type="hidden" value="https://library.northwestern.edu"/>
+                        <input name="sitetitle" type="hidden" value=""/>
+                        <button type="submit">Search</button>
+                        <div class="wrapper">
+                            <div class="advanced">
+                                <a href="https://search.library.northwestern.edu/discovery/search?vid=01NWU_INST:NULVNEW&amp;mode=advanced&amp;sortby=rank">Advanced Search</a>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        </nav>
+
+        
+         <main id="main-content"> 
+            
+
+
+
+            <div id="page-wrap">
+                    <h1 class="page-title"><span>Page Not Found</span></h1>
+                   <nav aria-label="breadcrumbs" id="breadcrumbs">
+    <ul>
+        <li><a href="/index.html">Home</a></li>
+                              <li class="active">Page Not Found</li>
+                      </ul>
+    </nav>
+                
+                
+                <div class="content" tabindex="-1">
+                    <p>Unfortunately, the page you requested is not available.</p>
+<p>Please use the search box above or the landing pages below to find the information you are seeking:</p>
+<ul>
+<li><a href="/find-borrow-request/index.html">Find, Borrow, Request</a></li>
+<li><a href="/use-the-libraries/index.html">Use the Libraries</a></li>
+<li><a href="/visit/index.html">Visit</a></li>
+<li><a href="/libraries-collections/index.html">Libraries and Collections</a></li>
+<li><a href="/about/index.html">About</a></li>
+</ul>
+                </div>
+            </div>
+         </main> 
+        
+        
+        
+
+        <footer class="jos">
+            <div class="footer-outer">
+                <div class="contain-1120 jos" data-jos_animation="fade-left">
+                    <a href="https://www.northwestern.edu/">
+                        <div class="footer-logo"><span class="hide-text">Northwestern University</span></div>
+                    </a>
+                    <h2 class="department-name">Libraries</h2>
+
+                </div>
+                <div class="footer-wrap">
+                    <div class="footer-content contact jos" data-jos_animation="fade-up"><div class="address"><div class="icon"><span>Address</span></div><div class="text"><p>1970 Campus Drive<br/>Evanston, IL 60208</p></div></div><div class="phone"><div class="icon"><span>Phone number</span></div><div class="text"><p><strong>Evanston</strong><br/>(847) 491-7658</p></div></div></div><div class="footer-content connect jos" data-jos_animation="fade-up"><h2>Connect</h2><ul><li class="instagram"><a href="https://www.instagram.com/nu_library/">instagram</a></li><li class="facebook"><a href="https://www.facebook.com/NorthwesternLibrary/">facebook</a></li><li class="wordpress"><a href="https://sites.northwestern.edu/northwesternlibrary/">wordpress</a></li><li class="youtube"><a href="https://www.youtube.com/user/NorthwesternLib/">youtube</a></li></ul></div>
+                    <div class="footer-content resources jos" data-jos_animation="fade-up">
+<h2>Northwestern Resources</h2>
+<ul>
+<li><a href="https://www.northwestern.edu/facilities/building-campus-access/building-access/">Building Access</a></li>
+<li><a href="https://www.northwestern.edu/emergency/index.html">Campus Emergency Information</a></li>
+<li><a href="https://hr.northwestern.edu/careers/">Careers</a></li>
+<li><a href="https://www.northwestern.edu/contact.html">Contact Northwestern University</a></li>
+<li><a href="https://policies.northwestern.edu/">University Policies</a></li>
+</ul>
+</div>
+                </div>
+            </div>
+            <div id="footer-bottom">
+                <div class="contain-1120">
+                    <ul>
+    <li>© 2026 Northwestern University</li>
+    <li><a href="https://www.northwestern.edu/accessibility/report/">Accessibility</a></li>
+    <li><a href="https://www.northwestern.edu/disclaimer.html">Disclaimer</a></li>
+    <li><a href="https://www.northwestern.edu/privacy/index.html">Privacy Statement</a></li>
+    <li><a href="https://www.northwestern.edu/report/">Report a Concern</a></li>
+        <li><a class="cky-banner-element" href="javascript:void(0);">Cookie Settings</a></li>
+    </ul>
+
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<script src="https://common.northwestern.edu/dept/4.0/js/scripts.js"></script>
+<script src="https://common.northwestern.edu/dept/4.0/js/custom.js"></script>
+<script src="https://common.gmc-cloud.net/mburger.js" type="module"></script>
+    <script src="/js/search-dropdown.js"></script>
+<script src="/js/analytics.js"></script>
+<script src="/js/analytics-chat.js"></script>
+<script>
+$(function() {
+	$('#library-search-button').click();
+});
+</script>
+    
+<!-- mmenu.js initialization -->
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        const menu = new Mmenu("#mmenu", {
+            offCanvas: {
+                position: "left-front"
+            },
+            scrollBugFix: {
+                fix: false
+            },
+            theme: "white",
+            iconbar: {
+                use: true,
+                top: [
+                    "<a href='#mm-1' class='mmenu-home'><span><span class='hide-text'>Return to navigation home</span></span></a>"
+                ]
+            },
+            navbars: [
+                {
+                    position: "top",
+                    content: [
+                        "close",
+                        `<div id="mobile-search">
+                            <form action="https://search.library.northwestern.edu/nde/search" id="mobile-search-form" method="get" role="search">
+                                <label class="hide-label" for="hero-input-mobile">Search the library</label>
+                                <input autocomplete="off" class="searchbox" id="hero-input-mobile" name="query" placeholder="Start your search" type="text"/>
+                                <input name="as_sitesearch" type="hidden" value="https://library.northwestern.edu"/>
+                                <input name="sitetitle" type="hidden" value=""/>
+                                <fieldset>
+                                    <legend>Search options</legend>
+                                    <span class="catalog">
+                                        <input checked="checked" id="mobile-radio1" name="radio" type="radio" value="catalog"/>
+                                        <label for="mobile-radio1">Catalog</label>
+                                    </span>
+                                    <span class="website">
+                                        <input id="mobile-radio2" name="radio" type="radio" value="website"/>
+                                        <label for="mobile-radio2">Library Website</label>
+                                    </span>
+                                </fieldset>
+                                <button type="submit"></button>
+                                <div class="wrapper">
+                                    <div class="advanced">
+                                        <a href="https://search.library.northwestern.edu/nde/home?vid=01NWU_INST:NULV_NDE&amp;lang=en&amp;mode=advanced">Advanced Search</a>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>`
+                    ]
+                }
+            ]
+        });
+        menu.bind("initPanels:after", function () {
+          if (typeof initLibrarySearchForms === "function") {
+            initLibrarySearchForms();
+          }
+        });
+    });
+</script>
+
+
+
+
+
+
+
+<nav id="mmenu">
+            <ul>
+                                                                <li>
+                        
+  
+            
+          <span>Find, Borrow, Request</span>
+      <ul>
+                  <li>
+            <a href="/find-borrow-request/index.html">Find, Borrow, Request Overview</a>
+          </li>
+        
+                                                            <li>
+                        
+  
+            
+          <span>Find</span>
+      <ul>
+                  <li>
+            <a href="/find-borrow-request/find/index.html">Find Overview</a>
+          </li>
+        
+                                                            <li>
+                        
+      <a href="/find-borrow-request/find/start-your-search.html">Start Your Search</a>
+              </li>
+                                    <li>
+                        
+      <a href="https://search.library.northwestern.edu/discovery/search?vid=01NWU_INST:NULVNEW&amp;lang=en">Library Catalog</a>
+              </li>
+                                    <li>
+                        
+      <a href="https://libguides.northwestern.edu/az.php">Databases</a>
+              </li>
+                                    <li>
+                        
+      <a href="https://search.library.northwestern.edu/discovery/jsearch?vid=01NWU_INST:NULVNEW&amp;lang=en">Journals A-Z</a>
+              </li>
+                                    <li>
+                        
+      <a href="https://dc.library.northwestern.edu/">Digital Collections</a>
+              </li>
+                                    <li>
+                        
+      <a href="https://findingaids.library.northwestern.edu/">Archival &amp; Manuscript Collections</a>
+              </li>
+                                    <li>
+                        
+      <a href="/find-borrow-request/find/course-materials.html">Course Materials</a>
+              </li>
+                                    <li>
+                        
+      <a href="/find-borrow-request/find/book-location-guide.html">Book Location Guide</a>
+              </li>
+                  </ul>
+                  </li>
+                                    <li>
+                        
+  
+            
+          <span>Borrow</span>
+      <ul>
+                  <li>
+            <a href="/find-borrow-request/borrow/index.html">Borrow Overview</a>
+          </li>
+        
+                                                            <li>
+                        
+      <a href="/find-borrow-request/borrow/borrowing-materials.html">Borrowing Materials</a>
+              </li>
+                                    <li>
+                        
+  
+            
+          <a href="/find-borrow-request/borrow/borrowing-policies/index.html">Borrowing Policies</a>
+                  </li>
+                                    <li>
+                        
+      <a href="/find-borrow-request/borrow/borrow-technology-and-accessories.html">Borrow Technology &amp; Accessories</a>
+              </li>
+                                    <li>
+                        
+      <a href="/find-borrow-request/borrow/borrowing-without-wildcard.html">Borrowing Without a Wildcard</a>
+              </li>
+                                    <li>
+                        
+      <a href="/find-borrow-request/borrow/lending-to-other-institutions.html">Lending to Other Institutions</a>
+              </li>
+                  </ul>
+                  </li>
+                                    <li>
+                        
+  
+            
+          <span>Request</span>
+      <ul>
+                  <li>
+            <a href="/find-borrow-request/request/index.html">Request Overview</a>
+          </li>
+        
+                                                            <li>
+                        
+  
+            
+          <a href="/find-borrow-request/request/reproductions-and-scans/index.html">Reproductions and Scans</a>
+                  </li>
+                                    <li>
+                        
+      <a href="/find-borrow-request/request/interlibrary-loan.html">Interlibrary Loan</a>
+              </li>
+                                    <li>
+                        
+      <a href="https://aeon.library.northwestern.edu/logon">Request Special Collections &amp; Archives</a>
+              </li>
+                  </ul>
+                  </li>
+                  </ul>
+                  </li>
+                                    <li>
+                        
+  
+            
+          <span>Use the Libraries</span>
+      <ul>
+                  <li>
+            <a href="/use-the-libraries/index.html">Use the Libraries Overview</a>
+          </li>
+        
+                                                            <li>
+                        
+  
+            
+          <span>Research &amp; Teaching</span>
+      <ul>
+                  <li>
+            <a href="/use-the-libraries/research-teaching/index.html">Research &amp; Teaching Overview</a>
+          </li>
+        
+                                                            <li>
+                        
+      <a href="/use-the-libraries/research-teaching/ask-us.html">Ask Us</a>
+              </li>
+                                    <li>
+                        
+  
+            
+          <a href="/use-the-libraries/research-teaching/subject-librarians/index.html">Liaison Librarians and Specialists</a>
+                  </li>
+                                    <li>
+                        
+  
+            
+          <a href="/use-the-libraries/research-teaching/research-consultation/index.html">Research Consultation</a>
+                  </li>
+                                    <li>
+                        
+      <a href="/use-the-libraries/research-teaching/citation-management.html">Citation Management</a>
+              </li>
+                                    <li>
+                        
+      <a href="https://libguides.northwestern.edu/copyrightbasics">Copyright</a>
+              </li>
+                                    <li>
+                        
+  
+            
+          <span>Digital Scholarship &amp; Data Services</span>
+      <ul>
+                  <li>
+            <a href="/use-the-libraries/research-teaching/digital-scholarship/index.html">Digital Scholarship &amp; Data Services Overview</a>
+          </li>
+        
+                                                            <li>
+                        
+      <a href="/use-the-libraries/research-teaching/digital-scholarship/geospatial-data-services.html">Geospatial and Data Services</a>
+              </li>
+                                    <li>
+                        
+      <a href="https://redivis.com/Northwestern">Data Library</a>
+              </li>
+                  </ul>
+                  </li>
+                                    <li>
+                        
+  
+            
+          <span>Evidence Synthesis</span>
+      <ul>
+                  <li>
+            <a href="/use-the-libraries/research-teaching/evidence-synthesis/index.html">Evidence Synthesis Overview</a>
+          </li>
+        
+                                                            <li>
+                        
+      <a href="/use-the-libraries/research-teaching/evidence-synthesis/request-evidence-synthesis-consultation.html">Request Consultation</a>
+              </li>
+                  </ul>
+                  </li>
+                                    <li>
+                        
+      <a href="/use-the-libraries/research-teaching/u.s-federal-funding-agency-public-access-policy-resources.html">Federal Grant Public Access</a>
+              </li>
+                                    <li>
+                        
+      <a href="/use-the-libraries/research-teaching/grants-residencies.html">Grants &amp; Residencies</a>
+              </li>
+                                    <li>
+                        
+  
+            
+          <a href="/use-the-libraries/research-teaching/open-access-publishing/index.html">Open Access Publishing</a>
+                  </li>
+                                    <li>
+                        
+      <a href="https://libguides.northwestern.edu/datamanagement">Research Data Management</a>
+              </li>
+                                    <li>
+                        
+      <a href="https://libguides.northwestern.edu/">Research Guides</a>
+              </li>
+                                    <li>
+                        
+  
+            
+          <span>Teach with the Libraries</span>
+      <ul>
+                  <li>
+            <a href="/use-the-libraries/research-teaching/teach-with-libraries/index.html">Teach with the Libraries Overview</a>
+          </li>
+        
+                                                            <li>
+                        
+      <a href="/use-the-libraries/research-teaching/teach-with-libraries/course-reserve.html">Course Reserve for Instructors</a>
+              </li>
+                                    <li>
+                        
+      <a href="/use-the-libraries/research-teaching/teach-with-libraries/instruction-guidelines-for-instructors.html">Instruction Guidelines</a>
+              </li>
+                                    <li>
+                        
+      <a href="/use-the-libraries/research-teaching/teach-with-libraries/request-course-related-instruction.html">Request for Instruction</a>
+              </li>
+                  </ul>
+                  </li>
+                                    <li>
+                        
+      <a href="/use-the-libraries/research-teaching/workshops.html">Workshops</a>
+              </li>
+                  </ul>
+                  </li>
+                                    <li>
+                        
+  
+            
+          <span>Spaces &amp; Study Rooms</span>
+      <ul>
+                  <li>
+            <a href="/use-the-libraries/spaces-study-rooms/index.html">Spaces &amp; Study Rooms Overview</a>
+          </li>
+        
+                                                            <li>
+                        
+  
+            
+          <a href="/use-the-libraries/spaces-study-rooms/rooms-and-spaces/index.html">Rooms &amp; Spaces</a>
+                  </li>
+                                    <li>
+                        
+  
+            
+          <span>Study Carrels</span>
+      <ul>
+                  <li>
+            <a href="/use-the-libraries/spaces-study-rooms/study-carrels/index.html">Study Carrels Overview</a>
+          </li>
+        
+                                                            <li>
+                        
+      <a href="/use-the-libraries/spaces-study-rooms/study-carrels/study-carrel-application.html">Study Carrel Application</a>
+              </li>
+                  </ul>
+                  </li>
+                                    <li>
+                        
+      <a href="/use-the-libraries/spaces-study-rooms/classrooms.html">Classrooms</a>
+              </li>
+                                    <li>
+                        
+  
+            
+          <span>Library Event Space</span>
+      <ul>
+                  <li>
+            <a href="/use-the-libraries/spaces-study-rooms/library-event-space/index.html">Library Event Space Overview</a>
+          </li>
+        
+                                                            <li>
+                        
+      <a href="/use-the-libraries/spaces-study-rooms/library-event-space/devereaux-room.html">Devereaux Room</a>
+              </li>
+                                    <li>
+                        
+      <a href="/use-the-libraries/spaces-study-rooms/library-event-space/university-library-level-1.html">University Library Level 1</a>
+              </li>
+                                    <li>
+                        
+      <a href="/use-the-libraries/spaces-study-rooms/library-event-space/ver-steeg-faculty-lounge.html">Ver Steeg Faculty Lounge</a>
+              </li>
+                                    <li>
+                        
+      <a href="/use-the-libraries/spaces-study-rooms/library-event-space/video-viewing-rooms.html">Video Viewing Rooms</a>
+              </li>
+                                    <li>
+                        
+      <a href="/use-the-libraries/spaces-study-rooms/library-event-space/event-space-request.html">Event Space Request</a>
+              </li>
+                  </ul>
+                  </li>
+                                    <li>
+                        
+  
+            
+          <a href="/use-the-libraries/spaces-study-rooms/lockers/index.html">Lockers</a>
+                  </li>
+                  </ul>
+                  </li>
+                                    <li>
+                        
+  
+            
+          <span>Technology &amp; Multimedia</span>
+      <ul>
+                  <li>
+            <a href="/use-the-libraries/technology-multimedia/index.html">Technology &amp; Multimedia Overview</a>
+          </li>
+        
+                                                            <li>
+                        
+      <a href="/use-the-libraries/technology-multimedia/printing-and-scanning.html">Printing &amp; Scanning</a>
+              </li>
+                                    <li>
+                        
+      <a href="/use-the-libraries/technology-multimedia/computers-laptops.html">Computers &amp; Laptops</a>
+              </li>
+                                    <li>
+                        
+      <a href="/use-the-libraries/technology-multimedia/software.html">Software</a>
+              </li>
+                                    <li>
+                        
+      <a href="/use-the-libraries/technology-multimedia/audiovisual-production.html">Audiovisual Production</a>
+              </li>
+                                    <li>
+                        
+  
+            
+          <span>Mitchell Multimedia Center</span>
+      <ul>
+                  <li>
+            <a href="/use-the-libraries/technology-multimedia/mitchell-multimedia-center/index.html">Mitchell Multimedia Center Overview</a>
+          </li>
+        
+                                                            <li>
+                        
+      <a href="/use-the-libraries/technology-multimedia/mitchell-multimedia-center/find-borrow-multimedia.html">Find and Borrow Physical Multimedia</a>
+              </li>
+                                    <li>
+                        
+      <a href="/use-the-libraries/technology-multimedia/mitchell-multimedia-center/contact-us.html">Contact Us</a>
+              </li>
+                  </ul>
+                  </li>
+                                    <li>
+                        
+  
+            
+          <span>MakerLab &amp; 3D Printing</span>
+      <ul>
+                  <li>
+            <a href="/use-the-libraries/technology-multimedia/makerlab-3d-printing/index.html">MakerLab &amp; 3D Printing Overview</a>
+          </li>
+        
+                                                            <li>
+                        
+      <a href="/use-the-libraries/technology-multimedia/makerlab-3d-printing/makerlab-consultation-request.html">MakerLab Consultation Request</a>
+              </li>
+                  </ul>
+                  </li>
+                                    <li>
+                        
+  
+            
+          <a href="/use-the-libraries/technology-multimedia/internet-access-connectivity/index.html">Internet Access &amp; Connectivity</a>
+                  </li>
+                  </ul>
+                  </li>
+                  </ul>
+                  </li>
+                                    <li>
+                        
+  
+            
+          <span>Libraries &amp; Collections</span>
+      <ul>
+                  <li>
+            <a href="/libraries-collections/index.html">Libraries &amp; Collections Overview</a>
+          </li>
+        
+                                                            <li>
+                        
+  
+            
+          <span>Distinctive &amp; Special Collections</span>
+      <ul>
+                  <li>
+            <a href="/libraries-collections/distinctive-special-collections/index.html">Distinctive &amp; Special Collections Overview</a>
+          </li>
+        
+                                                            <li>
+                        
+  
+            
+          <span>Special Collections &amp; Archives</span>
+      <ul>
+                  <li>
+            <a href="/libraries-collections/distinctive-special-collections/mccormick-library/index.html">Special Collections &amp; Archives Overview</a>
+          </li>
+        
+                                                            <li>
+                        
+      <a href="/libraries-collections/distinctive-special-collections/mccormick-library/start-your-search.html">Start Your Search</a>
+              </li>
+                                    <li>
+                        
+  
+        
+          <a href="/libraries-collections/distinctive-special-collections/mccormick-library/collection/index.html">Explore the Collection</a>
+                  </li>
+                                    <li>
+                        
+      <a href="/libraries-collections/distinctive-special-collections/mccormick-library/research-instruction-services.html">Research &amp; Instruction Services</a>
+              </li>
+                                    <li>
+                        
+  
+        
+          <a href="/libraries-collections/distinctive-special-collections/mccormick-library/plan-your-visit/index.html">Plan Your Visit</a>
+                  </li>
+                                    <li>
+                        
+      <a href="/libraries-collections/distinctive-special-collections/mccormick-library/contact-us.html">Contact Us</a>
+              </li>
+                                    <li>
+                        
+      <a href="https://northwestern.libanswers.com/mccormick/">FAQ</a>
+              </li>
+                                    <li>
+                        
+      <a href="/libraries-collections/distinctive-special-collections/mccormick-library/about.html">About</a>
+              </li>
+                                    <li>
+                        
+  
+        
+          <a href="/libraries-collections/distinctive-special-collections/mccormick-library/research-grants-and-prizes/index.html">Grants and Prizes</a>
+                  </li>
+                  </ul>
+                  </li>
+                                    <li>
+                        
+  
+            
+          <span>Art Library</span>
+      <ul>
+                  <li>
+            <a href="/libraries-collections/distinctive-special-collections/art/index.html">Art Library Overview</a>
+          </li>
+        
+                                                            <li>
+                        
+      <a href="https://search.library.northwestern.edu/discovery/search?vid=01NWU_INST:AFRINEW&amp;sortby=rank%20 ">Start Your Search</a>
+              </li>
+                                    <li>
+                        
+  
+        
+          <a href="/libraries-collections/distinctive-special-collections/art/collection/index.html">Explore the Collection</a>
+                  </li>
+                                    <li>
+                        
+      <a href="/libraries-collections/distinctive-special-collections/art/research-instruction-services.html">Research and Instruction Services</a>
+              </li>
+                                    <li>
+                        
+      <a href="/libraries-collections/distinctive-special-collections/art/plan-your-visit.html">Plan Your Visit</a>
+              </li>
+                                    <li>
+                        
+      <a href="/libraries-collections/distinctive-special-collections/art/contact-us.html">Contact Us</a>
+              </li>
+                  </ul>
+                  </li>
+                                    <li>
+                        
+      <a href="https://dc.library.northwestern.edu/">Digital Collections</a>
+              </li>
+                                    <li>
+                        
+  
+            
+          <span>Government Information &amp; Maps Collection</span>
+      <ul>
+                  <li>
+            <a href="/libraries-collections/distinctive-special-collections/government-collection/index.html">Government Information &amp; Maps Collection Overview</a>
+          </li>
+        
+                                                            <li>
+                        
+      <a href="/libraries-collections/distinctive-special-collections/government-collection/digital-resources.html">Digital Resources</a>
+              </li>
+                                    <li>
+                        
+  
+        
+          <a href="/libraries-collections/distinctive-special-collections/government-collection/maps-and-rare-atlas/index.html">Maps and Rare Atlas Collection</a>
+                  </li>
+                  </ul>
+                  </li>
+                                    <li>
+                        
+  
+            
+          <span>Herskovits Library of African Studies </span>
+      <ul>
+                  <li>
+            <a href="/libraries-collections/distinctive-special-collections/herskovits-library/index.html">Herskovits Library of African Studies  Overview</a>
+          </li>
+        
+                                                            <li>
+                        
+      <a href="https://search.library.northwestern.edu/discovery/search?vid=01NWU_INST:AFRINEW&amp;sortby=rank%20 ">Start Your Search</a>
+              </li>
+                                    <li>
+                        
+  
+        
+          <a href="/libraries-collections/distinctive-special-collections/herskovits-library/collection/index.html">Explore the Collection</a>
+                  </li>
+                                    <li>
+                        
+      <a href="/libraries-collections/distinctive-special-collections/herskovits-library/research-instruction-services.html">Research and Instruction Services</a>
+              </li>
+                                    <li>
+                        
+  
+        
+          <a href="/libraries-collections/distinctive-special-collections/herskovits-library/plan-your-visit/index.html">Plan Your Visit</a>
+                  </li>
+                                    <li>
+                        
+      <a href="/libraries-collections/distinctive-special-collections/herskovits-library/contact-us.html">Contact Us</a>
+              </li>
+                                    <li>
+                        
+      <a href="/libraries-collections/distinctive-special-collections/herskovits-library/research-grant.html">Research Grant</a>
+              </li>
+                                    <li>
+                        
+      <a href="/libraries-collections/distinctive-special-collections/herskovits-library/about-herskovits.html">About Herskovits</a>
+              </li>
+                  </ul>
+                  </li>
+                                    <li>
+                        
+  
+            
+          <span>Music Collection</span>
+      <ul>
+                  <li>
+            <a href="/libraries-collections/distinctive-special-collections/music/index.html">Music Collection Overview</a>
+          </li>
+        
+                                                            <li>
+                        
+      <a href="https://search.library.northwestern.edu/">Start Your Search</a>
+              </li>
+                                    <li>
+                        
+  
+        
+          <a href="/libraries-collections/distinctive-special-collections/music/collection/index.html">Explore the Collection</a>
+                  </li>
+                                    <li>
+                        
+      <a href="/libraries-collections/distinctive-special-collections/music/research-instruction-services.html">Research and Instruction Services</a>
+              </li>
+                                    <li>
+                        
+      <a href="/libraries-collections/distinctive-special-collections/music/plan-your-visit.html">Plan Your Visit</a>
+              </li>
+                                    <li>
+                        
+      <a href="/libraries-collections/distinctive-special-collections/music/contact-us.html">Contact Us</a>
+              </li>
+                                    <li>
+                        
+      <a href="/libraries-collections/distinctive-special-collections/music/john-cage-research-grant.html">John Cage Research Grant</a>
+              </li>
+                  </ul>
+                  </li>
+                                    <li>
+                        
+  
+            
+          <span>Transportation Library</span>
+      <ul>
+                  <li>
+            <a href="/libraries-collections/distinctive-special-collections/transportation-library/index.html">Transportation Library Overview</a>
+          </li>
+        
+                                                            <li>
+                        
+      <a href="https://search.library.northwestern.edu/discovery/search?vid=01NWU_INST:TRANNEW&amp;sortby=rank&amp;lang=en">Start Your Search</a>
+              </li>
+                                    <li>
+                        
+  
+        
+          <a href="/libraries-collections/distinctive-special-collections/transportation-library/collection/index.html">Explore the Collection</a>
+                  </li>
+                                    <li>
+                        
+      <a href="/libraries-collections/distinctive-special-collections/transportation-library/research-instruction-services.html">Research and Instruction Services</a>
+              </li>
+                                    <li>
+                        
+      <a href="/libraries-collections/distinctive-special-collections/transportation-library/plan-your-visit.html">Plan Your Visit</a>
+              </li>
+                                    <li>
+                        
+      <a href="/libraries-collections/distinctive-special-collections/transportation-library/contact-us.html">Contact Us</a>
+              </li>
+                                    <li>
+                        
+      <a href="/libraries-collections/distinctive-special-collections/transportation-library/research-grant.html">Reynolds Travel Grant</a>
+              </li>
+                  </ul>
+                  </li>
+                  </ul>
+                  </li>
+                                    <li>
+                        
+  
+            
+          <span>Library Buildings &amp; Locations</span>
+      <ul>
+                  <li>
+            <a href="/libraries-collections/library-buildings-locations/index.html">Library Buildings &amp; Locations Overview</a>
+          </li>
+        
+                                                            <li>
+                        
+      <a href="/libraries-collections/library-buildings-locations/university-library.html">University Library</a>
+              </li>
+                                    <li>
+                        
+  
+            
+          <a href="/libraries-collections/library-buildings-locations/deering-library/index.html">Deering Library</a>
+                  </li>
+                                    <li>
+                        
+  
+            
+          <span>Mudd Library</span>
+      <ul>
+                  <li>
+            <a href="/libraries-collections/library-buildings-locations/mudd-library/index.html">Mudd Library Overview</a>
+          </li>
+        
+                                                            <li>
+                        
+      <a href="/libraries-collections/library-buildings-locations/mudd-library/contact-us.html">Contact Mudd Library </a>
+              </li>
+                                    <li>
+                        
+      <a href="/libraries-collections/library-buildings-locations/mudd-library/morton-astrahan.html">About Dr. Morton M. Astrahan</a>
+              </li>
+                  </ul>
+                  </li>
+                                    <li>
+                        
+      <a href="/libraries-collections/library-buildings-locations/math-library.html">Math Library</a>
+              </li>
+                                    <li>
+                        
+      <a href="https://galter.northwestern.edu/">Galter Library</a>
+              </li>
+                                    <li>
+                        
+      <a href="/libraries-collections/library-buildings-locations/oak-grove-library-center.html">Oak Grove Library Center</a>
+              </li>
+                                    <li>
+                        
+      <a href="https://library.law.northwestern.edu/home">Pritzker Legal Research Center</a>
+              </li>
+                                    <li>
+                        
+      <a href="https://library.garrett.edu/">Styberg Library</a>
+              </li>
+                  </ul>
+                  </li>
+                  </ul>
+                  </li>
+                                    <li>
+                        
+  
+            
+          <span>Visit</span>
+      <ul>
+                  <li>
+            <a href="/visit/index.html">Visit Overview</a>
+          </li>
+        
+                                                            <li>
+                        
+  
+            
+          <span>Plan Your Visit</span>
+      <ul>
+                  <li>
+            <a href="/visit/plan-your-visit/index.html">Plan Your Visit Overview</a>
+          </li>
+        
+                                                            <li>
+                        
+      <a href="/visit/plan-your-visit/hours.html">Hours</a>
+              </li>
+                                    <li>
+                        
+  
+            
+          <a href="/visit/plan-your-visit/building-maps/index.html">Building Maps</a>
+                  </li>
+                                    <li>
+                        
+  
+            
+          <span>Policies</span>
+      <ul>
+                  <li>
+            <a href="/visit/plan-your-visit/policies/index.html">Policies Overview</a>
+          </li>
+        
+                                                            <li>
+                        
+  
+        
+          <a href="/visit/plan-your-visit/policies/building-use-policy/index.html">Building Use and Conduct Policy</a>
+                  </li>
+                                    <li>
+                        
+      <a href="/visit/plan-your-visit/policies/digital-preservation-policy.html">Digital Preservation Policy </a>
+              </li>
+                                    <li>
+                        
+      <a href="/visit/plan-your-visit/policies/exhibition-loans.html">Exhibition Loans</a>
+              </li>
+                                    <li>
+                        
+      <a href="/visit/plan-your-visit/policies/file-format-recommendations.html">File Format Recommendations </a>
+              </li>
+                                    <li>
+                        
+      <a href="/visit/plan-your-visit/policies/maker-lab-use-policy.html">Maker Lab Use Policy </a>
+              </li>
+                                    <li>
+                        
+      <a href="/visit/plan-your-visit/policies/open-discovery-initiative-statement.html">Open Discovery Initiative Statement </a>
+              </li>
+                                    <li>
+                        
+      <a href="/visit/plan-your-visit/policies/plotter-printing-policy.html">Plotter Printing Policy</a>
+              </li>
+                                    <li>
+                        
+      <a href="/visit/plan-your-visit/policies/printing-refund-policy.html">Printing Refund Policy </a>
+              </li>
+                                    <li>
+                        
+      <a href="/visit/plan-your-visit/policies/public-computers-policy.html">Public Computers Policy </a>
+              </li>
+                                    <li>
+                        
+      <a href="/visit/plan-your-visit/policies/retention-of-challenged-materials-policy.html">Retention of Challenged Materials Policy </a>
+              </li>
+                                    <li>
+                        
+      <a href="/visit/plan-your-visit/policies/rights-permissions-and-reproduction-policy.html">Rights, Permissions and Reproduction Policy </a>
+              </li>
+                                    <li>
+                        
+      <a href="/visit/plan-your-visit/policies/use-of-electronic-resources-policy.html">Use of Electronic Resources Policy </a>
+              </li>
+                                    <li>
+                        
+      <a href="/visit/plan-your-visit/policies/visitor-access-policy.html">Visitor Access Policy </a>
+              </li>
+                  </ul>
+                  </li>
+                                    <li>
+                        
+      <a href="/visit/plan-your-visit/accessibility-services.html">Accessibility Services</a>
+              </li>
+                                    <li>
+                        
+      <a href="/visit/plan-your-visit/events.html">Events</a>
+              </li>
+                                    <li>
+                        
+      <a href="/visit/plan-your-visit/exhibits.html">Exhibits</a>
+              </li>
+                  </ul>
+                  </li>
+                                    <li>
+                        
+  
+            
+          <span>Community &amp; Visitor Support</span>
+      <ul>
+                  <li>
+            <a href="/visit/community-visitor-support/index.html">Community &amp; Visitor Support Overview</a>
+          </li>
+        
+                                                            <li>
+                        
+      <a href="/visit/community-visitor-support/alumni-resources.html">Public Access &amp; Alumni Resources</a>
+              </li>
+                                    <li>
+                        
+      <a href="/visit/community-visitor-support/out-of-town-visitor-resources.html">Out-of-Town Visitor Resources</a>
+              </li>
+                                    <li>
+                        
+      <a href="/visit/community-visitor-support/services-for-retired-faculty.html">Services for Retired Faculty</a>
+              </li>
+                  </ul>
+                  </li>
+                  </ul>
+                  </li>
+                                    <li>
+                        
+  
+            
+          <span>About</span>
+      <ul>
+                  <li>
+            <a href="/about/index.html">About Overview</a>
+          </li>
+        
+                                                            <li>
+                        
+  
+            
+          <span>At a Glance</span>
+      <ul>
+                  <li>
+            <a href="/about/at-a-glance/index.html">At a Glance Overview</a>
+          </li>
+        
+                                                            <li>
+                        
+      <a href="/about/at-a-glance/history-fast-facts.html">History &amp; Fast Facts</a>
+              </li>
+                                    <li>
+                        
+      <a href="/about/at-a-glance/libraries-art-architechture.html">Libraries Art &amp; Architecture</a>
+              </li>
+                  </ul>
+                  </li>
+                                    <li>
+                        
+  
+            
+          <span>Our Organization</span>
+      <ul>
+                  <li>
+            <a href="/about/our-organization/index.html">Our Organization Overview</a>
+          </li>
+        
+                                                            <li>
+                        
+  
+            
+          <span>Careers</span>
+      <ul>
+                  <li>
+            <a href="/about/our-organization/careers/index.html">Careers Overview</a>
+          </li>
+        
+                                                            <li>
+                        
+  
+        
+          <a href="/about/our-organization/careers/staff-faculty/index.html">Staff and Librarian Jobs</a>
+                  </li>
+                                    <li>
+                        
+  
+        
+          <a href="/about/our-organization/careers/student-jobs/index.html">Student Jobs</a>
+                  </li>
+                  </ul>
+                  </li>
+                                    <li>
+                        
+      <a href="/about/our-organization/consortia-memberships.html">Consortia &amp; Memberships</a>
+              </li>
+                                    <li>
+                        
+      <a href="/about/our-organization/vision.html">Vision</a>
+              </li>
+                                    <li>
+                        
+  
+            
+          <span>Organization Chart</span>
+      <ul>
+                  <li>
+            <a href="/about/our-organization/organization-chart/index.html">Organization Chart Overview</a>
+          </li>
+        
+                                                            <li>
+                        
+      <a href="/about/our-organization/organization-chart/preservation-conservation.html">Preservation &amp; Conservation</a>
+              </li>
+                                    <li>
+                        
+      <a href="/about/our-organization/organization-chart/mission-values.html">Mission &amp; Values</a>
+              </li>
+                  </ul>
+                  </li>
+                                    <li>
+                        
+  
+            
+          <span>Leadership</span>
+      <ul>
+                  <li>
+            <a href="/about/our-organization/leadership/index.html">Leadership Overview</a>
+          </li>
+        
+                                                            <li>
+                        
+  
+        
+          <a href="/about/our-organization/leadership/advisory-committee/index.html">Advisory Committees</a>
+                  </li>
+                  </ul>
+                  </li>
+                  </ul>
+                  </li>
+                                    <li>
+                        
+  
+            
+          <span>Libraries Information</span>
+      <ul>
+                  <li>
+            <a href="/about/libraries-information/index.html">Libraries Information Overview</a>
+          </li>
+        
+                                                            <li>
+                        
+  
+            
+          <span>Contact Us</span>
+      <ul>
+                  <li>
+            <a href="/about/libraries-information/contact-us/index.html">Contact Us Overview</a>
+          </li>
+        
+                                                            <li>
+                        
+      <a href="/about/libraries-information/contact-us/display-ads-on-library-screens.html">Display Ads on Library Screens</a>
+              </li>
+                                    <li>
+                        
+      <a href="/about/libraries-information/contact-us/filming-or-photography-in-the-library.html">Filming or Photography in the Library</a>
+              </li>
+                  </ul>
+                  </li>
+                                    <li>
+                        
+  
+            
+          <a href="/about/libraries-information/staff-directory/index.html">Staff Directory</a>
+                  </li>
+                                    <li>
+                        
+      <a href="/about/libraries-information/support-us.html">Support Us</a>
+              </li>
+                                    <li>
+                        
+  
+            
+          <a href="/about/libraries-information/news-publications/index.html">News &amp; Publications</a>
+                  </li>
+                  </ul>
+                  </li>
+                  </ul>
+                  </li>
+            
+                            <li class="divider">Quick Links</li>
+            
+                            <li class="ask-us"><a href="/use-the-libraries/research-teaching/ask-us.html">Ask Us</a></li>
+                        
+                                                <li><a href="/alumni-visitors.html">Alumni/Visitors</a></li>
+                                                                <li><a href="/faculty-staff.html">Faculty/Staff</a></li>
+                                                                <li><a href="/graduate.html">Graduate</a></li>
+                                                                <li><a href="/undergraduate.html">Undergraduate</a></li>
+                            
+                            <li class="accessibility"><a href="/visit/plan-your-visit/accessibility-services.html">Accessibility Services</a></li>
+            
+                            <li class="support"><a href="/about/libraries-information/support-us.html">Support Us</a></li>
+            
+            <li><a href="https://search.library.northwestern.edu/nde/login?vid=01NWU_INST:NULV_NDE&amp;lang=en">My Account</a></li>
+        </ul>
+    </nav> 
+</body>
+
+</html>
