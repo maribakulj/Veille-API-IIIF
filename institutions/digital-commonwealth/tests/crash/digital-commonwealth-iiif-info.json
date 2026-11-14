@@ -1,0 +1,53 @@
+{
+  "slug": "digital-commonwealth",
+  "hote": "iiif.digitalcommonwealth.org",
+  "reseaux": [],
+  "plafond_req_min": 200,
+  "endpoint": "iiif-info",
+  "limite_documentee_req_min": null,
+  "paliers": [
+    {
+      "palier_req_min": 6,
+      "requetes": 18,
+      "debit_reel_req_min": 6.3,
+      "codes": {
+        "200": 18
+      },
+      "latence_p50_s": 0.71,
+      "latence_max_s": 1.546
+    },
+    {
+      "palier_req_min": 10,
+      "requetes": 30,
+      "debit_reel_req_min": 10.3,
+      "codes": {
+        "200": 30
+      },
+      "latence_p50_s": 0.652,
+      "latence_max_s": 0.869
+    },
+    {
+      "palier_req_min": 50,
+      "requetes": 150,
+      "debit_reel_req_min": 50.1,
+      "codes": {
+        "200": 149,
+        "None": 1
+      },
+      "latence_p50_s": 0.508,
+      "latence_max_s": 20.106
+    },
+    {
+      "palier_req_min": 200,
+      "requetes": 600,
+      "debit_reel_req_min": 199.6,
+      "codes": {
+        "200": 600
+      },
+      "latence_p50_s": 0.661,
+      "latence_max_s": 1.676
+    }
+  ],
+  "arret": null,
+  "conclusion": "aucun blocage jusqu'à 200 req/min"
+}

@@ -1,0 +1,9 @@
+# Crash test 2026-11-14T05:44:32Z — configuration crash-iiif-info.json — endpoint iiif-info GET https://iiif.digitalcommonwealth.org/iiif/2/commonwealth:hd76s0677/info.json
+# réseau détecté : aucun réseau à réputation partagée connu ; plafond standard 200 req/min (décision de Marcel 14/11/2026) ; requête de détection : 200 en 0.83 s
+# limite documentée : aucune req/min (aucune limite documentée (https://www.digitalcommonwealth.org/api : doc sans mention de quota ; sources/doc/text/04.txt)) ; paliers [6, 10, 50, 200] ; plafond 200 req/min ; 180 s par palier
+2026-11-14T05:47:23Z | palier 6 req/min | {"palier_req_min": 6, "requetes": 18, "debit_reel_req_min": 6.3, "codes": {"200": 18}, "latence_p50_s": 0.71, "latence_max_s": 1.546}
+2026-11-14T05:50:18Z | palier 10 req/min | {"palier_req_min": 10, "requetes": 30, "debit_reel_req_min": 10.3, "codes": {"200": 30}, "latence_p50_s": 0.652, "latence_max_s": 0.869}
+2026-11-14T05:53:17Z | palier 50 req/min | {"palier_req_min": 50, "requetes": 150, "debit_reel_req_min": 50.1, "codes": {"200": 149, "None": 1}, "latence_p50_s": 0.508, "latence_max_s": 20.106}
+2026-11-14T05:56:17Z | palier 200 req/min | {"palier_req_min": 200, "requetes": 600, "debit_reel_req_min": 199.6, "codes": {"200": 600}, "latence_p50_s": 0.661, "latence_max_s": 1.676}
+# Fin 2026-11-14T05:56:17Z — aucun blocage jusqu'à 200 req/min
+

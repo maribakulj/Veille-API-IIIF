@@ -18,3 +18,8 @@
 
 ## Conclusion
 Aucun quota ni politique de débit publiés ; hypothèse non vérifiée : service public de bibliothèque sans limitation annoncée, avec la seule règle Crawl-Delay: 5. Les familles OAI et IIIF Image sont testées sans signal de limite. JSON de recherche et JSON d'item testés en 200 et manifeste en 404 (passe 2), sans signal de limite. Crash test (g) : config crash-iiif-info.json préparée.
+
+## Crash test (étape g)
+
+Crash test fait le 2026-11-14 : iiif-info sur iiif.digitalcommonwealth.org : aucun blocage jusqu'à 200 req/min (plafond 200 req/min).
+Journal : `tests/crash/digital-commonwealth.log`. Un test « sans blocage » n'est pas une preuve d'illimitation au-delà du plafond.
