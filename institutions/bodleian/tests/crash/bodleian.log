@@ -3,3 +3,8 @@
 2026-11-14T01:13:08Z | palier 6 req/min | {"palier_req_min": 6, "requetes": 18, "debit_reel_req_min": 6.3, "codes": {"200": 18}, "latence_p50_s": 0.138, "latence_max_s": 0.499}
 # Fin 2026-11-14T01:13:24Z — INTERROMPU À LA DEMANDE DE MARCEL après le palier 6 req/min (question sur le risque de blocage Cloudflare transversal) ; paliers 10, 50 et 200 req/min non lancés ; à rejouer.
 
+# Crash test 2026-11-14T01:16:22Z — configuration crash-iiif-info.json — endpoint image-info-json GET https://iiif.bodleian.ox.ac.uk/iiif/image/f27e28db-0b08-4f16-9bdf-3565f591fb71/info.json
+# réseau détecté : aucun réseau à réputation partagée connu ; plafond standard 200 req/min (décision de Marcel 14/11/2026) ; requête de détection : 200 en 0.19 s
+# limite documentée : aucune req/min (aucune limite de débit documentée (https://digital.bodleian.ox.ac.uk/developer/iiif/ : seulement « prévenir l'équipe avant » un moissonnage important de manifestes, sans chiffre)) ; paliers [6, 10, 50, 200] ; plafond 200 req/min ; 180 s par palier
+# Fin 2026-11-14T01:16:43Z — INTERROMPU À LA DEMANDE DE MARCEL : décision de faire tous les crash tests à la fin, un par un ; à rejouer.
+

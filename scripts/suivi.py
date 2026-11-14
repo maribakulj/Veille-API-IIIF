@@ -442,13 +442,13 @@ def commencee(slug):
     return bool(r and any(v[0] == "x" for v in r[1].values()))
 
 
-def manques_complets(slug):
+def manques_complets(slug, avec_g=False):
     """Tout ce qui empêche de dire « institution terminée » (étapes a–f cochées + exigence v3 + journal)."""
     r = lire_suivi(slug)
     m = []
     if r is None:
         return ["CONSIGNE-ET-SUIVI.md absent"]
-    for c in "abcdefg":
+    for c in ("abcdefg" if avec_g else "abcdef"):
         etat = r[1].get(c, (" ",))[0]
         if etat == "x" or (c == "g" and etat == "~" and not g_impossible_manques(slug, lire_data(slug))):
             continue
@@ -456,6 +456,8 @@ def manques_complets(slug):
     flat = controle_v3(slug, lire_data(slug))
     if r[1].get("g", (" ",))[0] == "~":
         flat = [x for x in flat if not x.startswith("aucun journal de crash test")]
+    if not avec_g:  # décision de Marcel 14/11/2026 : crash tests à la fin, un par un ; g n'autorise ni ne bloque la suivante
+        flat = [x for x in flat if not (x.startswith("aucun journal de crash test") or x.startswith("crash test") or x.startswith("journal de crash test"))]
     m += flat
     m += analyser_journal(slug)["anomalies"]
     return m
@@ -496,6 +498,24 @@ def cmd_autorise(slug):
             print(f"REFUSÉ : {slug} ne peut pas être traitée avant {prec} (non terminée : "
                   f"{'; '.join(manques_complets(prec))[:160]}). Lancer : python3 scripts/suivi.py porte {prec}")
             return 1
+    return 0
+
+
+def termine_final(slug):
+    r = lire_suivi(slug)
+    return r is None or r[0] != "active" or not manques_complets(slug, avec_g=True)
+
+
+def cmd_fin():
+    """Plan des crash tests de fin de boucle : institutions a–f terminées dont l'étape g reste à faire."""
+    o = ordre()
+    a_faire = [s for s in o if (lire_suivi(s) or ("",))[0] == "active" and termine(s) and not termine_final(s)]
+    print(f"{len(a_faire)} crash test(s) à faire, un par un (hôtes sans réseau protégé d'abord ; crash.py impose 30 min entre réseaux protégés) :")
+    for s in a_faire:
+        cf = sorted((INST / s / "config").glob("crash-*.json"))
+        print(" ", s, "→", ", ".join(f.name for f in cf) if cf else "AUCUNE config crash (étape g « impossible » ?)")
+    non_finies = [s for s in o if (lire_suivi(s) or ("",))[0] == "active" and not termine(s)]
+    print(f"{len(non_finies)} institution(s) pas encore terminées (a–f) : g viendra après.")
     return 0
 
 
@@ -604,6 +624,8 @@ def main():
         cmd_sync()
     elif cmd == "autorise":
         sys.exit(cmd_autorise(sys.argv[2]))
+    elif cmd == "fin":
+        sys.exit(cmd_fin())
     elif cmd == "porte":
         sys.exit(cmd_porte(sys.argv[2] if len(sys.argv) > 2 else None))
     elif cmd == "validate":

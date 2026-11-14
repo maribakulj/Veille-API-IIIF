@@ -140,6 +140,9 @@ Les consignes plus récentes l'emportent sur les plus anciennes quand elles se c
 - « une fois que toutes les précautions auront été prises, tu pourras continuer la boucle avec des sous agents qui respectent bien la méthodologie, tu me confirmes que le verrou fonctionnera pour les sous agents ? »
 → Appliqué : (1) verrou par étape cochée (a à g) et ordre strict ; (2) exclusion des pages de doc du contrôle de couverture **mécanique** (code 200 + HTML, sinon jamais) et listée dans l'onglet « Doc exclue » ; (3) sessions non conformes archivées dans `tests/archive/` puis rejouées ; (4) étape g obligatoire pour qu'une institution soit « terminée » ; (5) `probe.py`, `crash.py` et `fetch_doc.sh` refusent de se lancer si une institution antérieure n'est pas terminée.
 
+**C15 — crash tests à la fin (Marcel, 14/11/2026, mot pour mot)** : « je préfère qu'on fasse tous les crash tests à la fin un par un » ; et avant : « oui mais il faut que ça s'adapte aux prochains » (plafond par type de réseau, voir METHODOLOGY).
+→ L'étape g n'autorise ni ne bloque plus l'institution suivante ; elle reste obligatoire pour la clôture finale (`suivi.py fin` donne le plan). Les crash tests se font à la fin, un par un, avec `scripts/crash.py` (politique adaptative par réseau, 30 min entre réseaux protégés).
+
 ---
 
 # Méthode (METHODOLOGY.md, recopiée)
