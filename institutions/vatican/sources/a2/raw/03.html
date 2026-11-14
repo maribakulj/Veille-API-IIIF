@@ -1,0 +1,672 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    
+    <meta name="keywords" content="BAV"><meta name="description" content="Biblioteca Apostolica Vaticana">    <title>Home</title>
+    
+        <link rel="stylesheet" type="text/css" href="https://www.vaticanlibrary.va/style/js/lib/slick/slick.css">
+    <link rel="stylesheet" type="text/css" href="https://www.vaticanlibrary.va/style/js/lib/slick/slick-theme.css">
+    <link rel="stylesheet" type="text/css" href="https://www.vaticanlibrary.va/style/js/lib/jquery-ui/jquery-ui.min.css">
+    <link rel="stylesheet" type="text/css" href="https://www.vaticanlibrary.va/style/js/lib/jquery-ui/jquery-ui.theme.min.css">
+    <link rel="stylesheet" type="text/css" href="https://www.vaticanlibrary.va/style/js/lib/jquery-ui/jquery-ui.structure.min.css">
+    <link rel="stylesheet" type="text/css" href="https://www.vaticanlibrary.va/style/css/styles.css?v=2.2">
+    <!--[if IE 8]>
+    <link rel="stylesheet" type="text/css" href="https://www.vaticanlibrary.va/style/css/ie8.css">
+    <![endif]-->
+	<script type="text/javascript" src="https://www.vaticanlibrary.va/style/js/lib/jquery-3.7.1.js"></script>
+        <script>
+	function getPolicy() {
+		var nameEQ = "policy=";
+		var ca = document.cookie.split(';');
+		for(var i=0;i < ca.length;i++) {
+			var c = ca[i];
+			while (c.charAt(0)==' ') c = c.substring(1,c.length);
+			if (c.indexOf(nameEQ) === 0) return c.substring(nameEQ.length,c.length);
+		}
+		return null;
+	};
+	</script>
+</head>
+<body>
+    <!-- INIZIO HEADER -->
+    <div class="header">
+        <!-- INIZIO LANGUAGE BAR -->
+        <div class="header-top">
+            <div class="fluid">
+                <div class="change-lang fr">
+                <a href="#" title="Versione Italiana" class="it">Italiano</a><ul><li><a href="https://www.vaticanlibrary.va/it/" title="Versione Italiana" class="it">Italiano</a></li><li><a href="https://www.vaticanlibrary.va/en/" title="Versione Inglese" class="en">Inglese</a></li></ul>                </div>
+            </div>
+        </div>	    
+        <!-- FINE LANGUAGE BAR -->
+	    <!-- INIZIO SERVICE BAR -->
+        <div class="header-middle">
+            <div class="fluid">
+                <a class="logo" href="https://www.vaticanlibrary.va/it/" title="Biblioteca Apostolica Vaticana">Biblioteca<br>Apostolica<br>Vaticana</a>
+                <ul>
+                    <!-- AREA PRIVATA POPUP -->
+                    <li class="user">
+						<div class="icon"><a href="#" title="Accedi all'area privata">Area privata</a></div><div class="menu"><div class="content"><h4>Accedi all'area privata</h4><form id="Login" name="Login" method="post" action="/opera/chklogin.php" class="frmMenu"><input type="hidden" name="byPassCHO" id="byPassCHO" value="0" ><label for="mailLog" >Email *</label><span><input type="email" name="mailLog" id="mailLog" placeholder="Email"  minlength="6" maxlength="70" required  autocomplete="off" ><span class="msg active">Campo obbligatorio<br>Inserire da 6 a 70 caratteri alfanumerici</span></span><label for="pwdLog" >Password *</label><span><input type="password" name="pwdLog" id="pwdLog" placeholder="Password"  minlength="8" maxlength="15" required  autocomplete="off" ><span class="msg active">Campo obbligatorio<br>Inserire da 8 a 15 caratteri alfanumerici</span></span><br><div class="cl"></div><input type="submit" value="Accedi"></form><span class="user-link">Hai dimenticato la password ?<a href="https://www.vaticanlibrary.va/it/support/supporto-account.html" title="Hai dimenticato la password ?"> Recupera password</a></span><span class="user-link">Vuoi completare una iscrizione sospesa ?<a href="https://www.vaticanlibrary.va/it/support/supporto-account.html" title="Vuoi completare una iscrizione sospesa ?"> Clicca Qui</a></span></div><div class="footer"><div><p>Non sei iscritto all'area privata del sito ?</p><a href="https://www.vaticanlibrary.va/it/support/iscriviti.html" class="lnk" style="float:right">Iscriviti</a></div></div></div>                    </li>
+                    <li class="carrello">
+                    	<em id="bubblepop" style="display:none"></em>						<div class="icon"><a href="#" title="Carrello acquisti">Carrello</a></div><div class="menu"><div class="content"><h4>Carrello acquisti</h4><p>Puoi verificare la lista delle pubblicazioni da acquistare</p><p class="message">Il carrello è vuoto</p><br><br></div><div class="footer"><div><p>Richiedi una riproduzione fotografica</p><a href="/it/studio-e-consultazione/fotoriproduzione-uso-privato.html?n=1" title="Studio Privato"><img src="https://www.vaticanlibrary.va/style/css/i/ic_studio_privato.png" alt="Studio Privato"><span>Studio Privato</span></a><a href="/it/studio-e-consultazione/fotoriproduzione-uso-professionale.html?n=1" title="Uso Professionale"><img src="https://www.vaticanlibrary.va/style/css/i/ic_uso_professionale.png" alt="Uso Professionale"><span>Uso Professionale</span></a></div><div><p>Consulta le pubblicazioni editoriali</p><a href="/it/pubblicazioni/" title="Consulta"><img src="https://www.vaticanlibrary.va/style/css/i/ic_consulta.png" alt="Consulta"><span>Consulta</span></a></div></div></div>                    </li>
+                    <li class="ordini">
+						<div class="icon"><a href="#" title="Verifica lo stato dell'ordine">Ordini</a></div><div class="menu"><div class="content"><h4>Verifica lo stato dell'ordine</h4><p>Puoi verificare lo stato di un tuo ordine inserendo il relativo codice oppure effettua il login per visualizzare l’intera lista.</p><form name="checkOrdini" id="checkOrdini" action="/ajax/chkordini.php" class="frmMenu"><input name="opr" value="chkOrder" type="hidden"><label for="codiceWeb" >Codice Ordine *</label><span><input type="text" name="codiceWeb" id="codiceWeb" placeholder="Inserisci il codice dell'ordine"  minlength="1" maxlength="6" required ><span class="msg active">Campo obbligatorio<br>Inserire da 1 a 6 caratteri alfanumerici</span></span><label for="mailOrd" >Email *</label><span><input type="email" name="mailOrd" id="mailOrd" placeholder="Inserisci email account BAV"  minlength="6" maxlength="70" required ><span class="msg active">Campo obbligatorio<br>Inserire da 6 a 70 caratteri alfanumerici</span></span><div class="cl"></div><input  id="chkOrd" name="chkOrd"type="submit" value="Cerca"></form><span id="risultato"></span></div><div class="footer"><div><p>Richiedi una riproduzione fotografica</p><a href="/it/studio-e-consultazione/fotoriproduzione-uso-privato.html?n=1" title="Studio Privato"><img src="https://www.vaticanlibrary.va/style/css/i/ic_studio_privato.png" alt="Studio Privato"><span>Studio Privato</span></a><a href="/it/studio-e-consultazione/fotoriproduzione-uso-professionale.html?n=1" title="Uso Professionale"><img src="https://www.vaticanlibrary.va/style/css/i/ic_uso_professionale.png" alt="Uso Professionale"><span>Uso Professionale</span></a></div><div><p>Consulta le pubblicazioni editoriali</p><a href="/it/pubblicazioni/" title="Consulta"><img src="https://www.vaticanlibrary.va/style/css/i/ic_consulta.png" alt="Consulta"><span>Consulta</span></a></div></div></div>                    </li>
+                    <li class="calendario">
+                    	<div class="icon"><a href="#" title="Calendario">Calendario</a></div><div class="menu"><div class="content"><h4 style="font-size:1.3em">La Biblioteca Apostolica Vaticana rispetterà per l'anno corrente il seguente calendario di apertura agli studiosi:</h4><div class="annual-calendar-content"><div class="annual-calendar"></div></div><p>Le sale di lettura sono aperte dal lunedì al venerdì, dalle 9:00 alle 17:20.<br>Le date in <span style="color:red;">rosso</span> indicano i giorni di chiusura.</p></div></div>                    </li>
+                    					<li class="search" id="search-overlay-menu-btn"><div class="icon"><a href="#" title="Cerca">Cerca</a></div></li>
+                </ul>
+            </div>
+        </div>
+	    <!-- FINE SERVICE BAR -->
+	    <!-- INIZIO MENU -->
+        <div class="nav">
+            <div class="fluid">
+                <ul>
+                	<li id="SZbiblioteca">
+		<a href="/it/la-biblioteca/" class="hover" title="La biblioteca">La biblioteca</a>
+		<div class="elements">
+		<ul><li><!-- APRO COLONNA -->
+			<ul><!-- APRO MACRO -->
+				<li class="on"><a href="/it/la-biblioteca/chi-siamo.html" title="Patrimonio">CHI SIAMO</a></li>
+				<li class="on"><a href="/it/la-biblioteca/la-storia-della-BAV.html" title="Storia">Storia</a></li>
+				<li><a href="/it/la-biblioteca/la-storia-della-BAV.html#primo" title="Da Nicolò V a Sisto V">Da Nicolò V a Sisto V</a></li>
+				<li><a href="/it/la-biblioteca/la-storia-della-BAV.html#secondo" title="Dal XVII al XVIII secolo">Dal XVII al XVIII secolo</a></li>
+				<li><a href="/it/la-biblioteca/la-storia-della-BAV.html#terzo" title="I secoli XIX - XX">I secoli XIX - XX</a></li>
+				<li><a href="/it/la-biblioteca/la-storia-della-BAV.html#quarto" title="Bibliotecari di S.R.C.">Bibliotecari di S.R.C.</a></li>
+			</ul><!-- CHIUDO MACRO -->
+		</li></ul><!-- CHIUDO COLONNA -->
+		<ul><li><!-- APRO COLONNA -->
+			<ul><!-- APRO MACRO -->
+				<li class="on"><a href="/it/la-biblioteca/organizzazione.html" title="Organizzazione">Organizzazione</a></li>
+				<li><a href="/it/la-biblioteca/il-personale.html" title="Personale">Personale</a></li>
+				<li><a href="/it/la-biblioteca/il-governo.html" title="Governo">Governo</a></li>
+				<li><a href="/it/la-biblioteca/la-segreteria.html" title="Segreteria">Segreteria</a></li>
+				<li><a href="/it/la-biblioteca/economato.html" title="Economato">Economato</a></li>
+			</ul><!-- CHIUDO MACRO -->
+			<ul><!-- APRO MACRO -->
+				<li><a href="/it/la-biblioteca/dipartimento-manoscritti.html" title="Dipartimento Manoscritti">Dipartimento Manoscritti</a></li>
+			</ul><!-- CHIUDO MACRO -->
+			<ul><!-- APRO MACRO -->
+				<li><a href="/it/la-biblioteca/dipartimento-stampati.html" title="Dipartimento Stampati">Dipartimento Stampati</a></li>
+			</ul><!-- CHIUDO MACRO -->
+			<ul><!-- APRO MACRO -->
+				<li><a href="/it/la-biblioteca/dipartimento-gabinetto-numismatico.html" title="Dipartimento Gabinetto Numismatico">Dipartimento del Gabinetto numismatico</a></li>
+			</ul><!-- CHIUDO MACRO -->
+			<ul><!-- APRO MACRO -->
+				<li><a href="/it/la-biblioteca/laboratorio-restauro.html" title="Laboratorio Restauro">Laboratorio di Restauro</a></li>
+				<li><a href="/it/la-biblioteca/laboratorio-fotografico.html" title="Laboratorio Fotografico">Laboratorio Fotografico</a></li>
+				<li><a href="/it/la-biblioteca/centro-elaborazione-dati.html" title="Centro Elaborazione Dati">Centro Elaborazione Dati</a></li>
+				<li><a href="/it/la-biblioteca/editoria.html" title="Editoria">Editoria</a></li>
+				<li><a href="/it/scuola-biblioteconomia/" title="Scuola Vaticana di Biblioteconomia">Scuola Vaticana di Biblioteconomia</a></li>
+				<li><a href="/it/la-biblioteca/mostre.html" title="Mostre">Mostre</a></li>
+				<li><a href="/it/la-biblioteca/coordinamento-servizi-informatici.html" title="Coordinamento Servizi Informatici">Coordinamento dei Servizi Informatici</a></li>
+			</ul><!-- CHIUDO MACRO -->
+		</li></ul><!-- CHIUDO COLONNA -->
+		<ul><li><!-- APRO COLONNA -->
+			<ul><!-- APRO MACRO -->
+				<li class="on"><a href="/it/progetti-speciali/" title="Progetti speciali">Progetti</a></li>
+				<li><a href="https://spotlight.vatlib.it/" title="Percorsi tematici in IIIF">Percorsi tematici in IIIF</a></li>
+				<li><a href="http://rici.vatlib.it" title="RICI - Libri e Biblioteche degli ordini religiosi in Italia alla fine del secolo XVI">RICI - Libri e Biblioteche degli ordini religiosi in Italia alla fine del secolo XVI</a></li>
+				<li><a href="/moduli/alamire_it.pdf" title="Il progetto Alamire">Il progetto Alamire</a></li>
+				<li><a href="http://bav.bodleian.ox.ac.uk/" title="Progetto Polonsky">Progetto Polonsky</a></li>
+			</ul><!-- CHIUDO MACRO E PASSO-->  
+			<ul><!-- APRO MACRO -->
+				<li class="on"><a href="/it/la-biblioteca/in-digitalizzazione.html" title="Digital preservation">Digital preservation</a></li>
+				<li><a href="/it/la-biblioteca/il-progetto-di-digitalizzazione.html" title="Il progetto di digitalizzazione">Il progetto di digitalizzazione</a></li>
+				<li><a href="/it/la-biblioteca/fits-files.html" title="File FITS">I file FITS della Biblioteca</a></li>
+				<li><a href="/it/la-biblioteca/spazio-colore-fits.html" title="Lo Spazio Colore">Lo Spazio Colore</a></li>
+				<!--<li><a href="/it/la-biblioteca/faq.html" title="FAQ">FAQ</a></li>-->
+				<!--<li><a href="/it/la-biblioteca/credits.html" title="Credits">Credits</a></li>-->
+			</ul><!-- CHIUDO MACRO E PASSO-->
+		</li></ul><!-- CHIUDO COLONNA -->
+		<ul><li><!-- APRO COLONNA -->
+			<li class="on"><a href="/it/la-biblioteca/trasparenza.html" title="Trasparenza">Trasparenza</a></li>
+			<li class="on"><a href="/it/la-biblioteca/materiali-informativi.html" title="Materiali informativi">Materiali informativi</a></li>
+			<li class="on"><a href="/it/la-biblioteca/contatti-e-uffici.html" title="Contatti">Contatti</a></li>
+		</li></ul>
+		</div>
+	</li>
+	<li id="SZstudio">
+		<a href="/it/studio-e-consultazione/" class="hover" title="Studio e consultazione">Studio e consultazione</a>
+		<div class="elements">
+		<ul><li><!-- APRO COLONNA -->
+			<ul><!-- APRO MACRO -->
+				<li class="on"><a href="https://opac.vatlib.it/all/?ling=it" class="hover" title="Cataloghi" target="_blank">Cataloghi</a></li>
+				<li class="on"><a href="https://digi.vatlib.it/?ling=it" class="hover" title="Digital Library" target="_blank">Digital Library</a></li>
+			</ul>
+		</li></ul><!-- CHIUDO COLONNA -->
+		<ul><li><!-- APRO COLONNA -->
+			<ul><!-- APRO MACRO -->
+				<li class="on"><a href="/it/il-patrimonio/il-patrimonio.html" title="Patrimonio">PATRIMONIO</a></li>
+				<li><a href="/it/il-patrimonio/tutti-i-fondi-manoscritti.html" title="Fondi manoscritti">Fondi manoscritti</a></li>
+				<li><a href="/it/studio-e-consultazione/mss-non-consultabili.html" title="Manoscritti temporaneamente non consultabili"target="_bank">Manoscritti temporaneamente non consultabili</a></li>
+			</ul><!-- CHIUDO MACRO -->
+			<ul><!-- APRO MACRO -->
+				<li><a href="/it/il-patrimonio/tutti-i-fondi-archivistici.html" title="Fondi archivistici">Fondi archivistici</a></li>
+			</ul><!-- CHIUDO MACRO -->
+			<ul><!-- APRO MACRO -->
+				<li><a href="/it/il-patrimonio/fondi-stampati.html" title="Fondi stampati">Fondi stampati</a></li>
+				<li><a href="/it/il-patrimonio/fondi-in-sala-lettura.html" title="Fondi in sala lettura">Fondi in sala lettura</a></li>
+				<li><a href="/it/il-patrimonio/fondi-nei-magazzini.html" title="Fondi nei magazzini">Fondi nei magazzini</a></li>
+				<li><a href="/it/il-patrimonio/temporaneamente-non-consultabili.html" title="Temporaneamente non consultabili">Stampati temporaneamente non consultabili</a></li>
+			</ul><!-- CHIUDO MACRO -->
+			<ul><!-- APRO MACRO -->
+				<li><a href="/it/il-patrimonio/tutti-i-fondi-grafici.html" title="Tutti i fondi">Fondi della grafica</a></li>
+			</ul><!-- CHIUDO MACRO -->
+			<ul><!-- APRO MACRO -->
+				<li><a href="/it/il-patrimonio/tutti-i-fondi-numismatici.html" title="Tutti i fondi">Fondi numismatici</a></li>
+			</ul><!-- CHIUDO MACRO -->
+			<ul><!-- APRO MACRO -->
+				<li><a href="/it/il-patrimonio/oggetti-arte.html" title="Oggetti d'arte">Oggetti d'arte</a></li>
+			</ul><!-- CHIUDO MACRO -->
+		</li></ul><!-- CHIUDO COLONNA E PASSO -->
+		<ul><li><!-- APRO COLONNA -->
+			<ul><!-- APRO MACRO -->
+				<li class="on"><a href="/it/studio-e-consultazione/servizi-agli-studiosi.html" class="hover" title="Servizi agli studiosi" >Servizi agli studiosi</a></li>
+				<li class="on2"><a href="/it/studio-e-consultazione/servizi-in-bav.html" title="Servizi in BAV">Servizi in BAV</a></li>
+				<li><a href="/it/studio-e-consultazione/prenotazione-stampato.html" title="Prenota stampato">Prenota stampato</a></li>
+				<li><a href="/it/studio-e-consultazione/coupon-fotocopie.html" title="Coupon fotocopie">Coupon fotocopie</a></li>
+			</ul><!-- CHIUDO MACRO -->
+			<ul><!-- APRO MACRO -->
+				<li class="on2"><a href="/it/studio-e-consultazione/supporto-allo-studio.html" title="Supporto allo studio">Supporto allo studio</a></li>
+				<li><a href="/it/studio-e-consultazione/fotoriproduzioni.html" title="Fotoriproduzioni">Fotoriproduzioni</a></li>
+				<li><a href="/it/studio-e-consultazione/indici-e-inventari.html" title="Inventari e Indici">Inventari e Indici</a></li>
+			</ul><!-- CHIUDO MACRO E PASSO-->			
+		</li></ul><!-- CHIUDO COLONNA -->
+		<ul><li><!-- APRO COLONNA -->
+			<ul><!-- APRO MACRO -->
+				<li class="on"><a href="/it/studio-e-consultazione/ammissione-in-bav.html" title="Ammissione in BAV">Ammissione in BAV</a></li>
+				<li><a href="/it/studio-e-consultazione/criteri-di-ammissione.html" title="Criteri di ammissione">Criteri di ammissione</a></li>
+				<li><a href="/moduli/Regolamento_Studiosi_ITA.pdf" title="Regolamento BAV" target="_blank">Regolamento BAV</a></li>
+				<li><a href="/it/studio-e-consultazione/criteri-di-ammissione.html#documentiBAV" title="Documenti richiesti">Documenti richiesti</a></li>
+				<li><a href="/it/studio-e-consultazione/dipartimento-gabinetto-numismatico.html#SegnaNumismatico" title="Norme accesso dipartimento numismatico">Norme accesso dipartimento numismatico</a></li>
+			</ul><!-- CHIUDO MACRO -->
+			<ul><!-- APRO MACRO -->
+				<li class="on"><a href="/it/news/in-evidenza/" title="Notizie In Evidenza">Notizie In Evidenza</a></li>
+				<li class="on"><a href="/it/la-biblioteca/contatti-e-uffici.html" title="Contatti">Contatti</a></li>
+			</ul><!-- CHIUDO MACRO -->
+		</li></ul><!-- CHIUDO COLONNA -->
+		</div>
+	</li>
+	<li id="SZpubblico">
+		<a href="/it/pubblico-visitatori/" class="hover" title="Eventi e Visite">Eventi e Visite</a>
+		<div class="elements">
+		<ul><li><!-- APRO COLONNA -->
+			<ul><!-- APRO MACRO -->
+				<li class="on"><a href="/it/pubblico-visitatori/visitare-la-bav.html" title="Visitare la BAV">Visitare la BAV</a></li>
+			</ul>
+			<ul><!-- APRO MACRO -->
+				<li class="on"><a href="/it/pubblico-visitatori/mostre-in-bav.html" title="Mostre">Mostre</a></li>
+				<li><a href="/it/pubblico-visitatori/attivita-espositiva-interna.html" title="Attività espositiva interna">Attività espositiva interna</a></li>
+				<li><a href="/it/la-biblioteca/mostre.html" title="Prestiti esterni di opere">Prestiti esterni di opere</a></li>
+			</ul>
+			<ul><!-- APRO MACRO -->
+				<li class="on"><a href="/it/pubblico-visitatori/eventi-bav.html" title="Eventi">Eventi</a></li>
+				<li class="on"><a href="/it/pubblico-visitatori/materiali-informativi-visitatori.html" title="Materiali informativi">Materiali informativi</a></li>
+				<li class="on"><a href="/it/la-biblioteca/contatti-e-uffici.html" title="Contatti">Contatti</a></li>
+			</ul>
+		</li></ul><!-- CHIUDO COLONNA -->
+		</div>
+	</li>		
+	<li id="SZpatrons">
+		<a href="/it/sostenitori/" class="hover" title="Sostenitori">Sostenitori</a>
+		<div class="elements">
+			<ul><li><!-- APRO COLONNA -->
+				<ul><!-- APRO MACRO -->
+					<li class="on"><a href="/it/sostenitori/wishbook.html" title="Wishbook - progetti da supportare">Catalogo dei progetti</a></li>
+					<li class="on"><a href="/it/sostenitori/patrons-bav.html" title="Sostenitori">Sostenitori</a></li>
+					<li class="on"><a href="/it/sostenitori/iniziative-riservate.html" title="Iniziative riservate">Iniziative riservate</a></li>
+					<li class="on"><a href="/it/sostenitori/risultati-raggiunti.html" title="Risultati raggiunti">Risultati raggiunti</a></li>
+					<li class="on"><a href="/it/sostenitori/contatti-ufficio-promozione-sviluppo.html" title="Contatti">Contatti</a></li>
+				</ul>
+			</li></ul><!-- CHIUDO COLONNA -->
+		</div>
+	</li>
+	<li id="SZscuola">
+		<a href="/it/scuola-biblioteconomia/" class="hover" title="Scuola di Biblioteconomia">Scuola di Biblioteconomia</a>
+		<div class="elements">
+		<ul style="width:30%"><li><!-- APRO COLONNA -->
+			<ul><!-- APRO MACRO -->
+				<li class="on"><a href="/it/scuola-biblioteconomia/la-scuola.html" title="La scuola">La scuola</a></li>
+				<!--<li><a href="/it/scuola-biblioteconomia/saluto-del-direttore.html" title="Saluto del direttore">Saluto del direttore</a></li>-->
+				<li><a href="/it/scuola-biblioteconomia/storia-scuola.html" title="Storia">Storia</a></li>
+				<li><a href="/it/scuola-biblioteconomia/direzione-e-corpo-docenti.html" title="Direzione e corpo docenti">Direzione e corpo docenti</a></li>
+				<li><a href="/it/scuola-biblioteconomia/struttura-e-servizi-scuola.html" title="Struttura e Servizi">Struttura e Servizi</a></li>
+				<li><a href="/it/scuola-biblioteconomia/organizzazione-del-corso.html" title="Organizzazione del corso">Organizzazione del corso</a></li>
+			</ul><!-- CHIUDO MACRO -->
+		</li></ul><!-- CHIUDO COLONNA -->
+		<ul style="width:30%"><li><!-- APRO COLONNA -->
+			<ul><!-- APRO MACRO -->
+				<li class="on"><a href="/it/scuola-biblioteconomia/programma-didattico.html" title="Offerta formativa">Offerta formativa</a></li>
+				<li><a href="/moduli/Programma_Bibliografia.pdf" target="_blank">Bibliografia e reference</a></li> 
+				<li><a href="/moduli/Programma_Bibliologia.pdf" target="_blank">Bibliologia</a></li> 
+				<li><a href="/moduli/Programma_Biblioteca_digitale.pdf" target="_blank">Biblioteca digitale</a></li>
+				<li><a href="/moduli/Programma_Manoscritti.pdf" target="_blank">Il libro manoscritto antico, medievale e moderno</a></li>
+				<li><a href="/moduli/Programma_Ordinamento.pdf" target="_blank">Ordinamento generale e servizi di biblioteca</a></li>
+				<li><a href="/moduli/Programma_Restauro.pdf" target="_blank">Principi e metodi di conservazione e restauro del libro</a></li>
+				<li><a href="/moduli/Programma_Storia_delle_Biblioteche.pdf" target="_blank">Storia delle biblioteche</a></li>
+				<li><a href="/moduli/Programma_Catalogazione.pdf" target="_blank">Teoria e tecnica della catalogazione e della classificazione</a></li> 
+				<li><a href="/moduli/seminario_accessibilita.pdf" target="_blank">Seminario sull'Accessibilit&agrave; e l'Inclusione (Fratelli Tutti)</a></li> 
+			</ul><!-- CHIUDO MACRO -->
+		</li></ul><!-- CHIUDO COLONNA -->
+		<ul style="width:30%;padding-left:10px;"><li><!-- APRO COLONNA -->
+			<ul style="padding-left:10px;"><!-- APRO MACRO -->
+				<li class="on"><a href="/it/scuola-biblioteconomia/didattica.html" title="Didattica">Didattica</a></li>
+				<li><a href="/it/scuola-biblioteconomia/iscriviti-alla-scuola.html" title="Iscriviti">Iscriviti</a></li>
+				<li><a href="/it/scuola-biblioteconomia/ammessi-e-riserve-scuola.html" title="Ammessi e Riserve">Ammessi e Riserve</a></li>
+				<li><a href="/moduli/Calendario_lezioni.pdf" title="Calendario" target="_blank">Calendario</a></li>
+				<li><a href="/it/sessione-autunnale.html" title="Sessione autunnale">Sessione autunnale</a></li>
+				<li><a href="/it/sessione-estiva.html" title="Sessione estiva">Sessione estiva</a></li>
+			</ul><!-- CHIUDO MACRO -->
+			<ul style="padding-left:10px;"><!-- APRO MACRO -->
+				<li class="on"><a href="/it/scuola-biblioteconomia/supporto-scuola.html" title="Supporto">Supporto</a></li>
+				<li><a href="/it/news/avvisi-didattici/" title="Avvisi didattici">Avvisi didattici</a></li>
+				<li><a href="/it/scuola-biblioteconomia/faq-scuola.html" title="Faq">Faq</a></li>
+			</ul>
+		</li></ul><!-- CHIUDO COLONNA -->
+		</div>
+	</li>
+	<li id="SZpubblicazioni">
+		<a href="/it/e-shop/" title="E-Shop" class="conico">E-Shop</a>
+		<div class="elements">
+			<ul><li><!-- APRO COLONNA -->
+				<ul><!-- APRO MACRO -->
+					<li class="on"><a href="/it/e-shop/pubblicazioni.html" title="Catalogo pubblicazioni">Catalogo pubblicazioni</a></li>
+					<li class="on"><a href="/it/la-biblioteca/editoria.html" title="Editoria">Editoria</a></li>
+					<li class="on"><a href="/it/e-shop/news-e-appuntamenti.html" title="News e appuntamenti">News e appuntamenti</a></li>
+					<li class="on"><a href="/it/la-biblioteca/contatti-e-uffici.html" title="Contatti">Contatti</a></li>
+				</ul>
+			</li></ul><!-- CHIUDO COLONNA -->
+		</div>
+	</li>                </ul>
+            </div>
+	    </div>
+	    <!-- FINE MENU -->
+    </div>
+    <!-- FINE HEADER -->
+    <!-- INIZIO CORPO CONTENT -->
+    <div class="main">
+	    <a class="isontop" id="top"></a>
+        <!-- APRO CONTENT -->
+    	<div class="fluid shadow">
+	    	<div class="shadow-content">
+				<!-- SLIDER -->
+<div class='hp-carousel'>
+	<div class='slide'>
+		<a href="https://www.catastrofeemeraviglia.it/" target="_blank" title="Mostra Catastrofe e Meraviglia - AQVA"><img src="https://www.vaticanlibrary.va/style/img/slide/mostra_AQVA.jpg" alt="AVVISO"></a>
+	</div>
+	
+			
+		
+		
+		
+		
+		
+		
+		
+		
+	<div class='slide'>
+		<a href="#" title="archivi"><img src="https://www.vaticanlibrary.va/style/img/slide/archivi_banner.jpg" alt="AVVISO"></a>
+	</div>
+		
+		
+		
+		<div class='slide'>
+		<a href="https://spotlight.vatlib.it/it/testmed/?lang=it" target="_blank" title="SUPER HANC PETRAM"><img src="https://www.vaticanlibrary.va/style/img/slide/Medagliere072021.png" alt="SUPER HANC PETRAM"></a>
+		<div class="slide-description">
+			<span class="semi-transparent" style="height:120%"></span>
+			<a href="https://spotlight.vatlib.it/testmed/?lang=it" target="_blank" title="SUPER HANC PETRAM">
+			<span class="title">SUPER HANC PETRAM</span>
+				<span class="description">&Egrave; online la mostra <i>Super hanc petram. Le medaglie architettoniche della Basilica Vaticana e l'omaggio dei pellegrini a San Pietro</i></span>
+			</a>
+		</div>
+	</div>
+	<div class='slide'>
+		<a href="https://www.vaticanlibrary.va/it/viaggiare-con-dante.html" target="_blank" title="Viaggiare con Dante"><img src="https://www.vaticanlibrary.va/style/img/slide/slide008.png" alt="Viaggiare con Dante"></a>
+		<div class="slide-description">
+			<span class="semi-transparent" style="height:120%"></span>
+			<a href="https://www.vaticanlibrary.va/it/viaggiare-con-dante.html" target="_blank"  title="Viaggiare con Dante">
+			<span class="title">Viaggiare con Dante</span>
+				<span class="description">Mostra online in occasione del settimo centenario dalla morte di Dante Alighieri (1321-2021).</span>
+			</a>
+		</div>
+	</div>
+</div>                <div class="body">
+                	                    <div class="catalogs" style="margin-top:4em">
+    <div class="row">
+        <div class="one" style="margin-right:2%;width:48%">
+            <a href="https://opac.vatlib.it/?ling=it" class="catalog" title="Cataloghi Online">
+                <span class="image-container"><img src="https://www.vaticanlibrary.va/style/img//MSS-catalog.png" alt="Cataloghi Online"></span>
+                <div>
+                    <h3>Cataloghi Online</h3>
+                    <p style="text-align: justify">Accesso alle descrizioni bibliografiche, complete o parziali, dei cataloghi online dei fondi manoscritti, archivistici, stampati, della grafica, delle monete e delle medaglie così come dei cataloghi speciali (degli incunaboli, dei materiali grafici e oggetti d'arte). Il catalogo generale consente una ricerca di tutte le descrizioni attualmente disponibili.</p>
+                </div>
+            </a>
+        </div>
+        <div class="one" style="width:48%">
+            <a href="https://digi.vatlib.it" class="catalog" title="Biblioteca Digitale">
+                <span class="image-container"><img src="https://www.vaticanlibrary.va/style/img/DVL.png" alt="Biblioteca Digitale"></span>
+                <div>
+                    <h3>Biblioteca Digitale</h3>
+                    <p style="text-align: justify">Accesso alle collezioni digitalizzate della Biblioteca Apostolica Vaticana: manoscritti, incunaboli, materiali archivistici e inventariali nonché materiali grafici, monete e medaglie, materiali a stampa (progetti speciali) attualmente disponibili.<br>La piattaforma si fonda sulla tecnologia dell’International Image Interoperability Framework (IIIF) al fine di facilitare l’accesso e l’impiego relativo alle risorse digitali.</p>
+                </div>
+            </a>
+        </div>
+    </div>
+</div>
+<h2>Contributi alla Bibliografia dei manoscritti</h2>
+<div style="padding:1em 0 1em 0;border:1px solid #1c315b;background-color:#B4C7E7">
+	<div style="padding:1em;color:#000000;font-weight:600;font-size:1.2em">
+	La Biblioteca accoglie e valorizza nei propri cataloghi i contributi di studiosi alla Bibliografia dei manoscritti.<br>
+	Copie (anche in formato pdf) di pubblicazioni o segnalazioni bibliografiche riguardanti il patrimonio documentale della Biblioteca possono essere inviate al seguente indirizzo: <a href="mailto:montuschi@vatlib.it">montuschi@vatlib.it</a>.
+	</div>
+</div>
+<h2>Notizie ed Eventi</h2>
+<div class="box">
+<!-- MENU TAB HZ -->
+    <ul class="box-header">
+    	<li class="active">In Evidenza</li><li >Newsletter</li><li >Novit&agrave; Editoriali</li><li >Aditus</li>    </ul>
+    <!-- FINE MENU TAB HZ -->
+    <div class="box-body">
+    
+<div class="articles">
+		<div class="article"><h3><a href="" title="Momentanea chiusura della Sezione Archivi">Momentanea chiusura della Sezione Archivi</a></h3><div class="text"><p><br>Nella giornata del <b>25 settembre 2026</b> non sarà possibile richiedere i documenti archivistici, per una <b>momentanea chiusura della Sezione Archivi</b>.
+<br>Ci scusiamo per il disagio</p></div><a href="" title="Momentanea chiusura della Sezione Archivi">Leggi tutto</a></div>
+		<div class="article"><h3><a href="https://press.vatican.va/content/salastampa/it/info/2026/07/12/cs-biblioteca-apostolica-vaticanapapa-leone-xiv-inaugura-il-cicl.html" title="A settembre il Papa inaugura la mostra "Aqva""target="_bank">A settembre il Papa inaugura la mostra "Aqva"</a></h3><div class="text"><p>Il Papa visiterà la prima di un ciclo di esposizioni, intitolato "Catastrofe e meraviglia". Le opere di tre creativi contemporanei, l’artista JR, il tipografo Bill Moran e lo chef Fulvio Pierangelini, svilupperanno una riflessione dedicata all’acqua, presentata sia come minaccia che come risorsa. L'allestimento sarà visitabile fino al prossimo 14 maggio 2027</p></div><a href="https://press.vatican.va/content/salastampa/it/info/2026/07/12/cs-biblioteca-apostolica-vaticanapapa-leone-xiv-inaugura-il-cicl.html" title="A settembre il Papa inaugura la mostra "Aqva"">Leggi tutto</a></div>
+		<div class="article"><h3><a href="https://www.vaticanlibrary.va/style/img/iscrizioni_svb_2026-2028.png" title="Iscrizioni per il biennio 2026-2028">Iscrizioni per il biennio 2026-2028</a></h3><div class="text"><p><img src="/style/img/Iscrizioni2026.jpg" style="width:80%"></p></div><a href="https://www.vaticanlibrary.va/style/img/iscrizioni_svb_2026-2028.png" title="Iscrizioni per il biennio 2026-2028">Leggi tutto</a></div>
+	<div class="all-news"><a href="/it/news/in-evidenza/" title="Tutte le news">Tutte le news</a></div>
+</div>
+<div class="articles">
+		<div class="article"><h3><a href="https://www.vaticanlibrary.va/newsletter/202506IT.pdf" title="OWL 34"target="_bank">OWL 34</a></h3><div class="text"><p>OWL n. 34, Aprile-Giugno 2025<br><br><a href="https://www.vaticanlibrary.va/newsletter/202506IT.pdf" title="OWL 34"target="_bank"><img src="https://www.vaticanlibrary.va/style//img/Owl.png"/></a></p></div><a href="https://www.vaticanlibrary.va/newsletter/202506IT.pdf" title="OWL 34">Leggi tutto</a></div>
+		<div class="article"><h3><a href="https://www.vaticanlibrary.va/newsletter/202503IT.pdf" title="OWL 33"target="_bank">OWL 33</a></h3><div class="text"><p>OWL nr. 33, Gennaio-Marzo 2025</p></div><a href="https://www.vaticanlibrary.va/newsletter/202503IT.pdf" title="OWL 33">Leggi tutto</a></div>
+		<div class="article"><h3><a href="https://www.vaticanlibrary.va/newsletter/202412IT.pdf" title="OWL 32"target="_bank">OWL 32</a></h3><div class="text"><p>OWL nr. 32, Ottobre-Dicembre 2024</p></div><a href="https://www.vaticanlibrary.va/newsletter/202412IT.pdf" title="OWL 32">Leggi tutto</a></div>
+	<div class="all-news"><a href="/it/news/newsletter/" title="Tutte le news">Tutte le news</a></div>
+</div>
+<div class="articles">
+		<div class="article"><h3><a href="https://www.vaticanlibrary.va/newsletter/Editoria-ST_566-IT.pdf" title="MISCELLANEA BIBLIOTHECAE APOSTOLICAE VATICANAE XXIX"target="_bank">MISCELLANEA BIBLIOTHECAE APOSTOLICAE VATICANAE XXIX</a></h3><div class="text"><p>I Miscellanea Bibliothecae Apostolicae Vaticanae – editi
+nella storica collana Studi e testi della Vaticana sin dal 1987 –
+dedicano il volume XXIX alla memoria di Marco
+Buonocore, scriptor Latinus e direttore della Sezione Archivi
+della Vaticana, scomparso prematuramente nel 2022.</p></div><a href="https://www.vaticanlibrary.va/newsletter/Editoria-ST_566-IT.pdf" title="MISCELLANEA BIBLIOTHECAE APOSTOLICAE VATICANAE XXIX">Leggi tutto</a></div>
+		<div class="article"><h3><a href="https://www.vaticanlibrary.va/newsletter/Editoria-ST_559-IT.pdf" title="MISCELLANEA BIBLIOTHECAE APOSTOLICAE VATICANAE XXVIII"target="_bank">MISCELLANEA BIBLIOTHECAE APOSTOLICAE VATICANAE XXVIII</a></h3><div class="text"><p>Nati nel 1987, i Miscellanea Bibliothecae Apostolicae Vaticanae sono da sempre ospitati nella collana Studi e testi edita dalla Biblioteca Vaticana ...</p></div><a href="https://www.vaticanlibrary.va/newsletter/Editoria-ST_559-IT.pdf" title="MISCELLANEA BIBLIOTHECAE APOSTOLICAE VATICANAE XXVIII">Leggi tutto</a></div>
+		<div class="article"><h3><a href="/it/news/novita-editoriali/articolo-news-7.html" title="La Persia istoriata in Roma">La Persia istoriata in Roma</a></h3><div class="text"><p>Frutto di una ricerca originale, il volume traccia la storia delle memorie concernenti..
+<a href="https://www.vaticanlibrary.va/it/news/novita-editoriali/articolo-news-7.html"><img src="https://www.vaticanlibrary.va/style/img/editoria/ST480_lit.jpg"/></a></p></div><a href="/it/news/novita-editoriali/articolo-news-7.html" title="La Persia istoriata in Roma">Leggi tutto</a></div>
+	<div class="all-news"><a href="/it/news/novita-editoriali/" title="Tutte le news">Tutte le news</a></div>
+</div>
+<div class="articles">
+		<div class="article"><h3><a href="/it/news/aditus/aditus-06.html" title="Aditus 06">Aditus 06</a></h3><div class="text"><p>Tra la fine del 2021 e l&rsquo;inizio del 2022 la Biblioteca Apostolica Vaticana presenta due pubblicazioni, che inaugurano la nuova serie di una delle sue collane storiche: quella intitolata <em>Documenti e riproduzioni</em> ...</p></div><a href="/it/news/aditus/aditus-06.html" title="Aditus 06">Leggi tutto</a></div>
+		<div class="article"><h3><a href="/it/news/aditus/aditus-05.html" title="Aditus 05">Aditus 05</a></h3><div class="text"><p>Venerd&igrave; 5 novembre scorso Sua Santit&agrave; Francesco &egrave; venuto in Biblioteca Vaticana per inaugurare il nuovo spazio espositivo permanente e la mostra &laquo;Tutti. Umanit&agrave; in cammino.&raquo;<br>
+	Come chiarisce il sottotitolo dell&rsquo;esposizione &ndash; &laquo;Dalla cartografia di viaggio alle mappe utopiche e allegoriche: la Biblioteca Apostolica Vaticana incontra Pietro Ruffo&raquo; ...</p></div><a href="/it/news/aditus/aditus-05.html" title="Aditus 05">Leggi tutto</a></div>
+		<div class="article"><h3><a href="/it/news/aditus/aditus-04.html" title="Aditus 04">Aditus 04</a></h3><div class="text"><p>In questi ultimi mesi &egrave; giunto a termine l&rsquo;allestimento presso la Biblioteca Apostolica Vaticana di una Sala Espositiva Permanente: uno spazio di due vani ricavato sulla sommit&agrave; dello scalone di ingresso, in modo tale che siano possibili l&rsquo;accesso e la visita dall&rsquo;esterno, senza interferire con le normali attivit&agrave; ed esigenze dei nostri studiosi ...<br><br>
+<a href="https://www.vaticanlibrary.va/it/news/aditus/aditus-04.html"><img src="https://www.vaticanlibrary.va/style/img/news/Aditus_400x178.png"/></a></p></div><a href="/it/news/aditus/aditus-04.html" title="Aditus 04">Leggi tutto</a></div>
+	<div class="all-news"><a href="/it/news/aditus/" title="Tutte le news">Tutte le news</a></div>
+</div>	</div>
+</div>
+<h2>Studio e consultazione</h2>
+<div class="box">
+<!-- MENU TAB HZ -->
+    <ul class="box-header">
+    	<li class="active">Ammissioni Studiosi</li><li >Supporto allo Studio</li><li >Progetti Speciali</li><li >Riproduzioni fotografiche</li>    </ul>
+    <!-- FINE MENU TAB HZ -->
+    <div class="box-body">
+    
+<div class="articles">
+		<div class="article"><h3><a href="/it/studio-e-consultazione/criteri-di-ammissione.html" title="Criteri di ammissione">Criteri di ammissione</a></h3><div class="text"><p><div style="margin:auto">
+Sono ammessi alla frequenza:
+
+<ul>
+    <li style="margin-bottom:5px;">ricercatori e studiosi qualificati noti per i loro titoli e le pubblicazioni di carattere scientifico;</li>
+    <li style="margin-bottom:5px;">docenti e ricercatori universitari o di istituti superiori;</li>
+    <li style="margin-bottom:5px;">studenti laureati che preparano una tesi per ottenere il dottorato di ricerca;</li>
+    <li style="margin-bottom:5px;">eccezionalmente studenti laureandi che documentino di dover consultare del materiale conservato unicamente nella Biblioteca;</li>
+    <li style="margin-bottom:5px;">non sono ammessi studenti di Scuola Media Superiore o universitari.</li>
+</ul>
+</div></p></div><a href="/it/studio-e-consultazione/criteri-di-ammissione.html" title="Criteri di ammissione">Leggi tutto</a></div>
+		<div class="article"><h3><a href="https://www.vaticanlibrary.va/moduli/Regolamento_2022-2023_ITA.pdf" title="Regolamento BAV"target="_bank">Regolamento BAV</a></h3><div class="text"><p>Tutti gli studiosi ammessi alla Biblioteca sono tenuti a rispettare il Regolamento che segue allo scopo di assicurare
+agli studiosi stessi condizioni di lavoro degne di un luogo di studio e di ricerca</p></div><a href="https://www.vaticanlibrary.va/moduli/Regolamento_2022-2023_ITA.pdf" title="Regolamento BAV"target="_bank">Leggi tutto</a></div>
+		<div class="article"><h3><a href="/it/studio-e-consultazione/dipartimento-gabinetto-numismatico.html#SegnaNumismatico" title="Norme accesso dipartimento numismatico">Norme accesso dipartimento numismatico</a></h3><div class="text"><p>Gli studiosi che intendono consultare il materiale numismatico della Biblioteca devono attenersi alle seguenti norme</p></div><a href="/it/studio-e-consultazione/dipartimento-gabinetto-numismatico.html#SegnaNumismatico" title="Norme accesso dipartimento numismatico">Leggi tutto</a></div>
+	<div class="all-news"><a href="/it/studio-e-consultazione/" title="Vai alla sezione">Vai alla sezione</a></div>
+</div>
+<div class="articles">
+		<div class="article"><h3><a href="/it/studio-e-consultazione/indici-e-inventari.html" title="Inventari e Indici">Inventari e Indici</a></h3><div class="text"><p><br><br>Vengono qui pubblicate le digitalizzazione di inventari/indici, manoscritti o dattiloscritti, di fondi vaticani sotto la segnatura che essi hanno nella Sala Manoscritti della Biblioteca Vaticana.</p></div><a href="/it/studio-e-consultazione/indici-e-inventari.html" title="Inventari e Indici">Leggi tutto</a></div>
+		<div class="article"><h3><a href="/it/studio-e-consultazione/mss-non-consultabili.html" title="Manoscritti temporaneamente non consultabili">Manoscritti temporaneamente non consultabili</a></h3><div class="text"><p><br><br>Per motivi di restauro o in occasione di mostre ed eventi i seguenti manoscritti non sono al momento consultabili.<br><br>
+Lo studioso è pregato di consultare la presente lista in continuo aggiornamento.</p></div><a href="/it/studio-e-consultazione/mss-non-consultabili.html" title="Manoscritti temporaneamente non consultabili">Leggi tutto</a></div>
+	<div class="all-news"><a href="/it/studio-e-consultazione/" title="Vai alla sezione">Vai alla sezione</a></div>
+</div>
+<div class="articles">
+		<div class="article"><h3><a href="/it/la-biblioteca/viaggiare-con-dante.html" title="Viaggiare con Dante">Viaggiare con Dante</a></h3><div class="text"><p>Anteprima della mostra online in occasione del settimo centenario dalla morte di Dante Alighieri <br><br>
+<a href="https://www.vaticanlibrary.va/it/il-patrimonio/viaggiare-con-dante.html"><img src="https://www.vaticanlibrary.va/style/img/danteabs.png"/></a></p></div><a href="/it/la-biblioteca/viaggiare-con-dante.html" title="Viaggiare con Dante">Leggi tutto</a></div>
+		<div class="article"><h3><a href="https://spotlight.vatlib.it/" title="Percorsi tematici in IIIF"target="_bank">Percorsi tematici in IIIF</a></h3><div class="text"><p>La Biblioteca ha promosso un'attività di ricerca che si avvale della tecnologia dell'IIIF 
+(International Image Interoperability Framework) per la creazione di annotazioni  sui  fogli dei manoscritti 
+digitalizzati (trascrizioni, commenti ai testi, alle glosse, alle miniature, alle scritture, all'identificazione di copisti, miniatori, possessori) relativi a specifici gruppi di manoscritti.
+<a href="https://spotlight.vatlib.it/" target="_blank"><img src="https://spotlight.vatlib.it/images/156/166,0,1272,127/1800,180/0/default.jpg"/></a></p></div><a href="https://spotlight.vatlib.it/" title="Percorsi tematici in IIIF"target="_bank">Leggi tutto</a></div>
+		<div class="article"><h3><a href="http://rici.vatlib.it" title="RICI -Libri e Biblioteche degli ordini religiosi in Italia alla fine del secolo XVI"target="_bank">RICI -Libri e Biblioteche degli ordini religiosi in Italia alla fine del secolo XVI</a></h3><div class="text"><p>I codici Vaticani Latini 11266-11326 comprendono le liste dei titoli dei libri posseduti dai religiosi dei conventi e dei monasteri italiani, acquisite dalla Congregazione dell'Indice dei libri proibiti dopo la pubblicazione dell'Index librorum prohibitorum da parte di papa Clemente VIII nel 1596.</p></div><a href="http://rici.vatlib.it" title="RICI -Libri e Biblioteche degli ordini religiosi in Italia alla fine del secolo XVI"target="_bank">Leggi tutto</a></div>
+	<div class="all-news"><a href="/it/la-biblioteca/" title="Vai alla sezione">Vai alla sezione</a></div>
+</div>
+<div class="articles">
+		<div class="article"><h3><a href="https://www.vaticanlibrary.va/it/studio-e-consultazione/fotoriproduzioni.html" title="Fotoriproduzioni Uso Privato">Fotoriproduzioni Uso Privato</a></h3><div class="text"><p>Si possono richiedere fotocopie (solo da volumi a stampa pubblicati tra il 1601 e il 2008),
+fotografie bianco e nero, stampe a colori, microfilm, files da microfilm (da stampati fino al 2008), da manoscritti e da oggetti.</p></div><a href="https://www.vaticanlibrary.va/it/studio-e-consultazione/fotoriproduzioni.html" title="Fotoriproduzioni Uso Privato">Leggi tutto</a></div>
+		<div class="article"><h3><a href="https://www.vaticanlibrary.va/it/studio-e-consultazione/fotoriproduzioni.html" title="Fotoriproduzione Uso Professionale">Fotoriproduzione Uso Professionale</a></h3><div class="text"><p>Si possono richiedere riproduzioni fotografiche o in altra forma utilizzando
+gli appositi moduli. Oltre al costo delle riproduzioni è richiesto anche il pagamento di diritti per la pubblicazione</p></div><a href="https://www.vaticanlibrary.va/it/studio-e-consultazione/fotoriproduzioni.html" title="Fotoriproduzione Uso Professionale">Leggi tutto</a></div>
+	<div class="all-news"><a href="/it/studio-e-consultazione/" title="Vai alla sezione">Vai alla sezione</a></div>
+</div>	</div>
+</div>
+<h2>Scuola di Biblioteconomia</h2>
+<div class="box">
+<!-- MENU TAB HZ -->
+    <ul class="box-header">
+    	<li class="active">Avvisi Didattici</li><li >Didattica</li><li >Segreteria e Direzione</li>    </ul>
+    <!-- FINE MENU TAB HZ -->
+    <div class="box-body">
+    
+<div class="articles">
+		<div class="article"><h3><a href="https://www.vaticanlibrary.va/it/scuola-biblioteconomia/ammessi-e-riserve-scuola.html" title="Avviso per ammessi e riserve A.A. 2026-2028">Avviso per ammessi e riserve A.A. 2026-2028</a></h3><div class="text"><p>Pubblicata la lista degli ammessi e riserve al biennio accademico 2026-2028<br><br></p></div><a href="https://www.vaticanlibrary.va/it/scuola-biblioteconomia/ammessi-e-riserve-scuola.html" title="Avviso per ammessi e riserve A.A. 2026-2028">Leggi tutto</a></div>
+		<div class="article"><h3><a href="https://www.vaticanlibrary.va/it/sessione-autunnale.html" title="Calendario esami">Calendario esami</a></h3><div class="text"><p>Anno accademico 2022-2023<br>Sessione autunnale</p></div><a href="https://www.vaticanlibrary.va/it/sessione-autunnale.html" title="Calendario esami">Leggi tutto</a></div>
+		<div class="article"><h3><a href="" title="Chusura estiva - segreteria">Chusura estiva - segreteria</a></h3><div class="text"><p>La segreteria della scuola vaticana di Biblioteconomia riaprir&agrave; il 28 Agosto.</p></div><a href="" title="Chusura estiva - segreteria">Leggi tutto</a></div>
+	<div class="all-news"><a href="/it/news/avvisi-didattici/" title="Vai alla sezione">Vai alla sezione</a></div>
+</div>
+<div class="articles">
+		<div class="article"><h3><a href="/it/scuola-biblioteconomia/iscriviti-alla-scuola.html" title="Iscriviti alla scuola">Iscriviti alla scuola</a></h3><div class="text"><p>Le iscrizioni per l'anno accademico 2020-2021 si aprono il 15 febbraio 2020 e si chiudono il 15 maggio 2020termine ultimo entro il quale dovranno pervenire le domande (farà fede il timbro postale).<br><br>
+	Per l'ammissione occorre presentare:
+	<ul class="ElencoLettere">
+		<li><a href="../../moduli/ModelloIscrizione2018-19.pdf" target="_blank">Modulo d'iscrizione</a> debitamente compilato e sottoscritto in originale (disponibile sul sito WEB della Scuola, in Segreteria o presso la portineria della Biblioteca);</li>
+		<li>Curriculum vitae con elenco di eventuali pubblicazioni;</li>
+		<li>Lettera di presentazione rilasciata da una istituzione accademica, ecclesiastica, dal datore di lavoro o da persona autorevole;</li>
+		<li>Fotocopia del titolo di studio (laurea o licenza canonica) e certificazione degli esami sostenuti;</li>
+        <li>Fotocopia di un documento d’identità in corso di validità;</li>
+		<li>Due fotografie formato tessera aggiornate.</li>
+		<li>Lettera motivazionale contenuta in massimo 2000 battute.</li>
+
+	</ul></p></div><a href="/it/scuola-biblioteconomia/iscriviti-alla-scuola.html" title="Iscriviti alla scuola">Leggi tutto</a></div>
+		<div class="article"><h3><a href="/it/scuola-biblioteconomia/ammessi-e-riserve-scuola.html" title="Ammessi e Riserve">Ammessi e Riserve</a></h3><div class="text"><p></p></div><a href="/it/scuola-biblioteconomia/ammessi-e-riserve-scuola.html" title="Ammessi e Riserve">Leggi tutto</a></div>
+		<div class="article"><h3><a href="https://www.vaticanlibrary.va/moduli/Calendario_lezioni.pdf" title="Calendario delle lezioni"target="_bank">Calendario delle lezioni</a></h3><div class="text"><p>Calendario delle lezioni, delle esercitazioni e dei laboratori</p></div><a href="https://www.vaticanlibrary.va/moduli/Calendario_lezioni.pdf" title="Calendario delle lezioni"target="_bank">Leggi tutto</a></div>
+	<div class="all-news"><a href="/it/scuola-biblioteconomia/" title="Vai alla sezione">Vai alla sezione</a></div>
+</div>
+<div class="articles">
+		<div class="article"><h3><a href="/it/scuola-biblioteconomia/direzione-e-corpo-docenti.html" title="Direzione e corpo docenti">Direzione e corpo docenti</a></h3><div class="text"><p><table style="width:100%">
+<tr>
+<th>DIRETTORE</th>
+<th>VICE DIRETTORE</th>
+</tr>
+<tr>
+<th>Mons. Cesare Pasini</th>
+<th>Antonio Manfredi</th>
+</tr>
+</table>
+<br> <br>
+<table style="width:100%; font-size: 10px;">
+<tr>
+<th>Raffaella Vincenti</th> <th>Bibliografia e reference</th>
+</tr>
+<tr>
+<th>Andreina Rita</th> <th>Bibliologia</th>
+</tr>
+<tr>
+<th>Paul Gabriele Weston</th> <th>Biblioteca digitale</th>
+</tr>
+<tr>
+<th>Francesco D'Aiuto</th> <th>Il libro manoscritto antico, medievale e moderno</th>
+</tr>
+<tr>
+<th>Giuseppina Cerri</th> <th>Ordinamento generale e servizi di biblioteca</th>
+</tr>
+<tr>
+<th>Carlo Federici</th> <th>Conservazione e restauro del libro</th>
+</tr>
+<tr>
+<th>Antonio Manfredi</th> <th>Storia delle biblioteche</th>
+</tr>
+<tr>
+<th>Paul Gabriele Weston</th> <th>Teoria e tecnica della catalogazione e della classificazione</th>
+</tr>
+</table></p></div><a href="/it/scuola-biblioteconomia/direzione-e-corpo-docenti.html" title="Direzione e corpo docenti">Leggi tutto</a></div>
+		<div class="article"><h3><a href="/it/scuola-biblioteconomia/struttura-e-servizi-scuola.html" title="Struttura e Servizi">Struttura e Servizi</a></h3><div class="text"><p>Orario segreteria:
+<ul>
+<li>Luned&igrave;: 9.00-17:30</li>
+<li>Marted&igrave; 9.00-17.30</li>
+</ul>
+Telefono:+39/06698.79526</p></div><a href="/it/scuola-biblioteconomia/struttura-e-servizi-scuola.html" title="Struttura e Servizi">Leggi tutto</a></div>
+		<div class="article"><h3><a href="/it/scuola-biblioteconomia/organizzazione-del-corso.html" title="Organizzazione del corso">Organizzazione del corso</a></h3><div class="text"><p>Orario Lezioni, Esercitazioni e Laboratori</p></div><a href="/it/scuola-biblioteconomia/organizzazione-del-corso.html" title="Organizzazione del corso">Leggi tutto</a></div>
+	<div class="all-news"><a href="/it/scuola-biblioteconomia/" title="Vai alla sezione">Vai alla sezione</a></div>
+</div>	</div>
+</div>
+<h2>Le ultime pubblicazioni</h2>
+<div class="pubblicazioniHome">
+<!-- SINGLE BOX --><div class="singleBox"><h1>Agenda 2027 ‒ Agende annuali della Biblioteca Apostolica Vaticana</h1><form name="AA_17" date-id="AA_17" class="formBuyNow" method="post" action="https://www.vaticanlibrary.va/ajax/cart.php"><input name="collezione" value="AA_17" type="hidden"><input name="opera" value="aggiungi" type="hidden"><div class="detail"><img class="cover-fl" src="https://www.vaticanlibrary.va/style/img/editoria/AA17.jpg" alt="Agenda 2027 ‒ Agende annuali della Biblioteca Apostolica Vaticana"><table class="spec"><tr><td>Collana:</td><td>AGENDE ANNUALI B.A.V.</td></tr><tr><td>Numero:</td><td>17</td></tr><tr><td>Codice BAV:</td><td>AA_17</td></tr><tr><td>Pubblicato:</td><td>2026</td></tr><tr><td>ISBN:</td><td>978-88-210-1141-2</td></tr></table></div><div class="cl"></div><div class="accordion"><div class="accordion-section"><a href="javascript:void(0)" class="accordion-section-title" href="#">Dettaglio</a><div class="accordion-section-content"><table class="size-spec"><tr><td class="pag">160 pagine</td><td class="thickness">21 cm</td></tr></table></div></div></div><div class="footer"><div class="fl"><p>Prezzo: <span class="price">&euro; 29,50</span></p><p class="status avaible">Disponibile</p></div><input type="submit" class="btn grey buynow" value="Acquista"></div></form><div class="footer"><button class="btn blu" style="margin:0" onclick="copyToClipboard('https://www.vaticanlibrary.va/it/pubblicazioni/AA_17/view.html','it')">Copia Link</button></div></div><!-- SINGLE BOX --><div class="singleBox"><h1>Libri e Biblioteche degli ordini religiosi in Italia alla fine del secolo XVI. ‒ 10. Congregazione dei Canonici Regolari del SS. Salvatore Lateranense. 1.</h1><form name="ST_571" date-id="ST_571" class="formBuyNow" method="post" action="https://www.vaticanlibrary.va/ajax/cart.php"><input name="collezione" value="ST_571" type="hidden"><input name="opera" value="aggiungi" type="hidden"><div class="detail"><img class="cover-fl" src="https://www.vaticanlibrary.va/style/img/editoria/ST571.jpg" alt="Libri e Biblioteche degli ordini religiosi in Italia alla fine del secolo XVI. ‒ 10. Congregazione dei Canonici Regolari del SS. Salvatore Lateranense. 1."><table class="spec"><tr><td>Autori:</td><td>Del Bono, Gianna -</td></tr><tr><td>Collana:</td><td>STUDI E TESTI</td></tr><tr><td>Numero:</td><td>571</td></tr><tr><td>Codice BAV:</td><td>ST_571</td></tr><tr><td>Pubblicato:</td><td>2026</td></tr><tr><td>ISBN:</td><td>978-88-210-1132-0</td></tr></table></div><div class="cl"></div><div class="accordion"><div class="accordion-section"><a href="javascript:void(0)" class="accordion-section-title" href="#">Dettaglio</a><div class="accordion-section-content"><table class="size-spec"><tr><td class="pag">974 pagine</td><td class="height">17 cm</td></tr><tr></tr><tr><td class="width">6 cm</td><td class="weight">1780 gr</td></tr><tr><td class="thickness">24 cm</td></tr></table></div></div></div><div class="footer"><div class="fl"><p>Prezzo: <span class="price">&euro; 110,00</span></p><p class="status avaible">Disponibile</p></div><input type="submit" class="btn grey buynow" value="Acquista"></div></form><div class="footer"><button class="btn blu" style="margin:0" onclick="copyToClipboard('https://www.vaticanlibrary.va/it/pubblicazioni/ST_571/view.html','it')">Copia Link</button></div></div></div>
+<h2 style="clear:both;">Le pubblicazioni pi&ugrave; vendute</h2>
+<div class="pubblicazioniHome">
+<!-- SINGLE BOX --><div class="singleBox"><h1>Scripta eorum quae tam extra quam intra conclave contigerunt. La letteratura seicentesca sui conclavi nella Biblioteca Apostolica Vaticana e negli archivi e biblioteche storiche di Roma.</h1><form name="ST_572" date-id="ST_572" class="formBuyNow" method="post" action="https://www.vaticanlibrary.va/ajax/cart.php"><input name="collezione" value="ST_572" type="hidden"><input name="opera" value="aggiungi" type="hidden"><div class="detail"><img class="cover-fl" src="https://www.vaticanlibrary.va/style/img/editoria/ST572.jpg" alt="Scripta eorum quae tam extra quam intra conclave contigerunt. La letteratura seicentesca sui conclavi nella Biblioteca Apostolica Vaticana e negli archivi e biblioteche storiche di Roma."><table class="spec"><tr><td>Autori:</td><td>Brancatelli, Stefano -</td></tr><tr><td>Collana:</td><td>STUDI E TESTI</td></tr><tr><td>Numero:</td><td>572</td></tr><tr><td>Codice BAV:</td><td>ST_572</td></tr><tr><td>Pubblicato:</td><td>2026</td></tr><tr><td>ISBN:</td><td>978-88-210-1119-1</td></tr></table></div><div class="cl"></div><div class="accordion"><div class="accordion-section"><a href="javascript:void(0)" class="accordion-section-title" href="#">Dettaglio</a><div class="accordion-section-content"><table class="size-spec"><tr><td class="pag">512 pagine</td><td class="weight">980 gr</td></tr><tr><td class="thickness">24 cm</td></tr></table></div></div></div><div class="footer"><div class="fl"><p>Prezzo: <span class="price">&euro; 90,00</span></p><p class="status avaible">Disponibile</p></div><input type="submit" class="btn grey buynow" value="Acquista"></div></form><div class="footer"><button class="btn blu" style="margin:0" onclick="copyToClipboard('https://www.vaticanlibrary.va/it/pubblicazioni/ST_572/view.html','it')">Copia Link</button></div></div><!-- SINGLE BOX --><div class="singleBox"><h1>Agenda 2027 ‒ Agende annuali della Biblioteca Apostolica Vaticana</h1><form name="AA_17" date-id="AA_17" class="formBuyNow" method="post" action="https://www.vaticanlibrary.va/ajax/cart.php"><input name="collezione" value="AA_17" type="hidden"><input name="opera" value="aggiungi" type="hidden"><div class="detail"><img class="cover-fl" src="https://www.vaticanlibrary.va/style/img/editoria/AA17.jpg" alt="Agenda 2027 ‒ Agende annuali della Biblioteca Apostolica Vaticana"><table class="spec"><tr><td>Collana:</td><td>AGENDE ANNUALI B.A.V.</td></tr><tr><td>Numero:</td><td>17</td></tr><tr><td>Codice BAV:</td><td>AA_17</td></tr><tr><td>Pubblicato:</td><td>2026</td></tr><tr><td>ISBN:</td><td>978-88-210-1141-2</td></tr></table></div><div class="cl"></div><div class="accordion"><div class="accordion-section"><a href="javascript:void(0)" class="accordion-section-title" href="#">Dettaglio</a><div class="accordion-section-content"><table class="size-spec"><tr><td class="pag">160 pagine</td><td class="thickness">21 cm</td></tr></table></div></div></div><div class="footer"><div class="fl"><p>Prezzo: <span class="price">&euro; 29,50</span></p><p class="status avaible">Disponibile</p></div><input type="submit" class="btn grey buynow" value="Acquista"></div></form><div class="footer"><button class="btn blu" style="margin:0" onclick="copyToClipboard('https://www.vaticanlibrary.va/it/pubblicazioni/AA_17/view.html','it')">Copia Link</button></div></div></div>
+<div class="onebox" style="margin-top:2em">
+    <div class="row">
+        <div class="one" style="margin-right:2%;width:48%;">
+			<a href="/it/la-biblioteca/ringraziamenti.html" class="catalog" alt="Ringraziamenti" >
+                <div>
+                    <h3 style="border-bottom:solid 2px #142548;">Ringraziamenti</h3>
+                    <p style="text-align: justify">La Biblioteca ringrazia i benefattori</p>
+                </div>
+			</a>
+        </div>
+        <div class="one" style="width:48%">
+			<span class="semi-transparent"></span>
+			<a href="/it/la-biblioteca/fai-una-donazione.html" class="catalog" alt="Sostieni la Biblioteca" >
+                <div>
+                    <h3 style="border-bottom:solid 2px #142548;">Sostieni la Biblioteca</h3>
+                    <p style="text-align: justify">Se desideri contribuire ai progetti della Biblioteca Apostolica Vaticana ...</p>
+                </div>
+			</a>
+        </div>
+    </div>
+</div>
+<div class="onebox" style="margin-top:2em" style="margin-right:2%;width:48%;">
+    <div class="row">
+		<!-- <a href="http://sanctuaryofculture.org/" target="_blank" title="Sanctuary of Culture Foundation">-->
+		<img  src="https://www.vaticanlibrary.va/style/img/Sanctuary-of-Culture.png" alt="Sanctuary of Culture Foundation">
+		<!-- </a>-->
+	</div>
+</div>
+                </div>
+                <!-- CHIUDO BODY -->
+            </div>
+    	</div>
+    	<!-- CHIUDO CONTENT -->
+    <!-- INCLUDO VBAR -->
+    <!-- VERTICAL BAR -->
+<div class="fixed-div">
+    <div>
+        <div>
+    		<a class="readPolicy" id="WTW" style="background-image:url('https://www.vaticanlibrary.va/style/img/WidgetTW.png');min-height:200px;display:block;background-repeat:no-repeat;" href="https://www.vaticanlibrary.va/it/privacy-policy.html#TW"></a>
+            <span id="TWscriptSpace"></span>
+        </div>
+        <div>
+            <!-- <div class="content">-->
+	            <h4>Contattaci</h4>
+            <form action="/opera/wizardcontact.php" method="post" class="skinned-form" id="WizardContact" name="WizardContact">
+				<input type="hidden" name="opera" value="VCNTCT" ><label for="vbmail" >Email *</label><span><input type="email" name="vbmail" id="vbmail" placeholder="Email"  minlength="6" maxlength="70" required  autofocus ><span class="msg">Campo obbligatorio<br>Inserire da 6 a 70 caratteri alfanumerici</span></span><label for="vbcnfmail" >Conferma email *</label><span><input type="email" name="vbcnfmail" id="vbcnfmail" placeholder="Conferma Email"  minlength="6" maxlength="70" required  equalTo="#vbmail" ><span class="msg">Campo obbligatorio<br>Inserire da 6 a 70 caratteri alfanumerici</span></span><label for="message" >Messaggio *</label><span><textarea name="message"  id="message" minlength="20" maxlength="200" required ></textarea><span class="msg">Campo obbligatorio<br>Inserire da 20 a 200 caratteri alfanumerici</span></span><div class="cl"></div><input  id="cntBTN" name="cntBTN"type="submit" value="Invia">            </form>
+            <!-- </div>-->
+        </div>
+                <div>
+            <h4>Iscriviti alla newsletter</h4>
+            <form action="/opera/wizardcontact.php" method="post" class="skinned-form" id="WizardNewsl" name="WizardNewsl">
+				<input type="hidden" name="opera" value="VNEWSL" ><label for="vbmailNews" >Email *</label><span><input type="email" name="vbmailNews" id="vbmailNews" placeholder="Email"  minlength="6" maxlength="70" required  autofocus ><span class="msg">Campo obbligatorio<br>Inserire da 6 a 70 caratteri alfanumerici</span></span><label for="vbcnfmailNews" >Conferma email *</label><span><input type="email" name="vbcnfmailNews" id="vbcnfmailNews" placeholder="Conferma Email"  minlength="6" maxlength="70" required  equalTo="#vbmailNews" ><span class="msg">Campo obbligatorio<br>Inserire da 6 a 70 caratteri alfanumerici</span></span><br><br><div class="cl"></div><input  id="newsBTN" name="newsBTN"type="submit" value="Iscriviti">            </form>
+        </div>
+            </div>
+    <div>
+        <a href="https://x.com/bibliovaticana" title="Condividi su twitter" class="twitter" id="TWclickIT" target="_blank">Twitter</a>
+        <a href="https://www.vaticanlibrary.va/it/la-biblioteca/contattaci.html" title="Contattaci" class="contattaci" id="CNTclick">Contattaci</a>
+        	        <a href="#" title="Iscriviti alla nostra newsletter" class="newsletter" id="NWSclick">Newsletter</a>
+            </div>
+</div>
+<!-- FINE VERTICAL BAR -->        </div>
+    <!-- CHIUDO MAIN CONTENT -->
+    <!-- APRO FOOTER -->
+    <div class="footer">
+        <div class="fluid">
+            <div class="half"><span class="copyright"><span>Copyright © Biblioteca Apostolica Vaticana</span><br>Tutti i diritti riservati. I contenuti di questo sito sono protetti da copyright.Né il testo, né le immagini possono essere riprodotte, in alcuna forma, senza il permesso della Biblioteca Apostolica Vaticana,<br>00120, Città del Vaticano.</span></div>
+            <div class="half">
+                <div>
+                    <div class="powered-by">Powered by</div>
+                    <div class="logo-white">Biblioteca Apostolica Vaticana<br>Cortile Belvedere<br>00120 Città del Vaticano
+                    </div>
+                </div>
+                <div>
+                    <div class="powered-by">Designed by</div>
+                    <a class="logo-nttdata" href="http://www.nttdata.com/" target="_blank" title="NTT DATA"></a>
+                </div>
+            </div>
+        </div>
+        <div class="fluid"><img src="https://www.vaticanlibrary.va/style/img//payment-icon.png" height="25" style="padding-left:1em" />
+			<a href="https://www.vaticanlibrary.va/it/disclaimer.html" class="policy">&nbsp;Disclaimer&nbsp;</a>
+			<a href="https://www.vaticanlibrary.va/it/privacy-policy.html" class="policy">&nbsp;Privacy Policy&nbsp;</a>
+			<a href="https://www.vaticanlibrary.va/it/cookie-policy.html"  class="policy">&nbsp;Cookie Policy&nbsp;</a>
+        </div>
+    </div>
+    <!-- CHIUDO FOOTER -->
+    <script type="text/javascript" src="https://www.vaticanlibrary.va/style/js/lib/jquery-ui/jquery-ui.min.js?v=1"></script>
+    <script type="text/javascript" src="https://www.vaticanlibrary.va/style/js/lib/slick/slick.min.js?v=1"></script>
+    <script type="text/javascript" src="https://www.vaticanlibrary.va/style/js/lib/jquery.validate.min.js?v=1"></script>
+        <script type="text/javascript" src="https://www.vaticanlibrary.va/style/js/lib/jquery-ui/ui/i18n/datepicker-it.js?v=1"></script>
+    <script type="text/javascript" src="https://www.vaticanlibrary.va/style/js/lib/jquery.validate.it.js?v=1"></script>
+	    <script type="text/javascript" src="https://www.vaticanlibrary.va/style/js/calenda.js?v=1"></script>
+    <script type="text/javascript" src="https://www.vaticanlibrary.va/style/js/scripts.js?v=5"></script>
+        <script type="text/javascript">
+		$(".dtpicker").datepicker({
+        changeMonth: true,
+        changeYear: true});
+    </script>
+    <div id="cookieAd">
+    <p>Questo sito utilizza i cookie. Alcuni di questi sono indispensabili per il corretto funzionamento del sito. Per maggiori dettagli consulta le <a href="https://www.vaticanlibrary.va/it/cookie-policy.html">Cookie Policy</a>.<br>Chiudendo questo banner, scorrendo questa pagina, cliccando su un link, cliccando sul bottone 'Accetto' o proseguendo la navigazione in altra maniera, acconsenti all´uso dei cookie.</p>
+    <button id="CookieBtn" class="btn">Accetto</button>
+    </div>
+	<!-- Google tag (gtag.js) --> 
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-6Q1JR1E968"></script>
+<script> window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', 'G-6Q1JR1E968', { 'anonymize_ip': true }); </script>
+	<div class="loaderCart" style="display:none">
+			<div class="singleBox" style="background-color:#fff;width:20%;heigth:20%;left:40%;top:35%;position:fixed;border-radius:5px;margin:10px">
+			<div id="waitplease">
+				<div style="margin: 5% auto;text-align:center"><img src="https://www.vaticanlibrary.va/style/css/i/loader.gif" alt="Attendi qualche istante ..."></div>
+				<div class="cl"></div><h3 style="text-align:center">Attendi qualche istante,<br>stiamo eseguendo la richiesta ...</h3>
+			</div>
+			<div id="popCart" style="display:none"></div>
+		</div>
+	</div>
+    <!-- Search Overlay Menu ----------------------------------------------------->
+    <section class="search-overlay-menu">
+        <!-- Close Icon -->
+        <a href="javascript:void(0)" class="search-overlay-close"></a>
+        <!-- End Close Icon -->
+        <div class="container">
+            <!-- Search Form -->
+			<form role="search" id="frmRicerca" name="frmRicerca" method="post" action="https://www.vaticanlibrary.va/it/search.html">
+               <input type="hidden" name="rstS" value="1">
+                <div class="search-icon-lg"><img src="https://www.vaticanlibrary.va/style/css/i//search-icon-lg.png" alt="" /></div>
+                                <label class="h6 normal search-input-label" for="search-query">Inserisci le parole chiavi per la ricercare</label>
+                <input required id="keyS" name="keyS" type="search" minlength="2" maxlength="50" placeholder="Cerca nel sito..." />
+                <button type="submit" style="margin:0"><img src="https://www.vaticanlibrary.va/style/css/i//search-lg-go-icon.png" alt="Cerca nel sito" /></button><br><br>
+                <label>&nbsp;</label><input type="checkbox" name="FLTsKS" id="FLTsKS" value="1" ><label for="FLTsKS" >Ricerca esatta voci inserite</label>            </form>
+            <!-- End Search Form -->
+        </div>
+    </section>
+    <!-- End Search Overlay Menu ------------------------------------------------>   
+    </body>
+</html>

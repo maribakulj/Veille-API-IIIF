@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    
+        <title>Contacts and offices</title>
+    
+        <link rel="stylesheet" type="text/css" href="https://www.vaticanlibrary.va/style/js/lib/slick/slick.css">
+    <link rel="stylesheet" type="text/css" href="https://www.vaticanlibrary.va/style/js/lib/slick/slick-theme.css">
+    <link rel="stylesheet" type="text/css" href="https://www.vaticanlibrary.va/style/js/lib/jquery-ui/jquery-ui.min.css">
+    <link rel="stylesheet" type="text/css" href="https://www.vaticanlibrary.va/style/js/lib/jquery-ui/jquery-ui.theme.min.css">
+    <link rel="stylesheet" type="text/css" href="https://www.vaticanlibrary.va/style/js/lib/jquery-ui/jquery-ui.structure.min.css">
+    <link rel="stylesheet" type="text/css" href="https://www.vaticanlibrary.va/style/css/styles.css?v=2.2">
+    <!--[if IE 8]>
+    <link rel="stylesheet" type="text/css" href="https://www.vaticanlibrary.va/style/css/ie8.css">
+    <![endif]-->
+	<script type="text/javascript" src="https://www.vaticanlibrary.va/style/js/lib/jquery-3.7.1.js"></script>
+        <script>
+	function getPolicy() {
+		var nameEQ = "policy=";
+		var ca = document.cookie.split(';');
+		for(var i=0;i < ca.length;i++) {
+			var c = ca[i];
+			while (c.charAt(0)==' ') c = c.substring(1,c.length);
+			if (c.indexOf(nameEQ) === 0) return c.substring(nameEQ.length,c.length);
+		}
+		return null;
+	};
+	</script>
+</head>
+<body>
+    <!-- INIZIO HEADER -->
+    <div class="header">
+        <!-- INIZIO LANGUAGE BAR -->
+        <div class="header-top">
+            <div class="fluid">
+                <div class="change-lang fr">
+                <a href="#" title="English Version" class="en">English</a><ul><li><a href="https://www.vaticanlibrary.va/it/" title="Italian Version" class="it">Italian</a></li><li><a href="https://www.vaticanlibrary.va/en/" title="English Version" class="en">English</a></li></ul>                </div>
+            </div>
+        </div>	    
+        <!-- FINE LANGUAGE BAR -->
+	    <!-- INIZIO SERVICE BAR -->
+        <div class="header-middle">
+            <div class="fluid">
+                <a class="logo" href="https://www.vaticanlibrary.va/it/" title="Vatican Apostolic Library">Vatican<br>Apostolic<br>Library</a>
+                <ul>
+                    <!-- AREA PRIVATA POPUP -->
+                    <li class="user">
+						<div class="icon"><a href="#" title="Login to Private Area">Private Area</a></div><div class="menu"><div class="content"><h4>Login to Private Area</h4><form id="Login" name="Login" method="post" action="/opera/chklogin.php" class="frmMenu"><input type="hidden" name="byPassCHO" id="byPassCHO" value="0" ><label for="mailLog" >Email *</label><span><input type="email" name="mailLog" id="mailLog" placeholder="Email"  minlength="6" maxlength="70" required  autocomplete="off" ><span class="msg active">Mandatory field<br>Enter from 6 to 70 alpha-numeric chars</span></span><label for="pwdLog" >Password *</label><span><input type="password" name="pwdLog" id="pwdLog" placeholder="Password"  minlength="8" maxlength="15" required  autocomplete="off" ><span class="msg active">Mandatory field<br>Enter from 8 to 15 alpha-numeric chars</span></span><br><div class="cl"></div><input type="submit" value="Sign In"></form><span class="user-link">Did you forget your password?<a href="https://www.vaticanlibrary.va/it/support/account-support.html" title="Did you forget your password?"> Recover password</a></span><span class="user-link">Would you like to complete a suspended registration?<a href="https://www.vaticanlibrary.va/it/support/account-support.html" title="Would you like to complete a suspended registration?"> Click Here</a></span></div><div class="footer"><div><p>Are you not registered in the web site's private area?</p><a href="https://www.vaticanlibrary.va/it/support/subscribe.html" class="lnk" style="float:right">Subscribe</a></div></div></div>                    </li>
+                    <li class="carrello">
+                    	<em id="bubblepop" style="display:none"></em>						<div class="icon"><a href="#" title="Shopping Cart">My Cart</a></div><div class="menu"><div class="content"><h4>Shopping Cart</h4><p>You can check the list of publications to purchase</p><p class="message">The cart is empty</p><br><br></div><div class="footer"><div><p>Request a photographic reproduction</p><a href="/en/information-readers/fotoriproduzione-uso-privato.html?n=1" title="Private Study"><img src="https://www.vaticanlibrary.va/style/css/i/ic_studio_privato.png" alt="Private Study"><span>Private Study</span></a><a href="/en/information-readers/fotoriproduzione-uso-professionale.html?n=1" title="Professional Use"><img src="https://www.vaticanlibrary.va/style/css/i/ic_uso_professionale.png" alt="Professional Use"><span>Professional Use</span></a></div><div><p>See the editorial publications</p><a href="/en/pubblicazioni/" title="Examine"><img src="https://www.vaticanlibrary.va/style/css/i/ic_consulta.png" alt="Examine"><span>Examine</span></a></div></div></div>                    </li>
+                    <li class="ordini">
+						<div class="icon"><a href="#" title="Check order status">Orders</a></div><div class="menu"><div class="content"><h4>Check order status</h4><p>You can check the status of your order by entering the appropriate code,otherwise login in order to view the full list.</p><form name="checkOrdini" id="checkOrdini" action="/ajax/chkordini.php" class="frmMenu"><input name="opr" value="chkOrder" type="hidden"><label for="codiceWeb" >Codice Ordine *</label><span><input type="text" name="codiceWeb" id="codiceWeb" placeholder="Inserisci il codice dell'ordine"  minlength="1" maxlength="6" required ><span class="msg active">Mandatory field<br>Enter from 1 to 6 alpha-numeric chars</span></span><label for="mailOrd" >Email *</label><span><input type="email" name="mailOrd" id="mailOrd" placeholder="Inserisci email account BAV"  minlength="6" maxlength="70" required ><span class="msg active">Mandatory field<br>Enter from 6 to 70 alpha-numeric chars</span></span><div class="cl"></div><input  id="chkOrd" name="chkOrd"type="submit" value="Find"></form><span id="risultato"></span></div><div class="footer"><div><p>Request a photographic reproduction</p><a href="/en/information-readers/fotoriproduzione-uso-privato.html?n=1" title="Private Study"><img src="https://www.vaticanlibrary.va/style/css/i/ic_studio_privato.png" alt="Private Study"><span>Private Study</span></a><a href="/en/information-readers/fotoriproduzione-uso-professionale.html?n=1" title="Professional Use"><img src="https://www.vaticanlibrary.va/style/css/i/ic_uso_professionale.png" alt="Professional Use"><span>Professional Use</span></a></div><div><p>See the editorial publications</p><a href="/en/pubblicazioni/" title="Examine"><img src="https://www.vaticanlibrary.va/style/css/i/ic_consulta.png" alt="Examine"><span>Examine</span></a></div></div></div>                    </li>
+                    <li class="calendario">
+                    	<div class="icon"><a href="#" title="Calendar">Calendar</a></div><div class="menu"><div class="content"><h4 style="font-size:1.3em">In the current year the Vatican Library will use the following calendar of openings to the readers:</h4><div class="annual-calendar-content"><div class="annual-calendar"></div></div><p>The reading rooms are open from Monday to Friday, from 9:00 am to 5:20 pm.<br>Dates in <span style="color:red;">red</span> indicate days when the Library is closed.</p></div></div>                    </li>
+                    					<li class="search" id="search-overlay-menu-btn"><div class="icon"><a href="#" title="Search">Search</a></div></li>
+                </ul>
+            </div>
+        </div>
+	    <!-- FINE SERVICE BAR -->
+	    <!-- INIZIO MENU -->
+        <div class="nav">
+            <div class="fluid">
+                <ul>
+                	<li id="SZbiblioteca">
+		<a href="/en/the-library/" class="hover" title="The library">The library</a>
+		<div class="elements">
+		<ul><li><!-- APRO COLONNA -->
+			<ul><!-- APRO MACRO -->
+				<li class="on"><a href="/en/the-library/about-us.html" title="About us">About us</a></li>
+				<li class="on"><a href="/en/the-library/history-of-BAV.html" title="History">History</a></li>
+				<li><a href="/en/the-library/history-of-BAV.html#primo" title="From Nicholas V to Sixtus V">From Nicholas V to Sixtus V</a></li>
+				<li><a href="/en/the-library/history-of-BAV.html#secondo" title="Seventeenth and eighteenth centuries">Seventeenth and eighteenth centuries</a></li>
+				<li><a href="/en/the-library/history-of-BAV.html#terzo" title="Nineteenth and twentieth centuries">Nineteenth and twentieth centuries</a></li>
+				<li><a href="/en/the-library/history-of-BAV.html#quarto" title="Librarians of the H.R.C.">Librarians of the H.R.C.</a></li>
+			</ul><!-- CHIUDO MACRO -->
+		</li></ul><!-- CHIUDO COLONNA -->
+		<ul><li><!-- APRO COLONNA -->
+			<ul><!-- APRO MACRO -->
+				<li class="on"><a href="/en/the-library/organization.html" title="Organization">Organization</a></li>
+				<li><a href="/en/the-library/the-staff.html" title="Personale">Staff</a></li>
+				<li><a href="/en/the-library/administration.html" title="Administration">Administration</a></li>
+				<li><a href="/en/the-library/Secreteriat.html" title="Secreteriat">Secreteriat</a></li>
+				<li><a href="/en/the-library/bursar-office.html" title="Bursar's Office">Bursar's Office</a></li>
+			</ul><!-- CHIUDO MACRO -->
+			<ul><!-- APRO MACRO -->
+				<li><a href="/en/the-library/manuscript-department.html" title="Manuscript Department">Manuscript Department</a></li>
+			</ul><!-- CHIUDO MACRO -->
+			<ul><!-- APRO MACRO -->
+				<li><a href="/en/the-library/printed-books-department.html" title="Printed books Department">Printed books Department</a></li>
+			</ul><!-- CHIUDO MACRO -->
+			<ul><!-- APRO MACRO -->
+				<li><a href="/en/the-library/numismatic-department.html" title="Numismatic Department">Numismatic Department</a></li>
+			</ul><!-- CHIUDO MACRO -->
+			<ul><!-- APRO MACRO -->
+				<li><a href="/en/the-library/conservation-workshop.html" title="Conservation Workshop">Conservation Workshop</a></li>
+				<li><a href="/en/the-library/photographic-laboratory.html" title="Photographic Laboratory">Photographic Laboratory</a></li>
+				<li><a href="/en/the-library/it-center.html" title="IT Center">IT Center</a></li>
+				<li><a href="/en/the-library/publishing-office.html" title="Publishing Office">Publishing Office</a></li>
+				<li><a href="/en/school-of-library-science/" title="School of Library Science">School of Library Science</a></li>
+				<li><a href="/en/the-library/exhibitions-service.html" title="Exhibitions Service">Exhibitions Service</a></li>
+				<li><a href="/en/the-library/coordination-of-it-services.html" title="Coordination of IT Services">Coordination of IT Services</a></li>
+			</ul><!-- CHIUDO MACRO -->
+		</li></ul><!-- CHIUDO COLONNA -->
+		<ul><li><!-- APRO COLONNA -->
+			<ul><!-- APRO MACRO -->
+				<li class="on"><a href="/en/special-projects/" title="Special projects">Projects</a></li>
+				<li><a href="https://spotlight.vatlib.it/" title="IIIF Thematic Pathways">IIIF Thematic Pathways</a></li>
+				<li><a href="http://rici.vatlib.it" title="RICI - Books and Libraries of religious orders in Italy at the end of XVI cent.">RICI - Books and Libraries of religious orders in Italy at the end of XVI cent.</a></li>
+				<li><a href="/moduli/alamire_en.pdf" title="The Alamire project">The Alamire project</a></li>
+				<li><a href="http://bav.bodleian.ox.ac.uk/" title="The Polonsky Project">The Polonsky Project</a></li>
+			</ul><!-- CHIUDO MACRO E PASSO-->  
+			<ul><!-- APRO MACRO -->
+				<li class="on"><a href="/en/the-collections/in-digitalizzation.html" title="Digital preservation">Digital preservation</a></li>
+				<li><a href="/en/the-collections/the-digital-project.html" title="The digital project">The digital project</a></li>
+				<li><a href="/en/in-digitalizzation/fits-files.html" title="The digital project">The FITS files of the Library</a></li>
+				<li><a href="/en/the-collections/space-color-fits.html" title="The FITS Space Color">The FITS Space Color</a></li>
+			</ul><!-- CHIUDO MACRO E PASSO-->
+		</li></ul><!-- CHIUDO COLONNA -->
+		<ul><li><!-- APRO COLONNA -->
+			<li class="on"><a href="/en/the-library/transparency.html" title="Transparency">Transparency</a></li>
+			<li class="on"><a href="/en/the-library/information-materials.html" title="Information materials">Information materials</a></li>
+			<li class="on"><a href="/en/the-library/contacts-and-offices.html" title="Contacts">Contacts</a></li>
+		</li></ul>
+		</div>
+	</li>
+	<li id="SZstudio">
+		<a href="/en/information-for-readers/" class="hover" title="Information for Readers">Information for Readers</a>
+		<div class="elements">
+			<ul><li><!-- APRO COLONNA -->
+				<ul><!-- APRO MACRO -->
+					<li class="on"><a href="https://opac.vatlib.it/all/?ling=en" class="hover" title="Catalogues" target="_blank">Catalogues</a></li>
+					<li class="on"><a href="https://digi.vatlib.it/?ling=en" class="hover" title="Digital Library" target="_blank">Digital Library</a></li>
+				</ul>
+			</li></ul><!-- CHIUDO COLONNA -->
+			<ul><li><!-- APRO COLONNA -->
+				<ul><!-- APRO MACRO -->
+					<li class="on"><a href="/en/the-collections/" title="Patrimonio">COLLECTIONS</a></li>
+					<li><a href="/en/the-collections/all-manuscript-collections.html" title="Manuscript collections">Manuscript collections</a></li>
+					<li><a href="/en/unavailable-manuscripts.html" title="Temporarily unavailable Manuscript" target="_bank">Temporarily unavailable Manuscripts</a></li>
+				</ul><!-- CHIUDO MACRO -->
+				<ul><!-- APRO MACRO -->
+					<li><a href="/en/the-collections/all-archival-collections.html" title="Archival collections">Archival collections</a></li>
+				</ul><!-- CHIUDO MACRO -->
+				<ul><!-- APRO MACRO -->
+					<li><a href="/en/the-collections/printed-books-collections.html" title="Printed Books Collections">Printed Books Collections</a></li>
+					<li><a href="/en/the-collections/sections-kept-in-the-reading-rooms.html" title="Sections kept in the reading rooms">Sections kept in the reading rooms</a></li>
+					<li><a href="/en/the-collections/collections-kept-in-the-stacks.html" title="Collections kept in the Stacks">Collections kept in the Stacks</a></li>
+					<li><a href="/en/the-collections/temporarily-unavailable-collections.html" title="Temporarily Unavailable collections">Temporarily unavailable Printed Books</a></li>
+				</ul><!-- CHIUDO MACRO -->
+				<ul><!-- APRO MACRO -->
+					<li><a href="/en/the-collections/all-graphic-collections.html" title="All Graphic collections">All Graphic collections</a></li>
+				</ul><!-- CHIUDO MACRO -->
+				<ul><!-- APRO MACRO -->
+					<li><a href="/en/the-collections/all-numismatic-collection.html" title="All numismatic collections">All numismatic collections</a></li>
+				</ul><!-- CHIUDO MACRO -->
+				<ul><!-- APRO MACRO -->
+					<li><a href="/en/the-collections/art-object.html" title="Art objects">Art objects</a></li>
+				</ul><!-- CHIUDO MACRO -->
+			</li></ul><!-- CHIUDO COLONNA E PASSO -->
+			<ul><li><!-- APRO COLONNA -->
+				<ul><!-- APRO MACRO -->
+					<li class="on"><a href="/en/information-for-readers/services-for-readers.html" class="hover" title="Services for readers">Service for readers</a></li>
+					<li class="on2"><a href="/en/information-for-readers/services-in-bav.html" title="Services in BAV">Services in BAV</a></li>
+					<li><a href="/en/information-for-readers/printed-books-reservation.html" title="Printed books reservation">Printed books reservation</a></li>
+					<li><a href="/en/information-for-readers/coupon-fotocopie.html" title="Fast-track photocopies">Fast-track photocopies</a></li>
+				</ul><!-- CHIUDO MACRO -->
+				<ul><!-- APRO MACRO -->
+					<li class="on2"><a href="/en/information-for-readers/support-for-the-study.html" title="Support for the study">Support for the study</a></li>
+					<li><a href="/en/information-for-readers/photographic-reproductions.html" title="Photographic Reproductions">Photographic Reproductions</a></li>
+                    <li><a href="/en/information-for-readers/indici-e-inventari.html" title="Inventories and Indices">Inventories and Indices</a></li>
+				</ul><!-- CHIUDO MACRO E PASSO-->			
+			</li></ul><!-- CHIUDO COLONNA -->
+			<ul><li><!-- APRO COLONNA -->
+				<ul><!-- APRO MACRO -->
+					<li class="on"><a href="/en/information-for-readers/admission-in-bav.html" title="Admission in BAV">Admission in BAV</a></li>
+					<li><a href="/en/information-for-readers/admission-criteria.html" title="Admission Criteria">Admission Criteria</a></li>
+					<li><a href="/moduli/Regolamento_Studiosi_ENG.pdf" title="Rules for Readers" target="_blank">Rules for Readers</a></li>
+					<li><a href="/en/information-for-readers/admission-criteria.html#documentsBAV" title="Required Documents">Required Documents</a></li>
+					<li><a href="/en/information-for-readers/numismatic-department.html#SegnaNumismatico" title="Rules for access to the Numismatic Department">Rules for access to the Numismatic Department</a></li>
+				</ul><!-- CHIUDO MACRO -->
+				<ul><!-- APRO MACRO -->
+					<li class="on"><a href="/en/news/in-evidenza/" title="Highlights">Highlights</a></li>
+					<li class="on"><a href="/en/the-library/contacts-and-offices.html" title="Contacts">Contacts</a></li>
+				</ul><!-- CHIUDO MACRO -->
+			</li></ul><!-- CHIUDO COLONNA -->
+		</div>
+	</li>
+	<li id="SZpubblico">
+		<a href="/en/public-visitors/" class="hover" title="Events and visits">Events and visits</a>
+		<div class="elements">
+		<ul><li><!-- APRO COLONNA -->
+			<ul><!-- APRO MACRO -->
+				<li class="on"><a href="/en/visit-the-bav.html" title="Visit the BAV">Visit the BAV</a></li>
+			</ul>
+			<ul><!-- APRO MACRO -->
+				<li class="on"><a href="/en/public-visitors/exhibitions-in-bav.html" title="Mostre">Exhibitions</a></li>
+				<li><a href="/en/public-visitors/internal-exhibition-activity.html" title="Internal exhibition activity">Internal exhibition activity</a></li>
+				<li><a href="/en/the-library/exhibitions-service.html" title="External loans of works">External loans of works</a></li>
+			</ul>
+			<ul><!-- APRO MACRO -->
+				<li class="on"><a href="/en/public-visitors/events-bav.html" title="Eventi">Events</a></li>
+				<li class="on"><a href="/en/the-library/information-materials-visitors.html" title="Information materials">Information materials</a></li>
+				<li class="on"><a href="/en/the-library/contacts-and-offices.html" title="Contacts">Contacts</a></li>
+			</ul>
+		</li></ul><!-- CHIUDO COLONNA -->
+		</div>
+	</li>		
+	<li id="SZpatrons">
+		<a href="/en/patrons/" class="hover" title="PATRONS">PATRONS</a>
+		<div class="elements">
+			<ul><li><!-- APRO COLONNA -->
+				<ul><!-- APRO MACRO -->
+					<li class="on"><a href="/en/patrons/wishbook.html" title="Wishbook">Wishbook</a></li>
+					<li class="on"><a href="/en/patrons/patrons-bav.html" title="Patrons">Patrons</a></li>
+					<li class="on"><a href="/en/patrons/exclusive-initiatives.html" title="Exclusive initiatives">Exclusive initiatives</a></li>
+					<li class="on"><a href="/en/patrons/achievements.html" title="Achievements">Achievements</a></li>
+					<li class="on"><a href="/en/patrons/contacts-promotion-development.html" title="Contacts">Contacts</a></li>
+				</ul>
+			</li></ul><!-- CHIUDO COLONNA -->
+		</div>
+	</li>
+	<li id="SZscuola">
+		<a href="/en/school-of-library-science/" class="hover" title="School of Library Science">School of Library Science</a>
+		<div class="elements">
+		<p style="color:#fff; padding:0 0 0 10px;margin:0">The contents are published in Italian, the official language of the School</p>
+		<ul style="width:30%"><li><!-- APRO COLONNA -->
+			<ul><!-- APRO MACRO -->
+				<li class="on"><a href="/en/school-of-library-science/the-school.html" title="The School">The School</a></li>
+				<li><a href="/en/school-of-library-science/history-of-school.html" title="History of School">History of School</a></li>
+				<li><a href="/en/school-of-library-science/director-and-faculty-members.html" title="Director and Faculty members">Director and Faculty members</a></li>
+				<li><a href="/en/school-of-library-science/structur-and-services-of-the-school.html" title="Structur and Services of the School">Structur and Services of the School</a></li>
+				<li><a href="/en/school-of-library-science/organization-of-the-course.html" title="Organization of the course">Organization of the course</a></li>
+			</ul><!-- CHIUDO MACRO -->
+		</li></ul><!-- CHIUDO COLONNA -->
+		<ul style="width:30%"><li><!-- APRO COLONNA -->
+			<ul><!-- APRO MACRO -->
+				<li class="on"><a href="/en/school-of-library-science/educational-program.html" title="Educational program">Educational program</a></li>
+				<li><a href="/moduli/Programma_Bibliografia.pdf" target="_blank" title="Bibliography and documentatios">Bibliography and documentatios</a></li>
+				<li><a href="/moduli/Programma_Bibliologia.pdf" target="_blank" title="Bibliology">Bibliology</a></li>
+				<li><a href="/moduli/Programma_Biblioteca_digitale.pdf" target="_blank" title="Digital Libray">Digital Libray</a></li>
+				<li><a href="/moduli/Programma_Manoscritti.pdf" target="_blank" title="The ancient, medieval and modern manuscript book">The ancient, medieval and modern manuscript book</a></li>
+				<li><a href="/moduli/Programma_Ordinamento.pdf" target="_blank" title="General Ordinance and Library Services">General Ordinance and Library Services</a></li>
+				<li><a href="/moduli/Programma_Restauro.pdf" target="_blank" title="Principles, methods of conservation and restoration of the book">Principles, methods of conservation and restoration of the book</a></li>
+				<li><a href="/moduli/Programma_Storia_delle_Biblioteche.pdf" target="_blank" title="History of libraries">History of libraries</a></li>
+				<li><a href="/moduli/Programma_Catalogazione.pdf" target="_blank" title="Theory and technique of cataloging and classification">Theory and technique of cataloging and classification</a></li>
+				<li><a href="/moduli/seminario_accessibilita.pdf" target="_blank">Seminario sull'Accessibilit&agrave; e l'Inclusione (Fratelli Tutti)</a>
+			</ul><!-- CHIUDO MACRO -->
+		</li></ul><!-- CHIUDO COLONNA -->
+		<ul style="width:30%;padding-left:10px;"><li><!-- APRO COLONNA -->
+			<ul style="padding-left:10px;"><!-- APRO MACRO -->
+				<li class="on"><a href="/en/school-of-library-science/teaching.html" title="Teaching">Teaching</a></li>
+				<li><a href="/en/school-of-library-science/subscribe-to-school.html" title="Subscribe to School">Subscribe</a></li>
+				<li><a href="/en/school-of-library-science/allowed-and-reserved-for-the-school.html" title="Allowed and Reserved">Allowed and Reserved</a></li>
+				<li><a href="/moduli/Calendario_lezioni.pdf" target="_blank" title="Lessons Timetable">Lessons Timetable</a></li>
+				<li><a href="/it/sessione-autunnale.html" title="Autumn session">Autumn session</a></li>
+				<li><a href="/it/sessione-estiva.html" title="Summer session">Summer session</a></li>
+			</ul><!-- CHIUDO MACRO -->
+			<ul style="padding-left:10px;"><!-- APRO MACRO -->
+				<li class="on"><a href="/en/school-of-library-science/support-school.html" title="Support">Support</a></li>
+				<li><a href="/en/news/notifications-school/" title="Notifications">Notifications</a></li>
+				<li><a href="/en/school-of-library-science/faq-school.html" title="Faq">Faq</a></li>
+			</ul>
+		</li></ul><!-- CHIUDO COLONNA -->
+		</div>
+	</li>
+	<li id="SZpubblicazioni">
+		<a href="/en/e-shop/" title="E-Shop" class="conico">E-Shop</a>
+		<div class="elements">
+			<ul><li><!-- APRO COLONNA -->
+				<ul><!-- APRO MACRO -->
+					<li class="on"><a href="/en/e-shop/publications.html" title="Publications catalogue">Publications catalogue</a></li>
+					<li class="on"><a href="/en/the-library/exhibitions-service.html" title="Exhibitions Service">Exhibitions Service</a></li>
+					<li class="on"><a href="/en/e-shop/news-and-appointments.html" title="News and appointments">News and appointments</a></li>
+					<li class="on"><a href="/en/the-library/contacts-and-offices.html" title="Contacts">Contacts</a></li>
+				</ul>
+			</li></ul><!-- CHIUDO COLONNA -->
+		</div>
+	</li>                </ul>
+            </div>
+	    </div>
+	    <!-- FINE MENU -->
+    </div>
+    <!-- FINE HEADER -->
+    <!-- INIZIO CORPO CONTENT -->
+    <div class="main">
+	    <a class="isontop" id="top"></a>
+        <!-- APRO CONTENT -->
+    	<div class="fluid shadow">
+	    	<div class="shadow-content">
+				<ul class="breadcrumbs"><li><a href="https://www.vaticanlibrary.va/it/">Home</a></li><li><a href="https://www.vaticanlibrary.va/it/the-library/the-library.html" title="the-library">The Library</a></li><li><span>Contacts and offices</span></li></ul>                <div class="body">
+                	                    <h2>Contact</h2>
+
+<div class="detailWrapper">
+<h3><a href="contact-us.html">CONTACT US</a></h3><br>
+
+<h3>VATICAN LIBRARY</h3>
+<ul>
+	<li>Cortile del Belvedere  V-00120 Vatican City</li>
+	<li><a href="contact-us.html?pers=BAV"><b>contact by email</b></a></li>
+	<li>Telephone: +39/06698.79411</li>
+</ul>
+<br>
+
+<h3>ARCHIVIST AND LIBRARIAN OF THE HOLY ROMAN CHURCH: <br/>His Excellency Msgr. Giovanni Cesare Pagazzi</h3>
+<br/>
+<h3>PREFECT: Don Mauro Mantovani, S.D.B.</h3>
+	<ul>
+		<li><a href="contact-us.html?pers=Prefetto"><b>contact by email</b></a></li>
+		<li>Telephone: +39/06698.79400</li>
+		<li>Fax: +39/06698.85327</li>
+	</ul>
+<br/>
+<h3>VICE PREFECT: Rev. Don Giacomo Cardinali</h3>
+	<ul>
+		<li><a href="contact-us.html?pers=VicePrefetto"><b>contact by email</b></a></li>
+		<li>Telephone: +39/06698.79481</li>
+		<li>Fax: +39/06698.85804</li>
+	</ul>
+<br/>
+<h3> DIRECTOR, MANUSCRIPT DEPARTMENT: Dr. Claudia Montuschi</h3>
+	<ul>
+		<li><a href="contact-us.html?pers=Montuschi"><b>contact by email</b></a></li>
+	</ul>
+<br/>
+<h3>DIRECTOR, PRINTED BOOKS DEPARTMENT: Dr. Andreina Rita</h3>
+	<ul>
+		<li><a href="contact-us.html?pers=Rita"><b>contact by email</b></a></li>
+		<li>Telephone: +39/06698.79491</li>
+		<li>Fax: +39/06698.79437</li>
+	</ul>
+<br/>
+<h3>DIRECTOR, NUMISMATIC DEPARTMENT: Dr. Eleonora Giampiccolo</h3>
+	<ul>
+		<li><a href="contact-us.html?pers=Giampiccolo"><b>contact by email</b></a></li>
+		<li>Telephone: +39/06698.79406</li>
+	</ul>
+<br/>
+<h3>SECRETARY: Dr. Raffaella Vincenti</h3>
+	<ul>
+		<li><a href="contact-us.html?pers=Bav"><b>contact by email</b></a></li>
+		<li>Telephone: +39/06698.79561</li>
+		<li>Fax: +39/06698.79506</li>
+	</ul>
+<br/>
+
+<h3>DEPARTMENT HEAD OF THE BURSAR'S OFFICE: Dott. Valerio Mancuso</h3>
+	<ul>
+		<li><a href="contact-us.html?pers=Mancuso"><b>contact by email</b></a></li>
+		<li>Telephone: +39/06698.79401</li>
+		<li>Fax: +39/066987.9428</li>
+	</ul>
+<br/>
+<h2>Offices</h2>
+
+<h3>PORTER'S LODGE</h3>
+	<ul>
+		<li>Telephone: +39/06698.79411</li>
+	</ul>
+<br/>
+<h3>ADMISSIONS OFFICE</h3>
+	<ul>
+		<li><a href="contact-us.html?pers=Ammissione"><b>contact by email</b></a></li>
+		<li>Telephone: +39/06698.79403</li>
+	</ul>
+	<br/>
+<h3>BURSAR'S OFFICE</h3>
+	<ul>
+		<li><a href="contact-us.html?pers=Economato"><b>contact by email</b></a></li>
+		<li>Telephone: +39/06698.79512+39/06698.79450</li>
+	</ul>
+	<br/>
+<h3>ACCESSIONS SECTION</h3>
+	<ul>
+		<li><a href="contact-us.html?pers=Accessioni"><b>contact by email</b></a></li>
+		<li>Telephone: +39/06698.79479</li>
+	</ul>
+	<br/>
+<h3>EXHIBITIONS SERVICE</h3>
+	<ul>
+		<li><a href="contact-us.html?pers=Mostre"><b>contact by email</b></a></li>
+		<li>Telephone: +39/06698.79532</li>
+		<li>Fax: +39/06698.79505</li>
+	</ul>
+	<br/>
+<h3>REPRODUCTIONS AND RIGHTS OFFICE</h3>
+	<ul>
+		<li><a href="contact-us.html?pers=RiproduzionieDiritti"><b>contact by email</b></a></li>
+		<li>Telephone : +39/06698.79455</li>
+		<li>Fax: +39/06698.79506</li>
+	</ul>
+	<br/>
+<h3>SCHOOL OF LIBRARY SCIENCE</h3>
+	<ul>
+		<li><a href="contact-us.html?pers=Scuola"><b>contact by email</b></a></li>
+		<li>Telephone: +39/06698.79526</li>
+		<li>Fax: +39/06698.79525</li>
+	</ul>
+</div>
+                </div>
+                <!-- CHIUDO BODY -->
+            </div>
+    	</div>
+    	<!-- CHIUDO CONTENT -->
+    <!-- INCLUDO VBAR -->
+    <!-- VERTICAL BAR -->
+<div class="fixed-div">
+    <div>
+        <div>
+			<a class="readPolicy" id="WTW" style="background-image:url('https://www.vaticanlibrary.va/style/img/WidgetTW.png');min-height:200px;display:block;background-repeat:no-repeat;" href="https://www.vaticanlibrary.va/it/privacy-policy.html#TW"></a>
+			<span id="TWscriptSpace"></span>			
+        </div>
+        <div>
+            <!-- <div class="content">-->
+	            <h4>Contact us</h4>
+            <form action="/opera/wizardcontact.php" method="post" class="skinned-form" id="WizardContact" name="WizardContact">
+				<input type="hidden" name="opera" value="VCNTCT" ><label for="vbmail" >Email *</label><span><input type="email" name="vbmail" id="vbmail" placeholder="Email"  minlength="6" maxlength="70" required  autofocus ><span class="msg">Mandatory field<br>Enter from 6 to 70 alpha-numeric chars</span></span><label for="vbcnfmail" >Confirm email *</label><span><input type="email" name="vbcnfmail" id="vbcnfmail" placeholder="Confirm Email"  minlength="6" maxlength="70" required  equalTo="#vbmail" ><span class="msg">Mandatory field<br>Enter from 6 to 70 alpha-numeric chars</span></span><label for="message" >Message *</label><span><textarea name="message"  id="message" minlength="20" maxlength="200" required ></textarea><span class="msg">Mandatory field<br>Enter from 20 to 200 alpha-numeric chars</span></span><div class="cl"></div><input  id="cntBTN" name="cntBTN"type="submit" value="Submit">            </form>
+            <!-- </div>-->
+        </div>
+                <div>
+            <h4>Subscribe to the newsletter</h4>
+            <form action="/opera/wizardcontact.php" method="post" class="skinned-form" id="WizardNewsl" name="WizardNewsl">
+				<input type="hidden" name="opera" value="VNEWSL" ><label for="vbmailNews" >Email *</label><span><input type="email" name="vbmailNews" id="vbmailNews" placeholder="Email"  minlength="6" maxlength="70" required  autofocus ><span class="msg">Mandatory field<br>Enter from 6 to 70 alpha-numeric chars</span></span><label for="vbcnfmailNews" >Confirm email *</label><span><input type="email" name="vbcnfmailNews" id="vbcnfmailNews" placeholder="Confirm Email"  minlength="6" maxlength="70" required  equalTo="#vbmailNews" ><span class="msg">Mandatory field<br>Enter from 6 to 70 alpha-numeric chars</span></span><br><br><div class="cl"></div><input  id="newsBTN" name="newsBTN"type="submit" value="Subscribe">            </form>
+        </div>
+            </div>
+    <div>
+        <a href="https://twitter.com/vaticanlibrary" title="Condividi su twitter" class="twitter" id="TWclickEN" target="_blank">Twitter</a>
+        <a href="#" title="Contact us" class="contattaci" id="CNTclick">Contact us</a>
+        	        <a href="#" title="newsletter" class="newsletter" id="NWSclick">Newsletter</a>
+            </div>
+</div>
+<!-- FINE VERTICAL BAR -->        </div>
+    <!-- CHIUDO MAIN CONTENT -->
+    <!-- APRO FOOTER -->
+    <div class="footer">
+        <div class="fluid">
+            <div class="half"><span class="copyright"><span>Copyright © Vatican Library</span><br>All rights reserved. The contents of this site are protected by copyright. Neither the text nor the images may be reproduced, in any form, without the authorisation of the Vatican Library,<br>00120, Vatican City.</span></div>
+            <div class="half">
+                <div>
+                    <div class="powered-by">Powered by</div>
+                    <div class="logo-white">Biblioteca Apostolica Vaticana<br>Cortile Belvedere<br>00120 Città del Vaticano
+                    </div>
+                </div>
+                <div>
+                    <div class="powered-by">Designed by</div>
+                    <a class="logo-nttdata" href="http://www.nttdata.com/" target="_blank" title="NTT DATA"></a>
+                </div>
+            </div>
+        </div>
+        <div class="fluid"><img src="https://www.vaticanlibrary.va/style/img//payment-icon.png" height="25" style="padding-left:1em" />
+			<a href="https://www.vaticanlibrary.va/it/disclaimer.html" class="policy">&nbsp;Disclaimer&nbsp;</a>
+			<a href="https://www.vaticanlibrary.va/it/privacy-policy.html" class="policy">&nbsp;Privacy Policy&nbsp;</a>
+			<a href="https://www.vaticanlibrary.va/it/cookie-policy.html"  class="policy">&nbsp;Cookie Policy&nbsp;</a>
+        </div>
+    </div>
+    <!-- CHIUDO FOOTER -->
+    <script type="text/javascript" src="https://www.vaticanlibrary.va/style/js/lib/jquery-ui/jquery-ui.min.js?v=1"></script>
+    <script type="text/javascript" src="https://www.vaticanlibrary.va/style/js/lib/slick/slick.min.js?v=1"></script>
+    <script type="text/javascript" src="https://www.vaticanlibrary.va/style/js/lib/jquery.validate.min.js?v=1"></script>
+        <script type="text/javascript" src="https://www.vaticanlibrary.va/style/js/calenda.js?v=1"></script>
+    <script type="text/javascript" src="https://www.vaticanlibrary.va/style/js/scripts.js?v=5"></script>
+        <script type="text/javascript">
+		$(".dtpicker").datepicker({
+        changeMonth: true,
+        changeYear: true});
+    </script>
+    <div id="cookieAd">
+    <p>This site uses cookies, some of which are essential for its correct functioning.For further details see  <a href="https://www.vaticanlibrary.va/it/cookie-policy.html">Cookie Policy</a>.<br>By closing this banner, scrolling this page, clicking on a link or continuing navigation in any other way, you consent to the use of all cookies.</p>
+    <button id="CookieBtn" class="btn">Accept</button>
+    </div>
+	<!-- Google tag (gtag.js) --> 
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-6Q1JR1E968"></script>
+<script> window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', 'G-6Q1JR1E968', { 'anonymize_ip': true }); </script>
+	<div class="loaderCart" style="display:none">
+			<div class="singleBox" style="background-color:#fff;width:20%;heigth:20%;left:40%;top:35%;position:fixed;border-radius:5px;margin:10px">
+			<div id="waitplease">
+				<div style="margin: 5% auto;text-align:center"><img src="https://www.vaticanlibrary.va/style/css/i/loader.gif" alt="Please wait a moment ..."></div>
+				<div class="cl"></div><h3 style="text-align:center">Please wait a moment, <br> we are processing your request ...</h3>
+			</div>
+			<div id="popCart" style="display:none"></div>
+		</div>
+	</div>
+    <!-- Search Overlay Menu ----------------------------------------------------->
+    <section class="search-overlay-menu">
+        <!-- Close Icon -->
+        <a href="javascript:void(0)" class="search-overlay-close"></a>
+        <!-- End Close Icon -->
+        <div class="container">
+            <!-- Search Form -->
+			<form role="search" id="frmRicerca" name="frmRicerca" method="post" action="https://www.vaticanlibrary.va/it/search.html">
+               <input type="hidden" name="rstS" value="1">
+                <div class="search-icon-lg"><img src="https://www.vaticanlibrary.va/style/css/i//search-icon-lg.png" alt="" /></div>
+                                <label class="h6 normal search-input-label" for="search-query">Enter the keywords to search</label>
+                <input required id="keyS" name="keyS" type="search" minlength="2" maxlength="50" placeholder="Search in website..." />
+                <button type="submit" style="margin:0"><img src="https://www.vaticanlibrary.va/style/css/i//search-lg-go-icon.png" alt="Search in website" /></button><br><br>
+                <label>&nbsp;</label><input type="checkbox" name="FLTsKS" id="FLTsKS" value="1" ><label for="FLTsKS" >Exact search for items</label>            </form>
+            <!-- End Search Form -->
+        </div>
+    </section>
+    <!-- End Search Overlay Menu ------------------------------------------------>   
+    </body>
+</html>

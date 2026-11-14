@@ -1,0 +1,16 @@
+{
+  "slug": "vatican",
+  "min_delay_s": 10,
+  "max_requests": 15,
+  "follow_redirects": 1,
+  "robots_disallow_autorise_par_marcel": true,
+  "note": "Passe 1 (v2) : accueil DigiVatLib, deux manifestes IIIF Presentation 2 cités par la doc (fil iiif-discuss 2016 et exemple du projet Polonsky ; la doc officielle digi.vatlib.it/about décrit IIIF sans donner d'URL), accueils des autres hôtes liés par la doc (opac, spotlight, console mss). Crawl-delay 10 lu dans digi.vatlib.it/robots.txt. Les corps des manifestes sont enregistrés pour lire les identifiants d'image publics.",
+  "endpoints": [
+    {"id": "accueil-digi", "method": "GET", "url": "https://digi.vatlib.it/"},
+    {"id": "manifeste-MSS_Vat.lat.683", "method": "GET", "url": "https://digi.vatlib.it/iiif/MSS_Vat.lat.683/manifest.json", "save_body": 2000000},
+    {"id": "manifeste-MSS_Vat.ebr.75", "method": "GET", "url": "https://digi.vatlib.it/iiif/MSS_Vat.ebr.75/manifest.json"},
+    {"id": "accueil-opac", "method": "GET", "url": "https://opac.vatlib.it/"},
+    {"id": "accueil-spotlight", "method": "GET", "url": "https://spotlight.vatlib.it/"},
+    {"id": "console-mss", "method": "GET", "url": "http://www.mss.vatlib.it/arch_guii/console?service=tree"}
+  ]
+}
