@@ -52,7 +52,7 @@
 > Seulement après l'audit complet (a à f) de toutes les institutions et avec l'accord de Marcel : paliers jusqu'à 2 × la limite documentée, ou 200 req/min si illimité ou sans limite documentée. Arrêt au premier 429/403/CAPTCHA.
 
 - [ ] **Pas fait**
-  - **Justification** : Pas encore traitée : l'audit suit l'ordre du classeur de référence (une institution à la fois).
+  - **Justification** : g non faite : 429 reçu le 14/11/2026 sur le SRU (limite de concurrence) ; on ne pousse pas plus loin sans l'avis de Marcel ; case « impossible » refusée (requêtes 200 au journal et hôtes de doc non listés).
   - **Preuves** : 
 
 ### Contrôles transversaux

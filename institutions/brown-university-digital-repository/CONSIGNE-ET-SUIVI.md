@@ -52,7 +52,7 @@
 > Seulement après l'audit complet (a à f) de toutes les institutions et avec l'accord de Marcel : paliers jusqu'à 2 × la limite documentée, ou 200 req/min si illimité ou sans limite documentée. Arrêt au premier 429/403/CAPTCHA.
 
 - [ ] **Pas fait**
-  - **Justification** : Pas encore traitée : l'audit suit l'ordre du classeur de référence (une institution à la fois).
+  - **Justification** : g non faite : hôte API en défi Cloudflare (crash test impossible, aucune config) ; la case « impossible » est refusée par le validateur car des hôtes de documentation (github.com, iiif.io) ne sont ni dans blocages ni dans a_verifier_manuellement : décision de Marcel sur la règle.
   - **Preuves** : 
 
 ### Contrôles transversaux

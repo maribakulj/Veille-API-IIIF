@@ -52,8 +52,8 @@
 > Seulement après l'audit complet (a à f) de toutes les institutions et avec l'accord de Marcel : paliers jusqu'à 2 × la limite documentée, ou 200 req/min si illimité ou sans limite documentée. Arrêt au premier 429/403/CAPTCHA.
 
 - [~] **Sans objet (décision de Marcel)**
-  - **Justification** : Impossible : repository.dri.ie et www.dri.ie en défi Cloudflare 403 dès robots.txt, aucun hôte testable (data.json g_impossible).
-  - **Preuves** : `institutions/digital-repository-of-ireland/data.json`
+  - **Justification** : Crash test impossible (14/11/2026) : Les deux hôtes (repository.dri.ie et www.dri.ie) répondent par un défi Cloudflare 403 dès robots.txt ; aucun endpoint n'est testable, donc aucun crash test possible sans contournement.
+  - **Preuves** : `institutions/digital-repository-of-ireland/fiche.md`
 
 ### Contrôles transversaux
 - Budget : 15 requêtes par passe · pauses ≥ 6 s · GET/HEAD seulement · UA du projet · aucun contournement. Ces contrôles sont calculés depuis le journal (voir « Contrôles automatiques »).

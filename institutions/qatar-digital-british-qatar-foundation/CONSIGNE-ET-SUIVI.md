@@ -51,9 +51,9 @@
 ### g) Crash test progressif
 > Seulement après l'audit complet (a à f) de toutes les institutions et avec l'accord de Marcel : paliers jusqu'à 2 × la limite documentée, ou 200 req/min si illimité ou sans limite documentée. Arrêt au premier 429/403/CAPTCHA.
 
-- [ ] **Pas fait**
-  - **Justification** : Pas encore traitée : l'audit suit l'ordre du classeur de référence (une institution à la fois).
-  - **Preuves** : 
+- [~] **Sans objet (décision de Marcel)**
+  - **Justification** : Crash test impossible (14/11/2026) : Aucun hôte testable : www.qdl.qa et iiif.qdl.qa répondent 403 Cloudflare (défi « Just a moment... ») le 2026-11-14 ; aucune requête réelle possible.
+  - **Preuves** : `institutions/qatar-digital-british-qatar-foundation/fiche.md`
 
 ### Contrôles transversaux
 - Budget : 15 requêtes par passe · pauses ≥ 6 s · GET/HEAD seulement · UA du projet · aucun contournement. Ces contrôles sont calculés depuis le journal (voir « Contrôles automatiques »).

@@ -52,7 +52,7 @@
 > Seulement après l'audit complet (a à f) de toutes les institutions et avec l'accord de Marcel : paliers jusqu'à 2 × la limite documentée, ou 200 req/min si illimité ou sans limite documentée. Arrêt au premier 429/403/CAPTCHA.
 
 - [ ] **Pas fait**
-  - **Justification** : Pas encore traitée : l'audit suit l'ordre du classeur de référence (une institution à la fois).
+  - **Justification** : g non faite : hôte collections.library.yale.edu derrière un défi AWS WAF (méthode : jamais de crash test sur un hôte en défi) ; case « impossible » refusée car le manifeste y a répondu 200 avant le défi.
   - **Preuves** : 
 
 ### Contrôles transversaux
