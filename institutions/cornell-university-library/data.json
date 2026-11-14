@@ -4,10 +4,209 @@
   "pays": "États-Unis",
   "classeur_id": "GLAM-043",
   "type": "Institution",
-  "statut_audit": "à faire",
-  "limites_documentees": [],
+  "statut_audit": "audit a–f complet (v2) ; portail IIIF en 403 pour notre client ; g impossible",
+  "limites_documentees": [
+    {
+      "nature": "Crawl-delay robots.txt",
+      "perimetre": "guides.library.cornell.edu (LibGuides, tous robots hors liste nommée)",
+      "valeur": "Crawl-delay: 10",
+      "fenetre": "10 s entre deux requêtes",
+      "effet": "non précisé (directive de politesse)",
+      "verification": "officielle, lue en entier ; non testée (service sans API)",
+      "source": "https://guides.library.cornell.edu/robots.txt",
+      "date": "2026-11-14"
+    },
+    {
+      "nature": "Libre usage pour étude et recherche",
+      "perimetre": "collection New York Aerial Photographs du portail",
+      "valeur": "« may be copied and used freely for the purposes of private study, scholarship or research »",
+      "fenetre": "–",
+      "effet": "–",
+      "verification": "Wayback (hôte en 403), non vérifiée en direct",
+      "source": "https://digital.library.cornell.edu/collections/aerialny/terms",
+      "date": "2026-11-14"
+    }
+  ],
   "en_tetes_observes": [],
-  "blocages": [],
-  "sources": [],
-  "web": []
+  "blocages": [
+    {
+      "hote": "digital.library.cornell.edu",
+      "code": "403",
+      "detail": "403 Forbidden nginx (118 octets, sans page de défi) sur /robots.txt (fetch_doc, 02:07 UTC) puis sur /about (sonde, 02:10 UTC) ; hôte arrêté, pas de contournement"
+    },
+    {
+      "hote": "iiif.library.cornell.edu",
+      "code": "DNS",
+      "detail": "le nom ne se résout pas (robots.txt tenté une fois par fetch_doc)"
+    }
+  ],
+  "sources": [
+    {
+      "url": "https://digital.library.cornell.edu/about",
+      "date": "2026-11-14",
+      "etiquette": "officielle (Wayback, capture du 2026-01-01)",
+      "preuve": "institutions/cornell-university-library/sources/wayback/digital-library-cornell.md"
+    },
+    {
+      "url": "https://digital.library.cornell.edu/collections/aerialny/terms",
+      "date": "2026-11-14",
+      "etiquette": "officielle (Wayback)",
+      "preuve": "institutions/cornell-university-library/sources/wayback/digital-library-cornell.md"
+    },
+    {
+      "url": "https://library.cornell.edu/libraries/policies/using-media-from-collections/",
+      "date": "2026-11-14",
+      "etiquette": "officielle",
+      "preuve": "institutions/cornell-university-library/sources/a2/SHA256SUMS"
+    },
+    {
+      "url": "https://digitalscholarship.library.cornell.edu/?p=463",
+      "date": "2026-11-14",
+      "etiquette": "officielle (Wayback)",
+      "preuve": "institutions/cornell-university-library/sources/wayback/digital-library-cornell.md"
+    },
+    {
+      "url": "https://guides.library.cornell.edu/robots.txt",
+      "date": "2026-11-14",
+      "etiquette": "officielle",
+      "preuve": "institutions/cornell-university-library/sources/a3/SHA256SUMS"
+    },
+    {
+      "url": "https://guides.library.cornell.edu/hist2391dss/non-iiif",
+      "date": "2026-11-14",
+      "etiquette": "officielle",
+      "preuve": "institutions/cornell-university-library/sources/a3/SHA256SUMS"
+    },
+    {
+      "url": "https://www.library.cornell.edu/robots.txt",
+      "date": "2026-11-14",
+      "etiquette": "officielle",
+      "preuve": "institutions/cornell-university-library/sources/a/SHA256SUMS"
+    }
+  ],
+  "web": [
+    {
+      "categorie": "institution",
+      "url": "https://library.cornell.edu/libraries/policies/using-media-from-collections/",
+      "date": "2026-11-14",
+      "etiquette": "officielle",
+      "citation": "« Materials that are no longer protected by copyright are in the public domain and may be used for free without permission. »",
+      "preuve": "institutions/cornell-university-library/sources/a2/SHA256SUMS"
+    },
+    {
+      "categorie": "utilisateurs",
+      "aucun_resultat": true,
+      "requete": "digital.library.cornell.edu 403 forbidden OR \"rate limit\" OR 429 scraping IIIF download script",
+      "date": "2026-11-14",
+      "etiquette": "–",
+      "citation": "aucun rapport d'utilisateur sur des 403/429 du portail Cornell ; seuls des articles généraux sur les bots d'IA qui saturent des bibliothèques universitaires (résumé de moteur, non vérifié)",
+      "preuve": "institutions/cornell-university-library/fiche.md"
+    },
+    {
+      "categorie": "tickets",
+      "aucun_resultat": true,
+      "requete": "github issue \"digital.library.cornell.edu\" IIIF manifest crawler OR downloader OR harvester",
+      "date": "2026-11-14",
+      "etiquette": "–",
+      "citation": "aucun ticket d'outil tiers mentionnant digital.library.cornell.edu (résumé de moteur, non vérifié)",
+      "preuve": "institutions/cornell-university-library/fiche.md"
+    },
+    {
+      "categorie": "presentations",
+      "url": "https://blogs.cornell.edu/dsps/2016/02",
+      "date": "2026-11-14",
+      "etiquette": "institution (résumé de moteur, non vérifié)",
+      "citation": "billet de 2016 : bêta du nouveau portail Digital Collections (Hydra/Blacklight) publiée début 2016 ; aucune politique d'API ni de débit",
+      "preuve": "institutions/cornell-university-library/fiche.md"
+    }
+  ],
+  "contact": "formulaire de commentaires du portail (digital.library.cornell.edu/contact) ; libaccessibility@cornell.edu (accessibilité) ; copyright@cornell.edu",
+  "conclusion_quota": "Aucun quota ni limite de débit publiés pour le portail Digital Collections (Blacklight + Solr + IIIF) ; l'hôte répond 403 (nginx, sans défi) à notre client dès la première requête, donc rien n'a pu être testé ; seule limite écrite trouvée : Crawl-delay 10 s dans le robots.txt de guides.library.cornell.edu (autre service).",
+  "classe_quota": "accès refusé à ce client (403)",
+  "confiance": "faible",
+  "notes": "Le portail n'annonce aucune URL d'API ni de manifeste dans sa doc (page About lue via Wayback). La page d'un item (catalog/ss:549539) n'a pas pu être lue : la lecture Wayback a été refusée par le système de permissions, non contournée. Un hôte miroir dcp-production-container.library.cornell.edu apparaît dans les moteurs de recherche ; non testé (ce serait un contournement du 403). Aucune clé API demandée.",
+  "a_verifier_manuellement": [
+    {
+      "url": "https://digital.library.cornell.edu/about",
+      "pourquoi": "hôte en 403 pour notre client (lu via Wayback)",
+      "a_chercher": "depuis un navigateur : lien « Guidelines for use », éventuel lien IIIF d'une page d'item, mention de limites de débit"
+    },
+    {
+      "url": "https://digital.library.cornell.edu/robots.txt",
+      "pourquoi": "403 pour notre client ; capture Wayback du 2026-04-27 : seulement un commentaire",
+      "a_chercher": "vérifier l'absence de Crawl-delay depuis un navigateur"
+    },
+    {
+      "url": "https://digital.library.cornell.edu/catalog/ss:549539",
+      "pourquoi": "page d'item non lue (hôte en 403, Wayback refusé par les permissions)",
+      "a_chercher": "URL du manifeste IIIF, du service d'images et du format JSON"
+    }
+  ],
+  "endpoints_documentes": [
+    {
+      "famille": "Portail Digital Collections (pages, Blacklight)",
+      "url": "https://digital.library.cornell.edu/about",
+      "statut": "teste",
+      "preuve": "institutions/cornell-university-library/tests/raw/portail-about.headers.txt"
+    },
+    {
+      "famille": "IIIF Presentation (manifestes) et IIIF Image du portail",
+      "url": "https://digital.library.cornell.edu/about",
+      "statut": "non_teste",
+      "raison": "la doc annonce IIIF sans donner d'URL ; l'hôte répond 403 (nginx) à notre client dès la 1re requête, on s'arrête sur cet hôte sans contourner (méthode v2, e)"
+    }
+  ],
+  "endpoints_ecartes": [
+    {
+      "url": "https://iiif.library.cornell.edu/",
+      "raison": "nom d'hôte deviné, non cité par la doc ; ne se résout pas (DNS) lors du téléchargement du robots.txt"
+    },
+    {
+      "url": "https://digitalscholarship.library.cornell.edu/",
+      "raison": "guides WordPress sur la création de manifestes, pas une API du portail ; robots.txt absent (la page d'accueil est renvoyée)"
+    },
+    {
+      "url": "https://guides.library.cornell.edu/hist2391dss/non-iiif",
+      "raison": "guide pour héberger des manifestes via archive.org, ce n'est pas une API Cornell"
+    },
+    {
+      "url": "https://www.library.cornell.edu/wp-json/wp/v2/pages/441",
+      "raison": "lien rel=alternate WordPress dans l'en-tête HTML de la page des lignes directrices ; API de gestion de contenu du site web, pas une API IIIF ni de collections"
+    }
+  ],
+  "hotes_robots": [
+    {
+      "hote": "digital.library.cornell.edu",
+      "resultat": "403 en direct ; Wayback du 2026-04-27 : seulement un commentaire, tout autorisé, pas de Crawl-delay",
+      "preuve": "institutions/cornell-university-library/sources/wayback/digital-library-cornell.md"
+    },
+    {
+      "hote": "www.library.cornell.edu",
+      "resultat": "Disallow /wp-admin/ seulement, pas de Crawl-delay",
+      "preuve": "institutions/cornell-university-library/sources/a/SHA256SUMS"
+    },
+    {
+      "hote": "digitalscholarship.library.cornell.edu",
+      "resultat": "pas de robots.txt (la page d'accueil WordPress est renvoyée) : tout autorisé",
+      "preuve": "institutions/cornell-university-library/sources/a/SHA256SUMS"
+    },
+    {
+      "hote": "guides.library.cornell.edu",
+      "resultat": "groupe * : Crawl-delay: 10 ; plusieurs robots d'IA en Disallow: /",
+      "preuve": "institutions/cornell-university-library/sources/a3/SHA256SUMS"
+    },
+    {
+      "hote": "iiif.library.cornell.edu",
+      "resultat": "DNS : le nom ne se résout pas",
+      "preuve": "institutions/cornell-university-library/sources/a/FETCH.log"
+    },
+    {
+      "hote": "cornell-colab.github.io",
+      "resultat": "robots.txt non lu (GitHub Pages, page statique d'un cours)",
+      "preuve": "institutions/cornell-university-library/sources/a2/SHA256SUMS"
+    }
+  ],
+  "g_impossible": {
+    "raison": "Le seul hôte IIIF documenté, digital.library.cornell.edu, répond 403 Forbidden à notre client dès la première requête (robots.txt puis /about) : aucun endpoint testable, crash test impossible sans contourner."
+  }
 }
