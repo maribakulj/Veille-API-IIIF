@@ -1,0 +1,622 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="./" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" type="image/jpg" sizes="200x200" href="_static/logo.jpg">
+    <title>Reviews API &#8212; Internet Archive Developer Portal</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="_static/custom.css?v=3feec52e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="_static/documentation_options.js?v=902ff5ee"></script>
+    <script src="_static/doctools.js?v=9bcbadda"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=f281be69"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'reviews';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="OCR at the Internet Archive with Tesseract and hOCR" href="ocr.html" />
+    <link rel="prev" title="Simple Lists (Relationships API)" href="simplelists.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="_static/logo.jpg" class="logo__image only-light" alt="Internet Archive Developer Portal - Home"/>
+    <script>document.write(`<img src="_static/logo.jpg" class="logo__image only-dark" alt="Internet Archive Developer Portal - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="index.html">
+                    Home
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="index-tutorials.html">Tutorials</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="tutorial-get-ia-credentials.html">Get your Internet Archive credentials</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tutorial-get-snapshot-wayback.html">See whether a website exists in the archives</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tutorial-compare-snapshot-wayback.html">Compare two versions of a website</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="index-apis.html">Tools and APIs</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="bots.html">Bots, LLMs, and Automated Access</a></li>
+<li class="toctree-l2"><a class="reference internal" href="items.html">Internet Archive Items</a></li>
+<li class="toctree-l2"><a class="reference internal" href="metadata-schema/index.html">Internet Archive Metadata</a></li>
+<li class="toctree-l2"><a class="reference internal" href="internetarchive/cli.html">Command-Line Interface</a></li>
+<li class="toctree-l2"><a class="reference internal" href="internetarchive/index.html">The Internet Archive Python Library</a></li>
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="ias3.html">ias3 Internet archive S3-like API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="metadata.html">Item Metadata API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="md-read.html">Item Metadata API: Read</a></li>
+<li class="toctree-l2"><a class="reference internal" href="md-write.html">Item Metadata API: Write</a></li>
+<li class="toctree-l2"><a class="reference internal" href="md-record.html">Item Metadata API: Record details</a></li>
+<li class="toctree-l2"><a class="reference internal" href="md-write-adv.html">Item Metadata API: Advanced Topics &amp; Extensions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="changes.html">API for discovering changes to archive.org items</a></li>
+<li class="toctree-l2"><a class="reference internal" href="views_api.html">Views data service api</a></li>
+<li class="toctree-l2"><a class="reference internal" href="views.html">Item Engagement counting on the archive.org website.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="iarest.html">Internet Archive RESTful microservices</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tasks.html">Internet Archive Tasks API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="simplelists.html">Simple Lists (Relationships API)</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">Reviews API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ocr.html">OCR at the Internet Archive with Tesseract and hOCR</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pdf.html">PDF analysis, generation and compression at the Internet Archive</a></li>
+</ul>
+</details></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/reviews.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Reviews API</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> On this page </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction">Introduction</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#review-structure-syntax-and-policies">Review structure, syntax, and policies</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#metadata-api">Metadata API</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#reviews-service">Reviews service</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#service-details">Service details</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#reading-the-user-s-review">Reading the user’s review</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#adding-updating-a-review">Adding/updating a review</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#deleting-a-review">Deleting a review</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="reviews-api">
+<h1>Reviews API<a class="headerlink" href="#reviews-api" title="Link to this heading">#</a></h1>
+<section id="introduction">
+<h2>Introduction<a class="headerlink" href="#introduction" title="Link to this heading">#</a></h2>
+<p>Most <a class="reference internal" href="items.html"><span class="doc std std-doc">items</span></a> stored by Internet Archive may be reviewed by registered users.  Reviews are stored with the item.</p>
+<p>Unlike other operations which write to an item, a user does not require special permissions to add a review.</p>
+</section>
+<section id="review-structure-syntax-and-policies">
+<h2>Review structure, syntax, and policies<a class="headerlink" href="#review-structure-syntax-and-policies" title="Link to this heading">#</a></h2>
+<p>A review consists of the following user-editable fields:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">reviewtitle</span></code> - A single line of text</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">reviewbody</span></code> - Multiline text</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">stars</span></code> - From 0 (zero) to 5 (five)</p></li>
+</ul>
+<p>Each review also contains the following system-managed fields:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">reviewer</span></code> - The user’s <em>screenname</em> (not username/email)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">reviewer_itemname</span></code> (optional) - The user’s item (e.g., <code class="docutils literal notranslate"><span class="pre">&#64;joe_example</span></code>)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">createdate</span></code> - Date and time (UTC) of when the review was first submitted</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">reviewdate</span></code> - Date and time (UTC) of when the review was last edited</p></li>
+</ul>
+<p>A user may only supply one review per item.  Writing a subsequent review will overwrite the earlier one.  <code class="docutils literal notranslate"><span class="pre">reviewdate</span></code> will be updated and <code class="docutils literal notranslate"><span class="pre">createdate</span></code> preserved.</p>
+<p>Reviews may not be written for user items or collections.  Other limitations exist as well.</p>
+<p>Every item with reviews is assigned an average rating computed by summing all the non-zero star ratings and dividing by the number of non-zero ratings.  The average rating is currently unavailable via the Metadata API or the Reviews API.</p>
+</section>
+<section id="metadata-api">
+<h2>Metadata API<a class="headerlink" href="#metadata-api" title="Link to this heading">#</a></h2>
+<p>Item reviews are available via the <a class="reference internal" href="metadata.html"><span class="doc std std-doc">Metadata API</span></a>.  A full list of an item’s reviews are available under its <code class="docutils literal notranslate"><span class="pre">'reviews'</span></code> branch.</p>
+</section>
+<section id="reviews-service">
+<h2>Reviews service<a class="headerlink" href="#reviews-service" title="Link to this heading">#</a></h2>
+<p>To update, delete, and read a user’s review for an item, the Reviews API is available.  It’s a RESTful microservice located at:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">archive</span><span class="o">.</span><span class="n">org</span><span class="o">/</span><span class="n">services</span><span class="o">/</span><span class="n">reviews</span><span class="o">.</span><span class="n">php</span>
+</pre></div>
+</div>
+<section id="service-details">
+<h3>Service details<a class="headerlink" href="#service-details" title="Link to this heading">#</a></h3>
+<p>All operations require:</p>
+<ul class="simple">
+<li><p>An item identifier (using the <code class="docutils literal notranslate"><span class="pre">identifier</span></code> query parameter)</p></li>
+<li><p>User authentication (see below)</p></li>
+</ul>
+<p>The HTTP method (<code class="docutils literal notranslate"><span class="pre">GET</span></code>, <code class="docutils literal notranslate"><span class="pre">POST</span></code>, etc.) determines which operation is being performed on the review.</p>
+<p>For example, to read a user’s review of an item:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>GET /services/reviews.php?identifier=foo HTTP/1.1
+Host: archive.org
+Authorization: LOW &lt;s3-access&gt;:&lt;s3-secret&gt;
+</pre></div>
+</div>
+<p>For more information on how to interact with the Reviews API, see <a class="reference internal" href="iarest.html"><span class="doc std std-doc">Internet Archive RESTful microservices</span></a>.</p>
+</section>
+<section id="reading-the-user-s-review">
+<h3>Reading the user’s review<a class="headerlink" href="#reading-the-user-s-review" title="Link to this heading">#</a></h3>
+<p>Although a full list of reviews is available via the Metadata API, the user can fetch their review of the item directly (if they’ve submitted one) using the HTTP <code class="docutils literal notranslate"><span class="pre">GET</span></code> method:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>GET /services/reviews.php?identifier=foo HTTP/1.1
+Host: archive.org
+Authorization: LOW &lt;s3-access&gt;:&lt;s3-secret&gt;
+</pre></div>
+</div>
+<p>A successful response might be:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+  <span class="s2">&quot;success&quot;</span><span class="p">:</span><span class="n">true</span><span class="p">,</span>
+  <span class="s2">&quot;value&quot;</span><span class="p">:{</span>
+    <span class="s2">&quot;reviewbody&quot;</span><span class="p">:</span><span class="s2">&quot;the review text&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;reviewtitle&quot;</span><span class="p">:</span><span class="s2">&quot;the review title&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;reviewer&quot;</span><span class="p">:</span><span class="s2">&quot;Joe Example&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;reviewer_itemname&quot;</span><span class="p">:</span><span class="s2">&quot;@joe_example&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;reviewdate&quot;</span><span class="p">:</span><span class="s2">&quot;2020-07-17 20:35:43&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;createdate&quot;</span><span class="p">:</span><span class="s2">&quot;2020-07-17 20:33:14&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;stars&quot;</span><span class="p">:</span><span class="s2">&quot;3&quot;</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>If the item doesn’t exist, or the user has not submitted a review to this item, the API will return <code class="docutils literal notranslate"><span class="pre">HTTP</span> <span class="pre">404</span> <span class="pre">Not</span> <span class="pre">Found</span></code>.</p>
+</section>
+<section id="adding-updating-a-review">
+<h3>Adding/updating a review<a class="headerlink" href="#adding-updating-a-review" title="Link to this heading">#</a></h3>
+<p>To add a new review or update an existing one, the user may HTTP <code class="docutils literal notranslate"><span class="pre">POST</span></code> a JSON structure with the following fields:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">title</span></code> (string)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">body</span></code> (string)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">stars</span></code> (int, optional)</p></li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>POST services/reviews.php?identifier=foo HTTP/1.1
+Host: archive.org
+Authorization: LOW &lt;s3-access&gt;:&lt;s3-secret&gt;
+
+{
+  &quot;title&quot;:&quot;A review title&quot;,
+  &quot;body&quot;:&quot;A review body&quot;,
+  &quot;stars&quot;:1
+}
+</pre></div>
+</div>
+<p>If <code class="docutils literal notranslate"><span class="pre">stars</span></code> is not specified or non-numeric, a default value of <code class="docutils literal notranslate"><span class="pre">0</span></code> (zero) is assumed.</p>
+<p>A successful response will return two fields in the <code class="docutils literal notranslate"><span class="pre">value</span></code> portion of the payload:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">task_id</span></code> (int) - The catalog task identifier for the submitted review</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">review_updated</span></code> (bool) - <code class="docutils literal notranslate"><span class="pre">true</span></code> if an existing review was updated</p></li>
+</ul>
+<p>For example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+  <span class="s2">&quot;success&quot;</span><span class="p">:</span><span class="n">true</span><span class="p">,</span>
+  <span class="s2">&quot;value&quot;</span><span class="p">:{</span>
+    <span class="s2">&quot;task_id&quot;</span><span class="p">:</span><span class="mi">1234</span><span class="p">,</span>
+    <span class="s2">&quot;review_updated&quot;</span><span class="p">:</span><span class="n">false</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+<section id="deleting-a-review">
+<h3>Deleting a review<a class="headerlink" href="#deleting-a-review" title="Link to this heading">#</a></h3>
+<p>A user may delete their review using the HTTP <code class="docutils literal notranslate"><span class="pre">DELETE</span></code> method:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>DELETE /services/reviews.php?identifier=foo HTTP/1.1
+Host: archive.org
+Authorization: LOW &lt;s3-access&gt;:&lt;s3-secret&gt;
+</pre></div>
+</div>
+<p>A successful response will include the <code class="docutils literal notranslate"><span class="pre">task_id</span></code> (as with adding/updating) indicating which task will delete the review:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+  <span class="s2">&quot;success&quot;</span><span class="p">:</span><span class="n">true</span><span class="p">,</span>
+  <span class="s2">&quot;value&quot;</span><span class="p">:{</span>
+    <span class="s2">&quot;task_id&quot;</span><span class="p">:</span><span class="mi">1234</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>If no review was present to be deleted, the response will be <code class="docutils literal notranslate"><span class="pre">HTTP</span> <span class="pre">200</span> <span class="pre">OK</span></code> with <code class="docutils literal notranslate"><span class="pre">success</span></code> as <code class="docutils literal notranslate"><span class="pre">false</span></code>.</p>
+</section>
+</section>
+</section>
+
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="simplelists.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Simple Lists (Relationships API)</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="ocr.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">OCR at the Internet Archive with Tesseract and hOCR</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> On this page
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction">Introduction</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#review-structure-syntax-and-policies">Review structure, syntax, and policies</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#metadata-api">Metadata API</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#reviews-service">Reviews service</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#service-details">Service details</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#reading-the-user-s-review">Reading the user’s review</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#adding-updating-a-review">Adding/updating a review</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#deleting-a-review">Deleting a review</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Internet Archive
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2018-2026, Internet Archive.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

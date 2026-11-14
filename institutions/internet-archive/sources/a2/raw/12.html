@@ -1,0 +1,917 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" type="image/jpg" sizes="200x200" href="../_static/logo.jpg">
+    <title>Command-Line Interface &#8212; Internet Archive Developer Portal</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=3feec52e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../_static/documentation_options.js?v=902ff5ee"></script>
+    <script src="../_static/doctools.js?v=9bcbadda"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'internetarchive/cli';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="The Internet Archive Python Library" href="index.html" />
+    <link rel="prev" title="Internet Archive Metadata" href="../metadata-schema/index.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/logo.jpg" class="logo__image only-light" alt="Internet Archive Developer Portal - Home"/>
+    <script>document.write(`<img src="../_static/logo.jpg" class="logo__image only-dark" alt="Internet Archive Developer Portal - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../index.html">
+                    Home
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../index-tutorials.html">Tutorials</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial-get-ia-credentials.html">Get your Internet Archive credentials</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial-get-snapshot-wayback.html">See whether a website exists in the archives</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial-compare-snapshot-wayback.html">Compare two versions of a website</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="../index-apis.html">Tools and APIs</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../bots.html">Bots, LLMs, and Automated Access</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../items.html">Internet Archive Items</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../metadata-schema/index.html">Internet Archive Metadata</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">Command-Line Interface</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html">The Internet Archive Python Library</a></li>
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="../ias3.html">ias3 Internet archive S3-like API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../metadata.html">Item Metadata API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../md-read.html">Item Metadata API: Read</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../md-write.html">Item Metadata API: Write</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../md-record.html">Item Metadata API: Record details</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../md-write-adv.html">Item Metadata API: Advanced Topics &amp; Extensions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../changes.html">API for discovering changes to archive.org items</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../views_api.html">Views data service api</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../views.html">Item Engagement counting on the archive.org website.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../iarest.html">Internet Archive RESTful microservices</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tasks.html">Internet Archive Tasks API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../simplelists.html">Simple Lists (Relationships API)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../reviews.html">Reviews API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ocr.html">OCR at the Internet Archive with Tesseract and hOCR</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../pdf.html">PDF analysis, generation and compression at the Internet Archive</a></li>
+</ul>
+</details></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/internetarchive/cli.rst" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.rst</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Command-Line Interface</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> On this page </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#quick-start">Quick Start</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#metadata">Metadata</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#reading-metadata">Reading Metadata</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#modifying-metadata">Modifying Metadata</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#modifying-metadata-in-bulk">Modifying Metadata in Bulk</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#upload">Upload</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bulk-uploading">Bulk Uploading</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bulk-uploading-special-columns">Bulk Uploading Special Columns</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#setting-file-level-metadata-on-upload">Setting File-Level Metadata on Upload</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#download">Download</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#downloading-byte-ranges">Downloading byte ranges</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#downloading-on-the-fly-files">Downloading On-The-Fly Files</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#delete">Delete</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#search">Search</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tasks">Tasks</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#list">List</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#copy">Copy</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#move">Move</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#performance-tips">Performance Tips</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#getting-help">Getting Help</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="command-line-interface">
+<span id="cli"></span><h1>Command-Line Interface<a class="headerlink" href="#command-line-interface" title="Link to this heading">#</a></h1>
+<p>The <code class="docutils literal notranslate"><span class="pre">ia</span></code> command-line tool is installed with the <code class="docutils literal notranslate"><span class="pre">internetarchive</span></code> Python module, or <a class="reference internal" href="installation.html#binaries"><span class="std std-ref">available as a binary</span></a>. <code class="docutils literal notranslate"><span class="pre">ia</span></code> allows you to interact with various archive.org services from the command-line.</p>
+<p>Once you have <a class="reference internal" href="installation.html#installation"><span class="std std-ref">installed ia</span></a> or <a class="reference internal" href="installation.html#binaries"><span class="std std-ref">downloaded a binary</span></a> and <a class="reference internal" href="configuration.html#configuration"><span class="std std-ref">configured it</span></a>, you can start exploring the commands documented below.</p>
+<section id="quick-start">
+<h2>Quick Start<a class="headerlink" href="#quick-start" title="Link to this heading">#</a></h2>
+<p>If you’re not sure where to start, most users start with these commands:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">ia</span> <span class="pre">download</span> <span class="pre">&lt;identifier&gt;</span></code> - <a class="reference internal" href="#cli-download"><span class="std std-ref">Download</span></a> files or items</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ia</span> <span class="pre">search</span> <span class="pre">'&lt;query&gt;'</span></code> - <a class="reference internal" href="#cli-search"><span class="std std-ref">Search</span></a> items on archive.org</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ia</span> <span class="pre">metadata</span> <span class="pre">&lt;identifier&gt;</span></code> - <a class="reference internal" href="#cli-metadata"><span class="std std-ref">Read Metadata</span></a> from an item</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ia</span> <span class="pre">upload</span> <span class="pre">&lt;identifier&gt;</span> <span class="pre">&lt;files&gt;</span> <span class="pre">-m</span> <span class="pre">'collection:test_collection'</span></code> - <a class="reference internal" href="#cli-upload"><span class="std std-ref">Upload</span></a> files to archive.org. See <a class="reference external" href="https://archive.org/developers/items.html#collections">Collections</a> for picking a collection — <code class="docutils literal notranslate"><span class="pre">test_collection</span></code> is the sandbox.</p></li>
+</ul>
+<p>Check out the help menu to see all available commands:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>ia<span class="w"> </span>--help
+<span class="go">usage: ia [-h] [-v] [-c FILE] [-l] [-d] [-i] [-H HOST] {command} ...</span>
+
+<span class="go">A command line interface to Archive.org.</span>
+
+<span class="go">optional arguments:</span>
+<span class="go">  -h, --help            show this help message and exit</span>
+<span class="go">  -v, --version         show program&#39;s version number and exit</span>
+<span class="go">  -c FILE, --config-file FILE</span>
+<span class="go">                        path to configuration file</span>
+<span class="go">  -l, --log             enable logging</span>
+<span class="go">  -d, --debug           enable debugging</span>
+<span class="go">  -i, --insecure        Use plain HTTP instead of HTTPS (sends your</span>
+<span class="go">                        credentials unencrypted)</span>
+<span class="go">  -H HOST, --host HOST  host to connect to (doesn&#39;t work for requests made to s3.us.archive.org)</span>
+<span class="go">  --user-agent-suffix SUFFIX</span>
+<span class="go">                        append SUFFIX to the default User-Agent header</span>
+
+<span class="go">commands:</span>
+<span class="go">  {command}</span>
+<span class="go">    account (ac)        Manage an archive.org account. Note: requires admin privileges</span>
+<span class="go">    configure (co)      configure &#39;ia&#39; with your archive.org credentials</span>
+<span class="go">    copy (cp)           Copy files from archive.org items</span>
+<span class="go">    delete (rm)         Delete files from archive.org items</span>
+<span class="go">    download (do)       Download files from archive.org</span>
+<span class="go">    flag (fl)           Manage flags</span>
+<span class="go">    list (ls)           list files from archive.org items</span>
+<span class="go">    metadata (md)       Retrieve and modify archive.org item metadata</span>
+<span class="go">    move (mv)           Move and rename files in archive.org items</span>
+<span class="go">    reviews (re)        submit and modify reviews for archive.org items</span>
+<span class="go">    search (se)         Search items on archive.org</span>
+<span class="go">    simplelists (sl)    Manage simplelists</span>
+<span class="go">    tasks (ta)          Retrieve information about your archive.org catalog tasks</span>
+<span class="go">    upload (up)         Upload files to archive.org</span>
+
+<span class="go">Documentation for &#39;ia&#39; is available at:</span>
+
+<span class="go">    https://archive.org/developers/internetarchive/cli.html</span>
+
+<span class="go">See &#39;ia {command} --help&#39; for help on a specific command.</span>
+</pre></div>
+</div>
+</section>
+<section id="metadata">
+<span id="cli-metadata"></span><h2>Metadata<a class="headerlink" href="#metadata" title="Link to this heading">#</a></h2>
+<section id="reading-metadata">
+<h3>Reading Metadata<a class="headerlink" href="#reading-metadata" title="Link to this heading">#</a></h3>
+<p>You can use <code class="docutils literal notranslate"><span class="pre">ia</span></code> to read and write metadata from archive.org. To retrieve all of an item’s metadata in JSON, simply:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>ia<span class="w"> </span>metadata<span class="w"> </span>TripDown1905
+</pre></div>
+</div>
+<p>A particularly useful tool to use alongside <code class="docutils literal notranslate"><span class="pre">ia</span></code> is <a class="reference external" href="https://stedolan.github.io/jq/">jq</a>. <code class="docutils literal notranslate"><span class="pre">jq</span></code> is a command-line tool for parsing JSON. For example:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>ia<span class="w"> </span>metadata<span class="w"> </span>TripDown1905<span class="w"> </span><span class="p">|</span><span class="w"> </span>jq<span class="w"> </span><span class="s1">&#39;.metadata.date&#39;</span>
+<span class="go">&quot;1906&quot;</span>
+</pre></div>
+</div>
+</section>
+<section id="modifying-metadata">
+<h3>Modifying Metadata<a class="headerlink" href="#modifying-metadata" title="Link to this heading">#</a></h3>
+<p>Once <code class="docutils literal notranslate"><span class="pre">ia</span></code> has been <a class="reference external" href="quickstart.html#configuring">configured</a>, you can modify <a class="reference external" href="//archive.org/services/docs/api/metadata-schema">metadata</a>:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>ia<span class="w"> </span>metadata<span class="w"> </span>&lt;identifier&gt;<span class="w"> </span>--modify<span class="o">=</span><span class="s2">&quot;foo:bar&quot;</span><span class="w"> </span>--modify<span class="o">=</span><span class="s2">&quot;baz:foooo&quot;</span>
+</pre></div>
+</div>
+<p>You can remove a metadata field by setting the value of the given field to <code class="docutils literal notranslate"><span class="pre">REMOVE_TAG</span></code>.
+For example, to remove the metadata field <code class="docutils literal notranslate"><span class="pre">foo</span></code> from the item <code class="docutils literal notranslate"><span class="pre">&lt;identifier&gt;</span></code>:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>ia<span class="w"> </span>metadata<span class="w"> </span>&lt;identifier&gt;<span class="w"> </span>--modify<span class="o">=</span><span class="s2">&quot;foo:REMOVE_TAG&quot;</span>
+</pre></div>
+</div>
+<p>Note that some metadata fields (e.g. <code class="docutils literal notranslate"><span class="pre">mediatype</span></code>) cannot be modified, and must instead be set initially on upload.</p>
+<p>The default target to write to is <code class="docutils literal notranslate"><span class="pre">metadata</span></code>. If you would like to write to another target, such as <code class="docutils literal notranslate"><span class="pre">files</span></code>, you can specify so using the <code class="docutils literal notranslate"><span class="pre">--target</span></code> parameter. For example, if we had an item whose identifier was <code class="docutils literal notranslate"><span class="pre">my_identifier</span></code> and we wanted to add a metadata field to a file within the item called <code class="docutils literal notranslate"><span class="pre">foo.txt</span></code>:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>ia<span class="w"> </span>metadata<span class="w"> </span>my_identifier<span class="w"> </span>--target<span class="o">=</span><span class="s2">&quot;files/foo.txt&quot;</span><span class="w"> </span>--modify<span class="o">=</span><span class="s2">&quot;title:My File&quot;</span>
+</pre></div>
+</div>
+<p>You can also create new targets if they don’t exist:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>ia<span class="w"> </span>metadata<span class="w"> </span>&lt;identifier&gt;<span class="w"> </span>--target<span class="o">=</span><span class="s2">&quot;extra_metadata&quot;</span><span class="w"> </span>--modify<span class="o">=</span><span class="s2">&quot;foo:bar&quot;</span>
+</pre></div>
+</div>
+<p>There is also an <code class="docutils literal notranslate"><span class="pre">--append</span></code> option which allows you to append a string to an existing metadata strings (Note: use <code class="docutils literal notranslate"><span class="pre">--append-list</span></code> for appending elements to a list).
+For example, if your item’s title was <code class="docutils literal notranslate"><span class="pre">Foo</span></code> and you wanted it to be <code class="docutils literal notranslate"><span class="pre">Foo</span> <span class="pre">Bar</span></code>, you could simply do:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>ia<span class="w"> </span>metadata<span class="w"> </span>&lt;identifier&gt;<span class="w"> </span>--append<span class="o">=</span><span class="s2">&quot;title: Bar&quot;</span>
+</pre></div>
+</div>
+<p>If you would like to add a new value to an existing field that is an array (like <code class="docutils literal notranslate"><span class="pre">subject</span></code> or <code class="docutils literal notranslate"><span class="pre">collection</span></code>), you can use the <code class="docutils literal notranslate"><span class="pre">--append-list</span></code> option:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>ia<span class="w"> </span>metadata<span class="w"> </span>&lt;identifier&gt;<span class="w"> </span>--append-list<span class="o">=</span><span class="s2">&quot;subject:another subject&quot;</span>
+</pre></div>
+</div>
+<p>This command would append <code class="docutils literal notranslate"><span class="pre">another</span> <span class="pre">subject</span></code> to the items list of subjects, if it doesn’t already exist (i.e. no duplicate elements are added).</p>
+<p>Metadata fields or elements can be removed with the <code class="docutils literal notranslate"><span class="pre">--remove</span></code> option:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>ia<span class="w"> </span>metadata<span class="w"> </span>&lt;identifier&gt;<span class="w"> </span>--remove<span class="o">=</span><span class="s2">&quot;subject:another subject&quot;</span>
+</pre></div>
+</div>
+<p>This would remove <code class="docutils literal notranslate"><span class="pre">another</span> <span class="pre">subject</span></code> from the items subject field, regardless of whether or not the field is a single or multi-value field.</p>
+<p>Refer to <a class="reference external" href="//archive.org/services/docs/api/metadata-schema/index.html">Internet Archive Metadata</a> for more specific details regarding metadata and archive.org.</p>
+</section>
+<section id="modifying-metadata-in-bulk">
+<h3>Modifying Metadata in Bulk<a class="headerlink" href="#modifying-metadata-in-bulk" title="Link to this heading">#</a></h3>
+<p>If you have a lot of metadata changes to submit, you can use a CSV spreadsheet to submit many changes with a single command.
+Your CSV must contain an <code class="docutils literal notranslate"><span class="pre">identifier</span></code> column, with one item per row. Any other column added will be treated as a metadata field to modify. If no value is provided in a given row for a column, no changes will be submitted. If you would like to specify multiple values for certain fields, an index can be provided: <code class="docutils literal notranslate"><span class="pre">subject[0]</span></code>, <code class="docutils literal notranslate"><span class="pre">subject[1]</span></code>. Your CSV file should be UTF-8 encoded. See <a class="reference external" href="https://archive.org/download/ia-pex/metadata.csv">metadata.csv</a> for an example CSV file.</p>
+<p>Once you’re ready to submit your changes, you can submit them like so:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>ia<span class="w"> </span>metadata<span class="w"> </span>--spreadsheet<span class="o">=</span>metadata.csv
+</pre></div>
+</div>
+<p>See <code class="docutils literal notranslate"><span class="pre">ia</span> <span class="pre">metadata</span> <span class="pre">--</span> <span class="pre">help</span></code> for more details.</p>
+</section>
+</section>
+<section id="upload">
+<span id="cli-upload"></span><h2>Upload<a class="headerlink" href="#upload" title="Link to this heading">#</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">ia</span></code> can also be used to upload items to archive.org. After <a class="reference external" href="quickstart.html#configuring">configuring ia</a>, you can upload files like so:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>ia<span class="w"> </span>upload<span class="w"> </span>&lt;identifier&gt;<span class="w"> </span>file1<span class="w"> </span>file2<span class="w"> </span>--metadata<span class="o">=</span><span class="s2">&quot;mediatype:texts&quot;</span><span class="w"> </span>--metadata<span class="o">=</span><span class="s2">&quot;blah:arg&quot;</span>
+</pre></div>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Please note that, unless specified otherwise, items will be uploaded with a <code class="docutils literal notranslate"><span class="pre">data</span></code> mediatype. <strong>This cannot be changed afterwards.</strong> Therefore, you should specify a mediatype when uploading, eg. <code class="docutils literal notranslate"><span class="pre">--metadata=&quot;mediatype:movies&quot;</span></code>. Items also default to the <a class="reference external" href="https://archive.org/details/opensource">opensource</a> (Community Texts) collection. To choose a different collection — including the other community collections, the <code class="docutils literal notranslate"><span class="pre">test_collection</span></code> sandbox, or a permanent collection — see <a class="reference external" href="https://archive.org/developers/items.html#collections">Collections</a> in the IA developer docs.</p>
+</div>
+<p>You can upload files from <code class="docutils literal notranslate"><span class="pre">stdin</span></code>:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>curl<span class="w"> </span>http://dumps.wikimedia.org/kywiki/20130927/kywiki-20130927-pages-logging.xml.gz<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span><span class="p">|</span><span class="w"> </span>ia<span class="w"> </span>upload<span class="w"> </span>&lt;identifier&gt;<span class="w"> </span>-<span class="w"> </span>--remote-name<span class="o">=</span>kywiki-20130927-pages-logging.xml.gz<span class="w"> </span>--metadata<span class="o">=</span><span class="s2">&quot;title:Uploaded from stdin.&quot;</span>
+</pre></div>
+</div>
+<p>You can use the <code class="docutils literal notranslate"><span class="pre">--retries</span></code> parameter to retry on errors (i.e. if IA-S3 is overloaded):</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>ia<span class="w"> </span>upload<span class="w"> </span>&lt;identifier&gt;<span class="w"> </span>file1<span class="w"> </span>--retries<span class="w"> </span><span class="m">10</span>
+</pre></div>
+</div>
+<p>Note that <code class="docutils literal notranslate"><span class="pre">ia</span> <span class="pre">upload</span></code> makes a backup of any files that are clobbered.
+They are saved to a directory in the item named <code class="docutils literal notranslate"><span class="pre">history/files/</span></code>.
+The files are named in the format <code class="docutils literal notranslate"><span class="pre">$key.~N~</span></code>.
+These files can be deleted like normal files.
+You can also prevent the backup from happening on clobbers by adding <code class="docutils literal notranslate"><span class="pre">-H</span> <span class="pre">x-archive-keep-old-version:0</span></code> to your command.</p>
+<p>Refer to <a class="reference external" href="//archive.org/services/docs/api/metadata-schema/index.html#archive-org-identifiers">archive.org Identifiers</a> for more information on creating valid archive.org identifiers.
+Please also read the <a class="reference external" href="//archive.org/services/docs/api/items.html">Internet Archive Items</a> page before getting started.</p>
+<section id="bulk-uploading">
+<h3>Bulk Uploading<a class="headerlink" href="#bulk-uploading" title="Link to this heading">#</a></h3>
+<p>Uploading in bulk can be done similarly to <a class="reference internal" href="#modifying-metadata-in-bulk">Modifying Metadata in Bulk</a>. The only difference is that you must provide a <code class="docutils literal notranslate"><span class="pre">file</span></code> column which contains a relative or absolute path to your file. Please see <a class="reference external" href="https://archive.org/download/ia-pex/uploading.csv">uploading.csv</a> for an example.</p>
+<p>Once you are ready to start your upload, simply run:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>ia<span class="w"> </span>upload<span class="w"> </span>--spreadsheet<span class="o">=</span>uploading.csv
+</pre></div>
+</div>
+</section>
+<section id="bulk-uploading-special-columns">
+<h3>Bulk Uploading Special Columns<a class="headerlink" href="#bulk-uploading-special-columns" title="Link to this heading">#</a></h3>
+<p>You can set a remote filename that differs from your local filename by specifying a remote filename in a column named <code class="docutils literal notranslate"><span class="pre">REMOTE_NAME</span></code> (Added to <code class="docutils literal notranslate"><span class="pre">ia</span></code> in <code class="docutils literal notranslate"><span class="pre">v2.0.0</span></code>).</p>
+<p>See <code class="docutils literal notranslate"><span class="pre">ia</span> <span class="pre">upload</span> <span class="pre">--help</span></code> for more details.</p>
+</section>
+<section id="setting-file-level-metadata-on-upload">
+<h3>Setting File-Level Metadata on Upload<a class="headerlink" href="#setting-file-level-metadata-on-upload" title="Link to this heading">#</a></h3>
+<p>You can set file-level metadata at time of upload via a JSON/JSONL file.
+The JSON or JSONL must have a dict for each file, with the local path to the file stored under the key, <code class="docutils literal notranslate"><span class="pre">name</span></code>.
+For example, you could upload two files named <code class="docutils literal notranslate"><span class="pre">foo.txt</span></code> and <code class="docutils literal notranslate"><span class="pre">bar.txt</span></code> with a file-level <code class="docutils literal notranslate"><span class="pre">title</span></code> with the following JSONL file (named <code class="docutils literal notranslate"><span class="pre">file_md.jsonl</span></code>):</p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;foo.txt&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;title&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;my foo file&quot;</span><span class="p">}</span>
+<span class="p">{</span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;bar.txt&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;title&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;my foo file&quot;</span><span class="p">}</span>
+</pre></div>
+</div>
+<p>And the following command:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>ia<span class="w"> </span>upload<span class="w"> </span>&lt;id&gt;<span class="w"> </span>--file-metadata<span class="w"> </span>file_md.jsonl
+</pre></div>
+</div>
+</section>
+</section>
+<section id="download">
+<span id="cli-download"></span><h2>Download<a class="headerlink" href="#download" title="Link to this heading">#</a></h2>
+<p>Download an entire item:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>ia<span class="w"> </span>download<span class="w"> </span>TripDown1905
+</pre></div>
+</div>
+<p>Download specific files from an item:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>ia<span class="w"> </span>download<span class="w"> </span>TripDown1905<span class="w"> </span>TripDown1905_512kb.mp4<span class="w"> </span>TripDown1905.ogv
+</pre></div>
+</div>
+<p>Download specific files matching a glob pattern:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>ia<span class="w"> </span>download<span class="w"> </span>TripDown1905<span class="w"> </span>--glob<span class="o">=</span><span class="s2">&quot;*.mp4&quot;</span>
+</pre></div>
+</div>
+<p>Note that you may have to escape the <code class="docutils literal notranslate"><span class="pre">*</span></code> differently depending on your shell (e.g. <code class="docutils literal notranslate"><span class="pre">\*.mp4</span></code>, <code class="docutils literal notranslate"><span class="pre">'*.mp4'</span></code>, etc.).</p>
+<p>Download specific files matching a glob pattern, but excluding files matching a different glob pattern:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>ia<span class="w"> </span>download<span class="w"> </span>TripDown1905<span class="w"> </span>--glob<span class="o">=</span><span class="s2">&quot;*.mp4&quot;</span><span class="w"> </span>--exclude<span class="w"> </span><span class="s2">&quot;*512kb*&quot;</span>
+</pre></div>
+</div>
+<p>Note that <code class="docutils literal notranslate"><span class="pre">--exclude</span></code> can only be used in conjunction with <code class="docutils literal notranslate"><span class="pre">--glob</span></code>.</p>
+<p>Download files matching multiple glob and exclude patterns:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>ia<span class="w"> </span>download<span class="w"> </span>TripDown1905<span class="w"> </span>--glob<span class="o">=</span><span class="s2">&quot;*.mp4|*.xml&quot;</span><span class="w"> </span>--exclude<span class="w"> </span><span class="s2">&quot;*512kb*|*_reviews.xml&quot;</span>
+</pre></div>
+</div>
+<p>You can also repeat <code class="docutils literal notranslate"><span class="pre">--glob</span></code> and <code class="docutils literal notranslate"><span class="pre">--exclude</span></code> instead of (or in
+addition to) using <code class="docutils literal notranslate"><span class="pre">|</span></code>. The two forms are equivalent and can be
+mixed:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>ia<span class="w"> </span>download<span class="w"> </span>TripDown1905<span class="w"> </span>--glob<span class="w"> </span><span class="s2">&quot;*.mp4&quot;</span><span class="w"> </span>--glob<span class="w"> </span><span class="s2">&quot;*.xml&quot;</span><span class="w"> </span>--exclude<span class="w"> </span><span class="s2">&quot;*512kb*&quot;</span><span class="w"> </span>--exclude<span class="w"> </span><span class="s2">&quot;*_reviews.xml&quot;</span>
+</pre></div>
+</div>
+<p>Download only files of a specific format:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>ia<span class="w"> </span>download<span class="w"> </span>TripDown1905<span class="w"> </span>--format<span class="o">=</span><span class="s1">&#39;512Kb MPEG4&#39;</span>
+</pre></div>
+</div>
+<p>Note that <code class="docutils literal notranslate"><span class="pre">--format</span></code> cannot be used with <code class="docutils literal notranslate"><span class="pre">--glob</span></code> or <code class="docutils literal notranslate"><span class="pre">--exclude</span></code>.
+You can get a list of the formats of a given item like so:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>ia<span class="w"> </span>metadata<span class="w"> </span>--formats<span class="w"> </span>TripDown1905
+</pre></div>
+</div>
+<p>Download an entire collection:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>ia<span class="w"> </span>download<span class="w"> </span>--search<span class="w"> </span><span class="s1">&#39;collection:glasgowschoolofart&#39;</span>
+</pre></div>
+</div>
+<p>Download from an itemlist:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>ia<span class="w"> </span>download<span class="w"> </span>--itemlist<span class="w"> </span>itemlist.txt
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Downloads issued by <code class="docutils literal notranslate"><span class="pre">ia</span> <span class="pre">download</span></code> send <code class="docutils literal notranslate"><span class="pre">cnt=0</span></code> by default, so
+they do not count toward archive.org view counts. To count a
+download as a view, add <code class="docutils literal notranslate"><span class="pre">--count-views</span></code>:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>ia<span class="w"> </span>download<span class="w"> </span>TripDown1905<span class="w"> </span>--count-views
+</pre></div>
+</div>
+</div>
+<p>See <code class="docutils literal notranslate"><span class="pre">ia</span> <span class="pre">download</span> <span class="pre">--help</span></code> for more details.</p>
+<section id="downloading-byte-ranges">
+<h3>Downloading byte ranges<a class="headerlink" href="#downloading-byte-ranges" title="Link to this heading">#</a></h3>
+<p>You can download only part of a file with <code class="docutils literal notranslate"><span class="pre">--range</span></code>, which sends an HTTP <code class="docutils literal notranslate"><span class="pre">Range</span></code> header. It <strong>requires</strong> <code class="docutils literal notranslate"><span class="pre">--stdout</span></code> (so you can pipe or redirect the bytes), uses your configured credentials (so private items work), and can be specified multiple times. A range may be given as <code class="docutils literal notranslate"><span class="pre">START-END</span></code>, an open-ended <code class="docutils literal notranslate"><span class="pre">START-</span></code> (e.g. <code class="docutils literal notranslate"><span class="pre">1024-</span></code>), a suffix <code class="docutils literal notranslate"><span class="pre">-N</span></code> (the last <code class="docutils literal notranslate"><span class="pre">N</span></code> bytes, e.g. <code class="docutils literal notranslate"><span class="pre">-1024</span></code>), or <code class="docutils literal notranslate"><span class="pre">bytes=START-END</span></code>.</p>
+<p>A bare range applies to the file named on the command line:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>ia<span class="w"> </span>download<span class="w"> </span>TripDown1905<span class="w"> </span>TripDown1905.ogv<span class="w"> </span>--stdout<span class="w"> </span>--range<span class="w"> </span><span class="m">0</span>-1023<span class="w"> </span>&gt;<span class="w"> </span>head.bin
+</pre></div>
+</div>
+<p>With bare ranges you may vary <em>either</em> the range <em>or</em> the file, but not both at once — give multiple ranges for one file, or one range for several files:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp"># </span>multiple<span class="w"> </span>ranges<span class="w"> </span>from<span class="w"> </span>one<span class="w"> </span>file
+<span class="gp">$ </span>ia<span class="w"> </span>download<span class="w"> </span>ITEM<span class="w"> </span>file.bin<span class="w"> </span>--stdout<span class="w"> </span>--range<span class="w"> </span><span class="m">0</span>-1023<span class="w"> </span>--range<span class="w"> </span><span class="m">4096</span>-8191
+<span class="gp"># </span>the<span class="w"> </span>same<span class="w"> </span>range<span class="w"> </span>from<span class="w"> </span>several<span class="w"> </span>files
+<span class="gp">$ </span>ia<span class="w"> </span>download<span class="w"> </span>ITEM<span class="w"> </span>a.bin<span class="w"> </span>b.bin<span class="w"> </span>--stdout<span class="w"> </span>--range<span class="w"> </span><span class="m">0</span>-1023
+</pre></div>
+</div>
+<p>Multiple ranges for one file may also be given as a single comma-separated value (the HTTP multi-range syntax); they are fetched in order, exactly as if you had repeated <code class="docutils literal notranslate"><span class="pre">--range</span></code>:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>ia<span class="w"> </span>download<span class="w"> </span>ITEM<span class="w"> </span>file.bin<span class="w"> </span>--stdout<span class="w"> </span>--range<span class="w"> </span><span class="m">0</span>-1023,4096-8191
+</pre></div>
+</div>
+<p>To pull ranges from <em>different</em> files, bind each range to its file with <code class="docutils literal notranslate"><span class="pre">FILE:START-END</span></code>:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>ia<span class="w"> </span>download<span class="w"> </span>ITEM<span class="w"> </span>--stdout<span class="w"> </span>--range<span class="w"> </span>a.warc.gz:0-9<span class="w"> </span>--range<span class="w"> </span>b.warc.gz:50-99
+</pre></div>
+</div>
+<p>Segments are written back-to-back with <strong>no separator</strong> between them (unlike a normal multi-file <code class="docutils literal notranslate"><span class="pre">--stdout</span></code>, which inserts the ORS). This means concatenated gzip members stay byte-adjacent, so you can extract WARC records using the compressed offset/length from a CDX index and pipe straight to <code class="docutils literal notranslate"><span class="pre">zcat</span></code>:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp"># </span>CDX<span class="w"> </span>fields:<span class="w"> </span>...<span class="w"> </span>S<span class="o">(</span>length<span class="o">)</span><span class="w"> </span>V<span class="o">(</span>offset<span class="o">)</span><span class="w"> </span>g<span class="o">(</span>filename<span class="o">)</span><span class="p">;</span><span class="w"> </span>range<span class="w"> </span>is<span class="w"> </span>V-<span class="o">(</span>V+S-1<span class="o">)</span>
+<span class="gp">$ </span>ia<span class="w"> </span>download<span class="w"> </span>ITEM<span class="w"> </span>crawl.warc.gz<span class="w"> </span>--stdout<span class="w"> </span>--range<span class="w"> </span><span class="m">270034594</span>-270035614<span class="w"> </span><span class="p">|</span><span class="w"> </span>zcat
+</pre></div>
+</div>
+<p>Because a ranged download is an intentional partial fetch, resume and full-file checksum validation are disabled for the request. A range that lies entirely beyond the end of the file is rejected by the server (HTTP <code class="docutils literal notranslate"><span class="pre">416</span></code>) and fails immediately with a clear error; a range that covers the whole file simply returns the full contents. If any segment fails, <code class="docutils literal notranslate"><span class="pre">ia</span> <span class="pre">download</span></code> exits non-zero, so a downstream pipe consumer can tell the output is incomplete.</p>
+</section>
+<section id="downloading-on-the-fly-files">
+<h3>Downloading On-The-Fly Files<a class="headerlink" href="#downloading-on-the-fly-files" title="Link to this heading">#</a></h3>
+<p>Some files on archive.org are generated on-the-fly as requested. This currently includes non-original files of the formats EPUB, MOBI, DAISY, and archive.org’s own MARCXML. These files can be downloaded using the <code class="docutils literal notranslate"><span class="pre">--on-the-fly</span></code> parameter:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>ia<span class="w"> </span>download<span class="w"> </span>goodytwoshoes00newyiala<span class="w"> </span>--on-the-fly
+</pre></div>
+</div>
+</section>
+</section>
+<section id="delete">
+<h2>Delete<a class="headerlink" href="#delete" title="Link to this heading">#</a></h2>
+<p>You can use <code class="docutils literal notranslate"><span class="pre">ia</span></code> to delete files from archive.org items:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>ia<span class="w"> </span>delete<span class="w"> </span>&lt;identifier&gt;<span class="w"> </span>&lt;file&gt;
+</pre></div>
+</div>
+<p>Delete all files associated with the specified file, including upstream derivatives and the original:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>ia<span class="w"> </span>delete<span class="w"> </span>&lt;identifier&gt;<span class="w"> </span>&lt;file&gt;<span class="w"> </span>--cascade
+</pre></div>
+</div>
+<p>Delete all files in an item:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>ia<span class="w"> </span>delete<span class="w"> </span>&lt;identifier&gt;<span class="w"> </span>--all
+</pre></div>
+</div>
+<p>Note that <code class="docutils literal notranslate"><span class="pre">ia</span> <span class="pre">delete</span></code> makes a backup of any files that are deleted.
+They are saved to a directory in the item named <code class="docutils literal notranslate"><span class="pre">history/files/</span></code>.
+The files are named in the format <code class="docutils literal notranslate"><span class="pre">$key.~N~</span></code>.
+These files can be deleted like normal files.
+You can also prevent the backup from happening on deletes by adding <code class="docutils literal notranslate"><span class="pre">-H</span> <span class="pre">x-archive-keep-old-version:0</span></code> to your command.</p>
+<p>See <code class="docutils literal notranslate"><span class="pre">ia</span> <span class="pre">delete</span> <span class="pre">--help</span></code> for more details.</p>
+</section>
+<section id="search">
+<span id="cli-search"></span><h2>Search<a class="headerlink" href="#search" title="Link to this heading">#</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">ia</span></code> can also be used for retrieving archive.org search results in JSON:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>ia<span class="w"> </span>search<span class="w"> </span><span class="s1">&#39;subject:&quot;market street&quot; collection:prelinger&#39;</span>
+</pre></div>
+</div>
+<p>By default, <code class="docutils literal notranslate"><span class="pre">ia</span> <span class="pre">search</span></code> attempts to return all items meeting the search criteria,
+and the results are sorted by item identifier. If you want to just select the top <code class="docutils literal notranslate"><span class="pre">n</span></code>
+items, you can specify a <code class="docutils literal notranslate"><span class="pre">page</span></code> and <code class="docutils literal notranslate"><span class="pre">rows</span></code> parameter. For example, to get the
+top 20 items matching the search ‘dogs’:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>ia<span class="w"> </span>search<span class="w"> </span>--parameters<span class="o">=</span><span class="s2">&quot;page=1&amp;rows=20&quot;</span><span class="w"> </span><span class="s2">&quot;dogs&quot;</span>
+</pre></div>
+</div>
+<p>You can use <code class="docutils literal notranslate"><span class="pre">ia</span> <span class="pre">search</span></code> to create an itemlist:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>ia<span class="w"> </span>search<span class="w"> </span><span class="s1">&#39;collection:glasgowschoolofart&#39;</span><span class="w"> </span>--itemlist<span class="w"> </span>&gt;<span class="w"> </span>itemlist.txt
+</pre></div>
+</div>
+<p>You can pipe your itemlist into a GNU Parallel command to download items concurrently:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>ia<span class="w"> </span>search<span class="w"> </span><span class="s1">&#39;collection:glasgowschoolofart&#39;</span><span class="w"> </span>--itemlist<span class="w"> </span><span class="p">|</span><span class="w"> </span>parallel<span class="w"> </span><span class="s1">&#39;ia download {}&#39;</span>
+</pre></div>
+</div>
+<p>See <code class="docutils literal notranslate"><span class="pre">ia</span> <span class="pre">search</span> <span class="pre">--help</span></code> for more details.</p>
+</section>
+<section id="tasks">
+<h2>Tasks<a class="headerlink" href="#tasks" title="Link to this heading">#</a></h2>
+<p>You can also use <code class="docutils literal notranslate"><span class="pre">ia</span></code> to retrieve information about your catalog tasks, after <a class="reference external" href="https://github.com/jjjake/internetarchive#configuring">configuring ia</a>.
+To retrieve the task history for an item, simply run:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>ia<span class="w"> </span>tasks<span class="w"> </span>&lt;identifier&gt;
+</pre></div>
+</div>
+<p>View all of your queued and running archive.org tasks:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>ia<span class="w"> </span>tasks
+</pre></div>
+</div>
+<p>To retrieve the log for a specific task, use <code class="docutils literal notranslate"><span class="pre">-G/--get-task-log</span></code> with the task id:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>ia<span class="w"> </span>tasks<span class="w"> </span>--get-task-log<span class="w"> </span>&lt;task_id&gt;
+</pre></div>
+</div>
+<p>Task logs can be large. You can pass URL parameters to the Tasks API with
+<code class="docutils literal notranslate"><span class="pre">-p/--parameter</span></code> to limit the output. For example, <code class="docutils literal notranslate"><span class="pre">lines</span></code> returns only the first
+<code class="docutils literal notranslate"><span class="pre">N</span></code> lines of the log (or the last <code class="docutils literal notranslate"><span class="pre">N</span></code> lines if given a negative value):</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp"># </span>First<span class="w"> </span><span class="m">100</span><span class="w"> </span>lines<span class="w"> </span>of<span class="w"> </span>the<span class="w"> </span>log:
+<span class="gp">$ </span>ia<span class="w"> </span>tasks<span class="w"> </span>--get-task-log<span class="w"> </span>&lt;task_id&gt;<span class="w"> </span>--parameter<span class="w"> </span><span class="nv">lines</span><span class="o">=</span><span class="m">100</span>
+
+<span class="gp"># </span>Last<span class="w"> </span><span class="m">100</span><span class="w"> </span>lines<span class="w"> </span>of<span class="w"> </span>the<span class="w"> </span>log:
+<span class="gp">$ </span>ia<span class="w"> </span>tasks<span class="w"> </span>--get-task-log<span class="w"> </span>&lt;task_id&gt;<span class="w"> </span>--parameter<span class="w"> </span><span class="nv">lines</span><span class="o">=</span>-100
+</pre></div>
+</div>
+<p>To follow a task log live as the task runs (<code class="docutils literal notranslate"><span class="pre">tail</span> <span class="pre">-f</span></code> style), use
+<code class="docutils literal notranslate"><span class="pre">-f/--follow-task-log</span></code>. It streams newly appended output and stops
+automatically when the task finishes:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>ia<span class="w"> </span>tasks<span class="w"> </span>--follow-task-log<span class="w"> </span>&lt;task_id&gt;
+</pre></div>
+</div>
+<p>Combine with <code class="docutils literal notranslate"><span class="pre">-p</span> <span class="pre">lines=-N</span></code> to show the last <code class="docutils literal notranslate"><span class="pre">N</span></code> lines of existing log
+before following (like <code class="docutils literal notranslate"><span class="pre">tail</span> <span class="pre">-n</span> <span class="pre">N</span> <span class="pre">-f</span></code>). As with <code class="docutils literal notranslate"><span class="pre">--get-task-log</span></code>, this
+uses Tasks API <code class="docutils literal notranslate"><span class="pre">lines</span></code> semantics, so the value must be negative; a positive
+value selects the head of the log, which cannot be followed:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>ia<span class="w"> </span>tasks<span class="w"> </span>--follow-task-log<span class="w"> </span>&lt;task_id&gt;<span class="w"> </span>--parameter<span class="w"> </span><span class="nv">lines</span><span class="o">=</span>-20
+</pre></div>
+</div>
+<p>Any other <code class="docutils literal notranslate"><span class="pre">-p</span></code> parameters are forwarded to the Tasks API on each poll.
+Press Ctrl-C to stop following at any time. Transient network or server
+errors are retried for a short period before giving up.</p>
+<p>See <code class="docutils literal notranslate"><span class="pre">ia</span> <span class="pre">tasks</span> <span class="pre">--help</span></code> for more details.</p>
+</section>
+<section id="list">
+<h2>List<a class="headerlink" href="#list" title="Link to this heading">#</a></h2>
+<p>You can list files in an item like so:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>ia<span class="w"> </span>list<span class="w"> </span>goodytwoshoes00newyiala
+</pre></div>
+</div>
+<p>See <code class="docutils literal notranslate"><span class="pre">ia</span> <span class="pre">list</span> <span class="pre">--help</span></code> for more details.</p>
+</section>
+<section id="copy">
+<h2>Copy<a class="headerlink" href="#copy" title="Link to this heading">#</a></h2>
+<p>You can copy files in archive.org items like so:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>ia<span class="w"> </span>copy<span class="w"> </span>&lt;src-identifier&gt;/&lt;src-filename&gt;<span class="w"> </span>&lt;dest-identifier&gt;/&lt;dest-filename&gt;
+</pre></div>
+</div>
+<p>If you’re copying your file to a new item, you can provide metadata as well:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>ia<span class="w"> </span>copy<span class="w"> </span>&lt;src-identifier&gt;/&lt;src-filename&gt;<span class="w"> </span>&lt;dest-identifier&gt;/&lt;dest-filename&gt;<span class="w"> </span>--metadata<span class="w"> </span><span class="s1">&#39;title:My New Item&#39;</span><span class="w"> </span>--metadata<span class="w"> </span>collection:test_collection
+</pre></div>
+</div>
+<p>Note that <code class="docutils literal notranslate"><span class="pre">ia</span> <span class="pre">copy</span></code> makes a backup of any files that are clobbered.
+They are saved to a directory in the item named <code class="docutils literal notranslate"><span class="pre">history/files/</span></code>.
+The files are named in the format <code class="docutils literal notranslate"><span class="pre">$key.~N~</span></code>.
+These files can be deleted like normal files.
+You can also prevent the backup from happening on clobbers by adding <code class="docutils literal notranslate"><span class="pre">-H</span> <span class="pre">x-archive-keep-old-version:0</span></code> to your command.</p>
+</section>
+<section id="move">
+<h2>Move<a class="headerlink" href="#move" title="Link to this heading">#</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">ia</span> <span class="pre">move</span></code> works just like <code class="docutils literal notranslate"><span class="pre">ia</span> <span class="pre">copy</span></code> except the source file is deleted after the file has been successfully copied.</p>
+<p>Note that <code class="docutils literal notranslate"><span class="pre">ia</span> <span class="pre">move</span></code> makes a backup of any files that are clobbered or deleted.
+They are saved to a directory in the item named <code class="docutils literal notranslate"><span class="pre">history/files/</span></code>.
+The files are named in the format <code class="docutils literal notranslate"><span class="pre">$key.~N~</span></code>.
+These files can be deleted like normal files.
+You can also prevent the backup from happening on clobbers or deletes by adding <code class="docutils literal notranslate"><span class="pre">-H</span> <span class="pre">x-archive-keep-old-version:0</span></code> to your command.</p>
+</section>
+<section id="performance-tips">
+<h2>Performance Tips<a class="headerlink" href="#performance-tips" title="Link to this heading">#</a></h2>
+<p>For downloading or processing many items, see <a class="reference internal" href="parallel.html#parallel"><span class="std std-ref">using GNU Parallel</span></a>
+for concurrent operations.</p>
+</section>
+<section id="getting-help">
+<h2>Getting Help<a class="headerlink" href="#getting-help" title="Link to this heading">#</a></h2>
+<p>If you encounter issues, check <a class="reference internal" href="troubleshooting.html#troubleshooting"><span class="std std-ref">Troubleshooting</span></a> for common problems and solutions.</p>
+</section>
+</section>
+
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="../metadata-schema/index.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Internet Archive Metadata</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="index.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">The Internet Archive Python Library</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> On this page
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#quick-start">Quick Start</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#metadata">Metadata</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#reading-metadata">Reading Metadata</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#modifying-metadata">Modifying Metadata</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#modifying-metadata-in-bulk">Modifying Metadata in Bulk</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#upload">Upload</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bulk-uploading">Bulk Uploading</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bulk-uploading-special-columns">Bulk Uploading Special Columns</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#setting-file-level-metadata-on-upload">Setting File-Level Metadata on Upload</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#download">Download</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#downloading-byte-ranges">Downloading byte ranges</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#downloading-on-the-fly-files">Downloading On-The-Fly Files</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#delete">Delete</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#search">Search</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tasks">Tasks</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#list">List</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#copy">Copy</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#move">Move</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#performance-tips">Performance Tips</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#getting-help">Getting Help</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Internet Archive
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2018-2026, Internet Archive.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

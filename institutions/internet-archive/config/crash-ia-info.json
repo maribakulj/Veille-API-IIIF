@@ -1,0 +1,8 @@
+{
+  "slug": "internet-archive",
+  "endpoint": {"id": "crash-iiif-info", "url": "https://iiif.archive.org/image/iiif/2/img-8664_202009%2fIMG_8664.jpg/info.json", "method": "GET"},
+  "limite_documentee_req_min": null,
+  "source_limite": "aucune limite documentée (https://archive.org/developers/bots.html : « Add delays between requests », sans chiffre)",
+  "duree_palier_s": 180,
+  "note": "info.json de 903 octets, 200 vu à chaque passe ; hôte iiif.archive.org (la lecture de la limite CDX 60 req/min relayée par un tiers ne concerne pas cet hôte)."
+}

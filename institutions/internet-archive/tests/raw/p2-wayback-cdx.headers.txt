@@ -1,0 +1,23 @@
+2026-11-14T03:06:21Z GET https://web.archive.org/cdx/search/cdx?url=archive.org/about/&output=json&limit=2
+HTTP 200
+server: nginx
+date: Sat, 14 Nov 2026 03:06:21 GMT
+content-type: application/json
+transfer-encoding: chunked
+connection: keep-alive
+server-timing: exclusion.robots;dur=0.083131, exclusion.robots.policy;dur=0.067833, esindex;dur=0.010002
+x-app-server: wwwb-app240-dc6
+x-ts: 200
+x-tr: 1986
+server-timing: TR;dur=0,Tw;dur=0,Tc;dur=0
+set-cookie: wb-cdx-nomatch-SERVER=wwwb-app240; path=/
+x-location: cdx
+x-rl: 0
+x-na: 0
+x-page-cache: BYPASS
+server-timing: BYPASS
+x-nid: Fastweb
+referrer-policy: no-referrer-when-downgrade
+permissions-policy: interest-cohort=()
+x-sd: 0
+x-be: wb_cdx_pygwb_nomatch

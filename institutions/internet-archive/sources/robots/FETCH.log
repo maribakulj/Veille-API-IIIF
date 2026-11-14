@@ -1,0 +1,10 @@
+2026-11-14T03:01:19Z | 200 |      238 o | https://archive.org/robots.txt
+2026-11-14T03:01:24Z | 464 |        0 o | https://iiif.archive.org/robots.txt
+curl: (60) SSL: no alternative certificate subject name matches target host name 'iiif.archivelab.org'
+More details here: https://curl.se/docs/sslcerts.html
+
+curl failed to verify the legitimacy of the server and therefore could not
+establish a secure connection to it. To learn more about this situation and
+how to fix it, please visit the web page mentioned above.
+2026-11-14T03:01:28Z | 000ERR | 0 o | https://iiif.archivelab.org/robots.txt
+2026-11-14T03:01:33Z | 200 |      165 o | https://blog.archive.org/robots.txt

@@ -1,0 +1,721 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="./" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" type="image/jpg" sizes="200x200" href="_static/logo.jpg">
+    <title>ias3 Internet archive S3-like API &#8212; Internet Archive Developer Portal</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="_static/custom.css?v=3feec52e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="_static/documentation_options.js?v=902ff5ee"></script>
+    <script src="_static/doctools.js?v=9bcbadda"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=f281be69"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'ias3';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Item Metadata API" href="metadata.html" />
+    <link rel="prev" title="Authors" href="internetarchive/authors.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="_static/logo.jpg" class="logo__image only-light" alt="Internet Archive Developer Portal - Home"/>
+    <script>document.write(`<img src="_static/logo.jpg" class="logo__image only-dark" alt="Internet Archive Developer Portal - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="index.html">
+                    Home
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="index-tutorials.html">Tutorials</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="tutorial-get-ia-credentials.html">Get your Internet Archive credentials</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tutorial-get-snapshot-wayback.html">See whether a website exists in the archives</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tutorial-compare-snapshot-wayback.html">Compare two versions of a website</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="index-apis.html">Tools and APIs</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="bots.html">Bots, LLMs, and Automated Access</a></li>
+<li class="toctree-l2"><a class="reference internal" href="items.html">Internet Archive Items</a></li>
+<li class="toctree-l2"><a class="reference internal" href="metadata-schema/index.html">Internet Archive Metadata</a></li>
+<li class="toctree-l2"><a class="reference internal" href="internetarchive/cli.html">Command-Line Interface</a></li>
+<li class="toctree-l2"><a class="reference internal" href="internetarchive/index.html">The Internet Archive Python Library</a></li>
+
+
+
+
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">ias3 Internet archive S3-like API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="metadata.html">Item Metadata API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="md-read.html">Item Metadata API: Read</a></li>
+<li class="toctree-l2"><a class="reference internal" href="md-write.html">Item Metadata API: Write</a></li>
+<li class="toctree-l2"><a class="reference internal" href="md-record.html">Item Metadata API: Record details</a></li>
+<li class="toctree-l2"><a class="reference internal" href="md-write-adv.html">Item Metadata API: Advanced Topics &amp; Extensions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="changes.html">API for discovering changes to archive.org items</a></li>
+<li class="toctree-l2"><a class="reference internal" href="views_api.html">Views data service api</a></li>
+<li class="toctree-l2"><a class="reference internal" href="views.html">Item Engagement counting on the archive.org website.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="iarest.html">Internet Archive RESTful microservices</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tasks.html">Internet Archive Tasks API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="simplelists.html">Simple Lists (Relationships API)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="reviews.html">Reviews API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ocr.html">OCR at the Internet Archive with Tesseract and hOCR</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pdf.html">PDF analysis, generation and compression at the Internet Archive</a></li>
+</ul>
+</details></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/ias3.rst" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.rst</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>ias3 Internet archive S3-like API</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> On this page </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-the-s3-like-api-does">What the S3-like API does:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#python-library">Python Library</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#post-support">POST Support</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#how-this-is-different-from-normal-s3">How this is different from normal S3</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#skip-request-signing">Skip request signing</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#skip-derive-process">Skip derive process</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#delete-derived-files-when-an-original-is-deleted">Delete derived files when an original is deleted</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#keep-old-versions-of-files">Keep old versions of files</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#hint-the-archive-about-the-final-size-of-an-item">Hint the archive about the final size of an item</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#express-queue">Express queue</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#dealing-with-api-errors">Dealing with API errors</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#use-limits">Use Limits</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#examples">Examples</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fast-get-downloads">Fast GET downloads</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bucket-activity">Bucket activity</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#questions">Questions?</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="ias3-internet-archive-s3-like-api">
+<h1>ias3 Internet archive S3-like API<a class="headerlink" href="#ias3-internet-archive-s3-like-api" title="Link to this heading">#</a></h1>
+<p>This document is intended for a user who is comfortable in the
+unix command line environment. It covers the technical details
+of using the archive’s S3 like server API.</p>
+<p>The internet archive has a public facing API which allows for the storage and
+retrieval of item data stored in the archive.</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Amazon s3 documentation used when creating the IA S3 api endpoint can be found <a class="reference external" href="http://web.archive.org/web/20090828013053/http://docs.amazonwebservices.com:80/AmazonS3/latest/dev/">here</a>.</p></li>
+<li><p>Information about archive items can be found <a class="reference internal" href="items.html"><span class="doc">here</span></a>.</p></li>
+<li><p>To get api keys for the archive’s S3-Like API go to the <a class="reference external" href="https://archive.org/account/s3.php">API key page</a></p></li>
+</ul>
+</div></blockquote>
+<section id="what-the-s3-like-api-does">
+<h2>What the S3-like API does:<a class="headerlink" href="#what-the-s3-like-api-does" title="Link to this heading">#</a></h2>
+<blockquote>
+<div><ul class="simple">
+<li><p>Items (things with details pages) get mapped to S3 Buckets.  For example, <a class="reference external" href="http://archive.org/details/stats">http://archive.org/details/stats</a> is also available as <a class="reference external" href="https://s3.us.archive.org/stats">https://s3.us.archive.org/stats</a>, or, per s3 dns bucket style <a class="reference external" href="http://stats.s3.us.archive.org/">http://stats.s3.us.archive.org/</a></p></li>
+<li><p>Files within items are also available as S3 keys, For example <a class="reference external" href="http://stats.s3.us.archive.org/downloadsPerDay.png">http://stats.s3.us.archive.org/downloadsPerDay.png</a></p></li>
+<li><p>Doing a <code class="docutils literal notranslate"><span class="pre">PUT</span></code> on the S3 endpoint will result in a new internet archive Item</p></li>
+<li><p>Files may also be uploaded to an Item in the same way keys are added, via S3 <code class="docutils literal notranslate"><span class="pre">PUT</span></code>.</p></li>
+<li><p>When a file is added to an Item, it is staged in temporary storage and ingested via the Archive’s content management system. This can take some time.</p></li>
+<li><p>ias3 has support for multipart uploads.</p></li>
+</ul>
+</div></blockquote>
+</section>
+<section id="python-library">
+<h2>Python Library<a class="headerlink" href="#python-library" title="Link to this heading">#</a></h2>
+<p>The internet archive maintains a python library for accessing this api, see <a class="github reference external" href="https://github.com/jjjake/internetarchive">jjjake/internetarchive</a> .</p>
+</section>
+<section id="post-support">
+<h2>POST Support<a class="headerlink" href="#post-support" title="Link to this heading">#</a></h2>
+<dl class="simple">
+<dt>For using the POST support these documents are very useful:</dt><dd><ul class="simple">
+<li><p><a class="reference external" href="http://aws.amazon.com/articles/1434">http://aws.amazon.com/articles/1434</a></p></li>
+<li><p><a class="reference external" href="http://docs.amazonwebservices.com/AmazonS3/latest/dev/HTTPPOSTForms.html">http://docs.amazonwebservices.com/AmazonS3/latest/dev/HTTPPOSTForms.html</a></p></li>
+<li><p><a class="reference external" href="http://docs.amazonwebservices.com/AmazonS3/2006-03-01/API/RESTObjectPOST.html?r=8499">http://docs.amazonwebservices.com/AmazonS3/2006-03-01/API/RESTObjectPOST.html?r=8499</a></p></li>
+</ul>
+</dd>
+</dl>
+</section>
+<section id="how-this-is-different-from-normal-s3">
+<h2>How this is different from normal S3<a class="headerlink" href="#how-this-is-different-from-normal-s3" title="Link to this heading">#</a></h2>
+<blockquote>
+<div><ul class="simple">
+<li><p>DELETE bucket is not allowed.</p></li>
+<li><p>Only the HTTP 1.1 REST interface is supported.</p></li>
+<li><dl class="simple">
+<dt>Archive is much more likely to issue 307 Location redirects than Amazon is.</dt><dd><ul>
+<li><p>Which means clients with good 100-Continue support are very nice to have</p></li>
+<li><p>curl versions curl-7.19 and newer have excellent 100-continue support</p></li>
+<li><p>curl versions curl-7.58 and newer need to add <code class="docutils literal notranslate"><span class="pre">--location-trusted</span></code> flag if you are including an Authorization header</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><p>ACLs are fake. permissions are: World readable, Item uploader writable.</p></li>
+<li><p>HTTP 1.1 Range headers are ignored (also copy range headers for multipart).</p></li>
+</ul>
+</div></blockquote>
+<p>There are special features of the archive s3 connector to support
+activities with Internet Archive items. These are used by adding http
+headers to a request.</p>
+<p>There is a combined upload and make item feature,
+set the header: <code class="docutils literal notranslate"><span class="pre">x-archive-auto-make-bucket:1</span></code> when doing a <code class="docutils literal notranslate"><span class="pre">PUT</span></code> of a file.</p>
+<dl class="simple">
+<dt>An HTTP header can specify metadata that ends up in <code class="docutils literal notranslate"><span class="pre">_meta.xml</span></code> at make bucket time.</dt><dd><ul class="simple">
+<li><p>Add headers of form <code class="docutils literal notranslate"><span class="pre">x-archive-meta-$meta_name:$meta_value</span></code> (or <code class="docutils literal notranslate"><span class="pre">x-amz-meta-$meta_name:$meta_value</span></code>)</p></li>
+<li><p>If you want multiple tags in _meta.xml you can put numbers in front: <code class="docutils literal notranslate"><span class="pre">x-amz-meta01-$meta_name:$meta_value_a</span></code> <code class="docutils literal notranslate"><span class="pre">x-amz-meta02-$meta_name:$meta_value_b</span></code></p></li>
+<li><p>Meta headers are sorted prior to tag generation when placed in the xml</p></li>
+<li><p>Meta headers are interpreted as having utf-8 character encoding</p></li>
+<li><p>Because rfc822 http headers disallow <code class="docutils literal notranslate"><span class="pre">_</span></code> in names, in $meta_name two hyphens in a row (<code class="docutils literal notranslate"><span class="pre">--</span></code>) will be translated to an underscore(<code class="docutils literal notranslate"><span class="pre">_</span></code>).</p></li>
+<li><p>Some http clients do not allow the full range of utf-8 bytes to appear in http headers. As a work around, one can encode a utf-8 meta header with uri encoding. To do this write all the header data like so: <code class="docutils literal notranslate"><span class="pre">uri($payload_as_uri_encoded_utf8)</span></code> For example, to set the title of an item to include the unicode snowman: <code class="docutils literal notranslate"><span class="pre">x-archive-meta-title:uri(This%20is%20a%20snowman%20%E2%98%83)</span></code></p></li>
+<li><p>to update metadata use the <a class="reference internal" href="metadata.html"><span class="doc">Item Metadata API</span></a> API</p></li>
+</ul>
+</dd>
+</dl>
+</section>
+<section id="skip-request-signing">
+<h2>Skip request signing<a class="headerlink" href="#skip-request-signing" title="Link to this heading">#</a></h2>
+<p>There is an optional simple way to authorize a request; Authorization header
+can be of form <code class="docutils literal notranslate"><span class="pre">Authorization:</span> <span class="pre">LOW</span> <span class="pre">$accesskey:$secret</span></code>
+Be sure to use https when using the simple mode.</p>
+</section>
+<section id="skip-derive-process">
+<h2>Skip derive process<a class="headerlink" href="#skip-derive-process" title="Link to this heading">#</a></h2>
+<p>Normally a PUT (aka file upload) to IA will cause the derive
+process to be queued for that bucket/item. The derive process
+produces a number of secondary files from an upload to make
+an upload more usable on the web. For example, the derive process
+creates image data to make a PDF file viewable in the in browser bookviewer
+on the archive.org website.  You can prevent this (heavyweight process)
+by specifying a header like so with each upload: <code class="docutils literal notranslate"><span class="pre">x-archive-queue-derive:0</span></code></p>
+</section>
+<section id="delete-derived-files-when-an-original-is-deleted">
+<h2>Delete derived files when an original is deleted<a class="headerlink" href="#delete-derived-files-when-an-original-is-deleted" title="Link to this heading">#</a></h2>
+<p>DELETE normally deletes a single file, additionally all the
+derivatives and originals related to a file can be
+automatically deleted by specifying a header with the DELETE
+like so: <code class="docutils literal notranslate"><span class="pre">x-archive-cascade-delete:1</span></code></p>
+</section>
+<section id="keep-old-versions-of-files">
+<h2>Keep old versions of files<a class="headerlink" href="#keep-old-versions-of-files" title="Link to this heading">#</a></h2>
+<p>Normally PUT and DELETE do not keep old versions of files around.
+To have the archive keep old versions of the object you can
+add the header: <code class="docutils literal notranslate"><span class="pre">x-archive-keep-old-version:1</span></code>
+Saved versions will be placed in <code class="docutils literal notranslate"><span class="pre">history/files/$key.~N~</span></code>
+(For multipart, the  <code class="docutils literal notranslate"><span class="pre">x-archive-keep-old-version</span></code> header must be
+specified at the time the multipart upload is completed)</p>
+</section>
+<section id="hint-the-archive-about-the-final-size-of-an-item">
+<h2>Hint the archive about the final size of an item<a class="headerlink" href="#hint-the-archive-about-the-final-size-of-an-item" title="Link to this heading">#</a></h2>
+<p>For large items a size hint can be given to the IA content
+management system at make bucket time.
+Units are in bytes, for example: <code class="docutils literal notranslate"><span class="pre">x-archive-size-hint:19327352832</span></code></p>
+</section>
+<section id="express-queue">
+<h2>Express queue<a class="headerlink" href="#express-queue" title="Link to this heading">#</a></h2>
+<p>For uploads which need to be available ASAP in the content
+management system, an interactive user’s upload for example,
+one can request interactive queue priority:
+<code class="docutils literal notranslate"><span class="pre">x-archive-interactive-priority:1</span></code>
+Do not perform multiple transactions on items with mixed settings for
+<code class="docutils literal notranslate"><span class="pre">x-archive-interactive-priority</span></code>. Doing so can result in reordering
+of the application of requests to the item state.</p>
+</section>
+<section id="dealing-with-api-errors">
+<h2>Dealing with API errors<a class="headerlink" href="#dealing-with-api-errors" title="Link to this heading">#</a></h2>
+<p>To help developers test the error processing of software interacting with the S3-like API,
+there is an error simulation feature.
+To simulate errors s3 supports a special ‘error this request’ header.
+For example, to simulate a Slowdown error that the s3 api may
+generate you can set an http header like so (in addition to any
+other headers you may normally send in a request):
+<code class="docutils literal notranslate"><span class="pre">x-archive-simulate-error:SlowDown</span></code></p>
+<p>For example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ curl s3.us.archive.org -v -H x-archive-simulate-error:SlowDown
+</pre></div>
+</div>
+<p>To see a list of errors s3 can simulate, you can do:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ curl s3.us.archive.org -v -H x-archive-simulate-error:help
+</pre></div>
+</div>
+</section>
+<section id="use-limits">
+<h2>Use Limits<a class="headerlink" href="#use-limits" title="Link to this heading">#</a></h2>
+<p>Sometimes the task queue system which processes PUTs and DELETEs
+becomes overloaded, and the endpoint returns a 503 SlowDown error
+instead of processing an upload or delete.
+To check if an upload would fail because of overload you can call:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ curl https://s3.us.archive.org/?check_limit=1&amp;accesskey=$accesskey&amp;bucket=$bucket
+</pre></div>
+</div>
+<dl class="simple">
+<dt>The result is a json object with 4 fields:</dt><dd><ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">bucket</span></code>, <code class="docutils literal notranslate"><span class="pre">accesskey</span></code>, <code class="docutils literal notranslate"><span class="pre">over_limit</span></code>, and <code class="docutils literal notranslate"><span class="pre">detail</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">detail</span></code> contains internal information about the current rate limiting scheme, it may change at any time.</p></li>
+<li><p>The <code class="docutils literal notranslate"><span class="pre">over_limit</span></code> field will be either 0 to indicate that the queue is ready for more uploads or deletes, or 1, indicating that uploads or deletes are likely to get a 503 SlowDown error. The fields bucket and accesskey are the query arguments passed in.</p></li>
+</ul>
+</dd>
+</dl>
+</section>
+<section id="examples">
+<h2>Examples<a class="headerlink" href="#examples" title="Link to this heading">#</a></h2>
+<p>These features combined allow single command document upload with curl.
+(Most users would probably use the internetarchive command line tool instead,
+these are examples for developers of new library code.)</p>
+<p>Text item (a PDF will be OCR’d):</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">curl</span> <span class="o">--</span><span class="n">location</span> <span class="o">--</span><span class="n">header</span> <span class="s1">&#39;x-amz-auto-make-bucket:1&#39;</span> \
+     <span class="o">--</span><span class="n">header</span> <span class="s1">&#39;x-archive-meta01-collection:opensource&#39;</span> \
+     <span class="o">--</span><span class="n">header</span> <span class="s1">&#39;x-archive-meta-mediatype:texts&#39;</span> \
+     <span class="o">--</span><span class="n">header</span> <span class="s1">&#39;x-archive-meta-sponsor:Andrew W. Mellon Foundation&#39;</span> \
+     <span class="o">--</span><span class="n">header</span> <span class="s1">&#39;x-archive-meta-language:eng&#39;</span> \
+     <span class="o">--</span><span class="n">header</span> <span class="s2">&quot;authorization: LOW $accesskey:$secret&quot;</span> \
+     <span class="o">--</span><span class="n">upload</span><span class="o">-</span><span class="n">file</span> <span class="o">/</span><span class="n">home</span><span class="o">/</span><span class="n">samuel</span><span class="o">/</span><span class="n">public_html</span><span class="o">/</span><span class="n">intro</span><span class="o">-</span><span class="n">to</span><span class="o">-</span><span class="n">k</span><span class="o">.</span><span class="n">pdf</span> \
+     <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">s3</span><span class="o">.</span><span class="n">us</span><span class="o">.</span><span class="n">archive</span><span class="o">.</span><span class="n">org</span><span class="o">/</span><span class="n">sam</span><span class="o">-</span><span class="n">s3</span><span class="o">-</span><span class="n">test</span><span class="o">-</span><span class="mi">08</span><span class="o">/</span><span class="n">demo</span><span class="o">-</span><span class="n">intro</span><span class="o">-</span><span class="n">to</span><span class="o">-</span><span class="n">k</span><span class="o">.</span><span class="n">pdf</span>
+</pre></div>
+</div>
+<p>Movie item (Will get video player on details page):</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">curl</span> <span class="o">--</span><span class="n">location</span> <span class="o">--</span><span class="n">header</span> <span class="s1">&#39;x-amz-auto-make-bucket:1&#39;</span> \
+     <span class="o">--</span><span class="n">header</span> <span class="s1">&#39;x-archive-meta01-collection:opensource_movies&#39;</span> \
+     <span class="o">--</span><span class="n">header</span> <span class="s1">&#39;x-archive-meta-mediatype:movies&#39;</span> \
+     <span class="o">--</span><span class="n">header</span> <span class="s1">&#39;x-archive-meta-title:Ben plays piano.&#39;</span> \
+     <span class="o">--</span><span class="n">header</span> <span class="s2">&quot;authorization: LOW $accesskey:$secret&quot;</span> \
+     <span class="o">--</span><span class="n">upload</span><span class="o">-</span><span class="n">file</span> <span class="n">ben</span><span class="o">-</span><span class="mi">2009</span><span class="o">-</span><span class="mi">05</span><span class="o">-</span><span class="mf">09.</span><span class="n">avi</span> \
+     <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">s3</span><span class="o">.</span><span class="n">us</span><span class="o">.</span><span class="n">archive</span><span class="o">.</span><span class="n">org</span><span class="o">/</span><span class="n">ben</span><span class="o">-</span><span class="n">plays</span><span class="o">-</span><span class="n">piano</span><span class="o">/</span><span class="n">ben</span><span class="o">-</span><span class="n">plays</span><span class="o">-</span><span class="n">piano</span><span class="o">.</span><span class="n">avi</span>
+</pre></div>
+</div>
+<p>Upload a file to an existing item:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">curl</span> <span class="o">--</span><span class="n">location</span> \
+     <span class="o">--</span><span class="n">header</span> <span class="s2">&quot;authorization: LOW $accesskey:$secret&quot;</span> \
+     <span class="o">--</span><span class="n">upload</span><span class="o">-</span><span class="n">file</span> <span class="o">/</span><span class="n">home</span><span class="o">/</span><span class="n">samuel</span><span class="o">/</span><span class="n">public_html</span><span class="o">/</span><span class="n">intro</span><span class="o">-</span><span class="n">to</span><span class="o">-</span><span class="n">k</span><span class="o">.</span><span class="n">pdf</span> \
+     <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">s3</span><span class="o">.</span><span class="n">us</span><span class="o">.</span><span class="n">archive</span><span class="o">.</span><span class="n">org</span><span class="o">/</span><span class="n">sam</span><span class="o">-</span><span class="n">s3</span><span class="o">-</span><span class="n">test</span><span class="o">-</span><span class="mi">08</span><span class="o">/</span><span class="n">demo</span><span class="o">-</span><span class="n">intro</span><span class="o">-</span><span class="n">to</span><span class="o">-</span><span class="n">k</span><span class="o">.</span><span class="n">pdf</span>
+</pre></div>
+</div>
+</section>
+<section id="fast-get-downloads">
+<h2>Fast GET downloads<a class="headerlink" href="#fast-get-downloads" title="Link to this heading">#</a></h2>
+<p>Although the s3 interface supports GET and HEAD, high performance
+downloads are achieved via the archive web infrastructure:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">curl</span> <span class="o">--</span><span class="n">location</span> <span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">archive</span><span class="o">.</span><span class="n">org</span><span class="o">/</span><span class="n">download</span><span class="o">/</span><span class="n">sam</span><span class="o">-</span><span class="n">s3</span><span class="o">-</span><span class="n">test</span><span class="o">-</span><span class="mi">08</span><span class="o">/</span><span class="n">demo</span><span class="o">-</span><span class="n">intro</span><span class="o">-</span><span class="n">to</span><span class="o">-</span><span class="n">k</span><span class="o">.</span><span class="n">pdf</span>
+</pre></div>
+</div>
+<p>note: curl versions curl-7.58 and newer need to add <code class="docutils literal notranslate"><span class="pre">--location-trusted</span></code>
+flag if you are including an Authorization header.</p>
+</section>
+<section id="bucket-activity">
+<h2>Bucket activity<a class="headerlink" href="#bucket-activity" title="Link to this heading">#</a></h2>
+<p>After an object had been PUT into a bucket, many things happen
+in the archive’s petabox content management system (called the catalog).
+You can see the catalog page for a bucket by looking at:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>https://archive.org/history/$bucket
+</pre></div>
+</div>
+</section>
+<section id="questions">
+<h2>Questions?<a class="headerlink" href="#questions" title="Link to this heading">#</a></h2>
+<p>Mail <a class="reference external" href="mailto:info&#37;&#52;&#48;archive&#46;org">info<span>&#64;</span>archive<span>&#46;</span>org</a>, with the string s3help appearing somewhere in the subject line.</p>
+</section>
+</section>
+
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="internetarchive/authors.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Authors</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="metadata.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Item Metadata API</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> On this page
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-the-s3-like-api-does">What the S3-like API does:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#python-library">Python Library</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#post-support">POST Support</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#how-this-is-different-from-normal-s3">How this is different from normal S3</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#skip-request-signing">Skip request signing</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#skip-derive-process">Skip derive process</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#delete-derived-files-when-an-original-is-deleted">Delete derived files when an original is deleted</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#keep-old-versions-of-files">Keep old versions of files</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#hint-the-archive-about-the-final-size-of-an-item">Hint the archive about the final size of an item</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#express-queue">Express queue</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#dealing-with-api-errors">Dealing with API errors</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#use-limits">Use Limits</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#examples">Examples</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fast-get-downloads">Fast GET downloads</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bucket-activity">Bucket activity</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#questions">Questions?</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Internet Archive
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2018-2026, Internet Archive.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

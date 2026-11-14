@@ -1,0 +1,19 @@
+{
+  "slug": "internet-archive",
+  "min_delay_s": 6,
+  "max_requests": 15,
+  "follow_redirects": 1,
+  "robots_disallow_autorise_par_marcel": true,
+  "note": "Passe 2 (méthode v2 + v3), 14/11/2026. Un endpoint par famille d'API documentée (archive.org/developers : advancedsearch, Metadata read, Views API ; IIIF iiif.archive.org ; Wayback availability + CDX ; ancien iiif.archivelab.org). Identifiants repris du journal de la passe 1 (curl) ou des exemples de la doc. Les robots.txt ont été lus avant (sources/robots*). Pas de redirection suivie hors hôte.",
+  "endpoints": [
+    {"id": "p2-advancedsearch", "method": "GET", "url": "https://archive.org/advancedsearch.php?q=mediatype%3Atexts&fl[]=identifier&rows=1&page=1&output=json"},
+    {"id": "p2-metadata-item", "method": "GET", "url": "https://archive.org/metadata/ddd_010120427_mpeg21"},
+    {"id": "p2-iiif-manifest", "method": "GET", "url": "https://iiif.archive.org/iiif/img-8664_202009/manifest.json"},
+    {"id": "p2-iiif-image-info", "method": "GET", "url": "https://iiif.archive.org/image/iiif/2/img-8664_202009%2fIMG_8664.jpg/info.json"},
+    {"id": "p2-iiif-image-region", "method": "GET", "url": "https://iiif.archive.org/image/iiif/2/img-8664_202009%2fIMG_8664.jpg/full/200,/0/default.jpg"},
+    {"id": "p2-views-short", "method": "GET", "url": "https://be-api.us.archive.org/views/v1/short/ddd_010120427_mpeg21"},
+    {"id": "p2-wayback-available", "method": "GET", "url": "https://archive.org/wayback/available?url=example.com"},
+    {"id": "p2-wayback-cdx", "method": "GET", "url": "https://web.archive.org/cdx/search/cdx?url=archive.org/about/&output=json&limit=2"},
+    {"id": "p2-archivelab-info", "method": "GET", "url": "https://iiif.archivelab.org/iiif/mma_irises_436528/info.json"}
+  ]
+}

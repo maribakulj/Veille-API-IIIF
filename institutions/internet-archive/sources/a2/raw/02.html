@@ -1,0 +1,979 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="./" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" type="image/jpg" sizes="200x200" href="_static/logo.jpg">
+    <title>Internet Archive Tasks API &#8212; Internet Archive Developer Portal</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="_static/custom.css?v=3feec52e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="_static/documentation_options.js?v=902ff5ee"></script>
+    <script src="_static/doctools.js?v=9bcbadda"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=f281be69"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'tasks';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Simple Lists (Relationships API)" href="simplelists.html" />
+    <link rel="prev" title="Internet Archive RESTful microservices" href="iarest.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="_static/logo.jpg" class="logo__image only-light" alt="Internet Archive Developer Portal - Home"/>
+    <script>document.write(`<img src="_static/logo.jpg" class="logo__image only-dark" alt="Internet Archive Developer Portal - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="index.html">
+                    Home
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="index-tutorials.html">Tutorials</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="tutorial-get-ia-credentials.html">Get your Internet Archive credentials</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tutorial-get-snapshot-wayback.html">See whether a website exists in the archives</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tutorial-compare-snapshot-wayback.html">Compare two versions of a website</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="index-apis.html">Tools and APIs</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="bots.html">Bots, LLMs, and Automated Access</a></li>
+<li class="toctree-l2"><a class="reference internal" href="items.html">Internet Archive Items</a></li>
+<li class="toctree-l2"><a class="reference internal" href="metadata-schema/index.html">Internet Archive Metadata</a></li>
+<li class="toctree-l2"><a class="reference internal" href="internetarchive/cli.html">Command-Line Interface</a></li>
+<li class="toctree-l2"><a class="reference internal" href="internetarchive/index.html">The Internet Archive Python Library</a></li>
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="ias3.html">ias3 Internet archive S3-like API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="metadata.html">Item Metadata API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="md-read.html">Item Metadata API: Read</a></li>
+<li class="toctree-l2"><a class="reference internal" href="md-write.html">Item Metadata API: Write</a></li>
+<li class="toctree-l2"><a class="reference internal" href="md-record.html">Item Metadata API: Record details</a></li>
+<li class="toctree-l2"><a class="reference internal" href="md-write-adv.html">Item Metadata API: Advanced Topics &amp; Extensions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="changes.html">API for discovering changes to archive.org items</a></li>
+<li class="toctree-l2"><a class="reference internal" href="views_api.html">Views data service api</a></li>
+<li class="toctree-l2"><a class="reference internal" href="views.html">Item Engagement counting on the archive.org website.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="iarest.html">Internet Archive RESTful microservices</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">Internet Archive Tasks API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="simplelists.html">Simple Lists (Relationships API)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="reviews.html">Reviews API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ocr.html">OCR at the Internet Archive with Tesseract and hOCR</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pdf.html">PDF analysis, generation and compression at the Internet Archive</a></li>
+</ul>
+</details></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/tasks.rst" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.rst</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Internet Archive Tasks API</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> On this page </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-a-task">What is a Task?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#service-overview">Service Overview</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#json-lines">JSON Lines</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#task-listings">Task Listings</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#categories">Categories</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#criteria">Criteria</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#limits-and-the-cursor">Limits and the Cursor</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#streaming-the-task-list">Streaming the Task List</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#wildcards">Wildcards</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#wait-admin-and-run-states">wait_admin and Run States</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#searching-task-history">Searching Task History</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#response-value">Response Value</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#task-logs">Task Logs</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#request">Request</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#authorization">Authorization</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#response">Response</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#important">Important</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#caching">Caching</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#partial-and-unavailable-logs">Partial and Unavailable Logs</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#task-submission">Task Submission</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#request-entity">Request Entity</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#supported-tasks">Supported Tasks</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#book-op-php">book_op.php</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#bup-php">bup.php</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#delete-php">delete.php</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#derive-php">derive.php</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#fixer-php">fixer.php</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#make-dark-php-make-undark-php">make_dark.php/make_undark.php</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#rename-php">rename.php</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">Authorization</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">Response Value</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rate-limits">Rate Limits</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#rate-limit-reporting">Rate limit reporting</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#rerunning-a-task">Rerunning a task</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">Request Entity</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">Response Value</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#examples">Examples</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#listing-a-user-s-tasks">Listing a User’s Tasks</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#accessing-a-log-file">Accessing a Log File</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#darking-an-item">Darking an Item</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">Rerunning a task</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#accessing-the-user-s-task-submission-limits">Accessing the user’s task submission limits</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="internet-archive-tasks-api">
+<h1>Internet Archive Tasks API<a class="headerlink" href="#internet-archive-tasks-api" title="Link to this heading">#</a></h1>
+<section id="what-is-a-task">
+<h2>What is a Task?<a class="headerlink" href="#what-is-a-task" title="Link to this heading">#</a></h2>
+<p>Items are updated via tasks.  Uploading new content, changing metadata, renaming and deleting files, transforming original content into derivatives—all are performed with tasks.</p>
+<p>Tasks are queued in a system known as <code class="code docutils literal notranslate"><span class="pre">catalog</span></code>.  Only one task is permitted to execute on an item at a time.  <code class="code docutils literal notranslate"><span class="pre">catalog</span></code> schedules tasks and ensures they run in a timely manner.  When a task completes, it is stored as item history.  When a task runs, its output is stored in a log text file.  The <a class="reference external" href="changes.html">Changes API</a> allows for tracking completed task across all items as they complete.</p>
+<p>The Tasks API exposes running, pending, and historical tasks to callers with optional criteria to filter results.  It also offers an interface for submitting a subset of the available tasks to items the user owns or has permission to edit.  It also offers an access method for each task’s textual log.</p>
+<p>Tasks API is a REST-like interface using JSON to transmit and receive payloads.</p>
+<p>The API requires <a class="reference external" href="https://archive.org/account/s3.php">IA-S3 keys</a> for user authentication.  It currently does not accept Internet Archive cookies.</p>
+</section>
+<section id="service-overview">
+<h2>Service Overview<a class="headerlink" href="#service-overview" title="Link to this heading">#</a></h2>
+<p>The Tasks API is available at <a class="reference external" href="https://archive.org/services/tasks.php">https://archive.org/services/tasks.php</a></p>
+<p>These URLs accept only two HTTP methods: <code class="code docutils literal notranslate"><span class="pre">GET</span></code> and <code class="code docutils literal notranslate"><span class="pre">POST</span></code>.  <code class="code docutils literal notranslate"><span class="pre">GET</span></code> is used for task listing and tasks logs, and <code class="code docutils literal notranslate"><span class="pre">POST</span></code> for submitting new tasks.</p>
+<p>For more information on how to interact with the Tasks API, see <a class="reference external" href="iarest.html">Internet Archive RESTful microservices</a>.</p>
+<section id="json-lines">
+<span id="id1"></span><h3>JSON Lines<a class="headerlink" href="#json-lines" title="Link to this heading">#</a></h3>
+<p>In one case (explained in “<a class="reference internal" href="#stream-task-list"><span class="std std-ref">Streaming the Task List</span></a>” below) the server may respond with JSON-L (JSON Lines).  The <code class="code docutils literal notranslate"><span class="pre">Content-Type</span></code> will be <code class="code docutils literal notranslate"><span class="pre">application/json-l</span></code> for this type of response.</p>
+<p>The HTTP status code should be used to determine success or failure.  On success (<code class="code docutils literal notranslate"><span class="pre">200</span> <span class="pre">OK</span></code>) the response will be separate JSON objects, one per line.  Each JSON object is delimited with a newline (<code class="code docutils literal notranslate"><span class="pre">n</span></code>) character.  Otherwise the usual JSON response format is returned with <code class="code docutils literal notranslate"><span class="pre">success</span></code>, <code class="code docutils literal notranslate"><span class="pre">error</span></code>, and <code class="code docutils literal notranslate"><span class="pre">value</span></code>.</p>
+<p>See <a class="reference external" href="http://jsonlines.org/">jsonlines.org</a> for more information.</p>
+</section>
+</section>
+<section id="task-listings">
+<h2>Task Listings<a class="headerlink" href="#task-listings" title="Link to this heading">#</a></h2>
+<p>Pending and historical tasks may be read via an HTTP <code class="code docutils literal notranslate"><span class="pre">GET</span></code>.  In addition to the optional <code class="code docutils literal notranslate"><span class="pre">version</span></code> parameter, Tasks API accepts any combination of <em>category</em> and <em>criteria</em> parameters.</p>
+<section id="categories">
+<h3>Categories<a class="headerlink" href="#categories" title="Link to this heading">#</a></h3>
+<p>Three categories may be requested:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p><code class="code docutils literal notranslate"><span class="pre">summary</span></code> - Total counts of catalog tasks meeting all criteria (explained below) organized by run status (queued, running, error, and paused).  Historical totals are currently unavailable</p></li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">catalog</span></code> - A list of all active tasks (queued, running, error, or paused) matching the supplied criteria</p></li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">history</span></code> - A list of all completed tasks matching the supplied criteria</p></li>
+</ul>
+</div></blockquote>
+<p>Any combination of the above may be specified:</p>
+<blockquote>
+<div><p><a class="reference external" href="https://archive.org/services/tasks.php?summary=1&amp;history=1">https://archive.org/services/tasks.php?summary=1&amp;history=1</a></p>
+<p><a class="reference external" href="https://archive.org/services/tasks.php?catalog=1&amp;summary=0">https://archive.org/services/tasks.php?catalog=1&amp;summary=0</a></p>
+</div></blockquote>
+<p><code class="code docutils literal notranslate"><span class="pre">summary</span></code> is the default category.  It’s always included unless explicitly excluded (with <code class="code docutils literal notranslate"><span class="pre">summary=0</span></code>).</p>
+</section>
+<section id="criteria">
+<h3>Criteria<a class="headerlink" href="#criteria" title="Link to this heading">#</a></h3>
+<p>Multiple criteria may be requested:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p><code class="code docutils literal notranslate"><span class="pre">identifier</span></code> (string) - item identifier (may be wildcarded, see below)</p></li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">task_id</span></code> (integer) - task identifier</p></li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">server</span></code> (string) - IA node task will or was executed upon (may be wildcarded)</p></li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">cmd</span></code> (string) - Task command (e.g., <code class="code docutils literal notranslate"><span class="pre">archive.php</span></code>, <code class="code docutils literal notranslate"><span class="pre">modify_xml.php</span></code>, etc.; may be wildcarded)</p></li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">args</span></code> (string) - Argument list (see below; may be wildcarded)</p></li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">submitter</span></code> (string) - User submitting task (may be wildcarded)</p></li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">priority</span></code> (integer) - Generally from 10 to -10</p></li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">wait_admin</span></code> (integer) - Task run state (see “<a class="reference internal" href="#wait-admin-and-run-states"><span class="std std-ref">wait_admin and Run States</span></a>”, below)</p>
+<ul>
+<li><p>or <code class="code docutils literal notranslate"><span class="pre">status</span></code> (string) or <code class="code docutils literal notranslate"><span class="pre">color</span></code> (string)</p></li>
+</ul>
+</li>
+</ul>
+</div></blockquote>
+<p>And four criteria for searching <code class="code docutils literal notranslate"><span class="pre">submittime</span></code> by range:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p><code class="code docutils literal notranslate"><span class="pre">submittime&gt;</span></code></p></li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">submittime&lt;</span></code></p></li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">submittime&gt;=</span></code></p></li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">submittime&lt;=</span></code></p></li>
+</ul>
+</div></blockquote>
+<p>The <code class="code docutils literal notranslate"><span class="pre">submittime</span></code> parameters may be any recognizable date/time as a string; the Tasks API will attempt to parse it into the internal stored format:</p>
+<blockquote>
+<div><p><a class="reference external" href="https://archive.org/services/tasks.php?submittime%3E%3D=Jan+1+2018">https://archive.org/services/tasks.php?submittime%3E%3D=Jan+1+2018</a></p>
+</div></blockquote>
+<p>This will search for all tasks submitted on or after 1 January, 2018 00:00:00 UTC.  (Note that the “&gt;=” of the submittime parameter has been encoded as %3E%3D.)</p>
+<p>Any combination of criteria may be specified along with categories:</p>
+<blockquote>
+<div><p><a class="reference external" href="https://archive.org/services/tasks.php?identifier=prelinger&amp;cmd=archive.php&amp;history=1">https://archive.org/services/tasks.php?identifier=prelinger&amp;cmd=archive.php&amp;history=1</a></p>
+</div></blockquote>
+<p>Currently only one (1) criteria of each type is respected in the search.  Specifying the same criteria more than once (such as two identifiers) will lead to unspecified results.</p>
+<p>Logically, all criteria are AND-ed when searching.  There is currently no support for other logical operators (OR, NOT, etc.)</p>
+</section>
+<section id="limits-and-the-cursor">
+<h3>Limits and the Cursor<a class="headerlink" href="#limits-and-the-cursor" title="Link to this heading">#</a></h3>
+<p>Task listings, especially history, may be voluminous.  The Tasks API will only return a limited number of tasks in a single request.  The current default is 50 tasks per request, but the caller may request more with the <code class="code docutils literal notranslate"><span class="pre">limit</span></code> parameter:</p>
+<blockquote>
+<div><p><a class="reference external" href="https://archive.org/services/tasks.php?identifier=prelinger&amp;catalog=1&amp;history=1&amp;limit=200">https://archive.org/services/tasks.php?identifier=prelinger&amp;catalog=1&amp;history=1&amp;limit=200</a></p>
+</div></blockquote>
+<p>The current maximum limit is 500 tasks.  Values outside this range are clamped to the server maximum.</p>
+<p>If Tasks API reaches the limit maximum and can continue, it will return a <code class="code docutils literal notranslate"><span class="pre">cursor</span></code> value in the JSON response.  The cursor may be included in a subsequent request to the Tasks API to continue listing.</p>
+<p>For example, consider this request:</p>
+<blockquote>
+<div><p><a class="reference external" href="https://archive.org/services/tasks.php?identifier=opensource&amp;history=1&amp;limit=10">https://archive.org/services/tasks.php?identifier=opensource&amp;history=1&amp;limit=10</a></p>
+</div></blockquote>
+<p>This will return the most recent ten tasks from the history of the <code class="code docutils literal notranslate"><span class="pre">opensource</span></code> collection.  The result will also include a <code class="code docutils literal notranslate"><span class="pre">cursor</span></code> field with an opaque string (for example, “c:123456”).  In order for the client to continue iterating the list of historical tasks, it should call:</p>
+<blockquote>
+<div><p><a class="reference external" href="https://archive.org/services/tasks.php?identifier=opensource&amp;history=1&amp;limit=10&amp;cursor=c%3A123456">https://archive.org/services/tasks.php?identifier=opensource&amp;history=1&amp;limit=10&amp;cursor=c%3A123456</a></p>
+</div></blockquote>
+<p>(Note that the colon in “c:123456” has been encoded as %3A.)  This will continue listing and return the next ten tasks from the item’s history.  Tasks API will again return a “cursor” which should be included in the next request.  The caller should continue until no <code class="code docutils literal notranslate"><span class="pre">cursor</span></code> is returned, indicating the list is completed.</p>
+<p>The caller <strong>must</strong> include all criteria and categories from the original request in subsequent calls.  (In other words, it should simply send the same URL but with the <code class="code docutils literal notranslate"><span class="pre">cursor</span></code> parameter included.)  Sending different criteria or categories will result in undefined behavior.</p>
+</section>
+<section id="streaming-the-task-list">
+<span id="stream-task-list"></span><h3>Streaming the Task List<a class="headerlink" href="#streaming-the-task-list" title="Link to this heading">#</a></h3>
+<p>If the caller wishes to receive all tasks in a single round-trip, they may set <code class="code docutils literal notranslate"><span class="pre">limit=0</span></code> in the request query.  If successful, the response will be in JSON-L format (explained in “<a class="reference internal" href="#json-lines"><span class="std std-ref">JSON Lines</span></a>”) with a single JSON object per line.  Otherwise a normal JSON response is returned with error information.</p>
+<p>In addition to the usual per-task information returned, another field is included: <code class="code docutils literal notranslate"><span class="pre">category</span></code>.  It holds one of three values: <code class="code docutils literal notranslate"><span class="pre">summary</span></code> (only one per request), <code class="code docutils literal notranslate"><span class="pre">catalog</span></code>, or <code class="code docutils literal notranslate"><span class="pre">history</span></code>.  This indicates which type of JSON object is being returned for that line.</p>
+</section>
+<section id="wildcards">
+<h3>Wildcards<a class="headerlink" href="#wildcards" title="Link to this heading">#</a></h3>
+<p>Both <code class="code docutils literal notranslate"><span class="pre">*</span></code> (asterisk) and <code class="code docutils literal notranslate"><span class="pre">%</span></code> (percentage sign) may be used as wildcard characters within criteria that accept them:</p>
+<blockquote>
+<div><p><a class="reference external" href="https://archive.org/services/tasks.php?identifier=podcast-%2A">https://archive.org/services/tasks.php?identifier=podcast-%2A</a></p>
+</div></blockquote>
+<p>(Note the wildcard <code class="code docutils literal notranslate"><span class="pre">*</span></code> is encoded as <code class="code docutils literal notranslate"><span class="pre">%2A</span></code> here.)  This will return a summary of all pending tasks for identifiers starting with <code class="code docutils literal notranslate"><span class="pre">podcast-</span></code>.</p>
+</section>
+<section id="wait-admin-and-run-states">
+<span id="id2"></span><h3>wait_admin and Run States<a class="headerlink" href="#wait-admin-and-run-states" title="Link to this heading">#</a></h3>
+<p>Four official run states are supported.  Each run state has a number (<code class="code docutils literal notranslate"><span class="pre">wait_admin</span></code>), a color (for descriptive purposes), and a human-readable label:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>0: Queued (green)</p></li>
+<li><p>1: Running (blue)</p></li>
+<li><p>2: Error (red)</p></li>
+<li><p>9: Paused (brown)</p></li>
+</ul>
+</div></blockquote>
+<p>The Tasks API accepts <code class="code docutils literal notranslate"><span class="pre">wait_admin</span></code>, <code class="code docutils literal notranslate"><span class="pre">color</span></code>, or <code class="code docutils literal notranslate"><span class="pre">status</span></code> as request criteria:</p>
+<blockquote>
+<div><p><a class="reference external" href="https://archive.org/services/tasks.php?status=running">https://archive.org/services/tasks.php?status=running</a></p>
+<p><a class="reference external" href="https://archive.org/services/tasks.php?color=red">https://archive.org/services/tasks.php?color=red</a></p>
+</div></blockquote>
+</section>
+<section id="searching-task-history">
+<h3>Searching Task History<a class="headerlink" href="#searching-task-history" title="Link to this heading">#</a></h3>
+<p>Due to internal limitations, the <code class="code docutils literal notranslate"><span class="pre">history</span></code> category may only be searched if <code class="code docutils literal notranslate"><span class="pre">identifier</span></code> or <code class="code docutils literal notranslate"><span class="pre">task_id</span></code> is specified.  Other criteria may be included, but if neither <code class="code docutils literal notranslate"><span class="pre">identifier</span></code> nor <code class="code docutils literal notranslate"><span class="pre">task_id</span></code> are present, the request will fail.</p>
+<p>When searching category <code class="code docutils literal notranslate"><span class="pre">history</span></code>, <code class="code docutils literal notranslate"><span class="pre">identifier</span></code> may <strong>not</strong> include wildcards.</p>
+</section>
+<section id="response-value">
+<h3>Response Value<a class="headerlink" href="#response-value" title="Link to this heading">#</a></h3>
+<p>The task list is a complex tree structure with up to four top-level keys.  Each key corresponds to one of the three categories requested (<code class="code docutils literal notranslate"><span class="pre">summary</span></code>, <code class="code docutils literal notranslate"><span class="pre">catalog</span></code>, and <code class="code docutils literal notranslate"><span class="pre">history</span></code>) as well as a <code class="code docutils literal notranslate"><span class="pre">cursor</span></code> value if the listing is truncated (explained above).</p>
+</section>
+</section>
+<section id="task-logs">
+<h2>Task Logs<a class="headerlink" href="#task-logs" title="Link to this heading">#</a></h2>
+<p>A task’s raw log file may be accessed by the Tasks API.  Unlike the Task Listing and Task Submission interfaces, no JSON is returned.  The response is merely the log file as plain text.</p>
+<section id="request">
+<h3>Request<a class="headerlink" href="#request" title="Link to this heading">#</a></h3>
+<p>The task log is accessed by <code class="code docutils literal notranslate"><span class="pre">GET</span></code> with the <code class="code docutils literal notranslate"><span class="pre">task_log</span></code> query parameter set to the task identifier the client wishes to read.  All other query parameters are ignored.</p>
+</section>
+<section id="authorization">
+<h3>Authorization<a class="headerlink" href="#authorization" title="Link to this heading">#</a></h3>
+<p>Task logs are only available to item owners or users with privileged access.</p>
+</section>
+<section id="response">
+<h3>Response<a class="headerlink" href="#response" title="Link to this heading">#</a></h3>
+<p>On success the task log is returned as a <code class="code docutils literal notranslate"><span class="pre">text/plain</span></code> payload with an <code class="code docutils literal notranslate"><span class="pre">HTTP</span> <span class="pre">200</span> <span class="pre">OK</span></code> response status.</p>
+</section>
+<section id="important">
+<h3>Important<a class="headerlink" href="#important" title="Link to this heading">#</a></h3>
+<p>Previously, task logs were only available if the Tasks API was accessed from the catalog server (<code class="code docutils literal notranslate"><span class="pre">catalogd.archive.org</span></code>).  This has changed.  Task logs must be accessed from <code class="code docutils literal notranslate"><span class="pre">archive.org</span></code>, as with all other Tasks API operations.</p>
+</section>
+<section id="caching">
+<h3>Caching<a class="headerlink" href="#caching" title="Link to this heading">#</a></h3>
+<p>The Tasks API will include a <code class="code docutils literal notranslate"><span class="pre">Last-Modified</span></code> HTTP header in its response.  The client can use this timestamp for caching the task log locally and detecting changes.</p>
+<p>See the HTTP specification for more information, especially the sections on <a class="reference external" href="https://tools.ietf.org/html/rfc7232#section-2.2">Last-Modified</a> and <a class="reference external" href="https://tools.ietf.org/html/rfc7232#section-3.3">If-Modified-Since</a>.</p>
+</section>
+<section id="partial-and-unavailable-logs">
+<h3>Partial and Unavailable Logs<a class="headerlink" href="#partial-and-unavailable-logs" title="Link to this heading">#</a></h3>
+<p>The client should be prepared for an <code class="code docutils literal notranslate"><span class="pre">HTTP</span> <span class="pre">404</span> <span class="pre">Not</span> <span class="pre">Found</span></code> response when accessing a log for a task that doesn’t exist or has yet to run.  No log will be available in those situations.</p>
+<p>The client should be prepared to receive partial/incomplete log files if the task is executing.  The <code class="code docutils literal notranslate"><span class="pre">Last-Modified</span></code> header can be used to detect when the file has changed during execution.</p>
+</section>
+</section>
+<section id="task-submission">
+<h2>Task Submission<a class="headerlink" href="#task-submission" title="Link to this heading">#</a></h2>
+<p>Tasks may be submitted to items the user either uploaded to Internet Archive or has permissions to edit.  Tasks are submitted by HTTP <code class="code docutils literal notranslate"><span class="pre">POST</span></code> to the service endpoint.</p>
+<section id="request-entity">
+<h3>Request Entity<a class="headerlink" href="#request-entity" title="Link to this heading">#</a></h3>
+<p>Unlike the <code class="code docutils literal notranslate"><span class="pre">GET</span></code> interface, <code class="code docutils literal notranslate"><span class="pre">POST</span></code> expects a JSON entity (payload) describing which task to submit, item identifier, and command-specific arguments.  The supplied JSON object should have the following fields:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p><code class="code docutils literal notranslate"><span class="pre">identifier</span></code> (string) - Item identifier</p></li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">cmd</span></code> (string) - Task command to submit (see below)</p></li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">args</span></code> (array) - Map of key-value pairs (see below)</p></li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">priority</span></code> (integer, optional) - Task priority from 10 to -10 (default: 0)</p></li>
+</ul>
+</div></blockquote>
+<p>See <a class="reference external" href="iarest.html#custom-headers">“Custom headers”</a> for special request and response headers Tasks API supports when submitting tasks.</p>
+</section>
+<section id="supported-tasks">
+<h3>Supported Tasks<a class="headerlink" href="#supported-tasks" title="Link to this heading">#</a></h3>
+<p>Currently the following tasks are supported for submission:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p><code class="code docutils literal notranslate"><span class="pre">book_op.php</span></code></p></li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">bup.php</span></code></p></li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">delete.php</span></code></p></li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">derive.php</span></code></p></li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">fixer.php</span></code></p></li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">make_dark.php</span></code></p></li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">make_undark.php</span></code></p></li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">rename.php</span></code></p></li>
+</ul>
+</div></blockquote>
+<section id="book-op-php">
+<h4>book_op.php<a class="headerlink" href="#book-op-php" title="Link to this heading">#</a></h4>
+<p>Various book operations are available.  Each are activated by including an argument named <code class="code docutils literal notranslate"><span class="pre">op#</span></code> (where the # is replaced by a numeral) with a value specifying which book operation should be performed.  Please contact IA for more information.</p>
+</section>
+<section id="bup-php">
+<h4>bup.php<a class="headerlink" href="#bup-php" title="Link to this heading">#</a></h4>
+<p>Schedule a task to backup the PRIMARY copy of the item to its SECONDARY server.  Generally, this is not required, as all tasks will perform this backup when finished.</p>
+</section>
+<section id="delete-php">
+<h4>delete.php<a class="headerlink" href="#delete-php" title="Link to this heading">#</a></h4>
+<p>Delete the item.  This removes all files from the IA servers.</p>
+<p>WARNING: This is not reversible.  Once data has been deleted, it cannot be restored.</p>
+</section>
+<section id="derive-php">
+<h4>derive.php<a class="headerlink" href="#derive-php" title="Link to this heading">#</a></h4>
+<p>Deriving performs content transformation(s) on the files in the item.  The nature and scope of those transformations is too broad to list here.</p>
+<p>The caller may specify already-derived files be removed prior to running the derive.  Use the <code class="code docutils literal notranslate"><span class="pre">remove_derived</span></code> argument to specify a filename or a file specification, e.g.,`remove_derived=*.jpg`:code:  (Original files uploaded to the item are not deleted, even if they match the file specification.)</p>
+</section>
+<section id="fixer-php">
+<h4>fixer.php<a class="headerlink" href="#fixer-php" title="Link to this heading">#</a></h4>
+<p>A fixer op is a miscellaneous operation being performed on the item, usually to correct an issue with it.  Various fixer ops are available, each activated by including its name as an argument name.  Please contact IA for more information.</p>
+</section>
+<section id="make-dark-php-make-undark-php">
+<h4>make_dark.php/make_undark.php<a class="headerlink" href="#make-dark-php-make-undark-php" title="Link to this heading">#</a></h4>
+<p>Darking an item is making it unavailable to any user, including the item owner.  The item’s contents are unavailable to IA’s internal subsystems as well (include the Metadata API and the search engine).</p>
+<p>A darked item may be undarked later.</p>
+<p>Both tasks require a single argument: <code class="code docutils literal notranslate"><span class="pre">comment</span></code>.  The caller should provide some reasonable explanation for why the item is being darked or undarked.</p>
+</section>
+<section id="rename-php">
+<h4>rename.php<a class="headerlink" href="#rename-php" title="Link to this heading">#</a></h4>
+<p>Rename the item’s identifier.  A <code class="code docutils literal notranslate"><span class="pre">new_identifier</span></code> argument must be specified as the destination identifier.</p>
+<p>If the <code class="code docutils literal notranslate"><span class="pre">new_identifier</span></code> is already present, a <code class="code docutils literal notranslate"><span class="pre">409</span> <span class="pre">Conflict</span></code> is returned.</p>
+<p>WARNING: Many IA features (especially for <code class="code docutils literal notranslate"><span class="pre">derive.php</span></code>) rely on the files in an item to have a matching name as the item identifier itself.  (For example, an item named <code class="code docutils literal notranslate"><span class="pre">foobar</span></code> may have an image stack named <code class="code docutils literal notranslate"><span class="pre">foobar_images.zip</span></code>.)  <code class="code docutils literal notranslate"><span class="pre">rename.php</span></code> will attempt to rename item files as well, but it’s possible for certain cases to be missed.</p>
+<p>Often a better solution is to create a new item with the desired identifier and, once ready, delete the old item.</p>
+</section>
+</section>
+<section id="id3">
+<h3>Authorization<a class="headerlink" href="#id3" title="Link to this heading">#</a></h3>
+<p>The user must either have uploaded the item or have permission to edit it.</p>
+</section>
+<section id="id4">
+<h3>Response Value<a class="headerlink" href="#id4" title="Link to this heading">#</a></h3>
+<p>If <code class="code docutils literal notranslate"><span class="pre">success</span></code> is <code class="code docutils literal notranslate"><span class="pre">true</span></code>, the returned <code class="code docutils literal notranslate"><span class="pre">value</span></code> will include two fields:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p><code class="code docutils literal notranslate"><span class="pre">task_id</span></code> (integer) - The task identifier of the pending task</p></li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">log</span></code> (string) - A URL to the task log (written to when the task starts running)</p></li>
+</ul>
+</div></blockquote>
+</section>
+<section id="rate-limits">
+<h3>Rate Limits<a class="headerlink" href="#rate-limits" title="Link to this heading">#</a></h3>
+<p>Users are limited to the number of tasks they may submit over a period of time.  Clients should be prepared to receive a <code class="code docutils literal notranslate"><span class="pre">429</span> <span class="pre">Too</span> <span class="pre">Many</span> <span class="pre">Requests</span></code> response, indicating the user’s threshold has been reached.  The client should either report this error or sleep for a period of time before retrying.</p>
+<p>The server may return a <code class="code docutils literal notranslate"><span class="pre">Retry-After</span></code> header with the response.  The client may use this value as a suggestion for the amount of time to pause.</p>
+<p>Clients submitting tasks may also opt in to <em>priority reduction</em> to reduce their chance of being rate-limited.  When the <code class="code docutils literal notranslate"><span class="pre">X-Accept-Reduced-Priority</span></code> request header is set to a true-ish value, a task that would otherwise return <code class="code docutils literal notranslate"><span class="pre">429</span> <span class="pre">Too</span> <span class="pre">Many</span> <span class="pre">Requests</span></code> may instead be queued at a server-chosen reduced priority and returned with <code class="code docutils literal notranslate"><span class="pre">200</span> <span class="pre">OK</span></code>; the assigned priority is reported in the <code class="code docutils literal notranslate"><span class="pre">X-Priority-Reduced</span></code> response header.  Clients should still be prepared to receive a <code class="code docutils literal notranslate"><span class="pre">429</span></code> even when this header is sent.  See <a class="reference internal" href="md-write.html#md-write-priority-reduction"><span class="std std-ref">Priority reduction</span></a> for full details.</p>
+<section id="rate-limit-reporting">
+<h4>Rate limit reporting<a class="headerlink" href="#rate-limit-reporting" title="Link to this heading">#</a></h4>
+<p>Tasks API may be queried for the client’s current threshold and active task counts.  Limits are determined per-task-type.</p>
+<p>The client should use <code class="code docutils literal notranslate"><span class="pre">GET</span></code> with two query values: <code class="code docutils literal notranslate"><span class="pre">rate_limits=1</span></code> and <code class="code docutils literal notranslate"><span class="pre">cmd=&lt;cmd&gt;.php</span></code>.  The server will respond with the user’s current task limit, the number of inflight tasks for that command (tasks queued plus tasks running), and the number of tasks for that command currently blocked by OFFLINE nodes (indicating the server is unavailable or in service).</p>
+<p>Note that IA may adjust rate limiting thresholds and policies at any time.</p>
+</section>
+</section>
+</section>
+<section id="rerunning-a-task">
+<h2>Rerunning a task<a class="headerlink" href="#rerunning-a-task" title="Link to this heading">#</a></h2>
+<p>If a task fails (<code class="code docutils literal notranslate"><span class="pre">wait_admin</span></code> of 2 or “red”), the user may rerun the task.  This is useful if the task failed due to a transient error (network failure, etc.)</p>
+<section id="id5">
+<h3>Request Entity<a class="headerlink" href="#id5" title="Link to this heading">#</a></h3>
+<p>As with task submission, <code class="code docutils literal notranslate"><span class="pre">PUT</span></code> expects a JSON entity describing which task to rerun.  The supplied JSON object should have the following fields:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p><code class="code docutils literal notranslate"><span class="pre">op</span></code> (string) - ‘rerun’</p></li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">task_id</span></code> (int) - Task identifier</p></li>
+</ul>
+</div></blockquote>
+</section>
+<section id="id6">
+<h3>Response Value<a class="headerlink" href="#id6" title="Link to this heading">#</a></h3>
+<p>If <code class="code docutils literal notranslate"><span class="pre">success</span></code> is <code class="code docutils literal notranslate"><span class="pre">true</span></code>, the returned <code class="code docutils literal notranslate"><span class="pre">value</span></code> will be a JSON object with the task identifier (as a string, not an integer) and the item identifier.  (This format is used in case support for multiple task reruns is included in the future.)</p>
+</section>
+</section>
+<section id="examples">
+<h2>Examples<a class="headerlink" href="#examples" title="Link to this heading">#</a></h2>
+<p>These examples show HTTP request and responses with extraneous headers trimmed.</p>
+<p>In these examples although the entity may be compressed, the uncompressed data is shown.</p>
+<section id="listing-a-user-s-tasks">
+<h3>Listing a User’s Tasks<a class="headerlink" href="#listing-a-user-s-tasks" title="Link to this heading">#</a></h3>
+<p>To view all pending tasks for <code class="code docutils literal notranslate"><span class="pre">user&#64;example.com</span></code> :</p>
+<div class="highlight-http notranslate"><div class="highlight"><pre><span></span><span class="nf">GET</span> <span class="nn">/services/tasks.php?submitter=user%40example.com&amp;catalog=1</span> <span class="kr">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">Host</span><span class="o">:</span> <span class="l">archive.org</span>
+<span class="na">Authorization</span><span class="o">:</span> <span class="l">LOW &lt;s3-access&gt;:&lt;s3-secret&gt;</span>
+<span class="na">Accept-Encoding</span><span class="o">:</span> <span class="l">deflate, gzip</span>
+</pre></div>
+</div>
+<p>The response may look something like this:</p>
+<div class="highlight-http notranslate"><div class="highlight"><pre><span></span><span class="kr">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
+<span class="na">Host</span><span class="o">:</span> <span class="l">archive.org</span>
+<span class="na">Content-Type</span><span class="o">:</span> <span class="l">application/json</span>
+<span class="na">Transfer-Encoding</span><span class="o">:</span> <span class="l">chunked</span>
+<span class="na">Content-Encoding</span><span class="o">:</span> <span class="l">gzip</span>
+
+<span class="p">{</span><span class="nt">&quot;success&quot;</span><span class="p">:</span><span class="kc">true</span><span class="p">,</span><span class="nt">&quot;value&quot;</span><span class="p">:{</span><span class="nt">&quot;summary&quot;</span><span class="p">:{</span><span class="nt">&quot;queued&quot;</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="nt">&quot;running&quot;</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="nt">&quot;error&quot;</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="nt">&quot;paused&quot;</span><span class="p">:</span><span class="mi">0</span><span class="p">},</span><span class="nt">&quot;catalog&quot;</span><span class="p">:[]}}</span>
+</pre></div>
+</div>
+</section>
+<section id="accessing-a-log-file">
+<h3>Accessing a Log File<a class="headerlink" href="#accessing-a-log-file" title="Link to this heading">#</a></h3>
+<p>To view the log file for completed task #1230802773:</p>
+<div class="highlight-http notranslate"><div class="highlight"><pre><span></span><span class="nf">GET</span> <span class="nn">/services/tasks.php?task_log=1230802773</span> <span class="kr">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">Host</span><span class="o">:</span> <span class="l">archive.org</span>
+<span class="na">Authorization</span><span class="o">:</span> <span class="l">LOW &lt;s3-access&gt;:&lt;s3-secret&gt;</span>
+<span class="na">Accept-Encoding</span><span class="o">:</span> <span class="l">deflate, gzip</span>
+</pre></div>
+</div>
+<p>Results in this response:</p>
+<div class="highlight-http notranslate"><div class="highlight"><pre><span></span><span class="kr">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
+<span class="na">Content-Type</span><span class="o">:</span> <span class="l">text/plain;charset=UTF-8</span>
+<span class="na">Last-Modified</span><span class="o">:</span> <span class="l">Fri, 14 Jun 2019 18:06:40 GMT</span>
+
+
+
+-------------------------------------------------------
+Task started at: UTC: 2019-06-14 18:06:36 ( PDT: 2019-06-14 11:06:36)
+Task pid: 19879
+**... log file continues...**
+</pre></div>
+</div>
+</section>
+<section id="darking-an-item">
+<h3>Darking an Item<a class="headerlink" href="#darking-an-item" title="Link to this heading">#</a></h3>
+<p>To dark item <code class="code docutils literal notranslate"><span class="pre">did_not_mean_to_upload</span></code>, the caller could submit a request as so:</p>
+<div class="highlight-http notranslate"><div class="highlight"><pre><span></span><span class="nf">POST</span> <span class="nn">/services/tasks.php</span> <span class="kr">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">Host</span><span class="o">:</span> <span class="l">archive.org</span>
+<span class="na">Authorization</span><span class="o">:</span> <span class="l">LOW &lt;s3-access&gt;:&lt;s3-secret&gt;</span>
+<span class="na">Content-Type</span><span class="o">:</span> <span class="l">application/json</span>
+<span class="na">Content-Length</span><span class="o">:</span> <span class="l">93</span>
+<span class="na">Accept-Encoding</span><span class="o">:</span> <span class="l">deflate, gzip</span>
+
+<span class="p">{</span><span class="nt">&quot;identifier&quot;</span><span class="p">:</span><span class="s2">&quot;did_not_mean_to_upload&quot;</span><span class="p">,</span><span class="nt">&quot;cmd&quot;</span><span class="p">:</span><span class="s2">&quot;make_dark.php&quot;</span><span class="p">,</span><span class="nt">&quot;args&quot;</span><span class="p">:{</span><span class="nt">&quot;comment&quot;</span><span class="p">:</span><span class="s2">&quot;my mistake&quot;</span><span class="p">}}</span>
+</pre></div>
+</div>
+<p>Note that <code class="code docutils literal notranslate"><span class="pre">args</span></code> provides an object within the enclosing object.</p>
+<p>The response may look something like this:</p>
+<div class="highlight-http notranslate"><div class="highlight"><pre><span></span><span class="kr">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
+<span class="na">Host</span><span class="o">:</span> <span class="l">archive.org</span>
+<span class="na">Content-Type</span><span class="o">:</span> <span class="l">application/json</span>
+<span class="na">Transfer-Encoding</span><span class="o">:</span> <span class="l">chunked</span>
+<span class="na">Content-Encoding</span><span class="o">:</span> <span class="l">gzip</span>
+
+<span class="p">{</span><span class="nt">&quot;success&quot;</span><span class="p">:</span><span class="kc">true</span><span class="p">,</span><span class="nt">&quot;value&quot;</span><span class="p">:{</span><span class="nt">&quot;task_id&quot;</span><span class="p">:</span><span class="mi">1234567</span><span class="p">,</span><span class="nt">&quot;log&quot;</span><span class="p">:</span><span class="s2">&quot;https://archive.org/log/1234567&quot;</span><span class="p">}}</span>
+</pre></div>
+</div>
+</section>
+<section id="id7">
+<h3>Rerunning a task<a class="headerlink" href="#id7" title="Link to this heading">#</a></h3>
+<p>To rerun a stopped task:</p>
+<div class="highlight-http notranslate"><div class="highlight"><pre><span></span><span class="nf">PUT</span> <span class="nn">/services/tasks.php</span> <span class="kr">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">Host</span><span class="o">:</span> <span class="l">archive.org</span>
+<span class="na">Authorization</span><span class="o">:</span> <span class="l">LOW &lt;s3-access&gt;:&lt;s3-secret&gt;</span>
+<span class="na">Content-Type</span><span class="o">:</span> <span class="l">application/json</span>
+
+<span class="p">{</span><span class="nt">&quot;op&quot;</span><span class="p">:</span><span class="s2">&quot;rerun&quot;</span><span class="p">,</span><span class="nt">&quot;task_id&quot;</span><span class="p">:</span><span class="mi">1234</span><span class="p">}</span>
+</pre></div>
+</div>
+<p>A successful response would look like this:</p>
+<div class="highlight-http notranslate"><div class="highlight"><pre><span></span><span class="kr">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
+<span class="na">Host</span><span class="o">:</span> <span class="l">archive.org</span>
+<span class="na">Content-Type</span><span class="o">:</span> <span class="l">application/json</span>
+
+<span class="p">{</span><span class="nt">&quot;success&quot;</span><span class="p">:</span><span class="kc">true</span><span class="p">,</span><span class="nt">&quot;value&quot;</span><span class="p">:{</span><span class="nt">&quot;1234&quot;</span><span class="p">:</span><span class="s2">&quot;my_ia_item&quot;</span><span class="p">}}</span>
+</pre></div>
+</div>
+</section>
+<section id="accessing-the-user-s-task-submission-limits">
+<h3>Accessing the user’s task submission limits<a class="headerlink" href="#accessing-the-user-s-task-submission-limits" title="Link to this heading">#</a></h3>
+<p>To get a report of the user’s current rate limit situation:</p>
+<div class="highlight-http notranslate"><div class="highlight"><pre><span></span><span class="nf">GET</span> <span class="nn">/services/tasks.php?rate_limits=1&amp;cmd=modify_xml.php</span> <span class="kr">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">Host</span><span class="o">:</span> <span class="l">archive.org</span>
+<span class="na">Authorization</span><span class="o">:</span> <span class="l">LOW &lt;s3-access&gt;:&lt;s3-secret&gt;</span>
+</pre></div>
+</div>
+<p>A successful response may be:</p>
+<div class="highlight-http notranslate"><div class="highlight"><pre><span></span><span class="kr">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
+<span class="na">Host</span><span class="o">:</span> <span class="l">archive.org</span>
+<span class="na">Content-Type</span><span class="o">:</span> <span class="l">application/json</span>
+
+<span class="p">{</span><span class="nt">&quot;success&quot;</span><span class="p">:</span><span class="kc">true</span><span class="p">,</span><span class="nt">&quot;value&quot;</span><span class="p">:{</span><span class="nt">&quot;cmd&quot;</span><span class="p">:</span><span class="s2">&quot;modify_xml.php&quot;</span><span class="p">,</span><span class="nt">&quot;task_limits&quot;</span><span class="p">:</span><span class="mi">500</span><span class="p">,</span><span class="nt">&quot;tasks_inflight&quot;</span><span class="p">:</span><span class="mi">120</span><span class="p">,</span><span class="nt">&quot;tasks_blocked_by_offline&quot;</span><span class="p">:</span><span class="mi">0</span><span class="p">}}</span>
+</pre></div>
+</div>
+<p>This indicates the user has 120 <code class="code docutils literal notranslate"><span class="pre">modify_xml.php</span></code> tasks (queued + running) outstanding, zero of them are blocked by an OFFLINE node, and is operating under a limit of 500 <code class="code docutils literal notranslate"><span class="pre">modify_xml.php</span></code> tasks total.</p>
+</section>
+</section>
+</section>
+
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="iarest.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Internet Archive RESTful microservices</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="simplelists.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Simple Lists (Relationships API)</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> On this page
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-a-task">What is a Task?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#service-overview">Service Overview</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#json-lines">JSON Lines</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#task-listings">Task Listings</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#categories">Categories</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#criteria">Criteria</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#limits-and-the-cursor">Limits and the Cursor</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#streaming-the-task-list">Streaming the Task List</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#wildcards">Wildcards</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#wait-admin-and-run-states">wait_admin and Run States</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#searching-task-history">Searching Task History</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#response-value">Response Value</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#task-logs">Task Logs</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#request">Request</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#authorization">Authorization</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#response">Response</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#important">Important</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#caching">Caching</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#partial-and-unavailable-logs">Partial and Unavailable Logs</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#task-submission">Task Submission</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#request-entity">Request Entity</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#supported-tasks">Supported Tasks</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#book-op-php">book_op.php</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#bup-php">bup.php</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#delete-php">delete.php</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#derive-php">derive.php</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#fixer-php">fixer.php</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#make-dark-php-make-undark-php">make_dark.php/make_undark.php</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#rename-php">rename.php</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">Authorization</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">Response Value</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rate-limits">Rate Limits</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#rate-limit-reporting">Rate limit reporting</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#rerunning-a-task">Rerunning a task</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">Request Entity</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">Response Value</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#examples">Examples</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#listing-a-user-s-tasks">Listing a User’s Tasks</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#accessing-a-log-file">Accessing a Log File</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#darking-an-item">Darking an Item</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">Rerunning a task</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#accessing-the-user-s-task-submission-limits">Accessing the user’s task submission limits</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Internet Archive
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2018-2026, Internet Archive.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

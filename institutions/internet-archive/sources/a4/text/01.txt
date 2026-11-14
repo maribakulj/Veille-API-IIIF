@@ -1,0 +1,463 @@
+Let us serve you, but don’t bring us down - Internet Archive Blogs 
+ Internet Archive Blogs 
+ Updates from the Internet Archive
+ Menu 
+ Skip to content 
+ archive.org 
+ Blog 
+ Announcements 
+ About 
+ Events 
+ Developers 
+ Donate 
+ Let us serve you, but don’t bring us down
+ Posted on May 29, 2023 by Brewster Kahle 
+ What just happened on archive.org today, as best we know:
+ Tens of thousands of requests per second for our public domain OCR files were launched from 64 virtual hosts on amazon’s AWS services. (Even by web standards,10’s of thousands of requests per second is a lot.)
+ This activity brought archive.org down for all users for about an hour.
+ We are thankful to our engineers who could scramble on a Sunday afternoon on a holiday weekend to work on this.
+ We got the service back up by blocking those IP addresses.
+ But, another 64 addresses started the same type of activity a couple of hours later.  
+ We figured out how to block this new set, but again, with about an hour outage.
+—- 
+ How this could have gone better for us:
+ Those wanting to use our materials in bulk should start slowly, and ramp up. 
+ Also, if you are starting a large project please contact us at info@archive.org , we are here to help.
+If you find yourself blocked, please don’t just start again, reach out.
+ Again, please use the Internet Archive, but don’t bring us down in the process.
+ Posted in News |
+ 46 Replies 
+ Post navigation
+ ← CRASH! BARK! BOOM! The USC Sound Effects Library 
+ Unveiling the Hidden Truth: UCSF Industry Documents Library Empowers Research Into Tobacco, Drug and Related Industries → 
+ 46 thoughts on “ Let us serve you, but don’t bring us down ” 
+ John Abbe May 29, 2023 at 4:36 am 
+ The (or a) relevant musical reference: https://www.youtube.com/watch?v=z9nkzaOPP6g 
+ Hasford Albrecht May 29, 2023 at 5:15 am 
+ [quote]
+Tens of thousands of requests per second for our public domain OCR files were launched from 64 virtual hosts on amazon’s AWS services. (Even by web standards,10’s of thousands of requests per second is a lot.)
+[/quote]
+ Thank you for taking the time to let your users know what happened.
+ I was using IA earlier today and got a “server error 502” screen. I was so surprised at seeing this I felt compelled to take a screenshot of it, if only to convince myself that what I was seeing was real. And while getting a 502 error from IA probably wasn’t the End of the World, I admit I did trot over to the window to make sure the sun was still in the sky.
+ (You know, just in case.)
+ Admittedly, getting an error screen does help one to better appreciate when a website becomes available again, so it wasn’t all bad. But it *was* surprising – and I feel all the better for knowing what happened.
+ Brewster Kahle Post author May 29, 2023 at 5:48 am 
+ I guess the good news for us is that this does not happen very often or you would not doubt the sun in the sky.
+ Sorry that we went down. We appreciate your message here.
+ -brewster
+ Terry Smith May 29, 2023 at 5:21 pm 
+ Check again 8 minutes later to make sure it’s REALLY there.
+ Upset Librarian May 30, 2023 at 7:32 am 
+ I bet your engineers can work in fixing the new search engine too, because it’s a complete MESS, the changes in your search engine go beyond aesthetics, the old one wasn’t the cutest but it was working properly, now you can’t get significant results, utilizing the same keywords, with pretty simple queries, and this message pops up constantly: -“Your search did not match any items in the Archive. Try different keywords or a more general search.”
+ New users won’t note this at all, if they never were active users of the old one, they will just think that there’s not information about what they’re looking for!!.
+ Morphism May 31, 2023 at 12:18 am 
+ What simple queries used to work but dont anymore?
+ Is it a bug or it is deliberate??
+ nobody May 29, 2023 at 7:07 am 
+ Pretty ironic that you’d complain about this, considering all the websites that you forced to hide behind Cloudflare or go down with your moronic scraping behavior (Pixiv being one of the examples that neutered their api because of you).
+ Clint F. May 29, 2023 at 7:44 am 
+ Any info on the zealots yet? Maybe a possible partnership or service!? (Hoping it’ll be abandoned Macintosh software based) I’m all for internet history at the couple wags of a finger, but geez; that’s at least a good 1 grand or more in AWS services! A good metaphor might be, “the vacuum of space trying to suck the moon through a bendy straw.” lmao…
+ PRW May 29, 2023 at 7:45 am 
+ It is customary, when asking not to be brought down, to address the counter-party as ‘Bruce’.
+ robert June 1, 2023 at 12:03 am 
+ do we break into song at this point?
+ Ciprian May 29, 2023 at 8:10 am 
+ Maybe someone tried not to be archived?
+ Tim H May 29, 2023 at 8:36 am 
+ “please contact us at info@archive.org , we are here to help.” – I wish you’d reply to my many, many requests for help in removing a website of mine I didn’t wish indexed by Wayback (it was my fault it was, my robots.txt wasn’t accessible for a period of time)
+ Hard to have any sympathy when you won’t act yourselves to help others.
+ I love you guys, I do. I’d hate to you see you go down/away. But please, have the decency to reply to people’s emails to you.
+ Tim
+ mzk May 29, 2023 at 8:42 am 
+ it was OpenAI, 100%
+ Mowgli May 29, 2023 at 11:09 am 
+ Absolute noob here, but is this same as a DDOS attack? If so can using something like that cloud flare thingy (no idea what they do though but have cool lava lamps) help mitigate it without effecting users?
+ Kyle May 30, 2023 at 8:03 pm 
+ In effect, yes, in reality, it’s presumably not technically an “attack” since it seems like whoever did it was using the internet archive for a legitimate purpose, just way too much. But yeah, that’s functionally the same as a DDOS attack
+ Duccio Dogheria May 29, 2023 at 11:51 am 
+ Glad it’s all sorted out! I was scared because this afternoon I have to present our collection on the Internet Archive at a summer school on digital libraries and without access it would have been a bit difficult! 🙂 Thanks for all you are doing
+ Archivist May 29, 2023 at 12:04 pm 
+ Did you file abuse complaint to AWS?
+ Ben May 29, 2023 at 12:04 pm 
+ Good job getting back up in such a short time, especially on a weekend. Huge congrats to the team. Also, thank you for telling us what happened! Much better than some other big companies. I took a bit of time, and found out that the IA actually has an API. Never knew about this!
+ In my (not very good) opinion, I think that if the API had a dedicated tab on the main archive.org site, even if it was within the “More” section, it could help with situations like these. I assume the API is rate limited to a rate that the servers can reasonably keep up with. But again, my opinion probably has many flaws. Probably why I don’t have a website haha.
+ Again, well done on getting the site back up in such short time!
+ Node 35 May 29, 2023 at 12:05 pm 
+ Glad IA finally resolved the issue. Hope who ever wants crawl IA so massively would ask permission first.
+ Muhammad Usama May 29, 2023 at 12:46 pm 
+ The amount of help I got from internet archive cannot be repaid by anything. Thanks for everything IA.
+ macstrat May 29, 2023 at 1:06 pm 
+ is the also impacting the Adobe Digital Editions servers? they have been kicking back E_STREAM_ERROR’s on almost everything
+ Sivad J May 31, 2023 at 3:22 am 
+ Same here all of a sudden! No solution or workaround yet…
+ Bro May 31, 2023 at 12:56 pm 
+ I am having the same issue here.
+I always get this “E_STREAM_ERROR” on Adobe Digital Editions.
+ Stephen Skinner May 29, 2023 at 1:22 pm 
+ Hello!
+ I was just wondering if something is affecting the borrow books area – the 14-day acsm and book download are running very slowly again.
+ Thankyou.
+ Richard Reynolds May 29, 2023 at 1:39 pm 
+ There’s really no reason to allow traffic from AWS, Azure or Google Cloud. You should block all those networks. Most traffic that originates from them is scraping and often malicious.
+ Kyle May 30, 2023 at 8:06 pm 
+ This is a terrible idea and fundamentally misrepresents what kind of traffic comes from the sources, on average. I guess I’d need to see a breakdown of overall traffic flowing to IA to be sure, but I’m guessing the vast majority is legitimate and not abusive.
+ masterX244 June 1, 2023 at 7:28 am 
+ Doesnt work in the IA context, there is legit traffic from hosting providers. Almost all data under the archiveteam collection for example got delivered via datacenters. for example.
+ Futur3Sn0w May 29, 2023 at 1:45 pm 
+ Transparency like this is why we need IA! Thank you for taking the time to update us, and for being so patient with those using your service!
+Much love and respect to the team at archive.org!
+ George E. May 29, 2023 at 2:11 pm 
+ Might be time to consider Cloudflare’s Project Gallileo.
+ https://www.cloudflare.com/galileo/ 
+ John May 29, 2023 at 3:09 pm 
+ You guys are amazing! You do great work, and we greatly appreciate all of your efforts! This whole “train the AI with public data” projects are getting old. How hard would it have been for the trainers to distribute those downloads over the course of several days, as well as donate a good chunk to this great service? Not hard at all, I’ll tell you that for free.
+ yuki May 29, 2023 at 4:07 pm 
+ I believe that you should implement a request limit per device. What is considered an abnormal number of requests from a single device?
+ JM May 29, 2023 at 5:28 pm 
+ Do you think it was a DDoS attack against the IA? Do you have a back-up server or a storage facility just in case? I would’ve flipped out yesterday had I been trying to access IA and seeing that 502 error.
+ Doug Roberts May 29, 2023 at 6:18 pm 
+ Is there any way that something like cloudflare or a CDN would protect against this? I would think that the request would be made to the city in and then the CDN would make a single request to your server resulting in much lower load. But, if they were trying to download tens of thousands of individual files, perhaps this won’t work. The only other thing I can think of is some sort of rate throttling or download limit with a time out. I know that sucks but you can let a single IP address download five files let’s say, and then give them a cool off Of 30 minutes before they can download another one.
+ Joe T. May 29, 2023 at 6:45 pm 
+ First thing I thought of from the title:
+ https://archive.org/details/Elo-DontBringMeDown 
+ Aaron Read May 29, 2023 at 8:27 pm 
+ Forgive me for perhaps sounding paranoid, but this seems like an awfully easy thing for bad-faith actors to do in order to take down archive.org at a critical time. Like, for example, the 48 hours before a national election (in the USA or elsewhere). Just set up 50 groups of 64 ip addresses and start sequentially slamming the servers with requests. Is this something that Archive.org can better defend against in the future? Is there something others can do to help?
+ Far McKon May 29, 2023 at 9:15 pm 
+ Not all super-heros wear capes. Thanks for all your team (and you) do .
+ Wingedream May 30, 2023 at 6:24 am 
+ Your clarification makes me feel happy that you guys are always in the trenches fighting.With that i,we must be full of hope.
+Thanks
+ G May 30, 2023 at 9:10 pm 
+ Are you experiencing the same problem again? I just tried to borrow a book, but even though the request went through, none of the pages would load past the ones already available in the preview. Just blank space and the swirling circle. Is this bc the server is overloaded again?
+ Thank you.
+ Tom McCanna May 31, 2023 at 3:55 am 
+ Is this why recordings loaded as long ago as 25th May still lack the PLAY buttons?
+ Simon Ephraim May 31, 2023 at 7:37 am 
+ Glad you keep us informed. Happy to keep donating. Much appreciating the efforts of the IA team.
+Not that I get a cardiac arrest when you are down but I start to feel less free when the greatest public library gets closed.
+ TM May 31, 2023 at 10:48 pm 
+ Using this site to register copyrights will solve the problem/personally eat syndicated media and process it into intellectual property
+ دانلود آهنگ June 1, 2023 at 7:00 am 
+ Of course, excessive growth of the site and increase in requests can be good. This is the beginning of a great transformation
+ bart simpson June 2, 2023 at 5:42 pm 
+ Iam not sure if there are trolls but many peeps are uploading porn https://archive.org/details/belledelphinearch 
+ wtf.
+ ZV6 June 4, 2023 at 11:28 am 
+ Borrow for 1 hour? I really appreciate your realistic explanation.
+– Your site only showed me the first five pages of the book I selected.
+– Then I duly registered on your site as you stated, to be able to access the book for 1 hour.
+– After that, your site showed me the same, only the first five pages of the selected book.
+– I really don’t see the point of registering on your site when I can’t access the book, only the first five pages.
+Really disappointing.
+Regards
+ Matthew McRae June 9, 2023 at 12:06 pm 
+ Love the updates and transparency. Thanks for the note and clear insturctions on the issue at hand.
+ daelv June 11, 2023 at 4:20 pm 
+ June 11, 2023 Internet archive extension and chrome interoperability extinguished?
+ Comments are closed.
+ Search for: 
+ Latest Posts
+ Preserving 30 Years of Salon Journalism 
+ Annual Celebration 2026: Internet Archive Staff and Friends Showcase Latest Developments 
+ 2027 Public Domain Film Contest: The Internet Archive is Looking For Creative Short Films Made By You! 
+ Weaving ‘Tapestries’: Introducing A New Tool for Digital Storytelling and Archiving 
+ From Main Street to Capitol Hill, the Case for Democracy’s Library 
+ Upcoming Events 
+ Dec 
+ 3 
+ 10:00 am - 11:00 am 
+ First Encounters with AI 
+ View Calendar 
+ Recent Comments
+ CedarBill on Weaving ‘Tapestries’: Introducing A New Tool for Digital Storytelling and Archiving 
+ Adelaide Dupont on Weaving ‘Tapestries’: Introducing A New Tool for Digital Storytelling and Archiving 
+ Theokali77 on Celebrating 2026 Internet Archive Artist in Residence: Christopher Burch 
+ Adelaide Dupont on Building the Hero Award: The Story Behind Taekyeom Lee’s 3D-Printed Model of the Internet Archive 
+ Ophelia Sterling on 100+ Years of Student Radio History in the DLARC College Radio Collections 
+ Categories
+ 78rpm 
+ Announcements 
+ Archive Version 2 
+ Archive-It 
+ Audio Archive 
+ Books Archive 
+ Cool items 
+ Education Archive 
+ Emulation 
+ Event 
+ Image Archive 
+ Jobs 
+ Lending Books 
+ Live Music Archive 
+ Movie Archive 
+ Music 
+ News 
+ Newsletter 
+ Open Library 
+ Past Event 
+ Software Archive 
+ Technical 
+ Television Archive 
+ Uncategorized 
+ Upcoming Event 
+ Video Archive 
+ Wayback Machine – Web Archive 
+ Web & Data Services 
+ Archives
+ Archives 
+ Select Month 
+ November 2026 
+ October 2026 
+ September 2026 
+ August 2026 
+ July 2026 
+ June 2026 
+ May 2026 
+ April 2026 
+ March 2026 
+ February 2026 
+ January 2026 
+ December 2025 
+ November 2025 
+ October 2025 
+ September 2025 
+ August 2025 
+ July 2025 
+ June 2025 
+ May 2025 
+ April 2025 
+ March 2025 
+ February 2025 
+ January 2025 
+ December 2024 
+ November 2024 
+ October 2024 
+ September 2024 
+ August 2024 
+ July 2024 
+ June 2024 
+ May 2024 
+ April 2024 
+ March 2024 
+ February 2024 
+ January 2024 
+ December 2023 
+ November 2023 
+ October 2023 
+ September 2023 
+ August 2023 
+ July 2023 
+ June 2023 
+ May 2023 
+ April 2023 
+ March 2023 
+ February 2023 
+ January 2023 
+ December 2022 
+ November 2022 
+ October 2022 
+ September 2022 
+ August 2022 
+ July 2022 
+ June 2022 
+ May 2022 
+ April 2022 
+ March 2022 
+ February 2022 
+ January 2022 
+ December 2021 
+ November 2021 
+ October 2021 
+ September 2021 
+ August 2021 
+ July 2021 
+ June 2021 
+ May 2021 
+ April 2021 
+ March 2021 
+ February 2021 
+ January 2021 
+ December 2020 
+ November 2020 
+ October 2020 
+ September 2020 
+ August 2020 
+ July 2020 
+ June 2020 
+ May 2020 
+ April 2020 
+ March 2020 
+ February 2020 
+ January 2020 
+ December 2019 
+ November 2019 
+ October 2019 
+ September 2019 
+ August 2019 
+ July 2019 
+ June 2019 
+ May 2019 
+ April 2019 
+ March 2019 
+ February 2019 
+ January 2019 
+ December 2018 
+ November 2018 
+ October 2018 
+ September 2018 
+ August 2018 
+ July 2018 
+ June 2018 
+ May 2018 
+ April 2018 
+ March 2018 
+ February 2018 
+ January 2018 
+ December 2017 
+ November 2017 
+ October 2017 
+ September 2017 
+ August 2017 
+ July 2017 
+ June 2017 
+ May 2017 
+ April 2017 
+ March 2017 
+ February 2017 
+ January 2017 
+ December 2016 
+ November 2016 
+ October 2016 
+ September 2016 
+ August 2016 
+ July 2016 
+ June 2016 
+ May 2016 
+ April 2016 
+ March 2016 
+ February 2016 
+ January 2016 
+ December 2015 
+ November 2015 
+ October 2015 
+ September 2015 
+ July 2015 
+ June 2015 
+ May 2015 
+ April 2015 
+ March 2015 
+ February 2015 
+ January 2015 
+ December 2014 
+ November 2014 
+ October 2014 
+ September 2014 
+ August 2014 
+ July 2014 
+ June 2014 
+ May 2014 
+ April 2014 
+ March 2014 
+ February 2014 
+ January 2014 
+ December 2013 
+ November 2013 
+ October 2013 
+ September 2013 
+ August 2013 
+ July 2013 
+ June 2013 
+ May 2013 
+ April 2013 
+ March 2013 
+ February 2013 
+ January 2013 
+ December 2012 
+ November 2012 
+ October 2012 
+ September 2012 
+ August 2012 
+ July 2012 
+ June 2012 
+ May 2012 
+ April 2012 
+ March 2012 
+ February 2012 
+ January 2012 
+ December 2011 
+ November 2011 
+ October 2011 
+ September 2011 
+ August 2011 
+ July 2011 
+ June 2011 
+ May 2011 
+ April 2011 
+ March 2011 
+ February 2011 
+ January 2011 
+ December 2010 
+ November 2010 
+ October 2010 
+ September 2010 
+ August 2010 
+ July 2010 
+ June 2010 
+ May 2010 
+ April 2010 
+ March 2010 
+ February 2010 
+ January 2010 
+ December 2009 
+ October 2009 
+ September 2009 
+ August 2009 
+ July 2009 
+ June 2009 
+ May 2009 
+ April 2009 
+ March 2009 
+ February 2009 
+ January 2009 
+ December 2008 
+ November 2008 
+ September 2008 
+ August 2008 
+ June 2008 
+ May 2008 
+ April 2008 
+ March 2008 
+ February 2008 
+ January 2008 
+ December 2007 
+ October 2007 
+ September 2007 
+ August 2007 
+ July 2007 
+ June 2007 
+ May 2007 
+ April 2007 
+ March 2007 
+ February 2007 
+ January 2007 
+ December 2006 
+ November 2006 
+ October 2006 
+ September 2006 
+ August 2006 
+ February 2006 
+ November 2005 
+ October 2005 
+ September 2005 
+ March 2005 
+ February 2005 
+ January 2005 
+ December 2004 
+ October 2004 
+ March 2004 
+ Meta
+ Log in 
+ Entries feed 
+ Comments feed 
+ WordPress.org 
+ Proudly powered by WordPress

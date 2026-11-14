@@ -1,0 +1,266 @@
+GitHub - internetarchive/internet-archive-skills: Claude Code skill for uploading to, downloading from, and searching the Internet Archive (archive.org) · GitHub 
+ Skip to content 
+ Navigation Menu
+ Sign in 
+ Products Platform GitHub Repository hosting, code review, and collaboration 
+ Copilot AI coding agent for tasks, projects, and automated work 
+ Build & Ship Actions CI/CD and automation 
+ Code Quality Quality analysis, fixes, and enforcement 
+ Codespaces Cloud development environments 
+ Secure Code Security Vulnerability detection and remediation 
+ Secret Protection Secret scanning and leak prevention 
+ All Features 
+ Developers Learn Documentation 
+ Training 
+ Certifications 
+ Build Build with Copilot 
+ Customize Copilot 
+ Integrations 
+ Explore Trending repos 
+ GitHub Sponsors 
+ Developer articles 
+ Changelog Changelog Your source for the latest features, improvements, and fixes across GitHub products, all in one place. 
+ Businesses By Stage Enterprises 
+ Team 
+ Startups 
+ Nonprofits 
+ By Industry Healthcare 
+ Financial services 
+ Manufacturing 
+ Government 
+ See all industries 
+ Evaluate GitHub Why GitHub 
+ Customer Stories 
+ Business insights 
+ Trust Center 
+ Add-ons GitHub Advanced Security Enterprise-grade code security 
+ Copilot for business Enterprise-grade AI features 
+ Premium Support Enterprise-grade 24/7 support 
+ Resources Learn & Connect Documentation 
+ Resource center 
+ Blog 
+ Events & webinars 
+ Community Forum 
+ Customer Stories 
+ Integrations 
+ Support Customer support 
+ Training 
+ GitHub Status 
+ Company About 
+ Partners 
+ Changelog 
+ GitHub Universe GitHub Universe The event for developers, by developers — talks, workshops, and what’s next for GitHub. 
+ Pricing 
+ Search / 
+ Sign in 
+ Sign up Appearance settings
+ You signed in with another tab or window. Reload to refresh your session. 
+ You signed out in another tab or window. Reload to refresh your session. 
+ You switched accounts on another tab or window. Reload to refresh your session. 
+ Dismiss alert 
+ {{ message }}
+ internetarchive 
+ internet-archive-skills 
+ Repository navigation
+ Code 
+ Pull requests 2  ( 2 ) 
+ Actions 
+ Projects 
+ Security and quality 
+ Insights 
+ More items 
+ internet-archive-skills 
+ Public 
+ forked from brewsterkahle / internet-archive-skills 
+ Notifications You must be signed in to change notification settings 
+ Fork 11  ( 11 ) 
+ Star 66  ( 66 ) You must be signed in to star a repository 
+ About 
+ Claude Code skill for uploading to, downloading from, and searching the Internet Archive (archive.org)
+ Resources 
+ Readme 
+ License 
+ Activity 
+ Custom properties 
+ Stars 
+ 66 stars 
+ Watchers 
+ 2 watching 
+ Forks 
+ 11 forks 
+ Report repository 
+ main 
+ Branches Tags 
+ Go to file 
+ Code Open more actions menu 
+ Latest commit
+ History
+ 19 Commits 
+ 19 Commits 
+ Folders and files
+ Name Name Last commit message 
+ Last commit date 
+ .claude-plugin 
+ .claude-plugin 
+ examples 
+ examples 
+ skills/ ia 
+ skills/ ia 
+ .gitignore 
+ .gitignore 
+ LICENSE 
+ LICENSE 
+ README.md 
+ README.md 
+ View all files 
+ Repository files navigation
+ README 
+ License 
+ More items 
+ Internet Archive Skill for Claude Code
+ A Claude Code skill that enables Claude to interact with the Internet Archive using the ia command-line tool. Upload, download, search, and manage content on archive.org.
+ Features
+ Search the Internet Archive catalog with advanced query syntax
+ Download files from any public archive item
+ Upload files with proper metadata (requires account)
+ Manage metadata for your uploaded items
+ Automatic tool installation via uv or pipx if not present
+ Prerequisites
+ Claude Code installed
+ Python 3.9 or higher
+ One of: uv , pipx , or pip (for installing the ia CLI)
+ Installation
+ Option 1: Plugin Marketplace (Recommended)
+ Install directly from within Claude Code:
+ /plugin marketplace add https://github.com/internetarchive/internet-archive-skills.git
+/plugin install ia@internet-archive-skills
+ Option 2: Clone and Symlink (For Development)
+ # Clone the repository 
+git clone https://github.com/internetarchive/internet-archive-skills.git
+ cd internet-archive-skills
+ # Create skills directory if it doesn't exist 
+mkdir -p ~ /.claude/skills
+ # Symlink the skill 
+ln -s " $( pwd ) /skills/ia " ~ /.claude/skills/ia 
+ Option 3: Direct Copy
+ # Clone the repository 
+git clone https://github.com/internetarchive/internet-archive-skills.git
+ # Create skills directory and copy 
+mkdir -p ~ /.claude/skills
+cp -r internet-archive-skills/skills/ia ~ /.claude/skills/ 
+ Option 4: Download Just the Skill
+ # Create skills directory 
+mkdir -p ~ /.claude/skills/ia
+ # Download the skill file directly 
+curl -o ~ /.claude/skills/ia/SKILL.md \
+ https://raw.githubusercontent.com/internetarchive/internet-archive-skills/main/skills/ia/SKILL.md 
+ Usage
+ Manual Invocation
+ Use the /ia command to explicitly invoke the skill:
+ /ia search for public domain books about astronomy
+/ia download the apollo 11 mission photos
+/ia help me upload my document to archive.org
+ Automatic Invocation
+ Claude will automatically use this skill when you mention Internet Archive-related tasks:
+ "Search the Internet Archive for NASA images"
+"Download files from archive.org item sci-fi-collection"
+"Help me archive this PDF to archive.org"
+ Examples
+ Searching
+ "Search Internet Archive for vintage computer manuals"
+"Find public domain audiobooks by Mark Twain on archive.org"
+"Search for items in the NASA collection"
+ Downloading
+ "Download the Gutenberg Bible scans from archive.org"
+"Get all PDF files from item 'classic-literature-collection'"
+"Download NASA Apollo mission images"
+ Uploading
+ "Help me upload my thesis to Internet Archive"
+"Upload these photos to archive.org with proper metadata"
+"Create a new archive item for my podcast episodes"
+ Configuration
+ The ia CLI tool requires configuration for upload operations. Claude will guide you through this process, but here's a quick overview:
+ Create an Internet Archive account at https://archive.org/account/signup 
+ Get your S3-like API keys at https://archive.org/account/s3.php 
+ Configure the CLI by running ia configure and entering your keys
+ Configuration is stored in ~/.config/ia.ini .
+ Alternatively, set environment variables:
+ export IA_ACCESS_KEY_ID= " your-access-key " 
+ export IA_SECRET_ACCESS_KEY= " your-secret-key " 
+ Plugin Structure
+ internet-archive-skills/
+├── .claude-plugin/
+│ └── plugin.json # Plugin manifest
+├── skills/
+│ └── ia/
+│ └── SKILL.md # Main skill instructions
+├── examples/
+│ └── usage-examples.md
+├── README.md
+└── LICENSE
+ The SKILL.md file contains:
+ Tool detection and installation instructions
+ Authentication and configuration guide
+ Complete command reference for search, download, upload, and metadata
+ Best practices and error handling
+ Troubleshooting
+ Skill not recognized
+ Ensure the skill is in the correct location: ~/.claude/skills/ia/SKILL.md 
+ Restart Claude Code or reload the conversation
+ Try explicit invocation with /ia 
+ ia command not found
+ Claude will offer to install it for you. If you prefer manual installation:
+ # Using uv (recommended) 
+uv tool install internetarchive
+ # Using pipx 
+pipx install internetarchive
+ # Using pip 
+pip install internetarchive 
+ Authentication errors
+ Check your credentials at https://archive.org/account/s3.php 
+ Re-run ia configure to update settings
+ Verify config with ia configure --print 
+ Contributing
+ Contributions are welcome! Please feel free to submit issues or pull requests.
+ Fork the repository
+ Create a feature branch
+ Make your changes
+ Test with Claude Code
+ Submit a pull request
+ Resources
+ Internet Archive 
+ internetarchive Python Library 
+ Internet Archive API Documentation 
+ Claude Code Documentation 
+ License
+ GNU Affero General Public License v3.0 (AGPL-3.0) - see LICENSE file for details.
+ About 
+ Claude Code skill for uploading to, downloading from, and searching the Internet Archive (archive.org)
+ Resources 
+ Readme 
+ License 
+ Activity 
+ Custom properties 
+ Stars 
+ 66 stars 
+ Watchers 
+ 2 watching 
+ Forks 
+ 11 forks 
+ Report repository 
+ Releases 
+ Packages 
+ Contributors 
+ Footer
+ © 2026 GitHub, Inc.
+ Footer navigation
+ Terms 
+ Privacy 
+ Security 
+ Status 
+ Community 
+ Docs 
+ Contact 
+ Manage cookies
+ Do not share my personal information
+ You can’t perform that action at this time.

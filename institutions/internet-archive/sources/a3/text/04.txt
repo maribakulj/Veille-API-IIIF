@@ -1,0 +1,159 @@
+The Internet Archive Python Library — Internet Archive Developer Portal 
+ Skip to main content 
+ Back to top 
+ Ctrl + K 
+ Ctrl + K 
+ Home
+ Tutorials 
+ Get your Internet Archive credentials 
+ See whether a website exists in the archives 
+ Compare two versions of a website 
+ Tools and APIs 
+ Bots, LLMs, and Automated Access 
+ Internet Archive Items 
+ Internet Archive Metadata 
+ Command-Line Interface 
+ The Internet Archive Python Library 
+ ias3 Internet archive S3-like API 
+ Item Metadata API 
+ Item Metadata API: Read 
+ Item Metadata API: Write 
+ Item Metadata API: Record details 
+ Item Metadata API: Advanced Topics & Extensions 
+ API for discovering changes to archive.org items 
+ Views data service api 
+ Item Engagement counting on the archive.org website. 
+ Internet Archive RESTful microservices 
+ Internet Archive Tasks API 
+ Simple Lists (Relationships API) 
+ Reviews API 
+ OCR at the Internet Archive with Tesseract and hOCR 
+ PDF analysis, generation and compression at the Internet Archive 
+ .rst 
+ .pdf 
+ The Internet Archive Python Library
+ On this page 
+ The Internet Archive Python Library 
+ Quick start 
+ Documentation 
+ Setup & Configuration 
+ User Interfaces 
+ Performance & Scaling 
+ Development & Community 
+ Help & Support 
+ Reference 
+ Authors 
+ Indices and tables 
+ The Internet Archive Python Library # 
+ Release v5.12.2.dev3. ( Installation )
+ Welcome to the documentation for the internetarchive Python library. This tool provides both a command-line interface (CLI) and a Python API for interacting with archive.org , allowing you to search, download, upload and interact with archive.org services from your terminal or in Python.
+ These docs guide you through installation, usage, and examples, whether you’re new to Python, just want to try the CLI, or are building applications that work with the Internet Archive. Please report any issues or contribute on GitHub .
+ Quick start # 
+ If you’re new to Python or the command line interface (CLI), the easiest way to get started is to follow these three steps:
+ Download a binary of the ia command-line tool
+ Configure your environment with your Archive.org credentials
+ Visit the CLI documentation to start exploring how to use the tool
+ Documentation # 
+ For more detailed information, including installing the command-line tool and Python library, please refer to the following sections:
+ Setup & Configuration # 
+ Get the tools running on your system:
+ Installation 
+ Recommended: Installing the ia CLI with pipx 
+ Installing for Python Scripts (using a virtual environment) 
+ Using ia Binaries 
+ Updating 
+ Configuration 
+ Config File 
+ Environment Variables 
+ Advanced Configuration Options 
+ User Interfaces # 
+ These are the main ways to use the Internet Archive Python Library and CLI:
+ Command-Line Interface 
+ Quick Start 
+ Metadata 
+ Upload 
+ Download 
+ Delete 
+ Search 
+ Tasks 
+ List 
+ Copy 
+ Move 
+ Performance Tips 
+ Getting Help 
+ Python Library Usage 
+ Quick Start 
+ Simple Functional Interface 
+ Using Sessions 
+ Working with Items 
+ Searching for Items 
+ Common Patterns 
+ Configuration 
+ Next Steps 
+ Performance & Scaling # 
+ Optimize your workflows:
+ Using GNU Parallel with ia 
+ Basic Usage 
+ Development & Community # 
+ Contribute and stay updated:
+ How to Contribute 
+ Support Questions 
+ Bug Reports 
+ Pull Requests 
+ Running Tests 
+ Releasing 
+ Updates 
+ Release History 
+ Help & Support # 
+ Get help when you need it:
+ Troubleshooting 
+ HTTPS Issues 
+ OverflowError 
+ Getting Further Help 
+ Documentation : Check this troubleshooting guide first
+ Community : Search existing GitHub Issues 
+ Report : If you can’t find a solution, open a new issue 
+ When reporting an issue, please include:
+ The exact command or code that caused the problem
+ Any error messages you received
+ Your operating system and Python version
+ Before reporting, make sure you’re using the latest version of the library and Updating if necessary.
+ Reference # 
+ Complete reference documentation for all modules:
+ Module Documentation 
+ Core Modules 
+ File Operations 
+ Request Handling 
+ Task and Catalog Management 
+ Authentication and Configuration 
+ Utility and Supporting Modules 
+ CLI Modules (Internal) 
+ Complete Package Reference 
+ Authors # 
+ Authors 
+ Development Lead 
+ Contributors 
+ Patches and Suggestions 
+ Indices and tables # 
+ Index 
+ Module Index 
+ Search Page 
+ previous
+ Command-Line Interface
+ next
+ Installation
+ On this page
+ The Internet Archive Python Library 
+ Quick start 
+ Documentation 
+ Setup & Configuration 
+ User Interfaces 
+ Performance & Scaling 
+ Development & Community 
+ Help & Support 
+ Reference 
+ Authors 
+ Indices and tables 
+By Internet Archive
+ © Copyright 2018-2026, Internet Archive.
+ so the DOM is not blocked -->
