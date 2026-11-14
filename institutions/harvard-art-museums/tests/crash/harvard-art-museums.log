@@ -1,0 +1,6 @@
+# Crash test 2026-11-14T08:13:09Z — configuration crash-iiif-collection-top.json — endpoint iiif-collection-top GET https://iiif.harvardartmuseums.org/collections/top
+# réseau détecté : aucun réseau à réputation partagée connu ; plafond standard 200 req/min (décision de Marcel 14/11/2026) ; requête de détection : 200 en 0.46 s
+# limite documentée : aucune req/min (aucune limite documentée pour l'IIIF (https://github.com/harvardartmuseums/api-docs/blob/master/sections/iiif.md : services IIIF « separate from our main data API. They do not require an access key ») ; les 2 500 appels/jour concernent l'API de données avec clé, non testée ; collections/top : 632 octets, 200 le 2026-11-14) ; paliers [6, 10, 50, 200] ; plafond 200 req/min ; 180 s par palier
+2026-11-14T08:15:59Z | palier 6 req/min | {"palier_req_min": 6, "requetes": 18, "debit_reel_req_min": 6.3, "codes": {"200": 18}, "latence_p50_s": 0.421, "latence_max_s": 1.502}
+2026-11-14T08:18:54Z | palier 10 req/min | {"palier_req_min": 10, "requetes": 30, "debit_reel_req_min": 10.3, "codes": {"200": 30}, "latence_p50_s": 0.426, "latence_max_s": 2.477}
+2026-11-14T08:21:53Z | palier 50 req/min | {"palier_req_min": 50, "requetes": 150, "debit_reel_req_min": 50.2, "codes": {"200": 150}, "latence_p50_s": 0.415, "latence_max_s": 2.53}

@@ -35,3 +35,8 @@ Trois passes (`config/huntington-passe1-iiif.json`, `passe2-redirections`, `pass
 ## Conclusion
 Pas de quota publié : le HDL est une instance CONTENTdm hébergée par OCLC, dont la doc IIIF ne donne aucun chiffre. Seule règle écrite : `Crawl-Delay: 1` dans robots.txt. Aucun mécanisme de limitation observé (22 requêtes sur les hôtes d'API). Pourquoi pas publié : hypothèse, plateforme SaaS OCLC dont la politique est du ressort de l'éditeur ; non confirmé. À contacter : reference@huntington.org. Le site vitrine (Vercel) et l'eMuseum (Cloudflare) sont derrière des défis anti-bot : URL à vérifier à la main (onglet « À vérifier à la main »).
 Décision prise seule : le 429 de `www.huntington.org` arrête cet hôte seulement ; les hôtes d'API (OCLC) ont été testés prudemment (≥ 6 s).
+
+## Crash test (étape g)
+
+Crash test fait le 2026-11-14 : info-json-cdm16003 sur cdm16003.contentdm.oclc.org : aucun blocage jusqu'à 200 req/min (plafond 200 req/min).
+Journal : `tests/crash/huntington-art-museum-botanical-gardens.log`. Un test « sans blocage » n'est pas une preuve d'illimitation au-delà du plafond.

@@ -1,0 +1,9 @@
+# Crash test 2026-11-14T08:23:05Z — configuration crash-info-json.json — endpoint info-json-cdm16003 GET https://cdm16003.contentdm.oclc.org/digital/iiif/2/p16003coll14:1102/info.json
+# réseau détecté : aucun réseau à réputation partagée connu ; plafond standard 200 req/min (décision de Marcel 14/11/2026) ; requête de détection : 200 en 0.61 s
+# limite documentée : aucune req/min (aucune limite de débit documentée (robots.txt de hdl.huntington.org : seulement « Crawl-Delay: 1 » ; doc OCLC help.oclc.org IIIF API reference : aucun chiffre)) ; paliers [6, 10, 50, 200] ; plafond 200 req/min ; 180 s par palier
+2026-11-14T08:25:55Z | palier 6 req/min | {"palier_req_min": 6, "requetes": 18, "debit_reel_req_min": 6.3, "codes": {"200": 18}, "latence_p50_s": 0.577, "latence_max_s": 2.611}
+2026-11-14T08:28:50Z | palier 10 req/min | {"palier_req_min": 10, "requetes": 30, "debit_reel_req_min": 10.3, "codes": {"200": 30}, "latence_p50_s": 0.579, "latence_max_s": 2.576}
+2026-11-14T08:31:49Z | palier 50 req/min | {"palier_req_min": 50, "requetes": 150, "debit_reel_req_min": 50.2, "codes": {"200": 150}, "latence_p50_s": 0.57, "latence_max_s": 2.946}
+2026-11-14T08:34:49Z | palier 200 req/min | {"palier_req_min": 200, "requetes": 600, "debit_reel_req_min": 199.7, "codes": {"200": 599, "None": 1}, "latence_p50_s": 0.558, "latence_max_s": 20.547}
+# Fin 2026-11-14T08:34:49Z — aucun blocage jusqu'à 200 req/min
+

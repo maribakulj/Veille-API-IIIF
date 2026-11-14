@@ -66,3 +66,12 @@
 2026-11-14T07:57:24Z | hab : g cochée, commit fait (17)
 2026-11-14T07:57:24Z | === harvard (1 configuration(s))
 2026-11-14T08:12:35Z | harvard / crash-librarycloud-items.json : harvard : aucun blocage jusqu'à 120 req/min
+2026-11-14T08:13:08Z | harvard : g cochée, commit fait (18)
+2026-11-14T08:13:08Z | === harvard-art-museums (1 configuration(s))
+2026-11-14T08:23:03Z | harvard-art-museums / crash-iiif-collection-top.json : Traceback (most recent call last):
+  File "/Users/marcel/Veille-API-IIIF/scripts/crash.py", line 252, in <module>
+    sys.exit(main(sys.argv[1]))
+             ~~~~^^^^^^^^^^^^^
+  File "/Users/marcel/Veille-API-IIIF/scripts/crash.py", line 2
+2026-11-14T08:23:03Z | === huntington-art-museum-botanical-gardens (1 configuration(s))
+2026-11-14T08:34:49Z | huntington-art-museum-botanical-gardens / crash-info-json.json : huntington-art-museum-botanical-gardens : aucun blocage jusqu'à 200 req/min
