@@ -1,0 +1,341 @@
+
+
+
+
+<HTML><HEAD><TITLE>BNP Catalogue: access by Uniform Resource Names</TITLE>
+<META http-equiv=Content-Type content="text/html"><LINK 
+href="style/style.css" type=text/css rel=stylesheet>
+<script language="javascript">
+<!-- Begin
+function init(){
+	var valEsq=getRadioButtonSelectedValue(document.forms[0].esquema);
+	var valAcc=getRadioButtonSelectedValue(document.forms[0].acesso);
+	var valFor=getRadioButtonSelectedValue(document.forms[0].forma);
+
+    if (valAcc=="" || valAcc==null){
+    	document.forms[0].acesso[0].checked=true;
+    }
+    if (valEsq=="" || valEsq==null){
+    	document.forms[0].esquema[0].checked=true;
+    }
+    if (valFor=="" || valFor==null){
+    	document.forms[0].forma[0].checked=true;
+    }
+    acessoChanged();
+    esquemaChanged();
+}
+
+
+function acessoChanged(){
+	var val=getRadioButtonSelectedValue(document.forms[0].acesso);
+	var valEsq=getRadioButtonSelectedValue(document.forms[0].esquema);
+	if (val=='nca'){
+		document.forms[0].esquema[0].disabled=true;
+		document.forms[0].esquema[1].disabled=true;
+		document.forms[0].esquema[2].disabled=true;
+		document.forms[0].esquema[3].disabled=true;
+		document.forms[0].esquema[4].disabled=false;
+		document.getElementById('dc').style.color="#aaa";
+		document.getElementById('dcq').style.color="#aaa";
+		document.getElementById('mods').style.color="#aaa";
+		document.getElementById('unimarc').style.color="#aaa";
+		document.getElementById('unimarc-authorities').style.color="#000";
+		if (valEsq=='dc' || valEsq=='dcq' || valEsq=='unimarc' || valEsq=='mods' || valEsq=='agrisap'){
+			document.forms[0].esquema[4].checked=true;
+            esquemaChanged();
+		}
+	}else{
+		document.forms[0].esquema[0].disabled=false;
+		document.forms[0].esquema[1].disabled=false;
+		document.forms[0].esquema[2].disabled=false;
+		document.forms[0].esquema[3].disabled=false;
+		document.forms[0].esquema[4].disabled=true;
+		document.getElementById('dc').style.color="#000";
+		document.getElementById('dcq').style.color="#000";
+		document.getElementById('mods').style.color="#000";
+		document.getElementById('unimarc').style.color="#000";
+		document.getElementById('unimarc-authorities').style.color="#aaa";
+		if (valEsq=='eac' || valEsq=='unimarc-authorities'){
+			document.forms[0].esquema[0].checked=true;
+            esquemaChanged();
+		}
+	}
+}
+
+
+function esquemaChanged(){
+	var val=getRadioButtonSelectedValue(document.forms[0].esquema);
+	var valAcc=getRadioButtonSelectedValue(document.forms[0].acesso);
+	var valFor=getRadioButtonSelectedValue(document.forms[0].forma);
+	if (val=='unimarc' || val=='unimarc-authorities'){
+		document.forms[0].forma[0].disabled=false;
+		document.forms[0].forma[1].disabled=true;
+		document.forms[0].forma[2].disabled=false;
+		document.forms[0].forma[3].disabled=false;
+		document.forms[0].forma[4].disabled=false;
+		document.forms[0].forma[5].disabled=true;
+		document.getElementById('txt').style.color="#000";
+		document.getElementById('xml').style.color="#aaa";
+		document.getElementById('marcxchange').style.color="#000";
+		document.getElementById('isbd').style.color="#000";
+		document.getElementById('iso2709').style.color="#000";
+		document.getElementById('rdf').style.color="#aaa";
+		if (val=='unimarc-authorities'){
+			document.getElementById('isbd').style.color="#aaa";
+			document.forms[0].forma[3].disabled=true;
+			if (valFor=='isbd' || valFor=='rdf' || valFor=='xml'){
+				document.forms[0].forma[0].checked=true;
+			}
+		}else{
+			if (valFor=='rdf' || valFor=='xml'){
+				document.forms[0].forma[0].checked=true;
+			}
+		}
+	}else if (val=='dc'){
+		document.forms[0].forma[0].disabled=false;
+		document.forms[0].forma[1].disabled=false;
+		document.forms[0].forma[2].disabled=true;
+		document.forms[0].forma[3].disabled=true;
+		document.forms[0].forma[4].disabled=true;
+		document.forms[0].forma[5].disabled=false;
+		document.getElementById('txt').style.color="#000";
+		document.getElementById('xml').style.color="#000";
+		document.getElementById('marcxchange').style.color="#aaa";
+		document.getElementById('isbd').style.color="#aaa";
+		document.getElementById('iso2709').style.color="#aaa";
+		document.getElementById('rdf').style.color="#000";
+		if (valFor=='isbd' || valFor=='iso2709' || valFor=='iso2709s' || valFor=='marcxchange' || valFor=='marcxml'){
+			document.forms[0].forma[0].checked=true;
+		}
+	}else if (val=='dcq'){
+		document.forms[0].forma[0].disabled=false;
+		document.forms[0].forma[1].disabled=false;
+		document.forms[0].forma[2].disabled=true;
+		document.forms[0].forma[3].disabled=true;
+		document.forms[0].forma[4].disabled=true;
+		document.forms[0].forma[5].disabled=true;
+		document.getElementById('txt').style.color="#000";
+		document.getElementById('xml').style.color="#000";
+		document.getElementById('marcxchange').style.color="#aaa";
+		document.getElementById('isbd').style.color="#aaa";
+		document.getElementById('iso2709').style.color="#aaa";
+		document.getElementById('rdf').style.color="#aaa";
+		if (valFor=='isbd' || valFor=='iso2709' || valFor=='iso2709s' || valFor=='marcxchange' || valFor=='marcxml'){
+			document.forms[0].forma[0].checked=true;
+		}
+	}else if (val=='eac' || val=='mods' || val=='agrisap'){
+		document.forms[0].forma[0].disabled=true;
+		document.forms[0].forma[1].disabled=false;
+		document.forms[0].forma[2].disabled=true;
+		document.forms[0].forma[3].disabled=true;
+		document.forms[0].forma[4].disabled=true;
+		document.forms[0].forma[5].disabled=true;
+		document.getElementById('txt').style.color="#aaa";
+		document.getElementById('xml').style.color="#000";
+		document.getElementById('marcxchange').style.color="#aaa";
+		document.getElementById('isbd').style.color="#aaa";
+		document.getElementById('iso2709').style.color="#aaa";
+		document.getElementById('rdf').style.color="#aaa";
+		document.forms[0].forma[1].checked=true;
+	}
+}
+
+
+
+function getRadioButtonSelectedValue(radioArray){
+	for (i=0; i < radioArray.length; i++){
+	   if (radioArray[i].checked){
+		  return(radioArray[i].value);
+	   }
+	}
+	return "";
+}
+
+
+//  End -->
+</script>
+
+
+
+</HEAD>
+<BODY vLink=#fd2131 aLink=#fd2131 link=#fd2131 bgColor=#ffffff leftMargin=0 
+topMargin=0 marginheight="0" marginwidth="0" onLoad="init();">
+
+<div style="min-height:100%; position:relative; width:100%; background-image:url('../imagens/bg.png');">
+
+<table width="100%" border="0" cellspacing="0" cellpadding="5">
+  <tr>  
+    <td bgcolor="#333333">
+		<table width="800" border="0" align="center" cellpadding="0" cellspacing="0">
+		  <tr>
+			<td width="430"><p><a href="https://opendata.bnportugal.gov.pt/"><img src="imagens/opendata_logo.png" alt="Open Data Biblioteca Nacional de Portugal" width="425" height="78" border="0" longdesc="https://opendata.bnportugal.gov.pt/" /></a></p></td>
+			<td width="370" valign="middle"><div align="right">
+			  <p><a href="https://www.portugal.gov.pt/pt/ministerios/mc.aspx" target="_blank"><br />
+				<img src="imagens/mc.png" alt="República Portuguesa: Minist&eacute;rio da Cultura" width="155" height="30" border="0" /></a><a href="https://www.bnportugal.gov.pt" target="_blank"><img src="imagens/bnp.png" alt="Biblioteca Nacional de Portugal" border="0" /></a><br />
+			  </p>
+			  <p class="idioma"><a href="lingua.do?lingua=pt">PT</a> | <a href="lingua.do?lingua=en">EN</a></p>
+			</div></td>
+		  </tr>
+		</table>
+	</td>
+	</tr>
+	<tr bgcolor="#fff" >
+       <TD>   
+	   		<table width="800" border="0" align="center" cellpadding="0" cellspacing="0">
+		  <tr>
+<TD height=40  vAlign=center style=" TEXT-ALIGN: left; FONT-WEIGHT: bold; FONT-SIZE: 18px; COLOR: #000000; FONT-FAMILY: Arial; BACKGROUND-COLOR: #ffffff">BNP Catalogue: access by Uniform Resource Names
+	   	</td>
+		  </tr>
+		</table>
+	   </TD>
+	</tr>
+	<tr background="../imagens/bg.png" bgcolor="#EBEBEB" >
+    <td>
+	
+	
+<TABLE cellSpacing=10 width="800" border=0  align=center>
+  <TBODY>
+  <TR>
+    <TD bgColor=#ffffff>
+      <TABLE cellSpacing=10 width="100%" border=0 >
+        <TBODY>
+        <TR>
+          <TD colSpan=2 height=20 align=center>
+            <TABLE border=0 align=center width="750" >
+              <TBODY>
+              <TR>
+                      <TD class=section_title width=450>Access to Bibliographic and Authority Records</TD>
+                    </TR></TBODY></TABLE></TD></TR>
+        <TR>
+          <TD colSpan=2>
+		  
+		  <form name="mainForm" method="post" action="accesso.urn">
+                  <TABLE width="750" border=0  align=center >
+                    <TBODY>
+                   <TR> 
+                      <TD width="150" class=record_info>Step 1:</TD>
+                      <TD width="168" class=record_info>Step 2:</TD>
+                      <TD width="166" class=record_info>Step 3:</TD>
+                      <TD width="143" class=record_info>Step 4:</TD>
+                      <TD width="101" class=record_info>Step 5:</TD>
+                    </TR>
+                      <TR valign="top"> 
+                        <TD class=main_heading >Identifier value:</TD>
+                        <TD class=main_heading>Identifier space:</TD>
+                        <TD class=main_heading>Schema:</TD>
+                        <TD class=main_heading>Form:</TD>
+                        <TD class=main_heading>&nbsp;</TD>
+                    </TR>
+                    <TR> 
+                      <TD class=field_value valign=top nowrap><input type="text" name="id" size=20 value=""/></TD>
+
+                      <TD class=field_value valign=top nowrap> 
+						<b>Bibliographic Records:</b>
+						<br />
+						<input type="radio" name="acesso" onClick='acessoChanged();' id='ac1' value="ncb"> <label for="ac1">Record Identifier</label>
+						<br />
+						<input type="radio" name="acesso" onClick='acessoChanged();' id='ac2' value="cota"> <label for="ac2">Call Number</label>
+						<br />
+						<input type="radio" name="acesso" onClick='acessoChanged();' id='ac3' value="ndl"> <label for="ac3">Legal Deposit Num.</label>
+						<br />
+						<input type="radio" name="acesso" onClick='acessoChanged();' id='ac4' value="isbn"> <label for="ac4">ISBN</label>
+						<br />
+						<input type="radio" name="acesso" onClick='acessoChanged();' id='ac5' value="issn"> <label for="ac5">ISSN</label>
+						<br />
+						<input type="radio" name="acesso" onClick='acessoChanged();' id='ac6' value="purl"> <label for="ac6">PURL</label>
+						<br />
+						<b>Authority Records:</b>
+						<br />
+						<input type="radio" name="acesso" onClick='acessoChanged();' id='ac7' value="nca"> <label for="ac7">Record Identifier</label>
+					  </TD>
+
+                      <TD class=field_value valign=top nowrap>
+						<input type="radio" name="esquema" onClick='esquemaChanged();' id='es1' value="unimarc"> <label for="es1"><span id='unimarc'>UNIMARC</span></label>
+						<br />
+						<input type="radio" name="esquema" onClick='esquemaChanged();' id='es2' value="dc"> <label for="es2"><span id='dc'>Dublin Core</span></label>
+						<br />
+						<input type="radio" name="esquema" onClick='esquemaChanged();' id='es3' value="dcq"> <label for="es3"><span id='dcq'>Dublin Core Qualified</span></label>
+						<br />
+						<input type="radio" name="esquema" onClick='esquemaChanged();' id='es4' value="mods"> <label for="es4"><span id='mods'>MODS</span></label>
+						<br />
+
+						<input type="radio" name="esquema" onClick='esquemaChanged();' id='es6' value="unimarc-authorities"> <label for="es5"><span id='unimarc-authorities'>UNIMARC Authorities</span></label>
+
+					  </TD>
+
+                      <TD class=field_value valign=top nowrap>
+
+						<input type="radio" name="forma" id='fo1' value="txt"> <label for="fo1"><span id='txt'>Text (regular)</span></label>
+						<br />
+						<input type="radio" name="forma" id='fo2' value="xml"> <label for="fo2"><span id='xml'>XML (code)</span></label>
+
+						<br />
+						<input type="radio" name="forma" id='fo4' value="marcxchange"> <label for="fo4"><span id='marcxchange'>MarcXChange (code)</span></label>
+						<br />
+						<input type="radio" name="forma" id='fo5' value="isbd"> <label for="fo5"><span id='isbd'>ISBD (text)</span></label>
+						<br />
+						<input type="radio" name="forma" id='fo6' value="iso2709"> <label for="fo6"><span id='iso2709'>ISO 2709 (code)</span></label>
+						<br />
+						<input type="radio" name="forma" id='fo8' value="rdf"> <label for="fo8"><span id='rdf'>RDF (code)</span></label>
+
+
+	  				</TD>
+                      <TD class=field_value align=middle valign=top><input type="submit" name="Procurar" value="Search" style="width:58px;FONT-SIZE: 11px;"></TD>
+                    </TR>
+                  </TBODY>
+ 	                </TABLE>
+</form>				
+
+
+             
+				
+				
+				<center>
+				
+				
+				</TD>
+            </TR></TBODY></TABLE></TD></TR>
+
+  </TBODY></TABLE>
+	<p>&nbsp;</p>
+	<p>&nbsp;</p>
+	<div style="height:50px; position:absolute; bottom:13px;  left:0px; WIDTH:100%">
+	
+	<table width="100%" border="0" cellspacing="0" cellpadding="5">
+	<tr>
+    <td bgcolor="#eeeeee" valign="middle" height="40px;" style="padding-top: 3px;">
+	<p align="center" ><a href="mailto:OpendataBNP@bnportugal.pt" target="_blank">
+            OpendataBNP@bnportugal.pt</a></span> | <span class="mail"><a href="https://opendata.bnportugal.gov.pt/" target="_blank">BNP Open Data information</a><br />
+   </p>
+	</td>
+      </tr>
+	
+	
+	</td>
+	</tr>
+</table>
+
+	<table width="100%" border="0" cellspacing="0" cellpadding="5">
+	
+  <tr>
+    <td bgcolor="#333333"><table width="800" border="0" align="center" cellpadding="0" cellspacing="0">
+      <tr valign="middle">
+
+        <td valign="middle"><div align="center"><a href="http://www.bnportugal.gov.pt" target="_blank"><font color="#ffffff">2003 | Biblioteca Nacional de Portugal</font><br />
+		
+		
+          </a></div></td>
+      </tr>
+    </table>
+	</td>
+  </tr>
+</table>
+
+</div>
+</div>
+	
+	</BODY></HTML>
+
+
+
+

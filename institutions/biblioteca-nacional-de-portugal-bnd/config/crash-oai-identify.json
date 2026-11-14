@@ -1,0 +1,8 @@
+{
+  "slug": "biblioteca-nacional-de-portugal-bnd",
+  "endpoint": {"id": "oai-identify", "url": "https://oai.bnportugal.gov.pt/servlet/OAIHandler?verb=Identify", "method": "GET"},
+  "limite_documentee_req_min": null,
+  "source_limite": "aucune limite documentée (https://opendata.bnportugal.gov.pt/eng_index.htm : « All data services are free of charge and without authentication ») ; Identify : petite réponse XML déjà vue en 200 dans tests/journal.log, hôte oai.bnportugal.gov.pt sans robots.txt (404)",
+  "duree_palier_s": 180,
+  "note": "Crash test préparé, NON lancé (C15 : à la fin, un par un)."
+}

@@ -4,10 +4,302 @@
   "pays": "Portugal",
   "classeur_id": "GLAM-029",
   "type": "Institution",
-  "statut_audit": "à faire",
-  "limites_documentees": [],
+  "statut_audit": "audit v2 complet a à f (rejeu v3, 2026-11-14)",
+  "limites_documentees": [
+    {
+      "nature": "Aucune limite documentée",
+      "perimetre": "IIIF, OAI-PMH, URN, PURL, BND",
+      "valeur": "aucune",
+      "fenetre": "-",
+      "effet": "-",
+      "verification": "officielle, pages API et conditions lues en entier : rien sur quota, débit ou bots (données « free of charge and without authentication »)",
+      "source": "https://opendata.bnportugal.gov.pt/eng_index.htm",
+      "date": "2026-11-14"
+    },
+    {
+      "nature": "Restriction d'accès (robots.txt)",
+      "perimetre": "bndigital, permalinkbnd, purl.pt, rnod",
+      "valeur": "Disallow: / pour User-agent *",
+      "fenetre": "-",
+      "effet": "robots interdits sauf moteurs listés",
+      "verification": "officielle, lue ; passée outre avec accord de Marcel (C12)",
+      "source": "https://bndigital.bnportugal.gov.pt/robots.txt",
+      "date": "2026-11-14"
+    }
+  ],
   "en_tetes_observes": [],
-  "blocages": [],
-  "sources": [],
-  "web": []
+  "blocages": [
+    {
+      "hote": "purl.pt",
+      "code": "timeout",
+      "nature": "TimeoutError (lecture dépassée) sur GET /32689/1/ le 2026-11-14 01:49Z ; non rejoué"
+    }
+  ],
+  "sources": [
+    {
+      "url": "https://bndigital.bnportugal.gov.pt/en/help",
+      "date": "2026-11-14",
+      "etiquette": "officielle",
+      "preuve": "institutions/biblioteca-nacional-de-portugal-bnd/sources/a1/SHA256SUMS"
+    },
+    {
+      "url": "https://bndigital.bnportugal.gov.pt/en/about-us",
+      "date": "2026-11-14",
+      "etiquette": "officielle",
+      "preuve": "institutions/biblioteca-nacional-de-portugal-bnd/sources/a1/SHA256SUMS"
+    },
+    {
+      "url": "https://bndigital.bnportugal.gov.pt/more-info-technical-documentation",
+      "date": "2026-11-14",
+      "etiquette": "officielle",
+      "preuve": "institutions/biblioteca-nacional-de-portugal-bnd/sources/a2/SHA256SUMS"
+    },
+    {
+      "url": "https://bndigital.bnportugal.gov.pt/en/technical-and-legal-notice",
+      "date": "2026-11-14",
+      "etiquette": "officielle",
+      "preuve": "institutions/biblioteca-nacional-de-portugal-bnd/sources/a2/SHA256SUMS"
+    },
+    {
+      "url": "https://opendata.bnportugal.gov.pt/eng_index.htm",
+      "date": "2026-11-14",
+      "etiquette": "officielle",
+      "preuve": "institutions/biblioteca-nacional-de-portugal-bnd/sources/a2/SHA256SUMS"
+    },
+    {
+      "url": "https://opendata.bnportugal.gov.pt/eng_persistent_ids.htm",
+      "date": "2026-11-14",
+      "etiquette": "officielle",
+      "preuve": "institutions/biblioteca-nacional-de-portugal-bnd/sources/a2/SHA256SUMS"
+    },
+    {
+      "url": "https://opendata.bnportugal.gov.pt/eng_oai-pmh.htm",
+      "date": "2026-11-14",
+      "etiquette": "officielle",
+      "preuve": "institutions/biblioteca-nacional-de-portugal-bnd/sources/a3/SHA256SUMS"
+    },
+    {
+      "url": "https://opendata.bnportugal.gov.pt/eng_services.htm",
+      "date": "2026-11-14",
+      "etiquette": "officielle",
+      "preuve": "institutions/biblioteca-nacional-de-portugal-bnd/sources/a3/SHA256SUMS"
+    },
+    {
+      "url": "https://opendata.bnportugal.gov.pt/eng_downloads.htm",
+      "date": "2026-11-14",
+      "etiquette": "officielle",
+      "preuve": "institutions/biblioteca-nacional-de-portugal-bnd/sources/a3/SHA256SUMS"
+    },
+    {
+      "url": "https://oai.bnportugal.gov.pt/listSets.html",
+      "date": "2026-11-14",
+      "etiquette": "officielle",
+      "preuve": "institutions/biblioteca-nacional-de-portugal-bnd/sources/a4/SHA256SUMS"
+    },
+    {
+      "url": "https://bndigital.bnportugal.gov.pt/resources/documents/documentacao-tecnica/2021_NLP_digital_collections_hp.pdf",
+      "date": "2026-11-14",
+      "etiquette": "officielle",
+      "preuve": "institutions/biblioteca-nacional-de-portugal-bnd/sources/a5/SHA256SUMS"
+    },
+    {
+      "url": "https://bndigital.bnportugal.gov.pt/resources/documents/documentacao-tecnica/2019_3_Reutilizacao_informacao_sector_publico_patrimonio_cultural_mic_hp.pdf",
+      "date": "2026-11-14",
+      "etiquette": "officielle",
+      "preuve": "institutions/biblioteca-nacional-de-portugal-bnd/sources/a5/SHA256SUMS"
+    }
+  ],
+  "web": [
+    {
+      "categorie": "institution",
+      "url": "https://bndigital.bnportugal.gov.pt/resources/documents/documentacao-tecnica/2021_NLP_digital_collections_hp.pdf",
+      "date": "2021 (lu 2026-11-14)",
+      "etiquette": "présentation de l'institution (BNP, DCMI 2021), lue en entier (pdftotext)",
+      "citation": "Aucune mention de quota, limite de débit ou politique de bots ; cite les services OAI et les politiques de réutilisation.",
+      "preuve": "institutions/biblioteca-nacional-de-portugal-bnd/sources/a5/SHA256SUMS"
+    },
+    {
+      "categorie": "institution",
+      "url": "https://opendata.bnportugal.gov.pt/eng_index.htm",
+      "date": "2026-11-14",
+      "etiquette": "officielle",
+      "citation": "All data are released under the CC0 License [...]. All data services are free of charge and without authentication.",
+      "preuve": "institutions/biblioteca-nacional-de-portugal-bnd/sources/a2/SHA256SUMS"
+    },
+    {
+      "categorie": "utilisateurs",
+      "aucun_resultat": true,
+      "requete": "permalinkbnd.bnportugal.gov.pt OR purl.pt IIIF 429 OR \"rate limit\" OR blocked OR timeout download Biblioteca Nacional de Portugal",
+      "date": "2026-11-14",
+      "etiquette": "moteur de recherche (WebSearch)",
+      "citation": "Aucune plainte de limitation ou blocage visant la BND (résumé de moteur, non vérifié) ; résultats d'autres institutions sans lien.",
+      "preuve": "institutions/biblioteca-nacional-de-portugal-bnd/fiche.md"
+    },
+    {
+      "categorie": "tickets",
+      "aucun_resultat": true,
+      "requete": "github issue permalinkbnd.bnportugal.gov.pt OR \"purl.pt\" IIIF manifest Biblioteca Nacional de Portugal",
+      "date": "2026-11-14",
+      "etiquette": "moteur de recherche (WebSearch)",
+      "citation": "Aucun ticket GitHub/GitLab trouvé sur ces domaines ; seulement des manifestes agrégés par Biblissima (résumé de moteur, non vérifié).",
+      "preuve": "institutions/biblioteca-nacional-de-portugal-bnd/fiche.md"
+    },
+    {
+      "categorie": "presentations",
+      "url": "https://www.dublincore.org/conferences/2021/presentations/national_library_of_portugal_digital_collections_access_services_open_data_and_content_reuse_policies/",
+      "date": "2021 (lu 2026-11-14)",
+      "etiquette": "présentation de l'institution (DCMI Virtual 2021), lu en original (WebFetch)",
+      "citation": "La page ne mentionne ni API, ni limites, ni quotas, ni bots, ni IIIF, ni politique de moissonnage (RNOD « acts as an aggregator to Europeana »).",
+      "preuve": "institutions/biblioteca-nacional-de-portugal-bnd/fiche.md"
+    },
+    {
+      "categorie": "tickets",
+      "url": "https://iiif.biblissima.fr/collections/manifest/86121b30536d1d4b5e59134c31a08e43e9b37c5b",
+      "date": "2026-11-14",
+      "etiquette": "tiers (Biblissima), lu en original (WebFetch)",
+      "citation": "Manifest URL: https://permalinkbnd.bnportugal.gov.pt/iiif/69264/manifest (source de l'URL du manifeste testé ; aucune mention de quota).",
+      "preuve": "institutions/biblioteca-nacional-de-portugal-bnd/fiche.md"
+    }
+  ],
+  "contact": "bndigital@bnportugal.gov.pt (BND) ; OpendataBNP@bnportugal.gov.pt (données ouvertes, OAI-PMH, URN)",
+  "conclusion_quota": "Aucun quota, limite de débit ni en-tête de limite documenté ou observé (14 + 5 requêtes en 200/302, sans x-ratelimit ni Retry-After) ; services de données ouvertes « free of charge and without authentication » ; robots.txt de la BND, de permalinkbnd et de purl.pt = Disallow: / (règle de robots, non un quota).",
+  "classe_quota": "aucun quota trouvé (robots.txt restrictif, pas de politique de débit publiée)",
+  "confiance": "moyenne",
+  "notes": "Pas de doc IIIF publique chez la BNP : l'URL du manifeste (permalinkbnd.bnportugal.gov.pt/iiif/{id}/manifest) vient d'une notice Biblissima (tiers), l'identifiant 69264 aussi ; le manifeste annonce Image API (iipsrv), Search API 1.0 et autocomplete. purl.pt/32689/1/ : délai dépassé (TimeoutError), non rejoué. La doc cite « accesso.urn » (faute) : la page réelle est acesso.urn (200). Aucun contournement du Disallow: / n'est une décision de la sonde : autorisé par Marcel (C12).",
+  "a_verifier_manuellement": [
+    {
+      "url": "https://purl.pt/32689/1/",
+      "pourquoi": "délai dépassé (TimeoutError) lors de la passe 2 ; la requête précédente /32689/1 avait répondu 302 vers /32689/1/",
+      "a_chercher": "Dans un navigateur : le résultat de la redirection (visionneuse d'images ?), et si le temps de réponse est anormal"
+    },
+    {
+      "url": "mailto:bndigital@bnportugal.gov.pt",
+      "pourquoi": "aucune limite publiée ; robots.txt en Disallow: / pour tous les robots non listés",
+      "a_chercher": "Demander s'il existe une limite non publiée et si l'usage de l'API IIIF permalinkbnd par un script est toléré"
+    }
+  ],
+  "endpoints_documentes": [
+    {
+      "famille": "OAI-PMH (oai.bnportugal.gov.pt)",
+      "url": "https://oai.bnportugal.gov.pt/servlet/OAIHandler",
+      "statut": "teste",
+      "preuve": "institutions/biblioteca-nacional-de-portugal-bnd/tests/raw/oai-identify.headers.txt"
+    },
+    {
+      "famille": "Service URN (BNP, PORBASE)",
+      "url": "https://urn.bnportugal.gov.pt/accesso.urn",
+      "statut": "teste",
+      "preuve": "institutions/biblioteca-nacional-de-portugal-bnd/tests/raw/urn-bnp-accesso.headers.txt"
+    },
+    {
+      "famille": "Service URN PORBASE",
+      "url": "https://urn.porbase.org",
+      "statut": "teste",
+      "preuve": "institutions/biblioteca-nacional-de-portugal-bnd/tests/raw/urn-porbase-base.headers.txt"
+    },
+    {
+      "famille": "PURL purl.pt (ressource et format jpg)",
+      "url": "https://purl.pt/32689",
+      "statut": "teste",
+      "preuve": "institutions/biblioteca-nacional-de-portugal-bnd/tests/raw/purl-ressource.headers.txt"
+    },
+    {
+      "famille": "BND : recherche et notices HTML",
+      "url": "https://bndigital.bnportugal.gov.pt/en/records",
+      "statut": "teste",
+      "preuve": "institutions/biblioteca-nacional-de-portugal-bnd/tests/raw/bnd-recherche-html.headers.txt"
+    },
+    {
+      "famille": "IIIF Presentation v2 (manifeste, annoncé par la page About : format IIIF des identifiants persistants)",
+      "url": "https://permalinkbnd.bnportugal.gov.pt/iiif/69264/manifest",
+      "statut": "teste",
+      "preuve": "institutions/biblioteca-nacional-de-portugal-bnd/tests/raw/iiif-manifeste.headers.txt"
+    },
+    {
+      "famille": "IIIF Image (service du manifeste)",
+      "url": "https://permalinkbnd.bnportugal.gov.pt/i/?IIIF=.../info.json",
+      "statut": "teste",
+      "preuve": "institutions/biblioteca-nacional-de-portugal-bnd/tests/raw/image-info-json.headers.txt"
+    },
+    {
+      "famille": "IIIF Search 1.0 et autocomplete (services du manifeste)",
+      "url": "https://permalinkbnd.bnportugal.gov.pt/iiif/services/search/69264",
+      "statut": "teste",
+      "preuve": "institutions/biblioteca-nacional-de-portugal-bnd/tests/raw/search-api.headers.txt"
+    },
+    {
+      "famille": "Téléchargements en bloc (zip catalogue, BND, RNOD)",
+      "url": "https://opendata.bnportugal.gov.pt/docs/bnd.json.zip",
+      "statut": "non_teste",
+      "raison": "fichiers de 138 Mo à plus de 892 Mo selon eng_downloads.htm : trop volumineux pour une sonde polie de veille, sans intérêt pour le quota"
+    },
+    {
+      "famille": "Z39.50 (zzz.porbase.org)",
+      "url": "https://zzz.porbase.org/",
+      "statut": "non_teste",
+      "raison": "protocole Z39.50 sur socket TCP, non HTTP : la sonde ne fait que des GET/HEAD HTTP"
+    }
+  ],
+  "endpoints_ecartes": [
+    {
+      "url": "https://purl.pt/29001/3/#/4",
+      "raison": "URL de visionneuse Flash historique (exemple de la doc) citée comme identifiant de pages ; le Flash n'est plus servi, ce n'est pas une API"
+    },
+    {
+      "url": "https://id.bnportugal.gov.pt/bib/catbnp/2023068",
+      "raison": "identifiant persistant d'une notice (espace de noms), robots.txt de l'hôte en 400 ; page de notice, pas une API à quota, la notice HTML est couverte par urn et purl"
+    }
+  ],
+  "hotes_robots": [
+    {
+      "hote": "bndigital.bnportugal.gov.pt",
+      "resultat": "User-agent * : Disallow: / ; *AI* exclus ; aucun Crawl-delay (autorisé par Marcel, C12)",
+      "preuve": "institutions/biblioteca-nacional-de-portugal-bnd/sources/a1/SHA256SUMS"
+    },
+    {
+      "hote": "permalinkbnd.bnportugal.gov.pt",
+      "resultat": "Disallow: / pour * (même fichier que bndigital) ; passé outre avec C12",
+      "preuve": "institutions/biblioteca-nacional-de-portugal-bnd/sources/a4/SHA256SUMS"
+    },
+    {
+      "hote": "oai.bnportugal.gov.pt",
+      "resultat": "robots.txt 404 (Tomcat) : tout autorisé",
+      "preuve": "institutions/biblioteca-nacional-de-portugal-bnd/sources/a4/SHA256SUMS"
+    },
+    {
+      "hote": "urn.bnportugal.gov.pt",
+      "resultat": "robots.txt 404 : tout autorisé",
+      "preuve": "institutions/biblioteca-nacional-de-portugal-bnd/sources/a4/SHA256SUMS"
+    },
+    {
+      "hote": "urn.porbase.org",
+      "resultat": "robots.txt 404 : tout autorisé",
+      "preuve": "institutions/biblioteca-nacional-de-portugal-bnd/sources/a4/SHA256SUMS"
+    },
+    {
+      "hote": "https://urn.porbase.org",
+      "resultat": "même hôte que urn.porbase.org : robots.txt 404 (URL de config sans barre finale, lue telle quelle par le contrôle)",
+      "preuve": "institutions/biblioteca-nacional-de-portugal-bnd/sources/a4/SHA256SUMS"
+    },
+    {
+      "hote": "purl.pt",
+      "resultat": "Googlebot Allow: / ; * Disallow: / ; longue liste de robots exclus ; aucun Crawl-delay pour * ; passé outre avec C12",
+      "preuve": "institutions/biblioteca-nacional-de-portugal-bnd/sources/a2/SHA256SUMS"
+    },
+    {
+      "hote": "opendata.bnportugal.gov.pt",
+      "resultat": "robots.txt 404 : tout autorisé (page de doc seulement)",
+      "preuve": "institutions/biblioteca-nacional-de-portugal-bnd/sources/a2/SHA256SUMS"
+    },
+    {
+      "hote": "rnod.bnportugal.gov.pt",
+      "resultat": "User-agent * : Disallow: / ; moteurs : Allow: /$ + Crawl-delay 30 (hôte cité, non contacté)",
+      "preuve": "institutions/biblioteca-nacional-de-portugal-bnd/sources/a2/SHA256SUMS"
+    },
+    {
+      "hote": "id.bnportugal.gov.pt",
+      "resultat": "robots.txt 400 Bad Request (hôte cité, non contacté)",
+      "preuve": "institutions/biblioteca-nacional-de-portugal-bnd/sources/a4/SHA256SUMS"
+    }
+  ]
 }
