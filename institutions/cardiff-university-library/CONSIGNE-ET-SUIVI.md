@@ -31,15 +31,15 @@
 > Pour chaque page lue : endpoint de statut, en-têtes de limite documentés, clé ou compte donnant un quota, contact pour un volume plus élevé. Chaque réponse cite sa source.
 
 - [x] **Fait**
-  - **Justification** : Quota cherché dans chaque source : aucun endpoint de statut ni en-tête de limite documenté, aucune clé requise, contact specialcollections@cardiff.ac.uk ; seuls Crawl-delay 10 et le seuil d'API Alma d'Ex Libris (1000 appels par licence nommée et par jour, non établi pour IIIF), voir fiche.
+  - **Justification** : Aucun quota, en-tête de limite ni politique d'API publiés par Cardiff ; seule règle écrite Crawl-delay 10 (robots.txt de librarysearch) ; seuil d'API Alma de 1000 appels par licence et par jour sans lien établi avec IIIF ; observé : librarysearch et service d'images eu-img02 en 200 sans en-tête de limite, www.cardiff.ac.uk en défi Cloudflare (pas un quota).
   - **Preuves** : `institutions/cardiff-university-library/fiche.md`, `institutions/cardiff-university-library/data.json`, `institutions/cardiff-university-library/sources/doc-c/text/03.txt`
 
 ### e) Test systématique de chaque endpoint
 > Chaque endpoint documenté est testé (budget 15 requêtes par passe, pause ≥ 6 s, GET/HEAD, UA du projet). Redirections du même hôte suivies. Un 403 arrête son hôte, un 429 arrête l'institution. Seules les interdictions écrites dans la doc dispensent de tester.
 
 - [x] **Fait**
-  - **Justification** : librarysearch : découverte, sitemap, manifeste IIIF et JSON de livraison testés en 200 sans en-tête de limite ; service d'images eu-img02 NON LANCÉ (hôte arrêté par le registre après un 403 de passerelle) ; www.cardiff.ac.uk en défi Cloudflare non testé : raisons consignées, URL à vérifier à la main.
-  - **Preuves** : `institutions/cardiff-university-library/tests/journal.log`, `institutions/cardiff-university-library/tests/raw/manifest-v2.headers.txt`, `institutions/cardiff-university-library/tests/raw/delivery-json.headers.txt`
+  - **Justification** : librarysearch : découverte, sitemap, manifeste IIIF et JSON de livraison testés en 200 sans en-tête de limite ; service d'images eu-img02 testé en passe 3 après déblocage de l'hôte (403 de passerelle sur robots.txt, pas un anti-bot) : info.json 200 et dérivé 150 px 200 ; www.cardiff.ac.uk en défi Cloudflare non testé, raison consignée.
+  - **Preuves** : `institutions/cardiff-university-library/tests/journal.log`, `institutions/cardiff-university-library/tests/raw/manifest-v2.headers.txt`, `institutions/cardiff-university-library/tests/raw/delivery-json.headers.txt`, `institutions/cardiff-university-library/tests/raw/image-info.headers.txt`, `institutions/cardiff-university-library/tests/raw/image-derive-150.headers.txt`
 
 ### f) Ce que disent les gens sur le web
 > Plaintes, discussions, présentations de l'institution, politique envers les API et les bots, blogs, GitHub, forums, listes de diffusion. Sources étiquetées (officielle / institution / utilisateur / tiers), lues, citées.
@@ -60,7 +60,7 @@
 
 <!-- AUTO:DEBUT -->
 ## Contrôles automatiques (calculés depuis `tests/journal.log`)
-- Requêtes enregistrées : **7** (sessions de sonde : 3, maximum par session : 4)
+- Requêtes enregistrées : **10** (sessions de sonde : 4, maximum par session : 4)
 - Plus courte pause vers un même hôte : **10 s** (règle : ≥ 6 s)
 - Méthodes utilisées : GET (règle : GET/HEAD seulement)
 - Anomalies : aucune

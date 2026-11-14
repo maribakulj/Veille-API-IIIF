@@ -46,7 +46,7 @@
       "hote": "eu-img02.ext.exlibrisgroup.com",
       "code": 403,
       "quand": "2026-11-14T02:40:04Z",
-      "detail": "robots.txt : {\"message\":\"Missing Authentication Token\"} (passerelle d'API, pas anti-bot) ; hôte néanmoins arrêté par le registre : service d'images non testé",
+      "detail": "robots.txt : {\"message\":\"Missing Authentication Token\"} (passerelle d'API, pas anti-bot) ; hôte néanmoins arrêté par le registre : service d'images non testé ; blocage du registre levé (hostlock debloquer) le 2026-11-14, passe 3 lancée à 04:01Z : info.json 200 et dérivé 150 px 200",
       "preuve": "institutions/cardiff-university-library/sources/doc-d/FETCH.log"
     }
   ],
@@ -163,10 +163,10 @@
     }
   ],
   "contact": "specialcollections@cardiff.ac.uk (page Digital collections lue via Wayback)",
-  "conclusion_quota": "Aucun quota, en-tête de limite ni politique d'API publiés par Cardiff pour Digital Special Collections. Seule règle écrite : Crawl-delay: 10 dans le robots.txt de librarysearch.cardiff.ac.uk (qui interdit aussi GPTBot et d'autres robots nommés, pas notre User-Agent) ; contenu IIIF en libre réutilisation sous licence Creative Commons. Observé : 7 requêtes de sonde (plus 3 de téléchargement de doc) à 10 s sur librarysearch (page de découverte, sitemap vide, manifeste IIIF Presentation 2, JSON de livraison) toutes en 200/302, aucun en-tête de limite. Observé : www.cardiff.ac.uk renvoie un défi Cloudflare (403) dès la première requête, ce n'est pas un quota. Le service d'images (eu-img02.ext.exlibrisgroup.com, Ex Libris) n'a pas été testé : son robots.txt a répondu 403 « Missing Authentication Token » et le registre a arrêté l'hôte. Côté éditeur, le seuil documenté d'Ex Libris est de 1000 appels d'API Alma par licence nommée et par jour, sans lien établi avec le IIIF.",
+  "conclusion_quota": "Aucun quota, en-tête de limite ni politique d'API publiés par Cardiff pour Digital Special Collections. Seule règle écrite : Crawl-delay: 10 dans le robots.txt de librarysearch.cardiff.ac.uk (qui interdit aussi GPTBot et d'autres robots nommés, pas notre User-Agent) ; contenu IIIF en libre réutilisation sous licence Creative Commons. Observé : 7 requêtes de sonde (plus 3 de téléchargement de doc) à 10 s sur librarysearch (page de découverte, sitemap vide, manifeste IIIF Presentation 2, JSON de livraison) toutes en 200/302, aucun en-tête de limite. Observé : www.cardiff.ac.uk renvoie un défi Cloudflare (403) dès la première requête, ce n'est pas un quota. Le service d'images (eu-img02.ext.exlibrisgroup.com, Ex Libris) a d'abord été arrêté par le registre après un 403 « Missing Authentication Token » sur son robots.txt (passerelle d'API) ; testé ensuite en passe 3 après déblocage : info.json et dérivé en 200, sans en-tête de limite. Côté éditeur, le seuil documenté d'Ex Libris est de 1000 appels d'API Alma par licence nommée et par jour, sans lien établi avec le IIIF. Passe 3 sur eu-img02.ext.exlibrisgroup.com (hôte débloqué) : info.json 200 et dérivé 150 px 200, sans en-tête de limite, sans 429.",
   "classe_quota": "aucun quota trouvé (limite d'API Alma de l'éditeur sans lien établi avec le IIIF)",
   "confiance": "moyenne",
-  "notes": "www.cardiff.ac.uk : défi Cloudflare « Just a moment » sur robots.txt (1re requête, 2026-11-14T02:35:06Z), arrêt, pages lues via Wayback. Identifiant du manifeste testé (12204337930002420) publié par un blog tiers (lu en original), pas deviné ; motif d'URL décrit pour Alma par la ZB Zurich. eu-img02 : 403 « Missing Authentication Token » (réponse de passerelle d'API, pas un anti-bot) mais le registre l'a arrêté 24 h : non contourné.",
+  "notes": "www.cardiff.ac.uk : défi Cloudflare « Just a moment » sur robots.txt (1re requête, 2026-11-14T02:35:06Z), arrêt, pages lues via Wayback. Identifiant du manifeste testé (12204337930002420) publié par un blog tiers (lu en original), pas deviné ; motif d'URL décrit pour Alma par la ZB Zurich. eu-img02 : 403 « Missing Authentication Token » (réponse de passerelle d'API, pas un anti-bot) mais le registre l'a arrêté 24 h : non contourné. Passe 3 lancée le 2026-11-14T04:01Z après déblocage de l'hôte : robots.txt 403 (passerelle, donc « tout autorisé » selon la sonde), info.json 200 (1314 octets), dérivé full/150, 200 (752 octets), sans en-tête de limite ni 429 (3 requêtes).",
   "a_verifier_manuellement": [
     {
       "url": "https://www.cardiff.ac.uk/robots.txt",
@@ -187,11 +187,6 @@
       "url": "https://www.cardiff.ac.uk/special-collections/about-us",
       "pourquoi": "défi Cloudflare, non lue",
       "a_chercher": "politique d'accès et de réutilisation, contact technique"
-    },
-    {
-      "url": "https://eu-img02.ext.exlibrisgroup.com/iiif/2/",
-      "pourquoi": "hôte du service d'images Ex Libris arrêté par le registre après un 403 « Missing Authentication Token » sur robots.txt",
-      "a_chercher": "info.json et dérivé d'une image du manifeste, en-têtes de limite"
     },
     {
       "url": "https://igelu.org/wp-content/uploads/2022/10/Unlocking-your-collections-with-Alma-Digital-and-IIIF.pdf",
@@ -227,8 +222,8 @@
     {
       "famille": "IIIF Image 2 sur eu-img02.ext.exlibrisgroup.com (info.json, dérivé), annoncé par le manifeste",
       "url": "https://eu-img02.ext.exlibrisgroup.com/iiif/2/",
-      "statut": "non_teste",
-      "raison": "hôte arrêté par le registre partagé après un 403 « Missing Authentication Token » sur robots.txt (2026-11-14T02:40:04Z) : sonde refusée (journal NON LANCÉ), pas de contournement."
+      "statut": "teste",
+      "preuve": "institutions/cardiff-university-library/tests/raw/image-info.headers.txt"
     },
     {
       "famille": "Pages www.cardiff.ac.uk (hôte du site, pas d'API)",
