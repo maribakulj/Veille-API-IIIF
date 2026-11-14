@@ -25,3 +25,8 @@ Officielle : aucune politique d'API/bots trouvée hors robots.txt. Présentation
 - **Limite documentée** : aucune. **Limite observée** : non (3 requêtes).
 - **Règle** : robots.txt interdit l'entraînement d'IA (signal `ai-train=no`).
 - **Étape g** : configuration `config/crash-image-info.json` prête ; non lancée (interdit à l'agent). Site derrière Cloudflare, `iiiflb` sans réseau détecté dans les en-têtes (nginx).
+
+## Crash test (étape g)
+
+Crash test fait le 2026-11-14 : crash-image-info sur iiiflb.blavatnikarchive.org : aucun blocage jusqu'à 200 req/min (plafond 200 req/min).
+Journal : `tests/crash/blavatnik-archive.log`. Un test « sans blocage » n'est pas une preuve d'illimitation au-delà du plafond.
