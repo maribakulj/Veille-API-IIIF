@@ -1,0 +1,180 @@
+IIIF: Internationale Schnittstellen für digitalisiertes Kulturgut – HAB Menü Info 
+ Home 
+ Katalog 
+ Öffnungszeiten 
+ en / de 
+ Forschung Projekte Alle Projekte 
+ Wissenschaftliche Leitlinien 
+ Stipendienprogramme Programme 
+ Stipendiat*innen und Gäste 
+ Alle Stipendienprogramme 
+ Wissenschaftliche Veranstaltungen Tagungen, Seminare und Kolloquien 
+ Nachwuchsveranstaltungen 
+ Zum Kalender 
+ Zu wiss. Veranstaltungen 
+ Arbeitskreise Wolfenbütteler Arbeitskreis Frühneuzeitforschung 
+ Mediävistischer Arbeitskreis 
+ Wolfenbütteler Arbeitskreis für Bibliotheks-, Buch- und Mediengeschichte 
+ Alle Arbeitskreise 
+ Publikationen Ausstellungskataloge und Wolfenbütteler Hefte 
+ Wissenschaftliche Reihen 
+ Zeitschriften und Einzelveröffentlichungen 
+ Alle Publikationen 
+ Übersicht Forschung 
+ Bibliothek Benutzung und Service Benutzung, Orts- und Fernleihe 
+ Bestellung von Reproduktionen 
+ Verwendung von Reproduktionen 
+ Leihanfragen für Ausstellungen 
+ Übersicht Benutzung 
+ Bestände Handschriften 
+ Alte Drucke 
+ Forschungsliteratur 
+ Elektronische Medien 
+ Bildende Kunst und Grafik 
+ Alle Bestände 
+ Kataloge und Digitale Bibliothek Kataloge 
+ Digitale Bibliothek 
+ HAB-Repositorium 
+ Alle Kataloge/WDB 
+ Kompetenz Die HAB als Landesbibliothek 
+ Handschriftenzentrum 
+ Kompetenzzentrum Alte Drucke 
+ Bestandserhaltung 
+ Alle Kompetenzen 
+ Angebote für Schulen Wolfenbütteler Schüler*innenseminare 
+ Facharbeit und Abitur 
+ Schulungen für Lehrkräfte und Lerngruppen 
+ Alle Angebote für Schulen 
+ Übersicht Bibliothek 
+ Kultur Museale Räume Bibliotheca Augusta 
+ Lessinghaus 
+ Ausstellungen Aktuelle Ausstellungen 
+ Online-Ausstellungen 
+ Archiv Ausstellungen 
+ Übersicht Ausstellungen 
+ Führungen und Workshops Führungen 
+ Workshops 
+ Werkstattführungen 
+ Alle Führungen/Workshops 
+ Kulturelle Veranstaltungen 
+ Übersicht Kultur 
+ Info Aktuelles 
+ Ihr Besuch Öffnungszeiten 
+ Anreise 
+ Unterbringung 
+ Übersicht Besuch 
+ Presse und Medien Pressestelle 
+ HAB-Newsletter 
+ Mediathek 
+ HABlog 
+ HAB gehört 
+ Preise & Auszeichnungen Forschungspreis 
+ Künstlerbuchpreis 
+ About Ausbildung und Jobs 
+ Leitung, Beauftragte und Gremien 
+ Partnerschaften und Förderungen 
+ Personen 
+ All about 
+ Übersicht Info 
+ Home 
+ Katalog 
+ Öffnungszeiten 
+ en / de 
+ Suchen 
+ Auf der website IM Opac 
+ HABlog IIIF: Internationale Schnittstellen für digitalisiertes Kulturgut
+ IIIF (sprich Triple-I-F) steht für das International Image Interoperability Framework – ein technischer Standard mit dem Ziel, einen einheitlichen Zugang zu bildbasiertem Kulturgut aus der ganzen Welt zu ermöglichen.
+ 18. Dezember 2019 
+ IIIF wurde im Umfeld der Kulturgutdigitalisierung erfunden und wird durch eine wachsende Gemeinschaft von Kulturinstitutionen weiterentwickelt. Im Zuge des Polonsky Foundation Digitalisierungsprojekts „Handschriften aus dem deutschen Sprachraum“ wird an der HAB die Einführung der IIIF-Technologie erprobt. Das Projekt ist eine auf drei Jahre angelegte Kooperation zwischen den Bodleian Libraries und der HAB. Die beiden Bibliotheken werden zwischen 2019 und 2021 rund 600 Handschriften digitalisieren.
+ Das IIIF- Konsortium reagiert mit der Definition von Programmierschnittstellen (s. Info-Kasten) auf die Herausforderungen der Digitalisierung und schafft dadurch eine erstklassige Benutzererfahrung beim Anzeigen, Vergleichen, Bearbeiten und Annotieren von Bildern. Ein besonderer Schwerpunkt liegt hierbei auf der Interoperabilität der Digitalisate; Traditionell hat jede Bibliothek ihr eigenes Bildrepositorium (umgangssprachlich und pejorativ: Daten-Silo), auf das mit den unterschiedlichsten Viewern zugegriffen wird. Die von IIIF definierten Programmierschnittstellen sind als Universalwerkzeuge zu verstehen, die den Zugriff auf Digitalisate aus mehreren Repositorien gleichzeitig erlauben.
+ An der Implementierung von IIIF an der HAB waren neben der Handschriftenabteilung auch Mitarbeiter*innen der digitalen Bibliothek, der Fotowerkstatt sowie der EDV-Abteilung beteiligt. Selbstverständlich zieht eine solche Neuerung auch infrastrukturelle Veränderungen nach sich und erfordert die Anpassung von Workflows.
+ Das Ergebnis der Erprobung dieser einenden Technologie an der HAB zeigt sich in den Digitalisaten der Handschriften aus dem deutschen Sprachraum, einsehbar auf der Webseite des Projekts. 
+ Hier hat die Einführung von IIIF ermöglicht, was zuvor einen großen organisatorischen Aufwand bedeutet hätte: Die gemeinsame Anzeige von Digitalisaten aus beiden Institutionen mit einheitlichen begleitenden Informationen. Der enge Austausch zwischen der Bodleian Library und der Herzog August Bibliothek wird so auch für die Betrachter*innen der Digitalisate sichtbar.
+ Die technischen Details… 
+ IIIF definiert die folgenden vier Programmierschnittstellen (englisch: application programming interfaces - API):
+ Die Image API … liefert Bilder zu bildbasierten digitalisierten Kulturobjekten. Hierbei werden über die Internetadresse Informationen zu Region, Größe, Rotation, Qualitätsmerkmalen und Format des angeforderten Bildes übermittelt.
+ Die Presentation API … liefert Metadaten (im Format JSON-LD), die Struktur und Inhalt des digitalisierten Objekts beschreiben. Diese Metadaten geben unter anderem an, um was für ein Objekt es sich handelt und in welcher Reihenfolge die digitalisierten Seiten angezeigt werden müssen.
+ Die Authentication API … dient dazu, den Zugriff auf bestimmte Objekte bei Bedarf zu regulieren und Zugangskontrollen zu implementieren.
+Die Content Search API … ermöglicht die Suche nach Volltext und Annotationen innerhalb eines Objekts.
+ PURL: http://diglib.hab.de/?link=167 
+ Die Autor*innen
+ Torsten Schaßan 
+ +49 5331 808-130 
+ E-Mail Schreiben 
+ Stellvertretende Leiterin des Referats Presse- und Öffentlichkeitsarbeit
+ Dr. Marie Adler 
+ +49 5331 808-237 
+ E-Mail Schreiben 
+ Fragen zum HABlog?
+ Haben Sie Fragen zu den Blog-Beiträgen oder Anregungen, die Sie gerne an uns richten möchten? Ansprechpartnerin für den HABlog ist Dr. Marie Adler. mehr 
+ Kalender
+ November 2026 Fr. 13 
+ Ulli Lust liest: „Die Frau als Mensch: Am Anfang der Geschichte“ 
+ Stolze Hüften aus Knochen, Stein, gebranntem Ton. Wir nennen sie Göttinnen, doch wer oder was waren sie wirklich? In Büchern ...
+ Mi. 18 
+ Essen und Kochen: Best Practice des Kulturtransfers? 
+ Forschungsgespräch mit Prof. Dr. Elena Korowin (Hochschule für Bildende Künste Braunschweig)
+ Do. 19 
+ Der Unruhige. Zu Lessings philosophisch-literarischen Anfängen 
+ Vortrag und Gespräch mit Magdalena Fricke
+ alle Veranstaltungen 
+ ISSN 2750-2872
+ HAB goes social
+ Außerdem an der HAB
+ Zeugnis geistlicher Naturkunde und Archiv historischer Biodiversität 
+ Das Herbarium Ruperti ist eine einzigartige, um 1700 angelegte Sammlung mit etwa 1.300 getrockneten Pflanzen ...
+ mehr 
+ Ein „Mini-Princeton“ in Wolfenbüttel? 
+ In diesem Jahr feiert die Herzog August Bibliothek das 50jährige Bestehen ihres Stipendienprogramms. Ein guter ...
+ mehr 
+ Aktuelles 
+ Wichtiges, Interessantes und Wissenswertes: Alle aktuellen Informationen rund um Forschung, Bibliothek und Kultur.
+ mehr 
+ Ausbildung und Praktika 
+ Als wissenschaftliche Bibliothek bietet die HAB verschiedene Ausbildungsmöglichkeiten. Neben dem Referendariat und der Ausbildung zur/zum ...
+ mehr 
+ HAB-Repositorium 
+ Diese neue Publikationsplattform bietet allen Interessierten Zugang zu digitalen Daten, die an der HAB entstanden ...
+ mehr 
+ Publikationen 
+ Monographien, Sammelbände, Ausstellungs- und Bestandskataloge enthalten die Arbeitsergebnisse der Forschung und Erschließung an der HAB. ...
+ mehr 
+ Home 
+ Forschung 
+ Bibliothek 
+ Kultur 
+ Info 
+ Herzog August Bibliothek 
+ Lessingplatz 1 
+ D-38304 Wolfenbüttel 
+ TELEFON: (05331) 808-0 
+ FAX: (05331) 808-173 
+ E-MAIL: ed.ba 1794489516 h@tfn 1794489516 uksua 1794489516 
+ © Herzog August Bibliothek
+ Impressum 
+ Datenschutz 
+ Barrierefreiheit 
+ Öffnungszeiten 
+ Kalender 
+ Cookies 
+ Sie sehen gerade einen Platzhalterinhalt von Facebook . Um auf den eigentlichen Inhalt zuzugreifen, klicken Sie auf die Schaltfläche unten. Bitte beachten Sie, dass dabei Daten an Drittanbieter weitergegeben werden.
+ Mehr Informationen 
+ Inhalt entsperren Erforderlichen Service akzeptieren und Inhalte entsperren 
+ Sie sehen gerade einen Platzhalterinhalt von Instagram . Um auf den eigentlichen Inhalt zuzugreifen, klicken Sie auf die Schaltfläche unten. Bitte beachten Sie, dass dabei Daten an Drittanbieter weitergegeben werden.
+ Mehr Informationen 
+ Inhalt entsperren Erforderlichen Service akzeptieren und Inhalte entsperren 
+ Sie sehen gerade einen Platzhalterinhalt von reCAPTCHA . Um auf den eigentlichen Inhalt zuzugreifen, klicken Sie auf die Schaltfläche unten. Bitte beachten Sie, dass dabei Daten an Drittanbieter weitergegeben werden.
+ Mehr Informationen 
+ Inhalt entsperren Erforderlichen Service akzeptieren und Inhalte entsperren 
+ Sie müssen den Inhalt von hCaptcha laden, um das Formular abzuschicken. Bitte beachten Sie, dass dabei Daten mit Drittanbietern ausgetauscht werden.
+ Mehr Informationen 
+ Inhalt entsperren Erforderlichen Service akzeptieren und Inhalte entsperren 
+ Sie müssen den Inhalt von reCAPTCHA laden, um das Formular abzuschicken. Bitte beachten Sie, dass dabei Daten mit Drittanbietern ausgetauscht werden.
+ Mehr Informationen 
+ Inhalt entsperren Erforderlichen Service akzeptieren und Inhalte entsperren 
+ Sie sehen gerade einen Platzhalterinhalt von Turnstile . Um auf den eigentlichen Inhalt zuzugreifen, klicken Sie auf die Schaltfläche unten. Bitte beachten Sie, dass dabei Daten an Drittanbieter weitergegeben werden.
+ Mehr Informationen 
+ Inhalt entsperren Erforderlichen Service akzeptieren und Inhalte entsperren 
+ Sie sehen gerade einen Platzhalterinhalt von X . Um auf den eigentlichen Inhalt zuzugreifen, klicken Sie auf die Schaltfläche unten. Bitte beachten Sie, dass dabei Daten an Drittanbieter weitergegeben werden.
+ Mehr Informationen 
+ Inhalt entsperren Erforderlichen Service akzeptieren und Inhalte entsperren
