@@ -1,0 +1,12 @@
+{
+  "slug": "thuringer-universitats-und-landesbibliothek-jena",
+  "min_delay_s": 10,
+  "max_requests": 15,
+  "follow_redirects": 1,
+  "robots_disallow_autorise_par_marcel": true,
+  "note": "Passe 3 : (1) page du visionneur donnee par un lien de la passe 2 (tests/raw/zs-receive-jparticle-01582058.body), corps enregistre pour y chercher l'URL du manifeste IIIF ; (2) sitemap_google.xml de collections.thulb.uni-jena.de, annonce dans son robots.txt (Sitemap:), pour obtenir un identifiant public d'objet de cet hote. Crawl-delay 10 respecte.",
+  "endpoints": [
+    {"id": "zs-viewer-derivate-00401748", "method": "GET", "url": "https://zs.thulb.uni-jena.de/rsc/viewer/jportal_derivate_00401748/ADR_Langensalza_1911_0181.tif?logicalDiv=jportal_jparticle_01582058", "save_body": 600000},
+    {"id": "collections-sitemap-google", "method": "GET", "url": "https://collections.thulb.uni-jena.de/sitemap_google.xml", "save_body": 100000}
+  ]
+}

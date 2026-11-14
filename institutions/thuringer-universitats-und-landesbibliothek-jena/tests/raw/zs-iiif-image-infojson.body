@@ -1,0 +1,71 @@
+{
+  "protocol": "http://iiif.io/api/image",
+  "width": 1890,
+  "height": 2992,
+  "profile": [
+    "http://iiif.io/api/image/2/level2.json",
+    {
+      "supports": [
+        "BASE_URI_REDIRECT",
+        "CANONICAL_LINK_HEADER",
+        "CORS",
+        "JSONLD_MEDIA_TYPE",
+        "MIRRORING",
+        "PROFILE_LINK_HEADER",
+        "REGION_BY_PCT",
+        "REGION_BY_PX",
+        "ROTATION_ARBITRARY",
+        "ROTATION_BY_90_S",
+        "SIZE_ABOVE_FULL",
+        "SIZE_BY_WH_LISTED",
+        "SIZE_BY_FORCED_WH",
+        "SIZE_BY_H",
+        "SIZE_BY_PCT",
+        "SIZE_BY_W",
+        "SIZE_BY_WH"
+      ],
+      "formats": [
+        "jpg",
+        "tiff",
+        "bmp",
+        "pcx",
+        "gif",
+        "png",
+        "raw",
+        "ppm",
+        "jp2",
+        "JBIG2",
+        "tif",
+        "pgm",
+        "wbmp",
+        "jpeg",
+        "pbm",
+        "jb2",
+        "JB2",
+        "jbig2"
+      ],
+      "qualities": [
+        "bitonal",
+        "gray",
+        "color"
+      ],
+      "@context": "http://iiif.io/api/image/2/context.json",
+      "@type": "iiif:ImageProfile",
+      "@id": "https://zs.thulb.uni-jena.de/api/iiif/image/v2/profile.json"
+    }
+  ],
+  "tiles": [
+    {
+      "width": 256,
+      "height": 256,
+      "scaleFactors": [
+        1,
+        2,
+        4,
+        8
+      ]
+    }
+  ],
+  "@context": "http://iiif.io/api/image/2/context.json",
+  "@id": "https://zs.thulb.uni-jena.de/api/iiif/image/v2/jportal_derivate_00401748:%2FADR_Langensalza_1911_0236.tif"
+}
