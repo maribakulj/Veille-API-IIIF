@@ -30,3 +30,8 @@ Aucun 429, aucun en-tête `Retry-After`, `X-RateLimit-*` ni `RateLimit-*`. Non t
 - **Limite observée** : aucune. **En-têtes** : aucun. **Moyen d'interroger le quota** : aucun.
 - **Crash test (g)** : configuration `config/crash-iiif-hedera-info.json` préparée, non lancée (hôte UNIGE sans réseau protégé détecté à vérifier par crash.py).
 - **Confiance** : moyenne (pas de documentation d'API ; e-Research lu via Wayback).
+
+## Crash test (étape g)
+
+Crash test fait le 2026-11-14 : hedera-info-json sur iiif.hedera.unige.ch : aucun blocage jusqu'à 200 req/min (plafond 200 req/min).
+Journal : `tests/crash/bodmer-lab-universite-de-geneve.log`. Un test « sans blocage » n'est pas une preuve d'illimitation au-delà du plafond.
