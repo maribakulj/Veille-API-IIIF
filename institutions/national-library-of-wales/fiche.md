@@ -43,3 +43,5 @@ Aucun 429. Aucun en-tête `Retry-After`, `X-RateLimit-*`, `RateLimit-*`.
 - **Moyen d'interroger le quota** : aucun.
 - **À noter** : le NLW a **déplacé son IIIF** vers `iiif.llyfrgell.cymru` ; les adresses de la page d'atelier (2025) redirigent, et certains identifiants de presse et d'archives ne suivent plus.
 - **Confiance** : moyenne.
+
+Rattrapage (2026-11-14) : `www.library.wales/robots.txt` lu via Wayback (capture 2024-05-01) : aucun Disallow, Crawl-delay 5 ; `viewer.library.wales/robots.txt` reconfirmé comme page d'application (pas de robots.txt).
