@@ -4,10 +4,248 @@
   "pays": "États-Unis",
   "classeur_id": "GLAM-042",
   "type": "Institution",
-  "statut_audit": "à faire",
-  "limites_documentees": [],
+  "statut_audit": "audit a–f complet ; g à faire",
+  "limites_documentees": [
+    {
+      "nature": "Taille de page (pas un quota)",
+      "perimetre": "API data : objects, search (paramètre size)",
+      "valeur": "size par défaut 10, maximum 500",
+      "fenetre": "par requête",
+      "effet": "pagination",
+      "verification": "officielle, lue en entier (GitHub puam-api-docs)",
+      "source": "https://github.com/Princeton-University-Art-Museum/puam-api-docs (objects.md, search.md)",
+      "date": "2026-11-14"
+    },
+    {
+      "nature": "Authentification",
+      "perimetre": "API data",
+      "valeur": "aucune requise actuellement, peut changer",
+      "fenetre": "–",
+      "effet": "accès libre",
+      "verification": "officielle, lue en entier",
+      "source": "https://github.com/Princeton-University-Art-Museum/puam-api-docs (README.md)",
+      "date": "2026-11-14"
+    },
+    {
+      "nature": "Crawl-delay robots.txt",
+      "perimetre": "artmuseum.princeton.edu (site Drupal)",
+      "valeur": "Crawl-delay: 10",
+      "fenetre": "secondes entre requêtes",
+      "effet": "politesse demandée aux robots",
+      "verification": "officielle via Wayback 2025-06-01, non lue en direct (Cloudflare)",
+      "source": "https://web.archive.org/web/20250601054653/https://artmuseum.princeton.edu/robots.txt",
+      "date": "2026-11-14"
+    },
+    {
+      "nature": "Conditions d'utilisation",
+      "perimetre": "site, données, images",
+      "valeur": "usage non commercial, éducatif et personnel ; citer artmuseum.princeton.edu ; redistribution commerciale interdite",
+      "fenetre": "–",
+      "effet": "restriction d'usage, pas de débit",
+      "verification": "officielle via Wayback 2025-06-01",
+      "source": "https://web.archive.org/web/20250601061050/https://artmuseum.princeton.edu/terms-and-conditions",
+      "date": "2026-11-14"
+    }
+  ],
   "en_tetes_observes": [],
-  "blocages": [],
-  "sources": [],
-  "web": []
+  "blocages": [
+    {
+      "date": "2026-11-14",
+      "hote": "artmuseum.princeton.edu",
+      "code": "403",
+      "nature": "défi Cloudflare « Just a moment... » dès la 1re requête (page conditions d'utilisation)",
+      "suite": "hôte arrêté, lecture via Wayback, aucun contournement"
+    }
+  ],
+  "sources": [
+    {
+      "url": "https://github.com/Princeton-University-Art-Museum/puam-api-docs",
+      "date": "2026-11-14",
+      "etiquette": "officielle",
+      "preuve": "institutions/princeton-university-art-museum/sources/b/SHA256SUMS"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/Princeton-University-Art-Museum/puam-api-docs/main/objects.md",
+      "date": "2026-11-14",
+      "etiquette": "officielle",
+      "preuve": "institutions/princeton-university-art-museum/sources/c/SHA256SUMS"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/Princeton-University-Art-Museum/puam-api-docs/main/search.md",
+      "date": "2026-11-14",
+      "etiquette": "officielle",
+      "preuve": "institutions/princeton-university-art-museum/sources/c/SHA256SUMS"
+    },
+    {
+      "url": "https://static.artmuseum.princeton.edu/asian-art/about",
+      "date": "2026-11-14",
+      "etiquette": "officielle",
+      "preuve": "institutions/princeton-university-art-museum/sources/a/SHA256SUMS"
+    },
+    {
+      "url": "https://artmuseum.princeton.edu/terms-and-conditions",
+      "date": "2026-11-14",
+      "etiquette": "officielle",
+      "preuve": "institutions/princeton-university-art-museum/sources/wayback/terms-and-conditions.md"
+    },
+    {
+      "url": "https://artmuseum.princeton.edu/robots.txt",
+      "date": "2026-11-14",
+      "etiquette": "officielle",
+      "preuve": "institutions/princeton-university-art-museum/sources/wayback/robots-artmuseum.md"
+    }
+  ],
+  "web": [
+    {
+      "categorie": "institution",
+      "url": "https://github.com/Princeton-University-Art-Museum/puam-api-docs",
+      "date": "2026-11-14",
+      "etiquette": "officielle",
+      "citation": "« No authentication is currently required to access the API, however this may change in future versions. » ; size : « defaults to 10, up to a maximum of 500 » ; aucune limite de débit.",
+      "preuve": "institutions/princeton-university-art-museum/sources/b/SHA256SUMS"
+    },
+    {
+      "categorie": "utilisateurs",
+      "aucun_resultat": true,
+      "requete": "Princeton University Art Museum API rate limit OR throttling OR blocked OR 429 data.artmuseum.princeton.edu",
+      "date": "2026-11-14",
+      "etiquette": "–",
+      "citation": "Aucune plainte, aucun retour d'utilisateur sur 429, blocage ou limite pour l'API du musée de Princeton ; seulement des résultats sur d'autres API (résumé de moteur, non vérifié).",
+      "preuve": "institutions/princeton-university-art-museum/fiche.md"
+    },
+    {
+      "categorie": "tickets",
+      "aucun_resultat": true,
+      "requete": "github \"data.artmuseum.princeton.edu\" issue scraper OR harvest OR iiif manifest",
+      "date": "2026-11-14",
+      "etiquette": "–",
+      "citation": "Aucun ticket GitHub d'un outil tiers mentionnant data.artmuseum.princeton.edu ; le suivi des tickets du dépôt puam-api-docs affiche « No results matched your search » (sources/c/raw/05.html).",
+      "preuve": "institutions/princeton-university-art-museum/sources/c/raw/05.html"
+    },
+    {
+      "categorie": "presentations",
+      "url": "https://iiif.io/event/2018/washington/program/paper-11/",
+      "date": "2026-11-14",
+      "etiquette": "institution",
+      "citation": "« Breathing Life into Museum Digital Features with IIIF », lightning talk de Dan Brennan, Princeton University Art Museum (conférence IIIF 2018) : usage de Image API, Presentation API, Mirador ; ni quota ni politique de débit (page lue, WebFetch).",
+      "preuve": "institutions/princeton-university-art-museum/fiche.md"
+    },
+    {
+      "categorie": "presentations",
+      "url": "https://cdh.princeton.edu/blog/2020/03/05/infrastructure-first-shiny-new-things-second",
+      "date": "2026-11-14",
+      "etiquette": "tiers",
+      "citation": "« The museum’s API is open to everyone, and documentation is available on Github. » ; lancée au printemps 2017 ; aucune limite citée.",
+      "preuve": "institutions/princeton-university-art-museum/sources/a/text/10.txt"
+    },
+    {
+      "categorie": "presentations",
+      "url": "https://mcn.edu/resources/digital-collections-as-product/",
+      "date": "2026-11-14",
+      "etiquette": "institution",
+      "citation": "Session MCN « Digital Collections as Product » (Dan Brennan, museum application developer) ; résumé lu : aucune mention de quota, bots ou moissonnage.",
+      "preuve": "institutions/princeton-university-art-museum/fiche.md"
+    },
+    {
+      "categorie": "institution",
+      "url": "https://static.artmuseum.princeton.edu/asian-art/about",
+      "date": "2026-11-14",
+      "etiquette": "officielle",
+      "citation": "« ... the Princeton University Art Museum’s deep commitment to open access and sustainable technology development. »",
+      "preuve": "institutions/princeton-university-art-museum/sources/a/text/08.txt"
+    }
+  ],
+  "contact": "GitHub issues https://github.com/Princeton-University-Art-Museum/puam-api-docs/issues (e-mail préféré pour les questions générales : adresse indiquée dans le README du dépôt)",
+  "conclusion_quota": "Aucun quota ni limite de débit publiés pour l'API ouverte (data.artmuseum.princeton.edu), le service IIIF Image (media.artmuseum.princeton.edu) et les jeux statiques ; seuls plafonds : size ≤ 500 par requête. 17 requêtes de sonde, toutes 200, aucun en-tête de limite. Le site artmuseum.princeton.edu est derrière un défi Cloudflare (403) pour notre client.",
+  "classe_quota": "aucun quota trouvé",
+  "confiance": "moyenne",
+  "notes": "API sans authentification ('No authentication is currently required ... however this may change in future versions'). Les zips statiques (objects.zip 464 652 062 octets au HEAD) sont proposés pour les usages sans besoin de connexion dynamique, rafraîchis chaque semaine. Robots.txt de artmuseum.princeton.edu (Wayback) : Crawl-delay 10, Disallow /search/ ; l'hôte data n'a pas de robots.txt (404). Les conditions d'utilisation du site (Wayback) limitent à un usage non commercial, éducatif et personnel et exigent la citation ; elles ne parlent ni d'API ni de débit. Le robots.txt de media a répondu 500 (sonde de doc) puis 302 (sonde passe 2) : considéré indisponible.",
+  "a_verifier_manuellement": [
+    {
+      "url": "https://artmuseum.princeton.edu/terms-and-conditions",
+      "pourquoi": "403 défi Cloudflare ; lu seulement via Wayback (capture 2025-06-01)",
+      "a_chercher": "Version actuelle des conditions d'utilisation : toute mention d'API, de débit, de moissonnage"
+    },
+    {
+      "url": "https://artmuseum.princeton.edu/robots.txt",
+      "pourquoi": "403 défi Cloudflare ; lu seulement via Wayback (capture 2025-06-01)",
+      "a_chercher": "Crawl-delay et Disallow actuels (et règles pour /iiif ou /collections)"
+    },
+    {
+      "url": "https://artmuseum.princeton.edu/story/exploration-and-innovation-new-digital-tools-increase-engagement",
+      "pourquoi": "403 défi Cloudflare ; contenu lu via la copie du Princeton CDH",
+      "a_chercher": "Éventuelle politique d'usage de l'API"
+    },
+    {
+      "url": "https://media.artmuseum.princeton.edu/robots.txt",
+      "pourquoi": "500 puis 302 : contenu non lisible par la sonde",
+      "a_chercher": "Existence d'un robots.txt sur l'hôte d'images (CloudFront)"
+    }
+  ],
+  "endpoints_documentes": [
+    {
+      "famille": "API de données JSON (objects, makers, packages, search)",
+      "url": "https://data.artmuseum.princeton.edu",
+      "statut": "teste",
+      "preuve": "institutions/princeton-university-art-museum/tests/raw/objects-9449.headers.txt"
+    },
+    {
+      "famille": "Manifestes IIIF Presentation 3 (data.artmuseum.princeton.edu/iiif/objects/{id})",
+      "url": "https://data.artmuseum.princeton.edu/iiif/objects/24625",
+      "statut": "teste",
+      "preuve": "institutions/princeton-university-art-museum/tests/raw/iiif-manifest-24625.headers.txt"
+    },
+    {
+      "famille": "IIIF Image API 3 et 2 (media.artmuseum.princeton.edu/iiif/{3,2}/collection/{id})",
+      "url": "https://media.artmuseum.princeton.edu/iiif/3/collection/x1954-13",
+      "statut": "teste",
+      "preuve": "institutions/princeton-university-art-museum/tests/raw/media-info-v3-x1954-13.headers.txt"
+    },
+    {
+      "famille": "Jeux de données statiques zip (static.artmuseum.princeton.edu/collection-data-sets)",
+      "url": "https://static.artmuseum.princeton.edu/collection-data-sets/objects.zip",
+      "statut": "teste",
+      "preuve": "institutions/princeton-university-art-museum/tests/raw/static-objects-zip-head.headers.txt"
+    }
+  ],
+  "endpoints_ecartes": [
+    {
+      "url": "https://artmuseum.princeton.edu/",
+      "raison": "Site web du musée, pas une API ; en défi Cloudflare (403), aucun contournement."
+    },
+    {
+      "url": "https://github.com/Princeton-University-Art-Museum/puam-api-docs/issues/new",
+      "raison": "Formulaire de signalement GitHub (nécessite un compte), pas une API ; aucune écriture."
+    },
+    {
+      "url": "https://cdh.princeton.edu/blog/2020/03/05/infrastructure-first-shiny-new-things-second",
+      "raison": "Billet de blog du Princeton CDH (tiers) lu en doc, pas une API."
+    },
+    {
+      "url": "https://artmuseum.princeton.edu/search/collections?collectionFilter=[\"Asian+Art\"",
+      "raison": "Page de recherche HTML du site (lien dans la page À propos static), pas une API ; hôte artmuseum en défi Cloudflare 403 et /search/ interdit par robots.txt (Wayback)."
+    }
+  ],
+  "hotes_robots": [
+    {
+      "hote": "data.artmuseum.princeton.edu",
+      "resultat": "404 (aucun robots.txt ; tout autorisé)",
+      "preuve": "institutions/princeton-university-art-museum/sources/a/FETCH.log"
+    },
+    {
+      "hote": "media.artmuseum.princeton.edu",
+      "resultat": "500 en lecture de doc, 302 en sonde : indisponible",
+      "preuve": "institutions/princeton-university-art-museum/sources/a/FETCH.log"
+    },
+    {
+      "hote": "static.artmuseum.princeton.edu",
+      "resultat": "404 (aucun robots.txt ; tout autorisé)",
+      "preuve": "institutions/princeton-university-art-museum/sources/a/FETCH.log"
+    },
+    {
+      "hote": "artmuseum.princeton.edu",
+      "resultat": "403 défi Cloudflare ; réplique Wayback 2025-06-01 : Crawl-delay 10, Disallow /search/ et chemins Drupal",
+      "preuve": "institutions/princeton-university-art-museum/sources/wayback/robots-artmuseum.md"
+    }
+  ]
 }
