@@ -1,0 +1,8 @@
+# Session 2026-11-14T02:37:45Z — configuration cardiff-passe1-librarysearch.json — sonde probe.py au commit c27d1d6
+2026-11-14T02:37:45Z | robots.txt:librarysearch.cardiff.ac.uk | https://librarysearch.cardiff.ac.uk/robots.txt | GET | 200 | 3 règle(s) pour « * » ; Crawl-delay 10.0 s
+2026-11-14T02:37:55Z | collection-discovery | https://librarysearch.cardiff.ac.uk/discovery/collectionDiscovery?vid=44WHELF_CAR:44WHELF_CAR_VU1 | GET | 302 REDIRECTION_NON_SUIVIE | aucun en-tête de limite | taille≥0 | corps: 
+# redirection vers https://librarysearch.cardiff.ac.uk/nde/collectionDiscovery?vid=44WHELF_CAR%3ACAR : suivie (même hôte, comptée dans le budget)
+2026-11-14T02:38:05Z | collection-discovery+redir | https://librarysearch.cardiff.ac.uk/nde/collectionDiscovery?vid=44WHELF_CAR%3ACAR | GET | 200 OK | aucun en-tête de limite | taille≥200 | corps: <!doctype html> <html lang="en">  <head>   <meta charset="utf-8">   <title>PrimoVeNde</title>   <base href="/nde/">   <meta name="robots" content="noindex">   <meta name="viewport" content="width=devi
+2026-11-14T02:38:16Z | siteindex | https://librarysearch.cardiff.ac.uk/view/scholar/siteindex.xml | GET | 200 OK | aucun en-tête de limite | taille≥141 | corps: <?xml version="1.0" encoding="UTF-8" standalone="yes"?> <sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">	 </sitemapindex>  
+# corps enregistré : tests/raw/siteindex.body (141 octets lus)
+# Fin 2026-11-14T02:38:16Z — 4 requête(s) envoyée(s)
