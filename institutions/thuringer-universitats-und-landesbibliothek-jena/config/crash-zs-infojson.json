@@ -1,0 +1,12 @@
+{
+  "slug": "thuringer-universitats-und-landesbibliothek-jena",
+  "endpoint": {
+    "id": "zs-iiif-image-infojson",
+    "url": "https://zs.thulb.uni-jena.de/api/iiif/image/v2/jportal_derivate_00401748:%2FADR_Langensalza_1911_0236.tif/info.json",
+    "method": "GET"
+  },
+  "limite_documentee_req_min": null,
+  "source_limite": "aucune limite de débit documentée ; seul le Crawl-delay: 10 du robots.txt de zs.thulb.uni-jena.de (https://zs.thulb.uni-jena.de/robots.txt)",
+  "duree_palier_s": 180,
+  "note": "info.json IIIF Image v2 (1501 octets), 200 dans le journal (zs-iiif-image-infojson, 2026-11-14T03:44:01Z). Le robots.txt interdit /api/ : crash test à ne lancer qu'avec l'accord explicite de Marcel."
+}

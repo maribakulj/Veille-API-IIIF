@@ -1,0 +1,14 @@
+User-agent: *
+# Should always be protected, but you know...
+Disallow: /*/Private/*
+Disallow: /*/Configuration/*
+# Disallow all files in /typo3temp/var/
+Disallow: /typo3temp/var/*
+# Disallow all files in /typo3/
+Disallow: /typo3/
+Disallow: /typo3_src/
+# Disallow all kind of sql files
+Disallow: *.sql
+Disallow: *.sql.gz
+# Sitemap files
+Sitemap: https://www.thulb.uni-jena.de/sitemap.xml

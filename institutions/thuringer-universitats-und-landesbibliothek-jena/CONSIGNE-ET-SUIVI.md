@@ -2,51 +2,51 @@
 
 - **Dossier** : `institutions/thuringer-universitats-und-landesbibliothek-jena/`  ·  **Classeur de référence** : GLAM-075  ·  **Pays** : Allemagne
 - **Statut d'institution** : active
-- **Dernière mise à jour du suivi** : (à renseigner à chaque modification)
+- **Dernière mise à jour du suivi** : 2026-11-14
 
 ## Suivi par étape (à cocher, avec justification et preuves)
 
 ### a) Documentation lue en entier
 > Toutes les pages de doc liées à l'API (développeurs, interfaces, conditions, FAQ, aide, mentions légales, robots.txt), téléchargées avec `scripts/fetch_doc.sh` (URL, date, SHA-256), lues en entier (`scripts/extract_text.py`).
 
-- [ ] **Pas fait**
-  - **Justification** : Pas encore traitée : l'audit suit l'ordre du classeur de référence (une institution à la fois).
-  - **Preuves** : 
+- [x] **Fait**
+  - **Justification** : Pages du site, de zs, collections, UrMEL, db-thueringen téléchargées et lues, robots.txt de chaque hôte lu (Crawl-delay 10).
+  - **Preuves** : `institutions/thuringer-universitats-und-landesbibliothek-jena/sources/a1/SHA256SUMS`, `institutions/thuringer-universitats-und-landesbibliothek-jena/sources/a2/SHA256SUMS`, `institutions/thuringer-universitats-und-landesbibliothek-jena/sources/robots/SHA256SUMS`
 
 ### b) Endpoints tirés de la doc
 > Liste des endpoints citée par la doc (URL, exemples). Jamais devinée. Une interdiction ou une impossibilité écrite dans la doc justifie de renoncer (citer la phrase).
 
-- [ ] **Pas fait**
-  - **Justification** : Pas encore traitée : l'audit suit l'ordre du classeur de référence (une institution à la fois).
-  - **Preuves** : 
+- [x] **Fait**
+  - **Justification** : Familles listées dans data.json : flux, IIIF Image, Presentation, METS testés ; OAI-PMH et REST cités sans URL, non testés.
+  - **Preuves** : `institutions/thuringer-universitats-und-landesbibliothek-jena/data.json`, `institutions/thuringer-universitats-und-landesbibliothek-jena/fiche.md`
 
 ### c) Configuration écrite AVANT les tests
 > `config/<nom>.json` pilote `scripts/probe.py`, committée avant le lancement. Un endpoint absent de la doc mais non interdit se teste avec un script poli (identifiants issus de pages publiques ou d'exemples de la doc, pas de devinette).
 
-- [ ] **Pas fait**
-  - **Justification** : Pas encore traitée : l'audit suit l'ordre du classeur de référence (une institution à la fois).
-  - **Preuves** : 
+- [x] **Fait**
+  - **Justification** : Cinq configurations jena-passe1 à 5 écrites puis committées avant chaque lancement.
+  - **Preuves** : `institutions/thuringer-universitats-und-landesbibliothek-jena/config/jena-passe1-feeds.json`, `institutions/thuringer-universitats-und-landesbibliothek-jena/config/jena-passe5-manifest.json`
 
 ### d) Quota cherché dans la doc
 > Pour chaque page lue : endpoint de statut, en-têtes de limite documentés, clé ou compte donnant un quota, contact pour un volume plus élevé. Chaque réponse cite sa source.
 
-- [ ] **Pas fait**
-  - **Justification** : Pas encore traitée : l'audit suit l'ordre du classeur de référence (une institution à la fois).
-  - **Preuves** : 
+- [x] **Fait**
+  - **Justification** : Aucun quota, en-tête de limite, clé ni endpoint de statut dans la doc lue ; contact urmel_auskunft@thulb.uni-jena.de ; seul Crawl-delay 10.
+  - **Preuves** : `institutions/thuringer-universitats-und-landesbibliothek-jena/sources/a2/text/03.txt`, `institutions/thuringer-universitats-und-landesbibliothek-jena/fiche.md`
 
 ### e) Test systématique de chaque endpoint
 > Chaque endpoint documenté est testé (budget 15 requêtes par passe, pause ≥ 6 s, GET/HEAD, UA du projet). Redirections du même hôte suivies. Un 403 arrête son hôte, un 429 arrête l'institution. Seules les interdictions écrites dans la doc dispensent de tester.
 
-- [ ] **Pas fait**
-  - **Justification** : Pas encore traitée : l'audit suit l'ordre du classeur de référence (une institution à la fois).
-  - **Preuves** : 
+- [x] **Fait**
+  - **Justification** : 16 requêtes en 5 passes : 200 partout sauf manifeste IIIF en 500 ; aucun 429/403 ; OAI-PMH et REST sans URL documentée.
+  - **Preuves** : `institutions/thuringer-universitats-und-landesbibliothek-jena/tests/journal.log`, `institutions/thuringer-universitats-und-landesbibliothek-jena/tests/raw/zs-iiif-manifest-00401748.headers.txt`
 
 ### f) Ce que disent les gens sur le web
 > Plaintes, discussions, présentations de l'institution, politique envers les API et les bots, blogs, GitHub, forums, listes de diffusion. Sources étiquetées (officielle / institution / utilisateur / tiers), lues, citées.
 
-- [ ] **Pas fait**
-  - **Justification** : Pas encore traitée : l'audit suit l'ordre du classeur de référence (une institution à la fois).
-  - **Preuves** : 
+- [x] **Fait**
+  - **Justification** : 4 recherches web faites (une par catégorie) ; aucune plainte ni ticket ; présentation DigiCULT non confirmée.
+  - **Preuves** : `institutions/thuringer-universitats-und-landesbibliothek-jena/data.json`, `institutions/thuringer-universitats-und-landesbibliothek-jena/fiche.md`
 
 ### g) Crash test progressif
 > Seulement après l'audit complet (a à f) de toutes les institutions et avec l'accord de Marcel : paliers jusqu'à 2 × la limite documentée, ou 200 req/min si illimité ou sans limite documentée. Arrêt au premier 429/403/CAPTCHA.
@@ -60,7 +60,7 @@
 
 <!-- AUTO:DEBUT -->
 ## Contrôles automatiques (calculés depuis `tests/journal.log`)
-- Requêtes enregistrées : **16** (sessions de sonde : 4, maximum par session : 5)
+- Requêtes enregistrées : **20** (sessions de sonde : 5, maximum par session : 5)
 - Plus courte pause vers un même hôte : **10 s** (règle : ≥ 6 s)
 - Méthodes utilisées : GET (règle : GET/HEAD seulement)
 - Anomalies : aucune
