@@ -1,0 +1,38 @@
+What is IIIF? (for staff) | Collections U of T Staff Docs Skip to main content Menu Expand (external link) Document Search Copy Copied Collections U of T Staff Docs 
+ About 
+ Documentation Requesting A New Repository 
+ Ingest Instructions 
+ Metadata Instructions 
+ Metadata Elements 
+ Editing Basic Pages 
+ What is IIIF? (for staff) 
+ Transcriptions With IIIF 
+ History of Collections U of T 2024 Migration Guide 
+ This site uses Just the Docs , a documentation theme for Jekyll. 
+ Search Collections U of T Staff Docs 
+ Documentation 
+ What is IIIF? (for staff) 
+ What is IIIF? (for staff) 
+ DRAFT: further edits and instructions forthcoming. 
+ IIIF (International Image Interoperability Framework) is a set of APIs and related tools created by an international community of leading cultural institutions. The IIIF community has created documentation to help you learn how to use the IIIF APIs , how to use the IIIF Mirador viewer , and how to find other IIIF digitized collections from cultural heritage institutions across the globe.
+ Public documentation about Collections U of T and IIIF is available at https://collections.library.utoronto.ca/explore/faq/getting_started . 
+ Staff documentation about IIIF and Collections U of T is forthcoming.
+ Using external IIIF services - Internet Archive 
+ UTL also makes use of the Internet Archive (IA) service for selected materials to digitize and then publish digital collections on IA. The IA is also IIIF-enabled . Collection owners may consider the following when deciding if they should use Collections U of T versus the Internet Archive:
+ If your UTL department is acquiring archives and special collections for digitization and unrestricted public access please email us to discuss if your context fits the Collections U of T policies .
+ If your UTL department’s context fits within the Collections U of T policies and you anticipate reuse of digital objects via IIIF tools then Collections U of T IIIF is the recommended service
+ Remember that Collections U of T IIIF manifests and image URLs are published with the goal of providing access and capacity for reuse in perpetuity 
+ Metadata fields in Collections U of T IIIF manifests are customizable according to the repository owner’s specifications (within the constraints of the Collections U of T metadata profile and index)
+ Collections U of T digital objects are published alongside all of UTL’s other digital collections within the UTL top-level IIIF collection manifest 
+ Embedding IIIF 
+ IIIF embeds via Collections U of T can use the following parameters:
+ manifestId: Allow multiple entries and render them up to four in sequence - e.g. manifestId=MANIFEST_ID1&manifestId=MANIFEST_ID2
+ canvasId: Allow multiple entries and it pairs with a matching manifestId up to four in sequence. e.g. manifestId=MANIFEST_ID1&canvasId=CANVAS_ID1
+ workspaceControlPanel=true - Allows the Mirador 3.x Workspace functionality within the embed
+ thumbnailNavigationDisplay=true - Enables thumbnail display in embed (default is true)
+ These embed features are reflected on the /explore/ pages’ IIIF embeds as well.
+ If your department would like more information or training about IIIF for your staff or to plan training sessions about IIIF / Collections U of T use for faculty and students please email us .
+ Back to top 
+ Copyright © 2026 University of Toronto Libraries Information Technology Services.
+ Edit this page on GitHub 
+ This site uses Just the Docs , a documentation theme for Jekyll.

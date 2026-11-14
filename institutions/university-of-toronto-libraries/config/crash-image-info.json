@@ -1,0 +1,12 @@
+{
+  "slug": "university-of-toronto-libraries",
+  "endpoint": {
+    "id": "image-info-json",
+    "url": "https://iiif.library.utoronto.ca/image/v2/utarmsIB:2001-15-2MS/info.json",
+    "method": "GET"
+  },
+  "limite_documentee_req_min": null,
+  "source_limite": "aucune limite documentée (https://collections.library.utoronto.ca/explore/faq/getting_started ne cite aucune limite de débit ; https://utlib.github.io/collections-uoft/documentation/iiif-collections : « published with the goal of providing access and capacity for reuse in perpetuity »)",
+  "duree_palier_s": 180,
+  "note": "info.json (754 octets) du service d'image IIIF 2, 200 dans le journal (image-info-json, 2026-11-14T02:14:44Z)."
+}
