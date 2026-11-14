@@ -18,3 +18,12 @@
 2026-11-14T02:28:16Z | hdl-p1-site-head+redir | https://cdm16003.contentdm.oclc.org/iiif/manifest.json | HEAD | 302 REDIRECTION_NON_SUIVIE | aucun en-tête de limite | taille≥0 | corps: 
 2026-11-14T02:28:17Z | hdl-p1-page-objet | https://hdl.huntington.org/digital/collection/p16003coll14/id/1503 | GET | 200 OK | aucun en-tête de limite | taille≥200 | corps: <!DOCTYPE html> <html lang="en"> <head>     <meta charSet="UTF-8" http-equiv="Content-Type" content="text/javascript"/>     <meta name="google-site-verification" content="2bN-Jxm-s0CNkM68ncQ6V7NDUqaWn
 # Fin 2026-11-14T02:28:17Z — 14 requête(s) envoyée(s)
+# Session 2026-11-14T02:28:33Z — configuration huntington-passe2-redirections.json — sonde probe.py au commit 92fb2bc
+2026-11-14T02:28:34Z | robots.txt:cdm16003.contentdm.oclc.org | https://cdm16003.contentdm.oclc.org/robots.txt | GET | 200 | 42 règle(s) pour « * » ; Crawl-delay 1.0 s
+2026-11-14T02:28:43Z | hdl-p2-manifeste-final-cdm | https://cdm16003.contentdm.oclc.org/iiif/2/p16003coll14:1503/manifest.json | GET | 200 OK | aucun en-tête de limite | taille≥376265 | corps: {"@context":"http://iiif.io/api/presentation/2/context.json","@type":"sc:Manifest","@id":"https://cdm16003.contentdm.oclc.org/iiif/p16003coll14:1503/manifest.json","label":"Astrological and medical co
+# corps enregistré : tests/raw/hdl-p2-manifeste-final-cdm.body (376265 octets lus)
+2026-11-14T02:28:43Z | robots.txt:hdl.huntington.org | https://hdl.huntington.org/robots.txt | GET | 200 | 42 règle(s) pour « * » ; Crawl-delay 1.0 s
+2026-11-14T02:28:51Z | hdl-p2-manifeste-final-hdl | https://hdl.huntington.org/iiif/2/p16003coll14:1503/manifest.json | HEAD | 200 OK | aucun en-tête de limite | taille≥0 | corps: 
+2026-11-14T02:28:52Z | hdl-p2-collection-final-head | https://cdm16003.contentdm.oclc.org/iiif/2/p16003coll14/manifest.json | HEAD | 200 OK | aucun en-tête de limite | taille≥0 | corps: 
+2026-11-14T02:28:59Z | hdl-p2-site-final-head | https://cdm16003.contentdm.oclc.org/iiif/2/manifest.json | HEAD | 200 OK | aucun en-tête de limite | taille≥0 | corps: 
+# Fin 2026-11-14T02:28:59Z — 6 requête(s) envoyée(s)
