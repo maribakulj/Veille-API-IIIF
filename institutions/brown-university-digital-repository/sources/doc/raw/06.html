@@ -1,0 +1,620 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>About bdr-api-tools | bdr-api-tools</title>
+<meta name="generator" content="Jekyll v3.10.0" />
+<meta property="og:title" content="About bdr-api-tools" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Scripts for working with the BDR API." />
+<meta property="og:description" content="Scripts for working with the BDR API." />
+<link rel="canonical" href="https://brown-university-library.github.io/bdr-api-tools/" />
+<meta property="og:url" content="https://brown-university-library.github.io/bdr-api-tools/" />
+<meta property="og:site_name" content="bdr-api-tools" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="About bdr-api-tools" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebSite","description":"Scripts for working with the BDR API.","headline":"About bdr-api-tools","name":"bdr-api-tools","url":"https://brown-university-library.github.io/bdr-api-tools/"}</script>
+<!-- End Jekyll SEO tag -->
+
+    <link rel="stylesheet" href="/bdr-api-tools/assets/css/style.css?v=3a79e12eb5cc79ca8d53b12183e1c2c0b72800c1">
+    <!-- start custom head snippets, customize with your own _includes/head-custom.html file -->
+
+<!-- Setup Google Analytics -->
+
+
+
+<!-- You can set your favicon here -->
+<!-- link rel="shortcut icon" type="image/x-icon" href="/bdr-api-tools/favicon.ico" -->
+
+<!-- end custom head snippets -->
+
+  </head>
+  <body>
+    <div class="container-lg px-3 my-5 markdown-body">
+      
+      <h1><a href="https://brown-university-library.github.io/bdr-api-tools/">bdr-api-tools</a></h1>
+      
+
+      <h1 id="about-bdr-api-tools">About bdr-api-tools</h1>
+
+<p>This is collection of small utilities for interacting with the Brown Digital Repository (BDR) <a href="https://github.com/Brown-University-Library/bdr_api_documentation/wiki">APIs</a>. The tools are designed to be easily run from anywhere via the wonderful python package-manager, <code class="language-plaintext highlighter-rouge">uv</code> (<a href="https://docs.astral.sh/uv/">link</a>) – which allows referencing these tools via a URL. No special installation of python or virtual-environments or dependency-packages is required. Just <a href="https://docs.astral.sh/uv/getting-started/installation/">installing</a> <code class="language-plaintext highlighter-rouge">uv</code> is enough to let you run these tools like this:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>uv run https://brown-university-library.github.io/bdr-api-tools/calc_collection_size.py <span class="nt">--collection-pid</span> bdr:bwehb8b8
+</code></pre></div></div>
+
+<p>For Brown community members, a recommendation: if you’re off-campus, enable <a href="https://it.brown.edu/services/virtual-private-network-vpn">Brown-VPN</a> before using these tools. The reason: We’ve had to enable certain protections to prevent problems due to excessive bot-traffic. If you’re on VPN, you’ll minimize the chance of being blocked when the BDR-APIs are accessed.</p>
+
+<hr />
+
+<h2 id="tools-listing">tools listing</h2>
+
+<ul>
+  <li>calc_collection_size.py (<a href="#calc_collection_sizepy-brief">brief</a>), (<a href="#calc_collection_sizepy-detailed">detailed</a>)</li>
+  <li>display_collection_activity.py (<a href="#display_collection_activitypy-brief">brief</a>), (<a href="#display_collection_activitypy-detailed">detailed</a>)</li>
+  <li>display_recent_activity.py (<a href="#display_recent_activitypy-brief">brief</a>), (<a href="#display_recent_activitypy-detailed">detailed</a>)</li>
+  <li>gather_extracted_text.py (<a href="#gather_extracted_textpy-brief">brief</a>), (<a href="#gather_extracted_textpy-detailed">detailed</a>)</li>
+  <li>list_named_entities.py (<a href="#list_named_entitiespy-brief">brief</a>), (<a href="#list_named_entitiespy-detailed">detailed</a>)</li>
+  <li>show_zip_info.py (<a href="#show_zip_infopy-brief">brief</a>), (<a href="#show_zip_infopy-detailed">detailed</a>)</li>
+</ul>
+
+<hr />
+<hr />
+
+<h2 id="brief-info">brief info</h2>
+
+<h3 id="calc_collection_sizepy-brief">calc_collection_size.py (brief)</h3>
+
+<p>Calculates the total storage size of all items in the given BDR collection. It queries the Search API with pagination to retrieve and process the necessary data, and prints a summary including a human-readable size. It gets the collection title via the Collections API.</p>
+
+<hr />
+
+<h3 id="display_collection_activitypy-brief">display_collection_activity.py (brief)</h3>
+
+<p>Displays monthly BDR collection activity counts as formatted JSON. It queries the Search API for collection members, buckets items by <code class="language-plaintext highlighter-rouge">deposit_date</code> month, and includes summary metadata such as collection title, counts of counted and skipped items, and HTTP-call totals.</p>
+
+<hr />
+
+<h3 id="display_recent_activitypy-brief">display_recent_activity.py (brief)</h3>
+
+<p>Displays the most recently added BDR items as formatted JSON, and summarizes which collections those items belong to. It queries the Search API for recent items and their collection membership, fetches collection titles via the Collections API once per unique collection, and reports per-collection counts.</p>
+
+<hr />
+
+<h3 id="gather_extracted_textpy-brief">gather_extracted_text.py (brief)</h3>
+
+<p>Collects EXTRACTED_TEXT across all items (parent &amp; child) in a collection, writing a single combined text file and a detailed listing JSON. It saves progress to resume elegantly if interruptions occur, and offers an optional –test-limit flag for testing convenience.</p>
+
+<hr />
+
+<h3 id="list_named_entitiespy-brief">list_named_entities.py (brief)</h3>
+
+<p>Runs <a href="https://github.com/explosion/spaCy">spaCy’s</a> named-entity-recognition (<a href="https://en.wikipedia.org/wiki/Named-entity_recognition">NER</a>) on an item’s extracted-text, and lists the named entities found.</p>
+
+<hr />
+
+<h3 id="show_zip_infopy-brief">show_zip_info.py (brief)</h3>
+
+<p>Assembles data from the item-api and summarizes zip-file contents for the given item – AND zip-file contents for all child-items. It computes per-item and aggregate-summary filetype counts based on extension, and outputs a structured JSON with <em>meta</em> and item_info.</p>
+
+<hr />
+<hr />
+
+<h2 id="detailed-info">detailed info</h2>
+
+<p><em>(The “Args” usage examples don’t show the optional <code class="language-plaintext highlighter-rouge">--help</code> flag, but it’s available for all tools.)</em></p>
+
+<h3 id="calc_collection_sizepy-detailed">calc_collection_size.py (detailed)</h3>
+
+<p>Calculates the total storage size of all items in the given BDR collection. It queries the Search API to retrieve and process the necessary data, and prints a summary including a human-readable size. It also grabs the collection title via the Collections API.</p>
+
+<p>Args: <code class="language-plaintext highlighter-rouge">--collection-pid</code> (required)</p>
+
+<p>Example usage:</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>uv run https://brown-university-library.github.io/bdr-api-tools/calc_collection_size.py --collection-pid bdr:bwehb8b8
+</code></pre></div></div>
+
+<p>Output:</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Collection: bdr:bwehb8b8
+Title: Brown University Open Data Collection
+Items found: 908
+Items with size counted: 908
+Total bytes: 257151383232
+Human: 239.49 GB
+</code></pre></div></div>
+
+<p><a href="https://github.com/Brown-University-Library/bdr-api-tools/blob/main/calc_collection_size.py">Code</a></p>
+
+<hr />
+
+<h3 id="display_collection_activitypy-detailed">display_collection_activity.py (detailed)</h3>
+
+<p>Displays monthly BDR collection activity counts as formatted JSON. It queries the Search API for all items in the given collection, extracts the <code class="language-plaintext highlighter-rouge">deposit_date</code> field from each result when possible, normalizes that to <code class="language-plaintext highlighter-rouge">YYYY-MM</code>, and counts items per month.</p>
+
+<p>The script also looks up the collection title via the Collections API for inclusion in the <code class="language-plaintext highlighter-rouge">_meta_</code> section. Items without a usable <code class="language-plaintext highlighter-rouge">deposit_date</code> value are skipped and reported in the output metadata. The JSON is pretty-printed and printed to stdout. The total number of HTTP calls made is included in the <code class="language-plaintext highlighter-rouge">_meta_</code> block.</p>
+
+<p>Args: <code class="language-plaintext highlighter-rouge">--collection-pid</code> (required)</p>
+
+<p>Example usage:</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>uv run https://brown-university-library.github.io/bdr-api-tools/display_collection_activity.py --collection-pid bdr:bwehb8b8
+</code></pre></div></div>
+
+<p>Output (excerpt):</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{
+  "_meta_": {
+    "timestamp": "2026-03-28T11:56:15.128444-04:00",
+    "collection_pid": "bdr:bwehb8b8",
+    "collection_title": "Brown University Open Data Collection",
+    "search_url": "https://repository.library.brown.edu/api/search/",
+    "date_field_used": "deposit_date",
+    "date_fields_used": [
+      "deposit_date"
+    ],
+    "num_found": 971,
+    "items_counted": 971,
+    "items_skipped": 0,
+    "http_calls": 3
+  },
+  "monthly_counts": {
+    "2013-08": 1,
+    "2014-05": 1,
+    "2014-10": 1,
+    "2015-01": 1,
+    "2015-04": 1,
+    "2015-07": 1,
+    "2015-11": 3,
+	--snip--
+    "2025-01": 14,
+    "2025-02": 7,
+    "2025-03": 6,
+    "2025-04": 22,
+    "2025-05": 6,
+    "2025-06": 10,
+    "2025-07": 4,
+    "2025-08": 4,
+    "2025-09": 6,
+    "2025-10": 6,
+    "2025-11": 3,
+    "2025-12": 2,
+    "2026-01": 3,
+    "2026-02": 43,
+    "2026-03": 1
+  }
+}
+</code></pre></div></div>
+
+<p><a href="https://github.com/Brown-University-Library/bdr-api-tools/blob/main/display_collection_activity.py">Code</a></p>
+
+<hr />
+
+<h3 id="display_recent_activitypy-detailed">display_recent_activity.py (detailed)</h3>
+
+<p>Displays recent BDR repository activity as formatted JSON. It queries the Search API for the most recently added items, ordered by <code class="language-plaintext highlighter-rouge">deposit_date</code> descending, and asks that search response to include each item’s collection membership. It then calls the Collections API once per unique collection represented in the recent item set to derive a display-ready collection title, including parent-collection context when available, and outputs per-collection counts.</p>
+
+<p>Args: <code class="language-plaintext highlighter-rouge">--recent-items-count</code> (optional; default <code class="language-plaintext highlighter-rouge">100</code>), <code class="language-plaintext highlighter-rouge">--progress</code> (optional), <code class="language-plaintext highlighter-rouge">--no-progress</code> (optional)</p>
+
+<p>Example usage:</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>uv run https://brown-university-library.github.io/bdr-api-tools/display_recent_activity.py --recent-items-count 20
+</code></pre></div></div>
+
+<p>Output (excerpt):</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{
+  "_meta_": {
+    "timestamp": "2026-04-01T10:15:00.000000-04:00",
+    "timetaken": "0:00:12.4",
+    "requested_recent_items_count": 20,
+    "items_returned": 20,
+    "repository_items_count": "123_456",
+    "collections_counted": 4,
+    "note": "Collection totals may exceed displayed items because an item may belong to multiple collections.",
+    "api_search_url": "https://repository.library.brown.edu/api/search/",
+    "api_collection_template": "https://repository.library.brown.edu/api/collections/{collection_pid}/",
+    "http_calls": 5
+  },
+  "collection_summary": [
+    {
+      "collection_pid": "bdr:abcd",
+      "collection_title": "`Theses and Dissertations` -- (from parent-collection `Computer Science`)",
+      "recent_item_count": 15
+    },
+    --- snip ---
+  ],
+  "recent_items": [
+    {
+      "pid": "bdr:123456",
+      "primary_title": "Example Thesis Title",
+      "deposit_date": "2026-03-31T14:05:00Z",
+      "collections": [
+        {
+          "pid": "bdr:wxyz",
+          "title": "`Theses and Dissertations` -- (from parent-collection `Computer Science`)"
+        }
+      ]
+    },
+    --- snip ---
+  ]
+}
+</code></pre></div></div>
+
+<p><a href="https://github.com/Brown-University-Library/bdr-api-tools/blob/main/display_recent_activity.py">Code</a></p>
+
+<hr />
+
+<h3 id="gather_extracted_textpy-detailed">gather_extracted_text.py (detailed)</h3>
+
+<p>Collects EXTRACTED_TEXT BDR data-streams across all items in the given collection, writing a single combined text file and a detailed listing JSON. Separate documents, in the combined file, are prefixed with PID delimiters, like <code class="language-plaintext highlighter-rouge">---|||start-of-pid:bdr:386312|||---</code></p>
+
+<p>The script gets a list of items via the Search API, locates EXTRACTED_TEXT links (parent or hasPart child), and streams content with retries and throttling, and saves progress after every item, so that if processing is interrupted, it’s easy to resume via re-running the same command (will not re-download already downloaded content). The script shows a progress display, uses human-readable size summaries, and offers an optional <code class="language-plaintext highlighter-rouge">--test-limit</code> flag for convenience when experimenting.</p>
+
+<p>All output directory-names are timestamped, so you don’t have to worry about overwriting previous runs. The directory-name also includes the collection-pid, for easy identification. The listing JSON file includes a summary of the run, and a list of all items processed, with their PIDs and primary titles. All output file-names, and the output directory-name, contain the collection-pid, for easy identification.</p>
+
+<p>Because many collections with text are named “Theses and Dissertations”, the collection name also shows the parent-collection (in parentheses), for context, like this:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[snip]
+    "collection_primary_title": "Theses and Dissertations -- (from Computer Science)"
+[snip]
+</code></pre></div></div>
+
+<p>Args: <code class="language-plaintext highlighter-rouge">--collection-pid</code> (required), <code class="language-plaintext highlighter-rouge">--output-dir</code> (required), <code class="language-plaintext highlighter-rouge">--test-limit</code> (optional).</p>
+
+<p>Example usage:</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>mkdir ./output_dir
+uv run https://brown-university-library.github.io/bdr-api-tools/gather_extracted_text.py --collection-pid bdr:bfttpwkj --output-dir "./output_dir" --test-limit 2
+</code></pre></div></div>
+
+<p>Output:</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>% cd ./output_dir 
+
+% cd ./run-20250913T133756-0400-bdr_bfttpwkj 
+
+% ls                                        
+ checkpoint_for_collection_pid-bdr_bfttpwkj.json
+ extracted_text_for_collection_pid-bdr_bfttpwkj.txt
+ listing_for_collection_pid-bdr_bfttpwkj.json
+
+% cat ./checkpoint_for_collection_pid-bdr_bfttpwkj.json 
+{
+  "collection_pid": "bdr:bfttpwkj",
+  "safe_collection_pid": "bdr_bfttpwkj",
+  "created_at": "2025-09-13T13:37:56.331650-04:00",
+  "updated_at": "2025-09-13T13:37:59.869694-04:00",
+  "run_directory_name": "run-20250913T133756-0400-bdr_bfttpwkj",
+  "completed": true,
+  "counts": {
+    "total_docs": 209,
+    "processed_count": 2,
+    "appended_count": 2,
+    "no_text_count": 0,
+    "forbidden_count": 0
+  },
+  "paths": {
+    "combined_text": "run-20250913T133756-0400-bdr_bfttpwkj/extracted_text_for_collection_pid-bdr_bfttpwkj.txt",
+    "listing_json": "run-20250913T133756-0400-bdr_bfttpwkj/listing_for_collection_pid-bdr_bfttpwkj.json"
+  }
+}
+
+% cat listing_for_collection_pid-bdr_bfttpwkj.json 
+{
+  "summary": {
+    "timestamp": "2025-09-13T13:37:59.869516-04:00",
+    "all_extracted_text_file_size": "691.8 kB",
+    "count_of_all_extracted_text_files": 2,
+    "combined_text_path": "run-20250913T133756-0400-bdr_bfttpwkj/extracted_text_for_collection_pid-bdr_bfttpwkj.txt",
+    "listing_path": "run-20250913T133756-0400-bdr_bfttpwkj/listing_for_collection_pid-bdr_bfttpwkj.json",
+    "collection_pid": "bdr:bfttpwkj",
+    "collection_primary_title": "Theses and Dissertations -- (from Computer Science)"
+  },
+  "items": [
+    {
+      "item_pid": "bdr:386312",
+      "primary_title": "Policy Delegation and Migration for Software-Defined Networks",
+      "full_item_api_url": "https://repository.library.brown.edu/api/items/bdr:386312/",
+      "full_studio_url": "https://repository.library.brown.edu/studio/item/bdr:386312/",
+      "extracted_text_file_size": "233.1 kB"
+    },
+    {
+      "item_pid": "bdr:386305",
+      "primary_title": "Efficient Cryptography for Information Privacy",
+      "full_item_api_url": "https://repository.library.brown.edu/api/items/bdr:386305/",
+      "full_studio_url": "https://repository.library.brown.edu/studio/item/bdr:386305/",
+      "extracted_text_file_size": "458.6 kB"
+    }
+  ]
+}
+</code></pre></div></div>
+
+<p>Not <code class="language-plaintext highlighter-rouge">cat</code>-ing the <code class="language-plaintext highlighter-rouge">extracted_text_for_collection_pid-bdr_bfttpwkj.txt</code> – it contains all the extracted text for each item. Each individual item is prefixed like:</p>
+
+<p><code class="language-plaintext highlighter-rouge">---|||start-of-pid:bdr:386312|||---</code></p>
+
+<p><a href="https://github.com/Brown-University-Library/bdr-api-tools/blob/main/gather_extracted_text.py">Code</a></p>
+
+<hr />
+
+<h3 id="list_named_entitiespy-detailed">list_named_entities.py (detailed)</h3>
+
+<p>Runs <a href="https://github.com/explosion/spaCy">spaCy’s</a> named-entity-recognition (<a href="https://en.wikipedia.org/wiki/Named-entity_recognition">NER</a>) on an item’s extracted-text. Displays a unique alphabetical listing of all the entities found, with counts. Also displays a short-list of the most common entities, sorted by count (the full list can be calculated from the alphabetical listing). Includes a <em>meta</em> section which includes a glossary, timestamp, time-taken, item-pid, item-title, and the version of spaCy used.</p>
+
+<p>Args: <code class="language-plaintext highlighter-rouge">--item_pid</code> (required).</p>
+
+<p>Example usage:</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>uv run https://brown-university-library.github.io/bdr-api-tools/list_named_entities.py --item_pid bdr:263
+</code></pre></div></div>
+
+<p>Output (excerpt):</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>- starting
+- accessing item-data
+- determining extracted-text-url
+- accessing extracted-text
+- running spaCy
+- processing entities
+- preparing response
+
+{
+  "data_all_sorted_by_value_alphabetically": {
+    "CARDINAL": {
+      "1": 75,
+      "1, 406-": 1,
+      "1-20": 1,
+      [snip]
+    "DATE": {
+      "1.11.15": 1,
+      "1.11.16-17": 1,
+      "1.11.17-18": 1,
+      [snip]
+    "EVENT": {
+      "LS 41C": 1,
+      "LS 61B": 1,
+      "LS 61I": 3,
+      [snip]
+    "FAC": {
+      "Bonhöffer’s": 1,
+      "Cicero": 2,
+      "Hades": 1,
+      [snip]
+    "GPE": {
+      "A.A.": 2,
+      "Academica": 1,
+      "Adversus": 1,
+      [snip]
+    "LANGUAGE": {
+      "Aristo": 1,
+      "English": 6,
+      "Latin": 3,
+      [snip]
+    "LAW": {
+      "Chapter": 5,
+      "Chapter 1.I.A.": 1,
+      "Chapter 12": 1,
+      [snip]
+    "LOC": {
+      "Cat": 1,
+      "Chapter": 3,
+      "Chapter I.C": 1,
+      [snip]
+    "MONEY": {
+      "101": 1,
+      "122                                ii": 1,
+      "163accords": 1,
+      "197    ii": 1,
+      [snip]
+    "NORP": {
+      "Appetite": 1,
+      "Aristotelis": 3,
+      "Arrian": 1,
+      [snip]
+    "ORDINAL": {
+      "5th": 1,
+      "First": 40,
+      "Second": 31,
+      [snip]
+    "ORG": {
+      "\u0001": 1,
+      "210 &amp;": 1,
+      "A Treatise of Human Nature": 1,
+      [snip]
+    "PERSON": {
+      "33I. Note": 1,
+      "400d11": 1,
+      "41 H.\f                                                                                                        196": 1,
+      [snip]
+    "PRODUCT": {
+      "7.106": 3,
+      "7.111-113": 1,
+      "7.113-16": 1,
+      [snip]
+    "QUANTITY": {
+      "2.84.24-85.3": 1,
+      "2.98.17-99.2": 1,
+      "3.37-8)": 1,
+      [snip]
+    "TIME": {
+      "the night": 1
+      [snip]
+    "WORK_OF_ART": {
+      "30I. See": 1,
+      "40H": 1,
+      "A Puzzle for Stoic Ethics": 1,
+      [snip]
+  },
+  "data_top_4_sorted_by_count_descending": {
+    "CARDINAL": [
+      ["228", ["one"]],
+      ["104", ["two"]],
+      [snip]
+    "DATE": [
+      ["70", ["1987"]],
+      ["67", ["1990"]],
+      [snip]
+    "EVENT": [
+      ["4", ["White 2007"]],
+      ["3", ["LS 61I", "Pomeroy 1999"]],
+    "FAC": [
+      ["2", ["Cicero"]],
+      ["1", ["Bonhöffer’s", "Hades", "IV.c.i", "International Center", [snip]]]
+      [snip]
+    "GPE": [
+      ["82", ["D.L."]],
+      ["43", ["SB"]],
+      [snip]
+    "LANGUAGE": [
+      ["6", ["English"]],
+      ["3", ["Latin"]],
+      [snip]
+    "LAW": [
+      ["17", ["Chapter Two"]],
+      ["10", ["Chapter IV"]],
+      [snip]
+    "LOC": [
+      ["7", ["Chapter III"]],
+      ["5", ["Inwood"]],
+      [snip]
+    "MONEY": [
+      ["1", ["101", "122                                ii", "163accords", "197    ii", [snip]]]
+    "NORP": [
+      ["149", ["Stoic"]],
+      ["146", ["Stoics"]],
+      [snip]
+    "ORDINAL": [
+      ["96", ["first"]],
+      ["41", ["second"]],
+      [snip]
+    "ORG": [
+      ["197", ["Epictetus"]],
+      ["135", ["D.L."]],
+      [snip]
+    "PERSON": [
+      ["117", ["Chrysippus"]],
+      ["114", ["Cic"]],
+      [snip]
+    "PRODUCT": [
+      ["45", ["Stob"]],
+      ["16", ["VS"]],
+      [snip]
+    "QUANTITY": [
+      ["2", ["one\u2019s feet"]],
+      ["1", ["2.84.24-85.3", "2.98.17-99.2", "3.37-8)"]],
+      [snip]
+    "TIME": [
+      ["1", "the night"],
+    "WORK_OF_ART": [
+      ["4", ["The Cambridge History of Hellenistic Philosophy"]],
+      ["3", ["Nature", "Stoic Ethics", "The Stoics"]],
+      [snip]
+    ]
+  },
+  "meta": {
+    "glossary": [
+      "CARDINAL — numerals that don’t fall under another type.",
+      "DATE — absolute or relative dates or periods.",
+      "EVENT — named hurricanes, battles, wars, sports events, etc.",
+      [snip]
+    ],
+    "item_pid": "bdr:263",
+    "item_title": "The Fitting and the Virtuous in Stoic Ethics",
+    "item_url": "https://repository.library.brown.edu/studio/item/bdr:263/",
+    "spaCy_version": "3.8.8",
+    "time_stamp": "2025-11-17T08:09:26.689041",
+    "time_taken": "23.2 seconds"
+  }
+}
+</code></pre></div></div>
+
+<hr />
+
+<h3 id="show_zip_infopy-detailed">show_zip_info.py (detailed)</h3>
+
+<p>Assembles data from the item-api and summarizes (based on extension) zip-file contents for the given item. It also lists, and summarizes, zip-file contents for all child-items. In addition to the per-item summary, it also summarizes the filetype counts across both parent and all child-items.</p>
+
+<p>Args: <code class="language-plaintext highlighter-rouge">--item_pid</code> (required).</p>
+
+<p>Example usage:</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>uv run https://brown-university-library.github.io/bdr-api-tools/show_zip_info.py --item_pid bdr:833705
+</code></pre></div></div>
+
+<p>Output (excerpt):</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{
+  "_meta_": {
+    "timestamp": "2025-09-11T22:56:48.249463-04:00",
+    "full_item_api_url": "https://repository.library.brown.edu/api/items/bdr:833705/",
+    "item_pid": "bdr:833705"
+  },
+  "item_info": {
+    "pid": "bdr:833705",
+    "primary_title": "(ATOMICS-0) Adjudicated/Annotated Telemetry Signals for Medically Important and Clinically Significant Events-0 Dataset",
+    "item_zip_info": [
+      "ATOMICS-0/ATOMICS-0-Data-Catalog-Record-2018.pdf",
+      "ATOMICS-0/README.md"
+    ],
+    "item_zip_filetype_summary": {
+      "md": 1,
+      "pdf": 1
+    },
+    "has_parts_zip_info": [
+      {
+        "child_pid": "bdr:841254",
+        "primary_title": "ATOMICS SHARED CODE",
+        "child_zip_info": [
+          "__MACOSX/x1. ATOMICS shared code/._III+ ATOMICS_dataset_window_processor.py",
+          "__MACOSX/x1. ATOMICS shared code/._III+ ATOMICS_dataset_window_processorSLC.py",
+          "x1. ATOMICS shared code/III+ ATOMICS_dataset_window_processor.py",
+          "x1. ATOMICS shared code/III+ ATOMICS_dataset_window_processorSLC.py"
+        ],
+        "child_zip_filetype_summary": {
+          "py": 4
+        }
+      },
+      {
+        "child_pid": "bdr:841252",
+        "primary_title": "ATOMICS-0 SHARE ALL",
+        "child_zip_info": [
+          "ATOMICS_0_share_ALL/+ATOMICS dataset descriptions and use instructions v1.0.doc",
+          "ATOMICS_0_share_ALL/.DS_Store",
+          "ATOMICS_0_share_ALL/PERSEUS+MeTeOR EULA.pdf",
+          "ATOMICS_0_share_ALL/select latched controls from ATOMICS-2 dataset.txt",
+          "ATOMICS_0_share_ALL/week02_day01_alarmsSLC/x00-86.2015-08-15_alarmsSLC.csv",
+          "ATOMICS_0_share_ALL/week02_day01_alarmsSLC/x00-89.2015-08-15_alarmsSLC.csv",
+&lt;snip&gt;
+        ],
+        "child_zip_filetype_summary": {
+        "csv": 320,
+        "doc": 1,
+        "ds_store": 2,
+        "pdf": 2,
+        "py": 4,
+        "txt": 194
+        }
+      }
+    ],
+&lt;snip&gt;
+    "overall_zip_filetype_summary": {
+      "csv": 600,
+      "doc": 1,
+      "ds_store": 14,
+      "md": 1,
+      "pdf": 15,
+      "py": 8,
+      "txt": 363
+    }
+  }
+}
+</code></pre></div></div>
+
+<p><a href="https://github.com/Brown-University-Library/bdr-api-tools/blob/main/show_zip_info.py">Code</a></p>
+
+<hr />
+<hr />
+
+
+      
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/4.1.0/anchor.min.js" integrity="sha256-lZaRhKri35AyJSypXXs4o6OPFTbTmUoltBbDCbdzegg=" crossorigin="anonymous"></script>
+    <script>anchors.add();</script>
+  </body>
+</html>

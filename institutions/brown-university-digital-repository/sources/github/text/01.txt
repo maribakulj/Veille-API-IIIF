@@ -1,0 +1,171 @@
+GitHub - Brown-University-Library/bdr-api-tools: Scripts for working with the BDR API. · GitHub 
+ Skip to content 
+ Navigation Menu
+ Sign in 
+ Products Platform GitHub Repository hosting, code review, and collaboration 
+ Copilot AI coding agent for tasks, projects, and automated work 
+ Build & Ship Actions CI/CD and automation 
+ Code Quality Quality analysis, fixes, and enforcement 
+ Codespaces Cloud development environments 
+ Secure Code Security Vulnerability detection and remediation 
+ Secret Protection Secret scanning and leak prevention 
+ All Features 
+ Developers Learn Documentation 
+ Training 
+ Certifications 
+ Build Build with Copilot 
+ Customize Copilot 
+ Integrations 
+ Explore Trending repos 
+ GitHub Sponsors 
+ Developer articles 
+ Changelog Changelog Your source for the latest features, improvements, and fixes across GitHub products, all in one place. 
+ Businesses By Stage Enterprises 
+ Team 
+ Startups 
+ Nonprofits 
+ By Industry Healthcare 
+ Financial services 
+ Manufacturing 
+ Government 
+ See all industries 
+ Evaluate GitHub Why GitHub 
+ Customer Stories 
+ Business insights 
+ Trust Center 
+ Add-ons GitHub Advanced Security Enterprise-grade code security 
+ Copilot for business Enterprise-grade AI features 
+ Premium Support Enterprise-grade 24/7 support 
+ Resources Learn & Connect Documentation 
+ Resource center 
+ Blog 
+ Events & webinars 
+ Community Forum 
+ Customer Stories 
+ Integrations 
+ Support Customer support 
+ Training 
+ GitHub Status 
+ Company About 
+ Partners 
+ Changelog 
+ GitHub Universe GitHub Universe The event for developers, by developers — talks, workshops, and what’s next for GitHub. 
+ Pricing 
+ Search / 
+ Sign in 
+ Sign up Appearance settings
+ You signed in with another tab or window. Reload to refresh your session. 
+ You signed out in another tab or window. Reload to refresh your session. 
+ You switched accounts on another tab or window. Reload to refresh your session. 
+ Dismiss alert 
+ {{ message }}
+ Brown-University-Library 
+ bdr-api-tools 
+ Repository navigation
+ Code 
+ Issues 
+ Pull requests 
+ Actions 
+ Projects 
+ Security and quality 
+ Insights 
+ More items 
+ bdr-api-tools 
+ Public 
+ Notifications You must be signed in to change notification settings 
+ Fork 0  ( 0 ) 
+ Star 0  ( 0 ) You must be signed in to star a repository 
+ About 
+ Scripts for working with the BDR API.
+ Resources 
+ Readme 
+ Activity 
+ Custom properties 
+ Stars 
+ 0 stars 
+ Watchers 
+ 0 watching 
+ Forks 
+ 0 forks 
+ Report repository 
+ main 
+ Branches Tags 
+ Go to file 
+ Code Open more actions menu 
+ Latest commit
+ History
+ 154 Commits 
+ 154 Commits 
+ Folders and files
+ Name Name Last commit message 
+ Last commit date 
+ tests 
+ tests 
+ .gitignore 
+ .gitignore 
+ AGENTS.md 
+ AGENTS.md 
+ PLAN__display_recent_activity.md 
+ PLAN__display_recent_activity.md 
+ README.md 
+ README.md 
+ calc_collection_size.py 
+ calc_collection_size.py 
+ display_collection_activity.py 
+ display_collection_activity.py 
+ display_recent_activity.py 
+ display_recent_activity.py 
+ gather_extracted_text.py 
+ gather_extracted_text.py 
+ index.md 
+ index.md 
+ list_named_entities.py 
+ list_named_entities.py 
+ pyproject.toml 
+ pyproject.toml 
+ ruff.toml 
+ ruff.toml 
+ show_zip_info.py 
+ show_zip_info.py 
+ uv.lock 
+ uv.lock 
+ View all files 
+ Repository files navigation
+ README 
+ More items 
+ See index.md for more info; that's used for the auto-generated github.io landing page .
+ Additional notes:
+ The inline-metadata at the top of each script allows uv to run the script without a local installation of python or virtual-environments or dependency-packages.
+ Dependencies are also listed in the pyproject.toml file to run tests easily.
+ The pyproject.toml file contains some project guidelines for LLM-helpers to follow when generating code. I wanted to put this somewhere unobtrusive. Windsurf's GPT-5 (low-reasoning) does a good job following these.
+ About 
+ Scripts for working with the BDR API.
+ Resources 
+ Readme 
+ Activity 
+ Custom properties 
+ Stars 
+ 0 stars 
+ Watchers 
+ 0 watching 
+ Forks 
+ 0 forks 
+ Report repository 
+ Releases 
+ Packages 
+ Used by 
+ Contributors 
+ Languages 
+ Footer
+ © 2026 GitHub, Inc.
+ Footer navigation
+ Terms 
+ Privacy 
+ Security 
+ Status 
+ Community 
+ Docs 
+ Contact 
+ Manage cookies
+ Do not share my personal information
+ You can’t perform that action at this time.

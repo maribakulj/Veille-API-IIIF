@@ -1,0 +1,13 @@
+{
+  "slug": "brown-university-digital-repository",
+  "min_delay_s": 30,
+  "max_requests": 8,
+  "follow_redirects": 0,
+  "robots_disallow_autorise_par_marcel": true,
+  "note": "Passe 1 : les trois familles d'API documentees (Item, Collection, Search) avec les exemples de la doc. Crawl-delay: 30 du robots.txt respecte. L'hote est en defi Cloudflare Turnstile (page /studio/api-docs/, 2026-11-14T02:30:44Z) : le registre partage doit le faire sauter, le journal en garde la trace.",
+  "endpoints": [
+    {"id": "p1-item-api", "method": "GET", "url": "https://repository.library.brown.edu/api/items/bdr:80246/"},
+    {"id": "p1-collections-top", "method": "GET", "url": "https://repository.library.brown.edu/api/collections/"},
+    {"id": "p1-search-api", "method": "GET", "url": "https://repository.library.brown.edu/api/search/?q=primary_title:irish&rows=1&fl=pid,primary_title"}
+  ]
+}

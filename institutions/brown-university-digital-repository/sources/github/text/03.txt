@@ -1,0 +1,308 @@
+Brown University Library · GitHub 
+ Skip to content 
+ Navigation Menu
+ Sign in 
+ Brown-University-Library 
+ Products Platform GitHub Repository hosting, code review, and collaboration 
+ Copilot AI coding agent for tasks, projects, and automated work 
+ Build & Ship Actions CI/CD and automation 
+ Code Quality Quality analysis, fixes, and enforcement 
+ Codespaces Cloud development environments 
+ Secure Code Security Vulnerability detection and remediation 
+ Secret Protection Secret scanning and leak prevention 
+ All Features 
+ Developers Learn Documentation 
+ Training 
+ Certifications 
+ Build Build with Copilot 
+ Customize Copilot 
+ Integrations 
+ Explore Trending repos 
+ GitHub Sponsors 
+ Developer articles 
+ Changelog Changelog Your source for the latest features, improvements, and fixes across GitHub products, all in one place. 
+ Businesses By Stage Enterprises 
+ Team 
+ Startups 
+ Nonprofits 
+ By Industry Healthcare 
+ Financial services 
+ Manufacturing 
+ Government 
+ See all industries 
+ Evaluate GitHub Why GitHub 
+ Customer Stories 
+ Business insights 
+ Trust Center 
+ Add-ons GitHub Advanced Security Enterprise-grade code security 
+ Copilot for business Enterprise-grade AI features 
+ Premium Support Enterprise-grade 24/7 support 
+ Resources Learn & Connect Documentation 
+ Resource center 
+ Blog 
+ Events & webinars 
+ Community Forum 
+ Customer Stories 
+ Integrations 
+ Support Customer support 
+ Training 
+ GitHub Status 
+ Company About 
+ Partners 
+ Changelog 
+ GitHub Universe GitHub Universe The event for developers, by developers — talks, workshops, and what’s next for GitHub. 
+ Pricing 
+ Search / 
+ Sign in 
+ Sign up Appearance settings
+ You signed in with another tab or window. Reload to refresh your session. 
+ You signed out in another tab or window. Reload to refresh your session. 
+ You switched accounts on another tab or window. Reload to refresh your session. 
+ Dismiss alert 
+ {{ message }}
+ Brown University Library
+ 31 
+ followers
+ Providence, RI 
+ http://library.brown.edu 
+ Overview
+ Repositories
+ Projects
+ Packages
+ People
+ More 
+ Overview 
+ Repositories 
+ Projects 
+ Packages 
+ People 
+ README.md 
+ Hello! We're cleaning up the BUL GitHub as best we can, and revoking access to repositories for folks who no longer work here or otherwise shouldn't have access. If we've made a mistake and removed you from a repository you should have access to, please get in touch and we'll get it sorted out.
+ Brown University Library GitHub Best Practices
+ Security
+ Main security message:
+ Never Commit Sensitive Information — even if the repository is private.
+ How to reliably do this?
+ Keep private things out of the github code directory 
+ Keep out of code, and the github code directory: 
+ passwords
+ API keys
+ server paths
+ database-structure info (where reasonably possible)
+ private settings
+ shell-scripts that set environmental variables
+ log-files (which can sometimes contain sensitive info)
+ Implementation: One common pattern is to have a "project_outer_directory" that contains these things (as well as the "project_code_directory"), and only commit the "project_code_directory" to github.
+ Utilize environment variables: Store sensitive information in environment variables, set outside of the git-directory and thus not able to be accidentally committed. All languages support common ways of doing this.
+ Do not depend on the .gitignore file for security: Rather, get in the habit of thinking of the .gitignore file as keeping messy-unnecessary-cruft out of github (like auto-compiled *.pyc files), not as basic security. Instead, keep the sensitive info out of the github directory in the first place.
+ Other recommended GitHub practices...
+ Include a README, preferably with an explanation of the repo's Purpose, Usage, and Installation
+ Make it clear which team at BUL "owns" the repo
+ Add a "Description"
+ Include "dependencies" in such a way that github can auto-scan them and notify you of vulnerabilities
+ If you have a dotenv with private info — as noted above it should not be in the repo — but it's useful to have a sample_dotenv.txt file for users to get a sense of what kind of info is required.
+ the main branch is special: it should always work.
+ There should be a "release" for every version of the code actually deployed. (That makes it easier to know which commit to revert back to if there's a problem.)
+ See also:
+ Best practices for Django projects at BUL 
+ This document is a draft & will be undergoing revisions. 
+ Pinned
+ Loading 
+ geodata geodata Public 
+ Project and open data repo for GeoData@SciLi
+ 1
+ 1
+ bdr_api_documentation bdr_api_documentation Public 
+ Jupyter Notebook 
+ 1
+ bdr-api-tools bdr-api-tools Public 
+ Scripts for working with the BDR API.
+ Python 
+ django_template_52_project django_template_52_project Public 
+ Template for new Django projects, full of good-practices -- to get up-and-running easily.
+ Python 
+ Repositories
+ --> 
+ Loading 
+ Type 
+ Select type 
+ All 
+ Public 
+ Sources 
+ Forks 
+ Archived 
+ Mirrors 
+ Templates 
+ Language 
+ Select language 
+ All 
+ CSS 
+ Dockerfile 
+ FreeMarker 
+ Go 
+ HTML 
+ Java 
+ JavaScript 
+ Jupyter Notebook 
+ Perl 
+ PHP 
+ Python 
+ Ruby 
+ Shell 
+ TypeScript 
+ XSLT 
+ Sort 
+ Select order 
+ Last updated 
+ Name 
+ Stars 
+ 20 
+ results
+ for
+ all 
+ repositories
+ matching
+ bdr 
+ sorted by last updated 
+ Clear filter
+ Showing 10 of 20 repositories 
+ bdr_api_documentation 
+ Public
+ Uh oh!
+ There was an error while loading. Please reload this page .
+ Brown-University-Library/bdr_api_documentation's past year of commit activity 
+ Jupyter Notebook 
+ 0 
+ 1 
+ 0 
+ 1 
+ Updated Nov 13, 2026 
+ bdr_uploader_hub_project 
+ Public
+ Web-app that allows staff to configure uploader-webapps, and students to upload to them.
+ Uh oh!
+ There was an error while loading. Please reload this page .
+ Brown-University-Library/bdr_uploader_hub_project's past year of commit activity 
+ Python 
+ 0 
+ 0 
+ 4 
+ 8 
+ Updated Nov 13, 2026 
+ bdr_indexer 
+ Public
+ Uh oh!
+ There was an error while loading. Please reload this page .
+ Brown-University-Library/bdr_indexer's past year of commit activity 
+ Python 
+ 0 
+ MIT
+ 0 
+ 0 
+ 5 
+ Updated Nov 13, 2026 
+ bdrxml 
+ Public
+ Reading and writing XML for the Fedora based BDR.
+ Uh oh!
+ There was an error while loading. Please reload this page .
+ Brown-University-Library/bdrxml's past year of commit activity 
+ Python 
+ 1 
+ MIT
+ 3 
+ 0 
+ 1 
+ Updated Nov 5, 2026 
+ bdr-api-tools 
+ Public
+ Scripts for working with the BDR API.
+ Uh oh!
+ There was an error while loading. Please reload this page .
+ Brown-University-Library/bdr-api-tools's past year of commit activity 
+ Python 
+ 0 
+ 0 
+ 0 
+ 0 
+ Updated Sep 30, 2026 
+ playwright_access_checker 
+ Public
+ Playwright checker to assess researcher workflow usage.
+ Uh oh!
+ There was an error while loading. Please reload this page .
+ Brown-University-Library/playwright_access_checker's past year of commit activity 
+ Python 
+ 0 
+ 0 
+ 0 
+ 1 
+ Updated Sep 16, 2026 
+ bdr_scripts_public 
+ Public
+ Uh oh!
+ There was an error while loading. Please reload this page .
+ Brown-University-Library/bdr_scripts_public's past year of commit activity 
+ Python 
+ 0 
+ 1 
+ 1 
+ 1 
+ Updated Jul 2, 2026 
+ workshop_staging_demo_filemaker 
+ Public
+ Creates small batches of files for demos or tests of the BDR-Workshop-staging upload flow.
+ Uh oh!
+ There was an error while loading. Please reload this page .
+ Brown-University-Library/workshop_staging_demo_filemaker's past year of commit activity 
+ Python 
+ 0 
+ 0 
+ 0 
+ 1 
+ Updated May 14, 2026 
+ bdr_image_accessibility 
+ Public
+ Uh oh!
+ There was an error while loading. Please reload this page .
+ Brown-University-Library/bdr_image_accessibility's past year of commit activity 
+ HTML 
+ 0 
+ 0 
+ 0 
+ 0 
+ Updated Sep 22, 2025 
+ bdr_tools_usage_example 
+ Public
+ Uh oh!
+ There was an error while loading. Please reload this page .
+ Brown-University-Library/bdr_tools_usage_example's past year of commit activity 
+ Python 
+ 0 
+ 0 
+ 0 
+ 0 
+ Updated Apr 11, 2025 
+ View all repositories 
+ People
+ Top languages
+ Loading…
+ Uh oh!
+ There was an error while loading. Please reload this page .
+ Most used topics
+ Loading…
+ Uh oh!
+ There was an error while loading. Please reload this page .
+ Footer
+ © 2026 GitHub, Inc.
+ Footer navigation
+ Terms 
+ Privacy 
+ Security 
+ Status 
+ Community 
+ Docs 
+ Contact 
+ Manage cookies
+ Do not share my personal information
+ You can’t perform that action at this time.
