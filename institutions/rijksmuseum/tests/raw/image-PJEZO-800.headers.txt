@@ -1,11 +1,12 @@
-2026-11-13T21:08:19Z GET https://iiif.micr.io/PJEZO/full/800,/0/default.jpg
+2026-11-14T01:29:41Z GET https://iiif.micr.io/PJEZO/full/800,/0/default.jpg
 HTTP 200
-date: Fri, 13 Nov 2026 21:08:19 GMT
+date: Sat, 14 Nov 2026 01:29:41 GMT
 content-type: image/jpeg
 content-length: 71556
 connection: keep-alive
 cf-cache-status: HIT
 access-control-allow-origin: *
+age: 69325
 cache-control: public, max-age=31536000
 strict-transport-security: max-age=63072000; includeSubDomains; preload
 content-security-policy: default-src 'none'; sandbox
@@ -13,8 +14,8 @@ permissions-policy: accelerometer=(), camera=(), geolocation=(), gyroscope=(), m
 referrer-policy: no-referrer
 x-content-type-options: nosniff
 x-frame-options: DENY
-report-to: {"group":"cf-nel","max_age":604800,"endpoints":[{"url":"https://a.nel.cloudflare.com/report/v4?s=Du7TDnu7MDYg963e0SqHp%2BXSnx3vtLeJ%2B82zyr3KnOz4VQ5br7SCMcWW4mf5%2FU7nIzfTNyUY9Do0cCb5YzIQq6axADnXTXTttwz58yRCNuJv0UW6kKyG40vLUJ0X%2FA%3D%3D"}]}
+report-to: {"group":"cf-nel","max_age":604800,"endpoints":[{"url":"https://a.nel.cloudflare.com/report/v4?s=v%2Ffl8rw1w54eURvbTTAwzfGVFah6lFcCvDGgbmsu3wi1uGLV%2FP0hau%2F0NZAa8ewiXjEOhK2xQ7W2gUXwOFkh%2Bm1fJYNDajLUc679AUWEoPYmkPreuRTsFqojja3LlA%3D%3D"}]}
 nel: {"report_to":"cf-nel","success_fraction":0.0,"max_age":604800}
 server: cloudflare
-cf-ray: a5a0c0437f1fed1e-MXP
+cf-ray: a5a23f22bfe0b5aa-MXP
 alt-svc: h3=":443"; ma=86400

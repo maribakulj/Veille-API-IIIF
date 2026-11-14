@@ -23,9 +23,9 @@
 ### c) Configuration écrite AVANT les tests
 > `config/<nom>.json` pilote `scripts/probe.py`, committée avant le lancement. Un endpoint absent de la doc mais non interdit se teste avec un script poli (identifiants issus de pages publiques ou d'exemples de la doc, pas de devinette).
 
-- [ ] **Pas fait**
-  - **Justification** : DÉCOCHÉE le 2026-11-14 (verrou renforcé) : session 2026-11-13T21:07:55Z : configuration rijksmuseum.json committée APRÈS le lancement (2026-11-13T22:23:52+00:00) | ancienne justification : Deux configurations committées avant lancement : passe 1 (services data.rijksmuseum.nl, exemples de la doc), passe 2 (iiif.micr.io, identifiant d'exemple RFwqO ; dérivé réduit au lieu de full/max). ro
-  - **Preuves** : 
+- [x] **Fait**
+  - **Justification** : Trois configurations committées avant lancement : passe 1 (data.rijksmuseum.nl), passe 2 (iiif.micr.io RFwqO) et passe 3 (rejeu conforme de la session archivée du 2026-11-13T21:07, config committée 813055c avant lancement). Session non conforme archivée dans tests/archive.
+  - **Preuves** : `institutions/rijksmuseum/config/rijks-passe3-rejeu.json`, `institutions/rijksmuseum/tests/archive/journal-sessions-avant-config-committee.log`
 
 ### d) Quota cherché dans la doc
 > Pour chaque page lue : endpoint de statut, en-têtes de limite documentés, clé ou compte donnant un quota, contact pour un volume plus élevé. Chaque réponse cite sa source.
@@ -37,9 +37,9 @@
 ### e) Test systématique de chaque endpoint
 > Chaque endpoint documenté est testé (budget 15 requêtes par passe, pause ≥ 6 s, GET/HEAD, UA du projet). Redirections du même hôte suivies. Un 403 arrête son hôte, un 429 arrête l'institution. Seules les interdictions écrites dans la doc dispensent de tester.
 
-- [ ] **Pas fait**
-  - **Justification** : DÉCOCHÉE le 2026-11-14 (verrou renforcé) : 1 élément(s) de rattrapage_a_faire non traités | ancienne justification : Tous les endpoints documentés sont testés (2 passes, 11 requêtes de données) : 200 partout, aucun en-tête de limite ni 429 (en-têtes bruts relus). ListRecords volontairement non testé (volume), GetRec
-  - **Preuves** : 
+- [x] **Fait**
+  - **Justification** : Tous les endpoints documentés testés (3 passes, 15 requêtes de données) : 200 partout, aucun 429 ni en-tête de limite ; passe 3 rejouée le 2026-11-14 (4 x 200). Ancienne page de conditions Azure en 403 : non contournée, aucune capture Wayback, listée dans a_verifier_manuellement ; ancienne politique Open Data lue via Wayback. ListRecords non testé (volume).
+  - **Preuves** : `institutions/rijksmuseum/tests/journal.log`, `institutions/rijksmuseum/tests/raw/info-json-PJEZO.headers.txt`, `institutions/rijksmuseum/sources/wayback/ancienne-politique-open-data-2024-12-27.md`
 
 ### f) Ce que disent les gens sur le web
 > Plaintes, discussions, présentations de l'institution, politique envers les API et les bots, blogs, GitHub, forums, listes de diffusion. Sources étiquetées (officielle / institution / utilisateur / tiers), lues, citées.
@@ -60,7 +60,7 @@
 
 <!-- AUTO:DEBUT -->
 ## Contrôles automatiques (calculés depuis `tests/journal.log`)
-- Requêtes enregistrées : **13** (sessions de sonde : 2, maximum par session : 9)
+- Requêtes enregistrées : **18** (sessions de sonde : 3, maximum par session : 9)
 - Plus courte pause vers un même hôte : **6 s** (règle : ≥ 6 s)
 - Méthodes utilisées : GET (règle : GET/HEAD seulement)
 - Anomalies : aucune

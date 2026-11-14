@@ -62,7 +62,7 @@
       "hote": "rijks-web.azurewebsites.net",
       "code": "403",
       "nature": "ancienne page de conditions (préproduction Azure)",
-      "suite": "non réessayé ; non lue"
+      "suite": "non réessayé (403) ; aucune capture Wayback de cette URL ; ancienne politique Open Data lue via Wayback (sources/wayback) ; URL listée dans a_verifier_manuellement"
     }
   ],
   "contact": "formulaire de contact du Rijksmuseum (data.rijksmuseum.nl)",
@@ -187,6 +187,30 @@
       "etiquette": "tiers",
       "citation": "Marcel Duin (Q42, éditeur de Micrio), 24 mars 2022 : « Now, we serve multiple museums who have their own online collections » et « A plethora of requests end up on our poor image server. » (page lue)",
       "preuve": "institutions/rijksmuseum/fiche.md"
+    },
+    {
+      "categorie": "utilisateurs",
+      "url": "https://data.rijksmuseum.nl/docs/oai-pmh",
+      "date": "2026-11-14",
+      "etiquette": "institution",
+      "citation": "(résumé de moteur, non vérifié) recherche « Rijksmuseum API rate limit 429 OAI-PMH harvesting problem » : aucune plainte 429 trouvée ; le moteur signale un 429 « RateLimited » dans une spec OpenAPI de l'ancienne Collection API (dépréciée, à clé), non lue ici.",
+      "preuve": "institutions/rijksmuseum/fiche.md"
+    },
+    {
+      "categorie": "presentations",
+      "url": "https://slideshare.net/azaroth42/understanding-linked-art",
+      "date": "2026-11-14",
+      "etiquette": "tiers",
+      "citation": "(résumé de moteur, non vérifié) présentation sur Linked Art donnée au Rijksmuseum ; aucune mention de quota trouvée. Aucune présentation de l'institution sur des limites de débit trouvée (recherche « Rijksmuseum linked data APIs presentation LDES Linked Art talk »).",
+      "preuve": "institutions/rijksmuseum/fiche.md"
+    },
+    {
+      "categorie": "institution",
+      "url": "https://web.archive.org/web/20241227112904/https://www.rijksmuseum.nl/en/research/conduct-research/data/policy",
+      "date": "2024-12-27",
+      "etiquette": "institution (ancienne politique, Wayback)",
+      "citation": "« We provide digital images of objects from the collection, descriptive object information (metadata) and bibliographic data via our data services without restrictions on reuse. » Aucun quota ni fair use chiffré.",
+      "preuve": "institutions/rijksmuseum/sources/wayback/ancienne-politique-open-data-2024-12-27.md"
     }
   ],
   "donnees_a_revalider": false,
@@ -286,7 +310,5 @@
       "preuve": "institutions/rijksmuseum/sources/v2/FETCH.log"
     }
   ],
-  "rattrapage_a_faire": [
-    "https://rijks-web.azurewebsites.net/robots.txt et la page de conditions https://rijks-web.azurewebsites.net/en/data/terms-of-use (403 déjà constaté, non lue) : hôte de préproduction ; à ne relire que si Marcel le demande."
-  ]
+  "rattrapage_a_faire": []
 }

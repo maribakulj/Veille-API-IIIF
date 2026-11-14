@@ -21,6 +21,8 @@
 |---|---|---|
 | 1 | `data…/search/collection`, résolveur `/200107928`, OAI-PMH (`Identify`, `ListMetadataFormats`, `ListSets`, `GetRecord` EDM), LDES, IIIF Change Discovery | **200** ×8 |
 | 2 | `iiif.micr.io/RFwqO/info.json`, `/manifest`, dérivé `!200,200` | **200** ×3 |
+| 3 (rejeu conforme de la session archivée) | `iiif.micr.io/PJEZO` : manifeste, `info.json`, image 800 px ; manifeste `RFwqO` | **200** ×4 |
+
 
 Aucun 429. Aucun en-tête `Retry-After`, `X-RateLimit-*`, `RateLimit-*` (en-têtes bruts relus). `ListRecords` n'est pas testé (très volumineux, la doc ne l'impose pas).
 
@@ -28,6 +30,8 @@ Aucun 429. Aucun en-tête `Retry-After`, `X-RateLimit-*`, `RateLimit-*` (en-têt
 
 - Une recherche sur les bots et les limites n'a trouvé **aucune politique de débit** du Rijksmuseum ; des listings tiers disent « limites non documentées ».
 - La politique de données et le `robots.txt` de Micrio sont la position officielle sur l'IA : entraînement interdit (`ai-train=no`), usage de référence.
+
+- Recherches de la passe de rattrapage du 2026-11-14 (voir `data.json`) : aucune plainte 429 ni ticket trouvé ; ancienne politique Open Data lue via Wayback (`sources/wayback/`), sans quota ; l'ancienne page de conditions Azure n'a aucune capture Wayback (URL à vérifier à la main).
 
 ## Conclusion
 

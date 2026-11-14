@@ -1,11 +1,12 @@
-2026-11-13T21:08:06Z GET https://iiif.micr.io/PJEZO/manifest
+2026-11-14T01:29:27Z GET https://iiif.micr.io/PJEZO/manifest
 HTTP 200
-date: Fri, 13 Nov 2026 21:08:06 GMT
+date: Sat, 14 Nov 2026 01:29:27 GMT
 content-type: application/json
 content-length: 1608
 connection: keep-alive
-cf-cache-status: MISS
+cf-cache-status: HIT
 access-control-allow-origin: *
+age: 15680
 cache-control: public, max-age=31536000
 strict-transport-security: max-age=63072000; includeSubDomains; preload
 content-security-policy: default-src 'none'; sandbox
@@ -13,8 +14,8 @@ permissions-policy: accelerometer=(), camera=(), geolocation=(), gyroscope=(), m
 referrer-policy: no-referrer
 x-content-type-options: nosniff
 x-frame-options: DENY
-report-to: {"group":"cf-nel","max_age":604800,"endpoints":[{"url":"https://a.nel.cloudflare.com/report/v4?s=s2Ujd%2B1c0H1TCHg21%2BZwgPfOiCDvKtAB7RjC8Z8d2mCN1C1FZ5Nc27RTufQ%2BANbSgkdRVruFFlXZ7XMOnfM5IVvZNipLlgMrUQ1lHwwqrf%2B%2BHSanom6H%2FOUvPaRk9g%3D%3D"}]}
+report-to: {"group":"cf-nel","max_age":604800,"endpoints":[{"url":"https://a.nel.cloudflare.com/report/v4?s=xuH6znQE6kYWCbcdHzqNggNuSkuZj3R1Yk3cHL%2FHR4UJBRTgO0NbBv98Wkc9geb1Liyc1H1vBdXMtI0odgroNQr7RCU3iDMaBbFWDTcB2L%2B3yVZHNk%2FNZDuO4ppWSg%3D%3D"}]}
 nel: {"report_to":"cf-nel","success_fraction":0.0,"max_age":604800}
 server: cloudflare
-cf-ray: a5a0bff4fdc66e79-MXP
+cf-ray: a5a23ec9c9b183ac-MXP
 alt-svc: h3=":443"; ma=86400
