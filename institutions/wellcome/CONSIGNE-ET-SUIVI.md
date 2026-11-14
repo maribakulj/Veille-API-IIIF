@@ -16,9 +16,9 @@
 ### b) Endpoints tirés de la doc
 > Liste des endpoints citée par la doc (URL, exemples). Jamais devinée. Une interdiction ou une impossibilité écrite dans la doc justifie de renoncer (citer la phrase).
 
-- [ ] **Pas fait**
-  - **Justification** : DÉCOCHÉE le 2026-11-14 (verrou renforcé) : URL d'API citée par la doc et ni testée ni justifiée : https://developers.wellcomecollection.org/api/catalogue (ajouter à endpoints_documentes, ou à endpoints_ecartes avec url + raison) | ancienne justification : Endpoints documentés : API Catalogue /catalogue/v2/works (doc catalogue), instantanés works.json.gz et images.json.gz (doc datasets), IIIF Image /image/{id} (doc IIIF) ; manifestes /presentation/v2|v3
-  - **Preuves** : 
+- [x] **Fait**
+  - **Justification** : Endpoints tirés de la référence de l'API catalogue (developers.wellcomecollection.org/api/catalogue, sources/v4) : works, works/{id}, images, images/{id}, concepts, concepts/{id} ; instantanés, IIIF presentation et image ; chaque famille testée ou écartée avec raison dans data.json.
+  - **Preuves** : `institutions/wellcome/sources/v4/FETCH.log`, `institutions/wellcome/data.json`
 
 ### c) Configuration écrite AVANT les tests
 > `config/<nom>.json` pilote `scripts/probe.py`, committée avant le lancement. Un endpoint absent de la doc mais non interdit se teste avec un script poli (identifiants issus de pages publiques ou d'exemples de la doc, pas de devinette).
@@ -37,9 +37,9 @@
 ### e) Test systématique de chaque endpoint
 > Chaque endpoint documenté est testé (budget 15 requêtes par passe, pause ≥ 6 s, GET/HEAD, UA du projet). Redirections du même hôte suivies. Un 403 arrête son hôte, un 429 arrête l'institution. Seules les interdictions écrites dans la doc dispensent de tester.
 
-- [ ] **Pas fait**
-  - **Justification** : DÉCOCHÉE le 2026-11-14 (verrou renforcé) : 3 élément(s) de rattrapage_a_faire non traités | ancienne justification : Tous les endpoints documentés sont testés (6 passes) : catalogue, instantanés (HEAD), manifestes v2 et v3, images ouvertes ; 200 partout sauf info.json d'une œuvre restreinte (401). Aucun en-tête de l
-  - **Preuves** : 
+- [x] **Fait**
+  - **Justification** : Passes 7 et 8 : images, images/{id}, concepts, concepts/{id} en 200 sans en-tête de limite, s'ajoutant aux passes 1 à 6 ; robots.txt de developers (404) et stacks (200) lus ; rattrapage vidé.
+  - **Preuves** : `institutions/wellcome/tests/journal.log`, `institutions/wellcome/sources/robots-v3/FETCH.log`, `institutions/wellcome/tests/raw/catalogue-image-a22a42f2.headers.txt`
 
 ### f) Ce que disent les gens sur le web
 > Plaintes, discussions, présentations de l'institution, politique envers les API et les bots, blogs, GitHub, forums, listes de diffusion. Sources étiquetées (officielle / institution / utilisateur / tiers), lues, citées.
@@ -60,7 +60,7 @@
 
 <!-- AUTO:DEBUT -->
 ## Contrôles automatiques (calculés depuis `tests/journal.log`)
-- Requêtes enregistrées : **22** (sessions de sonde : 7, maximum par session : 6)
+- Requêtes enregistrées : **25** (sessions de sonde : 8, maximum par session : 6)
 - Plus courte pause vers un même hôte : **6 s** (règle : ≥ 6 s)
 - Méthodes utilisées : GET, HEAD (règle : GET/HEAD seulement)
 - Anomalies : aucune
