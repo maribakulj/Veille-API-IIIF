@@ -1,0 +1,794 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>e-codices Web Application v2.0 - e-codices – Virtual Manuscript Library of Switzerland</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Introduction - Why create a new web application? The web application e-codices v.1.0 was developed in 2008 and has been updated continually until September 2014 (e-codices v1.29). Since 2008 technical developments have advanced rapidly. In 2014 more than...">
+    <meta name="keywords" content="e-codices, CESG, Codices Electronici Sangallenses, digitization, digitalisation, manuscript, medieval manuscripts, Codex, Codices, Cod. Sang., Codex Sangallenses, Stiftsbibliothek, Abbey Library, Swiss Libraries, St. Gallen, Universität Freiburg, Fribourg, Codicology, Medieval Studies, Paleography, Manuscript descriptions, Metadata, TEI, Medieval Institute, SharedCanvas">
+    <link rel="preload" as="style" href="https://www.e-codices.unifr.ch/build/assets/app-Buw8NTZ0.css" /><link rel="preload" as="style" href="https://www.e-codices.unifr.ch/build/assets/vendor-BTBaxLwB.css" /><link rel="preload" as="style" href="https://www.e-codices.unifr.ch/build/assets/app-Bh_QyCaY.css" /><link rel="modulepreload" as="script" href="https://www.e-codices.unifr.ch/build/assets/app-C14RKTLy.js" /><link rel="modulepreload" as="script" href="https://www.e-codices.unifr.ch/build/assets/vendor-vue-CMbAzGaF.js" /><link rel="modulepreload" as="script" href="https://www.e-codices.unifr.ch/build/assets/vendor-DSQERJok.js" /><link rel="modulepreload" as="script" href="https://www.e-codices.unifr.ch/build/assets/vendor-axios-ngrFHoWO.js" /><link rel="modulepreload" as="script" href="https://www.e-codices.unifr.ch/build/assets/vendor-osd-CVhh1LPT.js" /><link rel="stylesheet" href="https://www.e-codices.unifr.ch/build/assets/app-Buw8NTZ0.css" /><link rel="stylesheet" href="https://www.e-codices.unifr.ch/build/assets/vendor-BTBaxLwB.css" /><link rel="stylesheet" href="https://www.e-codices.unifr.ch/build/assets/app-Bh_QyCaY.css" /><script type="module" src="https://www.e-codices.unifr.ch/build/assets/app-C14RKTLy.js"></script>    </head>
+<body class="bg-slate-50 ">
+
+<div id="app">
+    <header x-data="{ mobileMenuOpen: false }" class="bg-[#2c2c2c] border-b border-[#444] sticky top-0 z-50 h-[45px]">
+    <div class="container mx-auto px-0 flex items-center justify-between h-full">
+        
+        <div class="flex items-center h-full">
+            <a href="https://www.e-codices.unifr.ch/en" class="pl-0 flex items-center gap-1">
+                <img src="/img/frontend/logo-nav.png" alt="Logo" class="h-[32px] w-auto">
+            </a>
+        </div>
+
+        
+        <nav id="main-nav" class="hidden md:flex items-center h-full ml-4">
+            <ul class="flex h-full items-center">
+                                                            
+                        <li class="h-full flex items-center px-4 hover:bg-[#1a252f] transition-colors ">
+                            <a href="https://www.e-codices.unifr.ch/en/person_index" class="!text-[#ccc] !text-[12px] !font-bold px-4 h-full flex items-center">
+                                Person Index
+                            </a>
+                        </li>
+                                                                                
+                        <li class="h-full flex items-center px-4 hover:bg-[#1a252f] transition-colors ">
+                            <a href="https://www.e-codices.unifr.ch/en/annotations" class="!text-[#ccc] !text-[12px] !font-bold px-4 h-full flex items-center">
+                                Annotations
+                            </a>
+                        </li>
+                                                                                
+                        
+                        <li class="h-full flex items-center !px-2 hover:bg-[#1a252f] relative group cursor-default bg-[#1a252f] current">
+                            <span class="!text-[#ccc] !text-[11px] font-bold px-4 h-full flex items-center">
+                                About <i class="fa fa-caret-down ml-1 text-white/50"></i>
+                            </span>
+
+                            <div class="absolute top-[45px] left-0 hidden group-hover:grid grid-cols-1 md:grid-cols-3 lg:grid-cols-3 bg-[#1a1a1a] p-8 shadow-2xl min-w-[850px] z-50 gap-x-12 gap-y-5 border border-slate-800">
+                                                                    
+                                                                            
+                                        <div class="flex flex-col min-w-[180px] !mb-0 !pb-0">
+                                            <h5 class="text-slate-500 !text-[12px] font-bold uppercase tracking-[0.15em] mb-3 border-b border-slate-800 pb-1.5">
+                                                History
+                                            </h5>
+                                                                                                                <a href="https://www.e-codices.unifr.ch/en/about/history" class="!text-[12px] !leading-tight text-slate-300 hover:text-blue-400 transition-colors py-1 block whitespace-normal !font-normal">
+                                        Brief History
+                                    </a>
+                                                                    
+                                                                        <a href="https://www.e-codices.unifr.ch/en/about/subprojects" class="!text-[12px] !leading-tight text-slate-300 hover:text-blue-400 transition-colors py-1 block whitespace-normal !font-normal">
+                                        Current Sub-projects
+                                    </a>
+                                                                    
+                                                                        <a href="https://www.e-codices.unifr.ch/en/about/completed" class="!text-[12px] !leading-tight text-slate-300 hover:text-blue-400 transition-colors py-1 block whitespace-normal !font-normal">
+                                        Completed Sub-projects
+                                    </a>
+                                                                    
+                                                                        <a href="https://www.e-codices.unifr.ch/en/about/supporters" class="!text-[12px] !leading-tight text-slate-300 hover:text-blue-400 transition-colors py-1 block whitespace-normal !font-normal">
+                                        Supporting Institutions
+                                    </a>
+                                                                    
+                                                                        <a href="https://www.e-codices.unifr.ch/en/about/facts" class="!text-[12px] !leading-tight text-slate-300 hover:text-blue-400 transition-colors py-1 block whitespace-normal !font-normal">
+                                        Facts and Figures
+                                    </a>
+                                                                    
+                                                                        <a href="https://www.e-codices.unifr.ch/en/about/expo2020" class="!text-[12px] !leading-tight text-slate-300 hover:text-blue-400 transition-colors py-1 block whitespace-normal !font-normal">
+                                        Exhibition 2020
+                                    </a>
+                                                                    
+                                                                                                                        </div>
+                                        
+                                        <div class="flex flex-col min-w-[180px] !mb-0 !pb-0">
+                                            <h5 class="text-slate-500 !text-[12px] font-bold uppercase tracking-[0.15em] mb-3 border-b border-slate-800 pb-1.5">
+                                                Content
+                                            </h5>
+                                                                                                                <a href="https://www.e-codices.unifr.ch/en/about/metadata" class="!text-[12px] !leading-tight text-slate-300 hover:text-blue-400 transition-colors py-1 block whitespace-normal !font-normal">
+                                        Metadata Encoding
+                                    </a>
+                                                                    
+                                                                        <a href="https://www.e-codices.unifr.ch/en/about/descriptions" class="!text-[12px] !leading-tight text-slate-300 hover:text-blue-400 transition-colors py-1 block whitespace-normal !font-normal">
+                                        Scholarly Manuscript Descriptions
+                                    </a>
+                                                                    
+                                                                        <a href="https://www.e-codices.unifr.ch/en/about/summaries" class="!text-[12px] !leading-tight text-slate-300 hover:text-blue-400 transition-colors py-1 block whitespace-normal !font-normal">
+                                        Manuscript Summaries
+                                    </a>
+                                                                    
+                                                                        <a href="https://www.e-codices.unifr.ch/en/about/annotation_tool" class="!text-[12px] !leading-tight text-slate-300 hover:text-blue-400 transition-colors py-1 block whitespace-normal !font-normal">
+                                        Annotation Tool
+                                    </a>
+                                                                    
+                                                                                                                        </div>
+                                        
+                                        <div class="flex flex-col min-w-[180px] !mb-0 !pb-0">
+                                            <h5 class="text-slate-500 !text-[12px] font-bold uppercase tracking-[0.15em] mb-3 border-b border-slate-800 pb-1.5">
+                                                Web Application
+                                            </h5>
+                                                                                                                <a href="https://www.e-codices.unifr.ch/en/about/webapplication" class="!text-[12px] !leading-tight text-slate-300 hover:text-blue-400 transition-colors py-1 block whitespace-normal !font-normal">
+                                        e-codices Web Application v2.0
+                                    </a>
+                                                                    
+                                                                                                                        </div>
+                                        
+                                        <div class="flex flex-col min-w-[180px] !mb-0 !pb-0">
+                                            <h5 class="text-slate-500 !text-[12px] font-bold uppercase tracking-[0.15em] mb-3 border-b border-slate-800 pb-1.5">
+                                                Guidelines
+                                            </h5>
+                                                                                                                <a href="https://www.e-codices.unifr.ch/en/about/key_aspects" class="!text-[12px] !leading-tight text-slate-300 hover:text-blue-400 transition-colors py-1 block whitespace-normal !font-normal">
+                                        Guiding Principles
+                                    </a>
+                                                                    
+                                                                        <a href="https://www.e-codices.unifr.ch/en/about/selection" class="!text-[12px] !leading-tight text-slate-300 hover:text-blue-400 transition-colors py-1 block whitespace-normal !font-normal">
+                                        Selection Criteria
+                                    </a>
+                                                                    
+                                                                        <a href="https://www.e-codices.unifr.ch/en/about/imaging" class="!text-[12px] !leading-tight text-slate-300 hover:text-blue-400 transition-colors py-1 block whitespace-normal !font-normal">
+                                        Reproduction Guidelines
+                                    </a>
+                                                                    
+                                                                        <a href="https://www.e-codices.unifr.ch/en/about/conservation" class="!text-[12px] !leading-tight text-slate-300 hover:text-blue-400 transition-colors py-1 block whitespace-normal !font-normal">
+                                        Conservation Guidelines
+                                    </a>
+                                                                    
+                                                                        <a href="https://www.e-codices.unifr.ch/en/about/security" class="!text-[12px] !leading-tight text-slate-300 hover:text-blue-400 transition-colors py-1 block whitespace-normal !font-normal">
+                                        Data Security
+                                    </a>
+                                                                    
+                                                                        <a href="https://www.e-codices.unifr.ch/en/about/multiling" class="!text-[12px] !leading-tight text-slate-300 hover:text-blue-400 transition-colors py-1 block whitespace-normal !font-normal">
+                                        Multilingualism
+                                    </a>
+                                                                    
+                                                                                                                        </div>
+                                        
+                                        <div class="flex flex-col min-w-[180px] !mb-0 !pb-0">
+                                            <h5 class="text-slate-500 !text-[12px] font-bold uppercase tracking-[0.15em] mb-3 border-b border-slate-800 pb-1.5">
+                                                Institutions
+                                            </h5>
+                                                                                                                <a href="https://www.e-codices.unifr.ch/en/about/cech" class="!text-[12px] !leading-tight text-slate-300 hover:text-blue-400 transition-colors py-1 block whitespace-normal !font-normal">
+                                        Curatorium CeCH
+                                    </a>
+                                                                    
+                                                                                                                        </div>
+                                        
+                                        <div class="flex flex-col min-w-[180px] !mb-0 !pb-0">
+                                            <h5 class="text-slate-500 !text-[12px] font-bold uppercase tracking-[0.15em] mb-3 border-b border-slate-800 pb-1.5">
+                                                Partners
+                                            </h5>
+                                                                                                                <a href="https://www.e-codices.unifr.ch/en/about/cooperation" class="!text-[12px] !leading-tight text-slate-300 hover:text-blue-400 transition-colors py-1 block whitespace-normal !font-normal">
+                                        Scholarly Cooperations
+                                    </a>
+                                                                    
+                                                                        <a href="https://www.e-codices.unifr.ch/en/about/mss_portals" class="!text-[12px] !leading-tight text-slate-300 hover:text-blue-400 transition-colors py-1 block whitespace-normal !font-normal">
+                                        Manuscript Portals
+                                    </a>
+                                                                    
+                                                                        <a href="https://www.e-codices.unifr.ch/en/about/collections-info" class="!text-[12px] !leading-tight text-slate-300 hover:text-blue-400 transition-colors py-1 block whitespace-normal !font-normal">
+                                        Swiss Manuscript Collections
+                                    </a>
+                                                                    
+                                                                                                                        </div>
+                                        
+                                        <div class="flex flex-col min-w-[180px] !mb-0 !pb-0">
+                                            <h5 class="text-slate-500 !text-[12px] font-bold uppercase tracking-[0.15em] mb-3 border-b border-slate-800 pb-1.5">
+                                                Service Provider
+                                            </h5>
+                                                                                                                <a href="https://www.e-codices.unifr.ch/en/about/textandbytes" class="!text-[12px] !leading-tight text-slate-300 hover:text-blue-400 transition-colors py-1 block whitespace-normal !font-normal">
+                                        text & bytes LLC
+                                    </a>
+                                                                    
+                                                                                                                        </div>
+                                        
+                                        <div class="flex flex-col min-w-[180px] !mb-0 !pb-0">
+                                            <h5 class="text-slate-500 !text-[12px] font-bold uppercase tracking-[0.15em] mb-3 border-b border-slate-800 pb-1.5">
+                                                Rights
+                                            </h5>
+                                                                                                                <a href="https://www.e-codices.unifr.ch/en/about/terms" class="!text-[12px] !leading-tight text-slate-300 hover:text-blue-400 transition-colors py-1 block whitespace-normal !font-normal">
+                                        Terms of Use
+                                    </a>
+                                                                    
+                                                                        <a href="https://www.e-codices.unifr.ch/en/about/privacy" class="!text-[12px] !leading-tight text-slate-300 hover:text-blue-400 transition-colors py-1 block whitespace-normal !font-normal">
+                                        Privacy Policy
+                                    </a>
+                                                                    
+                                                                                                                        </div>
+                                        
+                                        <div class="flex flex-col min-w-[180px] !mb-0 !pb-0">
+                                            <h5 class="text-slate-500 !text-[12px] font-bold uppercase tracking-[0.15em] mb-3 border-b border-slate-800 pb-1.5">
+                                                Communication
+                                            </h5>
+                                                                                                                <a href="https://www.e-codices.unifr.ch/en/about/press" class="!text-[12px] !leading-tight text-slate-300 hover:text-blue-400 transition-colors py-1 block whitespace-normal !font-normal">
+                                        Selected Press Coverage
+                                    </a>
+                                                                    
+                                                                        <a href="https://www.e-codices.unifr.ch/en/about/social" class="!text-[12px] !leading-tight text-slate-300 hover:text-blue-400 transition-colors py-1 block whitespace-normal !font-normal">
+                                        Social Networking
+                                    </a>
+                                                                    
+                                                                        <a href="https://www.e-codices.unifr.ch/en/about/Newsletter" class="!text-[12px] !leading-tight text-slate-300 hover:text-blue-400 transition-colors py-1 block whitespace-normal !font-normal">
+                                        Newsletter
+                                    </a>
+                                                                    
+                                                                                                                        </div>
+                                        
+                                        <div class="flex flex-col min-w-[180px] !mb-0 !pb-0">
+                                            <h5 class="text-slate-500 !text-[12px] font-bold uppercase tracking-[0.15em] mb-3 border-b border-slate-800 pb-1.5">
+                                                Contacts
+                                            </h5>
+                                                                                                                <a href="https://www.e-codices.unifr.ch/en/about/contact" class="!text-[12px] !leading-tight text-slate-300 hover:text-blue-400 transition-colors py-1 block whitespace-normal !font-normal">
+                                        Contact – e-codices
+                                    </a>
+                                                                    
+                                                                        <a href="https://www.e-codices.unifr.ch/en/about/collections" class="!text-[12px] !leading-tight text-slate-300 hover:text-blue-400 transition-colors py-1 block whitespace-normal !font-normal">
+                                        Contact – Libraries & Collections
+                                    </a>
+                                                                                                    </div>
+                                                            </div>
+                        </li>
+                                                    <li class="h-full flex items-center !px-2 hover:bg-[#1a252f] transition-colors ">
+                    <a href="https://www.e-codices.unifr.ch/en/search?aSelectedFacets=&amp;sQueryString=&amp;sSearchField=fullText&amp;iResultsPerPage=20&amp;sSortField=score"
+                       class="!text-[#ccc] !text-[11px] !font-semibold whitespace-nowrap__">
+                        Browse &amp; Search
+                    </a>
+                </li>
+            </ul>
+        </nav>
+
+        
+        <div class="hidden md:flex items-center ml-auto h-full pr-0">
+            
+            <div class="relative mr-4 hidden lg:block">
+                <form action="https://www.e-codices.unifr.ch/en/search/all" method="GET">
+                            <span class="absolute inset-y-0 left-3 flex items-center pointer-events-none">
+                                <i class="fa fa-search text-gray-400 text-sm"></i>
+                            </span>
+                    <input type="text" name="sQueryString"
+                           placeholder="Search Manuscript Metadata"
+                           class="bg-[#555] text-white text-[12px] rounded-full py-1.5 pl-9 pr-4 w-40 xl:w-55 focus:w-56 focus:xl:w-58 transition-all duration-300 outline-none border-none placeholder:text-gray-300">
+                </form>
+            </div>
+
+            
+            <ul class="flex items-center gap-0 text-[11px] font-bold uppercase text-white/60">
+                                                        <li class="h-full">
+                        <a href="https://www.e-codices.unifr.ch/de/about/webapplication"
+                           class="px-2.5 h-[45px] flex items-center !text-[11px] font-bold uppercase transition-all
+                                    !text-gray-400 hover:text-white hover:bg-[#444]">
+                            de
+                        </a>
+                    </li>
+                                                        <li class="h-full">
+                        <a href="https://www.e-codices.unifr.ch/en/about/webapplication"
+                           class="px-2.5 h-[45px] flex items-center !text-[11px] font-bold uppercase transition-all
+                                    bg-[#2471a3] !text-white">
+                            en
+                        </a>
+                    </li>
+                                                        <li class="h-full">
+                        <a href="https://www.e-codices.unifr.ch/fr/about/webapplication"
+                           class="px-2.5 h-[45px] flex items-center !text-[11px] font-bold uppercase transition-all
+                                    !text-gray-400 hover:text-white hover:bg-[#444]">
+                            fr
+                        </a>
+                    </li>
+                                                        <li class="h-full">
+                        <a href="https://www.e-codices.unifr.ch/it/about/webapplication"
+                           class="px-2.5 h-[45px] flex items-center !text-[11px] font-bold uppercase transition-all
+                                    !text-gray-400 hover:text-white hover:bg-[#444]">
+                            it
+                        </a>
+                    </li>
+                            </ul>
+        </div>
+
+        
+        <button @click="mobileMenuOpen = !mobileMenuOpen" class="md:hidden px-4 text-white">
+            <i class="fa fa-2x" :class="mobileMenuOpen ? 'fa-times' : 'fa-bars'"></i>
+        </button>
+    </div>
+
+    
+    <div x-show="mobileMenuOpen"
+         x-cloak
+         x-transition:enter="transition ease-out duration-200"
+         x-transition:enter-start="opacity-0 -translate-y-2"
+         x-transition:enter-end="opacity-100 translate-y-0"
+         class="md:hidden absolute top-[45px] left-0 w-full bg-[#1a1a1a] shadow-2xl z-[100] border-t border-slate-700 max-h-[calc(100vh-50px)] overflow-y-auto">
+
+        <nav class="flex flex-col">
+                                                
+                    <a href="https://www.e-codices.unifr.ch/en/person_index"
+                       class="block px-6 py-4 !text-white !text-[14px] font-bold hover:bg-white/5 border-b border-white/5 transition-colors">
+                        Person Index
+                    </a>
+                                                                
+                    <a href="https://www.e-codices.unifr.ch/en/annotations"
+                       class="block px-6 py-4 !text-white !text-[14px] font-bold hover:bg-white/5 border-b border-white/5 transition-colors">
+                        Annotations
+                    </a>
+                                                                
+                                        <div x-data="{ open: false }" class="border-b border-white/5">
+                        <button @click="open = !open"
+                                class="w-full flex justify-between items-center px-6 py-4 bg-[#333] text-white text-[15px] font-bold transition-colors">
+                            About
+                            <i class="fa" :class="open ? 'fa-caret-up' : 'fa-caret-down'"></i>
+                        </button>
+
+                        <div x-show="open" class="flex flex-col">
+                                                            
+                                
+                                                                    <div class="px-6 pt-6 pb-2 text-slate-500 !text-[13px] font-bold uppercase tracking-wider border-t border-dotted border-white/20 first:border-t-0 mt-2 first:mt-0">
+                                        History
+                                    </div>
+                                                                    
+                                
+                                <a href="https://www.e-codices.unifr.ch/en/about/history"
+                                   class="px-6 py-2.5 !text-white !text-[13px] font-bold hover:text-blue-400 transition-colors">
+                                    Brief History
+                                </a>
+                                                            
+                                
+                                
+                                
+                                <a href="https://www.e-codices.unifr.ch/en/about/subprojects"
+                                   class="px-6 py-2.5 !text-white !text-[13px] font-bold hover:text-blue-400 transition-colors">
+                                    Current Sub-projects
+                                </a>
+                                                            
+                                
+                                
+                                
+                                <a href="https://www.e-codices.unifr.ch/en/about/completed"
+                                   class="px-6 py-2.5 !text-white !text-[13px] font-bold hover:text-blue-400 transition-colors">
+                                    Completed Sub-projects
+                                </a>
+                                                            
+                                
+                                
+                                
+                                <a href="https://www.e-codices.unifr.ch/en/about/supporters"
+                                   class="px-6 py-2.5 !text-white !text-[13px] font-bold hover:text-blue-400 transition-colors">
+                                    Supporting Institutions
+                                </a>
+                                                            
+                                
+                                
+                                
+                                <a href="https://www.e-codices.unifr.ch/en/about/facts"
+                                   class="px-6 py-2.5 !text-white !text-[13px] font-bold hover:text-blue-400 transition-colors">
+                                    Facts and Figures
+                                </a>
+                                                            
+                                
+                                
+                                
+                                <a href="https://www.e-codices.unifr.ch/en/about/expo2020"
+                                   class="px-6 py-2.5 !text-white !text-[13px] font-bold hover:text-blue-400 transition-colors">
+                                    Exhibition 2020
+                                </a>
+                                                            
+                                
+                                                                    <div class="px-6 pt-6 pb-2 text-slate-500 !text-[13px] font-bold uppercase tracking-wider border-t border-dotted border-white/20 first:border-t-0 mt-2 first:mt-0">
+                                        Content
+                                    </div>
+                                                                    
+                                
+                                <a href="https://www.e-codices.unifr.ch/en/about/metadata"
+                                   class="px-6 py-2.5 !text-white !text-[13px] font-bold hover:text-blue-400 transition-colors">
+                                    Metadata Encoding
+                                </a>
+                                                            
+                                
+                                
+                                
+                                <a href="https://www.e-codices.unifr.ch/en/about/descriptions"
+                                   class="px-6 py-2.5 !text-white !text-[13px] font-bold hover:text-blue-400 transition-colors">
+                                    Scholarly Manuscript Descriptions
+                                </a>
+                                                            
+                                
+                                
+                                
+                                <a href="https://www.e-codices.unifr.ch/en/about/summaries"
+                                   class="px-6 py-2.5 !text-white !text-[13px] font-bold hover:text-blue-400 transition-colors">
+                                    Manuscript Summaries
+                                </a>
+                                                            
+                                
+                                
+                                
+                                <a href="https://www.e-codices.unifr.ch/en/about/annotation_tool"
+                                   class="px-6 py-2.5 !text-white !text-[13px] font-bold hover:text-blue-400 transition-colors">
+                                    Annotation Tool
+                                </a>
+                                                            
+                                
+                                                                    <div class="px-6 pt-6 pb-2 text-slate-500 !text-[13px] font-bold uppercase tracking-wider border-t border-dotted border-white/20 first:border-t-0 mt-2 first:mt-0">
+                                        Web Application
+                                    </div>
+                                                                    
+                                
+                                <a href="https://www.e-codices.unifr.ch/en/about/webapplication"
+                                   class="px-6 py-2.5 !text-white !text-[13px] font-bold hover:text-blue-400 transition-colors">
+                                    e-codices Web Application v2.0
+                                </a>
+                                                            
+                                
+                                                                    <div class="px-6 pt-6 pb-2 text-slate-500 !text-[13px] font-bold uppercase tracking-wider border-t border-dotted border-white/20 first:border-t-0 mt-2 first:mt-0">
+                                        Guidelines
+                                    </div>
+                                                                    
+                                
+                                <a href="https://www.e-codices.unifr.ch/en/about/key_aspects"
+                                   class="px-6 py-2.5 !text-white !text-[13px] font-bold hover:text-blue-400 transition-colors">
+                                    Guiding Principles
+                                </a>
+                                                            
+                                
+                                
+                                
+                                <a href="https://www.e-codices.unifr.ch/en/about/selection"
+                                   class="px-6 py-2.5 !text-white !text-[13px] font-bold hover:text-blue-400 transition-colors">
+                                    Selection Criteria
+                                </a>
+                                                            
+                                
+                                
+                                
+                                <a href="https://www.e-codices.unifr.ch/en/about/imaging"
+                                   class="px-6 py-2.5 !text-white !text-[13px] font-bold hover:text-blue-400 transition-colors">
+                                    Reproduction Guidelines
+                                </a>
+                                                            
+                                
+                                
+                                
+                                <a href="https://www.e-codices.unifr.ch/en/about/conservation"
+                                   class="px-6 py-2.5 !text-white !text-[13px] font-bold hover:text-blue-400 transition-colors">
+                                    Conservation Guidelines
+                                </a>
+                                                            
+                                
+                                
+                                
+                                <a href="https://www.e-codices.unifr.ch/en/about/security"
+                                   class="px-6 py-2.5 !text-white !text-[13px] font-bold hover:text-blue-400 transition-colors">
+                                    Data Security
+                                </a>
+                                                            
+                                
+                                
+                                
+                                <a href="https://www.e-codices.unifr.ch/en/about/multiling"
+                                   class="px-6 py-2.5 !text-white !text-[13px] font-bold hover:text-blue-400 transition-colors">
+                                    Multilingualism
+                                </a>
+                                                            
+                                
+                                                                    <div class="px-6 pt-6 pb-2 text-slate-500 !text-[13px] font-bold uppercase tracking-wider border-t border-dotted border-white/20 first:border-t-0 mt-2 first:mt-0">
+                                        Institutions
+                                    </div>
+                                                                    
+                                
+                                <a href="https://www.e-codices.unifr.ch/en/about/cech"
+                                   class="px-6 py-2.5 !text-white !text-[13px] font-bold hover:text-blue-400 transition-colors">
+                                    Curatorium CeCH
+                                </a>
+                                                            
+                                
+                                                                    <div class="px-6 pt-6 pb-2 text-slate-500 !text-[13px] font-bold uppercase tracking-wider border-t border-dotted border-white/20 first:border-t-0 mt-2 first:mt-0">
+                                        Partners
+                                    </div>
+                                                                    
+                                
+                                <a href="https://www.e-codices.unifr.ch/en/about/cooperation"
+                                   class="px-6 py-2.5 !text-white !text-[13px] font-bold hover:text-blue-400 transition-colors">
+                                    Scholarly Cooperations
+                                </a>
+                                                            
+                                
+                                
+                                
+                                <a href="https://www.e-codices.unifr.ch/en/about/mss_portals"
+                                   class="px-6 py-2.5 !text-white !text-[13px] font-bold hover:text-blue-400 transition-colors">
+                                    Manuscript Portals
+                                </a>
+                                                            
+                                
+                                
+                                
+                                <a href="https://www.e-codices.unifr.ch/en/about/collections-info"
+                                   class="px-6 py-2.5 !text-white !text-[13px] font-bold hover:text-blue-400 transition-colors">
+                                    Swiss Manuscript Collections
+                                </a>
+                                                            
+                                
+                                                                    <div class="px-6 pt-6 pb-2 text-slate-500 !text-[13px] font-bold uppercase tracking-wider border-t border-dotted border-white/20 first:border-t-0 mt-2 first:mt-0">
+                                        Service Provider
+                                    </div>
+                                                                    
+                                
+                                <a href="https://www.e-codices.unifr.ch/en/about/textandbytes"
+                                   class="px-6 py-2.5 !text-white !text-[13px] font-bold hover:text-blue-400 transition-colors">
+                                    text &amp; bytes LLC
+                                </a>
+                                                            
+                                
+                                                                    <div class="px-6 pt-6 pb-2 text-slate-500 !text-[13px] font-bold uppercase tracking-wider border-t border-dotted border-white/20 first:border-t-0 mt-2 first:mt-0">
+                                        Rights
+                                    </div>
+                                                                    
+                                
+                                <a href="https://www.e-codices.unifr.ch/en/about/terms"
+                                   class="px-6 py-2.5 !text-white !text-[13px] font-bold hover:text-blue-400 transition-colors">
+                                    Terms of Use
+                                </a>
+                                                            
+                                
+                                
+                                
+                                <a href="https://www.e-codices.unifr.ch/en/about/privacy"
+                                   class="px-6 py-2.5 !text-white !text-[13px] font-bold hover:text-blue-400 transition-colors">
+                                    Privacy Policy
+                                </a>
+                                                            
+                                
+                                                                    <div class="px-6 pt-6 pb-2 text-slate-500 !text-[13px] font-bold uppercase tracking-wider border-t border-dotted border-white/20 first:border-t-0 mt-2 first:mt-0">
+                                        Communication
+                                    </div>
+                                                                    
+                                
+                                <a href="https://www.e-codices.unifr.ch/en/about/press"
+                                   class="px-6 py-2.5 !text-white !text-[13px] font-bold hover:text-blue-400 transition-colors">
+                                    Selected Press Coverage
+                                </a>
+                                                            
+                                
+                                
+                                
+                                <a href="https://www.e-codices.unifr.ch/en/about/social"
+                                   class="px-6 py-2.5 !text-white !text-[13px] font-bold hover:text-blue-400 transition-colors">
+                                    Social Networking
+                                </a>
+                                                            
+                                
+                                
+                                
+                                <a href="https://www.e-codices.unifr.ch/en/about/Newsletter"
+                                   class="px-6 py-2.5 !text-white !text-[13px] font-bold hover:text-blue-400 transition-colors">
+                                    Newsletter
+                                </a>
+                                                            
+                                
+                                                                    <div class="px-6 pt-6 pb-2 text-slate-500 !text-[13px] font-bold uppercase tracking-wider border-t border-dotted border-white/20 first:border-t-0 mt-2 first:mt-0">
+                                        Contacts
+                                    </div>
+                                                                    
+                                
+                                <a href="https://www.e-codices.unifr.ch/en/about/contact"
+                                   class="px-6 py-2.5 !text-white !text-[13px] font-bold hover:text-blue-400 transition-colors">
+                                    Contact – e-codices
+                                </a>
+                                                            
+                                
+                                
+                                
+                                <a href="https://www.e-codices.unifr.ch/en/about/collections"
+                                   class="px-6 py-2.5 !text-white !text-[13px] font-bold hover:text-blue-400 transition-colors">
+                                    Contact – Libraries &amp; Collections
+                                </a>
+                                                    </div>
+                    </div>
+                            
+            <a href="https://www.e-codices.unifr.ch/en/search?aSelectedFacets=&amp;sQueryString=&amp;sSearchField=fullText&amp;iResultsPerPage=20&amp;sSortField=score"
+               class="block px-6 py-4 !text-white !text-[14px] font-bold hover:bg-white/5 border-b border-white/5 transition-colors ">
+                <i class="fa fa-search mr-2 opacity-70"></i> Browse &amp; Search
+            </a>
+
+            <div class="flex items-center justify-around py-6 bg-black/20 mt-2">
+                                                        <a href="https://www.e-codices.unifr.ch/de/about/webapplication"
+                       class="uppercase text-[12px] font-bold tracking-widest p-2 transition-all
+                            !text-slate-500 hover:text-white">
+                        de
+                    </a>
+                                                        <a href="https://www.e-codices.unifr.ch/en/about/webapplication"
+                       class="uppercase text-[12px] font-bold tracking-widest p-2 transition-all
+                            !text-white border-b-2 border-[#2471a3]">
+                        en
+                    </a>
+                                                        <a href="https://www.e-codices.unifr.ch/fr/about/webapplication"
+                       class="uppercase text-[12px] font-bold tracking-widest p-2 transition-all
+                            !text-slate-500 hover:text-white">
+                        fr
+                    </a>
+                                                        <a href="https://www.e-codices.unifr.ch/it/about/webapplication"
+                       class="uppercase text-[12px] font-bold tracking-widest p-2 transition-all
+                            !text-slate-500 hover:text-white">
+                        it
+                    </a>
+                            </div>
+        </nav>
+    </div>
+</header>        <div id="cms-content"
+         x-data
+         x-init="$el.querySelectorAll('img').forEach(img => {
+             img.addEventListener('error', () => img.style.display = 'none');
+             if (img.complete && img.naturalWidth === 0) img.style.display = 'none';
+         })"
+         class="container mx-auto px-5 py-5
+    
+            [&_p]:mb-5 [&_p]:text-gray-900 [&_p]:leading-relaxed
+
+    
+            [&_ol]:list-decimal [&_ol]:pl-5 [&_ol]:mb-5 [&_ol_li]:mb-2
+            [&_ul]:list-disc [&_ul]:pl-5 [&_ul]:mb-5 [&_ul_li]:mb-2
+
+    
+            [&_.table-responsive]:w-full [&_.table-responsive]:overflow-x-auto [&_.table-responsive]:my-6
+
+    
+            [&_table]:w-full [&_table]:border-collapse [&_table]:bg-white
+
+    
+            [&_th]:p-2 [&_th]:font-bold [&_th]:text-left [&_th]:border-b-2 [&_th]:border-gray-200 [&_th]:text-zinc-900 [&_th]:text-sm
+
+    
+            [&_table:not(.table-striped)_td]:p-2 [&_table:not(.table-striped)_td]:border [&_table:not(.table-striped)_td]:border-[#c0c0c0] [&_table:not(.table-striped)_td]:align-top [&_table:not(.table-striped)_td]:text-sm [&_table:not(.table-striped)_td]:text-zinc-900 [&_table:not(.table-striped)_td]:leading-normal
+
+    
+            [&_table:not(.table-striped)_td:empty]:border-transparent
+            [&_table:not(.table-striped)_td:nth-child(1)]:w-[65px]
+            [&_table:not(.table-striped)_td:nth-child(3)]:w-[95px] [&_table:not(.table-striped)_td:nth-child(3)]:text-center
+            [&_table:not(.table-striped)_td:nth-child(4)]:w-[105px] [&_table:not(.table-striped)_td:nth-child(4)]:text-center
+
+
+    
+            [&_.table-bordered_td]:border [&_.table-bordered_td]:border-[#dee2e6]
+            [&_.table-bordered_th]:border [&_.table-bordered_th]:border-[#dee2e6]
+
+    
+            [&_.table-striped]:table-fixed [&_.table-striped]:w-full [&_.table-striped]:border-[1px] [&_.table-striped]:border-[#dee2e6]
+
+            
+            [&_.table-striped_td]:p-3 [&_.table-striped_td]:border-[1px] [&_.table-striped_td]:border-[#dee2e6] [&_.table-striped_td]:align-top [&_.table-striped_td]:text-sm [&_.table-striped_td]:text-zinc-900
+            [&_.table-striped_th]:p-3 [&_.table-striped_th]:border-[1px] [&_.table-striped_th]:border-[#dee2e6]
+
+            
+            [&_.table-striped_tbody_tr:nth-child(odd)]:bg-[#EBEAE6]
+            [&_.table-striped_tbody_tr:nth-child(even)]:bg-[#F7F6F2]
+
+    
+            [&_.table-sortable_th]:cursor-pointer hover:[&_.table-sortable_th]:bg-zinc-100/60
+            [&_.table-sortable_th]:relative [&_.table-sortable_th]:pr-6
+
+    
+            [&_.row]:grid [&_.row]:grid-cols-1 [&_.row]:md:grid-cols-12 [&_.row]:gap-4
+
+            [&_.col-md-3]:md:col-span-3
+            [&_.col-md-9]:md:col-span-9
+
+            [&_.col-md-4]:md:col-span-4
+            [&_.col-md-8]:md:col-span-8
+
+            [&_.col-md-6]:md:col-span-6
+
+            [&_img[src*='creativecommons.org']]:inline-block [&_img[src*='creativecommons.org']]:vertical-middle [&_img[src*='creativecommons.org']]:my-0">
+
+        <div id="content" class="mt-0">
+            <h1 class="text-3xl font-bold mb-4 !mt-1 text-gray-900 tracking-tight">
+                e-codices Web Application v2.0
+            </h1>
+
+            
+            <h2>Introduction - Why create a new web application?</h2>
+<p>The web application e-codices v.1.0 was developed in 2008 and has been updated continually until September 2014 (e-codices v1.29). Since 2008 technical developments have advanced rapidly. In 2014 more than 10% of our visitors used mobile devices such as smart phones and tablets to access e-codices. New web technologies and international standards for the exchange of data have been created. Therefore beginning in 2013, e-codices together with the IT firm <a href="http://www.textandbytes.com/" target="_blank" rel="noopener">text &amp; bytes</a> GmbH from Bern completely redesigned the web application, and this new design was then implemented by text &amp; bytes. The new web application was presented to the public for the first time with the December 2014 update.</p>
+<p>The redesign of the web application is based on the following priorities in the areas of content, technology and organization:</p>
+<ul>
+<li>an updated modern design for all pages including a new logo for e-codices</li>
+<li>optimized handling for mobile devices such as smart phones and tablets with touch screens</li>
+<li>use of the latest web technology such as HTML5 and CSS3</li>
+<li>use of international standards for the exchange of data, referred to as “interoperability” (Image and Presentation APIs according to <a href="http://iiif.io/" target="_blank" rel="noopener">IIIF</a> – International Image Interoperability Framework)</li>
+<li>improved infrastructure: new image server (Loris) and viewer (OpenSeadragon)</li>
+<li>new functions for users</li>
+<li>improved search function</li>
+<li>retention of all functionality of the previous application, and in some cases improvements</li>
+<li>a new browser-based back end, which serves as content management system (CMS) and simplifies adding new content</li>
+</ul>
+<h2>Additional functions and improvements</h2>
+<p>The newly implemented functions include:</p>
+<ul>
+<li>a new viewer that allows continuous zooming of facsimile images</li>
+<li>the possibility of creating different sequences in the presentation of a manuscript in order to present not only the manuscript’s physical but also its logical sequence</li>
+<li>presentation of virtual manuscripts in order to virtually reunite manuscripts whose parts are held in various places (cf. collection „sine loco“, codices restituti)</li>
+<!--<li>integration of “Mirador”, a 'multi-up' viewer that allows comparing various images or images with annotations</li>-->
+<li>the display of relevant metadata alongside the facsimile</li>
+<li>improved printing and downloading of images as PDF files</li>
+<li>completely revised tools for adding annotations and bibliographical information</li>
+<li>improved search function with new facets and quick selection menus for browsing, searching and filtering all manuscripts, basic metadata and scholarly descriptions</li>
+<li>improved person index with quick filter</li>
+<li>IIIF Image API for simple exchange of all images among partner institutions as well as IIIF Presentation API for the corresponding metadata</li>
+<li>automatic adaptation of the layout to all screen sizes from smart phone up to full-HD-cinema display by means of “responsive design”</li>
+</ul>
+<h2>Back end: CMS</h2>
+<p>In addition to improvements that are visible to all users, we also completely re-developed the application’s back end with the aim of reducing the site administration fixed costs over the long term. Certain areas and contents can be edited by partner institutions (libraries, manuscript collections) and by selected scholars preparing manuscript descriptions. The back end consists of a browser-based content management system (CMS), which provides access to the following functions, among others, to selected individuals with the appropriate login:</p>
+<ul>
+<li>capturing, editing, publishing and deleting manuscripts (basic metadata)</li>
+<li>managing manuscript descriptions (determining which descriptions to publish, selecting the standard description)</li>
+<li>managing libraries and collections</li>
+<li>managing sub-projects</li>
+<li>managing the person index <!--and the index of text titles--></li>
+<li>managing users</li>
+<li>assigning facets to manuscripts</li>
+</ul>
+<p>Different user roles can have different access rights. Thus administrators can edit everything, while selected ‘editors’ and ‘guest pass’ users can edit sections such as metadata for their assigned collections or manuscripts. In addition there is a mechanism in place that prevents mutual overwriting of changes by different users. Previous versions of basic metadata are saved in a database so that they can be recovered when necessary, e.g., after an unintentional deletion. As before, scholarly manuscript descriptions are encoded as XML files according to the TEI-standard (Text Encoding Initiative) and if available attached to the corresponding manuscript with a PDF of the printed description.</p>
+<h2>Requirements</h2>
+<p>The following browsers are supported: all current versions of the browsers Firefox, Chrome, Edge and Safari. Javascript must be activated (browser default setting).</p>
+<h2>Technical information for implementation</h2>
+<p>All technologies are “open source:”</p>
+<h4>Back end technology</h4>
+<ul>
+<li>LAMP Stack (Linux, Apache, MySQL, PHP)</li>
+<li><a href="http://www.codeigniter.com/" target="_blank" rel="noopener">CodeIgniter</a> (PHP Framework on the basis of the Model-View-Controller Pattern)</li>
+<li><a href="http://www.mysql.com/" target="_blank" rel="noopener">MySQL</a> (Database)</li>
+<li><a href="http://lucene.apache.org/solr/" target="_blank" rel="noopener">Solr</a> (Search)</li>
+<li><a href="http://git-scm.com/" target="_blank" rel="noopener">Git</a> (Version control)</li>
+<li>Image Server: <a href="https://github.com/pulibrary/loris" target="_blank" rel="noopener">Loris</a></li>
+<li><a href="http://json.org/" target="_blank" rel="noopener">JSON</a> (IIIF Image and Presentation APIs)</li>
+<li><a href="http://www.tei-c.org/index.xml" target="_blank" rel="noopener">TEI</a>/XML for scholarly manuscript descriptions</li>
+<li><a href="http://www.jpeg.org/jpeg2000/" target="_blank" rel="noopener">JPEG2000</a></li>
+</ul>
+<h4>Front end technology</h4>
+<ul>
+<li>HTML5</li>
+<li>CSS3</li>
+<li><a href="http://getbootstrap.com/" target="_blank" rel="noopener">Bootstrap</a> &amp; <a href="http://html5boilerplate.com/" target="_blank" rel="noopener">HTML5 Boilerplate</a> (Front end Frameworks)</li>
+<li><a href="http://jquery.com/" target="_blank" rel="noopener">jQuery</a></li>
+<li><a href="https://vuejs.org/" target="_blank" rel="noopener">Vue.js</a></li>
+</ul>
+
+        </div>
+    </div>
+</div>
+<footer class="relative -top-[30px] bg-[#2c2c2c] border-t border-[#444] h-[50px] flex items-center d-print-none text-[#ddd]">
+    <div class="container mx-auto px-4 flex justify-between items-center h-full">
+
+        <div class="hidden md:flex items-center text-[12px] font-normal opacity-80">
+            <span class="mr-3">mandated by</span>
+            <a href="http://www.swissuniversities.ch/isci" target="_blank" class="hover:opacity-100 transition-opacity">
+                <img src="/img/frontend/swissuniversities_logo_footer.png" alt="swissuniversities Logo" class="h-[18px] w-auto brightness-0 invert opacity-90">
+            </a>
+        </div>
+
+        <ul class="flex items-center !text-[12px] font-semibold">
+                            <li class="flex items-center">
+                    <a href="https://www.e-codices.unifr.ch/en/about/terms"
+                       class="!text-[#aaa] !hover:text-white !font-normal transition-colors">
+                        Terms of Use
+                    </a>
+                                            <span class="mx-2 text-[#555] font-light">|</span>
+                                    </li>
+                            <li class="flex items-center">
+                    <a href="https://www.e-codices.unifr.ch/en/about/privacy"
+                       class="!text-[#aaa] !hover:text-white !font-normal transition-colors">
+                        Privacy Policy
+                    </a>
+                                            <span class="mx-2 text-[#555] font-light">|</span>
+                                    </li>
+                            <li class="flex items-center">
+                    <a href="https://www.e-codices.unifr.ch/en/about/contact"
+                       class="!text-[#aaa] !hover:text-white !font-normal transition-colors">
+                        Contact – e-codices
+                    </a>
+                                    </li>
+                    </ul>
+
+        <ul class="hidden md:flex items-center gap-4 !text-[#aaa]">
+            <li>
+                <a href="https://www.e-codices.unifr.ch/rss/all/latest" title="RSS Feed" class="!text-[#aaa] !hover:text-white transition-colors">
+                    <i class="fa fa-rss" style="font-size: 16px;"></i>
+                </a>
+            </li>
+            <li>
+                <a href="https://www.e-codices.unifr.ch/en/news/newsletter" class="!text-[#aaa] !hover:text-white transition-colors">
+                    <i class="fa fa-envelope" style="font-size: 16px;"></i>
+                </a>
+            </li>
+        </ul>
+    </div>
+</footer></body>
+</html>

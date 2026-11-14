@@ -1,0 +1,30 @@
+{
+  "slug": "e-codices",
+  "min_delay_s": 6,
+  "max_requests": 15,
+  "follow_redirects": 1,
+  "robots_disallow_autorise_par_marcel": true,
+  "note": "v2 passe 1 : interface OAI documentée par les conditions d'utilisation (sources/v2/text/02.txt) : e-codices.ch/oai/{de,en,fr,it}/oai.php?verb=Identify, plus les verbes standard ListMetadataFormats et ListSets (OAI-PMH). ListRecords non lancé (volume). robots.txt : Disallow vide (tout autorisé).",
+  "endpoints": [
+    {
+      "id": "oai-en-identify",
+      "method": "GET",
+      "url": "https://e-codices.ch/oai/en/oai.php?verb=Identify"
+    },
+    {
+      "id": "oai-de-identify",
+      "method": "GET",
+      "url": "https://e-codices.ch/oai/de/oai.php?verb=Identify"
+    },
+    {
+      "id": "oai-en-listmetadataformats",
+      "method": "GET",
+      "url": "https://e-codices.ch/oai/en/oai.php?verb=ListMetadataFormats"
+    },
+    {
+      "id": "oai-en-listsets",
+      "method": "GET",
+      "url": "https://e-codices.ch/oai/en/oai.php?verb=ListSets"
+    }
+  ]
+}
