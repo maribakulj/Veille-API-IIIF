@@ -1,0 +1,16 @@
+{
+  "slug": "biblioteca-nacional-de-portugal-bnd",
+  "min_delay_s": 6,
+  "max_requests": 15,
+  "follow_redirects": 0,
+  "robots_disallow_autorise_par_marcel": true,
+  "note": "Passe 2 : services annoncés par le manifeste de la passe 1 (tests/raw/iiif-manifeste.body) : Image API (info.json et dérivé 256 px de la vignette), IIIF Search API 1.0 et autocomplete (service du manifeste, requête q tirée du titre « Livro de Horas »), page de notice (rendering) et redirection de purl.pt/32689/1 (location lue en passe 1).",
+  "endpoints": [
+    {"id": "image-info-json", "method": "GET", "url": "https://permalinkbnd.bnportugal.gov.pt/i/?IIIF=/20/6c/15/b4/206c15b4-a3e5-42e5-b25f-20a6ec26447f/iiif/il-2_0000_capa-capa_t24-C-R0150_000009.tif/info.json"},
+    {"id": "image-derive-256", "method": "GET", "url": "https://permalinkbnd.bnportugal.gov.pt/i/?IIIF=/20/6c/15/b4/206c15b4-a3e5-42e5-b25f-20a6ec26447f/iiif/il-2_0000_capa-capa_t24-C-R0150_000009.tif/full/!256,256/0/default.jpg"},
+    {"id": "search-api", "method": "GET", "url": "https://permalinkbnd.bnportugal.gov.pt/iiif/services/search/69264?q=livro"},
+    {"id": "search-autocomplete", "method": "GET", "url": "https://permalinkbnd.bnportugal.gov.pt/iiif/services/search/69264/autocomplete?q=liv"},
+    {"id": "notice-rendering", "method": "GET", "url": "https://permalinkbnd.bnportugal.gov.pt/idurl/1/69264"},
+    {"id": "purl-jpg-redirige", "method": "GET", "url": "https://purl.pt/32689/1/"}
+  ]
+}
