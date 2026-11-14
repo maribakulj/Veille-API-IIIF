@@ -67,7 +67,7 @@ Résultats de [l'exécution GitHub Actions réussie](https://github.com/maribaku
 | --- | ---: | --- |
 | Dossiers institutionnels lus | 93 | 2 BnF sans entrée manuelle, écartés du rattrapage |
 | Entrées manuelles initiales | 260 | Une ligne peut être une URL non consultée, un doublon ou un contact |
-| Observations inscrites au registre | 84 | Sources A, B, N et lots précédents ; pas toutes liées aux 260 lignes |
+| Observations inscrites au registre | 84 | Sources A, B, C, N et lots précédents ; pas toutes liées aux 260 lignes |
 | Entrées correspondant à au moins un constat du registre | **70** | Correspondance exacte par slug et URL normalisée, **pas 70 vérifications achevées** |
 | Entrées sans constat relié dans ce registre | **190** | Certaines sont déjà discutées dans les rapports D–M, à indexer |
 | Constats du registre sans entrée manuelle correspondante | 13 | Informations supplémentaires, nécessaires mais hors file initiale |
@@ -77,4 +77,4 @@ Résultats de [l'exécution GitHub Actions réussie](https://github.com/maribaku
 
 Les **4 tests sur 4** et la production du CSV ont réussi. Le rapport C a également été rapproché, notamment la contradiction documentaire sur les droits des images d'Édimbourg, à arbitrer avec les périmètres de collections. Les statistiques proviennent du journal de CI, non d'un recalcul approximatif.
 
-**Prochain ordre de travail :** indexer les rapports D–M dans le registre ; distinguer les statuts documentaires des contrôles HTTP ; examiner les 203 correspondances absentes ; traiter ensuite les erreurs de portée des plafonds NYPL/UBC/EPFL/Heidelberg/HAB et confirmer les endpoints IIIF. L'intégration des `data.json` avec la régénération de `BENCHMARK.xlsx` reste une étape distincte et non accomplie. Ne pas fusionner la PR.
+**Prochain ordre de travail :** indexer les rapports D–M dans le registre ; distinguer les statuts documentaires des contrôles HTTP ; examiner les 190 entrées sans constat rapproché ; traiter ensuite les erreurs de portée des plafonds NYPL/UBC/EPFL/Heidelberg/HAB et confirmer les endpoints IIIF. L'intégration des `data.json` avec la régénération de `BENCHMARK.xlsx` reste une étape distincte et non accomplie. Ne pas fusionner la PR.
