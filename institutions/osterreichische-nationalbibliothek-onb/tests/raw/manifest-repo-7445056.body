@@ -1,0 +1,223 @@
+{
+  "@context" : "http://iiif.io/api/presentation/2/context.json",
+  "@id" : "https://iiif.onb.ac.at/presentation/REPO/7445056/manifest",
+  "@type" : "sc:Manifest",
+  "label" : "Abrechnung, unpubliziert (P.Vindob. G 30082)",
+  "description" : "Abrechnung, unpubliziert (P.Vindob. G 30082)",
+  "metadata" : [
+    {
+      "label" : [
+        {
+          "@value" : "Title",
+          "@language" : "en"
+        },
+        {
+          "@value" : "Titel",
+          "@language" : "ger"
+        }
+      ],
+      "value" : "Abrechnung, unpubliziert (P.Vindob. G 30082)"
+    },
+    {
+      "label" : [
+        {
+          "@value" : "Place",
+          "@language" : "en"
+        },
+        {
+          "@value" : "Erscheinungsort",
+          "@language" : "ger"
+        }
+      ],
+      "value" : "Ägypten"
+    },
+    {
+      "label" : [
+        {
+          "@value" : "Date Issued",
+          "@language" : "en"
+        },
+        {
+          "@value" : "Erscheinungsdatum",
+          "@language" : "ger"
+        }
+      ],
+      "value" : "6.-7. Jh."
+    },
+    {
+      "label" : [
+        {
+          "@value" : "Location",
+          "@language" : "en"
+        },
+        {
+          "@value" : "Ort",
+          "@language" : "ger"
+        }
+      ],
+      "value" : "PAP MAG G 30082 - ÖNB"
+    },
+    {
+      "label" : [
+        {
+          "@value" : "Disseminator",
+          "@language" : "en"
+        },
+        {
+          "@value" : "Anbieter",
+          "@language" : "ger"
+        }
+      ],
+      "value" : "<a href='https://www.onb.ac.at/bibliothek/sammlungen/papyri/bestaende/bestandsuebersicht'>Papyri</a>"
+    },
+    {
+      "label" : [
+        {
+          "@value" : "Languages",
+          "@language" : "en"
+        },
+        {
+          "@value" : "Sprachen",
+          "@language" : "ger"
+        }
+      ],
+      "value" : "grc"
+    },
+    {
+      "label" : "Barcode",
+      "value" : "+Z194653401"
+    },
+    {
+      "label" : [
+        {
+          "@value" : "Digitized",
+          "@language" : "en"
+        },
+        {
+          "@value" : "Digitalisiert",
+          "@language" : "ger"
+        }
+      ],
+      "value" : "2018-05-17T01:27Z"
+    },
+    {
+      "label" : [
+        {
+          "@value" : "Physical Format",
+          "@language" : "en"
+        },
+        {
+          "@value" : "Physische From",
+          "@language" : "ger"
+        }
+      ],
+      "value" : "ca. 18,3 x 10,5 cm"
+    },
+    {
+      "label" : [
+        {
+          "@value" : "Content Information",
+          "@language" : "en"
+        },
+        {
+          "@value" : "Inhaltliche Information",
+          "@language" : "ger"
+        }
+      ],
+      "value" : "Mellon-Projekt (S. Tost, 2018), Schriftverlauf auf dem V gegenüber dem des R um 180º gedreht; phonetische Fehler"
+    },
+    {
+      "label" : [
+        {
+          "@value" : "Physical Pages",
+          "@language" : "en"
+        },
+        {
+          "@value" : "Physische Seiten",
+          "@language" : "ger"
+        }
+      ],
+      "value" : "1 Fragment + Kleinfragmente"
+    }
+  ],
+  "viewingDirection" : "left-to-right",
+  "attribution" : [
+    {
+      "@value" : "Austrian National Library",
+      "@language" : "en"
+    },
+    {
+      "@value" : "Österreichische Nationalbibliothek",
+      "@language" : "ger"
+    }
+  ],
+  "logo" : "https://iiif.onb.ac.at/logo/",
+  "sequences" : [
+    {
+      "@context" : "http://iiif.io/api/presentation/2/context.json",
+      "@id" : "https://iiif.onb.ac.at/presentation/REPO/7445056/sequence/normal",
+      "@type" : "sc:Sequence",
+      "startCanvas" : "https://iiif.onb.ac.at/presentation/REPO/7445056/canvas/1",
+      "canvases" : [
+        {
+          "@context" : "http://iiif.io/api/presentation/2/context.json",
+          "@id" : "https://iiif.onb.ac.at/presentation/REPO/7445056/canvas/1",
+          "@type" : "sc:Canvas",
+          "label" : "1",
+          "height" : 5133,
+          "width" : 3166,
+          "images" : [
+            {
+              "@context" : "http://iiif.io/api/presentation/2/context.json",
+              "@id" : "https://iiif.onb.ac.at/presentation/REPO/7445056/annotation/1",
+              "@type" : "oa:Annotation",
+              "motivation" : "sc:painting",
+              "resource" : {
+                "@id" : "https://iiif.onb.ac.at/images/REPO/7445056/00000001.jpg/full/full/0/native.jpg",
+                "@type" : "dctypes:Image",
+                "height" : 5133,
+                "width" : 3166,
+                "format" : "image/jpeg",
+                "service" : {
+                  "@context" : "http://iiif.io/api/image/2/context.json",
+                  "@id" : "https://iiif.onb.ac.at/images/REPO/7445056/00000001.jpg",
+                  "profile" : "https://iiif.io/api/image/2/level2.json"
+                }
+              },
+              "on" : "https://iiif.onb.ac.at/presentation/REPO/7445056/canvas/1"
+            }
+          ]
+        },
+        {
+          "@context" : "http://iiif.io/api/presentation/2/context.json",
+          "@id" : "https://iiif.onb.ac.at/presentation/REPO/7445056/canvas/2",
+          "@type" : "sc:Canvas",
+          "label" : "2",
+          "height" : 5151,
+          "width" : 3166,
+          "images" : [
+            {
+              "@context" : "http://iiif.io/api/presentation/2/context.json",
+              "@id" : "https://iiif.onb.ac.at/presentation/REPO/7445056/annotation/2",
+              "@type" : "oa:Annotation",
+              "motivation" : "sc:painting",
+              "resource" : {
+                "@id" : "https://iiif.onb.ac.at/images/REPO/7445056/00000002.jpg/full/full/0/native.jpg",
+                "@type" : "dctypes:Image",
+                "height" : 5151,
+                "width" : 3166,
+                "format" : "image/jpeg",
+                "service" : {
+                  "@context" : "http://iiif.io/api/image/2/context.json",
+                  "@id" : "https://iiif.onb.ac.at/images/REPO/7445056/00000002.jpg",
+                  "profile" : "https://iiif.io/api/image/2/level2.json"
+                }
+              },
+              "on" : "https://iiif.onb.ac.at/presentation/REPO/7445056/canvas/2"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
