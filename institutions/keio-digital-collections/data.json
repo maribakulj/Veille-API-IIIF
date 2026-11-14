@@ -4,10 +4,124 @@
   "pays": "Japon",
   "classeur_id": "GLAM-079",
   "type": "Institution",
-  "statut_audit": "à faire",
+  "statut_audit": "a–e faits ; f NON FAIT (budget de recherche web de la session épuisé) ; g à faire",
   "limites_documentees": [],
   "en_tetes_observes": [],
-  "blocages": [],
-  "sources": [],
-  "web": []
+  "blocages": [
+    {
+      "hote": "dcollections.lib.keio.ac.jp",
+      "nature": "connexion réinitialisée (ConnectionResetError) sur uv.php, 1 s après la réponse précédente de cet hôte ; pas de 403 ni de 429 ; hôte arrêté pour la passe",
+      "date": "2026-11-14",
+      "preuve": "institutions/keio-digital-collections/tests/journal.log"
+    }
+  ],
+  "sources": [
+    {
+      "url": "https://dcollections.lib.keio.ac.jp/en/about",
+      "date": "2026-11-14",
+      "etiquette": "officielle",
+      "preuve": "institutions/keio-digital-collections/sources/doc/SHA256SUMS"
+    },
+    {
+      "url": "https://dcollections.lib.keio.ac.jp/robots.txt",
+      "date": "2026-11-14",
+      "etiquette": "officielle",
+      "preuve": "institutions/keio-digital-collections/sources/doc/SHA256SUMS"
+    },
+    {
+      "url": "https://dcollections.lib.keio.ac.jp/en/content/contact",
+      "date": "2026-11-14",
+      "etiquette": "officielle",
+      "preuve": "institutions/keio-digital-collections/sources/b/SHA256SUMS"
+    },
+    {
+      "url": "https://dcollections.lib.keio.ac.jp/en/anatomia/japan1",
+      "date": "2026-11-14",
+      "etiquette": "officielle",
+      "preuve": "institutions/keio-digital-collections/sources/f/SHA256SUMS"
+    },
+    {
+      "url": "https://iiif.lib.keio.ac.jp/robots.txt",
+      "date": "2026-11-14",
+      "etiquette": "officielle",
+      "preuve": "institutions/keio-digital-collections/sources/c/SHA256SUMS"
+    }
+  ],
+  "web": [],
+  "contact": "formulaire Contact – Keio D Collections (dcollections.lib.keio.ac.jp/en/content/contact)",
+  "conclusion_quota": "Aucun quota ni limite de débit publiés. Les conditions (page About) interdisent la reproduction des données numériques, sans parler de débit. IIIF Presentation 2 (manifeste) et IIIF Image 2 (IIPImage sur iiif.lib.keio.ac.jp) testés en 200 sans en-tête de limite ; une requête vers la page de visionneuse a subi une connexion réinitialisée (hôte arrêté, pas de contournement). Étape f (recherche web) non faite.",
+  "classe_quota": "aucun quota trouvé",
+  "confiance": "faible",
+  "notes": "Les 4 recherches web de l'étape f n'ont pas pu être faites : le budget de recherche web de la session (200 appels partagés) était épuisé au moment de traiter Keio ; à refaire quand le budget reviendra. Deux pages devinées (/en/terms, /en/api) ont répondu 404 lors de la lecture de la doc. Le robots.txt de iiif.lib.keio.ac.jp et de www.lib.keio.ac.jp répond 404.",
+  "a_verifier_manuellement": [
+    {
+      "url": "https://dcollections.lib.keio.ac.jp/sites/all/libraries/uv/uv.php?archive=ANT&id=Japan/1&page=1",
+      "pourquoi": "connexion réinitialisée par le serveur lors de la sonde ; non insisté",
+      "a_chercher": "La visionneuse Universal Viewer répond-elle normalement dans un navigateur ? Y a-t-il une limite de connexions ?"
+    },
+    {
+      "url": "https://iiif.lib.keio.ac.jp/ANT/Japan/1/pdf/Japan_1.pdf",
+      "pourquoi": "PDF annoncé par la page de notice ; non téléchargé (fichier volumineux, reproduction interdite par la page About)",
+      "a_chercher": "Conditions de téléchargement des PDF et éventuelle limite de débit"
+    }
+  ],
+  "endpoints_documentes": [
+    {
+      "famille": "IIIF Presentation 2 (manifeste de notice)",
+      "url": "https://dcollections.lib.keio.ac.jp/sites/default/files/iiif/ANT/Japan/1/manifest.json",
+      "statut": "teste",
+      "preuve": "institutions/keio-digital-collections/tests/raw/k1-manifeste.headers.txt"
+    },
+    {
+      "famille": "IIIF Image 2 (IIPImage, info.json)",
+      "url": "https://iiif.lib.keio.ac.jp/iipsrv/ANT/Japan/1/tif/j1_001.tif/info.json",
+      "statut": "teste",
+      "preuve": "institutions/keio-digital-collections/tests/raw/k1-image-info.headers.txt"
+    },
+    {
+      "famille": "Visionneuse Universal Viewer (uv.php)",
+      "url": "https://dcollections.lib.keio.ac.jp/sites/all/libraries/uv/uv.php?archive=ANT&id=Japan/1&page=1",
+      "statut": "teste",
+      "preuve": "institutions/keio-digital-collections/tests/journal.log"
+    },
+    {
+      "famille": "Téléchargement de PDF",
+      "url": "https://iiif.lib.keio.ac.jp/ANT/Japan/1/pdf/Japan_1.pdf",
+      "statut": "non_teste",
+      "raison": "fichier PDF volumineux ; la page About interdit la reproduction des données numériques ; voir a_verifier_manuellement"
+    },
+    {
+      "famille": "Images IIIF (vignettes, region/size)",
+      "url": "https://iiif.lib.keio.ac.jp/iipsrv/ANT/Japan/1/tif/j1_001.tif/full/200,/0/default.jpg",
+      "statut": "non_teste",
+      "raison": "la page About interdit la reproduction des images ; l'info.json du même service suffit pour observer les en-têtes"
+    }
+  ],
+  "endpoints_ecartes": [
+    {
+      "url": "https://dcollections.lib.keio.ac.jp/en/anatomia/japan1?manifest=https://dcollections.lib.keio.ac.jp/sites/default/files/iiif/ANT/Japan/1/manifest.json",
+      "raison": "adresse de la notice avec paramètre « manifest » pour glisser-déposer, pas une API distincte du manifeste testé"
+    },
+    {
+      "url": "https://search.lib.keio.ac.jp/discovery/search?vid=81SOKEI_KEIO:KEIO&lang=en",
+      "raison": "discovery KOSMOS (Primo) cité par la page About, hors du périmètre des collections numériques IIIF"
+    }
+  ],
+  "hotes_robots": [
+    {
+      "hote": "dcollections.lib.keio.ac.jp",
+      "resultat": "200 : Disallow /search/, /admin/ ; aucun Crawl-delay",
+      "preuve": "institutions/keio-digital-collections/sources/doc/raw/01.html"
+    },
+    {
+      "hote": "iiif.lib.keio.ac.jp",
+      "resultat": "404 : aucun robots.txt, tout autorisé",
+      "preuve": "institutions/keio-digital-collections/sources/c/FETCH.log"
+    },
+    {
+      "hote": "www.lib.keio.ac.jp",
+      "resultat": "404 : aucun robots.txt (hôte cité, non utilisé pour les tests)",
+      "preuve": "institutions/keio-digital-collections/sources/doc/FETCH.log"
+    }
+  ]
 }
