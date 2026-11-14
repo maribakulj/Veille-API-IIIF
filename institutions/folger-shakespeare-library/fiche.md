@@ -13,7 +13,7 @@
 - `digitalcollections.folger.edu/` : 302 vers `/turnstile-challenge` puis page « Verifying Connection » (Cloudflare Turnstile) : **défi, aucun contournement** ; hôte arrêté.
 - `catalog.folger.edu/` : **202 vide avec `x-amzn-waf-action: challenge`** (défi AWS WAF) ; arrêté.
 - `luna.folger.edu/luna/servlet/s/r5941p` : 301 vers `digitalcollections.folger.edu/img9150` (non suivi, hôte défié).
-- `flgr.sh/txtfssHamxml` (HEAD) : 301 vers un fichier zip S3 (non suivi) ; `www.folger.edu/.../download/` (HEAD) : 200 ; `hamnet` : 301 en boucle vers lui-même (HTTPS).
+- `flgr.sh/txtfssHamxml` (HEAD) : 301 vers un fichier zip S3 (non suivi) ; `www.folger.edu/.../download/` (HEAD) : 200 ; `hamnet` : 301 vers HTTPS puis 301 vers `catalog.folger.edu`.
 - Aucun 429, aucun en-tête de limite (`Retry-After`, `X-RateLimit-*`, `RateLimit-*`).
 
 ## Web (étape f, 4 recherches, une par catégorie)

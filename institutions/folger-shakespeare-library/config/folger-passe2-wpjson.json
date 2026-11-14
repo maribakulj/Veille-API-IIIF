@@ -1,0 +1,11 @@
+{
+  "slug": "folger-shakespeare-library",
+  "min_delay_s": 6,
+  "max_requests": 15,
+  "follow_redirects": 1,
+  "robots_disallow_autorise_par_marcel": true,
+  "note": "passe 2 : l'en-tête Link des réponses de www.folger.edu (passe 1, folger-texts-download.headers.txt) annonce l'API REST WordPress https://www.folger.edu/wp-json/ ; un HEAD pour lire les en-têtes éventuels de limite.",
+  "endpoints": [
+    {"id": "wp-json-racine", "method": "HEAD", "url": "https://www.folger.edu/wp-json/"}
+  ]
+}
