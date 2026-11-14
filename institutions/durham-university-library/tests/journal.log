@@ -10,3 +10,9 @@
 2026-11-14T02:34:21Z | dur-p1-jalava | robots.txt interdit https://iiif.durham.ac.uk/jalava/ (Disallow: /) ; lancé car autorisé par Marcel (C12)
 2026-11-14T02:34:21Z | dur-p1-jalava | https://iiif.durham.ac.uk/jalava/ | GET | 200 OK | aucun en-tête de limite | taille≥200 | corps: <!DOCTYPE html> <html>  <head>   <title>Jalava</title>   <script src="ie_polyfill.js"></script>    <meta charset="utf-8">   <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink
 # Fin 2026-11-14T02:34:21Z — 6 requête(s) envoyée(s)
+# Session 2026-11-14T02:34:49Z — configuration durham-passe2-collection.json — sonde probe.py au commit 81dd68a
+2026-11-14T02:34:49Z | robots.txt:iiif.durham.ac.uk | https://iiif.durham.ac.uk/robots.txt | GET | 200 | 1 règle(s) pour « * »
+2026-11-14T02:34:49Z | dur-p2-collection-index | robots.txt interdit https://iiif.durham.ac.uk/manifests/trifle/collection/index (Disallow: /) ; lancé car autorisé par Marcel (C12)
+2026-11-14T02:34:56Z | dur-p2-collection-index | https://iiif.durham.ac.uk/manifests/trifle/collection/index | GET | 200 OK | aucun en-tête de limite | taille≥41724 | corps:  {   "@context": "http://iiif.io/api/presentation/2/context.json",   "@id": "https://iiif.durham.ac.uk/manifests/trifle/collection/index",   "@type": "sc:Collection",   "label": "Durham University III
+# corps enregistré : tests/raw/dur-p2-collection-index.body (41724 octets lus)
+# Fin 2026-11-14T02:34:56Z — 2 requête(s) envoyée(s)
