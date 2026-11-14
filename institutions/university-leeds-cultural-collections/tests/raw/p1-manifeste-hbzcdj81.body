@@ -1,0 +1,163 @@
+{
+  "@context": "http://iiif.io/api/presentation/3/context.json",
+  "id": "https://iiif.library.leeds.ac.uk/presentation/cc/hbzcdj81",
+  "type": "Manifest",
+  "label": {
+    "en": [
+      "\"The Blacksmith made all the hinges and snecks\". Original drawing used in \"Yorkshire Cottage\" (1942), page 57"
+    ]
+  },
+  "homepage": [
+    {
+      "id": "https://explore.library.leeds.ac.uk/special-collections-explore/1474",
+      "type": "Text",
+      "label": {
+        "en": [
+          "Homepage for \"The Blacksmith made all the hinges and snecks\". Original drawing used in \"Yorkshire Cottage\" (1942), page 57"
+        ]
+      },
+      "format": "text/html",
+      "language": ["en"]
+    }
+  ],
+  "metadata": [
+    {
+      "label": {"en":["Object Number"]},
+      "value": {"none":["LEEUA 1999.015.119"]}
+    },
+    {
+      "label": {"en":["Dimensions"]},
+      "value": {"none":["190 x 250 mm"]}
+    },
+    {
+      "label": {"en":["Collections"]},
+      "value": {"en":["University Art Collection"]}
+    },
+    {
+      "label": {"en":["Attribution"]},
+      "value": {
+        "en": [
+          "Image Credit : University of Leeds Libraries\n© Marie Hartley Estate"
+        ]
+      }
+    },
+    {
+      "label": {"en":["Medium"]},
+      "value": {"en":["ink"]}
+    },
+    {
+      "label": {"en":["Support"]},
+      "value": {"en":["illustration board"]}
+    },
+    {
+      "label": {"en":["Creators"]},
+      "value": {"en":["Hartley, Marie"]}
+    }
+  ],
+  "rights": "http://rightsstatements.org/vocab/InC/1.0/",
+  "provider": [
+    {
+      "id": "https://library.leeds.ac.uk/info/1600/about",
+      "type": "Agent",
+      "label": {"en":["University of Leeds"]},
+      "homepage": [
+        {
+          "id": "https://library.leeds.ac.uk//",
+          "type": "Text",
+          "label": {"en":["Leeds University Library Homepage"]},
+          "format": "text/html"
+        }
+      ],
+      "logo": [
+        {
+          "id": "https://resources.library.leeds.ac.uk/logo/black.png",
+          "type": "Image",
+          "width": 300,
+          "height": 61,
+          "format": "image/png"
+        }
+      ]
+    }
+  ],
+  "items": [
+    {
+      "id": "https://iiif.library.leeds.ac.uk/canvases/hbzcdj81_objects_LEEUA_1999.015.119_01.tif",
+      "type": "Canvas",
+      "label": {"en":["LEEUA_1999.015.119_01.tif"]},
+      "width": 3488,
+      "height": 2640,
+      "thumbnail": [
+        {
+          "id": "https://iiif.library.leeds.ac.uk/thumbs/hbzcdj81_objects_LEEUA_1999.015.119_01.tif/full/200,151/0/default.jpg",
+          "type": "Image",
+          "format": "image/jpeg",
+          "service": [
+            {
+              "@context": "http://iiif.io/api/image/2/context.json",
+              "@id": "https://iiif.library.leeds.ac.uk/thumbs/v2/hbzcdj81_objects_LEEUA_1999.015.119_01.tif",
+              "@type": "ImageService2",
+              "profile": "http://iiif.io/api/image/2/level0.json",
+              "sizes": [
+                {"width":1024,"height":775},
+                {"width":400,"height":303},
+                {"width":200,"height":151},
+                {"width":100,"height":76}
+              ]
+            },
+            {
+              "@context": "http://iiif.io/api/image/3/context.json",
+              "id": "https://iiif.library.leeds.ac.uk/thumbs/hbzcdj81_objects_LEEUA_1999.015.119_01.tif",
+              "type": "ImageService3",
+              "profile": "level0",
+              "sizes": [
+                {"width":1024,"height":775},
+                {"width":400,"height":303},
+                {"width":200,"height":151},
+                {"width":100,"height":76}
+              ]
+            }
+          ]
+        }
+      ],
+      "items": [
+        {
+          "id": "https://iiif.library.leeds.ac.uk/canvases/hbzcdj81_objects_LEEUA_1999.015.119_01.tif/annopages/0",
+          "type": "AnnotationPage",
+          "items": [
+            {
+              "id": "https://iiif.library.leeds.ac.uk/canvases/hbzcdj81_objects_LEEUA_1999.015.119_01.tif/annotations/0",
+              "type": "Annotation",
+              "motivation": "painting",
+              "body": {
+                "id": "https://iiif.library.leeds.ac.uk/image/hbzcdj81_objects_LEEUA_1999.015.119_01.tif/full/1024,775/0/default.jpg",
+                "type": "Image",
+                "width": 1024,
+                "height": 775,
+                "format": "image/jpeg",
+                "service": [
+                  {
+                    "@context": "http://iiif.io/api/image/2/context.json",
+                    "@id": "https://iiif.library.leeds.ac.uk/image/v2/hbzcdj81_objects_LEEUA_1999.015.119_01.tif",
+                    "@type": "ImageService2",
+                    "profile": "http://iiif.io/api/image/2/level2.json",
+                    "width": 3488,
+                    "height": 2640
+                  },
+                  {
+                    "@context": "http://iiif.io/api/image/3/context.json",
+                    "id": "https://iiif.library.leeds.ac.uk/image/hbzcdj81_objects_LEEUA_1999.015.119_01.tif",
+                    "type": "ImageService3",
+                    "profile": "level2",
+                    "width": 3488,
+                    "height": 2640
+                  }
+                ]
+              },
+              "target": "https://iiif.library.leeds.ac.uk/canvases/hbzcdj81_objects_LEEUA_1999.015.119_01.tif"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
