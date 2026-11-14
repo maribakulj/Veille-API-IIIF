@@ -1,13 +1,328 @@
 {
-  "slug": "e-rara-eth-bibliothek-et-partenaires",
-  "nom": "e-rara – ETH-Bibliothek et partenaires",
-  "pays": "Suisse",
-  "classeur_id": "GLAM-019",
-  "type": "Plateforme / consortium",
-  "statut_audit": "à faire",
-  "limites_documentees": [],
-  "en_tetes_observes": [],
-  "blocages": [],
-  "sources": [],
-  "web": []
+ "slug": "e-rara-eth-bibliothek-et-partenaires",
+ "nom": "e-rara – ETH-Bibliothek et partenaires",
+ "pays": "Suisse",
+ "classeur_id": "GLAM-019",
+ "type": "Plateforme / consortium",
+ "statut_audit": "audit a–f complet ; g à faire",
+ "limites_documentees": [
+  {
+   "nature": "Interdiction robots",
+   "perimetre": "www.e-rara.ch, User-agent: *",
+   "valeur": "Disallow: / (Googlebot et Bingbot autorisés)",
+   "fenetre": "–",
+   "effet": "Disallow",
+   "verification": "officielle, lue en entier (actuelle + Wayback 2024-09-22)",
+   "source": "https://www.e-rara.ch/robots.txt",
+   "date": "2026-11-14"
+  },
+  {
+   "nature": "Crawl-delay",
+   "perimetre": "www.e-rara.ch, 10 robots nommés (DotBot, AhrefsBot, DataForSeoBot, Applebot, Bytespider, Amazonbot, GPTBot, ClaudeBot, ImagesiftBot, MJ12bot)",
+   "valeur": "1 seconde",
+   "fenetre": "entre deux requêtes",
+   "effet": "non précisé",
+   "verification": "officielle, lue en entier",
+   "source": "https://www.e-rara.ch/robots.txt",
+   "date": "2026-11-14"
+  },
+  {
+   "nature": "Taille d'un paquet OAI-PMH",
+   "perimetre": "OAI https://www.e-rara.ch/oai",
+   "valeur": "10 records par réponse + resumptionToken",
+   "fenetre": "par requête",
+   "effet": "pagination",
+   "verification": "officielle (wiki apiinfo, copie Wayback 2024-09-17)",
+   "source": "https://web.archive.org/web/20240917151351/https://www.e-rara.ch/wiki/apiinfo",
+   "date": "2026-11-14"
+  },
+  {
+   "nature": "Timeout sur gros titres",
+   "perimetre": "OAI, format mets",
+   "valeur": "non chiffré",
+   "fenetre": "–",
+   "effet": "échec par timeout si le volume est trop grand",
+   "verification": "officielle (wiki apiinfo, Wayback)",
+   "source": "https://web.archive.org/web/20240917151351/https://www.e-rara.ch/wiki/apiinfo",
+   "date": "2026-11-14"
+  }
+ ],
+ "en_tetes_observes": [],
+ "blocages": [
+  {
+   "date": "2026-11-14",
+   "hote": "www.e-rara.ch (pages HTML, wiki)",
+   "code": "200",
+   "nature": "défi JavaScript « Verifying your browser » sur les pages HTML et le wiki ; non contourné",
+   "suite": "pages lues dans la Wayback (captures 2024) ; interfaces de données testées seules"
+  }
+ ],
+ "sources": [
+  {
+   "url": "https://web.archive.org/web/20240917151351/https://www.e-rara.ch/wiki/apiinfo",
+   "date": "2026-11-14",
+   "etiquette": "officielle (Wayback)",
+   "preuve": "institutions/e-rara-eth-bibliothek-et-partenaires/sources/wayback/erara-extraits-wayback.md"
+  },
+  {
+   "url": "https://web.archive.org/web/20240917173448/https://www.e-rara.ch/wiki/termsOfUse",
+   "date": "2026-11-14",
+   "etiquette": "officielle (Wayback)",
+   "preuve": "institutions/e-rara-eth-bibliothek-et-partenaires/sources/wayback/erara-extraits-wayback.md"
+  },
+  {
+   "url": "https://www.e-rara.ch/robots.txt",
+   "date": "2026-11-14",
+   "etiquette": "officielle",
+   "preuve": "institutions/e-rara-eth-bibliothek-et-partenaires/sources/v2/SHA256SUMS"
+  },
+  {
+   "url": "https://data.zb.uzh.ch/map/books/data-map-der-zentralbibliothek-zurich/page/e-rara-iiif",
+   "date": "2026-11-14",
+   "etiquette": "partenaire (ZB Zürich)",
+   "preuve": "institutions/e-rara-eth-bibliothek-et-partenaires/sources/c/SHA256SUMS"
+  },
+  {
+   "url": "https://data.zb.uzh.ch/map/books/data-map-der-zentralbibliothek-zurich/page/e-rara-oai",
+   "date": "2026-11-14",
+   "etiquette": "partenaire (ZB Zürich)",
+   "preuve": "institutions/e-rara-eth-bibliothek-et-partenaires/sources/d/SHA256SUMS"
+  },
+  {
+   "url": "https://data.zb.uzh.ch/map/books/data-map-der-zentralbibliothek-zurich/page/e-rara-sru",
+   "date": "2026-11-14",
+   "etiquette": "partenaire (ZB Zürich)",
+   "preuve": "institutions/e-rara-eth-bibliothek-et-partenaires/sources/d/SHA256SUMS"
+  },
+  {
+   "url": "https://www.zb.uzh.ch/en/services/die-plattformen-e-rara-und-e-manuscripta",
+   "date": "2026-11-14",
+   "etiquette": "partenaire (ZB Zürich)",
+   "preuve": "institutions/e-rara-eth-bibliothek-et-partenaires/sources/c/SHA256SUMS"
+  },
+  {
+   "url": "https://ckan.opendata.swiss/en/dataset/e-rara-the-platform-for-digitized-rare-books-from-swiss-institutions",
+   "date": "2026-11-14",
+   "etiquette": "officielle (catalogue national)",
+   "preuve": "institutions/e-rara-eth-bibliothek-et-partenaires/sources/c/SHA256SUMS"
+  }
+ ],
+ "web": [
+  {
+   "categorie": "institution",
+   "url": "https://web.archive.org/web/20240917151351/https://www.e-rara.ch/wiki/apiinfo",
+   "date": "2026-11-14",
+   "etiquette": "officielle (Wayback)",
+   "citation": "« Zum Nutzen von Forschung und Lehre stellt e-rara.ch verschiedene Schnittstellen für den Abzug und die Weiterverwendung von Daten bereit. » Aucun chiffre de débit ; recherche web « e-rara.ch API OAI-PMH IIIF terms of use harvesting bots rate limit » : aucune page de politique d'e-rara en dehors de son wiki.",
+   "preuve": "institutions/e-rara-eth-bibliothek-et-partenaires/sources/wayback/erara-extraits-wayback.md"
+  },
+  {
+   "categorie": "utilisateurs",
+   "url": "https://kloss.sourcelibrary.org/blog/iiif",
+   "date": "2026-06-02",
+   "etiquette": "tiers (billet de Source Library), lu en entier par WebFetch",
+   "citation": "« It reached Source Library as a single line in a manifest published by e-rara » ; dans leur tableau de limites, e-rara apparaît avec un plafond de 2 requêtes par seconde (limite choisie par ce tiers, pas par e-rara).",
+   "preuve": "institutions/e-rara-eth-bibliothek-et-partenaires/fiche.md"
+  },
+  {
+   "categorie": "utilisateurs",
+   "aucun_resultat": true,
+   "requete": "e-rara.ch \"429\" OR \"too many requests\" OR blocked OR \"Verifying your browser\" download IIIF scraper",
+   "date": "2026-11-14",
+   "etiquette": "–",
+   "citation": "Aucune plainte de 429 ou de blocage visant e-rara trouvée ; seul le plafond de 1000 px de largeur mentionné par un téléchargeur tiers (non retrouvé : mesure du 14/11 = 2474x2981 en full/full).",
+   "preuve": "institutions/e-rara-eth-bibliothek-et-partenaires/fiche.md"
+  },
+  {
+   "categorie": "tickets",
+   "aucun_resultat": true,
+   "requete": "github e-rara.ch IIIF manifest downloader issue e-rara",
+   "date": "2026-11-14",
+   "etiquette": "–",
+   "citation": "Aucune issue GitHub sur e-rara trouvée ; seuls des téléchargeurs IIIF génériques (iiif-dl, goobi-iiif-downloader) sortent. Deux autres recherches (e-rara + iiif-discuss/scraping) idem.",
+   "preuve": "institutions/e-rara-eth-bibliothek-et-partenaires/fiche.md"
+  },
+  {
+   "categorie": "presentations",
+   "url": "https://wp.informationskompetenz.ch/wp-content/uploads/2026/04/WS20250902_IIIF.pdf",
+   "date": "2025-09-02",
+   "etiquette": "tiers (atelier IIIF de l'Université de Berne), PDF lu (pdftotext)",
+   "citation": "Exercice : « Suchen Sie den IIIF-Manifest-Link auf der Plattform e-rara.ch zu diesem Titel » ; aucune mention de limite, quota ou blocage.",
+   "preuve": "institutions/e-rara-eth-bibliothek-et-partenaires/fiche.md"
+  }
+ ],
+ "contact": "contact@e-rara.ch (indiqué dans un document de l'UB Berne, non vérifié sur le site e-rara) ; ETH-Bibliothek",
+ "conclusion_quota": "Aucun quota ni débit documenté pour les interfaces de données de e-rara (OAI-PMH, IIIF, téléchargements, SRU) ; aucun en-tête de limite ni 429 sur 26 requêtes en 3 passes. Seules limites écrites : robots.txt « Disallow: / » (sauf Googlebot/Bingbot), Crawl-delay 1 pour 10 robots nommés, paquets OAI de 10 records, timeouts METS sur très gros titres. Les pages HTML et le wiki sont derrière un défi JavaScript non contourné.",
+ "classe_quota": "aucune limite de débit publiée ; accès aux pages protégé par un défi JavaScript ; robots.txt restrictif",
+ "confiance": "moyenne",
+ "notes": "Doc officielle (wiki e-rara) lue dans la Wayback (captures 2024-09-17), car le wiki est maintenant derrière « Verifying your browser ». Les interfaces de données (OAI, manifestes, images, RIS, ftpack, PDF, ALTO3) répondent 200 aux requêtes simples. L'image full/full renvoie 2474x2981 : pas de plafond de taille observé. Le service de recherche du manifeste renvoie du HTML (page de contrôle probable), non du JSON. Plusieurs requêtes ont été lancées malgré le Disallow du robots.txt (décision C12 de Marcel).",
+ "a_verifier_manuellement": [
+  {
+   "url": "https://www.e-rara.ch/wiki/apiinfo",
+   "pourquoi": "défi JavaScript sur le wiki actuel ; lu par Wayback (capture 2024-09-17)",
+   "a_chercher": "Doc API actuelle : limites de débit, mentions de quotas ou de clés ajoutées depuis 2024"
+  },
+  {
+   "url": "https://www.e-rara.ch/wiki/termsOfUse",
+   "pourquoi": "défi JavaScript ; lu par Wayback (capture 2024-09-17)",
+   "a_chercher": "Règles actuelles sur l'accès automatisé, les robots, le débit"
+  },
+  {
+   "url": "https://www.e-rara.ch/wiki/aboutERara",
+   "pourquoi": "défi JavaScript ; non lu directement",
+   "a_chercher": "Description de la plateforme, politique d'ouverture des données"
+  },
+  {
+   "url": "https://era-prod11.ethz.ch/robots.txt",
+   "pourquoi": "défi JavaScript (3 Mo de page de contrôle au lieu d'un robots.txt)",
+   "a_chercher": "Ce second hôte de la plateforme (ETH) a-t-il son propre robots.txt ?"
+  },
+  {
+   "url": "https://www.e-rara.ch/i3f/manifest/6341733/search?q=Bibel",
+   "pourquoi": "le service de recherche annoncé par le manifeste a répondu en HTML (probable page de contrôle JavaScript)",
+   "a_chercher": "Réponse JSON IIIF Content Search depuis un navigateur ; plafond de résultats"
+  }
+ ],
+ "endpoints_documentes": [
+  {
+   "famille": "OAI-PMH (Identify, ListSets, ListMetadataFormats, GetRecord, ListIdentifiers, ListRecords)",
+   "url": "https://www.e-rara.ch/oai?verb=Identify",
+   "statut": "teste",
+   "preuve": "institutions/e-rara-eth-bibliothek-et-partenaires/tests/raw/oai-identify.headers.txt"
+  },
+  {
+   "famille": "IIIF Presentation 2.0 : manifeste (/i3f/v20/{VLID}/manifest)",
+   "url": "https://www.e-rara.ch/i3f/v20/6341733/manifest",
+   "statut": "teste",
+   "preuve": "institutions/e-rara-eth-bibliothek-et-partenaires/tests/raw/manifeste-6341733.headers.txt"
+  },
+  {
+   "famille": "IIIF Presentation : alias avec set /zuz/",
+   "url": "https://www.e-rara.ch/zuz/i3f/v20/6341733/manifest",
+   "statut": "teste",
+   "preuve": "institutions/e-rara-eth-bibliothek-et-partenaires/tests/raw/manifeste-alias-zuz-6341733.headers.txt"
+  },
+  {
+   "famille": "IIIF Image 2.1 : info.json, vignette, full/full",
+   "url": "https://www.e-rara.ch/i3f/v21/6341735/info.json",
+   "statut": "teste",
+   "preuve": "institutions/e-rara-eth-bibliothek-et-partenaires/tests/raw/iiif-image-info-6341735.headers.txt"
+  },
+  {
+   "famille": "OAI ListRecords (par période)",
+   "url": "https://www.e-rara.ch/oai?verb=ListRecords&metadataPrefix=oai_dc&from=2026-11-10&until=2026-11-14",
+   "statut": "teste",
+   "preuve": "institutions/e-rara-eth-bibliothek-et-partenaires/tests/raw/oai-listrecords-periode.headers.txt"
+  },
+  {
+   "famille": "Téléchargement RIS",
+   "url": "https://www.e-rara.ch/zut/download/format/ris/6341733",
+   "statut": "teste",
+   "preuve": "institutions/e-rara-eth-bibliothek-et-partenaires/tests/raw/ris-6341733.headers.txt"
+  },
+  {
+   "famille": "Volltexte ftpack (plain, alto)",
+   "url": "https://www.e-rara.ch/zut/download/ftpack/plain/6341733",
+   "statut": "teste",
+   "preuve": "institutions/e-rara-eth-bibliothek-et-partenaires/tests/raw/ftpack-plain-6341733.headers.txt"
+  },
+  {
+   "famille": "Fichier ALTO3 d'une page (lien METS)",
+   "url": "https://www.e-rara.ch/zuz/download/fulltext/alto3/14257006",
+   "statut": "teste",
+   "preuve": "institutions/e-rara-eth-bibliothek-et-partenaires/tests/raw/alto3-14257006.headers.txt"
+  },
+  {
+   "famille": "PDF",
+   "url": "https://www.e-rara.ch/download/pdf/6341733.pdf",
+   "statut": "teste",
+   "preuve": "institutions/e-rara-eth-bibliothek-et-partenaires/tests/raw/pdf-6341733.headers.txt"
+  },
+  {
+   "famille": "SRU (sru2.visual-library.de/erara_alma_uzb)",
+   "url": "http://sru2.visual-library.de/erara_alma_uzb?operation=searchRetrieve&recordSchema=mods&query=rec.identifier=990019352710205508",
+   "statut": "teste",
+   "preuve": "institutions/e-rara-eth-bibliothek-et-partenaires/tests/raw/sru-erara-alma.headers.txt"
+  },
+  {
+   "famille": "Service de recherche IIIF du manifeste",
+   "url": "https://www.e-rara.ch/i3f/manifest/6341733/search?q=Bibel",
+   "statut": "teste",
+   "preuve": "institutions/e-rara-eth-bibliothek-et-partenaires/tests/raw/recherche-manifeste-6341733.headers.txt"
+  },
+  {
+   "famille": "OAI GetRecord en format mets (liste des fichiers ALTO)",
+   "url": "https://www.e-rara.ch/oai?verb=GetRecord&metadataPrefix=mets&identifier=18877392",
+   "statut": "non_teste",
+   "raison": "La doc prévient que des titres très volumineux dépassent le délai en mets ; format lourd inutile pour la veille, les autres verbes OAI sont testés."
+  }
+ ],
+ "endpoints_ecartes": [
+  {
+   "url": "https://www.e-rara.ch/wiki/apiinfo",
+   "raison": "page de documentation du wiki derrière un défi JavaScript, ce n'est pas une API ; lue dans la Wayback."
+  },
+  {
+   "url": "https://www.e-rara.ch/oai?verb=ListRecords&resumptionToken=0x411252638e27cbd42a98cf1473d26682",
+   "raison": "jeton de reprise d'exemple expiré tiré de la doc ZB ; un jeton ne se devine ni ne se rejoue, la pagination est couverte par ListIdentifiers/ListRecords."
+  },
+  {
+   "url": "https://ckan.opendata.swiss/api/3/action/package_show?id=e-rara-the-platform-for-digitized-rare-books-from-swiss-institutions",
+   "raison": "API CKAN du portail national opendata.swiss (hôte tiers) décrivant le jeu de données, pas une interface de e-rara ; la page HTML du jeu de données a été lue."
+  },
+  {
+   "url": "https://www.e-rara.ch/doi/page/api",
+   "raison": "adresse de page de doc devinée lors de la lecture de la doc, réponse 404 réelle (sources/v2/FETCH.log) ; la vraie doc est le wiki apiinfo."
+  },
+  {
+   "url": "https://www.e-rara.ch/page/iiif",
+   "raison": "adresse de page de doc devinée, réponse 404 réelle (sources/v2/FETCH.log) ; la doc IIIF est dans le wiki apiinfo et la Data Map ZB."
+  },
+  {
+   "url": "https://www.zb.uzh.ch/de/services/die-plattformen-e-rara-und-e-manuscripta",
+   "raison": "page de présentation de la plateforme (version allemande de la page anglaise lue), lien de navigation et non une API."
+  }
+ ],
+ "hotes_robots": [
+  {
+   "hote": "www.e-rara.ch",
+   "resultat": "200 : User-agent * Disallow: / ; Googlebot et Bingbot autorisés ; Crawl-delay 1 pour 10 robots nommés",
+   "preuve": "institutions/e-rara-eth-bibliothek-et-partenaires/tests/journal.log"
+  },
+  {
+   "hote": "sru2.visual-library.de",
+   "resultat": "404 : pas de robots.txt, tout autorisé (RFC 9309)",
+   "preuve": "institutions/e-rara-eth-bibliothek-et-partenaires/tests/journal.log"
+  },
+  {
+   "hote": "data.zb.uzh.ch",
+   "resultat": "404 : pas de robots.txt",
+   "preuve": "institutions/e-rara-eth-bibliothek-et-partenaires/sources/c/FETCH.log"
+  },
+  {
+   "hote": "www.zb.uzh.ch",
+   "resultat": "200 : GPTBot Disallow /de/recherche et /en/recherche ; * Allow /",
+   "preuve": "institutions/e-rara-eth-bibliothek-et-partenaires/sources/c/FETCH.log"
+  },
+  {
+   "hote": "opendata.swiss",
+   "resultat": "robots.txt remplacé par la page d'erreur du portail (404)",
+   "preuve": "institutions/e-rara-eth-bibliothek-et-partenaires/sources/c/FETCH.log"
+  },
+  {
+   "hote": "ckan.opendata.swiss",
+   "resultat": "page de jeu de données lue ; robots.txt de opendata.swiss : page d'erreur, pas de règle",
+   "preuve": "institutions/e-rara-eth-bibliothek-et-partenaires/sources/c/FETCH.log"
+  },
+  {
+   "hote": "era-prod11.ethz.ch",
+   "resultat": "défi JavaScript (page de contrôle de 3 Mo à la place d'un robots.txt) : non lu",
+   "preuve": "institutions/e-rara-eth-bibliothek-et-partenaires/sources/b/FETCH.log"
+  },
+  {
+   "hote": "doi.org",
+   "resultat": "hôte cité par la doc (DOI) : aucune requête envoyée",
+   "preuve": "institutions/e-rara-eth-bibliothek-et-partenaires/sources/d/FETCH.log"
+  }
+ ]
 }

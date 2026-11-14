@@ -1,0 +1,12 @@
+{
+  "slug": "e-rara-eth-bibliothek-et-partenaires",
+  "endpoint": {
+    "id": "manifeste-6341733",
+    "url": "https://www.e-rara.ch/i3f/v20/6341733/manifest",
+    "method": "GET"
+  },
+  "limite_documentee_req_min": null,
+  "source_limite": "aucune limite de débit documentée (wiki apiinfo, Wayback 2024-09-17 ; Data Map ZB) ; le Crawl-delay 1 s de https://www.e-rara.ch/robots.txt ne vise que 10 robots nommés, pas « * » (qui est Disallow: /)",
+  "duree_palier_s": 180,
+  "note": "Manifeste IIIF de 8 ko, 200 dans le journal (manifeste-6341733, 2026-11-14T00:55:45Z) : endpoint peu coûteux ; environ 800 requêtes au total (~7 Mo)."
+}

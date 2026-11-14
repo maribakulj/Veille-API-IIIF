@@ -35,3 +35,5 @@ Aucun 429. Aucun en-tête `Retry-After`, `X-RateLimit-*`, `RateLimit-*`. Non tes
 - **Politique d'usage de l'API** : introuvable.
 - **Moyen d'interroger le quota** : aucun.
 - **Confiance** : moyenne.
+
+Rattrapage (2026-11-14) : session initiale archivée puis rejouée ; ancienne API de recherche www.nb.no/services/search/v2/ : timeout de 30 s à nouveau ; robots.txt de data.norge.no (Crawl-delay 1, Disallow /api/) et nationallibraryofnorway.github.io (404) lus.

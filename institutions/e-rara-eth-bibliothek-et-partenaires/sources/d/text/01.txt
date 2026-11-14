@@ -1,0 +1,154 @@
+e-rara OAI | ZB Data Map 
+ Direkt zum Hauptinhalt 
+ ZB Data Map 
+ Alle anzeigen 
+ Suchen 
+ Bücher 
+ Anmelden 
+ Info
+ Inhalt
+ Details
+ Version #6
+ Erstellt: vor 4 Jahren von Team Bibliotheksinformatik 
+ Zuletzt aktualisiert: vor 1 Jahr von Team Bibliotheksinformatik 
+ Aktionen
+ Versionen 
+ Exportieren 
+ HTML-Datei .html 
+ PDF-Datei .pdf 
+ Textdatei .txt 
+ Markdown-Datei .md 
+ Schnittstellentyp 
+ OAI 
+ Schnittstellentyp 
+ offen 
+ Seitennavigation
+ OAI-Sets 
+ ZB-Sets 
+ zuz 
+ nagezh 
+ rheinau 
+ Verfügbare Metadaten-Formate 
+ Abfrage-Beispiele 
+ e-rara Volltexte 
+ Buchnavigation
+ Data Map der Zentralbibliothek Zürich
+ Überblick
+ 2 Seiten 
+ Über die Data Map
+ Systemübersicht
+ Systeme und Schnittstellen
+ 26 Seiten 
+ Alma und PrimoVE
+ Alma Linked Data
+ Alma OAI (limitiert)
+ Alma SRU
+ Alma - Digitale Repräsentationen und IIIF
+ Alma REST API (geschlossen)
+ Primo REST API Search (geschlossen)
+ e-codices
+ e-manuscripta und e-rara
+ e-manuscripta IIIF
+ e-manuscripta OAI
+ e-manuscripta SRU
+ e-rara IIIF
+ e-rara OAI
+ e-rara SRU
+ Graphikportal
+ Kartenportal
+ Memobase
+ swisscollections
+ ZBcollections (CMI STAR)
+ ZBcollections OAI
+ ZBcollections SRU
+ ZORA
+ Zurich Open Platform (ZOP, DSpace) OAI
+ Zurich Open Platform (ZOP, DSpace) REST
+ Zurich Open Platform (ZOP, DSpace) IIIF
+ Technologien
+ 3 Seiten 
+ International Image Interoperability Framework (IIIF)
+ Open Archives Initiative Protocol for Metadata Harvesting (OAI-PMH)
+ Search/Retrieve via URL (SRU)
+ Hilfsmittel
+ 1 Seite 
+ Jupyter-Notebooks der Zentralbibliothek Zürich
+ Bücher 
+ Data Map der Zentralbi...
+ Systeme und Schnittste...
+ e-rara OAI
+ e-rara OAI
+ Basis-URL:
+ https://www.e-rara.ch/oai?
+ OAI-Sets
+ Komplette Liste der verfügbaren Sets: 
+ https://www.e-rara.ch/oai?verb=ListSets 
+ ZB-Sets
+ Neben den auch via GUI verfügbaren Kollektionen gibt es weitere OAI-Sets, die sich durch ihre Herkunft definieren. Für die ZB gibt es drei solche Sets.
+ zuz
+ Enthält alle Ressourcen auf e-rara aus der Zentralbibliothek Zürich.
+ nagezh
+ Enthält Ressourcen der Naturforschenden Gesellschaft Zürich aus der Abteilung Alte Drucke und Rara.
+ rheinau
+ Enthält Ressourcen aus der Abteilung Alte Drucke und Rara, die ursprünglich aus dem Kloster Rheinau stammen.
+ Verfügbare Metadaten-Formate
+ https://www.e-rara.ch/oai?verb=ListMetadataFormats 
+ Beispiel:
+ <metadataPrefix>mods</metadataPrefix> 
+ Abfrage-Beispiele
+ GetRecord (identifier: VLID)
+ https://www.e-rara.ch/oai?verb=GetRecord&metadataPrefix=oai_dc&identifier=13434289 
+ ListRecords
+Nach Zeitraum:
+ https://www.e-rara.ch/oai?verb=ListRecords&metadataPrefix=oai_dc&from=2021-09-15&until=2021-09-22 
+ Nach Set:
+ https://www.e-rara.ch/oai?verb=ListRecords&metadataPrefix=oai_dc&set=zuz 
+ mit Resumption Token:
+ https://www.e-rara.ch/oai?verb=ListRecords&resumptionToken=0x411252638e27cbd42a98cf1473d26682-cursor_p_3D10_p_26set_p_3Dzuz_p_26from__p_3D2021-09-15T00_p_253A00_p_253A00Z_p_26metadataPrefix_p_3Doai_dc_p_26batch_size_p_3D11_p_26until_p_3D2021-09-22T23_p_253A59_p_253A59Z 
+ ListIdentifiers
+ https://www.e-rara.ch/oai?verb=ListIdentifiers&set=zuz&metadataPrefix=oai_dc 
+ ListSets
+ https://www.e-rara.ch/oai?verb=ListSets 
+ mit Resumption Token:
+ https://www.e-rara.ch/oai?verb=ListSets&resumptionToken=cursor_p_3D10_p_26batch_size_p_3D11 
+ ListMetadataFormats
+ https://www.e-rara.ch/oai?verb=ListMetadataFormats 
+ e-rara Volltexte
+ Auf e-rara gibt es Volltextlinks im OAI-Record (METS-Format).
+ Beispiel:
+ https://www.e-rara.ch/oai?verb=GetRecord&metadataPrefix=mets&identifier=14257004 
+ Allerdings sind hier nur Links für das Alto3-Format enthalten:
+ <mets:fileGrp USE="FULLTEXT">
+    <mets:file MIMETYPE="text/xml" CREATED="2021-11-19T01:25:42.612300Z" ID="ALTO14257006">
+        <mets:FLocat xlink:href="https://www.e-rara.ch/zuz/download/fulltext/alto3/14257006" LOCTYPE="URL"/>
+    </mets:file>
+    <mets:file MIMETYPE="text/xml" CREATED="2021-11-19T01:25:46.098900Z" ID="ALTO14257007">
+        <mets:FLocat xlink:href="https://www.e-rara.ch/zuz/download/fulltext/alto3/14257007" LOCTYPE="URL"/>
+    </mets:file>
+    <mets:file MIMETYPE="text/xml" CREATED="2021-11-19T01:25:34.983600Z" ID="ALTO14257008">
+        <mets:FLocat xlink:href="https://www.e-rara.ch/zuz/download/fulltext/alto3/14257008" LOCTYPE="URL"/>
+    </mets:file>
+    <mets:file MIMETYPE="text/xml" CREATED="2021-11-19T01:25:35.658300Z" ID="ALTO14257009">
+        <mets:FLocat xlink:href="https://www.e-rara.ch/zuz/download/fulltext/alto3/14257009" LOCTYPE="URL"/>
+    </mets:file>
+ ...
+</mets:fileGrp>
+ Zwar kann im jeweiligen Link 'alto3' durch 'plain' ersetzt werden:
+ https://www.e-rara.ch/zuz/download/fulltext/plain/14257009 
+ Jedoch ist der Text in Seiten unterteilt. Jede Seite hat eine eigene VLID. Obenstehender Link liefert den Text zu folgender Seite:
+ https://www.e-rara.ch/zuz/content/zoom/14257009 
+ In der Titelansicht gibt es einen Volltext-Link:
+ https://www.e-rara.ch/zuz/content/titleinfo/14257004 
+ Dieser enthält die VLID der ganzen Ressource:
+ https://www.e-rara.ch/zuz/download/fulltext/plain/14257004 
+ Um zu ermitteln, ob zu einem Titel ein Volltext verfügbar ist, kann also das OAI-Record auf den XML-Tag
+ <mets:fileGrp USE="FULLTEXT"> 
+ geprüft werden. Falls dieser vorhanden ist, kann mit der VLID aus dem Record-Header
+ <identifier>oai:www.e-rara.ch:14257004</identifier>
+ der gesamte Volltext abgefragt werden.
+ Abschnittsauswahlmodus aktivieren 
+ Vorheriges
+ e-rara IIIF 
+ Nächste
+ e-rara SRU 
+ nach oben

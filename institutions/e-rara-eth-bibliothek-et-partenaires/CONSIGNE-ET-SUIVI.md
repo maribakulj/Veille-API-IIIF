@@ -2,51 +2,51 @@
 
 - **Dossier** : `institutions/e-rara-eth-bibliothek-et-partenaires/`  ·  **Classeur de référence** : GLAM-019  ·  **Pays** : Suisse
 - **Statut d'institution** : active
-- **Dernière mise à jour du suivi** : (à renseigner à chaque modification)
+- **Dernière mise à jour du suivi** : 2026-11-14
 
 ## Suivi par étape (à cocher, avec justification et preuves)
 
 ### a) Documentation lue en entier
 > Toutes les pages de doc liées à l'API (développeurs, interfaces, conditions, FAQ, aide, mentions légales, robots.txt), téléchargées avec `scripts/fetch_doc.sh` (URL, date, SHA-256), lues en entier (`scripts/extract_text.py`).
 
-- [ ] **Pas fait**
-  - **Justification** : Pas encore traitée : l'audit suit l'ordre du classeur de référence (une institution à la fois).
-  - **Preuves** : 
+- [x] **Fait**
+  - **Justification** : Doc lue : wiki apiinfo/termsOfUse via Wayback (défi JavaScript sur le site actuel, non contourné), Data Map ZB IIIF/OAI/SRU, présentation de la plateforme, opendata.swiss ; robots.txt de chaque hôte lu ou documenté (era-prod11 en défi, listé à vérifier à la main).
+  - **Preuves** : `institutions/e-rara-eth-bibliothek-et-partenaires/sources/wayback/erara-extraits-wayback.md`, `institutions/e-rara-eth-bibliothek-et-partenaires/sources/c/SHA256SUMS`, `institutions/e-rara-eth-bibliothek-et-partenaires/sources/d/SHA256SUMS`, `institutions/e-rara-eth-bibliothek-et-partenaires/sources/v2/SHA256SUMS`
 
 ### b) Endpoints tirés de la doc
 > Liste des endpoints citée par la doc (URL, exemples). Jamais devinée. Une interdiction ou une impossibilité écrite dans la doc justifie de renoncer (citer la phrase).
 
-- [ ] **Pas fait**
-  - **Justification** : Pas encore traitée : l'audit suit l'ordre du classeur de référence (une institution à la fois).
-  - **Preuves** : 
+- [x] **Fait**
+  - **Justification** : Familles d'API listées dans endpoints_documentes : OAI, IIIF Presentation et Image, téléchargements, SRU, recherche ; URL écartées justifiées, une famille non testée (METS lourd) avec raison.
+  - **Preuves** : `institutions/e-rara-eth-bibliothek-et-partenaires/data.json`, `institutions/e-rara-eth-bibliothek-et-partenaires/sources/d/SHA256SUMS`
 
 ### c) Configuration écrite AVANT les tests
 > `config/<nom>.json` pilote `scripts/probe.py`, committée avant le lancement. Un endpoint absent de la doc mais non interdit se teste avec un script poli (identifiants issus de pages publiques ou d'exemples de la doc, pas de devinette).
 
-- [ ] **Pas fait**
-  - **Justification** : Pas encore traitée : l'audit suit l'ordre du classeur de référence (une institution à la fois).
-  - **Preuves** : 
+- [x] **Fait**
+  - **Justification** : Trois configurations de passe (OAI, téléchargements, IIIF/SRU) et un fichier crash committés avant chaque lancement ; budget 15 requêtes, min_delay 6 s.
+  - **Preuves** : `institutions/e-rara-eth-bibliothek-et-partenaires/config/erara-passe1-oai.json`, `institutions/e-rara-eth-bibliothek-et-partenaires/config/erara-passe2-donnees.json`, `institutions/e-rara-eth-bibliothek-et-partenaires/config/erara-passe3-iiif-sru.json`
 
 ### d) Quota cherché dans la doc
 > Pour chaque page lue : endpoint de statut, en-têtes de limite documentés, clé ou compte donnant un quota, contact pour un volume plus élevé. Chaque réponse cite sa source.
 
-- [ ] **Pas fait**
-  - **Justification** : Pas encore traitée : l'audit suit l'ordre du classeur de référence (une institution à la fois).
-  - **Preuves** : 
+- [x] **Fait**
+  - **Justification** : Quota cherché dans toute la doc lue : aucun quota ni débit publié ; seules limites : robots.txt Disallow /, paquets OAI de 10, timeouts mets ; conclusion et question « pourquoi pas publié » (hypothèse) dans la fiche.
+  - **Preuves** : `institutions/e-rara-eth-bibliothek-et-partenaires/fiche.md`, `institutions/e-rara-eth-bibliothek-et-partenaires/data.json`
 
 ### e) Test systématique de chaque endpoint
 > Chaque endpoint documenté est testé (budget 15 requêtes par passe, pause ≥ 6 s, GET/HEAD, UA du projet). Redirections du même hôte suivies. Un 403 arrête son hôte, un 429 arrête l'institution. Seules les interdictions écrites dans la doc dispensent de tester.
 
-- [ ] **Pas fait**
-  - **Justification** : Pas encore traitée : l'audit suit l'ordre du classeur de référence (une institution à la fois).
-  - **Preuves** : 
+- [x] **Fait**
+  - **Justification** : Toutes les familles documentées testées en 26 requêtes sur 3 passes (OAI, IIIF, images, RIS, ftpack, PDF, ALTO3, SRU, recherche) : aucun en-tête de limite ni 429 ; une famille non testée justifiée.
+  - **Preuves** : `institutions/e-rara-eth-bibliothek-et-partenaires/tests/journal.log`, `institutions/e-rara-eth-bibliothek-et-partenaires/tests/raw/iiif-image-full-6341735.headers.txt`
 
 ### f) Ce que disent les gens sur le web
 > Plaintes, discussions, présentations de l'institution, politique envers les API et les bots, blogs, GitHub, forums, listes de diffusion. Sources étiquetées (officielle / institution / utilisateur / tiers), lues, citées.
 
-- [ ] **Pas fait**
-  - **Justification** : Pas encore traitée : l'audit suit l'ordre du classeur de référence (une institution à la fois).
-  - **Preuves** : 
+- [x] **Fait**
+  - **Justification** : Quatre catégories couvertes : institution (wiki Wayback), utilisateurs (billet Source Library lu + recherche sans plainte), tickets (aucune issue GitHub), presentations (atelier Berne PDF lu).
+  - **Preuves** : `institutions/e-rara-eth-bibliothek-et-partenaires/fiche.md`, `institutions/e-rara-eth-bibliothek-et-partenaires/data.json`
 
 ### g) Crash test progressif
 > Seulement après l'audit complet (a à f) de toutes les institutions et avec l'accord de Marcel : paliers jusqu'à 2 × la limite documentée, ou 200 req/min si illimité ou sans limite documentée. Arrêt au premier 429/403/CAPTCHA.
@@ -60,7 +60,7 @@
 
 <!-- AUTO:DEBUT -->
 ## Contrôles automatiques (calculés depuis `tests/journal.log`)
-- Requêtes enregistrées : **12** (sessions de sonde : 2, maximum par session : 6)
+- Requêtes enregistrées : **22** (sessions de sonde : 3, maximum par session : 10)
 - Plus courte pause vers un même hôte : **6 s** (règle : ≥ 6 s)
 - Méthodes utilisées : GET, HEAD (règle : GET/HEAD seulement)
 - Anomalies : aucune

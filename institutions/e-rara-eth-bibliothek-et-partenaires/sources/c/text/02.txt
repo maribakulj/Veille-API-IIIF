@@ -1,0 +1,125 @@
+e-manuscripta und e-rara | ZB Data Map 
+ Direkt zum Hauptinhalt 
+ ZB Data Map 
+ Alle anzeigen 
+ Suchen 
+ Bücher 
+ Anmelden 
+ Info
+ Inhalt
+ Details
+ Version #9
+ Erstellt: vor 4 Jahren von Team Bibliotheksinformatik 
+ Zuletzt aktualisiert: vor 4 Monaten von Team Bibliotheksinformatik 
+ Aktionen
+ Versionen 
+ Exportieren 
+ HTML-Datei .html 
+ PDF-Datei .pdf 
+ Textdatei .txt 
+ Markdown-Datei .md 
+ Seitennavigation
+ Software 
+ Schnittstellen 
+ Datenformate 
+ Dokumentation Schnnittstellen 
+ GUI Ansicht e-manuscripta 
+ GUI Ansicht e-rara 
+ Buchnavigation
+ Data Map der Zentralbibliothek Zürich
+ Überblick
+ 2 Seiten 
+ Über die Data Map
+ Systemübersicht
+ Systeme und Schnittstellen
+ 26 Seiten 
+ Alma und PrimoVE
+ Alma Linked Data
+ Alma OAI (limitiert)
+ Alma SRU
+ Alma - Digitale Repräsentationen und IIIF
+ Alma REST API (geschlossen)
+ Primo REST API Search (geschlossen)
+ e-codices
+ e-manuscripta und e-rara
+ e-manuscripta IIIF
+ e-manuscripta OAI
+ e-manuscripta SRU
+ e-rara IIIF
+ e-rara OAI
+ e-rara SRU
+ Graphikportal
+ Kartenportal
+ Memobase
+ swisscollections
+ ZBcollections (CMI STAR)
+ ZBcollections OAI
+ ZBcollections SRU
+ ZORA
+ Zurich Open Platform (ZOP, DSpace) OAI
+ Zurich Open Platform (ZOP, DSpace) REST
+ Zurich Open Platform (ZOP, DSpace) IIIF
+ Technologien
+ 3 Seiten 
+ International Image Interoperability Framework (IIIF)
+ Open Archives Initiative Protocol for Metadata Harvesting (OAI-PMH)
+ Search/Retrieve via URL (SRU)
+ Hilfsmittel
+ 1 Seite 
+ Jupyter-Notebooks der Zentralbibliothek Zürich
+ Bücher 
+ Data Map der Zentralbi...
+ Systeme und Schnittste...
+ e-manuscripta und e-rara
+ e-manuscripta und e-rara
+ Serverplattformen für die Administration digitalisierter Bestände. Die Bestände werden über Remote Access-Software administriert bzw. strukturiert. e-rara und e-manuscripta sind zwei Plattformen, die auf Basis von Visual Library Server betrieben werden.
+ Software
+ Visual Library Manager (VLM), Semantics Kommunikationsmanagement GmbH
+ Hosted by ETH Zürich
+ Schnittstellen
+ OAI, IIIF, Volltexte, Z39.50
+ Datenformate
+ METS/MODS, OAI_DC (Austauschformat)
+ JSON (IIIF Manifest)
+ JPG (bis Original TIFF-Auflösung) (Medienformat)
+ Dokumentation Schnnittstellen
+ https://www.e-manuscripta.ch/wiki/apiinfo 
+ https://www.e-rara.ch/wiki/apiinfo 
+ GUI Ansicht e-manuscripta
+ Diese Plattform bietet digitalisierte handschriftliche Quellen aus Schweizer Bibliotheken und Archiven, wobei das Spektrum von Texthandschriften und Korrespondenzstücken bis hin zu Musikalien, Manuskriptkarten, Zeichnungen und Fotos reicht. Ausgerichtet ist e-manuscripta nach einheitlichen Qualitätsstandards. Der Datenimport erfolgt zentral und es erfolgt eine persistente Referenzierung mittels DOI.
+ Titelansicht:
+ https://www.e-manuscripta.ch/{set}/id/{VLID}
+ Beispiel:
+ https://www.e-manuscripta.ch/zuzcmi/id/3192957 
+Wobei der Set-Parameter auch weggelassen werden kann:
+ https://www.e-manuscripta.ch/id/3192957 
+ Bild allein:
+ https://www.e-manuscripta.ch/zuz/content/zoom/{VLID_Scan}
+ Beispiel:
+ https://www.e-manuscripta.ch/zuz/content/zoom/1831288 
+ Bild mit Transkription:
+ https://www.e-manuscripta.ch/zuz/content/pagetext/{VLID_Scan}
+ Beispiel:
+ https://www.e-manuscripta.ch/zuz/content/pagetext/1831288 
+ Es gibt IDs, mit denen im GUI bestimmte Sammlungen angesehen werden können.
+Bsp.: Alle Digitalisate des Bestandes "Lavater, Familie":
+ https://www.e-manuscripta.ch/zuzcmi/nav/content/2879208 
+ Leider können diese IDs nicht über die OAI-Schnittstelle angesprochen werden.
+ GUI Ansicht e-rara
+ Diese Plattform bietet digitalisierte Drucke aus Schweizer Bibliotheken, wobei das Spektrum von Büchern über Karten bis zu illustrierten Materialien von den Anfängen des Buchdrucks bis ins 20. Jahrhundert reicht. Ausgerichtet ist auch e-rara nach einheitlichen Qualitätsstandards. Der Datenimport erfolgt zentral und es erfolgt eine persistente Referenzierung mittels DOI.
+ Titelansicht:
+ https://www.e-rara.ch/{set}/id/{VLID}
+ Beispiel:
+ https://www.e-rara.ch/zuz/id/18877392 
+ Wobei der Set-Parameter auch weggelassen werden kann:
+ https://www.e-rara.ch/id/18877392 
+ Nur Scan:
+ https://www.e-rara.ch/zuz/content/zoom/{VLID_Scan}
+ Beispiel:
+ https://www.e-rara.ch/zuz/content/zoom/18877400 
+ Abschnittsauswahlmodus aktivieren 
+ Vorheriges
+ e-codices 
+ Nächste
+ e-manuscripta IIIF 
+ nach oben

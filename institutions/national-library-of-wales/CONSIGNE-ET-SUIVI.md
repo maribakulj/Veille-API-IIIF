@@ -37,9 +37,9 @@
 ### e) Test systématique de chaque endpoint
 > Chaque endpoint documenté est testé (budget 15 requêtes par passe, pause ≥ 6 s, GET/HEAD, UA du projet). Redirections du même hôte suivies. Un 403 arrête son hôte, un 429 arrête l'institution. Seules les interdictions écrites dans la doc dispensent de tester.
 
-- [ ] **Pas fait**
-  - **Justification** : DÉCOCHÉE le 2026-11-14 (verrou renforcé) : 2 élément(s) de rattrapage_a_faire non traités | ancienne justification : Endpoints testables testés (3 passes, 11 requêtes réussies) : manifestes, images, info.json, plein format mesuré à 1200×1200 ; aucun en-tête de limite ni 429. Les anciens hôtes redirigent (302) vers i
-  - **Preuves** : 
+- [x] **Fait**
+  - **Justification** : Endpoints testables testés en 3 passes (11 requêtes réussies, aucun en-tête de limite ni 429, plein format mesuré 1200x1200) ; rattrapage traité : robots.txt de www.library.wales lu via Wayback (Crawl-delay 5), viewer.library.wales reconfirmé sans robots.txt.
+  - **Preuves** : `institutions/national-library-of-wales/tests/journal.log`, `institutions/national-library-of-wales/sources/wayback/robots-www-library-wales.md`, `institutions/national-library-of-wales/sources/rattrapage/FETCH.log`
 
 ### f) Ce que disent les gens sur le web
 > Plaintes, discussions, présentations de l'institution, politique envers les API et les bots, blogs, GitHub, forums, listes de diffusion. Sources étiquetées (officielle / institution / utilisateur / tiers), lues, citées.

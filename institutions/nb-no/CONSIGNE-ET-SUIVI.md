@@ -23,9 +23,9 @@
 ### c) Configuration écrite AVANT les tests
 > `config/<nom>.json` pilote `scripts/probe.py`, committée avant le lancement. Un endpoint absent de la doc mais non interdit se teste avec un script poli (identifiants issus de pages publiques ou d'exemples de la doc, pas de devinette).
 
-- [ ] **Pas fait**
-  - **Justification** : DÉCOCHÉE le 2026-11-14 (verrou renforcé) : session 2026-11-13T21:07:58Z : configuration nb-no.json committée APRÈS le lancement (2026-11-13T22:23:52+00:00) | ancienne justification : Deux configurations committées avant lancement : passe 1 (OpenAPI, size=1), passe 2 (liens IIIF annoncés par la réponse). Identifiant lu dans la réponse ; pauses de 6 s au-delà du Crawl-delay de 4 s d
-  - **Preuves** : 
+- [x] **Fait**
+  - **Justification** : Chaque configuration (nb-no, passes 1 à 3) committée avant son lancement ; la session initiale non conforme (nb-no.json) a été archivée dans tests/archive puis rejouée après commit.
+  - **Preuves** : `institutions/nb-no/config/nb-no.json`, `institutions/nb-no/config/nb-passe3-search.json`, `institutions/nb-no/tests/archive/journal-sessions-avant-config-committee.log`
 
 ### d) Quota cherché dans la doc
 > Pour chaque page lue : endpoint de statut, en-têtes de limite documentés, clé ou compte donnant un quota, contact pour un volume plus élevé. Chaque réponse cite sa source.
@@ -37,9 +37,9 @@
 ### e) Test systématique de chaque endpoint
 > Chaque endpoint documenté est testé (budget 15 requêtes par passe, pause ≥ 6 s, GET/HEAD, UA du projet). Redirections du même hôte suivies. Un 403 arrête son hôte, un 429 arrête l'institution. Seules les interdictions écrites dans la doc dispensent de tester.
 
-- [ ] **Pas fait**
-  - **Justification** : DÉCOCHÉE le 2026-11-14 (verrou renforcé) : 2 élément(s) de rattrapage_a_faire non traités | ancienne justification : Endpoints documentés atteignables testés (2 passes, 5 requêtes de données) : search, items, aggregations, manifeste IIIF, info.json et vignette du résolveur : 200 partout, aucun en-tête de limite ni 4
-  - **Preuves** : 
+- [x] **Fait**
+  - **Justification** : Toutes les familles testables testées (catalogue, IIIF, résolveur, oEmbed, Swagger), ancienne API de recherche retestée (timeout x2), DH-lab non testée (clé), aucun 429 ; rattrapage robots.txt traité.
+  - **Preuves** : `institutions/nb-no/tests/journal.log`, `institutions/nb-no/sources/rattrapage/FETCH.log`
 
 ### f) Ce que disent les gens sur le web
 > Plaintes, discussions, présentations de l'institution, politique envers les API et les bots, blogs, GitHub, forums, listes de diffusion. Sources étiquetées (officielle / institution / utilisateur / tiers), lues, citées.
@@ -60,7 +60,7 @@
 
 <!-- AUTO:DEBUT -->
 ## Contrôles automatiques (calculés depuis `tests/journal.log`)
-- Requêtes enregistrées : **14** (sessions de sonde : 3, maximum par session : 5)
+- Requêtes enregistrées : **17** (sessions de sonde : 4, maximum par session : 6)
 - Plus courte pause vers un même hôte : **6 s** (règle : ≥ 6 s)
 - Méthodes utilisées : GET (règle : GET/HEAD seulement)
 - Anomalies : aucune
