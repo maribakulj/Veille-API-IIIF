@@ -2,51 +2,51 @@
 
 - **Dossier** : `institutions/cardiff-university-library/`  ·  **Classeur de référence** : GLAM-064  ·  **Pays** : Royaume-Uni
 - **Statut d'institution** : active
-- **Dernière mise à jour du suivi** : (à renseigner à chaque modification)
+- **Dernière mise à jour du suivi** : 2026-11-14
 
 ## Suivi par étape (à cocher, avec justification et preuves)
 
 ### a) Documentation lue en entier
 > Toutes les pages de doc liées à l'API (développeurs, interfaces, conditions, FAQ, aide, mentions légales, robots.txt), téléchargées avec `scripts/fetch_doc.sh` (URL, date, SHA-256), lues en entier (`scripts/extract_text.py`).
 
-- [ ] **Pas fait**
-  - **Justification** : Pas encore traitée : l'audit suit l'ordre du classeur de référence (une institution à la fois).
-  - **Preuves** : 
+- [x] **Fait**
+  - **Justification** : Doc lue : billet de lancement, page de découverte Primo VE, robots.txt de librarysearch, guide iiif.io, doc Ex Libris et ZB Zurich ; www.cardiff.ac.uk en défi Cloudflare (403) dès la 1re requête : arrêt, pages et robots.txt lus via Wayback, URL listées à vérifier à la main.
+  - **Preuves** : `institutions/cardiff-university-library/sources/doc/SHA256SUMS`, `institutions/cardiff-university-library/sources/doc-b/SHA256SUMS`, `institutions/cardiff-university-library/sources/doc-c/SHA256SUMS`, `institutions/cardiff-university-library/sources/doc-d/SHA256SUMS`, `institutions/cardiff-university-library/sources/wayback/cardiff-www.md`
 
 ### b) Endpoints tirés de la doc
 > Liste des endpoints citée par la doc (URL, exemples). Jamais devinée. Une interdiction ou une impossibilité écrite dans la doc justifie de renoncer (citer la phrase).
 
-- [ ] **Pas fait**
-  - **Justification** : Pas encore traitée : l'audit suit l'ordre du classeur de référence (une institution à la fois).
-  - **Preuves** : 
+- [x] **Fait**
+  - **Justification** : Endpoints : découverte Primo VE et sitemap (billet, robots.txt), manifeste IIIF Presentation et JSON de livraison Alma (motif ZB Zurich + identifiant publié par un blog tiers lu), service d'images Ex Libris annoncé par le manifeste ; 6 familles dans data.json, 3 URL écartées avec raison.
+  - **Preuves** : `institutions/cardiff-university-library/data.json`, `institutions/cardiff-university-library/sources/doc-c/raw/05.html`
 
 ### c) Configuration écrite AVANT les tests
 > `config/<nom>.json` pilote `scripts/probe.py`, committée avant le lancement. Un endpoint absent de la doc mais non interdit se teste avec un script poli (identifiants issus de pages publiques ou d'exemples de la doc, pas de devinette).
 
-- [ ] **Pas fait**
-  - **Justification** : Pas encore traitée : l'audit suit l'ordre du classeur de référence (une institution à la fois).
-  - **Preuves** : 
+- [x] **Fait**
+  - **Justification** : Trois configurations (passes 1 à 3) écrites et committées avant chaque lancement (commits c27d1d6, 7a1e41f, 925c6b3), pause 10 s (Crawl-delay 10), robots_disallow_autorise_par_marcel ; config de crash préparée.
+  - **Preuves** : `institutions/cardiff-university-library/config/cardiff-passe1-librarysearch.json`, `institutions/cardiff-university-library/config/cardiff-passe2-manifest.json`, `institutions/cardiff-university-library/config/cardiff-passe3-image.json`
 
 ### d) Quota cherché dans la doc
 > Pour chaque page lue : endpoint de statut, en-têtes de limite documentés, clé ou compte donnant un quota, contact pour un volume plus élevé. Chaque réponse cite sa source.
 
-- [ ] **Pas fait**
-  - **Justification** : Pas encore traitée : l'audit suit l'ordre du classeur de référence (une institution à la fois).
-  - **Preuves** : 
+- [x] **Fait**
+  - **Justification** : Quota cherché dans chaque source : aucun endpoint de statut ni en-tête de limite documenté, aucune clé requise, contact specialcollections@cardiff.ac.uk ; seuls Crawl-delay 10 et le seuil d'API Alma d'Ex Libris (1000 appels par licence nommée et par jour, non établi pour IIIF), voir fiche.
+  - **Preuves** : `institutions/cardiff-university-library/fiche.md`, `institutions/cardiff-university-library/data.json`, `institutions/cardiff-university-library/sources/doc-c/text/03.txt`
 
 ### e) Test systématique de chaque endpoint
 > Chaque endpoint documenté est testé (budget 15 requêtes par passe, pause ≥ 6 s, GET/HEAD, UA du projet). Redirections du même hôte suivies. Un 403 arrête son hôte, un 429 arrête l'institution. Seules les interdictions écrites dans la doc dispensent de tester.
 
-- [ ] **Pas fait**
-  - **Justification** : Pas encore traitée : l'audit suit l'ordre du classeur de référence (une institution à la fois).
-  - **Preuves** : 
+- [x] **Fait**
+  - **Justification** : librarysearch : découverte, sitemap, manifeste IIIF et JSON de livraison testés en 200 sans en-tête de limite ; service d'images eu-img02 NON LANCÉ (hôte arrêté par le registre après un 403 de passerelle) ; www.cardiff.ac.uk en défi Cloudflare non testé : raisons consignées, URL à vérifier à la main.
+  - **Preuves** : `institutions/cardiff-university-library/tests/journal.log`, `institutions/cardiff-university-library/tests/raw/manifest-v2.headers.txt`, `institutions/cardiff-university-library/tests/raw/delivery-json.headers.txt`
 
 ### f) Ce que disent les gens sur le web
 > Plaintes, discussions, présentations de l'institution, politique envers les API et les bots, blogs, GitHub, forums, listes de diffusion. Sources étiquetées (officielle / institution / utilisateur / tiers), lues, citées.
 
-- [ ] **Pas fait**
-  - **Justification** : Pas encore traitée : l'audit suit l'ordre du classeur de référence (une institution à la fois).
-  - **Preuves** : 
+- [x] **Fait**
+  - **Justification** : 4 catégories : institution (Digital collections via Wayback) et presentations (billet de lancement) lues, utilisateurs et tickets sans résultat Cardiff (requêtes consignées, résumés de moteur non vérifiés), blog tiers lu en original pour l'identifiant du manifeste ; diapositives IGELU illisibles listées.
+  - **Preuves** : `institutions/cardiff-university-library/data.json`, `institutions/cardiff-university-library/fiche.md`, `institutions/cardiff-university-library/sources/doc-b/text/05.txt`
 
 ### g) Crash test progressif
 > Seulement après l'audit complet (a à f) de toutes les institutions et avec l'accord de Marcel : paliers jusqu'à 2 × la limite documentée, ou 200 req/min si illimité ou sans limite documentée. Arrêt au premier 429/403/CAPTCHA.
@@ -60,7 +60,7 @@
 
 <!-- AUTO:DEBUT -->
 ## Contrôles automatiques (calculés depuis `tests/journal.log`)
-- Requêtes enregistrées : **7** (sessions de sonde : 2, maximum par session : 4)
+- Requêtes enregistrées : **7** (sessions de sonde : 3, maximum par session : 4)
 - Plus courte pause vers un même hôte : **10 s** (règle : ≥ 6 s)
 - Méthodes utilisées : GET (règle : GET/HEAD seulement)
 - Anomalies : aucune

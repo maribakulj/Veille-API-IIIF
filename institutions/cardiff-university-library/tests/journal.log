@@ -12,3 +12,7 @@
 # corps enregistré : tests/raw/manifest-v2.body (107315 octets lus)
 2026-11-14T02:39:54Z | delivery-json | https://librarysearch.cardiff.ac.uk/view/delivery/44WHELF_CAR/12204337930002420.json | GET | 200 OK | aucun en-tête de limite | taille≥200 | corps: {   "id" : "12204337930002420",   "mms_id" : "9911991474402420",   "metadata" : [ {     "label" : "Title",     "value" : "Scop hwīlum sang "   }, {     "label" : "Author",     "value" : "Jones, Shirl
 # Fin 2026-11-14T02:39:54Z — 3 requête(s) envoyée(s)
+# Session 2026-11-14T02:40:15Z — configuration cardiff-passe3-image.json — sonde probe.py au commit 925c6b3
+2026-11-14T02:40:15Z | image-info | NON LANCÉ : hôte eu-img02.ext.exlibrisgroup.com arrêté (registre partagé : fetch_doc 403 2026-11-14T02:40:04Z)
+2026-11-14T02:40:15Z | image-derive-150 | NON LANCÉ : hôte eu-img02.ext.exlibrisgroup.com arrêté (registre partagé : fetch_doc 403 2026-11-14T02:40:04Z)
+# Fin 2026-11-14T02:40:15Z — 0 requête(s) envoyée(s)

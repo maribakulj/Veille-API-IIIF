@@ -4,10 +4,288 @@
   "pays": "Royaume-Uni",
   "classeur_id": "GLAM-064",
   "type": "Institution",
-  "statut_audit": "à faire",
-  "limites_documentees": [],
-  "en_tetes_observes": [],
-  "blocages": [],
-  "sources": [],
-  "web": []
+  "statut_audit": "méthode v2 complète sauf g (crash test à la fin) ; www.cardiff.ac.uk en défi Cloudflare, API testée sur librarysearch.cardiff.ac.uk (Alma Digital / Primo VE)",
+  "limites_documentees": [
+    {
+      "nature": "Règle explicite (sans chiffre de quota)",
+      "perimetre": "robots.txt de librarysearch.cardiff.ac.uk",
+      "valeur": "Crawl-delay: 10",
+      "fenetre": "10 s entre requêtes",
+      "effet": "non précisé",
+      "verification": "officielle, lue en entier",
+      "source": "https://librarysearch.cardiff.ac.uk/robots.txt",
+      "date": "2026-11-14"
+    },
+    {
+      "nature": "Limite de l'éditeur de la plateforme (API Alma, pas IIIF)",
+      "perimetre": "Daily API Request Threshold d'Ex Libris, par établissement",
+      "valeur": "1000 appels par licence nommée et par jour",
+      "fenetre": "24 h",
+      "effet": "erreur pour toute requête d'API supplémentaire",
+      "verification": "tiers (éditeur), lue ; applicabilité au IIIF non établie",
+      "source": "https://knowledge.exlibrisgroup.com/Alma/Knowledge_Articles/API_call_limitation_Sandbox",
+      "date": "2026-11-14"
+    }
+  ],
+  "en_tetes_observes": [
+    {
+      "hote": "librarysearch.cardiff.ac.uk",
+      "en_tetes": "aucun en-tête de limite ; cookies JSESSIONID, urm_st ; access-control-allow-origin: *",
+      "preuve": "institutions/cardiff-university-library/tests/raw/manifest-v2.headers.txt"
+    }
+  ],
+  "blocages": [
+    {
+      "hote": "www.cardiff.ac.uk",
+      "code": 403,
+      "quand": "2026-11-14T02:35:06Z",
+      "detail": "défi Cloudflare « Just a moment... » dès la 1re requête (robots.txt) ; arrêt de l'hôte, 7 autres pages non téléchargées",
+      "preuve": "institutions/cardiff-university-library/sources/doc/raw/01.html"
+    },
+    {
+      "hote": "eu-img02.ext.exlibrisgroup.com",
+      "code": 403,
+      "quand": "2026-11-14T02:40:04Z",
+      "detail": "robots.txt : {\"message\":\"Missing Authentication Token\"} (passerelle d'API, pas anti-bot) ; hôte néanmoins arrêté par le registre : service d'images non testé",
+      "preuve": "institutions/cardiff-university-library/sources/doc-d/FETCH.log"
+    }
+  ],
+  "sources": [
+    {
+      "url": "https://www.cardiff.ac.uk/robots.txt",
+      "date": "2026-11-14",
+      "etiquette": "officielle (défi Cloudflare)",
+      "preuve": "institutions/cardiff-university-library/sources/doc/SHA256SUMS"
+    },
+    {
+      "url": "https://web.archive.org/web/20260501000941/https://www.cardiff.ac.uk/robots.txt",
+      "date": "2026-11-14",
+      "etiquette": "tiers (Wayback)",
+      "preuve": "institutions/cardiff-university-library/sources/wayback/cardiff-www.md"
+    },
+    {
+      "url": "https://web.archive.org/web/20260923091850/https://www.cardiff.ac.uk/special-collections/digital-collections",
+      "date": "2026-11-14",
+      "etiquette": "tiers (Wayback)",
+      "preuve": "institutions/cardiff-university-library/sources/wayback/cardiff-www.md"
+    },
+    {
+      "url": "https://librarysearch.cardiff.ac.uk/robots.txt",
+      "date": "2026-11-14",
+      "etiquette": "officielle",
+      "preuve": "institutions/cardiff-university-library/sources/doc-b/SHA256SUMS"
+    },
+    {
+      "url": "https://librarysearch.cardiff.ac.uk/discovery/collectionDiscovery?vid=44WHELF_CAR:44WHELF_CAR_VU1",
+      "date": "2026-11-14",
+      "etiquette": "officielle (coquille JS)",
+      "preuve": "institutions/cardiff-university-library/sources/doc-b/SHA256SUMS"
+    },
+    {
+      "url": "https://scolarcardiff.wordpress.com/2022/03/08/cardiff-university-launches-a-new-digital-service-digital-special-collections/",
+      "date": "2026-11-14",
+      "etiquette": "institution (blog)",
+      "preuve": "institutions/cardiff-university-library/sources/doc-b/SHA256SUMS"
+    },
+    {
+      "url": "https://iiif.io/guides/guides/librarysearch.cardiff.ac.uk/",
+      "date": "2026-11-14",
+      "etiquette": "tiers (communauté IIIF)",
+      "preuve": "institutions/cardiff-university-library/sources/doc-b/SHA256SUMS"
+    },
+    {
+      "url": "https://knowledge.exlibrisgroup.com/Alma/Release_Notes/020_2017/August_2017/Alma_August_2017_Release_Notes/03Digital_Resource_Management_-_August_2017_Enhancements",
+      "date": "2026-11-14",
+      "etiquette": "tiers (éditeur Ex Libris)",
+      "preuve": "institutions/cardiff-university-library/sources/doc-c/SHA256SUMS"
+    },
+    {
+      "url": "https://knowledge.exlibrisgroup.com/Alma/Knowledge_Articles/API_call_limitation_Sandbox",
+      "date": "2026-11-14",
+      "etiquette": "tiers (éditeur Ex Libris)",
+      "preuve": "institutions/cardiff-university-library/sources/doc-c/SHA256SUMS"
+    },
+    {
+      "url": "https://data.zb.uzh.ch/map/books/data-map-der-zentralbibliothek-zurich/page/alma-digitale-reprasentationen-und-iiif/export/pdf",
+      "date": "2026-11-14",
+      "etiquette": "tiers (ZB Zurich, motif d'URL Alma)",
+      "preuve": "institutions/cardiff-university-library/sources/doc-c/SHA256SUMS"
+    },
+    {
+      "url": "https://eu-img02.ext.exlibrisgroup.com/robots.txt",
+      "date": "2026-11-14",
+      "etiquette": "officielle (403)",
+      "preuve": "institutions/cardiff-university-library/sources/doc-d/SHA256SUMS"
+    }
+  ],
+  "web": [
+    {
+      "categorie": "institution",
+      "url": "https://web.archive.org/web/20260923091850/https://www.cardiff.ac.uk/special-collections/digital-collections",
+      "date": "2026-09-23",
+      "etiquette": "officielle (lue via Wayback)",
+      "citation": "« All of our IIIF-enabled digital content is freely available to view and re-use under a Creative Commons licence. » (aucune mention de quota, d'API ni de bots)",
+      "preuve": "institutions/cardiff-university-library/sources/wayback/cardiff-www.md"
+    },
+    {
+      "categorie": "presentations",
+      "url": "https://scolarcardiff.wordpress.com/2022/03/08/cardiff-university-launches-a-new-digital-service-digital-special-collections/",
+      "date": "2022-03-08",
+      "etiquette": "institution (blog de l'université)",
+      "citation": "« We’re really proud to be the first University in Wales to adopt the IIIF standard. » (aucune mention d'API, de débit ni de moissonnage)",
+      "preuve": "institutions/cardiff-university-library/sources/doc-b/text/05.txt"
+    },
+    {
+      "categorie": "utilisateurs",
+      "aucun_resultat": true,
+      "requete": "\"librarysearch.cardiff.ac.uk\" iiif manifest blocked OR 429 OR \"rate limit\" OR scraping",
+      "date": "2026-11-14",
+      "etiquette": "tiers (résumé de moteur, non vérifié)",
+      "citation": "Aucune plainte sur des blocages ou 429 de librarysearch.cardiff.ac.uk ; le moteur renvoie seulement des textes généraux (FromThePage : « nearly every digital library system we interact with has blocked FromThePage »), sans citer Cardiff.",
+      "preuve": "institutions/cardiff-university-library/fiche.md"
+    },
+    {
+      "categorie": "tickets",
+      "aucun_resultat": true,
+      "requete": "github \"librarysearch.cardiff.ac.uk\" OR \"44WHELF_CAR\" iiif manifest issue",
+      "date": "2026-11-14",
+      "etiquette": "tiers (résumé de moteur, non vérifié)",
+      "citation": "Aucun ticket GitHub mentionnant librarysearch.cardiff.ac.uk ou 44WHELF_CAR.",
+      "preuve": "institutions/cardiff-university-library/fiche.md"
+    },
+    {
+      "categorie": "utilisateurs",
+      "url": "https://aeh0.github.io/experiiiments/2022/09/13/universal-viewer-2.html",
+      "date": "2022-09-13",
+      "etiquette": "utilisateur (blog personnel, lu en original)",
+      "citation": "manifeste Cardiff https://librarysearch.cardiff.ac.uk/view/iiif/presentation/44WHELF_CAR/12204337930002420/manifest?iiifVersion=2 chargé dans Universal Viewer « outside Alma Digital » ; la page ne mentionne aucune limite de débit.",
+      "preuve": "institutions/cardiff-university-library/config/cardiff-passe2-manifest.json"
+    }
+  ],
+  "contact": "specialcollections@cardiff.ac.uk (page Digital collections lue via Wayback)",
+  "conclusion_quota": "Aucun quota, en-tête de limite ni politique d'API publiés par Cardiff pour Digital Special Collections. Seule règle écrite : Crawl-delay: 10 dans le robots.txt de librarysearch.cardiff.ac.uk (qui interdit aussi GPTBot et d'autres robots nommés, pas notre User-Agent) ; contenu IIIF en libre réutilisation sous licence Creative Commons. Observé : 7 requêtes de sonde (plus 3 de téléchargement de doc) à 10 s sur librarysearch (page de découverte, sitemap vide, manifeste IIIF Presentation 2, JSON de livraison) toutes en 200/302, aucun en-tête de limite. Observé : www.cardiff.ac.uk renvoie un défi Cloudflare (403) dès la première requête, ce n'est pas un quota. Le service d'images (eu-img02.ext.exlibrisgroup.com, Ex Libris) n'a pas été testé : son robots.txt a répondu 403 « Missing Authentication Token » et le registre a arrêté l'hôte. Côté éditeur, le seuil documenté d'Ex Libris est de 1000 appels d'API Alma par licence nommée et par jour, sans lien établi avec le IIIF.",
+  "classe_quota": "aucun quota trouvé (limite d'API Alma de l'éditeur sans lien établi avec le IIIF)",
+  "confiance": "moyenne",
+  "notes": "www.cardiff.ac.uk : défi Cloudflare « Just a moment » sur robots.txt (1re requête, 2026-11-14T02:35:06Z), arrêt, pages lues via Wayback. Identifiant du manifeste testé (12204337930002420) publié par un blog tiers (lu en original), pas deviné ; motif d'URL décrit pour Alma par la ZB Zurich. eu-img02 : 403 « Missing Authentication Token » (réponse de passerelle d'API, pas un anti-bot) mais le registre l'a arrêté 24 h : non contourné.",
+  "a_verifier_manuellement": [
+    {
+      "url": "https://www.cardiff.ac.uk/robots.txt",
+      "pourquoi": "défi Cloudflare ; lu via Wayback (capture 20260501000941), pas en direct",
+      "a_chercher": "version actuelle du robots.txt (Crawl-delay, robots d'IA)"
+    },
+    {
+      "url": "https://www.cardiff.ac.uk/special-collections/explore",
+      "pourquoi": "défi Cloudflare ; capture Wayback 20251231135224 existe mais non lue",
+      "a_chercher": "liens vers Digital Special Collections, conditions de réutilisation"
+    },
+    {
+      "url": "https://www.cardiff.ac.uk/help/termsofuse",
+      "pourquoi": "défi Cloudflare, non lue",
+      "a_chercher": "conditions du site : moissonnage automatisé, bots"
+    },
+    {
+      "url": "https://www.cardiff.ac.uk/special-collections/about-us",
+      "pourquoi": "défi Cloudflare, non lue",
+      "a_chercher": "politique d'accès et de réutilisation, contact technique"
+    },
+    {
+      "url": "https://eu-img02.ext.exlibrisgroup.com/iiif/2/",
+      "pourquoi": "hôte du service d'images Ex Libris arrêté par le registre après un 403 « Missing Authentication Token » sur robots.txt",
+      "a_chercher": "info.json et dérivé d'une image du manifeste, en-têtes de limite"
+    },
+    {
+      "url": "https://igelu.org/wp-content/uploads/2022/10/Unlocking-your-collections-with-Alma-Digital-and-IIIF.pdf",
+      "pourquoi": "diapositives en images, texte illisible par extraction",
+      "a_chercher": "mentions de limites, de moissonnage ou de bots dans la présentation de Cardiff"
+    }
+  ],
+  "endpoints_documentes": [
+    {
+      "famille": "Découverte Primo VE (collectionDiscovery, citée par le billet de lancement)",
+      "url": "https://librarysearch.cardiff.ac.uk/discovery/collectionDiscovery?vid=44WHELF_CAR:44WHELF_CAR_VU1",
+      "statut": "teste",
+      "preuve": "institutions/cardiff-university-library/tests/raw/collection-discovery.headers.txt"
+    },
+    {
+      "famille": "Sitemap annoncé par robots.txt",
+      "url": "https://librarysearch.cardiff.ac.uk/view/scholar/siteindex.xml",
+      "statut": "teste",
+      "preuve": "institutions/cardiff-university-library/tests/raw/siteindex.headers.txt"
+    },
+    {
+      "famille": "IIIF Presentation 2 (Alma Digital) : manifeste de représentation",
+      "url": "https://librarysearch.cardiff.ac.uk/view/iiif/presentation/44WHELF_CAR/12204337930002420/manifest?iiifVersion=2",
+      "statut": "teste",
+      "preuve": "institutions/cardiff-university-library/tests/raw/manifest-v2.headers.txt"
+    },
+    {
+      "famille": "JSON de représentation Alma (view/delivery)",
+      "url": "https://librarysearch.cardiff.ac.uk/view/delivery/44WHELF_CAR/12204337930002420.json",
+      "statut": "teste",
+      "preuve": "institutions/cardiff-university-library/tests/raw/delivery-json.headers.txt"
+    },
+    {
+      "famille": "IIIF Image 2 sur eu-img02.ext.exlibrisgroup.com (info.json, dérivé), annoncé par le manifeste",
+      "url": "https://eu-img02.ext.exlibrisgroup.com/iiif/2/",
+      "statut": "non_teste",
+      "raison": "hôte arrêté par le registre partagé après un 403 « Missing Authentication Token » sur robots.txt (2026-11-14T02:40:04Z) : sonde refusée (journal NON LANCÉ), pas de contournement."
+    },
+    {
+      "famille": "Pages www.cardiff.ac.uk (hôte du site, pas d'API)",
+      "url": "https://www.cardiff.ac.uk/special-collections/digital-collections",
+      "statut": "non_teste",
+      "raison": "défi Cloudflare dès la 1re requête (robots.txt, 2026-11-14T02:35:06Z) : arrêt obligatoire de l'hôte ; page de doc lue via Wayback, aucune API sur cet hôte."
+    }
+  ],
+  "endpoints_ecartes": [
+    {
+      "url": "https://iiif.io/api",
+      "raison": "lien générique vers les spécifications de la communauté IIIF dans le guide iiif.io, pas un service de Cardiff ; rien à tester."
+    },
+    {
+      "url": "https://knowledge.exlibrisgroup.com/@api/deki/pages/55298/pdf/API%2bcall%2blimitation%2bSandbox.pdf?stylesheet=default",
+      "raison": "export PDF interne du wiki Ex Libris de l'article déjà lu (Disallow /@* du robots.txt) ; simple copie, pas une API de collection."
+    },
+    {
+      "url": "https://librarysearch.cardiff.ac.uk/permalink/44WHELF_CAR/1ucm8iq/alma9911991475402420",
+      "raison": "permalien de notice du billet de lancement : même coquille JavaScript Primo VE que la page de découverte (823 octets), pas une API ; téléchargé par fetch_doc dans sources/doc-b."
+    }
+  ],
+  "hotes_robots": [
+    {
+      "hote": "www.cardiff.ac.uk",
+      "resultat": "403 défi Cloudflare en direct ; Wayback 2026-05-01 : Disallow /master/, /_content/, /search ; pas de Crawl-delay",
+      "preuve": "institutions/cardiff-university-library/sources/wayback/cardiff-www.md"
+    },
+    {
+      "hote": "librarysearch.cardiff.ac.uk",
+      "resultat": "Crawl-delay: 10 ; Disallow /primaws, /discovery/search, /nde/search ; Disallow / pour GPTBot, Applebot, YandexBot, etc. (pas notre UA)",
+      "preuve": "institutions/cardiff-university-library/sources/doc-b/SHA256SUMS"
+    },
+    {
+      "hote": "eu-img02.ext.exlibrisgroup.com",
+      "resultat": "403 {\"message\":\"Missing Authentication Token\"} : pas de robots.txt lisible",
+      "preuve": "institutions/cardiff-university-library/sources/doc-d/SHA256SUMS"
+    },
+    {
+      "hote": "scolarcardiff.wordpress.com",
+      "resultat": "Disallow /wp-admin/ etc. (blog)",
+      "preuve": "institutions/cardiff-university-library/sources/doc-b/SHA256SUMS"
+    },
+    {
+      "hote": "knowledge.exlibrisgroup.com",
+      "resultat": "Crawl-delay: 5 ; Request-rate: 1/5",
+      "preuve": "institutions/cardiff-university-library/sources/doc-c/SHA256SUMS"
+    },
+    {
+      "hote": "data.zb.uzh.ch",
+      "resultat": "404 : tout autorisé",
+      "preuve": "institutions/cardiff-university-library/sources/doc-c/SHA256SUMS"
+    },
+    {
+      "hote": "iiif.io",
+      "resultat": "non lu : page de guide téléchargée une fois, robots.txt non demandé (site de la communauté IIIF, aucune requête de sonde)",
+      "preuve": "institutions/cardiff-university-library/sources/doc-b/SHA256SUMS"
+    }
+  ]
 }
