@@ -2,7 +2,7 @@
   "slug": "europeana",
   "nom": "Europeana",
   "pays": "Union européenne",
-  "statut_audit": "audit a–f complet ; g à faire",
+  "statut_audit": "audit a–f complet (passes 1 à 5) ; g à faire",
   "limites_documentees": [
     {
       "nature": "Politique d'usage équitable",
@@ -63,6 +63,16 @@
       "verification": "officielle mais ancienne, contredite par la politique d'usage équitable",
       "source": "https://europeana.atlassian.net/wiki/spaces/EF/pages/2360508417/Europeana+API+FAQ",
       "date": "2026-11-13"
+    },
+    {
+      "nature": "Limite de débit externe (thumbnail API), annoncée sur la liste europeanaAPI",
+      "perimetre": "requêtes externes (contexte : API des vignettes)",
+      "valeur": "maximum de 120 requêtes par 10 secondes",
+      "fenetre": "10 s",
+      "effet": "IP temporairement limitée (cas rapporté d'un utilisateur à 10 processus)",
+      "verification": "institution (équipe Europeana, 12 juillet 2024), forum ; non observée par nos tests ; non reprise dans la doc officielle lue",
+      "source": "https://groups.google.com/g/europeanaAPI/c/dnjJBzWaQQU",
+      "date": "2026-11-14"
     }
   ],
   "en_tetes_observes": [],
@@ -73,13 +83,27 @@
       "code": "403",
       "nature": "anti-bot pour la sonde",
       "suite": "non réessayé ; documentation lue sur la base de connaissances Atlassian"
+    },
+    {
+      "date": "2026-11-14",
+      "hote": "pro.europeana.eu",
+      "code": "403",
+      "nature": "anti-bot pour fetch_doc.sh (2 pages) ; réplique Wayback lue",
+      "suite": "non réessayé"
+    },
+    {
+      "date": "2026-11-14",
+      "hote": "api.europeana.eu",
+      "code": "401",
+      "nature": "clé d'API exigée par /fulltext/search.json (invalid_apikey), pas un quota",
+      "suite": "aucun identifiant envoyé, non réessayé"
     }
   ],
   "contact": "api@europeana.eu",
   "conclusion_quota": "Aucun chiffre publié. Usage équitable : limites par type de requête fixées par Europeana ; limites des clés personnelles réduites jusqu'en avril 2026 ; blocage ou révocation de clé. L'API IIIF ne demande aucune clé. Aucun en-tête de limite observé.",
   "classe_quota": "règle sans chiffre publié (clé personnelle ou de projet)",
   "confiance": "moyenne",
-  "notes": "Le chiffre « 120 requêtes / 10 s » de l'ancienne passe est introuvable. La FAQ (plus ancienne) dit « as often as you like without any throttling » : contredite par la politique d'usage équitable. Documentation Confluence partiellement masquée aux anonymes.",
+  "notes": "Le chiffre « 120 requêtes / 10 s » de l'ancienne passe est introuvable. La FAQ (plus ancienne) dit « as often as you like without any throttling » : contredite par la politique d'usage équitable. Documentation Confluence partiellement masquée aux anonymes. Passes 4-5 (lot D) : annopage, recherche dans un item et ressource plein texte en 200 sans clé ; api.europeana.eu/fulltext/search.json exige une clé (401). Limite de 120 requêtes / 10 s retrouvée sur la liste europeanaAPI (équipe, 12/07/2024) : l'ancienne mention « introuvable » est caduque.",
   "classeur_id": "GLAM-011",
   "type": "Plateforme / consortium",
   "sources": [
@@ -187,6 +211,38 @@
       "etiquette": "tiers",
       "citation": "Document de décembre 2025 « Publishing Cultural Heritage Data in the Age of AI » (commandé par la Fondation Europeana) : les robots d'IA et d'autres usages apparaissent tous deux comme « bots » dans les journaux des sites. (résumé de moteur, non vérifié) PDF non lisible par l'outil.",
       "preuve": "institutions/europeana/fiche.md"
+    },
+    {
+      "categorie": "institution",
+      "url": "https://www.europeana.eu/en/rights/terms-of-use",
+      "date": "2026-11-14",
+      "etiquette": "officielle (résumé de moteur pour cette recherche, page lue en passe 2)",
+      "citation": "limite de requêtes « reasonable and may be set by Europeana at any time »",
+      "preuve": "institutions/europeana/fiche.md"
+    },
+    {
+      "categorie": "utilisateurs",
+      "url": "https://groups.google.com/g/europeanaAPI/c/dnjJBzWaQQU",
+      "date": "2026-11-14",
+      "etiquette": "institution (réponse d'un membre de l'équipe) ; page lue",
+      "citation": "« Our thumbnail API was failing because of this spike in requests so we temporarily rate-limited the IP address of this user. » ; un utilisateur : « due to limit of 120 request per 10 seconds it will take weeks to do this task. »",
+      "preuve": "institutions/europeana/fiche.md"
+    },
+    {
+      "categorie": "tickets",
+      "url": "https://github.com/europeana/rd-europeana-python-api/issues",
+      "date": "2026-11-14",
+      "etiquette": "tiers (page lue)",
+      "citation": "9 tickets ouverts (#11 à #70), aucun sur limites, 429 ou throttling (titres seulement lus).",
+      "preuve": "institutions/europeana/fiche.md"
+    },
+    {
+      "categorie": "presentations",
+      "url": "https://europeana.atlassian.net/wiki/x/BIAzjg",
+      "date": "2026-11-14",
+      "etiquette": "institution (résumé de moteur, non vérifié pour cette recherche)",
+      "citation": "recherche « fulltext API newspapers » : la doc IIIF indique « You don't need an API key for this API! » ; un carnet tiers dit le contraire ; test direct de fulltext/search.json : 401 invalid_apikey.",
+      "preuve": "institutions/europeana/tests/raw/fulltext-search.headers.txt"
     }
   ],
   "donnees_a_revalider": false,
@@ -205,6 +261,16 @@
       "url": "https://pro.europeana.eu/page/search",
       "pourquoi": "403 anti-bot (WebFetch) ; non lue directement",
       "a_chercher": "Documentation de l'API Search : clé, limites (requêtes/jour, résultats max), conditions"
+    },
+    {
+      "url": "https://pro.europeana.eu/page/api-libraries-and-plugins",
+      "pourquoi": "403 anti-bot le 2026-11-14 (sources/pro-v4) ; lue sur réplique Wayback 2024-10-07, 6000 caractères sur 11251",
+      "a_chercher": "fin de la liste des bibliothèques (Node.js, etc.) et toute mention de limites"
+    },
+    {
+      "url": "https://pro.europeana.eu/project/iiif-europeana-working-group",
+      "pourquoi": "403 anti-bot le 2026-11-14 ; lue sur réplique Wayback 2025-05-21, 5000 caractères sur 7038",
+      "a_chercher": "fin de la page (activités, contacts) ; aucune limite attendue"
     }
   ],
   "endpoints_documentes": [
@@ -239,10 +305,10 @@
       "raison": "Documentée dans la page API Suite ; clé d'API requise, non demandée ; hors périmètre IIIF."
     },
     {
-      "famille": "IIIF Content Search API (v1)",
-      "url": "https://iiif.europeana.eu/",
-      "statut": "non_teste",
-      "raison": "Citée par la page IIIF APIs Documentation ; aucune URL d'exemple ni identifiant plein texte connu dans nos sources, deviner serait inventer."
+      "famille": "IIIF Content Search API v1 (recherche dans un item : iiif.europeana.eu/presentation/[RECORD_ID]/search?q=)",
+      "url": "https://iiif.europeana.eu/presentation/9200396/BibliographicResource_3000118436165/search?q=paris",
+      "statut": "teste",
+      "preuve": "institutions/europeana/tests/raw/iiif-search-item.headers.txt"
     },
     {
       "famille": "Annotation API",
@@ -279,6 +345,24 @@
       "url": "https://www.europeana.eu/",
       "statut": "non_teste",
       "raison": "Cités par la FAQ comme alternatives au moissonnage via l'API ; URL exacte non relevée dans nos sources ; moissonnage en masse exclu de l'audit."
+    },
+    {
+      "famille": "IIIF plein texte : page d'annotations (annopage)",
+      "url": "https://iiif.europeana.eu/presentation/9200396/BibliographicResource_3000118436165/annopage/0090019?lang=fr",
+      "statut": "teste",
+      "preuve": "institutions/europeana/tests/raw/iiif-annopage.headers.txt"
+    },
+    {
+      "famille": "IIIF plein texte : ressource Fulltext (api.europeana.eu/fulltext/[RECORD_ID]/[FULLTEXT_ID])",
+      "url": "https://api.europeana.eu/fulltext/9200396/BibliographicResource_3000118436165/0090019",
+      "statut": "teste",
+      "preuve": "institutions/europeana/tests/raw/fulltext-resource.headers.txt"
+    },
+    {
+      "famille": "Recherche plein texte transversale (api.europeana.eu/fulltext/search.json)",
+      "url": "https://api.europeana.eu/fulltext/search.json?query=fulltext%3Aparis&profile=minimal",
+      "statut": "teste",
+      "preuve": "institutions/europeana/tests/raw/fulltext-search.headers.txt"
     }
   ],
   "hotes_robots": [
@@ -301,16 +385,19 @@
       "hote": "pro.europeana.eu",
       "resultat": "403 anti-bot : non lu, pas de contournement",
       "preuve": "institutions/europeana/sources/v2/FETCH.log"
+    },
+    {
+      "hote": "europeana.atlassian.net",
+      "resultat": "200 (347 o) : Crawl-delay 1, Allow /wiki/ ; hôte de la documentation, non sondé",
+      "preuve": "institutions/europeana/sources/robots-v3/FETCH.log"
+    },
+    {
+      "hote": "pro.europeana.eu (réplique Wayback 2025-05-07)",
+      "resultat": "groupe actif « * » : Disallow /admin/ ; pas de Crawl-delay ; robots nommés commentés",
+      "preuve": "institutions/europeana/sources/wayback/pro-europeana.md"
     }
   ],
-  "rattrapage_a_faire": [
-    "https://pro.europeana.eu/robots.txt : 403 anti-bot, non lu (aucun contournement) ; à lire à la main dans un navigateur par Marcel si utile.",
-    "https://europeana.atlassian.net/robots.txt : hôte de la documentation (Confluence), robots.txt jamais lu ; une requête GET à faire.",
-    "https://github.com/europeana/rd-europeana-python-api/issues (ou page ecosyste.ms, 403 à WebFetch) : tickets sur 429 ou limites, à relire avec gh/navigateur (domaine tiers, pas de l'institution).",
-    "https://api.europeana.eu/fulltext/search.json : à tester par scripts/probe.py, config à committer avant (endpoint cité en bloc de code dans sources/v2c/raw/02.html)",
-    "https://pro.europeana.eu/page/api-libraries-and-plugins : page de documentation non téléchargée par nos outils (absente des FETCH.log/url-list), à télécharger et lire avant de conclure (liste de bibliothèques clientes citée dans sources/v2/text/03.txt ; pro.europeana.eu répond 403 anti-bot)",
-    "https://pro.europeana.eu/project/iiif-europeana-working-group : page de documentation non téléchargée par nos outils (absente des FETCH.log/url-list), à télécharger et lire avant de conclure (page projet citée dans sources/v2c/raw/02.html ; pro.europeana.eu répond 403 anti-bot)"
-  ],
+  "rattrapage_a_faire": [],
   "endpoints_ecartes": [
     {
       "url": "https://api.europeana.eu/console/iiif",
@@ -327,6 +414,14 @@
     {
       "url": "https://www.europeana.eu/search?page=1&qf=collection%3Aart",
       "raison": "interface web destinée aux humains, sans API documentée associée ; page de recherche du portail citée dans sources/v2/raw/06.html"
+    },
+    {
+      "url": "https://pro.europeana.eu/page/api-libraries-and-plugins",
+      "raison": "page de documentation listant des bibliothèques clientes (PyEuropeana, Java, PHP, Ruby, Node) et le moissonneur OAI-PMH, pas un endpoint de données ; lue via réplique Wayback (sources/wayback/pro-europeana.md), 403 anti-bot en direct (sources/pro-v4/FETCH.log)"
+    },
+    {
+      "url": "https://pro.europeana.eu/project/iiif-europeana-working-group",
+      "raison": "page de présentation d'un groupe de travail (réunions, Slack), pas une API ; lue via réplique Wayback (sources/wayback/pro-europeana.md), 403 anti-bot en direct (sources/pro-v4/FETCH.log)"
     }
   ]
 }
