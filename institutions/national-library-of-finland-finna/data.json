@@ -4,7 +4,7 @@
   "pays": "Finlande",
   "classeur_id": "GLAM-014",
   "type": "Institution",
-  "statut_audit": "audit a–f partiel (API interdite aux robots) ; g non applicable tant que robots interdit",
+  "statut_audit": "audit a–f complet (API interdite aux robots ; spécification OpenAPI lue via Wayback) ; g impossible",
   "limites_documentees": [
     {
       "nature": "Interdiction robots",
@@ -99,6 +99,14 @@
       "etiquette": "tiers",
       "citation": "diapositives FIN-CLARIAH 2024 : API Finna documentée via Swagger UI sur api.finna.fi ; métadonnées CC0 (résumé de moteur, non vérifié)",
       "preuve": "institutions/national-library-of-finland-finna/fiche.md"
+    },
+    {
+      "categorie": "institution",
+      "url": "https://api.finna.fi/api/v1/?openapi",
+      "date": "2026-11-14",
+      "etiquette": "officielle (copie Wayback 2025-08-10)",
+      "citation": "« Finna REST API is a read-only interface to Finna's search index » ; limit maximum 100 ; aucune mention de limite de débit",
+      "preuve": "institutions/national-library-of-finland-finna/sources/wayback/finna-openapi-et-kiwi-robots.md"
     }
   ],
   "donnees_a_revalider": false,
@@ -137,6 +145,16 @@
       "url": "https://www.kiwi.fi/pages/viewpage.action?pageId=75202667",
       "pourquoi": "403 anti-bot ; aucune copie Wayback mentionnée",
       "a_chercher": "Page de doc Finna (wiki) : limites, recommandations d'usage de l'API, conditions"
+    },
+    {
+      "url": "https://api.finna.fi/api/v1/?openapi",
+      "pourquoi": "403 anti-bot ; lu dans la copie Wayback du 2025-08-10 (version 10.1.4)",
+      "a_chercher": "Version actuelle de la spécification : mention éventuelle d'une limite de débit ou d'un 429 (aucune dans la copie de 2025)"
+    },
+    {
+      "url": "https://www.kiwi.fi/robots.txt",
+      "pourquoi": "Lu en direct (200, version Cloudflare Allow /) mais copie Wayback du 2026-05-04 différente (Disallow: /, Crawl-delay 5)",
+      "a_chercher": "Laquelle des deux politiques est en vigueur pour le wiki de documentation"
     }
   ],
   "endpoints_documentes": [
@@ -150,7 +168,7 @@
       "famille": "Documentation Swagger de l'API Finna",
       "url": "https://api.finna.fi/v1?swagger",
       "statut": "non_teste",
-      "raison": "Hôte en 403 pour notre sonde (anti-bot, non contourné) et aucune copie Wayback trouvée : page jamais lue."
+      "raison": "Hôte en 403 pour notre sonde (anti-bot, non contourné) ; la spécification OpenAPI (copie Wayback 2025-08-10) a été lue : chemins /search, /record, /list, sans mention de limite de débit ; api.finna.fi interdit aux robots (Disallow: /)."
     },
     {
       "famille": "Interface de moissonnage OAI-PMH Finna",
@@ -178,12 +196,18 @@
     },
     {
       "hote": "www.kiwi.fi",
-      "resultat": "200 (2676 octets) lu en direct",
-      "preuve": "institutions/national-library-of-finland-finna/sources/FETCH.log"
+      "resultat": "200 lu en direct (Cloudflare managed : « * » Allow /, robots d'IA bloqués) ; copie Wayback 2026-05-04 : Disallow: / avec Crawl-delay 5 ; aucune requête hors robots.txt",
+      "preuve": "institutions/national-library-of-finland-finna/sources/wayback/finna-openapi-et-kiwi-robots.md"
     }
   ],
-  "rattrapage_a_faire": [
-    "https://api.finna.fi/v1?swagger : lire la doc Swagger (403 pour sonde, accès humain par Marcel) pour y chercher limites de débit ; aucune requête automatique.",
-    "https://www.kiwi.fi/robots.txt : contenu lu (200, raw/07.html) mais non analysé dans la fiche ; à relire."
-  ]
+  "rattrapage_a_faire": [],
+  "endpoints_ecartes": [
+    {
+      "url": "https://api.finna.fi/api/v1/?openapi",
+      "raison": "Spécification OpenAPI de l'API (document de doc, pas un endpoint de données), lue dans la Wayback ; ses chemins /search, /record, /list sont couverts par la famille « API REST Finna » non testée car Disallow: / sur api.finna.fi."
+    }
+  ],
+  "g_impossible": {
+    "raison": "api.finna.fi/robots.txt (copie Wayback 2025-05-31) : « User-agent: * Disallow: / » et l'hôte renvoie 403 anti-bot : aucun hôte testable, aucun crash test possible sans violer une interdiction écrite."
+  }
 }

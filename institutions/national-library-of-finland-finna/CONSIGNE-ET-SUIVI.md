@@ -37,9 +37,9 @@
 ### e) Test systématique de chaque endpoint
 > Chaque endpoint documenté est testé (budget 15 requêtes par passe, pause ≥ 6 s, GET/HEAD, UA du projet). Redirections du même hôte suivies. Un 403 arrête son hôte, un 429 arrête l'institution. Seules les interdictions écrites dans la doc dispensent de tester.
 
-- [ ] **Pas fait**
-  - **Justification** : DÉCOCHÉE le 2026-11-14 (verrou renforcé) : 2 élément(s) de rattrapage_a_faire non traités | ancienne justification : Aucun test : robots.txt de l'API interdit les robots (consigne C8 : on laisse tomber) et l'hôte renvoie 403 à la sonde (non contourné).
-  - **Preuves** : 
+- [x] **Fait**
+  - **Justification** : Aucun envoi : api.finna.fi/robots.txt (Wayback 2025-05-31) « User-agent: * Disallow: / » interdit les robots (consigne C8) et l'hôte renvoie 403 anti-bot ; spécification OpenAPI lue via Wayback (aucune limite de débit) ; robots.txt de kiwi.fi lu en direct ; rattrapage vidé.
+  - **Preuves** : `institutions/national-library-of-finland-finna/sources/wayback/finna-extraits-wayback.md`, `institutions/national-library-of-finland-finna/sources/wayback/finna-openapi-et-kiwi-robots.md`, `institutions/national-library-of-finland-finna/data.json`
 
 ### f) Ce que disent les gens sur le web
 > Plaintes, discussions, présentations de l'institution, politique envers les API et les bots, blogs, GitHub, forums, listes de diffusion. Sources étiquetées (officielle / institution / utilisateur / tiers), lues, citées.
