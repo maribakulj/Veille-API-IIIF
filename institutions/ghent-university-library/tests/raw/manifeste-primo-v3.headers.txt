@@ -1,0 +1,17 @@
+2026-11-14T00:41:27Z GET https://libcatalog.ugent.be/view/iiif/presentation/32RUG_INST/12276729150009161/manifest?iiifVersion=3
+HTTP 200
+x-request-id: IWdliq7Kst
+p3p: CP="IDC DSP COR ADM DEVi TAIi PSA PSD IVAi IVDi CONi HIS OUR IND CNT"
+set-cookie: JSESSIONID=3E4D55EAE04A569410BBD1E6CCA6D58B.apd04.eu06.prod.alma.dc06.hosted.exlibrisgroup.com%3A1801; Path=/; Secure; HttpOnly; SameSite=None
+set-cookie: urm_st=1794616886648; Path=/; Secure; SameSite=None
+set-cookie: urm_se=1794617486648; Path=/; Secure; SameSite=None
+access-control-allow-origin: *
+content-security-policy: object-src blob: 'self' *.exlibrisgroup.com *.exlibrisgroup.com.cn www.google-analytics.com stats.g.doubleclick.net s3.amazonaws.com www.youtube.com youtube.com *.contentdm.oclc.org iiif.nlm.nih.gov elibrary.mab.lt libcatalog.ugent.be *.syndetics.com *.piwik.pro *.altmetric.com;worker-src blob: 'self' *.exlibrisgroup.com *.exlibrisgroup.com.cn www.google-analytics.com stats.g.doubleclick.net s3.amazonaws.com www.youtube.com youtube.com artic.contentdm.oclc.org libcatalog.ugent.be *.syndetics.com *.piwik.pro *.altmetric.com;upgrade-insecure-requests; connect-src 'self' *.exlibrisgroup.com *.google-analytics.com *.cookielaw.org *.onetrust.com *.onetrust.io *.proquest.com *.pendo.io *.amazonaws.com *.powerplatform.com *.botframework.com *.directline.botframework.com *.force.com *.salesforce-scrt.com libcatalog.ugent.be libraryh3lp.com api.ipify.org *.piwik.pro; style-src 'self' 'unsafe-inline' *.exlibrisgroup.com *.exlibrisgroup.com.cn  *.googleapis.com *.force.com *.proquest.com *.librarything.com *.syndetics.com syndetics.com *.pendo.io *.storage.googleapis.com *.site.com libcatalog.ugent.be *.piwik.pro vjs.zencdn.net; img-src blob: 'self' data: *.exlibrisgroup.com *.exlibrisgroup.com.cn *.cookielaw.org *.pendo.io github.com *.githubusercontent.com *.librarything.com *.syndetics.com syndetics.com *.proquest.com  *.wikimedia.org libcatalog.ugent.be *.syndetics.com *.altmetric.com lib.is ugent.piwik.pro  ugent.containers.piwik.pro *.amazonaws.com; report-uri /infra/CSPReportEndpoint.jsp; report-to csp-report-endpoint; 
+report-to: {"max_age":10886400,"endpoints":[{"url":"https://eu06.alma.exlibrisgroup.com/infra/CSPReportEndpoint.jsp"}],"group":"csp-report-endpoint"}
+x-content-type-options: nosniff
+vary: accept-encoding
+content-type: application/json;charset=UTF-8
+transfer-encoding: chunked
+date: Sat, 14 Nov 2026 00:41:27 GMT
+strict-transport-security: max-age=31536000; includeSubDomains
+set-cookie: __Secure-UqZBpD3n3naPU20-9Fvn5i-TSO9FoshbYtbA9YCEpg3UXgo_=v1G+oigw__BLy; Expires=Sun, 14-Nov-2027 00:41:27 GMT; Path=/; Secure; SameSite=None

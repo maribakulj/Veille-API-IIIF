@@ -8,3 +8,8 @@
 2026-11-14T00:41:05Z | manifeste-resolver-hs224 | https://resolver.lib.ugent.be/?url=https://adore.ugent.be/IIIF/manifests/archive.ugent.be:E336B140-751E-11E6-9B48-3FC1D43445F2 | GET | 301 REDIRECTION_NON_SUIVIE | aucun en-tête de limite | taille≥137 | corps: <a href="https://libcatalog.ugent.be/view/iiif/presentation/32RUG_INST/12276729150009161/manifest?iiifVersion=3">Moved Permanently</a>.  
 # redirection vers https://libcatalog.ugent.be/view/iiif/presentation/32RUG_INST/12276729150009161/manifest?iiifVersion=3 : NON suivie (autre hôte)
 # Fin 2026-11-14T00:41:05Z — 2 requête(s) envoyée(s)
+# Session 2026-11-14T00:41:16Z — configuration ghent-passe3.json — sonde probe.py au commit 6b3f729
+2026-11-14T00:41:16Z | robots.txt:libcatalog.ugent.be | https://libcatalog.ugent.be/robots.txt | GET | 200 | 3 règle(s) pour « * » ; Crawl-delay 10.0 s
+2026-11-14T00:41:27Z | manifeste-primo-v3 | https://libcatalog.ugent.be/view/iiif/presentation/32RUG_INST/12276729150009161/manifest?iiifVersion=3 | GET | 200 OK | aucun en-tête de limite | taille≥226272 | corps: {   "id" : "https://libcatalog.ugent.be/view/iiif/presentation/32RUG_INST/12276729150009161/manifest?iiifVersion=3",   "type" : "Manifest",   "label" : {     "none" : [ "[manuscript] Vita S. Amandi." 
+# corps enregistré : tests/raw/manifeste-primo-v3.body (226272 octets lus)
+# Fin 2026-11-14T00:41:27Z — 2 requête(s) envoyée(s)

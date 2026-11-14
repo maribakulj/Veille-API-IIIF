@@ -78,28 +78,8 @@
   "notes": "Les images dépendent d'Ex Libris (CloudFront) : limite éventuelle non publiée.",
   "a_verifier_manuellement": [
     {
-      "url": "https://digitalcollections.universiteitleiden.nl/iiif",
-      "pourquoi": "404 (page introuvable, non lue)",
-      "a_chercher": "Documentation IIIF de Leiden Digital Collections : endpoints, limites"
-    },
-    {
-      "url": "https://digitalcollections.universiteitleiden.nl/terms-of-use",
-      "pourquoi": "404 (page introuvable, non lue)",
-      "a_chercher": "Conditions d'usage : réutilisation, accès automatisé, limites de débit"
-    },
-    {
-      "url": "https://library.universiteitleiden.nl/special-collections/about-us",
-      "pourquoi": "404 (page introuvable, non lue)",
-      "a_chercher": "Page Special Collections : contact, politique d'accès/réutilisation numérique"
-    },
-    {
       "url": "https://www.library.universiteitleiden.nl/robots.txt",
       "pourquoi": "302 puis connexion coupée par le serveur (curl 56, Connection reset by peer)",
-      "a_chercher": "robots.txt actuel : Crawl-delay, Disallow, règle sur les robots d'IA ou les API"
-    },
-    {
-      "url": "https://iiif.universiteitleiden.nl/robots.txt",
-      "pourquoi": "000ERR : connexion coupée par le serveur (curl 56, Connection reset)",
       "a_chercher": "robots.txt actuel : Crawl-delay, Disallow, règle sur les robots d'IA ou les API"
     }
   ]
