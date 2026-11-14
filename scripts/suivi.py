@@ -231,6 +231,14 @@ def anciennes():
     return set(ANCIENNES.read_text(encoding="utf-8").split()) if ANCIENNES.exists() else set()
 
 
+def _urlsplit_sur(u):
+    """urlsplit qui ne plante pas sur une URL mal formée trouvée dans une page de doc (ex. http://localhost:[YOUR_PORT)."""
+    try:
+        return urlsplit(u)
+    except ValueError:
+        return None
+
+
 MOTIF_API = re.compile(r"(?i)(/oai\b|oai\.php|/iiif|/i3f|/api\b|/api/|manifest|info\.json|/sparql|/rest/|ftpack|/download/|/search\b|/v[0-9]/|/services/)")
 
 
@@ -244,7 +252,9 @@ def urls_api_dans_la_doc(slug, hotes):
         t = f.read_text(encoding="utf-8", errors="replace")
         for u in re.findall(r"https?://[^\s\"'<>)\]\\]+", t):
             u = u.rstrip(".,;:").replace("&amp;", "&")
-            sp = urlsplit(u)
+            sp = _urlsplit_sur(u)
+            if sp is None:
+                continue
             if sp.netloc in hotes and MOTIF_API.search(sp.path or "/") and not re.search(r"\.(css|js|png|jpe?g|svg|ico|woff2?)$", sp.path):
                 seg = sp.path.strip("/").split("/")[0] if sp.path.strip("/") else ""
                 trouvees.setdefault((sp.netloc, seg), u)
@@ -268,7 +278,9 @@ def docs_html_lues(slug):
             tete = raw.read_bytes()[:400].decode("utf-8", "replace").lstrip("\ufeff \n\r\t").lower()
             if not (tete.startswith("<!doctype html") or tete.startswith("<html") or tete.startswith("<head") or "<html" in tete[:200]):
                 continue
-            sp = urlsplit(parts[3])
+            sp = _urlsplit_sur(parts[3])
+            if sp is None:
+                continue
             out[(sp.netloc, sp.path.strip("/").split("/")[0] if sp.path.strip("/") else "")] = (parts[3], str(raw.relative_to(REPO)))
     return out
 
@@ -283,7 +295,9 @@ def couverture_doc(slug, d):
         except ValueError:
             pass
     for e in sources:
-        sp = urlsplit(e.get("url", ""))
+        sp = _urlsplit_sur(e.get("url", ""))
+        if sp is None:
+            continue
         couverts.add((sp.netloc, sp.path.strip("/").split("/")[0] if sp.path.strip("/") else ""))
     return [f"URL d'API citée par la doc et ni testée ni justifiée : {u} (ajouter à endpoints_documentes, ou à endpoints_ecartes avec url + raison)"
             for k, u in sorted(urls_api_dans_la_doc(slug, hotes).items()) if k not in couverts]
