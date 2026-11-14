@@ -8,3 +8,8 @@
 2026-11-14T02:16:31Z | library-accueil+redir | https://library.nga.gov/mng/login | GET | 302 REDIRECTION_NON_SUIVIE | aucun en-tête de limite | taille≥0 | corps: 
 2026-11-14T02:16:41Z | library-sitemap-index | https://library.nga.gov/view/scholar/siteindex.xml | GET | 200 OK | aucun en-tête de limite | taille≥200 | corps: <?xml version="1.0" encoding="UTF-8" standalone="yes"?> <sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">	 	<sitemap> 		<loc>https://library.nga.gov/view/scholar/PrimoVE-I/sitemap?map
 # Fin 2026-11-14T02:16:41Z — 6 requête(s) envoyée(s)
+# Session 2026-11-14T02:17:33Z — configuration nga-v2-passe2-libraryimage.json — sonde probe.py au commit b6232cf
+2026-11-14T02:17:33Z | robots.txt:libraryimage.nga.gov | https://libraryimage.nga.gov/robots.txt | GET | 404 | robots.txt indisponible : tout est autorisé (RFC 9309)
+2026-11-14T02:17:40Z | libraryimage-manifeste | https://libraryimage.nga.gov/manifest/mms/99682033504896.json | GET | 200 OK | aucun en-tête de limite | taille≥249734 | corps: {   "@context": "http://iiif.io/api/presentation/2/context.json",   "@id": "https://libraryimage.nga.gov/manifest/mms/99682033504896.json",   "@type": "sc:Manifest",   "label": "Grandezze della citta\
+# corps enregistré : tests/raw/libraryimage-manifeste.body (249734 octets lus)
+# Fin 2026-11-14T02:17:40Z — 2 requête(s) envoyée(s)
