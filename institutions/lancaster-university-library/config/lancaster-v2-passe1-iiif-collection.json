@@ -1,0 +1,13 @@
+{
+  "slug": "lancaster-university-library",
+  "min_delay_s": 6,
+  "max_requests": 15,
+  "follow_redirects": 1,
+  "robots_disallow_autorise_par_marcel": true,
+  "note": "passe 1 : la page /collections/davy de digitalcollections.lancaster.ac.uk (sources/doc4) contient le lien /iiif/collection/davy ; on teste cette collection IIIF, le sitemap annonce par robots.txt, et on enregistre le corps pour lire des identifiants reels.",
+  "endpoints": [
+    {"id": "iiif-collection-davy", "method": "GET", "url": "https://digitalcollections.lancaster.ac.uk/iiif/collection/davy", "save_body": 3000000},
+    {"id": "sitemap-xml", "method": "GET", "url": "https://digitalcollections.lancaster.ac.uk/sitemap.xml"},
+    {"id": "page-collection-davy", "method": "HEAD", "url": "https://digitalcollections.lancaster.ac.uk/collections/davy"}
+  ]
+}
