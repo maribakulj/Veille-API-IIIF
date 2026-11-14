@@ -1,0 +1,256 @@
+GitHub - kb-dk/access-digital-objects: APIs for accessing digital objects in the collections of the Royal Danish Library · GitHub 
+ Skip to content 
+ Navigation Menu
+ Sign in 
+ Products Platform GitHub Repository hosting, code review, and collaboration 
+ Copilot AI coding agent for tasks, projects, and automated work 
+ Build & Ship Actions CI/CD and automation 
+ Code Quality Quality analysis, fixes, and enforcement 
+ Codespaces Cloud development environments 
+ Secure Code Security Vulnerability detection and remediation 
+ Secret Protection Secret scanning and leak prevention 
+ All Features 
+ Developers Learn Documentation 
+ Training 
+ Certifications 
+ Build Build with Copilot 
+ Customize Copilot 
+ Integrations 
+ Explore Trending repos 
+ GitHub Sponsors 
+ Developer articles 
+ Changelog Changelog Your source for the latest features, improvements, and fixes across GitHub products, all in one place. 
+ Businesses By Stage Enterprises 
+ Team 
+ Startups 
+ Nonprofits 
+ By Industry Healthcare 
+ Financial services 
+ Manufacturing 
+ Government 
+ See all industries 
+ Evaluate GitHub Why GitHub 
+ Customer Stories 
+ Business insights 
+ Trust Center 
+ Add-ons GitHub Advanced Security Enterprise-grade code security 
+ Copilot for business Enterprise-grade AI features 
+ Premium Support Enterprise-grade 24/7 support 
+ Resources Learn & Connect Documentation 
+ Resource center 
+ Blog 
+ Events & webinars 
+ Community Forum 
+ Customer Stories 
+ Integrations 
+ Support Customer support 
+ Training 
+ GitHub Status 
+ Company About 
+ Partners 
+ Changelog 
+ GitHub Universe GitHub Universe The event for developers, by developers — talks, workshops, and what’s next for GitHub. 
+ Pricing 
+ Search / 
+ Sign in 
+ Sign up Appearance settings
+ You signed in with another tab or window. Reload to refresh your session. 
+ You signed out in another tab or window. Reload to refresh your session. 
+ You switched accounts on another tab or window. Reload to refresh your session. 
+ Dismiss alert 
+ {{ message }}
+ kb-dk 
+ access-digital-objects 
+ Repository navigation
+ Code 
+ Issues 2  ( 2 ) 
+ Pull requests 
+ Actions 
+ Projects 
+ Security and quality 
+ Insights 
+ More items 
+ access-digital-objects 
+ Public 
+ Notifications You must be signed in to change notification settings 
+ Fork 1  ( 1 ) 
+ Star 11  ( 11 ) You must be signed in to star a repository 
+ About 
+ APIs for accessing digital objects in the collections of the Royal Danish Library
+ Resources 
+ Readme 
+ License 
+ Activity 
+ Custom properties 
+ Stars 
+ 11 stars 
+ Watchers 
+ 8 watching 
+ Forks 
+ 1 fork 
+ Report repository 
+ master 
+ Branches Tags 
+ Go to file 
+ Code Open more actions menu 
+ Latest commit
+ History
+ 329 Commits 
+ 329 Commits 
+ Folders and files
+ Name Name Last commit message 
+ Last commit date 
+ .idea 
+ .idea 
+ data-crunch-demos 
+ data-crunch-demos 
+ dka 
+ dka 
+ form-demos 
+ form-demos 
+ LICENSE 
+ LICENSE 
+ README.md 
+ README.md 
+ cop-backend.md 
+ cop-backend.md 
+ cop-solr-fields.md 
+ cop-solr-fields.md 
+ examples.md 
+ examples.md 
+ geographic-data.md 
+ geographic-data.md 
+ image-delivery.md 
+ image-delivery.md 
+ kml-viewer.html 
+ kml-viewer.html 
+ links.md 
+ links.md 
+ metadata-formats.md 
+ metadata-formats.md 
+ nielsen-query.kml 
+ nielsen-query.kml 
+ oai-pmh.md 
+ oai-pmh.md 
+ subject203.kml 
+ subject203.kml 
+ subject203.rss 
+ subject203.rss 
+ text-corpora.md 
+ text-corpora.md 
+ web-service-architecture.png 
+ web-service-architecture.png 
+ View all files 
+ Repository files navigation
+ README 
+ License 
+ More items 
+ READ ME - OAI Dissemination - Web services in COP - Aerial Photography - Image delivery - Metadata Formats - Text Corpora 
+ Access digital objects!
+ The Royal Library, Copenhagen, has been digitizing Cultural Heritage
+Objects in its collections since well over two decades. More recently,
+the last 8-10 years, we have tried to build our dissemination platforms
+using a REST based architecture.
+ This collection of documents describes the various APIs we are using
+ourselves to provide access to our data to library patrons, in the
+hope that the access points could be useful for a new category library
+patron whose research or studies would benefit from programmatic access
+to our digital collections.
+ linked data 
+ Licences & Legalese
+ The documention here is provided as is, and mind you: Everything
+that's free comes with no guarantee . As a matter of fact the
+material in this git repository is licensed to you as
+ GNU Free Documentation License 
+ The material we provide access to using the APIs described are of two kinds:
+ Metadata: This comes to you as CC0 1.0 Universal . I.e.,
+our metadata is basically public domain.
+ Content: The content in our digital collections are delivered with
+varous licenses, but the most common one is
+ Attribution-NonCommercial-NoDerivs 2.0 Generic . I.e., our content is provided with a much more restrictive CC license.
+ Caveats
+ The APIs described have been used successfully in projects (in some
+cases for many years). We, their users & developers, created each of
+them for getting a job done. They are usually well tested and works
+well, but they are neither polished, nor are there helpful error
+messages etc.
+ The formats we are delivering are to a large extent based on
+standards. That means that in many places we refer to external
+documentation whenever possible. We are not guaranteeing anything
+concerning the external information sources, nor that our data are
+strictly valid in relation to those documents.
+ Services by scope and purpose
+ Our services builds upon the ideas
+ COOL URIs 
+ and
+ linked data 
+ as they are presented by Tim Berners-Lee. We don't promise that our
+links will persist for 2000 years, but we do our best to keep them and
+if we don't we promise to make redirects according to best practise.
+ As you will see, we are slightly better than three on Berners-Lee's
+five grade scale. We do not provide access to RDF and SPARQL but RSS
+and OpenSearch. Few provide access to RDF these days, so perhaps W3C
+should redesign the cop (see above).
+ Neither do we link to external sources.
+ A brief introduction to the characters in the story
+ Digital Editions - COP , an acronym for which one possible interpretation could be C ommon O bject P ublishing platform. The word Common would refer to that it is a platform which is common between different collections and media types. However, when it was released we intentionally never gave the service a brand name.
+ Aerial Photography collection - DSFL (Danmark Set Fra Luften)
+ Rex - our Integrated Library System and Aleph - our Online public access catalog (OPAC)
+ National Aggregator - A system run by us aggregating material from Danish libraries, museums and archives on behalf of Europeana
+ Archive for Danish Literature , ADL
+ Dissemination of metadata
+ The purpose of our dissemination is to enable us to synchronize data
+between our own systems, but also to share our data with Cultural
+Heritage communities at large. The dissemination services are aimed as
+aggregator services of various kinds. Our dissemination API is OAI-PMH 
+ Search and retrieval
+ The metadata and objects in COP are accessible from two front ends
+ Digital Editions 
+ Aerial Photography Collection, Danmark set fra Luften (DFSL)
+ Both services use the same web service, but DFSL has some
+geographical extensions in order to run its map based interface
+ General COP web services 
+ Geographical extensions 
+ Metadata formats
+ Through COP we deliver metadata to various services, in different
+formats .
+ Content formats
+ Virtually all content in COP is delivered as images; delivery is
+described in a separate document .
+ Text and literature
+ Currently the whole Archive for Danish Literature is available .
+ Acknowledgements
+ Andreas Borchsenius West contributed information about feeds and the
+JSON service used for maps, notably our Aerial photography collection
+Danmark Set Fra Luften (DSFL).
+ About 
+ APIs for accessing digital objects in the collections of the Royal Danish Library
+ Resources 
+ Readme 
+ License 
+ Activity 
+ Custom properties 
+ Stars 
+ 11 stars 
+ Watchers 
+ 8 watching 
+ Forks 
+ 1 fork 
+ Report repository 
+ Releases 
+ Packages 
+ Contributors 
+ Languages 
+ Footer
+ © 2026 GitHub, Inc.
+ Footer navigation
+ Terms 
+ Privacy 
+ Security 
+ Status 
+ Community 
+ Docs 
+ Contact 
+ Manage cookies
+ Do not share my personal information
+ You can’t perform that action at this time.

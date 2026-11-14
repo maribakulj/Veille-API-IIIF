@@ -1,0 +1,13 @@
+{
+  "slug": "kb-dk",
+  "min_delay_s": 6,
+  "max_requests": 15,
+  "follow_redirects": 1,
+  "robots_disallow_autorise_par_marcel": true,
+  "note": "Passe rejouée IIIF Image : URL verbatim de sources/doc (image-delivery.md). robots.txt de kb-images.kb.dk : la réponse 200 est une page HTML (pas de robots.txt réel), donc rien d'interdit. Seuls info.json et deux images (1024 px) sont demandés.",
+  "endpoints": [
+    {"id": "p3-iiif-info-arkiv6", "method": "GET", "url": "http://kb-images.kb.dk/online_master_arkiv_6/non-archival/Images/BILLED/2008/Billede/dk_eksp_album_191/kbb_alb_2_191_friis_011/info.json"},
+    {"id": "p3-iiif-info-arkiv5", "method": "GET", "url": "http://kb-images.kb.dk/online_master_arkiv_5/non-archival/Manus/VMANUS/2009/jun/dfs_1906_6a_16/dfs_1906_6a_16_001/info.json"},
+    {"id": "p3-iiif-image-1024", "method": "GET", "url": "http://kb-images.kb.dk/online_master_arkiv_5/non-archival/Manus/VMANUS/2009/jun/dfs_1906_6a_16/dfs_1906_6a_16_001/full/!1024,/0/native.jpg"}
+  ]
+}
