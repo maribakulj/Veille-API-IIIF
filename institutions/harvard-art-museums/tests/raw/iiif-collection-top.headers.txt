@@ -1,0 +1,16 @@
+2026-11-14T01:54:06Z GET https://iiif.harvardartmuseums.org/collections/top
+HTTP 200
+access-control-allow-origin: *
+content-length: 632
+content-type: application/ld+json
+cross-origin-opener-policy: same-origin
+date: Sat, 14 Nov 2026 01:54:06 GMT
+nel: {"report_to":"heroku-nel","response_headers":["Via"],"max_age":3600,"success_fraction":0.01,"failure_fraction":0.1}
+referrer-policy: same-origin
+report-to: {"group":"heroku-nel","endpoints":[{"url":"https://nel.heroku.com/reports?s=MlRuWOHlLRwOVC6V7aXGgtVJ%2F6Bw%2FfaF338uwW%2BwBQw%3D\u0026sid=c46efe9b-d3d2-4a0c-8c76-bfafa16c5add\u0026ts=1794621246"}],"max_age":3600}
+reporting-endpoints: heroku-nel="https://nel.heroku.com/reports?s=MlRuWOHlLRwOVC6V7aXGgtVJ%2F6Bw%2FfaF338uwW%2BwBQw%3D&sid=c46efe9b-d3d2-4a0c-8c76-bfafa16c5add&ts=1794621246"
+server: Heroku
+vary: origin
+via: 1.1 heroku-router
+x-content-type-options: nosniff
+x-frame-options: DENY
