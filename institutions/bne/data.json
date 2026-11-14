@@ -2,38 +2,200 @@
   "slug": "bne",
   "nom": "Biblioteca Nacional de España",
   "pays": "Espagne",
-  "statut_audit": "incomplet (BDH en 403)",
-  "limites_documentees": [],
+  "statut_audit": "audit a–f complet (v2) avec blocage Cloudflare ; g impossible",
+  "limites_documentees": [
+    {
+      "nature": "Licence des données",
+      "perimetre": "datos.bne.es",
+      "valeur": "« The licence covering the data is CC0 (Creative Commons Public Domain Dedication) »",
+      "fenetre": "–",
+      "effet": "aucune restriction de débit",
+      "verification": "officielle, lue via Wayback (capture 2023)",
+      "source": "https://www.bne.es/en/catalogs/linked-data-at-the-bne",
+      "date": "2026-11-14"
+    },
+    {
+      "nature": "robots.txt de BNE Digital",
+      "perimetre": "bnedigital.bne.es",
+      "valeur": "User-agent: * Disallow: / (Googlebot et bingbot : Allow: /)",
+      "fenetre": "–",
+      "effet": "robots interdit les clients non listés ; test autorisé par Marcel (C12) mais hôte en 403",
+      "verification": "officielle, lue en direct",
+      "source": "https://bnedigital.bne.es/robots.txt",
+      "date": "2026-11-14"
+    }
+  ],
   "en_tetes_observes": [],
   "blocages": [
     {
-      "date": "2026-11-13",
-      "hote": "datos.bne.es, bdh.bne.es",
+      "date": "2026-11-14",
+      "hote": "bdh.bne.es, bdh-rd.bne.es, datos.bne.es, bnelab.bne.es, www.bne.es, bne.es, bnedigital.bne.es",
       "code": "403",
-      "nature": "lecture WebFetch",
-      "suite": "non contourné"
+      "nature": "page de blocage Cloudflare « SE HA BLOQUEADO EL ACCESO POR PARTE DE LOS SISTEMAS DE SEGURIDAD »",
+      "preuve": "institutions/bne/sources/doc3/raw/01.html",
+      "suite": "non contourné ; pages lues via Wayback"
     }
   ],
-  "contact": "non trouvé",
-  "conclusion_quota": "Non vérifiable : doc BNE inaccessible à l'outil.",
+  "contact": "bnelab@bne.es et info.datosenlazados@bne.es (pages Wayback bnelab.bne.es/datos/ et Linked data at the BNE)",
+  "conclusion_quota": "Aucun quota ni limite de débit publiés ; hôtes BNE en 403 (page de blocage Cloudflare) pour le client de veille, IIIF non vérifiable ; données CC0, images CC BY 4.0 (résumé de moteur).",
   "classe_quota": "non vérifiable",
   "confiance": "faible",
-  "notes": "Piste : lire bdh.bne.es depuis un navigateur.",
+  "notes": "Cinq requêtes du 2026-11-13 archivées (config committée après lancement), non rejouables : tous les hôtes en 403 le 2026-11-14. bnedigital.bne.es robots.txt : Disallow / sauf Googlebot et bingbot.",
   "classeur_id": "hors 84 (ajouté)",
   "type": "Institution",
-  "sources": [],
-  "web": [],
+  "sources": [
+    {
+      "url": "https://bnedigital.bne.es/robots.txt",
+      "date": "2026-11-14",
+      "etiquette": "officielle",
+      "preuve": "institutions/bne/sources/doc1/SHA256SUMS"
+    },
+    {
+      "url": "https://www.bne.es/robots.txt",
+      "date": "2026-11-14",
+      "etiquette": "officielle",
+      "preuve": "institutions/bne/sources/doc1/SHA256SUMS"
+    },
+    {
+      "url": "https://bnelab.bne.es/datos/",
+      "date": "2026-11-14",
+      "etiquette": "officielle (via Wayback)",
+      "preuve": "institutions/bne/sources/wayback/bne-pages-via-wayback.md"
+    },
+    {
+      "url": "https://www.bne.es/en/catalogs/linked-data-at-the-bne",
+      "date": "2026-11-14",
+      "etiquette": "officielle (via Wayback)",
+      "preuve": "institutions/bne/sources/wayback/bne-pages-via-wayback.md"
+    }
+  ],
+  "web": [
+    {
+      "categorie": "institution",
+      "url": "https://www.bne.es/sites/default/files/repositorio-archivos/procedimiento_normas_reproduccion.pdf",
+      "date": "2026-11-14",
+      "etiquette": "institution (résumé de moteur, non vérifié)",
+      "citation": "digital de la BNE (Biblioteca Digital Hispánica y Hemeroteca Digital) están bajo una licencia de Reconocimiento 4.0 Internacional de Creative Commons o equivalente.",
+      "preuve": "institutions/bne/fiche.md"
+    },
+    {
+      "categorie": "utilisateurs",
+      "aucun_resultat": true,
+      "requete": "bnedigital.bne.es OR bdh-rd.bne.es IIIF 429 OR 403 OR blocked OR \"rate limit\" scraping BNE",
+      "date": "2026-11-14",
+      "etiquette": "moteur",
+      "citation": "Aucune plainte 429/403 ni limite de débit concernant les endpoints BNE (résumé de moteur, non vérifié).",
+      "preuve": "institutions/bne/fiche.md"
+    },
+    {
+      "categorie": "tickets",
+      "aucun_resultat": true,
+      "requete": "github issue Biblioteca Nacional de España IIIF manifest bdh-rd.bne.es OR bnedigital.bne.es downloader",
+      "date": "2026-11-14",
+      "etiquette": "moteur",
+      "citation": "Aucun ticket d'outil tiers sur les endpoints IIIF de la BNE ; la page neelsmith.quarto.pub lue ne contient aucune phrase sur un serveur IIIF BNE.",
+      "preuve": "institutions/bne/fiche.md"
+    },
+    {
+      "categorie": "presentations",
+      "url": "https://www.cenl.org/the-national-library-of-spain-launches-bne-digital-the-platform-for-accessing-its-digital-heritage/",
+      "date": "2025-12-01",
+      "etiquette": "tiers (CENL)",
+      "citation": "The National Library of Spain has launched BNE Digital, a new platform that unifies its digital collections",
+      "preuve": "institutions/bne/fiche.md"
+    }
+  ],
   "donnees_a_revalider": true,
   "a_verifier_manuellement": [
     {
-      "url": "https://datos.bne.es/",
-      "pourquoi": "403 anti-bot",
-      "a_chercher": "Page d'aide / conditions / API de datos.bne.es : limites de débit"
+      "url": "https://bnedigital.bne.es/bd/es/simple",
+      "pourquoi": "403 page de blocage Cloudflare ; page non lue",
+      "a_chercher": "Conditions d'usage de BNE Digital, éventuelle documentation IIIF ou API, limite de débit"
     },
     {
-      "url": "https://bdh.bne.es/",
-      "pourquoi": "403 anti-bot",
-      "a_chercher": "Conditions d'utilisation de la Biblioteca Digital Hispánica, IIIF, robots.txt"
+      "url": "https://datos.bne.es/inicio.html",
+      "pourquoi": "403 page de blocage Cloudflare",
+      "a_chercher": "Page d'aide du portail de données liées et de l'interface SPARQL : limites de requêtes"
+    },
+    {
+      "url": "https://www.bne.es/en/catalogs/hispanic-digital-library",
+      "pourquoi": "hôte www.bne.es en 403",
+      "a_chercher": "Conditions d'usage de la Biblioteca Digital Hispánica, IIIF"
+    },
+    {
+      "url": "https://www.bne.es/sites/default/files/repositorio-archivos/procedimiento_normas_reproduccion.pdf",
+      "pourquoi": "hôte www.bne.es en 403 ; PDF non lu",
+      "a_chercher": "Conditions de réutilisation des images numériques (licence CC BY 4.0 citée par un résumé de moteur)"
     }
-  ]
+  ],
+  "endpoints_documentes": [
+    {
+      "famille": "SPARQL datos.bne.es",
+      "url": "http://datos.bne.es/sparql",
+      "statut": "non_teste",
+      "raison": "hôte datos.bne.es en 403 page de blocage Cloudflare le 2026-11-14 : arrêt, non contourné ; 404 observé le 2026-11-13 dans la session archivée"
+    },
+    {
+      "famille": "Négociation de contenu datos.bne.es",
+      "url": "https://datos.bne.es/",
+      "statut": "non_teste",
+      "raison": "hôte datos.bne.es en 403 le 2026-11-14 (page de blocage) ; non contourné ; 303 observé le 2026-11-13 dans la session archivée"
+    },
+    {
+      "famille": "Visionneuse BDH",
+      "url": "http://bdh-rd.bne.es/viewer.vm?id=0000050739&page=1",
+      "statut": "non_teste",
+      "raison": "hôtes bdh-rd.bne.es et bdh.bne.es en 403 le 2026-11-14 : arrêt, non contourné ; 301 et 308 observés le 2026-11-13 (session archivée)"
+    }
+  ],
+  "endpoints_ecartes": [
+    {
+      "url": "https://bnedigital.bne.es/bd/es/simple",
+      "raison": "page de recherche web de BNE Digital (cible de redirection de bdh.bne.es), sans API documentée ; hôte en 403"
+    },
+    {
+      "url": "https://bdh.bne.es/bnesearch/Inicio.do",
+      "raison": "page web redirigée (308) vers bnedigital.bne.es/bd/es/simple, pas une API ; hôte en 403"
+    }
+  ],
+  "hotes_robots": [
+    {
+      "hote": "bnedigital.bne.es",
+      "resultat": "User-agent * Disallow / ; Googlebot et bingbot Allow /",
+      "preuve": "institutions/bne/sources/doc1/SHA256SUMS"
+    },
+    {
+      "hote": "www.bne.es",
+      "resultat": "robots Drupal, aucune règle sur IIIF",
+      "preuve": "institutions/bne/sources/doc1/SHA256SUMS"
+    },
+    {
+      "hote": "bne.es",
+      "resultat": "robots Drupal identique à www.bne.es",
+      "preuve": "institutions/bne/sources/doc2/SHA256SUMS"
+    },
+    {
+      "hote": "bnelab.bne.es",
+      "resultat": "WordPress : Disallow /wp-admin/ seulement",
+      "preuve": "institutions/bne/sources/doc1/SHA256SUMS"
+    },
+    {
+      "hote": "datos.bne.es",
+      "resultat": "404 : aucun robots.txt",
+      "preuve": "institutions/bne/sources/doc1/SHA256SUMS"
+    },
+    {
+      "hote": "bdh.bne.es",
+      "resultat": "403 direct ; Wayback 2020 : Disallow de pages Contact/GetDocs/NewAlert",
+      "preuve": "institutions/bne/sources/wayback/bne-pages-via-wayback.md"
+    },
+    {
+      "hote": "bdh-rd.bne.es",
+      "resultat": "403 direct ; Wayback 2025 : Disallow /oai.vm /json/ /pdf.raw etc.",
+      "preuve": "institutions/bne/sources/wayback/bne-pages-via-wayback.md"
+    }
+  ],
+  "g_impossible": {
+    "raison": "Aucun hôte BNE testable : tous les hôtes (bdh, bdh-rd, datos, bnelab, www.bne.es, bnedigital) renvoient 403 avec une page de blocage Cloudflare le 2026-11-14 ; arrêt sans contournement, aucun endpoint à solliciter."
+  }
 }

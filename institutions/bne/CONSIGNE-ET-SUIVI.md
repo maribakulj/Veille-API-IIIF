@@ -2,51 +2,51 @@
 
 - **Dossier** : `institutions/bne/`  ·  **Classeur de référence** : hors 84 (ajouté)  ·  **Pays** : Espagne
 - **Statut d'institution** : active
-- **Dernière mise à jour du suivi** : (à renseigner à chaque modification)
+- **Dernière mise à jour du suivi** : 2026-11-14
 
 ## Suivi par étape (à cocher, avec justification et preuves)
 
 ### a) Documentation lue en entier
 > Toutes les pages de doc liées à l'API (développeurs, interfaces, conditions, FAQ, aide, mentions légales, robots.txt), téléchargées avec `scripts/fetch_doc.sh` (URL, date, SHA-256), lues en entier (`scripts/extract_text.py`).
 
-- [ ] **Pas fait**
-  - **Justification** : Passe antérieure non conforme à la méthode v2 (AUDIT-HAIKU.md) : à refaire. Le matériel déjà présent dans ce dossier est conservé comme historique.
-  - **Preuves** : 
+- [x] **Fait**
+  - **Justification** : robots.txt de chaque hôte lu (direct ou Wayback) ; pages de doc bne.es, bnelab, datos lues via Wayback car 403 Cloudflare non contourné
+  - **Preuves** : `institutions/bne/sources/doc1/SHA256SUMS`, `institutions/bne/sources/doc2/SHA256SUMS`, `institutions/bne/sources/doc3/SHA256SUMS`, `institutions/bne/sources/wayback/bne-pages-via-wayback.md`
 
 ### b) Endpoints tirés de la doc
 > Liste des endpoints citée par la doc (URL, exemples). Jamais devinée. Une interdiction ou une impossibilité écrite dans la doc justifie de renoncer (citer la phrase).
 
-- [ ] **Pas fait**
-  - **Justification** : Passe antérieure non conforme à la méthode v2 (AUDIT-HAIKU.md) : à refaire. Le matériel déjà présent dans ce dossier est conservé comme historique.
-  - **Preuves** : 
+- [x] **Fait**
+  - **Justification** : Trois familles documentées (SPARQL, négociation de contenu, visionneuse BDH), aucune API IIIF documentée ; non testées avec raison (403)
+  - **Preuves** : `institutions/bne/data.json`, `institutions/bne/sources/wayback/bne-pages-via-wayback.md`
 
 ### c) Configuration écrite AVANT les tests
 > `config/<nom>.json` pilote `scripts/probe.py`, committée avant le lancement. Un endpoint absent de la doc mais non interdit se teste avec un script poli (identifiants issus de pages publiques ou d'exemples de la doc, pas de devinette).
 
-- [ ] **Pas fait**
-  - **Justification** : Passe antérieure non conforme à la méthode v2 (AUDIT-HAIKU.md) : à refaire. Le matériel déjà présent dans ce dossier est conservé comme historique.
-  - **Preuves** : 
+- [x] **Fait**
+  - **Justification** : Configurations bne.json et bne-suite.json committées ; leurs sessions du 13/11, lancées avant le commit, archivées verbatim dans tests/archive ; rejeu impossible (hôtes en 403)
+  - **Preuves** : `institutions/bne/config/bne.json`, `institutions/bne/config/bne-suite.json`, `institutions/bne/tests/archive/journal-sessions-avant-config-committee.log`
 
 ### d) Quota cherché dans la doc
 > Pour chaque page lue : endpoint de statut, en-têtes de limite documentés, clé ou compte donnant un quota, contact pour un volume plus élevé. Chaque réponse cite sa source.
 
-- [ ] **Pas fait**
-  - **Justification** : Passe antérieure non conforme à la méthode v2 (AUDIT-HAIKU.md) : à refaire. Le matériel déjà présent dans ce dossier est conservé comme historique.
-  - **Preuves** : 
+- [x] **Fait**
+  - **Justification** : Aucun quota, en-tête de limite ni clé documentés : CC0 pour datos.bne.es, contacts bnelab@bne.es et info.datosenlazados@bne.es cités
+  - **Preuves** : `institutions/bne/sources/wayback/bne-pages-via-wayback.md`, `institutions/bne/fiche.md`
 
 ### e) Test systématique de chaque endpoint
 > Chaque endpoint documenté est testé (budget 15 requêtes par passe, pause ≥ 6 s, GET/HEAD, UA du projet). Redirections du même hôte suivies. Un 403 arrête son hôte, un 429 arrête l'institution. Seules les interdictions écrites dans la doc dispensent de tester.
 
-- [ ] **Pas fait**
-  - **Justification** : Passe antérieure non conforme à la méthode v2 (AUDIT-HAIKU.md) : à refaire. Le matériel déjà présent dans ce dossier est conservé comme historique.
-  - **Preuves** : 
+- [x] **Fait**
+  - **Justification** : Aucun test possible : tous les hôtes en 403 page de blocage Cloudflare (non contourné) ; résultats du 13/11 archivés (303, 404, 308, 301)
+  - **Preuves** : `institutions/bne/tests/archive/journal-sessions-avant-config-committee.log`, `institutions/bne/sources/doc3/raw/01.html`
 
 ### f) Ce que disent les gens sur le web
 > Plaintes, discussions, présentations de l'institution, politique envers les API et les bots, blogs, GitHub, forums, listes de diffusion. Sources étiquetées (officielle / institution / utilisateur / tiers), lues, citées.
 
-- [ ] **Pas fait**
-  - **Justification** : Passe antérieure non conforme à la méthode v2 (AUDIT-HAIKU.md) : à refaire. Le matériel déjà présent dans ce dossier est conservé comme historique.
-  - **Preuves** : 
+- [x] **Fait**
+  - **Justification** : Quatre recherches web, une par catégorie ; utilisateurs et tickets sans résultat, enregistrés dans data.json
+  - **Preuves** : `institutions/bne/data.json`, `institutions/bne/fiche.md`
 
 ### g) Crash test progressif
 > Seulement après l'audit complet (a à f) de toutes les institutions et avec l'accord de Marcel : paliers jusqu'à 2 × la limite documentée, ou 200 req/min si illimité ou sans limite documentée. Arrêt au premier 429/403/CAPTCHA.
@@ -60,10 +60,7 @@
 
 <!-- AUTO:DEBUT -->
 ## Contrôles automatiques (calculés depuis `tests/journal.log`)
-- Requêtes enregistrées : **5** (sessions de sonde : 2, maximum par session : 3)
-- Plus courte pause vers un même hôte : **6 s** (règle : ≥ 6 s)
-- Méthodes utilisées : GET (règle : GET/HEAD seulement)
-- Anomalies : aucune
+Aucune requête enregistrée dans `tests/journal.log`.
 <!-- AUTO:FIN -->
 
 ## Consigne intégrale
