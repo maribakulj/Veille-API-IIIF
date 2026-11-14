@@ -1,0 +1,20 @@
+{
+  "slug": "loc",
+  "min_delay_s": 12,
+  "max_requests": 15,
+  "follow_redirects": 1,
+  "robots_disallow_autorise_par_marcel": true,
+  "note": "passe 4 : Linked Data Service id.loc.gov (doc sources/doc19 et doc45 : Technical Center ; robots.txt Crawl-delay: 3, sources/doc43). URL d'exemples de la doc : concept .json et flux ActivityStreams. Pause 12 s.",
+  "endpoints": [
+    {
+      "id": "id-concept-json",
+      "method": "GET",
+      "url": "https://id.loc.gov/authorities/subjects/sh2021004022.json"
+    },
+    {
+      "id": "id-activitystream",
+      "method": "GET",
+      "url": "https://id.loc.gov/authorities/subjects/activitystreams/feed/1"
+    }
+  ]
+}

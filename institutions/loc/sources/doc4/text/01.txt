@@ -1,0 +1,148 @@
+Dynamic Examples | JSON/YAML for LoC.gov | APIs at the Library of Congress | Library of Congress
+ Loading... 
+ Top of page
+ Skip to main content
+ Library of Congress 
+ Everything 
+ Audio Recordings
+ Books/Printed Material
+ Films, Videos
+ Legislation
+ Manuscripts/Mixed Material
+ Maps
+ Notated Music
+ Newspapers
+ Periodicals
+ Personal Narratives
+ Photos, Prints, Drawings
+ Software, E-Resources
+ Web Archives
+ Web Pages
+ 3D Objects
+ APIs at the Library of Congress
+ Search 
+ Toggle Search 
+ Global Menu 
+ Discover
+ Services
+ Visit
+ Education
+ Connect
+ About
+ Ask a Librarian
+ Help
+ Contact
+ Search Online Catalog
+ Copyright.gov
+ Congress.gov
+ Library of Congress 
+ More 
+ APIs at the Library of Congress 
+ JSON/YAML for LoC.gov 
+ Dynamic Examples
+ Share
+ Copied!
+ Error copying link to clipboard.
+ Services
+ APIs at the Library of Congress
+ Menu 
+ APIs for LoC.gov
+ JSON/YAML for LoC.gov
+ JSON/YAML for LoC.gov
+ Making API Requests
+ API Endpoints
+ API Request Parameters
+ Understanding API Responses
+ Search Results Responses
+ Item and Resource Responses
+ Working Within Limits
+ Dynamic Examples
+ Sitemaps
+ Microservices
+ Microservices
+ Text Services
+ Image Services
+ Streaming Services
+ Additional APIs and Data Services
+ Additional APIs and Data Services
+ Congress.gov API
+ NLS BARD API
+ Chronicling America
+ PPOC - JSON HTTP API
+ Linked Data Service
+ Search/Retrieval via URL
+ Contact
+ Dynamic Examples
+ Dynamic examples of using the JSON/YAML API for loc.gov
+ On Monday, June 30, 2025, the Library of Congress launched a new online catalog platform. For general information, visit the Catalog Welcome Page . Updates are being restored incrementally to data available through the loc.gov JSON/YAML API, sitemaps, and various microservices. Data from these services are not fully synced to data from the catalog.
+ Dynamic Examples 
+ This page can be used to see what loc.gov API queries and their responses
+ will look like in real time. The examples are pre-populated with common
+ search terms, but feel free to try other search terms that interest you.
+ If you are confused by what you see, use the
+ Understanding API Responses page as a guide
+ to the structure and meaning of the API response.
+ /search/ 
+ Parameter
+ Description
+ Output format
+ q
+ The search term
+ JSON  
+ YAML 
+ execute 
+ URL: 
+ /collections/{name of collection}/ 
+ Parameter
+ Description
+ Output format
+ name of collection
+ The title of the LOC collection in slug form
+ JSON  
+ YAML 
+ execute 
+ URL: 
+ /{format}/ 
+ Parameter
+ Description
+ Output format
+ format
+ returns items which have a specified original format
+ JSON  
+ YAML 
+ execute 
+ URL: 
+ /item/{id}/ 
+ Parameter
+ Description
+ Output format
+ id
+ the identifier for an item
+ JSON  
+ YAML 
+ execute 
+ URL: 
+ /resource/{id}/ 
+ Parameter
+ Description
+ Output format
+ id
+ the identifier for an item
+ JSON  
+ YAML 
+ execute 
+ URL: 
+ Back to top
+ Follow Us 
+ Take our survey 
+ Accessibility 
+ Legal 
+ Inspector General 
+ External Link Disclaimer 
+ USA.gov 
+ Contact 
+ Media 
+ Donate 
+ Shop 
+ Opens in new window 
+ Download
