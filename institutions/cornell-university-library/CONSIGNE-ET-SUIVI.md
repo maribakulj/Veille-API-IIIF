@@ -311,4 +311,7 @@ hôte déjà bloqué en 403 anti-bot.
 
 ## Étape f — minimum exigé (décision du 14/11/2026, après remarque de Marcel)
 Au moins **4 recherches web par institution**, une par catégorie : (1) politique/doc de l'institution sur API, bots, moissonnage ; (2) plaintes ou retours d'utilisateurs (429, 503, blocages, forums, listes iiif-discuss) ; (3) tickets GitHub/GitLab d'outils tiers qui l'interrogent ; (4) présentations, billets de blog ou articles de l'institution. Chaque piste utile est **lue dans l'original** quand c'est possible (résumé de moteur = indice seulement) et étiquetée (officielle / institution / utilisateur / tiers). Les catégories sans résultat sont notées « aucun résultat ».
+
+## Exigence v3 : contrôlée par le commit (14/11/2026)
+`scripts/suivi.py validate` refuse de laisser cochée l'étape f d'une institution tant que `data.json` ne contient pas : (1) `web` couvrant les 4 catégories (`institution`, `utilisateurs`, `tickets`, `presentations`) avec soit une URL lue, soit `aucun_resultat` + `requete` ; (2) `endpoints_documentes` : une ligne par famille d'API, `statut` `teste` (preuve existante) ou `non_teste` (raison ≥ 30 caractères) ; (3) `hotes_robots` : un robots.txt lu, avec preuve, pour **chaque hôte** contacté par les configurations. Les institutions faites avant cette règle sont listées dans `data/exigence_ancienne.txt` ; l'onglet « Couverture » de `BENCHMARK.xlsx` montre leurs manques (« à compléter ») ; on les retire de la liste une fois complétées.
 <!-- CONSIGNE:FIN -->

@@ -279,6 +279,24 @@ def feuille_manuel(wb, D):
     ws.auto_filter.ref = f"A1:G{max(len(lignes), 1) + 1}"
 
 
+def feuille_couverture(wb, D):
+    """Contrôle automatique des critères mesurables (exigence v3) pour chaque institution."""
+    ws = wb.create_sheet("Couverture")
+    entete(ws, 1, ["Institution", "GLAM", "Étapes a–f cochées", "Exigence v3", "Manques (à compléter)"], [34, 11, 18, 18, 110])
+    anc = suivi.anciennes()
+    lignes = []
+    for d in D:
+        etapes = (suivi.lire_suivi(d["slug"]) or ("", {}))[1]
+        cochees = sum(1 for c in "abcdef" if etapes.get(c, (" ",))[0] == "x")
+        if cochees < 6:
+            continue
+        manques = suivi.controle_v3(d["slug"], d)
+        lignes.append([d.get("nom", d["slug"]), d.get("classeur_id"), f"{cochees}/6",
+                       "conforme" if not manques else ("à compléter (ancienne)" if d["slug"] in anc else "NON CONFORME"),
+                       "\n".join(manques)])
+    ecrire(ws, 2, lignes or [["(aucune)"] + [""] * 4])
+
+
 def feuille_sources(wb, D):
     ws = wb.create_sheet("Sources")
     entete(ws, 1, ["Institution", "URL", "Date de lecture", "Étiquette", "Preuve (fichier)", "Preuve présente ?"],
@@ -336,6 +354,7 @@ def main():
     feuille_entetes(wb, D)
     feuille_blocages(wb, D)
     feuille_manuel(wb, D)
+    feuille_couverture(wb, D)
     feuille_sources(wb, D)
     feuille_web(wb, D)
     feuille_preuves(wb, D)

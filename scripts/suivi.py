@@ -218,6 +218,52 @@ def lire_suivi(slug):
     return (statut.group(1) if statut else "active"), out
 
 
+CATEGORIES_WEB = ("institution", "utilisateurs", "tickets", "presentations")
+ANCIENNES = REPO / "data" / "exigence_ancienne.txt"
+
+
+def anciennes():
+    return set(ANCIENNES.read_text(encoding="utf-8").split()) if ANCIENNES.exists() else set()
+
+
+def controle_v3(slug, d):
+    """Critères mesurables (exigence v3, 14/11/2026) : retourne la liste des manques."""
+    m = []
+    cats = {w.get("categorie") for w in d.get("web", []) if w.get("categorie") in CATEGORIES_WEB
+            and (w.get("url") or (w.get("aucun_resultat") and w.get("requete")))}
+    if len(cats) < 4:
+        m.append(f"web : {len(cats)}/4 catégories ({', '.join(sorted(set(CATEGORIES_WEB) - cats))} manquantes ; "
+                 "champ « categorie » + url, ou aucun_resultat + requete)")
+    eps = d.get("endpoints_documentes", [])
+    if not eps:
+        m.append("endpoints_documentes vide (une ligne par famille d'API : statut teste/non_teste, preuve ou raison)")
+    for e in eps:
+        if e.get("statut") == "teste":
+            if not (e.get("preuve") and (REPO / e["preuve"]).exists()):
+                m.append(f"endpoint « {e.get('famille')} » testé sans preuve existante")
+        elif e.get("statut") == "non_teste":
+            if len(e.get("raison", "")) < 30:
+                m.append(f"endpoint « {e.get('famille')} » non testé sans raison suffisante")
+        else:
+            m.append(f"endpoint « {e.get('famille')} » sans statut teste/non_teste")
+    hotes = {h.get("hote"): h for h in d.get("hotes_robots", [])}
+    if not hotes:
+        m.append("hotes_robots vide (un robots.txt lu par hôte contacté)")
+    for h in hotes.values():
+        if not (h.get("preuve") and (REPO / h["preuve"]).exists()):
+            m.append(f"robots.txt de {h.get('hote')} sans preuve existante")
+    for f in sorted((INST / slug / "config").glob("*.json")):
+        try:
+            cfg = json.loads(f.read_text(encoding="utf-8"))
+        except ValueError:
+            continue
+        for ep in cfg.get("endpoints", []):
+            h = re.sub(r"^https?://([^/]+)/.*$", r"\1", ep.get("url", ""))
+            if h and h not in hotes:
+                m.append(f"hôte {h} contacté (config {f.name}) sans entrée hotes_robots")
+    return sorted(set(m))
+
+
 def cmd_validate():
     erreurs = []
     for slug in slugs():
@@ -247,6 +293,9 @@ def cmd_validate():
             elif etat == "~":
                 if statut not in ("écartée", "abandonnée"):
                     erreurs.append(f"{slug}: étape {code}) « sans objet » réservé aux institutions écartées ou abandonnées")
+        if statut == "active" and etapes.get("f", (" ",))[0] == "x" and slug not in anciennes():
+            for manque in controle_v3(slug, lire_data(slug)):
+                erreurs.append(f"{slug}: exigence v3 : {manque}")
         if statut == "active" and etapes.get("g", (" ",))[0] == "x" and any(etapes.get(c, (" ",))[0] != "x" for c in "abcdef"):
             erreurs.append(f"{slug}: crash test (g) coché avant l'audit complet (a à f)")
         for a in analyser_journal(slug)["anomalies"]:

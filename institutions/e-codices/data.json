@@ -62,20 +62,41 @@
       "date": "2026-11-14",
       "etiquette": "utilisateur/tiers, non vérifié (résumé de moteur)",
       "citation": "un vérificateur de liens enregistre des 503 et délais dépassés sur les pages de recherche e-codices.",
-      "preuve": "institutions/e-codices/fiche.md"
+      "preuve": "institutions/e-codices/fiche.md",
+      "categorie": "utilisateurs"
     },
     {
       "url": "https://github.com/Antonio-Faure/mnemosyne/pull/36",
       "date": "2026-11-14",
       "etiquette": "tiers",
       "citation": "connecteur collection-based : collection.json puis manifestes par manuscrit ; aucune limite citée.",
-      "preuve": "institutions/e-codices/fiche.md"
+      "preuve": "institutions/e-codices/fiche.md",
+      "categorie": "tickets"
     },
     {
       "url": "https://github.com/Embassy-of-the-Free-Mind/sourcelibrary-v2/issues/1426",
       "date": "2026-11-14",
       "etiquette": "tiers",
       "citation": "collection.json à la racine, environ 2 800 manuscrits ; aucune limite citée.",
+      "preuve": "institutions/e-codices/fiche.md",
+      "categorie": "tickets"
+    },
+    {
+      "categorie": "institution",
+      "aucun_resultat": true,
+      "requete": "e-codices unifr IIIF OAI harvesting bots crawler rate limit robots terms of use",
+      "date": "2026-11-14",
+      "etiquette": "–",
+      "citation": "aucune politique de bots ou de débit de l'institution trouvée hors des conditions d'utilisation déjà lues",
+      "preuve": "institutions/e-codices/fiche.md"
+    },
+    {
+      "categorie": "presentations",
+      "aucun_resultat": true,
+      "requete": "e-codices presentation IIIF server infrastructure traffic AI crawlers CeCH text & bytes",
+      "date": "2026-11-14",
+      "etiquette": "–",
+      "citation": "aucune présentation ni billet sur l'infrastructure ou le trafic trouvé",
       "preuve": "institutions/e-codices/fiche.md"
     }
   ],
@@ -85,6 +106,61 @@
       "url": "https://www.e-codices.unifr.ch/en/about/contact",
       "pourquoi": "lue ; aucune règle de débit",
       "a_chercher": "Demander par e-mail à e-codices s'il existe une limite non publiée pour le moissonnage IIIF/OAI"
+    }
+  ],
+  "endpoints_documentes": [
+    {
+      "famille": "OAI-PMH Dublin Core (4 langues)",
+      "url": "https://e-codices.ch/oai/en/oai.php?verb=Identify",
+      "statut": "teste",
+      "preuve": "institutions/e-codices/tests/raw/oai-en-identify.headers.txt"
+    },
+    {
+      "famille": "OAI ListMetadataFormats / ListSets",
+      "url": "https://e-codices.ch/oai/en/oai.php?verb=ListSets",
+      "statut": "teste",
+      "preuve": "institutions/e-codices/tests/raw/oai-en-listsets.headers.txt"
+    },
+    {
+      "famille": "OAI ListRecords / GetRecord",
+      "url": "https://e-codices.ch/oai/en/oai.php?verb=ListRecords",
+      "statut": "non_teste",
+      "raison": "ListRecords est volumineux ; aucun exemple d'identifiant de notice dans la doc ; le fonctionnement du protocole est prouvé par Identify, ListMetadataFormats et ListSets"
+    },
+    {
+      "famille": "IIIF Presentation : manifeste",
+      "url": "https://www.e-codices.unifr.ch/metadata/iiif/fmb-cb-0100/manifest.json",
+      "statut": "teste",
+      "preuve": "institutions/e-codices/tests/raw/manifeste-fmb-cb-0100.headers.txt"
+    },
+    {
+      "famille": "IIIF Presentation : collection",
+      "url": "https://www.e-codices.unifr.ch/metadata/iiif/collection/ubb.json",
+      "statut": "teste",
+      "preuve": "institutions/e-codices/tests/raw/collection-ubb.headers.txt"
+    },
+    {
+      "famille": "IIIF Image : info.json et dérivé",
+      "url": "https://media.e-codices.ch/iip/fmb/fmb-cb-0100/fmb-cb-0100_e001.jp2/info.json",
+      "statut": "teste",
+      "preuve": "institutions/e-codices/tests/raw/media-info-json.headers.txt"
+    }
+  ],
+  "hotes_robots": [
+    {
+      "hote": "www.e-codices.unifr.ch",
+      "resultat": "Disallow vide : tout autorisé",
+      "preuve": "institutions/e-codices/sources/v2/SHA256SUMS"
+    },
+    {
+      "hote": "e-codices.ch",
+      "resultat": "Disallow vide : tout autorisé",
+      "preuve": "institutions/e-codices/sources/b/SHA256SUMS"
+    },
+    {
+      "hote": "media.e-codices.ch",
+      "resultat": "Disallow vide : tout autorisé",
+      "preuve": "institutions/e-codices/sources/c/SHA256SUMS"
     }
   ]
 }
