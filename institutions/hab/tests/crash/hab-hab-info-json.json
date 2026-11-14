@@ -1,0 +1,53 @@
+{
+  "slug": "hab",
+  "hote": "iiif.hab.de",
+  "reseaux": [],
+  "plafond_req_min": 200,
+  "endpoint": "hab-info-json",
+  "limite_documentee_req_min": null,
+  "paliers": [
+    {
+      "palier_req_min": 6,
+      "requetes": 18,
+      "debit_reel_req_min": 6.3,
+      "codes": {
+        "200": 18
+      },
+      "latence_p50_s": 0.141,
+      "latence_max_s": 0.294
+    },
+    {
+      "palier_req_min": 10,
+      "requetes": 30,
+      "debit_reel_req_min": 10.3,
+      "codes": {
+        "200": 30
+      },
+      "latence_p50_s": 0.147,
+      "latence_max_s": 0.307
+    },
+    {
+      "palier_req_min": 50,
+      "requetes": 150,
+      "debit_reel_req_min": 50.3,
+      "codes": {
+        "200": 150
+      },
+      "latence_p50_s": 0.146,
+      "latence_max_s": 0.73
+    },
+    {
+      "palier_req_min": 200,
+      "requetes": 600,
+      "debit_reel_req_min": 200.1,
+      "codes": {
+        "200": 599,
+        "None": 1
+      },
+      "latence_p50_s": 0.143,
+      "latence_max_s": 20.037
+    }
+  ],
+  "arret": null,
+  "conclusion": "aucun blocage jusqu'à 200 req/min"
+}

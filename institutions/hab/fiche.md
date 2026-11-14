@@ -37,3 +37,8 @@ Aucun 429, aucun en-tête `Retry-After`/`RateLimit-*`. Les URL IIIF ne viennent 
 
 ## Conclusion
 Aucune limite documentée, aucune observée sur une vingtaine de requêtes réparties sur 7 hôtes (oai.hab.de, diglib.hab.de, hab.bodleian.ox.ac.uk, iiif.hab.de, iiif.bodleian.ox.ac.uk, portraits.hab.de). Hypothèse non vérifiée : l'absence de règle chiffrée traduit une absence de politique plutôt qu'une absence de limite ; le 403 d'image.hab.de reste à élucider auprès de auskunft@hab.de.
+
+## Crash test (étape g)
+
+Crash test fait le 2026-11-14 : hab-info-json sur iiif.hab.de : aucun blocage jusqu'à 200 req/min (plafond 200 req/min).
+Journal : `tests/crash/hab.log`. Un test « sans blocage » n'est pas une preuve d'illimitation au-delà du plafond.

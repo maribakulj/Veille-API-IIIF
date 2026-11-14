@@ -1,0 +1,9 @@
+# Crash test 2026-11-14T07:45:08Z — configuration crash-iiif-info-json.json — endpoint hab-info-json GET https://iiif.hab.de/object/mss_35-helmst/image/image_00001/info.json
+# réseau détecté : aucun réseau à réputation partagée connu ; plafond standard 200 req/min (décision de Marcel 14/11/2026) ; requête de détection : 200 en 0.18 s
+# limite documentée : aucune req/min (aucune limite de débit documentée (http://diglib.hab.de/nutzungshinweise.html : seulement licences et mentions)) ; paliers [6, 10, 50, 200] ; plafond 200 req/min ; 180 s par palier
+2026-11-14T07:47:58Z | palier 6 req/min | {"palier_req_min": 6, "requetes": 18, "debit_reel_req_min": 6.3, "codes": {"200": 18}, "latence_p50_s": 0.141, "latence_max_s": 0.294}
+2026-11-14T07:50:52Z | palier 10 req/min | {"palier_req_min": 10, "requetes": 30, "debit_reel_req_min": 10.3, "codes": {"200": 30}, "latence_p50_s": 0.147, "latence_max_s": 0.307}
+2026-11-14T07:53:51Z | palier 50 req/min | {"palier_req_min": 50, "requetes": 150, "debit_reel_req_min": 50.3, "codes": {"200": 150}, "latence_p50_s": 0.146, "latence_max_s": 0.73}
+2026-11-14T07:56:51Z | palier 200 req/min | {"palier_req_min": 200, "requetes": 600, "debit_reel_req_min": 200.1, "codes": {"200": 599, "None": 1}, "latence_p50_s": 0.143, "latence_max_s": 20.037}
+# Fin 2026-11-14T07:56:51Z — aucun blocage jusqu'à 200 req/min
+
