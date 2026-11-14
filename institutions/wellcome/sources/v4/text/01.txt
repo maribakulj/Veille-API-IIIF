@@ -1,0 +1,1479 @@
+Catalogue API | Developers | Wellcome Collection 
+ Skip to main content 
+ Developers API Reference Catalogue 
+ IIIF 
+ Content 
+ GitHub 
+ Works get /works 
+ get /works/{id} 
+ Images get /images 
+ get /images/{id} 
+ Concepts get /concepts 
+ get /concepts/{id} 
+ API docs by Redocly 
+ Catalogue ( v2 ) 
+ Download OpenAPI specification : Download 
+ Search our collections.
+ The Catalogue API exposes Wellcome Collection's catalogue of works, the images
+derived from them, and the concepts used to describe them.
+ Unrecognised query parameters are ignored rather than rejected, so a misspelled
+filter silently returns unfiltered results. Check your parameter names against
+this document.
+ Works
+ Individual works: books, archives, pictures, and groupings of them.
+ /works 
+ Returns a paginated list of works
+ query Parameters
+ query string 
+ Full-text search query
+ include Array of strings 
+ Items Enum : "identifiers" "items" "holdings" "subjects" "genres" "contributors" "production" "languages" "archive" "collection" "notes" "formerFrequency" "designation" "images" "parts" "partOf" 
+ A comma-separated list of extra fields to include
+ aggregations Array of strings 
+ Items Enum : "workType" "genres.label" "genres" "production.dates" "subjects.label" "subjects" "languages" "archive.category" "collection.root" "contributors.agent.label" "contributors.agent" "items.locations.license" "items.locations.accessConditions.method" "availabilities" 
+ What aggregated data in correlation to the results should we return.
+ The id-based variants ( genres , subjects , contributors.agent ) are returned
+under the same response key as their label-based counterparts
+( genres.label , subjects.label , contributors.agent.label ); requesting the
+id variant populates the id field of each bucket's data .
+ sort Array of strings 
+ Items Enum : "production.dates" "items.locations.createdDate" "collectionPath" 
+ Which field to sort the results on
+ sortOrder string 
+ Default: "asc" 
+ Enum : "asc" "desc" 
+ The order in which to return the results
+ page integer < int64 > >= 1 
+ Default: 1 
+ The page to return from the result list
+ pageSize integer < int64 > [ 1 .. 100 ] 
+ Default: 10 
+ The number of results to return per page
+ items.locations.accessConditions.status Array of strings 
+ Items Enum : "open" "open-with-advisory" "restricted" "closed" "licensed-resources" "unavailable" "permission-required" 
+ Filter by the access status of items on the retrieved works. A comma-separated
+list of AccessStatus ids. Prefix a value with ! to exclude it instead, e.g.
+ !closed .
+ workType string 
+ Filter by the format of the searched works. A comma-separated list of Format ids, e.g. a,k .
+ type string 
+ Enum : "Collection" "Series" "Section" 
+ Filter by the type of the searched works
+ languages string 
+ Filter by language. A comma-separated list of ISO 639-2 language ids.
+ archive.category string 
+ Filter by the category of archive a work belongs to. A comma-separated list of ArchiveCategory ids, e.g. PP,SA .
+ collection.root string 
+ Filter by the collection a work belongs to. A comma-separated list of work ids.
+ collection.isRoot boolean 
+ Filter by whether a work is the root of a collection. Note that
+ collection.isRoot=false matches every work which is not a collection
+root, including the majority which do not belong to a collection at all.
+ genres.label string 
+ Filter by genre label. A comma-separated list of labels.
+ genres string 
+ Filter by genre id. A comma-separated list of concept ids.
+ subjects.label string 
+ Filter by subject label. A comma-separated list of labels.
+ subjects string 
+ Filter by subject id. A comma-separated list of concept ids.
+ contributors.agent.label string 
+ Filter by contributor label. A comma-separated list of labels.
+ contributors.agent string 
+ Filter by contributor id. A comma-separated list of concept ids.
+ identifiers string 
+ Filter by identifier value. A comma-separated list of identifiers.
+ availabilities string 
+ Filter by availability. A comma-separated list of Availability ids, e.g. online,open-shelves .
+ partOf string 
+ Filter by the id of an ancestor work.
+ partOf.title string 
+ Filter by the title of an ancestor work.
+ items string 
+ Filter by item id. A comma-separated list of item ids.
+ items.identifiers string 
+ Filter by item identifier value. A comma-separated list of identifiers.
+ items.locations.locationType string 
+ Filter by the LocationType of items on the retrieved works. A comma-separated list of LocationType ids.
+ items.locations.license string 
+ Filter by the license of items on the retrieved works. A comma-separated list of License ids.
+ items.locations.accessConditions.method Array of strings 
+ Items Enum : "online-request" "manual-request" "not-requestable" "view-online" "open-shelves" 
+ Filter by the access method of items on the retrieved works. A comma-separated
+list of AccessMethod ids, e.g. online-request,view-online .
+ production.dates.from string < date > 
+ Return works produced on or after this date, in YYYY-MM-DD format.
+ production.dates.to string < date > 
+ Return works produced on or before this date, in YYYY-MM-DD format.
+ items.locations.createdDate.from string < date > 
+ Return works with an item location created on or after this date, in YYYY-MM-DD format.
+ items.locations.createdDate.to string < date > 
+ Return works with an item location created on or before this date, in YYYY-MM-DD format.
+ Responses
+ 200 The works
+ 400 Bad Request Error
+ 500 Internal Server Error
+ 503 Service Unavailable Error
+ get /works 
+ https://api.wellcomecollection.org/catalogue/v2 /works
+ Response samples 
+ 200
+ 400
+ 500
+ 503
+ Content type application/json
+ Copy
+ Expand all Collapse all 
+ { "type" : "ResultList" , 
+ "pageSize" : 0 , 
+ "totalPages" : 0 , 
+ "totalResults" : 0 , 
+ "results" : [ { "id" : "string" , 
+ "title" : "string" , 
+ "alternativeTitles" : [ "string" 
+ ] , 
+ "referenceNumber" : "string" , 
+ "description" : "string" , 
+ "shortDescription" : "string" , 
+ "physicalDescription" : "string" , 
+ "workType" : { "id" : "string" , 
+ "label" : "string" , 
+ "type" : "string" 
+ } , 
+ "lettering" : "string" , 
+ "createdDate" : { "label" : "string" , 
+ "type" : "string" 
+ } , 
+ "contributors" : [ { "agent" : { "id" : "string" , 
+ "label" : "string" , 
+ "identifiers" : [ { "identifierType" : { "id" : "string" , 
+ "label" : "string" , 
+ "type" : "string" 
+ } , 
+ "value" : "string" , 
+ "type" : "string" 
+ } 
+ ] , 
+ "type" : "Agent" 
+ } , 
+ "roles" : [ { "label" : "string" , 
+ "type" : "string" 
+ } 
+ ] , 
+ "primary" : true , 
+ "type" : "string" 
+ } 
+ ] , 
+ "identifiers" : [ { "identifierType" : { "id" : "string" , 
+ "label" : "string" , 
+ "type" : "string" 
+ } , 
+ "value" : "string" , 
+ "type" : "string" 
+ } 
+ ] , 
+ "subjects" : [ { "id" : "string" , 
+ "identifiers" : [ { "identifierType" : { "id" : "string" , 
+ "label" : "string" , 
+ "type" : "string" 
+ } , 
+ "value" : "string" , 
+ "type" : "string" 
+ } 
+ ] , 
+ "label" : "string" , 
+ "concepts" : [ { "id" : "string" , 
+ "label" : "string" , 
+ "identifiers" : [ { "identifierType" : { "id" : null , 
+ "label" : null , 
+ "type" : null 
+ } , 
+ "value" : "string" , 
+ "type" : "string" 
+ } 
+ ] , 
+ "type" : "Agent" 
+ } 
+ ] , 
+ "type" : "string" 
+ } 
+ ] , 
+ "genres" : [ { "label" : "string" , 
+ "concepts" : [ { "id" : "string" , 
+ "label" : "string" , 
+ "identifiers" : [ { "identifierType" : { "id" : null , 
+ "label" : null , 
+ "type" : null 
+ } , 
+ "value" : "string" , 
+ "type" : "string" 
+ } 
+ ] , 
+ "type" : "Agent" 
+ } 
+ ] , 
+ "type" : "string" 
+ } 
+ ] , 
+ "thumbnail" : { "locationType" : { "id" : "string" , 
+ "label" : "string" , 
+ "type" : "string" 
+ } , 
+ "url" : "string" , 
+ "credit" : "string" , 
+ "linkText" : "string" , 
+ "license" : { "id" : "cc-by" , 
+ "label" : "string" , 
+ "url" : "string" , 
+ "type" : "string" 
+ } , 
+ "accessConditions" : [ { "method" : { "id" : "online-request" , 
+ "label" : "Online request" , 
+ "type" : "AccessMethod" 
+ } , 
+ "status" : { "id" : "string" , 
+ "label" : "string" , 
+ "type" : "AccessStatus" 
+ } , 
+ "terms" : "string" , 
+ "note" : "string" , 
+ "type" : "AccessCondition" 
+ } 
+ ] , 
+ "type" : "DigitalLocation" 
+ } , 
+ "items" : [ { "id" : "string" , 
+ "identifiers" : [ { "identifierType" : { "id" : "string" , 
+ "label" : "string" , 
+ "type" : "string" 
+ } , 
+ "value" : "string" , 
+ "type" : "string" 
+ } 
+ ] , 
+ "title" : "string" , 
+ "note" : "string" , 
+ "locations" : [ { "locationType" : { "id" : "string" , 
+ "label" : "string" , 
+ "type" : "string" 
+ } , 
+ "url" : "string" , 
+ "credit" : "string" , 
+ "linkText" : "string" , 
+ "license" : { "id" : "cc-by" , 
+ "label" : "string" , 
+ "url" : "string" , 
+ "type" : "string" 
+ } , 
+ "accessConditions" : [ { "method" : { "id" : "online-request" , 
+ "label" : "Online request" , 
+ "type" : "AccessMethod" 
+ } , 
+ "status" : { "id" : null , 
+ "label" : null , 
+ "type" : null 
+ } , 
+ "terms" : "string" , 
+ "note" : "string" , 
+ "type" : "AccessCondition" 
+ } 
+ ] , 
+ "type" : "DigitalLocation" 
+ } 
+ ] , 
+ "type" : "string" 
+ } 
+ ] , 
+ "holdings" : [ { "note" : "string" , 
+ "enumeration" : [ "string" 
+ ] , 
+ "location" : { "locationType" : { "id" : "string" , 
+ "label" : "string" , 
+ "type" : "string" 
+ } , 
+ "url" : "string" , 
+ "credit" : "string" , 
+ "linkText" : "string" , 
+ "license" : { "id" : "cc-by" , 
+ "label" : "string" , 
+ "url" : "string" , 
+ "type" : "string" 
+ } , 
+ "accessConditions" : [ { "method" : { "id" : "online-request" , 
+ "label" : "Online request" , 
+ "type" : "AccessMethod" 
+ } , 
+ "status" : { "id" : "string" , 
+ "label" : "string" , 
+ "type" : "AccessStatus" 
+ } , 
+ "terms" : "string" , 
+ "note" : "string" , 
+ "type" : "AccessCondition" 
+ } 
+ ] , 
+ "type" : "DigitalLocation" 
+ } , 
+ "type" : "string" 
+ } 
+ ] , 
+ "availabilities" : [ { "id" : "open-shelves" , 
+ "label" : "string" , 
+ "type" : "string" 
+ } 
+ ] , 
+ "production" : [ { "label" : "string" , 
+ "places" : [ { "label" : "string" , 
+ "type" : "string" 
+ } 
+ ] , 
+ "agents" : [ { "id" : "string" , 
+ "label" : "string" , 
+ "identifiers" : [ { "identifierType" : { "id" : null , 
+ "label" : null , 
+ "type" : null 
+ } , 
+ "value" : "string" , 
+ "type" : "string" 
+ } 
+ ] , 
+ "type" : "Agent" 
+ } 
+ ] , 
+ "dates" : [ { "label" : "string" , 
+ "type" : "string" 
+ } 
+ ] , 
+ "function" : { "id" : "string" , 
+ "label" : "string" , 
+ "identifiers" : [ { "identifierType" : { "id" : "string" , 
+ "label" : "string" , 
+ "type" : "string" 
+ } , 
+ "value" : "string" , 
+ "type" : "string" 
+ } 
+ ] , 
+ "type" : "Agent" 
+ } , 
+ "type" : "string" 
+ } 
+ ] , 
+ "languages" : [ { "id" : "string" , 
+ "label" : "string" , 
+ "type" : "string" 
+ } 
+ ] , 
+ "archive" : { "category" : { "id" : "string" , 
+ "label" : "string" , 
+ "type" : "string" 
+ } 
+ } , 
+ "collection" : { "root" : { "id" : "string" , 
+ "title" : "string" , 
+ "referenceNumber" : "string" , 
+ "totalParts" : 0 , 
+ "isAvailableOnline" : true , 
+ "type" : "string" 
+ } , 
+ "isRoot" : true 
+ } , 
+ "edition" : "string" , 
+ "notes" : [ { "contents" : [ "string" 
+ ] , 
+ "noteType" : { "id" : "string" , 
+ "label" : "string" , 
+ "type" : "string" 
+ } , 
+ "type" : "string" 
+ } 
+ ] , 
+ "duration" : 0 , 
+ "currentFrequency" : "string" , 
+ "formerFrequency" : [ "string" 
+ ] , 
+ "designation" : [ "string" 
+ ] , 
+ "images" : [ { "id" : "string" , 
+ "type" : "string" 
+ } 
+ ] , 
+ "parts" : [ { "id" : "string" , 
+ "title" : "string" , 
+ "referenceNumber" : "string" , 
+ "totalParts" : 0 , 
+ "isAvailableOnline" : true , 
+ "type" : "string" 
+ } 
+ ] , 
+ "partOf" : [ { "id" : "string" , 
+ "title" : "string" , 
+ "referenceNumber" : "string" , 
+ "totalParts" : 0 , 
+ "isAvailableOnline" : true , 
+ "type" : "string" 
+ } 
+ ] , 
+ "type" : "Work" 
+ } 
+ ] , 
+ "prevPage" : "string" , 
+ "nextPage" : "string" , 
+ "aggregations" : { "workType" : { "buckets" : [ { "data" : { "id" : "string" , 
+ "label" : "string" 
+ } , 
+ "count" : 0 , 
+ "type" : "AggregationBucket" 
+ } 
+ ] , 
+ "type" : "Aggregation" 
+ } , 
+ "production.dates" : { "buckets" : [ { "data" : { "id" : "string" , 
+ "label" : "string" 
+ } , 
+ "count" : 0 , 
+ "type" : "AggregationBucket" 
+ } 
+ ] , 
+ "type" : "Aggregation" 
+ } , 
+ "genres.label" : { "buckets" : [ { "data" : { "id" : "string" , 
+ "label" : "string" 
+ } , 
+ "count" : 0 , 
+ "type" : "AggregationBucket" 
+ } 
+ ] , 
+ "type" : "Aggregation" 
+ } , 
+ "subjects.label" : { "buckets" : [ { "data" : { "id" : "string" , 
+ "label" : "string" 
+ } , 
+ "count" : 0 , 
+ "type" : "AggregationBucket" 
+ } 
+ ] , 
+ "type" : "Aggregation" 
+ } , 
+ "contributors.agent.label" : { "buckets" : [ { "data" : { "id" : "string" , 
+ "label" : "string" 
+ } , 
+ "count" : 0 , 
+ "type" : "AggregationBucket" 
+ } 
+ ] , 
+ "type" : "Aggregation" 
+ } , 
+ "languages" : { "buckets" : [ { "data" : { "id" : "string" , 
+ "label" : "string" 
+ } , 
+ "count" : 0 , 
+ "type" : "AggregationBucket" 
+ } 
+ ] , 
+ "type" : "Aggregation" 
+ } , 
+ "archive.category" : { "buckets" : [ { "data" : { "id" : "string" , 
+ "label" : "string" 
+ } , 
+ "count" : 0 , 
+ "type" : "AggregationBucket" 
+ } 
+ ] , 
+ "type" : "Aggregation" 
+ } , 
+ "collection.root" : { "buckets" : [ { "data" : { "id" : "string" , 
+ "label" : "string" 
+ } , 
+ "count" : 0 , 
+ "type" : "AggregationBucket" 
+ } 
+ ] , 
+ "type" : "Aggregation" 
+ } , 
+ "items.locations.license" : { "buckets" : [ { "data" : { "id" : "string" , 
+ "label" : "string" 
+ } , 
+ "count" : 0 , 
+ "type" : "AggregationBucket" 
+ } 
+ ] , 
+ "type" : "Aggregation" 
+ } , 
+ "items.locations.accessConditions.method" : { "buckets" : [ { "data" : { "id" : "string" , 
+ "label" : "string" 
+ } , 
+ "count" : 0 , 
+ "type" : "AggregationBucket" 
+ } 
+ ] , 
+ "type" : "Aggregation" 
+ } , 
+ "availabilities" : { "buckets" : [ { "data" : { "id" : "string" , 
+ "label" : "string" 
+ } , 
+ "count" : 0 , 
+ "type" : "AggregationBucket" 
+ } 
+ ] , 
+ "type" : "Aggregation" 
+ } , 
+ "type" : "string" 
+ } 
+ } 
+ /works/{id} 
+ Returns a single work
+ path Parameters
+ id required
+ string 
+ The canonical identifier of the record to return.
+ query Parameters
+ include Array of strings 
+ Items Enum : "identifiers" "items" "holdings" "subjects" "genres" "contributors" "production" "languages" "archive" "collection" "notes" "formerFrequency" "designation" "images" "parts" "partOf" 
+ A comma-separated list of extra fields to include
+ Responses
+ 200 The work
+ 302 The work has been redirected to another work. The Location header contains
+the path of the work that replaces it. No response body is returned.
+ 400 Bad Request Error
+ 404 Not Found Error
+ 410 Gone Error
+ 500 Internal Server Error
+ 503 Service Unavailable Error
+ get /works/{id} 
+ https://api.wellcomecollection.org/catalogue/v2 /works/{id}
+ Response samples 
+ 200
+ 400
+ 404
+ 410
+ 500
+ 503
+ Content type application/json
+ Copy
+ Expand all Collapse all 
+ { "id" : "string" , 
+ "title" : "string" , 
+ "alternativeTitles" : [ "string" 
+ ] , 
+ "referenceNumber" : "string" , 
+ "description" : "string" , 
+ "shortDescription" : "string" , 
+ "physicalDescription" : "string" , 
+ "workType" : { "id" : "string" , 
+ "label" : "string" , 
+ "type" : "string" 
+ } , 
+ "lettering" : "string" , 
+ "createdDate" : { "label" : "string" , 
+ "type" : "string" 
+ } , 
+ "contributors" : [ { "agent" : { "id" : "string" , 
+ "label" : "string" , 
+ "identifiers" : [ { "identifierType" : { "id" : "string" , 
+ "label" : "string" , 
+ "type" : "string" 
+ } , 
+ "value" : "string" , 
+ "type" : "string" 
+ } 
+ ] , 
+ "type" : "Agent" 
+ } , 
+ "roles" : [ { "label" : "string" , 
+ "type" : "string" 
+ } 
+ ] , 
+ "primary" : true , 
+ "type" : "string" 
+ } 
+ ] , 
+ "identifiers" : [ { "identifierType" : { "id" : "string" , 
+ "label" : "string" , 
+ "type" : "string" 
+ } , 
+ "value" : "string" , 
+ "type" : "string" 
+ } 
+ ] , 
+ "subjects" : [ { "id" : "string" , 
+ "identifiers" : [ { "identifierType" : { "id" : "string" , 
+ "label" : "string" , 
+ "type" : "string" 
+ } , 
+ "value" : "string" , 
+ "type" : "string" 
+ } 
+ ] , 
+ "label" : "string" , 
+ "concepts" : [ { "id" : "string" , 
+ "label" : "string" , 
+ "identifiers" : [ { "identifierType" : { "id" : "string" , 
+ "label" : "string" , 
+ "type" : "string" 
+ } , 
+ "value" : "string" , 
+ "type" : "string" 
+ } 
+ ] , 
+ "type" : "Agent" 
+ } 
+ ] , 
+ "type" : "string" 
+ } 
+ ] , 
+ "genres" : [ { "label" : "string" , 
+ "concepts" : [ { "id" : "string" , 
+ "label" : "string" , 
+ "identifiers" : [ { "identifierType" : { "id" : "string" , 
+ "label" : "string" , 
+ "type" : "string" 
+ } , 
+ "value" : "string" , 
+ "type" : "string" 
+ } 
+ ] , 
+ "type" : "Agent" 
+ } 
+ ] , 
+ "type" : "string" 
+ } 
+ ] , 
+ "thumbnail" : { "locationType" : { "id" : "string" , 
+ "label" : "string" , 
+ "type" : "string" 
+ } , 
+ "url" : "string" , 
+ "credit" : "string" , 
+ "linkText" : "string" , 
+ "license" : { "id" : "cc-by" , 
+ "label" : "string" , 
+ "url" : "string" , 
+ "type" : "string" 
+ } , 
+ "accessConditions" : [ { "method" : { "id" : "online-request" , 
+ "label" : "Online request" , 
+ "type" : "AccessMethod" 
+ } , 
+ "status" : { "id" : "string" , 
+ "label" : "string" , 
+ "type" : "AccessStatus" 
+ } , 
+ "terms" : "string" , 
+ "note" : "string" , 
+ "type" : "AccessCondition" 
+ } 
+ ] , 
+ "type" : "DigitalLocation" 
+ } , 
+ "items" : [ { "id" : "string" , 
+ "identifiers" : [ { "identifierType" : { "id" : "string" , 
+ "label" : "string" , 
+ "type" : "string" 
+ } , 
+ "value" : "string" , 
+ "type" : "string" 
+ } 
+ ] , 
+ "title" : "string" , 
+ "note" : "string" , 
+ "locations" : [ { "locationType" : { "id" : "string" , 
+ "label" : "string" , 
+ "type" : "string" 
+ } , 
+ "url" : "string" , 
+ "credit" : "string" , 
+ "linkText" : "string" , 
+ "license" : { "id" : "cc-by" , 
+ "label" : "string" , 
+ "url" : "string" , 
+ "type" : "string" 
+ } , 
+ "accessConditions" : [ { "method" : { "id" : "online-request" , 
+ "label" : "Online request" , 
+ "type" : "AccessMethod" 
+ } , 
+ "status" : { "id" : "string" , 
+ "label" : "string" , 
+ "type" : "AccessStatus" 
+ } , 
+ "terms" : "string" , 
+ "note" : "string" , 
+ "type" : "AccessCondition" 
+ } 
+ ] , 
+ "type" : "DigitalLocation" 
+ } 
+ ] , 
+ "type" : "string" 
+ } 
+ ] , 
+ "holdings" : [ { "note" : "string" , 
+ "enumeration" : [ "string" 
+ ] , 
+ "location" : { "locationType" : { "id" : "string" , 
+ "label" : "string" , 
+ "type" : "string" 
+ } , 
+ "url" : "string" , 
+ "credit" : "string" , 
+ "linkText" : "string" , 
+ "license" : { "id" : "cc-by" , 
+ "label" : "string" , 
+ "url" : "string" , 
+ "type" : "string" 
+ } , 
+ "accessConditions" : [ { "method" : { "id" : "online-request" , 
+ "label" : "Online request" , 
+ "type" : "AccessMethod" 
+ } , 
+ "status" : { "id" : "string" , 
+ "label" : "string" , 
+ "type" : "AccessStatus" 
+ } , 
+ "terms" : "string" , 
+ "note" : "string" , 
+ "type" : "AccessCondition" 
+ } 
+ ] , 
+ "type" : "DigitalLocation" 
+ } , 
+ "type" : "string" 
+ } 
+ ] , 
+ "availabilities" : [ { "id" : "open-shelves" , 
+ "label" : "string" , 
+ "type" : "string" 
+ } 
+ ] , 
+ "production" : [ { "label" : "string" , 
+ "places" : [ { "label" : "string" , 
+ "type" : "string" 
+ } 
+ ] , 
+ "agents" : [ { "id" : "string" , 
+ "label" : "string" , 
+ "identifiers" : [ { "identifierType" : { "id" : "string" , 
+ "label" : "string" , 
+ "type" : "string" 
+ } , 
+ "value" : "string" , 
+ "type" : "string" 
+ } 
+ ] , 
+ "type" : "Agent" 
+ } 
+ ] , 
+ "dates" : [ { "label" : "string" , 
+ "type" : "string" 
+ } 
+ ] , 
+ "function" : { "id" : "string" , 
+ "label" : "string" , 
+ "identifiers" : [ { "identifierType" : { "id" : "string" , 
+ "label" : "string" , 
+ "type" : "string" 
+ } , 
+ "value" : "string" , 
+ "type" : "string" 
+ } 
+ ] , 
+ "type" : "Agent" 
+ } , 
+ "type" : "string" 
+ } 
+ ] , 
+ "languages" : [ { "id" : "string" , 
+ "label" : "string" , 
+ "type" : "string" 
+ } 
+ ] , 
+ "archive" : { "category" : { "id" : "string" , 
+ "label" : "string" , 
+ "type" : "string" 
+ } 
+ } , 
+ "collection" : { "root" : { "id" : "string" , 
+ "title" : "string" , 
+ "referenceNumber" : "string" , 
+ "totalParts" : 0 , 
+ "isAvailableOnline" : true , 
+ "type" : "string" 
+ } , 
+ "isRoot" : true 
+ } , 
+ "edition" : "string" , 
+ "notes" : [ { "contents" : [ "string" 
+ ] , 
+ "noteType" : { "id" : "string" , 
+ "label" : "string" , 
+ "type" : "string" 
+ } , 
+ "type" : "string" 
+ } 
+ ] , 
+ "duration" : 0 , 
+ "currentFrequency" : "string" , 
+ "formerFrequency" : [ "string" 
+ ] , 
+ "designation" : [ "string" 
+ ] , 
+ "images" : [ { "id" : "string" , 
+ "type" : "string" 
+ } 
+ ] , 
+ "parts" : [ { "id" : "string" , 
+ "title" : "string" , 
+ "referenceNumber" : "string" , 
+ "totalParts" : 0 , 
+ "isAvailableOnline" : true , 
+ "type" : "string" 
+ } 
+ ] , 
+ "partOf" : [ { "id" : "string" , 
+ "title" : "string" , 
+ "referenceNumber" : "string" , 
+ "totalParts" : 0 , 
+ "isAvailableOnline" : true , 
+ "type" : "string" 
+ } 
+ ] , 
+ "type" : "Work" 
+ } 
+ Images
+ Images derived from the works in our collections.
+ /images 
+ Returns a paginated list of images
+ query Parameters
+ query string 
+ Full-text search query
+ include Array of strings 
+ Items Enum : "source.contributors" "source.languages" "source.genres" "source.subjects" 
+ A comma-separated list of extra fields to include
+ aggregations Array of strings 
+ Items Enum : "locations.license" "source.contributors.agent.label" "source.contributors.agent" "source.genres.label" "source.genres" "source.subjects.label" "source.subjects" 
+ What aggregated data in correlation to the results should we return.
+ locations.license is returned under the response key license . The id-based
+variants ( source.genres , source.subjects , source.contributors.agent ) are
+returned under the same response key as their label-based counterparts;
+requesting the id variant populates the id field of each bucket's data .
+ sort Array of strings 
+ Items Value : "source.production.dates" 
+ Which field to sort the results on
+ sortOrder string 
+ Default: "asc" 
+ Enum : "asc" "desc" 
+ The order in which to return the results
+ page integer < int64 > >= 1 
+ Default: 1 
+ The page to return from the result list
+ pageSize integer < int64 > [ 1 .. 100 ] 
+ Default: 10 
+ The number of results to return per page
+ color string ^[0-9a-fA-F]{6}$ 
+ Filter by the colours of the image, given as a single hex colour without a
+leading # , e.g. ff6700 .
+ locations.license string 
+ Filter by the license of the image. A comma-separated list of License ids.
+ source.contributors.agent.label string 
+ Filter by the label of a contributor to the source work. A comma-separated list of labels.
+ source.contributors.agent string 
+ Filter by the id of a contributor to the source work. A comma-separated list of concept ids.
+ source.genres.label string 
+ Filter by the genre label of the source work. A comma-separated list of labels.
+ source.genres string 
+ Filter by the genre id of the source work. A comma-separated list of concept ids.
+ source.subjects.label string 
+ Filter by the subject label of the source work. A comma-separated list of labels.
+ source.subjects string 
+ Filter by the subject id of the source work. A comma-separated list of concept ids.
+ source.production.dates.from string < date > 
+ Return images whose source work was produced on or after this date, in YYYY-MM-DD format.
+ source.production.dates.to string < date > 
+ Return images whose source work was produced on or before this date, in YYYY-MM-DD format.
+ Responses
+ 200 The images
+ 400 Bad Request Error
+ 500 Internal Server Error
+ 503 Service Unavailable Error
+ get /images 
+ https://api.wellcomecollection.org/catalogue/v2 /images
+ Response samples 
+ 200
+ 400
+ 500
+ 503
+ Content type application/json
+ Copy
+ Expand all Collapse all 
+ { "type" : "ResultList" , 
+ "pageSize" : 0 , 
+ "totalPages" : 0 , 
+ "totalResults" : 0 , 
+ "results" : [ { "id" : "string" , 
+ "thumbnail" : { "locationType" : { "id" : "string" , 
+ "label" : "string" , 
+ "type" : "string" 
+ } , 
+ "url" : "string" , 
+ "credit" : "string" , 
+ "linkText" : "string" , 
+ "license" : { "id" : "cc-by" , 
+ "label" : "string" , 
+ "url" : "string" , 
+ "type" : "string" 
+ } , 
+ "accessConditions" : [ { "method" : { "id" : "online-request" , 
+ "label" : "Online request" , 
+ "type" : "AccessMethod" 
+ } , 
+ "status" : { "id" : "string" , 
+ "label" : "string" , 
+ "type" : "AccessStatus" 
+ } , 
+ "terms" : "string" , 
+ "note" : "string" , 
+ "type" : "AccessCondition" 
+ } 
+ ] , 
+ "type" : "DigitalLocation" 
+ } , 
+ "locations" : [ { "locationType" : { "id" : "string" , 
+ "label" : "string" , 
+ "type" : "string" 
+ } , 
+ "url" : "string" , 
+ "credit" : "string" , 
+ "linkText" : "string" , 
+ "license" : { "id" : "cc-by" , 
+ "label" : "string" , 
+ "url" : "string" , 
+ "type" : "string" 
+ } , 
+ "accessConditions" : [ { "method" : { "id" : "online-request" , 
+ "label" : "Online request" , 
+ "type" : "AccessMethod" 
+ } , 
+ "status" : { "id" : "string" , 
+ "label" : "string" , 
+ "type" : "AccessStatus" 
+ } , 
+ "terms" : "string" , 
+ "note" : "string" , 
+ "type" : "AccessCondition" 
+ } 
+ ] , 
+ "type" : "DigitalLocation" 
+ } 
+ ] , 
+ "aspectRatio" : 0.1 , 
+ "averageColor" : "string" , 
+ "source" : { "id" : "string" , 
+ "title" : "string" , 
+ "contributors" : [ { "agent" : { "id" : "string" , 
+ "label" : "string" , 
+ "identifiers" : [ { "identifierType" : { "id" : null , 
+ "label" : null , 
+ "type" : null 
+ } , 
+ "value" : "string" , 
+ "type" : "string" 
+ } 
+ ] , 
+ "type" : "Agent" 
+ } , 
+ "roles" : [ { "label" : "string" , 
+ "type" : "string" 
+ } 
+ ] , 
+ "primary" : true , 
+ "type" : "string" 
+ } 
+ ] , 
+ "genres" : [ { "label" : "string" , 
+ "concepts" : [ { "id" : "string" , 
+ "label" : "string" , 
+ "identifiers" : [ { "identifierType" : null , 
+ "value" : null , 
+ "type" : null 
+ } 
+ ] , 
+ "type" : "Agent" 
+ } 
+ ] , 
+ "type" : "string" 
+ } 
+ ] , 
+ "subjects" : [ { "id" : "string" , 
+ "identifiers" : [ { "identifierType" : { "id" : "string" , 
+ "label" : "string" , 
+ "type" : "string" 
+ } , 
+ "value" : "string" , 
+ "type" : "string" 
+ } 
+ ] , 
+ "label" : "string" , 
+ "concepts" : [ { "id" : "string" , 
+ "label" : "string" , 
+ "identifiers" : [ { "identifierType" : null , 
+ "value" : null , 
+ "type" : null 
+ } 
+ ] , 
+ "type" : "Agent" 
+ } 
+ ] , 
+ "type" : "string" 
+ } 
+ ] , 
+ "languages" : [ { "id" : "string" , 
+ "label" : "string" , 
+ "type" : "string" 
+ } 
+ ] , 
+ "type" : "Work" 
+ } , 
+ "withSimilarFeatures" : [ { } 
+ ] , 
+ "type" : "Image" 
+ } 
+ ] , 
+ "prevPage" : "string" , 
+ "nextPage" : "string" , 
+ "aggregations" : { "license" : { "buckets" : [ { "data" : { "id" : "string" , 
+ "label" : "string" 
+ } , 
+ "count" : 0 , 
+ "type" : "AggregationBucket" 
+ } 
+ ] , 
+ "type" : "Aggregation" 
+ } , 
+ "source.genres.label" : { "buckets" : [ { "data" : { "id" : "string" , 
+ "label" : "string" 
+ } , 
+ "count" : 0 , 
+ "type" : "AggregationBucket" 
+ } 
+ ] , 
+ "type" : "Aggregation" 
+ } , 
+ "source.subjects.label" : { "buckets" : [ { "data" : { "id" : "string" , 
+ "label" : "string" 
+ } , 
+ "count" : 0 , 
+ "type" : "AggregationBucket" 
+ } 
+ ] , 
+ "type" : "Aggregation" 
+ } , 
+ "source.contributors.agent.label" : { "buckets" : [ { "data" : { "id" : "string" , 
+ "label" : "string" 
+ } , 
+ "count" : 0 , 
+ "type" : "AggregationBucket" 
+ } 
+ ] , 
+ "type" : "Aggregation" 
+ } , 
+ "type" : "string" 
+ } 
+ } 
+ /images/{id} 
+ Returns a single image
+ path Parameters
+ id required
+ string 
+ The canonical identifier of the record to return.
+ query Parameters
+ include Array of strings 
+ Items Enum : "withSimilarFeatures" "source.contributors" "source.languages" "source.genres" "source.subjects" 
+ A comma-separated list of extra fields to include. withSimilarFeatures is only
+available on this endpoint, not on /images .
+ Responses
+ 200 The image
+ 400 Bad Request Error
+ 404 Not Found Error
+ 500 Internal Server Error
+ 503 Service Unavailable Error
+ get /images/{id} 
+ https://api.wellcomecollection.org/catalogue/v2 /images/{id}
+ Response samples 
+ 200
+ 400
+ 404
+ 500
+ 503
+ Content type application/json
+ Copy
+ Expand all Collapse all 
+ { "id" : "string" , 
+ "thumbnail" : { "locationType" : { "id" : "string" , 
+ "label" : "string" , 
+ "type" : "string" 
+ } , 
+ "url" : "string" , 
+ "credit" : "string" , 
+ "linkText" : "string" , 
+ "license" : { "id" : "cc-by" , 
+ "label" : "string" , 
+ "url" : "string" , 
+ "type" : "string" 
+ } , 
+ "accessConditions" : [ { "method" : { "id" : "online-request" , 
+ "label" : "Online request" , 
+ "type" : "AccessMethod" 
+ } , 
+ "status" : { "id" : "string" , 
+ "label" : "string" , 
+ "type" : "AccessStatus" 
+ } , 
+ "terms" : "string" , 
+ "note" : "string" , 
+ "type" : "AccessCondition" 
+ } 
+ ] , 
+ "type" : "DigitalLocation" 
+ } , 
+ "locations" : [ { "locationType" : { "id" : "string" , 
+ "label" : "string" , 
+ "type" : "string" 
+ } , 
+ "url" : "string" , 
+ "credit" : "string" , 
+ "linkText" : "string" , 
+ "license" : { "id" : "cc-by" , 
+ "label" : "string" , 
+ "url" : "string" , 
+ "type" : "string" 
+ } , 
+ "accessConditions" : [ { "method" : { "id" : "online-request" , 
+ "label" : "Online request" , 
+ "type" : "AccessMethod" 
+ } , 
+ "status" : { "id" : "string" , 
+ "label" : "string" , 
+ "type" : "AccessStatus" 
+ } , 
+ "terms" : "string" , 
+ "note" : "string" , 
+ "type" : "AccessCondition" 
+ } 
+ ] , 
+ "type" : "DigitalLocation" 
+ } 
+ ] , 
+ "aspectRatio" : 0.1 , 
+ "averageColor" : "string" , 
+ "source" : { "id" : "string" , 
+ "title" : "string" , 
+ "contributors" : [ { "agent" : { "id" : "string" , 
+ "label" : "string" , 
+ "identifiers" : [ { "identifierType" : { "id" : "string" , 
+ "label" : "string" , 
+ "type" : "string" 
+ } , 
+ "value" : "string" , 
+ "type" : "string" 
+ } 
+ ] , 
+ "type" : "Agent" 
+ } , 
+ "roles" : [ { "label" : "string" , 
+ "type" : "string" 
+ } 
+ ] , 
+ "primary" : true , 
+ "type" : "string" 
+ } 
+ ] , 
+ "genres" : [ { "label" : "string" , 
+ "concepts" : [ { "id" : "string" , 
+ "label" : "string" , 
+ "identifiers" : [ { "identifierType" : { "id" : "string" , 
+ "label" : "string" , 
+ "type" : "string" 
+ } , 
+ "value" : "string" , 
+ "type" : "string" 
+ } 
+ ] , 
+ "type" : "Agent" 
+ } 
+ ] , 
+ "type" : "string" 
+ } 
+ ] , 
+ "subjects" : [ { "id" : "string" , 
+ "identifiers" : [ { "identifierType" : { "id" : "string" , 
+ "label" : "string" , 
+ "type" : "string" 
+ } , 
+ "value" : "string" , 
+ "type" : "string" 
+ } 
+ ] , 
+ "label" : "string" , 
+ "concepts" : [ { "id" : "string" , 
+ "label" : "string" , 
+ "identifiers" : [ { "identifierType" : { "id" : "string" , 
+ "label" : "string" , 
+ "type" : "string" 
+ } , 
+ "value" : "string" , 
+ "type" : "string" 
+ } 
+ ] , 
+ "type" : "Agent" 
+ } 
+ ] , 
+ "type" : "string" 
+ } 
+ ] , 
+ "languages" : [ { "id" : "string" , 
+ "label" : "string" , 
+ "type" : "string" 
+ } 
+ ] , 
+ "type" : "Work" 
+ } , 
+ "withSimilarFeatures" : [ { } 
+ ] , 
+ "type" : "Image" 
+ } 
+ Concepts
+ The people, places, subjects and genres used to describe works.
+ /concepts 
+ Returns a paginated list of concepts
+ query Parameters
+ query string 
+ Full-text search query
+ identifiers.identifierType string 
+ Filter the concepts by IdentifierType ID
+ id string 
+ A comma-separated list of concept ids to fetch directly.
+ When supplied, all other filters and pagination parameters are ignored: the
+concepts are fetched in a single batch, returned in the order requested, and
+ids that do not exist are silently omitted. The response has totalPages: 1 
+and no prevPage or nextPage .
+ page integer < int64 > >= 1 
+ Default: 1 
+ The page to return from the result list
+ pageSize integer < int64 > [ 1 .. 100 ] 
+ Default: 10 
+ The number of results to return per page
+ Responses
+ 200 The concepts
+ 400 Bad Request Error
+ 500 Internal Server Error
+ get /concepts 
+ https://api.wellcomecollection.org/catalogue/v2 /concepts
+ Response samples 
+ 200
+ 400
+ 500
+ Content type application/json
+ Copy
+ Expand all Collapse all 
+ { "type" : "ResultList" , 
+ "pageSize" : 0 , 
+ "totalPages" : 0 , 
+ "totalResults" : 0 , 
+ "results" : [ { "id" : "string" , 
+ "label" : "string" , 
+ "displayLabel" : "string" , 
+ "alternativeLabels" : [ "string" 
+ ] , 
+ "description" : { "text" : "string" , 
+ "sourceLabel" : "string" , 
+ "sourceUrl" : "string" 
+ } , 
+ "identifiers" : [ { "identifierType" : { "id" : "string" , 
+ "label" : "string" , 
+ "type" : "string" 
+ } , 
+ "value" : "string" , 
+ "type" : "string" 
+ } 
+ ] , 
+ "relatedConcepts" : { "relatedTo" : [ { "id" : "string" , 
+ "label" : "string" , 
+ "relationshipType" : "string" , 
+ "conceptType" : "string" 
+ } 
+ ] , 
+ "fieldsOfWork" : [ { "id" : "string" , 
+ "label" : "string" , 
+ "relationshipType" : "string" , 
+ "conceptType" : "string" 
+ } 
+ ] , 
+ "narrowerThan" : [ { "id" : "string" , 
+ "label" : "string" , 
+ "relationshipType" : "string" , 
+ "conceptType" : "string" 
+ } 
+ ] , 
+ "broaderThan" : [ { "id" : "string" , 
+ "label" : "string" , 
+ "relationshipType" : "string" , 
+ "conceptType" : "string" 
+ } 
+ ] , 
+ "people" : [ { "id" : "string" , 
+ "label" : "string" , 
+ "relationshipType" : "string" , 
+ "conceptType" : "string" 
+ } 
+ ] , 
+ "frequentCollaborators" : [ { "id" : "string" , 
+ "label" : "string" , 
+ "relationshipType" : "string" , 
+ "conceptType" : "string" 
+ } 
+ ] , 
+ "relatedTopics" : [ { "id" : "string" , 
+ "label" : "string" , 
+ "relationshipType" : "string" , 
+ "conceptType" : "string" 
+ } 
+ ] , 
+ "foundedBy" : [ { "id" : "string" , 
+ "label" : "string" , 
+ "relationshipType" : "string" , 
+ "conceptType" : "string" 
+ } 
+ ] 
+ } , 
+ "sameAs" : [ "string" 
+ ] , 
+ "displayImages" : [ { "locationType" : { "id" : "string" , 
+ "label" : "string" , 
+ "type" : "string" 
+ } , 
+ "url" : "string" , 
+ "accessConditions" : [ ] , 
+ "type" : "DigitalLocation" 
+ } 
+ ] , 
+ "type" : "Agent" 
+ } 
+ ] , 
+ "prevPage" : "string" , 
+ "nextPage" : "string" 
+ } 
+ /concepts/{id} 
+ Returns a single concept
+ path Parameters
+ id required
+ string 
+ The canonical identifier of the record to return.
+ Responses
+ 200 The concept
+ 400 Bad Request Error
+ 404 Not Found Error
+ 500 Internal Server Error
+ get /concepts/{id} 
+ https://api.wellcomecollection.org/catalogue/v2 /concepts/{id}
+ Response samples 
+ 200
+ 400
+ 404
+ 500
+ Content type application/json
+ Copy
+ Expand all Collapse all 
+ { "id" : "string" , 
+ "label" : "string" , 
+ "displayLabel" : "string" , 
+ "alternativeLabels" : [ "string" 
+ ] , 
+ "description" : { "text" : "string" , 
+ "sourceLabel" : "string" , 
+ "sourceUrl" : "string" 
+ } , 
+ "identifiers" : [ { "identifierType" : { "id" : "string" , 
+ "label" : "string" , 
+ "type" : "string" 
+ } , 
+ "value" : "string" , 
+ "type" : "string" 
+ } 
+ ] , 
+ "relatedConcepts" : { "relatedTo" : [ { "id" : "string" , 
+ "label" : "string" , 
+ "relationshipType" : "string" , 
+ "conceptType" : "string" 
+ } 
+ ] , 
+ "fieldsOfWork" : [ { "id" : "string" , 
+ "label" : "string" , 
+ "relationshipType" : "string" , 
+ "conceptType" : "string" 
+ } 
+ ] , 
+ "narrowerThan" : [ { "id" : "string" , 
+ "label" : "string" , 
+ "relationshipType" : "string" , 
+ "conceptType" : "string" 
+ } 
+ ] , 
+ "broaderThan" : [ { "id" : "string" , 
+ "label" : "string" , 
+ "relationshipType" : "string" , 
+ "conceptType" : "string" 
+ } 
+ ] , 
+ "people" : [ { "id" : "string" , 
+ "label" : "string" , 
+ "relationshipType" : "string" , 
+ "conceptType" : "string" 
+ } 
+ ] , 
+ "frequentCollaborators" : [ { "id" : "string" , 
+ "label" : "string" , 
+ "relationshipType" : "string" , 
+ "conceptType" : "string" 
+ } 
+ ] , 
+ "relatedTopics" : [ { "id" : "string" , 
+ "label" : "string" , 
+ "relationshipType" : "string" , 
+ "conceptType" : "string" 
+ } 
+ ] , 
+ "foundedBy" : [ { "id" : "string" , 
+ "label" : "string" , 
+ "relationshipType" : "string" , 
+ "conceptType" : "string" 
+ } 
+ ] 
+ } , 
+ "sameAs" : [ "string" 
+ ] , 
+ "displayImages" : [ { "locationType" : { "id" : "string" , 
+ "label" : "string" , 
+ "type" : "string" 
+ } , 
+ "url" : "string" , 
+ "accessConditions" : [ ] , 
+ "type" : "DigitalLocation" 
+ } 
+ ] , 
+ "type" : "Agent" 
+ } 
+ Documentation
+ API Reference 
+ Get Involved
+ Stacks 
+ GitHub 
+ Contact Us
+ Twitter 
+ Facebook 
+ Email 
+ More
+ Jobs 
+ Privacy 
+ Wellcome Collection 
+ Except where otherwise noted, content on this site is licensed under a Creative Commons Attribution 4.0 International Licence .
