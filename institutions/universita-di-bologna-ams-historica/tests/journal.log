@@ -18,3 +18,10 @@
 # corps enregistré : tests/raw/rest-recherche-10.body (293656 octets lus)
 2026-11-14T01:50:35Z | ui-accueil | https://historica.unibo.it/home | GET | 200 OK | x-ratelimit-limit: 500; x-ratelimit-remaining: 499; x-ratelimit-reset: 1794620859 | taille≥200 | corps: <!DOCTYPE html><html prefix="og: https://ogp.me/ns#" data-critters-container="" lang="en"><head>   <meta charset="UTF-8">   <base href="/">   <title>AMS Historica - Home :: Historica Unibo</title>   <
 # Fin 2026-11-14T01:50:35Z — 3 requête(s) envoyée(s)
+# Session 2026-11-14T01:50:54Z — configuration ams-passe3-manifeste.json — sonde probe.py au commit db07598
+2026-11-14T01:50:56Z | robots.txt:historica.unibo.it | https://historica.unibo.it/robots.txt | GET | 200 | 16 règle(s) pour « * »
+2026-11-14T01:51:02Z | iiif-manifeste-2388a439 | https://historica.unibo.it/server/iiif/2388a439-181f-4ab7-b5a7-121d8e0752bc/manifest | GET | 200 OK | aucun en-tête de limite | taille≥3214 | corps: {"@context":"http://iiif.io/api/presentation/2/context.json","@type":"sc:Manifest","@id":"https://historica.unibo.it/server/iiif/2388a439-181f-4ab7-b5a7-121d8e0752bc/manifest","label":"\"Aria di mezza
+# corps enregistré : tests/raw/iiif-manifeste-2388a439.body (3214 octets lus)
+2026-11-14T01:51:09Z | rest-recherche-manoscritto | https://historica.unibo.it/server/api/discover/search/objects?size=10&query=manoscritto | GET | 200 OK | aucun en-tête de limite | taille≥310389 | corps: {   "id" : null,   "scope" : null,   "query" : "manoscritto",   "appliedFilters" : null,   "sort" : null,   "configuration" : null,   "type" : "discover",   "uniqueType" : "discover.discover",   "_lin
+# corps enregistré : tests/raw/rest-recherche-manoscritto.body (310389 octets lus)
+# Fin 2026-11-14T01:51:09Z — 3 requête(s) envoyée(s)
