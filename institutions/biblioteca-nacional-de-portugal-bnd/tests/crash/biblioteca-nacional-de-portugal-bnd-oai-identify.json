@@ -1,0 +1,53 @@
+{
+  "slug": "biblioteca-nacional-de-portugal-bnd",
+  "hote": "oai.bnportugal.gov.pt",
+  "reseaux": [],
+  "plafond_req_min": 200,
+  "endpoint": "oai-identify",
+  "limite_documentee_req_min": null,
+  "paliers": [
+    {
+      "palier_req_min": 6,
+      "requetes": 18,
+      "debit_reel_req_min": 6.3,
+      "codes": {
+        "200": 18
+      },
+      "latence_p50_s": 0.15,
+      "latence_max_s": 0.228
+    },
+    {
+      "palier_req_min": 10,
+      "requetes": 30,
+      "debit_reel_req_min": 10.3,
+      "codes": {
+        "200": 30
+      },
+      "latence_p50_s": 0.154,
+      "latence_max_s": 0.33
+    },
+    {
+      "palier_req_min": 50,
+      "requetes": 150,
+      "debit_reel_req_min": 50.3,
+      "codes": {
+        "200": 150
+      },
+      "latence_p50_s": 0.149,
+      "latence_max_s": 2.415
+    },
+    {
+      "palier_req_min": 200,
+      "requetes": 600,
+      "debit_reel_req_min": 197.4,
+      "codes": {
+        "200": 593,
+        "None": 7
+      },
+      "latence_p50_s": 0.146,
+      "latence_max_s": 20.008
+    }
+  ],
+  "arret": null,
+  "conclusion": "aucun blocage jusqu'à 200 req/min"
+}

@@ -18,3 +18,8 @@ institution : présentation DCMI 2021 et PDF BNP lus, rien sur le débit ; utili
 
 ## Conclusion
 Aucun quota ni limite de débit publié ou observé ; classe « aucun quota trouvé ». Le seul signal restrictif est un robots.txt `Disallow: /` sur la BND, permalinkbnd et purl.pt. Les services de données ouvertes sont annoncés sans authentification ni frais. Pourquoi non publié : hypothèse non établie : la BNP traite l'accès par API comme de la réutilisation libre (CC0, directive PSI 2019/1024) et ne chiffre pas les volumes. Contacts : bndigital@bnportugal.gov.pt, OpendataBNP@bnportugal.gov.pt.
+
+## Crash test (étape g)
+
+Crash test fait le 2026-11-14 : oai-identify sur oai.bnportugal.gov.pt : aucun blocage jusqu'à 200 req/min (plafond 200 req/min).
+Journal : `tests/crash/biblioteca-nacional-de-portugal-bnd.log`. Un test « sans blocage » n'est pas une preuve d'illimitation au-delà du plafond.
