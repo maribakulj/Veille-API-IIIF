@@ -1,0 +1,13 @@
+{
+  "slug": "lancaster-university-library",
+  "min_delay_s": 6,
+  "max_requests": 15,
+  "follow_redirects": 1,
+  "robots_disallow_autorise_par_marcel": true,
+  "note": "passe 3 : service d'image IIIF 2 (Cantaloupe) et seeAlso TEI lus dans le manifeste MS-DAVY-11306 (tests/raw/iiif-manifeste-davy-11306-bis.body). robots.txt des deux nouveaux hotes lus (404 : sources/doc7). Derive 200 px seulement.",
+  "endpoints": [
+    {"id": "image-info-json", "method": "GET", "url": "https://iiif.digitalcollections.lancaster.ac.uk/iiif/2/MS-DAVY-11306-000-00001.jp2/info.json"},
+    {"id": "image-derive-200px", "method": "GET", "url": "https://iiif.digitalcollections.lancaster.ac.uk/iiif/2/MS-DAVY-11306-000-00001.jp2/full/200,/0/default.jpg"},
+    {"id": "services-tei", "method": "GET", "url": "https://services.digitalcollections.lancaster.ac.uk/v1/metadata/tei/MS-DAVY-11306/"}
+  ]
+}

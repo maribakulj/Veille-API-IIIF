@@ -9,3 +9,8 @@
 2026-11-14T03:43:59Z | robots.txt:digitalcollections.lancaster.ac.uk | https://digitalcollections.lancaster.ac.uk/robots.txt | GET | 200 | 0 règle(s) pour « * »
 2026-11-14T03:44:25Z | iiif-manifeste-davy-11306 | https://digitalcollections.lancaster.ac.uk/iiif/MS-DAVY-11306 | GET | ERREUR_RÉSEAU | TimeoutError: The read operation timed out
 # Fin 2026-11-14T03:44:25Z — 2 requête(s) envoyée(s)
+# Session 2026-11-14T03:44:37Z — configuration lancaster-v2-passe2b-manifeste.json — sonde probe.py au commit 8864862
+2026-11-14T03:44:37Z | robots.txt:digitalcollections.lancaster.ac.uk | https://digitalcollections.lancaster.ac.uk/robots.txt | GET | 200 | 0 règle(s) pour « * »
+2026-11-14T03:44:44Z | iiif-manifeste-davy-11306-bis | https://digitalcollections.lancaster.ac.uk/iiif/MS-DAVY-11306 | GET | 200 OK | aucun en-tête de limite | taille≥157756 | corps: {  "viewingDirection": "left-to-right",  "metadata": [   {    "label": "Origin Place",    "value": ""   },   {    "label": "Provenance",    "value": "Royal Institution"   },   {    "label": "Physical 
+# corps enregistré : tests/raw/iiif-manifeste-davy-11306-bis.body (157756 octets lus)
+# Fin 2026-11-14T03:44:44Z — 2 requête(s) envoyée(s)
