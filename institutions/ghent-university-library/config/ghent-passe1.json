@@ -1,0 +1,16 @@
+{
+  "slug": "ghent-university-library",
+  "min_delay_s": 6,
+  "max_requests": 15,
+  "follow_redirects": 1,
+  "robots_disallow_autorise_par_marcel": true,
+  "note": "Passe 1 : manifeste de Hs. 224 dont l'URL est publiée par la page Biblissima (tiers) : adore.ugent.be/IIIF/manifests/archive.ugent.be%3AE336B140-751E-11E6-9B48-3FC1D43445F2. robots.txt de adore.ugent.be : 404 (autorisé). Les URL d'images seront lues dans le manifeste.",
+  "endpoints": [
+    {
+      "id": "manifeste-hs224",
+      "method": "GET",
+      "url": "https://adore.ugent.be/IIIF/manifests/archive.ugent.be%3AE336B140-751E-11E6-9B48-3FC1D43445F2",
+      "save_body": 3000000
+    }
+  ]
+}
