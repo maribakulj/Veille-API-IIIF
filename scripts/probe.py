@@ -25,6 +25,7 @@ Aucune requête n'est répétée en rafale : le script ne fait jamais deux requ�
 """
 import http.client
 import json
+import os
 import re
 import ssl
 import subprocess
@@ -40,6 +41,22 @@ DEFAULT_MAX = 15
 LIMIT_HEADER_PREFIXES = ("retry-after", "x-ratelimit", "ratelimit", "cf-mitigated", "x-rate")
 REPO = Path(__file__).resolve().parent.parent
 
+def _principal():
+    """Racine du dépôt PRINCIPAL (le worktree d'un agent partage le même .git) : scripts de contrôle et listes lus là."""
+    import subprocess as _s
+    try:
+        c = _s.run(["git", "rev-parse", "--path-format=absolute", "--git-common-dir"], cwd=REPO, capture_output=True, text=True).stdout.strip()
+        return Path(c).parent if c else REPO
+    except OSError:
+        return REPO
+
+
+MAIN = _principal()
+sys.path.insert(0, str(MAIN / "scripts"))
+import hostlock as _hl  # noqa: E402  (politesse partagée entre agents)
+AUTORISE_ENV = dict(os.environ, VEILLE_REPO=str(REPO), VEILLE_DATA=str(MAIN / "data"))
+DELAI_MIN = 6.0
+
 
 def now_utc():
     return datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
@@ -47,6 +64,7 @@ def now_utc():
 
 def fetch(url, method, timeout=20, lire=200):
     """Une seule requête HTTP(S) sans authentification. Retourne un dict."""
+    _hl.attendre(urllib.parse.urlsplit(url).netloc, DELAI_MIN)
     parts = urllib.parse.urlsplit(url)
     if parts.scheme not in ("http", "https") or not parts.hostname:
         raise ValueError(f"URL refusée : {url}")
@@ -164,7 +182,8 @@ def main():
     cfg = json.loads(cfg_path.read_text(encoding="utf-8"))
     slug = cfg["slug"]
     import subprocess as _sp
-    _r = _sp.run([sys.executable, str(REPO / "scripts" / "suivi.py"), "autorise", slug], capture_output=True, text=True)
+    _r = _sp.run([sys.executable, str(MAIN / "scripts" / "suivi.py"), "autorise", slug], capture_output=True, text=True, env=AUTORISE_ENV)
+    globals()["DELAI_MIN"] = float(cfg.get("min_delay_s", 6))
     if _r.returncode != 0:
         sys.exit(_r.stdout.strip() or "REFUSÉ par le verrou d'ordre")
     delay = max(DEFAULT_DELAY, float(cfg.get("min_delay_s", DEFAULT_DELAY)))
@@ -215,6 +234,8 @@ def main():
                 txt = rf.read_text(encoding="utf-8", errors="replace")
                 regles, cd, qui = lire_robots("\n".join(l for l in txt.splitlines() if not l.startswith("#")))
                 robots[host] = (regles, cd)
+                if cd:
+                    _hl.noter_delai(host, cd)
                 log.write(f"{now_utc()} | robots.txt:{host} | copie locale {cfg['robots_files'][host]} | {len(regles)} règle(s) pour {qui} (aucune requête envoyée)\n")
             if respect_robots and host not in robots:
                 # robots.txt de l'hôte : lu une fois par passe, compté dans le budget, même pause
@@ -229,6 +250,8 @@ def main():
                     if code == 200:
                         regles, cd, qui = lire_robots(rr["body"].decode("utf-8", "replace"))
                         robots[host] = (regles, cd)
+                        if cd:
+                            _hl.noter_delai(host, cd)
                         log.write(f"{now_utc()} | robots.txt:{host} | {rurl} | GET | 200 | "
                                   f"{len(regles)} règle(s) pour {qui}" + (f" ; Crawl-delay {cd} s" if cd else "") + "\n")
                     elif 500 <= code < 600:

@@ -18,6 +18,7 @@ Arrêt immédiat au premier 429, 403, CAPTCHA/défi, 5xx, ou 3 erreurs réseau c
 GET/HEAD uniquement. User-Agent honnête. Requêtes régulièrement espacées.
 """
 import json
+import os
 import statistics
 import sys
 import threading
@@ -29,6 +30,21 @@ from datetime import datetime, timezone
 from pathlib import Path
 
 REPO = Path(__file__).resolve().parent.parent
+
+def _principal():
+    """Racine du dépôt PRINCIPAL (le worktree d'un agent partage le même .git) : scripts de contrôle et listes lus là."""
+    import subprocess as _s
+    try:
+        c = _s.run(["git", "rev-parse", "--path-format=absolute", "--git-common-dir"], cwd=REPO, capture_output=True, text=True).stdout.strip()
+        return Path(c).parent if c else REPO
+    except OSError:
+        return REPO
+
+
+MAIN = _principal()
+sys.path.insert(0, str(MAIN / "scripts"))
+import hostlock as _hl  # noqa: E402  (politesse partagée entre agents)
+AUTORISE_ENV = dict(os.environ, VEILLE_REPO=str(REPO), VEILLE_DATA=str(MAIN / "data"))
 UA = "VeilleAPIIIF/0.1 (veille documentaire; github.com/maribakulj/Veille-API-IIIF)"
 MARQUEURS_DEFI = ("captcha", "verifying your browser", "human verification", "access denied", "request blocked")
 
@@ -99,9 +115,10 @@ def main(cfg_path):
     cfg = json.loads(cfg_file.read_text(encoding="utf-8"))
     slug, ep = cfg["slug"], cfg["endpoint"]
     import subprocess
-    r = subprocess.run([sys.executable, str(REPO / "scripts" / "suivi.py"), "autorise", slug], capture_output=True, text=True)
+    r = subprocess.run([sys.executable, str(MAIN / "scripts" / "suivi.py"), "autorise", slug], capture_output=True, text=True, env=AUTORISE_ENV)
     if r.returncode != 0:
         sys.exit(r.stdout.strip() or "REFUSÉ par le verrou d'ordre")
+    _verrou = _hl.verrou_crash()   # exclusif : aucun autre trafic de l'IP pendant le crash test (libéré à la fin du processus)
     method = ep.get("method", "GET")
     if method not in ("GET", "HEAD"):
         sys.exit("méthode interdite : GET/HEAD seulement")

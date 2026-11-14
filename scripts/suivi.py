@@ -20,14 +20,17 @@ Format d'une étape dans CONSIGNE-ET-SUIVI.md :
     - **Preuves** : `chemin1`, `chemin2`          (chemins relatifs à la racine du dépôt)
 """
 import json
+import os
 import re
+import subprocess
 import sys
 from datetime import datetime
 from pathlib import Path
 from urllib.parse import urlsplit
 
-REPO = Path(__file__).resolve().parent.parent
+REPO = Path(os.environ.get("VEILLE_REPO") or Path(__file__).resolve().parent.parent)
 INST = REPO / "institutions"
+DATA = Path(os.environ.get("VEILLE_DATA") or REPO / "data")   # listes de règles : lues dans le dépôt PRINCIPAL (hook), pas dans la copie d'un agent
 FICHIER = "CONSIGNE-ET-SUIVI.md"
 DEBUT, FIN = "<!-- CONSIGNE:DEBUT -->", "<!-- CONSIGNE:FIN -->"
 ADEBUT, AFIN = "<!-- AUTO:DEBUT -->", "<!-- AUTO:FIN -->"
@@ -98,7 +101,7 @@ def corps_defaut(slug, d):
 
 def cmd_init():
     n = 0
-    for slug in slugs():
+    for slug in (cibles if cibles is not None else slugs()):
         f = INST / slug / FICHIER
         if f.exists():
             continue
@@ -173,7 +176,7 @@ def texte_auto(slug):
 
 
 # ---------------------------------------------------------------- sync
-def cmd_sync():
+def cmd_sync(cibles=None):
     consigne = (REPO / "CONSIGNE.md").read_text(encoding="utf-8").strip()
     methode = (REPO / "METHODOLOGY.md").read_text(encoding="utf-8").strip()
     integral = f"{consigne}\n\n---\n\n# Méthode (METHODOLOGY.md, recopiée)\n\n{methode}"
@@ -219,9 +222,9 @@ def lire_suivi(slug):
 
 
 CATEGORIES_WEB = ("institution", "utilisateurs", "tickets", "presentations")
-ANCIENNES = REPO / "data" / "exigence_ancienne.txt"
-EXEMPT_ORDRE = REPO / "data" / "exemption_ordre_travail_anterieur.txt"  # décision de Marcel 14/11/2026 : travail antérieur au verrou, exempté de l'ORDRE seulement
-HAIKU = REPO / "data" / "ancien_travail_haiku.txt"  # commencées par l'ancienne méthode, à refaire dans l'ordre
+ANCIENNES = DATA / "exigence_ancienne.txt"
+EXEMPT_ORDRE = DATA / "exemption_ordre_travail_anterieur.txt"  # décision de Marcel 14/11/2026 : travail antérieur au verrou, exempté de l'ORDRE seulement
+HAIKU = DATA / "ancien_travail_haiku.txt"  # commencées par l'ancienne méthode, à refaire dans l'ordre
 
 
 def anciennes():
@@ -421,6 +424,31 @@ def controle_v3(slug, d):
     return sorted({x for v in controle_par_etape(slug, d).values() for x in v})
 
 
+LOTS = DATA / "lots.json"   # écrit par Marcel/le coordinateur seulement : {"A": [slug, …], …} ; ordre = ordre de traitement
+
+
+def lots():
+    return json.loads(LOTS.read_text(encoding="utf-8")) if LOTS.exists() else {}
+
+
+def lot_de(slug):
+    for k, l in lots().items():
+        if slug in l:
+            return k
+    return None
+
+
+def lot_courant():
+    """Lot de l'agent : variable VEILLE_LOT, ou branche git lot/<id>."""
+    if os.environ.get("VEILLE_LOT"):
+        return os.environ["VEILLE_LOT"]
+    try:
+        b = subprocess.run(["git", "rev-parse", "--abbrev-ref", "HEAD"], cwd=REPO, capture_output=True, text=True).stdout.strip()
+    except OSError:
+        return None
+    return b[4:] if b.startswith("lot/") else None
+
+
 def ordre():
     """Institutions du classeur dans l'ordre de la consigne (GLAM-001, 002…), extras exclus."""
     out = []
@@ -472,27 +500,47 @@ def termine(slug):
     return not manques_complets(slug)
 
 
-def verrou_ordre():
-    """Impossible de commencer l'institution suivante avant d'avoir tout validé la précédente."""
-    erreurs, o = [], ordre()
-    for i, slug in enumerate(o):
-        r = lire_suivi(slug)
-        if not r or r[0] != "active" or slug in set(HAIKU.read_text().split() if HAIKU.exists() else []) or slug in set(EXEMPT_ORDRE.read_text().split() if EXEMPT_ORDRE.exists() else []) or not commencee(slug):
-            continue
-        for prec in o[:i]:
-            if not termine(prec):
-                erreurs.append(f"{slug}: VERROU : commencée alors que {prec} n'est pas terminée "
-                               f"({'; '.join(manques_complets(prec))[:200]})")
-                break
+def verrou_ordre(lot=None):
+    """Ordre STRICT à l'intérieur de chaque lot (pas entre lots) : on ne commence pas une institution
+    tant qu'une institution antérieure DU MÊME LOT n'est pas terminée. Sans data/lots.json : ordre global du classeur."""
+    exempt = set(HAIKU.read_text().split() if HAIKU.exists() else []) | set(EXEMPT_ORDRE.read_text().split() if EXEMPT_ORDRE.exists() else [])
+    L = lots()
+    suites = [L[lot]] if (lot and lot in L) else (list(L.values()) if L else [ordre()])
+    erreurs = []
+    for o in suites:
+        for i, slug in enumerate(o):
+            r = lire_suivi(slug)
+            if not r or r[0] != "active" or slug in exempt or not commencee(slug):
+                continue
+            for prec in o[:i]:
+                if not termine(prec):
+                    erreurs.append(f"{slug}: VERROU : commencée alors que {prec} (même lot) n'est pas terminée "
+                                   f"({'; '.join(manques_complets(prec))[:200]})")
+                    break
     return erreurs
 
 
 def cmd_autorise(slug):
-    """Utilisé par probe.py, crash.py, fetch_doc.sh : refuse de lancer du trafic pour une institution
-    dont une antérieure (ordre du classeur) n'est pas terminée (étapes a–g + exigences)."""
-    o = ordre()
-    if slug not in o:
-        return 0
+    """Appelé par probe.py, crash.py, fetch_doc.sh : refuse si (a) l'agent est sur une branche de lot et l'institution
+    n'est pas dans SON lot, (b) une institution antérieure du même lot n'est pas terminée (a–f),
+    (c) l'institution n'est dans aucun lot et n'est pas déjà terminée."""
+    L = lots()
+    mon = lot_courant()
+    leur = lot_de(slug)
+    if mon and leur != mon:
+        print(f"REFUSÉ : {slug} n'est pas dans votre lot ({mon}) : lot {leur or 'aucun'}.")
+        return 1
+    if L:
+        if leur is None:
+            if (lire_suivi(slug) or ("",))[0] == "active" and re.fullmatch(r"GLAM-\d{3}", str(lire_data(slug).get("classeur_id") or "")) and not termine(slug):
+                print(f"REFUSÉ : {slug} n'est assignée à aucun lot (data/lots.json).")
+                return 1
+            return 0
+        o = L[leur]
+    else:
+        o = ordre()
+        if slug not in o:
+            return 0
     for prec in o[:o.index(slug)]:
         if not termine(prec):
             print(f"REFUSÉ : {slug} ne peut pas être traitée avant {prec} (non terminée : "
@@ -519,12 +567,14 @@ def cmd_fin():
     return 0
 
 
-def cmd_porte(slug=None):
-    o = ordre()
+def cmd_porte(slug=None, lot=None):
+    lot = lot or lot_courant()
+    L = lots()
+    o = L[lot] if (lot and lot in L) else ordre()
     if slug is None:
         slug = next((s for s in o if not termine(s)), None)
         if slug is None:
-            print("Toutes les institutions sont terminées.")
+            print(f"Toutes les institutions{' du lot ' + lot if lot else ''} sont terminées (a–f).")
             return 0
     m = manques_complets(slug)
     print(f"{slug} : " + ("TERMINÉE, on peut passer à la suivante." if not m else f"{len(m)} manque(s) avant de passer à la suivante :"))
@@ -535,9 +585,10 @@ def cmd_porte(slug=None):
     return 0 if not m else 1
 
 
-def cmd_validate():
+def cmd_validate(lot=None):
     erreurs = []
-    for slug in slugs():
+    cibles = lots()[lot] if lot else slugs()
+    for slug in cibles:
         s = lire_suivi(slug)
         if s is None:
             erreurs.append(f"{slug}: {FICHIER} absent")
@@ -579,7 +630,7 @@ def cmd_validate():
             erreurs.append(f"{slug}: crash test (g) coché avant l'audit complet (a à f)")
         for a in analyser_journal(slug)["anomalies"]:
             erreurs.append(f"{slug}: journal : {a}")
-    erreurs += verrou_ordre()
+    erreurs += verrou_ordre(lot)
     if erreurs:
         print("VALIDATION : ÉCHEC")
         for e in erreurs[:60]:
@@ -587,7 +638,7 @@ def cmd_validate():
         if len(erreurs) > 60:
             print(f"  … et {len(erreurs) - 60} autres")
         return 1
-    print(f"VALIDATION : OK ({len(slugs())} institutions)")
+    print(f"VALIDATION : OK ({len(cibles)} institutions{' du lot ' + lot if lot else ''})")
     return 0
 
 
@@ -616,27 +667,35 @@ def cmd_data(slug, js):
     print(f"{slug} data.json mis à jour : {', '.join(json.loads(js))}")
 
 
+def _opt_lot(args):
+    if "--lot" in args:
+        k = args.index("--lot")
+        return args[k + 1], args[:k] + args[k + 2:]
+    return lot_courant(), args
+
+
 def main():
     cmd = sys.argv[1] if len(sys.argv) > 1 else "all"
+    lot, args = _opt_lot(sys.argv[2:])
     if cmd == "init":
         cmd_init()
     elif cmd == "sync":
-        cmd_sync()
+        cmd_sync(lots()[lot] if lot else None)
     elif cmd == "autorise":
-        sys.exit(cmd_autorise(sys.argv[2]))
+        sys.exit(cmd_autorise(args[0]))
     elif cmd == "fin":
         sys.exit(cmd_fin())
     elif cmd == "porte":
-        sys.exit(cmd_porte(sys.argv[2] if len(sys.argv) > 2 else None))
+        sys.exit(cmd_porte(args[0] if args else None, lot))
     elif cmd == "validate":
-        sys.exit(cmd_validate())
+        sys.exit(cmd_validate(lot))
     elif cmd == "all":
-        cmd_sync()
-        sys.exit(cmd_validate())
+        cmd_sync(lots()[lot] if lot else None)
+        sys.exit(cmd_validate(lot))
     elif cmd == "set":
-        cmd_set(sys.argv[2], sys.argv[3], sys.argv[4], sys.argv[5], sys.argv[6:])
+        cmd_set(args[0], args[1], args[2], args[3], args[4:])
     elif cmd == "data":
-        cmd_data(sys.argv[2], sys.argv[3])
+        cmd_data(args[0], args[1])
     else:
         sys.exit(__doc__)
 

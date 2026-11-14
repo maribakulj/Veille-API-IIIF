@@ -1,21 +1,54 @@
 #!/usr/bin/env bash
-# À chaque commit : (1) recopie la consigne intégrale dans chaque dossier d'institution,
-# (2) valide le suivi (cases cochées = justification + preuves existantes ; règles de prudence
-# sur les journaux), (3) régénère BENCHMARK.xlsx. Un échec de (2) bloque le commit.
-# Activation (une fois) : git config core.hooksPath .githooks
+# À chaque commit.
+#  - Branche principale : recopie la consigne dans chaque dossier, valide TOUTES les institutions, régénère BENCHMARK.xlsx.
+#  - Branche lot/<id> (agent en parallèle, dans son worktree) : (1) PÉRIMÈTRE : seuls les fichiers des dossiers
+#    institutions/<slug>/ des institutions de SON lot peuvent être committés (jamais scripts/, hook, data/, méthode,
+#    classeur) ; (2) validation limitée au lot ; le classeur est régénéré à l'intégration, pas ici.
+# Le hook, les scripts de contrôle et les listes data/ sont lus dans le dépôt PRINCIPAL : un agent ne peut pas
+# les contourner en modifiant sa copie. Activation : git config core.hooksPath /chemin/absolu/du/depot/principal/.githooks
 set -e
-cd "$(git rev-parse --show-toplevel)"
+ROOT="$(git rev-parse --show-toplevel)"
+cd "$ROOT"
+MAIN="$(cd "$(dirname "$(git rev-parse --git-common-dir)")" && pwd)"
+BR="$(git rev-parse --abbrev-ref HEAD)"
 PY="${VEILLE_PYTHON:-}"
 if [ -z "$PY" ]; then
   if [ -x "$HOME/.venvs/veille/bin/python" ]; then PY="$HOME/.venvs/veille/bin/python"; else PY="python3"; fi
+fi
+export VEILLE_REPO="$ROOT" VEILLE_DATA="$MAIN/data"
+if [[ "$BR" == lot/* ]]; then
+  LOT="${BR#lot/}"
+  export VEILLE_LOT="$LOT"
+  "$PY" - "$MAIN/data/lots.json" "$LOT" <<'PYEOF'
+import json, subprocess, sys
+lots = json.load(open(sys.argv[1])); lot = sys.argv[2]
+if lot not in lots:
+    sys.exit(f"pre-commit : lot inconnu « {lot} » (data/lots.json)")
+ok = tuple(f"institutions/{s}/" for s in lots[lot])
+fichiers = subprocess.run(["git", "diff", "--cached", "--name-only"], capture_output=True, text=True).stdout.split()
+hors = [f for f in fichiers if not f.startswith(ok)]
+if hors:
+    sys.exit("pre-commit : PÉRIMÈTRE : fichiers hors des institutions du lot " + lot + " : " + ", ".join(hors[:8]) +
+             "\nSeuls institutions/<slug>/… de votre lot peuvent être committés.")
+PYEOF
+  if ! "$PY" "$MAIN/scripts/suivi.py" all --lot "$LOT"; then
+    echo "pre-commit : validation du lot $LOT en ÉCHEC : commit bloqué." >&2
+    exit 1
+  fi
+  "$PY" - "$MAIN/data/lots.json" "$LOT" <<'PYEOF' | xargs -r git add
+import json, sys
+for s in json.load(open(sys.argv[1]))[sys.argv[2]]:
+    print(f"institutions/{s}/CONSIGNE-ET-SUIVI.md")
+PYEOF
+  exit 0
 fi
 if ! "$PY" -c "import openpyxl" 2>/dev/null; then
   echo "pre-commit : openpyxl absent pour $PY. Installer : $PY -m pip install -r requirements.txt" >&2
   exit 1
 fi
-if ! "$PY" scripts/suivi.py all; then
+if ! "$PY" "$MAIN/scripts/suivi.py" all; then
   echo "pre-commit : validation du suivi en ÉCHEC : commit bloqué (corriger les cases ci-dessus)." >&2
   exit 1
 fi
-"$PY" scripts/build_benchmark.py >/dev/null
+"$PY" "$MAIN/scripts/build_benchmark.py" >/dev/null
 git add BENCHMARK.xlsx institutions/*/CONSIGNE-ET-SUIVI.md
