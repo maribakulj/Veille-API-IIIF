@@ -1,0 +1,11 @@
+# Session 2026-11-13T21:08:00Z — configuration kb-nl.json — sonde probe.py au commit d288c19
+2026-11-13T21:08:00Z | racine-iiif | https://iiif.kb.nl/ | GET | ERREUR_RÉSEAU | gaierror: [Errno 8] nodename nor servname provided, or not known
+2026-11-13T21:08:03Z | sru-explain | http://jsru.kb.nl/sru/sru?operation=explain | GET | 301 OK | aucun en-tête de limite | taille≥0 | corps: 
+2026-11-13T21:08:03Z | oai-identify | http://services.kb.nl/mdo/oai?verb=Identify | GET | 301 OK | aucun en-tête de limite | taille≥0 | corps: 
+# Fin 2026-11-13T21:08:03Z — 3 requête(s) envoyée(s)
+# Session 2026-11-13T21:08:10Z — configuration kb-nl-suite.json — sonde probe.py au commit b7eeabb
+2026-11-13T21:08:10Z | sru-explain-https | https://jsru.kb.nl/sru/sru?operation=explain | GET | 200 OK | aucun en-tête de limite | taille≥200 | corps: <?xml version="1.0" encoding="UTF-8"?><srw:explainResponse xmlns:srw="http://www.loc.gov/zing/srw/" xmlns:tel="http://krait.kb.nl/coop/tel/handbook/telterms.html" xmlns:xsi="http://www.w3.org/2001/XML
+2026-11-13T21:08:10Z | oai-identify-https | https://services.kb.nl/mdo/oai?verb=Identify | GET | 200 OK | aucun en-tête de limite | taille≥200 | corps: <?xml version="1.0"?> <OAI-PMH xmlns="http://www.openarchives.org/OAI/2.0/"          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"          xsi:schemaLocation="http://www.openarchives.org/OAI/
+2026-11-13T21:08:16Z | sru-searchretrieve | https://jsru.kb.nl/sru/sru?operation=searchRetrieve&version=1.2&maximumRecords=1&query=dc.title%3Damsterdam | GET | 200 OK | aucun en-tête de limite | taille≥200 | corps: <?xml version="1.0" encoding="UTF-8"?><srw:searchRetrieveResponse xmlns:srw="http://www.loc.gov/zing/srw/" xmlns:tel="http://krait.kb.nl/coop/tel/handbook/telterms.html" xmlns:xsi="http://www.w3.org/2
+2026-11-13T21:08:16Z | oai-listsets | https://services.kb.nl/mdo/oai?verb=ListSets | GET | 200 OK | aucun en-tête de limite | taille≥200 | corps: <?xml version="1.0"?> <OAI-PMH xmlns="http://www.openarchives.org/OAI/2.0/"          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"          xsi:schemaLocation="http://www.openarchives.org/OAI/
+# Fin 2026-11-13T21:08:16Z — 4 requête(s) envoyée(s)

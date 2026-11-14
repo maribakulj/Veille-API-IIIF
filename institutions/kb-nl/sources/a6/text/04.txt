@@ -1,0 +1,197 @@
+GitHub - KBNLresearch/KB-python-API: Python API for KB data-services · GitHub 
+ Skip to content 
+ Navigation Menu
+ Sign in 
+ Products Platform GitHub Repository hosting, code review, and collaboration 
+ Copilot AI coding agent for tasks, projects, and automated work 
+ Build & Ship Actions CI/CD and automation 
+ Code Quality Quality analysis, fixes, and enforcement 
+ Codespaces Cloud development environments 
+ Secure Code Security Vulnerability detection and remediation 
+ Secret Protection Secret scanning and leak prevention 
+ All Features 
+ Developers Learn Documentation 
+ Training 
+ Certifications 
+ Build Build with Copilot 
+ Customize Copilot 
+ Integrations 
+ Explore Trending repos 
+ GitHub Sponsors 
+ Developer articles 
+ Changelog Changelog Your source for the latest features, improvements, and fixes across GitHub products, all in one place. 
+ Businesses By Stage Enterprises 
+ Team 
+ Startups 
+ Nonprofits 
+ By Industry Healthcare 
+ Financial services 
+ Manufacturing 
+ Government 
+ See all industries 
+ Evaluate GitHub Why GitHub 
+ Customer Stories 
+ Business insights 
+ Trust Center 
+ Add-ons GitHub Advanced Security Enterprise-grade code security 
+ Copilot for business Enterprise-grade AI features 
+ Premium Support Enterprise-grade 24/7 support 
+ Resources Learn & Connect Documentation 
+ Resource center 
+ Blog 
+ Events & webinars 
+ Community Forum 
+ Customer Stories 
+ Integrations 
+ Support Customer support 
+ Training 
+ GitHub Status 
+ Company About 
+ Partners 
+ Changelog 
+ GitHub Universe GitHub Universe The event for developers, by developers — talks, workshops, and what’s next for GitHub. 
+ Pricing 
+ Search / 
+ Sign in 
+ Sign up Appearance settings
+ You signed in with another tab or window. Reload to refresh your session. 
+ You signed out in another tab or window. Reload to refresh your session. 
+ You switched accounts on another tab or window. Reload to refresh your session. 
+ Dismiss alert 
+ {{ message }}
+ KBNLresearch 
+ KB-python-API 
+ Repository navigation
+ Code 
+ Issues 
+ Pull requests 
+ Actions 
+ Projects 
+ Wiki 
+ Security and quality 
+ Insights 
+ More items 
+ KB-python-API 
+ Public 
+ Notifications You must be signed in to change notification settings 
+ Fork 9  ( 9 ) 
+ Star 20  ( 20 ) You must be signed in to star a repository 
+ About 
+ Python API for KB data-services
+ Topics 
+ api code4lib oai-pmh python search sru 
+ Resources 
+ Readme 
+ License 
+ Activity 
+ Custom properties 
+ Stars 
+ 20 stars 
+ Watchers 
+ 6 watching 
+ Forks 
+ 9 forks 
+ Report repository 
+ master 
+ Branches Tags 
+ Go to file 
+ Code Open more actions menu 
+ Latest commit
+ History
+ 54 Commits 
+ 54 Commits 
+ Folders and files
+ Name Name Last commit message 
+ Last commit date 
+ kb 
+ kb 
+ test 
+ test 
+ .gitignore 
+ .gitignore 
+ .travis.yml 
+ .travis.yml 
+ LICENSE.txt 
+ LICENSE.txt 
+ Makefile 
+ Makefile 
+ README.rst 
+ README.rst 
+ example.py 
+ example.py 
+ setup.py 
+ setup.py 
+ View all files 
+ Repository files navigation
+ README 
+ License 
+ More items 
+ KB python API: Access to National Library of the Netherlands datasets
+ Pypi version
+ Travis build status
+ KB-Python-API is a simple API for Python , the API provides easy access to free and CC-BY-NC-ND datasets provided by the National Library of the Netherlands ( KB ).
+ It relies on the back-end infrastructure of the KB which consists of an SRU and OAI-MPH service. The KB Python API makes it easy to interact with historical data,
+for more information on the provided datasets and data-rights take a look at the DataServices page of the KB.
+ For example usage have a look at the provided example.py file, or consult the /test directory.
+ This package is also available from the pypi website.
+To do a quick install:
+ pip install kb
+ OAI example
+ > >> from kb . nl . api import oai 
+ > >> from kb . nl . helpers import alto_to_text 
+ > >> oai . list_sets ()
+[ 'ANP' , 'BYVANCK' , 'DPO' , 'SGD' ]
+ > >> records = oai . list_records ( "ANP" )
+ > >> records . identifiers [: 3 ]
+[ 'anp:1937:10:01:1' , 'anp:1937:10:01:2' , 'anp:1937:10:01:3' ]
+ > >> len ( oai . resumptiontoken )
+ 42 
+ > >> record = oai . get ( records . identifiers [ 0 ])
+ > >> alto_record = record . alto 
+ > >> alto_to_text ( alto_record [ 0 ]). split ( " \\ n" )[ 1 ][: 27 ]
+ u' RADIO 1 van 1 Ootober 1937' 
+ >> image_record = record . image 
+ > >> len ( image_record )
+ 721035 
+ SRU example
+ > >> from kb . nl . api import sru 
+ > >> from kb . nl . helpers import alto_to_text 
+ > >> response = sru . search ( "Beatrix AND Juliana AND Bernhard AND telegram" , "ANP" )
+ > >> for record in response . records :
+... print ( "Date: %s" % record . date )
+... print ( "Abstract: %s" % record . abstract )
+... print ( "Title: %s" % record . title ) 
+ About 
+ Python API for KB data-services
+ Topics 
+ api code4lib oai-pmh python search sru 
+ Resources 
+ Readme 
+ License 
+ Activity 
+ Custom properties 
+ Stars 
+ 20 stars 
+ Watchers 
+ 6 watching 
+ Forks 
+ 9 forks 
+ Report repository 
+ Releases 
+ Packages 
+ Used by 
+ Contributors 
+ Languages 
+ Footer
+ © 2026 GitHub, Inc.
+ Footer navigation
+ Terms 
+ Privacy 
+ Security 
+ Status 
+ Community 
+ Docs 
+ Contact 
+ Manage cookies
+ Do not share my personal information
+ You can’t perform that action at this time.

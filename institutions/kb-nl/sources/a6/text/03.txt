@@ -1,0 +1,208 @@
+GitHub - LeidenUniversityLibrary/KB-harvester · GitHub 
+ Skip to content 
+ Navigation Menu
+ Sign in 
+ Products Platform GitHub Repository hosting, code review, and collaboration 
+ Copilot AI coding agent for tasks, projects, and automated work 
+ Build & Ship Actions CI/CD and automation 
+ Code Quality Quality analysis, fixes, and enforcement 
+ Codespaces Cloud development environments 
+ Secure Code Security Vulnerability detection and remediation 
+ Secret Protection Secret scanning and leak prevention 
+ All Features 
+ Developers Learn Documentation 
+ Training 
+ Certifications 
+ Build Build with Copilot 
+ Customize Copilot 
+ Integrations 
+ Explore Trending repos 
+ GitHub Sponsors 
+ Developer articles 
+ Changelog Changelog Your source for the latest features, improvements, and fixes across GitHub products, all in one place. 
+ Businesses By Stage Enterprises 
+ Team 
+ Startups 
+ Nonprofits 
+ By Industry Healthcare 
+ Financial services 
+ Manufacturing 
+ Government 
+ See all industries 
+ Evaluate GitHub Why GitHub 
+ Customer Stories 
+ Business insights 
+ Trust Center 
+ Add-ons GitHub Advanced Security Enterprise-grade code security 
+ Copilot for business Enterprise-grade AI features 
+ Premium Support Enterprise-grade 24/7 support 
+ Resources Learn & Connect Documentation 
+ Resource center 
+ Blog 
+ Events & webinars 
+ Community Forum 
+ Customer Stories 
+ Integrations 
+ Support Customer support 
+ Training 
+ GitHub Status 
+ Company About 
+ Partners 
+ Changelog 
+ GitHub Universe GitHub Universe The event for developers, by developers — talks, workshops, and what’s next for GitHub. 
+ Pricing 
+ Search / 
+ Sign in 
+ Sign up Appearance settings
+ You signed in with another tab or window. Reload to refresh your session. 
+ You signed out in another tab or window. Reload to refresh your session. 
+ You switched accounts on another tab or window. Reload to refresh your session. 
+ Dismiss alert 
+ {{ message }}
+ LeidenUniversityLibrary 
+ KB-harvester 
+ Repository navigation
+ Code 
+ Issues 
+ Pull requests 
+ Actions 
+ Projects 
+ Security and quality 
+ Insights 
+ More items 
+ KB-harvester 
+ Public 
+ Notifications You must be signed in to change notification settings 
+ Fork 1  ( 1 ) 
+ Star 0  ( 0 ) You must be signed in to star a repository 
+ About 
+ No description, website, or topics provided. 
+ Resources 
+ Readme 
+ GPL-3.0 license 
+ Activity 
+ Custom properties 
+ Stars 
+ 0 stars 
+ Watchers 
+ 1 watching 
+ Forks 
+ 1 fork 
+ Report repository 
+ master 
+ Branches Tags 
+ Go to file 
+ Code Open more actions menu 
+ Latest commit
+ History
+ 19 Commits 
+ 19 Commits 
+ Folders and files
+ Name Name Last commit message 
+ Last commit date 
+ nl 
+ nl 
+ .gitignore 
+ .gitignore 
+ Dockerfile 
+ Dockerfile 
+ LICENSE.txt 
+ LICENSE.txt 
+ README.md 
+ README.md 
+ harvest.py 
+ harvest.py 
+ setup.py 
+ setup.py 
+ View all files 
+ Repository files navigation
+ README 
+ GPL-3.0 license 
+ More items 
+ KB harvester
+ This package provides a convenience tool and library for downloading metadata and files for historical newspapers from
+the Koninklijke Bibliotheek (the Royal Library/National Library of the Netherlands).
+The KB provides a Python client module to access their data services APIs , which uses SRU and OAI-PMH.
+The library provided in this package wraps it to provide a simple interface allowing you to gather all publicly available files for newspapers identified by their PPN and save them locally.
+ Be aware that the data you may download using this tool may not be redistributed or used for all purposes without clearing database and/or copyrights. See the usage guidelines for Delpher for more information or contact KB Data Services for more information. 
+ Installation
+ First, clone or download this repository to your machine:
+ git clone https://github.com/LeidenUniversityLibrary/KB-harvester.git
+cd KB-harvester
+ The KB harvester depends on three packages: kb , tqdm and requests . If you have these installed in your environment or virtualenv and only want to run the command-line tool harvest.py , you're good to go. Otherwise, the command
+ python setup.py install
+ will install the dependencies and the provided module in your environment/virtualenv.
+ Usage
+ Again, be aware of copyrights and/or database rights involved in using the data. See above for pointers. 
+ From the command line, run:
+ python harvest.py <PPN>
+ where <PPN> is the PPN (a record identifier) for the newspaper (the full newspaper, not an individual issue) you want to download.
+Optionally you can specify where you want to save the data (the default is ./data/ ) by specifying --dir <directory> before the PPN. ( Note: make sure the path ends with a / . )
+ While downloading, the tool shows several progress bars that indicate time spent and the estimated time remaining. The library is setup to wait between requests to the KB, to not overload the service that also runs the excellent portal Delpher .
+ The harvest.py tool is a simple example of using the library, as it is mostly a thin wrapper around it.
+To use the KB harvester, consider the code below, in which args.dir is the optional data directory and args.ppn is the provided PPN.
+ from nl.leidenuniv.library.harvester.harvester import Harvester
+harv = Harvester(args.dir)
+harv.harvest_newspaper_urls(args.ppn)
+harv.harvest_newspaper_issues(args.ppn)
+ The first line after initialising the Harvester collects the URLs, the second fetches the URLs and downloads the files for each issue.
+ Output
+ The following files are produced by the tool:
+ data/issues-<PPN>.txt holds the URLs for the metadata of each issue of newspaper <PPN> 
+ data/<issue PPN>/ contains the files for an individual issue
+ data/<issue PPN>/<issue PPN>.oai-header.xml is the OAI-PMH header that came with the metadata
+ data/<issue PPN>/<issue PPN>.didl.xml is the issue metadata and structure in the DIDL format
+ data/<issue PPN>/<xxx>_<issue PPN>.pdf is the PDF file containing the complete issue
+ data/<issue PPN>/<xxx>_<issue PPN>_<ddd>_access.jp2 is the JPEG2000 scan (lower resolution) of page <ddd> 
+ data/<issue PPN>/<xxx>_<issue PPN>_<ddd>_alto.xml is the ALTO XML containing the OCR results for page <ddd> 
+ data/<issue PPN>/<xxx>_<issue PPN>_<dddd>_articletext.xml is a simple representation of the article text for article <dddd> , containing separate markup for title and paragraphs
+ data/<issue PPN>/errors.tsv is created and added to when the URL (an OAI-PMH GetRecord request) returns an error
+ KB-harvester.log is a (rotated) log file containing log messages including debug messages.
+ Some files mentioned in the DIDL metadata are not available for download, such as the preservation (master) copies of the scans and technical metadata.
+ Note: the files for each issue add up to something between 5 and 100 MB, depending on the image quality and number of pages and articles.
+ Support
+ Please file an issue in this repository for support, or contact the author.
+ Note: the Koninklijke Bibliotheek are aware of, but do not support this package. 
+ Author and license
+ The KB harvester was created by Ben Companjen of the Centre for Digital Scholarship at Leiden University Libraries in 2016. Copyright is held by Leiden University Libraries.
+ This program is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+ This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+GNU General Public License for more details.
+ You should have received a copy of the GNU General Public License
+along with this program. If not, see https://www.gnu.org/licenses/ .
+ About 
+ No description, website, or topics provided. 
+ Resources 
+ Readme 
+ GPL-3.0 license 
+ Activity 
+ Custom properties 
+ Stars 
+ 0 stars 
+ Watchers 
+ 1 watching 
+ Forks 
+ 1 fork 
+ Report repository 
+ Releases 
+ Packages 
+ Contributors 
+ Languages 
+ Footer
+ © 2026 GitHub, Inc.
+ Footer navigation
+ Terms 
+ Privacy 
+ Security 
+ Status 
+ Community 
+ Docs 
+ Contact 
+ Manage cookies
+ Do not share my personal information
+ You can’t perform that action at this time.

@@ -2,58 +2,58 @@
 
 - **Dossier** : `institutions/digital-repository-of-ireland/`  ·  **Classeur de référence** : GLAM-070  ·  **Pays** : Irlande
 - **Statut d'institution** : active
-- **Dernière mise à jour du suivi** : (à renseigner à chaque modification)
+- **Dernière mise à jour du suivi** : 2026-11-14
 
 ## Suivi par étape (à cocher, avec justification et preuves)
 
 ### a) Documentation lue en entier
 > Toutes les pages de doc liées à l'API (développeurs, interfaces, conditions, FAQ, aide, mentions légales, robots.txt), téléchargées avec `scripts/fetch_doc.sh` (URL, date, SHA-256), lues en entier (`scripts/extract_text.py`).
 
-- [ ] **Pas fait**
-  - **Justification** : Pas encore traitée : l'audit suit l'ordre du classeur de référence (une institution à la fois).
-  - **Preuves** : 
+- [x] **Fait**
+  - **Justification** : Doc lue : robots.txt et pages du site en défi Cloudflare 403 (non contourné), lues via Wayback ; dépôt GitHub dri-documentation, routes.rb, Gemfile et initialiseurs lus ; api-docs sans capture, listée à vérifier à la main.
+  - **Preuves** : `institutions/digital-repository-of-ireland/sources/a1/SHA256SUMS`, `institutions/digital-repository-of-ireland/sources/a3/SHA256SUMS`, `institutions/digital-repository-of-ireland/sources/a5/SHA256SUMS`, `institutions/digital-repository-of-ireland/sources/a6/SHA256SUMS`, `institutions/digital-repository-of-ireland/sources/wayback/wayback-dri.md`
 
 ### b) Endpoints tirés de la doc
 > Liste des endpoints citée par la doc (URL, exemples). Jamais devinée. Une interdiction ou une impossibilité écrite dans la doc justifie de renoncer (citer la phrase).
 
-- [ ] **Pas fait**
-  - **Justification** : Pas encore traitée : l'audit suit l'ordre du classeur de référence (une institution à la fois).
-  - **Preuves** : 
+- [x] **Fait**
+  - **Justification** : Quatre familles listées (API rswag, IIIF Presentation, IIIF Image Riiif, OAI-PMH) tirées de dri-documentation et de routes.rb, toutes non_teste avec raison ; deux URL GitHub écartées.
+  - **Preuves** : `institutions/digital-repository-of-ireland/data.json`, `institutions/digital-repository-of-ireland/sources/a6/SHA256SUMS`
 
 ### c) Configuration écrite AVANT les tests
 > `config/<nom>.json` pilote `scripts/probe.py`, committée avant le lancement. Un endpoint absent de la doc mais non interdit se teste avec un script poli (identifiants issus de pages publiques ou d'exemples de la doc, pas de devinette).
 
-- [ ] **Pas fait**
-  - **Justification** : Pas encore traitée : l'audit suit l'ordre du classeur de référence (une institution à la fois).
-  - **Preuves** : 
+- [x] **Fait**
+  - **Justification** : Configuration passe1.json écrite et committée (d33a89a) avant le lancement : un endpoint tiré de la doc, 6 s de pause, robots_disallow_autorise_par_marcel.
+  - **Preuves** : `institutions/digital-repository-of-ireland/config/passe1.json`
 
 ### d) Quota cherché dans la doc
 > Pour chaque page lue : endpoint de statut, en-têtes de limite documentés, clé ou compte donnant un quota, contact pour un volume plus élevé. Chaque réponse cite sa source.
 
-- [ ] **Pas fait**
-  - **Justification** : Pas encore traitée : l'audit suit l'ordre du classeur de référence (une institution à la fois).
-  - **Preuves** : 
+- [x] **Fait**
+  - **Justification** : Recherche de quota dans chaque page lue (Standards Adoption, About, End User Agreement, dépôt dri-documentation, code) : aucune limite, aucun en-tête, aucune clé ; contact dri@ria.ie noté ; api-docs illisible, à vérifier à la main.
+  - **Preuves** : `institutions/digital-repository-of-ireland/fiche.md`, `institutions/digital-repository-of-ireland/data.json`
 
 ### e) Test systématique de chaque endpoint
 > Chaque endpoint documenté est testé (budget 15 requêtes par passe, pause ≥ 6 s, GET/HEAD, UA du projet). Redirections du même hôte suivies. Un 403 arrête son hôte, un 429 arrête l'institution. Seules les interdictions écrites dans la doc dispensent de tester.
 
-- [ ] **Pas fait**
-  - **Justification** : Pas encore traitée : l'audit suit l'ordre du classeur de référence (une institution à la fois).
-  - **Preuves** : 
+- [x] **Fait**
+  - **Justification** : Passe 1 lancée : 0 requête, endpoint NON LANCÉ car hôte repository.dri.ie arrêté (403 défi Cloudflare, registre partagé) ; autres familles non testables sans identifiant public ni chemin documenté, justifiées dans endpoints_documentes.
+  - **Preuves** : `institutions/digital-repository-of-ireland/tests/journal.log`
 
 ### f) Ce que disent les gens sur le web
 > Plaintes, discussions, présentations de l'institution, politique envers les API et les bots, blogs, GitHub, forums, listes de diffusion. Sources étiquetées (officielle / institution / utilisateur / tiers), lues, citées.
 
-- [ ] **Pas fait**
-  - **Justification** : Pas encore traitée : l'audit suit l'ordre du classeur de référence (une institution à la fois).
-  - **Preuves** : 
+- [x] **Fait**
+  - **Justification** : Quatre recherches web (institution, utilisateurs, tickets, présentations) ; deux pistes lues (Wayback Standards Adoption, diaporama de l'institution), deux catégories sans résultat avec requête, étiquetées résumé de moteur non vérifié.
+  - **Preuves** : `institutions/digital-repository-of-ireland/data.json`, `institutions/digital-repository-of-ireland/fiche.md`
 
 ### g) Crash test progressif
 > Seulement après l'audit complet (a à f) de toutes les institutions et avec l'accord de Marcel : paliers jusqu'à 2 × la limite documentée, ou 200 req/min si illimité ou sans limite documentée. Arrêt au premier 429/403/CAPTCHA.
 
-- [ ] **Pas fait**
-  - **Justification** : Pas encore traitée : l'audit suit l'ordre du classeur de référence (une institution à la fois).
-  - **Preuves** : 
+- [~] **Sans objet (décision de Marcel)**
+  - **Justification** : Impossible : repository.dri.ie et www.dri.ie en défi Cloudflare 403 dès robots.txt, aucun hôte testable (data.json g_impossible).
+  - **Preuves** : `institutions/digital-repository-of-ireland/data.json`
 
 ### Contrôles transversaux
 - Budget : 15 requêtes par passe · pauses ≥ 6 s · GET/HEAD seulement · UA du projet · aucun contournement. Ces contrôles sont calculés depuis le journal (voir « Contrôles automatiques »).

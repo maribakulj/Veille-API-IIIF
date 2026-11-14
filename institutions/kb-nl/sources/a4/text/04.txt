@@ -1,0 +1,76 @@
+# Block all
+User-Agent: *
+Disallow: /
+# Allow whitelist
+User-Agent: Bingbot
+Disallow:
+User-Agent: Googlebot
+Disallow:
+User-Agent: DuckDuckBot
+Disallow:
+User-Agent: Slurp
+Disallow:
+User-Agent: facebookexternalhit
+Disallow:
+User-agent: LinkedInBot
+Disallow:
+User-Agent: Applebot
+Disallow:
+User-agent: ia_archiver
+Disallow:
+# Specific rules
+User-agent: Google-Extended
+Disallow: /
+User-agent: Googlebot-Image
+Disallow: /
+User-agent: Google-CloudVertexBot
+Disallow: /
+User-Agent: *
+User-Agent: Bingbot
+User-Agent: Googlebot
+User-Agent: DuckDuckBot
+User-agent: Slurp
+User-Agent: facebookexternalhit
+User-agent: LinkedInBot
+User-Agent: Applebot
+User-agent: ia_archiver
+Disallow: /*/results
+Disallow: /*/gview
+Disallow: /*?*ddd%3A010377873%3Ampeg21%3Aa0049
+Disallow: /*?*ddd%3A010985092%3Ampeg21%3Aa0047
+Disallow: /*?*ddd%3A010377866%3Ampeg21%3Aa0047
+Disallow: /*?*ddd%3A010985085%3Ampeg21%3Aa0046
+Disallow: /*?*ddd%3A010985085%3Ampeg21%3Ap003
+Disallow: /*?*ddd%3A010985092%3Ampeg21%3Ap003
+Disallow: /*?*ddd%3A010377866%3Ampeg21%3Ap003
+Disallow: /*?*ddd%3A010985085%3Ampeg21%3Ap003
+Disallow: /*?*ddd:010377873:mpeg21:a0049
+Disallow: /*?*ddd:010985092:mpeg21:a0047
+Disallow: /*?*ddd:010377866:mpeg21:a0047
+Disallow: /*?*ddd:010985085:mpeg21:a0046
+Disallow: /*?*ddd:010985085:mpeg21:p003
+Disallow: /*?*ddd:010985092:mpeg21:p003
+Disallow: /*?*ddd:010377866:mpeg21:p003
+Disallow: /*?*ddd:010985085:mpeg21:p003
+Disallow: /*?*KBDC001:003078004
+Disallow: /*?*ddd:010629120:mpeg21:p070
+Disallow: /*?*ddd:010628831:mpeg21:p074
+Disallow: /*?*ddd:010559856:mpeg21:p078
+Disallow: /*?*ddd:010560164:mpeg21:p076
+Disallow: /*?*ddd:010562571:mpeg21:p039
+Disallow: /*?*ddd:010572275:mpeg21:p063
+Disallow: /*?*ddd:010646420:mpeg21:p015
+Disallow: /*?*ddd:010645993:mpeg21:p013
+Disallow: *?*query=
+Disallow: *?*type=pdf
+Disallow: /*/objectresults
+Disallow: *?*imageviewer
+Disallow: /*/pageocr
+Disallow: *?*pres[page]
+Disallow: *?*mpeg21:a
+Disallow: /nl/platform/pages/helpitems?
+Disallow: /over-delpher/*
+Disallow: *?identifier=dbnl
+Disallow: *?identifier=CBS_EXT
+Disallow: *?viewmode=geboortedag
+Sitemap: https://www.delpher.nl/sitemap.xml

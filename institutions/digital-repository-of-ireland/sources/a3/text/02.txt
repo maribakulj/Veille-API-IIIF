@@ -1,0 +1,154 @@
+# -*- mode: ruby -*-
+# vi: set ft=ruby :
+source 'https://rubygems.org'
+gem 'rails', '8.0.5.1'
+gem 'jsbundling-rails'
+gem 'blacklight', '~> 8'
+gem 'blacklight_advanced_search', '~> 8'
+gem 'blacklight_oai_provider', git: 'https://github.com/projectblacklight/blacklight_oai_provider'
+gem 'kaminari', git: 'https://github.com/kaminari/kaminari.git'
+gem 'rsolr'
+gem 'hydra-derivatives', git: 'https://github.com/Digital-Repository-of-Ireland/hydra-derivatives.git', branch: 'af_optional'
+gem 'nokogiri', '>= 1.19.4'
+gem 'iiif-presentation'
+gem 'openseadragon'
+gem 'riiif'
+gem "devise", ">= 4.7.1"
+gem 'dri_data_models', git: 'git@github.com:Digital-Repository-of-Ireland/dri-data-models.git', tag: 'v4.19.1'
+gem 'user_group', git: 'git@github.com:Digital-Repository-of-Ireland/dri-user-group.git', tag: 'v2.4.4'
+gem 'paper_trail'
+gem 'linkeddata'
+# batch ingest
+gem 'avalon_ingest', git: 'https://github.com/stkenny/avalon_ingest'
+gem 'aws-sdk-s3'
+gem 'filesize'
+gem 'roo'
+gem 'config'
+gem 'oauth'
+gem 'omniauth', '~> 2'
+gem "omniauth-rails_csrf_protection"
+gem 'omniauth-shibboleth'
+gem 'sqlite3'
+gem 'mysql2'
+# Storage-related gems
+gem 'bagit'
+gem 'moab-versioning', '~> 4.4', '>= 4.4.2'
+gem 'redis', '~> 4'
+# File processing gems
+gem "image_processing", ">= 1.12.2"
+# Language and translation related gems
+gem 'http_accept_language'
+gem 'i18n-tasks'
+gem 'it'
+# Citations
+gem 'citeproc-ruby'
+gem 'csl-styles'
+gem 'gender_detector'
+# logging
+gem 'syslog-logger'
+gem 'jquery-rails'
+gem 'jquery-ui-rails-dox-fork', require: "jquery-ui-rails"
+gem 'js_cookie_rails'
+# clients
+gem 'httparty', '>= 0.24.0'
+gem 'rest-client', '~> 2.0'
+gem 'sparql-client'
+# static pages
+gem 'high_voltage', '~> 3.1'
+# monitoring
+gem 'health-monitor-rails'
+gem 'nest'
+gem 'resque'
+gem 'sinatra', '~> 4'
+group :development, :production do
+ gem 'appsignal'
+end
+# See https://github.com/sstephenson/execjs#readme for more supported runtimes
+gem 'execjs', '2.7.0'
+gem 'terser'
+group :production do
+ gem 'clamby'
+ gem 'honeybadger'
+end
+group :development, :test do
+ gem 'better_errors'
+ gem 'binding_of_caller'
+ gem 'bixby', '~> 5'
+ gem 'dotenv-rails'
+ gem 'railroady'
+ gem 'rails-controller-testing'
+ gem 'rspec_junit_formatter'
+ gem 'rspec-rails', '~> 8'
+ gem 'rswag-specs'
+ gem 'selenium-webdriver'
+ gem 'show_me_the_cookies'
+ gem 'simplecov', require: false
+ gem 'thin'
+ gem 'webrick'
+ # gem 'ci_reporter_rspec'
+ gem 'byebug'
+ gem 'parallel_tests'
+ gem 'solr_wrapper', '>= 0.3'
+ gem 'listen'
+ gem 'sane_patch', '~> 1.0'
+ gem 'yard'
+ gem 'brakeman'
+end
+group :test do
+ # requires >= 3.3.0 to test styles on node element
+ # https://github.com/teamcapybara/capybara/commit/faa45e135434a7f16f04ef5136c63a0663925dec
+ gem 'capybara'#, '~> 3.14'
+ gem 'cucumber'
+ gem 'cucumber-api-steps'
+ gem 'cucumber-rails', require: false
+ gem 'database_cleaner'
+ gem 'factory_bot_rails'
+ gem 'ffaker'
+ gem 'launchy'
+ gem 'observer'
+ gem 'shoulda'
+ gem 'shoulda-matchers'
+ gem 'syntax'
+ gem 'syslog'
+end
+# To use ActiveModel has_secure_password
+# gem 'bcrypt-ruby', '~> 3.0.0'
+# To use Jbuilder templates for JSON
+# gem 'jbuilder'
+# Use unicorn as the app server
+# gem 'unicorn'
+# To use debugger
+# gem 'debugger'
+gem 'bootstrap', '~> 5.3'
+gem 'bootstrap-glyphicons'
+gem 'font-awesome-sass', "~> 6.7.2"
+gem 'jwt'
+gem 'unicode', platforms: [:mri_18, :mri_19]
+group :translations do
+ gem 'i18n_sync'
+end
+# analytics
+gem 'faraday'
+gem 'faraday-httpclient', '~> 2.0'
+gem 'google-analytics-data-v1beta'
+gem 'google-oauth2-installed'
+gem 'rvm'
+# UI widgets
+gem 'bootstrap-switch-rails'
+gem 'clipboard-rails'
+gem 'jquery-xmleditor-rails', git: 'https://github.com/stkenny/jquery-xmleditor-rails.git', tag: 'v0.3.0'
+gem 'openlayers-rails'
+gem 'timelineJS3-rails', git: 'https://github.com/stkenny/timelineJS3-rails.git'
+gem 'blacklight-maps',
+ github: 'projectblacklight/blacklight-maps',
+ ref: 'f2819731cb8af243ff8cab0febda7bb9c6d3ad5f' 
+# # api documentation generator / presenter
+gem 'rswag-api', '~> 2.0'
+gem 'rswag-ui', '~> 2.0'
+# authorities
+gem 'qa', '~> 5.1'
+gem "seedbank", "~> 0.5.0"
+gem "dartsass-rails", "~> 0.5.0"
+gem "dartsass-sprockets"
+gem "sprockets", "~> 4"
+gem "json", "~>2"

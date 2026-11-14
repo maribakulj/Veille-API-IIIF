@@ -1,0 +1,157 @@
+GitHub - KBNLresearch/intro-kb-apis: Materials for the RUG workshop on the KB search and harvest APIs. · GitHub 
+ Skip to content 
+ Navigation Menu
+ Sign in 
+ Products Platform GitHub Repository hosting, code review, and collaboration 
+ Copilot AI coding agent for tasks, projects, and automated work 
+ Build & Ship Actions CI/CD and automation 
+ Code Quality Quality analysis, fixes, and enforcement 
+ Codespaces Cloud development environments 
+ Secure Code Security Vulnerability detection and remediation 
+ Secret Protection Secret scanning and leak prevention 
+ All Features 
+ Developers Learn Documentation 
+ Training 
+ Certifications 
+ Build Build with Copilot 
+ Customize Copilot 
+ Integrations 
+ Explore Trending repos 
+ GitHub Sponsors 
+ Developer articles 
+ Changelog Changelog Your source for the latest features, improvements, and fixes across GitHub products, all in one place. 
+ Businesses By Stage Enterprises 
+ Team 
+ Startups 
+ Nonprofits 
+ By Industry Healthcare 
+ Financial services 
+ Manufacturing 
+ Government 
+ See all industries 
+ Evaluate GitHub Why GitHub 
+ Customer Stories 
+ Business insights 
+ Trust Center 
+ Add-ons GitHub Advanced Security Enterprise-grade code security 
+ Copilot for business Enterprise-grade AI features 
+ Premium Support Enterprise-grade 24/7 support 
+ Resources Learn & Connect Documentation 
+ Resource center 
+ Blog 
+ Events & webinars 
+ Community Forum 
+ Customer Stories 
+ Integrations 
+ Support Customer support 
+ Training 
+ GitHub Status 
+ Company About 
+ Partners 
+ Changelog 
+ GitHub Universe GitHub Universe The event for developers, by developers — talks, workshops, and what’s next for GitHub. 
+ Pricing 
+ Search / 
+ Sign in 
+ Sign up Appearance settings
+ You signed in with another tab or window. Reload to refresh your session. 
+ You signed out in another tab or window. Reload to refresh your session. 
+ You switched accounts on another tab or window. Reload to refresh your session. 
+ Dismiss alert 
+ {{ message }}
+ KBNLresearch 
+ intro-kb-apis 
+ Repository navigation
+ Code 
+ Issues 
+ Pull requests 
+ Actions 
+ Projects 
+ Security and quality 
+ Insights 
+ More items 
+ intro-kb-apis 
+ Public 
+ Notifications You must be signed in to change notification settings 
+ Fork 1  ( 1 ) 
+ Star 1  ( 1 ) You must be signed in to star a repository 
+ About 
+ Materials for the RUG workshop on the KB search and harvest APIs. 
+ Topics 
+ api oai-pmh sru tutorial 
+ Resources 
+ Readme 
+ Activity 
+ Custom properties 
+ Stars 
+ 1 star 
+ Watchers 
+ 1 watching 
+ Forks 
+ 1 fork 
+ Report repository 
+ master 
+ Branches Tags 
+ Go to file 
+ Code Open more actions menu 
+ Latest commit
+ History
+ 30 Commits 
+ 30 Commits 
+ Folders and files
+ Name Name Last commit message 
+ Last commit date 
+ responses 
+ responses 
+ README.md 
+ README.md 
+ glossary.pdf 
+ glossary.pdf 
+ slides.pdf 
+ slides.pdf 
+ tutorial.md 
+ tutorial.md 
+ View all files 
+ Repository files navigation
+ README 
+ More items 
+ Introduction to the KB APIs
+ This tutorial provides an easy introduction to working with the KB search and harvest APIs, aimed primarily at users with no programming experience. It covers everything you need to know to get started using the APIs, including:
+ The main components of the KB data access infrastructure
+ The various types of files and metadata that are typically associated with digital objects from the KB collections, such as images and full-text objects
+ The most important metadata standards used, such as Dublin Core for descriptive metadata and MPEG21-DIDL for structural metadata
+ Querying a collection with the search API at http://jsru.kb.nl/sru/sru , based on the SRU standard protocol
+ Harvesting metadata with the harvest API at http://services.kb.nl/mdo/oai , based on the OAI-PMH standard protocol
+ Getting files through the resolver using persistent identifiers
+ In addition to the tutorial itself, this repository contains some example API responses , a glossary of frequently used terms and the slides used for presenting the tutorial.
+ About 
+ Materials for the RUG workshop on the KB search and harvest APIs. 
+ Topics 
+ api oai-pmh sru tutorial 
+ Resources 
+ Readme 
+ Activity 
+ Custom properties 
+ Stars 
+ 1 star 
+ Watchers 
+ 1 watching 
+ Forks 
+ 1 fork 
+ Report repository 
+ Releases 
+ Packages 
+ Contributors 
+ Footer
+ © 2026 GitHub, Inc.
+ Footer navigation
+ Terms 
+ Privacy 
+ Security 
+ Status 
+ Community 
+ Docs 
+ Contact 
+ Manage cookies
+ Do not share my personal information
+ You can’t perform that action at this time.

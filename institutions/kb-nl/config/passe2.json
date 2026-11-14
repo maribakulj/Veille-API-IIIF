@@ -1,0 +1,26 @@
+{
+  "slug": "kb-nl",
+  "min_delay_s": 6,
+  "max_requests": 12,
+  "follow_redirects": 1,
+  "robots_disallow_autorise_par_marcel": true,
+  "robots_files": {
+    "jsru.kb.nl": "institutions/kb-nl/sources/a1/raw/02.html",
+    "services.kb.nl": "institutions/kb-nl/sources/a1/raw/03.html",
+    "resolver.kb.nl": "institutions/kb-nl/sources/a7/raw/01.html",
+    "imageviewer.kb.nl": "institutions/kb-nl/sources/a7/raw/02.html"
+  },
+  "note": "Passe 2 (rejeu conforme de la session archivée) : toutes les URL viennent de techniek-anp_0.pdf (doc KB, ANP) ; robots.txt de jsru/services/resolver/imageviewer = Disallow: / (copies lues), Disallow autorisé par Marcel (C12). Les ressources lourdes (OCR, ALTO, JPG) sont testées en HEAD seulement.",
+  "endpoints": [
+    {"id": "p2-sru-explain", "method": "GET", "url": "https://jsru.kb.nl/sru/sru?version=1.2&operation=explain"},
+    {"id": "p2-sru-search-anp", "method": "GET", "url": "https://jsru.kb.nl/sru/sru?version=1.2&operation=searchRetrieve&query=hond&maximumRecords=1&recordSchema=dc&x-collection=ANP"},
+    {"id": "p2-oai-identify", "method": "GET", "url": "https://services.kb.nl/mdo/oai?verb=Identify"},
+    {"id": "p2-oai-listsets", "method": "GET", "url": "https://services.kb.nl/mdo/oai?verb=ListSets"},
+    {"id": "p2-oai-listidentifiers-etroit", "method": "GET", "url": "https://services.kb.nl/mdo/oai?verb=ListIdentifiers&set=anp&metadataPrefix=didl&from=2008-10-03T11:11:44.576Z&until=2008-10-03T11:11:45.000Z"},
+    {"id": "p2-oai-getrecord-anp", "method": "GET", "url": "https://services.kb.nl/mdo/oai?verb=GetRecord&identifier=anp:anp:1937:10:01:2:mpeg21&metadataPrefix=didl"},
+    {"id": "p2-oai-browse-anp", "method": "GET", "url": "https://services.kb.nl/mdo/browse?set=anp"},
+    {"id": "p2-resolver-ocr-head", "method": "HEAD", "url": "https://resolver.kb.nl/resolve?urn=anp:1938:10:01:2:mpeg21:ocr"},
+    {"id": "p2-resolver-image-head", "method": "HEAD", "url": "https://resolver.kb.nl/resolve?urn=anp:1938:10:01:2:mpeg21:image"},
+    {"id": "p2-imaging-thumbnail", "method": "GET", "url": "https://imageviewer.kb.nl/ImagingService/imagingService?id=http://resources51.kb.nl/anp/data/1938/1938_10/jpeg/anp_1938-10-01_2_access.jpg&zoom=0.1&useresolver=false"}
+  ]
+}
