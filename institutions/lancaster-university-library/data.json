@@ -4,10 +4,200 @@
   "pays": "Royaume-Uni",
   "classeur_id": "GLAM-065",
   "type": "Institution",
-  "statut_audit": "à faire",
-  "limites_documentees": [],
+  "statut_audit": "audit a–f complet (v2) ; g à faire",
+  "limites_documentees": [
+    {
+      "nature": "Interdiction d'extraction systématique",
+      "perimetre": "ensemble du site Lancaster Digital Collections",
+      "valeur": "« systematically extract and/or re-utilise substantial parts of the Content or University Material from the site » interdit ; usage personnel et non commercial",
+      "fenetre": "–",
+      "effet": "règle d'usage, aucun seuil chiffré",
+      "verification": "officielle, lue en entier",
+      "source": "https://digitalcollections.lancaster.ac.uk/terms/",
+      "date": "2026-11-14"
+    }
+  ],
   "en_tetes_observes": [],
-  "blocages": [],
-  "sources": [],
-  "web": []
+  "blocages": [
+    {
+      "hote": "cudl.lib.cam.ac.uk",
+      "nature": "403 CloudFront (lecture de robots.txt)",
+      "preuve": "institutions/lancaster-university-library/sources/doc5/raw/01.html",
+      "traitement": "hôte arrêté, robots lu via Wayback (sources/wayback/cudl-robots.md)"
+    }
+  ],
+  "sources": [
+    {
+      "url": "https://digitalcollections.lancaster.ac.uk/robots.txt",
+      "date": "2026-11-14",
+      "etiquette": "officielle",
+      "preuve": "institutions/lancaster-university-library/sources/doc1/SHA256SUMS"
+    },
+    {
+      "url": "https://www.lancaster.ac.uk/robots.txt",
+      "date": "2026-11-14",
+      "etiquette": "officielle",
+      "preuve": "institutions/lancaster-university-library/sources/doc1/SHA256SUMS"
+    },
+    {
+      "url": "https://digitalcollections.lancaster.ac.uk/terms/",
+      "date": "2026-11-14",
+      "etiquette": "officielle",
+      "preuve": "institutions/lancaster-university-library/sources/doc6/SHA256SUMS"
+    },
+    {
+      "url": "https://digitalcollections.lancaster.ac.uk/about/",
+      "date": "2026-11-14",
+      "etiquette": "officielle",
+      "preuve": "institutions/lancaster-university-library/sources/doc4/SHA256SUMS"
+    },
+    {
+      "url": "https://guides.iiif.io/guides/digitalcollections.lancaster.ac.uk/",
+      "date": "2026-11-14",
+      "etiquette": "tiers (communauté IIIF)",
+      "preuve": "institutions/lancaster-university-library/sources/doc3/SHA256SUMS"
+    }
+  ],
+  "web": [
+    {
+      "categorie": "institution",
+      "url": "https://www.lancaster.ac.uk/library/library-vision/stories-from-our-library-vision/open-collections/",
+      "date": "2026-11-14",
+      "etiquette": "institution",
+      "citation": "The completed collection features high quality, zoomable images utilising the International Image Operability Framework (IIIIF).",
+      "preuve": "institutions/lancaster-university-library/sources/doc3/SHA256SUMS"
+    },
+    {
+      "categorie": "utilisateurs",
+      "aucun_resultat": true,
+      "requete": "Lancaster University Library IIIF 429 OR 503 OR blocked harvesting problem",
+      "date": "2026-11-14",
+      "etiquette": "moteur",
+      "citation": "Aucune plainte 429/503 ni blocage trouvé sur les endpoints IIIF de Lancaster (résumé de moteur, non vérifié).",
+      "preuve": "institutions/lancaster-university-library/fiche.md"
+    },
+    {
+      "categorie": "tickets",
+      "aucun_resultat": true,
+      "requete": "github Lancaster University IIIF manifest library.lancaster.ac.uk OR iiif.lancs.ac.uk",
+      "date": "2026-11-14",
+      "etiquette": "moteur",
+      "citation": "Aucun dépôt ni ticket GitHub concernant les endpoints IIIF de Lancaster (résumé de moteur, non vérifié).",
+      "preuve": "institutions/lancaster-university-library/fiche.md"
+    },
+    {
+      "categorie": "presentations",
+      "url": "https://lancaster-uk.libcal.com/event/3777626",
+      "date": "2026-11-14",
+      "etiquette": "institution",
+      "citation": "It is the outcome of a collaborative partnership with Cambridge University, and is based on their Cambridge University Digital Library platform.",
+      "preuve": "institutions/lancaster-university-library/sources/doc3/SHA256SUMS"
+    }
+  ],
+  "contact": "https://www.lancaster.ac.uk/library/about/contact-us/ (lien « contact us » de digitalcollections.lancaster.ac.uk/about/)",
+  "conclusion_quota": "Aucun quota ni limite de débit publiés ; IIIF (collection, manifeste, image, TEI) testé en 200 sans en-tête de limite ; les conditions interdisent l'extraction systématique de parties substantielles.",
+  "classe_quota": "aucun quota trouvé",
+  "confiance": "moyenne",
+  "notes": "Timeout de lecture (20 s) sur le manifeste de 158 ko à la 1re tentative, 200 à la répétition. Hôte cudl.lib.cam.ac.uk en 403 CloudFront : non contourné, robots lu via Wayback.",
+  "a_verifier_manuellement": [
+    {
+      "url": "https://cudl.lib.cam.ac.uk/robots.txt",
+      "pourquoi": "403 CloudFront en lecture directe ; lu via Wayback (capture 20260501033309)",
+      "a_chercher": "Vérifier si une limite de débit s'applique à la plateforme sœur Cambridge Digital Library"
+    }
+  ],
+  "endpoints_documentes": [
+    {
+      "famille": "IIIF Presentation 2 : collection",
+      "url": "https://digitalcollections.lancaster.ac.uk/iiif/collection/davy",
+      "statut": "teste",
+      "preuve": "institutions/lancaster-university-library/tests/raw/iiif-collection-davy.headers.txt"
+    },
+    {
+      "famille": "IIIF Presentation 2 : manifeste",
+      "url": "https://digitalcollections.lancaster.ac.uk/iiif/MS-DAVY-11306",
+      "statut": "teste",
+      "preuve": "institutions/lancaster-university-library/tests/raw/iiif-manifeste-davy-11306-bis.headers.txt"
+    },
+    {
+      "famille": "IIIF Image 2 (info.json et dérivé)",
+      "url": "https://iiif.digitalcollections.lancaster.ac.uk/iiif/2/MS-DAVY-11306-000-00001.jp2/info.json",
+      "statut": "teste",
+      "preuve": "institutions/lancaster-university-library/tests/raw/image-info-json.headers.txt"
+    },
+    {
+      "famille": "TEI (seeAlso du manifeste)",
+      "url": "https://services.digitalcollections.lancaster.ac.uk/v1/metadata/tei/MS-DAVY-11306/",
+      "statut": "teste",
+      "preuve": "institutions/lancaster-university-library/tests/raw/services-tei.headers.txt"
+    },
+    {
+      "famille": "Sitemap",
+      "url": "https://digitalcollections.lancaster.ac.uk/sitemap.xml",
+      "statut": "teste",
+      "preuve": "institutions/lancaster-university-library/tests/raw/sitemap-xml.headers.txt"
+    },
+    {
+      "famille": "Recherche du site",
+      "url": "https://digitalcollections.lancaster.ac.uk/search",
+      "statut": "non_teste",
+      "raison": "page de recherche interactive sans API documentée ; sur la plateforme sœur de Cambridge, /search est interdit par robots.txt, par prudence non sollicitée"
+    }
+  ],
+  "endpoints_ecartes": [
+    {
+      "url": "https://wp.lancs.ac.uk/davynotebooks/",
+      "raison": "site WordPress du projet Davy Notebooks, page web sans API, hôte différent de la plateforme"
+    },
+    {
+      "url": "https://cudl.lib.cam.ac.uk/collections/davidjones",
+      "raison": "plateforme de Cambridge, hôte tiers en 403 CloudFront : arrêt, non contourné, hors périmètre Lancaster"
+    },
+    {
+      "url": "https://guides.iiif.io/assets/site.webmanifest",
+      "raison": "manifeste d'application web (icônes) du site IIIF Guides, sans rapport avec l'API IIIF ni avec Lancaster"
+    }
+  ],
+  "hotes_robots": [
+    {
+      "hote": "digitalcollections.lancaster.ac.uk",
+      "resultat": "Disallow vide : tout autorisé",
+      "preuve": "institutions/lancaster-university-library/sources/doc1/SHA256SUMS"
+    },
+    {
+      "hote": "www.lancaster.ac.uk",
+      "resultat": "Crawl-delay 5 ; aucune règle sur la plateforme",
+      "preuve": "institutions/lancaster-university-library/sources/doc1/SHA256SUMS"
+    },
+    {
+      "hote": "iiif.digitalcollections.lancaster.ac.uk",
+      "resultat": "404 : aucun robots.txt",
+      "preuve": "institutions/lancaster-university-library/sources/doc7/SHA256SUMS"
+    },
+    {
+      "hote": "services.digitalcollections.lancaster.ac.uk",
+      "resultat": "404 : aucun robots.txt",
+      "preuve": "institutions/lancaster-university-library/sources/doc7/SHA256SUMS"
+    },
+    {
+      "hote": "cudl.lib.cam.ac.uk",
+      "resultat": "403 direct ; Wayback : Disallow: /search",
+      "preuve": "institutions/lancaster-university-library/sources/wayback/cudl-robots.md"
+    },
+    {
+      "hote": "guides.iiif.io",
+      "resultat": "Crawl-delay 10 pour * ; page lue autorisée",
+      "preuve": "institutions/lancaster-university-library/sources/doc2/SHA256SUMS"
+    },
+    {
+      "hote": "www.research.lancs.ac.uk",
+      "resultat": "robots.txt lu (50 ko), page de présentation lue",
+      "preuve": "institutions/lancaster-university-library/sources/doc2/SHA256SUMS"
+    },
+    {
+      "hote": "lancaster-uk.libcal.com",
+      "resultat": "Crawl-delay 10 ; Disallow /process_",
+      "preuve": "institutions/lancaster-university-library/sources/doc2/SHA256SUMS"
+    }
+  ]
 }
