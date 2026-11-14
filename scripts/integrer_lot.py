@@ -22,6 +22,36 @@ def sh(*a, check=True):
     return r
 
 
+
+def secrets():
+    f = Path.home() / ".veille-state" / "secrets.txt"
+    return [l.strip() for l in f.read_text().splitlines() if l.strip()] if f.exists() else []
+
+
+def commits_avec_secret(rev_range):
+    """Commits de la plage dont l'ARBRE contient une valeur sensible (IP de Marcel…) : le dépôt est PUBLIC."""
+    mauvais = []
+    for c in sh("git", "rev-list", rev_range).stdout.split():
+        for v in secrets():
+            if subprocess.run(["git", "grep", "-qF", v, c, "--", "."], cwd=REPO, capture_output=True).returncode == 0:
+                mauvais.append(c)
+                break
+    return mauvais
+
+
+def purger_lot(lot):
+    """Réécrit la branche lot/<ID> (non poussée) en remplaçant les valeurs sensibles ; sauvegardes supprimées."""
+    wt = REPO / ".lots" / f"lot-{lot}"
+    for v in secrets():
+        sed = "s/" + v.replace(".", "\\.") + "/[IP retirée]/g"
+        subprocess.run(["git", "filter-branch", "-f", "--tree-filter",
+                        f'grep -rlF "{v}" . 2>/dev/null | grep -v "^./.git/" | xargs -I{{}} sed -i "" "{sed}" {{}}',
+                        f"{sh('git', 'rev-parse', '--abbrev-ref', 'HEAD').stdout.strip()}..lot/{lot}"], cwd=wt, capture_output=True)
+    refs = sh("git", "for-each-ref", "--format=%(refname)", "refs/original").stdout.split()
+    for r in refs:
+        sh("git", "update-ref", "-d", r)
+
+
 def main(lot, push):
     lots = json.loads((REPO / "data" / "lots.json").read_text())
     if lot not in lots:
@@ -30,6 +60,12 @@ def main(lot, push):
     if base.startswith("lot/") or sh("git", "status", "--porcelain").stdout.strip():
         sys.exit("intégration depuis la branche principale, arbre propre, seulement.")
     br = f"lot/{lot}"
+    if commits_avec_secret(f"{base}..{br}"):
+        print(f"lot {lot} : valeur sensible dans des commits non intégrés : purge de la branche avant fusion")
+        purger_lot(lot)
+        if commits_avec_secret(f"{base}..{br}"):
+            sys.exit("REFUSÉ : la purge n'a pas suffi (valeur sensible dans l'arbre d'un commit du lot).")
+        sh("git", "-C", str(REPO / ".lots" / f"lot-{lot}"), "merge", "-q", "--no-edit", base, check=False)
     ok = tuple(f"institutions/{s}/" for s in lots[lot])
     fichiers = sh("git", "diff", "--name-only", f"{base}...{br}").stdout.split()
     hors = [f for f in fichiers if not f.startswith(ok)]
@@ -53,6 +89,9 @@ def main(lot, push):
     subprocess.run([PY, "scripts/build_benchmark.py"], cwd=REPO, capture_output=True)
     sh("git", "add", "BENCHMARK.xlsx", "institutions")
     sh("git", "commit", "-q", "-m", f"Régénération du classeur après intégration du lot {lot}\n\nCo-Authored-By: Claude Sonnet 5.5 <noreply@anthropic.com>", check=False)
+    mal = commits_avec_secret(f"origin/{base}..{base}")
+    if mal:
+        sys.exit(f"PUSH REFUSÉ : valeur sensible dans l'arbre de {len(mal)} commit(s) non poussé(s) : {mal[:5]}")
     if push:
         sh("git", "push", "-q", "origin", base)
     print(f"lot {lot} intégré ({len(fichiers)} fichiers)" + (" et poussé" if push else ""))
