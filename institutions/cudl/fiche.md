@@ -47,3 +47,8 @@ Robots relus le 14/11 (`sources/robots-v4`) : `cudl.lib.cam.ac.uk/robots.txt` to
 - **Moyen d'interroger le quota** : aucun.
 - **Contact** : `dl-feedback@lib.cam.ac.uk`.
 - **Confiance** : moyenne.
+
+## Crash test (étape g)
+
+Crash test fait le 2026-11-14 : image-info-json sur images.lib.cam.ac.uk : aucun blocage jusqu'à 200 req/min (plafond 200 req/min).
+Journal : `tests/crash/cudl.log`. Un test « sans blocage » n'est pas une preuve d'illimitation au-delà du plafond.

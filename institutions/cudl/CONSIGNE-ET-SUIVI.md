@@ -51,9 +51,9 @@
 ### g) Crash test progressif
 > Seulement après l'audit complet (a à f) de toutes les institutions et avec l'accord de Marcel : paliers jusqu'à 2 × la limite documentée, ou 200 req/min si illimité ou sans limite documentée. Arrêt au premier 429/403/CAPTCHA.
 
-- [ ] **Pas fait**
-  - **Justification** : À faire à la fin de l'audit de toutes les institutions et à l'accord de Marcel. Plafond prévu : 200 req/min (aucune limite annoncée). Précaution : l'hôte de pages renvoie 403 CloudFront aux clients non navigateur ; seuls les manifestes et les images répondent.
-  - **Preuves** : 
+- [x] **Fait**
+  - **Justification** : Crash test fait le 2026-11-14 : image-info-json sur images.lib.cam.ac.uk : aucun blocage jusqu'à 200 req/min (plafond 200 req/min)
+  - **Preuves** : `institutions/cudl/tests/crash/cudl.log`, `institutions/cudl/tests/crash/cudl-image-info-json.json`
 
 ### Contrôles transversaux
 - Budget : 15 requêtes par passe · pauses ≥ 6 s · GET/HEAD seulement · UA du projet · aucun contournement. Ces contrôles sont calculés depuis le journal (voir « Contrôles automatiques »).

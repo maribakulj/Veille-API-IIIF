@@ -1,0 +1,52 @@
+{
+  "slug": "cudl",
+  "hote": "images.lib.cam.ac.uk",
+  "reseaux": [],
+  "plafond_req_min": 200,
+  "endpoint": "image-info-json",
+  "limite_documentee_req_min": null,
+  "paliers": [
+    {
+      "palier_req_min": 6,
+      "requetes": 18,
+      "debit_reel_req_min": 6.3,
+      "codes": {
+        "200": 18
+      },
+      "latence_p50_s": 0.153,
+      "latence_max_s": 0.162
+    },
+    {
+      "palier_req_min": 10,
+      "requetes": 30,
+      "debit_reel_req_min": 10.3,
+      "codes": {
+        "200": 30
+      },
+      "latence_p50_s": 0.152,
+      "latence_max_s": 0.175
+    },
+    {
+      "palier_req_min": 50,
+      "requetes": 150,
+      "debit_reel_req_min": 50.3,
+      "codes": {
+        "200": 150
+      },
+      "latence_p50_s": 0.15,
+      "latence_max_s": 2.257
+    },
+    {
+      "palier_req_min": 200,
+      "requetes": 600,
+      "debit_reel_req_min": 200.2,
+      "codes": {
+        "200": 600
+      },
+      "latence_p50_s": 0.148,
+      "latence_max_s": 1.235
+    }
+  ],
+  "arret": null,
+  "conclusion": "aucun blocage jusqu'à 200 req/min"
+}
