@@ -1,0 +1,94 @@
+Fragmentarium 
+ Your browser is outdated . You will be redirected to a page that will guide you to install a newer browser 
+ All Fragments 
+ Person Index 
+ Place Index 
+ About 
+ Digital Laboratory 
+ Past and Present 
+ Partners 
+ Programs 
+ Publications 
+ Journal: Fragmentology 
+ Recent Publications 
+ News + Events 
+ News 
+ Workshops 
+ Cataloguing Courses 
+ Seminars 
+ News Archive 
+ Contact 
+ Digital Laboratory
+ Fragmentarium’s primary objective is to develop a digital laboratory specialized for medieval manuscript fragment research. Although based on the many years of experience of e-codices — Virtual Manuscript Library of Switzerland , the Fragmentarium Digital Laboratory has an international orientation. First and foremost it is conceived as a platform for libraries, scholars and students to do scholarly work on fragments. It conforms to the latest standards set by digital libraries and will set new standards, especially in the area of interoperability.
+ The web application contains a series of tools:
+ A cataloging tool that enables libraries, collectors, researchers and students to gather and describe fragments via a CMS.
+ A tool for tags, facets and keywords, allowing efficient research through comparison and cross-checking.
+ A tool to link and assemble fragments offers the possibility to arrange cuttings, fragments of leaves, and individual leaves in any order.
+ In the initial phase of the project (2015-2018), the web application Fragmentarium was operated as a “closed” laboratory in order to evaluate the potential for digital fragmentology through a series of Case studies , which have been developed in cooperation with our 16 partner institutions and with nominated fellows.
+ In the second phase of the project (2019-2022), the laboratory is being gradually opened and made accessible to a broader public, enabling libraries and collections as well as researchers and teachers to use this platform to catalog, transcribe, assemble and research fragments. Interested parties are invited to contact us directly
+ Fragmentarium’s web application is being developed by text & bytes LLC .
+ Design: Herrmann Germann 
+ Fragmentarium offers free access to all of its services.
+ Web Application
+ The Fragmentarium web application is developed in collaboration with the IT company  text & bytes GmbH , and UX design is provided by Herrmann Germann .
+ Responsive design: optimized user experience across platforms, from desktop computers to mobile devices such as smart phones and tablets
+ Use of the latest web technologies such as HTML5 and CSS3
+ Interoperability: use of international standards for the exchange of data according to  IIIF , the International Image Interoperability Framework
+ IIIF Image API for simple exchange of all images among partner institutions
+ IIIF Presentation API for the corresponding metadata
+ Ability to import entire manuscripts, single pages or fragments via IIIF
+ Browser-based back end, which serves as a content management system (CMS)
+ Viewer that allows continuous zooming of fragment facsimile images
+ Possibility of creating different sequences for the presentation of a fragment (for example a physical, logical or reader-friendly sequence)
+ Presentation of virtual manuscripts to reunite fragments that are held in various places
+ Display of relevant metadata and scholarly descriptions alongside the fragment facsimiles
+ Printing and downloading of images in different sizes and formats (as JPEG and PDF files)
+ Advanced search functions with facets and quick selection menus for browsing, searching and filtering all fragments, basic metadata and scholarly descriptions
+ Person index and place index with quick filter
+ Back end: CMS
+ Authorized users can upload and describe manuscript fragments in a custom content management system (CMS). The CMS provides the following features:
+ uploading, editing, publishing and deleting fragments
+ importing fragments from partner institutions via IIIF
+ creating fragment descriptions
+ managing libraries and collections
+ managing the person index and the place index
+ managing users
+ Different user roles have different access rights. Administrators can edit everything, while selected ‘editors’ and ‘guest pass’ users can edit sections such as metadata for their assigned collections or individual documents. If a document is edited by a user, it is locked for other users to prevent unintentional overwriting of changes. All changes to metadata are versioned so that previous versions can be restored if necessary.
+ Technical information
+ All software components and frameworks that are used for implementing the web application are open source and compatible with the e-codices web application, so that features developed for Fragmentarium can be easily reused in the e-codices web application and vice versa.
+ Back-end technology
+ LAMP Stack (Linux, Apache, MySQL, PHP)
+ CodeIgniter  (PHP Framework based on the Model-View-Controller Pattern)
+ MySQL  (Database)
+ Solr  (Search)
+ Git  (Version control)
+ IIIF Image Server:  Loris 
+ JSON  (IIIF Image and Presentation APIs)
+ JPEG2000 
+ Vagrant  (configuring reproducible development environments)
+ Ansible  (automated provisioning and deployment)
+ Front-end technology
+ HTML5
+ CSS3
+ Bootstrap  &  HTML5 Boilerplate  (Front-end Frameworks)
+ jQuery  (JavaScript Framework)
+ Back to top 
+ Address
+ Fragmentarium
+ University of Fribourg
+ Rue de l'Hôpital 4
+ 1700 Fribourg
+ Switzerland
+ fragmentarium@unifr.ch
+ Donors
+ Helpful Links
+ Home 
+ All Fragments 
+ Persons 
+ Places 
+ Contact 
+ Legal Information
+ Terms of Use 
+ Privacy Policy 
+ Impressum 
+ © 2026 Fragmentarium, University of Fribourg

@@ -1,0 +1,15 @@
+{
+  "slug": "fragmentarium",
+  "min_delay_s": 6,
+  "max_requests": 15,
+  "follow_redirects": 1,
+  "robots_disallow_autorise_par_marcel": true,
+  "note": "Passe 1 : la doc (fragmentarium.ms/pages/about/digital-laboratory) annonce IIIF Presentation et Image API (Loris). Identifiants issus du manifeste public F-ioqy (sources/a/raw/05.html, lien du site) : manifeste, collection C-a4xj (champ within), info.json du service Loris, dérivé 200 px de l'image, page d'aperçu (seeAlso). robots.txt : Disallow /cms/ et /auth/ seulement.",
+  "endpoints": [
+    {"id": "manifeste-F-ioqy", "method": "GET", "url": "https://fragmentarium.ms/metadata/iiif/F-ioqy/manifest.json"},
+    {"id": "collection-C-a4xj", "method": "GET", "url": "https://fragmentarium.ms/metadata/iiif/collection/C-a4xj.json"},
+    {"id": "info-json-F-ioqy-page5", "method": "GET", "url": "https://fragmentarium.ms/loris/F-ioqy/page_5.jp2/info.json"},
+    {"id": "image-F-ioqy-page5-200", "method": "GET", "url": "https://fragmentarium.ms/loris/F-ioqy/page_5.jp2/full/200,/0/default.jpg"},
+    {"id": "overview-F-ioqy", "method": "GET", "url": "https://fragmentarium.ms/overview/F-ioqy"}
+  ]
+}

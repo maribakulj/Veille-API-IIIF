@@ -9,5 +9,12 @@
   "en_tetes_observes": [],
   "blocages": [],
   "sources": [],
-  "web": []
+  "web": [],
+  "hotes_robots": [
+    {
+      "hote": "fragmentarium.ms",
+      "resultat": "200 (48 o) : User-agent * ; Disallow /cms/ et /auth/ seulement ; pas de Crawl-delay",
+      "preuve": "institutions/fragmentarium/sources/a/FETCH.log"
+    }
+  ]
 }
