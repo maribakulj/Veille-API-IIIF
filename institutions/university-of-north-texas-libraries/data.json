@@ -4,10 +4,243 @@
   "pays": "États-Unis",
   "classeur_id": "GLAM-053",
   "type": "Institution",
-  "statut_audit": "à faire",
-  "limites_documentees": [],
-  "en_tetes_observes": [],
+  "statut_audit": "audit a–f complet (v2) ; g à faire (configuration prête)",
+  "limites_documentees": [
+    {
+      "nature": "Crawl-delay robots.txt",
+      "perimetre": "texashistory.unt.edu, tous robots sauf ceux nommés",
+      "valeur": "Crawl-delay: 3",
+      "fenetre": "3 s entre deux requêtes",
+      "effet": "directive de politesse, sans effet décrit",
+      "verification": "officielle, lue en direct ; en-tête retry-after: 3 observé sur des réponses 200",
+      "source": "https://texashistory.unt.edu/robots.txt",
+      "date": "2026-11-14"
+    },
+    {
+      "nature": "Request-rate robots.txt",
+      "perimetre": "texashistory.unt.edu et digital.library.unt.edu",
+      "valeur": "Request-rate: 1/3",
+      "fenetre": "1 requête par 3 s (20 req/min)",
+      "effet": "directive de politesse",
+      "verification": "officielle, lue en direct ; non dépassée (6 s de pause)",
+      "source": "https://digital.library.unt.edu/robots.txt",
+      "date": "2026-11-14"
+    },
+    {
+      "nature": "Accès libre sans clé",
+      "perimetre": "API OAI-PMH, IIIF, OpenSearch, vignettes",
+      "valeur": "« You do not need to apply for a special key to use these APIs. »",
+      "fenetre": "–",
+      "effet": "–",
+      "verification": "officielle, lue en entier",
+      "source": "https://texashistory.unt.edu/api/",
+      "date": "2026-11-14"
+    }
+  ],
+  "en_tetes_observes": [
+    {
+      "en_tete": "retry-after: 3",
+      "contexte": "réponses 200 (OAI Identify, OpenSearch) et 404 (feed/) de texashistory.unt.edu, vignette de digital.library.unt.edu",
+      "source": "institutions/university-of-north-texas-libraries/tests/journal.log"
+    }
+  ],
   "blocages": [],
-  "sources": [],
-  "web": []
+  "sources": [
+    {
+      "url": "https://texashistory.unt.edu/api/",
+      "date": "2026-11-14",
+      "etiquette": "officielle",
+      "preuve": "institutions/university-of-north-texas-libraries/sources/a/SHA256SUMS"
+    },
+    {
+      "url": "https://digital.library.unt.edu/api/",
+      "date": "2026-11-14",
+      "etiquette": "officielle",
+      "preuve": "institutions/university-of-north-texas-libraries/sources/a2/SHA256SUMS"
+    },
+    {
+      "url": "https://texashistory.unt.edu/explore/collections/TDNP/api/",
+      "date": "2026-11-14",
+      "etiquette": "officielle",
+      "preuve": "institutions/university-of-north-texas-libraries/sources/a/SHA256SUMS"
+    },
+    {
+      "url": "https://texashistory.unt.edu/robots.txt",
+      "date": "2026-11-14",
+      "etiquette": "officielle",
+      "preuve": "institutions/university-of-north-texas-libraries/sources/a/SHA256SUMS"
+    },
+    {
+      "url": "https://digital.library.unt.edu/robots.txt",
+      "date": "2026-11-14",
+      "etiquette": "officielle",
+      "preuve": "institutions/university-of-north-texas-libraries/sources/a/SHA256SUMS"
+    },
+    {
+      "url": "https://texashistory.unt.edu/about/portal/policies/",
+      "date": "2026-11-14",
+      "etiquette": "officielle",
+      "preuve": "institutions/university-of-north-texas-libraries/sources/a2/SHA256SUMS"
+    },
+    {
+      "url": "https://github.com/unt-libraries/django-altcha-middleware",
+      "date": "2026-11-14",
+      "etiquette": "institution (GitHub unt-libraries)",
+      "preuve": "institutions/university-of-north-texas-libraries/sources/a/SHA256SUMS"
+    },
+    {
+      "url": "https://digital.library.unt.edu/ark:/67531/metadc2472442/",
+      "date": "2026-11-14",
+      "etiquette": "institution (notice d'une affiche sur robots.txt)",
+      "preuve": "institutions/university-of-north-texas-libraries/sources/a3/SHA256SUMS"
+    }
+  ],
+  "web": [
+    {
+      "categorie": "institution",
+      "url": "https://github.com/unt-libraries/django-altcha-middleware",
+      "date": "2026-11-14",
+      "etiquette": "institution",
+      "citation": "« Proof-of-work bot deterrent for Django sites using provided middleware to cover whole site or decorator to cover specific views. Uses ALTCHA. »",
+      "preuve": "institutions/university-of-north-texas-libraries/sources/a/SHA256SUMS"
+    },
+    {
+      "categorie": "utilisateurs",
+      "aucun_resultat": true,
+      "requete": "UNT Libraries digital library API rate limit robots bots crawler texashistory.unt.edu OR digital.library.unt.edu",
+      "date": "2026-11-14",
+      "etiquette": "–",
+      "citation": "aucune plainte d'utilisateur (429/503/blocage) sur le Portal to Texas History ou UNT Digital Library ; seuls des articles généraux sur les bots d'IA (résumé de moteur, non vérifié)",
+      "preuve": "institutions/university-of-north-texas-libraries/fiche.md"
+    },
+    {
+      "categorie": "tickets",
+      "aucun_resultat": true,
+      "requete": "\"texashistory.unt.edu\" OR \"digital.library.unt.edu\" github issue OAI-PMH harvest OR IIIF manifest 429 OR 403 OR \"Retry-After\"",
+      "date": "2026-11-14",
+      "etiquette": "–",
+      "citation": "aucun ticket d'outil tiers sur ces hôtes (résumé de moteur, non vérifié)",
+      "preuve": "institutions/university-of-north-texas-libraries/fiche.md"
+    },
+    {
+      "categorie": "presentations",
+      "url": "https://hosted-files.sched.co/tcdl2026/a5/TCDL_The_Road_to_Joy_is_DAMmed.pdf",
+      "date": "2026-11-14",
+      "etiquette": "institution probable (TCDL 2026 ; auteur non indiqué dans le PDF, outil publié par unt-libraries), original lu",
+      "citation": "diapositive « Digital Collections Inundated » : « AI has joined the deluge of bots/crawlers » ; méthodes « No longer effective : IP blocking, Rate-limiting, Filtering by user agents » ; solution « Proof-of-work challenges »",
+      "preuve": "institutions/university-of-north-texas-libraries/fiche.md"
+    }
+  ],
+  "contact": "Mark Phillips (UNT Libraries) via la page API et le formulaire de contact du Portal (texashistory.unt.edu/about/portal/contact/)",
+  "conclusion_quota": "Limite documentée : robots.txt des deux hôtes (Crawl-delay 3 s, Request-rate 1/3, soit 20 req/min) ; les API (OAI-PMH, IIIF Presentation, OpenSearch, vignettes) sont ouvertes sans clé ; l'API émet un en-tête Retry-After: 3 sur des réponses 200 (observé) ; aucun 429 en 15 requêtes. UNT déploie un défi ALTCHA (outil publié sur GitHub), présent dans la littérature de l'institution, non rencontré lors de nos requêtes.",
+  "classe_quota": "limite documentée (robots.txt) + en-tête observé",
+  "confiance": "moyenne",
+  "notes": "Retry-After: 3 observé sur oai-identify (texashistory), opensearch-document, feed/ (404) et la vignette de digital.library.unt.edu ; cohérent avec Crawl-delay 3. Les identifiants de fichiers raw des deux passes sont les mêmes pour oai-identify, oai-listsets, manifeste, vignette : les en-têtes de la passe 1 (texashistory) ont été écrasés par la passe 2 (digital.library), la passe 1 reste lisible dans tests/journal.log. Le robots.txt interdit ClaudeBot, meta-externalagent, Bytespider, GoogleOther ; notre UA VeilleAPIIIF tombe dans le groupe *.",
+  "a_verifier_manuellement": [
+    {
+      "url": "https://texashistory.unt.edu/about/portal/policies/",
+      "pourquoi": "page de politiques lue ; aucune règle de débit trouvée",
+      "a_chercher": "demander par écrit à Mark Phillips si Retry-After: 3 et Crawl-delay 3 sont des limites appliquées et si un défi ALTCHA s'applique aux moissonneurs"
+    },
+    {
+      "url": "https://texashistory.unt.edu/feed/",
+      "pourquoi": "HEAD en 404 alors que la doc annonce « feed/ » (peut-être relatif à la collection)",
+      "a_chercher": "chemin exact du flux global des nouveautés"
+    }
+  ],
+  "endpoints_documentes": [
+    {
+      "famille": "OAI-PMH (Identify, ListMetadataFormats, ListSets)",
+      "url": "https://texashistory.unt.edu/oai/?verb=Identify",
+      "statut": "teste",
+      "preuve": "institutions/university-of-north-texas-libraries/tests/raw/oai-listsets.headers.txt"
+    },
+    {
+      "famille": "OAI-PMH ListRecords (oai_dc, untl)",
+      "url": "https://texashistory.unt.edu/oai/?verb=ListRecords&metadataPrefix=oai_dc",
+      "statut": "non_teste",
+      "raison": "réponse volumineuse (pages d'enregistrements) ; le protocole est prouvé par Identify, ListMetadataFormats et ListSets"
+    },
+    {
+      "famille": "IIIF Presentation : manifeste d'objet (ARK)",
+      "url": "https://texashistory.unt.edu/ark:/67531/metapth12412/manifest/",
+      "statut": "teste",
+      "preuve": "institutions/university-of-north-texas-libraries/tests/raw/manifeste-metapth12412.headers.txt"
+    },
+    {
+      "famille": "IIIF Presentation : manifeste de collection",
+      "url": "https://texashistory.unt.edu/explore/collections/TDNP/top",
+      "statut": "teste",
+      "preuve": "institutions/university-of-north-texas-libraries/tests/raw/collection-tdnp-top.headers.txt"
+    },
+    {
+      "famille": "Vignettes (/thumbnail/)",
+      "url": "https://texashistory.unt.edu/ark:/67531/metapth12412/thumbnail/",
+      "statut": "teste",
+      "preuve": "institutions/university-of-north-texas-libraries/tests/raw/vignette-metapth12412.headers.txt"
+    },
+    {
+      "famille": "OpenSearch",
+      "url": "https://texashistory.unt.edu/search/opensearch/document/",
+      "statut": "teste",
+      "preuve": "institutions/university-of-north-texas-libraries/tests/raw/opensearch-document.headers.txt"
+    },
+    {
+      "famille": "Flux Atom (feed/, edit-feed/)",
+      "url": "https://texashistory.unt.edu/feed/",
+      "statut": "teste",
+      "preuve": "institutions/university-of-north-texas-libraries/tests/raw/feed-nouveautes.headers.txt"
+    },
+    {
+      "famille": "Listes identifiers/ et titles.json par collection",
+      "url": "https://texashistory.unt.edu/explore/collections/TDNP/identifiers/",
+      "statut": "non_teste",
+      "raison": "la liste d'identifiants d'une collection de journaux compte des dizaines de milliers de lignes : test coûteux sans intérêt pour la limite (méthode : pas de volume)"
+    },
+    {
+      "famille": "UNT Digital Library : OAI, manifeste, vignette",
+      "url": "https://digital.library.unt.edu/oai/?verb=Identify",
+      "statut": "teste",
+      "preuve": "institutions/university-of-north-texas-libraries/tests/raw/manifeste-metapth12412.headers.txt"
+    }
+  ],
+  "endpoints_ecartes": [
+    {
+      "url": "https://texashistory.unt.edu/search/",
+      "raison": "formulaire de recherche HTML (Custom Search) cité par la doc ; interface web, pas un point d'API ; non lancé : recherche"
+    },
+    {
+      "url": "https://texashistory.unt.edu/sitemap.xml",
+      "raison": "plan de site cité dans le robots.txt, pas une API ; non téléchargé (volumineux)"
+    },
+    {
+      "url": "https://digital.library.unt.edu/sitemap.xml",
+      "raison": "plan de site cité dans le robots.txt, pas une API ; non téléchargé (volumineux)"
+    },
+    {
+      "url": "https://texashistory.unt.edu/feedback/",
+      "raison": "formulaire de commentaires interdit par robots.txt (Disallow /feedback/) et nécessitant un envoi de formulaire"
+    },
+    {
+      "url": "https://digital.library.unt.edu/search/",
+      "raison": "formulaire de recherche HTML (Custom Search) cité par la doc ; interface web, pas un point d'API ; non lancé : recherche"
+    }
+  ],
+  "hotes_robots": [
+    {
+      "hote": "texashistory.unt.edu",
+      "resultat": "groupe * : Crawl-delay 3, Request-rate 1/3, Disallow /stats/, /feedback/, */zoom/ ; ClaudeBot, Bytespider, meta-externalagent, GoogleOther interdits",
+      "preuve": "institutions/university-of-north-texas-libraries/sources/a/SHA256SUMS"
+    },
+    {
+      "hote": "digital.library.unt.edu",
+      "resultat": "mêmes règles : Crawl-delay 3, Request-rate 1/3, mêmes robots interdits",
+      "preuve": "institutions/university-of-north-texas-libraries/sources/a/SHA256SUMS"
+    },
+    {
+      "hote": "github.com",
+      "resultat": "hôte tiers (page publique d'un dépôt unt-libraries lue ; robots.txt de GitHub non lu)",
+      "preuve": "institutions/university-of-north-texas-libraries/sources/a/SHA256SUMS"
+    }
+  ]
 }
