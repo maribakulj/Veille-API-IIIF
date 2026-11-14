@@ -1,0 +1,9 @@
+# Session 2026-11-14T02:04:44Z — configuration passe1-manifeste-oai.json — sonde probe.py au commit c7cc5a2
+2026-11-14T02:04:44Z | robots.txt:quod.lib.umich.edu | https://quod.lib.umich.edu/robots.txt | GET | 200 | 1 règle(s) pour « * »
+2026-11-14T02:04:51Z | manifeste-bhl-BL004079 | https://quod.lib.umich.edu/cgi/i/image/api/manifest/bhl:BL004079:BL004079 | GET | 200 OK | aucun en-tête de limite | taille≥4418 | corps: {"@context":"http:\/\/iiif.io\/api\/presentation\/2\/context.json","@id":"https:\/\/quod.lib.umich.edu\/cgi\/i\/image\/api\/manifest\/bhl:BL004079:BL004079","@type":"sc:Manifest","label":"UM Carillon.
+# corps enregistré : tests/raw/manifeste-bhl-BL004079.body (4418 octets lus)
+2026-11-14T02:04:57Z | oai-identify | https://quod.lib.umich.edu/cgi/o/oai/oai?verb=Identify | GET | 200 OK | aucun en-tête de limite | taille≥200 | corps: <?xml version="1.0" encoding="UTF-8"?> <OAI-PMH xmlns="http://www.openarchives.org/OAI/2.0/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.openarchives.org/OAI/2
+2026-11-14T02:05:05Z | oai-listmetadataformats | https://quod.lib.umich.edu/cgi/o/oai/oai?verb=ListMetadataFormats | GET | 200 OK | aucun en-tête de limite | taille≥200 | corps: <?xml version="1.0" encoding="UTF-8"?> <OAI-PMH xmlns="http://www.openarchives.org/OAI/2.0/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.openarchives.org/OAI/2
+2026-11-14T02:05:11Z | page-item-bhl-BL004079 | https://quod.lib.umich.edu/b/bhl/x-bl004079/bl004079 | GET | 403 403_ANTI_BOT | cf-mitigated: challenge | taille≥200 | corps: <!DOCTYPE html><html lang="en-US"><head><title>Just a moment...</title><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=Edge"><meta nam
+# ARRÊT de l'hôte quod.lib.umich.edu (403 anti-bot). Les autres hôtes continuent.
+# Fin 2026-11-14T02:05:11Z — 5 requête(s) envoyée(s)
