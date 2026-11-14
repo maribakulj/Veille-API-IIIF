@@ -4,10 +4,194 @@
   "pays": "Royaume-Uni",
   "classeur_id": "GLAM-067",
   "type": "Institution",
-  "statut_audit": "à faire",
-  "limites_documentees": [],
+  "statut_audit": "audit a–f complet (v2) ; g à faire",
+  "limites_documentees": [
+    {
+      "nature": "Crawl-delay robots.txt",
+      "perimetre": "leicester.contentdm.oclc.org (Special Collections Online)",
+      "valeur": "Crawl-delay: 1",
+      "fenetre": "1 s entre requêtes",
+      "effet": "demande de pause (non contraignant)",
+      "verification": "officielle, lue (robots.txt)",
+      "source": "https://leicester.contentdm.oclc.org/robots.txt",
+      "date": "2026-11-14"
+    },
+    {
+      "nature": "Crawl-delay robots.txt",
+      "perimetre": "libraryhelp.le.ac.uk",
+      "valeur": "Crawl-delay: 10",
+      "fenetre": "10 s entre requêtes",
+      "effet": "demande de pause (non contraignant)",
+      "verification": "officielle, lue (robots.txt)",
+      "source": "https://libraryhelp.le.ac.uk/robots.txt",
+      "date": "2026-11-14"
+    }
+  ],
   "en_tetes_observes": [],
-  "blocages": [],
-  "sources": [],
-  "web": []
+  "blocages": [
+    {
+      "hote": "le.ac.uk",
+      "nature": "403 « Attention Required! | Cloudflare » sur robots.txt",
+      "preuve": "institutions/university-of-leicester-library/sources/a1/FETCH.log"
+    }
+  ],
+  "sources": [
+    {
+      "url": "https://staffblogs.le.ac.uk/library/2023/07/20/how-to-use-iiif-with-special-collections-online/",
+      "date": "2026-11-14",
+      "etiquette": "institution",
+      "preuve": "institutions/university-of-leicester-library/sources/a2/SHA256SUMS"
+    },
+    {
+      "url": "https://libraryhelp.le.ac.uk/specialcollections/faq/242166",
+      "date": "2026-11-14",
+      "etiquette": "officielle",
+      "preuve": "institutions/university-of-leicester-library/sources/a5/SHA256SUMS"
+    },
+    {
+      "url": "https://specialcollections.le.ac.uk/",
+      "date": "2026-11-14",
+      "etiquette": "officielle",
+      "preuve": "institutions/university-of-leicester-library/sources/a1/SHA256SUMS"
+    },
+    {
+      "url": "https://help.oclc.org/Metadata_Services/CONTENTdm/Advanced_website_customization/API_Reference/IIIF_API_reference/Work_with_the_IIIF_Presentation_API",
+      "date": "2026-11-14",
+      "etiquette": "tiers (éditeur de la plateforme)",
+      "preuve": "institutions/university-of-leicester-library/sources/a4/SHA256SUMS"
+    },
+    {
+      "url": "https://le.ac.uk/library/special-collections/explore/english-local-history",
+      "date": "2026-11-14",
+      "etiquette": "officielle (Wayback 2025-02-16)",
+      "preuve": "institutions/university-of-leicester-library/sources/wayback/le-ac-uk.md"
+    }
+  ],
+  "web": [
+    {
+      "categorie": "institution",
+      "url": "https://libraryhelp.le.ac.uk/specialcollections/faq/242166",
+      "date": "2026-11-14",
+      "etiquette": "officielle",
+      "citation": "« This content can be reused for non-commercial purposes as long as the user credits any copyright holders and gives the image's source » ; rien sur le moissonnage ni le débit.",
+      "preuve": "institutions/university-of-leicester-library/sources/a5/SHA256SUMS"
+    },
+    {
+      "categorie": "utilisateurs",
+      "aucun_resultat": true,
+      "requete": "CONTENTdm IIIF rate limit 429 OR throttling OR \"too many requests\" cantaloupe OCLC contentdm.oclc.org harvesting",
+      "date": "2026-11-14",
+      "etiquette": "–",
+      "citation": "aucune plainte 429/blocage sur CONTENTdm ou Leicester trouvée",
+      "preuve": "institutions/university-of-leicester-library/fiche.md"
+    },
+    {
+      "categorie": "tickets",
+      "aucun_resultat": true,
+      "requete": "github issue \"leicester.contentdm.oclc.org\" OR \"specialcollections.le.ac.uk\" IIIF manifest harvest OR crawler",
+      "date": "2026-11-14",
+      "etiquette": "–",
+      "citation": "aucun ticket d'outil tiers visant ces hôtes",
+      "preuve": "institutions/university-of-leicester-library/fiche.md"
+    },
+    {
+      "categorie": "presentations",
+      "url": "https://oclc.org/content/dam/research/presentations/2019/061919-huddleston-iiif.pdf",
+      "date": "2026-11-14",
+      "etiquette": "tiers (présentation OCLC, 2019)",
+      "citation": "« Harvest rate limited to prevent potential abuse » (API expérimentale d'OCLC pour indexer 13 millions de manifestes CONTENTdm ; aucune valeur).",
+      "preuve": "institutions/university-of-leicester-library/fiche.md"
+    }
+  ],
+  "contact": "specialcollections@le.ac.uk ; formulaire « email us » de libraryhelp.le.ac.uk",
+  "conclusion_quota": "Aucun quota ni limite de débit publiés par l'université ; API (IIIF Presentation et Image, dmwebservices, OAI) fournies par CONTENTdm/OCLC, testées en 200 sans en-tête de limite ; Crawl-delay 1 s (OCLC) et 10 s (libraryhelp) ; OCLC mentionne une limitation de moissonnage sans valeur.",
+  "classe_quota": "aucun quota trouvé",
+  "confiance": "moyenne",
+  "notes": "specialcollections.le.ac.uk redirige tout (307) vers leicester.contentdm.oclc.org : les tests des passes 2 à 6 ciblent cet hôte OCLC, partagé avec d'autres bibliothèques. le.ac.uk est en 403 Cloudflare (lu dans Wayback). Un WebFetch de libraryhelp.le.ac.uk a été refusé par les permissions ; page lue avec fetch_doc.sh.",
+  "a_verifier_manuellement": [
+    {
+      "url": "https://le.ac.uk/library/about/policies",
+      "pourquoi": "403 Cloudflare à la sonde (hôte le.ac.uk) ; une politique « Special Collections Online Disclaimer and Takedown » y est annoncée",
+      "a_chercher": "Texte de la politique, mention éventuelle de moissonnage ou de limites d'accès"
+    },
+    {
+      "url": "https://le.ac.uk/robots.txt",
+      "pourquoi": "403 Cloudflare à la sonde ; seule la capture Wayback 2025-01-01 a été lue",
+      "a_chercher": "Contenu actuel du robots.txt"
+    }
+  ],
+  "endpoints_documentes": [
+    {
+      "famille": "IIIF Presentation 2.0 (manifestes CONTENTdm)",
+      "url": "https://leicester.contentdm.oclc.org/iiif/info/manifest.json",
+      "statut": "teste",
+      "preuve": "institutions/university-of-leicester-library/tests/raw/cdm-manifeste-global-v2.headers.txt"
+    },
+    {
+      "famille": "IIIF Presentation : manifeste de collection",
+      "url": "https://leicester.contentdm.oclc.org/iiif/info/p16445coll12/manifest.json",
+      "statut": "teste",
+      "preuve": "institutions/university-of-leicester-library/tests/raw/cdm-manifeste-collection+redir+redir.headers.txt"
+    },
+    {
+      "famille": "IIIF Presentation : manifeste d'objet",
+      "url": "https://leicester.contentdm.oclc.org/iiif/info/p16445coll12/12/manifest.json",
+      "statut": "teste",
+      "preuve": "institutions/university-of-leicester-library/tests/raw/cdm-manifeste-objet+redir+redir.headers.txt"
+    },
+    {
+      "famille": "IIIF Image 2.0 (info.json, image)",
+      "url": "https://leicester.contentdm.oclc.org/iiif/2/p16445coll12:9/info.json",
+      "statut": "teste",
+      "preuve": "institutions/university-of-leicester-library/tests/raw/cdm-image-info.headers.txt"
+    },
+    {
+      "famille": "API CONTENTdm dmwebservices",
+      "url": "https://leicester.contentdm.oclc.org/digital/bl/dmwebservices/index.php?q=dmGetCollectionList/json",
+      "statut": "teste",
+      "preuve": "institutions/university-of-leicester-library/tests/raw/cdm-dmwebservices-collections.headers.txt"
+    },
+    {
+      "famille": "OAI-PMH CONTENTdm",
+      "url": "https://leicester.contentdm.oclc.org/oai/oai.php?verb=Identify",
+      "statut": "teste",
+      "preuve": "institutions/university-of-leicester-library/tests/raw/cdm-oai-identify.headers.txt"
+    },
+    {
+      "famille": "Redirection du site (specialcollections.le.ac.uk)",
+      "url": "https://specialcollections.le.ac.uk/iiif/info/manifest.json",
+      "statut": "teste",
+      "preuve": "institutions/university-of-leicester-library/tests/raw/manifeste-global.headers.txt"
+    }
+  ],
+  "endpoints_ecartes": [
+    {
+      "url": "https://help.oclc.org/Metadata_Services/CONTENTdm/Advanced_website_customization/Customization_cookbook/Mirador_3_integration",
+      "raison": "recette de personnalisation pour intégrer le viseur Mirador 3 dans CONTENTdm, page de doc sans API de données à tester"
+    },
+    {
+      "url": "https://iiif.io/guides/finding_resources/",
+      "raison": "guide du consortium IIIF cité par le billet, page d'information générale et non une API de l'institution"
+    },
+    {
+      "url": "https://staffblogs.le.ac.uk/library/wp-json/wp/v2/posts/1086",
+      "raison": "API WordPress du blog du personnel apparue dans une recherche web, non citée par la doc de l'institution ; hors périmètre IIIF"
+    },
+    {
+      "url": "https://specialcollections.le.ac.uk/digital/collection/p16445coll4",
+      "raison": "page HTML de collection (application CONTENTdm) citée par le billet, sans API documentée ; les manifestes de collection couvrent ces collections"
+    }
+  ],
+  "hotes_robots": [
+    {
+      "hote": "specialcollections.le.ac.uk",
+      "resultat": "307 vers leicester.contentdm.oclc.org ; robots lu après redirection : Crawl-delay 1, Disallow /oai/ /utils/ /config/",
+      "preuve": "institutions/university-of-leicester-library/sources/a1/SHA256SUMS"
+    },
+    {
+      "hote": "leicester.contentdm.oclc.org",
+      "resultat": "Crawl-delay 1 ; Disallow /oai/, /utils/, /config/, recherches",
+      "preuve": "institutions/university-of-leicester-library/sources/a3/SHA256SUMS"
+    }
+  ]
 }

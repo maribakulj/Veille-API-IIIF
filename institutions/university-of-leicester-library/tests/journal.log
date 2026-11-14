@@ -39,3 +39,8 @@
 2026-11-14T02:37:10Z | cdm-manifeste-objet+redir+redir | https://leicester.contentdm.oclc.org/iiif/2/p16445coll12:12/manifest.json | GET | 200 OK | aucun en-tête de limite | taille≥4756 | corps: {"@context":"http://iiif.io/api/presentation/2/context.json","@type":"sc:Manifest","@id":"https://cdm16445.contentdm.oclc.org/iiif/p16445coll12:12/manifest.json","label":"Evelyn Waugh Newsletter Vol. 
 # corps enregistré : tests/raw/cdm-manifeste-objet+redir+redir.body (4756 octets lus)
 # Fin 2026-11-14T02:37:10Z — 4 requête(s) envoyée(s)
+# Session 2026-11-14T02:37:39Z — configuration leicester-passe6-image.json — sonde probe.py au commit e5a900b
+2026-11-14T02:37:39Z | robots.txt:leicester.contentdm.oclc.org | https://leicester.contentdm.oclc.org/robots.txt | GET | 200 | 38 règle(s) pour « * » ; Crawl-delay 1.0 s
+2026-11-14T02:37:45Z | cdm-image-info | https://leicester.contentdm.oclc.org/iiif/2/p16445coll12:9/info.json | GET | 200 OK | aucun en-tête de limite | taille≥200 | corps: {"@context":"http://iiif.io/api/image/2/context.json","@id":"https://leicester.contentdm.oclc.org/iiif/2/p16445coll12:9","protocol":"http://iiif.io/api/image","width":1202,"height":1690,"sizes":[{"wid
+2026-11-14T02:37:52Z | cdm-image-vignette | https://leicester.contentdm.oclc.org/iiif/2/p16445coll12:9/full/!200,200/0/default.jpg | GET | 200 OK | aucun en-tête de limite | taille≥200 | corps: ���� JFIF      �� C    		 %# , #&')*)-0-(0%()(�� C    (((((((((((((((((((((((((((((((((((((((((((((((((((��  � �" ��               
+# Fin 2026-11-14T02:37:52Z — 3 requête(s) envoyée(s)
