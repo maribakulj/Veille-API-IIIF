@@ -220,6 +220,7 @@ def lire_suivi(slug):
 
 CATEGORIES_WEB = ("institution", "utilisateurs", "tickets", "presentations")
 ANCIENNES = REPO / "data" / "exigence_ancienne.txt"
+HAIKU = REPO / "data" / "ancien_travail_haiku.txt"  # commencées par l'ancienne méthode, à refaire dans l'ordre
 
 
 def anciennes():
@@ -264,6 +265,83 @@ def controle_v3(slug, d):
     return sorted(set(m))
 
 
+def ordre():
+    """Institutions du classeur dans l'ordre de la consigne (GLAM-001, 002…), extras exclus."""
+    out = []
+    for slug in slugs():
+        d = lire_data(slug)
+        if re.fullmatch(r"GLAM-\d{3}", str(d.get("classeur_id") or "")):
+            out.append((d["classeur_id"], slug))
+    return [s for _, s in sorted(out)]
+
+
+def commencee(slug):
+    d = INST / slug
+    if any((d / "config").glob("*.json")):
+        return True
+    j = d / "tests" / "journal.log"
+    if j.exists() and j.stat().st_size > 0:
+        return True
+    r = lire_suivi(slug)
+    return bool(r and any(v[0] == "x" for v in r[1].values()))
+
+
+def manques_complets(slug):
+    """Tout ce qui empêche de dire « institution terminée » (étapes a–f cochées + exigence v3 + journal)."""
+    r = lire_suivi(slug)
+    m = []
+    if r is None:
+        return ["CONSIGNE-ET-SUIVI.md absent"]
+    for c in "abcdef":
+        if r[1].get(c, (" ",))[0] != "x":
+            m.append(f"étape {c}) non cochée")
+    m += controle_v3(slug, lire_data(slug))
+    m += analyser_journal(slug)["anomalies"]
+    return m
+
+
+def termine(slug):
+    r = lire_suivi(slug)
+    if r is None:
+        return False
+    if r[0] != "active":
+        return True
+    if slug in anciennes():
+        return True
+    return not manques_complets(slug)
+
+
+def verrou_ordre():
+    """Impossible de commencer l'institution suivante avant d'avoir tout validé la précédente."""
+    erreurs, o = [], ordre()
+    for i, slug in enumerate(o):
+        r = lire_suivi(slug)
+        if not r or r[0] != "active" or slug in anciennes() or slug in set(HAIKU.read_text().split() if HAIKU.exists() else []) or not commencee(slug):
+            continue
+        for prec in o[:i]:
+            if not termine(prec):
+                erreurs.append(f"{slug}: VERROU : commencée alors que {prec} n'est pas terminée "
+                               f"({'; '.join(manques_complets(prec))[:200]})")
+                break
+    return erreurs
+
+
+def cmd_porte(slug=None):
+    o = ordre()
+    if slug is None:
+        slug = next((s for s in o if not termine(s)), None)
+        if slug is None:
+            print("Toutes les institutions sont terminées.")
+            return 0
+    m = manques_complets(slug)
+    print(f"{slug} : " + ("TERMINÉE, on peut passer à la suivante." if not m else f"{len(m)} manque(s) avant de passer à la suivante :"))
+    for x in m:
+        print("  ☐", x)
+    nxt = [s for s in o if not termine(s)]
+    print("Prochaine à traiter :", nxt[0] if nxt else "aucune")
+    return 0 if not m else 1
+
+
 def cmd_validate():
     erreurs = []
     for slug in slugs():
@@ -300,6 +378,7 @@ def cmd_validate():
             erreurs.append(f"{slug}: crash test (g) coché avant l'audit complet (a à f)")
         for a in analyser_journal(slug)["anomalies"]:
             erreurs.append(f"{slug}: journal : {a}")
+    erreurs += verrou_ordre()
     if erreurs:
         print("VALIDATION : ÉCHEC")
         for e in erreurs[:60]:
@@ -342,6 +421,8 @@ def main():
         cmd_init()
     elif cmd == "sync":
         cmd_sync()
+    elif cmd == "porte":
+        sys.exit(cmd_porte(sys.argv[2] if len(sys.argv) > 2 else None))
     elif cmd == "validate":
         sys.exit(cmd_validate())
     elif cmd == "all":

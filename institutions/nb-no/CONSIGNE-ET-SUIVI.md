@@ -317,4 +317,8 @@ Au moins **4 recherches web par institution**, une par catégorie : (1) politiqu
 
 ## Exigence v3 : contrôlée par le commit (14/11/2026)
 `scripts/suivi.py validate` refuse de laisser cochée l'étape f d'une institution tant que `data.json` ne contient pas : (1) `web` couvrant les 4 catégories (`institution`, `utilisateurs`, `tickets`, `presentations`) avec soit une URL lue, soit `aucun_resultat` + `requete` ; (2) `endpoints_documentes` : une ligne par famille d'API, `statut` `teste` (preuve existante) ou `non_teste` (raison ≥ 30 caractères) ; (3) `hotes_robots` : un robots.txt lu, avec preuve, pour **chaque hôte** contacté par les configurations. Les institutions faites avant cette règle sont listées dans `data/exigence_ancienne.txt` ; l'onglet « Couverture » de `BENCHMARK.xlsx` montre leurs manques (« à compléter ») ; on les retire de la liste une fois complétées.
+
+## Verrou d'ordre et commande `porte` (14/11/2026)
+- `python3 scripts/suivi.py porte [slug]` affiche ce qui manque (étapes, exigence v3, anomalies de journal) à l'institution en cours : on l'exécute **avant** de dire qu'une institution est finie. Elle indique la prochaine à traiter.
+- `validate` (donc le commit) échoue si une institution est commencée (configuration, journal ou étape cochée) alors qu'une institution **antérieure dans l'ordre du classeur** n'est pas terminée. Exemptions : institutions écartées ; `data/exigence_ancienne.txt` (faites avant l'exigence v3, à rattraper) ; `data/ancien_travail_haiku.txt` (commencées par l'ancienne méthode, à refaire : on les retire de la liste quand on les reprend).
 <!-- CONSIGNE:FIN -->
