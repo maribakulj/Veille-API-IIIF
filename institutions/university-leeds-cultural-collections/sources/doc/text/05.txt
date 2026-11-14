@@ -1,0 +1,105 @@
+Exploring existing manifests – International Medieval Congress 2025 
+ Skip to content 
+ Brief introduction to IIIF Day 1 - What you need for the workshop Finding and viewing IIIF enabled digitised manuscripts Creating your own IIIF Manifests using the Manifest Editor Creating an exhibition example from your IIIF Manifest Further IIIF Content to explore Day 2 - What you need for the workshop Exploring the University of Leeds Special Collections examples Access your IIIF Cloud Services portal Creating IIIF enabled images Creating your own IIIF Manifests Creating and editing IIIF Collections Thank you 
+ Search... 
+ Day 1 Workshop IIIF Manifest Editor Day 2 Workshop 
+ Day 1 Workshop IIIF Manifest Editor Day 2 Workshop 
+ Day 1 Workshop 
+ Further IIIF Content to explore
+ On this page 
+Exploring existing manifests 
+ Using the IIIF Manifest Editor provides users with the ability to import an existing manifest and then edit it within the platform, allowing them to develop and enhance their existing IIIF as required. This feature also enables users to browse published IIIF Collections and Manifests and examine those - perhaps to inform how to structure aspects of the metadata, or see how specific IIIF Presentation specification features have been used by other institutions.
+ It is a good way to learn and discover more about the possibilities the specification can afford. So before we start creating our own manifests - we will take a look at one or two so that you can see how they are structured, and view some of the metadata included with them to provide some context for our later work.
+ Perhaps there are one or more institutions that you are aware of which provide a link to their IIIF Manifests that you would like to select and open? If there are good examples you want to share please do!
+ If you intend to publish your IIIF Manifests you should ensure you have followed the attribution instructions
+and include any rights statements and/or required statements.
+IIIF Manifest examples to explore today 
+ If you don't have some specific IIIF content that you wish to view, the following is a short list of a few examples from various institutes in the UK:
+University of Leeds 
+ The Medieval Manuscript Collection we created for today's workshop can be accessed from:
+ https://presentation-api.dlcs-trial.digirati.io/176/leeds-imc/university-of-leeds-medieval-manuscripts 
+ Some other examples to explore:
+ https://iiif.library.leeds.ac.uk/presentation/cc/hbzcdj81 (Sketch by Marie Hartley, "The Blacksmith made all the hinges and snecks")
+ https://iiif.library.leeds.ac.uk/presentation/cc/fbw7jt45 (19th century chromolithographed trade card (advertisement), R. Jaekel trade card)
+ https://iiif.library.leeds.ac.uk/presentation/cc/mh4cf1hy (Coin collection, "aureus")
+Wellcome 
+ https://iiif.wellcomecollection.org/presentation/b18035723 (Wunder)
+ https://iiif.wellcomecollection.org/presentation/collections/archives/MS.1978 (Notebook - Marie Curie)
+Oxford Bodleian 
+ https://iiif.bodleian.ox.ac.uk/iiif/manifest/511601ba-b660-4b07-9b68-8251122c0630.json (Ashmolean Museum Evans Architectural Plans)
+ https://iiif.bodleian.ox.ac.uk/iiif/manifest/e2e9eea4-e293-4d63-987f-59cfc3d3def9.json (Bodleian Library Animals on Show)
+British Library 
+ https://bl.digirati.io/iiif/ark:/81055/vdc_100177809527.0x000001 (Foundation charter of Bordesley Abbey by Empress Matilda)
+ https://bl.digirati.io/iiif/ark:/81055/vdc_100104060212.0x000001 (Missal ('The Sherborne Missal'))
+ https://bl.digirati.io/iiif/ark:/81055/vdc_100057739145.0x000001 (Jacob van Maerlant, Der naturen bloeme)
+ https://bl.digirati.io/iiif/ark:/81055/vdc_100101631432.0x000001 (Bugis poems)
+National Library of Wales - Llyfrgell Genedlaethol Cymru 
+ https://damsssl.llgc.org.uk/iiif/2.0/6218786/manifest.json 🖼️ 
+ https://damsssl.llgc.org.uk/iiif/2.0/1131490/manifest.json 🖼️ 
+University of Edinburgh 
+ https://librarylabs.ed.ac.uk/iiif/manifest/calendars/2016:_Cities_of_the_World.json 🖼️ 
+National Library of Scotland 
+ National Library of Scotland are having some technical issues with their IIIF Image API.
+ https://view.nls.uk/manifest/8397/83973981/manifest.json (Lyceum/Royal Lyceum Theatre)
+ https://view.nls.uk/manifest/7492/74921376/manifest.json (Soviet posters)
+ https://view.nls.uk/manifest/1334/7515/133475158/manifest.json (15th century English manuscript)
+ https://view.nls.uk/manifest/2423/3907/242339078/manifest.json (Example book - Poems)
+Further IIIF Content to explore 
+ You can use Theseus or the Manifest Editor to find IIIF Manifest URLs from existing IIIF collections and Manifests.
+TU Delft 
+ You can navigate their IIIF collection from here: ( https://heritage.tudelft.nl/iiif/collection.json )
+ Using Theseus from the viewer tools, you can navigate through IIIF collections - simply open Theseus and paste in the Collection URL.
+ https://theseusviewer.org/?iiif-content={URL} 
+ Next to some of the examples there will be links to open and preview IIIF in Theseus.
+ Open in Theseus
+ You can grab the IIIF Manifest URL from the sidebar.
+Rijksmuseum 
+ The Rijksmuseum has a collection of artworks and artifacts that can be explored. A proxy is
+available that allows you to grab IIIF Manifests from the resources. If you paste a URL for
+one of these pages in the box below, a IIIF Manifest URL will be generated.
+ Paste URL 
+ Manifest URL: https://sammeltassen-rijks.web.val.run/200109794 View in Theseus Viewer 
+ The proxy is available here: https://www.val.town/v/sammeltassen/rijks 
+ https://www.rijksmuseum.nl/en/stories/10-things/story/10-remarkable-women 
+ Here you can see where to get the URLs from the object pages.
+Allard Pierson image bank 
+ The Allard Pierson's image bank contains digital images of archaeological objects, paintings, prints, maps, photos and slides, as well as books and manuscripts scanned in their entirety.
+ The pages on their website contain links to IIIF Manifests that can be browsed in the Manifest Editor Browser.
+ https://uvaerfgoed.nl/viewer/index/ 
+ Open example Manifest
+BnF Gallica 
+ An extensive resource - you can explore by Topic ( https://gallica.bnf.fr/accueil/en/html/accueil-en ) to find some content that may be of interest across a range of areas. Selecting a topic (Geography and Maps for example): https://gallica.bnf.fr/selections/fr/html/geographie-et-cartographie , you can navigate to content such as https://gallica.bnf.fr/selections/fr/html/images/photographies-de-la-societe-de-geographie-acces-geographique 
+ Selecting an object from the search results, viewing it in their viewer, you can find the IIIF Manifest link:
+ i.e. https://gallica.bnf.fr/iiif/ark:/12148/btv1b8492135q/manifest.json 
+WikiData 
+ As mentioned on the IIIF Guides, Wikidata has a property for IIIF Manifests which enables queries to be created that filter and retrieve manifests if they match other Wikidata properties. You can use the examples listed here: https://iiif.io/guides/guides/www.wikidata.org/ which generate links to the manifest using the Mirador viewer.
+ There is also an example configured for Theseus here: https://w.wiki/DaXE 
+Wellcome 
+ The Wellcome Collection has various IIIF endpoints available to browse through from their archives.
+ Wellcome Collection
+Northwestern University Libraries 
+ The Digital collections at Northwestern University Libraries are available online as a IIIF Collection that
+you can browse through.
+ https://api.dc.library.northwestern.edu/api/v2/collections?as=iiif 
+ Northwestern University Libraries
+IIIF Image Services 
+ From the Manifest Editor you can add IIIF-enabled images from their info.json manifest links. These enable deep zoom
+for the images. Some providers do not support IIIF Presentation APIs (Collections and Manifests) but do offer API endpoints for their images.
+NLS collection 
+ One provider that supports IIIF Images is the National Library of Scotland Map Collection.
+ https://maps.nls.uk/ 
+ From their site, if you are looking at a single map you can click on the "Show IIIF" and grab a link to the info.json link to add it to your Manifest.
+Static images 
+ You can also add images using images that are not IIIF-enabled. You will need an image that is allowed to be linked
+to from other pages. The format also needs to be supported by browsers, so formats such as JP2000 may not work correctly.
+ There are a few sources where you can find some static images to include in your Manifests.
+The CDLI Collection 
+ On this CDLI collection website high-resolution images are available of the tablets.
+ https://cdli.mpiwg-berlin.mpg.de/ 
+ By making the form and content of cuneiform texts available online, the CDLI is opening pathways to the rich historical tradition of the ancient Middle East. In close collaboration with researchers, museums and an engaged public, the project seeks to unharness the extraordinary content of these earliest witnesses to our shared world heritage.
+ An example image:
+ https://cdli.mpiwg-berlin.mpg.de/dl/photo/P000001.jpg 
+Nasa Images 
+ Generate a IIIF Collection using a search term from the NASA photo archive.
+ Enter a search term Search Collection URL: https://nasa.stephen.wf/search/Docked%20STS-132%20Atlantis/1 
+ View in Theseus Viewer

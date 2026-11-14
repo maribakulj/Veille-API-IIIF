@@ -1,0 +1,56 @@
+Activity 1: Finding and viewing IIIF enabled digitised manuscripts – International Medieval Congress 2025 
+ Skip to content 
+ Brief introduction to IIIF Day 1 - What you need for the workshop Finding and viewing IIIF enabled digitised manuscripts Creating your own IIIF Manifests using the Manifest Editor Creating an exhibition example from your IIIF Manifest Further IIIF Content to explore Day 2 - What you need for the workshop Exploring the University of Leeds Special Collections examples Access your IIIF Cloud Services portal Creating IIIF enabled images Creating your own IIIF Manifests Creating and editing IIIF Collections Thank you 
+ Search... 
+ Day 1 Workshop IIIF Manifest Editor Day 2 Workshop 
+ Day 1 Workshop IIIF Manifest Editor Day 2 Workshop 
+ Day 1 Workshop 
+ Finding and viewing IIIF enabled digitised manuscripts
+ On this page 
+Activity 1: Finding and viewing IIIF enabled digitised manuscripts 
+ As discussed during the introduction section, every digital object (manuscript, book, painting, map, diary etc.) that is published and available in IIIF has a Manifest URL. The Manifest URL is the key to explore that object in IIIF tools. So finding, selecting and copying the URL(s) will allow you to start working with the images and metadata.
+ We've provided a number of starting points to help you explore and find some interesting IIIF enabled digitised material today; but also included details to enable you to confidently explore and find more after the workshop.
+Leeds Medieval Manuscripts Collection 
+ Given we are here in Leeds, we will use some of the Medieval Manuscript collection at the University as the basis for our exploration during the activities. We have created a IIIF Collection which contains a selection of the digitised Medieval Manuscript objects, and you can use this Collection to browse and inspect some of those IIIF Manifests.
+ IIIF Collections
+ A IIIF Collection is another route to finding IIIF Manifests. This is used by institutes and organisations to organise their IIIF content into an appropriate structure for exploration. Some (but not yet all) IIIF viewers allow you to easily navigate through those Collections and find interesting digital content via their Manifest URL.
+ https://presentation-api.dlcs-trial.digirati.io/176/leeds-imc/university-of-leeds-medieval-manuscripts 
+Step 1: Browse the IIIF Collection in the Manifest Editor 
+ Copy the Collection URL above
+ Open the IIIF Manifest Editor in your browser
+ Click on the 'Browse for IIIF' option
+ Paste the Collection URL into the navigation bar, and click to open the IIIF content
+ The Collection will be displayed, with a grid view and a list view to explore the Manifests contained within this IIIF Collection
+ Scroll through the list and select a Manifest, clicking on it to view the content
+ Click to "Open Manifest"
+ This will open the selected Manifest in the Manifest Editor, allowing you to view the IIIF Manifest in detail
+Step 2: Getting familar with the IIIF Manifest structure 
+ Now that you have opened an existing manifest, you can browse and view the structure of the Manifest and the Canvases that form part of the selected digital object.
+ Any edits or changes that you make to the selected manifest or manifests, will only result in updates to the copy of Manifest that you have opened. This does not impact the actual published manifest, and the changes will be visible only to you or to anyone with whom you share a link to your manifest.
+ The Manifest summary information is presented in the left hand panel, with the detailed metadata information in the right hand panel, together with any canvases that are present in the manifest in the central grid view.
+ In the right hand panel, you will see any completed properties in the “Overview” tab. This makes is easy to make quick edits without going through all the available properties or searching through the tabs. The tabs are organized in the same way as the IIIF Presentation API documentation. You can click on a tab to see all the properties that are available.
+ Some resources have a lot of properties. You can click on the “more” tab to see other tabs that are not shown by default. You can also resize either of the two sizebars to make more room for the editor by dragging the divider between the sidebar and the main panel.
+Step 3: Editing the IIIF Manifest and previewing your changes 
+ As part of the learning exercise, you can make a change or two to the IIIF Manifest you are editing and see how that change is rendered in one or more IIIF viewers. You can edit the Manifest metadata, which is typically what is presented in IIIF viewers, since this metadata describes the digital object.
+ You can update the Manifest Label and Summary for example:
+ Click on the Manifest summary icon in the left hand menu
+ In the right hand panel, click on the "Descriptive" tab
+ Update the Label and Summary values with some of your own text
+ To view your changes, you can preview those changes in a number of viewers that are configured within the Manifest Editor, including Universal Viewer, Mirador, Theseus and others.
+Further content to explore if you have time now, or later! 
+University of Leeds 
+ In addition to the Collection URL provided above, you can of course navigate through the University of Leeds Special Collections website ( https://library.leeds.ac.uk/info/1500/special-collections ) and find the IIIF Manifest URL as illustrated in the example ( https://explore.library.leeds.ac.uk/special-collections-explore/372687 ) below:
+Durham University 
+ You can explore the Collection at Durham University which includes Medieval Manuscripts. The IIIF Collection URL is:
+ https://iiif.durham.ac.uk/manifests/trifle/collection/index 
+ Or you can open it directly in Theseus.
+ Open in Theseus
+British Library 
+ You can view a selection of digitised manuscripts and archives held at the British Library. Note the website has been very recently updated, and the full list of IIIF Manifests is referenced on https://www.bl.uk/collection/digitised-manuscripts-archives .
+ Here are a few examples you can quickly explore:
+ https://bl.digirati.io/iiif/ark:/81055/vdc_100177809527.0x000001 (Foundation charter of Bordesley Abbey by Empress Matilda)
+ https://bl.digirati.io/iiif/ark:/81055/vdc_100104060212.0x000001 (Missal ('The Sherborne Missal'))
+ https://bl.digirati.io/iiif/ark:/81055/vdc_100057739145.0x000001 (Jacob van Maerlant, Der naturen bloeme)
+ https://bl.digirati.io/iiif/ark:/81055/vdc_100101631432.0x000001 (Bugis poems)
+Much more to explore 
+ You can find a selection of IIIF content to explore in Examples of IIIF to explore
