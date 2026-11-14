@@ -1,0 +1,112 @@
+IIIF services 
+ Skip to content
+  
+ IIIF at Leiden University
+ IIIF services
+ 
+ Type to start searching
+  
+ IIIF at Leiden University
+ Leiden University & IIIF
+ Terms and conditions
+ IIIF services
+ IIIF services
+ Table of contents 
+ Image access via APIs
+ IIIF Image API v2.1
+ Item and collection information
+ IIIF Presentation API v2.1
+ Annotation storage
+ Simple Annotation Server
+ WordPress
+ Web Annotation Protocol
+ FromThePage
+ Searching Content
+ IIIF Content Search API
+ Change Discovery API
+ Linked Data Notifications
+ Roadmap
+ Getting started
+ Getting started
+ Getting started with IIIF
+ Image manipulation
+ Work with digital objects
+ Table of contents 
+ Image access via APIs
+ IIIF Image API v2.1
+ Item and collection information
+ IIIF Presentation API v2.1
+ Annotation storage
+ Simple Annotation Server
+ WordPress
+ Web Annotation Protocol
+ FromThePage
+ Searching Content
+ IIIF Content Search API
+ Change Discovery API
+ Linked Data Notifications
+ This page is a draft. 
+ IIIF services
+ The UBL are working to offer services for using our digital collections with IIIF.
+ Image access via APIs ¶ 
+ IIIF Image API v2.1 ¶ 
+ Available for specific collections.
+Access to all public domain items in Digital Collections is being realised in 2020.
+ Access to non-public domain items is limited to access via Digital Collections ; for
+some collections only on-premises access is available.
+Implementation of the IIIF Authentication API to help with worldwide access to restricted
+items is not yet planned.
+ IIIF Image API v3 support is not yet planned, but it is on our radar.
+ Item and collection information ¶ 
+ IIIF Presentation API v2.1 ¶ 
+ The IIIF Presentation API provides a data structure for presenting full objects (consisting
+of images and related annotations) and collections of objects.
+This data structure is called a manifest .
+The current stable version is v2.1.1, although v3.0 is almost out of beta.
+ Manifests are available for specific collections.
+Manifest generation for all public domain items in Digital Collections is being
+realised in 2020.
+ IIIF Presentation API v3 support is not yet planned, but it is on our radar.
+ Annotation storage ¶ 
+ IIIF has annotations in its core. One of the advantages of offering digital images through
+IIIF manifests is that tools like Mirador provide an easy way of annotating the images.
+By default Mirador stores annotations in the browser's cache and without any provenance,
+which means that only people with access to that exact browser on the computer that was
+used to create annotations can see them. Also, they can be updated and deleted by anyone with
+access to the computer.
+ Other ways of storing annotations are available, although each may work in different ways.
+ Simple Annotation Server ¶ 
+ A Simple Annotation Store/Server that integrated with Mirador 2.x used to be
+available, but its lack of authentication and authorisation options led us to
+put it behind a firewall.
+ WordPress ¶ 
+ In one pilot project, a WordPress plugin wp-mirador-anno was developed to store
+annotations with provenance and access control in Simple Annotation Server.
+We are working to make this plugin more widely available.
+ Web Annotation Protocol ¶ 
+ The Web Annotation Protocol is the protocol defined by the Web Annotations group.
+It is currently not supported, although it is on the radar of the CDS.
+ FromThePage ¶ 
+ For transcription of Library collections and other collections available via IIIF
+you can use the FromThePage platform .
+Transcriptions made in FromThePage become available as annotations and can also be
+exported as TEI XML or XHTML.
+ Searching Content ¶ 
+ IIIF Content Search API ¶ 
+ The IIIF Content Search API specifies how (contents of) annotations can be searched
+and how search endpoints are linked to from Manifests.
+ The latest version of this API is v1.0. It is currently not supported for any IIIF
+content.
+ Change Discovery API ¶ 
+ IIIF Change Discovery API v0.3: not available
+ WebSub hub for notifications of changes to resources: not available
+ Linked Data Notifications ¶ 
+ LDN inbox for notifications about annotations on our resources: not available
+ Previous
+ Terms and conditions
+ Next
+ Roadmap
+ powered by
+ MkDocs 
+ and
+ Material for MkDocs

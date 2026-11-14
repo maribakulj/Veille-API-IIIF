@@ -59,6 +59,48 @@
       "date": "2026-11-14",
       "etiquette": "officielle",
       "preuve": "institutions/leiden-university-libraries/sources/e/SHA256SUMS"
+    },
+    {
+      "url": "https://lab.library.universiteitleiden.nl/iiif-docs/",
+      "date": "2026-11-14",
+      "etiquette": "institution",
+      "preuve": "institutions/leiden-university-libraries/sources/rattrapage/SHA256SUMS"
+    },
+    {
+      "url": "https://lab.library.universiteitleiden.nl/iiif-docs/terms-of-use/",
+      "date": "2026-11-14",
+      "etiquette": "institution",
+      "preuve": "institutions/leiden-university-libraries/sources/iiif-docs/SHA256SUMS"
+    },
+    {
+      "url": "https://lab.library.universiteitleiden.nl/iiif-docs/services/",
+      "date": "2026-11-14",
+      "etiquette": "institution",
+      "preuve": "institutions/leiden-university-libraries/sources/iiif-docs/SHA256SUMS"
+    },
+    {
+      "url": "https://lab.library.universiteitleiden.nl/iiif-docs/roadmap/",
+      "date": "2026-11-14",
+      "etiquette": "institution",
+      "preuve": "institutions/leiden-university-libraries/sources/iiif-docs/SHA256SUMS"
+    },
+    {
+      "url": "https://lab.library.universiteitleiden.nl/iiif-docs/getting-started/",
+      "date": "2026-11-14",
+      "etiquette": "institution",
+      "preuve": "institutions/leiden-university-libraries/sources/iiif-docs/SHA256SUMS"
+    },
+    {
+      "url": "https://lab.library.universiteitleiden.nl/iiif-docs/getting-started/image-manipulation/",
+      "date": "2026-11-14",
+      "etiquette": "institution",
+      "preuve": "institutions/leiden-university-libraries/sources/iiif-docs/SHA256SUMS"
+    },
+    {
+      "url": "https://lab.library.universiteitleiden.nl/iiif-docs/getting-started/objects/",
+      "date": "2026-11-14",
+      "etiquette": "institution",
+      "preuve": "institutions/leiden-university-libraries/sources/iiif-docs/SHA256SUMS"
     }
   ],
   "web": [
@@ -136,9 +178,15 @@
     },
     {
       "famille": "Serveur IIIF Image historique iiif.universiteitleiden.nl",
-      "url": "https://iiif.universiteitleiden.nl/",
+      "url": "https://iiif.universiteitleiden.nl/iiif/2",
       "statut": "non_teste",
-      "raison": "Documenté par le moteur de recherche (lab.library…/iiif-docs) mais ni son robots.txt (connexion coupée) ni sa doc n'ont été lus ; la chaîne actuelle passe par Primo et Ex Libris."
+      "raison": "Documenté par lab.library…/iiif-docs (« The Image API base URL is /iiif/2 », lu 2026-11-14) mais le serveur coupe la connexion (curl 56) dès la lecture de robots.txt, deux fois ; la méthode impose l'arrêt sur connexion coupée, donc non testé."
+    },
+    {
+      "famille": "Manifestes IIIF 2.1 de lab.library.universiteitleiden.nl (/manifests, /manifests/collection.json)",
+      "url": "https://lab.library.universiteitleiden.nl/manifests/collection.json",
+      "statut": "non_teste",
+      "raison": "En cours de test par la passe 5 (config leiden-passe5-lab.json) ; statut mis à jour après lancement."
     }
   ],
   "hotes_robots": [
@@ -161,6 +209,26 @@
       "hote": "eu-img02.ext.exlibrisgroup.com",
       "resultat": "403 « Missing Authentication Token » : tout autorisé (RFC 9309)",
       "preuve": "institutions/leiden-university-libraries/tests/journal.log"
+    },
+    {
+      "hote": "lab.library.universiteitleiden.nl",
+      "resultat": "404 : pas de robots.txt, tout autorisé (RFC 9309)",
+      "preuve": "institutions/leiden-university-libraries/sources/rattrapage/FETCH.log"
+    },
+    {
+      "hote": "library.universiteitleiden.nl",
+      "resultat": "200 (2 811 o) : User-agent *, Disallow sur des pages de recherche et listes du site web, pas de Crawl-delay ; hôte de pages de doc, non contacté par la sonde",
+      "preuve": "institutions/leiden-university-libraries/sources/rattrapage/FETCH.log"
+    },
+    {
+      "hote": "www.library.universiteitleiden.nl",
+      "resultat": "302 puis connexion coupée par le serveur (curl 56) : robots.txt illisible, aucun contournement ; hôte de pages web, non contacté par la sonde",
+      "preuve": "institutions/leiden-university-libraries/sources/rattrapage/FETCH.log"
+    },
+    {
+      "hote": "iiif.universiteitleiden.nl",
+      "resultat": "connexion coupée par le serveur (curl 56) à la lecture de robots.txt, deux fois (rattrapage et audit initial) : arrêt de l'hôte, aucun contournement",
+      "preuve": "institutions/leiden-university-libraries/sources/rattrapage/FETCH.log"
     }
   ],
   "rattrapage_a_faire": [
