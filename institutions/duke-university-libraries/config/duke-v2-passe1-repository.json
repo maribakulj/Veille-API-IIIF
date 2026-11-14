@@ -1,0 +1,11 @@
+{
+  "slug": "duke-university-libraries",
+  "min_delay_s": 10,
+  "max_requests": 15,
+  "follow_redirects": 1,
+  "robots_disallow_autorise_par_marcel": true,
+  "note": "v2 passe 1 : Duke ne publie aucune doc d'API. Le seul point d'entree public cite (https://repository.duke.edu/dc, interface du Duke Digital Repository) a deja repondu 200 avec une page de defi Anubis lors de la lecture de doc (sources/a/raw/04.html). Une seule requete de sonde pour consigner ce comportement dans le journal ; si c'est un defi, l'hote est arrete (pas de contournement). Pause 10 s = Crawl-delay du robots.txt de repository.duke.edu.",
+  "endpoints": [
+    {"id": "repository-dc", "method": "GET", "url": "https://repository.duke.edu/dc"}
+  ]
+}
