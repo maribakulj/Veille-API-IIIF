@@ -1,0 +1,533 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Welcome &#8212; Collections API Guide</title>
+    
+  <link rel="stylesheet" href="_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
+
+    
+  <link rel="stylesheet"
+    href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+  <link rel="stylesheet"
+    href="_static/vendor/open-sans_all/1.44.1/index.css">
+  <link rel="stylesheet"
+    href="_static/vendor/lato_latin-ext/1.44.1/index.css">
+
+    
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="_static/sphinx-book-theme.40e2e510f6b7d1648584402491bb10fe.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="_static/js/index.d3f166471bb80abb5163.js">
+
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/togglebutton.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="_static/sphinx-book-theme.d31b09fe5c1d09cb49b26a786de4a05d.js"></script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Quick Start" href="quick-start.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="index.html">
+  
+  <img src="_static/va-red.png" class="logo" alt="logo">
+  
+  
+  <h1 class="site-logo" id="site-title">Collections API Guide</h1>
+  
+</a>
+</div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <ul class="nav sidenav_l1">
+ <li class="toctree-l1 current active">
+  <a class="reference internal" href="#">
+   Welcome
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Quick Start
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="quick-start.html">
+   Introduction
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="common-identifiers.html">
+   Identifiers
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Searching
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="search/introduction.html">
+   Introduction
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="search/boolean.html">
+   Boolean
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Filtering
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="filter/introduction.html">
+   Introduction
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="filter/keyword.html">
+   Keyword
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Restriction
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="restriction/introduction.html">
+   Introduction
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="restriction/miscellaneous.html">
+   Miscellaneous
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Results
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="results/introduction.html">
+   Introduction
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="results/object-fields-brief.html">
+   Fields (Summary)
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Images
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="images/introduction.html">
+   Introduction
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="images/iiif.html">
+   IIIF
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Data Visualisation
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="data-vis/introduction.html">
+   Introduction
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="data-vis/clustering.html">
+   Clustering
+  </a>
+ </li>
+</ul>
+
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="row topbar fixed-top container-xl">
+    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
+    </div>
+    <div class="col pl-2 topbar-main">
+        
+        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+            data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+            aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+            title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+            <i class="fas fa-bars"></i>
+            <i class="fas fa-arrow-left"></i>
+            <i class="fas fa-arrow-up"></i>
+        </button>
+        
+        
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="_sources/welcome.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+        <!-- Source interaction buttons -->
+
+
+        <!-- Full screen (wrap in <a> to have style consistency -->
+        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+                title="Fullscreen mode"><i
+                    class="fas fa-expand"></i></button></a>
+
+        <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/welcome.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+    </div>
+
+    <!-- Table of contents -->
+    <div class="d-none d-md-block col-md-2 bd-toc show">
+        
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i> Contents
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#overview">
+   Overview
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#datasets">
+   Datasets
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#citation">
+   Citation
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#collections-data">
+     Collections Data
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#collections-api">
+     Collections API
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#licencing">
+   Licencing
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#related-resources">
+   Related Resources
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#future-development">
+   Future Development
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#contact-us">
+   Contact Us
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#changelog">
+   Changelog
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#apr-2021">
+     15 Apr 2021
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id1">
+     2009
+    </a>
+    <ul class="nav section-nav flex-column">
+    </ul>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+        </nav>
+        
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="welcome">
+<h1>Welcome<a class="headerlink" href="#welcome" title="Permalink to this headline">¶</a></h1>
+<p>The V&amp;A Collections API provides access to the collections data and images held by the <a class="reference external" href="https://www.vam.ac.uk/">Victoria and Albert Museum</a> in machine readable formats (currently JSON and CSV) aiding research into art &amp; design history, provenance studies and supporting general data science exploration and visualisation.</p>
+<p>Our first API was released in 2009, this second version released in 2021 follows its pioneering predecessor in many ways, but provides some new functionality allowing for ease of use with data science utilities such as <a class="reference external" href="https://pandas.pydata.org/">Pandas</a>, <a class="reference external" href="https://altair-viz.github.io/">Altair</a>, <a class="reference external" href="https://vega.github.io/vega/">Vega</a>; new endpoints to query for clustering results together for ‘generous’ data overviews; different response types allowing for a quick start in exploring the data, and countable other features large and small documented through this guide.</p>
+<p>Cultural heritage data can be complex to explore, every aspect of an objects’ history can be a world in itself to discover, which can make it hard to find a starting point when first looking into the data (with or without an objective in mind). While this guide provides an overview of using the API, you may find some worked examples helpful, so we have provided some <a class="reference external" href="https://developers.vam.ac.uk/notebooks/data-explorations/">Data Explorations</a> on topics such as water lilies, machines in the C18th and the ladies of Edinburgh (from 1865 to 1880 only).</p>
+<div class="section" id="overview">
+<h2>Overview<a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h2>
+<p>This API guide details each endpoint in the API (an endpoint being a type of operation that can be carried out) and the parameters available for each endpoint (a parameter controls what the operation does). For the most common usage (retrieve an object record, query all object records, etc) we provide a <a class="reference internal" href="quick-start.html#quick-start-top"><span class="std std-ref">Quick Start</span></a> guide which gives some code examples in Python that can be re-used (or re-implemented in a language of your choice) in your own project, the following sections provide exhaustive details on the available endpoints and parameters:</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="search/introduction.html#searching-top"><span class="std std-ref">Searching</span></a> - All the different parameters for controlling different types and methods of searching object records</p></li>
+<li><p><a class="reference internal" href="filter/introduction.html#filtering-top"><span class="std std-ref">Filtering</span></a> - All the different parameters for controlling different types and methods of filtering object records</p></li>
+<li><p><a class="reference internal" href="restriction/introduction.html#restriction-top"><span class="std std-ref">Restriction</span></a> - Parameters controlling whether records are included or excluded from searching or filtering</p></li>
+<li><p><a class="reference internal" href="results/introduction.html#results-top"><span class="std std-ref">Results</span></a> - Formats of results that can be returned from different queries</p></li>
+<li><p><a class="reference internal" href="images/introduction.html#images-top"><span class="std std-ref">Images</span></a> - How to retrieve object images using IIIF APIs</p></li>
+<li><p><a class="reference internal" href="data-vis/introduction.html#datavis-top"><span class="std std-ref">Visualisations</span></a> - How to visualise the data returned from the API</p></li>
+</ul>
+</div>
+<div class="section" id="datasets">
+<h2>Datasets<a class="headerlink" href="#datasets" title="Permalink to this headline">¶</a></h2>
+<p>Although the API provides an effective way to dynamically retrieve subsets of collections data, for bulk export it is less efficient than data compressed and transferred as a single file. If you have a project where you want to examine large sets of object records, please log an issue detailing your project in our <a class="reference external" href="https://github.com/vanda/etc-docs/issues">GitHub repository</a> and we will get in touch if we can help out.</p>
+</div>
+<div class="section" id="citation">
+<h2>Citation<a class="headerlink" href="#citation" title="Permalink to this headline">¶</a></h2>
+<p>If you want to refer to our collections data and/or are using our API in an academic publication, you can cite us as follows (in BibTex):</p>
+<div class="section" id="collections-data">
+<h3>Collections Data<a class="headerlink" href="#collections-data" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nd">@misc</span><span class="p">{</span><span class="n">vam</span><span class="o">-</span><span class="mi">2021</span><span class="o">-</span><span class="n">collections</span><span class="o">-</span><span class="n">data</span><span class="p">,</span>
+  <span class="n">author</span> <span class="o">=</span> <span class="p">{</span><span class="n">Victoria</span> <span class="ow">and</span> <span class="n">Albert</span> <span class="n">Museum</span><span class="p">},</span>
+  <span class="n">title</span> <span class="o">=</span> <span class="p">{</span><span class="n">Victoria</span> <span class="ow">and</span> <span class="n">Albert</span> <span class="n">Museum</span> <span class="n">Collections</span> <span class="n">Data</span><span class="p">},</span>
+  <span class="n">year</span> <span class="o">=</span> <span class="p">{</span><span class="mi">2021</span><span class="p">},</span>
+  <span class="n">note</span> <span class="o">=</span> <span class="p">{</span><span class="n">data</span> <span class="n">retrieved</span> <span class="n">via</span> <span class="n">Victoria</span> <span class="ow">and</span> <span class="n">Albert</span> <span class="n">Museum</span> <span class="n">Collections</span> <span class="n">API</span><span class="p">,</span> \<span class="n">url</span><span class="p">{</span><span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">developers</span><span class="o">.</span><span class="n">vam</span><span class="o">.</span><span class="n">ac</span><span class="o">.</span><span class="n">uk</span><span class="o">/</span><span class="p">}},</span>
+  <span class="n">url</span> <span class="o">=</span> <span class="p">{</span><span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">collections</span><span class="o">.</span><span class="n">vam</span><span class="o">.</span><span class="n">ac</span><span class="o">.</span><span class="n">uk</span><span class="o">/</span><span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="collections-api">
+<h3>Collections API<a class="headerlink" href="#collections-api" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nd">@software</span><span class="p">{</span><span class="n">vam</span><span class="o">-</span><span class="mi">2021</span><span class="o">-</span><span class="n">collections</span><span class="o">-</span><span class="n">api</span><span class="p">,</span>
+    <span class="n">author</span>       <span class="o">=</span> <span class="p">{</span><span class="n">Victoria</span> <span class="ow">and</span> <span class="n">Albert</span> <span class="n">Museum</span><span class="p">},</span>
+    <span class="n">title</span>        <span class="o">=</span> <span class="p">{</span><span class="n">Victoria</span> <span class="ow">and</span> <span class="n">Albert</span> <span class="n">Museum</span> <span class="n">Collections</span> <span class="n">API</span> <span class="n">v2</span><span class="p">},</span>
+    <span class="n">year</span>         <span class="o">=</span> <span class="mi">2021</span><span class="p">,</span>
+    <span class="n">version</span>      <span class="o">=</span> <span class="p">{</span><span class="mi">2</span><span class="p">},</span>
+    <span class="n">url</span>          <span class="o">=</span> <span class="p">{</span><span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">developers</span><span class="o">.</span><span class="n">vam</span><span class="o">.</span><span class="n">ac</span><span class="o">.</span><span class="n">uk</span><span class="o">/</span><span class="p">},</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="licencing">
+<h2>Licencing<a class="headerlink" href="#licencing" title="Permalink to this headline">¶</a></h2>
+<p>Our collections data and images are made available under the <a class="reference external" href="https://www.vam.ac.uk/info/va-websites-terms-conditions">terms of use</a> for the V&amp;A website, in particular section 9.3.</p>
+</div>
+<div class="section" id="related-resources">
+<h2>Related Resources<a class="headerlink" href="#related-resources" title="Permalink to this headline">¶</a></h2>
+<p>There are many other excellent introductions and explorations of cultural heritage data using APIs, Jupyter Notebooks and other data processing techniques. Some we have found useful :</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://programminghistorian.org/">Programming Historian</a></p></li>
+<li><p><a class="reference external" href="https://glam-workbench.github.io/">Tim Sherratt’s GLAMWork Bench</a></p></li>
+<li><p><a class="reference external" href="https://data.nls.uk/">National Library of Scotland Data Foundry</a></p></li>
+<li><p><a class="reference external" href="https://data.rijksmuseum.nl/">Rijks Data</a></p></li>
+<li><p><a class="reference external" href="https://data.bl.uk">British Library Labs</a></p></li>
+<li><p><a class="reference external" href="https://github.com/LibraryOfCongress/data-exploration">Library of Congress Data Exploration</a></p></li>
+<li><p><a class="reference external" href="https://www.si.edu/openaccess">Smithsonian</a></p></li>
+<li><p><a class="reference external" href="https://api.artic.edu/docs/">Art Institute of Chicago</a></p></li>
+</ul>
+<p>There are many other cultural heritage collections APIs to explore, the definitive list remains with <a class="reference external" href="http://museum-api.pbworks.com/w/page/21933420/Museum%C2%A0APIs">Mia Ridge</a></p>
+</div>
+<div class="section" id="future-development">
+<h2>Future Development<a class="headerlink" href="#future-development" title="Permalink to this headline">¶</a></h2>
+<p>The V&amp;A participates in the <a class="reference external" href="https://linked.art/">Linked Art</a> project looking at creating a shared data model to enable the interoperability of cultural heritage data between institutions, which would make some of the example <a class="reference external" href="https://developers.vam.ac.uk/notebooks/data-explorations/">data explorations</a> much easier to write. We hope to offer a JSON-LD API in the future to assist in querying across national and international cultural heritage collections.</p>
+</div>
+<div class="section" id="contact-us">
+<h2>Contact Us<a class="headerlink" href="#contact-us" title="Permalink to this headline">¶</a></h2>
+<p>If you have spotted any egregious typos or coding errors or see anyone suggestion that searching is better than filtering, or would like to let us know about an application you have written using our data or images, please send us a <a class="reference external" href="https://github.com/etc-docs/pulls">pull request</a> or log an issue on our <a class="reference external" href="https://github.com/vanda/etc-docs/issues">GitHub repository</a>.</p>
+</div>
+<div class="section" id="changelog">
+<h2>Changelog<a class="headerlink" href="#changelog" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="apr-2021">
+<h3>15 Apr 2021<a class="headerlink" href="#apr-2021" title="Permalink to this headline">¶</a></h3>
+<p>API v2 launched</p>
+</div>
+<div class="section" id="id1">
+<h3>2009<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
+<p>API v1 launched.</p>
+<div class="toctree-wrapper compound">
+</div>
+<div class="toctree-wrapper compound">
+</div>
+<div class="toctree-wrapper compound">
+</div>
+<div class="toctree-wrapper compound">
+</div>
+<div class="toctree-wrapper compound">
+</div>
+<div class="toctree-wrapper compound">
+</div>
+<div class="toctree-wrapper compound">
+</div>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        </div>
+    </div>
+    
+    
+    <div class='prev-next-bottom'>
+        
+    <a class='right-next' id="next-link" href="quick-start.html" title="next page">Quick Start</a>
+
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Victoria and Albert Museum<br/>
+        
+            &copy; Copyright 2020.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    
+  <script src="_static/js/index.d3f166471bb80abb5163.js"></script>
+
+
+    
+  </body>
+</html>
