@@ -10,7 +10,7 @@
 - Documentation Swagger (principale) : **non lue** (403, pas de copie).
 
 ## Tests
-**Aucun envoi** : le `robots.txt` de l'hôte API exclut les robots (consigne C8 : si c'est interdit, on laisse tomber) et l'hôte bloque notre sonde (403, on ne contourne pas).
+Passe 1 (2026-11-14, 1 requête) : `GET api.finna.fi/api/v1/search?lookfor=test&limit=1` → **403** défi Cloudflare (`cf-mitigated: challenge`) : arrêt sur l'hôte, non contourné. (Le `Disallow: /` du robots.txt ne dispense plus de tester, consigne C12.) La spécification OpenAPI (Wayback 2025-08-10, `sources/wayback/finna-openapi-et-kiwi-robots.md`) donne `limit` max 100 et `resumptionToken`, aucune limite de débit.
 
 ## Web
 Recherches : aucune politique de débit publiée ; le paquet R `finna` met 5 s par défaut (réglage client, non officiel) ; wiki tiers : `limit` 0–100, 100 000 résultats max (non vérifié à l'original).

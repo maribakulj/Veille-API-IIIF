@@ -1,0 +1,12 @@
+{
+  "slug": "e-manuscripta-bibliotheques-partenaires-suisses",
+  "endpoint": {
+    "id": "oai-identify",
+    "url": "https://www.e-manuscripta.ch/oai?verb=Identify",
+    "method": "GET"
+  },
+  "limite_documentee_req_min": null,
+  "source_limite": "Aucune limite de débit documentée (wiki/apiinfo, copie Wayback 2025-03-07 ; termsOfUse 2025-03-08)",
+  "duree_palier_s": 180,
+  "note": "Réponse OAI Identify (704 octets), 200 dans le journal (oai-identify, 2026-11-14T01:36:01Z). Aucune limite documentée : paliers jusqu'à 200 req/min (60 si un réseau protégé est détecté par crash.py)."
+}

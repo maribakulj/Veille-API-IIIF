@@ -1,0 +1,12 @@
+{
+  "slug": "wellcome",
+  "min_delay_s": 6,
+  "max_requests": 15,
+  "follow_redirects": 1,
+  "robots_disallow_autorise_par_marcel": true,
+  "note": "Passe 7 : familles de la référence developers.wellcomecollection.org/api/catalogue non encore testées : /images et /concepts (listes, pageSize=1) ; on enregistre le corps pour en tirer un identifiant public (passe 8). robots.txt api.wellcomecollection.org : 404 (autorisé).",
+  "endpoints": [
+    {"id": "catalogue-images-page1", "method": "GET", "url": "https://api.wellcomecollection.org/catalogue/v2/images?pageSize=1", "save_body": 300000},
+    {"id": "catalogue-concepts-page1", "method": "GET", "url": "https://api.wellcomecollection.org/catalogue/v2/concepts?pageSize=1", "save_body": 300000}
+  ]
+}

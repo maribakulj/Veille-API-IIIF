@@ -4,10 +4,305 @@
   "pays": "Suisse",
   "classeur_id": "GLAM-020",
   "type": "Plateforme / consortium",
-  "statut_audit": "à faire",
-  "limites_documentees": [],
-  "en_tetes_observes": [],
-  "blocages": [],
-  "sources": [],
-  "web": []
+  "statut_audit": "audit a–f complet ; g à faire (config crash prête)",
+  "limites_documentees": [
+    {
+      "nature": "Interdiction robots",
+      "perimetre": "www.e-manuscripta.ch",
+      "valeur": "User-agent: * Disallow: / (Bingbot et Googlebot autorisés)",
+      "fenetre": "–",
+      "effet": "Disallow",
+      "verification": "officielle, lue en entier en direct (89 octets)",
+      "source": "https://www.e-manuscripta.ch/robots.txt",
+      "date": "2026-11-14"
+    },
+    {
+      "nature": "Taille de page OAI",
+      "perimetre": "OAI-PMH ListRecords / ListIdentifiers",
+      "valeur": "paquets de 10 records avec resumptionToken",
+      "fenetre": "par requête",
+      "effet": "pagination",
+      "verification": "officielle (copie Wayback 2025-03-07), lue en entier",
+      "source": "https://www.e-manuscripta.ch/wiki/apiinfo",
+      "date": "2025-03-07"
+    },
+    {
+      "nature": "Délai dépassé sur gros METS",
+      "perimetre": "OAI GetRecord/ListRecords en metadataPrefix=mets",
+      "valeur": "échec possible par dépassement de délai pour les très gros titres",
+      "fenetre": "–",
+      "effet": "échec de la requête",
+      "verification": "officielle (copie Wayback 2025-03-07), lue en entier",
+      "source": "https://www.e-manuscripta.ch/wiki/apiinfo",
+      "date": "2025-03-07"
+    },
+    {
+      "nature": "Copie systématique soumise à accord",
+      "perimetre": "fichiers du portail",
+      "valeur": "accord écrit préalable du portail ou de l'institution",
+      "fenetre": "–",
+      "effet": "interdit sans accord",
+      "verification": "officielle (copie Wayback 2025-03-08), lue en entier",
+      "source": "https://www.e-manuscripta.ch/wiki/termsOfUse",
+      "date": "2025-03-08"
+    },
+    {
+      "nature": "Défi JavaScript anti-bot",
+      "perimetre": "pages HTML de www.e-manuscripta.ch",
+      "valeur": "page « Verifying your browser »",
+      "fenetre": "–",
+      "effet": "pages non lisibles sans navigateur",
+      "verification": "observée (fetch_doc 2026-11-14 ; Wayback 2026-10-04)",
+      "source": "https://www.e-manuscripta.ch/",
+      "date": "2026-11-14"
+    }
+  ],
+  "en_tetes_observes": [
+    {
+      "hote": "www.e-manuscripta.ch",
+      "en_tetes": "server: VLS/2603 ; vl-node ; set-cookie session_id ; aucun Retry-After ni X-RateLimit-*",
+      "preuve": "institutions/e-manuscripta-bibliotheques-partenaires-suisses/tests/raw/oai-identify.headers.txt"
+    }
+  ],
+  "blocages": [
+    {
+      "date": "2026-11-14",
+      "hote": "www.e-manuscripta.ch (pages HTML)",
+      "code": "200 défi JS",
+      "nature": "« Verifying your browser » (Visual Library) sur l'accueil et le wiki",
+      "suite": "non contourné ; copies Wayback antérieures lues"
+    }
+  ],
+  "sources": [
+    {
+      "url": "https://www.e-manuscripta.ch/robots.txt",
+      "date": "2026-11-14",
+      "etiquette": "officielle",
+      "preuve": "institutions/e-manuscripta-bibliotheques-partenaires-suisses/sources/a1/SHA256SUMS"
+    },
+    {
+      "url": "https://www.e-manuscripta.ch/wiki/apiinfo",
+      "date": "2025-03-07",
+      "etiquette": "officielle (copie Wayback)",
+      "preuve": "institutions/e-manuscripta-bibliotheques-partenaires-suisses/sources/wayback/e-manuscripta-extraits-wayback.md"
+    },
+    {
+      "url": "https://www.e-manuscripta.ch/wiki/termsOfUse",
+      "date": "2025-03-08",
+      "etiquette": "officielle (copie Wayback)",
+      "preuve": "institutions/e-manuscripta-bibliotheques-partenaires-suisses/sources/wayback/e-manuscripta-extraits-wayback.md"
+    },
+    {
+      "url": "https://data.zb.uzh.ch/map/books/data-map-der-zentralbibliothek-zurich/page/e-manuscripta-oai",
+      "date": "2026-11-14",
+      "etiquette": "partenaire (ZB Zürich)",
+      "preuve": "institutions/e-manuscripta-bibliotheques-partenaires-suisses/sources/a2/SHA256SUMS"
+    },
+    {
+      "url": "https://data.zb.uzh.ch/map/books/data-map-der-zentralbibliothek-zurich/page/e-manuscripta-iiif",
+      "date": "2026-11-14",
+      "etiquette": "partenaire (ZB Zürich)",
+      "preuve": "institutions/e-manuscripta-bibliotheques-partenaires-suisses/sources/a1/SHA256SUMS"
+    },
+    {
+      "url": "https://data.zb.uzh.ch/map/books/data-map-der-zentralbibliothek-zurich/page/e-manuscripta-sru",
+      "date": "2026-11-14",
+      "etiquette": "partenaire (ZB Zürich)",
+      "preuve": "institutions/e-manuscripta-bibliotheques-partenaires-suisses/sources/a2/SHA256SUMS"
+    },
+    {
+      "url": "https://data.zb.uzh.ch/map/books/data-map-der-zentralbibliothek-zurich/page/e-manuscripta-und-e-rara",
+      "date": "2026-11-14",
+      "etiquette": "partenaire (ZB Zürich)",
+      "preuve": "institutions/e-manuscripta-bibliotheques-partenaires-suisses/sources/a4/SHA256SUMS"
+    },
+    {
+      "url": "https://opendata.swiss/en/dataset/e-manuscripta-the-digital-platform-for-manuscript-material-from-swiss-libraries-and-archives",
+      "date": "2026-11-14",
+      "etiquette": "officielle (portail open data)",
+      "preuve": "institutions/e-manuscripta-bibliotheques-partenaires-suisses/sources/a1/SHA256SUMS"
+    }
+  ],
+  "web": [
+    {
+      "categorie": "institution",
+      "url": "https://www.e-manuscripta.ch/wiki/apiinfo",
+      "date": "2025-03-07",
+      "etiquette": "officielle (copie Wayback)",
+      "citation": "« Pro Abfrage liefert der Server Pakete von jeweils 10 Records zurück zusammen mit einem Token. » ; aucun quota",
+      "preuve": "institutions/e-manuscripta-bibliotheques-partenaires-suisses/sources/wayback/e-manuscripta-extraits-wayback.md"
+    },
+    {
+      "categorie": "institution",
+      "url": "https://www.zb.uzh.ch/en/services/die-plattformen-e-rara-und-e-manuscripta",
+      "date": "2026-11-14",
+      "etiquette": "partenaire (ZB Zürich)",
+      "citation": "« Schnittstellen OAI, IIIF, Volltexte, Z39.50 » ; hébergé par l'ETH Zürich",
+      "preuve": "institutions/e-manuscripta-bibliotheques-partenaires-suisses/sources/a4/SHA256SUMS"
+    },
+    {
+      "categorie": "utilisateurs",
+      "aucun_resultat": true,
+      "requete": "e-manuscripta.ch OAI harvest timeout blocked 429 OR 503 OR \"Verifying your browser\" crawler",
+      "date": "2026-11-14",
+      "etiquette": "–",
+      "citation": "Aucune plainte ni retour d'utilisateur propre à e-manuscripta ; seulement des cas génériques d'autres entrepôts OAI (résumé de moteur, non vérifié).",
+      "preuve": "institutions/e-manuscripta-bibliotheques-partenaires-suisses/fiche.md"
+    },
+    {
+      "categorie": "tickets",
+      "aucun_resultat": true,
+      "requete": "github e-manuscripta.ch IIIF manifest download script issue e-rara e-manuscripta",
+      "date": "2026-11-14",
+      "etiquette": "–",
+      "citation": "Aucun ticket sur e-manuscripta ; outils iiif-dl / iiifdownloader citent e-rara sans limite de débit (résumé de moteur, non vérifié).",
+      "preuve": "institutions/e-manuscripta-bibliotheques-partenaires-suisses/fiche.md"
+    },
+    {
+      "categorie": "presentations",
+      "url": "https://ub-easyweb.ub.unibas.ch/en/news/details/e-manuscriptach-modernes-design-und-verbesserte-funktionalitaeten/",
+      "date": "2022-09-08",
+      "etiquette": "institution partenaire (UB Basel)",
+      "citation": "Refonte de e-manuscripta.ch : IIIF, Mirador, export RIS ; « developed and is managed by the ETH Library, the University Library Basel, and the Zentralbibliothek Zürich » ; ni OAI, ni quota, ni bots",
+      "preuve": "institutions/e-manuscripta-bibliotheques-partenaires-suisses/fiche.md"
+    }
+  ],
+  "contact": "contact@e-manuscripta.ch (adresse générique du portail, page Nutzungsbedingungen)",
+  "conclusion_quota": "Aucune limite de débit ni quota publié ; OAI par paquets de 10 notices ; copie systématique sur d'autres serveurs soumise à accord écrit ; robots.txt Disallow: / sauf Bingbot et Googlebot ; pages HTML derrière un défi JavaScript, API (OAI, IIIF, téléchargements, SRU) en 200 sans en-tête de limite.",
+  "classe_quota": "aucun quota trouvé (usage encadré par les conditions d'utilisation)",
+  "confiance": "moyenne",
+  "notes": "Pages de doc lues dans la Wayback (copies 2025) : le site actuel sert un défi JavaScript aux pages HTML, non contourné. Les endpoints API ont répondu 200 à la sonde.",
+  "a_verifier_manuellement": [
+    {
+      "url": "https://www.e-manuscripta.ch/wiki/apiinfo",
+      "pourquoi": "défi JavaScript « Verifying your browser » en direct ; lue dans la copie Wayback du 2025-03-07",
+      "a_chercher": "Texte actuel : quota, limite de débit, règle pour les robots, nouvelles interfaces"
+    },
+    {
+      "url": "https://www.e-manuscripta.ch/wiki/termsOfUse",
+      "pourquoi": "défi JavaScript en direct ; lue dans la copie Wayback du 2025-03-08",
+      "a_chercher": "Texte actuel des conditions : copie systématique, moissonnage, accord écrit"
+    }
+  ],
+  "endpoints_documentes": [
+    {
+      "famille": "OAI-PMH (Identify, ListSets, ListMetadataFormats, GetRecord oai_dc, ListIdentifiers, ListRecords)",
+      "url": "https://www.e-manuscripta.ch/oai?verb=Identify",
+      "statut": "teste",
+      "preuve": "institutions/e-manuscripta-bibliotheques-partenaires-suisses/tests/raw/oai-identify.headers.txt"
+    },
+    {
+      "famille": "OAI-PMH ListRecords et resumptionToken",
+      "url": "https://www.e-manuscripta.ch/oai/?verb=ListRecords&metadataPrefix=oai_dc&set=emanuszuz&from=2021-09-01&until=2021-09-08",
+      "statut": "teste",
+      "preuve": "institutions/e-manuscripta-bibliotheques-partenaires-suisses/tests/raw/oai-listrecords-etroit.headers.txt"
+    },
+    {
+      "famille": "OAI-PMH en format METS",
+      "url": "https://www.e-manuscripta.ch/oai?verb=GetRecord&metadataPrefix=mets&identifier=3192957",
+      "statut": "non_teste",
+      "raison": "La doc (apiinfo) avertit que les gros titres en METS dépassent le délai et la réponse est volumineuse ; le protocole est prouvé par les verbes en oai_dc."
+    },
+    {
+      "famille": "IIIF Presentation v2 (manifeste)",
+      "url": "https://www.e-manuscripta.ch/i3f/v20/3192957/manifest",
+      "statut": "teste",
+      "preuve": "institutions/e-manuscripta-bibliotheques-partenaires-suisses/tests/raw/iiif-manifest-v20.headers.txt"
+    },
+    {
+      "famille": "IIIF Image 2.1 (info.json et dérivé)",
+      "url": "https://www.e-manuscripta.ch/i3f/v21/3192960/info.json",
+      "statut": "teste",
+      "preuve": "institutions/e-manuscripta-bibliotheques-partenaires-suisses/tests/raw/iiif-info-v21.headers.txt"
+    },
+    {
+      "famille": "IIIF collection v21/top",
+      "url": "https://www.e-manuscripta.ch/i3f/v21/collection/top",
+      "statut": "teste",
+      "preuve": "institutions/e-manuscripta-bibliotheques-partenaires-suisses/tests/raw/iiif-collection-top.headers.txt"
+    },
+    {
+      "famille": "Téléchargement PDF",
+      "url": "https://www.e-manuscripta.ch/download/pdf/1384091.pdf",
+      "statut": "teste",
+      "preuve": "institutions/e-manuscripta-bibliotheques-partenaires-suisses/tests/raw/pdf-head-1384091.headers.txt"
+    },
+    {
+      "famille": "Export RIS",
+      "url": "https://www.e-manuscripta.ch/zuz/download/format/ris/1384091",
+      "statut": "teste",
+      "preuve": "institutions/e-manuscripta-bibliotheques-partenaires-suisses/tests/raw/ris-1384091.headers.txt"
+    },
+    {
+      "famille": "Textes transcrits ALTO / hOCR / HTML",
+      "url": "https://www.e-manuscripta.ch/zuz/download/fulltext/alto3/1831288",
+      "statut": "teste",
+      "preuve": "institutions/e-manuscripta-bibliotheques-partenaires-suisses/tests/raw/fulltext-alto-1831288.headers.txt"
+    },
+    {
+      "famille": "SRU (sru2.visual-library.de)",
+      "url": "http://sru2.visual-library.de/emanus_alma_uzb?operation=searchRetrieve&recordSchema=mods",
+      "statut": "teste",
+      "preuve": "institutions/e-manuscripta-bibliotheques-partenaires-suisses/tests/raw/sru-emanus-alma.headers.txt"
+    },
+    {
+      "famille": "Z39.50",
+      "url": "https://www.zb.uzh.ch/en/services/die-plattformen-e-rara-und-e-manuscripta",
+      "statut": "non_teste",
+      "raison": "Protocole Z39.50 sur TCP, sans URL HTTP ni adresse de serveur dans la doc lue : impossible en GET/HEAD."
+    }
+  ],
+  "endpoints_ecartes": [
+    {
+      "url": "https://www.e-manuscripta.ch/wiki/apiinfo",
+      "raison": "Page de documentation des interfaces (copie Wayback lue en entier), pas un endpoint de données ; ses endpoints sont testés ci-dessus."
+    },
+    {
+      "url": "https://www.e-manuscripta.ch/wiki/termsOfUse",
+      "raison": "Page des conditions d'utilisation (copie Wayback lue en entier), pas une API."
+    },
+    {
+      "url": "https://www.e-rara.ch/wiki/apiinfo",
+      "raison": "Documentation de la plateforme sœur e-rara (autre institution du classeur), citée par la data map ZB ; hors périmètre de e-manuscripta."
+    },
+    {
+      "url": "https://www.e-manuscripta.ch/emanuszuz/oai/?verb=ListRecords&metadataPrefix=oai_dc&from=2021-08-23&until=2021-08-29",
+      "raison": "Alias documenté de l'OAI avec le set dans le chemin (data map ZB) : même service que /oai testé (ListRecords étroit, 200) ; pas de requête supplémentaire."
+    },
+    {
+      "url": "https://www.e-manuscripta.ch/zuzcmi/i3f/v21/3192960",
+      "raison": "Variante documentée de l'URI IIIF Image avec le set « zuzcmi » ; alias de /i3f/v21/3192960 testé (info.json et dérivé, 200)."
+    },
+    {
+      "url": "https://www.zb.uzh.ch/de/services/die-plattformen-e-rara-und-e-manuscripta",
+      "raison": "Version allemande de la page de présentation des plateformes (ZB Zürich), page web et non API ; la version anglaise est lue (sources/a4)."
+    }
+  ],
+  "hotes_robots": [
+    {
+      "hote": "www.e-manuscripta.ch",
+      "resultat": "200 : « * » Disallow: / (Bingbot et Googlebot autorisés) ; Disallow journalisé, autorisé par Marcel (C12)",
+      "preuve": "institutions/e-manuscripta-bibliotheques-partenaires-suisses/sources/a1/FETCH.log"
+    },
+    {
+      "hote": "sru2.visual-library.de",
+      "resultat": "404 : robots.txt absent, tout autorisé (RFC 9309)",
+      "preuve": "institutions/e-manuscripta-bibliotheques-partenaires-suisses/sources/a3/FETCH.log"
+    },
+    {
+      "hote": "data.zb.uzh.ch",
+      "resultat": "404 : robots.txt absent, tout autorisé",
+      "preuve": "institutions/e-manuscripta-bibliotheques-partenaires-suisses/sources/a1/FETCH.log"
+    },
+    {
+      "hote": "www.zb.uzh.ch",
+      "resultat": "200 : GPTBot exclu de /recherche, « * » autorisé",
+      "preuve": "institutions/e-manuscripta-bibliotheques-partenaires-suisses/sources/a4/FETCH.log"
+    },
+    {
+      "hote": "opendata.swiss",
+      "resultat": "200 lu",
+      "preuve": "institutions/e-manuscripta-bibliotheques-partenaires-suisses/sources/a1/FETCH.log"
+    }
+  ]
 }

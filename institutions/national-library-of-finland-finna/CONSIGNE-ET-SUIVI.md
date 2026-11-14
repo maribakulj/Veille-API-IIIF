@@ -37,9 +37,9 @@
 ### e) Test systématique de chaque endpoint
 > Chaque endpoint documenté est testé (budget 15 requêtes par passe, pause ≥ 6 s, GET/HEAD, UA du projet). Redirections du même hôte suivies. Un 403 arrête son hôte, un 429 arrête l'institution. Seules les interdictions écrites dans la doc dispensent de tester.
 
-- [ ] **Pas fait**
-  - **Justification** : DÉCOCHÉE le 2026-11-14 (verrou renforcé) : 2 élément(s) de rattrapage_a_faire non traités | ancienne justification : Aucun test : robots.txt de l'API interdit les robots (consigne C8 : on laisse tomber) et l'hôte renvoie 403 à la sonde (non contourné).
-  - **Preuves** : 
+- [x] **Fait**
+  - **Justification** : Passe 1 (config committée avant) : GET /api/v1/search → 403 défi Cloudflare (cf-mitigated: challenge) : arrêt sur l'hôte, non contourné ; robots.txt Disallow: / ne dispense plus (C12) mais le 403 oui ; spécification OpenAPI lue via Wayback ; rattrapage vidé.
+  - **Preuves** : `institutions/national-library-of-finland-finna/tests/journal.log`, `institutions/national-library-of-finland-finna/config/finna-passe1-api.json`, `institutions/national-library-of-finland-finna/sources/wayback/finna-openapi-et-kiwi-robots.md`
 
 ### f) Ce que disent les gens sur le web
 > Plaintes, discussions, présentations de l'institution, politique envers les API et les bots, blogs, GitHub, forums, listes de diffusion. Sources étiquetées (officielle / institution / utilisateur / tiers), lues, citées.
@@ -60,7 +60,10 @@
 
 <!-- AUTO:DEBUT -->
 ## Contrôles automatiques (calculés depuis `tests/journal.log`)
-Aucune requête enregistrée dans `tests/journal.log`.
+- Requêtes enregistrées : **2** (sessions de sonde : 1, maximum par session : 2)
+- Plus courte pause vers un même hôte : **6 s** (règle : ≥ 6 s)
+- Méthodes utilisées : GET (règle : GET/HEAD seulement)
+- Anomalies : aucune
 <!-- AUTO:FIN -->
 
 ## Consigne intégrale
