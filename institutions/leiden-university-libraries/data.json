@@ -67,6 +67,32 @@
       "date": "2026-11-14",
       "etiquette": "tiers, non vérifié",
       "citation": "manifestes IIIF 3 via un proxy ; site HTML derrière un défi anti-bot (non observé).",
+      "preuve": "institutions/leiden-university-libraries/fiche.md",
+      "categorie": "tickets"
+    },
+    {
+      "categorie": "institution",
+      "url": "https://lab.library.universiteitleiden.nl/iiif-docs/",
+      "date": "2026-11-14",
+      "etiquette": "institution",
+      "citation": "IIIF Image API 2.1 et Presentation API 2.1 ; « no (complete) index of manifests » ; Presentation v3 non planifié ; aucune règle de débit citée (résumé de moteur, non vérifié)",
+      "preuve": "institutions/leiden-university-libraries/fiche.md"
+    },
+    {
+      "categorie": "utilisateurs",
+      "aucun_resultat": true,
+      "requete": "digitalcollections.universiteitleiden.nl IIIF 429 OR blocked OR \"too many requests\"",
+      "date": "2026-11-14",
+      "etiquette": "–",
+      "citation": "Aucun retour d'utilisateur sur 429 ou blocage du serveur IIIF de Leiden ; seuls des résultats génériques ou d'autres institutions",
+      "preuve": "institutions/leiden-university-libraries/fiche.md"
+    },
+    {
+      "categorie": "presentations",
+      "url": "https://www.library.universiteitleiden.nl/news/2020/12/digitised-texts-and-images-available-via-advanced-iiif-technology",
+      "date": "2026-11-14",
+      "etiquette": "institution",
+      "citation": "« approximately 200.000 digitised books, maps, photographs and other materials » disponibles via IIIF ; pas de règle de débit (résumé de moteur, non vérifié)",
       "preuve": "institutions/leiden-university-libraries/fiche.md"
     }
   ],
@@ -81,6 +107,84 @@
       "url": "https://www.library.universiteitleiden.nl/robots.txt",
       "pourquoi": "302 puis connexion coupée par le serveur (curl 56, Connection reset by peer)",
       "a_chercher": "robots.txt actuel : Crawl-delay, Disallow, règle sur les robots d'IA ou les API"
+    }
+  ],
+  "endpoints_documentes": [
+    {
+      "famille": "IIIF Presentation, manifestes digitalcollections (héritage, 301)",
+      "url": "https://digitalcollections.universiteitleiden.nl/iiif_manifest/item:1520785/manifest",
+      "statut": "teste",
+      "preuve": "institutions/leiden-university-libraries/tests/raw/manifeste-item-1520785.headers.txt"
+    },
+    {
+      "famille": "IIIF Presentation, redirection iiif-endpoint (302 vers Primo)",
+      "url": "https://iiif-endpoint.universiteitleiden.nl/iiif_manifest/item:1520785/manifest",
+      "statut": "teste",
+      "preuve": "institutions/leiden-university-libraries/tests/raw/manifeste-endpoint-1520785.headers.txt"
+    },
+    {
+      "famille": "Manifeste IIIF 3 Primo (catalogue.leidenuniv.nl)",
+      "url": "https://catalogue.leidenuniv.nl/view/iiif/presentation/31UKB_LEU/12524817730002711/manifest?iiifVersion=3",
+      "statut": "teste",
+      "preuve": "institutions/leiden-university-libraries/tests/raw/manifeste-primo-v3.headers.txt"
+    },
+    {
+      "famille": "IIIF Image 2 Ex Libris (info.json et dérivé)",
+      "url": "https://eu-img02.ext.exlibrisgroup.com/iiif/2/",
+      "statut": "teste",
+      "preuve": "institutions/leiden-university-libraries/tests/raw/exlibris-info-json.headers.txt"
+    },
+    {
+      "famille": "Serveur IIIF Image historique iiif.universiteitleiden.nl",
+      "url": "https://iiif.universiteitleiden.nl/",
+      "statut": "non_teste",
+      "raison": "Documenté par le moteur de recherche (lab.library…/iiif-docs) mais ni son robots.txt (connexion coupée) ni sa doc n'ont été lus ; la chaîne actuelle passe par Primo et Ex Libris."
+    }
+  ],
+  "hotes_robots": [
+    {
+      "hote": "digitalcollections.universiteitleiden.nl",
+      "resultat": "200 ; 68 règles pour *, Crawl-delay 10 s",
+      "preuve": "institutions/leiden-university-libraries/tests/journal.log"
+    },
+    {
+      "hote": "iiif-endpoint.universiteitleiden.nl",
+      "resultat": "404 : robots.txt indisponible, tout autorisé (RFC 9309)",
+      "preuve": "institutions/leiden-university-libraries/tests/journal.log"
+    },
+    {
+      "hote": "catalogue.leidenuniv.nl",
+      "resultat": "200 ; 3 règles pour *, Crawl-delay 10 s",
+      "preuve": "institutions/leiden-university-libraries/tests/journal.log"
+    },
+    {
+      "hote": "eu-img02.ext.exlibrisgroup.com",
+      "resultat": "403 « Missing Authentication Token » : tout autorisé (RFC 9309)",
+      "preuve": "institutions/leiden-university-libraries/tests/journal.log"
+    }
+  ],
+  "rattrapage_a_faire": [
+    "https://www.library.universiteitleiden.nl/robots.txt : jamais lu (302 puis connexion coupée), hôte des pages de doc ; à relancer par sonde avec pause.",
+    "https://iiif.universiteitleiden.nl/robots.txt : jamais lu (connexion coupée) ; hôte du serveur IIIF historique.",
+    "https://lab.library.universiteitleiden.nl/iiif-docs/ : doc IIIF de Leiden jamais téléchargée (fetch_doc.sh) ni son robots.txt ; la lire en entier avant de conclure.",
+    "https://library.universiteitleiden.nl/robots.txt : hôte (sans www) vu en 404 lors du téléchargement de la doc, robots.txt non lu."
+  ],
+  "endpoints_ecartes": [
+    {
+      "url": "https://catalogue.leidenuniv.nl/discovery/search",
+      "raison": "interface web destinée aux humains, sans API documentée associée ; formulaire de recherche du catalogue Primo, sources/raw/05.html"
+    },
+    {
+      "url": "https://catalogue.leidenuniv.nl/primo-explore/search?vid=UBL_V1&lang=en_US&sortby=rank",
+      "raison": "interface web destinée aux humains, sans API documentée associée ; lien « Online catalogue » de sources/b/raw/01.html"
+    },
+    {
+      "url": "https://catalogue.leidenuniv.nl/primo_library/libweb/action/search.do?mode=Basic&vid=UBL_V1&tab=special&amp",
+      "raison": "interface web destinée aux humains, sans API documentée associée ; lien « catalogue » de sources/b/raw/01.html (ancienne interface Primo)"
+    },
+    {
+      "url": "https://digitalcollections.universiteitleiden.nl/iiif",
+      "raison": "URL déjà téléchargée par nos outils : GET renvoyant 404 (page HTML, 18325 o) enregistré dans institutions/leiden-university-libraries/sources/FETCH.log et url-list.txt ; la config leiden-passe1.json teste le vrai endpoint /iiif_manifest/item:1520785/manifest"
     }
   ]
 }

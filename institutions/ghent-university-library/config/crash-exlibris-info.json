@@ -1,0 +1,12 @@
+{
+  "slug": "ghent-university-library",
+  "endpoint": {
+    "id": "exlibris-info-json",
+    "url": "https://eu-img02.ext.exlibrisgroup.com/iiif/2/eyJyZWdpb24iOiJldS1jZW50cmFsLTEiLCJidWNrZXQiOiJldS1zdDAxLmV4dC5leGxpYnJpc2dyb3VwLmNvbSIsImtleSI6IjMyUlVHX0lOU1Qvc3RvcmFnZS9hbG1hL0EzLzgzL0MzLzE2L0FDLzM2LzcxLzcwL0FELzJCLzM4LzNCLzUyL0MwL0MxL0QwLzkxMDAwMDA1NTE1Nl8yMDE2XzAwMDFfTUEuanBnIiwicmVwX2lkIjoiMTIyNzY3MjkxNTAwMDkxNjEiLCJpbnN0YW5jZSI6ImV1MDYiLCJpbnN0aXR1dGlvbiI6IjMyUlVHX0lOU1QiLCJ3aWR0aCI6IjM1NTIiLCJoZWlnaHQiOiI1MjE4Iiwid21LZXkiOm51bGwsIndtV2lkdGgiOm51bGwsIndtSGVpZ2h0IjpudWxsLCJ3bVBvc2l0aW9uIjpudWxsLCJ3bVJlcGVhdCI6ZmFsc2UsIm5hOTEiOm51bGx9/info.json",
+    "method": "GET"
+  },
+  "limite_documentee_req_min": null,
+  "source_limite": "aucune limite de débit documentée pour eu-img02.ext.exlibrisgroup.com. Le Crawl-delay 10 s de https://libcatalog.ugent.be/robots.txt concerne le catalogue Primo, un autre hôte",
+  "duree_palier_s": 180,
+  "note": "info.json d'image sur le CDN Ex Libris (200, journal exlibris-info-json, 2026-11-14T00:41:56Z). Le manifeste Primo de Gand pèse 226 ko : exclu. Hôte mutualisé avec Leiden : ne tester qu'un des deux."
+}

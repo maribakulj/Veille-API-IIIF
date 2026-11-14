@@ -1,0 +1,12 @@
+{
+  "slug": "biblissima-plateforme-iiif",
+  "endpoint": {
+    "id": "wikibase-getentities-Q27392",
+    "url": "https://data.biblissima.fr/w/api.php?action=wbgetentities&ids=Q27392&format=json",
+    "method": "GET"
+  },
+  "limite_documentee_req_min": null,
+  "source_limite": "aucune limite de débit documentée (https://doc.biblissima.fr/ ; fiche : aucun quota ni politique de bots ; « mêmes accès par API que Wikidata »)",
+  "duree_palier_s": 180,
+  "note": "Lecture d'une seule entité Wikibase (Q27392), 200 dans le journal (wikibase-getentities-Q27392, 2026-11-14T00:44:52Z), robots.txt 404. Taille non consignée (un seul item). Portail biblissima (manifestes de 717 ko) évité, SPARQL exclu (401)."
+}

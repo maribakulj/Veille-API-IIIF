@@ -163,6 +163,10 @@ def main():
     dry = "--dry-run" in sys.argv
     cfg = json.loads(cfg_path.read_text(encoding="utf-8"))
     slug = cfg["slug"]
+    import subprocess as _sp
+    _r = _sp.run([sys.executable, str(REPO / "scripts" / "suivi.py"), "autorise", slug], capture_output=True, text=True)
+    if _r.returncode != 0:
+        sys.exit(_r.stdout.strip() or "REFUSÉ par le verrou d'ordre")
     delay = max(DEFAULT_DELAY, float(cfg.get("min_delay_s", DEFAULT_DELAY)))
     max_req = min(DEFAULT_MAX, int(cfg.get("max_requests", DEFAULT_MAX)))
     base = REPO / "institutions" / slug

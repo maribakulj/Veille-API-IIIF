@@ -1,0 +1,12 @@
+{
+  "slug": "rijksmuseum",
+  "endpoint": {
+    "id": "micr-info-json",
+    "url": "https://iiif.micr.io/RFwqO/info.json",
+    "method": "GET"
+  },
+  "limite_documentee_req_min": null,
+  "source_limite": "aucune limite de débit documentée (https://iiif.micr.io/robots.txt : Content-Signal search=yes, ai-train=no, use=reference, sans débit ; la pagination de 100 événements est un découpage, pas un débit)",
+  "duree_palier_s": 180,
+  "note": "info.json d'image IIIF 3 sur iiif.micr.io (Micrio, hôte tiers d'images du Rijksmuseum), 200 dans le journal (micr-info-json, 2026-11-13T23:21:40Z). Le robots.txt de cet hôte n'interdit que des robots d'IA nommés."
+}

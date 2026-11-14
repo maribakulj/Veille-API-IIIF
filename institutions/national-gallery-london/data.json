@@ -73,6 +73,40 @@
       "date": "2026-11-13",
       "etiquette": "tiers (développeur), non vérifié",
       "citation": "La collection de Londres est cherchée par un point d'accès Elasticsearch de data.ng.ac.uk ; images publiques d'environ 800 px au plus, CC BY-NC-ND 4.0 (confirmé par notre mesure : 800×730).",
+      "preuve": "institutions/national-gallery-london/fiche.md",
+      "categorie": "tickets"
+    },
+    {
+      "categorie": "institution",
+      "url": "https://www.nationalgallery.org.uk/documentation/ngacuk/collection-images",
+      "date": "2026-11-14",
+      "etiquette": "officielle",
+      "citation": "« is in the process of implementing a full IIIF service, serving both images via IIIF Image API URLs, and IIIF collections and manifests using the IIIF Presentation API »",
+      "preuve": "institutions/national-gallery-london/sources/text/01.txt"
+    },
+    {
+      "categorie": "institution",
+      "url": "https://www.nationalgallery.org.uk/terms-of-use",
+      "date": "2026-11-14",
+      "etiquette": "officielle",
+      "citation": "Interdit : « creating a database that includes material downloaded or obtained from the Website without written permission from the Gallery »",
+      "preuve": "institutions/national-gallery-london/sources/suite/text/01.txt"
+    },
+    {
+      "categorie": "utilisateurs",
+      "aucun_resultat": true,
+      "requete": "data.ng.ac.uk iiif National Gallery image download 403 OR limit OR blocked user",
+      "date": "2026-11-14",
+      "etiquette": "–",
+      "citation": "Aucun retour d'utilisateur sur data.ng.ac.uk trouvé ; résultats génériques sur les blocages de musées (résumé de moteur, non vérifié).",
+      "preuve": "institutions/national-gallery-london/fiche.md"
+    },
+    {
+      "categorie": "presentations",
+      "url": "https://zenodo.org/records/6592406",
+      "date": "2026-11-14",
+      "etiquette": "tiers (Zenodo, résumé de moteur, non vérifié)",
+      "citation": "Webinaire « Practical IIIF Webinar 3 », 27 mai 2022 : Joe Padfield (National Gallery) présente Simple IIIF Discovery et l'IIIF Collection Explorer (résumé de moteur, non vérifié).",
       "preuve": "institutions/national-gallery-london/fiche.md"
     }
   ],
@@ -86,6 +120,77 @@
       "url": "https://research.ng-london.org.uk/ss-iiif/end-points",
       "pourquoi": "404 (page introuvable, non lue)",
       "a_chercher": "Liste des endpoints IIIF du Scientific Department : limites, conditions, contact"
+    }
+  ],
+  "endpoints_documentes": [
+    {
+      "famille": "IIIF Image 3 : data.ng.ac.uk (info.json et dérivé)",
+      "url": "https://data.ng.ac.uk/iiif/3/0M1F-000B-0000-0000/info.json",
+      "statut": "teste",
+      "preuve": "institutions/national-gallery-london/tests/raw/ngac-info-json.headers.txt"
+    },
+    {
+      "famille": "IIIF Image 3 : exemple de la doc full/max",
+      "url": "https://data.ng.ac.uk/iiif/3/0M1F-000B-0000-0000/full/max/0/default.jpg",
+      "statut": "teste",
+      "preuve": "institutions/national-gallery-london/tests/raw/ngac-full-max-exemple-doc.headers.txt"
+    },
+    {
+      "famille": "IIIF historique « Beta » : manifeste",
+      "url": "https://media.ng-london.org.uk/iiif/000-03JR-0000/manifest.json",
+      "statut": "teste",
+      "preuve": "institutions/national-gallery-london/tests/raw/media-manifeste-000-03JR-0000.headers.txt"
+    },
+    {
+      "famille": "IIIF historique « Beta » : image (info.json, dérivé)",
+      "url": "https://media.ng-london.org.uk/iiif/009-0039-0000/info.json",
+      "statut": "teste",
+      "preuve": "institutions/national-gallery-london/tests/raw/media-info-json-009-0039-0000.headers.txt"
+    },
+    {
+      "famille": "IIIF Presentation complet (collections, manifestes)",
+      "url": "https://www.nationalgallery.org.uk/documentation/ngacuk/collection-images",
+      "statut": "non_teste",
+      "raison": "Annoncé « en cours d'implémentation » par la Galerie, sans URL d'endpoint publiée : rien à tester."
+    },
+    {
+      "famille": "API historique data.ng-london.org.uk",
+      "url": "https://data.ng-london.org.uk/",
+      "statut": "non_teste",
+      "raison": "Page d'accueil lue : « This system has been retired! » et à ne pas utiliser ; non interrogée."
+    }
+  ],
+  "hotes_robots": [
+    {
+      "hote": "data.ng.ac.uk",
+      "resultat": "404 : robots.txt indisponible, tout autorisé (RFC 9309)",
+      "preuve": "institutions/national-gallery-london/tests/journal.log"
+    },
+    {
+      "hote": "media.ng-london.org.uk",
+      "resultat": "404 : robots.txt indisponible, tout autorisé (RFC 9309)",
+      "preuve": "institutions/national-gallery-london/tests/journal.log"
+    },
+    {
+      "hote": "www.nationalgallery.org.uk",
+      "resultat": "200 : « * » sans interdiction notable ; Googlebot-Image /server.iip",
+      "preuve": "institutions/national-gallery-london/sources/FETCH.log"
+    },
+    {
+      "hote": "research.ng-london.org.uk",
+      "resultat": "200 : /fcgi-bin/ interdit",
+      "preuve": "institutions/national-gallery-london/sources/FETCH.log"
+    },
+    {
+      "hote": "data.ng-london.org.uk",
+      "resultat": "404 : robots.txt indisponible, tout autorisé",
+      "preuve": "institutions/national-gallery-london/sources/FETCH.log"
+    }
+  ],
+  "endpoints_ecartes": [
+    {
+      "url": "https://www.nationalgallery.org.uk/search",
+      "raison": "interface web destinée aux humains, sans API documentée associée ; formulaire de recherche du site, sources/suite/raw/01.html"
     }
   ]
 }

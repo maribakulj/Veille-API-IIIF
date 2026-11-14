@@ -107,21 +107,58 @@
       "date": "2022-03-25",
       "etiquette": "institution (demande CoreTrustSeal du NLS)",
       "citation": "« All of the web services support web crawling and harvesting for direct access from search engines. » ; « IIIF volumes are harvestable via a top-level collections-based json file that provides access to all IIIF manifests (https://view.nls.uk/collections/top.json) »",
-      "preuve": "institutions/national-library-of-scotland/sources/coretrust/nls-oais-archive.txt"
+      "preuve": "institutions/national-library-of-scotland/sources/coretrust/nls-oais-archive.txt",
+      "categorie": "institution"
     },
     {
       "url": "https://github.com/lovasoa/dezoomify-rs/issues/92",
       "date": "2020-12-18",
       "etiquette": "utilisateur (particulier), ancien, non vérifié",
       "citation": "« The requested pixel area exceeds the maximum threshold set in the configuration. » (403 sur une requête de tuile plein format, map-view.nls.uk)",
-      "preuve": "institutions/national-library-of-scotland/fiche.md"
+      "preuve": "institutions/national-library-of-scotland/fiche.md",
+      "categorie": "tickets"
     },
     {
       "url": "https://data.nls.uk/about/ai-statement/",
       "date": "2026-11-13",
       "etiquette": "institution (déclaration IA)",
       "citation": "« It will guide our decision-making on how we employ AI tools, communicate about our use of AI, collect AI-generated material, and allow our data to be used by others. »",
-      "preuve": "institutions/national-library-of-scotland/sources/suite/text/01.txt"
+      "preuve": "institutions/national-library-of-scotland/sources/suite/text/01.txt",
+      "categorie": "institution"
+    },
+    {
+      "categorie": "utilisateurs",
+      "aucun_resultat": true,
+      "requete": "view.nls.uk IIIF 429 OR 403 OR blocked rate limit download maps.nls.uk user complaint",
+      "date": "2026-11-14",
+      "etiquette": "–",
+      "citation": "Aucune plainte propre au NLS trouvée ; seul le ticket dezoomify-rs n° 92 (catégorie tickets) concerne map-view.nls.uk (résumé de moteur, non vérifié : résultats hors NLS).",
+      "preuve": "institutions/national-library-of-scotland/fiche.md"
+    },
+    {
+      "categorie": "tickets",
+      "aucun_resultat": true,
+      "requete": "github issue \"nls.uk\" iiif manifest",
+      "date": "2026-11-14",
+      "etiquette": "–",
+      "citation": "Aucun ticket GitHub sur view.nls.uk trouvé par cette requête ; le ticket dezoomify-rs n° 92 est issu d'une recherche antérieure (résumé de moteur, non vérifié).",
+      "preuve": "institutions/national-library-of-scotland/fiche.md"
+    },
+    {
+      "categorie": "presentations",
+      "url": "https://iiif.io/event/2018/edinburgh/showcase/",
+      "date": "2026-11-14",
+      "etiquette": "tiers (programme IIIF, page lue)",
+      "citation": "Talk « IIIF and the National Library of Scotland », Rachel Nimmo, National Library of Scotland (IIIF Showcase Edinburgh, 3 décembre 2018) ; la page ne donne pas de résumé du talk.",
+      "preuve": "institutions/national-library-of-scotland/fiche.md"
+    },
+    {
+      "categorie": "institution",
+      "url": "https://www.nls.uk/guides/publishers/web-harvesting",
+      "date": "2026-11-14",
+      "etiquette": "institution",
+      "citation": "Page du NLS sur l'archivage web sous dépôt légal (collecte des sites .uk) ; ne vise pas le moissonnage IIIF (résumé de moteur, non vérifié ; page de l'institution non lue).",
+      "preuve": "institutions/national-library-of-scotland/fiche.md"
     }
   ],
   "contact": "geo@nls.uk (cartes) ; ask a librarian (nls.uk)",
@@ -165,5 +202,89 @@
       "pourquoi": "déclaration IA lue, mais le détail est dans un document Word non lu (lien à repérer sur la page)",
       "a_chercher": "Politique IA du NLS : règles sur l'usage de ses données par des tiers/robots, limites"
     }
+  ],
+  "endpoints_documentes": [
+    {
+      "famille": "IIIF Presentation 2 : collection racine top.json",
+      "url": "https://view.nls.uk/collections/top.json",
+      "statut": "teste",
+      "preuve": "institutions/national-library-of-scotland/tests/raw/collections-top-json.headers.txt"
+    },
+    {
+      "famille": "IIIF Presentation 2 : sous-collection",
+      "url": "https://view.nls.uk/collections/1208/2191/120821910.json",
+      "statut": "teste",
+      "preuve": "institutions/national-library-of-scotland/tests/raw/collection-antiquarian-books.headers.txt"
+    },
+    {
+      "famille": "IIIF Presentation 2 : manifeste",
+      "url": "https://view.nls.uk/manifest/1204/4314/120443143/manifest.json",
+      "statut": "teste",
+      "preuve": "institutions/national-library-of-scotland/tests/raw/manifeste-adrift-on-a-raft.headers.txt"
+    },
+    {
+      "famille": "IIIF Image 2 : dg-view (Cantaloupe, info.json + dérivé)",
+      "url": "https://dg-view.nls.uk/iiif/2/1215%2F7544%2F121575443.5/info.json",
+      "statut": "teste",
+      "preuve": "institutions/national-library-of-scotland/tests/raw/dg-info-json.headers.txt"
+    },
+    {
+      "famille": "IIIF Image 1 : map-view (cartes)",
+      "url": "https://map-view.nls.uk/iiif/1/19619%2F196194600/info.json",
+      "statut": "teste",
+      "preuve": "institutions/national-library-of-scotland/tests/raw/mapview-info-json.headers.txt"
+    },
+    {
+      "famille": "Couches de cartes géoréférencées (MapTiler Cloud)",
+      "url": "https://maps.nls.uk/projects/api/",
+      "statut": "non_teste",
+      "raison": "Service de tuiles hébergé par MapTiler Cloud (palier gratuit 100 000 tuiles/mois), hors IIIF ; la page maps.nls.uk est derrière un CAPTCHA, hôte arrêté par la règle de la méthode."
+    },
+    {
+      "famille": "Sites de pages digital.nls.uk et maps.nls.uk",
+      "url": "https://digital.nls.uk/",
+      "statut": "non_teste",
+      "raison": "Ces hôtes répondent par une page « Human Verification » (CAPTCHA, 405) ; la méthode interdit de la contourner, donc aucune requête de test n'a été envoyée."
+    }
+  ],
+  "hotes_robots": [
+    {
+      "hote": "view.nls.uk",
+      "resultat": "200, 0 règle pour « * » (robots d'IA nommés bloqués)",
+      "preuve": "institutions/national-library-of-scotland/tests/journal.log"
+    },
+    {
+      "hote": "dg-view.nls.uk",
+      "resultat": "404 : robots.txt indisponible, tout autorisé (RFC 9309)",
+      "preuve": "institutions/national-library-of-scotland/tests/journal.log"
+    },
+    {
+      "hote": "map-view.nls.uk",
+      "resultat": "404 : robots.txt indisponible, tout autorisé (RFC 9309)",
+      "preuve": "institutions/national-library-of-scotland/tests/journal.log"
+    },
+    {
+      "hote": "deriv.nls.uk",
+      "resultat": "200 : « * » Disallow /dcn6/",
+      "preuve": "institutions/national-library-of-scotland/sources/FETCH.log"
+    },
+    {
+      "hote": "digital.nls.uk",
+      "resultat": "405 (page CAPTCHA, pas un robots.txt)",
+      "preuve": "institutions/national-library-of-scotland/sources/FETCH.log"
+    },
+    {
+      "hote": "maps.nls.uk",
+      "resultat": "405 (page CAPTCHA, pas un robots.txt)",
+      "preuve": "institutions/national-library-of-scotland/sources/FETCH.log"
+    },
+    {
+      "hote": "data.nls.uk",
+      "resultat": "200 (robots.txt lu, 112 octets)",
+      "preuve": "institutions/national-library-of-scotland/sources/suite/FETCH.log"
+    }
+  ],
+  "rattrapage_a_faire": [
+    "https://data.nls.uk/wp-json/wp/v2/pages/60 : à tester par scripts/probe.py, config à committer avant (point d'accès REST WordPress annoncé par <link rel=alternate type=application/json> dans sources/suite/raw/03.html ; non documenté comme API par la NLS, enjeu faible)"
   ]
 }

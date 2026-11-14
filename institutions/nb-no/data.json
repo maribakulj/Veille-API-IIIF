@@ -88,14 +88,41 @@
       "date": "2026-11-13",
       "etiquette": "tiers (développeur), non vérifié",
       "citation": "API REST publique sans clé ; connecteur avec limite volontaire de 1 requête par seconde ; aucune limite publiée par le NB.",
-      "preuve": "institutions/nb-no/fiche.md"
+      "preuve": "institutions/nb-no/fiche.md",
+      "categorie": "tickets"
     },
     {
       "url": "https://data.norge.no/en/datasets/719fa38c-8451-3e04-905a-d5f3035838ba/nb-dh-lab",
       "date": "2026-11-13",
       "etiquette": "officielle (catalogue national de données)",
       "citation": "« Access may still require registration and an API key request, as long as anyone can request such registration and/or API keys. » (API dhlab)",
-      "preuve": "institutions/nb-no/sources/v2b/text/03.txt"
+      "preuve": "institutions/nb-no/sources/v2b/text/03.txt",
+      "categorie": "institution"
+    },
+    {
+      "categorie": "institution",
+      "url": "https://www.nb.no/en/collection/web-archive/technology/",
+      "date": "2026-11-14",
+      "etiquette": "institution",
+      "citation": "Page sur le robot d'archivage du web de la NB : « Veidemann declares the following User-Agent: «nlnbot/0.1 (+https://www.nb.no/nettarkivet)» » ; sans rapport avec l'API. (résumé de moteur, non vérifié)",
+      "preuve": "institutions/nb-no/fiche.md"
+    },
+    {
+      "categorie": "utilisateurs",
+      "aucun_resultat": true,
+      "requete": "Nasjonalbiblioteket api.nb.no rate limit OR \"too many requests\" OR 429 OR blocked",
+      "date": "2026-11-14",
+      "etiquette": "–",
+      "citation": "Aucune plainte ni retour d'utilisateur sur des limites, 429 ou blocages de api.nb.no trouvé ; seules des pages génériques sur d'autres services sont sorties.",
+      "preuve": "institutions/nb-no/fiche.md"
+    },
+    {
+      "categorie": "presentations",
+      "url": "https://www.uib.no/en/digitallab/131243/recap-workshop-mining-nasjonalbiblioteket",
+      "date": "2026-11-14",
+      "etiquette": "tiers",
+      "citation": "Compte rendu d'un atelier à l'Université de Bergen : Lars Johnsen a présenté comment utiliser les données de la Bibliothèque nationale de Norvège comme source d'analyse computationnelle. (résumé de moteur, non vérifié) Aucune limite d'API relevée.",
+      "preuve": "institutions/nb-no/fiche.md"
     }
   ],
   "donnees_a_revalider": false,
@@ -104,6 +131,78 @@
       "url": "https://www.nb.no/services/search/v2/",
       "pourquoi": "000ERR : délai dépassé (30 s, 0 octet reçu)",
       "a_chercher": "Ancienne page de l'API de recherche : limites, conditions, clé ; est-elle toujours active ?"
+    }
+  ],
+  "endpoints_documentes": [
+    {
+      "famille": "API Catalogue : items, search, aggregations",
+      "url": "https://api.nb.no/catalog/v1/items?q=Ibsen&size=1",
+      "statut": "teste",
+      "preuve": "institutions/nb-no/tests/raw/items-recherche-ibsen.headers.txt"
+    },
+    {
+      "famille": "IIIF Presentation (manifestes)",
+      "url": "https://api.nb.no/catalog/v1/iiif/c71eaa93d415c69059ec145899794b4e/manifest",
+      "statut": "teste",
+      "preuve": "institutions/nb-no/tests/raw/manifeste-c71eaa93.headers.txt"
+    },
+    {
+      "famille": "Résolveur d'images IIIF (www.nb.no/services/image/resolver)",
+      "url": "https://www.nb.no/services/image/resolver/URN:NBN:no-nb_digitidsskrift_2024031180067_001_0001/info.json",
+      "statut": "teste",
+      "preuve": "institutions/nb-no/tests/raw/resolver-info-json.headers.txt"
+    },
+    {
+      "famille": "oEmbed",
+      "url": "https://api.nb.no/catalog/v1/oembed?url=https://www.nb.no/items/c71eaa93d415c69059ec145899794b4e",
+      "statut": "teste",
+      "preuve": "institutions/nb-no/tests/raw/oembed-item-c71eaa93.headers.txt"
+    },
+    {
+      "famille": "Documentation OpenAPI / Swagger",
+      "url": "https://api.nb.no/catalog/v1/items/api-docs",
+      "statut": "teste",
+      "preuve": "institutions/nb-no/tests/raw/doc-swagger-racine.headers.txt"
+    },
+    {
+      "famille": "API Catalogue : musicsearch, items/searchafter, relatedItems, contentfragments",
+      "url": "https://api.nb.no/catalog/v1/",
+      "statut": "non_teste",
+      "raison": "Présents dans l'OpenAPI sans exemple de paramètres ; tester exigerait de deviner des paramètres ou identifiants, ce que la consigne interdit."
+    },
+    {
+      "famille": "API DH-lab (api.nb.no/dhlab)",
+      "url": "https://api.nb.no/dhlab/",
+      "statut": "non_teste",
+      "raison": "Décrite par le DH-lab et data.norge.no, qui indiquent un accès pouvant exiger une inscription et une clé ; nous n'envoyons aucun identifiant."
+    },
+    {
+      "famille": "Ancienne API de recherche (www.nb.no/services/search/v2/)",
+      "url": "https://www.nb.no/services/search/v2/",
+      "statut": "non_teste",
+      "raison": "A dépassé le délai de 30 s sans octet lors de la lecture de la doc ; on ne réessaie pas, probablement retirée ; non lue."
+    }
+  ],
+  "hotes_robots": [
+    {
+      "hote": "api.nb.no",
+      "resultat": "404 : pas de robots.txt, tout autorisé (RFC 9309)",
+      "preuve": "institutions/nb-no/sources/v2/FETCH.log"
+    },
+    {
+      "hote": "www.nb.no",
+      "resultat": "200 (245 o) : User-agent *, Allow /, plusieurs Disallow, Crawl-delay: 4",
+      "preuve": "institutions/nb-no/sources/v2/FETCH.log"
+    }
+  ],
+  "rattrapage_a_faire": [
+    "Hôtes de doc non lus pour robots.txt : data.norge.no et nationallibraryofnorway.github.io (tiers, faible enjeu) ; à lire seulement si l'on veut l'exhaustivité.",
+    "https://www.nb.no/services/search/v2/ : 000ERR (délai 30 s) ; refaire un GET unique plus tard pour savoir si l'ancienne API de recherche existe encore."
+  ],
+  "endpoints_ecartes": [
+    {
+      "url": "https://www.nb.no/search",
+      "raison": "interface web destinée aux humains, sans API documentée associée ; lien « Nettbiblioteket » du menu de sources/v2b/raw/01.html"
     }
   ]
 }

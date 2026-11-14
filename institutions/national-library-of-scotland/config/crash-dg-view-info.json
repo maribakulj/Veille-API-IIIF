@@ -1,0 +1,12 @@
+{
+  "slug": "national-library-of-scotland",
+  "endpoint": {
+    "id": "dg-info-json",
+    "url": "https://dg-view.nls.uk/iiif/2/1215%2F7544%2F121575443.5/info.json",
+    "method": "GET"
+  },
+  "limite_documentee_req_min": null,
+  "source_limite": "aucune limite de débit documentée (view.nls.uk/robots.txt : 0 règle pour * ; CoreTrustSeal : collections « harvestable », sans limite annoncée)",
+  "duree_palier_s": 180,
+  "note": "info.json d'image sur dg-view.nls.uk (robots.txt 404), 200 dans le journal (dg-info-json, 2026-11-13T22:43:58Z). Hôtes digital.nls.uk et maps.nls.uk exclus (CAPTCHA « Human Verification »)."
+}

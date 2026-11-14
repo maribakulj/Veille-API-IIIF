@@ -2,7 +2,7 @@
 
 - **Dossier** : `institutions/cudl/`  ·  **Classeur de référence** : GLAM-004  ·  **Pays** : Royaume-Uni
 - **Statut d'institution** : active
-- **Dernière mise à jour du suivi** : 2026-11-13
+- **Dernière mise à jour du suivi** : 2026-11-14
 
 ## Suivi par étape (à cocher, avec justification et preuves)
 
@@ -23,9 +23,9 @@
 ### c) Configuration écrite AVANT les tests
 > `config/<nom>.json` pilote `scripts/probe.py`, committée avant le lancement. Un endpoint absent de la doc mais non interdit se teste avec un script poli (identifiants issus de pages publiques ou d'exemples de la doc, pas de devinette).
 
-- [x] **Fait**
-  - **Justification** : Trois configurations committées avant chaque lancement : passe 1 (manifeste), passe 2 (services cudl.link), passe 3 (images du manifeste). La passe 1 lit robots.txt depuis la copie Wayback (le serveur le bloque en 403).
-  - **Preuves** : `institutions/cudl/config/cudl-passe1.json`, `institutions/cudl/config/cudl-passe2-services.json`, `institutions/cudl/config/cudl-passe3-images.json`
+- [ ] **Pas fait**
+  - **Justification** : DÉCOCHÉE le 2026-11-14 (verrou renforcé) : hôte cudl.link contacté (config cudl-passe2-services.json) sans entrée hotes_robots; hôte cudl.link contacté (config cudl-passe2-services.json) sans entrée hotes_robots; hôte images.lib.cam.ac.uk contacté (config cudl-passe3-images.json) sans entrée hotes_robo | ancienne justification : Trois configurations committées avant chaque lancement : passe 1 (manifeste), passe 2 (services cudl.link), passe 3 (images du manifeste). La passe 1 lit robots.txt depuis la copie Wayback (le serveur
+  - **Preuves** : 
 
 ### d) Quota cherché dans la doc
 > Pour chaque page lue : endpoint de statut, en-têtes de limite documentés, clé ou compte donnant un quota, contact pour un volume plus élevé. Chaque réponse cite sa source.
@@ -37,9 +37,9 @@
 ### e) Test systématique de chaque endpoint
 > Chaque endpoint documenté est testé (budget 15 requêtes par passe, pause ≥ 6 s, GET/HEAD, UA du projet). Redirections du même hôte suivies. Un 403 arrête son hôte, un 429 arrête l'institution. Seules les interdictions écrites dans la doc dispensent de tester.
 
-- [x] **Fait**
-  - **Justification** : Tous les endpoints testables sont testés (passes 1 à 3) : manifeste 200, trois requêtes d'images 200, aucun en-tête de limite ni 429. Renoncements justifiés : /search interdit par robots.txt ; cudl.link non résolu par DNS (2 tentatives) ; /v1/darwin exige un jeton ; /v1/iiif et /v1/tags « not in use » (README). Budget respecté (2, 2 et 4 requêtes).
-  - **Preuves** : `institutions/cudl/tests/journal.log`, `institutions/cudl/tests/raw/manifeste-MS-ADD-03958.headers.txt`, `institutions/cudl/tests/raw/image-info-json.headers.txt`
+- [ ] **Pas fait**
+  - **Justification** : DÉCOCHÉE le 2026-11-14 (verrou renforcé) : 3 élément(s) de rattrapage_a_faire non traités | ancienne justification : Tous les endpoints testables sont testés (passes 1 à 3) : manifeste 200, trois requêtes d'images 200, aucun en-tête de limite ni 429. Renoncements justifiés : /search interdit par robots.txt ; cudl.li
+  - **Preuves** : 
 
 ### f) Ce que disent les gens sur le web
 > Plaintes, discussions, présentations de l'institution, politique envers les API et les bots, blogs, GitHub, forums, listes de diffusion. Sources étiquetées (officielle / institution / utilisateur / tiers), lues, citées.
@@ -60,7 +60,7 @@
 
 <!-- AUTO:DEBUT -->
 ## Contrôles automatiques (calculés depuis `tests/journal.log`)
-- Requêtes enregistrées : **14** (sessions de sonde : 6, maximum par session : 4)
+- Requêtes enregistrées : **11** (sessions de sonde : 4, maximum par session : 4)
 - Plus courte pause vers un même hôte : **6 s** (règle : ≥ 6 s)
 - Méthodes utilisées : GET (règle : GET/HEAD seulement)
 - Anomalies : aucune
@@ -135,6 +135,13 @@ Les consignes plus récentes l'emportent sur les plus anciennes quand elles se c
 
 **C13 — pages illisibles : documenter, Marcel vérifie à la main (Marcel, 14/11/2026, mot pour mot)** : « non laisse tomber, je préfère juste que tu me le documente et j'irais voir moi même un par un, il me faudra un nouveau doc avec toutes les urls à vérifier manuellement pour chaque institutions, ça peut être par exemple un nouvel onglet du tableur excel »
 → Annule l'idée d'utiliser Chrome pour les 403. Chaque URL que la sonde ne peut pas lire (403, CAPTCHA, délai, TLS…) est listée dans `data.json`, champ `a_verifier_manuellement` (`url`, `pourquoi`, `a_chercher`), et apparaît dans l'onglet « À vérifier à la main » de `BENCHMARK.xlsx` (régénéré à chaque commit).
+
+**C14 — décisions de Marcel du 14/11/2026 (mots pour mot)**
+- « je veux que le verrou concerne tout ce qui a été coché et doit être aussi justifié, toutes les consignes de tout ce que tu dois faire pour chaque institution »
+- « ben oui t'as mon accord vu que je te l'ai demandé !!! » (crash test g) ; « et oui ça doit être fait institution par institution sinon verrou »
+- « 1 oui ok, 2 pourquoi ? 3 refais ces sessions » ; puis « je veux bien les exclure, mais comment être sûr que tu ne vas pas en profiter pour en exclure des légitimes ? »
+- « une fois que toutes les précautions auront été prises, tu pourras continuer la boucle avec des sous agents qui respectent bien la méthodologie, tu me confirmes que le verrou fonctionnera pour les sous agents ? »
+→ Appliqué : (1) verrou par étape cochée (a à g) et ordre strict ; (2) exclusion des pages de doc du contrôle de couverture **mécanique** (code 200 + HTML, sinon jamais) et listée dans l'onglet « Doc exclue » ; (3) sessions non conformes archivées dans `tests/archive/` puis rejouées ; (4) étape g obligatoire pour qu'une institution soit « terminée » ; (5) `probe.py`, `crash.py` et `fetch_doc.sh` refusent de se lancer si une institution antérieure n'est pas terminée.
 
 ---
 
@@ -321,4 +328,7 @@ Au moins **4 recherches web par institution**, une par catégorie : (1) politiqu
 ## Verrou d'ordre et commande `porte` (14/11/2026)
 - `python3 scripts/suivi.py porte [slug]` affiche ce qui manque (étapes, exigence v3, anomalies de journal) à l'institution en cours : on l'exécute **avant** de dire qu'une institution est finie. Elle indique la prochaine à traiter.
 - `validate` (donc le commit) échoue si une institution est commencée (configuration, journal ou étape cochée) alors qu'une institution **antérieure dans l'ordre du classeur** n'est pas terminée. Exemptions : institutions écartées ; `data/exigence_ancienne.txt` (faites avant l'exigence v3, à rattraper) ; `data/ancien_travail_haiku.txt` (commencées par l'ancienne méthode, à refaire : on les retire de la liste quand on les reprend).
+
+## Sous-agents (14/11/2026)
+Le verrou agit : (a) **au lancement** des outils officiels (`probe.py`, `crash.py`, `fetch_doc.sh` appellent `suivi.py autorise <slug>` et refusent si une institution antérieure n'est pas terminée, étape g comprise) ; (b) **au commit** (`validate`). Il n'agit pas sur un `curl` direct : les sous-agents reçoivent l'interdiction de `curl`/WebFetch vers les domaines d'institutions, et on vérifie dans `tests/journal.log` et les diffs qu'aucune requête n'est partie hors des outils. Un sous-agent traite **une seule institution à la fois**, dans l'ordre, et doit finir par `python3 scripts/suivi.py porte <slug>` affichant « TERMINÉE ». Les sous-agents ne commitent pas ; le commit est refusé tant que `validate` n'est pas au vert.
 <!-- CONSIGNE:FIN -->

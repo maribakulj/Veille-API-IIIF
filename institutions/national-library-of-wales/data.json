@@ -102,20 +102,48 @@
       "date": "2025",
       "etiquette": "institution/consortium (formation IIIF avec le NLW), « may be out of date »",
       "citation": "« Images are limited to 1200 by 1200 » ; « it's always possible to stich together the tiles to get the higher quality image. »",
-      "preuve": "institutions/national-library-of-wales/sources/suite/text/01.txt"
+      "preuve": "institutions/national-library-of-wales/sources/suite/text/01.txt",
+      "categorie": "institution"
     },
     {
       "url": "https://dev.llgc.org.uk/dev.llgc.org.uk/wiki/index4719.html?title=IIIF_Journals",
       "date": "2017-04-11",
       "etiquette": "institution (wiki de développement), ancien, lu par résumé",
       "citation": "« we needed to implement caching on the indexing server to reduce stress on the IIIF server » ; « In the current implementation it cuts off at 100 results »",
-      "preuve": "institutions/national-library-of-wales/fiche.md"
+      "preuve": "institutions/national-library-of-wales/fiche.md",
+      "categorie": "institution"
     },
     {
       "url": "https://github.com/Antonio-Faure/mnemosyne/pull/25",
       "date": "2026-11-13",
       "etiquette": "tiers (développeur), non vérifié",
       "citation": "« The host exposes no aggregate Collection manifest nor search endpoint » (cohérent avec nos 404).",
+      "preuve": "institutions/national-library-of-wales/fiche.md",
+      "categorie": "tickets"
+    },
+    {
+      "categorie": "utilisateurs",
+      "aucun_resultat": true,
+      "requete": "iiif.llyfrgell.cymru OR damsssl.llgc.org.uk 429 OR timeout OR \"rate limit\" IIIF",
+      "date": "2026-11-14",
+      "etiquette": "–",
+      "citation": "Aucune plainte d'utilisateur sur ces hôtes trouvée ; résultats génériques sur les erreurs 429 (résumé de moteur, non vérifié).",
+      "preuve": "institutions/national-library-of-wales/fiche.md"
+    },
+    {
+      "categorie": "presentations",
+      "url": "https://glenrobson.github.io/iiif/2021/06/04/NLW-Journals.html",
+      "date": "2026-11-14",
+      "etiquette": "tiers (billet d'un ancien membre du NLW, lu)",
+      "citation": "« we needed to implement caching on the indexing server to reduce stress on the IIIF server » ; l'indexeur utilise « harvesting using Sitemaps and indexing the IIIF Manifests and Annotations lists » ; le billet ne mentionne aucune limite de débit.",
+      "preuve": "institutions/national-library-of-wales/fiche.md"
+    },
+    {
+      "categorie": "presentations",
+      "url": "https://www.slideshare.net/slideshow/discovery-reuse-research-and-crowdsourcing-iiif-experiences-from-the-nlw/73263360",
+      "date": "2026-11-14",
+      "etiquette": "tiers (diaporama, lu en partie)",
+      "citation": "Titre : « Discovery, Reuse, Research and Crowdsourcing: IIIF experiences from the NLW » (Glen Robson) ; aucun résumé d'auteur ; contenu des diapositives non lu.",
       "preuve": "institutions/national-library-of-wales/fiche.md"
     }
   ],
@@ -150,5 +178,91 @@
       "pourquoi": "403 anti-bot ; URL tronquée dans le journal FETCH.log (suffixe probable « …iiif-consortium »)",
       "a_chercher": "Communiqué d'adhésion à IIIF : engagements d'ouverture, éventuelles limites"
     }
+  ],
+  "endpoints_documentes": [
+    {
+      "famille": "IIIF Presentation 2 : manifestes (iiif.llyfrgell.cymru)",
+      "url": "https://iiif.llyfrgell.cymru/manifests/2.0/4389767/manifest.json",
+      "statut": "teste",
+      "preuve": "institutions/national-library-of-wales/tests/raw/llyfrgell-manifeste-4389767.headers.txt"
+    },
+    {
+      "famille": "IIIF Presentation : presse (numéros, collections)",
+      "url": "https://iiif.llyfrgell.cymru/manifests/newspaper/issue/3036869/manifest.json",
+      "statut": "teste",
+      "preuve": "institutions/national-library-of-wales/tests/raw/llyfrgell-presse-issue-3036869.headers.txt"
+    },
+    {
+      "famille": "IIIF Presentation : fonds d'archives",
+      "url": "https://iiif.llyfrgell.cymru/iiif/archive/3975658/fonds.json",
+      "statut": "teste",
+      "preuve": "institutions/national-library-of-wales/tests/raw/llyfrgell-fonds-3975658.headers.txt"
+    },
+    {
+      "famille": "IIIF Image 2 : iiif.llyfrgell.cymru (limite 1200 x 1200)",
+      "url": "https://iiif.llyfrgell.cymru/iiif/4389768/info.json",
+      "statut": "teste",
+      "preuve": "institutions/national-library-of-wales/tests/raw/llyfrgell-image-info-json.headers.txt"
+    },
+    {
+      "famille": "Anciens hôtes damsssl.llgc.org.uk (redirection)",
+      "url": "https://damsssl.llgc.org.uk/iiif/2.0/4389767/manifest.json",
+      "statut": "teste",
+      "preuve": "institutions/national-library-of-wales/tests/raw/manifeste-4389767.headers.txt"
+    },
+    {
+      "famille": "Ancien hôte dams.llgc.org.uk (fonds, redirection)",
+      "url": "http://dams.llgc.org.uk/iiif/archive/3975658/fonds.json",
+      "statut": "teste",
+      "preuve": "institutions/national-library-of-wales/tests/raw/fonds-3975658.headers.txt"
+    },
+    {
+      "famille": "Recherche IIIF Content Search (journaux)",
+      "url": "https://dev.llgc.org.uk/dev.llgc.org.uk/wiki/index4719.html?title=IIIF_Journals",
+      "statut": "non_teste",
+      "raison": "Décrite seulement dans un wiki de 2017 (coupure à 100 résultats), sans URL d'endpoint publiée ; notre test précédent signale que l'hôte n'expose pas de recherche."
+    },
+    {
+      "famille": "Catalogue Primo (discover.library.wales)",
+      "url": "https://discover.library.wales/",
+      "statut": "non_teste",
+      "raison": "Catalogue web, non une API documentée ; son robots.txt interdit /primaws et /discovery/search avec Crawl-delay 10, donc aucune requête de recherche n'a été envoyée."
+    }
+  ],
+  "hotes_robots": [
+    {
+      "hote": "iiif.llyfrgell.cymru",
+      "resultat": "404 : robots.txt indisponible, tout autorisé (RFC 9309)",
+      "preuve": "institutions/national-library-of-wales/tests/journal.log"
+    },
+    {
+      "hote": "damsssl.llgc.org.uk",
+      "resultat": "302 (redirection) : robots.txt indisponible, tout autorisé",
+      "preuve": "institutions/national-library-of-wales/tests/journal.log"
+    },
+    {
+      "hote": "dams.llgc.org.uk",
+      "resultat": "301 (redirection) : robots.txt indisponible, tout autorisé",
+      "preuve": "institutions/national-library-of-wales/tests/journal.log"
+    },
+    {
+      "hote": "discover.library.wales",
+      "resultat": "200 : « * » Disallow /primaws, /discovery/search, /nde/search ; Crawl-delay 10",
+      "preuve": "institutions/national-library-of-wales/sources/suite/FETCH.log"
+    },
+    {
+      "hote": "www.library.wales",
+      "resultat": "403 anti-bot : robots.txt non lu",
+      "preuve": "institutions/national-library-of-wales/sources/FETCH.log"
+    },
+    {
+      "hote": "viewer.library.wales",
+      "resultat": "200 mais page d'application, pas un robots.txt",
+      "preuve": "institutions/national-library-of-wales/sources/FETCH.log"
+    }
+  ],
+  "rattrapage_a_faire": [
+    "https://www.library.wales/robots.txt : 403 anti-bot, à relire (autre méthode de lecture) ou noter l'impossibilité",
+    "https://viewer.library.wales/robots.txt : réponse = page d'application, pas un robots.txt ; à reconfirmer"
   ]
 }

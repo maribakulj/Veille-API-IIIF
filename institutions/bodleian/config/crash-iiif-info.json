@@ -1,0 +1,12 @@
+{
+  "slug": "bodleian",
+  "endpoint": {
+    "id": "image-info-json",
+    "url": "https://iiif.bodleian.ox.ac.uk/iiif/image/f27e28db-0b08-4f16-9bdf-3565f591fb71/info.json",
+    "method": "GET"
+  },
+  "limite_documentee_req_min": null,
+  "source_limite": "aucune limite de débit documentée (https://digital.bodleian.ox.ac.uk/developer/iiif/ : seulement « prévenir l'équipe avant » un moissonnage important de manifestes, sans chiffre)",
+  "duree_palier_s": 180,
+  "note": "info.json d'une image (1131 o), 200 dans le journal (image-info-json, 2026-11-14T01:01:21Z). Aucune limite chiffrée : plafond 200 req/min. Précaution : la Bodleian préfère un blocage temporaire à un throttling et demande d'être prévenue avant un moissonnage important."
+}

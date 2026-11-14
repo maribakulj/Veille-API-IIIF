@@ -51,6 +51,42 @@
       "date": "2026-11-14",
       "etiquette": "tiers (agrégateur)",
       "citation": "manifeste adore.ugent.be/IIIF/manifests/archive.ugent.be:E336B140-… ; licence CC BY-SA 4.0 ; aucune règle de débit.",
+      "preuve": "institutions/ghent-university-library/fiche.md",
+      "categorie": "utilisateurs"
+    },
+    {
+      "categorie": "institution",
+      "aucun_resultat": true,
+      "requete": "Ghent University Library IIIF manifests adore.ugent.be API documentation",
+      "date": "2026-11-14",
+      "etiquette": "–",
+      "citation": "Aucune page de l'institution sur une API IIIF, un quota ou une politique de bots trouvée par la recherche",
+      "preuve": "institutions/ghent-university-library/fiche.md"
+    },
+    {
+      "categorie": "tickets",
+      "aucun_resultat": true,
+      "requete": "github issue \"adore.ugent.be\" IIIF",
+      "date": "2026-11-14",
+      "etiquette": "–",
+      "citation": "Aucun ticket GitHub ni GitLab mentionnant adore.ugent.be ; résultats sans rapport",
+      "preuve": "institutions/ghent-university-library/fiche.md"
+    },
+    {
+      "categorie": "presentations",
+      "url": "https://zenodo.org/records/5137298/files/Practical%20IIIF%20Webinar%202%20-%20S02%2001%20-%20MADOC%20%26%20Congo%20Comics%20-%20DVerbeke.pdf",
+      "date": "2026-11-14",
+      "etiquette": "tiers",
+      "citation": "exposé de Davy Verbeke (Ghent Centre for Digital Humanities) sur la plateforme IIIF MADOC ; ne mentionne pas adore.ugent.be (résumé de moteur, non vérifié)",
+      "preuve": "institutions/ghent-university-library/fiche.md"
+    },
+    {
+      "categorie": "utilisateurs",
+      "aucun_resultat": true,
+      "requete": "Ghent University Library bots scraping rate limiting catalogue blocked",
+      "date": "2026-11-14",
+      "etiquette": "–",
+      "citation": "Aucun retour spécifique à Gand ; résultats sur UNC, Duke, Loughborough",
       "preuve": "institutions/ghent-university-library/fiche.md"
     }
   ],
@@ -60,5 +96,61 @@
   "classe_quota": "limite documentée chiffrée (Crawl-delay 10 s uniquement)",
   "confiance": "moyenne à faible",
   "notes": "Pas de page de conditions d'usage trouvée ; images chez Ex Libris.",
-  "a_verifier_manuellement": []
+  "a_verifier_manuellement": [],
+  "endpoints_documentes": [
+    {
+      "famille": "Manifestes adore.ugent.be (302)",
+      "url": "https://adore.ugent.be/IIIF/manifests/",
+      "statut": "teste",
+      "preuve": "institutions/ghent-university-library/tests/raw/manifeste-hs224.headers.txt"
+    },
+    {
+      "famille": "Résolveur resolver.lib.ugent.be (301)",
+      "url": "https://resolver.lib.ugent.be/",
+      "statut": "teste",
+      "preuve": "institutions/ghent-university-library/tests/raw/manifeste-resolver-hs224.headers.txt"
+    },
+    {
+      "famille": "Manifeste IIIF 3 Primo (libcatalog.ugent.be)",
+      "url": "https://libcatalog.ugent.be/view/iiif/presentation/32RUG_INST/12276729150009161/manifest?iiifVersion=3",
+      "statut": "teste",
+      "preuve": "institutions/ghent-university-library/tests/raw/manifeste-primo-v3.headers.txt"
+    },
+    {
+      "famille": "IIIF Image 2 Ex Libris (info.json et dérivé)",
+      "url": "https://eu-img02.ext.exlibrisgroup.com/iiif/2/",
+      "statut": "teste",
+      "preuve": "institutions/ghent-university-library/tests/raw/exlibris-info-json.headers.txt"
+    }
+  ],
+  "hotes_robots": [
+    {
+      "hote": "adore.ugent.be",
+      "resultat": "robots.txt : 302 puis 404 (doc) : tout autorisé (RFC 9309)",
+      "preuve": "institutions/ghent-university-library/tests/journal.log"
+    },
+    {
+      "hote": "resolver.lib.ugent.be",
+      "resultat": "404 : tout autorisé (RFC 9309)",
+      "preuve": "institutions/ghent-university-library/tests/journal.log"
+    },
+    {
+      "hote": "libcatalog.ugent.be",
+      "resultat": "200 ; 3 règles pour *, Crawl-delay 10 s",
+      "preuve": "institutions/ghent-university-library/tests/journal.log"
+    },
+    {
+      "hote": "eu-img02.ext.exlibrisgroup.com",
+      "resultat": "403 : tout autorisé (RFC 9309)",
+      "preuve": "institutions/ghent-university-library/tests/journal.log"
+    },
+    {
+      "hote": "lib.ugent.be",
+      "resultat": "200 (65 octets) : Allow: /",
+      "preuve": "institutions/ghent-university-library/sources/FETCH.log"
+    }
+  ],
+  "rattrapage_a_faire": [
+    "https://libraryguides.ugent.be/robots.txt : hôte non résolu (DNS) lors du téléchargement de la doc ; à revérifier par sonde."
+  ]
 }

@@ -162,5 +162,19 @@
       "resultat": "Disallow vide : tout autorisé",
       "preuve": "institutions/e-codices/sources/c/SHA256SUMS"
     }
+  ],
+  "endpoints_ecartes": [
+    {
+      "url": "https://www.e-codices.unifr.ch/de/about/iiif",
+      "raison": "page de doc /about/iiif : 404 constaté sur la version anglaise (sources/v2/FETCH.log), les liens de/fr/it sont ses variantes ; aucune API à tester"
+    },
+    {
+      "url": "https://www.e-codices.unifr.ch/fr/about/iiif",
+      "raison": "page de doc /about/iiif : 404 constaté sur la version anglaise (sources/v2/FETCH.log), les liens de/fr/it sont ses variantes ; aucune API à tester"
+    },
+    {
+      "url": "https://www.e-codices.unifr.ch/it/about/iiif",
+      "raison": "page de doc /about/iiif : 404 constaté sur la version anglaise (sources/v2/FETCH.log), les liens de/fr/it sont ses variantes ; aucune API à tester"
+    }
   ]
 }

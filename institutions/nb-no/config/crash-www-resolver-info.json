@@ -1,0 +1,12 @@
+{
+  "slug": "nb-no",
+  "endpoint": {
+    "id": "resolver-info-json",
+    "url": "https://www.nb.no/services/image/resolver/URN:NBN:no-nb_digitidsskrift_2024031180067_001_0001/info.json",
+    "method": "GET"
+  },
+  "limite_documentee_req_min": 15,
+  "source_limite": "https://www.nb.no/robots.txt : Crawl-delay 4 s pour User-agent * (soit 15 req/min) ; /services/ n'est pas dans les chemins interdits",
+  "duree_palier_s": 180,
+  "note": "info.json d'image sur www.nb.no (seul hôte portant le Crawl-delay 4 s), 200 dans le journal (resolver-info-json, 2026-11-13T23:25:28Z)."
+}

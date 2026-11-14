@@ -167,28 +167,65 @@
       "date": "2026-10-05",
       "etiquette": "institution (ticket GitHub de Wellcome)",
       "citation": "« One curl address hitting /search/ and /text/ at up to 26 a second: held to 300 per address in five minutes. »",
-      "preuve": "institutions/wellcome/sources/github/platform_issues_6741.json"
+      "preuve": "institutions/wellcome/sources/github/platform_issues_6741.json",
+      "categorie": "tickets"
     },
     {
       "url": "https://github.com/wellcomecollection/docs/pull/161",
       "date": "2026-07-30",
       "etiquette": "institution (RFC)",
       "citation": "« Considerate, rate-limited, self-identifying bot traffic is welcome. Evasive, high traffic, inconsiderate bot traffic is not; if we deem it inconsiderate, we will attempt to block it. »",
-      "preuve": "institutions/wellcome/sources/github/docs_pulls_161_files.json"
+      "preuve": "institutions/wellcome/sources/github/docs_pulls_161_files.json",
+      "categorie": "institution"
     },
     {
       "url": "https://stacks.wellcomecollection.org/crawlers-floods-and-fleets-a-year-of-keeping-our-digital-collections-open-10af777199c4",
       "date": "2026-10-16",
       "etiquette": "institution (blog)",
       "citation": "« a bulk user who tells us who they are gets the benefit of the doubt » ; « say who you are in your user agent, read robots.txt, spread your requests over time and use our API »",
-      "preuve": "institutions/wellcome/sources/wayback/stacks-blog.extraits-wayback.md"
+      "preuve": "institutions/wellcome/sources/wayback/stacks-blog.extraits-wayback.md",
+      "categorie": "institution"
     },
     {
       "url": "https://stacks.wellcomecollection.org/ten-years-and-counting-wellcome-collection-and-iiif-9015cdcdefd8",
       "date": "2026-10-09",
       "etiquette": "institution (blog)",
       "citation": "« This summer a fleet of automated browsers roughly doubled the traffic to our IIIF services. IIIF is designed to be read by software, and we want it to stay that way »",
-      "preuve": "institutions/wellcome/sources/wayback/stacks-blog.extraits-wayback.md"
+      "preuve": "institutions/wellcome/sources/wayback/stacks-blog.extraits-wayback.md",
+      "categorie": "presentations"
+    },
+    {
+      "categorie": "tickets",
+      "url": "https://github.com/wellcomecollection/platform/issues/6843",
+      "date": "2026-11-14",
+      "etiquette": "institution (ticket GitHub de Wellcome)",
+      "citation": "« Short bot bursts are setting off the iiif 5xx alarms. Two WAF changes would stop them » (2026-11-02 ; 10 000 à 12 000 adresses sur /image/ et /thumbs/).",
+      "preuve": "institutions/wellcome/sources/github/platform_issues_6843.json"
+    },
+    {
+      "categorie": "institution",
+      "url": "https://developers.wellcomecollection.org/docs/catalogue",
+      "date": "2026-11-14",
+      "etiquette": "officielle",
+      "citation": "« if you require a full harvest of the catalogue, you should use the daily snapshot instead of the API »",
+      "preuve": "institutions/wellcome/sources/v2/text/03.txt"
+    },
+    {
+      "categorie": "utilisateurs",
+      "aucun_resultat": true,
+      "requete": "iiif.wellcomecollection.org 429 OR 403 blocked user-agent download images complaint",
+      "date": "2026-11-14",
+      "etiquette": "–",
+      "citation": "Aucune plainte d'utilisateur sur l'IIIF de Wellcome trouvée ; seulement des pages génériques sur les 403 (résumé de moteur, non vérifié).",
+      "preuve": "institutions/wellcome/fiche.md"
+    },
+    {
+      "categorie": "presentations",
+      "url": "https://iiif.io/event/2025/leeds/day1-tuesday/",
+      "date": "2026-11-14",
+      "etiquette": "tiers (programme IIIF)",
+      "citation": "Talk de Wellcome Collection sur les collections nées numériques et l'IIIF, IIIF Leeds 2025 (résumé de moteur, non vérifié).",
+      "preuve": "institutions/wellcome/fiche.md"
     }
   ],
   "donnees_a_revalider": false,
@@ -207,6 +244,99 @@
       "url": "https://data.wellcomecollection.org/robots.txt",
       "pourquoi": "403 (robots.txt indisponible, pas un 'Missing Authentication Token' confirmé)",
       "a_chercher": "robots.txt actuel : Crawl-delay, Disallow, règle sur les robots d'IA ou les API"
+    }
+  ],
+  "endpoints_documentes": [
+    {
+      "famille": "API Catalogue v2 (works)",
+      "url": "https://api.wellcomecollection.org/catalogue/v2/works?pageSize=1",
+      "statut": "teste",
+      "preuve": "institutions/wellcome/tests/raw/catalogue-works-page1.headers.txt"
+    },
+    {
+      "famille": "API Catalogue : works avec items",
+      "url": "https://api.wellcomecollection.org/catalogue/v2/works/a222zvge?include=items",
+      "statut": "teste",
+      "preuve": "institutions/wellcome/tests/raw/catalogue-work-a222zvge-items.headers.txt"
+    },
+    {
+      "famille": "Instantanés quotidiens (works.json.gz, images.json.gz)",
+      "url": "https://data.wellcomecollection.org/catalogue/v2/works.json.gz",
+      "statut": "teste",
+      "preuve": "institutions/wellcome/tests/raw/snapshot-works-head.headers.txt"
+    },
+    {
+      "famille": "IIIF Presentation v2",
+      "url": "https://iiif.wellcomecollection.org/presentation/v2/b18659135",
+      "statut": "teste",
+      "preuve": "institutions/wellcome/tests/raw/iiif-presentation-v2-b18659135.headers.txt"
+    },
+    {
+      "famille": "IIIF Presentation v3",
+      "url": "https://iiif.wellcomecollection.org/presentation/v3/b18035723",
+      "statut": "teste",
+      "preuve": "institutions/wellcome/tests/raw/iiif-presentation-v3-b18035723.headers.txt"
+    },
+    {
+      "famille": "IIIF Image 2 (image/, info.json et dérivé)",
+      "url": "https://iiif.wellcomecollection.org/image/b18035723_0001.JP2/info.json",
+      "statut": "teste",
+      "preuve": "institutions/wellcome/tests/raw/iiif-image-ouverte-info-json.headers.txt"
+    },
+    {
+      "famille": "IIIF thumbs (/thumbs/)",
+      "url": "https://iiif.wellcomecollection.org/thumbs/b18035723_0004.JP2/info.json",
+      "statut": "teste",
+      "preuve": "institutions/wellcome/tests/journal.log"
+    },
+    {
+      "famille": "Recherche et texte IIIF (/search/, /text/)",
+      "url": "https://iiif.wellcomecollection.org/search/",
+      "statut": "non_teste",
+      "raison": "Chemins connus par le ticket platform#6741 (WAF : 300 requêtes par adresse en 5 minutes) ; non documentés comme API publique, et Crawl-delay 30 s : aucun test envoyé."
+    }
+  ],
+  "hotes_robots": [
+    {
+      "hote": "api.wellcomecollection.org",
+      "resultat": "404 : robots.txt indisponible, tout autorisé (RFC 9309)",
+      "preuve": "institutions/wellcome/tests/journal.log"
+    },
+    {
+      "hote": "data.wellcomecollection.org",
+      "resultat": "403 : robots.txt indisponible, tout autorisé (RFC 9309)",
+      "preuve": "institutions/wellcome/tests/journal.log"
+    },
+    {
+      "hote": "iiif.wellcomecollection.org",
+      "resultat": "200 : « * » tout autorisé, Crawl-delay 30, Request-rate 1/30s",
+      "preuve": "institutions/wellcome/tests/journal.log"
+    },
+    {
+      "hote": "wellcomecollection.org",
+      "resultat": "200 : « * » autorisé sauf /account ; robots d'IA bloqués",
+      "preuve": "institutions/wellcome/sources/v2/FETCH.log"
+    },
+    {
+      "hote": "developers.wellcomecollection.org",
+      "resultat": "pages de doc lues (200) ; robots.txt non lu",
+      "preuve": "institutions/wellcome/sources/v2/FETCH.log"
+    },
+    {
+      "hote": "stacks.wellcomecollection.org",
+      "resultat": "page du blog 403 à notre client ; robots.txt non lu",
+      "preuve": "institutions/wellcome/sources/v2/FETCH.log"
+    }
+  ],
+  "rattrapage_a_faire": [
+    "https://developers.wellcomecollection.org/robots.txt : jamais lu, à lire une fois (une requête)",
+    "https://stacks.wellcomecollection.org/robots.txt : jamais lu (la page du blog a répondu 403), à lire une fois",
+    "https://developers.wellcomecollection.org/api/catalogue : page de documentation non téléchargée par nos outils (absente des FETCH.log/url-list), à télécharger et lire avant de conclure (référence de l'API catalogue, citée dans sources/v2b/raw/02.html)"
+  ],
+  "endpoints_ecartes": [
+    {
+      "url": "https://developers.wellcomecollection.org/docs/iiif",
+      "raison": "page de documentation IIIF téléchargée et lue : HTTP 200 dans institutions/wellcome/sources/v2/FETCH.log, listée dans sources/url-list-v2.txt, HTML dans sources/v2/raw/02.html"
     }
   ]
 }

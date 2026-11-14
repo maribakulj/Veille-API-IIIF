@@ -1,0 +1,12 @@
+{
+  "slug": "cudl",
+  "endpoint": {
+    "id": "image-info-json",
+    "url": "https://images.lib.cam.ac.uk/iiif/MS-ADD-03958-001-00001.jp2/info.json",
+    "method": "GET"
+  },
+  "limite_documentee_req_min": null,
+  "source_limite": "aucune limite de débit documentée (https://cudl.lib.cam.ac.uk/terms/ : interdiction contractuelle d'extraction systématique, sans seuil de débit ; robots.txt : seul /search interdit)",
+  "duree_palier_s": 180,
+  "note": "info.json d'image sur images.lib.cam.ac.uk (robots.txt 404, aucun blocage), 200 dans le journal (image-info-json, 2026-11-13T22:32:52Z). Pas cudl.lib.cam.ac.uk (403 CloudFront sur les pages) ni cudl.link (DNS)."
+}

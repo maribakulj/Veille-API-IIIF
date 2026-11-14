@@ -1,0 +1,12 @@
+{
+  "slug": "national-gallery-london",
+  "endpoint": {
+    "id": "ngac-info-json",
+    "url": "https://data.ng.ac.uk/iiif/3/0M1F-000B-0000-0000/info.json",
+    "method": "GET"
+  },
+  "limite_documentee_req_min": null,
+  "source_limite": "aucune limite de débit documentée (https://www.nationalgallery.org.uk/terms-of-use : interdiction contractuelle de constituer une base, sans débit ; le plafond 800x730 px est une taille d'image)",
+  "duree_palier_s": 180,
+  "note": "info.json d'image IIIF 3 sur data.ng.ac.uk (robots.txt 404), 200 dans le journal (ngac-info-json, 2026-11-13T23:08:27Z)."
+}

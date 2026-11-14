@@ -73,6 +73,31 @@
       "date": "2026-11-13",
       "etiquette": "tiers, non vérifié",
       "citation": "le paquet R finna utilise 5 s entre requêtes par défaut (réglage client)",
+      "preuve": "institutions/national-library-of-finland-finna/fiche.md",
+      "categorie": "utilisateurs"
+    },
+    {
+      "categorie": "institution",
+      "url": "https://www.kansalliskirjasto.fi/en/services/palvelut-organisaatioasiakkaille/finna",
+      "date": "2026-11-14",
+      "etiquette": "institution",
+      "citation": "« Finna.fi […] published its API, api.finna.fi, in February 2016 » ; unité Library Network Services responsable de l'interface ; aucune limite de débit citée (résumé de moteur, non vérifié)",
+      "preuve": "institutions/national-library-of-finland-finna/fiche.md"
+    },
+    {
+      "categorie": "tickets",
+      "url": "https://github.com/rOpenGov/finna/issues?q=is%3Aissue",
+      "date": "2026-11-14",
+      "etiquette": "tiers",
+      "citation": "Lu via WebFetch : 8 tickets ouverts (data provenance, documentation, search_finna, CRAN submission…) ; aucun ne mentionne limite de débit, 429, 403 ou blocage de api.finna.fi",
+      "preuve": "institutions/national-library-of-finland-finna/fiche.md"
+    },
+    {
+      "categorie": "presentations",
+      "url": "https://kielipankki.fi/wp-content/uploads/Events/FIN-CLARIAH-2024-06-10/FIN-CLARIAH2024-WP3-2-1-FINNA.pdf",
+      "date": "2026-11-14",
+      "etiquette": "tiers",
+      "citation": "diapositives FIN-CLARIAH 2024 : API Finna documentée via Swagger UI sur api.finna.fi ; métadonnées CC0 (résumé de moteur, non vérifié)",
       "preuve": "institutions/national-library-of-finland-finna/fiche.md"
     }
   ],
@@ -113,5 +138,52 @@
       "pourquoi": "403 anti-bot ; aucune copie Wayback mentionnée",
       "a_chercher": "Page de doc Finna (wiki) : limites, recommandations d'usage de l'API, conditions"
     }
+  ],
+  "endpoints_documentes": [
+    {
+      "famille": "API REST Finna (api.finna.fi/v1)",
+      "url": "https://api.finna.fi/v1",
+      "statut": "non_teste",
+      "raison": "robots.txt de api.finna.fi (copie Wayback 2025-05-31) : « User-agent: * Disallow: / » ; consigne C8 : interdit aux robots, donc aucun envoi."
+    },
+    {
+      "famille": "Documentation Swagger de l'API Finna",
+      "url": "https://api.finna.fi/v1?swagger",
+      "statut": "non_teste",
+      "raison": "Hôte en 403 pour notre sonde (anti-bot, non contourné) et aucune copie Wayback trouvée : page jamais lue."
+    },
+    {
+      "famille": "Interface de moissonnage OAI-PMH Finna",
+      "url": "https://www.kiwi.fi/spaces/Finna/pages/440828359/Finna+API+Documentation+In+English",
+      "statut": "non_teste",
+      "raison": "Listée dans la doc (copie Wayback 2026-01-26) ; son hôte n'a pas été lu et elle n'a pas de robots.txt propre lu : aucun test envoyé."
+    },
+    {
+      "famille": "API d'authentification et fournisseur OIDC Finna",
+      "url": "https://www.kiwi.fi/spaces/Finna/pages/440828359/Finna+API+Documentation+In+English",
+      "statut": "non_teste",
+      "raison": "Services listés dans la doc (Wayback) pour comptes utilisateurs ; hors périmètre quota et sous Disallow des robots, jamais testés."
+    }
+  ],
+  "hotes_robots": [
+    {
+      "hote": "api.finna.fi",
+      "resultat": "403 en direct ; copie Wayback 2025-05-31 lue : User-agent: * / Disallow: /",
+      "preuve": "institutions/national-library-of-finland-finna/sources/wayback/finna-extraits-wayback.md"
+    },
+    {
+      "hote": "www.finna.fi",
+      "resultat": "403 en direct ; copie Wayback 2026-05-02 lue : Crawl-delay 1, /SearchApi/ et /*/api/ interdits",
+      "preuve": "institutions/national-library-of-finland-finna/sources/wayback/finna-extraits-wayback.md"
+    },
+    {
+      "hote": "www.kiwi.fi",
+      "resultat": "200 (2676 octets) lu en direct",
+      "preuve": "institutions/national-library-of-finland-finna/sources/FETCH.log"
+    }
+  ],
+  "rattrapage_a_faire": [
+    "https://api.finna.fi/v1?swagger : lire la doc Swagger (403 pour sonde, accès humain par Marcel) pour y chercher limites de débit ; aucune requête automatique.",
+    "https://www.kiwi.fi/robots.txt : contenu lu (200, raw/07.html) mais non analysé dans la fiche ; à relire."
   ]
 }

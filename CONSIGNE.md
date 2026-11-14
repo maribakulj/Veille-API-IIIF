@@ -64,3 +64,10 @@ Les consignes plus récentes l'emportent sur les plus anciennes quand elles se c
 
 **C13 — pages illisibles : documenter, Marcel vérifie à la main (Marcel, 14/11/2026, mot pour mot)** : « non laisse tomber, je préfère juste que tu me le documente et j'irais voir moi même un par un, il me faudra un nouveau doc avec toutes les urls à vérifier manuellement pour chaque institutions, ça peut être par exemple un nouvel onglet du tableur excel »
 → Annule l'idée d'utiliser Chrome pour les 403. Chaque URL que la sonde ne peut pas lire (403, CAPTCHA, délai, TLS…) est listée dans `data.json`, champ `a_verifier_manuellement` (`url`, `pourquoi`, `a_chercher`), et apparaît dans l'onglet « À vérifier à la main » de `BENCHMARK.xlsx` (régénéré à chaque commit).
+
+**C14 — décisions de Marcel du 14/11/2026 (mots pour mot)**
+- « je veux que le verrou concerne tout ce qui a été coché et doit être aussi justifié, toutes les consignes de tout ce que tu dois faire pour chaque institution »
+- « ben oui t'as mon accord vu que je te l'ai demandé !!! » (crash test g) ; « et oui ça doit être fait institution par institution sinon verrou »
+- « 1 oui ok, 2 pourquoi ? 3 refais ces sessions » ; puis « je veux bien les exclure, mais comment être sûr que tu ne vas pas en profiter pour en exclure des légitimes ? »
+- « une fois que toutes les précautions auront été prises, tu pourras continuer la boucle avec des sous agents qui respectent bien la méthodologie, tu me confirmes que le verrou fonctionnera pour les sous agents ? »
+→ Appliqué : (1) verrou par étape cochée (a à g) et ordre strict ; (2) exclusion des pages de doc du contrôle de couverture **mécanique** (code 200 + HTML, sinon jamais) et listée dans l'onglet « Doc exclue » ; (3) sessions non conformes archivées dans `tests/archive/` puis rejouées ; (4) étape g obligatoire pour qu'une institution soit « terminée » ; (5) `probe.py`, `crash.py` et `fetch_doc.sh` refusent de se lancer si une institution antérieure n'est pas terminée.

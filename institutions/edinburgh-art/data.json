@@ -114,13 +114,57 @@
       "date": "2026-11-13",
       "etiquette": "officielle (position de l'institution envers les robots)",
       "citation": "« User-agent: * … Crawl-Delay: 500 » ; Baiduspider et Yandex : « Disallow: / ».",
-      "preuve": "institutions/edinburgh-art/sources/luna-robots/raw/01.html"
+      "preuve": "institutions/edinburgh-art/sources/luna-robots/raw/01.html",
+      "categorie": "institution"
     },
     {
       "url": "https://github.com/gbif/portal-feedback/issues/6567",
       "date": "2026-11-13",
       "etiquette": "tiers — NON APPLICABLE (Royal Botanic Garden Edinburgh, autre organisme)",
       "citation": "Ticket sur des robots d'IA et du scraping rapide d'images, liste blanche mise en place par un autre organisme.",
+      "preuve": "institutions/edinburgh-art/fiche.md",
+      "categorie": "hors_perimetre"
+    },
+    {
+      "categorie": "institution",
+      "url": "https://collections.ed.ac.uk/art/licensing",
+      "date": "2026-11-14",
+      "etiquette": "officielle",
+      "citation": "« Use of images from this site, or any derivative works, can only be made with permission in advance. Images are provided for the purposes of research, private study or review. »",
+      "preuve": "institutions/edinburgh-art/sources/suite/SHA256SUMS"
+    },
+    {
+      "categorie": "presentations",
+      "url": "https://libraryblogs.is.ed.ac.uk/blog/2016/12/22/iiif-is-live",
+      "date": "2026-11-14",
+      "etiquette": "institution (billet 2016, résumé de moteur, non vérifié)",
+      "citation": "(résumé de moteur, non vérifié) « with LUNA as our IIIF server, we expect to be able to streamline a lot of our collections content » ; aucune règle de débit connue.",
+      "preuve": "institutions/edinburgh-art/fiche.md"
+    },
+    {
+      "categorie": "presentations",
+      "url": "https://lunaimaging.com/news",
+      "date": "2026-11-14",
+      "etiquette": "tiers (éditeur de LUNA, 2025-02-07, page lue)",
+      "citation": "« AI bots have been aggressively attacking public content including LUNA collections » ; l'éditeur dit chercher des solutions plutôt que restreindre les IP. Ne concerne pas Édimbourg nommément.",
+      "preuve": "institutions/edinburgh-art/fiche.md"
+    },
+    {
+      "categorie": "tickets",
+      "aucun_resultat": true,
+      "requete": "github issue images.is.ed.ac.uk luna iiif manifest download Edinburgh University Library",
+      "date": "2026-11-14",
+      "etiquette": "–",
+      "citation": "Aucun ticket d'outil sur images.is.ed.ac.uk ou collections.ed.ac.uk trouvé (résumé de moteur, non vérifié) ; le ticket GBIF concerne un autre organisme.",
+      "preuve": "institutions/edinburgh-art/fiche.md"
+    },
+    {
+      "categorie": "utilisateurs",
+      "aucun_resultat": true,
+      "requete": "University of Edinburgh Art Collection images.is.ed.ac.uk LUNA IIIF API rate limit ratelimit-limit",
+      "date": "2026-11-14",
+      "etiquette": "–",
+      "citation": "Aucune plainte ou retour d'utilisateur sur des limites de débit d'Édimbourg trouvé (résumé de moteur, non vérifié).",
       "preuve": "institutions/edinburgh-art/fiche.md"
     }
   ],
@@ -136,6 +180,44 @@
       "url": "https://collections.ed.ac.uk/art/feedback",
       "pourquoi": "404 (page introuvable, non lue)",
       "a_chercher": "Contact/formulaire : où demander un volume plus élevé ou signaler un blocage"
+    }
+  ],
+  "endpoints_documentes": [
+    {
+      "famille": "Manifeste IIIF de fiche (collections.ed.ac.uk/art/record/{id}/1/manifest.json)",
+      "url": "https://collections.ed.ac.uk/art/record/112492/1/manifest.json",
+      "statut": "teste",
+      "preuve": "institutions/edinburgh-art/tests/raw/manifeste-record-112492.headers.txt"
+    },
+    {
+      "famille": "LUNA IIIF Image API (info.json)",
+      "url": "https://images.is.ed.ac.uk/luna/servlet/iiif/UoEart~1~1~76079~393273/info.json",
+      "statut": "teste",
+      "preuve": "institutions/edinburgh-art/tests/raw/luna-info-json.headers.txt"
+    },
+    {
+      "famille": "LUNA IIIF Image API (dérivé vignette)",
+      "url": "https://images.is.ed.ac.uk/luna/servlet/iiif/UoEart~1~1~76079~393273/full/!96,96/0/default.jpg",
+      "statut": "teste",
+      "preuve": "institutions/edinburgh-art/tests/raw/luna-vignette-96.headers.txt"
+    },
+    {
+      "famille": "LUNA manifeste « related »",
+      "url": "https://images.is.ed.ac.uk/luna/servlet/iiif/m/UoEart~1~1~76079~393273/manifest",
+      "statut": "teste",
+      "preuve": "institutions/edinburgh-art/tests/raw/luna-manifeste-related.headers.txt"
+    }
+  ],
+  "hotes_robots": [
+    {
+      "hote": "collections.ed.ac.uk",
+      "resultat": "200 : User-agent * ; Disallow: (vide, tout autorisé)",
+      "preuve": "institutions/edinburgh-art/sources/suite4/raw/04.html"
+    },
+    {
+      "hote": "images.is.ed.ac.uk",
+      "resultat": "200 : User-agent * ; Crawl-Delay 500 ; Baiduspider et Yandex Disallow /",
+      "preuve": "institutions/edinburgh-art/sources/luna-robots/raw/01.html"
     }
   ]
 }

@@ -1,0 +1,12 @@
+{
+  "slug": "nb-no",
+  "endpoint": {
+    "id": "iiif-manifeste-e100a408",
+    "url": "https://api.nb.no/catalog/v1/iiif/e100a408f711665c1f94afa9cd102b8d/manifest",
+    "method": "GET"
+  },
+  "limite_documentee_req_min": null,
+  "source_limite": "aucune limite de débit documentée pour api.nb.no (robots.txt 404 ; OpenAPI https://api.nb.no/catalog/v1/items/api-docs : erreurs 400/401/404/500, pas de 429). Le Crawl-delay 4 s concerne www.nb.no",
+  "duree_palier_s": 180,
+  "note": "Manifeste IIIF de 70 ko sur api.nb.no, 200 dans le journal (iiif-manifeste-e100a408, 2026-11-13T23:25:21Z) : le plus petit manifeste mesuré ; environ 800 requêtes au total (~56 Mo)."
+}

@@ -1,0 +1,12 @@
+{
+  "slug": "europeana",
+  "endpoint": {
+    "id": "iiif-manifeste-90402-SK_A_3262",
+    "url": "https://iiif.europeana.eu/presentation/90402/SK_A_3262/manifest",
+    "method": "GET"
+  },
+  "limite_documentee_req_min": null,
+  "source_limite": "aucune limite de débit documentée chiffrée (https://europeana.atlassian.net/wiki/spaces/EF/pages/2704146433/Fair+use+policy+guidelines : limite par type de requête « fixée par Europeana », non publiée ; FAQ ancienne : « as often as you like without any throttling »)",
+  "duree_palier_s": 180,
+  "note": "Petit manifeste (~4,8 ko) sur iiif.europeana.eu (sans clé, robots.txt : 0 règle pour *), 200 dans le journal (iiif-manifeste-90402-SK_A_3262, 2026-11-13T23:16:27Z). Pas api.europeana.eu (clé requise) ni pro.europeana.eu (403). Risque : IP bloquée si usage jugé non équitable."
+}

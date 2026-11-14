@@ -1,0 +1,12 @@
+{
+  "slug": "victoria-and-albert-museum",
+  "endpoint": {
+    "id": "api-object-O828146",
+    "url": "https://api.vam.ac.uk/v2/object/O828146",
+    "method": "GET"
+  },
+  "limite_documentee_req_min": 60,
+  "source_limite": "https://vanda-production-assets.s3.amazonaws.com/2024/06/07/09/07/45/05c6f47d-e71a-45ea-9aa5-61e3dfa21226/websites_terms_June_2024.pdf : indicatif de 1 requête par seconde pour les APIs du V&A (soit 60 req/min) ; indicatif de 3 000 appels par jour (hors conditions formelles)",
+  "duree_palier_s": 180,
+  "note": "Record court (~5 ko) de l'API v2, 200 dans le journal (api-object-O828146, 2026-11-13T23:12:02Z), robots.txt 404 sur api.vam.ac.uk. Limite = 1 req/s soit 60 req/min (indicatif, non contraignant). Le plafond 2x = 120 req/min envoie ~930 requêtes au total, sous les 3 000/jour indicatifs."
+}

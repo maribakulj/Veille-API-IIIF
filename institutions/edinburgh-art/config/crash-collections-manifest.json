@@ -1,0 +1,12 @@
+{
+  "slug": "edinburgh-art",
+  "endpoint": {
+    "id": "manifeste-record-112492",
+    "url": "https://collections.ed.ac.uk/art/record/112492/1/manifest.json",
+    "method": "GET"
+  },
+  "limite_documentee_req_min": null,
+  "source_limite": "aucune limite de débit documentée pour collections.ed.ac.uk (robots.txt : 0 règle pour *). Le Crawl-delay 500 s de https://images.is.ed.ac.uk/robots.txt concerne l'hôte LUNA, pas celui-ci",
+  "duree_palier_s": 180,
+  "note": "Petit manifeste (~2 ko) sur collections.ed.ac.uk, 200 dans le journal (manifeste-record-112492, 2026-11-13T22:35:48Z). L'hôte LUNA images.is.ed.ac.uk (Crawl-delay 500 s) n'a pas de config : à 0,24 req/min maximum, un palier de 180 s n'enverrait aucune requête."
+}

@@ -8,6 +8,10 @@
 # Ne suit pas de liens : seules les URL de la liste sont téléchargées.
 set -u
 list="$1"; out="$2"
+slug=$(printf '%s' "$out" | sed -n 's#.*institutions/\([^/]*\)/.*#\1#p')
+if [ -n "$slug" ]; then
+  python3 "$(dirname "$0")/suivi.py" autorise "$slug" || exit 1
+fi
 mkdir -p "$out/raw"
 : > "$out/FETCH.log"
 UA="VeilleAPIIIF/0.1 (veille documentaire; github.com/maribakulj/Veille-API-IIIF)"

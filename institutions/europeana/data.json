@@ -144,20 +144,48 @@
       "date": "2026-11-13",
       "etiquette": "institution (base de connaissances)",
       "citation": "« The rate limits for personal keys have been progressively reduced until April 2026 to give customers with service-level requirements sufficient time to transition to project keys »",
-      "preuve": "institutions/europeana/sources/v2/text/02.txt"
+      "preuve": "institutions/europeana/sources/v2/text/02.txt",
+      "categorie": "institution"
     },
     {
       "url": "https://europeana.atlassian.net/wiki/spaces/EF/pages/2704146433/Fair+use+policy+guidelines",
       "date": "2024-09-05",
       "etiquette": "institution (politique)",
       "citation": "« The failure to comply with this policy may result in your access key be temporarily blocked or even revoked. »",
-      "preuve": "institutions/europeana/sources/v2/text/01.txt"
+      "preuve": "institutions/europeana/sources/v2/text/01.txt",
+      "categorie": "institution"
     },
     {
       "url": "https://apis.io/rate-limits/",
       "date": "2026-11-13",
       "etiquette": "tiers (agrégateur), non vérifié",
       "citation": "« Europeana Rate Limits » sans valeur chiffrée.",
+      "preuve": "institutions/europeana/fiche.md",
+      "categorie": "utilisateurs"
+    },
+    {
+      "categorie": "utilisateurs",
+      "url": "https://groups.google.com/g/europeanaAPI/c/dnjJBzWaQQU",
+      "date": "2026-11-14",
+      "etiquette": "institution",
+      "citation": "Jolan Wuyts (équipe Europeana), 12 juillet 2024, sur la liste europeanaAPI : « The current set rate limit for external requests is set at a maximum of 120 requests per 10 seconds » (page lue ; fil « Getting error during downloading the image »).",
+      "preuve": "institutions/europeana/fiche.md"
+    },
+    {
+      "categorie": "tickets",
+      "aucun_resultat": true,
+      "requete": "github issue europeana API \"429\" OR \"rate limit\" OR \"Too Many Requests\" iiif.europeana.eu",
+      "date": "2026-11-14",
+      "etiquette": "–",
+      "citation": "Aucun ticket GitHub sur des 429 ou limites de l'API Europeana trouvé ; la page ecosyste.ms des tickets de europeana/rd-europeana-python-api a répondu 403 (non lue), donc ce dépôt reste à regarder.",
+      "preuve": "institutions/europeana/fiche.md"
+    },
+    {
+      "categorie": "presentations",
+      "url": "https://openfuture.eu/wp-content/uploads/2025/12/251202PublishingCulturalHeritageDataInTheAgeOfAI.pdf",
+      "date": "2026-11-14",
+      "etiquette": "tiers",
+      "citation": "Document de décembre 2025 « Publishing Cultural Heritage Data in the Age of AI » (commandé par la Fondation Europeana) : les robots d'IA et d'autres usages apparaissent tous deux comme « bots » dans les journaux des sites. (résumé de moteur, non vérifié) PDF non lisible par l'outil.",
       "preuve": "institutions/europeana/fiche.md"
     }
   ],
@@ -177,6 +205,128 @@
       "url": "https://pro.europeana.eu/page/search",
       "pourquoi": "403 anti-bot (WebFetch) ; non lue directement",
       "a_chercher": "Documentation de l'API Search : clé, limites (requêtes/jour, résultats max), conditions"
+    }
+  ],
+  "endpoints_documentes": [
+    {
+      "famille": "IIIF Presentation API (manifestes 2.1 et 3, sans clé)",
+      "url": "https://iiif.europeana.eu/presentation/9200396/BibliographicResource_3000118436165/manifest",
+      "statut": "teste",
+      "preuve": "institutions/europeana/tests/raw/iiif-manifeste-9200396.headers.txt"
+    },
+    {
+      "famille": "IIIF Image API (images des fournisseurs via iiif.europeana.eu)",
+      "url": "https://iiif.europeana.eu/image/QNYVL2Z2FVHRGMK2UNXIP4DUUOTOVA2ND3WIPJQF6V23SO2CJ5UA/presentation_images/ee0edfa0-0220-11e6-a696-fa163e2dd531/node-3/image/BNL/Journal_historique_et_littéraire/1788/09/01/00001/info.json",
+      "statut": "teste",
+      "preuve": "institutions/europeana/tests/raw/image-info-json.headers.txt"
+    },
+    {
+      "famille": "Search API (api.europeana.eu)",
+      "url": "https://api.europeana.eu/record/v2/search.json",
+      "statut": "non_teste",
+      "raison": "Clé d'API exigée par la documentation ; nous n'en avons pas demandé (aucun identifiant envoyé, règle de l'audit) ; tester sans clé ne mesurerait que le refus."
+    },
+    {
+      "famille": "Record API",
+      "url": "https://api.europeana.eu/record/v2/",
+      "statut": "non_teste",
+      "raison": "Clé d'API exigée par la documentation ; non demandée ; aucun test possible sans identifiant."
+    },
+    {
+      "famille": "Entity API",
+      "url": "https://api.europeana.eu/entity/",
+      "statut": "non_teste",
+      "raison": "Documentée dans la page API Suite ; clé d'API requise, non demandée ; hors périmètre IIIF."
+    },
+    {
+      "famille": "IIIF Content Search API (v1)",
+      "url": "https://iiif.europeana.eu/",
+      "statut": "non_teste",
+      "raison": "Citée par la page IIIF APIs Documentation ; aucune URL d'exemple ni identifiant plein texte connu dans nos sources, deviner serait inventer."
+    },
+    {
+      "famille": "Annotation API",
+      "url": "https://api.europeana.eu/annotation/",
+      "statut": "non_teste",
+      "raison": "Documentée dans API Suite ; clé d'API requise, non demandée ; hors périmètre IIIF."
+    },
+    {
+      "famille": "User Set API",
+      "url": "https://api.europeana.eu/set/",
+      "statut": "non_teste",
+      "raison": "Documentée dans API Suite ; exige un compte et une clé, donc des identifiants que nous n'envoyons pas."
+    },
+    {
+      "famille": "Recommendation API",
+      "url": "https://api.europeana.eu/recommend/",
+      "statut": "non_teste",
+      "raison": "Documentée dans API Suite ; clé d'API requise, non demandée ; hors périmètre IIIF."
+    },
+    {
+      "famille": "SPARQL API",
+      "url": "https://sparql.europeana.eu/",
+      "statut": "non_teste",
+      "raison": "Documentée dans API Suite ; point d'accès non lu dans nos sources, requête SPARQL à construire ; hors périmètre IIIF."
+    },
+    {
+      "famille": "Thumbnail API",
+      "url": "https://api.europeana.eu/thumbnail/v3/",
+      "statut": "non_teste",
+      "raison": "Documentée dans API Suite ; exemple d'URL non relevé dans nos sources, deviner serait inventer ; vignettes tierces des manifestes non testées."
+    },
+    {
+      "famille": "OAI-PMH et FTP (moissonnage en masse)",
+      "url": "https://www.europeana.eu/",
+      "statut": "non_teste",
+      "raison": "Cités par la FAQ comme alternatives au moissonnage via l'API ; URL exacte non relevée dans nos sources ; moissonnage en masse exclu de l'audit."
+    }
+  ],
+  "hotes_robots": [
+    {
+      "hote": "iiif.europeana.eu",
+      "resultat": "200 (23 o) : User-agent *, Disallow vide, tout autorisé",
+      "preuve": "institutions/europeana/sources/v2/FETCH.log"
+    },
+    {
+      "hote": "www.europeana.eu",
+      "resultat": "200 (319 o) : Disallow /api/*, /iiif/*, /*/iiif/* (chemins du site web)",
+      "preuve": "institutions/europeana/sources/v2/FETCH.log"
+    },
+    {
+      "hote": "api.europeana.eu",
+      "resultat": "200 (171 861 o) : page d'application, pas un vrai robots.txt",
+      "preuve": "institutions/europeana/sources/v2/FETCH.log"
+    },
+    {
+      "hote": "pro.europeana.eu",
+      "resultat": "403 anti-bot : non lu, pas de contournement",
+      "preuve": "institutions/europeana/sources/v2/FETCH.log"
+    }
+  ],
+  "rattrapage_a_faire": [
+    "https://pro.europeana.eu/robots.txt : 403 anti-bot, non lu (aucun contournement) ; à lire à la main dans un navigateur par Marcel si utile.",
+    "https://europeana.atlassian.net/robots.txt : hôte de la documentation (Confluence), robots.txt jamais lu ; une requête GET à faire.",
+    "https://github.com/europeana/rd-europeana-python-api/issues (ou page ecosyste.ms, 403 à WebFetch) : tickets sur 429 ou limites, à relire avec gh/navigateur (domaine tiers, pas de l'institution).",
+    "https://api.europeana.eu/fulltext/search.json : à tester par scripts/probe.py, config à committer avant (endpoint cité en bloc de code dans sources/v2c/raw/02.html)",
+    "https://pro.europeana.eu/page/api-libraries-and-plugins : page de documentation non téléchargée par nos outils (absente des FETCH.log/url-list), à télécharger et lire avant de conclure (liste de bibliothèques clientes citée dans sources/v2/text/03.txt ; pro.europeana.eu répond 403 anti-bot)",
+    "https://pro.europeana.eu/project/iiif-europeana-working-group : page de documentation non téléchargée par nos outils (absente des FETCH.log/url-list), à télécharger et lire avant de conclure (page projet citée dans sources/v2c/raw/02.html ; pro.europeana.eu répond 403 anti-bot)"
+  ],
+  "endpoints_ecartes": [
+    {
+      "url": "https://api.europeana.eu/console/iiif",
+      "raison": "interface web destinée aux humains, sans API documentée associée ; console interactive (bouton « Go to the Console » de la doc, sources/v2c/text/02.txt), pas un endpoint de données"
+    },
+    {
+      "url": "https://www.europeana.eu/account/api-keys",
+      "raison": "interface web destinée aux humains, sans API documentée associée ; formulaire de compte pour obtenir une clé, lien de sources/v2/raw/06.html"
+    },
+    {
+      "url": "https://www.europeana.eu/en/search?page=1&qf=collection%3Anature",
+      "raison": "interface web destinée aux humains, sans API documentée associée ; page de recherche du portail citée dans sources/v2/raw/06.html"
+    },
+    {
+      "url": "https://www.europeana.eu/search?page=1&qf=collection%3Aart",
+      "raison": "interface web destinée aux humains, sans API documentée associée ; page de recherche du portail citée dans sources/v2/raw/06.html"
     }
   ]
 }

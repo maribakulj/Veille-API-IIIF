@@ -1,0 +1,12 @@
+{
+  "slug": "national-library-of-wales",
+  "endpoint": {
+    "id": "llyfrgell-image-info-json",
+    "url": "https://iiif.llyfrgell.cymru/iiif/4389768/info.json",
+    "method": "GET"
+  },
+  "limite_documentee_req_min": null,
+  "source_limite": "aucune limite de débit documentée pour iiif.llyfrgell.cymru (robots.txt 404). Le Crawl-delay 10 s de https://discover.library.wales/robots.txt concerne le catalogue, un autre hôte ; le plafond 1200 px est une taille d'image, pas un débit",
+  "duree_palier_s": 180,
+  "note": "info.json d'image sur iiif.llyfrgell.cymru, 200 dans le journal (llyfrgell-image-info-json, 2026-11-13T22:50:44Z). Les anciens hôtes damsssl/dams.llgc.org.uk redirigent (302) et www.library.wales est en 403 : exclus."
+}

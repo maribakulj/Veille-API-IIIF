@@ -1,0 +1,27 @@
+# Session 2026-11-14T00:53:52Z — configuration erara-passe1-oai.json — sonde probe.py au commit 2ee68ee
+2026-11-14T00:53:52Z | robots.txt:www.e-rara.ch | https://www.e-rara.ch/robots.txt | GET | 200 | 1 règle(s) pour « * »
+2026-11-14T00:53:52Z | oai-identify | robots.txt interdit https://www.e-rara.ch/oai?verb=Identify (Disallow: /) ; lancé car autorisé par Marcel (C12)
+2026-11-14T00:53:58Z | oai-identify | https://www.e-rara.ch/oai?verb=Identify | GET | 200 OK | aucun en-tête de limite | taille≥200 | corps: <OAI-PMH xmlns="http://www.openarchives.org/OAI/2.0/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.openarchives.org/OAI/2.0/ http://www.openarchives.org/OAI/2.0
+2026-11-14T00:53:58Z | oai-listsets | robots.txt interdit https://www.e-rara.ch/oai?verb=ListSets (Disallow: /) ; lancé car autorisé par Marcel (C12)
+2026-11-14T00:54:05Z | oai-listsets | https://www.e-rara.ch/oai?verb=ListSets | GET | 200 OK | aucun en-tête de limite | taille≥200 | corps: <OAI-PMH xmlns="http://www.openarchives.org/OAI/2.0/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.openarchives.org/OAI/2.0/ http://www.openarchives.org/OAI/2.0
+2026-11-14T00:54:05Z | oai-listmetadataformats | robots.txt interdit https://www.e-rara.ch/oai?verb=ListMetadataFormats (Disallow: /) ; lancé car autorisé par Marcel (C12)
+2026-11-14T00:54:11Z | oai-listmetadataformats | https://www.e-rara.ch/oai?verb=ListMetadataFormats | GET | 200 OK | aucun en-tête de limite | taille≥200 | corps: <OAI-PMH xmlns="http://www.openarchives.org/OAI/2.0/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.openarchives.org/OAI/2.0/ http://www.openarchives.org/OAI/2.0
+2026-11-14T00:54:11Z | oai-getrecord-dc | robots.txt interdit https://www.e-rara.ch/oai?verb=GetRecord&metadataPrefix=oai_dc&identifier=6341733 (Disallow: /) ; lancé car autorisé par Marcel (C12)
+2026-11-14T00:54:17Z | oai-getrecord-dc | https://www.e-rara.ch/oai?verb=GetRecord&metadataPrefix=oai_dc&identifier=6341733 | GET | 200 OK | aucun en-tête de limite | taille≥200 | corps: <OAI-PMH xmlns="http://www.openarchives.org/OAI/2.0/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.openarchives.org/OAI/2.0/ http://www.openarchives.org/OAI/2.0
+2026-11-14T00:54:17Z | oai-listidentifiers-periode | robots.txt interdit https://www.e-rara.ch/oai?verb=ListIdentifiers&metadataPrefix=oai_dc&from=2026-11-10&until=2026-11-14 (Disallow: /) ; lancé car autorisé par Marcel (C12)
+2026-11-14T00:54:24Z | oai-listidentifiers-periode | https://www.e-rara.ch/oai?verb=ListIdentifiers&metadataPrefix=oai_dc&from=2026-11-10&until=2026-11-14 | GET | 200 OK | aucun en-tête de limite | taille≥200 | corps: <OAI-PMH xmlns="http://www.openarchives.org/OAI/2.0/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.openarchives.org/OAI/2.0/ http://www.openarchives.org/OAI/2.0
+# Fin 2026-11-14T00:54:24Z — 6 requête(s) envoyée(s)
+# Session 2026-11-14T00:55:08Z — configuration erara-passe2-donnees.json — sonde probe.py au commit 2ee68ee
+2026-11-14T00:55:08Z | robots.txt:www.e-rara.ch | https://www.e-rara.ch/robots.txt | GET | 200 | 1 règle(s) pour « * »
+2026-11-14T00:55:08Z | ris-6341733 | robots.txt interdit https://www.e-rara.ch/zut/download/format/ris/6341733 (Disallow: /) ; lancé car autorisé par Marcel (C12)
+2026-11-14T00:55:15Z | ris-6341733 | https://www.e-rara.ch/zut/download/format/ris/6341733 | GET | 200 OK | aucun en-tête de limite | taille≥200 | corps: TY  - BOOK DO  - 10.3931/e-rara-20168 UR  - https://doi.org/10.3931/e-rara-20168 TI  - 2. Bericht der eidgenössischen Herrn Experten zur Besichtigung der Bernhardiner- und Splügner-Strasse, über de
+2026-11-14T00:55:15Z | ftpack-plain-6341733 | robots.txt interdit https://www.e-rara.ch/zut/download/ftpack/plain/6341733 (Disallow: /) ; lancé car autorisé par Marcel (C12)
+2026-11-14T00:55:23Z | ftpack-plain-6341733 | https://www.e-rara.ch/zut/download/ftpack/plain/6341733 | HEAD | 200 OK | aucun en-tête de limite | taille≥0 | corps: 
+2026-11-14T00:55:23Z | ftpack-alto-6341733 | robots.txt interdit https://www.e-rara.ch/zut/download/ftpack/alto/6341733 (Disallow: /) ; lancé car autorisé par Marcel (C12)
+2026-11-14T00:55:30Z | ftpack-alto-6341733 | https://www.e-rara.ch/zut/download/ftpack/alto/6341733 | HEAD | 200 OK | aucun en-tête de limite | taille≥0 | corps: 
+2026-11-14T00:55:30Z | pdf-6341733 | robots.txt interdit https://www.e-rara.ch/download/pdf/6341733.pdf (Disallow: /) ; lancé car autorisé par Marcel (C12)
+2026-11-14T00:55:37Z | pdf-6341733 | https://www.e-rara.ch/download/pdf/6341733.pdf | HEAD | 200 OK | aucun en-tête de limite | taille≥0 | corps: 
+2026-11-14T00:55:37Z | manifeste-6341733 | robots.txt interdit https://www.e-rara.ch/i3f/v20/6341733/manifest (Disallow: /) ; lancé car autorisé par Marcel (C12)
+2026-11-14T00:55:45Z | manifeste-6341733 | https://www.e-rara.ch/i3f/v20/6341733/manifest | GET | 200 OK | aucun en-tête de limite | taille≥8399 | corps: {"viewingHint":"paged","attribution":"e-rara, the platform for digitized rare books from Swiss institutions","service":[{"profile":"http://iiif.io/api/search/1/search","@context":"http://iiif.io/api/s
+# corps enregistré : tests/raw/manifeste-6341733.body (8399 octets lus)
+# Fin 2026-11-14T00:55:45Z — 6 requête(s) envoyée(s)

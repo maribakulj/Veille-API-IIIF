@@ -97,13 +97,57 @@
       "date": "2026-11-13",
       "etiquette": "tiers (profil d'API non officiel)",
       "citation": "Formes d'URL cudl.lib.cam.ac.uk/iiif/<id> et images.lib.cam.ac.uk/iiif/<id>.jp2/info.json (confirmées par nos tests) ; limites mentionnées sans chiffre (non vérifié).",
-      "preuve": "institutions/cudl/fiche.md"
+      "preuve": "institutions/cudl/fiche.md",
+      "categorie": "hors_perimetre"
     },
     {
       "url": "https://www.cambridge.org/core/legal-notices/terms",
       "date": "2026-11-13",
       "etiquette": "tiers — NON APPLICABLE (Cambridge University Press, autre organisme)",
       "citation": "Limite de 500 PDF par heure ; contacter openresearch@cambridge.org pour le téléchargement programmatique. Ne s'applique pas à CUDL.",
+      "preuve": "institutions/cudl/fiche.md",
+      "categorie": "hors_perimetre"
+    },
+    {
+      "categorie": "institution",
+      "url": "https://cudl.lib.cam.ac.uk/robots.txt",
+      "date": "2026-11-14",
+      "etiquette": "officielle (copie Wayback 2026-05-01 ; l'hôte renvoie 403 à notre sonde)",
+      "citation": "« User-agent: * » ; « Disallow: /search ».",
+      "preuve": "institutions/cudl/sources/wayback/robots.txt.copie-wayback.txt"
+    },
+    {
+      "categorie": "institution",
+      "url": "https://cudl.lib.cam.ac.uk/terms/",
+      "date": "2026-11-14",
+      "etiquette": "officielle (copie Wayback 2025-11-19)",
+      "citation": "Interdiction contractuelle de « systematically extract and/or re-utilise substantial parts of the Content or University Material from the site » ; aucune règle de débit.",
+      "preuve": "institutions/cudl/sources/wayback/terms.extraits-wayback.md"
+    },
+    {
+      "categorie": "presentations",
+      "url": "https://www.lib.cam.ac.uk/research/digital-humanities/case-studies/dynamic-digital-library-iiif-scoping-project",
+      "date": "2026-11-14",
+      "etiquette": "officielle",
+      "citation": "Étude de cas du projet IIIF de la Cambridge University Library : « JPEG2000 format for delivery images only » ; aucun quota ni règle de moissonnage (page lue).",
+      "preuve": "institutions/cudl/sources/suite/SHA256SUMS"
+    },
+    {
+      "categorie": "tickets",
+      "aucun_resultat": true,
+      "requete": "github issue cudl.lib.cam.ac.uk iiif manifest downloader error 403 OR 429",
+      "date": "2026-11-14",
+      "etiquette": "–",
+      "citation": "Aucun ticket d'outil sur des 403/429 de CUDL trouvé (résumé de moteur, non vérifié).",
+      "preuve": "institutions/cudl/fiche.md"
+    },
+    {
+      "categorie": "utilisateurs",
+      "aucun_resultat": true,
+      "requete": "Cambridge Digital Library \"cudl\" IIIF \"429\" OR \"blocked\" OR \"rate limit\" user forum manuscripts download",
+      "date": "2026-11-14",
+      "etiquette": "–",
+      "citation": "Aucun retour d'utilisateur sur des blocages de CUDL trouvé (résumé de moteur, non vérifié).",
       "preuve": "institutions/cudl/fiche.md"
     }
   ],
@@ -141,5 +185,49 @@
       "pourquoi": "échec DNS (hôte cudl.link non résolu) ; exemple tiré du README des services",
       "a_chercher": "Le service de transcription répond-il ? Quota, clé, conditions"
     }
+  ],
+  "endpoints_documentes": [
+    {
+      "famille": "Manifestes IIIF Presentation v2 (cudl.lib.cam.ac.uk/iiif/{id})",
+      "url": "https://cudl.lib.cam.ac.uk/iiif/MS-ADD-03958",
+      "statut": "teste",
+      "preuve": "institutions/cudl/tests/raw/manifeste-MS-ADD-03958.headers.txt"
+    },
+    {
+      "famille": "IIIF Image API (images.lib.cam.ac.uk)",
+      "url": "https://images.lib.cam.ac.uk/iiif/MS-ADD-03958-001-00001.jp2/info.json",
+      "statut": "teste",
+      "preuve": "institutions/cudl/tests/raw/image-info-json.headers.txt"
+    },
+    {
+      "famille": "API cudl-services (/v1/metadata, /v1/transcription, /v1/translation, /v1/xtf/similarity, /v1/rdb/membership)",
+      "url": "https://cudl.link/v1/metadata/",
+      "statut": "non_teste",
+      "raison": "Domaine cudl.link non résolu par DNS lors des passes précédentes ; aucune requête HTTP n'a pu aboutir, donc aucune preuve d'en-têtes."
+    },
+    {
+      "famille": "API cudl-services /v1/darwin (jeton)",
+      "url": "https://cudl.link/v1/darwin",
+      "statut": "non_teste",
+      "raison": "Route documentée comme exigeant un jeton ; pas de jeton, donc non sondée."
+    },
+    {
+      "famille": "Recherche /search",
+      "url": "https://cudl.lib.cam.ac.uk/search",
+      "statut": "non_teste",
+      "raison": "Interdite aux robots par le robots.txt (Disallow: /search) : aucune requête envoyée."
+    }
+  ],
+  "hotes_robots": [
+    {
+      "hote": "cudl.lib.cam.ac.uk",
+      "resultat": "Live : 403 CloudFront ; copie Wayback du 2026-05-01 : User-agent * ; Disallow /search ; pas de Crawl-delay",
+      "preuve": "institutions/cudl/sources/wayback/robots.txt.copie-wayback.txt"
+    }
+  ],
+  "rattrapage_a_faire": [
+    "https://cudl.link/robots.txt : lire le robots.txt (hôte cité par la config cudl-passe2-services.json ; DNS non résolu aux passes précédentes, à revérifier) avec scripts/fetch_doc.sh, puis ajouter l'entrée hotes_robots.",
+    "https://images.lib.cam.ac.uk/robots.txt : jamais lu ; le lire avec scripts/fetch_doc.sh puis ajouter l'entrée hotes_robots.",
+    "https://cudl.lib.cam.ac.uk/robots.txt : seule une copie Wayback existe (live 403) ; relire en direct si l'accès est rétabli."
   ]
 }

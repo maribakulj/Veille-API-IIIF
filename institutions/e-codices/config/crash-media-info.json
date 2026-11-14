@@ -1,0 +1,12 @@
+{
+  "slug": "e-codices",
+  "endpoint": {
+    "id": "media-info-json",
+    "url": "https://media.e-codices.ch/iip/fmb/fmb-cb-0100/fmb-cb-0100_e001.jp2/info.json",
+    "method": "GET"
+  },
+  "limite_documentee_req_min": null,
+  "source_limite": "aucune limite de débit documentée (https://www.e-codices.unifr.ch/en/about/terms : seulement le libre usage des métadonnées OAI)",
+  "duree_palier_s": 180,
+  "note": "info.json d'image IIIF 3 sur media.e-codices.ch (IIPImage), 200 dans le journal (media-info-json, 2026-11-14T00:47:59Z). Manifeste évité (470 ko)."
+}

@@ -16,9 +16,9 @@
 ### b) Endpoints tirés de la doc
 > Liste des endpoints citée par la doc (URL, exemples). Jamais devinée. Une interdiction ou une impossibilité écrite dans la doc justifie de renoncer (citer la phrase).
 
-- [x] **Fait**
-  - **Justification** : Endpoints documentés : API Catalogue /catalogue/v2/works (doc catalogue), instantanés works.json.gz et images.json.gz (doc datasets), IIIF Image /image/{id} (doc IIIF) ; manifestes /presentation/v2|v3/{id} (billet « Every manifest is available in both version 2 and version 3 »). Les identifiants viennent de réponses de l'API.
-  - **Preuves** : `institutions/wellcome/sources/v2/text/02.txt`, `institutions/wellcome/sources/v2/text/03.txt`, `institutions/wellcome/sources/v2b/text/01.txt`
+- [ ] **Pas fait**
+  - **Justification** : DÉCOCHÉE le 2026-11-14 (verrou renforcé) : URL d'API citée par la doc et ni testée ni justifiée : https://developers.wellcomecollection.org/api/catalogue (ajouter à endpoints_documentes, ou à endpoints_ecartes avec url + raison) | ancienne justification : Endpoints documentés : API Catalogue /catalogue/v2/works (doc catalogue), instantanés works.json.gz et images.json.gz (doc datasets), IIIF Image /image/{id} (doc IIIF) ; manifestes /presentation/v2|v3
+  - **Preuves** : 
 
 ### c) Configuration écrite AVANT les tests
 > `config/<nom>.json` pilote `scripts/probe.py`, committée avant le lancement. Un endpoint absent de la doc mais non interdit se teste avec un script poli (identifiants issus de pages publiques ou d'exemples de la doc, pas de devinette).
@@ -37,9 +37,9 @@
 ### e) Test systématique de chaque endpoint
 > Chaque endpoint documenté est testé (budget 15 requêtes par passe, pause ≥ 6 s, GET/HEAD, UA du projet). Redirections du même hôte suivies. Un 403 arrête son hôte, un 429 arrête l'institution. Seules les interdictions écrites dans la doc dispensent de tester.
 
-- [x] **Fait**
-  - **Justification** : Tous les endpoints documentés sont testés (6 passes) : catalogue, instantanés (HEAD), manifestes v2 et v3, images ouvertes ; 200 partout sauf info.json d'une œuvre restreinte (401). Aucun en-tête de limite, aucun 429. Incident : passe 3, 2 requêtes à 6 s au lieu de 30 s (BOM du robots.txt non reconnu par la sonde), corrigé pour les passes 4 à 6 (pauses de 30 s mesurées). Budget de 15 respecté par passe.
-  - **Preuves** : `institutions/wellcome/tests/journal.log`, `institutions/wellcome/tests/raw/iiif-image-ouverte-info-json.headers.txt`, `institutions/wellcome/tests/raw/catalogue-works-page1.headers.txt`
+- [ ] **Pas fait**
+  - **Justification** : DÉCOCHÉE le 2026-11-14 (verrou renforcé) : 3 élément(s) de rattrapage_a_faire non traités | ancienne justification : Tous les endpoints documentés sont testés (6 passes) : catalogue, instantanés (HEAD), manifestes v2 et v3, images ouvertes ; 200 partout sauf info.json d'une œuvre restreinte (401). Aucun en-tête de l
+  - **Preuves** : 
 
 ### f) Ce que disent les gens sur le web
 > Plaintes, discussions, présentations de l'institution, politique envers les API et les bots, blogs, GitHub, forums, listes de diffusion. Sources étiquetées (officielle / institution / utilisateur / tiers), lues, citées.
@@ -135,6 +135,13 @@ Les consignes plus récentes l'emportent sur les plus anciennes quand elles se c
 
 **C13 — pages illisibles : documenter, Marcel vérifie à la main (Marcel, 14/11/2026, mot pour mot)** : « non laisse tomber, je préfère juste que tu me le documente et j'irais voir moi même un par un, il me faudra un nouveau doc avec toutes les urls à vérifier manuellement pour chaque institutions, ça peut être par exemple un nouvel onglet du tableur excel »
 → Annule l'idée d'utiliser Chrome pour les 403. Chaque URL que la sonde ne peut pas lire (403, CAPTCHA, délai, TLS…) est listée dans `data.json`, champ `a_verifier_manuellement` (`url`, `pourquoi`, `a_chercher`), et apparaît dans l'onglet « À vérifier à la main » de `BENCHMARK.xlsx` (régénéré à chaque commit).
+
+**C14 — décisions de Marcel du 14/11/2026 (mots pour mot)**
+- « je veux que le verrou concerne tout ce qui a été coché et doit être aussi justifié, toutes les consignes de tout ce que tu dois faire pour chaque institution »
+- « ben oui t'as mon accord vu que je te l'ai demandé !!! » (crash test g) ; « et oui ça doit être fait institution par institution sinon verrou »
+- « 1 oui ok, 2 pourquoi ? 3 refais ces sessions » ; puis « je veux bien les exclure, mais comment être sûr que tu ne vas pas en profiter pour en exclure des légitimes ? »
+- « une fois que toutes les précautions auront été prises, tu pourras continuer la boucle avec des sous agents qui respectent bien la méthodologie, tu me confirmes que le verrou fonctionnera pour les sous agents ? »
+→ Appliqué : (1) verrou par étape cochée (a à g) et ordre strict ; (2) exclusion des pages de doc du contrôle de couverture **mécanique** (code 200 + HTML, sinon jamais) et listée dans l'onglet « Doc exclue » ; (3) sessions non conformes archivées dans `tests/archive/` puis rejouées ; (4) étape g obligatoire pour qu'une institution soit « terminée » ; (5) `probe.py`, `crash.py` et `fetch_doc.sh` refusent de se lancer si une institution antérieure n'est pas terminée.
 
 ---
 
@@ -321,4 +328,7 @@ Au moins **4 recherches web par institution**, une par catégorie : (1) politiqu
 ## Verrou d'ordre et commande `porte` (14/11/2026)
 - `python3 scripts/suivi.py porte [slug]` affiche ce qui manque (étapes, exigence v3, anomalies de journal) à l'institution en cours : on l'exécute **avant** de dire qu'une institution est finie. Elle indique la prochaine à traiter.
 - `validate` (donc le commit) échoue si une institution est commencée (configuration, journal ou étape cochée) alors qu'une institution **antérieure dans l'ordre du classeur** n'est pas terminée. Exemptions : institutions écartées ; `data/exigence_ancienne.txt` (faites avant l'exigence v3, à rattraper) ; `data/ancien_travail_haiku.txt` (commencées par l'ancienne méthode, à refaire : on les retire de la liste quand on les reprend).
+
+## Sous-agents (14/11/2026)
+Le verrou agit : (a) **au lancement** des outils officiels (`probe.py`, `crash.py`, `fetch_doc.sh` appellent `suivi.py autorise <slug>` et refusent si une institution antérieure n'est pas terminée, étape g comprise) ; (b) **au commit** (`validate`). Il n'agit pas sur un `curl` direct : les sous-agents reçoivent l'interdiction de `curl`/WebFetch vers les domaines d'institutions, et on vérifie dans `tests/journal.log` et les diffs qu'aucune requête n'est partie hors des outils. Un sous-agent traite **une seule institution à la fois**, dans l'ordre, et doit finir par `python3 scripts/suivi.py porte <slug>` affichant « TERMINÉE ». Les sous-agents ne commitent pas ; le commit est refusé tant que `validate` n'est pas au vert.
 <!-- CONSIGNE:FIN -->

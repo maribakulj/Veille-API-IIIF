@@ -152,14 +152,41 @@
       "date": "2026-11-13",
       "etiquette": "institution (position envers l'IA)",
       "citation": "« As a condition of accessing this website, you agree to abide by the following content signals » ; « Content-Signal: search=yes,ai-train=no,use=reference » ; « EXPRESS RESERVATIONS OF RIGHTS UNDER ARTICLE 4 OF THE EUROPEAN UNION DIRECTIVE 2019/790 »",
-      "preuve": "institutions/rijksmuseum/sources/v2/raw/09.html"
+      "preuve": "institutions/rijksmuseum/sources/v2/raw/09.html",
+      "categorie": "institution"
     },
     {
       "url": "https://data.rijksmuseum.nl/policy/information-and-data-policy",
       "date": "2024-07-17",
       "etiquette": "institution (politique)",
       "citation": "« The Rijksmuseum wishes that artificial intelligence (AI) technology that uses the museum's Information and Data adheres to the Rijksmuseum's Information and Data Policy and the museum's core values. »",
-      "preuve": "institutions/rijksmuseum/sources/v2/text/06.txt"
+      "preuve": "institutions/rijksmuseum/sources/v2/text/06.txt",
+      "categorie": "institution"
+    },
+    {
+      "categorie": "utilisateurs",
+      "url": "http://www.navigating.art/education/open-access-2026",
+      "date": "2026-11-14",
+      "etiquette": "utilisateur",
+      "citation": "Kiersten Thamm, « Almost frictionless: open access museum collections in practice in 2026 » (1er juin) : « No key or registration is required for any endpoint. » (Rijksmuseum) ; l'article ne parle d'aucune limite de débit pour le Rijksmuseum (page lue).",
+      "preuve": "institutions/rijksmuseum/fiche.md"
+    },
+    {
+      "categorie": "tickets",
+      "aucun_resultat": true,
+      "requete": "github issue rijksmuseum API new Linked Art search OAI-PMH rate limit OR blocked OR \"429\"",
+      "date": "2026-11-14",
+      "etiquette": "–",
+      "citation": "Aucun ticket GitHub/GitLab sur des 429, blocages ou limites des services data.rijksmuseum.nl ou iiif.micr.io trouvé (deux requêtes).",
+      "preuve": "institutions/rijksmuseum/fiche.md"
+    },
+    {
+      "categorie": "presentations",
+      "url": "https://engineering.q42.nl/webassembly-beyond-the-browser/",
+      "date": "2026-11-14",
+      "etiquette": "tiers",
+      "citation": "Marcel Duin (Q42, éditeur de Micrio), 24 mars 2022 : « Now, we serve multiple museums who have their own online collections » et « A plethora of requests end up on our poor image server. » (page lue)",
+      "preuve": "institutions/rijksmuseum/fiche.md"
     }
   ],
   "donnees_a_revalider": false,
@@ -174,5 +201,92 @@
       "pourquoi": "400 (réponse d'erreur, pas de robots.txt lisible)",
       "a_chercher": "Existe-t-il un robots.txt ? Règle sur les robots/API"
     }
+  ],
+  "endpoints_documentes": [
+    {
+      "famille": "Search API (Linked Art Search)",
+      "url": "https://data.rijksmuseum.nl/search/collection?type=painting&material=oil+paint",
+      "statut": "teste",
+      "preuve": "institutions/rijksmuseum/tests/raw/search-collection-peinture.headers.txt"
+    },
+    {
+      "famille": "Résolveur d'identifiants (Linked Art)",
+      "url": "https://data.rijksmuseum.nl/200107928",
+      "statut": "teste",
+      "preuve": "institutions/rijksmuseum/tests/raw/resolveur-200107928.headers.txt"
+    },
+    {
+      "famille": "OAI-PMH (EDM)",
+      "url": "https://data.rijksmuseum.nl/oai?verb=Identify",
+      "statut": "teste",
+      "preuve": "institutions/rijksmuseum/tests/raw/oai-identify.headers.txt"
+    },
+    {
+      "famille": "LDES (Linked Data Event Streams)",
+      "url": "https://data.rijksmuseum.nl/ldes/collection.json",
+      "statut": "teste",
+      "preuve": "institutions/rijksmuseum/tests/raw/ldes-collection.headers.txt"
+    },
+    {
+      "famille": "IIIF Change Discovery",
+      "url": "https://data.rijksmuseum.nl/cd/collection.json",
+      "statut": "teste",
+      "preuve": "institutions/rijksmuseum/tests/raw/iiif-cd-collection.headers.txt"
+    },
+    {
+      "famille": "IIIF Presentation (manifestes Micrio)",
+      "url": "https://iiif.micr.io/PJEZO/manifest",
+      "statut": "teste",
+      "preuve": "institutions/rijksmuseum/tests/raw/manifeste-PJEZO.headers.txt"
+    },
+    {
+      "famille": "IIIF Image (Micrio)",
+      "url": "https://iiif.micr.io/PJEZO/info.json",
+      "statut": "teste",
+      "preuve": "institutions/rijksmuseum/tests/raw/info-json-PJEZO.headers.txt"
+    },
+    {
+      "famille": "SRU (déprécié)",
+      "url": "https://data.rijksmuseum.nl/docs/",
+      "statut": "non_teste",
+      "raison": "Service documenté comme déprécié, remplacé par la Search API ; aucune raison de le solliciter pour un audit de quotas."
+    },
+    {
+      "famille": "Vidages de données (data dumps)",
+      "url": "https://data.rijksmuseum.nl/docs/data-dumps",
+      "statut": "non_teste",
+      "raison": "Téléchargements volumineux de données entières ; télécharger un vidage dépasse largement le budget de requêtes de l'audit et ne renseigne pas sur les limites."
+    },
+    {
+      "famille": "Ancienne API Collection (à clé, dépréciée)",
+      "url": "https://www.rijksmuseum.nl/api/",
+      "statut": "non_teste",
+      "raison": "Documentée comme dépréciée et bientôt retirée, exigeait une clé de compte que nous n'envoyons pas ; l'ancienne page de conditions est en 403, non lue."
+    }
+  ],
+  "hotes_robots": [
+    {
+      "hote": "data.rijksmuseum.nl",
+      "resultat": "404 : pas de robots.txt, tout autorisé (RFC 9309)",
+      "preuve": "institutions/rijksmuseum/sources/v2/FETCH.log"
+    },
+    {
+      "hote": "iiif.micr.io",
+      "resultat": "200 (2 702 o) : Content-Signal search=yes, ai-train=no, use=reference ; robots d'IA d'entraînement bloqués ; accès autorisé",
+      "preuve": "institutions/rijksmuseum/sources/v2/raw/09.html"
+    },
+    {
+      "hote": "id.rijksmuseum.nl",
+      "resultat": "400 : pas de robots.txt exploitable (réponse d'erreur de 24 o)",
+      "preuve": "institutions/rijksmuseum/sources/v2/FETCH.log"
+    },
+    {
+      "hote": "www.rijksmuseum.nl",
+      "resultat": "200 (280 o) : * autorisé sauf quelques chemins (recherche, connexion)",
+      "preuve": "institutions/rijksmuseum/sources/v2/FETCH.log"
+    }
+  ],
+  "rattrapage_a_faire": [
+    "https://rijks-web.azurewebsites.net/robots.txt et la page de conditions https://rijks-web.azurewebsites.net/en/data/terms-of-use (403 déjà constaté, non lue) : hôte de préproduction ; à ne relire que si Marcel le demande."
   ]
 }

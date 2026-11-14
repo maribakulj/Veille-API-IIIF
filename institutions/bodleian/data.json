@@ -90,28 +90,66 @@
       "date": "2025-07",
       "etiquette": "institution (poster LIBER 2025)",
       "citation": "« Our websites are grinding to a halt » ; « Web scraping is bringing our websites to a crawl » ; « Companies & scrapers are ignoring robots.txt » ; « How do we limit bots without losing human users? »",
-      "preuve": "institutions/bodleian/sources/poster/liber2025.pdf"
+      "preuve": "institutions/bodleian/sources/poster/liber2025.pdf",
+      "categorie": "presentations"
     },
     {
       "url": "https://blogs.bodleian.ox.ac.uk/digital/2026/10/01/implementing-our-ai-policy-hypothetical-use-cases/",
       "date": "2026-10-01",
       "etiquette": "institution (blog) — portée : dépôt ORA",
       "citation": "« avoiding the unrestricted, unannounced harvesting that has caused problems for the repository in the past. (This includes AI bots that ignore normal usage limits.) »",
-      "preuve": "institutions/bodleian/sources/blog-ia/text/01.txt"
+      "preuve": "institutions/bodleian/sources/blog-ia/text/01.txt",
+      "categorie": "presentations"
     },
     {
       "url": "http://www.bodleian.ox.ac.uk/sites/default/files/bodreader/documents/media/bodleian-libraries-ai-policy.pdf",
       "date": "2026",
       "etiquette": "institution (politique IA)",
       "citation": "« we may apply technical, contractual or other measures to manage these risks while preserving legitimate research and educational use of collections. »",
-      "preuve": "institutions/bodleian/sources/poster/bodleian-ai-policy.txt"
+      "preuve": "institutions/bodleian/sources/poster/bodleian-ai-policy.txt",
+      "categorie": "institution"
     },
     {
       "url": "https://groups.google.com/g/iiif-discuss/c/Z3GVdj6s61w",
       "date": "2017-11-13",
       "etiquette": "institution (message équipe Digital Bodleian), ancien, extraits",
       "citation": "« even a 500ms delay between requests would help moderate traffic » ; « We would like to avoid automated throttling of our connections if at all possible »",
-      "preuve": "institutions/bodleian/fiche.md (étape f)"
+      "preuve": "institutions/bodleian/fiche.md (étape f)",
+      "categorie": "institution"
+    },
+    {
+      "categorie": "institution",
+      "url": "https://digital.bodleian.ox.ac.uk/developer/iiif/",
+      "date": "2026-11-14",
+      "etiquette": "officielle",
+      "citation": "« You are welcome to harvest our manifests for the purposes of indexing or making our content available in aggregator services. However, if are expecting to harvest a significant number of manifests, we would ask that you get in touch »",
+      "preuve": "institutions/bodleian/fiche.md"
+    },
+    {
+      "categorie": "presentations",
+      "url": "https://groups.google.com/d/msg/iiif-discuss/NxoDJ93UWGk/Pg15sqhvEwAJ",
+      "date": "2026-11-14",
+      "etiquette": "institution (message équipe Digital Bodleian, 2018-09-10)",
+      "citation": "« Digital Bodleian received a major upgrade last week, and we have three exciting new developments to share » (annonce ; ne parle ni de débit ni de quota ; page lue)",
+      "preuve": "institutions/bodleian/fiche.md"
+    },
+    {
+      "categorie": "tickets",
+      "aucun_resultat": true,
+      "requete": "github issue iiif.bodleian.ox.ac.uk download manifest error 429 OR 403 OR timeout",
+      "date": "2026-11-14",
+      "etiquette": "–",
+      "citation": "Aucun ticket d'outil sur des 429/403/délais de iiif.bodleian.ox.ac.uk trouvé (résumé de moteur, non vérifié).",
+      "preuve": "institutions/bodleian/fiche.md"
+    },
+    {
+      "categorie": "utilisateurs",
+      "aucun_resultat": true,
+      "requete": "\"Digital Bodleian\" OR \"iiif.bodleian.ox.ac.uk\" blocked OR \"too many requests\" OR throttled researcher scraping forum",
+      "date": "2026-11-14",
+      "etiquette": "–",
+      "citation": "Aucun retour d'utilisateur sur des blocages ou 429 de Digital Bodleian trouvé (résumé de moteur, non vérifié) ; seul contexte général sur les bots.",
+      "preuve": "institutions/bodleian/fiche.md"
     }
   ],
   "classeur_id": "GLAM-002",
@@ -122,5 +160,66 @@
       "pourquoi": "400 « Bad request » (pas un robots.txt lisible) ; non lue ailleurs",
       "a_chercher": "Existe-t-il un robots.txt sur l'hôte IIIF ? Crawl-delay, Disallow, règle sur les robots/IA"
     }
+  ],
+  "endpoints_documentes": [
+    {
+      "famille": "IIIF Presentation (manifestes v2/v3, canvases, annotations, sequences)",
+      "url": "https://iiif.bodleian.ox.ac.uk/iiif/manifest/{uuid}.json",
+      "statut": "teste",
+      "preuve": "institutions/bodleian/tests/raw/manifeste-v2.headers.txt"
+    },
+    {
+      "famille": "IIIF Image API (info.json, dérivés)",
+      "url": "https://iiif.bodleian.ox.ac.uk/iiif/image/{id}/info.json",
+      "statut": "teste",
+      "preuve": "institutions/bodleian/tests/raw/image-info-json.headers.txt"
+    },
+    {
+      "famille": "IIIF collections et flux d'activité",
+      "url": "https://iiif.bodleian.ox.ac.uk/iiif/collection/all",
+      "statut": "teste",
+      "preuve": "institutions/bodleian/tests/raw/iiif-collection-all.headers.txt"
+    },
+    {
+      "famille": "Recherche /search (HTML et JSON-LD)",
+      "url": "https://digital.bodleian.ox.ac.uk/search/?q=",
+      "statut": "teste",
+      "preuve": "institutions/bodleian/tests/raw/search-jsonld.headers.txt"
+    },
+    {
+      "famille": "API de données (objects, partners, collections)",
+      "url": "https://digital.bodleian.ox.ac.uk/objects/{id}",
+      "statut": "teste",
+      "preuve": "institutions/bodleian/tests/raw/data-object-exemple.headers.txt"
+    },
+    {
+      "famille": "Compte /account/*",
+      "url": "https://digital.bodleian.ox.ac.uk/account/",
+      "statut": "non_teste",
+      "raison": "Exige une authentification (401) selon la doc : pas de compte, donc non sondé ; aucun quota publié pour cette famille."
+    }
+  ],
+  "hotes_robots": [
+    {
+      "hote": "digital.bodleian.ox.ac.uk",
+      "resultat": "200 : User-agent * ; Disallow /register/*, /logout/, /password/, /build/, /derivatives/ ; pas de Crawl-delay",
+      "preuve": "institutions/bodleian/sources/suite/raw/01.html"
+    },
+    {
+      "hote": "iiif.bodleian.ox.ac.uk",
+      "resultat": "400 Bad request (pas de robots.txt lisible)",
+      "preuve": "institutions/bodleian/sources/suite/raw/02.html"
+    }
+  ],
+  "endpoints_ecartes": [
+    {
+      "url": "https://digital.bodleian.ox.ac.uk/developer/iiif/",
+      "raison": "page de documentation développeur IIIF téléchargée et lue : HTTP 200 dans institutions/bodleian/sources/FETCH.log, listée dans sources/url-list.txt (texte dans sources/text/)"
+    }
+  ],
+  "rattrapage_a_faire": [
+    "https://digital.bodleian.ox.ac.uk/api/1/context.json : à tester par scripts/probe.py, config à committer avant (contexte JSON-LD cité par les exemples de réponse de la doc, sources/text/03.txt)",
+    "https://digital.bodleian.ox.ac.uk/search.xml : à tester par scripts/probe.py, config à committer avant (description OpenSearch XML déclarée dans <link rel=search> de sources/raw/04.html)",
+    "https://digital.bodleian.ox.ac.uk/faeff7fb-f8a7-44b5-95ed-cff9a9ffd198/search/?q=unicorn&page=4 : à tester par scripts/probe.py, config à committer avant (exemple de réponse de la doc, recherche à l'intérieur d'un objet, famille /{object_id}/search/?q non testée ; l'identifiant est celui de l'exemple, à remplacer par un vrai objet)"
   ]
 }

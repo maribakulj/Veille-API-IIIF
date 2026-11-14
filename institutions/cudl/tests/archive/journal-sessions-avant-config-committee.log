@@ -1,0 +1,18 @@
+# Sessions déplacées le 2026-11-14 : lancées avant le commit de leur configuration (non conformes à l'étape c). Conservées verbatim ; rejouées ensuite avec configuration committée avant lancement.
+
+# Session 2026-11-13T21:06:47Z — configuration cudl.json
+2026-11-13T21:06:47Z | manifeste-PR-FB-00886 | https://cudl.lib.cam.ac.uk/iiif/PR-FB-00886-00005-00006.json | GET | 302 OK | aucun en-tête de limite | taille≥0 | corps: 
+2026-11-13T21:06:53Z | manifeste-MS-ADD-03965 | https://cudl.lib.cam.ac.uk/iiif/MS-ADD-03965.json | GET | 302 OK | aucun en-tête de limite | taille≥0 | corps: 
+# Fin 2026-11-13T21:06:53Z — 2 requête(s) envoyée(s)
+# Session 2026-11-13T21:07:18Z — configuration cudl.json — sonde probe.py au commit 31f09d7
+2026-11-13T21:07:18Z | manifeste-PR-FB-00886-sans-json | https://cudl.lib.cam.ac.uk/iiif/PR-FB-00886-00005-00006 | GET | 200 OK | aucun en-tête de limite | taille≥200 | corps: {  "viewingDirection": "left-to-right",  "metadata": [   {    "label": "Uniform Title",    "value": "教務紀略"   },   {    "label": "Origin Place",    "value": "Japan"   },   {    "label": "Proven
+2026-11-13T21:07:30Z | manifeste-MS-ADD-03965-sans-json | https://cudl.lib.cam.ac.uk/iiif/MS-ADD-03965 | GET | 200 OK | aucun en-tête de limite | taille≥200 | corps: {  "viewingDirection": "left-to-right",  "metadata": [   {    "label": "Origin Place",    "value": "England"   },   {    "label": "Provenance",    "value": "From the Portsmouth Collection, donated by 
+# Fin 2026-11-13T21:07:30Z — 2 requête(s) envoyée(s)
+# Requêtes 3 à 5 (session 21:06 UTC) : sonde scripts/probe.py ; le 302 du .json (ci-dessous) a été lu par un HEAD via la fonction fetch de probe.py (même UA), pas par un curl brut.
+# Note : le .json suggéré par le guide iiif.io redirige (302, Location: PR-FB-00886-00005-00006) vers la forme sans extension, qui répond 200.
+# Non tenté : info.json d'image (aucune URL d'image documentée ; l'identifiant d'image est dans le corps du manifeste, que la sonde ne lit que sur 200 octets) ; endpoint métadonnées (cudl.link : DNS non résolu, aucune autre URL documentée) ; recherche Solr (doc : non publique, accessible seulement depuis le sous-réseau interne).
+# Bilan mis à jour : 7 requêtes au total sur 15 (2 de la 1re session, 5 de cette session) ; manifestes IIIF accessibles en 200 ; aucune limite de débit (ni en-tête, ni 429) observée sur 5 requêtes espacées de 6 s et plus (dont un HEAD).
+# Session 2026-11-13T22:08:03Z — configuration cudl.json — sonde probe.py au commit 6acf3f2
+2026-11-13T22:08:05Z | manifeste-PR-FB-00886-sans-json | https://cudl.lib.cam.ac.uk/iiif/PR-FB-00886-00005-00006 | GET | 200 OK | aucun en-tête de limite | taille≥200 | corps: {  "viewingDirection": "left-to-right",  "metadata": [   {    "label": "Uniform Title",    "value": "教務紀略"   },   {    "label": "Origin Place",    "value": "Japan"   },   {    "label": "Proven
+2026-11-13T22:08:11Z | manifeste-MS-ADD-03965-sans-json | https://cudl.lib.cam.ac.uk/iiif/MS-ADD-03965 | GET | 200 OK | aucun en-tête de limite | taille≥200 | corps: {  "viewingDirection": "left-to-right",  "metadata": [   {    "label": "Origin Place",    "value": "England"   },   {    "label": "Provenance",    "value": "From the Portsmouth Collection, donated by 
+# Fin 2026-11-13T22:08:11Z — 2 requête(s) envoyée(s)

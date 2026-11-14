@@ -145,20 +145,49 @@
       "date": "2026-11-13",
       "etiquette": "officielle (position de l'institution envers les robots)",
       "citation": "« Disallow: */manifest* » pour « User-agent: * » ; bloc « #Block AI crawlers » de 128 user-agents suivi de « Disallow: / ».",
-      "preuve": "institutions/eap-bl/sources/suite3/raw/03.html"
+      "preuve": "institutions/eap-bl/sources/suite3/raw/03.html",
+      "categorie": "institution"
     },
     {
       "url": "https://eap.bl.uk/reuse-collections-and-takedown-policy",
       "date": "2026-11-13",
       "etiquette": "officielle",
       "citation": "« we are not able to do this for large numbers of images or whole collections » (images haute résolution).",
-      "preuve": "institutions/eap-bl/sources/suite3/text/02.txt"
+      "preuve": "institutions/eap-bl/sources/suite3/text/02.txt",
+      "categorie": "institution"
     },
     {
       "url": "https://www.theartnewspaper.com/2024/10/14/british-library-slowly-resuming-service-after-cyber-attack",
       "date": "2024-10-14",
       "etiquette": "tiers (presse), lu en résumé",
       "citation": "Cyberattaque d'octobre 2023 ; restauration progressive des services en octobre 2024.",
+      "preuve": "institutions/eap-bl/fiche.md",
+      "categorie": "hors_perimetre"
+    },
+    {
+      "categorie": "utilisateurs",
+      "url": "https://gist.github.com/mahir256/26a33c833034995996b0513839c36129",
+      "date": "2026-11-14",
+      "etiquette": "utilisateur",
+      "citation": "Script tiers de téléchargement EAP par manifeste : pause fixe « sleep(3) » (« # Adjust this at will. »), 8 fils pour les tuiles, nouvel essai sans fin après 3 s en cas d'échec (page lue).",
+      "preuve": "institutions/eap-bl/fiche.md"
+    },
+    {
+      "categorie": "tickets",
+      "aucun_resultat": true,
+      "requete": "github issue eap.bl.uk manifest download tool Endangered Archives Programme IIIF",
+      "date": "2026-11-14",
+      "etiquette": "–",
+      "citation": "Aucun ticket GitHub/GitLab d'outil sur des erreurs ou limites de eap.bl.uk trouvé (résumé de moteur, non vérifié).",
+      "preuve": "institutions/eap-bl/fiche.md"
+    },
+    {
+      "categorie": "presentations",
+      "aucun_resultat": true,
+      "requete": "British Library Endangered Archives Programme blog presentation IIIF API AI crawlers bots traffic",
+      "date": "2026-11-14",
+      "etiquette": "–",
+      "citation": "Aucun billet ni présentation de l'EAP sur les robots d'IA ou l'API IIIF trouvé ; seuls des articles sectoriels généraux (résumé de moteur, non vérifié).",
       "preuve": "institutions/eap-bl/fiche.md"
     }
   ],
@@ -179,5 +208,46 @@
       "pourquoi": "404 (page introuvable, non lue)",
       "a_chercher": "Conditions d'utilisation de l'EAP : réutilisation, accès automatisé, limites, règle sur les robots/IA"
     }
+  ],
+  "endpoints_documentes": [
+    {
+      "famille": "Manifeste IIIF (…/archive-file/{id}/manifest)",
+      "url": "https://eap.bl.uk/archive-file/EAP099-1-2-5-2/manifest",
+      "statut": "non_teste",
+      "raison": "Documenté sur eap.bl.uk/tools, mais le robots.txt lu interdit « */manifest* » : aucune requête envoyée par respect de la règle, donc non testé."
+    },
+    {
+      "famille": "Outil de téléchargement JPEG (par manifeste)",
+      "url": "https://eap.bl.uk/tools",
+      "statut": "non_teste",
+      "raison": "Outil côté lecteur décrit sur la page Tools ; il dépend du manifeste interdit aux robots, aucune requête automatisée envoyée."
+    },
+    {
+      "famille": "Images IIIF (iiif.bl.uk)",
+      "url": "https://iiif.bl.uk/",
+      "statut": "non_teste",
+      "raison": "Hôte d'images de la BL, 403 anti-bot constaté pour l'institution voisine british-library ; aucun endpoint d'image documenté par l'EAP."
+    }
+  ],
+  "hotes_robots": [
+    {
+      "hote": "eap.bl.uk",
+      "resultat": "200 : User-agent * ; Disallow */manifest*, /search/ ; 128 robots d'IA bloqués (Disallow /)",
+      "preuve": "institutions/eap-bl/sources/suite3/raw/03.html"
+    },
+    {
+      "hote": "www.bl.uk",
+      "resultat": "200 : User-Agent * ; Allow /",
+      "preuve": "institutions/eap-bl/sources/suite3/raw/04.html"
+    }
+  ],
+  "endpoints_ecartes": [
+    {
+      "url": "https://eap.bl.uk/search",
+      "raison": "interface web destinée aux humains, sans API documentée associée ; lien « EXPLORE THE ARCHIVES » de la page d'accueil, sources/raw/01.html"
+    }
+  ],
+  "rattrapage_a_faire": [
+    "https://www.bl.uk/collection-guides/iiif : page de documentation non téléchargée par nos outils (absente des FETCH.log/url-list), à télécharger et lire avant de conclure (guide BL cité par sources/suite3/raw/06.html)"
   ]
 }

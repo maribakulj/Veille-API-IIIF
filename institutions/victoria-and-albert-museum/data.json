@@ -115,12 +115,114 @@
       "date": "2026-11-13",
       "etiquette": "institution (blog du V&A)",
       "citation": "Annonce de la nouvelle API ; aucune limite de débit mentionnée.",
-      "preuve": "institutions/victoria-and-albert-museum/sources/text/05.txt"
+      "preuve": "institutions/victoria-and-albert-museum/sources/text/05.txt",
+      "categorie": "institution"
+    },
+    {
+      "categorie": "presentations",
+      "url": "https://www.vam.ac.uk/blog/digital/iiif-at-the-va",
+      "date": "2026-11-14",
+      "etiquette": "institution",
+      "citation": "Billet « IIIF at the V&A » sur le blog du V&A, repéré par moteur ; aucune limite de débit lue. (résumé de moteur, non vérifié)",
+      "preuve": "institutions/victoria-and-albert-museum/fiche.md"
+    },
+    {
+      "categorie": "presentations",
+      "url": "https://developers.vam.ac.uk/ai/news/2025/11/mcp-server-trial/",
+      "date": "2026-11-14",
+      "etiquette": "institution",
+      "citation": "« AI apps are often poor at using APIs they've never seen before, frequently producing hallucinated or invalid parameters. » (billet de novembre 2025 sur un serveur MCP en essai) (résumé de moteur, non vérifié)",
+      "preuve": "institutions/victoria-and-albert-museum/fiche.md"
+    },
+    {
+      "categorie": "utilisateurs",
+      "aucun_resultat": true,
+      "requete": "V&A collections API framemark IIIF images forum problem \"vam.ac.uk\" iiif-discuss",
+      "date": "2026-11-14",
+      "etiquette": "–",
+      "citation": "Aucune plainte ni retour d'utilisateur sur des limites, 429 ou blocages du V&A trouvé ; seuls des guides V&A et des fiches de tiers (oanor.com, proxy commercial non officiel) sont sortis.",
+      "preuve": "institutions/victoria-and-albert-museum/fiche.md"
+    },
+    {
+      "categorie": "tickets",
+      "aucun_resultat": true,
+      "requete": "github issue \"api.vam.ac.uk\" rate limit OR 429 OR blocked",
+      "date": "2026-11-14",
+      "etiquette": "–",
+      "citation": "Aucun ticket GitHub/GitLab sur les limites ou blocages de api.vam.ac.uk trouvé (requêtes complémentaires : « V&A developers.vam.ac.uk OR api.vam.ac.uk github issue OR repository client library rate limit »).",
+      "preuve": "institutions/victoria-and-albert-museum/fiche.md"
     }
   ],
   "contact": "vaimages@vam.ac.uk (usage commercial) ; formulaire de retour de l'API",
   "conclusion_quota": "Indicatif : 3 000 appels par jour, un par seconde (hors conditions formelles) ; le V&A se réserve des clés d'API ou une limitation formelle. Aucun en-tête de limite, aucun 429.",
   "classe_quota": "limite documentée chiffrée (indicative)",
   "confiance": "élevée pour la règle écrite, moyenne pour l'application",
-  "notes": "Conditions de 2022 et de 2024 identiques sur ce point (résumé de recherche erroné corrigé). full/full non plafonné (2500×1597)."
+  "notes": "Conditions de 2022 et de 2024 identiques sur ce point (résumé de recherche erroné corrigé). full/full non plafonné (2500×1597).",
+  "endpoints_documentes": [
+    {
+      "famille": "API Collections v2 (objects/search, object/{id}, clusters, sayt)",
+      "url": "https://api.vam.ac.uk/v2/objects/search?q=Etruria&page_size=1",
+      "statut": "teste",
+      "preuve": "institutions/victoria-and-albert-museum/tests/raw/api-objects-search-etruria.headers.txt"
+    },
+    {
+      "famille": "IIIF Presentation (manifestes iiif.vam.ac.uk)",
+      "url": "https://iiif.vam.ac.uk/collections/O9138/manifest.json",
+      "statut": "teste",
+      "preuve": "institutions/victoria-and-albert-museum/tests/raw/iiif-manifeste-O9138.headers.txt"
+    },
+    {
+      "famille": "IIIF Image (framemark.vam.ac.uk)",
+      "url": "https://framemark.vam.ac.uk/collections/2016JF9061/info.json",
+      "statut": "teste",
+      "preuve": "institutions/victoria-and-albert-museum/tests/raw/framemark-info-json.headers.txt"
+    },
+    {
+      "famille": "Ancienne API de 2009 (toujours disponible selon le guide)",
+      "url": "https://developers.vam.ac.uk/",
+      "statut": "non_teste",
+      "raison": "Mentionnée par le guide (« previous API from 2009 is still available ») mais sans URL ni exemple dans nos sources ; l'URL exacte n'est pas connue, la deviner serait inventer."
+    },
+    {
+      "famille": "Serveur MCP du V&A (mcp.vam.ac.uk, essai)",
+      "url": "https://mcp.vam.ac.uk/",
+      "statut": "non_teste",
+      "raison": "Annoncé par un billet de novembre 2025 repéré par moteur seulement (non lu) ; service pour clients IA, hors périmètre IIIF et quotas ; le tester exigerait une requête réseau interdite à cette passe."
+    }
+  ],
+  "hotes_robots": [
+    {
+      "hote": "api.vam.ac.uk",
+      "resultat": "404 : pas de robots.txt, tout autorisé (RFC 9309)",
+      "preuve": "institutions/victoria-and-albert-museum/sources/FETCH.log"
+    },
+    {
+      "hote": "framemark.vam.ac.uk",
+      "resultat": "404 : pas de robots.txt, tout autorisé (RFC 9309)",
+      "preuve": "institutions/victoria-and-albert-museum/sources/FETCH.log"
+    },
+    {
+      "hote": "developers.vam.ac.uk",
+      "resultat": "200 (9 991 o) ; lu à l'étape a)",
+      "preuve": "institutions/victoria-and-albert-museum/sources/FETCH.log"
+    },
+    {
+      "hote": "www.vam.ac.uk",
+      "resultat": "200 (1 207 o) : User-agent *, nombreux Disallow, Crawl-delay: 2",
+      "preuve": "institutions/victoria-and-albert-museum/sources/FETCH.log"
+    }
+  ],
+  "rattrapage_a_faire": [
+    "GET https://iiif.vam.ac.uk/robots.txt (lecture unique, UA honnête, pas de passage par probe.py avant accord) : hôte des manifestes contacté par vam-passe1-api-manifeste.json, robots.txt jamais lu ; puis ajouter l'entrée dans hotes_robots avec la ligne de tests/journal.log ou sources/FETCH.log.",
+    "Hôte vanda-production-assets.s3.amazonaws.com (PDF des conditions) : robots.txt non lu ; hôte de stockage tiers, probablement sans objet, à trancher.",
+    "https://developers.vam.ac.uk/guide/v2/welcome.html : page de documentation non téléchargée par nos outils (absente des FETCH.log/url-list), à télécharger et lire avant de conclure (lien « developer docs » de sources/raw/05.html ; guide/v2/ est dans url-list.txt mais la page welcome n'est pas dans FETCH.log)",
+    "https://www.vam.ac.uk/api : page de documentation non téléchargée par nos outils (absente des FETCH.log/url-list), à télécharger et lire avant de conclure (documentation de l'ancienne API 2009, citée dans sources/raw/01.html comme « still available »)",
+    "https://www.vam.ac.uk/blog/wp-json/wp/v2/posts/67662 : à tester par scripts/probe.py, config à committer avant (point d'accès REST WordPress annoncé par <link rel=alternate> dans sources/raw/05.html ; non documenté comme API par le V&A, enjeu faible)"
+  ],
+  "endpoints_ecartes": [
+    {
+      "url": "https://www.vam.ac.uk/search",
+      "raison": "interface web destinée aux humains, sans API documentée associée ; lien de recherche du site (icône SEARCH) dans sources/raw/05.html"
+    }
+  ]
 }

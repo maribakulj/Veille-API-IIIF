@@ -134,7 +134,7 @@ def analyser_journal(slug):
             continue
         if ligne.startswith("#") or not ligne.strip():
             continue
-        if re.search(r"outil de lecture|WebFetch|lecture web", ligne, re.I):
+        if re.search(r"outil de lecture|WebFetch|lecture web|autorisé par Marcel \(C12\)", ligne, re.I):
             continue
         t, u = ISO.search(ligne), URL.search(ligne)
         if not (t and u) or "NON LANCÉ" in ligne:
@@ -220,6 +220,7 @@ def lire_suivi(slug):
 
 CATEGORIES_WEB = ("institution", "utilisateurs", "tickets", "presentations")
 ANCIENNES = REPO / "data" / "exigence_ancienne.txt"
+EXEMPT_ORDRE = REPO / "data" / "exemption_ordre_travail_anterieur.txt"  # décision de Marcel 14/11/2026 : travail antérieur au verrou, exempté de l'ORDRE seulement
 HAIKU = REPO / "data" / "ancien_travail_haiku.txt"  # commencées par l'ancienne méthode, à refaire dans l'ordre
 
 
@@ -227,42 +228,175 @@ def anciennes():
     return set(ANCIENNES.read_text(encoding="utf-8").split()) if ANCIENNES.exists() else set()
 
 
-def controle_v3(slug, d):
-    """Critères mesurables (exigence v3, 14/11/2026) : retourne la liste des manques."""
+MOTIF_API = re.compile(r"(?i)(/oai\b|oai\.php|/iiif|/i3f|/api\b|/api/|manifest|info\.json|/sparql|/rest/|ftpack|/download/|/search\b|/v[0-9]/|/services/)")
+
+
+def urls_api_dans_la_doc(slug, hotes):
+    """URL d'API citées par la doc téléchargée (sources/**/raw, text) sur les hôtes de l'institution : (hôte, 1er segment) -> exemple."""
+    trouvees = {}
+    for f in list((INST / slug / "sources").rglob("*.html")) + list((INST / slug / "sources").rglob("*.txt")) + \
+            list((INST / slug / "sources").rglob("*.md")):
+        if f.name in ("SHA256SUMS", "FETCH.log"):
+            continue
+        t = f.read_text(encoding="utf-8", errors="replace")
+        for u in re.findall(r"https?://[^\s\"'<>)\]\\]+", t):
+            u = u.rstrip(".,;:").replace("&amp;", "&")
+            sp = urlsplit(u)
+            if sp.netloc in hotes and MOTIF_API.search(sp.path or "/") and not re.search(r"\.(css|js|png|jpe?g|svg|ico|woff2?)$", sp.path):
+                seg = sp.path.strip("/").split("/")[0] if sp.path.strip("/") else ""
+                trouvees.setdefault((sp.netloc, seg), u)
+    return trouvees
+
+
+def docs_html_lues(slug):
+    """Pages de doc exclues du contrôle de couverture, de façon MÉCANIQUE : {(hôte, 1er segment): (url, fichier)}.
+    Conditions cumulatives : ligne de FETCH.log avec code 200 ET fichier téléchargé qui est de l'HTML
+    (un endpoint qui répond en JSON, XML, texte brut ou image n'est JAMAIS exclu)."""
+    out = {}
+    for log in (INST / slug / "sources").rglob("FETCH.log"):
+        lignes = [l for l in log.read_text(encoding="utf-8", errors="replace").splitlines() if re.match(r"\d{4}-\d\d-\d\dT", l)]
+        for i, l in enumerate(lignes, start=1):
+            parts = [x.strip() for x in l.split("|")]
+            if len(parts) < 4 or parts[1] != "200":
+                continue
+            raw = log.parent / "raw" / f"{i:02d}.html"
+            if not raw.exists():
+                continue
+            tete = raw.read_bytes()[:400].decode("utf-8", "replace").lstrip("\ufeff \n\r\t").lower()
+            if not (tete.startswith("<!doctype html") or tete.startswith("<html") or tete.startswith("<head") or "<html" in tete[:200]):
+                continue
+            sp = urlsplit(parts[3])
+            out[(sp.netloc, sp.path.strip("/").split("/")[0] if sp.path.strip("/") else "")] = (parts[3], str(raw.relative_to(REPO)))
+    return out
+
+
+def couverture_doc(slug, d):
+    hotes = {h.get("hote") for h in d.get("hotes_robots", [])}
+    couverts = {k for k in docs_html_lues(slug)}
+    sources = list(d.get("endpoints_documentes", [])) + list(d.get("endpoints_ecartes", []))
+    for f in (INST / slug / "config").glob("*.json"):
+        try:
+            sources += json.loads(f.read_text(encoding="utf-8")).get("endpoints", [])
+        except ValueError:
+            pass
+    for e in sources:
+        sp = urlsplit(e.get("url", ""))
+        couverts.add((sp.netloc, sp.path.strip("/").split("/")[0] if sp.path.strip("/") else ""))
+    return [f"URL d'API citée par la doc et ni testée ni justifiée : {u} (ajouter à endpoints_documentes, ou à endpoints_ecartes avec url + raison)"
+            for k, u in sorted(urls_api_dans_la_doc(slug, hotes).items()) if k not in couverts]
+
+
+def _git_ajout(path):
+    """Date (UTC) du premier commit qui a ajouté ce fichier, ou None."""
+    import subprocess
+    r = subprocess.run(["git", "log", "--diff-filter=A", "--format=%cI", "--", str(path)], cwd=REPO, capture_output=True, text=True)
+    l = [x for x in r.stdout.split() if x]
+    return datetime.fromisoformat(l[-1]).astimezone(__import__("datetime").timezone.utc) if l else None
+
+
+def config_avant_sessions(slug):
+    """C8/étape c : chaque session du journal doit citer une configuration committée AVANT son lancement."""
+    j = INST / slug / "tests" / "journal.log"
     m = []
-    cats = {w.get("categorie") for w in d.get("web", []) if w.get("categorie") in CATEGORIES_WEB
-            and (w.get("url") or (w.get("aucun_resultat") and w.get("requete")))}
-    if len(cats) < 4:
-        m.append(f"web : {len(cats)}/4 catégories ({', '.join(sorted(set(CATEGORIES_WEB) - cats))} manquantes ; "
-                 "champ « categorie » + url, ou aucun_resultat + requete)")
+    if not j.exists():
+        return m
+    for ts, cfg in re.findall(r"^# Session (\S+Z) — configuration (\S+\.json)", j.read_text(encoding="utf-8"), re.M):
+        f = INST / slug / "config" / cfg
+        t0 = datetime.fromisoformat(ts.replace("Z", "+00:00"))
+        c = _git_ajout(f.relative_to(REPO)) if f.exists() else None
+        if c is None:
+            m.append(f"session {ts} : configuration {cfg} absente ou jamais committée")
+        elif c > t0:
+            m.append(f"session {ts} : configuration {cfg} committée APRÈS le lancement ({c.isoformat()})")
+    return m
+
+
+def crash_manques(slug):
+    """Étape g : journal de crash test existant, terminé, avec configuration committée AVANT chaque lancement."""
+    j = INST / slug / "tests" / "crash" / f"{slug}.log"
+    if not j.exists():
+        return ["aucun journal de crash test (tests/crash/<slug>.log) : lancer scripts/crash.py"]
+    t = j.read_text(encoding="utf-8")
+    m = []
+    deb = re.findall(r"^# Crash test (\S+Z) — configuration (\S+\.json)", t, re.M)
+    if not deb:
+        m.append("journal de crash test sans session")
+    if len(re.findall(r"^# Fin ", t, re.M)) < len(deb):
+        m.append("crash test commencé mais non terminé (pas de ligne « # Fin »)")
+    for ts, cfg in deb:
+        f = INST / slug / "config" / cfg
+        c = _git_ajout(f.relative_to(REPO)) if f.exists() else None
+        t0 = datetime.fromisoformat(ts.replace("Z", "+00:00"))
+        if c is None:
+            m.append(f"crash test {ts} : configuration {cfg} absente ou jamais committée")
+        elif c > t0:
+            m.append(f"crash test {ts} : configuration {cfg} committée APRÈS le lancement")
+    return m
+
+
+def controle_par_etape(slug, d):
+    """Critères mesurables de TOUTES les consignes, rangés par étape : {a..f: [manques]}."""
+    E = {c: [] for c in "abcdefg"}
+    fiche = INST / slug / "fiche.md"
+    if not fiche.exists() or "onclusion" not in fiche.read_text(encoding="utf-8", errors="replace"):
+        E["d"].append("fiche.md absente ou sans section Conclusion")
+    if not list((INST / slug / "sources").rglob("SHA256SUMS")):
+        E["a"].append("aucun SHA256SUMS : documentation non hachée (sources/…/SHA256SUMS)")
+    hotes = {h.get("hote"): h for h in d.get("hotes_robots", [])}
+    if not hotes:
+        E["a"].append("hotes_robots vide (un robots.txt lu par hôte contacté ou cité)")
+    for h in hotes.values():
+        if not (h.get("preuve") and (REPO / h["preuve"]).exists()):
+            E["a"].append(f"robots.txt de {h.get('hote')} sans preuve existante")
     eps = d.get("endpoints_documentes", [])
     if not eps:
-        m.append("endpoints_documentes vide (une ligne par famille d'API : statut teste/non_teste, preuve ou raison)")
+        E["b"].append("endpoints_documentes vide (une ligne par famille d'API : teste / non_teste)")
     for e in eps:
         if e.get("statut") == "teste":
             if not (e.get("preuve") and (REPO / e["preuve"]).exists()):
-                m.append(f"endpoint « {e.get('famille')} » testé sans preuve existante")
+                E["e"].append(f"endpoint « {e.get('famille')} » testé sans preuve existante")
         elif e.get("statut") == "non_teste":
             if len(e.get("raison", "")) < 30:
-                m.append(f"endpoint « {e.get('famille')} » non testé sans raison suffisante")
+                E["e"].append(f"endpoint « {e.get('famille')} » non testé sans raison suffisante")
         else:
-            m.append(f"endpoint « {e.get('famille')} » sans statut teste/non_teste")
-    hotes = {h.get("hote"): h for h in d.get("hotes_robots", [])}
-    if not hotes:
-        m.append("hotes_robots vide (un robots.txt lu par hôte contacté)")
-    for h in hotes.values():
-        if not (h.get("preuve") and (REPO / h["preuve"]).exists()):
-            m.append(f"robots.txt de {h.get('hote')} sans preuve existante")
+            E["b"].append(f"endpoint « {e.get('famille')} » sans statut teste/non_teste")
+    for e in d.get("endpoints_ecartes", []):
+        if len(e.get("raison", "")) < 30:
+            E["b"].append(f"endpoint écarté {e.get('url')} sans raison suffisante")
+    E["b"] += couverture_doc(slug, d)
     for f in sorted((INST / slug / "config").glob("*.json")):
         try:
             cfg = json.loads(f.read_text(encoding="utf-8"))
         except ValueError:
+            E["c"].append(f"configuration {f.name} illisible")
             continue
         for ep in cfg.get("endpoints", []):
             h = re.sub(r"^https?://([^/]+)/.*$", r"\1", ep.get("url", ""))
             if h and h not in hotes:
-                m.append(f"hôte {h} contacté (config {f.name}) sans entrée hotes_robots")
-    return sorted(set(m))
+                E["c"].append(f"hôte {h} contacté (config {f.name}) sans entrée hotes_robots")
+    E["c"] += config_avant_sessions(slug)
+    E["g"] += crash_manques(slug)
+    for k in ("contact", "conclusion_quota", "classe_quota", "confiance"):
+        if not str(d.get(k) or "").strip():
+            E["d"].append(f"champ {k} vide")
+    for l in d.get("limites_documentees", []):
+        if not (l.get("verification") and l.get("source") and l.get("date")):
+            E["d"].append(f"limite « {l.get('nature')} » sans verification/source/date")
+    if d.get("rattrapage_a_faire"):
+        E["e"].append(f"{len(d['rattrapage_a_faire'])} élément(s) de rattrapage_a_faire non traités")
+    bloc = [b for b in d.get("blocages", []) if re.search(r"(?i)403|401|405|captcha|dns|tls|timeout|délai|reset", str(b.get("code", "")) + str(b.get("nature", "")))]
+    if bloc and not d.get("a_verifier_manuellement"):
+        E["e"].append("blocages (403/401/CAPTCHA/DNS/TLS/délai) sans aucune URL dans a_verifier_manuellement")
+    cats = {w.get("categorie") for w in d.get("web", []) if w.get("categorie") in CATEGORIES_WEB
+            and (w.get("url") or (w.get("aucun_resultat") and w.get("requete")))}
+    if len(cats) < 4:
+        E["f"].append(f"web : {len(cats)}/4 catégories ({', '.join(sorted(set(CATEGORIES_WEB) - cats))} manquantes)")
+    return E
+
+
+def controle_v3(slug, d):
+    """Tous les manques, toutes étapes confondues (liste plate triée)."""
+    return sorted({x for v in controle_par_etape(slug, d).values() for x in v})
 
 
 def ordre():
@@ -292,7 +426,7 @@ def manques_complets(slug):
     m = []
     if r is None:
         return ["CONSIGNE-ET-SUIVI.md absent"]
-    for c in "abcdef":
+    for c in "abcdefg":
         if r[1].get(c, (" ",))[0] != "x":
             m.append(f"étape {c}) non cochée")
     m += controle_v3(slug, lire_data(slug))
@@ -306,8 +440,6 @@ def termine(slug):
         return False
     if r[0] != "active":
         return True
-    if slug in anciennes():
-        return True
     return not manques_complets(slug)
 
 
@@ -316,7 +448,7 @@ def verrou_ordre():
     erreurs, o = [], ordre()
     for i, slug in enumerate(o):
         r = lire_suivi(slug)
-        if not r or r[0] != "active" or slug in anciennes() or slug in set(HAIKU.read_text().split() if HAIKU.exists() else []) or not commencee(slug):
+        if not r or r[0] != "active" or slug in set(HAIKU.read_text().split() if HAIKU.exists() else []) or slug in set(EXEMPT_ORDRE.read_text().split() if EXEMPT_ORDRE.exists() else []) or not commencee(slug):
             continue
         for prec in o[:i]:
             if not termine(prec):
@@ -324,6 +456,20 @@ def verrou_ordre():
                                f"({'; '.join(manques_complets(prec))[:200]})")
                 break
     return erreurs
+
+
+def cmd_autorise(slug):
+    """Utilisé par probe.py, crash.py, fetch_doc.sh : refuse de lancer du trafic pour une institution
+    dont une antérieure (ordre du classeur) n'est pas terminée (étapes a–g + exigences)."""
+    o = ordre()
+    if slug not in o:
+        return 0
+    for prec in o[:o.index(slug)]:
+        if not termine(prec):
+            print(f"REFUSÉ : {slug} ne peut pas être traitée avant {prec} (non terminée : "
+                  f"{'; '.join(manques_complets(prec))[:160]}). Lancer : python3 scripts/suivi.py porte {prec}")
+            return 1
+    return 0
 
 
 def cmd_porte(slug=None):
@@ -371,9 +517,12 @@ def cmd_validate():
             elif etat == "~":
                 if statut not in ("écartée", "abandonnée"):
                     erreurs.append(f"{slug}: étape {code}) « sans objet » réservé aux institutions écartées ou abandonnées")
-        if statut == "active" and etapes.get("f", (" ",))[0] == "x" and slug not in anciennes():
-            for manque in controle_v3(slug, lire_data(slug)):
-                erreurs.append(f"{slug}: exigence v3 : {manque}")
+        if statut == "active":
+            par = controle_par_etape(slug, lire_data(slug))
+            for code in "abcdefg":
+                if etapes.get(code, (" ",))[0] == "x":
+                    for manque in par[code]:
+                        erreurs.append(f"{slug}: étape {code}) cochée mais : {manque}")
         if statut == "active" and etapes.get("g", (" ",))[0] == "x" and any(etapes.get(c, (" ",))[0] != "x" for c in "abcdef"):
             erreurs.append(f"{slug}: crash test (g) coché avant l'audit complet (a à f)")
         for a in analyser_journal(slug)["anomalies"]:
@@ -421,6 +570,8 @@ def main():
         cmd_init()
     elif cmd == "sync":
         cmd_sync()
+    elif cmd == "autorise":
+        sys.exit(cmd_autorise(sys.argv[2]))
     elif cmd == "porte":
         sys.exit(cmd_porte(sys.argv[2] if len(sys.argv) > 2 else None))
     elif cmd == "validate":

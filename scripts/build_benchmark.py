@@ -12,6 +12,7 @@ Usage : python3 scripts/build_benchmark.py   (nécessite openpyxl)
 Sortie : BENCHMARK.xlsx à la racine du dépôt.
 """
 import subprocess
+from urllib.parse import urlsplit
 import sys
 from collections import Counter
 from datetime import datetime, timezone
@@ -297,6 +298,18 @@ def feuille_couverture(wb, D):
     ecrire(ws, 2, lignes or [["(aucune)"] + [""] * 4])
 
 
+def feuille_doc_exclue(wb, D):
+    """Pages de doc exclues du contrôle de couverture (HTML téléchargé, code 200) : à contrôler par Marcel."""
+    ws = wb.create_sheet("Doc exclue")
+    entete(ws, 1, ["Institution", "GLAM", "URL exclue", "Fichier téléchargé (preuve : HTML, code 200)"], [34, 11, 80, 70])
+    lignes = []
+    for d in D:
+        for (h, seg), (u, f) in sorted(suivi.docs_html_lues(d["slug"]).items()):
+            if suivi.MOTIF_API.search(urlsplit(u).path or "/"):
+                lignes.append([d.get("nom", d["slug"]), d.get("classeur_id"), u, f])
+    ecrire(ws, 2, lignes or [["(aucune)", "", "", ""]])
+
+
 def feuille_sources(wb, D):
     ws = wb.create_sheet("Sources")
     entete(ws, 1, ["Institution", "URL", "Date de lecture", "Étiquette", "Preuve (fichier)", "Preuve présente ?"],
@@ -355,6 +368,7 @@ def main():
     feuille_blocages(wb, D)
     feuille_manuel(wb, D)
     feuille_couverture(wb, D)
+    feuille_doc_exclue(wb, D)
     feuille_sources(wb, D)
     feuille_web(wb, D)
     feuille_preuves(wb, D)
