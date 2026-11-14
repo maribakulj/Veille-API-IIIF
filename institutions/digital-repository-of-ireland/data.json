@@ -4,10 +4,213 @@
   "pays": "Irlande",
   "classeur_id": "GLAM-070",
   "type": "Plateforme / consortium",
-  "statut_audit": "à faire",
+  "statut_audit": "audit a–f complet (v2) ; hôte repository.dri.ie en défi Cloudflare, tests d'API impossibles ; g impossible",
   "limites_documentees": [],
   "en_tetes_observes": [],
-  "blocages": [],
-  "sources": [],
-  "web": []
+  "blocages": [
+    {
+      "date": "2026-11-14",
+      "hote": "repository.dri.ie",
+      "code": "403",
+      "nature": "défi Cloudflare « Just a moment... » dès robots.txt",
+      "suite": "hôte arrêté (registre partagé) ; sonde : NON LANCÉ ; pages lues via Wayback"
+    },
+    {
+      "date": "2026-11-14",
+      "hote": "www.dri.ie",
+      "code": "403",
+      "nature": "défi Cloudflare « Just a moment... » dès robots.txt",
+      "suite": "hôte arrêté ; pages lues via Wayback"
+    }
+  ],
+  "sources": [
+    {
+      "url": "https://www.dri.ie/robots.txt",
+      "date": "2026-11-14",
+      "etiquette": "officielle (403 défi)",
+      "preuve": "institutions/digital-repository-of-ireland/sources/a1/SHA256SUMS"
+    },
+    {
+      "url": "https://repository.dri.ie/robots.txt",
+      "date": "2026-11-14",
+      "etiquette": "officielle (403 défi ; copie Wayback)",
+      "preuve": "institutions/digital-repository-of-ireland/sources/wayback/wayback-dri.md"
+    },
+    {
+      "url": "https://web.archive.org/web/20250820132742/https://dri.ie/standards-adoption/",
+      "date": "2026-11-14",
+      "etiquette": "officielle (réplique Wayback)",
+      "preuve": "institutions/digital-repository-of-ireland/sources/wayback/wayback-dri.md"
+    },
+    {
+      "url": "https://github.com/Digital-Repository-of-Ireland/dri-documentation",
+      "date": "2026-11-14",
+      "etiquette": "officielle (GitHub de l'institution)",
+      "preuve": "institutions/digital-repository-of-ireland/sources/a3/SHA256SUMS"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/Digital-Repository-of-Ireland/dri-documentation/main/developer-guide/01-api-doc.rst",
+      "date": "2026-11-14",
+      "etiquette": "officielle (GitHub de l'institution)",
+      "preuve": "institutions/digital-repository-of-ireland/sources/a5/SHA256SUMS"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/Digital-Repository-of-Ireland/dri-app/master/config/routes.rb",
+      "date": "2026-11-14",
+      "etiquette": "officielle (code de l'institution)",
+      "preuve": "institutions/digital-repository-of-ireland/sources/a6/SHA256SUMS"
+    }
+  ],
+  "web": [
+    {
+      "categorie": "institution",
+      "url": "https://web.archive.org/web/20250820132742/https://dri.ie/standards-adoption/",
+      "date": "2026-11-14",
+      "etiquette": "officielle",
+      "citation": "« providing an OAI-PMH feed for our metadata in Dublin Core and the Europeana Data Model (EDM). Metadata and data can also be accessed via a standards-compliant Application Programming Interface (API). » Aucune limite de débit.",
+      "preuve": "institutions/digital-repository-of-ireland/sources/wayback/wayback-dri.md"
+    },
+    {
+      "categorie": "utilisateurs",
+      "aucun_resultat": true,
+      "requete": "repository.dri.ie IIIF manifest 429 OR 503 OR blocked OR \"rate limit\" Digital Repository of Ireland scraping",
+      "date": "2026-11-14",
+      "etiquette": "–",
+      "citation": "aucune plainte de quota, 429 ou blocage concernant repository.dri.ie trouvée dans les résultats (résumé de moteur, non vérifié).",
+      "preuve": "institutions/digital-repository-of-ireland/fiche.md"
+    },
+    {
+      "categorie": "tickets",
+      "aucun_resultat": true,
+      "requete": "github issue \"repository.dri.ie\" IIIF OR dri.ie harvester connector manifest",
+      "date": "2026-11-14",
+      "etiquette": "–",
+      "citation": "aucun ticket d'outil tiers sur DRI trouvé ; seul un projet sans rapport (dlme-airflow) est remonté (résumé de moteur, non vérifié).",
+      "preuve": "institutions/digital-repository-of-ireland/fiche.md"
+    },
+    {
+      "categorie": "presentations",
+      "url": "https://www.slideshare.net/DermotFrost/digital-repository-of-ireland-66764731",
+      "date": "2026-11-14",
+      "etiquette": "présentation de l'institution (lue)",
+      "citation": "« We will soon be adding IIIF Image API and Presenta6on API support to the Repository » ; « The Repository supports batch ingest of large collec6ons through a command-line tool and REST API. » ; ni OAI-PMH ni limite de débit mentionnés.",
+      "preuve": "institutions/digital-repository-of-ireland/fiche.md"
+    }
+  ],
+  "contact": "dri@ria.ie (Digital Repository of Ireland, Royal Irish Academy, 19 Dawson Street, Dublin 2)",
+  "conclusion_quota": "Aucun quota ni limite de débit publiés dans la doc lisible (Standards Adoption, About, End User Agreement, dépôt dri-documentation). IIIF (Presentation + Image via Riiif), OAI-PMH (DC/EDM) et API (page repository.dri.ie/api-docs, Swagger/rswag) existent ; repository.dri.ie et dri.ie sont derrière un défi Cloudflare Turnstile (403 dès la 1re requête) : un accès automatisé n'est pas possible depuis ce client, aucune limite chiffrée n'a pu être observée.",
+  "classe_quota": "aucun quota trouvé",
+  "confiance": "faible",
+  "notes": "Hôtes en défi Cloudflare dès robots.txt (403, 2026-11-14T03:40Z) : jamais contourné. Lecture via Wayback et via le dépôt GitHub de l'institution (routes.rb, Gemfile, initializers). Le dépôt dri-app contient config/initializers/cloudflare_turnstile.rb (rails-cloudflare-turnstile, fail_open = true), ce qui est cohérent avec le défi observé.",
+  "a_verifier_manuellement": [
+    {
+      "url": "https://repository.dri.ie/api-docs",
+      "pourquoi": "hôte en défi Cloudflare (403) et aucune capture Wayback ; page API Documentation (rswag) citée par dri-documentation/developer-guide/01-api-doc.rst",
+      "a_chercher": "Limites de débit, clés ou conditions d'usage de l'API ; exemples d'URL IIIF et OAI"
+    },
+    {
+      "url": "https://repository.dri.ie/robots.txt",
+      "pourquoi": "403 défi Cloudflare ; copie Wayback de juillet 2025 seulement (aucune règle active)",
+      "a_chercher": "robots.txt actuel : Crawl-delay ou Disallow"
+    },
+    {
+      "url": "https://dri.ie/standards-adoption/",
+      "pourquoi": "403 défi Cloudflare ; lue dans le Wayback (août 2025)",
+      "a_chercher": "Version actuelle, mention éventuelle d'une politique d'usage de l'API / OAI-PMH"
+    },
+    {
+      "url": "https://dri.ie/about-us/",
+      "pourquoi": "403 défi Cloudflare ; lue dans le Wayback (déc. 2023)",
+      "a_chercher": "Pages Licensing Statement, FAQs et Privacy Policy du pied de page, jamais lues (URL inconnues)"
+    },
+    {
+      "url": "https://github.com/Digital-Repository-of-Ireland",
+      "pourquoi": "hôte GitHub lu en 200 comme source de doc (aucun blocage) ; ce n'est pas une API de DRI, donc hors crash test (g)",
+      "a_chercher": "Rien : seulement relire le code de routes.rb et la liste des dépôts si besoin"
+    },
+    {
+      "url": "https://api.github.com/orgs/Digital-Repository-of-Ireland/repos",
+      "pourquoi": "hôte GitHub lu en 200 comme source de doc (aucun blocage) ; ce n'est pas une API de DRI, donc hors crash test (g)",
+      "a_chercher": "Rien : seulement relire le code de routes.rb et la liste des dépôts si besoin"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/Digital-Repository-of-Ireland/dri-app/master/config/routes.rb",
+      "pourquoi": "hôte GitHub lu en 200 comme source de doc (aucun blocage) ; ce n'est pas une API de DRI, donc hors crash test (g)",
+      "a_chercher": "Rien : seulement relire le code de routes.rb et la liste des dépôts si besoin"
+    }
+  ],
+  "endpoints_documentes": [
+    {
+      "famille": "API REST documentée (Swagger/rswag)",
+      "url": "https://repository.dri.ie/api-docs",
+      "statut": "non_teste",
+      "raison": "hôte repository.dri.ie en défi Cloudflare (403 sur robots.txt) : la sonde l'a sauté (journal, NON LANCÉ) et on ne contourne pas"
+    },
+    {
+      "famille": "IIIF Presentation (manifeste, collection)",
+      "url": "https://repository.dri.ie/iiif/:id/manifest",
+      "statut": "non_teste",
+      "raison": "hôte en défi Cloudflare ; de plus aucun identifiant public n'est donné par la doc lisible (routes.rb : iiif/:id/manifest, iiif/collection/:id), on n'en devine pas"
+    },
+    {
+      "famille": "IIIF Image (Riiif, /images)",
+      "url": "https://repository.dri.ie/images",
+      "statut": "non_teste",
+      "raison": "hôte en défi Cloudflare ; identifiant d'image non fourni par la doc (montage Riiif::Engine à /images dans routes.rb), pas de devinette"
+    },
+    {
+      "famille": "OAI-PMH (Dublin Core, EDM)",
+      "url": "https://repository.dri.ie/ (route oai_pmh)",
+      "statut": "non_teste",
+      "raison": "hôte en défi Cloudflare ; chemin exact de l'entrée OAI non publié dans la doc lisible (routes.rb montre seulement le contrôleur oai_pmh), pas de devinette"
+    }
+  ],
+  "endpoints_ecartes": [
+    {
+      "url": "http://projectmirador.org/",
+      "raison": "site du viewer Mirador cité par user-guide/03-tools.rst : documentation d'un outil tiers, pas une API de DRI"
+    },
+    {
+      "url": "https://github.com/Digital-Repository-of-Ireland/dri-app",
+      "raison": "dépôt de code source, pas une API : lu comme source (routes.rb) via raw.githubusercontent.com"
+    },
+    {
+      "url": "https://api.github.com/cmc_internal/api",
+      "raison": "URL de l'API GitHub issue de la liste des dépôts de l'organisation (sources/a2/raw/04.html), pas une API de DRI ; GitHub est lu comme source de doc, non audité"
+    },
+    {
+      "url": "https://api.github.com/repos/Digital-Repository-of-Ireland/iiif-discovery",
+      "raison": "URL de l'API GitHub issue de la liste des dépôts de l'organisation (sources/a2/raw/04.html), pas une API de DRI ; GitHub est lu comme source de doc, non audité"
+    }
+  ],
+  "hotes_robots": [
+    {
+      "hote": "repository.dri.ie",
+      "resultat": "403 défi Cloudflare ; copie Wayback juillet 2025 : aucune règle active",
+      "preuve": "institutions/digital-repository-of-ireland/sources/wayback/wayback-dri.md"
+    },
+    {
+      "hote": "www.dri.ie",
+      "resultat": "403 défi Cloudflare ; copie Wayback jan. 2026 : Disallow /?s= et /search/, pas de Crawl-delay",
+      "preuve": "institutions/digital-repository-of-ireland/sources/wayback/wayback-dri.md"
+    },
+    {
+      "hote": "github.com",
+      "resultat": "200, robots.txt lu (hôte de documentation uniquement)",
+      "preuve": "institutions/digital-repository-of-ireland/sources/a2/SHA256SUMS"
+    },
+    {
+      "hote": "api.github.com",
+      "resultat": "404 : pas de robots.txt, tout autorisé",
+      "preuve": "institutions/digital-repository-of-ireland/sources/a8/SHA256SUMS"
+    },
+    {
+      "hote": "raw.githubusercontent.com",
+      "resultat": "404 : pas de robots.txt, tout autorisé",
+      "preuve": "institutions/digital-repository-of-ireland/sources/a8/SHA256SUMS"
+    }
+  ],
+  "g_impossible": {
+    "raison": "Les deux hôtes (repository.dri.ie et www.dri.ie) répondent par un défi Cloudflare 403 dès robots.txt ; aucun endpoint n'est testable, donc aucun crash test possible sans contournement."
+  }
 }
