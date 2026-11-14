@@ -1,0 +1,12 @@
+{
+  "slug": "slub",
+  "endpoint": {
+    "id": "slub-image-info-json",
+    "url": "https://images.iiif.slub-dresden.de/iiif/2/data%2Fkitodo%2FAdrefdiS_1741646995-18800000%2FAdrefdiS_1741646995-18800000_tif%2Fjpegs%2F00000001.tif.medium.jpg/info.json",
+    "method": "GET"
+  },
+  "limite_documentee_req_min": null,
+  "source_limite": "aucune limite de débit documentée pour l'hôte d'images (robots.txt 404) ; Request-rate 10/1m du robots.txt de sachsen.digital ne vise pas cet hôte (https://sachsen.digital/robots.txt)",
+  "duree_palier_s": 180,
+  "note": "info.json d'image IIIF 2 (Cantaloupe), 200 dans le journal (p2-image-info-json, 2026-11-14T03:26:52Z)."
+}

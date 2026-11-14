@@ -1,0 +1,386 @@
+Resources | SLUB - LOD API documentation Skip to main content Menu Expand (external link) Document Search Copy Copied 
+ Home 
+ API endpoints /search 
+ /source 
+ /{entity_index} 
+ /{authority_provider} 
+ /reconcile 
+ Entity Types Resources 
+ Persons 
+ Organizations 
+ Events 
+ Places 
+ Works 
+ Topics 
+ Mappings MARC21 
+ Data Sources 
+ Exploratory Search 
+ Contact 
+ Try API 
+ This site uses Just the Docs , a documentation theme for Jekyll. 
+ Search SLUB - LOD API documentation 
+ LOD API documentation on GitHub 
+ Entity Types 
+ Resources 
+ Resources 
+ Resource 
+ property Type multi-/ single valued example 
+ @context URI s https://raw.githubusercontent.com/slub/esmarc/master/conf/context.jsonld 
+ @id URI s https://data.slub-dresden.de/resources/1391959485 
+ @type URI s http://schema.org/CreativeWork 
+ Thesis literal s Darmstadt, Univ., Diss., 1927 
+ about list m [[{'@id': 'https://data.slub-dresden.de/topics/096631023', 'name': 'Biographie'}, {'@id': 'https://data.slub-dresden.de/topics/096631007', 'name': 'Bibliographie'}]] 
+ accessMode literal s online 
+ additionalInfo list of objects m [{'@type': 'otherNote', 'description': 'Verf. ermittelt'}, {'@type': 'originalLocationNote', 'holder': 'SLUB Dresden', 'originalShelfMark': 'Biogr.erud.D.2169.n'}] 
+ cartographicData object s {'scale': '1:1 200 000'} 
+ classifications list of objects m [{'@type': 'CategoryCodeSet', '@id': 'http://uri.gbv.de/terminology/bk/', 'name': 'Basisklassifikation', 'alternateName': ['BKL', 'BK'], 'sameAs': 'https://www.wikidata.org/wiki/Q29938469', 'CategoryCodes': [{'@type': 'CategoryCode', '@id': 'http://uri.gbv.de/terminology/bk/44.01', 'codeValue': '44.01'}]}] 
+ collection list of objects m [{'preferredName': 'SSG Allgemeine Kunstwissenschaft, Mittlere und neuere Kunstgeschichte bis 1945', 'abbr': '9,10'}] 
+ contributor list of objects m [{'@type': 'Person', '@id': 'https://data.slub-dresden.de/persons/137030290', 'name': 'Maty, Matthew', 'sameAs': 'https://d-nb.info/gnd/10103024X', 'roles': [{'@type': 'Role', '@id': 'https://id.loc.gov/vocabulary/relators/aut', 'name': 'Author'}]}, {'@type': 'Person', '@id': 'https://data.slub-dresden.de/persons/133733637', 'name': 'Boerhaave, Herman', 'sameAs': 'https://d-nb.info/gnd/118660829', 'roles': [{'@type': 'Role', '@id': 'https://id.loc.gov/vocabulary/relators/oth', 'name': 'Other'}]}, {'@type': 'Person', 'name': 'Reinhold, Theodor Gottlieb', 'roles': [{'@type': 'Role', '@id': 'https://id.loc.gov/vocabulary/relators/prt', 'name': 'Printer'}]}] 
+ dateModified literal s 2022-05-28T14:05:34Z 
+ datePublished object s {'dateOrigin': '2010', 'dateParsed': '2010'} 
+ description literal s This paper accounts for the observed increase in unemployment duration relative to the unemployment rate in the U.S. over the past thirty years, typified by the record low level of short-term unemployment. We show that part of the increase is due to changes in how duration is measured, a consequence of the 1994 Current Population Survey redesign. Another part is due to the passage of the baby boomers into their prime working years. After accounting for these shifts, most of the remaining increase in unemployment duration relative to the unemployment rate is concentrated among women, whose unemployment rate has fallen sharply in the last two decades while their unemployment duration has increased. Using labor market transition data, we show that this is a consequence of the increase in women's labor force attachment 
+ editionSequence literal s 1991/92(1992) - 1992/93(1993); 1995/96(1996) - 1996/97(1997) 
+ editionStatement literal s New ed., prepared by Betty Kirkpatrick. 10. impr. 
+ genre list of objects m [{'@type': 'Text', 'Text': ['Biographie', 'Bibliographie']}] 
+ identifiedBy list of objects m [{'@type': 'VD-18', 'validValues': ['VD18 10232028']}, {'@type': 'OCLC', 'validValues': ['699625987']}] 
+ identifier list of objects m [{'@id': 'https://nbn-resolving.org/urn:nbn:de:bsz:14-ppn3219594852', '@type': 'PropertyValue', 'propertyID': 'urn', 'value': 'urn:nbn:de:bsz:14-ppn3219594852'}] 
+ isBasedOn URI s https://data.slub-dresden.de/source/kxp-de14/1391959485 
+ isPartOf list of objects m [{'@id': 'https://data.slub-dresden.de/resources/1105854167', 'position': '2', 'mainTitle': 'Zur Kenntnis und Würdigung der Mittelalterlichen Altäre Deutschlands', 'partStatement': '2 Mit 100 photogr. Tafeln', 'name': 'Zur Kenntnis und Würdigung der Mittelalterlichen Altäre Deutschlands. 2 Mit 100 photogr. Tafeln'}] 
+ language list of objects m [{'@type': 'CategoryCode', '@id': 'http://id.loc.gov/vocabulary/iso639-2/ger', 'codeValue': 'ger', 'name': {'en': 'German', 'de': 'Deutsch'}, 'inCodeSet': 'http://id.loc.gov/vocabulary/iso639-2'}] 
+ license literal s Public Domain Mark 1.0 
+ location list of objects m [{'@type': 'Publication place', 'preferredName': 'Leipzig', '@id': 'https://data.slub-dresden.de/geo/104798998'}, {'@type': 'Publication place', 'preferredName': 'Freiberg', '@id': 'https://data.slub-dresden.de/geo/104746033'}] 
+ mentions list of objects m [{'@type': 'Genre', '@id': 'https://data.slub-dresden.de/topics/096631023', 'preferredName': 'Biographie', 'name': 'Biographie'}, {'@type': 'Genre', '@id': 'https://data.slub-dresden.de/topics/096631007', 'preferredName': 'Bibliographie', 'name': 'Bibliographie'}, {'@type': 'Person', 'sameAs': 'https://d-nb.info/gnd/118660829', '@id': 'https://data.slub-dresden.de/persons/133733637', 'preferredName': 'Boerhaave, Herman', 'name': 'Boerhaave, Herman', 'date': '1668-1738'}] 
+ numberOfPages None s 7 
+ offers object s {'@type': 'Offer', 'offeredBy': {'@id': 'https://data.slub-dresden.de/organizations/191800287', '@type': 'Library', 'name': 'Sächsische Landesbibliothek – Staats- und Universitätsbibliothek Dresden', 'branchCode': 'DE-14'}, 'availability': 'https://katalog.slub-dresden.de/id/0-1391959485'} 
+ originalLanguage list of objects m [{'@type': 'CategoryCode', '@id': 'http://id.loc.gov/vocabulary/iso639-2/yid', 'codeValue': 'yid', 'name': {'en': 'Yiddish', 'de': 'Jiddisch'}, 'inCodeSet': 'http://id.loc.gov/vocabulary/iso639-2'}] 
+ originalPublisher list of objects m [{'@type': 'Organization', 'name': 'Reinhold', 'location': {'@type': 'Place', 'name': 'Leipzig, Freyberg'}}] 
+ pageStart literal s 2 
+ partOfSeries list of objects m [{'@id': 'https://data.slub-dresden.de/resources/1382640374', 'name': 'Drucke des 18. Jahrhunderts'}] 
+ physical_description object s {'extent': '[16] Bl., 160 S.', 'dimensions': '8o', 'reproduction_extent': 'Online-Ressource'} 
+ preferredName literal s Versuch über den Character des Grossen Arztes, oder Kritische Lebensbeschreibung Herrn D. Herrmann Boerhaves nebst einem Verzeichnisse der Boerhavischen Schriften 
+ publisher list of objects m [{'@type': 'Organization', 'name': 'SLUB', 'location': {'@type': 'Place', 'name': 'Dresden'}}] 
+ relatedEvent list of objects m [{'sameAs': 'https://d-nb.info/gnd/1800228-6', '@id': 'https://data.slub-dresden.de/events/04077774X', 'name': 'KTB-Schwerpunkt-Kolloquium', 'position': '7'}] 
+ relations list of objects m [{'@id': 'https://data.slub-dresden.de/resources/1105646599', 'name': 'Versuch über den Character des Grossen Arztes, oder Kritische Lebensbeschreibung Herrn D. Herrmann Boerhaves / Maty, Matthew, 1718 - 1776', 'relationType': 'Druckausg.'}] 
+ reproductionSeriesStatement list of objects m [{'name': ['VD18 digital', 'Drucke des 18. Jahrhunderts']}] 
+ reproductionType literal s Online-Ausg. 
+ sameAs list of objects m [{'@id': 'https://opac.k10plus.de/DB=2.299/PPNSET?PPN=1391959485', 'publisher': {'preferredName': 'K10Plus', '@id': 'https://ld.zdb-services.de/resource/organisations/DE-627', 'abbr': 'KXP'}, 'isBasedOn': {'@type': 'Dataset', '@id': 'https://data.slub-dresden.de/source/kxp-de14/1391959485'}}, {'@id': 'https://swb.bsz-bw.de/DB=2.1/PPNSET?PPN=1391959485', 'publisher': {'@id': 'https://ld.zdb-services.de/resource/organisations/DE-576', 'preferredName': 'Bibliotheksservice-Zentrum Baden-Württemberg (BSZ)', 'abbr': 'BSZ'}, 'isBasedOn': {'@type': 'Dataset', '@id': 'https://data.slub-dresden.de/source/kxp-de14/1391959485'}}] 
+ seriesStatement list of objects m [{'name': 'Klett-Lektürehilfen'}] 
+ title object s {'preferredName': 'Versuch über den Character des Grossen Arztes, oder Kritische Lebensbeschreibung Herrn D. Herrmann Boerhaves : nebst einem Verzeichnisse der Boerhavischen Schriften / [Matthew Maty]', 'mainTitle': 'Versuch über den Character des Grossen Arztes, oder Kritische Lebensbeschreibung Herrn D. Herrmann Boerhaves', 'subTitle': 'nebst einem Verzeichnisse der Boerhavischen Schriften', 'responsibilityStatement': '[Matthew Maty]'} 
+ usageInfo list of objects m [{'@type': 'accessState', 'name': 'Open Access', 'sameAs': 'http://purl.org/coar/access_right/c_abf2'}, {'@type': 'licenceState', 'name': 'Public Domain Mark 1.0', 'alternateName': 'PDM 1.0', 'sameAs': 'http://creativecommons.org/publicdomain/mark/1.0/'}] 
+ Origin 
+ See MARC21-mapping: Resources Example 
+ $ curl -XGET "https://data.slub-dresden.de/resources/1391959485" | jq '.' 
+ Structure 
+ [ 
+ { 
+ "@type" : "http://schema.org/CreativeWork" , 
+ "@context" : "https://raw.githubusercontent.com/slub/esmarc/master/conf/context.jsonld" , 
+ "@id" : "https://data.slub-dresden.de/resources/1391959485" , 
+ "identifier" : […] , 
+ "offers" : {…} , 
+ "dateModified" : "2022-05-28T14:05:34Z" , 
+ "sameAs" : […] , 
+ "title" : {…} , 
+ "preferredName" : "Versuch über den Character des Grossen Arztes, oder Kritische Lebensbeschreibung Herrn D. Herrmann Boerhaves nebst einem Verzeichnisse der Boerhavischen Schriften" , 
+ "contributor" : […] , 
+ "genre" : […] , 
+ "license" : "Public Domain Mark 1.0" , 
+ "about" : […] , 
+ "mentions" : […] , 
+ "physical_description" : {…} , 
+ "reproductionType" : "Online-Ausg." , 
+ "additionalInfo" : […] , 
+ "classifications" : […] , 
+ "accessMode" : "online" , 
+ "identifiedBy" : […] , 
+ "language" : […] , 
+ "partOfSeries" : […] , 
+ "reproductionSeriesStatement" : […] , 
+ "relations" : […] , 
+ "usageInfo" : […] , 
+ "publisher" : […] , 
+ "originalPublisher" : […] , 
+ "datePublished" : {…} , 
+ "location" : […] , 
+ "isBasedOn" : "https://data.slub-dresden.de/source/kxp-de14/1391959485" , 
+ } 
+ ] 
+ In Detail 
+ [ 
+ { 
+ "@type" : "http://schema.org/CreativeWork" , 
+ "@context" : "https://raw.githubusercontent.com/slub/esmarc/master/conf/context.jsonld" , 
+ "@id" : "https://data.slub-dresden.de/resources/1391959485" , 
+ "identifier" : [
+ {
+ "@id" : "https://nbn-resolving.org/urn:nbn:de:bsz:14-ppn3219594852" ,
+ "@type" : "PropertyValue" ,
+ "propertyID" : "urn" ,
+ "value" : "urn:nbn:de:bsz:14-ppn3219594852"
+ } 
+ ] , 
+ "offers" : {
+ "@type" : "Offer" ,
+ "offeredBy" : {
+ "@id" : "https://data.slub-dresden.de/organizations/191800287" ,
+ "@type" : "Library" ,
+ "name" : "S\u00e4chsische Landesbibliothek \u2013 Staats- und Universit\u00e4tsbibliothek Dresden" ,
+ "branchCode" : "DE-14"
+ } ,
+ "availability" : "https://katalog.slub-dresden.de/id/0-1391959485"
+ } , 
+ "dateModified" : "2022-05-28T14:05:34Z" , 
+ "sameAs" : [
+ {
+ "@id" : "https://opac.k10plus.de/DB=2.299/PPNSET?PPN=1391959485" ,
+ "publisher" : {
+ "preferredName" : "K10Plus" ,
+ "@id" : "https://ld.zdb-services.de/resource/organisations/DE-627" ,
+ "abbr" : "KXP"
+ } ,
+ "isBasedOn" : {
+ "@type" : "Dataset" ,
+ "@id" : "https://data.slub-dresden.de/source/kxp-de14/1391959485"
+ } 
+ } ,
+ {
+ "@id" : "https://swb.bsz-bw.de/DB=2.1/PPNSET?PPN=1391959485" ,
+ "publisher" : {
+ "@id" : "https://ld.zdb-services.de/resource/organisations/DE-576" ,
+ "preferredName" : "Bibliotheksservice-Zentrum Baden-W\u00fcrttemberg (BSZ)" ,
+ "abbr" : "BSZ"
+ } ,
+ "isBasedOn" : {
+ "@type" : "Dataset" ,
+ "@id" : "https://data.slub-dresden.de/source/kxp-de14/1391959485"
+ } 
+ } 
+ ] , 
+ "title" : {
+ "preferredName" : "Versuch \u00fcber den Character des Grossen Arztes, oder Kritische Lebensbeschreibung Herrn D. Herrmann Boerhaves : nebst einem Verzeichnisse der Boerhavischen Schriften / [ Matthew Maty]" ,
+ "mainTitle" : "Versuch \u00fcber den Character des Grossen Arztes, oder Kritische Lebensbeschreibung Herrn D. Herrmann Boerhaves" ,
+ "subTitle" : "nebst einem Verzeichnisse der Boerhavischen Schriften" ,
+ "responsibilityStatement" : "[Matthew Maty]"
+ } , 
+ "preferredName" : "Versuch \u00fcber den Character des Grossen Arztes, oder Kritische Lebensbeschreibung Herrn D. Herrmann Boerhaves nebst einem Verzeichnisse der Boerhavischen Schriften" , 
+ "contributor" : [
+ {
+ "@type" : "Person" ,
+ "@id" : "https://data.slub-dresden.de/persons/137030290" ,
+ "name" : "Maty, Matthew" ,
+ "sameAs" : "https://d-nb.info/gnd/10103024X" ,
+ "roles": [ 
+ {
+ "@type" : "Role" ,
+ "@id" : "https://id.loc.gov/vocabulary/relators/aut" ,
+ "name" : "Author"
+ } 
+ ] 
+ } ,
+ {
+ "@type" : "Person" ,
+ "@id" : "https://data.slub-dresden.de/persons/133733637" ,
+ "name" : "Boerhaave, Herman" ,
+ "sameAs" : "https://d-nb.info/gnd/118660829" ,
+ "roles": [ 
+ {
+ "@type" : "Role" ,
+ "@id" : "https://id.loc.gov/vocabulary/relators/oth" ,
+ "name" : "Other"
+ } 
+ ] 
+ } ,
+ {
+ "@type" : "Person" ,
+ "name" : "Reinhold, Theodor Gottlieb" ,
+ "roles": [ 
+ {
+ "@type" : "Role" ,
+ "@id" : "https://id.loc.gov/vocabulary/relators/prt" ,
+ "name" : "Printer"
+ } 
+ ] 
+ } 
+ ] , 
+ "genre" : [
+ {
+ "@type" : "Text" ,
+ "Text": [ 
+ "Biographie" ,
+ "Bibliographie"
+ ] 
+ } 
+ ] , 
+ "license" : "Public Domain Mark 1.0" , 
+ "about" : [
+ [ 
+ {
+ "@id" : "https://data.slub-dresden.de/topics/096631023" ,
+ "name" : "Biographie"
+ } ,
+ {
+ "@id" : "https://data.slub-dresden.de/topics/096631007" ,
+ "name" : "Bibliographie"
+ } 
+ ] 
+ ] , 
+ "mentions" : [
+ {
+ "@type" : "Genre" ,
+ "@id" : "https://data.slub-dresden.de/topics/096631023" ,
+ "preferredName" : "Biographie" ,
+ "name" : "Biographie"
+ } ,
+ {
+ "@type" : "Genre" ,
+ "@id" : "https://data.slub-dresden.de/topics/096631007" ,
+ "preferredName" : "Bibliographie" ,
+ "name" : "Bibliographie"
+ } ,
+ {
+ "@type" : "Person" ,
+ "sameAs" : "https://d-nb.info/gnd/118660829" ,
+ "@id" : "https://data.slub-dresden.de/persons/133733637" ,
+ "preferredName" : "Boerhaave, Herman" ,
+ "name" : "Boerhaave, Herman" ,
+ "date" : "1668-1738"
+ } 
+ ] , 
+ "physical_description" : {
+ "extent" : "[16] Bl., 160 S." ,
+ "dimensions" : "8o" ,
+ "reproduction_extent" : "Online-Ressource"
+ } , 
+ "reproductionType" : "Online-Ausg." , 
+ "additionalInfo" : [
+ {
+ "@type" : "otherNote" ,
+ "description" : "Verf. ermittelt"
+ } ,
+ {
+ "@type" : "originalLocationNote" ,
+ "holder" : "SLUB Dresden" ,
+ "originalShelfMark" : "Biogr.erud.D.2169.n"
+ } 
+ ] , 
+ "classifications" : [
+ {
+ "@type" : "CategoryCodeSet" ,
+ "@id" : "http://uri.gbv.de/terminology/bk/" ,
+ "name" : "Basisklassifikation" ,
+ "alternateName": [ 
+ "BKL" ,
+ "BK"
+ ] ,
+ "sameAs" : "https://www.wikidata.org/wiki/Q29938469" ,
+ "CategoryCodes": [ 
+ {
+ "@type" : "CategoryCode" ,
+ "@id" : "http://uri.gbv.de/terminology/bk/44.01" ,
+ "codeValue" : "44.01"
+ } 
+ ] 
+ } 
+ ] , 
+ "accessMode" : "online" , 
+ "identifiedBy" : [
+ {
+ "@type" : "VD-18" ,
+ "validValues": [ 
+ "VD18 10232028"
+ ] 
+ } ,
+ {
+ "@type" : "OCLC" ,
+ "validValues": [ 
+ "699625987"
+ ] 
+ } 
+ ] , 
+ "language" : [
+ {
+ "@type" : "CategoryCode" ,
+ "@id" : "http://id.loc.gov/vocabulary/iso639-2/ger" ,
+ "codeValue" : "ger" ,
+ "name" : {
+ "en" : "German" ,
+ "de" : "Deutsch"
+ } ,
+ "inCodeSet" : "http://id.loc.gov/vocabulary/iso639-2"
+ } 
+ ] , 
+ "partOfSeries" : [
+ {
+ "@id" : "https://data.slub-dresden.de/resources/1382640374" ,
+ "name" : "Drucke des 18. Jahrhunderts"
+ } 
+ ] , 
+ "reproductionSeriesStatement" : [
+ {
+ "name": [ 
+ "VD18 digital" ,
+ "Drucke des 18. Jahrhunderts"
+ ] 
+ } 
+ ] , 
+ "relations" : [
+ {
+ "@id" : "https://data.slub-dresden.de/resources/1105646599" ,
+ "name" : "Versuch \u00fcber den Character des Grossen Arztes, oder Kritische Lebensbeschreibung Herrn D. Herrmann Boerhaves / Maty, Matthew, 1718 - 1776" ,
+ "relationType" : "Druckausg."
+ } 
+ ] , 
+ "usageInfo" : [
+ {
+ "@type" : "accessState" ,
+ "name" : "Open Access" ,
+ "sameAs" : "http://purl.org/coar/access_right/c_abf2"
+ } ,
+ {
+ "@type" : "licenceState" ,
+ "name" : "Public Domain Mark 1.0" ,
+ "alternateName" : "PDM 1.0" ,
+ "sameAs" : "http://creativecommons.org/publicdomain/mark/1.0/"
+ } 
+ ] , 
+ "publisher" : [
+ {
+ "@type" : "Organization" ,
+ "name" : "SLUB" ,
+ "location" : {
+ "@type" : "Place" ,
+ "name" : "Dresden"
+ } 
+ } 
+ ] , 
+ "originalPublisher" : [
+ {
+ "@type" : "Organization" ,
+ "name" : "Reinhold" ,
+ "location" : {
+ "@type" : "Place" ,
+ "name" : "Leipzig, Freyberg"
+ } 
+ } 
+ ] , 
+ "datePublished" : {
+ "dateOrigin" : "2010" ,
+ "dateParsed" : "2010"
+ } , 
+ "location" : [
+ {
+ "@type" : "Publication place" ,
+ "preferredName" : "Leipzig" ,
+ "@id" : "https://data.slub-dresden.de/geo/104798998"
+ } ,
+ {
+ "@type" : "Publication place" ,
+ "preferredName" : "Freiberg" ,
+ "@id" : "https://data.slub-dresden.de/geo/104746033"
+ } 
+ ] , 
+ "isBasedOn" : "https://data.slub-dresden.de/source/kxp-de14/1391959485" , 
+ } 
+ ] 
+ Copyright © 2019-2023 SLUB Dresden. Legal Notice , Privacy Policies: API usage , Github Pages (webpage) 
+ This site uses Just the Docs , a documentation theme for Jekyll.

@@ -2,18 +2,275 @@
   "slug": "slub",
   "nom": "SLUB Dresden",
   "pays": "Allemagne",
-  "statut_audit": "partiel (ancienne méthode)",
-  "limites_documentees": [],
+  "statut_audit": "audit a–f complet (v2) ; g à faire (config préparée)",
+  "limites_documentees": [
+    {
+      "nature": "Plafond de résultats de l'API LOD",
+      "perimetre": "data.slub-dresden.de (search, source, entités)",
+      "valeur": "« Our API is not suited for bulk-download of data. It will not return more than 10’000 results. »",
+      "fenetre": "–",
+      "effet": "résultats tronqués à 10 000",
+      "verification": "officielle, lue en entier ; non éprouvée (aucune requête de plus de 1 résultat)",
+      "source": "https://data.slub-dresden.de/doc/api_endpoints",
+      "date": "2026-11-14"
+    },
+    {
+      "nature": "Crawl-delay et Request-rate de robots.txt",
+      "perimetre": "sachsen.digital, digital.slub-dresden.de, www.slub-dresden.de, nutzungshinweis.slub-dresden.de (groupe *)",
+      "valeur": "Crawl-delay: 6 ; Request-rate: 10/1m",
+      "fenetre": "6 s entre deux requêtes ; 10 requêtes par minute",
+      "effet": "non précisé (convention robots.txt)",
+      "verification": "officielle, lue en entier ; respectée par la sonde, non éprouvée",
+      "source": "https://sachsen.digital/robots.txt",
+      "date": "2026-11-14"
+    },
+    {
+      "nature": "Crawl-delay de robots.txt",
+      "perimetre": "www.qucosa.de (groupe *)",
+      "valeur": "Crawl-delay: 30",
+      "fenetre": "30 s entre deux requêtes",
+      "effet": "non précisé",
+      "verification": "officielle, lue en entier ; respectée par la sonde (Identify espacé de 31 s)",
+      "source": "https://www.qucosa.de/robots.txt",
+      "date": "2026-11-14"
+    }
+  ],
   "en_tetes_observes": [],
   "blocages": [],
-  "contact": "digital@slub-dresden.de (nutzungshinweis.slub-dresden.de)",
-  "conclusion_quota": "Aucun quota trouvé.",
-  "classe_quota": "aucun quota trouvé",
-  "confiance": "faible",
-  "notes": "Aucune source officielle IIIF lue.",
+  "contact": "digital@slub-dresden.de (nutzungshinweis.slub-dresden.de) ; formulaire sachsen.digital/kontakt",
+  "conclusion_quota": "Une limite documentée : l'API LOD data.slub-dresden.de « is not suited for bulk-download of data. It will not return more than 10'000 results » (plafond de résultats, pas de débit). robots.txt de sachsen.digital et digital.slub-dresden.de : Crawl-delay 6 et Request-rate 10/1m (plus de 20 robots nommés interdits, dont ClaudeBot et GPTBot ; notre UA n'est pas visé) ; qucosa.de : Crawl-delay 30. IIIF (iiif.slub-dresden.de, images.iiif.slub-dresden.de), OAI-PMH, LOD API : 200 sans en-tête de limite ; aucun 429.",
+  "classe_quota": "limite de débit non chiffrée en doc, indiquée par robots.txt",
+  "confiance": "moyenne",
+  "notes": "Pas de doc IIIF officielle SLUB trouvée : le motif de manifeste vient du README de l'extension tierce InstantIIIF (non officiel), qui répond 200. La doc officielle utile est celle de l'API LOD (data.slub-dresden.de/doc) et la page open-source-open-data (OAI, LOD, WMS, Qucosa). kartenforum.slub-dresden.de : robots.txt Disallow: /, WMS sans URL documentée, non testé. Session de 2026-11-13 (4 requêtes, ancienne méthode sans en-tête de session) conservée dans tests/journal.log.",
   "classeur_id": "hors 84 (ajouté)",
   "type": "Institution",
-  "sources": [],
-  "web": [],
-  "donnees_a_revalider": true
+  "sources": [
+    {
+      "url": "https://sachsen.digital/robots.txt",
+      "date": "2026-11-14",
+      "etiquette": "officielle",
+      "preuve": "institutions/slub/sources/robots/SHA256SUMS"
+    },
+    {
+      "url": "https://www.slub-dresden.de/mitmachen/open-source-open-data",
+      "date": "2026-11-14",
+      "etiquette": "officielle",
+      "preuve": "institutions/slub/sources/doc2/SHA256SUMS"
+    },
+    {
+      "url": "https://nutzungshinweis.slub-dresden.de/",
+      "date": "2026-11-14",
+      "etiquette": "officielle",
+      "preuve": "institutions/slub/sources/doc1/SHA256SUMS"
+    },
+    {
+      "url": "https://data.slub-dresden.de/doc/api_endpoints",
+      "date": "2026-11-14",
+      "etiquette": "officielle",
+      "preuve": "institutions/slub/sources/doc4/SHA256SUMS"
+    },
+    {
+      "url": "https://data.slub-dresden.de/swagger.json",
+      "date": "2026-11-14",
+      "etiquette": "officielle",
+      "preuve": "institutions/slub/sources/doc6/SHA256SUMS"
+    },
+    {
+      "url": "https://sachsen.digital/hilfe-zur-suche",
+      "date": "2026-11-14",
+      "etiquette": "officielle",
+      "preuve": "institutions/slub/sources/doc2/SHA256SUMS"
+    },
+    {
+      "url": "https://www.slub-dresden.de/en/privacy-policy/",
+      "date": "2026-11-14",
+      "etiquette": "officielle",
+      "preuve": "institutions/slub/sources/doc5/SHA256SUMS"
+    }
+  ],
+  "web": [
+    {
+      "categorie": "institution",
+      "url": "https://www.slub-dresden.de/mitmachen/open-source-open-data",
+      "date": "2026-11-14",
+      "etiquette": "officielle (relue dans l'original)",
+      "citation": "« Digitale Sammlungen via OAI-PMH2 über http://digital.slub-dresden.de/oai/ » ; « Katalogdaten via API über https://data.slub-dresden.de/ » ; aucune politique de bots ni de débit ; la recherche web n'a trouvé aucune autre page de l'institution à ce sujet",
+      "preuve": "institutions/slub/sources/doc2/SHA256SUMS"
+    },
+    {
+      "categorie": "utilisateurs",
+      "aucun_resultat": true,
+      "requete": "sachsen.digital OR \"digital.slub-dresden.de\" OR \"iiif.slub-dresden.de\" blocked OR 429 OR 503 OR \"rate limit\" OR \"too many requests\" download images",
+      "date": "2026-11-14",
+      "etiquette": "–",
+      "citation": "aucune plainte ni question de blocage concernant les hôtes SLUB ; seuls des résultats sur Europeana, MDZ, museum-digital (résumé de moteur)",
+      "preuve": "institutions/slub/fiche.md"
+    },
+    {
+      "categorie": "tickets",
+      "aucun_resultat": true,
+      "requete": "github issue \"iiif.slub-dresden.de\" OR \"data.slub-dresden.de\" OR \"sachsen.digital\" timeout OR \"rate limit\" OR 429 OR harvest",
+      "date": "2026-11-14",
+      "etiquette": "–",
+      "citation": "aucun ticket d'outil tiers citant ces hôtes ; seuls des tickets génériques de 429 sur d'autres services",
+      "preuve": "institutions/slub/fiche.md"
+    },
+    {
+      "categorie": "presentations",
+      "aucun_resultat": true,
+      "requete": "SLUB Dresden IIIF Kitodo.Presentation Cantaloupe Vortrag Blog sachsen.digital Relaunch KI-Crawler Last Server",
+      "date": "2026-11-14",
+      "etiquette": "–",
+      "citation": "aucun billet ni exposé de la SLUB sur sa politique d'API, ses bots ou la charge serveur ; résultats limités à la pile Kitodo/DFG-Viewer (résumé de moteur)",
+      "preuve": "institutions/slub/fiche.md"
+    }
+  ],
+  "donnees_a_revalider": false,
+  "a_verifier_manuellement": [
+    {
+      "url": "https://kartenforum.slub-dresden.de/",
+      "pourquoi": "robots.txt « User-agent: * Disallow: / » ; WMS cité sans URL précise par la page open-source-open-data",
+      "a_chercher": "Demander à digital@slub-dresden.de l'URL du WMS et ses limites de débit"
+    },
+    {
+      "url": "https://iiif.slub-dresden.de/",
+      "pourquoi": "racine vide (200, 0 octet), aucune doc IIIF officielle trouvée",
+      "a_chercher": "Demander à digital@slub-dresden.de si l'API IIIF a une limite de débit non publiée et un schéma d'identifiant officiel"
+    }
+  ],
+  "endpoints_documentes": [
+    {
+      "famille": "OAI-PMH URL annoncée par la SLUB (redirige vers sachsen.digital/oai)",
+      "url": "http://digital.slub-dresden.de/oai/",
+      "statut": "teste",
+      "preuve": "institutions/slub/sources/doc3/FETCH.log"
+    },
+    {
+      "famille": "OAI-PMH Digitale Sammlungen (digital.slub-dresden.de/oai/ vers sachsen.digital/oai)",
+      "url": "https://sachsen.digital/oai?verb=Identify",
+      "statut": "teste",
+      "preuve": "institutions/slub/tests/raw/p1-oai-sachsen-identify.headers.txt"
+    },
+    {
+      "famille": "OAI-PMH ListMetadataFormats",
+      "url": "https://sachsen.digital/oai?verb=ListMetadataFormats",
+      "statut": "teste",
+      "preuve": "institutions/slub/tests/raw/p1-oai-sachsen-listmetadataformats.headers.txt"
+    },
+    {
+      "famille": "OAI-PMH Qucosa",
+      "url": "https://www.qucosa.de/oai/?verb=Identify",
+      "statut": "teste",
+      "preuve": "institutions/slub/tests/raw/p1-oai-qucosa-identify.headers.txt"
+    },
+    {
+      "famille": "IIIF Presentation 2 (manifeste)",
+      "url": "https://iiif.slub-dresden.de/iiif/2/1741646995-18800000/manifest.json",
+      "statut": "teste",
+      "preuve": "institutions/slub/tests/raw/p1-iiif-manifest-1741646995-18800000.headers.txt"
+    },
+    {
+      "famille": "IIIF Image 2 (info.json et vignette)",
+      "url": "https://images.iiif.slub-dresden.de/iiif/2/data%2Fkitodo%2FAdrefdiS_1741646995-18800000%2FAdrefdiS_1741646995-18800000_tif%2Fjpegs%2F00000001.tif.medium.jpg/info.json",
+      "statut": "teste",
+      "preuve": "institutions/slub/tests/raw/p2-image-info-json.headers.txt"
+    },
+    {
+      "famille": "API LOD /search",
+      "url": "https://data.slub-dresden.de/search?q=SLUB&size=1",
+      "statut": "teste",
+      "preuve": "institutions/slub/tests/raw/p2-lod-search-slub-size1.headers.txt"
+    },
+    {
+      "famille": "API LOD /source",
+      "url": "https://data.slub-dresden.de/source/kxp-de14/130215090",
+      "statut": "teste",
+      "preuve": "institutions/slub/tests/raw/p2-lod-source-kxp-de14.headers.txt"
+    },
+    {
+      "famille": "API LOD /{authority_provider}",
+      "url": "https://data.slub-dresden.de/gnd/persons/118559206",
+      "statut": "teste",
+      "preuve": "institutions/slub/tests/raw/p2-lod-gnd-persons.headers.txt"
+    },
+    {
+      "famille": "API LOD /{entity_index}/search",
+      "url": "https://data.slub-dresden.de/persons/search?q=name:Erich+K%C3%A4stner&size=1",
+      "statut": "teste",
+      "preuve": "institutions/slub/tests/raw/p2-lod-persons-search.headers.txt"
+    },
+    {
+      "famille": "API LOD /reconcile (OpenRefine)",
+      "url": "https://data.slub-dresden.de/reconcile",
+      "statut": "non_teste",
+      "raison": "service de réconciliation OpenRefine : requêtes de réconciliation envoyées en POST par le client OpenRefine ; aucun exemple GET dans la doc, POST interdit par la consigne"
+    },
+    {
+      "famille": "WMS du Virtuelles Kartenforum",
+      "url": "http://kartenforum.slub-dresden.de/",
+      "statut": "non_teste",
+      "raison": "la page open-source-open-data cite le WMS sans URL de service ; le robots.txt de l'hôte interdit tout (Disallow: /) ; aucune URL devinée"
+    }
+  ],
+  "endpoints_ecartes": [
+    {
+      "url": "https://data.slub-dresden.de/doc/api",
+      "raison": "interface Swagger UI de la doc : page HTML qui charge /swagger.json (lu), pas un endpoint de données"
+    },
+    {
+      "url": "https://github.com/slub/data.slub-dresden.de",
+      "raison": "dépôt GitHub de la doc de l'API LOD, pas une API à tester ; le contenu de la doc est lu sur data.slub-dresden.de/doc"
+    },
+    {
+      "url": "https://data.slub-dresden.de/assets/files/painter_born.json",
+      "raison": "fichier d'exemple pour OpenRefine cité par la doc reconcile : pas une API"
+    }
+  ],
+  "hotes_robots": [
+    {
+      "hote": "sachsen.digital",
+      "resultat": "groupe * : Disallow vide ; Crawl-delay 6 ; Request-rate 10/1m ; ClaudeBot, GPTBot et une vingtaine d'autres robots interdits (notre UA non visé)",
+      "preuve": "institutions/slub/sources/robots/SHA256SUMS"
+    },
+    {
+      "hote": "digital.slub-dresden.de",
+      "resultat": "identique à sachsen.digital (Crawl-delay 6, Request-rate 10/1m)",
+      "preuve": "institutions/slub/sources/robots/SHA256SUMS"
+    },
+    {
+      "hote": "www.slub-dresden.de",
+      "resultat": "Disallow /typo3conf/ et /typo3temp/ ; Crawl-delay 6 ; Request-rate 10/1m",
+      "preuve": "institutions/slub/sources/robots/SHA256SUMS"
+    },
+    {
+      "hote": "nutzungshinweis.slub-dresden.de",
+      "resultat": "Disallow /typo3conf/ ; Crawl-delay 6 ; Request-rate 10/1m",
+      "preuve": "institutions/slub/sources/robots/SHA256SUMS"
+    },
+    {
+      "hote": "iiif.slub-dresden.de",
+      "resultat": "404 : tout autorisé",
+      "preuve": "institutions/slub/sources/robots/SHA256SUMS"
+    },
+    {
+      "hote": "images.iiif.slub-dresden.de",
+      "resultat": "404 (Cantaloupe « No route for path ») : tout autorisé",
+      "preuve": "institutions/slub/sources/robots/SHA256SUMS"
+    },
+    {
+      "hote": "data.slub-dresden.de",
+      "resultat": "404 : tout autorisé",
+      "preuve": "institutions/slub/sources/doc3/SHA256SUMS"
+    },
+    {
+      "hote": "kartenforum.slub-dresden.de",
+      "resultat": "User-agent * Disallow: / (tout interdit) ; hôte non testé",
+      "preuve": "institutions/slub/sources/doc3/SHA256SUMS"
+    },
+    {
+      "hote": "www.qucosa.de",
+      "resultat": "Crawl-delay 30 ; Disallow de répertoires TYPO3 ; nos chemins non concernés",
+      "preuve": "institutions/slub/sources/doc3/SHA256SUMS"
+    }
+  ]
 }
