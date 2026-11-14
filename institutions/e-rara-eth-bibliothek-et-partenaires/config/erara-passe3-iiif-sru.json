@@ -1,0 +1,18 @@
+{
+  "slug": "e-rara-eth-bibliothek-et-partenaires",
+  "min_delay_s": 6,
+  "max_requests": 15,
+  "follow_redirects": 1,
+  "robots_disallow_autorise_par_marcel": true,
+  "note": "Passe 3 : familles documentées par la Data Map de la ZB Zürich (sources/c et sources/d) non encore testées : IIIF Image 2.1 (info.json, vignette, full/full pour mesurer un éventuel plafond de taille), alias /zuz/ du manifeste, OAI ListRecords, fichier ALTO3 cité dans le METS (HEAD), service de recherche annoncé par le manifeste de la passe 2 (identifiant d'image 6341735 pris dans ce manifeste), SRU (sru2.visual-library.de, exemple de la doc : identifiant Alma 990019352710205508). Décision C12 : robots.txt de www.e-rara.ch « Disallow: / », audit lancé quand même (autorisé par Marcel).",
+  "endpoints": [
+    {"id": "iiif-image-info-6341735", "method": "GET", "url": "https://www.e-rara.ch/i3f/v21/6341735/info.json"},
+    {"id": "iiif-image-304-6341735", "method": "GET", "url": "https://www.e-rara.ch/i3f/v21/6341735/full/304/0/default.jpg"},
+    {"id": "iiif-image-full-6341735", "method": "GET", "url": "https://www.e-rara.ch/i3f/v21/6341735/full/full/0/default.jpg", "save_body": 3000000},
+    {"id": "manifeste-alias-zuz-6341733", "method": "GET", "url": "https://www.e-rara.ch/zuz/i3f/v20/6341733/manifest"},
+    {"id": "oai-listrecords-periode", "method": "GET", "url": "https://www.e-rara.ch/oai?verb=ListRecords&metadataPrefix=oai_dc&from=2026-11-10&until=2026-11-14"},
+    {"id": "alto3-14257006", "method": "HEAD", "url": "https://www.e-rara.ch/zuz/download/fulltext/alto3/14257006"},
+    {"id": "recherche-manifeste-6341733", "method": "GET", "url": "https://www.e-rara.ch/i3f/manifest/6341733/search?q=Bibel"},
+    {"id": "sru-erara-alma", "method": "GET", "url": "http://sru2.visual-library.de/erara_alma_uzb?operation=searchRetrieve&recordSchema=mods&query=rec.identifier=990019352710205508"}
+  ]
+}
