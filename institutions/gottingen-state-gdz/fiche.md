@@ -25,3 +25,8 @@ Hypothèse (non étayée par une source) : service public, sans limite chiffrée
 
 ## Conclusion
 Limite chiffrée : aucune. Règle écrite : usage ouvert ; reproduction commerciale à demander (hsd@sub.uni-goettingen.de). Contact : gdz@sub.uni-goettingen.de. Confiance : moyenne. Crash test (g) : configuration `config/crash-image-info.json` prête, à lancer à la fin.
+
+## Crash test (étape g)
+
+Crash test fait le 2026-11-14 : image-info-json sur images.sub.uni-goettingen.de : aucun blocage jusqu'à 200 req/min (plafond 200 req/min).
+Journal : `tests/crash/gottingen-state-gdz.log`. Un test « sans blocage » n'est pas une preuve d'illimitation au-delà du plafond.
