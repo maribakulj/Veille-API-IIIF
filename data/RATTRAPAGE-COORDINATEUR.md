@@ -10,3 +10,5 @@
 - keio-digital-collections (lot A) : étape f non faite (quota) ; résultats provisoires « institution » et « utilisateurs » à transcrire ; refaire « tickets » et « présentations ».
 - universite-college-dublin (lot C) : la sonde ne désactive pas la vérification TLS : en-têtes https de digital.ucd.ie jamais relevés.
 - Ordonnancement : quota WebSearch ≈ 200 par session, ~100/h de recharge : pas plus de 3 agents simultanés.
+- state-library-victoria (lot D) : catégories web « utilisateurs » et « tickets » marquées aucun_resultat avec la mention « non exécutée : plafond » : refaire les recherches.
+- internet-archive, ku-leuven, kyoto : résumés de moteur non vérifiés dans l'étape f.
