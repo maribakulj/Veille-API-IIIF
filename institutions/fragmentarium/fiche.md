@@ -36,3 +36,8 @@ Quatre catégories couvertes (voir `data.json`) : aucune plainte (429/503/blocag
 - **Limite observée** : aucune (5 requêtes réussies). **Moyen d'interroger le quota** : aucun.
 - **Pourquoi non publié** (hypothèse) : service académique gratuit, petit, sans mécanisme de limitation visible. Confiance : moyenne.
 - Crash test (g) : préparé (`config/crash-info-json.json`), à lancer à la fin.
+
+## Crash test (étape g)
+
+Crash test fait le 2026-11-14 : info-json-F-ioqy-page5 sur fragmentarium.ms : aucun blocage jusqu'à 200 req/min (plafond 200 req/min).
+Journal : `tests/crash/fragmentarium.log`. Un test « sans blocage » n'est pas une preuve d'illimitation au-delà du plafond.
