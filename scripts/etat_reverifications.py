@@ -53,6 +53,28 @@ def preliminary_category(url: str, reason: str) -> str:
     return "A_QUALIFIER"
 
 
+
+def agregger_constats(matches: list[dict], travail_initial: str) -> dict:
+    """Préserver TOUS les constats d'une même URL, même contradictoires.
+
+    Une corroboration de la cible d'un lien ne lève pas un blocage HTTP.
+    Aucun statut du registre ne signifie qu'une URL est techniquement close.
+    """
+    def uniques(values):
+        return list(dict.fromkeys(v.strip() for v in values if v and v.strip()))
+
+    statuts = uniques(m.get("statut_doc_2026_11_14", "") for m in matches)
+    preuves = uniques(m.get("source_preuve", "") for m in matches)
+    actions = uniques(m.get("reste_a_verifier", "") for m in matches)
+    return {
+        "nombre_constats": len(matches),
+        "statut_revision": " | ".join(statuts) if statuts else "NON_REEXAMINE_DANS_REGISTRE",
+        "preuve": " | ".join(preuves),
+        "reste_a_verifier": " | ".join(actions) if actions else travail_initial,
+        "verification_http_independante": "NON_ETABLIE_PAR_LE_REGISTRE",
+    }
+
+
 def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--root", type=Path, default=Path("."))
@@ -103,7 +125,7 @@ def main() -> None:
             duplicate = "REFERENCE_INTER_INSTITUTIONS"
         else:
             duplicate = ""
-        match_value = match[-1] if match else {}
+        agregat = agregger_constats(match, item["recherche_initiale"])
         records.append({
             "institution": item["slug"],
             "rang": item["rang"],
@@ -111,17 +133,16 @@ def main() -> None:
             "categorie_preliminaire": preliminary_category(
                 item["url"], item["raison_initiale"]),
             "signal_doublon": duplicate,
-            "statut_revision": match_value.get("statut_doc_2026_11_14", "NON_REEXAMINE_DANS_REGISTRE"),
-            "preuve": match_value.get("source_preuve", ""),
-            "reste_a_verifier": match_value.get("reste_a_verifier", item["recherche_initiale"]),
+            **agregat,
             "raison_initiale": item["raison_initiale"],
         })
 
     output = root / args.out
     output.parent.mkdir(parents=True, exist_ok=True)
     fields = ["institution", "rang", "url", "categorie_preliminaire",
-              "signal_doublon", "statut_revision", "preuve",
-              "reste_a_verifier", "raison_initiale"]
+              "signal_doublon", "nombre_constats", "statut_revision",
+              "preuve", "reste_a_verifier", "verification_http_independante",
+              "raison_initiale"]
     with output.open("w", newline="", encoding="utf-8") as handle:
         writer = csv.DictWriter(handle, fieldnames=fields)
         writer.writeheader()
@@ -135,6 +156,10 @@ def main() -> None:
         "lignes_manuelles": len(records),
         "lignes_avec_constat_ledger": covered,
         "lignes_sans_constat_ledger": len(records) - covered,
+        "lignes_avec_plusieurs_constats": sum(x["nombre_constats"] > 1
+                                               for x in records),
+        "constats_associes_aux_lignes_manuelles": sum(x["nombre_constats"]
+                                                     for x in records),
         "doublons_intra": sum(x["signal_doublon"] == "DOUBLON_DANS_INSTITUTION"
                              for x in records),
         "references_inter_institutions": sum(
