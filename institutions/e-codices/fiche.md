@@ -17,3 +17,8 @@ OAI (`Identify` en et de, `ListMetadataFormats`, `ListSets`) : **200** ×4 · ma
 
 ## Conclusion
 Limite chiffrée : aucune. Règle écrite : usage non commercial libre, source à citer pour l'usage commercial. Confiance : moyenne.
+
+## Crash test (étape g)
+
+Crash test fait le 2026-11-14 : media-info-json sur media.e-codices.ch : aucun blocage jusqu'à 200 req/min (plafond 200 req/min).
+Journal : `tests/crash/e-codices.log`. Un test « sans blocage » n'est pas une preuve d'illimitation au-delà du plafond.

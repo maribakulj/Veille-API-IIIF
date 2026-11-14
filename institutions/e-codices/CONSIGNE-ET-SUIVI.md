@@ -51,9 +51,9 @@
 ### g) Crash test progressif
 > Seulement après l'audit complet (a à f) de toutes les institutions et avec l'accord de Marcel : paliers jusqu'à 2 × la limite documentée, ou 200 req/min si illimité ou sans limite documentée. Arrêt au premier 429/403/CAPTCHA.
 
-- [ ] **Pas fait**
-  - **Justification** : À faire à la fin et avec l'accord de Marcel : plafond 200 req/min sur e-codices.unifr.ch, e-codices.ch et media.e-codices.ch ; 503 intermittents déjà rapportés par un tiers : prudence.
-  - **Preuves** : 
+- [x] **Fait**
+  - **Justification** : Crash test fait le 2026-11-14 : media-info-json sur media.e-codices.ch : aucun blocage jusqu'à 200 req/min (plafond 200 req/min)
+  - **Preuves** : `institutions/e-codices/tests/crash/e-codices.log`, `institutions/e-codices/tests/crash/e-codices-media-info-json.json`
 
 ### Contrôles transversaux
 - Budget : 15 requêtes par passe · pauses ≥ 6 s · GET/HEAD seulement · UA du projet · aucun contournement. Ces contrôles sont calculés depuis le journal (voir « Contrôles automatiques »).
