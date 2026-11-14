@@ -4,10 +4,204 @@
   "pays": "Suisse",
   "classeur_id": "GLAM-023",
   "type": "Plateforme / consortium",
-  "statut_audit": "à faire",
-  "limites_documentees": [],
+  "statut_audit": "audit a–f complet ; g à faire",
+  "limites_documentees": [
+    {
+      "nature": "Droits d'usage (pas un débit)",
+      "perimetre": "images publiées",
+      "valeur": "usage non commercial libre ; restrictions possibles par institution",
+      "fenetre": "–",
+      "effet": "droits",
+      "verification": "officielle, lue en entier",
+      "source": "https://fragmentarium.ms/pages/terms",
+      "date": "2026-11-14"
+    },
+    {
+      "nature": "Gratuité de l'accès",
+      "perimetre": "tous les services",
+      "valeur": "« Fragmentarium offers free access to all of its services. »",
+      "fenetre": "–",
+      "effet": "aucun quota annoncé",
+      "verification": "officielle, lue en entier",
+      "source": "https://fragmentarium.ms/pages/about/digital-laboratory",
+      "date": "2026-11-14"
+    },
+    {
+      "nature": "robots.txt",
+      "perimetre": "fragmentarium.ms",
+      "valeur": "Disallow /cms/ et /auth/",
+      "fenetre": "–",
+      "effet": "Disallow (zones d'administration)",
+      "verification": "officielle, lue en entier",
+      "source": "https://fragmentarium.ms/robots.txt",
+      "date": "2026-11-14"
+    }
+  ],
   "en_tetes_observes": [],
   "blocages": [],
-  "sources": [],
-  "web": []
+  "sources": [
+    {
+      "url": "https://fragmentarium.ms/robots.txt",
+      "date": "2026-11-14",
+      "etiquette": "officielle",
+      "preuve": "institutions/fragmentarium/sources/a/SHA256SUMS"
+    },
+    {
+      "url": "https://fragmentarium.ms/pages/terms",
+      "date": "2026-11-14",
+      "etiquette": "officielle",
+      "preuve": "institutions/fragmentarium/sources/a/SHA256SUMS"
+    },
+    {
+      "url": "https://fragmentarium.ms/pages/about",
+      "date": "2026-11-14",
+      "etiquette": "officielle",
+      "preuve": "institutions/fragmentarium/sources/a/SHA256SUMS"
+    },
+    {
+      "url": "https://fragmentarium.ms/pages/about/digital-laboratory",
+      "date": "2026-11-14",
+      "etiquette": "officielle",
+      "preuve": "institutions/fragmentarium/sources/a/SHA256SUMS"
+    },
+    {
+      "url": "https://fragmentarium.ms/metadata/iiif/F-ioqy/manifest.json",
+      "date": "2026-11-14",
+      "etiquette": "officielle",
+      "preuve": "institutions/fragmentarium/sources/a/SHA256SUMS"
+    },
+    {
+      "url": "https://fragmentarium.ms/pages/privacy",
+      "date": "2026-11-14",
+      "etiquette": "officielle",
+      "preuve": "institutions/fragmentarium/sources/b/SHA256SUMS"
+    },
+    {
+      "url": "https://fragmentarium.ms/pages/impressum",
+      "date": "2026-11-14",
+      "etiquette": "officielle",
+      "preuve": "institutions/fragmentarium/sources/b/SHA256SUMS"
+    },
+    {
+      "url": "https://fragmentarium.ms/pages/about/past-and-present",
+      "date": "2026-11-14",
+      "etiquette": "officielle",
+      "preuve": "institutions/fragmentarium/sources/b/SHA256SUMS"
+    },
+    {
+      "url": "https://fragmentarium.ms/pages/partners",
+      "date": "2026-11-14",
+      "etiquette": "officielle",
+      "preuve": "institutions/fragmentarium/sources/b/SHA256SUMS"
+    },
+    {
+      "url": "https://fragmentarium.ms/contact",
+      "date": "2026-11-14",
+      "etiquette": "officielle",
+      "preuve": "institutions/fragmentarium/sources/b/SHA256SUMS"
+    }
+  ],
+  "web": [
+    {
+      "categorie": "institution",
+      "url": "https://fragmentarium.ms/pages/about/digital-laboratory",
+      "date": "2026-11-14",
+      "etiquette": "officielle",
+      "citation": "« Fragmentarium offers free access to all of its services. » ; « IIIF Image API for simple exchange of all images among partner institutions » ; « IIIF Presentation API for the corresponding metadata »",
+      "preuve": "institutions/fragmentarium/sources/a/text/03.txt"
+    },
+    {
+      "categorie": "utilisateurs",
+      "aucun_resultat": true,
+      "requete": "Fragmentarium fragmentarium.ms IIIF manifest harvesting rate limit OR blocked OR \"429\" OR \"503\" problem",
+      "date": "2026-11-14",
+      "etiquette": "–",
+      "citation": "(résumé de moteur, non vérifié) aucun retour d'utilisateur sur des 429, 503 ou blocages de fragmentarium.ms.",
+      "preuve": "institutions/fragmentarium/fiche.md"
+    },
+    {
+      "categorie": "tickets",
+      "aucun_resultat": true,
+      "requete": "github fragmentarium.ms IIIF manifest import issue",
+      "date": "2026-11-14",
+      "etiquette": "–",
+      "citation": "Aucun ticket GitHub sur fragmentarium.ms ; seuls des tickets d'outils sans rapport (IiifItems, Tropy) apparaissent (résumé de moteur, non vérifié).",
+      "preuve": "institutions/fragmentarium/fiche.md"
+    },
+    {
+      "categorie": "presentations",
+      "url": "https://www.unifr.ch/news/en/17667/",
+      "date": "2026-11-14",
+      "etiquette": "institution",
+      "citation": "Article de l'Université de Fribourg (page lue) : « Reproductions of medieval fragments can be uploaded onto a central platform from different servers in different countries. » ; ne mentionne ni API, ni IIIF, ni limite.",
+      "preuve": "institutions/fragmentarium/fiche.md"
+    },
+    {
+      "categorie": "institution",
+      "url": "https://iiif.io/guides/guides/fragmentarium.ms/",
+      "date": "2026-11-14",
+      "etiquette": "tiers (guide IIIF.io, page lue)",
+      "citation": "« Copy the IIIF manifest link on the record » ; aucune limite de débit ni restriction d'accès mentionnée.",
+      "preuve": "institutions/fragmentarium/fiche.md"
+    }
+  ],
+  "hotes_robots": [
+    {
+      "hote": "fragmentarium.ms",
+      "resultat": "200 (48 o) : User-agent * ; Disallow /cms/ et /auth/ ; pas de Crawl-delay",
+      "preuve": "institutions/fragmentarium/sources/a/FETCH.log"
+    }
+  ],
+  "contact": "fragmentarium@unifr.ch",
+  "conclusion_quota": "Aucun quota ni limite de débit publiés ; « free access to all of its services » ; 5 endpoints testés en 200, aucun en-tête de limite ; robots.txt n'interdit que /cms/ et /auth/.",
+  "classe_quota": "aucun quota trouvé",
+  "confiance": "moyenne",
+  "notes": "Serveur Apache/2.4.62 ; Loris pour les images (doc). Conditions d'utilisation : usage non commercial des images libre, restrictions par institution détentrice ; métadonnées sous CC BY. Aucune règle sur les robots ni sur le débit.",
+  "endpoints_documentes": [
+    {
+      "famille": "IIIF Presentation 2 : manifestes",
+      "url": "https://fragmentarium.ms/metadata/iiif/F-ioqy/manifest.json",
+      "statut": "teste",
+      "preuve": "institutions/fragmentarium/tests/raw/manifeste-F-ioqy.headers.txt"
+    },
+    {
+      "famille": "IIIF Presentation 2 : collections",
+      "url": "https://fragmentarium.ms/metadata/iiif/collection/C-a4xj.json",
+      "statut": "teste",
+      "preuve": "institutions/fragmentarium/tests/raw/collection-C-a4xj.headers.txt"
+    },
+    {
+      "famille": "IIIF Image 2 (Loris) : info.json et dérivés",
+      "url": "https://fragmentarium.ms/loris/F-ioqy/page_5.jp2/info.json",
+      "statut": "teste",
+      "preuve": "institutions/fragmentarium/tests/raw/info-json-F-ioqy-page5.headers.txt"
+    },
+    {
+      "famille": "Page d'aperçu d'un fragment (seeAlso du manifeste)",
+      "url": "https://fragmentarium.ms/overview/F-ioqy",
+      "statut": "teste",
+      "preuve": "institutions/fragmentarium/tests/raw/overview-F-ioqy.headers.txt"
+    },
+    {
+      "famille": "Recherche (fragmentarium.ms/search)",
+      "url": "https://fragmentarium.ms/search",
+      "statut": "non_teste",
+      "raison": "Interface web de recherche (facettes) sans API documentée ; la doc ne décrit aucun endpoint de recherche et un moteur Solr interne ne se sonde pas sans doc."
+    }
+  ],
+  "endpoints_ecartes": [
+    {
+      "url": "https://fragmentarium.ms/case_studies",
+      "raison": "lien de la page Digital Laboratory : renvoie 404 au téléchargement (sources/b/FETCH.log), page éditoriale, pas une API"
+    },
+    {
+      "url": "https://fragmentarium.ms/pages/about/digital-laboratory",
+      "raison": "page de documentation (technologies, IIIF Image et Presentation) téléchargée et lue : sources/a ; décrit l'API sans en donner d'URL"
+    },
+    {
+      "url": "https://fragmentarium.ms/img/app-icons/manifest.json",
+      "raison": "manifeste d'application web (icônes PWA) lié dans le HTML des pages, sans rapport avec IIIF ni avec une API de données"
+    }
+  ],
+  "a_verifier_manuellement": []
 }

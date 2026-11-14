@@ -1,0 +1,1431 @@
+<!DOCTYPE html>
+<html class="client-nojs" lang="fr" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<title>Project:SPARQL examples — Référentiels d’autorité Biblissima</title>
+<script>(function(){var className="client-js";var cookie=document.cookie.match(/(?:^|; )mediawikimwclientpreferences=([^;]+)/);if(cookie){cookie[1].split('%2C').forEach(function(pref){className=className.replace(new RegExp('(^| )'+pref.replace(/-clientpref-\w+$|[^\w-]+/g,'')+'-clientpref-\\w+( |$)'),'$1'+pref+'$2');});}document.documentElement.className=className;}());RLCONF={"wgBreakFrames":false,"wgSeparatorTransformTable":[",\t."," \t,"],"wgDigitTransformTable":["",""],"wgDefaultDateFormat":"dmy","wgMonthNames":["","janvier","février","mars","avril","mai","juin","juillet","août","septembre","octobre","novembre","décembre"],"wgRequestId":"7a5b666a69cac8a0d00416c3","wgCanonicalNamespace":"Project","wgCanonicalSpecialPageName":false,"wgNamespaceNumber":4,"wgPageName":"Project:SPARQL_examples","wgTitle":"SPARQL examples","wgCurRevisionId":2697187,"wgRevisionId":2697187,"wgArticleId":861483,"wgIsArticle":true,"wgIsRedirect":false,"wgAction":"view","wgUserName":null,"wgUserGroups":["*"],"wgCategories":[],"wgPageViewLanguage":"fr","wgPageContentLanguage":"fr","wgPageContentModel":"wikitext","wgRelevantPageName":"Project:SPARQL_examples","wgRelevantArticleId":861483,"wgIsProbablyEditable":false,"wgRelevantPageIsProbablyEditable":false,"wgRestrictionEdit":[],"wgRestrictionMove":[],"wgULSAcceptLanguageList":[],"wgULSPosition":"personal","wgULSisCompactLinksEnabled":true,"wgVector2022LanguageInHeader":false,"wgULSisLanguageSelectorEmpty":false};
+RLSTATE={"site.styles":"ready","user.styles":"ready","user":"ready","user.options":"loading","ext.pygments":"ready","skins.vector.styles.legacy":"ready","codex-search-styles":"ready","ext.uls.pt":"ready","wikibase.client.init":"ready"};RLPAGEMODULES=["ext.pygments.view","site","mediawiki.page.ready","mediawiki.toc","skins.vector.legacy.js","wikibase.ui.entitysearch","ext.uls.compactlinks","ext.uls.interface"];</script>
+<script>(RLQ=window.RLQ||[]).push(function(){mw.loader.impl(function(){return["user.options@12s5i",function($,jQuery,require,module){mw.user.tokens.set({"patrolToken":"+\\","watchToken":"+\\","csrfToken":"+\\"});
+}];});});</script>
+<link rel="stylesheet" href="/load.php?lang=fr&amp;modules=codex-search-styles%7Cext.pygments%7Cext.uls.pt%7Cskins.vector.styles.legacy%7Cwikibase.client.init&amp;only=styles&amp;skin=vector">
+<script async="" src="/load.php?lang=fr&amp;modules=startup&amp;only=scripts&amp;raw=1&amp;skin=vector"></script>
+<meta name="ResourceLoaderDynamicStyles" content="">
+<link rel="stylesheet" href="/load.php?lang=fr&amp;modules=site.styles&amp;only=styles&amp;skin=vector">
+<meta name="generator" content="MediaWiki 1.43.5">
+<meta name="robots" content="max-image-preview:standard">
+<meta name="format-detection" content="telephone=no">
+<meta name="viewport" content="width=1120">
+<link rel="icon" href="https://static.biblissima.fr/images/favicons/favicon.png">
+<link rel="search" type="application/opensearchdescription+xml" href="/w/rest.php/v1/search" title="Référentiels d’autorité Biblissima (fr)">
+<link rel="EditURI" type="application/rsd+xml" href="https://data.biblissima.fr/w/api.php?action=rsd">
+<link rel="license" href="/w/Licence">
+<link rel="alternate" type="application/atom+xml" title="Flux Atom de Référentiels d’autorité Biblissima" href="/w/index.php?title=Sp%C3%A9cial:Modifications_r%C3%A9centes&amp;feed=atom">
+</head>
+<body class="skin-vector-legacy mediawiki ltr sitedir-ltr mw-hide-empty-elt ns-4 ns-subject page-Project_SPARQL_examples rootpage-Project_SPARQL_examples skin-vector action-view"><style>
+@import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Source+Serif+Pro:wght@400;600&display=swap');
+
+</style>
+<style>
+.menu-bbma-close-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #FFF;
+  -webkit-transition: .2s linear all;
+  transition: .2s linear all;
+}
+
+.menu-bbma-btn:hover,
+.menu-bbma-close-btn:hover {
+  color: #fed443;
+}
+
+.menu-bbma-wrapper {
+  background: #2b2e2f;
+  width: 320px;
+  height: 100%;
+  position: absolute;
+  left: -320px;
+  z-index: 1060;
+  -webkit-transition: all 0.2s ease-out;
+  transition: all 0.2s ease-out;
+  font-family: 'Source Sans Pro', sans-serif;
+  font-weight: 400;
+  -webkit-font-smoothing: antialiased;
+}
+
+.menu-bbma-wrapper.active {
+  left: 0;
+  box-shadow: 1px 0 4px 0 rgba(51,51,51,.4);
+}
+
+.menu-bbma-wrapper .header {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: row wrap;
+          flex-flow: row wrap;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  padding: 20px 15px;
+  align-items: center;
+  -webkit-box-align: center;
+    -ms-flex-align: center;
+  /*border-bottom: solid 2px #e6e5e5;*/
+}
+
+.menu-bbma-wrapper .header h2 {
+  font-family: "Source Serif Pro",Georgia,Times,serif;
+  color: #fff;
+  font-size: 20px;
+  font-weight: 600;
+  margin: 0px;
+  padding: 0;
+  border: none;
+}
+
+.menu-bbma-wrapper .header .menu-bbma-close-btn {
+  color: #fff;
+  -webkit-transition: .2s linear;
+  transition: .2s linear;
+}
+
+.menu-bbma-wrapper .header .menu-bbma-close-btn:hover {
+  color: #fed443;
+}
+
+.menu-bbma-wrapper a {
+  color: #fff;
+  -webkit-transition: all .2s linear;
+  transition: all .2s linear;
+}
+
+.menu-bbma-wrapper ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.menu-bbma-wrapper ul li {
+  background: #3C474C;
+  position: relative;
+  border-bottom: solid 1px #5f686e;
+  margin-bottom: 0;
+}
+
+.home-bbma .menu-bbma-wrapper ul li:first-child {
+  display: none;
+}
+
+.menu-bbma-wrapper ul li:first-child h3 {
+  margin-bottom: 0;
+}
+
+.menu-bbma-wrapper ul li h3 {
+  font-size: 16px;
+  font-weight: 600;
+  color: #FFF;
+  margin-top: 0;
+  margin-bottom: 8px;
+  padding: 0;
+  font-family: 'Source sans pro', sans-serif;
+  text-transform: uppercase;
+}
+
+.menu-bbma-wrapper ul li a {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: column wrap;
+          flex-flow: column wrap;
+  padding: 20px 15px 20px 16px;
+  text-decoration: none;
+}
+
+.menu-bbma-wrapper ul li a:hover {
+  background: #5f676d;
+  border-right: 2px solid #fed443;
+  text-decoration: none;
+}
+
+.menu-bbma-wrapper ul li a p {
+  color: #ddd;
+  font-weight: 400;
+}
+
+.menu-bbma-wrapper .footer {
+  background: #2b2e2f;
+  padding: 20px 15px;
+  color: #fff;
+}
+
+.menu-bbma-wrapper .footer a {
+  padding: 0 5px;
+  font-size: 13px;
+  line-height: 1.4;
+  text-decoration: none;
+}
+
+.menu-bbma-wrapper .footer a:hover {
+  opacity: .8;
+}
+
+.menu-bbma-wrapper ul li p {
+  margin: 0;
+  font-size: 14px;
+  line-height: 21px;
+}
+</style>
+<div class="menu-bbma-wrapper">
+    <nav class="menu-bbma" id="menuBbma">
+        <div class="header">
+            <h2>Discover Biblissima</h2>
+            <button class="material-icons menu-bbma-close-btn" id="menuBbmaCloseBtn">close</button>
+        </div>
+        <ul>
+            <li>
+                <a href="https://biblissima.fr">
+                    <h3>Home Biblissima</h3>
+                </a>
+            </li>
+            <li>
+                <a href="https://portail.biblissima.fr">
+                    <h3>Biblissima Portal</h3>
+                    <!-- TODO : <sup></sup> .po -->
+                    <!-- <p>Point d'accès au patrimoine écrit du Moyen &Acirc;ge et de la Renaissance en Occident du VIII<sup>e</sup> au XVIII<sup>e</sup> siècle</p> -->
+                    <p>An entry point to the written heritage of the Middle Ages and the Renaissance in Western Europe, from the 8th to the 18th century.</p>
+                </a>
+            </li>
+            <li>
+                <a href="https://iiif.biblissima.fr/collections/">
+                    <h3>IIIF Collections</h3>
+                    <p>A search engine of interoperable digitized manuscripts and rare books</p>
+                </a>
+            </li>
+            <li>
+                <a href="https://data.biblissima.fr/w/Accueil">
+                    <h3>Biblissima Authority Files</h3>
+                    <p>Collaborative platform to manage and publish Biblissima authority data</p>
+                </a>
+            </li>
+            <li>
+                <a href="https://outils.biblissima.fr">
+                    <h3>Biblissima Tools</h3>
+                    <p>Help for reading and learning classical languages, XML editing tools and environments</p>
+                </a>
+            </li>
+            <li>
+                <a href="https://iiif.biblissima.fr/#services-iiif">
+                    <h3>IIIF360</h3>
+                    <p>Expertise service around IIIF standards</p>
+                </a>
+            </li>
+        </ul>
+    </nav>
+    <div class="footer">
+      <p><a href="https://projet.biblissima.fr/fr/newsletter">Subscribe to the newsletter</a></p>
+      <p><a href="https://projet.biblissima.fr/fr/contact">Contact us</a></p>
+      <p><a href="https://projet.biblissima.fr">Project</a> | <a href="https://demos.biblissima.fr">Demos</a> | <a href="https://doc.biblissima.fr">Documentation</a></p>
+    </div>
+</div>
+<script type="text/javascript">
+document.addEventListener("DOMContentLoaded", function() {
+  document.querySelectorAll('#menuBbmaBtn, #menuBbmaCloseBtn').forEach(function(el) {
+    el.addEventListener('click', function() {
+      document.querySelector('.menu-bbma-wrapper').classList.toggle('active');
+    })
+  });
+});
+</script><style type="text/css">
+.top-bar-bbma.navbar {
+    border: 0;
+    padding: 0;
+    margin-bottom: 0;
+    z-index: 1000;
+}
+.top-bar-bbma.main-menu {
+    background: #16232d;
+    border-bottom: solid 1px #05080b;
+    border-radius: 0;
+    min-height: 0;
+}
+.top-bar-bbma .navbar-header {
+    display: flex;
+    margin: 0;
+    height: 40px;
+    align-items: center;
+}
+.top-bar-bbma .navbar-header h1 {
+    border: none;
+    margin: 0;
+    padding: 0;
+    font-size: 4rem;
+    overflow: initial;
+}
+.top-bar-bbma .navbar-header h1 a {
+    display: block;
+}
+.top-bar-bbma .navbar-header h1 a img {
+    display: block;
+    margin-top: -7px;
+}
+.menu-bbma-btn {
+    background: 0 0;
+    border: none;
+    cursor: pointer;
+    color: #dde1e6;
+    transition: .2s linear all;
+    padding: 0 10px;
+}
+</style>
+<nav class="main-menu navbar top-bar-bbma" role="navigation">
+    <div class="container">
+        <div class="navbar-header">
+            <button class="material-icons menu-bbma-btn" id="menuBbmaBtn">menu</button>
+            <h1>
+                <a href="https://biblissima.fr" class="logo">
+                    <img src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4NCjwhLS0gR2VuZXJhdG9yOiBBZG9iZSBJbGx1c3RyYXRvciAxNi4wLjAsIFNWRyBFeHBvcnQgUGx1Zy1JbiAuIFNWRyBWZXJzaW9uOiA2LjAwIEJ1aWxkIDApICAtLT4NCjwhRE9DVFlQRSBzdmcgUFVCTElDICItLy9XM0MvL0RURCBTVkcgMS4xIFRpbnkvL0VOIiAiaHR0cDovL3d3dy53My5vcmcvR3JhcGhpY3MvU1ZHLzEuMS9EVEQvc3ZnMTEtdGlueS5kdGQiPg0KPHN2ZyB2ZXJzaW9uPSIxLjEiIGJhc2VQcm9maWxlPSJ0aW55IiBpZD0iQ2FscXVlXzEiDQoJIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHg9IjBweCIgeT0iMHB4IiB3aWR0aD0iMTQ1cHgiIGhlaWdodD0iMjdweCINCgkgdmlld0JveD0iMCAwIDE0NSAyNyIgeG1sOnNwYWNlPSJwcmVzZXJ2ZSI+DQo8Zz4NCgk8cGF0aCBmaWxsPSIjZGRlMWU2IiBkPSJNMTM1LjI0LDE5Ljk4M1YwLjQxN2gzLjkwOXYxOS41NjdIMTM1LjI0eiBNMTQxLjA5MSw4LjIzNEgxNDV2MTEuNzVoLTMuOTA5VjguMjM0eiIvPg0KPC9nPg0KPGc+DQoJPHBhdGggZmlsbD0iI2RkZTFlNiIgZD0iTTguOTcsOS4xNDJjMy45NzksMCw1Ljg1MSwxLjc0Miw1Ljg1MSw0LjEzNGMwLDEuODItMS4wOTIsMy40MDYtNC4yMTIsNC4wMDQNCgkJYzMuNjY2LDAuNDY4LDUuMTQ4LDIuMTMyLDUuMTQ4LDQuMzE2YzAsMi4yODgtMS43NjgsNC43ODQtNy40ODgsNC43ODRIMS4wMTR2LTEuMjIybDIuMTg0LTAuMjM0DQoJCUMzLjI1LDIyLjc0LDMuMjUsMjAuNTMsMy4yNSwxOC4yNjl2LTEuMDE0YzAtMi4yMSwwLTQuNDQ2LTAuMDUyLTYuNjU3bC0yLjE4NC0wLjIzNFY5LjE0Mkg4Ljk3eiBNNi42MywxMC40NjgNCgkJYy0wLjA1MiwyLjA1NC0wLjA1Miw0LjE4Ni0wLjA1Miw2LjMxOGgxLjA2NmMyLjY3OCwwLDMuODc1LTEuMDQsMy44NzUtMy4yNzZjMC0yLjE1OC0xLjE0NC0zLjA0Mi0zLjUxLTMuMDQySDYuNjN6IE03Ljg1MiwyNS4wMjkNCgkJYzIuODg2LDAsNC4zOTUtMS4xOTYsNC4zOTUtMy40MzNjMC0yLjM5Mi0xLjQwNC0zLjUzNi00LjQ5OC0zLjUzNmgtMS4xN2MwLDIuNDQ0LDAsNC43MzIsMC4wNTIsNi45NjlINy44NTJ6Ii8+DQoJPHBhdGggZmlsbD0iI2RkZTFlNiIgZD0iTTI0LjU3LDI1LjMxNHYxLjA2NmgtNi40NDh2LTEuMDY2bDEuNzE2LTAuMzM4YzAuMDI2LTEuMjczLDAuMDI2LTIuOTM4LDAuMDI2LTQuMDU2di0xLjMNCgkJYzAtMS40MzEtMC4wMjYtMi4yMzYtMC4wNzgtMy4yNzZMMTcuOTQsMTYuMTF2LTAuOTYybDQuNzA2LTEuNjY0bDAuNDE2LDAuMjg2bC0wLjA3OCwzLjY0djMuNTExYzAsMS4xMTgsMCwyLjc4MiwwLjAyNiw0LjA4Mg0KCQlMMjQuNTcsMjUuMzE0eiBNMTkuNDIyLDkuMjk4YzAtMS4xMTgsMC44NTgtMS44NzIsMS45NzYtMS44NzJjMS4wOTIsMCwxLjk1LDAuNzU0LDEuOTUsMS44NzJjMCwxLjA2Ni0wLjg1OCwxLjg0Ni0xLjk1LDEuODQ2DQoJCUMyMC4yOCwxMS4xNDUsMTkuNDIyLDEwLjM2NCwxOS40MjIsOS4yOTh6Ii8+DQoJPHBhdGggZmlsbD0iI2RkZTFlNiIgZD0iTTMxLjQ2LDE1LjMzYzEuMTQ0LTEuMjQ4LDIuNDQ0LTEuODQ2LDMuODc1LTEuODQ2YzIuODA4LDAsNS4wMTgsMi4zOTMsNS4wMTgsNi41NTMNCgkJYzAsNC4wODItMi40NDQsNi43MzMtNS40MzQsNi43MzNjLTEuMzc4LDAtMi41MjItMC40OTMtMy41MS0xLjcxNmwtMC4zMzgsMS42OWwtNC4zOTQtMC4zNjR2LTEuMDY2bDEuNzE2LTAuMzM4DQoJCWMwLjAyNi0xLjMsMC4wMjYtMi45MzgsMC4wMjYtNC4wNTZWMTBMMjYuNTIsOS43NjZWOC43NTJsNC42NTQtMS4xN2wwLjM5LDAuMjM0bC0wLjEwNCwzLjY2NlYxNS4zM3ogTTMxLjUzOCwyMy44MzMNCgkJYzAuODA2LDAuNzU0LDEuNTg2LDEuMTE4LDIuNDQ0LDEuMTE4YzEuNjksMCwzLjA0Mi0xLjU2MSwzLjA0Mi00Ljc4NGMwLTMuMTk4LTEuMTk2LTQuODExLTIuOTM4LTQuODExDQoJCWMtMC44MDYsMC0xLjY2NCwwLjQ0Mi0yLjU0OCwxLjE5NlYyMy44MzN6Ii8+DQoJPHBhdGggZmlsbD0iI2RkZTFlNiIgZD0iTTQ5LjI3LDI1LjMxNHYxLjA2NmgtNi43NnYtMS4wNjZsMS43NjgtMC4zMzhjMC4wMjYtMS4zNTIsMC4wNTItMi43MDQsMC4wNTItNC4wNTZWMTAuMDI2bC0xLjg5OC0wLjI2DQoJCVY4Ljc1Mmw0LjczMi0xLjE3bDAuMzksMC4yMzRsLTAuMTA0LDMuNjY2djkuNDM4YzAsMS4zNTIsMC4wMjYsMi43MDQsMC4wNTIsNC4wNTZMNDkuMjcsMjUuMzE0eiIvPg0KCTxwYXRoIGZpbGw9IiNkZGUxZTYiIGQ9Ik01Ny44MjQsMjUuMzE0djEuMDY2aC02LjQ0OHYtMS4wNjZsMS43MTYtMC4zMzhjMC4wMjYtMS4yNzMsMC4wMjYtMi45MzgsMC4wMjYtNC4wNTZ2LTEuMw0KCQljMC0xLjQzMS0wLjAyNi0yLjIzNi0wLjA3OC0zLjI3NmwtMS44NDYtMC4yMzR2LTAuOTYybDQuNzA2LTEuNjY0bDAuNDE2LDAuMjg2bC0wLjA3OCwzLjY0djMuNTExYzAsMS4xMTgsMCwyLjc4MiwwLjAyNiw0LjA4Mg0KCQlMNTcuODI0LDI1LjMxNHogTTUyLjY3Niw5LjI5OGMwLTEuMTE4LDAuODU4LTEuODcyLDEuOTc2LTEuODcyYzEuMDkyLDAsMS45NSwwLjc1NCwxLjk1LDEuODcyYzAsMS4wNjYtMC44NTgsMS44NDYtMS45NSwxLjg0Ng0KCQlDNTMuNTM0LDExLjE0NSw1Mi42NzYsMTAuMzY0LDUyLjY3Niw5LjI5OHoiLz4NCgk8cGF0aCBmaWxsPSIjZGRlMWU2IiBkPSJNNjYuMzc4LDE4Ljc4OWMyLjUyMSwwLjg1NywzLjQ4MywyLjE4NCwzLjQ4MywzLjk1MWMwLDIuMzQxLTEuOTI0LDQuMDMtNS40MzQsNC4wMw0KCQljLTEuNTg2LDAtMi44Ni0wLjM2My00LjE4Ny0xLjA5MmwtMC4wMjYtMy4wMTZoMS43NDJsMC40NjgsMi40MThjMC42MjQsMC4yNiwxLjI3NCwwLjM5LDIuMDI4LDAuMzkNCgkJYzEuNzY5LDAsMi42NTItMC42NzYsMi42NTItMS43OTRjMC0wLjk2Mi0wLjY0OS0xLjUzNC0yLjMxMy0yLjA4bC0xLjMwMS0wLjQxNmMtMS45NS0wLjY1LTMuMTQ2LTEuODcyLTMuMTQ2LTMuNjY2DQoJCWMwLTIuMjEsMS44NzItNC4wMyw0Ljk0LTQuMDNjMS40ODIsMCwyLjY1MiwwLjM5LDMuODc0LDEuMDY2bC0wLjEzLDIuNzU2aC0xLjcxNmwtMC40NjgtMi4xODQNCgkJYy0wLjQ5NC0wLjIwOS0wLjk4OC0wLjMxMi0xLjYxMi0wLjMxMmMtMS4zNzgsMC0yLjE4NCwwLjYyNC0yLjE4NCwxLjY4OWMwLDAuODg1LDAuNTIsMS4zNzksMi4yODksMS45NzdMNjYuMzc4LDE4Ljc4OXoiLz4NCgk8cGF0aCBmaWxsPSIjZGRlMWU2IiBkPSJNNzguNTcyLDE4Ljc4OWMyLjUyMSwwLjg1NywzLjQ4NCwyLjE4NCwzLjQ4NCwzLjk1MWMwLDIuMzQxLTEuOTI0LDQuMDMtNS40MzYsNC4wMw0KCQljLTEuNTg2LDAtMi44NTktMC4zNjMtNC4xODUtMS4wOTJsLTAuMDI2LTMuMDE2aDEuNzQzbDAuNDY3LDIuNDE4YzAuNjI1LDAuMjYsMS4yNzUsMC4zOSwyLjAyOSwwLjM5DQoJCWMxLjc2OCwwLDIuNjUyLTAuNjc2LDIuNjUyLTEuNzk0YzAtMC45NjItMC42NS0xLjUzNC0yLjMxNC0yLjA4bC0xLjMwMS0wLjQxNmMtMS45NDktMC42NS0zLjE0Ni0xLjg3Mi0zLjE0Ni0zLjY2Ng0KCQljMC0yLjIxLDEuODczLTQuMDMsNC45NDEtNC4wM2MxLjQ4MiwwLDIuNjUyLDAuMzksMy44NzMsMS4wNjZsLTAuMTI5LDIuNzU2aC0xLjcxN2wtMC40NjktMi4xODQNCgkJYy0wLjQ5Mi0wLjIwOS0wLjk4Ni0wLjMxMi0xLjYxMS0wLjMxMmMtMS4zNzcsMC0yLjE4NCwwLjYyNC0yLjE4NCwxLjY4OWMwLDAuODg1LDAuNTIsMS4zNzksMi4yODcsMS45NzdMNzguNTcyLDE4Ljc4OXoiLz4NCgk8cGF0aCBmaWxsPSIjZGRlMWU2IiBkPSJNOTAuODQ0LDI1LjMxNHYxLjA2NmgtNi40NDl2LTEuMDY2bDEuNzE3LTAuMzM4YzAuMDI1LTEuMjczLDAuMDI1LTIuOTM4LDAuMDI1LTQuMDU2di0xLjMNCgkJYzAtMS40MzEtMC4wMjUtMi4yMzYtMC4wNzgtMy4yNzZsLTEuODQ2LTAuMjM0di0wLjk2Mmw0LjcwNy0xLjY2NGwwLjQxNiwwLjI4NmwtMC4wNzgsMy42NHYzLjUxMWMwLDEuMTE4LDAsMi43ODIsMC4wMjUsNC4wODINCgkJTDkwLjg0NCwyNS4zMTR6IE04NS42OTUsOS4yOThjMC0xLjExOCwwLjg1Ny0xLjg3MiwxLjk3Ny0xLjg3MmMxLjA5MiwwLDEuOTQ5LDAuNzU0LDEuOTQ5LDEuODcyYzAsMS4wNjYtMC44NTcsMS44NDYtMS45NDksMS44NDYNCgkJQzg2LjU1MywxMS4xNDUsODUuNjk1LDEwLjM2NCw4NS42OTUsOS4yOTh6Ii8+DQoJPHBhdGggZmlsbD0iI2RkZTFlNiIgZD0iTTExNS4wNDksMjUuMzE0djEuMDY2aC02LjM0NHYtMS4wNjZsMS42MTMtMC4zMzhjMC4wMjUtMS4yNzMsMC4wMjUtMi44ODYsMC4wMjUtNC4wNTZ2LTIuNDQ0DQoJCWMwLTIuMjEtMC41NDctMi44MDktMS44NDYtMi44MDljLTAuOTM4LDAtMS44NzMsMC40NDItMi44NjEsMS4zMjZjMC4wMjcsMC4zMzgsMC4wNTMsMC43MjksMC4wNTMsMS4xNDV2Mi43ODINCgkJYzAsMS4xNywwLDIuNzgyLDAuMDI1LDQuMDgybDEuNTYxLDAuMzEydjEuMDY2aC02LjM3MXYtMS4wNjZsMS42NjQtMC4zMzhjMC4wMjctMS4yNzMsMC4wMjctMi44ODYsMC4wMjctNC4wNTZ2LTIuNDE4DQoJCWMwLTIuMTA2LTAuNDY5LTIuODM1LTEuODItMi44MzVjLTAuOTg4LDAtMS45MjQsMC40OTQtMi44MzQsMS4zMDF2My45NTJjMCwxLjE0NCwwLDIuNzgyLDAuMDI1LDQuMDgybDEuNTM1LDAuMzEydjEuMDY2aC02LjQyNA0KCQl2LTEuMDY2bDEuNjkxLTAuMzM4YzAuMDI1LTEuMjczLDAuMDI1LTIuOTM4LDAuMDI1LTQuMDU2VjE5LjQ5YzAtMS40MywwLTIuMTA1LTAuMDc4LTMuMTQ2bC0xLjgyLTAuMjM0di0wLjk2Mmw0LjM0Mi0xLjY2NA0KCQlsMC40MTYsMC4yODZsMC4yMDksMi4wMjhjMS4yNDgtMS40NTcsMi43My0yLjMxNCw0LjMxNi0yLjMxNGMxLjY4OSwwLDIuNzgxLDAuNzU0LDMuMjUsMi4zOTNjMS40MDQtMS43MTcsMi44ODctMi4zOTMsNC40NzMtMi4zOTMNCgkJYzIuMzQsMCwzLjUzNSwxLjQzLDMuNTM1LDQuNTc2djIuODZjMCwxLjE3LDAsMi43ODIsMC4wMjUsNC4wODJMMTE1LjA0OSwyNS4zMTR6Ii8+DQoJPHBhdGggZmlsbD0iI2RkZTFlNiIgZD0iTTEyOS43MTMsMjUuMDI5Yy0wLjU5OCwxLjI3My0xLjM3NywxLjY2NC0yLjU3NCwxLjY2NGMtMS41MzMsMC0yLjM5My0wLjc1NS0yLjY3OC0xLjk1DQoJCWMtMS4yNzMsMS4zLTIuMTA1LDIuMDI3LTMuNzcsMi4wMjdjLTEuOTUxLDAtMy40NTktMS4xNy0zLjQ1OS0zLjMyOGMwLTEuNjM4LDAuOTEtMi45MTIsNC42NTQtNC4xMDcNCgkJYzAuNjc2LTAuMjM0LDEuNTg2LTAuNDk0LDIuNDk2LTAuNzI5di0wLjc4YzAtMi40MTgtMC41OTgtMy4wNjgtMi4yODctMy4wNjhjLTAuMzEyLDAtMC42NSwwLjAyNi0xLjA0MSwwLjA3OGwtMC4zMTIsMS41MDkNCgkJYy0wLjE1NiwxLjI0OC0wLjgwNSwxLjgxOS0xLjY2NCwxLjgxOWMtMC44MDUsMC0xLjMyNi0wLjQ0MS0xLjQ1NS0xLjE5NWMwLjMxMi0yLjA4LDIuMzE0LTMuNDg0LDUuNDg2LTMuNDg0DQoJCWMzLjAxNiwwLDQuMzQyLDEuMzUyLDQuMzQyLDQuNzMydjUuNzJjMCwwLjc4LDAuMjM0LDEuMTcsMC43MDEsMS4xN2MwLjM2NSwwLDAuNjI1LTAuMjA4LDAuODMyLTAuNDQxbDAuMTMxLTAuMTNMMTI5LjcxMywyNS4wMjl6DQoJCSBNMTI0LjM4MywxOS42NDZjLTAuNzI5LDAuMjM0LTEuNDA0LDAuNDQyLTEuODQ2LDAuNjI0Yy0xLjc0MiwwLjcwMi0yLjI2MiwxLjY2NC0yLjI2MiwyLjY1MmMwLDAuNzAyLDAuMTgyLDEuMDkyLDAuNDk0LDEuNDA0DQoJCWMwLjM2MywwLjM5LDAuODA1LDAuNTQ2LDEuMzUyLDAuNTQ2YzAuNjc2LDAsMS4xMTctMC4yODYsMi4yNjItMS4wOTJWMTkuNjQ2eiIvPg0KPC9nPg0KPGc+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPC9zdmc+DQo=" alt="Biblissima">
+                </a>
+            </h1>
+        </div>
+    </div>
+</nav>
+
+<div id="mw-page-base" class="noprint"></div>
+<div id="mw-head-base" class="noprint"></div>
+<div id="content" class="mw-body" role="main">
+	<a id="top"></a>
+	<div id="siteNotice"></div>
+	<div class="mw-indicators">
+	</div>
+	<h1 id="firstHeading" class="firstHeading mw-first-heading"><span class="mw-page-title-namespace">Project</span><span class="mw-page-title-separator">:</span><span class="mw-page-title-main">SPARQL examples</span></h1>
+	<div id="bodyContent" class="vector-body">
+		<div id="siteSub" class="noprint">De Référentiels d’autorité Biblissima</div>
+		<div id="contentSub"><div id="mw-content-subtitle"></div></div>
+		<div id="contentSub2"></div>
+		
+		<div id="jump-to-nav"></div>
+		<a class="mw-jump-link" href="#mw-head">Aller à la navigation</a>
+		<a class="mw-jump-link" href="#searchInput">Aller à la recherche</a>
+		<div id="mw-content-text" class="mw-body-content"><div class="mw-content-ltr mw-parser-output" lang="fr" dir="ltr"><div id="toc" class="toc" role="navigation" aria-labelledby="mw-toc-heading"><input type="checkbox" role="button" id="toctogglecheckbox" class="toctogglecheckbox" style="display:none" /><div class="toctitle" lang="fr" dir="ltr"><h2 id="mw-toc-heading">Sommaire</h2><span class="toctogglespan"><label class="toctogglelabel" for="toctogglecheckbox"></label></span></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#Exemples_de_requêtes_SPARQL"><span class="tocnumber">1</span> <span class="toctext">Exemples de requêtes SPARQL</span></a>
+<ul>
+<li class="toclevel-2 tocsection-2"><a href="#Tous_les_triplets_d&#39;une_entité_donnée"><span class="tocnumber">1.1</span> <span class="toctext">Tous les triplets d'une entité donnée</span></a></li>
+<li class="toclevel-2 tocsection-3"><a href="#Toutes_les_propriétés_d&#39;une_entité_d&#39;un_certain_type"><span class="tocnumber">1.2</span> <span class="toctext">Toutes les propriétés d'une entité d'un certain type</span></a></li>
+<li class="toclevel-2 tocsection-4"><a href="#Principaux_types_d&#39;entités_(classes_avec_un_alignement_externe)"><span class="tocnumber">1.3</span> <span class="toctext">Principaux types d'entités (classes avec un alignement externe)</span></a></li>
+<li class="toclevel-2 tocsection-5"><a href="#Vue_globale_des_types_d&#39;entités"><span class="tocnumber">1.4</span> <span class="toctext">Vue globale des types d'entités</span></a></li>
+<li class="toclevel-2 tocsection-6"><a href="#Lieux_(liste_complète)"><span class="tocnumber">1.5</span> <span class="toctext">Lieux (liste complète)</span></a></li>
+<li class="toclevel-2 tocsection-7"><a href="#Lieux_géolocalisés_(carte)"><span class="tocnumber">1.6</span> <span class="toctext">Lieux géolocalisés (carte)</span></a></li>
+<li class="toclevel-2 tocsection-8"><a href="#Personnes_physiques_(liste_complète)"><span class="tocnumber">1.7</span> <span class="toctext">Personnes physiques (liste complète)</span></a></li>
+<li class="toclevel-2 tocsection-9"><a href="#Organisations_(liste_complète)"><span class="tocnumber">1.8</span> <span class="toctext">Organisations (liste complète)</span></a></li>
+<li class="toclevel-2 tocsection-10"><a href="#Oeuvres_(liste_complète)"><span class="tocnumber">1.9</span> <span class="toctext">Oeuvres (liste complète)</span></a></li>
+<li class="toclevel-2 tocsection-11"><a href="#Manuscrits_(liste_complète)"><span class="tocnumber">1.10</span> <span class="toctext">Manuscrits (liste complète)</span></a></li>
+<li class="toclevel-2 tocsection-12"><a href="#Manuscrits_(répartition_par_bibliothèque)"><span class="tocnumber">1.11</span> <span class="toctext">Manuscrits (répartition par bibliothèque)</span></a></li>
+<li class="toclevel-2 tocsection-13"><a href="#Manuscrits_numérisés_(répartition_par_bibnum)"><span class="tocnumber">1.12</span> <span class="toctext">Manuscrits numérisés (répartition par bibnum)</span></a></li>
+<li class="toclevel-2 tocsection-14"><a href="#Bibliothèques_numériques_IIIF"><span class="tocnumber">1.13</span> <span class="toctext">Bibliothèques numériques IIIF</span></a></li>
+<li class="toclevel-2 tocsection-15"><a href="#Jeux_de_données"><span class="tocnumber">1.14</span> <span class="toctext">Jeux de données</span></a></li>
+<li class="toclevel-2 tocsection-16"><a href="#Entités_associées_à_un_jeu_de_données"><span class="tocnumber">1.15</span> <span class="toctext">Entités associées à un jeu de données</span></a></li>
+<li class="toclevel-2 tocsection-17"><a href="#Personnes_avec_2_ID_bbma"><span class="tocnumber">1.16</span> <span class="toctext">Personnes avec 2 ID bbma</span></a></li>
+<li class="toclevel-2 tocsection-18"><a href="#Organisations_avec_RCR_et_disposant_de_moins_de_20_cotes"><span class="tocnumber">1.17</span> <span class="toctext">Organisations avec RCR et disposant de moins de 20 cotes</span></a></li>
+<li class="toclevel-2 tocsection-19"><a href="#Manuscrits_détruits"><span class="tocnumber">1.18</span> <span class="toctext">Manuscrits détruits</span></a></li>
+<li class="toclevel-2 tocsection-20"><a href="#Entités_alignées_vers_le_catalogue_BnF"><span class="tocnumber">1.19</span> <span class="toctext">Entités alignées vers le catalogue BnF</span></a></li>
+<li class="toclevel-2 tocsection-21"><a href="#Entités_alignées_avec_la_DNB"><span class="tocnumber">1.20</span> <span class="toctext">Entités alignées avec la DNB</span></a></li>
+<li class="toclevel-2 tocsection-22"><a href="#Entités_alignées_avec_Persée_ou_IdRef"><span class="tocnumber">1.21</span> <span class="toctext">Entités alignées avec Persée ou IdRef</span></a></li>
+<li class="toclevel-2 tocsection-23"><a href="#Entités_personnes_issues_des_bases_de_l&#39;IRHT"><span class="tocnumber">1.22</span> <span class="toctext">Entités personnes issues des bases de l'IRHT</span></a></li>
+<li class="toclevel-2 tocsection-24"><a href="#Données_sur_les_items_numérisés"><span class="tocnumber">1.23</span> <span class="toctext">Données sur les items numérisés</span></a></li>
+<li class="toclevel-2 tocsection-25"><a href="#Entités_fusionnées/redirigées"><span class="tocnumber">1.24</span> <span class="toctext">Entités fusionnées/redirigées</span></a></li>
+<li class="toclevel-2 tocsection-26"><a href="#Entités_avec_manifest_archive.org"><span class="tocnumber">1.25</span> <span class="toctext">Entités avec manifest archive.org</span></a></li>
+<li class="toclevel-2 tocsection-27"><a href="#Standards_de_métadonnées_référencés_dans_la_propriété_&quot;seeAlso&quot;_(IIIF)"><span class="tocnumber">1.26</span> <span class="toctext">Standards de métadonnées référencés dans la propriété "seeAlso" (IIIF)</span></a></li>
+<li class="toclevel-2 tocsection-28"><a href="#Entités_avec_bibliographie,_en_récupérant_le_QID_du_référentiel_biblio_pour_chaque_entrée"><span class="tocnumber">1.27</span> <span class="toctext">Entités avec bibliographie, en récupérant le QID du référentiel biblio pour chaque entrée</span></a></li>
+<li class="toclevel-2 tocsection-29"><a href="#Inscriptions_des_CIFM"><span class="tocnumber">1.28</span> <span class="toctext">Inscriptions des CIFM</span></a></li>
+<li class="toclevel-2 tocsection-30"><a href="#Liste_des_cotes_citées_dans_les_articles_de_la_revue_ALMA_(Persée)"><span class="tocnumber">1.29</span> <span class="toctext">Liste des cotes citées dans les articles de la revue ALMA (Persée)</span></a></li>
+</ul>
+</li>
+</ul>
+</div>
+
+<h2><span id="Exemples_de_requ.C3.AAtes_SPARQL"></span><span class="mw-headline" id="Exemples_de_requêtes_SPARQL">Exemples de requêtes SPARQL</span></h2>
+<p>Cette page liste des exemples de requêtes SPARQL permettant d'interroger en profondeur les données RDF des Référentiels Biblissima. Chaque requête peut être lancée en cliquant sur le lien "Ouvrir la requête" qui ouvre une interface de requête dédiée.
+</p>
+<h4><span id="Tous_les_triplets_d.27une_entit.C3.A9_donn.C3.A9e"></span><span class="mw-headline" id="Tous_les_triplets_d'une_entité_donnée">Tous les triplets d'une entité donnée</span></h4>
+<div class="mw-highlight mw-highlight-lang-sparql mw-content-ltr" dir="ltr"><pre><span></span><span class="c"># Tous les triplets d&#39;une entité donnée</span>
+<span class="k">SELECT</span> <span class="nv">?p</span> <span class="nv">?propLabel</span> <span class="nv">?o</span>
+<span class="k">WHERE</span>
+<span class="p">{</span>
+  <span class="nn">wd</span><span class="p">:</span><span class="nt">Q1000</span> <span class="nv">?p</span> <span class="nv">?o</span> <span class="p">.</span>
+  <span class="k">OPTIONAL</span> <span class="p">{</span> 
+    <span class="nv">?prop</span> <span class="nn">wikibase</span><span class="p">:</span><span class="nt">directClaim</span> <span class="nv">?p</span> <span class="p">;</span> 
+          <span class="nn">rdfs</span><span class="p">:</span><span class="nt">label</span> <span class="nv">?propLabel</span> <span class="p">.</span>
+    <span class="k">FILTER</span> <span class="p">(</span><span class="nf">lang</span><span class="p">(</span><span class="nv">?propLabel</span><span class="p">)</span> <span class="o">=</span> <span class="s">&#39;fr&#39;</span><span class="p">)</span> <span class="p">.</span>
+  <span class="p">}</span>  
+<span class="p">}</span>
+</pre></div>
+<div class="sparql-link"><a rel="nofollow" class="external text" href="https://query.biblissima.fr/?query=PREFIX+rdf%3A++%3Chttp%3A%2F%2Fwww.w3.org%2F1999%2F02%2F22-rdf-syntax-ns%23%3E%0APREFIX+rdfs%3A+%3Chttp%3A%2F%2Fwww.w3.org%2F2000%2F01%2Frdf-schema%23%3E%0APREFIX+owl%3A++%3Chttp%3A%2F%2Fwww.w3.org%2F2002%2F07%2Fowl%23%3E%0APREFIX+xsd%3A++%3Chttp%3A%2F%2Fwww.w3.org%2F2001%2FXMLSchema%23%3E%0APREFIX+skos%3A+%3Chttp%3A%2F%2Fwww.w3.org%2F2004%2F02%2Fskos%2Fcore%23%3E%0APREFIX+wd%3A+%3Chttps%3A%2F%2Fdata.biblissima.fr%2Fentity%2F%3E%0APREFIX+wdt%3A+%3Chttps%3A%2F%2Fdata.biblissima.fr%2Fprop%2Fdirect%2F%3E%0APREFIX+wikibase%3A+%3Chttp%3A%2F%2Fwikiba.se%2Fontology%23%3E%0A%23+Tous+les+triplets+d%27une+entit%C3%A9+donn%C3%A9e%0ASELECT+%3Fp+%3FpropLabel+%3Fo%0AWHERE%0A%7B%0A++wd%3AQ1000+%3Fp+%3Fo+.%0A++OPTIONAL+%7B+%0A++++%3Fprop+wikibase%3AdirectClaim+%3Fp+%3B+%0A++++++++++rdfs%3Alabel+%3FpropLabel+.%0A++++FILTER+%28lang%28%3FpropLabel%29+%3D+%27fr%27%29+.%0A++%7D++%0A%7D">↗ Ouvrir la requête</a></div>
+<p><br />
+</p>
+<h4><span id="Toutes_les_propri.C3.A9t.C3.A9s_d.27une_entit.C3.A9_d.27un_certain_type"></span><span class="mw-headline" id="Toutes_les_propriétés_d'une_entité_d'un_certain_type">Toutes les propriétés d'une entité d'un certain type</span></h4>
+<pre># Principaux types d'entités
+Q167 = organisation
+Q168 = être humain
+Q26719 = lieu géographique
+Q32795 = famille
+Q32810 = manuscrit
+Q345196 = manuscrit en plusieurs volumes
+Q113619 = imprimé
+Q257483 = inscription
+Q282950 = oeuvre
+Q304387 = descripteur
+Q120868 = document cartographique
+Q120861 = reliure
+Q317415 = référence biblique
+</pre>
+<p><br />
+</p>
+<div class="mw-highlight mw-highlight-lang-sparql mw-content-ltr" dir="ltr"><pre><span></span><span class="c"># Toutes les propriétés d&#39;une entité d&#39;un certain type</span>
+<span class="k">SELECT</span> <span class="k">DISTINCT</span> <span class="nv">?prop</span> <span class="nv">?propLabel</span>
+<span class="k">WHERE</span>
+<span class="p">{</span>
+  <span class="nv">?item</span> <span class="nn">wdt</span><span class="p">:</span><span class="nt">P2</span> <span class="nn">wd</span><span class="p">:</span><span class="nt">Q168</span> <span class="p">;</span>
+        <span class="nv">?p</span> <span class="nv">?o</span> <span class="p">.</span>
+  <span class="nv">?prop</span> <span class="nn">wikibase</span><span class="p">:</span><span class="nt">directClaim</span> <span class="nv">?p</span> <span class="p">;</span>
+        <span class="nn">rdfs</span><span class="p">:</span><span class="nt">label</span> <span class="nv">?propLabel</span> <span class="p">.</span>
+  <span class="k">FILTER</span> <span class="p">(</span><span class="nf">lang</span><span class="p">(</span><span class="nv">?propLabel</span><span class="p">)</span> <span class="o">=</span> <span class="s">&#39;fr&#39;</span><span class="p">)</span> <span class="p">.</span>
+  <span class="k">FILTER</span> <span class="p">(</span><span class="o">!</span><span class="nf">regex</span><span class="p">(</span><span class="nv">?propLabel</span><span class="p">,</span> <span class="s">&quot;identifiant&quot;</span><span class="p">,</span> <span class="s">&quot;i&quot;</span><span class="p">))</span> <span class="p">.</span>
+  <span class="k">FILTER</span> <span class="p">(</span><span class="o">!</span><span class="nf">regex</span><span class="p">(</span><span class="nv">?propLabel</span><span class="p">,</span> <span class="s">&quot;ID&quot;</span><span class="p">))</span> <span class="p">.</span>
+<span class="p">}</span>
+</pre></div>
+<div class="sparql-link"><a rel="nofollow" class="external text" href="https://query.biblissima.fr/?query=PREFIX+rdf%3A++%3Chttp%3A%2F%2Fwww.w3.org%2F1999%2F02%2F22-rdf-syntax-ns%23%3E%0APREFIX+rdfs%3A+%3Chttp%3A%2F%2Fwww.w3.org%2F2000%2F01%2Frdf-schema%23%3E%0APREFIX+owl%3A++%3Chttp%3A%2F%2Fwww.w3.org%2F2002%2F07%2Fowl%23%3E%0APREFIX+xsd%3A++%3Chttp%3A%2F%2Fwww.w3.org%2F2001%2FXMLSchema%23%3E%0APREFIX+skos%3A+%3Chttp%3A%2F%2Fwww.w3.org%2F2004%2F02%2Fskos%2Fcore%23%3E%0APREFIX+wd%3A+%3Chttps%3A%2F%2Fdata.biblissima.fr%2Fentity%2F%3E%0APREFIX+wdt%3A+%3Chttps%3A%2F%2Fdata.biblissima.fr%2Fprop%2Fdirect%2F%3E%0APREFIX+wikibase%3A+%3Chttp%3A%2F%2Fwikiba.se%2Fontology%23%3E%0A%23+Toutes+les+propri%C3%A9t%C3%A9s+d%27une+entit%C3%A9+d%27un+certain+type%0ASELECT+DISTINCT+%3Fprop+%3FpropLabel%0AWHERE%0A%7B%0A++%3Fitem+wdt%3AP2+wd%3AQ168+%3B%0A++++++++%3Fp+%3Fo+.%0A++%3Fprop+wikibase%3AdirectClaim+%3Fp+%3B%0A++++++++rdfs%3Alabel+%3FpropLabel+.%0A++FILTER+%28lang%28%3FpropLabel%29+%3D+%27fr%27%29+.%0A++FILTER+%28%21regex%28%3FpropLabel%2C+%22identifiant%22%2C+%22i%22%29%29+.%0A++FILTER+%28%21regex%28%3FpropLabel%2C+%22ID%22%29%29+.%0A%7D">↗ Ouvrir la requête</a></div>
+<p><br />
+</p>
+<h4><span id="Principaux_types_d.27entit.C3.A9s_.28classes_avec_un_alignement_externe.29"></span><span class="mw-headline" id="Principaux_types_d'entités_(classes_avec_un_alignement_externe)">Principaux types d'entités (classes avec un alignement externe)</span></h4>
+<div class="mw-highlight mw-highlight-lang-sparql mw-content-ltr" dir="ltr"><pre><span></span><span class="c"># Principaux types d&#39;entités</span>
+<span class="k">SELECT</span> <span class="k">DISTINCT</span> <span class="nv">?classe</span> <span class="nv">?classeLabel</span>
+<span class="k">WHERE</span>
+<span class="p">{</span>
+  <span class="nv">?item</span> <span class="nn">wdt</span><span class="p">:</span><span class="nt">P2</span> <span class="nv">?classe</span> <span class="p">.</span>
+  <span class="nv">?classe</span> <span class="nn">wdt</span><span class="p">:</span><span class="nt">P52</span> <span class="nv">?equivalent</span> <span class="p">;</span>
+          <span class="nn">rdfs</span><span class="p">:</span><span class="nt">label</span> <span class="nv">?classeLabel</span> <span class="p">.</span>
+  <span class="k">FILTER</span> <span class="p">(</span><span class="nf">lang</span><span class="p">(</span><span class="nv">?classeLabel</span><span class="p">)</span> <span class="o">=</span> <span class="s">&#39;fr&#39;</span><span class="p">)</span> <span class="p">.</span>
+<span class="p">}</span>
+</pre></div>
+<div class="sparql-link"><a rel="nofollow" class="external text" href="https://query.biblissima.fr/?query=PREFIX+rdf%3A++%3Chttp%3A%2F%2Fwww.w3.org%2F1999%2F02%2F22-rdf-syntax-ns%23%3E%0APREFIX+rdfs%3A+%3Chttp%3A%2F%2Fwww.w3.org%2F2000%2F01%2Frdf-schema%23%3E%0APREFIX+owl%3A++%3Chttp%3A%2F%2Fwww.w3.org%2F2002%2F07%2Fowl%23%3E%0APREFIX+xsd%3A++%3Chttp%3A%2F%2Fwww.w3.org%2F2001%2FXMLSchema%23%3E%0APREFIX+skos%3A+%3Chttp%3A%2F%2Fwww.w3.org%2F2004%2F02%2Fskos%2Fcore%23%3E%0APREFIX+wd%3A+%3Chttps%3A%2F%2Fdata.biblissima.fr%2Fentity%2F%3E%0APREFIX+wdt%3A+%3Chttps%3A%2F%2Fdata.biblissima.fr%2Fprop%2Fdirect%2F%3E%0APREFIX+wikibase%3A+%3Chttp%3A%2F%2Fwikiba.se%2Fontology%23%3E%0A%23+Principaux+types+d%27entit%C3%A9s%0ASELECT+DISTINCT+%3Fclasse+%3FclasseLabel%0AWHERE%0A%7B%0A++%3Fitem+wdt%3AP2+%3Fclasse+.%0A++%3Fclasse+wdt%3AP52+%3Fequivalent+%3B%0A++++++++++rdfs%3Alabel+%3FclasseLabel+.%0A++FILTER+%28lang%28%3FclasseLabel%29+%3D+%27fr%27%29+.%0A%7D">↗ Ouvrir la requête</a></div>
+<p><br />
+</p>
+<h4><span id="Vue_globale_des_types_d.27entit.C3.A9s"></span><span class="mw-headline" id="Vue_globale_des_types_d'entités">Vue globale des types d'entités</span></h4>
+<div class="mw-highlight mw-highlight-lang-sparql mw-content-ltr" dir="ltr"><pre><span></span><span class="c"># Vue globale des types d&#39;entités</span>
+<span class="k">SELECT</span> <span class="nv">?label</span><span class="p">(</span><span class="nf">count</span><span class="p">(</span><span class="nv">?entity</span><span class="p">)</span> <span class="k">as</span> <span class="nv">?count</span><span class="p">)</span>
+<span class="k">WHERE</span> <span class="p">{</span>
+  <span class="k">VALUES</span> <span class="nv">?filter</span> <span class="p">{</span>
+    <span class="nn">wd</span><span class="p">:</span><span class="nt">Q168</span>
+    <span class="nn">wd</span><span class="p">:</span><span class="nt">Q26719</span>
+    <span class="nn">wd</span><span class="p">:</span><span class="nt">Q32795</span>
+    <span class="nn">wd</span><span class="p">:</span><span class="nt">Q167</span>
+    <span class="nn">wd</span><span class="p">:</span><span class="nt">Q32810</span>
+    <span class="nn">wd</span><span class="p">:</span><span class="nt">Q113619</span>
+    <span class="nn">wd</span><span class="p">:</span><span class="nt">Q120865</span>
+    <span class="nn">wd</span><span class="p">:</span><span class="nt">Q120869</span>
+    <span class="nn">wd</span><span class="p">:</span><span class="nt">Q120868</span>
+    <span class="nn">wd</span><span class="p">:</span><span class="nt">Q282950</span>
+    <span class="nn">wd</span><span class="p">:</span><span class="nt">Q304387</span>
+    <span class="nn">wd</span><span class="p">:</span><span class="nt">Q317415</span>
+    <span class="nn">wd</span><span class="p">:</span><span class="nt">Q460025</span>
+    <span class="nn">wd</span><span class="p">:</span><span class="nt">Q120861</span>
+    <span class="nn">wd</span><span class="p">:</span><span class="nt">Q345196</span>
+    <span class="nn">wd</span><span class="p">:</span><span class="nt">Q26716</span>
+    <span class="nn">wd</span><span class="p">:</span><span class="nt">Q257483</span>
+  <span class="p">}</span>
+  <span class="p">{</span>
+   <span class="nv">?entity</span> <span class="nn">wdt</span><span class="p">:</span><span class="nt">P2</span> <span class="nv">?filter</span> <span class="p">.</span>
+   <span class="nv">?filter</span> <span class="nn">rdfs</span><span class="p">:</span><span class="nt">label</span> <span class="nv">?label</span> <span class="p">.</span>
+  <span class="p">}</span>
+  <span class="k">UNION</span> <span class="p">{</span> <span class="nv">?entity</span> <span class="nn">wdt</span><span class="p">:</span><span class="nt">P2</span> <span class="nv">?label</span> <span class="p">}</span>
+  <span class="k">FILTER</span><span class="p">(</span><span class="nf">LANG</span><span class="p">(</span><span class="nv">?label</span><span class="p">)</span> <span class="o">=</span> <span class="s">&quot;fr&quot;</span><span class="p">)</span>
+<span class="p">}</span>
+<span class="k">GROUP BY</span> <span class="nv">?label</span>
+<span class="k">ORDER BY</span> <span class="k">DESC</span><span class="p">(</span><span class="nv">?count</span><span class="p">)</span>
+</pre></div>
+<div class="sparql-link"><a rel="nofollow" class="external text" href="https://query.biblissima.fr/?query=PREFIX+rdf%3A++%3Chttp%3A%2F%2Fwww.w3.org%2F1999%2F02%2F22-rdf-syntax-ns%23%3E%0APREFIX+rdfs%3A+%3Chttp%3A%2F%2Fwww.w3.org%2F2000%2F01%2Frdf-schema%23%3E%0APREFIX+owl%3A++%3Chttp%3A%2F%2Fwww.w3.org%2F2002%2F07%2Fowl%23%3E%0APREFIX+xsd%3A++%3Chttp%3A%2F%2Fwww.w3.org%2F2001%2FXMLSchema%23%3E%0APREFIX+skos%3A+%3Chttp%3A%2F%2Fwww.w3.org%2F2004%2F02%2Fskos%2Fcore%23%3E%0APREFIX+wd%3A+%3Chttps%3A%2F%2Fdata.biblissima.fr%2Fentity%2F%3E%0APREFIX+wdt%3A+%3Chttps%3A%2F%2Fdata.biblissima.fr%2Fprop%2Fdirect%2F%3E%0APREFIX+wikibase%3A+%3Chttp%3A%2F%2Fwikiba.se%2Fontology%23%3E%0A%23+Vue+globale+des+types+d%27entit%C3%A9s%0ASELECT+%3Flabel%28count%28%3Fentity%29+as+%3Fcount%29%0AWHERE+%7B%0A++VALUES+%3Ffilter+%7B%0A++++wd%3AQ168%0A++++wd%3AQ26719%0A++++wd%3AQ32795%0A++++wd%3AQ167%0A++++wd%3AQ32810%0A++++wd%3AQ113619%0A++++wd%3AQ120865%0A++++wd%3AQ120869%0A++++wd%3AQ120868%0A++++wd%3AQ282950%0A++++wd%3AQ304387%0A++++wd%3AQ317415%0A++++wd%3AQ460025%0A++++wd%3AQ120861%0A++++wd%3AQ345196%0A++++wd%3AQ26716%0A++++wd%3AQ257483%0A++%7D%0A++%7B%0A+++%3Fentity+wdt%3AP2+%3Ffilter+.%0A+++%3Ffilter+rdfs%3Alabel+%3Flabel+.%0A++%7D%0A++UNION+%7B+%3Fentity+wdt%3AP2+%3Flabel+%7D%0A++FILTER%28LANG%28%3Flabel%29+%3D+%22fr%22%29%0A%7D%0AGROUP+BY+%3Flabel%0AORDER+BY+DESC%28%3Fcount%29">↗ Ouvrir la requête</a></div>
+<p><br />
+</p>
+<h4><span id="Lieux_.28liste_compl.C3.A8te.29"></span><span class="mw-headline" id="Lieux_(liste_complète)">Lieux (liste complète)</span></h4>
+<div class="mw-highlight mw-highlight-lang-sparql mw-content-ltr" dir="ltr"><pre><span></span><span class="c"># Lieux (liste complète)</span>
+<span class="k">SELECT</span> <span class="nv">?entity</span> <span class="nv">?entityLabel</span> <span class="nv">?categoryLabel</span> <span class="nv">?countryLabel</span> <span class="nv">?typeLabel</span> <span class="nv">?idBbma</span>
+<span class="k">WHERE</span>
+<span class="p">{</span>
+  <span class="nv">?entity</span> <span class="nn">wdt</span><span class="p">:</span><span class="nt">P2</span> <span class="nn">wd</span><span class="p">:</span><span class="nt">Q26719</span> <span class="p">.</span>
+  <span class="c">#wd:P129 wdt:P108 ?formatterUrl .</span>
+  <span class="k">OPTIONAL</span> <span class="p">{</span>
+     <span class="nv">?type</span> <span class="nn">wdt</span><span class="p">:</span><span class="nt">P2</span> <span class="nn">wd</span><span class="p">:</span><span class="nt">Q26718</span> <span class="p">.</span>
+     <span class="nv">?entity</span> <span class="nn">wdt</span><span class="p">:</span><span class="nt">P2</span> <span class="nv">?type</span> <span class="p">.</span>
+  <span class="p">}</span>
+  <span class="k">OPTIONAL</span> <span class="p">{</span> 
+     <span class="nv">?entity</span> <span class="nn">wdt</span><span class="p">:</span><span class="nt">P172</span> <span class="nv">?country</span> <span class="p">.</span>
+     <span class="nv">?country</span> <span class="nn">rdfs</span><span class="p">:</span><span class="nt">label</span> <span class="nv">?countryLabel</span> <span class="p">.</span>
+  <span class="p">}</span>
+  <span class="k">OPTIONAL</span> <span class="p">{</span> 
+     <span class="nv">?entity</span> <span class="nn">wdt</span><span class="p">:</span><span class="nt">P169</span> <span class="nv">?category</span> <span class="p">.</span>
+     <span class="nv">?category</span> <span class="nn">rdfs</span><span class="p">:</span><span class="nt">label</span> <span class="nv">?categoryLabel</span> <span class="p">.</span>
+  <span class="p">}</span>
+  <span class="k">OPTIONAL</span> <span class="p">{</span> <span class="nv">?entity</span> <span class="nn">wdt</span><span class="p">:</span><span class="nt">P129</span> <span class="nv">?idBbma</span> <span class="p">}</span>
+  <span class="c"># BIND(IRI(REPLACE(?idBbma, &#39;^(.+)$&#39;, ?formatterUrl)) AS ?url).</span>
+  <span class="c"># (URI(REPLACE(?p1630,&#39;\\$1&#39;,?id)) AS ?url)</span>
+  <span class="nv">?entity</span> <span class="nn">rdfs</span><span class="p">:</span><span class="nt">label</span> <span class="nv">?entityLabel</span> <span class="p">.</span>
+  
+  <span class="k">FILTER</span> <span class="p">(</span><span class="nf">lang</span><span class="p">(</span><span class="nv">?entityLabel</span><span class="p">)</span> <span class="o">=</span> <span class="s">&#39;fr&#39;</span><span class="p">)</span> <span class="p">.</span>
+  <span class="k">FILTER</span> <span class="p">(</span><span class="nf">lang</span><span class="p">(</span><span class="nv">?categoryLabel</span><span class="p">)</span> <span class="o">=</span> <span class="s">&#39;fr&#39;</span><span class="p">)</span> <span class="p">.</span>
+  <span class="k">FILTER</span> <span class="p">(</span><span class="nf">lang</span><span class="p">(</span><span class="nv">?countryLabel</span><span class="p">)</span> <span class="o">=</span> <span class="s">&#39;fr&#39;</span><span class="p">)</span> <span class="p">.</span>
+<span class="p">}</span>
+<span class="k">ORDER BY</span> <span class="nv">?entityLabel</span>
+</pre></div>
+<div class="sparql-link"><a rel="nofollow" class="external text" href="https://query.biblissima.fr/?query=PREFIX+rdf%3A++%3Chttp%3A%2F%2Fwww.w3.org%2F1999%2F02%2F22-rdf-syntax-ns%23%3E%0APREFIX+rdfs%3A+%3Chttp%3A%2F%2Fwww.w3.org%2F2000%2F01%2Frdf-schema%23%3E%0APREFIX+owl%3A++%3Chttp%3A%2F%2Fwww.w3.org%2F2002%2F07%2Fowl%23%3E%0APREFIX+xsd%3A++%3Chttp%3A%2F%2Fwww.w3.org%2F2001%2FXMLSchema%23%3E%0APREFIX+skos%3A+%3Chttp%3A%2F%2Fwww.w3.org%2F2004%2F02%2Fskos%2Fcore%23%3E%0APREFIX+wd%3A+%3Chttps%3A%2F%2Fdata.biblissima.fr%2Fentity%2F%3E%0APREFIX+wdt%3A+%3Chttps%3A%2F%2Fdata.biblissima.fr%2Fprop%2Fdirect%2F%3E%0APREFIX+wikibase%3A+%3Chttp%3A%2F%2Fwikiba.se%2Fontology%23%3E%0A%23+Lieux+%28liste+compl%C3%A8te%29%0ASELECT+%3Fentity+%3FentityLabel+%3FcategoryLabel+%3FcountryLabel+%3FtypeLabel+%3FidBbma%0AWHERE%0A%7B%0A++%3Fentity+wdt%3AP2+wd%3AQ26719+.%0A++%23wd%3AP129+wdt%3AP108+%3FformatterUrl+.%0A++OPTIONAL+%7B%0A+++++%3Ftype+wdt%3AP2+wd%3AQ26718+.%0A+++++%3Fentity+wdt%3AP2+%3Ftype+.%0A++%7D%0A++OPTIONAL+%7B+%0A+++++%3Fentity+wdt%3AP172+%3Fcountry+.%0A+++++%3Fcountry+rdfs%3Alabel+%3FcountryLabel+.%0A++%7D%0A++OPTIONAL+%7B+%0A+++++%3Fentity+wdt%3AP169+%3Fcategory+.%0A+++++%3Fcategory+rdfs%3Alabel+%3FcategoryLabel+.%0A++%7D%0A++OPTIONAL+%7B+%3Fentity+wdt%3AP129+%3FidBbma+%7D%0A++%23+BIND%28IRI%28REPLACE%28%3FidBbma%2C+%27%5E%28.%2B%29%24%27%2C+%3FformatterUrl%29%29+AS+%3Furl%29.%0A++%23+%28URI%28REPLACE%28%3Fp1630%2C%27%5C%5C%241%27%2C%3Fid%29%29+AS+%3Furl%29%0A++%3Fentity+rdfs%3Alabel+%3FentityLabel+.%0A++%0A++FILTER+%28lang%28%3FentityLabel%29+%3D+%27fr%27%29+.%0A++FILTER+%28lang%28%3FcategoryLabel%29+%3D+%27fr%27%29+.%0A++FILTER+%28lang%28%3FcountryLabel%29+%3D+%27fr%27%29+.%0A%7D%0AORDER+BY+%3FentityLabel">↗ Ouvrir la requête</a></div>
+<p><br />
+</p>
+<h4><span id="Lieux_g.C3.A9olocalis.C3.A9s_.28carte.29"></span><span class="mw-headline" id="Lieux_géolocalisés_(carte)">Lieux géolocalisés (carte)</span></h4>
+<div class="mw-highlight mw-highlight-lang-sparql mw-content-ltr" dir="ltr"><pre><span></span><span class="c"># Lieux géolocalisés (carte)</span>
+<span class="k">SELECT</span> <span class="nv">?entity</span> <span class="nv">?entityLabel</span> <span class="nv">?coord</span>
+<span class="k">WHERE</span>
+<span class="p">{</span>
+  <span class="nv">?entity</span> <span class="nn">wdt</span><span class="p">:</span><span class="nt">P2</span> <span class="nn">wd</span><span class="p">:</span><span class="nt">Q26719</span> <span class="p">;</span>
+          <span class="nn">p</span><span class="p">:</span><span class="nt">P276</span> <span class="nv">?coordinate</span> <span class="p">.</span>
+  <span class="nv">?coordinate</span> <span class="nn">ps</span><span class="p">:</span><span class="nt">P276</span> <span class="nv">?coord</span> <span class="p">.</span>
+  <span class="nv">?coordinate</span> <span class="nn">psv</span><span class="p">:</span><span class="nt">P276</span> <span class="nv">?coordinate_node</span> <span class="p">.</span>
+  <span class="nv">?entity</span> <span class="nn">rdfs</span><span class="p">:</span><span class="nt">label</span> <span class="nv">?entityLabel</span> <span class="p">.</span>
+  <span class="k">FILTER</span> <span class="p">(</span><span class="nf">lang</span><span class="p">(</span><span class="nv">?entityLabel</span><span class="p">)</span> <span class="o">=</span> <span class="s">&#39;fr&#39;</span><span class="p">)</span> <span class="p">.</span>
+<span class="p">}</span>
+</pre></div>
+<div class="sparql-link"><a rel="nofollow" class="external text" href="https://query.biblissima.fr/?query=PREFIX+rdf%3A++%3Chttp%3A%2F%2Fwww.w3.org%2F1999%2F02%2F22-rdf-syntax-ns%23%3E%0APREFIX+rdfs%3A+%3Chttp%3A%2F%2Fwww.w3.org%2F2000%2F01%2Frdf-schema%23%3E%0APREFIX+owl%3A++%3Chttp%3A%2F%2Fwww.w3.org%2F2002%2F07%2Fowl%23%3E%0APREFIX+xsd%3A++%3Chttp%3A%2F%2Fwww.w3.org%2F2001%2FXMLSchema%23%3E%0APREFIX+skos%3A+%3Chttp%3A%2F%2Fwww.w3.org%2F2004%2F02%2Fskos%2Fcore%23%3E%0APREFIX+wd%3A+%3Chttps%3A%2F%2Fdata.biblissima.fr%2Fentity%2F%3E%0APREFIX+wdt%3A+%3Chttps%3A%2F%2Fdata.biblissima.fr%2Fprop%2Fdirect%2F%3E%0APREFIX+wikibase%3A+%3Chttp%3A%2F%2Fwikiba.se%2Fontology%23%3E%0A%23+Lieux+g%C3%A9olocalis%C3%A9s+%28carte%29%0ASELECT+%3Fentity+%3FentityLabel+%3Fcoord%0AWHERE%0A%7B%0A++%3Fentity+wdt%3AP2+wd%3AQ26719+%3B%0A++++++++++p%3AP276+%3Fcoordinate+.%0A++%3Fcoordinate+ps%3AP276+%3Fcoord+.%0A++%3Fcoordinate+psv%3AP276+%3Fcoordinate_node+.%0A++%3Fentity+rdfs%3Alabel+%3FentityLabel+.%0A++FILTER+%28lang%28%3FentityLabel%29+%3D+%27fr%27%29+.%0A%7D">↗ Ouvrir la requête</a></div>
+<p><br />
+</p>
+<h4><span id="Personnes_physiques_.28liste_compl.C3.A8te.29"></span><span class="mw-headline" id="Personnes_physiques_(liste_complète)">Personnes physiques (liste complète)</span></h4>
+<div class="mw-highlight mw-highlight-lang-sparql mw-content-ltr" dir="ltr"><pre><span></span><span class="c"># Personnes physiques (liste complète)</span>
+<span class="k">SELECT</span> <span class="nv">?entity</span> <span class="nv">?entityLabel</span> <span class="nv">?sexLabel</span> <span class="p">(</span><span class="nf">year</span><span class="p">(</span><span class="nv">?dateBirth</span><span class="p">)</span> <span class="k">as</span> <span class="nv">?YearBirth</span><span class="p">)</span> <span class="p">(</span><span class="nf">year</span><span class="p">(</span><span class="nv">?dateDeath</span><span class="p">)</span> <span class="k">as</span> <span class="nv">?YearDeath</span><span class="p">)</span> <span class="nv">?idBbma</span>
+<span class="k">WHERE</span>
+<span class="p">{</span>
+  <span class="nv">?entity</span> <span class="nn">wdt</span><span class="p">:</span><span class="nt">P2</span> <span class="nn">wd</span><span class="p">:</span><span class="nt">Q168</span> <span class="p">;</span>
+  <span class="k">OPTIONAL</span> <span class="p">{</span> 
+    <span class="nv">?entity</span> <span class="nn">wdt</span><span class="p">:</span><span class="nt">P95</span> <span class="nv">?sex</span> <span class="p">.</span>
+    <span class="nv">?sex</span> <span class="nn">rdfs</span><span class="p">:</span><span class="nt">label</span> <span class="nv">?sexLabel</span> <span class="p">.</span>
+  <span class="p">}</span>
+  <span class="k">OPTIONAL</span> <span class="p">{</span> <span class="nv">?entity</span> <span class="nn">wdt</span><span class="p">:</span><span class="nt">P57</span> <span class="nv">?dateBirth</span> <span class="p">}</span>
+  <span class="k">OPTIONAL</span> <span class="p">{</span> <span class="nv">?entity</span> <span class="nn">wdt</span><span class="p">:</span><span class="nt">P62</span> <span class="nv">?dateDeath</span> <span class="p">}</span>
+  <span class="k">OPTIONAL</span> <span class="p">{</span> <span class="nv">?entity</span> <span class="nn">wdt</span><span class="p">:</span><span class="nt">P129</span> <span class="nv">?idBbma</span> <span class="p">}</span>
+  <span class="nv">?entity</span> <span class="nn">rdfs</span><span class="p">:</span><span class="nt">label</span> <span class="nv">?entityLabel</span> <span class="p">.</span>
+  <span class="k">FILTER</span> <span class="p">(</span><span class="nf">lang</span><span class="p">(</span><span class="nv">?entityLabel</span><span class="p">)</span> <span class="o">=</span> <span class="s">&#39;fr&#39;</span><span class="p">)</span> <span class="p">.</span>
+  <span class="k">FILTER</span> <span class="p">(</span><span class="nf">lang</span><span class="p">(</span><span class="nv">?sexLabel</span><span class="p">)</span> <span class="o">=</span> <span class="s">&#39;fr&#39;</span><span class="p">)</span> <span class="p">.</span>
+<span class="p">}</span>
+<span class="k">ORDER BY</span> <span class="nv">?entityLabel</span>
+</pre></div>
+<div class="sparql-link"><a rel="nofollow" class="external text" href="https://query.biblissima.fr/?query=PREFIX+rdf%3A++%3Chttp%3A%2F%2Fwww.w3.org%2F1999%2F02%2F22-rdf-syntax-ns%23%3E%0APREFIX+rdfs%3A+%3Chttp%3A%2F%2Fwww.w3.org%2F2000%2F01%2Frdf-schema%23%3E%0APREFIX+owl%3A++%3Chttp%3A%2F%2Fwww.w3.org%2F2002%2F07%2Fowl%23%3E%0APREFIX+xsd%3A++%3Chttp%3A%2F%2Fwww.w3.org%2F2001%2FXMLSchema%23%3E%0APREFIX+skos%3A+%3Chttp%3A%2F%2Fwww.w3.org%2F2004%2F02%2Fskos%2Fcore%23%3E%0APREFIX+wd%3A+%3Chttps%3A%2F%2Fdata.biblissima.fr%2Fentity%2F%3E%0APREFIX+wdt%3A+%3Chttps%3A%2F%2Fdata.biblissima.fr%2Fprop%2Fdirect%2F%3E%0APREFIX+wikibase%3A+%3Chttp%3A%2F%2Fwikiba.se%2Fontology%23%3E%0A%23+Personnes+physiques+%28liste+compl%C3%A8te%29%0ASELECT+%3Fentity+%3FentityLabel+%3FsexLabel+%28year%28%3FdateBirth%29+as+%3FYearBirth%29+%28year%28%3FdateDeath%29+as+%3FYearDeath%29+%3FidBbma%0AWHERE%0A%7B%0A++%3Fentity+wdt%3AP2+wd%3AQ168+%3B%0A++OPTIONAL+%7B+%0A++++%3Fentity+wdt%3AP95+%3Fsex+.%0A++++%3Fsex+rdfs%3Alabel+%3FsexLabel+.%0A++%7D%0A++OPTIONAL+%7B+%3Fentity+wdt%3AP57+%3FdateBirth+%7D%0A++OPTIONAL+%7B+%3Fentity+wdt%3AP62+%3FdateDeath+%7D%0A++OPTIONAL+%7B+%3Fentity+wdt%3AP129+%3FidBbma+%7D%0A++%3Fentity+rdfs%3Alabel+%3FentityLabel+.%0A++FILTER+%28lang%28%3FentityLabel%29+%3D+%27fr%27%29+.%0A++FILTER+%28lang%28%3FsexLabel%29+%3D+%27fr%27%29+.%0A%7D%0AORDER+BY+%3FentityLabel">↗ Ouvrir la requête</a></div>
+<p><br />
+</p>
+<h4><span id="Organisations_.28liste_compl.C3.A8te.29"></span><span class="mw-headline" id="Organisations_(liste_complète)">Organisations (liste complète)</span></h4>
+<div class="mw-highlight mw-highlight-lang-sparql mw-content-ltr" dir="ltr"><pre><span></span><span class="c"># Organisations (liste complète)</span>
+<span class="k">SELECT</span> <span class="nv">?entity</span> <span class="nv">?entityLabel</span> <span class="nv">?placeLabel</span> <span class="nv">?idBbma</span>
+<span class="k">WHERE</span>
+<span class="p">{</span>
+  <span class="nv">?entity</span> <span class="nn">wdt</span><span class="p">:</span><span class="nt">P2</span> <span class="nn">wd</span><span class="p">:</span><span class="nt">Q167</span> <span class="p">;</span>
+  <span class="k">OPTIONAL</span> <span class="p">{</span> 
+    <span class="nv">?entity</span> <span class="nn">wdt</span><span class="p">:</span><span class="nt">P201</span> <span class="nv">?place</span> <span class="p">.</span>
+    <span class="nv">?place</span> <span class="nn">rdfs</span><span class="p">:</span><span class="nt">label</span> <span class="nv">?placeLabel</span> <span class="p">.</span>
+  <span class="p">}</span>
+  <span class="k">OPTIONAL</span> <span class="p">{</span> <span class="nv">?entity</span> <span class="nn">wdt</span><span class="p">:</span><span class="nt">P129</span> <span class="nv">?idBbma</span> <span class="p">}</span>
+  <span class="nv">?entity</span> <span class="nn">rdfs</span><span class="p">:</span><span class="nt">label</span> <span class="nv">?entityLabel</span> <span class="p">.</span>
+  <span class="k">FILTER</span> <span class="p">(</span><span class="nf">lang</span><span class="p">(</span><span class="nv">?entityLabel</span><span class="p">)</span> <span class="o">=</span> <span class="s">&#39;fr&#39;</span><span class="p">)</span> <span class="p">.</span>
+  <span class="k">FILTER</span> <span class="p">(</span><span class="nf">lang</span><span class="p">(</span><span class="nv">?placeLabel</span><span class="p">)</span> <span class="o">=</span> <span class="s">&#39;fr&#39;</span><span class="p">)</span> <span class="p">.</span>
+  
+<span class="p">}</span>
+<span class="k">ORDER BY</span> <span class="nv">?entityLabel</span>
+</pre></div>
+<div class="sparql-link"><a rel="nofollow" class="external text" href="https://query.biblissima.fr/?query=PREFIX+rdf%3A++%3Chttp%3A%2F%2Fwww.w3.org%2F1999%2F02%2F22-rdf-syntax-ns%23%3E%0APREFIX+rdfs%3A+%3Chttp%3A%2F%2Fwww.w3.org%2F2000%2F01%2Frdf-schema%23%3E%0APREFIX+owl%3A++%3Chttp%3A%2F%2Fwww.w3.org%2F2002%2F07%2Fowl%23%3E%0APREFIX+xsd%3A++%3Chttp%3A%2F%2Fwww.w3.org%2F2001%2FXMLSchema%23%3E%0APREFIX+skos%3A+%3Chttp%3A%2F%2Fwww.w3.org%2F2004%2F02%2Fskos%2Fcore%23%3E%0APREFIX+wd%3A+%3Chttps%3A%2F%2Fdata.biblissima.fr%2Fentity%2F%3E%0APREFIX+wdt%3A+%3Chttps%3A%2F%2Fdata.biblissima.fr%2Fprop%2Fdirect%2F%3E%0APREFIX+wikibase%3A+%3Chttp%3A%2F%2Fwikiba.se%2Fontology%23%3E%0A%23+Organisations+%28liste+compl%C3%A8te%29%0ASELECT+%3Fentity+%3FentityLabel+%3FplaceLabel+%3FidBbma%0AWHERE%0A%7B%0A++%3Fentity+wdt%3AP2+wd%3AQ167+%3B%0A++OPTIONAL+%7B+%0A++++%3Fentity+wdt%3AP201+%3Fplace+.%0A++++%3Fplace+rdfs%3Alabel+%3FplaceLabel+.%0A++%7D%0A++OPTIONAL+%7B+%3Fentity+wdt%3AP129+%3FidBbma+%7D%0A++%3Fentity+rdfs%3Alabel+%3FentityLabel+.%0A++FILTER+%28lang%28%3FentityLabel%29+%3D+%27fr%27%29+.%0A++FILTER+%28lang%28%3FplaceLabel%29+%3D+%27fr%27%29+.%0A++%0A%7D%0AORDER+BY+%3FentityLabel">↗ Ouvrir la requête</a></div>
+<p><br />
+Variante avec GROUP_CONCAT pour gérer les lignes dupliquées (car deux localisations possibles pour la même entité&#160;: ex. Q80035 et Q81293)
+</p><p><br />
+</p>
+<div class="mw-highlight mw-highlight-lang-sparql mw-content-ltr" dir="ltr"><pre><span></span><span class="c"># Organisations (liste complète)</span>
+<span class="k">SELECT</span> <span class="nv">?entity</span> <span class="nv">?entityLabel</span> <span class="p">(</span><span class="nf">GROUP_CONCAT</span><span class="p">(</span><span class="k">DISTINCT</span><span class="p">(</span><span class="nv">?place</span><span class="p">);</span> <span class="nf">separator</span><span class="o">=</span><span class="s">&quot;, &quot;</span><span class="p">)</span> <span class="k">AS</span> <span class="nv">?places</span><span class="p">)</span> <span class="p">(</span><span class="nf">GROUP_CONCAT</span><span class="p">(</span><span class="k">DISTINCT</span><span class="p">(</span><span class="nv">?label</span><span class="p">);</span> <span class="nf">separator</span><span class="o">=</span><span class="s">&quot;, &quot;</span><span class="p">)</span> <span class="k">AS</span> <span class="nv">?place_labels</span><span class="p">)</span> <span class="nv">?idBbma</span>
+<span class="k">WHERE</span>
+<span class="p">{</span>
+  <span class="nv">?entity</span> <span class="nn">wdt</span><span class="p">:</span><span class="nt">P2</span> <span class="nn">wd</span><span class="p">:</span><span class="nt">Q167</span> <span class="p">.</span>
+  <span class="k">OPTIONAL</span> <span class="p">{</span> 
+    <span class="nv">?entity</span> <span class="nn">wdt</span><span class="p">:</span><span class="nt">P201</span> <span class="nv">?place</span> <span class="p">.</span>
+    <span class="nv">?place</span> <span class="nn">rdfs</span><span class="p">:</span><span class="nt">label</span> <span class="nv">?label</span> <span class="p">.</span>
+  <span class="p">}</span>
+  <span class="k">OPTIONAL</span> <span class="p">{</span> <span class="nv">?entity</span> <span class="nn">wdt</span><span class="p">:</span><span class="nt">P129</span> <span class="nv">?idBbma</span> <span class="p">}</span>
+<span class="p">}</span>
+<span class="k">GROUP BY</span> <span class="nv">?entity</span> <span class="nv">?entityLabel</span> <span class="nv">?idBbma</span>
+<span class="k">ORDER BY</span> <span class="nv">?entityLabel</span>
+</pre></div>
+<div class="sparql-link"><a rel="nofollow" class="external text" href="https://query.biblissima.fr/?query=PREFIX+rdf%3A++%3Chttp%3A%2F%2Fwww.w3.org%2F1999%2F02%2F22-rdf-syntax-ns%23%3E%0APREFIX+rdfs%3A+%3Chttp%3A%2F%2Fwww.w3.org%2F2000%2F01%2Frdf-schema%23%3E%0APREFIX+owl%3A++%3Chttp%3A%2F%2Fwww.w3.org%2F2002%2F07%2Fowl%23%3E%0APREFIX+xsd%3A++%3Chttp%3A%2F%2Fwww.w3.org%2F2001%2FXMLSchema%23%3E%0APREFIX+skos%3A+%3Chttp%3A%2F%2Fwww.w3.org%2F2004%2F02%2Fskos%2Fcore%23%3E%0APREFIX+wd%3A+%3Chttps%3A%2F%2Fdata.biblissima.fr%2Fentity%2F%3E%0APREFIX+wdt%3A+%3Chttps%3A%2F%2Fdata.biblissima.fr%2Fprop%2Fdirect%2F%3E%0APREFIX+wikibase%3A+%3Chttp%3A%2F%2Fwikiba.se%2Fontology%23%3E%0A%23+Organisations+%28liste+compl%C3%A8te%29%0ASELECT+%3Fentity+%3FentityLabel+%28GROUP_CONCAT%28DISTINCT%28%3Fplace%29%3B+separator%3D%22%2C+%22%29+AS+%3Fplaces%29+%28GROUP_CONCAT%28DISTINCT%28%3Flabel%29%3B+separator%3D%22%2C+%22%29+AS+%3Fplace_labels%29+%3FidBbma%0AWHERE%0A%7B%0A++%3Fentity+wdt%3AP2+wd%3AQ167+.%0A++OPTIONAL+%7B+%0A++++%3Fentity+wdt%3AP201+%3Fplace+.%0A++++%3Fplace+rdfs%3Alabel+%3Flabel+.%0A++%7D%0A++OPTIONAL+%7B+%3Fentity+wdt%3AP129+%3FidBbma+%7D%0A%7D%0AGROUP+BY+%3Fentity+%3FentityLabel+%3FidBbma%0AORDER+BY+%3FentityLabel">↗ Ouvrir la requête</a></div>
+<p><br />
+</p>
+<h4><span id="Oeuvres_.28liste_compl.C3.A8te.29"></span><span class="mw-headline" id="Oeuvres_(liste_complète)">Oeuvres (liste complète)</span></h4>
+<div class="mw-highlight mw-highlight-lang-sparql mw-content-ltr" dir="ltr"><pre><span></span><span class="c"># Oeuvres (liste complète)</span>
+<span class="k">SELECT</span> <span class="nv">?entity</span> <span class="nv">?entityLabel</span> <span class="nv">?authorLabel</span> <span class="nv">?idBbma</span>
+<span class="k">WHERE</span>
+<span class="p">{</span>
+  <span class="nv">?entity</span> <span class="nn">wdt</span><span class="p">:</span><span class="nt">P2</span> <span class="nn">wd</span><span class="p">:</span><span class="nt">Q282950</span> <span class="p">;</span>
+  <span class="k">OPTIONAL</span> <span class="p">{</span> <span class="nv">?entity</span> <span class="nn">wdt</span><span class="p">:</span><span class="nt">P129</span> <span class="nv">?idBbma</span> <span class="p">}</span>
+  <span class="k">OPTIONAL</span> <span class="p">{</span> 
+    <span class="nv">?entity</span> <span class="nn">wdt</span><span class="p">:</span><span class="nt">P354</span> <span class="nv">?author</span> <span class="p">.</span>
+    <span class="nv">?author</span> <span class="nn">rdfs</span><span class="p">:</span><span class="nt">label</span> <span class="nv">?authorLabel</span> <span class="p">.</span>
+  <span class="p">}</span>
+  <span class="nv">?entity</span> <span class="nn">rdfs</span><span class="p">:</span><span class="nt">label</span> <span class="nv">?entityLabel</span> <span class="p">.</span>
+  <span class="k">FILTER</span> <span class="p">(</span><span class="nf">lang</span><span class="p">(</span><span class="nv">?entityLabel</span><span class="p">)</span> <span class="o">=</span> <span class="s">&#39;fr&#39;</span><span class="p">)</span> <span class="p">.</span>
+  <span class="k">FILTER</span> <span class="p">(</span><span class="nf">lang</span><span class="p">(</span><span class="nv">?authorLabel</span><span class="p">)</span> <span class="o">=</span> <span class="s">&#39;fr&#39;</span><span class="p">)</span> <span class="p">.</span>
+<span class="p">}</span>
+<span class="k">ORDER BY</span> <span class="nv">?entityLabel</span>
+</pre></div>
+<div class="sparql-link"><a rel="nofollow" class="external text" href="https://query.biblissima.fr/?query=PREFIX+rdf%3A++%3Chttp%3A%2F%2Fwww.w3.org%2F1999%2F02%2F22-rdf-syntax-ns%23%3E%0APREFIX+rdfs%3A+%3Chttp%3A%2F%2Fwww.w3.org%2F2000%2F01%2Frdf-schema%23%3E%0APREFIX+owl%3A++%3Chttp%3A%2F%2Fwww.w3.org%2F2002%2F07%2Fowl%23%3E%0APREFIX+xsd%3A++%3Chttp%3A%2F%2Fwww.w3.org%2F2001%2FXMLSchema%23%3E%0APREFIX+skos%3A+%3Chttp%3A%2F%2Fwww.w3.org%2F2004%2F02%2Fskos%2Fcore%23%3E%0APREFIX+wd%3A+%3Chttps%3A%2F%2Fdata.biblissima.fr%2Fentity%2F%3E%0APREFIX+wdt%3A+%3Chttps%3A%2F%2Fdata.biblissima.fr%2Fprop%2Fdirect%2F%3E%0APREFIX+wikibase%3A+%3Chttp%3A%2F%2Fwikiba.se%2Fontology%23%3E%0A%23+Oeuvres+%28liste+compl%C3%A8te%29%0ASELECT+%3Fentity+%3FentityLabel+%3FauthorLabel+%3FidBbma%0AWHERE%0A%7B%0A++%3Fentity+wdt%3AP2+wd%3AQ282950+%3B%0A++OPTIONAL+%7B+%3Fentity+wdt%3AP129+%3FidBbma+%7D%0A++OPTIONAL+%7B+%0A++++%3Fentity+wdt%3AP354+%3Fauthor+.%0A++++%3Fauthor+rdfs%3Alabel+%3FauthorLabel+.%0A++%7D%0A++%3Fentity+rdfs%3Alabel+%3FentityLabel+.%0A++FILTER+%28lang%28%3FentityLabel%29+%3D+%27fr%27%29+.%0A++FILTER+%28lang%28%3FauthorLabel%29+%3D+%27fr%27%29+.%0A%7D%0AORDER+BY+%3FentityLabel">↗ Ouvrir la requête</a></div>
+<p><br />
+</p>
+<h4><span id="Manuscrits_.28liste_compl.C3.A8te.29"></span><span class="mw-headline" id="Manuscrits_(liste_complète)">Manuscrits (liste complète)</span></h4>
+<div class="mw-highlight mw-highlight-lang-sparql mw-content-ltr" dir="ltr"><pre><span></span><span class="c"># Manuscrits (liste complète)</span>
+<span class="k">SELECT</span> <span class="nv">?entity</span> <span class="nv">?entityLabel</span> <span class="nv">?digitUrl</span> <span class="nv">?manifestUrl</span> <span class="nv">?idBbma</span>
+<span class="k">WHERE</span>
+<span class="p">{</span>
+  <span class="nv">?entity</span> <span class="nn">wdt</span><span class="p">:</span><span class="nt">P2</span> <span class="nn">wd</span><span class="p">:</span><span class="nt">Q32810</span> <span class="p">;</span>
+          <span class="nn">wdt</span><span class="p">:</span><span class="nt">P195</span> <span class="nv">?shelfmark</span> <span class="p">.</span>
+  <span class="k">OPTIONAL</span> <span class="p">{</span> <span class="nv">?entity</span> <span class="nn">wdt</span><span class="p">:</span><span class="nt">P197</span> <span class="nv">?digitUrl</span> <span class="p">}</span>
+  <span class="k">OPTIONAL</span> <span class="p">{</span> <span class="nv">?entity</span> <span class="nn">wdt</span><span class="p">:</span><span class="nt">P196</span> <span class="nv">?manifestUrl</span> <span class="p">}</span>
+  <span class="c">#OPTIONAL { ?entity wdt:P194 ?collection }</span>
+  <span class="k">OPTIONAL</span> <span class="p">{</span> <span class="nv">?entity</span> <span class="nn">wdt</span><span class="p">:</span><span class="nt">P129</span> <span class="nv">?idBbma</span> <span class="p">}</span>
+  <span class="nv">?entity</span> <span class="nn">rdfs</span><span class="p">:</span><span class="nt">label</span> <span class="nv">?entityLabel</span> <span class="p">.</span>
+  <span class="k">FILTER</span> <span class="p">(</span><span class="nf">lang</span><span class="p">(</span><span class="nv">?entityLabel</span><span class="p">)</span> <span class="o">=</span> <span class="s">&#39;fr&#39;</span><span class="p">)</span> <span class="p">.</span>
+<span class="p">}</span>
+<span class="k">ORDER BY</span> <span class="nv">?entityLabel</span>
+</pre></div>
+<div class="sparql-link"><a rel="nofollow" class="external text" href="https://query.biblissima.fr/?query=PREFIX+rdf%3A++%3Chttp%3A%2F%2Fwww.w3.org%2F1999%2F02%2F22-rdf-syntax-ns%23%3E%0APREFIX+rdfs%3A+%3Chttp%3A%2F%2Fwww.w3.org%2F2000%2F01%2Frdf-schema%23%3E%0APREFIX+owl%3A++%3Chttp%3A%2F%2Fwww.w3.org%2F2002%2F07%2Fowl%23%3E%0APREFIX+xsd%3A++%3Chttp%3A%2F%2Fwww.w3.org%2F2001%2FXMLSchema%23%3E%0APREFIX+skos%3A+%3Chttp%3A%2F%2Fwww.w3.org%2F2004%2F02%2Fskos%2Fcore%23%3E%0APREFIX+wd%3A+%3Chttps%3A%2F%2Fdata.biblissima.fr%2Fentity%2F%3E%0APREFIX+wdt%3A+%3Chttps%3A%2F%2Fdata.biblissima.fr%2Fprop%2Fdirect%2F%3E%0APREFIX+wikibase%3A+%3Chttp%3A%2F%2Fwikiba.se%2Fontology%23%3E%0A%23+Manuscrits+%28liste+compl%C3%A8te%29%0ASELECT+%3Fentity+%3FentityLabel+%3FdigitUrl+%3FmanifestUrl+%3FidBbma%0AWHERE%0A%7B%0A++%3Fentity+wdt%3AP2+wd%3AQ32810+%3B%0A++++++++++wdt%3AP195+%3Fshelfmark+.%0A++OPTIONAL+%7B+%3Fentity+wdt%3AP197+%3FdigitUrl+%7D%0A++OPTIONAL+%7B+%3Fentity+wdt%3AP196+%3FmanifestUrl+%7D%0A++%23OPTIONAL+%7B+%3Fentity+wdt%3AP194+%3Fcollection+%7D%0A++OPTIONAL+%7B+%3Fentity+wdt%3AP129+%3FidBbma+%7D%0A++%3Fentity+rdfs%3Alabel+%3FentityLabel+.%0A++FILTER+%28lang%28%3FentityLabel%29+%3D+%27fr%27%29+.%0A%7D%0AORDER+BY+%3FentityLabel">↗ Ouvrir la requête</a></div>
+<p><br />
+</p>
+<h4><span id="Manuscrits_.28r.C3.A9partition_par_biblioth.C3.A8que.29"></span><span class="mw-headline" id="Manuscrits_(répartition_par_bibliothèque)">Manuscrits (répartition par bibliothèque)</span></h4>
+<div class="mw-highlight mw-highlight-lang-sparql mw-content-ltr" dir="ltr"><pre><span></span><span class="c"># Manuscrits (répartition par bibliothèque)</span>
+<span class="k">SELECT</span> <span class="nv">?collectionLabel</span> <span class="p">(</span><span class="nf">COUNT</span><span class="p">(</span><span class="nv">?entity</span><span class="p">)</span> <span class="k">AS</span> <span class="nv">?count</span><span class="p">)</span>
+<span class="k">WHERE</span>
+<span class="p">{</span>
+  <span class="p">{</span> <span class="nv">?entity</span> <span class="nn">wdt</span><span class="p">:</span><span class="nt">P2</span> <span class="nn">wd</span><span class="p">:</span><span class="nt">Q32810</span> <span class="p">}</span> <span class="k">UNION</span> <span class="p">{</span> <span class="nv">?entity</span> <span class="nn">wdt</span><span class="p">:</span><span class="nt">P2</span> <span class="nn">wd</span><span class="p">:</span><span class="nt">Q113619</span> <span class="p">}</span>
+  <span class="nv">?entity</span> <span class="nn">wdt</span><span class="p">:</span><span class="nt">P194</span> <span class="nv">?collection</span> <span class="p">.</span>
+  <span class="nv">?collection</span> <span class="nn">rdfs</span><span class="p">:</span><span class="nt">label</span> <span class="nv">?collectionLabel</span> <span class="p">.</span>
+  <span class="k">FILTER</span> <span class="p">(</span><span class="nf">lang</span><span class="p">(</span><span class="nv">?collectionLabel</span><span class="p">)</span> <span class="o">=</span> <span class="s">&#39;fr&#39;</span><span class="p">)</span> <span class="p">.</span>
+<span class="p">}</span>
+<span class="k">GROUP BY</span> <span class="nv">?collectionLabel</span>
+<span class="k">ORDER BY</span> <span class="nv">?count</span>
+</pre></div>
+<div class="sparql-link"><a rel="nofollow" class="external text" href="https://query.biblissima.fr/?query=PREFIX+rdf%3A++%3Chttp%3A%2F%2Fwww.w3.org%2F1999%2F02%2F22-rdf-syntax-ns%23%3E%0APREFIX+rdfs%3A+%3Chttp%3A%2F%2Fwww.w3.org%2F2000%2F01%2Frdf-schema%23%3E%0APREFIX+owl%3A++%3Chttp%3A%2F%2Fwww.w3.org%2F2002%2F07%2Fowl%23%3E%0APREFIX+xsd%3A++%3Chttp%3A%2F%2Fwww.w3.org%2F2001%2FXMLSchema%23%3E%0APREFIX+skos%3A+%3Chttp%3A%2F%2Fwww.w3.org%2F2004%2F02%2Fskos%2Fcore%23%3E%0APREFIX+wd%3A+%3Chttps%3A%2F%2Fdata.biblissima.fr%2Fentity%2F%3E%0APREFIX+wdt%3A+%3Chttps%3A%2F%2Fdata.biblissima.fr%2Fprop%2Fdirect%2F%3E%0APREFIX+wikibase%3A+%3Chttp%3A%2F%2Fwikiba.se%2Fontology%23%3E%0A%23+Manuscrits+%28r%C3%A9partition+par+biblioth%C3%A8que%29%0ASELECT+%3FcollectionLabel+%28COUNT%28%3Fentity%29+AS+%3Fcount%29%0AWHERE%0A%7B%0A++%7B+%3Fentity+wdt%3AP2+wd%3AQ32810+%7D+UNION+%7B+%3Fentity+wdt%3AP2+wd%3AQ113619+%7D%0A++%3Fentity+wdt%3AP194+%3Fcollection+.%0A++%3Fcollection+rdfs%3Alabel+%3FcollectionLabel+.%0A++FILTER+%28lang%28%3FcollectionLabel%29+%3D+%27fr%27%29+.%0A%7D%0AGROUP+BY+%3FcollectionLabel%0AORDER+BY+%3Fcount">↗ Ouvrir la requête</a></div>
+<p><br />
+</p>
+<h4><span id="Manuscrits_num.C3.A9ris.C3.A9s_.28r.C3.A9partition_par_bibnum.29"></span><span class="mw-headline" id="Manuscrits_numérisés_(répartition_par_bibnum)">Manuscrits numérisés (répartition par bibnum)</span></h4>
+<div class="mw-highlight mw-highlight-lang-sparql mw-content-ltr" dir="ltr"><pre><span></span><span class="c"># Manuscrits numérisés (répartition par bibnum)</span>
+<span class="k">SELECT</span> <span class="nv">?digital_library</span> <span class="p">(</span><span class="nf">COUNT</span><span class="p">(</span><span class="nv">?entity</span><span class="p">)</span> <span class="k">AS</span> <span class="nv">?number_of_digitized_objects</span><span class="p">)</span>
+<span class="k">WHERE</span>
+<span class="p">{</span>
+  <span class="p">{</span> <span class="nv">?entity</span> <span class="nn">wdt</span><span class="p">:</span><span class="nt">P2</span> <span class="nn">wd</span><span class="p">:</span><span class="nt">Q32810</span> <span class="p">}</span> <span class="k">UNION</span> <span class="p">{</span> <span class="nv">?entity</span> <span class="nn">wdt</span><span class="p">:</span><span class="nt">P2</span> <span class="nn">wd</span><span class="p">:</span><span class="nt">Q113619</span> <span class="p">}</span>
+  <span class="nv">?entity</span> <span class="nn">p</span><span class="p">:</span><span class="nt">P197</span> <span class="nv">?digiStmt</span> <span class="p">.</span>
+  <span class="nv">?digiStmt</span> <span class="nn">ps</span><span class="p">:</span><span class="nt">P197</span> <span class="nv">?digitUrl</span> <span class="p">;</span>
+            <span class="nn">pq</span><span class="p">:</span><span class="nt">P191</span> <span class="nv">?digiLib</span> <span class="p">.</span>
+  <span class="nv">?digiLib</span> <span class="nn">rdfs</span><span class="p">:</span><span class="nt">label</span> <span class="nv">?digital_library</span> <span class="p">.</span>
+<span class="p">}</span>
+<span class="k">GROUP BY</span> <span class="nv">?digital_library</span>
+</pre></div>
+<div class="sparql-link"><a rel="nofollow" class="external text" href="https://query.biblissima.fr/?query=PREFIX+rdf%3A++%3Chttp%3A%2F%2Fwww.w3.org%2F1999%2F02%2F22-rdf-syntax-ns%23%3E%0APREFIX+rdfs%3A+%3Chttp%3A%2F%2Fwww.w3.org%2F2000%2F01%2Frdf-schema%23%3E%0APREFIX+owl%3A++%3Chttp%3A%2F%2Fwww.w3.org%2F2002%2F07%2Fowl%23%3E%0APREFIX+xsd%3A++%3Chttp%3A%2F%2Fwww.w3.org%2F2001%2FXMLSchema%23%3E%0APREFIX+skos%3A+%3Chttp%3A%2F%2Fwww.w3.org%2F2004%2F02%2Fskos%2Fcore%23%3E%0APREFIX+wd%3A+%3Chttps%3A%2F%2Fdata.biblissima.fr%2Fentity%2F%3E%0APREFIX+wdt%3A+%3Chttps%3A%2F%2Fdata.biblissima.fr%2Fprop%2Fdirect%2F%3E%0APREFIX+wikibase%3A+%3Chttp%3A%2F%2Fwikiba.se%2Fontology%23%3E%0A%23+Manuscrits+num%C3%A9ris%C3%A9s+%28r%C3%A9partition+par+bibnum%29%0ASELECT+%3Fdigital_library+%28COUNT%28%3Fentity%29+AS+%3Fnumber_of_digitized_objects%29%0AWHERE%0A%7B%0A++%7B+%3Fentity+wdt%3AP2+wd%3AQ32810+%7D+UNION+%7B+%3Fentity+wdt%3AP2+wd%3AQ113619+%7D%0A++%3Fentity+p%3AP197+%3FdigiStmt+.%0A++%3FdigiStmt+ps%3AP197+%3FdigitUrl+%3B%0A++++++++++++pq%3AP191+%3FdigiLib+.%0A++%3FdigiLib+rdfs%3Alabel+%3Fdigital_library+.%0A%7D%0AGROUP+BY+%3Fdigital_library">↗ Ouvrir la requête</a></div>
+<p><br />
+</p>
+<h4><span id="Biblioth.C3.A8ques_num.C3.A9riques_IIIF"></span><span class="mw-headline" id="Bibliothèques_numériques_IIIF">Bibliothèques numériques IIIF</span></h4>
+<div class="mw-highlight mw-highlight-lang-sparql mw-content-ltr" dir="ltr"><pre><span></span><span class="c"># Bibliothèques numériques IIIF</span>
+<span class="k">SELECT</span> <span class="nv">?entity</span> <span class="nv">?entityLabel</span> <span class="p">(</span><span class="nf">GROUP_CONCAT</span><span class="p">(</span><span class="k">DISTINCT</span><span class="p">(</span><span class="nv">?operatorLabel</span><span class="p">);</span> <span class="nf">separator</span><span class="o">=</span><span class="s">&quot;; &quot;</span><span class="p">)</span> <span class="k">AS</span> <span class="nv">?institution</span><span class="p">)</span> <span class="nv">?website</span> <span class="nv">?licenseLabel</span> <span class="nv">?iiifcollectionUrl</span> <span class="nv">?seeAlsoFormat</span>
+<span class="k">WHERE</span>
+<span class="p">{</span>
+  <span class="nv">?entity</span> <span class="nn">wdt</span><span class="p">:</span><span class="nt">P2</span> <span class="nn">wd</span><span class="p">:</span><span class="nt">Q32805</span> <span class="p">;</span>
+          <span class="nn">wdt</span><span class="p">:</span><span class="nt">P193</span> <span class="nn">wd</span><span class="p">:</span><span class="nt">Q32808</span> <span class="p">.</span>
+  <span class="k">OPTIONAL</span> <span class="p">{</span> 
+    <span class="nv">?entity</span> <span class="nn">wdt</span><span class="p">:</span><span class="nt">P200</span> <span class="nv">?operator</span> <span class="p">.</span>
+    <span class="nv">?operator</span> <span class="nn">rdfs</span><span class="p">:</span><span class="nt">label</span> <span class="nv">?operatorLabel</span> <span class="p">.</span>
+  <span class="p">}</span>
+  <span class="k">OPTIONAL</span> <span class="p">{</span> <span class="nv">?entity</span> <span class="nn">wdt</span><span class="p">:</span><span class="nt">P188</span> <span class="nv">?website</span> <span class="p">}</span>
+  <span class="k">OPTIONAL</span> <span class="p">{</span> 
+    <span class="nv">?entity</span> <span class="nn">wdt</span><span class="p">:</span><span class="nt">P187</span> <span class="nv">?license</span> <span class="p">.</span>
+    <span class="nv">?license</span> <span class="nn">rdfs</span><span class="p">:</span><span class="nt">label</span> <span class="nv">?licenseLabel</span> <span class="p">.</span>
+  <span class="p">}</span>
+  <span class="k">OPTIONAL</span> <span class="p">{</span> <span class="nv">?entity</span> <span class="nn">wdt</span><span class="p">:</span><span class="nt">P189</span> <span class="nv">?iiifcollectionUrl</span> <span class="p">}</span>
+  <span class="k">OPTIONAL</span> <span class="p">{</span> <span class="nv">?entity</span> <span class="nn">wdt</span><span class="p">:</span><span class="nt">P192</span> <span class="nv">?seeAlsoFormat</span> <span class="p">}</span>
+  <span class="c">#FILTER EXISTS { ?entity wdt:P193 wd:Q32808 }</span>
+  <span class="nv">?entity</span> <span class="nn">rdfs</span><span class="p">:</span><span class="nt">label</span> <span class="nv">?entityLabel</span> <span class="p">.</span>
+  <span class="k">FILTER</span> <span class="p">(</span><span class="nf">lang</span><span class="p">(</span><span class="nv">?entityLabel</span><span class="p">)</span> <span class="o">=</span> <span class="s">&#39;fr&#39;</span><span class="p">)</span> <span class="p">.</span>
+  <span class="k">FILTER</span> <span class="p">(</span><span class="nf">lang</span><span class="p">(</span><span class="nv">?operatorLabel</span><span class="p">)</span> <span class="o">=</span> <span class="s">&#39;fr&#39;</span><span class="p">)</span> <span class="p">.</span>
+  <span class="k">FILTER</span> <span class="p">(</span><span class="nf">lang</span><span class="p">(</span><span class="nv">?licenseLabel</span><span class="p">)</span> <span class="o">=</span> <span class="s">&#39;fr&#39;</span><span class="p">)</span> <span class="p">.</span>
+<span class="p">}</span>
+<span class="k">GROUP BY</span> <span class="nv">?entity</span> <span class="nv">?entityLabel</span> <span class="nv">?website</span> <span class="nv">?licenseLabel</span> <span class="nv">?iiifcollectionUrl</span> <span class="nv">?seeAlsoFormat</span>
+<span class="k">ORDER BY</span> <span class="nv">?institution</span>
+</pre></div>
+<div class="sparql-link"><a rel="nofollow" class="external text" href="https://query.biblissima.fr/?query=PREFIX+rdf%3A++%3Chttp%3A%2F%2Fwww.w3.org%2F1999%2F02%2F22-rdf-syntax-ns%23%3E%0APREFIX+rdfs%3A+%3Chttp%3A%2F%2Fwww.w3.org%2F2000%2F01%2Frdf-schema%23%3E%0APREFIX+owl%3A++%3Chttp%3A%2F%2Fwww.w3.org%2F2002%2F07%2Fowl%23%3E%0APREFIX+xsd%3A++%3Chttp%3A%2F%2Fwww.w3.org%2F2001%2FXMLSchema%23%3E%0APREFIX+skos%3A+%3Chttp%3A%2F%2Fwww.w3.org%2F2004%2F02%2Fskos%2Fcore%23%3E%0APREFIX+wd%3A+%3Chttps%3A%2F%2Fdata.biblissima.fr%2Fentity%2F%3E%0APREFIX+wdt%3A+%3Chttps%3A%2F%2Fdata.biblissima.fr%2Fprop%2Fdirect%2F%3E%0APREFIX+wikibase%3A+%3Chttp%3A%2F%2Fwikiba.se%2Fontology%23%3E%0A%23+Biblioth%C3%A8ques+num%C3%A9riques+IIIF%0ASELECT+%3Fentity+%3FentityLabel+%28GROUP_CONCAT%28DISTINCT%28%3FoperatorLabel%29%3B+separator%3D%22%3B+%22%29+AS+%3Finstitution%29+%3Fwebsite+%3FlicenseLabel+%3FiiifcollectionUrl+%3FseeAlsoFormat%0AWHERE%0A%7B%0A++%3Fentity+wdt%3AP2+wd%3AQ32805+%3B%0A++++++++++wdt%3AP193+wd%3AQ32808+.%0A++OPTIONAL+%7B+%0A++++%3Fentity+wdt%3AP200+%3Foperator+.%0A++++%3Foperator+rdfs%3Alabel+%3FoperatorLabel+.%0A++%7D%0A++OPTIONAL+%7B+%3Fentity+wdt%3AP188+%3Fwebsite+%7D%0A++OPTIONAL+%7B+%0A++++%3Fentity+wdt%3AP187+%3Flicense+.%0A++++%3Flicense+rdfs%3Alabel+%3FlicenseLabel+.%0A++%7D%0A++OPTIONAL+%7B+%3Fentity+wdt%3AP189+%3FiiifcollectionUrl+%7D%0A++OPTIONAL+%7B+%3Fentity+wdt%3AP192+%3FseeAlsoFormat+%7D%0A++%23FILTER+EXISTS+%7B+%3Fentity+wdt%3AP193+wd%3AQ32808+%7D%0A++%3Fentity+rdfs%3Alabel+%3FentityLabel+.%0A++FILTER+%28lang%28%3FentityLabel%29+%3D+%27fr%27%29+.%0A++FILTER+%28lang%28%3FoperatorLabel%29+%3D+%27fr%27%29+.%0A++FILTER+%28lang%28%3FlicenseLabel%29+%3D+%27fr%27%29+.%0A%7D%0AGROUP+BY+%3Fentity+%3FentityLabel+%3Fwebsite+%3FlicenseLabel+%3FiiifcollectionUrl+%3FseeAlsoFormat%0AORDER+BY+%3Finstitution">↗ Ouvrir la requête</a></div>
+<p><br />
+</p>
+<h4><span id="Jeux_de_donn.C3.A9es"></span><span class="mw-headline" id="Jeux_de_données">Jeux de données</span></h4>
+<div class="mw-highlight mw-highlight-lang-sparql mw-content-ltr" dir="ltr"><pre><span></span><span class="k">PREFIX</span> <span class="nn">schema</span><span class="p">:</span> <span class="nl">&lt;http://schema.org/&gt;</span>
+<span class="c">#Jeux de données</span>
+<span class="k">SELECT</span> <span class="k">DISTINCT</span> <span class="nv">?entity</span> <span class="nv">?entityLabel</span> <span class="nv">?description</span> <span class="nv">?url</span> <span class="nv">?operatorLabel</span> <span class="nv">?licenceLabel</span> <span class="nv">?propId</span> <span class="nv">?propId_label</span>
+<span class="k">WHERE</span>
+<span class="p">{</span>
+  <span class="nv">?entity</span> <span class="nn">wdt</span><span class="p">:</span><span class="nt">P2</span> <span class="nn">wd</span><span class="p">:</span><span class="nt">Q313297</span> <span class="p">.</span>
+  <span class="nv">?entity</span> <span class="nn">rdfs</span><span class="p">:</span><span class="nt">label</span> <span class="nv">?entityLabel</span> <span class="p">.</span>
+  <span class="k">FILTER</span> <span class="p">(</span><span class="nf">lang</span><span class="p">(</span><span class="nv">?entityLabel</span><span class="p">)</span> <span class="o">=</span> <span class="s">&#39;fr&#39;</span><span class="p">)</span> <span class="p">.</span>
+
+  <span class="k">OPTIONAL</span> <span class="p">{</span> 
+    <span class="nv">?entity</span> <span class="nn">schema</span><span class="p">:</span><span class="nt">description</span> <span class="nv">?description</span> <span class="p">.</span>
+    <span class="k">FILTER</span> <span class="p">(</span><span class="nf">lang</span><span class="p">(</span><span class="nv">?description</span><span class="p">)</span> <span class="o">=</span> <span class="s">&#39;fr&#39;</span><span class="p">)</span>
+  <span class="p">}</span>
+  <span class="k">OPTIONAL</span> <span class="p">{</span> 
+    <span class="nv">?entity</span> <span class="nn">wdt</span><span class="p">:</span><span class="nt">P188</span> <span class="nv">?url</span> <span class="p">.</span>
+  <span class="p">}</span>
+  <span class="k">OPTIONAL</span> <span class="p">{</span> 
+    <span class="nv">?entity</span> <span class="nn">wdt</span><span class="p">:</span><span class="nt">P200</span> <span class="nv">?operator</span> <span class="p">.</span>
+    <span class="nv">?operator</span> <span class="nn">rdfs</span><span class="p">:</span><span class="nt">label</span> <span class="nv">?operatorLabel</span> <span class="p">.</span>
+    <span class="k">FILTER</span> <span class="p">(</span><span class="nf">lang</span><span class="p">(</span><span class="nv">?operatorLabel</span><span class="p">)</span> <span class="o">=</span> <span class="s">&#39;fr&#39;</span><span class="p">)</span> <span class="p">.</span>
+  <span class="p">}</span>
+  <span class="k">OPTIONAL</span> <span class="p">{</span> 
+    <span class="nv">?entity</span> <span class="nn">wdt</span><span class="p">:</span><span class="nt">P187</span> <span class="nv">?licence</span> <span class="p">.</span>
+    <span class="nv">?licence</span> <span class="nn">rdfs</span><span class="p">:</span><span class="nt">label</span> <span class="nv">?licenceLabel</span> <span class="p">.</span>
+    <span class="k">FILTER</span> <span class="p">(</span><span class="nf">lang</span><span class="p">(</span><span class="nv">?licenceLabel</span><span class="p">)</span> <span class="o">=</span> <span class="s">&#39;fr&#39;</span><span class="p">)</span> <span class="p">.</span>
+  <span class="p">}</span>
+  <span class="k">OPTIONAL</span> <span class="p">{</span> 
+    <span class="nv">?entity</span> <span class="nn">wdt</span><span class="p">:</span><span class="nt">P363</span> <span class="nv">?propId</span> <span class="p">.</span>
+    <span class="nv">?propId</span> <span class="nn">rdfs</span><span class="p">:</span><span class="nt">label</span> <span class="nv">?propId_label</span> <span class="p">.</span>
+    <span class="k">FILTER</span> <span class="p">(</span><span class="nf">lang</span><span class="p">(</span><span class="nv">?propId_label</span><span class="p">)</span> <span class="o">=</span> <span class="s">&#39;fr&#39;</span><span class="p">)</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+<span class="k">ORDER BY</span> <span class="nv">?entity</span>
+</pre></div>
+<div class="sparql-link"><a rel="nofollow" class="external text" href="https://query.biblissima.fr/?query=PREFIX+rdf%3A++%3Chttp%3A%2F%2Fwww.w3.org%2F1999%2F02%2F22-rdf-syntax-ns%23%3E%0APREFIX+rdfs%3A+%3Chttp%3A%2F%2Fwww.w3.org%2F2000%2F01%2Frdf-schema%23%3E%0APREFIX+owl%3A++%3Chttp%3A%2F%2Fwww.w3.org%2F2002%2F07%2Fowl%23%3E%0APREFIX+xsd%3A++%3Chttp%3A%2F%2Fwww.w3.org%2F2001%2FXMLSchema%23%3E%0APREFIX+skos%3A+%3Chttp%3A%2F%2Fwww.w3.org%2F2004%2F02%2Fskos%2Fcore%23%3E%0APREFIX+wd%3A+%3Chttps%3A%2F%2Fdata.biblissima.fr%2Fentity%2F%3E%0APREFIX+wdt%3A+%3Chttps%3A%2F%2Fdata.biblissima.fr%2Fprop%2Fdirect%2F%3E%0APREFIX+wikibase%3A+%3Chttp%3A%2F%2Fwikiba.se%2Fontology%23%3E%0APREFIX+schema%3A+%3Chttp%3A%2F%2Fschema.org%2F%3E%0A%23Jeux+de+donn%C3%A9es%0ASELECT+DISTINCT+%3Fentity+%3FentityLabel+%3Fdescription+%3Furl+%3FoperatorLabel+%3FlicenceLabel+%3FpropId+%3FpropId_label%0AWHERE%0A%7B%0A++%3Fentity+wdt%3AP2+wd%3AQ313297+.%0A++%3Fentity+rdfs%3Alabel+%3FentityLabel+.%0A++FILTER+%28lang%28%3FentityLabel%29+%3D+%27fr%27%29+.%0A%0A++OPTIONAL+%7B+%0A++++%3Fentity+schema%3Adescription+%3Fdescription+.%0A++++FILTER+%28lang%28%3Fdescription%29+%3D+%27fr%27%29%0A++%7D%0A++OPTIONAL+%7B+%0A++++%3Fentity+wdt%3AP188+%3Furl+.%0A++%7D%0A++OPTIONAL+%7B+%0A++++%3Fentity+wdt%3AP200+%3Foperator+.%0A++++%3Foperator+rdfs%3Alabel+%3FoperatorLabel+.%0A++++FILTER+%28lang%28%3FoperatorLabel%29+%3D+%27fr%27%29+.%0A++%7D%0A++OPTIONAL+%7B+%0A++++%3Fentity+wdt%3AP187+%3Flicence+.%0A++++%3Flicence+rdfs%3Alabel+%3FlicenceLabel+.%0A++++FILTER+%28lang%28%3FlicenceLabel%29+%3D+%27fr%27%29+.%0A++%7D%0A++OPTIONAL+%7B+%0A++++%3Fentity+wdt%3AP363+%3FpropId+.%0A++++%3FpropId+rdfs%3Alabel+%3FpropId_label+.%0A++++FILTER+%28lang%28%3FpropId_label%29+%3D+%27fr%27%29%0A++%7D%0A%7D%0AORDER+BY+%3Fentity">↗ Ouvrir la requête</a></div>
+<p><br />
+</p>
+<h4><span id="Entit.C3.A9s_associ.C3.A9es_.C3.A0_un_jeu_de_donn.C3.A9es"></span><span class="mw-headline" id="Entités_associées_à_un_jeu_de_données">Entités associées à un jeu de données</span></h4>
+<div class="mw-highlight mw-highlight-lang-sparql mw-content-ltr" dir="ltr"><pre><span></span><span class="c"># Entités associées à un jeu de données</span>
+<span class="k">SELECT</span> <span class="nv">?entity</span> <span class="nv">?entityLabel</span> <span class="nv">?entityTypeLabel</span> <span class="nv">?id</span> <span class="nv">?sourceUrl</span>
+<span class="k">WHERE</span> <span class="p">{</span>
+  <span class="c">#--- cibler un ou plusieurs dataset en particulier</span>
+  <span class="k">VALUES</span> <span class="nv">?dataset</span> <span class="p">{</span>
+    <span class="nn">wd</span><span class="p">:</span><span class="nt">Q313323</span> <span class="c"># Regecart</span>
+    <span class="c">#wd:Q287582 # BVH</span>
+  <span class="p">}</span>
+  
+  <span class="c">#--- cibler un ou plusieurs types d&#39;entité (optionnel, laisser décommenter pour requêter sur tous les types)</span>
+  <span class="c">#VALUES ?entityType {</span>
+    <span class="c">#wd:Q32810 # manuscrit</span>
+    <span class="c">#wd:Q113619 # imprimé</span>
+  <span class="c">#}</span>
+  
+  <span class="nv">?dataset</span> <span class="nn">wdt</span><span class="p">:</span><span class="nt">P2</span> <span class="nn">wd</span><span class="p">:</span><span class="nt">Q313297</span><span class="p">;</span> <span class="c"># type &quot;jeu de données&quot;</span>
+           <span class="nn">wdt</span><span class="p">:</span><span class="nt">P363</span> <span class="nv">?propId</span> <span class="p">.</span> <span class="c"># prop id du dataset (propriété d&#39;identifiant)</span>
+  <span class="nv">?propId</span> <span class="nn">wikibase</span><span class="p">:</span><span class="nt">directClaim</span> <span class="nv">?propIdDirect</span> <span class="p">.</span>
+  
+  <span class="nv">?entity</span> <span class="nv">?propIdDirect</span> <span class="nv">?id</span> <span class="p">;</span> <span class="c"># entité avec cette prop id</span>
+           <span class="nn">wdt</span><span class="p">:</span><span class="nt">P2</span> <span class="nv">?entityType</span> <span class="p">;</span>
+           <span class="nn">rdfs</span><span class="p">:</span><span class="nt">label</span> <span class="nv">?entityLabel</span> <span class="p">.</span>
+  <span class="nv">?entityType</span> <span class="nn">rdfs</span><span class="p">:</span><span class="nt">label</span> <span class="nv">?entityTypeLabel</span> <span class="p">.</span>
+  <span class="k">FILTER</span> <span class="p">(</span><span class="nf">lang</span><span class="p">(</span><span class="nv">?entityLabel</span><span class="p">)</span> <span class="o">=</span> <span class="s">&#39;fr&#39;</span><span class="p">)</span> <span class="p">.</span>
+  <span class="k">FILTER</span> <span class="p">(</span><span class="nf">lang</span><span class="p">(</span><span class="nv">?entityTypeLabel</span><span class="p">)</span> <span class="o">=</span> <span class="s">&#39;fr&#39;</span><span class="p">)</span> <span class="p">.</span>
+
+  <span class="c"># construit l&#39;url de l&#39;entité sur le site source</span>
+  <span class="nv">?propId</span> <span class="nn">wdt</span><span class="p">:</span><span class="nt">P108</span> <span class="nv">?formatterUrl</span> <span class="p">.</span>
+  <span class="k">BIND</span><span class="p">(</span><span class="nf">IRI</span><span class="p">(</span><span class="nf">REPLACE</span><span class="p">(</span><span class="nv">?id</span><span class="p">,</span> <span class="s">&#39;^(.+)$&#39;</span><span class="p">,</span> <span class="nv">?formatterUrl</span><span class="p">))</span> <span class="k">AS</span> <span class="nv">?sourceUrl</span><span class="p">).</span>
+<span class="p">}</span>
+</pre></div>
+<div class="sparql-link"><a rel="nofollow" class="external text" href="https://query.biblissima.fr/?query=PREFIX+rdf%3A++%3Chttp%3A%2F%2Fwww.w3.org%2F1999%2F02%2F22-rdf-syntax-ns%23%3E%0APREFIX+rdfs%3A+%3Chttp%3A%2F%2Fwww.w3.org%2F2000%2F01%2Frdf-schema%23%3E%0APREFIX+owl%3A++%3Chttp%3A%2F%2Fwww.w3.org%2F2002%2F07%2Fowl%23%3E%0APREFIX+xsd%3A++%3Chttp%3A%2F%2Fwww.w3.org%2F2001%2FXMLSchema%23%3E%0APREFIX+skos%3A+%3Chttp%3A%2F%2Fwww.w3.org%2F2004%2F02%2Fskos%2Fcore%23%3E%0APREFIX+wd%3A+%3Chttps%3A%2F%2Fdata.biblissima.fr%2Fentity%2F%3E%0APREFIX+wdt%3A+%3Chttps%3A%2F%2Fdata.biblissima.fr%2Fprop%2Fdirect%2F%3E%0APREFIX+wikibase%3A+%3Chttp%3A%2F%2Fwikiba.se%2Fontology%23%3E%0A%23+Entit%C3%A9s+associ%C3%A9es+%C3%A0+un+jeu+de+donn%C3%A9es%0ASELECT+%3Fentity+%3FentityLabel+%3FentityTypeLabel+%3Fid+%3FsourceUrl%0AWHERE+%7B%0A++%23---+cibler+un+ou+plusieurs+dataset+en+particulier%0A++VALUES+%3Fdataset+%7B%0A++++wd%3AQ313323+%23+Regecart%0A++++%23wd%3AQ287582+%23+BVH%0A++%7D%0A++%0A++%23---+cibler+un+ou+plusieurs+types+d%27entit%C3%A9+%28optionnel%2C+laisser+d%C3%A9commenter+pour+requ%C3%AAter+sur+tous+les+types%29%0A++%23VALUES+%3FentityType+%7B%0A++++%23wd%3AQ32810+%23+manuscrit%0A++++%23wd%3AQ113619+%23+imprim%C3%A9%0A++%23%7D%0A++%0A++%3Fdataset+wdt%3AP2+wd%3AQ313297%3B+%23+type+%22jeu+de+donn%C3%A9es%22%0A+++++++++++wdt%3AP363+%3FpropId+.+%23+prop+id+du+dataset+%28propri%C3%A9t%C3%A9+d%27identifiant%29%0A++%3FpropId+wikibase%3AdirectClaim+%3FpropIdDirect+.%0A++%0A++%3Fentity+%3FpropIdDirect+%3Fid+%3B+%23+entit%C3%A9+avec+cette+prop+id%0A+++++++++++wdt%3AP2+%3FentityType+%3B%0A+++++++++++rdfs%3Alabel+%3FentityLabel+.%0A++%3FentityType+rdfs%3Alabel+%3FentityTypeLabel+.%0A++FILTER+%28lang%28%3FentityLabel%29+%3D+%27fr%27%29+.%0A++FILTER+%28lang%28%3FentityTypeLabel%29+%3D+%27fr%27%29+.%0A%0A++%23+construit+l%27url+de+l%27entit%C3%A9+sur+le+site+source%0A++%3FpropId+wdt%3AP108+%3FformatterUrl+.%0A++BIND%28IRI%28REPLACE%28%3Fid%2C+%27%5E%28.%2B%29%24%27%2C+%3FformatterUrl%29%29+AS+%3FsourceUrl%29.%0A%7D">↗ Ouvrir la requête</a></div>
+<p><br />
+</p>
+<h4><span class="mw-headline" id="Personnes_avec_2_ID_bbma">Personnes avec 2 ID bbma</span></h4>
+<div class="mw-highlight mw-highlight-lang-sparql mw-content-ltr" dir="ltr"><pre><span></span><span class="k">SELECT</span> <span class="nv">?entity</span> <span class="nv">?entityLabel</span> <span class="p">(</span><span class="nf">count</span><span class="p">(</span><span class="nv">?idBbma</span><span class="p">)</span> <span class="k">as</span> <span class="nv">?id</span><span class="p">)</span>
+<span class="k">WHERE</span>
+<span class="p">{</span>
+  <span class="nv">?entity</span> <span class="nn">wdt</span><span class="p">:</span><span class="nt">P2</span> <span class="nn">wd</span><span class="p">:</span><span class="nt">Q168</span> <span class="p">;</span>
+          <span class="nn">wdt</span><span class="p">:</span><span class="nt">P129</span> <span class="nv">?idBbma</span> <span class="p">;</span>
+          <span class="nn">rdfs</span><span class="p">:</span><span class="nt">label</span> <span class="nv">?entityLabel</span> <span class="p">.</span>
+  <span class="k">FILTER</span> <span class="p">(</span><span class="nf">lang</span><span class="p">(</span><span class="nv">?entityLabel</span><span class="p">)</span> <span class="o">=</span> <span class="s">&#39;fr&#39;</span><span class="p">)</span> <span class="p">.</span>
+<span class="p">}</span>
+<span class="k">GROUP BY</span> <span class="nv">?entity</span> <span class="nv">?entityLabel</span> <span class="nv">?id</span>
+<span class="k">HAVING</span> <span class="p">(</span><span class="nv">?id</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">)</span>
+</pre></div>
+<div class="sparql-link"><a rel="nofollow" class="external text" href="https://query.biblissima.fr/?query=PREFIX+rdf%3A++%3Chttp%3A%2F%2Fwww.w3.org%2F1999%2F02%2F22-rdf-syntax-ns%23%3E%0APREFIX+rdfs%3A+%3Chttp%3A%2F%2Fwww.w3.org%2F2000%2F01%2Frdf-schema%23%3E%0APREFIX+owl%3A++%3Chttp%3A%2F%2Fwww.w3.org%2F2002%2F07%2Fowl%23%3E%0APREFIX+xsd%3A++%3Chttp%3A%2F%2Fwww.w3.org%2F2001%2FXMLSchema%23%3E%0APREFIX+skos%3A+%3Chttp%3A%2F%2Fwww.w3.org%2F2004%2F02%2Fskos%2Fcore%23%3E%0APREFIX+wd%3A+%3Chttps%3A%2F%2Fdata.biblissima.fr%2Fentity%2F%3E%0APREFIX+wdt%3A+%3Chttps%3A%2F%2Fdata.biblissima.fr%2Fprop%2Fdirect%2F%3E%0APREFIX+wikibase%3A+%3Chttp%3A%2F%2Fwikiba.se%2Fontology%23%3E%0ASELECT+%3Fentity+%3FentityLabel+%28count%28%3FidBbma%29+as+%3Fid%29%0AWHERE%0A%7B%0A++%3Fentity+wdt%3AP2+wd%3AQ168+%3B%0A++++++++++wdt%3AP129+%3FidBbma+%3B%0A++++++++++rdfs%3Alabel+%3FentityLabel+.%0A++FILTER+%28lang%28%3FentityLabel%29+%3D+%27fr%27%29+.%0A%7D%0AGROUP+BY+%3Fentity+%3FentityLabel+%3Fid%0AHAVING+%28%3Fid+%3E+1%29">↗ Ouvrir la requête</a></div>
+<p><br />
+</p>
+<h4><span class="mw-headline" id="Organisations_avec_RCR_et_disposant_de_moins_de_20_cotes">Organisations avec RCR et disposant de moins de 20 cotes</span></h4>
+<div class="mw-highlight mw-highlight-lang-sparql mw-content-ltr" dir="ltr"><pre><span></span><span class="k">SELECT</span> <span class="nv">?org</span> <span class="nv">?orgLabel</span> <span class="nv">?placeLabel</span> <span class="p">(</span><span class="nf">count</span><span class="p">(</span><span class="nv">?item</span><span class="p">)</span> <span class="k">as</span> <span class="nv">?count</span><span class="p">)</span>
+<span class="k">WHERE</span>
+<span class="p">{</span>
+  <span class="p">{</span> <span class="nv">?item</span> <span class="nn">wdt</span><span class="p">:</span><span class="nt">P2</span> <span class="nn">wd</span><span class="p">:</span><span class="nt">Q32810</span> <span class="p">}</span> <span class="k">UNION</span> <span class="p">{</span> <span class="nv">?item</span> <span class="nn">wdt</span><span class="p">:</span><span class="nt">P2</span> <span class="nn">wd</span><span class="p">:</span><span class="nt">Q113619</span> <span class="p">}</span>
+  <span class="nv">?item</span> <span class="nn">wdt</span><span class="p">:</span><span class="nt">P194</span> <span class="nv">?org</span> <span class="p">.</span>
+  <span class="nv">?org</span> <span class="nn">wdt</span><span class="p">:</span><span class="nt">P2</span> <span class="nn">wd</span><span class="p">:</span><span class="nt">Q167</span> <span class="p">;</span>
+       <span class="nn">wdt</span><span class="p">:</span><span class="nt">P201</span> <span class="nv">?place</span> <span class="p">;</span>
+       <span class="nn">wdt</span><span class="p">:</span><span class="nt">P202</span> <span class="nv">?rcr</span> <span class="p">.</span>
+  <span class="nv">?org</span> <span class="nn">rdfs</span><span class="p">:</span><span class="nt">label</span> <span class="nv">?orgLabel</span> <span class="p">.</span>
+  <span class="nv">?place</span> <span class="nn">rdfs</span><span class="p">:</span><span class="nt">label</span> <span class="nv">?placeLabel</span> <span class="p">.</span>
+  <span class="k">FILTER</span> <span class="p">(</span><span class="nf">lang</span><span class="p">(</span><span class="nv">?orgLabel</span><span class="p">)</span> <span class="o">=</span> <span class="s">&#39;fr&#39;</span><span class="p">)</span> <span class="p">.</span>
+  <span class="k">FILTER</span> <span class="p">(</span><span class="nf">lang</span><span class="p">(</span><span class="nv">?placeLabel</span><span class="p">)</span> <span class="o">=</span> <span class="s">&#39;fr&#39;</span><span class="p">)</span> <span class="p">.</span>
+<span class="p">}</span>
+<span class="k">GROUP BY</span> <span class="nv">?org</span> <span class="nv">?orgLabel</span> <span class="nv">?placeLabel</span>
+<span class="k">HAVING</span> <span class="p">(</span><span class="nv">?count</span> <span class="o">&lt;</span> <span class="mi">20</span><span class="p">)</span>
+<span class="k">ORDER BY</span> <span class="nv">?orgLabel</span>
+</pre></div>
+<div class="sparql-link"><a rel="nofollow" class="external text" href="https://query.biblissima.fr/?query=PREFIX+rdf%3A++%3Chttp%3A%2F%2Fwww.w3.org%2F1999%2F02%2F22-rdf-syntax-ns%23%3E%0APREFIX+rdfs%3A+%3Chttp%3A%2F%2Fwww.w3.org%2F2000%2F01%2Frdf-schema%23%3E%0APREFIX+owl%3A++%3Chttp%3A%2F%2Fwww.w3.org%2F2002%2F07%2Fowl%23%3E%0APREFIX+xsd%3A++%3Chttp%3A%2F%2Fwww.w3.org%2F2001%2FXMLSchema%23%3E%0APREFIX+skos%3A+%3Chttp%3A%2F%2Fwww.w3.org%2F2004%2F02%2Fskos%2Fcore%23%3E%0APREFIX+wd%3A+%3Chttps%3A%2F%2Fdata.biblissima.fr%2Fentity%2F%3E%0APREFIX+wdt%3A+%3Chttps%3A%2F%2Fdata.biblissima.fr%2Fprop%2Fdirect%2F%3E%0APREFIX+wikibase%3A+%3Chttp%3A%2F%2Fwikiba.se%2Fontology%23%3E%0ASELECT+%3Forg+%3ForgLabel+%3FplaceLabel+%28count%28%3Fitem%29+as+%3Fcount%29%0AWHERE%0A%7B%0A++%7B+%3Fitem+wdt%3AP2+wd%3AQ32810+%7D+UNION+%7B+%3Fitem+wdt%3AP2+wd%3AQ113619+%7D%0A++%3Fitem+wdt%3AP194+%3Forg+.%0A++%3Forg+wdt%3AP2+wd%3AQ167+%3B%0A+++++++wdt%3AP201+%3Fplace+%3B%0A+++++++wdt%3AP202+%3Frcr+.%0A++%3Forg+rdfs%3Alabel+%3ForgLabel+.%0A++%3Fplace+rdfs%3Alabel+%3FplaceLabel+.%0A++FILTER+%28lang%28%3ForgLabel%29+%3D+%27fr%27%29+.%0A++FILTER+%28lang%28%3FplaceLabel%29+%3D+%27fr%27%29+.%0A%7D%0AGROUP+BY+%3Forg+%3ForgLabel+%3FplaceLabel%0AHAVING+%28%3Fcount+%3C+20%29%0AORDER+BY+%3ForgLabel">↗ Ouvrir la requête</a></div>
+<p><br />
+</p>
+<h4><span id="Manuscrits_d.C3.A9truits"></span><span class="mw-headline" id="Manuscrits_détruits">Manuscrits détruits</span></h4>
+<div class="mw-highlight mw-highlight-lang-sparql mw-content-ltr" dir="ltr"><pre><span></span><span class="k">PREFIX</span> <span class="nn">p</span><span class="p">:</span> <span class="nl">&lt;https://data.biblissima.fr/prop/&gt;</span>
+<span class="k">PREFIX</span> <span class="nn">ps</span><span class="p">:</span> <span class="nl">&lt;https://data.biblissima.fr/prop/statement/&gt;</span>
+<span class="k">PREFIX</span> <span class="nn">pq</span><span class="p">:</span> <span class="nl">&lt;https://data.biblissima.fr/prop/qualifier/&gt;</span>
+<span class="k">SELECT</span> <span class="nv">?item</span> <span class="nv">?itemLabel</span>
+<span class="k">WHERE</span>
+<span class="p">{</span>
+  <span class="nv">?item</span> <span class="nn">p</span><span class="p">:</span><span class="nt">P2</span> <span class="p">[</span>
+        <span class="nn">ps</span><span class="p">:</span><span class="nt">P2</span> <span class="nn">wd</span><span class="p">:</span><span class="nt">Q32810</span> <span class="p">;</span>
+        <span class="nn">pq</span><span class="p">:</span><span class="nt">P281</span> <span class="nn">wd</span><span class="p">:</span><span class="nt">Q120866</span>
+  <span class="p">]</span> <span class="p">.</span>
+  <span class="nv">?item</span> <span class="nn">rdfs</span><span class="p">:</span><span class="nt">label</span> <span class="nv">?itemLabel</span> <span class="p">.</span>
+  <span class="k">FILTER</span> <span class="p">(</span><span class="nf">lang</span><span class="p">(</span><span class="nv">?itemLabel</span><span class="p">)</span> <span class="o">=</span> <span class="s">&#39;fr&#39;</span><span class="p">)</span> <span class="p">.</span>
+<span class="p">}</span>
+</pre></div>
+<div class="sparql-link"><a rel="nofollow" class="external text" href="https://query.biblissima.fr/?query=PREFIX+rdf%3A++%3Chttp%3A%2F%2Fwww.w3.org%2F1999%2F02%2F22-rdf-syntax-ns%23%3E%0APREFIX+rdfs%3A+%3Chttp%3A%2F%2Fwww.w3.org%2F2000%2F01%2Frdf-schema%23%3E%0APREFIX+owl%3A++%3Chttp%3A%2F%2Fwww.w3.org%2F2002%2F07%2Fowl%23%3E%0APREFIX+xsd%3A++%3Chttp%3A%2F%2Fwww.w3.org%2F2001%2FXMLSchema%23%3E%0APREFIX+skos%3A+%3Chttp%3A%2F%2Fwww.w3.org%2F2004%2F02%2Fskos%2Fcore%23%3E%0APREFIX+wd%3A+%3Chttps%3A%2F%2Fdata.biblissima.fr%2Fentity%2F%3E%0APREFIX+wdt%3A+%3Chttps%3A%2F%2Fdata.biblissima.fr%2Fprop%2Fdirect%2F%3E%0APREFIX+wikibase%3A+%3Chttp%3A%2F%2Fwikiba.se%2Fontology%23%3E%0APREFIX+p%3A+%3Chttps%3A%2F%2Fdata.biblissima.fr%2Fprop%2F%3E%0APREFIX+ps%3A+%3Chttps%3A%2F%2Fdata.biblissima.fr%2Fprop%2Fstatement%2F%3E%0APREFIX+pq%3A+%3Chttps%3A%2F%2Fdata.biblissima.fr%2Fprop%2Fqualifier%2F%3E%0ASELECT+%3Fitem+%3FitemLabel%0AWHERE%0A%7B%0A++%3Fitem+p%3AP2+%5B%0A++++++++ps%3AP2+wd%3AQ32810+%3B%0A++++++++pq%3AP281+wd%3AQ120866%0A++%5D+.%0A++%3Fitem+rdfs%3Alabel+%3FitemLabel+.%0A++FILTER+%28lang%28%3FitemLabel%29+%3D+%27fr%27%29+.%0A%7D">↗ Ouvrir la requête</a></div>
+<p><br />
+</p>
+<h4><span id="Entit.C3.A9s_align.C3.A9es_vers_le_catalogue_BnF"></span><span class="mw-headline" id="Entités_alignées_vers_le_catalogue_BnF">Entités alignées vers le catalogue BnF</span></h4>
+<div class="mw-highlight mw-highlight-lang-sparql mw-content-ltr" dir="ltr"><pre><span></span><span class="k">SELECT</span> <span class="nv">?entity</span> <span class="nv">?bnfId</span> <span class="nv">?bnfUri</span> <span class="nv">?entityLabel</span>
+<span class="k">WHERE</span> <span class="p">{</span>
+  <span class="nv">?entity</span> <span class="nn">wdt</span><span class="p">:</span><span class="nt">P109</span> <span class="nv">?bnfId</span> <span class="p">.</span>
+  <span class="nn">wd</span><span class="p">:</span><span class="nt">P109</span> <span class="nn">wdt</span><span class="p">:</span><span class="nt">P108</span> <span class="nv">?formatterUrl</span> <span class="p">.</span>
+  <span class="k">BIND</span><span class="p">(</span><span class="nf">IRI</span><span class="p">(</span><span class="nf">REPLACE</span><span class="p">(</span><span class="nv">?bnfId</span><span class="p">,</span> <span class="s">&#39;^(.+)$&#39;</span><span class="p">,</span> <span class="nv">?formatterUrl</span><span class="p">))</span> <span class="k">AS</span> <span class="nv">?bnfUri</span><span class="p">).</span>
+  <span class="nv">?entity</span> <span class="nn">rdfs</span><span class="p">:</span><span class="nt">label</span> <span class="nv">?entityLabel</span> <span class="p">.</span>
+  <span class="k">FILTER</span> <span class="p">(</span><span class="nf">lang</span><span class="p">(</span><span class="nv">?entityLabel</span><span class="p">)</span> <span class="o">=</span> <span class="s">&#39;fr&#39;</span><span class="p">)</span> <span class="p">.</span>
+<span class="p">}</span>
+</pre></div>
+<div class="sparql-link"><a rel="nofollow" class="external text" href="https://query.biblissima.fr/?query=PREFIX+rdf%3A++%3Chttp%3A%2F%2Fwww.w3.org%2F1999%2F02%2F22-rdf-syntax-ns%23%3E%0APREFIX+rdfs%3A+%3Chttp%3A%2F%2Fwww.w3.org%2F2000%2F01%2Frdf-schema%23%3E%0APREFIX+owl%3A++%3Chttp%3A%2F%2Fwww.w3.org%2F2002%2F07%2Fowl%23%3E%0APREFIX+xsd%3A++%3Chttp%3A%2F%2Fwww.w3.org%2F2001%2FXMLSchema%23%3E%0APREFIX+skos%3A+%3Chttp%3A%2F%2Fwww.w3.org%2F2004%2F02%2Fskos%2Fcore%23%3E%0APREFIX+wd%3A+%3Chttps%3A%2F%2Fdata.biblissima.fr%2Fentity%2F%3E%0APREFIX+wdt%3A+%3Chttps%3A%2F%2Fdata.biblissima.fr%2Fprop%2Fdirect%2F%3E%0APREFIX+wikibase%3A+%3Chttp%3A%2F%2Fwikiba.se%2Fontology%23%3E%0ASELECT+%3Fentity+%3FbnfId+%3FbnfUri+%3FentityLabel%0AWHERE+%7B%0A++%3Fentity+wdt%3AP109+%3FbnfId+.%0A++wd%3AP109+wdt%3AP108+%3FformatterUrl+.%0A++BIND%28IRI%28REPLACE%28%3FbnfId%2C+%27%5E%28.%2B%29%24%27%2C+%3FformatterUrl%29%29+AS+%3FbnfUri%29.%0A++%3Fentity+rdfs%3Alabel+%3FentityLabel+.%0A++FILTER+%28lang%28%3FentityLabel%29+%3D+%27fr%27%29+.%0A%7D">↗ Ouvrir la requête</a></div>
+<p><br />
+</p>
+<h4><span id="Entit.C3.A9s_align.C3.A9es_avec_la_DNB"></span><span class="mw-headline" id="Entités_alignées_avec_la_DNB">Entités alignées avec la DNB</span></h4>
+<div class="mw-highlight mw-highlight-lang-sparql mw-content-ltr" dir="ltr"><pre><span></span><span class="k">SELECT</span> <span class="nv">?entity</span> <span class="nv">?gndId</span> <span class="nv">?gndUri</span> <span class="nv">?entityLabel</span>
+<span class="k">WHERE</span> <span class="p">{</span>
+  <span class="nv">?entity</span> <span class="nn">wdt</span><span class="p">:</span><span class="nt">P111</span> <span class="nv">?gndId</span> <span class="p">.</span>
+  <span class="nn">wd</span><span class="p">:</span><span class="nt">P111</span> <span class="nn">wdt</span><span class="p">:</span><span class="nt">P108</span> <span class="nv">?formatterUrl</span> <span class="p">.</span>
+  <span class="k">BIND</span><span class="p">(</span><span class="nf">IRI</span><span class="p">(</span><span class="nf">REPLACE</span><span class="p">(</span><span class="nv">?gndId</span><span class="p">,</span> <span class="s">&#39;^(.+)$&#39;</span><span class="p">,</span> <span class="nv">?formatterUrl</span><span class="p">))</span> <span class="k">AS</span> <span class="nv">?gndUri</span><span class="p">).</span>
+  <span class="nv">?entity</span> <span class="nn">rdfs</span><span class="p">:</span><span class="nt">label</span> <span class="nv">?entityLabel</span> <span class="p">.</span>
+  <span class="k">FILTER</span> <span class="p">(</span><span class="nf">lang</span><span class="p">(</span><span class="nv">?entityLabel</span><span class="p">)</span> <span class="o">=</span> <span class="s">&#39;fr&#39;</span><span class="p">)</span> <span class="p">.</span>
+<span class="p">}</span>
+</pre></div>
+<div class="sparql-link"><a rel="nofollow" class="external text" href="https://query.biblissima.fr/?query=PREFIX+rdf%3A++%3Chttp%3A%2F%2Fwww.w3.org%2F1999%2F02%2F22-rdf-syntax-ns%23%3E%0APREFIX+rdfs%3A+%3Chttp%3A%2F%2Fwww.w3.org%2F2000%2F01%2Frdf-schema%23%3E%0APREFIX+owl%3A++%3Chttp%3A%2F%2Fwww.w3.org%2F2002%2F07%2Fowl%23%3E%0APREFIX+xsd%3A++%3Chttp%3A%2F%2Fwww.w3.org%2F2001%2FXMLSchema%23%3E%0APREFIX+skos%3A+%3Chttp%3A%2F%2Fwww.w3.org%2F2004%2F02%2Fskos%2Fcore%23%3E%0APREFIX+wd%3A+%3Chttps%3A%2F%2Fdata.biblissima.fr%2Fentity%2F%3E%0APREFIX+wdt%3A+%3Chttps%3A%2F%2Fdata.biblissima.fr%2Fprop%2Fdirect%2F%3E%0APREFIX+wikibase%3A+%3Chttp%3A%2F%2Fwikiba.se%2Fontology%23%3E%0ASELECT+%3Fentity+%3FgndId+%3FgndUri+%3FentityLabel%0AWHERE+%7B%0A++%3Fentity+wdt%3AP111+%3FgndId+.%0A++wd%3AP111+wdt%3AP108+%3FformatterUrl+.%0A++BIND%28IRI%28REPLACE%28%3FgndId%2C+%27%5E%28.%2B%29%24%27%2C+%3FformatterUrl%29%29+AS+%3FgndUri%29.%0A++%3Fentity+rdfs%3Alabel+%3FentityLabel+.%0A++FILTER+%28lang%28%3FentityLabel%29+%3D+%27fr%27%29+.%0A%7D">↗ Ouvrir la requête</a></div>
+<p><br />
+</p>
+<h4><span id="Entit.C3.A9s_align.C3.A9es_avec_Pers.C3.A9e_ou_IdRef"></span><span class="mw-headline" id="Entités_alignées_avec_Persée_ou_IdRef">Entités alignées avec Persée ou IdRef</span></h4>
+<div class="mw-highlight mw-highlight-lang-sparql mw-content-ltr" dir="ltr"><pre><span></span><span class="c"># Entités alignées avec Persée ou IdRef</span>
+<span class="k">SELECT</span> <span class="nv">?entity</span> <span class="nv">?entityLabel</span> <span class="p">(</span><span class="nf">GROUP_CONCAT</span><span class="p">(</span><span class="k">DISTINCT</span><span class="p">(</span><span class="nv">?typeLabel</span><span class="p">);</span> <span class="nf">separator</span><span class="o">=</span><span class="s">&quot;, &quot;</span><span class="p">)</span> <span class="k">AS</span> <span class="nv">?type_label</span><span class="p">)</span> <span class="p">(</span><span class="nf">GROUP_CONCAT</span><span class="p">(</span><span class="k">DISTINCT</span><span class="p">(</span><span class="nv">?uri</span><span class="p">);</span> <span class="nf">separator</span><span class="o">=</span><span class="s">&quot;###&quot;</span><span class="p">)</span> <span class="k">AS</span> <span class="nv">?url</span><span class="p">)</span>
+<span class="k">WHERE</span> <span class="p">{</span>
+  <span class="nv">?entity</span> <span class="nv">?property</span> <span class="nv">?Id</span> <span class="p">;</span>
+          <span class="nn">wdt</span><span class="p">:</span><span class="nt">P2</span> <span class="nv">?type</span> <span class="p">.</span>
+  <span class="nv">?type</span> <span class="nn">rdfs</span><span class="p">:</span><span class="nt">label</span> <span class="nv">?typeLabel</span> <span class="p">.</span>
+  <span class="nv">?prop</span> <span class="nn">wikibase</span><span class="p">:</span><span class="nt">directClaim</span> <span class="nv">?property</span> <span class="p">;</span>
+        <span class="nn">rdf</span><span class="p">:</span><span class="nt">type</span> <span class="nn">wikibase</span><span class="p">:</span><span class="nt">Property</span> <span class="p">;</span>
+        <span class="nn">wikibase</span><span class="p">:</span><span class="nt">propertyType</span> <span class="nn">wikibase</span><span class="p">:</span><span class="nt">ExternalId</span> <span class="p">;</span>
+        <span class="nn">wdt</span><span class="p">:</span><span class="nt">P108</span> <span class="nv">?formatterUrl</span> <span class="p">.</span>
+
+  <span class="k">FILTER</span> <span class="p">(</span> <span class="nf">CONTAINS</span><span class="p">(</span><span class="nv">?formatterUrl</span><span class="p">,</span> <span class="s">&quot;persee&quot;</span><span class="p">)</span> <span class="o">||</span> <span class="nf">CONTAINS</span><span class="p">(</span><span class="nv">?formatterUrl</span><span class="p">,</span> <span class="s">&quot;idref&quot;</span><span class="p">)</span> <span class="p">)</span> <span class="p">.</span>
+  <span class="k">BIND</span><span class="p">(</span><span class="nf">IRI</span><span class="p">(</span><span class="nf">REPLACE</span><span class="p">(</span><span class="nv">?Id</span><span class="p">,</span> <span class="s">&#39;^(.+)$&#39;</span><span class="p">,</span> <span class="nv">?formatterUrl</span><span class="p">))</span> <span class="k">AS</span> <span class="nv">?uri</span><span class="p">)</span> <span class="p">.</span>
+
+  <span class="nv">?entity</span> <span class="nn">rdfs</span><span class="p">:</span><span class="nt">label</span> <span class="nv">?entityLabel</span> <span class="p">.</span>
+  <span class="k">FILTER</span> <span class="p">(</span><span class="nf">LANG</span><span class="p">(</span><span class="nv">?entityLabel</span><span class="p">)</span> <span class="o">=</span> <span class="s">&#39;fr&#39;</span><span class="p">)</span> <span class="p">.</span>
+  <span class="k">FILTER</span> <span class="p">(</span><span class="nf">LANG</span><span class="p">(</span><span class="nv">?typeLabel</span><span class="p">)</span> <span class="o">=</span> <span class="s">&quot;fr&quot;</span><span class="p">)</span> <span class="p">.</span>
+<span class="p">}</span>
+<span class="k">GROUP BY</span> <span class="nv">?entity</span> <span class="nv">?entityLabel</span>
+</pre></div>
+<div class="sparql-link"><a rel="nofollow" class="external text" href="https://query.biblissima.fr/?query=PREFIX+rdf%3A++%3Chttp%3A%2F%2Fwww.w3.org%2F1999%2F02%2F22-rdf-syntax-ns%23%3E%0APREFIX+rdfs%3A+%3Chttp%3A%2F%2Fwww.w3.org%2F2000%2F01%2Frdf-schema%23%3E%0APREFIX+owl%3A++%3Chttp%3A%2F%2Fwww.w3.org%2F2002%2F07%2Fowl%23%3E%0APREFIX+xsd%3A++%3Chttp%3A%2F%2Fwww.w3.org%2F2001%2FXMLSchema%23%3E%0APREFIX+skos%3A+%3Chttp%3A%2F%2Fwww.w3.org%2F2004%2F02%2Fskos%2Fcore%23%3E%0APREFIX+wd%3A+%3Chttps%3A%2F%2Fdata.biblissima.fr%2Fentity%2F%3E%0APREFIX+wdt%3A+%3Chttps%3A%2F%2Fdata.biblissima.fr%2Fprop%2Fdirect%2F%3E%0APREFIX+wikibase%3A+%3Chttp%3A%2F%2Fwikiba.se%2Fontology%23%3E%0A%23+Entit%C3%A9s+align%C3%A9es+avec+Pers%C3%A9e+ou+IdRef%0ASELECT+%3Fentity+%3FentityLabel+%28GROUP_CONCAT%28DISTINCT%28%3FtypeLabel%29%3B+separator%3D%22%2C+%22%29+AS+%3Ftype_label%29+%28GROUP_CONCAT%28DISTINCT%28%3Furi%29%3B+separator%3D%22%23%23%23%22%29+AS+%3Furl%29%0AWHERE+%7B%0A++%3Fentity+%3Fproperty+%3FId+%3B%0A++++++++++wdt%3AP2+%3Ftype+.%0A++%3Ftype+rdfs%3Alabel+%3FtypeLabel+.%0A++%3Fprop+wikibase%3AdirectClaim+%3Fproperty+%3B%0A++++++++rdf%3Atype+wikibase%3AProperty+%3B%0A++++++++wikibase%3ApropertyType+wikibase%3AExternalId+%3B%0A++++++++wdt%3AP108+%3FformatterUrl+.%0A%0A++FILTER+%28+CONTAINS%28%3FformatterUrl%2C+%22persee%22%29+%7C%7C+CONTAINS%28%3FformatterUrl%2C+%22idref%22%29+%29+.%0A++BIND%28IRI%28REPLACE%28%3FId%2C+%27%5E%28.%2B%29%24%27%2C+%3FformatterUrl%29%29+AS+%3Furi%29+.%0A%0A++%3Fentity+rdfs%3Alabel+%3FentityLabel+.%0A++FILTER+%28LANG%28%3FentityLabel%29+%3D+%27fr%27%29+.%0A++FILTER+%28LANG%28%3FtypeLabel%29+%3D+%22fr%22%29+.%0A%7D%0AGROUP+BY+%3Fentity+%3FentityLabel">↗ Ouvrir la requête</a></div>
+<p><br />
+</p>
+<h4><span id="Entit.C3.A9s_personnes_issues_des_bases_de_l.27IRHT"></span><span class="mw-headline" id="Entités_personnes_issues_des_bases_de_l'IRHT">Entités personnes issues des bases de l'IRHT</span></h4>
+<div class="mw-highlight mw-highlight-lang-sparql mw-content-ltr" dir="ltr"><pre><span></span><span class="c"># Entités personnes issues des bases de l&#39;IRHT</span>
+<span class="k">SELECT</span> <span class="k">DISTINCT</span> <span class="nv">?entity</span> 
+<span class="p">(</span><span class="nf">GROUP_CONCAT</span><span class="p">(</span><span class="nv">?idbbma</span><span class="p">;</span> <span class="nf">separator</span><span class="o">=</span><span class="s">&quot;###&quot;</span><span class="p">)</span> <span class="k">AS</span> <span class="nv">?id_portail_biblissima</span><span class="p">)</span>
+<span class="p">(</span><span class="nf">GROUP_CONCAT</span><span class="p">(</span><span class="nv">?idbibale</span><span class="p">;</span> <span class="nf">separator</span><span class="o">=</span><span class="s">&quot;###&quot;</span><span class="p">)</span> <span class="k">AS</span> <span class="nv">?id_bibale</span><span class="p">)</span>
+<span class="p">(</span><span class="nf">GROUP_CONCAT</span><span class="p">(</span><span class="nv">?idjonas</span><span class="p">;</span> <span class="nf">separator</span><span class="o">=</span><span class="s">&quot;###&quot;</span><span class="p">)</span> <span class="k">AS</span> <span class="nv">?id_jonas</span><span class="p">)</span>
+<span class="p">(</span><span class="nf">GROUP_CONCAT</span><span class="p">(</span><span class="nv">?idpinakes</span><span class="p">;</span> <span class="nf">separator</span><span class="o">=</span><span class="s">&quot;###&quot;</span><span class="p">)</span> <span class="k">AS</span> <span class="nv">?id_pinakes</span><span class="p">)</span>
+<span class="p">(</span><span class="nf">GROUP_CONCAT</span><span class="p">(</span><span class="nv">?idinitiale</span><span class="p">;</span> <span class="nf">separator</span><span class="o">=</span><span class="s">&quot;###&quot;</span><span class="p">)</span> <span class="k">AS</span> <span class="nv">?id_initiale</span><span class="p">)</span>
+<span class="k">WHERE</span>
+<span class="p">{</span>
+    <span class="nv">?entity</span> <span class="nn">wdt</span><span class="p">:</span><span class="nt">P2</span> <span class="nn">wd</span><span class="p">:</span><span class="nt">Q168</span> <span class="p">.</span>
+    <span class="k">OPTIONAL</span> <span class="p">{</span> <span class="nv">?entity</span> <span class="nn">wdt</span><span class="p">:</span><span class="nt">P129</span> <span class="nv">?idbbma</span> <span class="p">}</span>
+    <span class="k">OPTIONAL</span> <span class="p">{</span> <span class="nv">?entity</span> <span class="nn">wdt</span><span class="p">:</span><span class="nt">P140</span> <span class="nv">?idjonas</span> <span class="p">}</span>
+    <span class="k">OPTIONAL</span> <span class="p">{</span> <span class="nv">?entity</span> <span class="nn">wdt</span><span class="p">:</span><span class="nt">P131</span> <span class="nv">?idbibale</span> <span class="p">}</span>
+    <span class="k">OPTIONAL</span> <span class="p">{</span> <span class="nv">?entity</span> <span class="nn">wdt</span><span class="p">:</span><span class="nt">P145</span> <span class="nv">?idpinakes</span> <span class="p">}</span>
+    <span class="k">OPTIONAL</span> <span class="p">{</span> <span class="nv">?entity</span> <span class="nn">wdt</span><span class="p">:</span><span class="nt">P139</span> <span class="nv">?idinitiale</span> <span class="p">}</span>
+    <span class="k">FILTER</span><span class="p">(</span><span class="nv">?idjonas</span> <span class="o">!=</span> <span class="s">&quot;&quot;</span> <span class="o">||</span> <span class="nv">?idbibale</span> <span class="o">!=</span> <span class="s">&quot;&quot;</span> <span class="o">||</span> <span class="nv">?idpinakes</span> <span class="o">!=</span> <span class="s">&quot;&quot;</span> <span class="o">||</span> <span class="nv">?idinitiale</span> <span class="o">!=</span> <span class="s">&quot;&quot;</span><span class="p">)</span>
+<span class="p">}</span>
+<span class="k">GROUP BY</span> <span class="nv">?entity</span>
+</pre></div>
+<div class="sparql-link"><a rel="nofollow" class="external text" href="https://query.biblissima.fr/?query=PREFIX+rdf%3A++%3Chttp%3A%2F%2Fwww.w3.org%2F1999%2F02%2F22-rdf-syntax-ns%23%3E%0APREFIX+rdfs%3A+%3Chttp%3A%2F%2Fwww.w3.org%2F2000%2F01%2Frdf-schema%23%3E%0APREFIX+owl%3A++%3Chttp%3A%2F%2Fwww.w3.org%2F2002%2F07%2Fowl%23%3E%0APREFIX+xsd%3A++%3Chttp%3A%2F%2Fwww.w3.org%2F2001%2FXMLSchema%23%3E%0APREFIX+skos%3A+%3Chttp%3A%2F%2Fwww.w3.org%2F2004%2F02%2Fskos%2Fcore%23%3E%0APREFIX+wd%3A+%3Chttps%3A%2F%2Fdata.biblissima.fr%2Fentity%2F%3E%0APREFIX+wdt%3A+%3Chttps%3A%2F%2Fdata.biblissima.fr%2Fprop%2Fdirect%2F%3E%0APREFIX+wikibase%3A+%3Chttp%3A%2F%2Fwikiba.se%2Fontology%23%3E%0A%23+Entit%C3%A9s+personnes+issues+des+bases+de+l%27IRHT%0ASELECT+DISTINCT+%3Fentity+%0A%28GROUP_CONCAT%28%3Fidbbma%3B+separator%3D%22%23%23%23%22%29+AS+%3Fid_portail_biblissima%29%0A%28GROUP_CONCAT%28%3Fidbibale%3B+separator%3D%22%23%23%23%22%29+AS+%3Fid_bibale%29%0A%28GROUP_CONCAT%28%3Fidjonas%3B+separator%3D%22%23%23%23%22%29+AS+%3Fid_jonas%29%0A%28GROUP_CONCAT%28%3Fidpinakes%3B+separator%3D%22%23%23%23%22%29+AS+%3Fid_pinakes%29%0A%28GROUP_CONCAT%28%3Fidinitiale%3B+separator%3D%22%23%23%23%22%29+AS+%3Fid_initiale%29%0AWHERE%0A%7B%0A++++%3Fentity+wdt%3AP2+wd%3AQ168+.%0A++++OPTIONAL+%7B+%3Fentity+wdt%3AP129+%3Fidbbma+%7D%0A++++OPTIONAL+%7B+%3Fentity+wdt%3AP140+%3Fidjonas+%7D%0A++++OPTIONAL+%7B+%3Fentity+wdt%3AP131+%3Fidbibale+%7D%0A++++OPTIONAL+%7B+%3Fentity+wdt%3AP145+%3Fidpinakes+%7D%0A++++OPTIONAL+%7B+%3Fentity+wdt%3AP139+%3Fidinitiale+%7D%0A++++FILTER%28%3Fidjonas+%21%3D+%22%22+%7C%7C+%3Fidbibale+%21%3D+%22%22+%7C%7C+%3Fidpinakes+%21%3D+%22%22+%7C%7C+%3Fidinitiale+%21%3D+%22%22%29%0A%7D%0AGROUP+BY+%3Fentity">↗ Ouvrir la requête</a></div>
+<p><br />
+</p>
+<h4><span id="Donn.C3.A9es_sur_les_items_num.C3.A9ris.C3.A9s"></span><span class="mw-headline" id="Données_sur_les_items_numérisés">Données sur les items numérisés</span></h4>
+<div class="mw-highlight mw-highlight-lang-sparql mw-content-ltr" dir="ltr"><pre><span></span><span class="k">PREFIX</span> <span class="nn">p</span><span class="p">:</span> <span class="nl">&lt;https://data.biblissima.fr/prop/&gt;</span>
+<span class="k">PREFIX</span> <span class="nn">pq</span><span class="p">:</span> <span class="nl">&lt;https://data.biblissima.fr/prop/qualifier/&gt;</span>
+<span class="c"># Données sur les items numérisés</span>
+<span class="k">SELECT</span> <span class="nv">?entity</span> <span class="nv">?idbbma</span> 
+<span class="p">(</span><span class="nf">GROUP_CONCAT</span><span class="p">(</span><span class="k">DISTINCT</span> <span class="nv">?surrogates</span><span class="p">;</span> <span class="nf">SEPARATOR</span> <span class="o">=</span> <span class="s">&quot;###&quot;</span><span class="p">)</span> <span class="k">AS</span> <span class="nv">?surrogate</span><span class="p">)</span> 
+<span class="p">(</span><span class="nf">GROUP_CONCAT</span><span class="p">(</span><span class="k">DISTINCT</span> <span class="nv">?manifests</span><span class="p">;</span> <span class="nf">SEPARATOR</span> <span class="o">=</span> <span class="s">&quot;###&quot;</span><span class="p">)</span> <span class="k">AS</span> <span class="nv">?manifest</span><span class="p">)</span> 
+<span class="p">(</span><span class="nf">GROUP_CONCAT</span><span class="p">(</span><span class="k">DISTINCT</span> <span class="nv">?digitTypeLabel</span><span class="p">;</span> <span class="nf">SEPARATOR</span> <span class="o">=</span> <span class="s">&quot;###&quot;</span><span class="p">)</span> <span class="k">AS</span> <span class="nv">?type_label</span><span class="p">)</span>
+<span class="p">(</span><span class="nf">GROUP_CONCAT</span><span class="p">(</span><span class="k">DISTINCT</span> <span class="nv">?dsTypeLabel</span><span class="p">;</span> <span class="nf">SEPARATOR</span> <span class="o">=</span> <span class="s">&quot;###&quot;</span><span class="p">)</span> <span class="k">AS</span> <span class="nv">?ds_type_label</span><span class="p">)</span> 
+
+<span class="k">WHERE</span> <span class="p">{</span>
+  <span class="k">VALUES</span> <span class="nv">?filter</span> <span class="p">{</span>
+    <span class="nn">wd</span><span class="p">:</span><span class="nt">Q32810</span>
+    <span class="nn">wd</span><span class="p">:</span><span class="nt">Q113619</span>
+  <span class="p">}</span>
+  <span class="nv">?entity</span> <span class="nn">wdt</span><span class="p">:</span><span class="nt">P129</span> <span class="nv">?uncleaned_idbbma</span><span class="p">;</span>
+    <span class="nn">wdt</span><span class="p">:</span><span class="nt">P2</span> <span class="nv">?filter</span><span class="p">;</span>
+    <span class="nn">wdt</span><span class="p">:</span><span class="nt">P197</span> <span class="nv">?surrogates</span><span class="p">;</span>
+  <span class="k">OPTIONAL</span> <span class="p">{</span>
+    <span class="nv">?entity</span> <span class="nn">p</span><span class="p">:</span><span class="nt">P197</span> <span class="nv">?ds_stmt</span><span class="p">.</span>
+    <span class="nv">?ds_stmt</span> <span class="nn">pq</span><span class="p">:</span><span class="nt">P279</span> <span class="nv">?dsType</span><span class="p">.</span>
+    <span class="nv">?dsType</span> <span class="nn">rdfs</span><span class="p">:</span><span class="nt">label</span> <span class="nv">?_dsTypeLabel</span><span class="p">.</span>
+    <span class="k">FILTER</span><span class="p">((</span><span class="nf">LANG</span><span class="p">(</span><span class="nv">?_dsTypeLabel</span><span class="p">))</span> <span class="o">=</span> <span class="s">&quot;fr&quot;</span><span class="p">)</span>
+  <span class="p">}</span>
+  <span class="k">OPTIONAL</span> <span class="p">{</span>
+    <span class="nv">?entity</span> <span class="nn">wdt</span><span class="p">:</span><span class="nt">P196</span> <span class="nv">?manifests</span> <span class="p">;</span>
+    <span class="k">OPTIONAL</span> <span class="p">{</span>
+      <span class="nv">?entity</span> <span class="nn">p</span><span class="p">:</span><span class="nt">P196</span> <span class="nv">?manifest_stmt</span><span class="p">.</span>
+      <span class="nv">?manifest_stmt</span> <span class="nn">pq</span><span class="p">:</span><span class="nt">P279</span> <span class="nv">?digitType</span><span class="p">.</span>
+      <span class="nv">?digitType</span> <span class="nn">rdfs</span><span class="p">:</span><span class="nt">label</span> <span class="nv">?_digitTypeLabel</span><span class="p">.</span>
+      <span class="k">FILTER</span><span class="p">((</span><span class="nf">LANG</span><span class="p">(</span><span class="nv">?_digitTypeLabel</span><span class="p">))</span> <span class="o">=</span> <span class="s">&quot;fr&quot;</span><span class="p">)</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+
+  <span class="k">BIND</span><span class="p">(</span><span class="nf">REPLACE</span><span class="p">(</span><span class="nv">?uncleaned_idbbma</span><span class="p">,</span> <span class="s">&#39;^[im]data&#39;</span><span class="p">,</span> <span class="s">&#39;&#39;</span><span class="p">)</span> <span class="k">AS</span> <span class="nv">?idbbma</span><span class="p">)</span>
+  <span class="k">BIND</span><span class="p">(</span><span class="nf">COALESCE</span><span class="p">(</span><span class="nv">?_dsTypeLabel</span><span class="p">,</span> <span class="s">&quot;&lt;no label&gt;&quot;</span><span class="p">)</span> <span class="k">AS</span> <span class="nv">?dsTypeLabel</span><span class="p">)</span>
+  <span class="k">BIND</span><span class="p">(</span><span class="nf">COALESCE</span><span class="p">(</span><span class="nv">?_digitTypeLabel</span><span class="p">,</span> <span class="s">&quot;&lt;no label&gt;&quot;</span><span class="p">)</span> <span class="k">AS</span> <span class="nv">?digitTypeLabel</span><span class="p">).</span>
+
+<span class="p">}</span>
+<span class="k">GROUP BY</span> <span class="nv">?entity</span> <span class="nv">?idbbma</span>
+<span class="k">ORDER BY</span> <span class="nv">?entity</span>
+<span class="k">LIMIT</span> <span class="mi">20000</span>
+</pre></div>
+<div class="sparql-link"><a rel="nofollow" class="external text" href="https://query.biblissima.fr/?query=PREFIX+rdf%3A++%3Chttp%3A%2F%2Fwww.w3.org%2F1999%2F02%2F22-rdf-syntax-ns%23%3E%0APREFIX+rdfs%3A+%3Chttp%3A%2F%2Fwww.w3.org%2F2000%2F01%2Frdf-schema%23%3E%0APREFIX+owl%3A++%3Chttp%3A%2F%2Fwww.w3.org%2F2002%2F07%2Fowl%23%3E%0APREFIX+xsd%3A++%3Chttp%3A%2F%2Fwww.w3.org%2F2001%2FXMLSchema%23%3E%0APREFIX+skos%3A+%3Chttp%3A%2F%2Fwww.w3.org%2F2004%2F02%2Fskos%2Fcore%23%3E%0APREFIX+wd%3A+%3Chttps%3A%2F%2Fdata.biblissima.fr%2Fentity%2F%3E%0APREFIX+wdt%3A+%3Chttps%3A%2F%2Fdata.biblissima.fr%2Fprop%2Fdirect%2F%3E%0APREFIX+wikibase%3A+%3Chttp%3A%2F%2Fwikiba.se%2Fontology%23%3E%0APREFIX+p%3A+%3Chttps%3A%2F%2Fdata.biblissima.fr%2Fprop%2F%3E%0APREFIX+pq%3A+%3Chttps%3A%2F%2Fdata.biblissima.fr%2Fprop%2Fqualifier%2F%3E%0A%23+Donn%C3%A9es+sur+les+items+num%C3%A9ris%C3%A9s%0ASELECT+%3Fentity+%3Fidbbma+%0A%28GROUP_CONCAT%28DISTINCT+%3Fsurrogates%3B+SEPARATOR+%3D+%22%23%23%23%22%29+AS+%3Fsurrogate%29+%0A%28GROUP_CONCAT%28DISTINCT+%3Fmanifests%3B+SEPARATOR+%3D+%22%23%23%23%22%29+AS+%3Fmanifest%29+%0A%28GROUP_CONCAT%28DISTINCT+%3FdigitTypeLabel%3B+SEPARATOR+%3D+%22%23%23%23%22%29+AS+%3Ftype_label%29%0A%28GROUP_CONCAT%28DISTINCT+%3FdsTypeLabel%3B+SEPARATOR+%3D+%22%23%23%23%22%29+AS+%3Fds_type_label%29+%0A%0AWHERE+%7B%0A++VALUES+%3Ffilter+%7B%0A++++wd%3AQ32810%0A++++wd%3AQ113619%0A++%7D%0A++%3Fentity+wdt%3AP129+%3Funcleaned_idbbma%3B%0A++++wdt%3AP2+%3Ffilter%3B%0A++++wdt%3AP197+%3Fsurrogates%3B%0A++OPTIONAL+%7B%0A++++%3Fentity+p%3AP197+%3Fds_stmt.%0A++++%3Fds_stmt+pq%3AP279+%3FdsType.%0A++++%3FdsType+rdfs%3Alabel+%3F_dsTypeLabel.%0A++++FILTER%28%28LANG%28%3F_dsTypeLabel%29%29+%3D+%22fr%22%29%0A++%7D%0A++OPTIONAL+%7B%0A++++%3Fentity+wdt%3AP196+%3Fmanifests+%3B%0A++++OPTIONAL+%7B%0A++++++%3Fentity+p%3AP196+%3Fmanifest_stmt.%0A++++++%3Fmanifest_stmt+pq%3AP279+%3FdigitType.%0A++++++%3FdigitType+rdfs%3Alabel+%3F_digitTypeLabel.%0A++++++FILTER%28%28LANG%28%3F_digitTypeLabel%29%29+%3D+%22fr%22%29%0A++++%7D%0A++%7D%0A%0A++BIND%28REPLACE%28%3Funcleaned_idbbma%2C+%27%5E%5Bim%5Ddata%27%2C+%27%27%29+AS+%3Fidbbma%29%0A++BIND%28COALESCE%28%3F_dsTypeLabel%2C+%22%3Cno+label%3E%22%29+AS+%3FdsTypeLabel%29%0A++BIND%28COALESCE%28%3F_digitTypeLabel%2C+%22%3Cno+label%3E%22%29+AS+%3FdigitTypeLabel%29.%0A%0A%7D%0AGROUP+BY+%3Fentity+%3Fidbbma%0AORDER+BY+%3Fentity%0ALIMIT+20000">↗ Ouvrir la requête</a></div>
+<p><br />
+</p>
+<h4><span id="Entit.C3.A9s_fusionn.C3.A9es.2Fredirig.C3.A9es"></span><span class="mw-headline" id="Entités_fusionnées/redirigées">Entités fusionnées/redirigées</span></h4>
+<div class="mw-highlight mw-highlight-lang-sparql mw-content-ltr" dir="ltr"><pre><span></span><span class="k">SELECT</span> <span class="nv">?olditem</span> <span class="nv">?newItem</span> <span class="nv">?newItemLabel</span>
+<span class="k">WHERE</span> <span class="p">{</span>
+  <span class="nv">?olditem</span> <span class="nn">owl</span><span class="p">:</span><span class="nt">sameAs</span> <span class="nv">?newItem</span> <span class="p">.</span>
+  <span class="nv">?newItem</span> <span class="nn">rdfs</span><span class="p">:</span><span class="nt">label</span> <span class="nv">?newItemLabel</span> <span class="p">.</span>
+  <span class="k">FILTER</span> <span class="p">(</span><span class="nf">lang</span><span class="p">(</span><span class="nv">?newItemLabel</span><span class="p">)</span> <span class="o">=</span> <span class="s">&#39;fr&#39;</span><span class="p">)</span> <span class="p">.</span>
+<span class="p">}</span>
+<span class="k">LIMIT</span> <span class="mi">1000</span>
+</pre></div>
+<div class="sparql-link"><a rel="nofollow" class="external text" href="https://query.biblissima.fr/?query=PREFIX+rdf%3A++%3Chttp%3A%2F%2Fwww.w3.org%2F1999%2F02%2F22-rdf-syntax-ns%23%3E%0APREFIX+rdfs%3A+%3Chttp%3A%2F%2Fwww.w3.org%2F2000%2F01%2Frdf-schema%23%3E%0APREFIX+owl%3A++%3Chttp%3A%2F%2Fwww.w3.org%2F2002%2F07%2Fowl%23%3E%0APREFIX+xsd%3A++%3Chttp%3A%2F%2Fwww.w3.org%2F2001%2FXMLSchema%23%3E%0APREFIX+skos%3A+%3Chttp%3A%2F%2Fwww.w3.org%2F2004%2F02%2Fskos%2Fcore%23%3E%0APREFIX+wd%3A+%3Chttps%3A%2F%2Fdata.biblissima.fr%2Fentity%2F%3E%0APREFIX+wdt%3A+%3Chttps%3A%2F%2Fdata.biblissima.fr%2Fprop%2Fdirect%2F%3E%0APREFIX+wikibase%3A+%3Chttp%3A%2F%2Fwikiba.se%2Fontology%23%3E%0ASELECT+%3Folditem+%3FnewItem+%3FnewItemLabel%0AWHERE+%7B%0A++%3Folditem+owl%3AsameAs+%3FnewItem+.%0A++%3FnewItem+rdfs%3Alabel+%3FnewItemLabel+.%0A++FILTER+%28lang%28%3FnewItemLabel%29+%3D+%27fr%27%29+.%0A%7D%0ALIMIT+1000">↗ Ouvrir la requête</a></div>
+<p><br />
+</p>
+<h4><span id="Entit.C3.A9s_avec_manifest_archive.org"></span><span class="mw-headline" id="Entités_avec_manifest_archive.org">Entités avec manifest archive.org</span></h4>
+<div class="mw-highlight mw-highlight-lang-sparql mw-content-ltr" dir="ltr"><pre><span></span><span class="k">PREFIX</span> <span class="nn">p</span><span class="p">:</span> <span class="nl">&lt;https://data.biblissima.fr/prop/&gt;</span>
+<span class="k">PREFIX</span> <span class="nn">ps</span><span class="p">:</span> <span class="nl">&lt;https://data.biblissima.fr/prop/statement/&gt;</span>
+<span class="k">PREFIX</span> <span class="nn">pq</span><span class="p">:</span> <span class="nl">&lt;https://data.biblissima.fr/prop/qualifier/&gt;</span>
+<span class="k">SELECT</span> <span class="nv">?entity</span> <span class="nv">?manifest_url</span>
+<span class="k">WHERE</span>
+<span class="p">{</span>
+  <span class="p">{</span> <span class="nv">?entity</span> <span class="nn">wdt</span><span class="p">:</span><span class="nt">P2</span> <span class="nn">wd</span><span class="p">:</span><span class="nt">Q32810</span> <span class="p">}</span> <span class="k">UNION</span> <span class="p">{</span> <span class="nv">?entity</span> <span class="nn">wdt</span><span class="p">:</span><span class="nt">P2</span> <span class="nn">wd</span><span class="p">:</span><span class="nt">Q113619</span> <span class="p">}</span>
+  <span class="nv">?entity</span> <span class="nn">p</span><span class="p">:</span><span class="nt">P196</span> <span class="nv">?mfStmt</span> <span class="p">.</span>
+  <span class="nv">?mfStmt</span> <span class="nn">ps</span><span class="p">:</span><span class="nt">P196</span> <span class="nv">?manifest_url</span> <span class="p">;</span>
+          <span class="nn">pq</span><span class="p">:</span><span class="nt">P191</span> <span class="nn">wd</span><span class="p">:</span><span class="nt">Q78754</span> <span class="p">.</span>
+<span class="p">}</span>
+</pre></div>
+<div class="sparql-link"><a rel="nofollow" class="external text" href="https://query.biblissima.fr/?query=PREFIX+rdf%3A++%3Chttp%3A%2F%2Fwww.w3.org%2F1999%2F02%2F22-rdf-syntax-ns%23%3E%0APREFIX+rdfs%3A+%3Chttp%3A%2F%2Fwww.w3.org%2F2000%2F01%2Frdf-schema%23%3E%0APREFIX+owl%3A++%3Chttp%3A%2F%2Fwww.w3.org%2F2002%2F07%2Fowl%23%3E%0APREFIX+xsd%3A++%3Chttp%3A%2F%2Fwww.w3.org%2F2001%2FXMLSchema%23%3E%0APREFIX+skos%3A+%3Chttp%3A%2F%2Fwww.w3.org%2F2004%2F02%2Fskos%2Fcore%23%3E%0APREFIX+wd%3A+%3Chttps%3A%2F%2Fdata.biblissima.fr%2Fentity%2F%3E%0APREFIX+wdt%3A+%3Chttps%3A%2F%2Fdata.biblissima.fr%2Fprop%2Fdirect%2F%3E%0APREFIX+wikibase%3A+%3Chttp%3A%2F%2Fwikiba.se%2Fontology%23%3E%0APREFIX+p%3A+%3Chttps%3A%2F%2Fdata.biblissima.fr%2Fprop%2F%3E%0APREFIX+ps%3A+%3Chttps%3A%2F%2Fdata.biblissima.fr%2Fprop%2Fstatement%2F%3E%0APREFIX+pq%3A+%3Chttps%3A%2F%2Fdata.biblissima.fr%2Fprop%2Fqualifier%2F%3E%0ASELECT+%3Fentity+%3Fmanifest_url%0AWHERE%0A%7B%0A++%7B+%3Fentity+wdt%3AP2+wd%3AQ32810+%7D+UNION+%7B+%3Fentity+wdt%3AP2+wd%3AQ113619+%7D%0A++%3Fentity+p%3AP196+%3FmfStmt+.%0A++%3FmfStmt+ps%3AP196+%3Fmanifest_url+%3B%0A++++++++++pq%3AP191+wd%3AQ78754+.%0A%7D">↗ Ouvrir la requête</a></div>
+<p><br />
+</p>
+<h4><span id="Standards_de_m.C3.A9tadonn.C3.A9es_r.C3.A9f.C3.A9renc.C3.A9s_dans_la_propri.C3.A9t.C3.A9_.22seeAlso.22_.28IIIF.29"></span><span class="mw-headline" id="Standards_de_métadonnées_référencés_dans_la_propriété_&quot;seeAlso&quot;_(IIIF)">Standards de métadonnées référencés dans la propriété "seeAlso" (IIIF)</span></h4>
+<div class="mw-highlight mw-highlight-lang-sparql mw-content-ltr" dir="ltr"><pre><span></span><span class="k">SELECT</span> <span class="k">DISTINCT</span> <span class="nv">?schema</span>
+<span class="k">WHERE</span> <span class="p">{</span>
+  <span class="nv">?entity</span> <span class="nn">wdt</span><span class="p">:</span><span class="nt">P2</span> <span class="nn">wd</span><span class="p">:</span><span class="nt">Q32805</span> <span class="p">;</span>
+          <span class="nn">wdt</span><span class="p">:</span><span class="nt">P192</span> <span class="nv">?schema</span> <span class="p">.</span>
+<span class="p">}</span>
+</pre></div>
+<div class="sparql-link"><a rel="nofollow" class="external text" href="https://query.biblissima.fr/?query=PREFIX+rdf%3A++%3Chttp%3A%2F%2Fwww.w3.org%2F1999%2F02%2F22-rdf-syntax-ns%23%3E%0APREFIX+rdfs%3A+%3Chttp%3A%2F%2Fwww.w3.org%2F2000%2F01%2Frdf-schema%23%3E%0APREFIX+owl%3A++%3Chttp%3A%2F%2Fwww.w3.org%2F2002%2F07%2Fowl%23%3E%0APREFIX+xsd%3A++%3Chttp%3A%2F%2Fwww.w3.org%2F2001%2FXMLSchema%23%3E%0APREFIX+skos%3A+%3Chttp%3A%2F%2Fwww.w3.org%2F2004%2F02%2Fskos%2Fcore%23%3E%0APREFIX+wd%3A+%3Chttps%3A%2F%2Fdata.biblissima.fr%2Fentity%2F%3E%0APREFIX+wdt%3A+%3Chttps%3A%2F%2Fdata.biblissima.fr%2Fprop%2Fdirect%2F%3E%0APREFIX+wikibase%3A+%3Chttp%3A%2F%2Fwikiba.se%2Fontology%23%3E%0ASELECT+DISTINCT+%3Fschema%0AWHERE+%7B%0A++%3Fentity+wdt%3AP2+wd%3AQ32805+%3B%0A++++++++++wdt%3AP192+%3Fschema+.%0A%7D">↗ Ouvrir la requête</a></div>
+<p><br />
+</p>
+<h4><span id="Entit.C3.A9s_avec_bibliographie.2C_en_r.C3.A9cup.C3.A9rant_le_QID_du_r.C3.A9f.C3.A9rentiel_biblio_pour_chaque_entr.C3.A9e"></span><span class="mw-headline" id="Entités_avec_bibliographie,_en_récupérant_le_QID_du_référentiel_biblio_pour_chaque_entrée">Entités avec bibliographie, en récupérant le QID du référentiel biblio pour chaque entrée</span></h4>
+<div class="mw-highlight mw-highlight-lang-sparql mw-content-ltr" dir="ltr"><pre><span></span><span class="k">PREFIX</span> <span class="nn">p</span><span class="p">:</span> <span class="nl">&lt;https://data.biblissima.fr/prop/&gt;</span>
+<span class="k">PREFIX</span> <span class="nn">ps</span><span class="p">:</span> <span class="nl">&lt;https://data.biblissima.fr/prop/statement/&gt;</span>
+<span class="k">PREFIX</span> <span class="nn">pq</span><span class="p">:</span> <span class="nl">&lt;https://data.biblissima.fr/prop/qualifier/&gt;</span>
+<span class="k">SELECT</span> 
+<span class="nv">?entity</span> 
+<span class="nv">?entityLabel</span> 
+<span class="p">(</span><span class="nf">GROUP_CONCAT</span><span class="p">(</span><span class="k">DISTINCT</span> <span class="nv">?biblio_qid</span><span class="p">;</span> <span class="nf">SEPARATOR</span> <span class="o">=</span> <span class="s">&quot;###&quot;</span><span class="p">)</span> <span class="k">AS</span> <span class="nv">?biblios_qids</span><span class="p">)</span> 
+<span class="k">WHERE</span> <span class="p">{</span>
+  <span class="nv">?entity</span> <span class="nn">p</span><span class="p">:</span><span class="nt">P379</span> <span class="nv">?biblio_stmt</span> <span class="p">.</span>
+  <span class="nv">?biblio_stmt</span> <span class="nn">pq</span><span class="p">:</span><span class="nt">P380</span> <span class="nv">?QID</span> <span class="p">;</span>
+               <span class="nn">ps</span><span class="p">:</span><span class="nt">P379</span> <span class="nv">?biblio_value</span> <span class="p">.</span>
+  <span class="k">BIND</span><span class="p">(</span><span class="nf">CONCAT</span><span class="p">(</span><span class="nv">?biblio_value</span><span class="p">,</span> <span class="s">&quot;%%&quot;</span><span class="p">,</span> <span class="nv">?QID</span><span class="p">)</span> <span class="k">AS</span> <span class="nv">?biblio_qid</span><span class="p">)</span>
+  <span class="nv">?entity</span> <span class="nn">rdfs</span><span class="p">:</span><span class="nt">label</span> <span class="nv">?entityLabel</span> <span class="p">.</span>
+  <span class="k">FILTER</span> <span class="p">(</span><span class="nf">lang</span><span class="p">(</span><span class="nv">?entityLabel</span><span class="p">)</span> <span class="o">=</span> <span class="s">&#39;fr&#39;</span><span class="p">)</span> <span class="p">.</span>
+<span class="p">}</span>
+<span class="k">GROUP BY</span> <span class="nv">?entity</span> <span class="nv">?entityLabel</span>
+<span class="k">ORDER BY</span> <span class="p">(</span><span class="nv">?entityLabel</span><span class="p">)</span>
+</pre></div>
+<div class="sparql-link"><a rel="nofollow" class="external text" href="https://query.biblissima.fr/?query=PREFIX+rdf%3A++%3Chttp%3A%2F%2Fwww.w3.org%2F1999%2F02%2F22-rdf-syntax-ns%23%3E%0APREFIX+rdfs%3A+%3Chttp%3A%2F%2Fwww.w3.org%2F2000%2F01%2Frdf-schema%23%3E%0APREFIX+owl%3A++%3Chttp%3A%2F%2Fwww.w3.org%2F2002%2F07%2Fowl%23%3E%0APREFIX+xsd%3A++%3Chttp%3A%2F%2Fwww.w3.org%2F2001%2FXMLSchema%23%3E%0APREFIX+skos%3A+%3Chttp%3A%2F%2Fwww.w3.org%2F2004%2F02%2Fskos%2Fcore%23%3E%0APREFIX+wd%3A+%3Chttps%3A%2F%2Fdata.biblissima.fr%2Fentity%2F%3E%0APREFIX+wdt%3A+%3Chttps%3A%2F%2Fdata.biblissima.fr%2Fprop%2Fdirect%2F%3E%0APREFIX+wikibase%3A+%3Chttp%3A%2F%2Fwikiba.se%2Fontology%23%3E%0APREFIX+p%3A+%3Chttps%3A%2F%2Fdata.biblissima.fr%2Fprop%2F%3E%0APREFIX+ps%3A+%3Chttps%3A%2F%2Fdata.biblissima.fr%2Fprop%2Fstatement%2F%3E%0APREFIX+pq%3A+%3Chttps%3A%2F%2Fdata.biblissima.fr%2Fprop%2Fqualifier%2F%3E%0ASELECT+%0A%3Fentity+%0A%3FentityLabel+%0A%28GROUP_CONCAT%28DISTINCT+%3Fbiblio_qid%3B+SEPARATOR+%3D+%22%23%23%23%22%29+AS+%3Fbiblios_qids%29+%0AWHERE+%7B%0A++%3Fentity+p%3AP379+%3Fbiblio_stmt+.%0A++%3Fbiblio_stmt+pq%3AP380+%3FQID+%3B%0A+++++++++++++++ps%3AP379+%3Fbiblio_value+.%0A++BIND%28CONCAT%28%3Fbiblio_value%2C+%22%25%25%22%2C+%3FQID%29+AS+%3Fbiblio_qid%29%0A++%3Fentity+rdfs%3Alabel+%3FentityLabel+.%0A++FILTER+%28lang%28%3FentityLabel%29+%3D+%27fr%27%29+.%0A%7D%0AGROUP+BY+%3Fentity+%3FentityLabel%0AORDER+BY+%28%3FentityLabel%29">↗ Ouvrir la requête</a></div>
+<p><br />
+</p>
+<h4><span class="mw-headline" id="Inscriptions_des_CIFM">Inscriptions des CIFM</span></h4>
+<div class="mw-highlight mw-highlight-lang-sparql mw-content-ltr" dir="ltr"><pre><span></span><span class="k">PREFIX</span> <span class="nn">p</span><span class="p">:</span> <span class="nl">&lt;https://data.biblissima.fr/prop/&gt;</span>
+<span class="k">SELECT</span> <span class="nv">?entity</span> <span class="nv">?label</span> <span class="nv">?labelBbma</span> <span class="nv">?idBbma</span> <span class="p">(</span><span class="nf">GROUP_CONCAT</span><span class="p">(</span><span class="k">DISTINCT</span> <span class="nv">?manifests</span><span class="p">;</span> <span class="nf">SEPARATOR</span> <span class="o">=</span> <span class="s">&quot;###&quot;</span><span class="p">)</span> <span class="k">AS</span> <span class="nv">?manifest</span><span class="p">)</span>
+<span class="k">WHERE</span>
+<span class="p">{</span>
+  <span class="nv">?entity</span> <span class="nn">wdt</span><span class="p">:</span><span class="nt">P2</span> <span class="nn">wd</span><span class="p">:</span><span class="nt">Q257483</span> <span class="p">;</span>
+          <span class="nn">rdfs</span><span class="p">:</span><span class="nt">label</span> <span class="nv">?label</span> <span class="p">;</span>
+          <span class="nn">wdt</span><span class="p">:</span><span class="nt">P195</span> <span class="nv">?labelBbma</span> <span class="p">.</span>
+  <span class="k">OPTIONAL</span> <span class="p">{</span> <span class="nv">?entity</span> <span class="nn">wdt</span><span class="p">:</span><span class="nt">P129</span> <span class="nv">?idBbma</span> <span class="p">}</span>
+  <span class="k">OPTIONAL</span> <span class="p">{</span>
+    <span class="nv">?entity</span> <span class="nn">wdt</span><span class="p">:</span><span class="nt">P196</span> <span class="nv">?manifests</span> <span class="p">;</span>
+    <span class="k">OPTIONAL</span> <span class="p">{</span>
+      <span class="nv">?entity</span> <span class="nn">p</span><span class="p">:</span><span class="nt">P196</span> <span class="nv">?manifest_stmt</span><span class="p">.</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+  <span class="k">FILTER</span> <span class="nf">langMatches</span><span class="p">(</span><span class="nf">LANG</span><span class="p">(</span><span class="nv">?label</span><span class="p">),</span> <span class="s">&quot;fr&quot;</span><span class="p">)</span>
+  <span class="k">FILTER</span> <span class="p">(</span><span class="nf">regex</span><span class="p">(</span><span class="nv">?label</span><span class="p">,</span> <span class="s">&quot;CIFM&quot;</span><span class="p">))</span> <span class="p">.</span>
+<span class="p">}</span>
+<span class="k">GROUP BY</span> <span class="nv">?entity</span> <span class="nv">?label</span> <span class="nv">?labelBbma</span> <span class="nv">?idBbma</span>
+</pre></div>
+<div class="sparql-link"><a rel="nofollow" class="external text" href="https://query.biblissima.fr/?query=PREFIX+rdf%3A++%3Chttp%3A%2F%2Fwww.w3.org%2F1999%2F02%2F22-rdf-syntax-ns%23%3E%0APREFIX+rdfs%3A+%3Chttp%3A%2F%2Fwww.w3.org%2F2000%2F01%2Frdf-schema%23%3E%0APREFIX+owl%3A++%3Chttp%3A%2F%2Fwww.w3.org%2F2002%2F07%2Fowl%23%3E%0APREFIX+xsd%3A++%3Chttp%3A%2F%2Fwww.w3.org%2F2001%2FXMLSchema%23%3E%0APREFIX+skos%3A+%3Chttp%3A%2F%2Fwww.w3.org%2F2004%2F02%2Fskos%2Fcore%23%3E%0APREFIX+wd%3A+%3Chttps%3A%2F%2Fdata.biblissima.fr%2Fentity%2F%3E%0APREFIX+wdt%3A+%3Chttps%3A%2F%2Fdata.biblissima.fr%2Fprop%2Fdirect%2F%3E%0APREFIX+wikibase%3A+%3Chttp%3A%2F%2Fwikiba.se%2Fontology%23%3E%0APREFIX+p%3A+%3Chttps%3A%2F%2Fdata.biblissima.fr%2Fprop%2F%3E%0ASELECT+%3Fentity+%3Flabel+%3FlabelBbma+%3FidBbma+%28GROUP_CONCAT%28DISTINCT+%3Fmanifests%3B+SEPARATOR+%3D+%22%23%23%23%22%29+AS+%3Fmanifest%29%0AWHERE%0A%7B%0A++%3Fentity+wdt%3AP2+wd%3AQ257483+%3B%0A++++++++++rdfs%3Alabel+%3Flabel+%3B%0A++++++++++wdt%3AP195+%3FlabelBbma+.%0A++OPTIONAL+%7B+%3Fentity+wdt%3AP129+%3FidBbma+%7D%0A++OPTIONAL+%7B%0A++++%3Fentity+wdt%3AP196+%3Fmanifests+%3B%0A++++OPTIONAL+%7B%0A++++++%3Fentity+p%3AP196+%3Fmanifest_stmt.%0A++++%7D%0A++%7D%0A++FILTER+langMatches%28LANG%28%3Flabel%29%2C+%22fr%22%29%0A++FILTER+%28regex%28%3Flabel%2C+%22CIFM%22%29%29+.%0A%7D%0AGROUP+BY+%3Fentity+%3Flabel+%3FlabelBbma+%3FidBbma">↗ Ouvrir la requête</a></div>
+<p><br />
+</p>
+<h4><span id="Liste_des_cotes_cit.C3.A9es_dans_les_articles_de_la_revue_ALMA_.28Pers.C3.A9e.29"></span><span class="mw-headline" id="Liste_des_cotes_citées_dans_les_articles_de_la_revue_ALMA_(Persée)">Liste des cotes citées dans les articles de la revue ALMA (Persée)</span></h4>
+<div class="mw-highlight mw-highlight-lang-sparql mw-content-ltr" dir="ltr"><pre><span></span><span class="k">PREFIX</span> <span class="nn">schema</span><span class="p">:</span> <span class="nl">&lt;http://schema.org/&gt;</span> 
+<span class="k">PREFIX</span> <span class="nn">pq</span><span class="p">:</span> <span class="nl">&lt;https://data.biblissima.fr/prop/qualifier/&gt;</span> 
+<span class="k">PREFIX</span> <span class="nn">p</span><span class="p">:</span> <span class="nl">&lt;https://data.biblissima.fr/prop/&gt;</span>
+<span class="k">SELECT</span> <span class="nv">?biblio_entity</span> <span class="nv">?biblio_label</span> <span class="nv">?biblio_pages</span> <span class="nv">?biblio_url</span> <span class="nv">?data_entity</span> <span class="nv">?data_entity_label</span> 
+<span class="k">WHERE</span> <span class="p">{</span>
+  <span class="k">VALUES</span> <span class="nv">?entity_type</span> <span class="p">{</span>
+    <span class="nn">wd</span><span class="p">:</span><span class="nt">Q32810</span> <span class="c"># manuscrit</span>
+	<span class="nn">wd</span><span class="p">:</span><span class="nt">Q113619</span> <span class="c"># imprimé</span>
+  <span class="p">}</span>
+  <span class="nv">?data_entity</span> <span class="nn">wdt</span><span class="p">:</span><span class="nt">P2</span> <span class="nv">?entity_type</span> <span class="p">;</span> 
+               <span class="nn">rdfs</span><span class="p">:</span><span class="nt">label</span> <span class="nv">?data_entity_label</span> <span class="p">;</span>
+		       <span class="nn">p</span><span class="p">:</span><span class="nt">P379</span> <span class="nv">?biblio_stmt</span> <span class="p">.</span>
+  <span class="nv">?biblio_stmt</span> <span class="nn">pq</span><span class="p">:</span><span class="nt">P380</span> <span class="nv">?biblio_qid</span> <span class="p">.</span>
+  <span class="k">OPTIONAL</span> <span class="p">{</span> 
+     <span class="nv">?biblio_stmt</span> <span class="nn">pq</span><span class="p">:</span><span class="nt">P381</span> <span class="nv">?biblio_pages</span> <span class="p">.</span>
+  <span class="p">}</span>
+  <span class="k">OPTIONAL</span> <span class="p">{</span>
+     <span class="nv">?biblio_stmt</span> <span class="nn">pq</span><span class="p">:</span><span class="nt">P197</span> <span class="nv">?biblio_url</span> <span class="p">.</span>
+	 <span class="k">FILTER</span> <span class="p">(</span><span class="nf">CONTAINS</span><span class="p">(</span><span class="nf">STR</span><span class="p">(</span><span class="nv">?biblio_url</span><span class="p">),</span> <span class="s">&quot;persee&quot;</span><span class="p">))</span>
+  <span class="p">}</span>
+  <span class="k">BIND</span><span class="p">(</span><span class="nf">IRI</span><span class="p">(</span><span class="nf">CONCAT</span><span class="p">(</span><span class="nf">STR</span><span class="p">(</span><span class="s">&quot;https://biblio.biblissima.fr/entity/&quot;</span><span class="p">),</span> <span class="nv">?biblio_qid</span><span class="p">))</span> <span class="k">AS</span> <span class="nv">?biblio_entity</span><span class="p">)</span>
+  <span class="k">FILTER</span> <span class="p">(</span><span class="nf">LANG</span><span class="p">(</span><span class="nv">?data_entity_label</span><span class="p">)</span> <span class="o">=</span> <span class="s">&#39;fr&#39;</span><span class="p">)</span>
+  <span class="k">SERVICE</span> <span class="nl">&lt;https://query.biblissima.fr/api/sparql/biblio&gt;</span> <span class="p">{</span>
+     <span class="nv">?biblio_entity</span> <span class="nl">&lt;https://biblio.biblissima.fr/prop/direct/P3&gt;</span> <span class="nl">&lt;https://biblio.biblissima.fr/entity/Q7043&gt;</span> <span class="p">;</span> <span class="c"># articles de ALMA</span>
+  		            <span class="nn">rdfs</span><span class="p">:</span><span class="nt">label</span> <span class="nv">?biblio_label</span> <span class="p">.</span>
+  	 <span class="k">FILTER</span> <span class="p">(</span><span class="nf">LANG</span><span class="p">(</span><span class="nv">?biblio_label</span><span class="p">)</span> <span class="o">=</span> <span class="s">&#39;fr&#39;</span><span class="p">)</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+<span class="k">ORDER BY</span> <span class="nv">?data_entity_label</span>
+</pre></div>
+<div class="sparql-link"><a rel="nofollow" class="external text" href="https://query.biblissima.fr/?query=PREFIX+rdf%3A++%3Chttp%3A%2F%2Fwww.w3.org%2F1999%2F02%2F22-rdf-syntax-ns%23%3E%0APREFIX+rdfs%3A+%3Chttp%3A%2F%2Fwww.w3.org%2F2000%2F01%2Frdf-schema%23%3E%0APREFIX+owl%3A++%3Chttp%3A%2F%2Fwww.w3.org%2F2002%2F07%2Fowl%23%3E%0APREFIX+xsd%3A++%3Chttp%3A%2F%2Fwww.w3.org%2F2001%2FXMLSchema%23%3E%0APREFIX+skos%3A+%3Chttp%3A%2F%2Fwww.w3.org%2F2004%2F02%2Fskos%2Fcore%23%3E%0APREFIX+wd%3A+%3Chttps%3A%2F%2Fdata.biblissima.fr%2Fentity%2F%3E%0APREFIX+wdt%3A+%3Chttps%3A%2F%2Fdata.biblissima.fr%2Fprop%2Fdirect%2F%3E%0APREFIX+wikibase%3A+%3Chttp%3A%2F%2Fwikiba.se%2Fontology%23%3E%0APREFIX+schema%3A+%3Chttp%3A%2F%2Fschema.org%2F%3E+%0APREFIX+pq%3A+%3Chttps%3A%2F%2Fdata.biblissima.fr%2Fprop%2Fqualifier%2F%3E+%0APREFIX+p%3A+%3Chttps%3A%2F%2Fdata.biblissima.fr%2Fprop%2F%3E%0ASELECT+%3Fbiblio_entity+%3Fbiblio_label+%3Fbiblio_pages+%3Fbiblio_url+%3Fdata_entity+%3Fdata_entity_label+%0AWHERE+%7B%0A++VALUES+%3Fentity_type+%7B%0A++++wd%3AQ32810+%23+manuscrit%0A%09wd%3AQ113619+%23+imprim%C3%A9%0A++%7D%0A++%3Fdata_entity+wdt%3AP2+%3Fentity_type+%3B+%0A+++++++++++++++rdfs%3Alabel+%3Fdata_entity_label+%3B%0A%09%09+++++++p%3AP379+%3Fbiblio_stmt+.%0A++%3Fbiblio_stmt+pq%3AP380+%3Fbiblio_qid+.%0A++OPTIONAL+%7B+%0A+++++%3Fbiblio_stmt+pq%3AP381+%3Fbiblio_pages+.%0A++%7D%0A++OPTIONAL+%7B%0A+++++%3Fbiblio_stmt+pq%3AP197+%3Fbiblio_url+.%0A%09+FILTER+%28CONTAINS%28STR%28%3Fbiblio_url%29%2C+%22persee%22%29%29%0A++%7D%0A++BIND%28IRI%28CONCAT%28STR%28%22https%3A%2F%2Fbiblio.biblissima.fr%2Fentity%2F%22%29%2C+%3Fbiblio_qid%29%29+AS+%3Fbiblio_entity%29%0A++FILTER+%28LANG%28%3Fdata_entity_label%29+%3D+%27fr%27%29%0A++SERVICE+%3Chttps%3A%2F%2Fquery.biblissima.fr%2Fapi%2Fsparql%2Fbiblio%3E+%7B%0A+++++%3Fbiblio_entity+%3Chttps%3A%2F%2Fbiblio.biblissima.fr%2Fprop%2Fdirect%2FP3%3E+%3Chttps%3A%2F%2Fbiblio.biblissima.fr%2Fentity%2FQ7043%3E+%3B+%23+articles+de+ALMA%0A++%09%09++++++++++++rdfs%3Alabel+%3Fbiblio_label+.%0A++%09+FILTER+%28LANG%28%3Fbiblio_label%29+%3D+%27fr%27%29%0A++%7D%0A%7D%0AORDER+BY+%3Fdata_entity_label">↗ Ouvrir la requête</a></div>
+
+<!-- 
+NewPP limit report
+Cached time: 20261114013155
+Cache expiry: 86400
+Reduced expiry: false
+Complications: [show‐toc]
+CPU time usage: 0.302 seconds
+Real time usage: 8.178 seconds
+Preprocessor visited node count: 504/1000000
+Post‐expand include size: 82520/2097152 bytes
+Template argument size: 0/2097152 bytes
+Highest expansion depth: 4/100
+Expensive parser function count: 30/100
+Unstrip recursion depth: 0/20
+Unstrip post‐expand size: 79376/5000000 bytes
+Lua time usage: 0.100/7 seconds
+Lua virtual size: 5234688/52428800 bytes
+Lua estimated memory usage: 0 bytes
+Number of Wikibase entities loaded: 0/250
+-->
+<!--
+Transclusion expansion time report (%,ms,calls,template)
+100.00% 8073.136      1 -total
+ 99.90% 8065.073     30 Modèle:SPARQL
+-->
+
+<!-- Saved in parser cache with key mediawiki:pcache:idhash:861483-0!canonical and timestamp 20261114013155 and revision id 2697187. Rendering was triggered because: page-view
+ -->
+</div>
+<div class="printfooter" data-nosnippet="">Récupérée de "<a dir="ltr" href="https://data.biblissima.fr/w/index.php?title=Project:SPARQL_examples&amp;oldid=2697187">https://data.biblissima.fr/w/index.php?title=Project:SPARQL_examples&amp;oldid=2697187</a>"</div></div>
+		<div id="catlinks" class="catlinks catlinks-allhidden" data-mw="interface"></div>
+	</div>
+</div>
+
+<div id="mw-navigation">
+	<h2>Menu de navigation</h2>
+	<div id="mw-head">
+		
+<nav id="p-personal" class="mw-portlet mw-portlet-personal vector-user-menu-legacy vector-menu" aria-labelledby="p-personal-label"  >
+	<h3
+		id="p-personal-label"
+		
+		class="vector-menu-heading "
+	>
+		<span class="vector-menu-heading-label">Outils personnels</span>
+	</h3>
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list">
+			
+			<li id="pt-uls" class="mw-list-item active"><a class="uls-trigger" href="#"><span>français</span></a></li><li id="pt-login" class="mw-list-item"><a href="/w/index.php?title=Sp%C3%A9cial:Connexion&amp;returnto=Project%3ASPARQL+examples" title="Nous vous encourageons à vous connecter ; ce n’est cependant pas obligatoire. [o]" accesskey="o"><span>Se connecter</span></a></li>
+		</ul>
+		
+	</div>
+</nav>
+
+		<div id="left-navigation">
+			
+<nav id="p-namespaces" class="mw-portlet mw-portlet-namespaces vector-menu-tabs vector-menu-tabs-legacy vector-menu" aria-labelledby="p-namespaces-label"  >
+	<h3
+		id="p-namespaces-label"
+		
+		class="vector-menu-heading "
+	>
+		<span class="vector-menu-heading-label">Espaces de noms</span>
+	</h3>
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list">
+			
+			<li id="ca-nstab-project" class="selected mw-list-item"><a href="/w/Project:SPARQL_examples" title="Voir la page du projet [c]" accesskey="c"><span>Page de projet</span></a></li><li id="ca-talk" class="new mw-list-item"><a href="/w/index.php?title=Discussion_Project:SPARQL_examples&amp;action=edit&amp;redlink=1" rel="discussion" class="new" title="Discussion au sujet de cette page de contenu (page inexistante) [t]" accesskey="t"><span>Discussion</span></a></li>
+		</ul>
+		
+	</div>
+</nav>
+
+			
+<nav id="p-variants" class="mw-portlet mw-portlet-variants emptyPortlet vector-menu-dropdown vector-menu" aria-labelledby="p-variants-label"  >
+	<input type="checkbox"
+		id="p-variants-checkbox"
+		role="button"
+		aria-haspopup="true"
+		data-event-name="ui.dropdown-p-variants"
+		class="vector-menu-checkbox"
+		aria-labelledby="p-variants-label"
+	>
+	<label
+		id="p-variants-label"
+		
+		class="vector-menu-heading "
+	>
+		<span class="vector-menu-heading-label">français</span>
+	</label>
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list">
+			
+			
+		</ul>
+		
+	</div>
+</nav>
+
+		</div>
+		<div id="right-navigation">
+			
+<nav id="p-views" class="mw-portlet mw-portlet-views vector-menu-tabs vector-menu-tabs-legacy vector-menu" aria-labelledby="p-views-label"  >
+	<h3
+		id="p-views-label"
+		
+		class="vector-menu-heading "
+	>
+		<span class="vector-menu-heading-label">Affichages</span>
+	</h3>
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list">
+			
+			<li id="ca-view" class="selected mw-list-item"><a href="/w/Project:SPARQL_examples"><span>Lire</span></a></li><li id="ca-viewsource" class="mw-list-item"><a href="/w/index.php?title=Project:SPARQL_examples&amp;action=edit" title="Cette page est protégée.&#10;Vous pouvez toutefois en visualiser la source. [e]" accesskey="e"><span>Voir le texte source</span></a></li><li id="ca-history" class="mw-list-item"><a href="/w/index.php?title=Project:SPARQL_examples&amp;action=history" title="Historique des versions de cette page [h]" accesskey="h"><span>Voir l’historique</span></a></li>
+		</ul>
+		
+	</div>
+</nav>
+
+			
+<nav id="p-cactions" class="mw-portlet mw-portlet-cactions emptyPortlet vector-menu-dropdown vector-menu" aria-labelledby="p-cactions-label"  title="Plus d’options" >
+	<input type="checkbox"
+		id="p-cactions-checkbox"
+		role="button"
+		aria-haspopup="true"
+		data-event-name="ui.dropdown-p-cactions"
+		class="vector-menu-checkbox"
+		aria-labelledby="p-cactions-label"
+	>
+	<label
+		id="p-cactions-label"
+		
+		class="vector-menu-heading "
+	>
+		<span class="vector-menu-heading-label">Plus</span>
+	</label>
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list">
+			
+			
+		</ul>
+		
+	</div>
+</nav>
+
+			
+<div id="p-search" role="search" class="vector-search-box-vue  vector-search-box-show-thumbnail vector-search-box-auto-expand-width vector-search-box">
+	<h3 >Rechercher</h3>
+	<form action="/w/index.php" id="searchform" class="vector-search-box-form">
+		<div id="simpleSearch"
+			class="vector-search-box-inner"
+			 data-search-loc="header-navigation">
+			<input class="vector-search-box-input"
+				 type="search" name="search" placeholder="Rechercher sur Référentiels d’autorité Biblissima" aria-label="Rechercher sur Référentiels d’autorité Biblissima" autocapitalize="sentences" title="Rechercher sur Référentiels d’autorité Biblissima [f]" accesskey="f" id="searchInput"
+			>
+			<input type="hidden" name="title" value="Spécial:Recherche">
+			<input id="mw-searchButton"
+				 class="searchButton mw-fallbackSearchButton" type="submit" name="fulltext" title="Rechercher les pages comportant ce texte." value="Rechercher">
+			<input id="searchButton"
+				 class="searchButton" type="submit" name="go" title="Accédez à une page du même nom si elle existe" value="Lire">
+		</div>
+	</form>
+</div>
+
+		</div>
+	</div>
+	
+<div id="mw-panel" class="vector-legacy-sidebar">
+	<div id="p-logo" role="banner">
+		<a class="mw-wiki-logo" href="/w/Accueil"
+			title="Visiter la page d’accueil"></a>
+	</div>
+	
+<nav id="p-" class="mw-portlet mw-portlet- vector-menu-portal portal vector-menu" aria-labelledby="p--label"  >
+	<h3
+		id="p--label"
+		
+		class="vector-menu-heading "
+	>
+		<span class="vector-menu-heading-label"></span>
+	</h3>
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list">
+			
+			<li id="n-mainpage-description" class="mw-list-item"><a href="/w/Accueil" title="Accueil général [z]" accesskey="z"><span>Page d’accueil</span></a></li><li id="n-search" class="mw-list-item"><a href="/w/Sp%C3%A9cial:Recherche"><span>Rechercher</span></a></li><li id="n-Modifications-récentes-(compte-requis)" class="mw-list-item"><a href="/w/Sp%C3%A9cial:Modifications_r%C3%A9centes"><span>Modifications récentes (compte requis)</span></a></li>
+		</ul>
+		
+	</div>
+</nav>
+
+	
+<nav id="p-Consulter" class="mw-portlet mw-portlet-Consulter vector-menu-portal portal vector-menu" aria-labelledby="p-Consulter-label"  >
+	<h3
+		id="p-Consulter-label"
+		
+		class="vector-menu-heading "
+	>
+		<span class="vector-menu-heading-label">Consulter</span>
+	</h3>
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list">
+			
+			<li id="n-Liste-des-types-d&#039;entités" class="mw-list-item"><a href="/w/Project:Types_d%27entit%C3%A9s"><span>Liste des types d&#039;entités</span></a></li><li id="n-Liste-des-entités" class="mw-list-item"><a href="https://data.biblissima.fr/w/index.php?title=Sp%C3%A9cial:Toutes_les_pages&amp;namespace=120" rel="nofollow"><span>Liste des entités</span></a></li><li id="n-Liste-des-propriétés" class="mw-list-item"><a href="/w/Sp%C3%A9cial:ListProperties"><span>Liste des propriétés</span></a></li>
+		</ul>
+		
+	</div>
+</nav>
+
+<nav id="p-Accès_SPARQL" class="mw-portlet mw-portlet-Accès_SPARQL vector-menu-portal portal vector-menu" aria-labelledby="p-Accès_SPARQL-label"  >
+	<h3
+		id="p-Accès_SPARQL-label"
+		
+		class="vector-menu-heading "
+	>
+		<span class="vector-menu-heading-label">Accès SPARQL</span>
+	</h3>
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list">
+			
+			<li id="n-Interface-SPARQL-(accès-restreint)" class="mw-list-item"><a href="https://query.biblissima.fr" rel="nofollow"><span>Interface SPARQL (accès restreint)</span></a></li><li id="n-Requêtes-SPARQL-d&#039;exemple" class="mw-list-item"><a href="/w/Project:SPARQL_examples"><span>Requêtes SPARQL d&#039;exemple</span></a></li>
+		</ul>
+		
+	</div>
+</nav>
+
+<nav id="p-Contribuer" class="mw-portlet mw-portlet-Contribuer vector-menu-portal portal vector-menu" aria-labelledby="p-Contribuer-label"  >
+	<h3
+		id="p-Contribuer-label"
+		
+		class="vector-menu-heading "
+	>
+		<span class="vector-menu-heading-label">Contribuer</span>
+	</h3>
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list">
+			
+			<li id="n-Créer-une-entité" class="mw-list-item"><a href="/w/Sp%C3%A9cial:NewItem"><span>Créer une entité</span></a></li><li id="n-Créer-une-propriété" class="mw-list-item"><a href="/w/Sp%C3%A9cial:NewProperty"><span>Créer une propriété</span></a></li><li id="n-Fusionner-des-entités" class="mw-list-item"><a href="/w/Sp%C3%A9cial:MergeItems"><span>Fusionner des entités</span></a></li>
+		</ul>
+		
+	</div>
+</nav>
+
+<nav id="p-Liens" class="mw-portlet mw-portlet-Liens vector-menu-portal portal vector-menu" aria-labelledby="p-Liens-label"  >
+	<h3
+		id="p-Liens-label"
+		
+		class="vector-menu-heading "
+	>
+		<span class="vector-menu-heading-label">Liens</span>
+	</h3>
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list">
+			
+			<li id="n-Portail-Biblissima" class="mw-list-item"><a href="https://portail.biblissima.fr" rel="nofollow"><span>Portail Biblissima</span></a></li><li id="n-IIIF-Collections" class="mw-list-item"><a href="https://iiif.biblissima.fr/collections" rel="nofollow"><span>IIIF Collections</span></a></li><li id="n-Site-institutionnel" class="mw-list-item"><a href="https://projet.biblissima.fr" rel="nofollow"><span>Site institutionnel</span></a></li>
+		</ul>
+		
+	</div>
+</nav>
+
+<nav id="p-Autres_instances_Wikibase" class="mw-portlet mw-portlet-Autres_instances_Wikibase vector-menu-portal portal vector-menu" aria-labelledby="p-Autres_instances_Wikibase-label"  >
+	<h3
+		id="p-Autres_instances_Wikibase-label"
+		
+		class="vector-menu-heading "
+	>
+		<span class="vector-menu-heading-label">Autres instances Wikibase</span>
+	</h3>
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list">
+			
+			<li id="n-Biblio-Biblissima" class="mw-list-item"><a href="https://biblio.biblissima.fr" rel="nofollow"><span>Biblio Biblissima</span></a></li><li id="n-Lexico-Biblissima" class="mw-list-item"><a href="https://lexico.biblissima.fr" rel="nofollow"><span>Lexico Biblissima</span></a></li>
+		</ul>
+		
+	</div>
+</nav>
+
+<nav id="p-tb" class="mw-portlet mw-portlet-tb vector-menu-portal portal vector-menu" aria-labelledby="p-tb-label"  >
+	<h3
+		id="p-tb-label"
+		
+		class="vector-menu-heading "
+	>
+		<span class="vector-menu-heading-label">Outils</span>
+	</h3>
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list">
+			
+			<li id="t-whatlinkshere" class="mw-list-item"><a href="/w/Sp%C3%A9cial:Pages_li%C3%A9es/Project:SPARQL_examples" title="Liste des pages liées qui pointent sur celle-ci [j]" accesskey="j"><span>Pages liées</span></a></li><li id="t-recentchangeslinked" class="mw-list-item"><a href="/w/Sp%C3%A9cial:Suivi_des_liens/Project:SPARQL_examples" rel="nofollow" title="Liste des modifications récentes des pages appelées par celle-ci [k]" accesskey="k"><span>Suivi des pages liées</span></a></li><li id="t-specialpages" class="mw-list-item"><a href="/w/Sp%C3%A9cial:Pages_sp%C3%A9ciales" title="Liste de toutes les pages spéciales [q]" accesskey="q"><span>Pages spéciales</span></a></li><li id="t-print" class="mw-list-item"><a href="javascript:print();" rel="alternate" title="Version imprimable de cette page [p]" accesskey="p"><span>Version imprimable</span></a></li><li id="t-permalink" class="mw-list-item"><a href="/w/index.php?title=Project:SPARQL_examples&amp;oldid=2697187" title="Adresse permanente de cette version de cette page"><span>Lien permanent</span></a></li><li id="t-info" class="mw-list-item"><a href="/w/index.php?title=Project:SPARQL_examples&amp;action=info" title="Davantage d’informations sur cette page"><span>Informations sur la page</span></a></li>
+		</ul>
+		
+	</div>
+</nav>
+
+<nav id="p-wikibase-otherprojects" class="mw-portlet mw-portlet-wikibase-otherprojects emptyPortlet vector-menu-portal portal vector-menu" aria-labelledby="p-wikibase-otherprojects-label"  >
+	<h3
+		id="p-wikibase-otherprojects-label"
+		
+		class="vector-menu-heading "
+	>
+		<span class="vector-menu-heading-label">Dans d’autres projets</span>
+	</h3>
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list">
+			
+			
+		</ul>
+		
+	</div>
+</nav>
+
+	
+<nav id="p-lang" class="mw-portlet mw-portlet-lang vector-menu-portal portal vector-menu" aria-labelledby="p-lang-label"  >
+	<h3
+		id="p-lang-label"
+		
+		class="vector-menu-heading "
+	>
+		<span class="vector-menu-heading-label">Dans d’autres langues</span>
+	</h3>
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list">
+			
+			
+		</ul>
+		<div class="after-portlet after-portlet-lang"><span class="wb-langlinks-add wb-langlinks-link"><a href="https://data.biblissima.fr/w/Special:NewItem?site=mediawiki&amp;page=Project%3ASPARQL+examples" title="Ajouter des liens interlangues" class="wbc-editpage">Ajouter des liens</a></span></div>
+	</div>
+</nav>
+
+</div>
+
+</div>
+
+<footer id="footer" class="mw-footer" >
+	<ul id="footer-info">
+	<li id="footer-info-lastmod"> La dernière modification de cette page a été faite le 28 octobre 2026 à 21:21.</li>
+	<li id="footer-info-copyright">Le contenu est disponible sous licence <a href="/w/Licence" title="Licence">Licence Ouverte/Open License 2.0</a> sauf mention contraire.</li>
+</ul>
+
+	<ul id="footer-places">
+	<li id="footer-places-privacy"><a href="/w/Project:API">API</a></li>
+	<li id="footer-places-about"><a href="/w/Project:%C3%80_propos_de">À propos</a></li>
+	<li id="footer-places-disclaimers"><a href="/w/Project:Contribuer">Contribuer</a></li>
+</ul>
+
+	<ul id="footer-icons" class="noprint">
+	<li id="footer-copyrightico"><a href="http://www.etalab.gouv.fr/licence-ouverte-open-licence" class="cdx-button cdx-button--fake-button cdx-button--size-large cdx-button--fake-button--enabled"><img src="/resources/assets/licenses/lo-ol.png" alt="Licence Ouverte/Open License 2.0" width="88" height="31" loading="lazy"></a></li>
+	<li id="footer-poweredbyico"><a href="https://www.mediawiki.org/" class="cdx-button cdx-button--fake-button cdx-button--size-large cdx-button--fake-button--enabled"><img src="/resources/assets/poweredby_mediawiki.svg" alt="Powered by MediaWiki" width="88" height="31" loading="lazy"></a><a href="https://wikiba.se/" class="cdx-button cdx-button--fake-button cdx-button--size-large cdx-button--fake-button--enabled"><img src="https://upload.wikimedia.org/wikipedia/commons/1/1c/Powered_by_Wikibase.svg" alt="Powered by Wikibase" width="88" height="31" loading="lazy"></a></li>
+</ul>
+
+</footer>
+
+<script>(RLQ=window.RLQ||[]).push(function(){mw.log.warn("This page is using the deprecated ResourceLoader module \"codex-search-styles\".\n[1.43] Use a CodexModule with codexComponents to set your specific components used: https://www.mediawiki.org/wiki/Codex#Using_a_limited_subset_of_components");mw.config.set({"wgBackendResponseTime":8586,"wgPageParseReport":{"limitreport":{"cputime":"0.302","walltime":"8.178","ppvisitednodes":{"value":504,"limit":1000000},"postexpandincludesize":{"value":82520,"limit":2097152},"templateargumentsize":{"value":0,"limit":2097152},"expansiondepth":{"value":4,"limit":100},"expensivefunctioncount":{"value":30,"limit":100},"unstrip-depth":{"value":0,"limit":20},"unstrip-size":{"value":79376,"limit":5000000},"entityaccesscount":{"value":0,"limit":250},"timingprofile":["100.00% 8073.136      1 -total"," 99.90% 8065.073     30 Modèle:SPARQL"]},"scribunto":{"limitreport-timeusage":{"value":"0.100","limit":"7"},"limitreport-virtmemusage":{"value":5234688,"limit":52428800},"limitreport-estmemusage":0},"cachereport":{"timestamp":"20261114013155","ttl":86400,"transientcontent":false}}});});</script>
+<!-- Matomo -->
+<script type="text/javascript">
+  var _paq = _paq || [];
+_paq.push([function() {
+    var self = this;
+    function getOriginalVisitorCookieTimeout() {
+      var now = new Date(),
+      nowTs = Math.round(now.getTime() / 1000),
+      visitorInfo = self.getVisitorInfo();
+      var createTs = parseInt(visitorInfo[2]);
+      var cookieTimeout = 33696000; // 13 mois en secondes
+      var originalTimeout = createTs + cookieTimeout - nowTs;
+      return originalTimeout;
+    }
+    this.setVisitorCookieTimeout( getOriginalVisitorCookieTimeout() );
+  }]);
+  _paq.push(["trackPageView"]);
+  _paq.push(["enableLinkTracking"]);
+
+  (function() {
+    var u = (("https:" == document.location.protocol) ? "https" : "http") + "://"+"piwik.biblissima.fr/";
+    _paq.push(["setTrackerUrl", u+"piwik.php"]);
+    _paq.push(["setSiteId", "15"]);
+    var d=document, g=d.createElement("script"), s=d.getElementsByTagName("script")[0]; g.type="text/javascript";
+    g.defer=true; g.async=true; g.src=u+"piwik.js"; s.parentNode.insertBefore(g,s);
+  })();
+</script>
+<!-- End Matomo Code -->
+
+<!-- Matomo Image Tracker -->
+<noscript><img src="https://piwik.biblissima.fr/piwik.php?idsite=15&rec=1" style="border:0" alt="" /></noscript>
+<!-- End Matomo -->
+</body>
+</html>

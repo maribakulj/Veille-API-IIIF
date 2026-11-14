@@ -115,6 +115,32 @@
       "etiquette": "institution",
       "citation": "« The Biblissima Portal: Current state and future plans » ; portail IIIF, aucune règle de débit (résumé de moteur, non vérifié)",
       "preuve": "institutions/biblissima-plateforme-iiif/fiche.md"
+    },
+    {
+      "categorie": "institution",
+      "url": "https://doc.biblissima.fr/formation-iiif/",
+      "date": "2026-11-14",
+      "etiquette": "officielle",
+      "citation": "Module de formation IIIF lu en entier (sources/f/text) : aucune mention de quota, limite de débit ni politique de bots (recherche des mots quota, limite, rate dans le texte : aucune occurrence pertinente).",
+      "preuve": "institutions/biblissima-plateforme-iiif/sources/f/SHA256SUMS"
+    },
+    {
+      "categorie": "utilisateurs",
+      "aucun_resultat": true,
+      "requete": "Biblissima data.biblissima.fr API SPARQL query.biblissima.fr accès limites requêtes",
+      "date": "2026-11-14",
+      "etiquette": "–",
+      "citation": "(résumé de moteur, non vérifié) aucune limite de volume ni plainte d'utilisateur trouvée ; une présentation de 2019 donnait SPARQL comme objectif futur.",
+      "preuve": "institutions/biblissima-plateforme-iiif/fiche.md"
+    },
+    {
+      "categorie": "presentations",
+      "aucun_resultat": true,
+      "requete": "Biblissima IIIF portail manifestes moissonnage politique API bots conditions d'utilisation",
+      "date": "2026-11-14",
+      "etiquette": "–",
+      "citation": "(résumé de moteur, non vérifié) présentations de Biblissima sur IIIF et le moissonnage (OAI-PMH, IIIF Collections, sitemaps côté fournisseurs de données) ; ni règle de débit ni politique de bots trouvée.",
+      "preuve": "institutions/biblissima-plateforme-iiif/fiche.md"
     }
   ],
   "donnees_a_revalider": false,
@@ -172,6 +198,24 @@
       "url": "https://iiif.biblissima.fr/collections/",
       "statut": "non_teste",
       "raison": "Prototype de recherche web sans API documentée ; aucun test n'a été conçu, la doc ne décrit que l'interface."
+    },
+    {
+      "famille": "Réconciliation : manifeste de service, preview, suggest, extend",
+      "url": "https://data.biblissima.fr/reconcile/fr/suggest/property?prefix=date",
+      "statut": "teste",
+      "preuve": "institutions/biblissima-plateforme-iiif/tests/raw/reconcile-suggest-property-date.headers.txt"
+    },
+    {
+      "famille": "Données d'entité Wikibase (Special:EntityData, JSON)",
+      "url": "https://data.biblissima.fr/w/Sp%C3%A9cial:EntityData/Q27392.json",
+      "statut": "teste",
+      "preuve": "institutions/biblissima-plateforme-iiif/tests/raw/entitydata-Q27392-json.headers.txt"
+    },
+    {
+      "famille": "Manifestes IIIF de démonstration (demos.biblissima.fr)",
+      "url": "https://demos.biblissima.fr/iiif/metadata/florus-dispersus/manifest.json",
+      "statut": "teste",
+      "preuve": "institutions/biblissima-plateforme-iiif/tests/raw/demos-manifeste-florus.headers.txt"
     }
   ],
   "hotes_robots": [
@@ -204,16 +248,31 @@
       "hote": "query.biblissima.fr",
       "resultat": "401 (non public)",
       "preuve": "institutions/biblissima-plateforme-iiif/sources/c/FETCH.log"
+    },
+    {
+      "hote": "demos.biblissima.fr",
+      "resultat": "404 : pas de robots.txt, tout autorisé (RFC 9309)",
+      "preuve": "institutions/biblissima-plateforme-iiif/sources/f/FETCH.log"
+    },
+    {
+      "hote": "projet.biblissima.fr",
+      "resultat": "200 (2 027 o) : robots.txt Drupal standard, * autorisé sauf /core/, /profiles/ et fichiers système ; pas de Crawl-delay",
+      "preuve": "institutions/biblissima-plateforme-iiif/sources/e/FETCH.log"
     }
   ],
-  "rattrapage_a_faire": [
-    "https://projet.biblissima.fr/robots.txt : hôte de pages de doc (200 sur /) mais robots.txt jamais lu ; à lire par sonde.",
-    "https://doc.biblissima.fr/iiif/introduction-iiif/ : page de documentation non téléchargée par nos outils (absente des FETCH.log/url-list), à télécharger et lire avant de conclure (lien « En savoir plus sur IIIF » vu dans sources/d/raw/01.html)"
-  ],
+  "rattrapage_a_faire": [],
   "endpoints_ecartes": [
     {
       "url": "https://doc.biblissima.fr/api/",
       "raison": "page de documentation (index des API Biblissima) téléchargée et lue : HTTP 200 dans institutions/biblissima-plateforme-iiif/sources/c/FETCH.log, listée dans sources/url-list-c.txt, texte dans sources/c/text/"
+    },
+    {
+      "url": "https://doc.biblissima.fr/iiif/introduction-iiif/",
+      "raison": "page pédagogique sur IIIF (téléchargée et lue : sources/e) ; ses exemples d'API pointent vers d'autres institutions (BSB, Bodleian, Vatican…), sauf demos.biblissima.fr testé en passe 2"
+    },
+    {
+      "url": "https://query.biblissima.fr/api/sparql/biblio&gt",
+      "raison": "URL SPARQL citée dans les exemples de data.biblissima.fr/w/Project:SPARQL_examples (sources/f) ; query.biblissima.fr répond 401 (non public selon doc.biblissima.fr/api/sparql/), non testé"
     }
   ]
 }

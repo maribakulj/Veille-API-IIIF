@@ -16,9 +16,9 @@
 ### b) Endpoints tirés de la doc
 > Liste des endpoints citée par la doc (URL, exemples). Jamais devinée. Une interdiction ou une impossibilité écrite dans la doc justifie de renoncer (citer la phrase).
 
-- [ ] **Pas fait**
-  - **Justification** : DÉCOCHÉE le 2026-11-14 (verrou renforcé) : URL d'API citée par la doc et ni testée ni justifiée : https://doc.biblissima.fr/iiif/introduction-iiif/ (ajouter à endpoints_documentes, ou à endpoints_ecartes avec url + raison) | ancienne justification : Endpoints documentés : data.biblissima.fr/w/api.php (Wikibase), /reconcile/fr/api, /entity/{id}, portail.biblissima.fr/iiif/manifest et /iiif/collection ; SPARQL non public.
-  - **Preuves** : 
+- [x] **Fait**
+  - **Justification** : Familles documentées listées avec preuve : Wikibase api.php, réconciliation (api, preview, suggest, extend), entités /entity et Special:EntityData, manifestes et collections du Portail, manifestes de démonstration demos.biblissima.fr ; SPARQL non public (401) et IIIF Collections non testés avec raison. Page d'introduction IIIF lue et écartée avec raison.
+  - **Preuves** : `institutions/biblissima-plateforme-iiif/sources/e/SHA256SUMS`, `institutions/biblissima-plateforme-iiif/sources/c/text/06.txt`
 
 ### c) Configuration écrite AVANT les tests
 > `config/<nom>.json` pilote `scripts/probe.py`, committée avant le lancement. Un endpoint absent de la doc mais non interdit se teste avec un script poli (identifiants issus de pages publiques ou d'exemples de la doc, pas de devinette).
@@ -37,15 +37,15 @@
 ### e) Test systématique de chaque endpoint
 > Chaque endpoint documenté est testé (budget 15 requêtes par passe, pause ≥ 6 s, GET/HEAD, UA du projet). Redirections du même hôte suivies. Un 403 arrête son hôte, un 429 arrête l'institution. Seules les interdictions écrites dans la doc dispensent de tester.
 
-- [ ] **Pas fait**
-  - **Justification** : DÉCOCHÉE le 2026-11-14 (verrou renforcé) : 2 élément(s) de rattrapage_a_faire non traités | ancienne justification : Endpoints publics documentés testés (5 requêtes) : 200 pour Wikibase, réconciliation, manifeste, collection ; 303/301 pour l'URI d'entité (http→https, non suivi). SPARQL non testé (non public).
-  - **Preuves** : 
+- [x] **Fait**
+  - **Justification** : Tous les endpoints documentés accessibles testés en 3 passes (5+7+1 requêtes de données) : 200 partout, redirections d'entité suivies jusqu'au JSON, aucun 429 ni en-tête de limite. SPARQL : 401 (non public selon la doc), listé dans a_verifier_manuellement. Rattrapage (intro IIIF, robots projet.biblissima.fr) traité.
+  - **Preuves** : `institutions/biblissima-plateforme-iiif/tests/journal.log`, `institutions/biblissima-plateforme-iiif/tests/raw/entitydata-Q27392-json.headers.txt`
 
 ### f) Ce que disent les gens sur le web
 > Plaintes, discussions, présentations de l'institution, politique envers les API et les bots, blogs, GitHub, forums, listes de diffusion. Sources étiquetées (officielle / institution / utilisateur / tiers), lues, citées.
 
 - [x] **Fait**
-  - **Justification** : 1 recherche web : aucune limite publiée ; contact conseillé team@biblissima-condorcet.fr ; fil iiif-discuss de 2019 sans règle.
+  - **Justification** : 4 catégories couvertes : politique officielle (SPARQL non public, formation IIIF sans quota), utilisateurs, tickets et présentations sans résultat sur des limites ; 4 recherches web au moins, résumés de moteur marqués non vérifiés. Aucune limite publiée ; contact team@biblissima-condorcet.fr.
   - **Preuves** : `institutions/biblissima-plateforme-iiif/fiche.md`
 
 ### g) Crash test progressif
@@ -60,7 +60,7 @@
 
 <!-- AUTO:DEBUT -->
 ## Contrôles automatiques (calculés depuis `tests/journal.log`)
-- Requêtes enregistrées : **8** (sessions de sonde : 1, maximum par session : 8)
+- Requêtes enregistrées : **20** (sessions de sonde : 3, maximum par session : 10)
 - Plus courte pause vers un même hôte : **6 s** (règle : ≥ 6 s)
 - Méthodes utilisées : GET (règle : GET/HEAD seulement)
 - Anomalies : aucune

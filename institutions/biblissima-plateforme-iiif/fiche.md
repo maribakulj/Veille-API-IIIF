@@ -12,7 +12,10 @@
 ## Tests (1 passe, 5 requêtes de données, pauses 6 s)
 Wikibase `wbgetentities` : **200** · réconciliation : **200** · `/entity/Q27392` : 303 puis 301 (http→https, non suivi) · manifeste du Portail (717 ko) : **200** · collection IIIF : **200**. Aucun 429 ni en-tête de limite.
 
+Passes 2 et 3 (2026-11-14, configurations committées avant lancement) : réconciliation (racine, `preview`, `suggest/property`, `extend`) **200** ×4 · `Special:EntityData/Q27392` : 301 puis 303 puis `.json` **200** (chaîne de redirections lue dans les en-têtes) · manifestes de démonstration `demos.biblissima.fr` **200** ×2. Aucun 429 ni en-tête de limite. SPARQL (`query.biblissima.fr`) : 401, non public, non testé.
+
 ## Web
+Pages lues en passe de rattrapage : `doc.biblissima.fr/iiif/introduction-iiif/` (pédagogique, sans quota), `doc.biblissima.fr/formation-iiif/`, robots.txt de `projet.biblissima.fr` (Drupal standard) et de `demos.biblissima.fr` (404). Trois recherches web de plus : aucune limite ni plainte trouvée (résumés de moteur, non vérifiés).
 Aucune limite publiée ; contact conseillé : `team@biblissima-condorcet.fr`.
 
 ## Conclusion

@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Fragmentarium</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="keywords" content="Fragmentarium, digitization, digitalisation, manuscript, medieval manuscripts, Codex, Codices, Cod. Sang., Codex Sangallenses, Stiftsbibliothek, Abbey Library, Swiss Libraries, St. Gallen, Universität Freiburg, Fribourg, Codicology, Medieval Studies, Paleography, Manuscript descriptions, Metadata, TEI, Medieval Institute, SharedCanvas, IIIF" />
+    <meta name="description" content="Fragmentarium - Digital Laboratory for Medieval Manuscript Fragments. Fragmentarium enables libraries, collectors, researchers and students to publish images of medieval manuscript fragments, allowing them to catalogue, describe, transcribe, assemble and re-use them." />
+    <meta name="author" content="Rafael Schwemmer, text & bytes (Programming and Design) - Douglas Kim (Programming, Solr Consulting) - Roger Klein (PHP and JavaScript Consulting)" />
+    
+    <link rel="apple-touch-icon" sizes="57x57" href="https://fragmentarium.ms/img/app-icons/apple-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="https://fragmentarium.ms/img/app-icons/apple-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="https://fragmentarium.ms/img/app-icons/apple-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="https://fragmentarium.ms/img/app-icons/apple-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="https://fragmentarium.ms/img/app-icons/apple-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="https://fragmentarium.ms/img/app-icons/apple-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="https://fragmentarium.ms/img/app-icons/apple-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="https://fragmentarium.ms/img/app-icons/apple-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="https://fragmentarium.ms/img/app-icons/apple-icon-180x180.png">
+    <link rel="icon" type="image/png" sizes="192x192"  href="https://fragmentarium.ms/img/app-icons/android-icon-192x192.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="https://fragmentarium.ms/img/app-icons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="https://fragmentarium.ms/img/app-icons/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="https://fragmentarium.ms/img/app-icons/favicon-16x16.png">
+    <link rel="manifest" href="https://fragmentarium.ms/img/app-icons/manifest.json">
+    <link href="/dist/frontend/index.css?1581968590" rel="stylesheet">
+
+    <!--[if lt IE 11]>
+      <center><img src="https://fragmentarium.ms/img/fragmentarium-logo-header.png" alt="Logo Fragmentarium" /></center>
+      <p class=browsehappy>Your browser is <b>outdated</b>. You will be redirected to a page that will guide you to <a href="http://browsehappy.com/">install a newer browser</a></p>
+      <meta http-equiv="refresh" content="3;url=http://www.browsehappy.com">
+      <style>
+        body {background-color:white;}
+        #wrapper {display:none}
+        .browsehappy {height:200px;border:1px solid maroon;text-align:center;padding:90px 20px;font-size:18px;background-color:#ffffcc;filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffcc', endColorstr='#ffffff', GradientType=0)}
+      </style>
+    <![endif]-->
+    <!-- Fathom - beautiful, simple website analytics -->
+    <script src="https://cdn.usefathom.com/script.js" data-spa="auto" data-site="RWJVVDUL" defer></script>
+    <!-- / Fathom --> 
+
+</head>
+<body class="frontend pages index">
+  <div id="wrapper">
+  <div class="nav-header">
+    <div id="greyly"></div>
+    <nav class="navbar navbar-default">
+      <div class="container-fluid">
+                  
+          <div class="navbar-header">
+            <div id="navbar-toggler" aria-controls="navbar-toggler" aria-label="Toggle navigation" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#nav-menu-collapse" aria-expanded="false" role="navigation">
+              <span></span>
+              <span></span>
+              <span></span>
+            </div>
+            <a class="navbar-brand" href="/">
+              <img src="https://fragmentarium.ms/img/svg/logo-bw.svg" alt="Fragmentarium" width="40" height="40">
+            </a>
+            <div class="container" style="padding-top:1.4em;">
+              <div class="row">
+                <div class="col-md-8 col-md-offset-4">
+                  <form id="simple-search-form" method="get" action="https://fragmentarium.ms/search" class="form-inline">
+                    <div class="form-group input-group nav-search navbar-left">
+                      <div id="search-field">
+                        <input type="text" name="sQueryString" value="" class="form-control nav-search-input">
+                        <input type="image" src="/img/blind.gif" id="start-search-icon" title="Start search" alt="Start search">
+                      </div>
+
+                      <input id="aSelectedFacets" type="hidden" name="aSelectedFacets" value="" />
+
+                      <input id="sSimpleSearchSearchField" type="hidden" name="sSearchField" value="all_metadata">
+                      
+                      <input id="sSimpleSearchSortField" type="hidden" name="sSortField" value="score">
+                      
+                      <input id="iSimpleSearchResultsPerPage" type="hidden" name="iResultsPerPage" value="100">
+
+                      <input id="iSimpleSearchDateFrom" type="hidden" name="date_from" value="" />
+                      <input id="iSimpleSearchDateTo" type="hidden" name="date_to" value="" />
+                     
+                      <input id="iSimpleSearchOrigMinNumberOfLines" type="hidden" name="orig_min_number_of_lines" value="" />
+                      <input id="iSimpleSearchOrigMaxNumberOfLines" type="hidden" name="orig_max_number_of_lines" value="" />
+                      <input id="iSimpleSearchOrigMinNumberOfColumns" type="hidden" name="orig_min_number_of_columns" value="" />
+                      <input id="iSimpleSearchOrigMaxNumberOfColumns" type="hidden" name="orig_max_number_of_columns" value="" />
+                      <input id="iSimpleSearchOrigDimensionsMinWidth" type="hidden" name="orig_dimensions_min_width" value="" />
+                      <input id="iSimpleSearchOrigDimensionsMaxWidth" type="hidden" name="orig_dimensions_max_width" value="" />
+                      <input id="iSimpleSearchOrigDimensionsMinHeight" type="hidden" name="orig_dimensions_min_height" value="" />
+                      <input id="iSimpleSearchOrigDimensionsMaxHeight" type="hidden" name="orig_dimensions_max_height" value="" />
+                      <input id="iSimpleSearchOrigWrittenSpaceMinWidth" type="hidden" name="orig_written_space_min_width" value="" />
+                      <input id="iSimpleSearchOrigWrittenSpaceMaxWidth" type="hidden" name="orig_written_space_max_width" value="" />
+                      <input id="iSimpleSearchOrigWrittenSpaceMinHeight" type="hidden" name="orig_written_space_min_height" value="" />
+                      <input id="iSimpleSearchOrigWrittenSpaceMaxHeight" type="hidden" name="orig_written_space_max_height" value="" />                    
+
+                                          </div>
+                    
+                    <div id="quicklinks">
+                      <a href="https://fragmentarium.ms/search"><img src="/img/svg/fragments.svg" alt="All Fragments" title="All Fragments"></a>
+                      <a href="https://fragmentarium.ms/person_index"><img src="/img/svg/persons.svg" alt="Persons" title="Person Index"></a>
+                      <a href="https://fragmentarium.ms/place_index"><img src="/img/svg/places.svg" alt="Places" title="Places Index"></a>
+                    </div>
+                  </form>
+
+                </div>
+                              </div>
+            </div>
+          </div><!-- end .navbar-header -->
+
+          <aside class="collapse navbar-collapse" id="nav-menu-collapse">
+
+            <ul class="nav navbar-nav navbar-right">
+                                                                  <li class="main search">
+                    <a href="https://fragmentarium.ms/search">All Fragments</a>
+                  </li>
+                                    <li class="main person_index">
+                    <a href="https://fragmentarium.ms/person_index">Person Index</a>
+                  </li>
+                                    <li class="main place_index">
+                    <a href="https://fragmentarium.ms/place_index">Place Index</a>
+                  </li>
+                                                                                  
+<li class="pages-sidenav has-children"><div class="toggler"></div>
+<a href="javascript:void(0)" class="toggle-link">About</a>
+<ul>
+<li class="digital-laboratory current">
+<a href="https://fragmentarium.ms/pages/about/digital-laboratory">Digital Laboratory</a>
+</li>
+<li class="past-and-present">
+<a href="https://fragmentarium.ms/pages/about/past-and-present">Past and Present</a>
+</li>
+</ul>
+</li>                                                                <li class="pages-sidenav">
+                                        <a href="https://fragmentarium.ms/pages/partners">Partners</a>
+                  </li>
+                                                                <li class="pages-sidenav">
+                                        <a href="https://fragmentarium.ms/pages/programs">Programs</a>
+                  </li>
+                                                                
+<li class="pages-sidenav has-children collapsed"><div class="toggler"></div>
+<a href="javascript:void(0)" class="toggle-link">Publications</a>
+<ul>
+<li class="e-journal">
+<a href="https://fragmentarium.ms/pages/publications/e-journal">Journal: Fragmentology</a>
+</li>
+<li class="recent_pubs">
+<a href="https://fragmentarium.ms/pages/publications/recent_pubs">Recent Publications</a>
+</li>
+</ul>
+</li>                                                                
+<li class="pages-sidenav has-children collapsed"><div class="toggler"></div>
+<a href="javascript:void(0)" class="toggle-link">News + Events</a>
+<ul>
+<li class="news">
+<a href="https://fragmentarium.ms/pages/news_events/news">News</a>
+</li>
+<li class="workshops">
+<a href="https://fragmentarium.ms/pages/news_events/workshops">Workshops</a>
+</li>
+<li class="cataloguing_courses">
+<a href="https://fragmentarium.ms/pages/news_events/cataloguing_courses">Cataloguing Courses</a>
+</li>
+<li class="seminars">
+<a href="https://fragmentarium.ms/pages/news_events/seminars">Seminars</a>
+</li>
+<li class="archive">
+<a href="https://fragmentarium.ms/pages/news_events/archive">News Archive</a>
+</li>
+</ul>
+</li>                                                                <li class="pages-sidenav">
+                                        <a href="https://fragmentarium.ms/contact">Contact</a>
+                  </li>
+                                                        </ul><!-- end .navbar-right -->
+
+          </aside><!-- end #nav-menu-collapse -->
+
+              </div><!-- end .container-fluid -->
+    </nav>
+  </div><!-- end .nav-header -->
+<!-- Header -->
+
+<div id="content" class="clearfix">
+	<div class="container main about-page staticpage">
+      <div class="col-xl-6 col-xl-offset-3 col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 pb-6">
+        <h2 class="text-center mb-2">Digital Laboratory</h2>
+        <br>
+        <p>Fragmentarium’s primary objective is to develop a digital laboratory specialized for medieval manuscript fragment research. Although based on the many years of experience of <a href="http://www.e-codices.unifr.ch" target="_blank" rel="noopener noreferrer">e-codices — Virtual Manuscript Library of Switzerland</a>, the Fragmentarium Digital Laboratory has an international orientation. First and foremost it is conceived as a platform for libraries, scholars and students to do scholarly work on fragments. It conforms to the latest standards set by digital libraries and will set new standards, especially in the area of interoperability.</p>
+<p>The web application contains a series of tools:</p>
+<ul>
+<li>A cataloging tool that enables libraries, collectors, researchers and students to gather and describe fragments via a CMS.</li>
+<li>A tool for tags, facets and keywords, allowing efficient research through comparison and cross-checking.</li>
+<li>A tool to link and assemble fragments offers the possibility to arrange cuttings, fragments of leaves, and individual leaves in any order.</li>
+</ul>
+<p>In the initial phase of the project (2015-2018), the web application <em>Fragmentarium</em> was operated as a “closed” laboratory in order to evaluate the potential for digital fragmentology through a series of <a href="http://fragmentarium.ms/case_studies">Case studies</a>, which have been developed in cooperation with our 16 partner institutions and with nominated fellows.</p>
+<p>In the second phase of the project (2019-2022), the laboratory is being gradually opened and made accessible to a broader public, enabling libraries and collections as well as researchers and teachers to use this platform to catalog, transcribe, assemble and research fragments. Interested parties are invited to contact us directly</p>
+<p>Fragmentarium’s web application is being developed by <a href="http://www.textandbytes.com/en" target="_blank" rel="noopener noreferrer">text &amp; bytes LLC</a>.</p>
+<p>Design: <a href="https://www.herrmanngermann.ch/">Herrmann Germann</a></p>
+<p><em>Fragmentarium</em> offers free access to all of its services.</p>
+<h4><img src="https://fragmentarium.ms/documents/media/news/MDR%20logo.jpg" alt="" width="400" height="149" /></h4>
+<h4>Web Application</h4>
+<p>The Fragmentarium web application is developed in collaboration with the IT company <a href="http://www.textandbytes.com/">text &amp; bytes GmbH</a>, and UX design is provided by <a href="https://www.herrmanngermann.ch/">Herrmann Germann</a>.</p>
+<ul>
+<li>Responsive design: optimized user experience across platforms, from desktop computers to mobile devices such as smart phones and tablets</li>
+<li>Use of the latest web technologies such as HTML5 and CSS3</li>
+<li>Interoperability: use of international standards for the exchange of data according to <a href="http://iiif.io/">IIIF</a>, the International Image Interoperability Framework
+<ul>
+<li>IIIF Image API for simple exchange of all images among partner institutions</li>
+<li>IIIF Presentation API for the corresponding metadata</li>
+<li>Ability to import entire manuscripts, single pages or fragments via IIIF</li>
+</ul>
+</li>
+<li>Browser-based back end, which serves as a content management system (CMS)</li>
+<li>Viewer that allows continuous zooming of fragment facsimile images</li>
+<li>Possibility of creating different sequences for the presentation of a fragment (for example a physical, logical or reader-friendly sequence)</li>
+<li>Presentation of virtual manuscripts to reunite fragments that are held in various places</li>
+<li>Display of relevant metadata and scholarly descriptions alongside the fragment facsimiles</li>
+<li>Printing and downloading of images in different sizes and formats (as JPEG and PDF files)</li>
+<li>Advanced search functions with facets and quick selection menus for browsing, searching and filtering all fragments, basic metadata and scholarly descriptions</li>
+<li>Person index and place index with quick filter</li>
+</ul>
+<h4>Back end: CMS</h4>
+<p>Authorized users can upload and describe manuscript fragments in a custom content management system (CMS). The CMS provides the following features:</p>
+<ul>
+<li>uploading, editing, publishing and deleting fragments</li>
+<li>importing fragments from partner institutions via IIIF</li>
+<li>creating fragment descriptions</li>
+<li>managing libraries and collections</li>
+<li>managing the person index and the place index</li>
+<li>managing users</li>
+</ul>
+<p>Different user roles have different access rights. Administrators can edit everything, while selected ‘editors’ and ‘guest pass’ users can edit sections such as metadata for their assigned collections or individual documents. If a document is edited by a user, it is locked for other users to prevent unintentional overwriting of changes. All changes to metadata are versioned so that previous versions can be restored if necessary.</p>
+<h4>Technical information</h4>
+<p>All software components and frameworks that are used for implementing the web application are open source and compatible with the e-codices web application, so that features developed for Fragmentarium can be easily reused in the e-codices web application and vice versa.</p>
+<h5>Back-end technology</h5>
+<ul>
+<li>LAMP Stack (Linux, Apache, MySQL, PHP)</li>
+<li><a href="http://www.codeigniter.com/">CodeIgniter</a> (PHP Framework based on the Model-View-Controller Pattern)</li>
+<li><a href="http://www.mysql.com/">MySQL</a> (Database)</li>
+<li><a href="http://lucene.apache.org/solr/">Solr</a> (Search)</li>
+<li><a href="http://git-scm.com/">Git</a> (Version control)</li>
+<li>IIIF Image Server: <a href="https://github.com/pulibrary/loris">Loris</a></li>
+<li><a href="http://json.org/">JSON</a> (IIIF Image and Presentation APIs)</li>
+<li><a href="http://www.jpeg.org/jpeg2000/">JPEG2000</a></li>
+<li><a href="https://www.vagrantup.com/">Vagrant</a> (configuring reproducible development environments)</li>
+<li><a href="https://www.ansible.com/">Ansible</a> (automated provisioning and deployment)</li>
+</ul>
+<h5>Front-end technology</h5>
+<ul>
+<li>HTML5</li>
+<li>CSS3</li>
+<li><a href="http://getbootstrap.com/">Bootstrap</a> &amp; <a href="http://html5boilerplate.com/">HTML5 Boilerplate</a> (Front-end Frameworks)</li>
+<li><a href="http://jquery.com/">jQuery</a> (JavaScript Framework)</li>
+</ul>        <br><br><br>
+    	</div><!-- /.col -->
+  </div><!-- /.row -->
+</div><!-- /.container -->
+
+    <div class="gotop">
+      <div class="container">
+        <a href="#">Back to top</a>
+      </div>
+    </div>
+    <footer>
+      <div class="container">
+        <div class="col-md-3 col-sm-6 col-xs-12 mt-2">
+          <p class="ltopic">Address</p>
+          <p>Fragmentarium<br>
+          University of Fribourg<br>
+          Rue de l'Hôpital 4<br>
+          1700 Fribourg<br>
+          Switzerland<br>
+          fragmentarium@unifr.ch</p>
+          <br><br>
+        </div>
+        <div class="col-md-3 col-sm-6 col-xs-12 mt-2">
+          <p class="ltopic">Donors</p>
+          <a href="http://www.snf.org/en/" target="_blank"><img src="https://fragmentarium.ms/img/logos/niarchos-logo-500.png" class="img-fluid img-responsive donors" alt="Stavros Niarchos Foundation"></a><br>
+          <a href="http://www.snf.ch/en/" target="_blank"><img src="https://fragmentarium.ms/img/logos/snf-logo-500.png" class="img-fluid img-responsive donors" alt="Swiss National Science Foundation"></a><br>
+          <a href="http://www.zenokarlschindler-foundation.ch/" target="_blank"><img src="https://fragmentarium.ms/img/logos/schindler-logo-500.png" class="img-fluid img-responsive donors" alt="Zeno Karl Schindler Foundation"></a>
+          <br><br>
+        </div>
+        <div class="col-md-3 col-sm-6 col-xs-12">
+          <p class="ltopic">Helpful Links</p>
+          <ul class="footernav">
+            <li><a href="/">Home</a></li>
+            <li><a href="/search">All Fragments</a></li>
+            <li><a href="/person_index">Persons</a></li>
+            <li><a href="/place_index">Places</a></li>
+            <li><a href="/contact">Contact</a></li>
+          </ul>
+          <br><br>
+        </div>
+        <div class="col-md-3 col-sm-6 col-xs-12">
+          <p class="ltopic">Legal Information</p>
+          <ul class="footernav">
+            <li><a href="https://fragmentarium.ms/pages/terms">Terms of Use</a></li>
+<li><a href="https://fragmentarium.ms/pages/privacy">Privacy Policy</a></li>
+<li><a href="https://fragmentarium.ms/pages/impressum">Impressum</a></li>
+          </ul>
+        </div>
+        <div class="clearfix"></div>
+        <div class="col-12">
+          <p class="topic copyright">© 2026 Fragmentarium, University of Fribourg</p>
+        </div>
+      </div>
+    </footer>
+    </div><!-- end wrapper -->
+    <script src="/dist/frontend/index.js?1581968590"></script>
+  </body>
+</html>

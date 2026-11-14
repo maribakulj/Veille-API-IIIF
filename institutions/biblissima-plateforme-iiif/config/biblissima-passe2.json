@@ -1,0 +1,17 @@
+{
+  "slug": "biblissima-plateforme-iiif",
+  "min_delay_s": 6,
+  "max_requests": 15,
+  "follow_redirects": 1,
+  "robots_disallow_autorise_par_marcel": true,
+  "note": "Passe 2 : familles documentées non testées en passe 1. Réconciliation : racine de l'API (manifeste de service), preview?id=Q199, suggest/property?prefix=date, extend (exemples de sources/c/text/06.txt). Entité : https://data.biblissima.fr/w/Special:EntityData/Q27392 (Location de la redirection 303 de la passe 1, en https). Manifestes IIIF de démonstration cités par doc.biblissima.fr/iiif/introduction-iiif/ (sources/e) sur demos.biblissima.fr (robots.txt 404 : tout autorisé, sources/f).",
+  "endpoints": [
+    {"id": "reconcile-racine", "method": "GET", "url": "https://data.biblissima.fr/reconcile/fr/api"},
+    {"id": "reconcile-preview-Q199", "method": "GET", "url": "https://data.biblissima.fr/reconcile/fr/preview?id=Q199"},
+    {"id": "reconcile-suggest-property-date", "method": "GET", "url": "https://data.biblissima.fr/reconcile/fr/suggest/property?prefix=date"},
+    {"id": "reconcile-extend-Q27392-P109", "method": "GET", "url": "https://data.biblissima.fr/reconcile/fr/api?extend={\"ids\":[\"Q27392\"],\"properties\":[{\"id\":\"P109\"}]}"},
+    {"id": "entitydata-Q27392", "method": "GET", "url": "https://data.biblissima.fr/w/Special:EntityData/Q27392"},
+    {"id": "demos-manifeste-florus", "method": "GET", "url": "https://demos.biblissima.fr/iiif/metadata/florus-dispersus/manifest.json"},
+    {"id": "demos-manifeste-chateauroux", "method": "GET", "url": "https://demos.biblissima.fr/iiif/metadata/BVMM/chateauroux/manifest.json"}
+  ]
+}

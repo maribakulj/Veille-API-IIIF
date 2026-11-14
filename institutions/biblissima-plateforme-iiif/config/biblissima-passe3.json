@@ -1,0 +1,11 @@
+{
+  "slug": "biblissima-plateforme-iiif",
+  "min_delay_s": 6,
+  "max_requests": 15,
+  "follow_redirects": 1,
+  "robots_disallow_autorise_par_marcel": true,
+  "note": "Passe 3 : fin de la chaîne de redirections d'entité de la passe 2 (en-tête location de tests/raw/entitydata-Q27392+redir.headers.txt : https://data.biblissima.fr/w/Sp%C3%A9cial:EntityData/Q27392.json).",
+  "endpoints": [
+    {"id": "entitydata-Q27392-json", "method": "GET", "url": "https://data.biblissima.fr/w/Sp%C3%A9cial:EntityData/Q27392.json"}
+  ]
+}
