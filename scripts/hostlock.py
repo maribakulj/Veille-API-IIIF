@@ -83,9 +83,22 @@ def secrets():
         return []
 
 
+MOTIFS_JETONS = [
+    r"\b[ps]k\.eyJ[A-Za-z0-9_-]{10,}\.[A-Za-z0-9_-]{10,}",      # Mapbox
+    r"\bAKIA[0-9A-Z]{16}\b",                                       # clé d'accès AWS
+    r"\bgh[pousr]_[A-Za-z0-9]{30,}\b",                             # jetons GitHub
+    r"\bxox[abprs]-[A-Za-z0-9-]{10,}",                              # jetons Slack
+    r"\bAIza[0-9A-Za-z_-]{35}\b",                                  # clé API Google
+    r"-----BEGIN [A-Z ]*PRIVATE KEY-----",                           # clé privée
+]
+
+
 def redact(texte):
+    import re
     for v in secrets():
         texte = texte.replace(v, "[IP retirée]")
+    for m in MOTIFS_JETONS:
+        texte = re.sub(m, "[jeton retiré]", texte)
     return texte
 
 

@@ -203,3 +203,6 @@ Le verrou agit : (a) **au lancement** des outils officiels (`probe.py`, `crash.p
 
 ## Données personnelles (14/11/2026)
 Le dépôt GitHub est **public**. Aucune donnée personnelle de Marcel (adresse IP) ne doit y figurer. Les valeurs sensibles sont listées dans `~/.veille-state/secrets.txt` (hors dépôt) : le hook de commit refuse tout commit qui les ajoute ; `probe.py` et `fetch_doc.sh` les remplacent par « [IP retirée] » dans les fichiers qu'ils produisent. Certains serveurs renvoient l'IP du client dans un en-tête (ex. `x-mps-client-ip`).
+
+## Jetons et secrets dans les pages publiques (14/11/2026)
+GitHub bloque (« push protection ») tout push contenant un jeton reconnu, même s'il figure dans une page web publique téléchargée (ex. jeton Mapbox dans le JavaScript d'un site). `hostlock.redact` (utilisé par `probe.py` et `fetch_doc.sh`) remplace les motifs connus par « [jeton retiré] » ; le hook de commit refuse un commit qui en contient. Ne jamais utiliser l'URL d'autorisation de GitHub pour passer outre.

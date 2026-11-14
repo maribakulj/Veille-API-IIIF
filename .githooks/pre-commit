@@ -27,6 +27,12 @@ if [ -f "$HOME/.veille-state/secrets.txt" ]; then
     fi
   done < "$HOME/.veille-state/secrets.txt"
 fi
+# Jetons génériques (Mapbox, AWS, GitHub, Slack, Google, clés privées) : GitHub bloque le push de tout dépôt qui en contient.
+if git diff --cached -U0 | grep -E '^\+' | grep -v '^+++' | grep -qaE '\b[ps]k\.eyJ[A-Za-z0-9_-]{10,}\.|\bAKIA[0-9A-Z]{16}\b|\bgh[pousr]_[A-Za-z0-9]{30,}\b|\bxox[abprs]-[A-Za-z0-9-]{10,}|\bAIza[0-9A-Za-z_-]{35}\b|-----BEGIN [A-Z ]*PRIVATE KEY-----'; then
+  echo "pre-commit : JETON/SECRET détecté dans ce commit (clé API, jeton Mapbox, clé privée…). GitHub bloquerait le push." >&2
+  echo "Remplacer la valeur par [jeton retiré] dans les fichiers concernés : python3 \"$MAIN/scripts/hostlock.py\" redact <fichier>" >&2
+  exit 1
+fi
 if [[ "$BR" == lot/* ]]; then
   LOT="${BR#lot/}"
   export VEILLE_LOT="$LOT"
