@@ -38,3 +38,9 @@
 2026-11-14T02:56:00Z | r5-manifeste-objet+redir+redir | https://bijzonderecollecties.ubn.ru.nl/iiif/2/Handschriften:12155/manifest.json | GET | 200 OK | aucun en-tête de limite | taille≥500000 | corps: {"@context":"http://iiif.io/api/presentation/2/context.json","@type":"sc:Manifest","@id":"https://cdm21010.contentdm.oclc.org/iiif/Handschriften:12155/manifest.json","label":"[Book of prayer] / (Hs 61
 # corps enregistré : tests/raw/r5-manifeste-objet+redir+redir.body (500000 octets lus)
 # Fin 2026-11-14T02:56:00Z — 4 requête(s) envoyée(s)
+# Session 2026-11-14T02:56:19Z — configuration radboud-passe6-image.json — sonde probe.py au commit c9a3222
+2026-11-14T02:56:19Z | robots.txt:cdm21010.contentdm.oclc.org | https://cdm21010.contentdm.oclc.org/robots.txt | GET | 200 | 27 règle(s) pour « * » ; Crawl-delay 1.0 s
+2026-11-14T02:56:26Z | r6-image-info-cdm | https://cdm21010.contentdm.oclc.org/iiif/2/Handschriften:11155/info.json | GET | 200 OK | aucun en-tête de limite | taille≥200 | corps: {"@context":"http://iiif.io/api/image/2/context.json","@id":"https://cdm21010.contentdm.oclc.org/iiif/2/Handschriften:11155","protocol":"http://iiif.io/api/image","width":3524,"height":4980,"sizes":[{
+2026-11-14T02:56:26Z | robots.txt:bijzonderecollecties.ubn.ru.nl | https://bijzonderecollecties.ubn.ru.nl/robots.txt | GET | 200 | 27 règle(s) pour « * » ; Crawl-delay 1.0 s
+2026-11-14T02:56:32Z | r6-image-info-site | https://bijzonderecollecties.ubn.ru.nl/iiif/2/Handschriften:11155/info.json | GET | 200 OK | aucun en-tête de limite | taille≥200 | corps: {"@context":"http://iiif.io/api/image/2/context.json","@id":"https://bijzonderecollecties.ubn.ru.nl/iiif/2/Handschriften:11155","protocol":"http://iiif.io/api/image","width":3524,"height":4980,"sizes"
+# Fin 2026-11-14T02:56:32Z — 4 requête(s) envoyée(s)

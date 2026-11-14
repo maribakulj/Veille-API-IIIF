@@ -4,10 +4,245 @@
   "pays": "Pays-Bas",
   "classeur_id": "GLAM-074",
   "type": "Institution",
-  "statut_audit": "à faire",
-  "limites_documentees": [],
-  "en_tetes_observes": [],
+  "statut_audit": "audit a–f complet (v2) ; g à faire",
+  "limites_documentees": [
+    {
+      "nature": "Délai entre requêtes (Crawl-delay)",
+      "perimetre": "repository.ubn.ru.nl, tous robots",
+      "valeur": "Crawl-delay: 10",
+      "fenetre": "10 secondes entre requêtes",
+      "effet": "consigne de robots.txt, pas de sanction annoncée",
+      "verification": "officielle, lue en direct ; respectée (pause de 10 s)",
+      "source": "https://repository.ubn.ru.nl/robots.txt",
+      "date": "2026-11-14"
+    },
+    {
+      "nature": "Délai entre requêtes (Crawl-delay)",
+      "perimetre": "bijzonderecollecties.ubn.ru.nl et cdm21010.contentdm.oclc.org, tous robots",
+      "valeur": "Crawl-Delay: 1",
+      "fenetre": "1 seconde entre requêtes",
+      "effet": "consigne de robots.txt, pas de sanction annoncée",
+      "verification": "officielle, lue en direct ; notre pause de 6 s la dépasse",
+      "source": "https://bijzonderecollecties.ubn.ru.nl/robots.txt",
+      "date": "2026-11-14"
+    },
+    {
+      "nature": "Délai entre requêtes (Crawl-delay, Request-rate)",
+      "perimetre": "help.oclc.org (doc OCLC CONTENTdm)",
+      "valeur": "Crawl-delay: 5 ; Request-rate: 1/5",
+      "fenetre": "1 requête par 5 secondes",
+      "effet": "consigne de robots.txt, pas de sanction annoncée",
+      "verification": "officielle, lue en direct",
+      "source": "https://help.oclc.org/robots.txt",
+      "date": "2026-11-14"
+    }
+  ],
+  "en_tetes_observes": [
+    "x-oclc-iiif-provider: cantaloupe (CONTENTdm, tous les appels de bijzonderecollecties.ubn.ru.nl)"
+  ],
   "blocages": [],
-  "sources": [],
-  "web": []
+  "sources": [
+    {
+      "url": "https://www.ru.nl/en/services/library/retrieving-literature-or-borrowing-materials/browsing-special-collections",
+      "date": "2026-11-14",
+      "etiquette": "officielle",
+      "preuve": "institutions/radboud-university-library/sources/doc/SHA256SUMS"
+    },
+    {
+      "url": "https://www.ru.nl/robots.txt",
+      "date": "2026-11-14",
+      "etiquette": "officielle",
+      "preuve": "institutions/radboud-university-library/sources/doc/SHA256SUMS"
+    },
+    {
+      "url": "https://repository.ubn.ru.nl/robots.txt",
+      "date": "2026-11-14",
+      "etiquette": "officielle",
+      "preuve": "institutions/radboud-university-library/sources/doc/SHA256SUMS"
+    },
+    {
+      "url": "https://repository.ubn.ru.nl/page/termsofuse",
+      "date": "2026-11-14",
+      "etiquette": "officielle",
+      "preuve": "institutions/radboud-university-library/sources/b/SHA256SUMS"
+    },
+    {
+      "url": "https://bijzonderecollecties.ubn.ru.nl/robots.txt",
+      "date": "2026-11-14",
+      "etiquette": "officielle",
+      "preuve": "institutions/radboud-university-library/sources/b/SHA256SUMS"
+    },
+    {
+      "url": "https://help.oclc.org/Metadata_Services/CONTENTdm/Advanced_website_customization/API_Reference/IIIF_API_reference",
+      "date": "2026-11-14",
+      "etiquette": "officielle",
+      "preuve": "institutions/radboud-university-library/sources/c/SHA256SUMS"
+    },
+    {
+      "url": "https://help.oclc.org/Metadata_Services/CONTENTdm/Advanced_website_customization/API_Reference/CONTENTdm_API",
+      "date": "2026-11-14",
+      "etiquette": "officielle",
+      "preuve": "institutions/radboud-university-library/sources/c/SHA256SUMS"
+    },
+    {
+      "url": "https://help.oclc.org/robots.txt",
+      "date": "2026-11-14",
+      "etiquette": "officielle",
+      "preuve": "institutions/radboud-university-library/sources/e/SHA256SUMS"
+    }
+  ],
+  "web": [
+    {
+      "categorie": "presentations",
+      "url": "https://digitalcollections.library.maastrichtuniversity.nl/s/topstukken",
+      "date": "2026-11-14",
+      "etiquette": "institution (projet commun Maastricht et Radboud), lue en entier",
+      "citation": "« In dit samenwerkingsproject brengen Maastricht University en de Radboud Universiteit elk vijftien van hun topstukken samen » ; aucune mention de quota ni d'API.",
+      "preuve": "institutions/radboud-university-library/sources/doc/SHA256SUMS"
+    },
+    {
+      "categorie": "institution",
+      "aucun_resultat": true,
+      "requete": "Radboud University Library API OAI-PMH repository.ubn.ru.nl rate limit bots",
+      "date": "2026-11-14",
+      "etiquette": "–",
+      "citation": "aucune politique de bots ou de débit de la bibliothèque trouvée hors des conditions d'utilisation du dépôt et des robots.txt déjà lus",
+      "preuve": "institutions/radboud-university-library/fiche.md"
+    },
+    {
+      "categorie": "tickets",
+      "aucun_resultat": true,
+      "requete": "github issue ubn.ru.nl iiif OR repository.ubn.ru.nl OR Radboud University Library manifest",
+      "date": "2026-11-14",
+      "etiquette": "–",
+      "citation": "aucun ticket GitHub d'un outil interrogeant les services de la bibliothèque trouvé (résultats : manifestes de Leiden)",
+      "preuve": "institutions/radboud-university-library/fiche.md"
+    },
+    {
+      "categorie": "utilisateurs",
+      "aucun_resultat": true,
+      "requete": "Radboud Repository OR bijzonderecollecties.ubn.ru.nl 429 OR 503 OR blocked OR too many requests harvesting",
+      "date": "2026-11-14",
+      "etiquette": "–",
+      "citation": "aucune plainte 429/503 ou blocage trouvée ; seule indication (résumé de moteur, non vérifié) : le dépôt est une instance DSpace avec un point OAI-PMH listé par Sherpa",
+      "preuve": "institutions/radboud-university-library/fiche.md"
+    }
+  ],
+  "contact": "repository@ubn.ru.nl (contact OpenSearch du dépôt), copyright@ubn.ru.nl (conditions d'utilisation du dépôt), formulaire « Ask your librarian » (www.ru.nl/form/ask-your-librarian)",
+  "conclusion_quota": "Aucun quota ni limite de débit publiés par la bibliothèque. Seuls les robots.txt donnent des délais (Crawl-delay 10 s pour le dépôt DSpace, 1 s pour les collections spéciales CONTENTdm, 5 s pour la doc OCLC). Collections spéciales : CONTENTdm/OCLC avec IIIF Presentation et Image 2 (Cantaloupe), dmwebservices et OAI, tous testés en 200 sans en-tête de limite. Dépôt DSpace : OpenSearch et OAI en 200 (un délai dépassé puis succès), REST en 404.",
+  "classe_quota": "aucun quota trouvé",
+  "confiance": "moyenne",
+  "notes": "Le site des collections spéciales (bijzonderecollecties.ubn.ru.nl) est une instance CONTENTdm hébergée par OCLC (cdmServerUrl server21010.contentdm.oclc.org dans la page d'accueil) ; les images sont servies par cdm21010.contentdm.oclc.org. robots.txt de server21010.contentdm.oclc.org : « Disallow: / » (hôte cité, non contacté). L'OAI du dépôt a dépassé le délai de lecture en passe 2 (pas un 429) et a répondu 200 en passe 3. Recherches web : 5 effectuées, puis le budget de recherche de la session a été épuisé.",
+  "a_verifier_manuellement": [
+    {
+      "url": "https://repository.ubn.ru.nl/rest/",
+      "pourquoi": "la sonde a reçu 404 sur /rest/communities ; l'API REST du dépôt n'est ni documentée ni confirmée",
+      "a_chercher": "Demander à repository@ubn.ru.nl si une API REST ou une limite OAI est publiée"
+    }
+  ],
+  "endpoints_documentes": [
+    {
+      "famille": "IIIF Presentation 2 (CONTENTdm) : manifeste global, collection, objet",
+      "url": "https://bijzonderecollecties.ubn.ru.nl/iiif/info/manifest.json",
+      "statut": "teste",
+      "preuve": "institutions/radboud-university-library/tests/raw/r5-manifeste-objet+redir+redir.headers.txt"
+    },
+    {
+      "famille": "IIIF Image 2 (info.json, Cantaloupe)",
+      "url": "https://cdm21010.contentdm.oclc.org/iiif/2/Handschriften:11155/info.json",
+      "statut": "teste",
+      "preuve": "institutions/radboud-university-library/tests/raw/r6-image-info-cdm.headers.txt"
+    },
+    {
+      "famille": "API CONTENTdm dmwebservices",
+      "url": "https://bijzonderecollecties.ubn.ru.nl/digital/bl/dmwebservices/index.php?q=dmGetCollectionList/json",
+      "statut": "teste",
+      "preuve": "institutions/radboud-university-library/tests/raw/r1-dmwebservices-collections.headers.txt"
+    },
+    {
+      "famille": "OAI-PMH CONTENTdm (collections spéciales)",
+      "url": "https://bijzonderecollecties.ubn.ru.nl/oai/oai.php?verb=Identify",
+      "statut": "teste",
+      "preuve": "institutions/radboud-university-library/tests/raw/r1-oai-identify.headers.txt"
+    },
+    {
+      "famille": "OAI-PMH Radboud Repository (DSpace)",
+      "url": "https://repository.ubn.ru.nl/oai/request?verb=Identify",
+      "statut": "teste",
+      "preuve": "institutions/radboud-university-library/tests/raw/r3-oai-identify-reessai.headers.txt"
+    },
+    {
+      "famille": "OpenSearch du dépôt (description.xml)",
+      "url": "https://repository.ubn.ru.nl/open-search/description.xml",
+      "statut": "teste",
+      "preuve": "institutions/radboud-university-library/tests/raw/r2-opensearch-description.headers.txt"
+    },
+    {
+      "famille": "API REST DSpace du dépôt",
+      "url": "https://repository.ubn.ru.nl/rest/communities?limit=1",
+      "statut": "teste",
+      "preuve": "institutions/radboud-university-library/tests/raw/r2-rest-communities.headers.txt"
+    },
+    {
+      "famille": "Recherche OpenSearch du dépôt (/open-search/discover)",
+      "url": "https://repository.ubn.ru.nl/open-search/description.xml",
+      "statut": "non_teste",
+      "raison": "robots.txt du dépôt interdit /discover ; la description ne donne pas d'URL de requête, seulement un exemple de terme"
+    }
+  ],
+  "endpoints_ecartes": [
+    {
+      "url": "https://www.ru.nl/en/staff/researchers/publishing-research/publishing-and-archiving-in-the-radboud-repository",
+      "raison": "page d'information pour les chercheurs sur le dépôt, pas une API"
+    },
+    {
+      "url": "https://bijzonderecollecties.ubn.ru.nl/sitemap.xml",
+      "raison": "plan du site cité par robots.txt, pas une API"
+    },
+    {
+      "url": "https://help.oclc.org/Metadata_Services/CONTENTdm/Advanced_website_customization/API_Reference/IIIF_API_reference/Work_with_the_IIIF_Presentation_API",
+      "raison": "page de documentation OCLC citant un exemple de manifeste d'un autre site (cdmdemo.contentdm.oclc.org), pas une API de Radboud"
+    },
+    {
+      "url": "https://help.oclc.org/@api/deki/pages/35941/pdf/IIIF%2bAPI%2breference.pdf?stylesheet=default",
+      "raison": "lien d'export PDF du wiki de documentation OCLC (MindTouch), pas une API de la bibliothèque ; non lancé"
+    }
+  ],
+  "hotes_robots": [
+    {
+      "hote": "www.ru.nl",
+      "resultat": "200 : Crawl-delay: 1 ; Disallow /search, /en/search, /zoeken",
+      "preuve": "institutions/radboud-university-library/sources/doc/raw/01.html"
+    },
+    {
+      "hote": "repository.ubn.ru.nl",
+      "resultat": "200 : Crawl-delay: 10 ; Disallow /discover, /browse, /statistics",
+      "preuve": "institutions/radboud-university-library/sources/doc/raw/04.html"
+    },
+    {
+      "hote": "bijzonderecollecties.ubn.ru.nl",
+      "resultat": "200 : Crawl-Delay: 1 ; Disallow /oai/, /utils/, /digital/search/ (testés sous C12)",
+      "preuve": "institutions/radboud-university-library/sources/b/raw/01.html"
+    },
+    {
+      "hote": "cdm21010.contentdm.oclc.org",
+      "resultat": "200 : Crawl-Delay: 1 ; Disallow /oai/, /utils/",
+      "preuve": "institutions/radboud-university-library/sources/d/raw/01.html"
+    },
+    {
+      "hote": "server21010.contentdm.oclc.org",
+      "resultat": "200 : Disallow: / (hôte cité par la page d'accueil, non contacté)",
+      "preuve": "institutions/radboud-university-library/sources/c/raw/01.html"
+    },
+    {
+      "hote": "help.oclc.org",
+      "resultat": "200 : Crawl-delay: 5, Request-rate: 1/5",
+      "preuve": "institutions/radboud-university-library/sources/e/raw/01.html"
+    },
+    {
+      "hote": "digitalcollections.library.maastrichtuniversity.nl",
+      "resultat": "404 : aucun robots.txt, tout autorisé (page de projet lue)",
+      "preuve": "institutions/radboud-university-library/sources/doc/FETCH.log"
+    }
+  ]
 }
