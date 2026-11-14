@@ -1,0 +1,44 @@
+e-Museum - About IIIF 
+ National Treasures & Important Cultural Properties
+ of National Institutes for Cultural Heritage, Japan 
+ LANGUAGE
+ 日本語 
+ English 
+ 中文 
+ 한국어 
+ デバッグ用 　 -->
+ Categories
+ Painting 
+ Calligraphy 
+ Sculpture 
+ Architecture 
+ Metalwork 
+ Swords 
+ Ceramics 
+ Lacquerware 
+ Textiles 
+ Archaeology 
+ Historical Materials 
+ Hōryūji Treasures 
+ e-Museum Guide 
+ Saved Images 
+-->
+ -->
+ Advanced Search 
+ -->
+ About IIIF
+ IIIF (International Image Interoperability Framework) allows for the interoperability of images in digital archives and other databases. IIIF was incorporated into e-Museum to allow wider use of its images. By using IIIF, users can view e-Museum images not just on the official site or app, but also on other IIIF-compatible viewers. Users will have more viewing options, such as bringing up e-Museum images side-by-side with images from other IIIF-compatible sites.
+ Official IIIF Site 
+ e-Museum is compatible with Presentation API 2.1.1 and Image API 2.1.1 .
+ User Guide
+ The “ IIIF Manifest” icon below the high-resolution image viewer is a link to an IIIF manifest file.
+ You can use this link’s URL to view a high-resolution image in another viewer compatible with IIIF.
+-->
+ Mirador 
+ To add and view an image in Mirador, click the plus sign at the top left of the demo screen, click the “＋ADD RESOURCE” button that appears at the bottom right, copy the URL into the input field that appears, and click “ADD.” 
+ 【Notes about Viewers】
+ To display long works such as handscrolls without interruption in e-Museum, the “viewingHint,” as defined by IIIF Presentation API 2.1, is set to “continuous.” For handscrolls, books, and other works viewed from right to left, “viewingDirection” is set to “right-to-left.”
+As of November 2021, Mirador is the only mainstream viewer compatible with these properties and values. Other viewers may display images in the wrong order.
+ About e-Museum 
+ -->
+ ©National Institutes for Cultural Heritage

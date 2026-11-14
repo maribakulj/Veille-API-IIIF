@@ -1,0 +1,12 @@
+{
+  "slug": "e-museum-national-institutes-for-cultural-herita",
+  "min_delay_s": 6,
+  "max_requests": 15,
+  "follow_redirects": 1,
+  "robots_disallow_autorise_par_marcel": true,
+  "note": "Passe 1 : manifeste IIIF Presentation 2.1.1 de l'exemple trouvé dans la page de détail 100005 (lien « IIIF Manifest » de l'aide e-Museum /about2) et description OpenSearch annoncée par la page de détail (link rel=search). Aucun identifiant deviné.",
+  "endpoints": [
+    {"id": "v2p1-manifeste-100005000", "method": "GET", "url": "https://emuseum.nich.go.jp/iiifapi/100005000/manifest.json", "save_body": 3000000},
+    {"id": "v2p1-opensearch-description", "method": "GET", "url": "https://emuseum.nich.go.jp/description/eKokuho_ja.xml", "save_body": 100000}
+  ]
+}
