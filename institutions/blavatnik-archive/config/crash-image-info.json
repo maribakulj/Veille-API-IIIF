@@ -1,0 +1,12 @@
+{
+  "slug": "blavatnik-archive",
+  "endpoint": {
+    "id": "crash-image-info",
+    "url": "https://iiiflb.blavatnikarchive.org/iiif/3/baf__7808769156db1c03d38b2ff69e0d07f7a38977fb73e37cc37ede639ddc9e52ae/info.json",
+    "method": "GET"
+  },
+  "limite_documentee_req_min": null,
+  "source_limite": "aucune limite de débit documentée (robots.txt de www.blavatnikarchive.org : Allow: / pour *, pas de Crawl-delay ; aucune page de conditions d'usage trouvée)",
+  "duree_palier_s": 180,
+  "note": "info.json IIIF Image 3 (Cantaloupe 5.0.7, 886 octets), 200 dans le journal (p1-image-info, 2026-11-14T02:37:55Z), peu coûteux."
+}
