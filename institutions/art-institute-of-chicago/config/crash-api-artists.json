@@ -1,0 +1,8 @@
+{
+  "slug": "art-institute-of-chicago",
+  "endpoint": {"id": "artists-page2-limit10", "url": "https://api.artic.edu/api/v1/artists?page=2&limit=10&fields=id,title", "method": "GET"},
+  "limite_documentee_req_min": 60,
+  "source_limite": "https://api.artic.edu/docs/#authentication : « Anonymous users are throttled to 60 requests per minute. »",
+  "duree_palier_s": 180,
+  "note": "Liste d'artistes réduite à deux champs, 200 dans le journal (artists-page2-limit10, 2026-11-14T02:07:38Z), en-têtes x-ratelimit-limit 60. Pas de recherche, pas de manifeste, pas d'images. Plafond 2 x 60 = 120 req/min ; Cloudflare/CloudFront détectés, un seul test protégé à la fois."
+}

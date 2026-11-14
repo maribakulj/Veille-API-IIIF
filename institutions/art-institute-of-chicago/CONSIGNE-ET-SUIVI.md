@@ -2,51 +2,51 @@
 
 - **Dossier** : `institutions/art-institute-of-chicago/`  ·  **Classeur de référence** : GLAM-047  ·  **Pays** : États-Unis
 - **Statut d'institution** : active
-- **Dernière mise à jour du suivi** : (à renseigner à chaque modification)
+- **Dernière mise à jour du suivi** : 2026-11-14
 
 ## Suivi par étape (à cocher, avec justification et preuves)
 
 ### a) Documentation lue en entier
 > Toutes les pages de doc liées à l'API (développeurs, interfaces, conditions, FAQ, aide, mentions légales, robots.txt), téléchargées avec `scripts/fetch_doc.sh` (URL, date, SHA-256), lues en entier (`scripts/extract_text.py`).
 
-- [ ] **Pas fait**
-  - **Justification** : Pas encore traitée : l'audit suit l'ordre du classeur de référence (une institution à la fois).
-  - **Preuves** : 
+- [x] **Fait**
+  - **Justification** : Doc api.artic.edu/docs lue en entier, openapi.json, GitHub api-data et data-aggregator ; robots.txt de chaque hôte ; site www.artic.edu en défi Cloudflare lu via Wayback (terms, robots, page API).
+  - **Preuves** : `institutions/art-institute-of-chicago/sources/a/SHA256SUMS`, `institutions/art-institute-of-chicago/sources/b/SHA256SUMS`, `institutions/art-institute-of-chicago/sources/wayback/terms.md`, `institutions/art-institute-of-chicago/sources/wayback/robots-www.md`, `institutions/art-institute-of-chicago/sources/wayback/public-api.md`
 
 ### b) Endpoints tirés de la doc
 > Liste des endpoints citée par la doc (URL, exemples). Jamais devinée. Une interdiction ou une impossibilité écrite dans la doc justifie de renoncer (citer la phrase).
 
-- [ ] **Pas fait**
-  - **Justification** : Pas encore traitée : l'audit suit l'ordre du classeur de référence (une institution à la fois).
-  - **Preuves** : 
+- [x] **Fait**
+  - **Justification** : Endpoints tirés de la doc et d'openapi.json : API REST, manifestes, IIIF Image (non testé : Cloudflare), dump S3, POST msearch (non testé) ; endpoints_documentes et endpoints_ecartes dans data.json.
+  - **Preuves** : `institutions/art-institute-of-chicago/data.json`, `institutions/art-institute-of-chicago/sources/b/SHA256SUMS`
 
 ### c) Configuration écrite AVANT les tests
 > `config/<nom>.json` pilote `scripts/probe.py`, committée avant le lancement. Un endpoint absent de la doc mais non interdit se teste avec un script poli (identifiants issus de pages publiques ou d'exemples de la doc, pas de devinette).
 
-- [ ] **Pas fait**
-  - **Justification** : Pas encore traitée : l'audit suit l'ordre du classeur de référence (une institution à la fois).
-  - **Preuves** : 
+- [x] **Fait**
+  - **Justification** : Configuration aic-passe1-api.json committée (commit 9b3a62b) avant le lancement de la sonde.
+  - **Preuves** : `institutions/art-institute-of-chicago/config/aic-passe1-api.json`
 
 ### d) Quota cherché dans la doc
 > Pour chaque page lue : endpoint de statut, en-têtes de limite documentés, clé ou compte donnant un quota, contact pour un volume plus élevé. Chaque réponse cite sa source.
 
-- [ ] **Pas fait**
-  - **Justification** : Pas encore traitée : l'audit suit l'ordre du classeur de référence (une institution à la fois).
-  - **Preuves** : 
+- [x] **Fait**
+  - **Justification** : Limite 60 req/min anonymes, grattage 1 req/s, pagination 100/1 000, tailles d'image, contact pour dépasser : toutes citées de api.artic.edu/docs ; pas de clé ; en-têtes x-ratelimit-* relevés.
+  - **Preuves** : `institutions/art-institute-of-chicago/sources/a/SHA256SUMS`, `institutions/art-institute-of-chicago/data.json`
 
 ### e) Test systématique de chaque endpoint
 > Chaque endpoint documenté est testé (budget 15 requêtes par passe, pause ≥ 6 s, GET/HEAD, UA du projet). Redirections du même hôte suivies. Un 403 arrête son hôte, un 429 arrête l'institution. Seules les interdictions écrites dans la doc dispensent de tester.
 
-- [ ] **Pas fait**
-  - **Justification** : Pas encore traitée : l'audit suit l'ordre du classeur de référence (une institution à la fois).
-  - **Preuves** : 
+- [x] **Fait**
+  - **Justification** : 9 requêtes en une passe : 6 GET api.artic.edu en 200 avec x-ratelimit-limit 60, HEAD du dump 200 ; aucun 429 ; IIIF Image non testé (Cloudflare 403), POST non testé.
+  - **Preuves** : `institutions/art-institute-of-chicago/tests/journal.log`, `institutions/art-institute-of-chicago/tests/raw/artworks-27992-fields.headers.txt`
 
 ### f) Ce que disent les gens sur le web
 > Plaintes, discussions, présentations de l'institution, politique envers les API et les bots, blogs, GitHub, forums, listes de diffusion. Sources étiquetées (officielle / institution / utilisateur / tiers), lues, citées.
 
-- [ ] **Pas fait**
-  - **Justification** : Pas encore traitée : l'audit suit l'ordre du classeur de référence (une institution à la fois).
-  - **Preuves** : 
+- [x] **Fait**
+  - **Justification** : Quatre catégories web couvertes ; article navigating.art et RateLimiter d'artic-mcp lus dans l'original ; talk Chi Hack Night ; aucune plainte 429 trouvée.
+  - **Preuves** : `institutions/art-institute-of-chicago/fiche.md`, `institutions/art-institute-of-chicago/data.json`
 
 ### g) Crash test progressif
 > Seulement après l'audit complet (a à f) de toutes les institutions et avec l'accord de Marcel : paliers jusqu'à 2 × la limite documentée, ou 200 req/min si illimité ou sans limite documentée. Arrêt au premier 429/403/CAPTCHA.
@@ -60,7 +60,10 @@
 
 <!-- AUTO:DEBUT -->
 ## Contrôles automatiques (calculés depuis `tests/journal.log`)
-Aucune requête enregistrée dans `tests/journal.log`.
+- Requêtes enregistrées : **9** (sessions de sonde : 1, maximum par session : 9)
+- Plus courte pause vers un même hôte : **6 s** (règle : ≥ 6 s)
+- Méthodes utilisées : GET, HEAD (règle : GET/HEAD seulement)
+- Anomalies : aucune
 <!-- AUTO:FIN -->
 
 ## Consigne intégrale
