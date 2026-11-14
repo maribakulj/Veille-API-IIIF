@@ -21,3 +21,8 @@ Sessions du 13/11 archivées (`tests/archive/`, configuration committée après 
 
 ## Conclusion
 Aucun quota chiffré. Limites techniques : pages de 20 (SRU, max 1000) et 400 (OAI) ; recommandation de moissonner hors 9 h-17 h. Mesures anti-crawling visant Delpher/DBNL (commercial). Confiance : moyenne. Étape g : à faire (`config/crash-oai-identify.json` prête).
+
+## Crash test (étape g)
+
+Crash test fait le 2026-11-14 : crash-oai-identify sur services.kb.nl : aucun blocage jusqu'à 200 req/min (plafond 200 req/min).
+Journal : `tests/crash/kb-nl.log`. Un test « sans blocage » n'est pas une preuve d'illimitation au-delà du plafond.
