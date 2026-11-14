@@ -37,3 +37,14 @@ Ce fichier **complète** `VERIFICATIONS-CHATGPT-2026-11-14-C.md` et `-D.md`. Les
 - **T2** : obtenir le texte **2026** de la déclaration IA NLS (pas la republication CENL 2024).
 - **T3** : arbitrer le périmètre de licence d'Edinburgh et la cohérence de l'étape g.
 - **T4** : intégrer ces distinctions dans `data.json` et le classeur **dans une passe locale validée**, sans réécrire silencieusement la source de vérité ni casser la régénération Excel.
+
+## Contrôle du statut g d'Édimbourg : décalage **confirmé dans les fichiers**
+
+Vérification du 14/11/2026 via le connecteur GitHub des **preuves originales** sur la branche source :
+
+- `institutions/edinburgh-art/CONSIGNE-ET-SUIVI.md`, section `### g) Crash test progressif` : case `[x] Fait`, avec références aux deux fichiers de preuve.
+- `institutions/edinburgh-art/tests/crash/edinburgh-art.log` : quatre paliers (6, 10, 50, 200 req/min), de 06:55:58 à 07:07:42 UTC ; à 200 req/min, **599 réponses HTTP 200 et une requête sans code** sur 600. Le libellé « aucun blocage » du journal doit rester une observation bornée à ces essais, **pas une affirmation d'absence de quota**.
+- `institutions/edinburgh-art/tests/crash/edinburgh-art-manifeste-record-112492.json` : confirme les chiffres de la sonde, mais pas l'absence de protection au-delà du test.
+- `institutions/edinburgh-art/data.json` : champ `statut_audit` encore « audit a–f complet ; g à faire » ; **statut en retard par rapport à la checklist et aux logs**.
+
+**Décision d'intégration recommandée** : corriger le `statut_audit` sur la source canonique en citant ces preuves, puis régénérer le benchmark par le pipeline ; ne pas relancer le test g, qui risquerait d'ajouter du trafic sans information nouvelle.
