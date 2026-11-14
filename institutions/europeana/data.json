@@ -161,5 +161,12 @@
       "preuve": "institutions/europeana/fiche.md"
     }
   ],
-  "donnees_a_revalider": false
+  "donnees_a_revalider": false,
+  "a_verifier_manuellement": [
+    {
+      "url": "https://pro.europeana.eu/page/apis",
+      "pourquoi": "403 anti-bot",
+      "a_chercher": "Limites de la clé API (requêtes/jour ?) et conditions d'usage des API Search, Record, IIIF"
+    }
+  ]
 }

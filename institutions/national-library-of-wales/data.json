@@ -123,5 +123,22 @@
   "conclusion_quota": "Aucun quota de débit ni en-tête. Taille d'image plafonnée à 1200×1200 (confirmé) ; Crawl-delay 10 s sur le catalogue ; IIIF déplacé vers iiif.llyfrgell.cymru.",
   "classe_quota": "limite de taille chiffrée, pas de quota de débit",
   "confiance": "moyenne",
-  "notes": "www.library.wales en 403 (lu dans la Wayback). PDF de politique d'accès non lu. Anciens hôtes damsssl/dams redirigent vers iiif.llyfrgell.cymru."
+  "notes": "www.library.wales en 403 (lu dans la Wayback). PDF de politique d'accès non lu. Anciens hôtes damsssl/dams redirigent vers iiif.llyfrgell.cymru.",
+  "a_verifier_manuellement": [
+    {
+      "url": "https://www.library.wales/copyright",
+      "pourquoi": "403 anti-bot ; lue par Wayback (09/10/2026)",
+      "a_chercher": "Règles d'accès automatisé, débit, API (aucune dans la copie)"
+    },
+    {
+      "url": "https://www.library.wales/fileadmin/docs_gwefan/new_structure/about_nlw/about_us/governance/corporate_documents/Access_to_Collections_Items_Policy.pdf",
+      "pourquoi": "403 ; PDF illisible par l'outil Wayback",
+      "a_chercher": "Le PDF « Access to Collection Items Policy » mentionne-t-il l'accès numérique, le moissonnage, des limites ?"
+    },
+    {
+      "url": "https://www.library.wales/robots.txt",
+      "pourquoi": "403 anti-bot",
+      "a_chercher": "robots.txt actuel"
+    }
+  ]
 }

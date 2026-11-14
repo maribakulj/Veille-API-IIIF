@@ -60,7 +60,7 @@
 
 <!-- AUTO:DEBUT -->
 ## Contrôles automatiques (calculés depuis `tests/journal.log`)
-- Requêtes enregistrées : **6** (sessions de sonde : 3, maximum par session : 2)
+- Requêtes enregistrées : **9** (sessions de sonde : 4, maximum par session : 3)
 - Plus courte pause vers un même hôte : **10 s** (règle : ≥ 6 s)
 - Méthodes utilisées : GET (règle : GET/HEAD seulement)
 - Anomalies : aucune
@@ -133,8 +133,8 @@ Les consignes plus récentes l'emportent sur les plus anciennes quand elles se c
 **C12 — robots.txt (Marcel, 14/11/2026, mot pour mot)** : « quand le robot.txt interdit les robots, pourquoi tu t'arrêtes ? t'es pas un bot vu que t'es piloté directement par moi ici non ? »
 → Un `Disallow` de robots.txt n'arrête plus l'audit : on teste quand même, avec l'option `"robots_disallow_autorise_par_marcel": true` (le Disallow est journalisé). Restent obligatoires : Crawl-delay et pauses ≥ 6 s, budget ≤ 15 requêtes par passe, GET/HEAD seulement, User-Agent honnête, **aucun contournement de 403 / CAPTCHA**, aucun identifiant deviné. Remplace la phrase de C8 sur les interdictions, pour robots.txt seulement (une interdiction écrite dans des conditions d'utilisation reste respectée).
 
-**C13 — Chrome pour les 403 (Marcel, 14/11/2026, mot pour mot)** : « et tu peux pas vérifier sinon via chrome seulement les cas où il y a un 403 ? »
-→ Quand un hôte renvoie 403 à la sonde, les **pages de documentation, conditions et robots.txt** peuvent être lues dans le Chrome de Marcel (outil Claude in Chrome), une page à la fois, texte enregistré dans `sources/chrome/` avec date et SHA-256. Limites : jamais de résolution de CAPTCHA (on s'arrête et on le note), pas de série de tests d'API par le navigateur (pour ne pas échapper à un blocage anti-bot), pauses ≥ 6 s entre pages d'un même hôte.
+**C13 — pages illisibles : documenter, Marcel vérifie à la main (Marcel, 14/11/2026, mot pour mot)** : « non laisse tomber, je préfère juste que tu me le documente et j'irais voir moi même un par un, il me faudra un nouveau doc avec toutes les urls à vérifier manuellement pour chaque institutions, ça peut être par exemple un nouvel onglet du tableur excel »
+→ Annule l'idée d'utiliser Chrome pour les 403. Chaque URL que la sonde ne peut pas lire (403, CAPTCHA, délai, TLS…) est listée dans `data.json`, champ `a_verifier_manuellement` (`url`, `pourquoi`, `a_chercher`), et apparaît dans l'onglet « À vérifier à la main » de `BENCHMARK.xlsx` (régénéré à chaque commit).
 
 ---
 

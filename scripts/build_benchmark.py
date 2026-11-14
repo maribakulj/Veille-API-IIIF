@@ -263,6 +263,22 @@ def feuille_blocages(wb, D):
     ecrire(ws, 2, lignes or [["(aucun)"] + [""] * 5])
 
 
+def feuille_manuel(wb, D):
+    """Onglet de travail de Marcel : URL que la sonde n'a pas pu lire (403, CAPTCHA, délai…)."""
+    ws = wb.create_sheet("À vérifier à la main")
+    entete(ws, 1, ["Institution", "GLAM", "URL à ouvrir", "Pourquoi je n'ai pas pu la vérifier", "Ce qu'il faut chercher", "Résultat (Marcel)", "Fait ?"],
+           [30, 11, 60, 40, 55, 40, 8])
+    lignes, liens = [], []
+    for d in D:
+        for m in d.get("a_verifier_manuellement", []):
+            lignes.append([d.get("nom", d["slug"]), d.get("classeur_id"), m.get("url"), m.get("pourquoi"), m.get("a_chercher"), "", ""])
+    ecrire(ws, 2, lignes or [["(aucune)"] + [""] * 6])
+    for n, l in enumerate(lignes, start=2):
+        if l[2] and str(l[2]).startswith("http"):
+            c = ws.cell(row=n, column=3); c.hyperlink = l[2]; c.font = Font(color="0563C1", underline="single")
+    ws.auto_filter.ref = f"A1:G{max(len(lignes), 1) + 1}"
+
+
 def feuille_sources(wb, D):
     ws = wb.create_sheet("Sources")
     entete(ws, 1, ["Institution", "URL", "Date de lecture", "Étiquette", "Preuve (fichier)", "Preuve présente ?"],
@@ -319,6 +335,7 @@ def main():
     feuille_limites(wb, D)
     feuille_entetes(wb, D)
     feuille_blocages(wb, D)
+    feuille_manuel(wb, D)
     feuille_sources(wb, D)
     feuille_web(wb, D)
     feuille_preuves(wb, D)

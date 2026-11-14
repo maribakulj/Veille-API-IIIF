@@ -162,5 +162,12 @@
       "preuve": "institutions/rijksmuseum/sources/v2/text/06.txt"
     }
   ],
-  "donnees_a_revalider": false
+  "donnees_a_revalider": false,
+  "a_verifier_manuellement": [
+    {
+      "url": "https://rijks-web.azurewebsites.net/en/data/terms-of-use",
+      "pourquoi": "403 ; ancienne page de conditions (préproduction Azure)",
+      "a_chercher": "Conditions de l'ancienne API : « fair use », capacité des serveurs ; toujours applicables ?"
+    }
+  ]
 }

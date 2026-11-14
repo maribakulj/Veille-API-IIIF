@@ -162,5 +162,12 @@
       "preuve": "institutions/eap-bl/fiche.md"
     }
   ],
-  "type": "Institution"
+  "type": "Institution",
+  "a_verifier_manuellement": [
+    {
+      "url": "https://iiif.bl.uk/",
+      "pourquoi": "403 anti-bot",
+      "a_chercher": "Doc IIIF de l'Endangered Archives Programme, limites éventuelles"
+    }
+  ]
 }

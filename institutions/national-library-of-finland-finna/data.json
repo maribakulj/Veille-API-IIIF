@@ -81,5 +81,32 @@
   "conclusion_quota": "Aucun chiffre de débit publié ; api.finna.fi/robots.txt : Disallow: / pour tous les robots ; inscription possible en cas de charge excessive ; Crawl-delay 1 s sur le site.",
   "classe_quota": "aucun quota trouvé (API exclue aux robots)",
   "confiance": "faible à moyenne",
-  "notes": "Hôtes en 403 pour la sonde ; lecture via Wayback ; doc Swagger non lue."
+  "notes": "Hôtes en 403 pour la sonde ; lecture via Wayback ; doc Swagger non lue.",
+  "a_verifier_manuellement": [
+    {
+      "url": "https://api.finna.fi/robots.txt",
+      "pourquoi": "403 anti-bot ; lu seulement dans une copie Wayback du 31/05/2025 (Disallow: / pour tous les robots)",
+      "a_chercher": "Contenu actuel du robots.txt de l'API"
+    },
+    {
+      "url": "https://api.finna.fi/v1?swagger",
+      "pourquoi": "403 anti-bot ; aucune copie Wayback",
+      "a_chercher": "Spécification Swagger : paramètres, limites (limit 0–100 ?, 100 000 résultats ?), mention de quota ou de 429"
+    },
+    {
+      "url": "https://www.kiwi.fi/spaces/Finna/pages/440828359/Finna+API+Documentation+In+English",
+      "pourquoi": "403 anti-bot ; lue seulement par Wayback (26/01/2026)",
+      "a_chercher": "Page « Finna API (in English) » (doc principale) et « API use recommendations » : débit conseillé, limites"
+    },
+    {
+      "url": "https://www.kiwi.fi/display/Finna/Finna+API+Terms+of+Use",
+      "pourquoi": "403 anti-bot ; lue par Wayback (12/06/2025)",
+      "a_chercher": "Texte actuel : inscription ou limitation « to avoid excessive server load » toujours en vigueur ?"
+    },
+    {
+      "url": "https://www.finna.fi/robots.txt",
+      "pourquoi": "403 anti-bot ; lu par Wayback (02/05/2026)",
+      "a_chercher": "Crawl-delay: 1 toujours présent ?"
+    }
+  ]
 }

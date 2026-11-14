@@ -23,5 +23,12 @@
   "type": "Institution",
   "sources": [],
   "web": [],
-  "donnees_a_revalider": true
+  "donnees_a_revalider": true,
+  "a_verifier_manuellement": [
+    {
+      "url": "https://digi.vatlib.it/",
+      "pourquoi": "erreur TLS (certificat) depuis la sonde",
+      "a_chercher": "Conditions d'usage, IIIF, limites de la Bibliothèque vaticane"
+    }
+  ]
 }

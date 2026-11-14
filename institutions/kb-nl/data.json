@@ -23,5 +23,12 @@
   "type": "Institution",
   "sources": [],
   "web": [],
-  "donnees_a_revalider": true
+  "donnees_a_revalider": true,
+  "a_verifier_manuellement": [
+    {
+      "url": "https://iiif.kb.nl/",
+      "pourquoi": "DNS : l'hôte ne se résout pas",
+      "a_chercher": "Adresse actuelle du service IIIF de la KB et sa documentation"
+    }
+  ]
 }

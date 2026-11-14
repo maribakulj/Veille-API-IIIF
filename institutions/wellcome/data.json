@@ -191,5 +191,17 @@
       "preuve": "institutions/wellcome/sources/wayback/stacks-blog.extraits-wayback.md"
     }
   ],
-  "donnees_a_revalider": false
+  "donnees_a_revalider": false,
+  "a_verifier_manuellement": [
+    {
+      "url": "https://stacks.wellcomecollection.org/crawlers-floods-and-fleets-a-year-of-keeping-our-digital-collections-open-10af777199c4",
+      "pourquoi": "403 (Medium) ; lue par Wayback (04/11/2026)",
+      "a_chercher": "Chiffres exacts de budgets par minute, limites par adresse sur les images pleine taille, politique de robots"
+    },
+    {
+      "url": "https://stacks.wellcomecollection.org/ten-years-and-counting-wellcome-collection-and-iiif-9015cdcdefd8",
+      "pourquoi": "403 (Medium) ; lue par Wayback (18/10/2026)",
+      "a_chercher": "Mentions de limites ou de règles d'usage de l'IIIF"
+    }
+  ]
 }

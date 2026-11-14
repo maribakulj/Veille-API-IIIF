@@ -30,5 +30,17 @@
   "type": "Institution",
   "sources": [],
   "web": [],
-  "donnees_a_revalider": true
+  "donnees_a_revalider": true,
+  "a_verifier_manuellement": [
+    {
+      "url": "https://iiif.bl.uk/",
+      "pourquoi": "403 anti-bot",
+      "a_chercher": "Documentation IIIF de la BL, robots.txt, limites"
+    },
+    {
+      "url": "https://api.bl.uk/",
+      "pourquoi": "DNS : l'hôte ne se résout pas",
+      "a_chercher": "Existe-t-il encore une API publique ? Adresse actuelle"
+    }
+  ]
 }

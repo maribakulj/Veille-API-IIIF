@@ -109,5 +109,27 @@
   ],
   "classeur_id": "GLAM-004",
   "type": "Institution",
-  "donnees_a_revalider": false
+  "donnees_a_revalider": false,
+  "a_verifier_manuellement": [
+    {
+      "url": "https://cudl.lib.cam.ac.uk/terms/",
+      "pourquoi": "403 CloudFront ; lue par Wayback (19/11/2025)",
+      "a_chercher": "Conditions : interdiction d'« extraire systématiquement » toujours là ? Règle sur l'IIIF ou les API ?"
+    },
+    {
+      "url": "https://cudl.lib.cam.ac.uk/about",
+      "pourquoi": "403 CloudFront",
+      "a_chercher": "Page « About » : accès par API « such as IIIF », limites éventuelles"
+    },
+    {
+      "url": "https://cudl.lib.cam.ac.uk/help/",
+      "pourquoi": "403 CloudFront ; lue par Wayback (01/05/2026)",
+      "a_chercher": "FAQ à jour : formats, API, téléchargement"
+    },
+    {
+      "url": "https://cudl.lib.cam.ac.uk/robots.txt",
+      "pourquoi": "403 CloudFront",
+      "a_chercher": "robots.txt actuel"
+    }
+  ]
 }

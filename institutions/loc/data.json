@@ -101,5 +101,17 @@
   "type": "Institution",
   "sources": [],
   "web": [],
-  "donnees_a_revalider": true
+  "donnees_a_revalider": true,
+  "a_verifier_manuellement": [
+    {
+      "url": "https://www.loc.gov/apis/",
+      "pourquoi": "403 anti-bot",
+      "a_chercher": "Page « Working within limits » : valeurs exactes (20/10 s ? 80/min ?), blocage de 1 h / 72 h"
+    },
+    {
+      "url": "https://lccn.loc.gov/",
+      "pourquoi": "délai dépassé",
+      "a_chercher": "Disponibilité et conditions du service lccn.loc.gov"
+    }
+  ]
 }

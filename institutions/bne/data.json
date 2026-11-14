@@ -23,5 +23,17 @@
   "type": "Institution",
   "sources": [],
   "web": [],
-  "donnees_a_revalider": true
+  "donnees_a_revalider": true,
+  "a_verifier_manuellement": [
+    {
+      "url": "https://datos.bne.es/",
+      "pourquoi": "403 anti-bot",
+      "a_chercher": "Page d'aide / conditions / API de datos.bne.es : limites de débit"
+    },
+    {
+      "url": "https://bdh.bne.es/",
+      "pourquoi": "403 anti-bot",
+      "a_chercher": "Conditions d'utilisation de la Biblioteca Digital Hispánica, IIIF, robots.txt"
+    }
+  ]
 }

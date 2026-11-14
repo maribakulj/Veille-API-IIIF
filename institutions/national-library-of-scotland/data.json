@@ -128,5 +128,22 @@
   "conclusion_quota": "Aucune limite sur l'IIIF : moissonnage prévu via view.nls.uk/collections/top.json (document officiel du NLS). Quota chiffré hors IIIF : 100 000 tuiles/mois (MapTiler). CAPTCHA sur les sites de pages ; robots d'IA nommés bloqués.",
   "classe_quota": "aucun quota IIIF trouvé (moissonnage prévu ; CAPTCHA sur les pages)",
   "confiance": "moyenne",
-  "notes": "digital.nls.uk et maps.nls.uk : CAPTCHA 405, lus dans la Wayback. FAQ maps non lue."
+  "notes": "digital.nls.uk et maps.nls.uk : CAPTCHA 405, lus dans la Wayback. FAQ maps non lue.",
+  "a_verifier_manuellement": [
+    {
+      "url": "https://maps.nls.uk/help/",
+      "pourquoi": "CAPTCHA « Human Verification » (405) ; aucune copie Wayback depuis 2024",
+      "a_chercher": "FAQ : règles de téléchargement, d'usage des API, de débit"
+    },
+    {
+      "url": "https://digital.nls.uk/robots.txt",
+      "pourquoi": "CAPTCHA (405)",
+      "a_chercher": "robots.txt actuel (Crawl-delay, Disallow)"
+    },
+    {
+      "url": "https://maps.nls.uk/projects/api/",
+      "pourquoi": "CAPTCHA ; lue par Wayback (14/11/2025)",
+      "a_chercher": "Quota MapTiler (100 000 tuiles/mois gratuit) toujours valable ? Existe-t-il une limite pour le service IIIF ?"
+    }
+  ]
 }
