@@ -19,3 +19,8 @@ Aucune plainte de 429/blocage ni issue GitHub sur e-rara trouvée. Un billet de 
 
 ## Conclusion
 Aucun quota ni limite de débit publié ; pas de page de conditions d'usage sur l'automatisation. Seuls éléments écrits : robots.txt restrictif, paquets OAI de 10 records, timeouts du format mets. Pourquoi pas publié : hypothèse (non vérifiée) que la plateforme se protège par un défi JavaScript sur les pages plutôt que par des quotas annoncés. Les interfaces de données restent ouvertes sans en-tête de limite. Confiance moyenne (wiki actuel non lisible).
+
+## Crash test (étape g)
+
+Crash test fait le 2026-11-14 : manifeste-6341733 sur www.e-rara.ch : aucun blocage jusqu'à 200 req/min (plafond 200 req/min).
+Journal : `tests/crash/e-rara-eth-bibliothek-et-partenaires.log`. Un test « sans blocage » n'est pas une preuve d'illimitation au-delà du plafond.
