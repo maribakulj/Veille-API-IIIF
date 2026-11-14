@@ -4,3 +4,12 @@
 # corps enregistré : tests/raw/npm-p1-manifeste-2383.body (6401 octets lus)
 2026-11-14T03:44:03Z | npm-p1-manifeste-2383-bis | https://digitalarchive.npm.gov.tw/Integrate/GetJson?cid=2383&dept=U | HEAD | 555 ERREUR_SERVEUR | aucun en-tête de limite | taille≥0 | corps: 
 # Fin 2026-11-14T03:44:03Z — 3 requête(s) envoyée(s)
+# Session 2026-11-14T03:44:57Z — configuration npm-passe2-images.json — sonde probe.py au commit 360862b
+2026-11-14T03:44:58Z | robots.txt:digitalarchive.npm.gov.tw | https://digitalarchive.npm.gov.tw/robots.txt | GET | 200 | 0 règle(s) pour « * »
+2026-11-14T03:45:05Z | npm-p2-annotations-2383 | https://digitalarchive.npm.gov.tw/Integrate/GetJsonOtherContent?server=iiifod&n1=K1F&item=K1F000001N000000000PAA&ObjectID=2383&Dept=U | GET | 200 OK | aucun en-tête de limite | taille≥0 | corps: 
+2026-11-14T03:45:26Z | robots.txt:iiifod.npm.gov.tw | https://iiifod.npm.gov.tw/robots.txt | GET | ERREUR_RÉSEAU | TimeoutError : tout est traité comme interdit
+2026-11-14T03:45:26Z | npm-p2-info-json-PAA | robots.txt interdit https://iiifod.npm.gov.tw/iiif/2/K1F%2FK1F000001N000000000PAA/info.json (Disallow: /) ; lancé car autorisé par Marcel (C12)
+2026-11-14T03:45:52Z | npm-p2-info-json-PAA | https://iiifod.npm.gov.tw/iiif/2/K1F%2FK1F000001N000000000PAA/info.json | GET | ERREUR_RÉSEAU | TimeoutError: The read operation timed out
+2026-11-14T03:45:52Z | npm-p2-vignette-PAA | robots.txt interdit https://iiifod.npm.gov.tw/iiif/2/K1F%2FK1F000001N000000000PAA/full/,300/0/default.jpg (Disallow: /) ; lancé car autorisé par Marcel (C12)
+2026-11-14T03:46:19Z | npm-p2-vignette-PAA | https://iiifod.npm.gov.tw/iiif/2/K1F%2FK1F000001N000000000PAA/full/,300/0/default.jpg | GET | ERREUR_RÉSEAU | TimeoutError: The read operation timed out
+# Fin 2026-11-14T03:46:19Z — 5 requête(s) envoyée(s)
