@@ -1,0 +1,127 @@
+{
+  "@context" : "http://iiif.io/api/presentation/2/context.json",
+  "@type" : "sc:Manifest",
+  "@id" : "https://www.davidrumsey.com/luna/servlet/iiif/m/RUMSEY~8~1~305711~90076087/manifest",
+  "label" : "Pianta topografica di Roma",
+  "attribution" : "David Rumsey Historical Map Collection",
+  "service" : {
+    "@context" : "http://iiif.io/api/search/1/context.json",
+    "@id" : "https://www.davidrumsey.com/luna/servlet/iiif/services/RUMSEY~8~1~305711~90076087/search",
+    "profile" : "http://iiif.io/api/search/1/search"
+  },
+  "sequences" : [ {
+    "@type" : "sc:Sequence",
+    "canvases" : [ {
+      "@id" : "https://www.davidrumsey.com/luna/servlet/iiif/m/RUMSEY~8~1~305711~90076087/canvas/c1",
+      "@type" : "sc:Canvas",
+      "label" : "Pianta topografica di Roma",
+      "description" : "",
+      "metadata" : [ {
+        "label" : "Author",
+        "value" : "Italy. Direzione Generale del, Censo"
+      }, {
+        "label" : "Date",
+        "value" : "1866"
+      }, {
+        "label" : "Short Title",
+        "value" : "Pianta topografica di Roma"
+      }, {
+        "label" : "Publisher",
+        "value" : "Direzione Generale del, Censo"
+      }, {
+        "label" : "Publisher Location",
+        "value" : "Rome"
+      }, {
+        "label" : "Type",
+        "value" : "Separate Map"
+      }, {
+        "label" : "Obj Height cm",
+        "value" : "120"
+      }, {
+        "label" : "Obj Width cm",
+        "value" : "159"
+      }, {
+        "label" : "Scale 1",
+        "value" : "4,000"
+      }, {
+        "label" : "Note",
+        "value" : "Topographic map of Rome, dissected and mounted on linen, 120 x 159, folded to 21x27. Published by the Directorate, General of the Census and updated in 1866. Relief shown by hachures. Includes index to places and districts. Shows 14 districts, names of streets, public buildings, landmarks, plazas, churches, rivers, drainage, fortress and other points of interest. Some buildings shown pictorially."
+      }, {
+        "label" : "City",
+        "value" : "Rome (Italy)"
+      }, {
+        "label" : "Full Title",
+        "value" : "Pianta topografica di Roma. Publicata della Direzione, Generale del, Censo ed aggiornata a tutto il ccorrente anno MDCCCLXVI (1866)."
+      }, {
+        "label" : "List No",
+        "value" : "11956.000"
+      }, {
+        "label" : "Publication Author",
+        "value" : "Italy. Direzione Generale del, Censo"
+      }, {
+        "label" : "Pub Date",
+        "value" : "1866"
+      }, {
+        "label" : "Pub Title",
+        "value" : "Pianta topografica di Roma. Publicata della Direzione, Generale del, Censo ed aggiornata a tutto il ccorrente anno MDCCCLXVI (1866)."
+      }, {
+        "label" : "Pub Note",
+        "value" : "See note field above."
+      }, {
+        "label" : "Pub List No",
+        "value" : "11956.000"
+      }, {
+        "label" : "Pub Type",
+        "value" : "Separate Map"
+      }, {
+        "label" : "Pub Height cm",
+        "value" : "120"
+      }, {
+        "label" : "Pub Width cm",
+        "value" : "159"
+      }, {
+        "label" : "Image No",
+        "value" : "11956000.jp2"
+      }, {
+        "label" : "Download 1",
+        "value" : "<a href=https://www.davidrumsey.com/rumsey/download.pl?image=/179/11956000.jp2 target=_blank>Full Image Download in JP2 Format</a>"
+      }, {
+        "label" : "Download 2",
+        "value" : "<a href=\"https://www.extensis.com/support/geoviewer-9\" target=\"_blank\">GeoViewer for JP2 and SID files</a>"
+      }, {
+        "label" : "Authors",
+        "value" : "Italy. Direzione Generale del, Censo"
+      } ],
+      "thumbnail" : {
+        "@id" : "https://www.davidrumsey.com/luna/servlet/iiif/RUMSEY~8~1~305711~90076087/full/!96,96/0/default.jpg",
+        "format" : "image/jpeg"
+      },
+      "images" : [ {
+        "@type" : "oa:Annotation",
+        "motivation" : "sc:painting",
+        "resource" : {
+          "@id" : "https://www.davidrumsey.com/luna/servlet/iiif/RUMSEY~8~1~305711~90076087/full/!1024,1024/0/default.jpg",
+          "@type" : "dctypes:Image",
+          "service" : {
+            "@context" : "http://iiif.io/api/image/2/context.json",
+            "@id" : "https://www.davidrumsey.com/luna/servlet/iiif/RUMSEY~8~1~305711~90076087",
+            "profile" : "http://iiif.io/api/image/2/level1.json",
+            "protocol" : "http://iiif.io/api/image"
+          },
+          "format" : "image/jpeg",
+          "width" : 38300,
+          "height" : 28980
+        },
+        "on" : "https://www.davidrumsey.com/luna/servlet/iiif/m/RUMSEY~8~1~305711~90076087/canvas/c1"
+      } ],
+      "otherContent" : [ "https://www.davidrumsey.com/luna/servlet/iiif/m/RUMSEY~8~1~305711~90076087/list/luna" ],
+      "width" : 38300,
+      "height" : 28980
+    } ]
+  } ],
+  "logo" : {
+    "@id" : "https://www.davidrumsey.com/luna/images/LUNAIIIF80.png",
+    "format" : "image/png"
+  },
+  "related" : "https://www.davidrumsey.com/luna/servlet/detail/RUMSEY~8~1~305711~90076087"
+}

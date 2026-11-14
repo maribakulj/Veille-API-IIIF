@@ -1,0 +1,12 @@
+{
+  "slug": "david-rumsey-map-collection",
+  "endpoint": {
+    "id": "image-info-json",
+    "url": "https://www.davidrumsey.com/luna/servlet/iiif/RUMSEY~8~1~305711~90076087/info.json",
+    "method": "GET"
+  },
+  "limite_documentee_req_min": null,
+  "source_limite": "aucune limite de débit documentée ; seul le Crawl-Delay 500 s de https://www.davidrumsey.com/robots.txt (consigne de politesse, non convertie en limite) ; un en-tête ratelimit-limit: 5.0 observé sur le manifeste seulement",
+  "duree_palier_s": 180,
+  "note": "info.json d'image IIIF 2 (petit JSON), 200 dans le journal (image-info-json, 2026-11-14T03:13:09Z). Manifeste et miniature évités. Attention : Crawl-Delay 500 s déclaré, et ratelimit-limit: 5.0 vu sur le manifeste."
+}

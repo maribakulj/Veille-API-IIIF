@@ -4,10 +4,208 @@
   "pays": "États-Unis",
   "classeur_id": "GLAM-055",
   "type": "Institution",
-  "statut_audit": "à faire",
-  "limites_documentees": [],
-  "en_tetes_observes": [],
-  "blocages": [],
-  "sources": [],
-  "web": []
+  "statut_audit": "audit a–f complet ; hôte principal en 403 ; g impossible",
+  "limites_documentees": [
+    {
+      "nature": "Aucune limite chiffrée",
+      "perimetre": "Digital Library et site Falvey",
+      "valeur": "aucune",
+      "fenetre": "–",
+      "effet": "–",
+      "verification": "officielle (Wayback), lue en entier",
+      "source": "https://web.archive.org/web/20250601165516/https://digital.library.villanova.edu/",
+      "date": "2026-11-14"
+    },
+    {
+      "nature": "Crawl-delay (robots.txt)",
+      "perimetre": "library.villanova.edu (site web de la bibliothèque, pas la bibliothèque numérique)",
+      "valeur": "Crawl-delay: 10 pour User-agent *",
+      "fenetre": "secondes entre requêtes",
+      "effet": "consigne de politesse",
+      "verification": "officielle, lue en entier",
+      "source": "https://library.villanova.edu/robots.txt",
+      "date": "2026-11-14"
+    }
+  ],
+  "en_tetes_observes": [
+    {
+      "hote": "digital.library.villanova.edu",
+      "en_tete": "server: Microsoft-Azure-Application-Gateway/v2",
+      "code": "403",
+      "preuve": "institutions/villanova-university-digital-library/tests/raw/accueil.headers.txt"
+    }
+  ],
+  "blocages": [
+    {
+      "date": "2026-11-14",
+      "hote": "digital.library.villanova.edu",
+      "code": "403",
+      "nature": "refus d'accès (Azure Application Gateway, « We could not process this request »)",
+      "suite": "arrêt de l'hôte, URL listée pour vérification manuelle"
+    }
+  ],
+  "sources": [
+    {
+      "url": "https://digital.library.villanova.edu/robots.txt",
+      "date": "2026-11-14",
+      "etiquette": "officielle",
+      "preuve": "institutions/villanova-university-digital-library/sources/a/SHA256SUMS"
+    },
+    {
+      "url": "https://web.archive.org/web/20250601165516/https://digital.library.villanova.edu/",
+      "date": "2026-11-14",
+      "etiquette": "officielle (Wayback)",
+      "preuve": "institutions/villanova-university-digital-library/sources/wayback/accueil-20250601.md"
+    },
+    {
+      "url": "https://web.archive.org/web/20240727130210/https://digital.library.villanova.edu/Item/vudl:62526",
+      "date": "2026-11-14",
+      "etiquette": "officielle (Wayback)",
+      "preuve": "institutions/villanova-university-digital-library/sources/wayback/item-vudl62526-20240727.md"
+    },
+    {
+      "url": "https://library.villanova.edu/robots.txt",
+      "date": "2026-11-14",
+      "etiquette": "officielle",
+      "preuve": "institutions/villanova-university-digital-library/sources/b/SHA256SUMS"
+    },
+    {
+      "url": "https://library.villanova.edu/about-falvey/library-organization/falvey-departments/distinctive-collections-digital-engagement",
+      "date": "2026-11-14",
+      "etiquette": "officielle",
+      "preuve": "institutions/villanova-university-digital-library/sources/c/SHA256SUMS"
+    },
+    {
+      "url": "https://library.villanova.edu/digital-scholarship/services",
+      "date": "2026-11-14",
+      "etiquette": "officielle",
+      "preuve": "institutions/villanova-university-digital-library/sources/c/SHA256SUMS"
+    },
+    {
+      "url": "https://guides.iiif.io/guides/digital.library.villanova.edu/",
+      "date": "2026-11-14",
+      "etiquette": "tiers",
+      "preuve": "institutions/villanova-university-digital-library/sources/wayback/guide-iiif-villanova.md"
+    }
+  ],
+  "web": [
+    {
+      "categorie": "institution",
+      "url": "https://library.villanova.edu/robots.txt",
+      "date": "2026-11-14",
+      "etiquette": "officielle",
+      "citation": "« User-agent: * Crawl-delay: 10 » ; nombreux robots d'IA en Disallow: / (ClaudeBot, GPTBot, CCBot…)",
+      "preuve": "institutions/villanova-university-digital-library/sources/b/raw/01.html"
+    },
+    {
+      "categorie": "utilisateurs",
+      "aucun_resultat": true,
+      "requete": "Villanova digital library 403 blocked OR rate limit OR bots OR crawler Falvey digital library",
+      "date": "2026-11-14",
+      "etiquette": "–",
+      "citation": "(résumé de moteur, non vérifié) aucune plainte d'utilisateur ni mention de blocage propre à Villanova ; seulement des articles généraux sur les robots d'IA dans d'autres universités",
+      "preuve": "institutions/villanova-university-digital-library/fiche.md"
+    },
+    {
+      "categorie": "tickets",
+      "url": "https://gitlab.galileo.usg.edu/DLG/dlg-exhibits/-/issues/62",
+      "date": "2026-11-14",
+      "etiquette": "tiers",
+      "citation": "« it sort of worked. But when viewing the items, it would not page through the images. » (manifeste Villanova ajouté à Spotlight ; aucune limite citée)",
+      "preuve": "institutions/villanova-university-digital-library/sources/wayback/manifeste-cite-par-tiers.md"
+    },
+    {
+      "categorie": "tickets",
+      "url": "https://github.com/FalveyLibraryTechnology/VuDL",
+      "date": "2026-11-14",
+      "etiquette": "tiers",
+      "citation": "README de VuDL lu : Cantaloupe « or another IIIF image server » ; aucune mention de limite, de débit ni de bots",
+      "preuve": "institutions/villanova-university-digital-library/fiche.md"
+    },
+    {
+      "categorie": "presentations",
+      "aucun_resultat": true,
+      "requete": "Villanova Falvey Library VuDL VuFind digital library presentation IIIF Cantaloupe",
+      "date": "2026-11-14",
+      "etiquette": "–",
+      "citation": "(résumé de moteur, non vérifié) présentations et billets sur VuFind/VuDL ; aucune politique d'API, de débit ou de bots trouvée",
+      "preuve": "institutions/villanova-university-digital-library/fiche.md"
+    }
+  ],
+  "contact": "digitallibrary@villanova.edu",
+  "conclusion_quota": "Aucun quota publié. digital.library.villanova.edu répond 403 (Azure Application Gateway) dès robots.txt et la page d'accueil : refus d'accès à notre client, pas un quota. Aucune API testable.",
+  "classe_quota": "inaccessible (403)",
+  "confiance": "faible",
+  "notes": "Hôte de l'API (digital.library.villanova.edu, VuDL/VuFind) en 403 : arrêt, pas de contournement. URL de manifeste citée par un tiers (ticket GitLab DLG) non testée. robots.txt de library.villanova.edu : Crawl-delay 10 pour *, blocage de nombreux bots d'IA ; ne couvre pas l'hôte de la bibliothèque numérique.",
+  "a_verifier_manuellement": [
+    {
+      "url": "https://digital.library.villanova.edu/robots.txt",
+      "pourquoi": "403 pour notre client (Azure Application Gateway) dès la première requête",
+      "a_chercher": "Contenu du robots.txt, Crawl-delay, politique de moissonnage"
+    },
+    {
+      "url": "https://digital.library.villanova.edu/Item/vudl:92879/Manifest",
+      "pourquoi": "URL de manifeste IIIF citée par un ticket tiers ; hôte en 403, non testée",
+      "a_chercher": "En-têtes de réponse (RateLimit-*, Retry-After), taille, mention de limites ; lien IIIF sur une page d'objet (bouton partager)"
+    },
+    {
+      "url": "https://digital.library.villanova.edu/",
+      "pourquoi": "403 anti-bot sur la page d'accueil",
+      "a_chercher": "Pages « About », aide, conditions d'usage, documentation d'API ou de moissonnage ; flux RSS des nouveautés"
+    }
+  ],
+  "endpoints_documentes": [
+    {
+      "famille": "Manifestes IIIF Presentation (digital.library.villanova.edu/Item/vudl:<id>/Manifest)",
+      "url": "https://digital.library.villanova.edu/Item/vudl:92879/Manifest",
+      "statut": "non_teste",
+      "raison": "hôte en 403 anti-bot dès robots.txt et la page d'accueil (Azure Application Gateway) : arrêt de l'hôte, pas de contournement ; URL citée seulement par un ticket tiers"
+    },
+    {
+      "famille": "Page d'accueil de la bibliothèque numérique",
+      "url": "https://digital.library.villanova.edu/",
+      "statut": "teste",
+      "preuve": "institutions/villanova-university-digital-library/tests/raw/accueil.headers.txt"
+    },
+    {
+      "famille": "Recherche de la bibliothèque numérique (Search/Results?lookfor=)",
+      "url": "https://digital.library.villanova.edu/Search/Results?lookfor=",
+      "statut": "non_teste",
+      "raison": "formulaire de recherche cité dans le texte de la page d'accueil ; hôte en 403 anti-bot : arrêt, pas de contournement, et recherche exclue des tests (coût)"
+    }
+  ],
+  "endpoints_ecartes": [
+    {
+      "url": "https://guides.iiif.io/guides/digital.library.villanova.edu/",
+      "raison": "page de guide tiers (iiif.io) sans URL d'API ; lue et résumée dans sources/wayback/guide-iiif-villanova.md"
+    },
+    {
+      "url": "https://library.villanova.edu/",
+      "raison": "site web de la bibliothèque (page de présentation), pas une API ; téléchargé et lu dans sources/b"
+    },
+    {
+      "url": "https://github.com/FalveyLibraryTechnology/VuDL",
+      "raison": "dépôt de code de la plateforme VuDL, pas une API publique de l'institution ; lu comme source tierce"
+    }
+  ],
+  "hotes_robots": [
+    {
+      "hote": "digital.library.villanova.edu",
+      "resultat": "403 (Azure Application Gateway) : illisible ; aucun test possible sur cet hôte",
+      "preuve": "institutions/villanova-university-digital-library/sources/a/FETCH.log"
+    },
+    {
+      "hote": "library.villanova.edu",
+      "resultat": "200 : Crawl-delay 10 pour *, bots d'IA bloqués",
+      "preuve": "institutions/villanova-university-digital-library/sources/b/FETCH.log"
+    },
+    {
+      "hote": "web.archive.org / guides.iiif.io / gitlab.galileo.usg.edu",
+      "resultat": "hôtes tiers, non institutionnels : robots.txt non pertinent",
+      "preuve": "institutions/villanova-university-digital-library/fiche.md"
+    }
+  ],
+  "g_impossible": {
+    "raison": "Aucun hôte testable : digital.library.villanova.edu répond 403 (Azure Application Gateway) à robots.txt et à la page d'accueil ; pas de contournement, aucun endpoint API documenté en 200."
+  }
 }

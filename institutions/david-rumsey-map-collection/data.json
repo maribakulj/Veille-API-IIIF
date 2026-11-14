@@ -4,10 +4,228 @@
   "pays": "États-Unis",
   "classeur_id": "GLAM-060",
   "type": "Institution",
-  "statut_audit": "à faire",
-  "limites_documentees": [],
-  "en_tetes_observes": [],
+  "statut_audit": "audit a–f complet ; g à faire",
+  "limites_documentees": [
+    {
+      "nature": "Crawl-Delay (robots.txt)",
+      "perimetre": "www.davidrumsey.com, User-agent *",
+      "valeur": "500",
+      "fenetre": "secondes entre requêtes",
+      "effet": "consigne de politesse (non appliquée côté serveur, non vérifiée)",
+      "verification": "officielle, lue en entier",
+      "source": "https://www.davidrumsey.com/robots.txt",
+      "date": "2026-11-14"
+    },
+    {
+      "nature": "Interdictions robots.txt",
+      "perimetre": "/luna/servlet/as/, /luna/servlet/view/search, /luna/servlet/search, export, login, rss, widget, annotation",
+      "valeur": "Disallow",
+      "fenetre": "–",
+      "effet": "consigne de politesse",
+      "verification": "officielle, lue en entier",
+      "source": "https://www.davidrumsey.com/robots.txt",
+      "date": "2026-11-14"
+    },
+    {
+      "nature": "Licence et usage commercial",
+      "perimetre": "images de la collection",
+      "valeur": "Creative Commons ; permission requise pour la vente de reproductions",
+      "fenetre": "–",
+      "effet": "conditions d'usage (pas un débit)",
+      "verification": "officielle, lue en entier",
+      "source": "https://www.davidrumsey.com/about/copyright-and-permissions",
+      "date": "2026-11-14"
+    }
+  ],
+  "en_tetes_observes": [
+    {
+      "hote": "www.davidrumsey.com",
+      "en_tete": "ratelimit-limit: 5.0 ; ratelimit-reset: 1",
+      "code": "200",
+      "preuve": "institutions/david-rumsey-map-collection/tests/raw/manifeste-iiif.headers.txt"
+    }
+  ],
   "blocages": [],
-  "sources": [],
-  "web": []
+  "sources": [
+    {
+      "url": "https://www.davidrumsey.com/robots.txt",
+      "date": "2026-11-14",
+      "etiquette": "officielle",
+      "preuve": "institutions/david-rumsey-map-collection/sources/a/SHA256SUMS"
+    },
+    {
+      "url": "https://www.davidrumsey.com/about",
+      "date": "2026-11-14",
+      "etiquette": "officielle",
+      "preuve": "institutions/david-rumsey-map-collection/sources/a/SHA256SUMS"
+    },
+    {
+      "url": "https://www.davidrumsey.com/about/copyright-and-permissions",
+      "date": "2026-11-14",
+      "etiquette": "officielle",
+      "preuve": "institutions/david-rumsey-map-collection/sources/b/SHA256SUMS"
+    },
+    {
+      "url": "https://davidrumsey.com/help/faq",
+      "date": "2026-11-14",
+      "etiquette": "officielle",
+      "preuve": "institutions/david-rumsey-map-collection/sources/d/SHA256SUMS"
+    },
+    {
+      "url": "https://lunaimaging.atlassian.net/wiki/spaces/V75D/pages/655646/LUNA+Viewer+API+and+IIIF",
+      "date": "2026-11-14",
+      "etiquette": "éditeur (LUNA Imaging)",
+      "preuve": "institutions/david-rumsey-map-collection/sources/c/SHA256SUMS"
+    },
+    {
+      "url": "https://lunaimaging.atlassian.net/wiki/spaces/V73D/pages/2755765/IIIF+in+LUNA",
+      "date": "2026-11-14",
+      "etiquette": "éditeur (LUNA Imaging)",
+      "preuve": "institutions/david-rumsey-map-collection/sources/c/SHA256SUMS"
+    }
+  ],
+  "web": [
+    {
+      "categorie": "institution",
+      "url": "https://www.davidrumsey.com/about/copyright-and-permissions",
+      "date": "2026-11-14",
+      "etiquette": "officielle",
+      "citation": "« For commercial use or commercial republication, contact mailto:carto@davidrumsey.com » ; « This work is licensed under a Creative Commons License. » ; aucune mention de quota ni de bots",
+      "preuve": "institutions/david-rumsey-map-collection/sources/b/text/01.txt"
+    },
+    {
+      "categorie": "utilisateurs",
+      "url": "https://groups.google.com/g/iiif-discuss/c/pZyaxuPoJfY",
+      "date": "2026-11-14",
+      "etiquette": "utilisateur",
+      "citation": "Un utilisateur signale que le manifeste Rumsey est bloqué dans Mirador : redirection vers une page de connexion de Stanford, « No 'Access-Control-Allow-Origin' header is present on the requested resource » (problème de proxy/CORS, pas de quota)",
+      "preuve": "institutions/david-rumsey-map-collection/fiche.md"
+    },
+    {
+      "categorie": "tickets",
+      "aucun_resultat": true,
+      "requete": "davidrumsey.com luna iiif manifest github issue harvest OR download script",
+      "date": "2026-11-14",
+      "etiquette": "–",
+      "citation": "(résumé de moteur, non vérifié) aucun ticket GitHub propre à davidrumsey.com ; seulement des outils génériques de téléchargement IIIF sans mention de limites",
+      "preuve": "institutions/david-rumsey-map-collection/fiche.md"
+    },
+    {
+      "categorie": "presentations",
+      "url": "https://lunaimaging.atlassian.net/wiki/spaces/V75D/pages/655644/Working+with+disparate+IIIF+resources+using+Mirador+2.7",
+      "date": "2026-11-14",
+      "etiquette": "éditeur (LUNA Imaging)",
+      "citation": "« You can get the IIIF URI from the detail view page when you click Share. » ; manifeste Rumsey en exemple ; aucune limite citée",
+      "preuve": "institutions/david-rumsey-map-collection/fiche.md"
+    },
+    {
+      "categorie": "utilisateurs",
+      "aucun_resultat": true,
+      "requete": "David Rumsey Map Collection LUNA bots crawler traffic reCAPTCHA OR rate limit OR blocked OR 429",
+      "date": "2026-11-14",
+      "etiquette": "–",
+      "citation": "(résumé de moteur, non vérifié) page LUNA « Managing web crawler traffic with reCAPTCHA v3 » (LUNA 7.5.5.6+) ; aucune plainte propre à Rumsey ; un wrapper tiers parse.bot annonce 250 requêtes/min (limite du wrapper, pas de Rumsey)",
+      "preuve": "institutions/david-rumsey-map-collection/fiche.md"
+    }
+  ],
+  "contact": "carto@davidrumsey.com",
+  "conclusion_quota": "Aucun quota publié. Un en-tête observé sur le manifeste IIIF : ratelimit-limit: 5.0 / ratelimit-reset: 1 (valeur sans unité documentée, probablement 5 requêtes par seconde). robots.txt : Crawl-Delay 500. 9 requêtes en 200, aucun 429.",
+  "classe_quota": "limite observée (en-tête)",
+  "confiance": "moyenne",
+  "notes": "Hébergé par LUNA (Apache/2.4.41). Crawl-Delay: 500 s dans robots.txt (User-agent *) : respecté par la sonde (passes de 33 à 40 minutes). /luna/servlet/as/ et view/search en Disallow : testé avec l'autorisation de Marcel (C12). Les pages de doc (fetch_doc.sh) ont été téléchargées à ~3 s d'écart avant la prise en compte du Crawl-Delay (13 requêtes de pages) : écart reconnu. Le ratelimit-limit n'apparaît que sur le manifeste ; la sémantique (unité) n'est pas documentée par LUNA (non trouvée). Page LUNA « Managing web crawler traffic with reCAPTCHA v3 » (v7.5.5.6+) non lue (contenu dynamique) ; non observé sur le site.",
+  "endpoints_documentes": [
+    {
+      "famille": "IIIF Presentation 2 : manifeste d'objet (luna/servlet/iiif/m/<id>/manifest)",
+      "url": "https://www.davidrumsey.com/luna/servlet/iiif/m/RUMSEY~8~1~305711~90076087/manifest",
+      "statut": "teste",
+      "preuve": "institutions/david-rumsey-map-collection/tests/raw/manifeste-iiif.headers.txt"
+    },
+    {
+      "famille": "IIIF Presentation 2 : collection d'un groupe (luna/servlet/iiif/collection/g/<id>)",
+      "url": "https://www.davidrumsey.com/luna/servlet/iiif/collection/g/21368",
+      "statut": "teste",
+      "preuve": "institutions/david-rumsey-map-collection/tests/raw/collection-iiif-g21368.headers.txt"
+    },
+    {
+      "famille": "LUNA Viewer API fetchMediaSearch (includeIiifManifest)",
+      "url": "https://www.davidrumsey.com/luna/servlet/as/fetchMediaSearch?&lc=RUMSEY~8~1&fullData=false&bs=3&os=0&includeIiifManifest=true",
+      "statut": "teste",
+      "preuve": "institutions/david-rumsey-map-collection/tests/raw/fetchMediaSearch-iiif.headers.txt"
+    },
+    {
+      "famille": "IIIF Image 2 : info.json et images (luna/servlet/iiif/<id>/…)",
+      "url": "https://www.davidrumsey.com/luna/servlet/iiif/RUMSEY~8~1~305711~90076087/info.json",
+      "statut": "teste",
+      "preuve": "institutions/david-rumsey-map-collection/tests/raw/image-info-json.headers.txt"
+    },
+    {
+      "famille": "IIIF Image 2 : miniature 96 px",
+      "url": "https://www.davidrumsey.com/luna/servlet/iiif/RUMSEY~8~1~305711~90076087/full/!96,96/0/default.jpg",
+      "statut": "teste",
+      "preuve": "institutions/david-rumsey-map-collection/tests/raw/image-miniature-96.headers.txt"
+    },
+    {
+      "famille": "IIIF Search 1.0 (luna/servlet/iiif/services/<id>/search)",
+      "url": "https://www.davidrumsey.com/luna/servlet/iiif/services/RUMSEY~8~1~305711~90076087/search?q=roma",
+      "statut": "teste",
+      "preuve": "institutions/david-rumsey-map-collection/tests/raw/iiif-search-service.headers.txt"
+    },
+    {
+      "famille": "Liste d'annotations LUNA (otherContent)",
+      "url": "https://www.davidrumsey.com/luna/servlet/iiif/m/RUMSEY~8~1~305711~90076087/list/luna",
+      "statut": "teste",
+      "preuve": "institutions/david-rumsey-map-collection/tests/raw/annotation-list-luna.headers.txt"
+    },
+    {
+      "famille": "Collection IIIF d'un résultat de recherche (collection/s/<id>)",
+      "url": "https://www.davidrumsey.com/luna/servlet/iiif/collection/s/b9h6td",
+      "statut": "non_teste",
+      "raison": "identifiant de recherche généré par un clic dans le site (Share), non fourni par la doc comme exemple stable ; même famille que la collection de groupe testée ; Crawl-Delay 500 s rend chaque requête supplémentaire coûteuse"
+    },
+    {
+      "famille": "Téléchargement JP2 (rumsey/download.pl?image=…)",
+      "url": "https://www.davidrumsey.com/rumsey/download.pl?image=/179/11956000.jp2",
+      "statut": "non_teste",
+      "raison": "fichier JP2 de plusieurs centaines de Mo (la page d'accueil/à propos parle de fichiers de 250 Mo en moyenne, jusqu'à 5 Go) : fichier volumineux exclu des tests"
+    }
+  ],
+  "endpoints_ecartes": [
+    {
+      "url": "https://www.davidrumsey.com/luna/servlet/view/search",
+      "raison": "page de recherche HTML (interface utilisateur, pas une API) ; téléchargée dans sources/a (200)"
+    },
+    {
+      "url": "https://www.davidrumsey.com/iiif",
+      "raison": "404 : page inexistante (sources/a/FETCH.log) ; aucun portail développeur IIIF sur le site"
+    },
+    {
+      "url": "https://www.davidrumsey.com/rumsey/rights.html",
+      "raison": "404 : page inexistante (sources/a/FETCH.log), remplacée par /about/copyright-and-permissions lue dans sources/b"
+    },
+    {
+      "url": "https://lunaimaging.atlassian.net/wiki/spaces/V75D/pages/655646/LUNA+Viewer+API+and+IIIF",
+      "raison": "documentation de l'éditeur LUNA (pas un endpoint de l'institution) ; téléchargée dans sources/c"
+    },
+    {
+      "url": "https://davidrumsey.com/luna/servlet/view/search",
+      "raison": "page de recherche HTML (interface utilisateur LUNA citée dans les liens de la page d'accueil, avec paramètres q et annotSearch), pas une API ; même route que view/search écartée, en Disallow dans robots.txt"
+    }
+  ],
+  "hotes_robots": [
+    {
+      "hote": "www.davidrumsey.com",
+      "resultat": "200 : Crawl-Delay 500 s, Disallow /luna/servlet/as/ et view/search (testés avec l'accord de Marcel, C12)",
+      "preuve": "institutions/david-rumsey-map-collection/tests/journal.log"
+    },
+    {
+      "hote": "davidrumsey.com",
+      "resultat": "200 sur /help/faq ; même site que www.davidrumsey.com (robots.txt de www lu, Crawl-Delay 500 s)",
+      "preuve": "institutions/david-rumsey-map-collection/sources/d/FETCH.log"
+    },
+    {
+      "hote": "lunaimaging.atlassian.net",
+      "resultat": "200 : robots.txt Atlassian autogénéré (347 o), non pertinent pour l'institution",
+      "preuve": "institutions/david-rumsey-map-collection/sources/c/FETCH.log"
+    }
+  ]
 }
