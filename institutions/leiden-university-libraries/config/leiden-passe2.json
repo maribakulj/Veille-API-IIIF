@@ -1,0 +1,15 @@
+{
+  "slug": "leiden-university-libraries",
+  "min_delay_s": 10,
+  "max_requests": 15,
+  "follow_redirects": 1,
+  "note": "Passe 2 : le 301 de la passe 1 désigne iiif-endpoint.universiteitleiden.nl (robots.txt 404 = autorisé). Même item. Pause 10 s conservée par prudence.",
+  "endpoints": [
+    {
+      "id": "manifeste-endpoint-1520785",
+      "method": "GET",
+      "url": "https://iiif-endpoint.universiteitleiden.nl/iiif_manifest/item:1520785/manifest",
+      "save_body": 3000000
+    }
+  ]
+}
