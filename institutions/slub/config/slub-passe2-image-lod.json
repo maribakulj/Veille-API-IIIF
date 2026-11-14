@@ -1,0 +1,16 @@
+{
+  "slug": "slub",
+  "min_delay_s": 6,
+  "max_requests": 15,
+  "follow_redirects": 1,
+  "robots_disallow_autorise_par_marcel": true,
+  "note": "Passe 2 (v2) : service d'image lu dans le manifeste de la passe 1 (info.json et une vignette 200 px), puis exemples de l'API LOD documentee sur data.slub-dresden.de/doc/api_endpoints (search, source, gnd, persons/search). robots.txt de data.slub-dresden.de et images.iiif.slub-dresden.de : 404.",
+  "endpoints": [
+    {"id": "p2-image-info-json", "method": "GET", "url": "https://images.iiif.slub-dresden.de/iiif/2/data%2Fkitodo%2FAdrefdiS_1741646995-18800000%2FAdrefdiS_1741646995-18800000_tif%2Fjpegs%2F00000001.tif.medium.jpg/info.json"},
+    {"id": "p2-image-vignette-200", "method": "GET", "url": "https://images.iiif.slub-dresden.de/iiif/2/data%2Fkitodo%2FAdrefdiS_1741646995-18800000%2FAdrefdiS_1741646995-18800000_tif%2Fjpegs%2F00000001.tif.medium.jpg/full/200,/0/default.jpg"},
+    {"id": "p2-lod-search-slub-size1", "method": "GET", "url": "https://data.slub-dresden.de/search?q=SLUB&size=1"},
+    {"id": "p2-lod-source-kxp-de14", "method": "GET", "url": "https://data.slub-dresden.de/source/kxp-de14/130215090"},
+    {"id": "p2-lod-gnd-persons", "method": "GET", "url": "https://data.slub-dresden.de/gnd/persons/118559206"},
+    {"id": "p2-lod-persons-search", "method": "GET", "url": "https://data.slub-dresden.de/persons/search?q=name:Erich+K%C3%A4stner&size=1"}
+  ]
+}
