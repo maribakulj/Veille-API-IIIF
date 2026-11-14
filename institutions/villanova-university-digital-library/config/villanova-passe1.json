@@ -1,0 +1,11 @@
+{
+  "slug": "villanova-university-digital-library",
+  "min_delay_s": 6,
+  "max_requests": 15,
+  "follow_redirects": 1,
+  "robots_disallow_autorise_par_marcel": true,
+  "note": "Passe 1 : la doc IIIF (guides.iiif.io/guides/digital.library.villanova.edu/) ne donne aucune URL d'API, seulement le site digital.library.villanova.edu ; robots.txt de l'hote deja lu en 403 (sources/a). Un seul test : la page d'accueil, pour verifier si l'hote refuse aussi les pages normales. Aucun identifiant devine.",
+  "endpoints": [
+    {"id": "accueil", "method": "GET", "url": "https://digital.library.villanova.edu/"}
+  ]
+}
