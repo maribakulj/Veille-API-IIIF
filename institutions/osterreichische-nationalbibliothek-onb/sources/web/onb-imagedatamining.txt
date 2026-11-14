@@ -1,0 +1,362 @@
+Reading Images,
+Writing Metadata –
+Exploring AI Approaches on Image Data Mining in
+Collections of the Austrian National Library
+
+
+Carla Maria Schnedlitz
+Johannes Knüchel
+Simon Mayer
+Christoph Steindl
+
+
+AI and Artworks: Object Detection, Image Classification and Iconographic Analysis, April 16th, 2026
+
+
+             CC BY 4.0 Deed | Namensnennung 4.0 International
+                 Project Outline (2025-2027)
+Goals
+• Generate new metadata concerning image content
+• Provision of generated metadata via ÖNB LABS (Labs plattform of
+  Austrian National Library)
+• Increase visibility and searchability for our collections
+
+Main topics
+• Extraction of images from newspapers, journals and book collections
+• Detection of objects on all images (including from our Picture Archives
+  and Graphics Department)
+• (possible extension: classification of images)
+                     Prerequisites and Challenges
+          Prerequisites and Setup           Challenges
+We have a lot of data!
+− Enough for training, testing etc.
+                     Prerequisites and Challenges
+          Prerequisites and Setup                     Challenges
+We have a lot of data!                We have a lot of data!
+− Enough for training, testing etc.   − Need to process ~230 Million images
+                     Prerequisites and Challenges
+          Prerequisites and Setup                     Challenges
+We have a lot of data!                We have a lot of data!
+− Enough for training, testing etc.   − Need to process ~230 Million images
+
+
+Data Diversity                        How do we cope with variety?
+                                      − E.g. newspaper page vs. Photograph
+Our images look like…
+                     Prerequisites and Challenges
+          Prerequisites and Setup                      Challenges
+We have a lot of data!                We have a lot of data!
+− Enough for training, testing etc.   − Need to process ~230 Million images
+
+
+Data Diversity                        How do we cope with variety?
+                                      − E.g. newspaper page vs. Photograph
+
+
+Technical ressources                  Cost-intensive
+− GPU, CPU, storage capacity etc.     − Tasks need to consider availability
+
+
+Open Access Models and Tools          Transparency and Biases
+
+Language and Translations             May cause additional costs (licences)
+                                                    Project Steps
+
+           1 e rModel
+           Ov   vi e w · 8prototyping
+                           Stage s    & testing                                                2 Test dataset selection
+               Evaluate model sizes, compare architectures, establish performance                    Curate representative samples with the image & graphics
+
+Finished
+               baselines                                                                             department
+
+                                                                                                                                                         VALI DA TI ON
+           3 Quality control & data analysis                                                   4 Workflow design & refinement
+               Librarian review, annotation audit, and quantitative quality                          Define processing pipeline, apply model adjustments, document
+               assessment                                                                            procedures
+
+
+
+
+Current:    5 Full pipeline setup ★ In progress
+               Integrate all components end-to-end, configure infrastructure, run end-to-end validation tests
+                                                                                                                                                    CU RREN T PH ASE
+
+
+
+
+           6 Mass image extraction                                                             7 Object detection across full corpus
+               Extract images at scale from newspapers, journals, and books                          Run detection models on all available images, generate structured
+                                                                                                     annotations                                         P ROD UCTI ON
+
+Next up
+           8 Metadata integration & public access via ÖNB Labs (Austrian National Library)
+               Enrich existing systems with new metadata, publish collections through ÖNB Labs
+                                                   Project Steps
+
+          1 e rModel
+          Ov   vi e w · 8prototyping
+                          Stage s    & testing                                     2 Test dataset selection
+              Evaluate model sizes, compare architectures, establish performance      Curate representative samples with the image & graphics
+              baselines                                                               department
+
+                                                                                                                                          VALI DA TI ON
+          3 Quality control & data analysis                                        4 Workflow design & refinement
+              Librarian review, annotation audit, and quantitative quality            Define processing pipeline, apply model adjustments, document
+              assessment                                                              procedures
+
+
+
+
+                                                            What was tested?
+
+• Different architectures and model sizes
+   • YOLO11, YOLO12, YOLO26 (in different sizes) as well as CLIP
+   • Time logging!
+   • Considerations on open source, maintainability etc.
+                                                   Project Steps
+
+          1 e rModel
+          Ov   vi e w · 8prototyping
+                          Stage s    & testing                                     2 Test dataset selection
+              Evaluate model sizes, compare architectures, establish performance      Curate representative samples with the image & graphics
+              baselines                                                               department
+
+                                                                                                                                          VALI DA TI ON
+           3 Quality control & data analysis                                       4 Workflow design & refinement
+              Librarian review, annotation audit, and quantitative quality            Define processing pipeline, apply model adjustments, document
+              assessment                                                              procedures
+
+
+
+
+                                                     What data did we use?
+Primary testing sets:
+• Small sets taken from photography collections (Klaus Titzer, Heinz Stephan Tesarek or
+   similar)
+• sized 100-2000 images
+
+Later:
+• Extension to newspaper illustrations and graphics
+                                                   Project Steps
+
+          1 e rModel
+          Ov   vi e w · 8prototyping
+                          Stage s    & testing                                     2 Test dataset selection
+              Evaluate model sizes, compare architectures, establish performance      Curate representative samples with the image & graphics
+              baselines                                                               department
+
+                                                                                                                                          VALI DA TI ON
+          3 Quality control & data analysis                                        4 Workflow design & refinement
+              Librarian review, annotation audit, and quantitative quality            Define processing pipeline, apply model adjustments, document
+              assessment                                                              procedures
+
+
+
+
+                                                How did we verify results?
+
+Statistics + Data Analysis
+• Model metrics (including mAP50, mAP50-95, accuracy, prec, rec)
+• Detections per image
+• Results on different image types
+
+Manual data quality control through librarian!
+                                                   Project Steps
+
+          1 e rModel
+          Ov   vi e w · 8prototyping
+                          Stage s    & testing                                     2 Test dataset selection
+              Evaluate model sizes, compare architectures, establish performance      Curate representative samples with the image & graphics
+              baselines                                                               department
+
+                                                                                                                                          VALI DA TI ON
+          3 Quality control & data analysis                                        4 Workflow design & refinement
+              Librarian review, annotation audit, and quantitative quality            Define processing pipeline, apply model adjustments, document
+              assessment                                                              procedures
+
+
+
+
+                                                     Adjusting our workflow
+
+After results from data analysis and quality control:
+• Refinement of processes
+• Decision of which model to go forward with
+          Which models were most likely?
+
+
+
+
+            YOLO                              CLIP
+
+What objects are on the images?   Whats the topic of the image?
+       - Object detection                - Classification
+   - Object/ Layout extraction       - Additional description
+                             YOLO (Ultralytics)
+                       = Model for image processing tasks
+
+Outline
+• Annotates images by saving boxes around detected objects
+• Pre-trained versions available, but can be fine-tuned
+• Can be used for layout extraction, object detection or classification
+
+Why YOLO?
+• Very fast -> established for real-time application
+   • Important for our amount of data!
+
+• Still in production and open access
+   • Support should be available in the future
+   • Can be used freely for research purposes
+   • Easier adjustment for future versions of the model
+                                 Why train or fine-tune?
+
+
+                                     YOLO 11    Downloaded                Fine-tuned
+                                                              YOLO 11
+           YOLO11   Base-Model        objects      from                   by us using
+                                                Huggingface   trainiert      LVIS
+                                       365
+
+
+
+
+Number of classes: 80 ----------- 365 ------------ more than 1000
+
+
+                                                                YOLO      Fine-tuned
+           YOLO12   Base-Model                                   12       by us using
+                                                              trainiert      LVIS
+Layout extraction
+Identifying Images on digitized
+pages
+Process:
+•   ~600 images manually annotated
+•   Classes represent visual cues, not arthistorical
+    standards!
+     • Picture
+     • Illustration
+     • Emblem
+     • Pictogramme
+     • Stamp
+•   Training of YOLO26x model using the annotated
+    images (less than 10 hours)
+Object Detection
+Identifying objects on images
+
+Process:
+
+• 8 different prototypes by fine-tuning different
+  architectures of models with different datasets
+
+• Models included: YOLO11, YOLO12 and
+  trained YOLO variants downloaded from
+  Huggingface
+
+• Evident differences from model to model
+   • Decision, what focus?
+Object detection example
+All models have weaknesses…
+         Current stand: combination of models
+
+
+
+
+YOLO11n trained on Objects 365             YOLO11x trained on LVIS
+
+• Best object detection              • No detection of persons
+• Low confidences                    • High confidences
+• Low diversity (only 365 classes)   • High diversity (~ 1200 classes)
+                                   Results and issues
+• Influence of Image Properties
+   • Brightness, contrast and color affect results
+   • Good object detection especially with „modern photographs“
+
+• Strengths and Weaknesses of YOLO
+   • Objects vary greatly depending on training and model -> trade-offs necessary
+   • Layout extraction for older documents requires a dedicated model
+       •   Training for this quickly possible
+   • Difficulty to assess „errors“: When is an object class incorrect?
+       •   Model-inherent statistics do not always reflect well on historical data
+
+
+• (Additional) Classification Systems
+   • Difficult to find applicable class system
+      • Too few classes (e.g. COCO) vs. Too many (e.g. Getty Thesaurus)
+      • Too granular or not applicable to everything (e.g. ICONCLASS)
+              Challenges tackled vs. remaining
+• Large amounts of data + cost efficiency
+   • YOLO processing very fast, other parts parallelized and efficient (enough)
+
+• Diversity issue: not fully conquered
+   • Trials with image enhancement did not lead to better OD results
+   • Unclear, how well it will work with graphics etc.
+
+• Transparency and bias
+   • Multiple rounds of quality control
+   • Open communication about tools and models used
+   • Inherent biases remain
+
+• Translations
+   • Only list of terms -> can be translated easily through DeepL (best results without
+     context)
+                                                             Next up?
+
+           1 e rModel
+           Ov   vi e w · 8prototyping
+                           Stage s    & testing                                                2 Test dataset selection
+               Evaluate model sizes, compare architectures, establish performance                    Curate representative samples with the image & graphics
+
+Finished
+               baselines                                                                             department
+
+                                                                                                                                                         VALI DA TI ON
+           3 Quality control & data analysis                                                   4 Workflow design & refinement
+               Librarian review, annotation audit, and quantitative quality                          Define processing pipeline, apply model adjustments, document
+               assessment                                                                            procedures
+
+
+
+
+Current:    5 Full pipeline setup ★ In progress
+               Integrate all components end-to-end, configure infrastructure, run end-to-end validation tests
+                                                                                                                                                    CU RREN T PH ASE
+
+
+
+
+           6 Mass image extraction                                                             7 Object detection across full corpus
+               Extract images at scale from newspapers, journals, and books                          Run detection models on all available images, generate structured
+                                                                                                     annotations                                         P ROD UCTI ON
+
+Next up
+           8 Metadata integration & public access via ÖNB Labs (Austrian National Library)
+               Enrich existing systems with new metadata, publish collections through ÖNB Labs
+Resources
+Models:
+• YOLO11 / YOLO26 - Ultralytics Github Page https://github.com/ultralytics/ultralytics
+• YOLO11 trained on Objects365 – Huggingface Page:
+  https://huggingface.co/NRtred/yolo11n_object365
+• CLIP – Github Page https://github.com/openai/CLIP
+
+Tools:
+• Labelstudio Guide: https://labelstud.io/guide/get_started
+
+Trainingdata:
+• LVIS: https://www.lvisdataset.org/
+• COCO: https://cocodataset.org/#home
+• Objects365: https://www.objects365.org/overview.html
+                      Thank you for
+Any questions /
+comments?             your attention!
+
+                  Contact : carla.schnedlitz@onb.ac.at
+
+
+
+                  AI and Artworks: Object Detection, Image Classification and Iconographic Analysis, April 16th, 2026
+
+
+
+                                  CC BY 4.0 Deed | Namensnennung 4.0 International
+

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="Description" content="Generic error page">
+    <link rel=icon type="image/ico" href=/logo/favicon/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/gui/bootstrap-tagsinput.css">
+    <link rel="stylesheet" href="/gui/headerAndFooter.css">
+    <link rel="stylesheet" href="/gui/index.css">
+
+    <title>SACHA</title>
+</head>
+<body>
+
+
+<div class="container-fluid full-screen-container">
+    <div id="pageTitle"></div><!--if this div element is empty element: "<div/>", it doesn't work-->
+
+    <div class="full-width font infotext fill">
+        <div class="titletext">
+            There seems to be an error. It might be because of the following:
+            <ul>
+                <li>The page you are looking for doesn't exist.</li>
+                <li>Your request is not allowed.</li>
+                <li>Your request is faulty.</li>
+                <li>There was a internal server error.</li>
+            </ul>
+            To contact us about the error, please send an e-mail to <a id="mail"></a>.
+        </div>
+        <br>
+        <div id="errorMessage">
+
+        </div>
+
+
+    </div>
+
+    <div id="logoBar"></div><!--if this div element is empty element: "<div/>", it doesn't work-->
+
+</div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script src="/gui/bootstrap-tagsinput.min.js"></script>
+<script src="/gui/sacha.js"></script>
+
+</body>
+</html>

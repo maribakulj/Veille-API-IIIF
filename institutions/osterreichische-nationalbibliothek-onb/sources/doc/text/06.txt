@@ -1,0 +1,112 @@
+Sitemap: https://labs.onb.ac.at/sitemap.xml
+# See http://www.robotstxt.org/robotstxt.html for documentation on how to use the robots.txt file
+#
+# To ban all spiders from the entire site uncomment the next two lines:
+# User-Agent: *
+# Disallow: /
+# Add a 1 second delay between successive requests to the same server, limits resources used by crawler
+# Only some crawlers respect this setting, e.g. Googlebot does not
+# Crawl-delay: 1
+# Based on details in https://gitlab.com/gitlab-org/gitlab/blob/master/config/routes.rb,
+# https://gitlab.com/gitlab-org/gitlab/blob/master/spec/routing, and using application
+# Global routes
+User-Agent: *
+Disallow: /gitlab/autocomplete/users
+Disallow: /gitlab/autocomplete/projects
+Disallow: /gitlab/search
+Disallow: /gitlab/admin
+Disallow: /gitlab/profile
+Disallow: /gitlab/dashboard
+Disallow: /gitlab/users
+Disallow: /gitlab/api/v*
+Disallow: /gitlab/help
+Disallow: /gitlab/s/
+Disallow: /gitlab/-/profile
+Disallow: /gitlab/-/profile/
+Disallow: /gitlab/-/user_settings/
+Disallow: /gitlab/-/ide/
+Disallow: /gitlab/-/experiment
+# Restrict allowed routes to avoid very ugly search results
+Allow: /gitlab/users/sign_in
+Allow: /gitlab/users/sign_up
+Allow: /gitlab/users/*/snippets
+# Generic resource routes like new, edit, raw
+# This will block routes like:
+# - /projects/new
+# - /gitlab-org/gitlab-foss/issues/123/-/edit
+User-Agent: *
+Disallow: /gitlab/*/new
+Disallow: /gitlab/*/edit
+Disallow: /gitlab/*/raw
+Disallow: /gitlab/*/realtime_changes
+# Group details
+User-Agent: *
+Disallow: /gitlab/groups/*/-/analytics
+Disallow: /gitlab/groups/*/-/analytics/
+Disallow: /gitlab/groups/*/-/insights/
+Disallow: /gitlab/groups/*/-/issues_analytics
+Disallow: /gitlab/groups/*/-/contribution_analytics
+Disallow: /gitlab/groups/*/-/group_members
+Disallow: /gitlab/groups/*/-/saml/
+Disallow: /gitlab/groups/*/-/saml_group_links
+Disallow: /gitlab/groups/*/-/settings/
+Disallow: /gitlab/groups/*/-/billings
+Disallow: /gitlab/groups/*/-/hooks
+Disallow: /gitlab/groups/*/-/projects
+# Project details
+User-Agent: *
+Disallow: /gitlab/*/*.git$
+Disallow: /gitlab/*/*.git/*
+Disallow: /gitlab/*/archive/
+Disallow: /gitlab/*/repository/archive*
+Disallow: /gitlab/*/activity
+Disallow: /gitlab/*/-/project_members
+Disallow: /gitlab/*/-/blame/
+Disallow: /gitlab/*/-/branches
+Disallow: /gitlab/*/-/commits/
+Disallow: /gitlab/*/-/commit
+Disallow: /gitlab/*/commit/*.patch
+Disallow: /gitlab/*/commit/*.diff
+Disallow: /gitlab/*/-/compare/
+Disallow: /gitlab/*/-/network/
+Disallow: /gitlab/*/path_locks
+Disallow: /gitlab/*/merge_requests/*.patch
+Disallow: /gitlab/*/merge_requests/*.diff
+Disallow: /gitlab/*/merge_requests/*/diffs
+Disallow: /gitlab/*/services
+Disallow: /gitlab/*/uploads/
+Disallow: /gitlab/*/-/import
+Disallow: /gitlab/*/-/requirements_management/
+Disallow: /gitlab/*/-/pipelines
+Disallow: /gitlab/*/-/pipeline_schedules
+Disallow: /gitlab/*/-/jobs
+Disallow: /gitlab/*/-/ci/
+Disallow: /gitlab/*/-/quality/
+Disallow: /gitlab/*/-/licenses
+Disallow: /gitlab/*/-/security/
+Disallow: /gitlab/*/-/dependencies
+Disallow: /gitlab/*/-/audit_events
+Disallow: /gitlab/*/-/on_demand_scans
+Disallow: /gitlab/*/-/feature_flags
+Disallow: /gitlab/*/-/ml/
+Disallow: /gitlab/*/-/environments
+Disallow: /gitlab/*/-/clusters
+Disallow: /gitlab/*/-/terraform
+Disallow: /gitlab/*/-/terraform_module_registry
+Disallow: /gitlab/*/-/*/configuration
+Disallow: /gitlab/*/-/error_tracking
+Disallow: /gitlab/*/-/metrics
+Disallow: /gitlab/*/-/alert_management
+Disallow: /gitlab/*/-/incidents
+Disallow: /gitlab/*/-/oncall_schedules
+Disallow: /gitlab/*/-/escalation_policies
+Disallow: /gitlab/*/-/*/service_desk
+Disallow: /gitlab/*/-/analytics
+Disallow: /gitlab/*/-/analytics/
+Disallow: /gitlab/*/-/value_stream_analytics
+Disallow: /gitlab/*/-/graphs/
+Disallow: /gitlab/*/insights/
+Disallow: /gitlab/*/-/pipelines/
+Disallow: /gitlab/*/-/settings/
+Disallow: /gitlab/*/-/hooks
+Disallow: /gitlab/*/-/usage_quotas

@@ -1,0 +1,15 @@
+{
+  "slug": "yale-university-art-gallery",
+  "min_delay_s": 6,
+  "max_requests": 15,
+  "follow_redirects": 1,
+  "robots_disallow_autorise_par_marcel": true,
+  "note": "Passe 2 : identifiants lus dans le manifeste de la passe 1 (canevas, annotation, service d'image yuag:a1eb423d-076b-4f2f-8f5f-7d48ddfb7f08, miniature media.collections.yale.edu). Image API 2 : info.json et une image de 150 px de large seulement.",
+  "endpoints": [
+    {"id": "image-info-json", "method": "GET", "url": "https://images.collections.yale.edu/iiif/2/yuag:a1eb423d-076b-4f2f-8f5f-7d48ddfb7f08/info.json"},
+    {"id": "image-150px", "method": "GET", "url": "https://images.collections.yale.edu/iiif/2/yuag:a1eb423d-076b-4f2f-8f5f-7d48ddfb7f08/full/150,/0/default.jpg"},
+    {"id": "miniature-media", "method": "GET", "url": "https://media.collections.yale.edu/thumbnail/yuag/a1eb423d-076b-4f2f-8f5f-7d48ddfb7f08"},
+    {"id": "canvas", "method": "GET", "url": "https://manifests.collections.yale.edu/canvas/yuag/a1eb423d-076b-4f2f-8f5f-7d48ddfb7f08"},
+    {"id": "annopage", "method": "GET", "url": "https://manifests.collections.yale.edu/annopage/yuag/a1eb423d-076b-4f2f-8f5f-7d48ddfb7f08"}
+  ]
+}

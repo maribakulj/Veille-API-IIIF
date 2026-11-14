@@ -1,0 +1,12 @@
+{
+  "slug": "yale-university-art-gallery",
+  "endpoint": {
+    "id": "image-info-json",
+    "url": "https://images.collections.yale.edu/iiif/2/yuag:a1eb423d-076b-4f2f-8f5f-7d48ddfb7f08/info.json",
+    "method": "GET"
+  },
+  "limite_documentee_req_min": null,
+  "source_limite": "aucune limite de débit documentée (artgallery.yale.edu/terms-and-conditions et /using-collection/using-images lues via Wayback : aucune règle de débit)",
+  "duree_palier_s": 180,
+  "note": "info.json Image API 2 (serveur Cantaloupe 4.1.9 sous Jetty), 200 dans le journal (passe 2, 2026-11-14T01:54:24Z), réponse légère. Hôte images.collections.yale.edu distinct de artgallery.yale.edu (Cloudflare, défi 403) : ne jamais toucher artgallery.yale.edu. Plafond 200 req/min, 60 si crash.py détecte un réseau protégé."
+}

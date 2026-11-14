@@ -1,0 +1,13 @@
+2026-11-14T01:41:54Z GET https://iiif.onb.ac.at/images/REPO/7445056/00000001
+HTTP 303
+date: Sat, 14 Nov 2026 01:41:54 GMT
+server: nginx
+content-security-policy: upgrade-insecure-requests
+content-length: 0
+location: https://iiif.onb.ac.at/images/REPO/7445056/00000001/info.json
+access-control-allow-origin: *
+access-control-allow-methods: GET, POST, DELETE, PUT
+access-control-allow-headers: X-Requested-With
+x-frame-options: SAMEORIGIN
+x-xss-protection: 1; mode=block
+x-content-type-options: nosniff

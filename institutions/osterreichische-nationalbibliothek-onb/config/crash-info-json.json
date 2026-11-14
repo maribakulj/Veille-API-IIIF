@@ -1,0 +1,12 @@
+{
+  "slug": "osterreichische-nationalbibliothek-onb",
+  "endpoint": {
+    "id": "info-json-repo-7445056-00000001",
+    "url": "https://iiif.onb.ac.at/images/REPO/7445056/00000001/info.json",
+    "method": "GET"
+  },
+  "limite_documentee_req_min": null,
+  "source_limite": "aucune limite de débit chiffrée documentée (https://iiif.onb.ac.at/api/, section 2.3 : « It is not recommended to send multiple concurrent requests or a lot of requests in a very short time, because this might prevent the server from responding to further requests. », sans chiffre)",
+  "duree_palier_s": 180,
+  "note": "info.json d'une image de l'objet REPO/7445056 (200 dans le journal, passe 1, 2026-11-14T01:41:48Z), réponse légère. Objet REPO choisi plutôt qu'ABO : la doc parle de mesures contre le téléchargement de masse des objets ABO. Plafond 200 req/min (sans limite documentée) ; le serveur annonce nginx, aucun réseau à réputation partagée observé dans les en-têtes."
+}

@@ -1,0 +1,727 @@
+SACHA 
+-->
+ VIEW A BOOK COLLECTIONS DEMO DOCS ABOUT 
+ Table of Contents
+ 1. Overview 
+ 1.1. Version information 
+ 1.2. Contact information 
+ 1.3. License information 
+ 1.4. URI scheme 
+ 1.5. External Docs 
+ 2. Introduction 
+ 2.1. Digitization Projects 
+ 2.2. IIIF 
+ 2.3. Mass Download Prevention 
+ 3. Paths 
+ 3.1. Info.json Redirect 
+ 3.2. Info.json 
+ 3.3. Image 
+ 3.4. Mets 
+ 3.5. Mods 
+ 3.6. Create Collection 
+ 3.7. Get Collection 
+ 3.8. Annotation 
+ 3.9. Canvas 
+ 3.10. List 
+ 3.11. Manifest 
+ 3.12. Resource 
+ 3.13. Sequence 
+ 3.14. View Collection 
+ 3.15. View Manifest 
+ 1. Overview
+ ÖNB-API-IIIF created with Swagger
+ 1.1. Version information
+ Version : 3.0
+ 1.2. Contact information
+ Contact : Georg Petz
+ Contact Email : labs@onb.ac.at 
+ 1.3. License information
+ License : No Copyright - Non-Commercial Use Only
+ License URL : http://rightsstatements.org/vocab/NoC-NC/1.0/ 
+ 1.4. URI scheme
+ Host : iiif.onb.ac.at
+ Schemes : HTTP, HTTPS
+ 1.5. External Docs
+ Description : SACHA
+ URL : https://labs.onb.ac.at/de/tool/sacha/ 
+ 2. Introduction
+ ÖNB-API-IIIF ist based on the project “Simple Access to Cultural Heritage Assets” (SACHA) a cooperation project between the Austrian National Library and the Austrian Centre for Digital Humanities (ACDH) of the Austrian Academy of Sciences. SACHA is part of Austria’s contribution to the European Research Infrastructure Consortium (ERIC) DARIAH. The aim of the project is to improve access to culturally relevant data, such as the digitized historical book collection of the Austrian National Library, for scientific use.
+ https://www.onb.ac.at/forschung/forschungsaktivitaeten/sacha/ 
+ https://www.oeaw.ac.at/acdh/tools/sacha/ 
+ 2.1. Digitization Projects
+ 2.1.1. ABO
+ In the ABO (Austrian Books Online) project, Austrian Nation Library digitizes its historical, copyright free inventory together with Google in a Public Private Partnership. The digitized inventory consists of 600.000 individual books with more than 200 million pages, ranging from the 16 th to up until the second half of the 19 th century. SACHA provides access to all of the objects digitized by the ABO project.
+ 2.1.2. ANNO
+ In the ANNO (Austrian Newspapers Online) project, Austrian National Library digitizes its historical newspapers and periodicals. ANNO consists of more than 1100 different newspapers and periodicals with more than 20 million pages between the years 1568 and 1947. Because of legal reasons however, SACHA only offers digitized objects up until 140 years ago.
+ 2.1.3. AKON
+ In the AKON (Ansichstkarten Online/Postcards Online) project, Austrian National Library digitizes its historical postcard collection. More than 75 thousand postcards from all over the world between 19 th century and 1940s are available to view.
+ 2.1.4. REPO
+ REPO is a cover term for all digitized objects that are not part of the above mentioned projects. They include among others historical pamphlets, papyri, musical manuscripts and works in esperanto.
+ 2.1.5. Unique Identifiers of Digitized Objects
+ Manifests (Digitized objects) have their URLs as their unique identifiers. Each URL is distinguished through the unique identifier of the object. In SACHA, there are three unique identifiers types for each project.
+ ABO: The id of ABO objects is the barcode. Barcode is built up as the following: After the optional plus(+)(plus is represented as %2B in URLS), a barcode can have 8, 9 or 10 characters. The first one is Z. The next 6 or 7 are digits. The one before the last one has to be a 0. The last one can be a digit or an 'X'.
+ Examples of the same barcode:
+ +Z152225709, %2BZ152225709, Z152225709 
+ ANNO: The id of ANNO objects can have one of the following patterns:
+ {aid}JJJJMMTT
+ {aid}JJJJblXX
+ {aid}JJJJagXXXX
+ where aid is the short version of a newspaper name (used to identify the newspaper), JJJ stands for year, MM stands for month, TT stands for day, XX and XXXX stand for any numbers.
+ Examples for aid: adr, hei, clf, n09, e2j, e4a
+ Examples:
+ wrz17030823, a4418360127, jff1785ag0104, abg1894ag0104, a441837bl02 
+ AKON: The id of AKON objects has the following pattern: AKXXX_YYY where X and Y are digits.
+ Examples:
+ AK114_093, AK114_094, AK076_113 
+ REPO: The id of REPO objects is their pid. They consist of 5 to 7 digits.
+ Examples:
+ Papyrus: 7445056
+Musical Manuscript: 7329888
+Historical Pamphlet: 6918115
+Esperanto: 7491280 
+ 2.2. IIIF
+ The International Image Interoperability Framework (IIIF; pronounced “Triple-Eye-Eff”) defines application programming interfaces (APIs) for a standardized delivery of images over the web, as well as metadata about structured sequences of images.
+ http://iiif.io/ 
+ 2.2.1. IIIF Image API
+ IIIF Image API specifies a web service that returns an image to a standard http or https request. The request can specify the region, size, rotation, quality characteristics and format of the requested image.
+ http://iiif.io/api/image/2.1/ 
+ 2.2.2. IIIFServer
+ SACHA provides images with an implementation of IIIFServer. IIIFServer is a client-server system for fast and efficient online viewing and zooming of ultra high-resolution JPEG2000 and TIFF images.
+ http://www.iiifserver.com/ 
+ http://iipimage.sourceforge.net/ 
+ 2.2.3. Loris
+ SACHA also provides images with the Loris IIIF Image Server. Loris is an implementation of the IIIF Image API written in Python.
+ https://github.com/loris-imageserver/loris 
+ 2.2.4. IIIF Presentation API
+ IIIF Presentation API provides an environment to present image based objects to a human user. Therefore the descriptive information is presented readable for humans, but not semantically available for machines. In addition, it provides navigation between pages or views of the object.
+ http://iiif.io/api/presentation/2.1/ 
+ 2.2.5. Mirador Viewer
+ Mirador is an open source image viewer that has been optimized to display resources from repositories that support the IIIF API’s. It supports visual navigation of content, deep-zoomable canvas, metadata display, bookmarking and a windowed environment for comparing multiple image-based resources. It also enables image annotation and comparison of images from different repositories.
+ http://projectmirador.org/ 
+ 2.2.6. Universal Viewer
+ The Universal Viewer is an open source image viewer that consumes IIIF manifests and displays the containing images.
+ http://universalviewer.io/ 
+ 2.2.7. How SACHA utilizes IIIF
+ In SACHA, IIIF Image API and IIIF Presentation API are implemented. IIIF Search API and IIIF Authentication API are planned to be implemented in the future.
+ A manifest, as defined in the Presentation API, refers to a digitized object. A digitized object can be a book, a newspaper or a similar object from the library. A manifest is automatically generated from pre-existing sources from the Austrian National Library.
+ A Collection, as defined in the Presentation API, refers to a list of manifests(or other collections). In SACHA, users can create their own collections either by searching or adding elements(manifests and collections) manually to collections or both. Created collections have unique names and can be called with their URLs.
+ 2.3. Mass Download Prevention
+ Austrian National Library is contractually obliged to prevent digitized objects of its ABO collection from being downloaded as a whole. Therefore SACHA implements security measures tailored against mass downloading ABO objects . It is not recommended to send multiple concurrent requests or a lot of requests in a very short time, because this might prevent the server from responding to further requests.
+ 3. Paths
+ 3.1. Info.json Redirect
+ GET /images/{projectName}/{id}/{imageID} 
+ 3.1.1. Description
+ Redirects to /info.json
+ 3.1.2. Parameters
+ Type 
+ Name 
+ Description 
+ Schema 
+ Path 
+ id 
+ required 
+ id
+ string
+ Path 
+ imageID 
+ required 
+ imageID
+ string
+ Path 
+ projectName 
+ required 
+ projectName
+ string
+ 3.1.3. Responses
+ HTTP Code 
+ Description 
+ 303 
+ Redirects to the requested image’s /info.json.
+ 3.1.4. Produces
+ application/json;charset=utf-8 
+ application/ld+json;charset=utf-8 
+ 3.2. Info.json
+ GET /images/{projectName}/{id}/{imageID}/info.json 
+ 3.2.1. Description
+ Request the image’s info.json
+ 3.2.2. Parameters
+ Type 
+ Name 
+ Description 
+ Schema 
+ Header 
+ Accept 
+ optional 
+ Accept Header can be json or json-ld.
+ string
+ Path 
+ id 
+ required 
+ id
+ string
+ Path 
+ imageID 
+ required 
+ imageID is always 8 digits. It is the page number with leading zeros.
+ string
+ Path 
+ projectName 
+ required 
+ projectName
+ string
+ 3.2.3. Responses
+ HTTP Code 
+ Description 
+ 200 
+ Returns the requested image’s info.json.
+ 400 
+ The parameter 'imageID' is wrong.
+ 404 
+ The requested id was not found.
+ 500 
+ An internal server returnError occurred.
+ 3.2.4. Produces
+ application/json;charset=utf-8 
+ application/ld+json;charset=utf-8 
+ 3.3. Image
+ GET /images/{projectName}/{id}/{imageID}/{region}/{size}/{rotation}/{quality}.{imageFormat} 
+ 3.3.1. Description
+ Request an image according to the given parameters in jpg format
+ 3.3.2. Parameters
+ Type 
+ Name 
+ Description 
+ Schema 
+ Path 
+ id 
+ required 
+ id
+ string
+ Path 
+ imageFormat 
+ required 
+ imageFormat
+ string
+ Path 
+ imageID 
+ required 
+ imageID
+ string
+ Path 
+ projectName 
+ required 
+ projectName
+ string
+ Path 
+ quality 
+ required 
+ quality
+ string
+ Path 
+ region 
+ required 
+ region
+ string
+ Path 
+ rotation 
+ required 
+ rotation
+ string
+ Path 
+ size 
+ required 
+ size
+ string
+ 3.3.3. Responses
+ HTTP Code 
+ Description 
+ 200 
+ Returns the requested image.
+ 400 
+ One of the given parameters is wrong.
+ 404 
+ The requested image was not found.
+ 500 
+ An internal server returnError occurred.
+ 3.3.4. Produces
+ image/jpeg 
+ 3.4. Mets
+ GET /mets/{barcode} 
+ 3.4.1. Description
+ Request the mets file as xml file. Each barcode has one mets file.
+ 3.4.2. Parameters
+ Type 
+ Name 
+ Description 
+ Schema 
+ Path 
+ barcode 
+ required 
+ barcode
+ string
+ 3.4.3. Responses
+ HTTP Code 
+ Description 
+ 200 
+ Returns requested mets file as xml file.
+ 404 
+ The given barcode does not match requirements or doesn’t exist.
+ 500 
+ An internal server returnError occurred.
+ 3.4.4. Produces
+ application/xml;charset=utf-8 
+ 3.5. Mods
+ GET /mods/{barcode} 
+ 3.5.1. Description
+ Request the mods file as xml file. Each barcode has one mods file.
+ 3.5.2. Parameters
+ Type 
+ Name 
+ Description 
+ Schema 
+ Path 
+ barcode 
+ required 
+ barcode
+ string
+ 3.5.3. Responses
+ HTTP Code 
+ Description 
+ 200 
+ Returns requested mods file as xml file.
+ 404 
+ The given barcode does not match requirements or doesn’t exist.
+ 500 
+ An internal server returnError occurred.
+ 3.5.4. Produces
+ application/xml;charset=utf-8 
+ 3.6. Create Collection
+ POST /presentation/collection 
+ 3.6.1. Description
+ Create a new collection. The request content must be a json file.
+ JSON template:
+ {
+ " name " : " collectionName " ,
+ " description " : " description of collection " ,
+ " searchLimitFrom " : " limit for collection size - from " ,
+ " searchLimitTo " : " limit for collection size - to " ,
+ " elements " :[ " element1 " , " element2 " ],
+ " query " :{
+ " fulltext " : " text to be searched " ,
+ " person " : " author to be searched " 
+ … 
+ }
+} 
+ name is the unique collection identifier and created collections are available at http://iiif.onb.ac.at/collection/{name} .
+ Providing a name in the request is optional. If name is given, it must be alphanumeric(including underscore) and can not be more than 50 characters.
+ If name is empty, it will be automatically generated.
+ Providing a description in the request is optional. If it is not given, either the query will be the description or there will be no description.
+ searchLimitFrom and searchLimitTo specify how many manifests are added to the collection from the search query results and their range. Increasing the range might cause performance problems.
+ There must be either an elements array or a query element or both present in the request. If both are present, the 'elements array' is added to the result of the search query.
+ Individual elements must not be empty strings.
+ elements can be manifests or other collections. They can be collection names, manifest barcodes or direct URLs.
+ Query elements can include the following labels:
+ fulltext 
+ pagecount 
+ idnr(AC Number) 
+ barcode 
+ language 
+ localSignature 
+ title 
+ person 
+ country 
+ yearOfPublication 
+ place 
+ Query elements are in Lucene query syntax .
+ Currently created collections are saved into the cookies and will be lost after the browser is closed. In the future, when SACHA has a login system, you will be able to save collections.
+ 3.6.2. Parameters
+ Type 
+ Name 
+ Description 
+ Schema 
+ Body 
+ body 
+ required 
+ request json body
+ string
+ 3.6.3. Responses
+ HTTP Code 
+ Description 
+ 201 
+ Returns a message with the name and URL of the created collection.
+ 400 
+ The request is malformed
+ 500 
+ Something went wrong with the server
+ 3.7. Get Collection
+ GET /presentation/collection/{collectionName} 
+ 3.7.1. Description
+ Request a collection with a name.
+ 3.7.2. Parameters
+ Type 
+ Name 
+ Description 
+ Schema 
+ Header 
+ Accept 
+ optional 
+ Accept Header can be json or json-ld.
+ string
+ Path 
+ collectionName 
+ required 
+ collectionName
+ string
+ 3.7.3. Responses
+ HTTP Code 
+ Description 
+ 200 
+ Returns found collection
+ 404 
+ Collection with that name not found
+ 500 
+ Something went wrong with the server
+ 3.7.4. Produces
+ application/json 
+ application/ld+json 
+ 3.8. Annotation
+ GET /presentation/{projectName}/{id}/annotation/{imageID} 
+ 3.8.1. Description
+ Request an annotation in json format. Annotation is the representation of an image.
+ 3.8.2. Parameters
+ Type 
+ Name 
+ Description 
+ Schema 
+ Header 
+ Accept 
+ optional 
+ Accept Header can be json or json-ld.
+ string
+ Path 
+ id 
+ required 
+ id
+ string
+ Path 
+ imageID 
+ required 
+ imageID has 8 digits
+ string
+ Path 
+ projectName 
+ required 
+ projectName
+ string
+ 3.8.3. Responses
+ HTTP Code 
+ Description 
+ 200 
+ Returns the requested annotation from server file system.
+ 201 
+ Dynamically creates the requested annotation and returns it.
+ 400 
+ The parameter 'imageID' doesn’t match the requirements.
+ 404 
+ The given id does not match requirements or doesn’t exist. Or The given pageNo doesn’t exist on the id.
+ 500 
+ An internal server returnError occurred.
+ 3.8.4. Produces
+ application/json;charset=utf-8 
+ application/ld+json;charset=utf-8 
+ 3.9. Canvas
+ GET /presentation/{projectName}/{id}/canvas/{pageID} 
+ 3.9.1. Description
+ Request a canvas with a id and a pageNo. Sequences can have multiple canvases. Canvases are analogous to individual pages.
+ 3.9.2. Parameters
+ Type 
+ Name 
+ Description 
+ Schema 
+ Header 
+ Accept 
+ optional 
+ Accept Header can be json or json-ld.
+ string
+ Path 
+ id 
+ required 
+ id
+ string
+ Path 
+ pageID 
+ required 
+ pageID has the form 'page[x]', where x is the integer page number in ABO and no special form in ANNO.'
+ string
+ Path 
+ projectName 
+ required 
+ projectName
+ string
+ 3.9.3. Responses
+ HTTP Code 
+ Description 
+ 200 
+ Returns the requested canvas from server file system.
+ 201 
+ Dynamically creates the requested canvas and returns it.
+ 400 
+ The parameter 'pageNo' doesn’t match the requirements.
+ 404 
+ The given id does not match requirements or doesn’t exist.
+ 500 
+ An internal server returnError occurred.
+ 3.9.4. Produces
+ application/json;charset=utf-8 
+ application/ld+json;charset=utf-8 
+ 3.10. List
+ GET /presentation/{projectName}/{id}/list/{pageID} 
+ 3.10.1. Description
+ Request a list as json file. List is the other content of a canvas like txt, html or json files.
+ 3.10.2. Parameters
+ Type 
+ Name 
+ Description 
+ Schema 
+ Header 
+ Accept 
+ optional 
+ Accept Header can be json or json-ld.
+ string
+ Path 
+ id 
+ required 
+ id
+ string
+ Path 
+ pageID 
+ required 
+ pageID in the form of 'page{page number in digits}'
+ string
+ Path 
+ projectName 
+ required 
+ projectName
+ string
+ 3.10.3. Responses
+ HTTP Code 
+ Description 
+ 200 
+ Returns the requested list from server file system.
+ 201 
+ Dynamically creates the requested list and returns it.
+ 400 
+ The parameter 'pageNo' doesn’t match the requirements.
+ 404 
+ The given id does not match requirements or doesn’t exist. Or The given pageNo doesn’t exist on the id.
+ 500 
+ An internal server returnError occurred.
+ 3.10.4. Produces
+ application/json;charset=utf-8 
+ application/ld+json;charset=utf-8 
+ 3.11. Manifest
+ GET /presentation/{projectName}/{id}/manifest 
+ 3.11.1. Description
+ Request a manifest with an id. Returns the requested manifest as json-ld file or json file depending on the accept header.
+ 3.11.2. Parameters
+ Type 
+ Name 
+ Description 
+ Schema 
+ Header 
+ Accept 
+ optional 
+ Accept Header can be json or json-ld.
+ string
+ Path 
+ id 
+ required 
+ id
+ string
+ Path 
+ projectName 
+ required 
+ projectName
+ string
+ 3.11.3. Responses
+ HTTP Code 
+ Description 
+ 200 
+ Returns the requested manifest from server file system.
+ 201 
+ Dynamically creates the requested manifest and returns it.
+ 404 
+ The given id does not match requirements or doesn’t exist.
+ 500 
+ An internal server returnError occurred.
+ 3.11.4. Produces
+ application/json;charset=utf-8 
+ application/ld+json;charset=utf-8 
+ 3.12. Resource
+ GET /presentation/{projectName}/{id}/resource/{resourceID} 
+ 3.12.1. Description
+ Request a resource file in its own format. This method returns either the txt or hocr(html) file or the annotation list in json format.
+ 3.12.2. Parameters
+ Type 
+ Name 
+ Description 
+ Schema 
+ Header 
+ Accept 
+ optional 
+ Accept Header can be json or json-ld.
+ string
+ Path 
+ id 
+ required 
+ id
+ string
+ Path 
+ projectName 
+ required 
+ projectName
+ string
+ Path 
+ resourceID 
+ required 
+ resourceID in the form of {imageID}.html or {imageID}.txt or {imageID}.json. imageID consists of 8 digits.
+ string
+ 3.12.3. Responses
+ HTTP Code 
+ Description 
+ 200 
+ Returns requested resource file.
+ 400 
+ The parameter 'resourceID' doesn’t match the requirements. Or the file format of the resource is not known.
+ 404 
+ The given id does not match requirements or doesn’t exist.
+ 500 
+ An internal server returnError occurred.
+ 3.12.4. Produces
+ text/html;charset=utf-8 
+ text/plain;charset=utf-8 
+ 3.13. Sequence
+ GET /presentation/{projectName}/{id}/sequence/{name} 
+ 3.13.1. Description
+ Request a sequence with a id and sequence name. In our implementation each manifest has only one sequence. The default sequence name is 'normal'.
+ 3.13.2. Parameters
+ Type 
+ Name 
+ Description 
+ Schema 
+ Header 
+ Accept 
+ optional 
+ Accept Header can be json or json-ld.
+ string
+ Path 
+ id 
+ required 
+ id
+ string
+ Path 
+ name 
+ required 
+ name that can either be 'normal' or 'basic'
+ string
+ Path 
+ projectName 
+ required 
+ projectName
+ string
+ 3.13.3. Responses
+ HTTP Code 
+ Description 
+ 200 
+ Returns the requested sequence from server file system.
+ 201 
+ Dynamically creates the requested sequence and returns it.
+ 400 
+ The paramater 'name' doesn’t match the requirements.
+ 404 
+ The given id does not match requirements or doesn’t exist.
+ 500 
+ An internal server returnError occurred.
+ 3.13.4. Produces
+ application/json;charset=utf-8 
+ application/ld+json;charset=utf-8 
+ 3.14. View Collection
+ GET /view/collection/{viewMode}/{collectionName} 
+ 3.14.1. Description
+ View the collection in one of the three possible view modes:
+ json : view in native json format
+ mirador : view with Mirador Viewer
+ universalviewer : view with Universal Viewer
+ 3.14.2. Parameters
+ Type 
+ Name 
+ Description 
+ Schema 
+ Path 
+ collectionName 
+ required 
+ name of the collection
+ string
+ Path 
+ viewMode 
+ required 
+ requested viewmode, it can be one of the following: json,mirador,universalviewer
+ string
+ 3.14.3. Responses
+ HTTP Code 
+ Description 
+ 200 
+ Returns the collection in Mirador Viewer or Universal Viewer
+ 303 
+ Redirect to the real URL of the collection
+ 400 
+ Either the given viewmode is undefined, or the given collection is malformed or empty, or the input field is empty.
+ 404 
+ The collection with this name or URL doesn’t exist.
+ 500 
+ An internal server returnError occurred.
+ 3.15. View Manifest
+ GET /view/manifest/{viewMode}/{projectName}/{id} 
+ 3.15.1. Description
+ View the manifest in one of the four possible view modes:
+ json : view in native json format
+ mirador : view with Mirador Viewer
+ mirador3 : view with Mirador3 Viewer
+ universalviewer : view with Universal Viewer
+ 3.15.2. Parameters
+ Type 
+ Name 
+ Description 
+ Schema 
+ Path 
+ id 
+ required 
+ id of the manifest
+ string
+ Path 
+ projectName 
+ required 
+ projectName
+ string
+ Path 
+ viewMode 
+ required 
+ requested viewmode, it can be one of the following: json,mirador, mirador3, universalviewer
+ string
+ 3.15.3. Responses
+ HTTP Code 
+ Description 
+ 200 
+ Returns the manifest in Mirador Viewer or Universal Viewer
+ 303 
+ Redirect to the real URL of the manifest
+ 400 
+ Either the given viewmode is undefined, or the given manifest is malformed or empty, or the input field is empty.
+ 404 
+ The manifest with this name or URL doesn’t exist.
+ 500 
+ An internal server returnError occurred.
+ Last updated 2026-10-14 05:32:43 +0200
+-->
+ Contact: 
+ Impressum

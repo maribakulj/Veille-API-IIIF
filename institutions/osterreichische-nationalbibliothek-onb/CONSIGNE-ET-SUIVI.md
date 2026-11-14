@@ -2,51 +2,51 @@
 
 - **Dossier** : `institutions/osterreichische-nationalbibliothek-onb/`  ·  **Classeur de référence** : GLAM-027  ·  **Pays** : Autriche
 - **Statut d'institution** : active
-- **Dernière mise à jour du suivi** : (à renseigner à chaque modification)
+- **Dernière mise à jour du suivi** : 2026-11-14
 
 ## Suivi par étape (à cocher, avec justification et preuves)
 
 ### a) Documentation lue en entier
 > Toutes les pages de doc liées à l'API (développeurs, interfaces, conditions, FAQ, aide, mentions légales, robots.txt), téléchargées avec `scripts/fetch_doc.sh` (URL, date, SHA-256), lues en entier (`scripts/extract_text.py`).
 
-- [ ] **Pas fait**
-  - **Justification** : Pas encore traitée : l'audit suit l'ordre du classeur de référence (une institution à la fois).
-  - **Preuves** : 
+- [x] **Fait**
+  - **Justification** : Doc lue en entier : api.onb.ac.at, swagger SACHA iiif.onb.ac.at/api/ (section 2.3), démo, ÖNB Labs (about, tools, terms, sacha, datasets, tutorials, topic), www.onb.ac.at/en/use et legal-notice ; robots.txt des 4 hôtes ; empreintes SHA-256 ; pages JS-only listées à vérifier à la main.
+  - **Preuves** : `institutions/osterreichische-nationalbibliothek-onb/sources/doc/SHA256SUMS`, `institutions/osterreichische-nationalbibliothek-onb/sources/doc2/SHA256SUMS`, `institutions/osterreichische-nationalbibliothek-onb/sources/doc3/SHA256SUMS`, `institutions/osterreichische-nationalbibliothek-onb/sources/doc4/SHA256SUMS`
 
 ### b) Endpoints tirés de la doc
 > Liste des endpoints citée par la doc (URL, exemples). Jamais devinée. Une interdiction ou une impossibilité écrite dans la doc justifie de renoncer (citer la phrase).
 
-- [ ] **Pas fait**
-  - **Justification** : Pas encore traitée : l'audit suit l'ordre du classeur de référence (une institution à la fois).
-  - **Preuves** : 
+- [x] **Fait**
+  - **Justification** : Endpoints tirés du swagger SACHA (15 routes) et de la page api.onb.ac.at (IIIF v3, Search, REST v1) : familles dans data.json endpoints_documentes, statut teste ou non_teste avec raison.
+  - **Preuves** : `institutions/osterreichische-nationalbibliothek-onb/data.json`, `institutions/osterreichische-nationalbibliothek-onb/sources/doc/text/03.txt`
 
 ### c) Configuration écrite AVANT les tests
 > `config/<nom>.json` pilote `scripts/probe.py`, committée avant le lancement. Un endpoint absent de la doc mais non interdit se teste avec un script poli (identifiants issus de pages publiques ou d'exemples de la doc, pas de devinette).
 
-- [ ] **Pas fait**
-  - **Justification** : Pas encore traitée : l'audit suit l'ordre du classeur de référence (une institution à la fois).
-  - **Preuves** : 
+- [x] **Fait**
+  - **Justification** : 5 configurations écrites et committées avant chaque passe, max 15 requêtes, min_delay 6 s, GET/HEAD seulement ; configuration crash-info-json.json préparée.
+  - **Preuves** : `institutions/osterreichische-nationalbibliothek-onb/config/onb-passe1-iiif-sacha.json`, `institutions/osterreichische-nationalbibliothek-onb/config/onb-passe2-iiif-sacha-suite.json`, `institutions/osterreichische-nationalbibliothek-onb/config/onb-passe3-iiif-sacha-id8.json`, `institutions/osterreichische-nationalbibliothek-onb/config/onb-passe4-list-abo.json`, `institutions/osterreichische-nationalbibliothek-onb/config/onb-passe5-resource-abo.json`
 
 ### d) Quota cherché dans la doc
 > Pour chaque page lue : endpoint de statut, en-têtes de limite documentés, clé ou compte donnant un quota, contact pour un volume plus élevé. Chaque réponse cite sa source.
 
-- [ ] **Pas fait**
-  - **Justification** : Pas encore traitée : l'audit suit l'ordre du classeur de référence (une institution à la fois).
-  - **Preuves** : 
+- [x] **Fait**
+  - **Justification** : Quota cherché dans chaque source lue : aucun chiffre, aucun en-tête, aucune clé ; seule mise en garde sans chiffre (section 2.3 du swagger) ; contacts api@onb.ac.at et labs@onb.ac.at ; conclusion dans fiche.md et data.json.
+  - **Preuves** : `institutions/osterreichische-nationalbibliothek-onb/fiche.md`, `institutions/osterreichische-nationalbibliothek-onb/sources/doc/text/03.txt`
 
 ### e) Test systématique de chaque endpoint
 > Chaque endpoint documenté est testé (budget 15 requêtes par passe, pause ≥ 6 s, GET/HEAD, UA du projet). Redirections du même hôte suivies. Un 403 arrête son hôte, un 429 arrête l'institution. Seules les interdictions écrites dans la doc dispensent de tester.
 
-- [ ] **Pas fait**
-  - **Justification** : Pas encore traitée : l'audit suit l'ordre du classeur de référence (une institution à la fois).
-  - **Preuves** : 
+- [x] **Fait**
+  - **Justification** : 5 passes, 17 requêtes sur iiif.onb.ac.at (200, 303, 201, 400, 404 réels), aucun en-tête de limite, aucun 429 ; ÖNB-API v3 et POST non testés avec raison dans data.json.
+  - **Preuves** : `institutions/osterreichische-nationalbibliothek-onb/tests/journal.log`, `institutions/osterreichische-nationalbibliothek-onb/tests/raw/manifest-repo-7445056.headers.txt`
 
 ### f) Ce que disent les gens sur le web
 > Plaintes, discussions, présentations de l'institution, politique envers les API et les bots, blogs, GitHub, forums, listes de diffusion. Sources étiquetées (officielle / institution / utilisateur / tiers), lues, citées.
 
-- [ ] **Pas fait**
-  - **Justification** : Pas encore traitée : l'audit suit l'ordre du classeur de référence (une institution à la fois).
-  - **Preuves** : 
+- [x] **Fait**
+  - **Justification** : 4 recherches web (institution, présentations, utilisateurs, tickets) ; présentation IIIF Göttingen 2019 lue ; aucun résultat utilisateurs/tickets, requêtes consignées dans data.json.
+  - **Preuves** : `institutions/osterreichische-nationalbibliothek-onb/data.json`, `institutions/osterreichische-nationalbibliothek-onb/fiche.md`
 
 ### g) Crash test progressif
 > Seulement après l'audit complet (a à f) de toutes les institutions et avec l'accord de Marcel : paliers jusqu'à 2 × la limite documentée, ou 200 req/min si illimité ou sans limite documentée. Arrêt au premier 429/403/CAPTCHA.
@@ -60,7 +60,10 @@
 
 <!-- AUTO:DEBUT -->
 ## Contrôles automatiques (calculés depuis `tests/journal.log`)
-Aucune requête enregistrée dans `tests/journal.log`.
+- Requêtes enregistrées : **24** (sessions de sonde : 5, maximum par session : 9)
+- Plus courte pause vers un même hôte : **6 s** (règle : ≥ 6 s)
+- Méthodes utilisées : GET, HEAD (règle : GET/HEAD seulement)
+- Anomalies : aucune
 <!-- AUTO:FIN -->
 
 ## Consigne intégrale

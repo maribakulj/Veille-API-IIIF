@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <base href="/">
+  <link rel="icon" href="favicon.ico" type="image/vnd.microsoft.icon">
+  <title>Austrian National Library - API</title>
+  <meta http-equiv="x-ua-compatible" content="IE=edge" />
+  <link rel="stylesheet" type="text/css" href="css/styles.css">
+</head>
+<body>
+  <header>
+    <div class="container">
+      <div class="topbar"></div>
+      <div class="mainbar"><img src="logo.svg"
+                                class="logo" alt="Austrian National Library Logo"
+                                width="300" height="62"></div>
+    </div>
+  </header>
+  <main>
+    <section class="page-title-slim">
+      <div class="container">
+        <div class="headline"><h1>&Ouml;NB-API</h1></div>
+      </div>
+    </section>
+    <section class="container narrow">
+      <div class="section-title"><h2>What we provide</h2></div>
+      <p>The ÖNB-API gives programmatic access to the digital collections of the Austrian
+        National Library. It exposes the collections through standards-based
+        <a href="https://iiif.io/">IIIF</a> APIs (image tiles, manifests and full-text search),
+        together with a set of raw file, preview and OCR endpoints.</p>
+
+      <div class="section-title"><h2>IIIF APIs</h2></div>
+      <p>This API implements the following <a href="https://iiif.io/api/">IIIF specifications</a>:</p>
+      <table class="api-table">
+        <tr>
+          <th>API</th>
+          <th>Version</th>
+          <th>Base path</th>
+          <th>Specification</th>
+        </tr>
+        <tr>
+          <td>IIIF Presentation API</td>
+          <td>3.0</td>
+          <td><code>/iiif/presentation/v3</code></td>
+          <td><a href="https://iiif.io/api/presentation/3.0/">presentation/3.0</a></td>
+        </tr>
+        <tr>
+          <td>IIIF Image API</td>
+          <td>3.0</td>
+          <td><code>/iiif/image/v3</code></td>
+          <td><a href="https://iiif.io/api/image/3.0/">image/3.0</a></td>
+        </tr>
+        <tr>
+          <td>IIIF Content Search API</td>
+          <td>2.0</td>
+          <td><code>/iiif/search/v2</code></td>
+          <td><a href="https://iiif.io/api/search/2.0/">search/2.0</a></td>
+        </tr>
+        <tr>
+          <td>IIIF Content Search API <em>(deprecated)</em></td>
+          <td>1.0</td>
+          <td><code>/iiif/search/v1</code></td>
+          <td><a href="https://iiif.io/api/search/1.0/">search/1.0</a></td>
+        </tr>
+      </table>
+
+      <div class="section-title"><h2>Raw REST endpoints (v1)</h2></div>
+      <p>In addition to the IIIF APIs, the following endpoints deliver individual files and
+        derivatives for an intellectual entity (<code>ieId</code>). Files that already exist
+        in the repository are addressed by file name; OCR results can be requested page by
+        page through the OCR endpoints:</p>
+      <ul class="endpoint-list">
+        <li><code>GET /rest/v1/ie/{ieId}/file/{fileName}</code> &ndash; the original file or a
+          derivative stored in the repository. If an OCR file exists as
+          <code>PAGE_COORDOCR</code> in the intellectual entity, it can also be delivered
+          through this endpoint; use <code>?format=text</code> to request its text view.</li>
+        <li><code>GET /rest/v1/ie/{ieId}/alto/{pageNumber}</code> &ndash; OCR result for one page
+          as ALTO XML from the OCR service. <code>pageNumber</code> starts at
+          <code>1</code>.</li>
+        <li><code>GET /rest/v1/ie/{ieId}/txt/{pageNumber}</code> &ndash; plain text extracted from
+          the ALTO XML for the requested page from the OCR service.</li>
+        <li><code>GET /rest/v1/ie/{ieId}/preview</code> &ndash; a preview image.</li>
+        <li><code>GET /rest/v1/ie/{ieId}/thumbnail</code> &ndash; a thumbnail image.</li>
+      </ul>
+
+      <div class="section-title"><h2>Getting started</h2></div>
+      <p>The Jupyter notebook
+        <a href="https://labs.onb.ac.at/gitlab/labs-team/how-to-oenb-api">How To ÖNB-API</a>
+        by ÖNB Labs introduces all IIIF APIs with examples (in German). It runs in the browser
+        without installation via
+        <a href="https://mybinder.org/v2/git/https%3A%2F%2Flabs.onb.ac.at%2Fgitlab%2Flabs-team%2Fhow-to-oenb-api/HEAD">Binder</a>.</p>
+      <p>A IIIF manifest can be opened in any IIIF-compatible viewer &ndash; for example
+        <a href="https://projectmirador.org/">Mirador</a> or the
+        <a href="https://universalviewer.io/">Universal Viewer</a> &ndash; by pasting or
+        dragging its URL into the viewer. New to IIIF? See
+        <a href="https://iiif.io/get-started/">Getting started with IIIF</a>.</p>
+      
+
+      <div class="section-title"><h2>Contact</h2></div>
+      <p>Questions, feedback or need access? Contact us at
+        <a href="mailto:api@onb.ac.at">api@onb.ac.at</a>.</p>
+    </section>
+  </main>
+  <footer>
+    <div class="container">
+      <div class="footer-bottom-inner">
+        <div class="copyright">© Austrian National Library 2026</div>
+        <nav class="meta">
+          <ul>
+            <li><a href="https://www.onb.ac.at/en/legal-notice" title="Legal notice">Legal notice</a></li>
+            <li><a href="https://www.onb.ac.at/en/data-protection-information" title="Data protection information">Data protection information</a></li>
+            <li><a href="https://www.onb.ac.at/en/accessibility-declaration"
+                   title="Accessibility declaration">Accessibility declaration</a></li>
+            <li><a href="https://www.onb.ac.at/en/use" title="Use">Use</a></li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>

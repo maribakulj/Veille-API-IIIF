@@ -1,0 +1,12 @@
+{
+  "slug": "smithsonian",
+  "endpoint": {
+    "id": "s3-metadata-index-edan",
+    "url": "https://smithsonian-open-access.s3-us-west-2.amazonaws.com/metadata/edan/index.txt",
+    "method": "GET"
+  },
+  "limite_documentee_req_min": null,
+  "source_limite": "aucune limite de débit documentée pour le bucket S3 public (https://registry.opendata.aws/smithsonian-open-access/ : « AWS CLI Access (No AWS account required) »). La limite api.data.gov (1 000 requêtes/h par clé) ne concerne que api.si.edu, qui exige une clé : non testée.",
+  "duree_palier_s": 180,
+  "note": "index.txt de 3 314 octets, 200 dans le journal (passe 1, 2026-11-14T01:48:37Z). Hôte Amazon S3 : le crash.py détectera un réseau (plafond 60 req/min si AWS/CloudFront identifié)."
+}

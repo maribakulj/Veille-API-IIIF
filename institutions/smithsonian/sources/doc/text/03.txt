@@ -1,0 +1,39 @@
+You are using an outdated browser. Please upgrade your browser to improve your experience.
+ Toggle navigation 
+ About 
+ Architecture 
+ Services+consumers 
+ Contact 
+ Smithsonian Institution
+ Enterprise Data Access Network
+ + Open Access Initiative
+ Content Repository
+ Read More 
+ Introduction 
+ The edan content repository [edanCR] is a centrally administered data store comprised of millions of records contributed from a wide variety of Smithsonian sources including collection management systems, web applications, internal databases and externally authored content. The repository acts both as a primary source store as well as a holding tank for collections content. Data distributed through the repository gateway allows major opportunties for the institution, including promoting centralized avenues of re-use, search and discovery, machine processing and more. The +Open Access Initiative leverages the edan content respostiory to expose and provide access to over 11 million objects, artifacts and specimens.
+ Composition + Features
+ Content Atoms
+ The edanCR is comprised of millions of pieces of content contributed from sources around the institution. Collections data co-exists among file objects, transcriptions and 3d models. Upon ingest all records in the repository receive a persistent identifier that the repository leverages to link content atoms together. Content atoms are designed to be linked and compounded to make new types of data.
+ Core content schema + flexible data types 
+ We realize that not all data can conform to one model. The content repository manages content of various shapes and sizes. Core metadata to aid in managing of the content atom gets wrapped around a flexible schema which is governed by the contributor. Once a schema is designed and registered, successfully validated content is allowed into the repository.
+ Features + highlights 
+ API's to create and manage content
+ Access to all content at one endpoint.
+ Flexible content. Store content your way.
+ File Service support.
+ Persistent identifiers that will live even during data refresh.
+ Content structure 
+ All content in the repository is structured as json objects. In fact we leverage json most everywhere in the system, including the schemas that govern validation to forms that aid in creating data to the API request and response streams.
+ However even though the content repository store is comprised of json objects, it is prepared to deal with all data formats and needs, including xml, csv, rdf and more.
+ When new content is considered for the repository intended re-use is planned out and different configurations are stored as components related to the given type.
+ Applications + services 
+ Content services are low level APIs to facilitate creating and managing data.
+ In addition specialized applications to create,manage and group content are developed as needed. Most all serve a particular purpose such as Story Telling services which build upon content services to build story type objects or List services which collate content atoms. Even whole systems such as the museum interactive support system [miss] leverages the content_repository and services to create packaged objects to drive museum interactives.
+ Consumers 
+ Data doesn't dead end at the repository. All data has the opportunity to continue on for re-use and dissemination through search and graphing services. As new ways to process data are introduced the repository can be leveraged to link and enrich content. Machine learning and data enrichment are core concepts and planned avenues.
+ Read more about {json} content. Using the repository and first steps. 
+ + Open Access Initiative 
+ We built an entire API to help you discover content here are the Smithsonian. The API is open and all that we require is that you get a key at https://edan.si.edu/openaccess/signup/form 
+ Support for the edan content repository,services and the + Open Acccess Initiative API are provided by the Office of the Chief Information Officer at the Smithsonian.
+ Question or contacts? E-mail us.. openaccess@si.edu 
+ photo credit: Archives Center, National Museum of American History, Smithsonian Institution
