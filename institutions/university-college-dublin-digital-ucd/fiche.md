@@ -18,7 +18,7 @@
 ## Web
 - Institution : aucune politique de quota, de bots ni de moissonnage trouvée (page IIIF de guides.iiif.io : seulement la marche à suivre pour copier le lien de manifeste ; apis.io : seul l'export de métadonnées statique, « Rate Limit Signal: derived », valeur dérivée sans source).
 - Utilisateurs : aucune plainte 429/503 trouvée (recherche : une).
-- Tickets et présentations : le budget de recherche WebSearch de la session était épuisé ; on a lu à la place la recherche interne de GitHub (aucun ticket mentionnant digital.ucd.ie) et une présentation de la bibliothèque (slideshare « IIIF & Beyond » : ne parle ni de débit ni de robots). Limite à signaler : ces deux catégories n'ont pas eu leur propre recherche web.
+- Tickets et présentations : refaits le 2026-11-14 par WebSearch (2 recherches). Tickets : aucun ticket GitHub mentionnant digital.ucd.ie (résumé de moteur, non vérifié ; la recherche interne de GitHub déjà lue donnait le même résultat). Présentations : slideshare « IIIF & Beyond » (ne parle ni de débit ni de robots) ; billet DRI sur l'atelier IIIF et liste des publications UCD signalés par le moteur, non lus (DRI en 403).
 
 ## Conclusion
 Aucun quota ni limite de débit publiés, avant comme après la refonte. Le site actuel est statique (pas d'API) ; les API IIIF/OpenSearch/Linked Data de l'ancienne plateforme sont inaccessibles (DNS, délais, 404). À refaire quand la nouvelle plateforme (annoncée pour 2026) sera en ligne. Confiance : moyenne.

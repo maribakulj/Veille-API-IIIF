@@ -45,7 +45,7 @@
 > Plaintes, discussions, présentations de l'institution, politique envers les API et les bots, blogs, GitHub, forums, listes de diffusion. Sources étiquetées (officielle / institution / utilisateur / tiers), lues, citées.
 
 - [x] **Fait**
-  - **Justification** : 4 catégories : institution (open data), présentations (billet SLV LAB), utilisateurs et tickets sans résultat (recherches ciblées bloquées par le plafond de recherches web, consigné)
+  - **Justification** : 4 catégories : institution (open data), présentations (billet SLV LAB), utilisateurs (recherche refaite : 403 d'images lié à un cookie de session signalé par GLAM Workbench, résumé de moteur non vérifié ; aucune plainte 429) et tickets (recherche refaite : aucun ticket) ; 2 recherches web refaites le 2026-11-14.
   - **Preuves** : `institutions/state-library-victoria/data.json`, `institutions/state-library-victoria/fiche.md`
 
 ### g) Crash test progressif

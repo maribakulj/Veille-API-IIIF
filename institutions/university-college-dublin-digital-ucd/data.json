@@ -147,18 +147,19 @@
     },
     {
       "categorie": "tickets",
-      "url": "https://github.com/search?q=%22digital.ucd.ie%22+iiif&type=issues",
+      "aucun_resultat": true,
+      "requete": "github issue \"digital.ucd.ie\" iiif manifest",
       "date": "2026-11-14",
-      "etiquette": "tiers (recherche interne GitHub, WebSearch indisponible : budget épuisé)",
-      "citation": "aucun ticket mentionnant digital.ucd.ie ou UCD Digital Library parmi les 7 résultats (iiif-stories, fromthepage, etc.).",
+      "etiquette": "– (résumé de moteur, non vérifié)",
+      "citation": "aucun ticket GitHub mentionnant digital.ucd.ie ; le moteur signale que la doc UCD place les manifestes sous data.ucd.ie/api/img/manifests/{identifiant} et que le wiki Mirador (M3 Fixtures) cite un manifeste UCD en exemple, sans limite.",
       "preuve": "institutions/university-college-dublin-digital-ucd/fiche.md"
     },
     {
       "categorie": "presentations",
       "url": "https://www.slideshare.net/eservice/iiif-and-beyond",
       "date": "2026-11-14",
-      "etiquette": "présentation de l'institution (UCD Library), lue par WebFetch (partielle)",
-      "citation": "« Further Development at UCD » : Search API, Authentication API ; aucune mention de débit, de robots ni de politique d'API.",
+      "etiquette": "présentation de l'institution (UCD Library, P. Clarke), lue partiellement (WebFetch) ; autres pistes en résumé de moteur, non vérifié : billet DRI https://dri.ie/?p=2837 (403 à la lecture), liste des publications du personnel UCD (atelier IIIF 2018)",
+      "citation": "« Further Development at UCD » : Search API, Authentication API ; « First institution in Ireland to adopt IIIF (2015) » (résumé de moteur) ; aucune mention de débit, de robots ni de politique d'API.",
       "preuve": "institutions/university-college-dublin-digital-ucd/fiche.md"
     }
   ],

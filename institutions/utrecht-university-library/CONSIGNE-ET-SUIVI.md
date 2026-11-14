@@ -45,8 +45,8 @@
 > Plaintes, discussions, présentations de l'institution, politique envers les API et les bots, blogs, GitHub, forums, listes de diffusion. Sources étiquetées (officielle / institution / utilisateur / tiers), lues, citées.
 
 - [x] **Fait**
-  - **Justification** : 4 catégories : institution, utilisateurs (fil iiif-discuss lu), présentations, tickets (aucun résultat : quota de recherche épuisé, signalé).
-  - **Preuves** : `institutions/utrecht-university-library/fiche.md`, `institutions/utrecht-university-library/data.json`
+  - **Justification** : 4 catégories : institution, utilisateurs (fil iiif-discuss lu), présentations, tickets (recherche refaite le 2026-11-14 : aucun ticket Utrecht, résumé de moteur non vérifié).
+  - **Preuves** : `institutions/utrecht-university-library/data.json`, `institutions/utrecht-university-library/fiche.md`
 
 ### g) Crash test progressif
 > Seulement après l'audit complet (a à f) de toutes les institutions et avec l'accord de Marcel : paliers jusqu'à 2 × la limite documentée, ou 200 req/min si illimité ou sans limite documentée. Arrêt au premier 429/403/CAPTCHA.
