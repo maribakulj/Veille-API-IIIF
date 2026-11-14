@@ -40,11 +40,17 @@ while IFS= read -r url; do
   python3 "$MAIN/scripts/hostlock.py" attendre "$host" 3
   code=$(curl -sS -L --max-redirs 3 -A "$UA" --max-time 30 -o "$f" -w '%{http_code}' "$url" 2>>"$out/FETCH.log" || echo "ERR")
   python3 "$MAIN/scripts/hostlock.py" redact "$f"
+  case "$url" in */robots.txt) python3 "$MAIN/scripts/hostlock.py" noter_robots "$host" "$f" ;; esac
   echo "$(date -u +%Y-%m-%dT%H:%M:%SZ) | $code | $(wc -c < "$f" 2>/dev/null || echo 0) o | $url" >> "$out/FETCH.log"
   # 403 / 405 / 429 ou défi anti-bot : l'hôte est arrêté pour le reste de la liste (règle : jamais d'insistance) ;
   # un 429 arrête toute la liste.
   if [ "$code" = "429" ]; then echo "429 reçu : arrêt de toute la liste" >&2; break; fi
-  if [ "$code" = "403" ] || [ "$code" = "405" ] || { [ "$(wc -c < "$f" 2>/dev/null || echo 0)" -lt 30000 ] && grep -qiE "verifying your browser|human verification|captcha|request blocked|just a moment|attention required|x-amzn-waf-action" "$f" 2>/dev/null; }; then
+  gateway=0
+  grep -qiE "Missing Authentication Token|API_KEY_MISSING|invalid_apikey" "$f" 2>/dev/null && gateway=1
+  fort=0
+  if [ "$(wc -c < "$f" 2>/dev/null || echo 0)" -lt 30000 ] && grep -qiE "verifying your browser|human verification|request blocked|just a moment|attention required|making sure you.re not a bot|verification required|checking your browser|cf-turnstile|challenges\.cloudflare\.com|x-amzn-waf-action" "$f" 2>/dev/null; then fort=1; fi
+  # 403/405 : bloquant, sauf réponse de passerelle d'API ou de clé manquante ; page 200 : seulement un marqueur FORT de défi
+  if { { [ "$code" = "403" ] || [ "$code" = "405" ]; } && [ "$gateway" = "0" ]; } || [ "$fort" = "1" ]; then
     bloques="$bloques $host"
     python3 "$MAIN/scripts/hostlock.py" bloquer "$host" "fetch_doc $code $(date -u +%FT%TZ)"
   fi

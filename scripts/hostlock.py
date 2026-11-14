@@ -110,6 +110,12 @@ def bloquer(host, raison=""):
     _ecrire(e, f, p)
 
 
+def debloquer(host):
+    e, f, p = _etat()
+    e.get("bloques", {}).pop(host, None)
+    _ecrire(e, f, p)
+
+
 def bloque(host):
     """Retourne la raison si l'hôte est arrêté (registre partagé), sinon None."""
     e, f, p = _etat()
@@ -120,11 +126,37 @@ def bloque(host):
     return None
 
 
+def noter_robots(host, chemin):
+    """Lit un robots.txt téléchargé : Crawl-delay du groupe « * » (ou du fichier sans groupe) appris pour TOUS les appels."""
+    import re
+    try:
+        t = open(chemin, encoding="utf-8", errors="replace").read()
+    except OSError:
+        return
+    groupe_etoile, vu_ua, delai = True, False, 0.0
+    for l in t.splitlines():
+        l = l.split("#")[0].strip()
+        m = re.match(r"(?i)user-agent\s*:\s*(.*)", l)
+        if m:
+            vu_ua = True
+            groupe_etoile = m.group(1).strip() == "*"
+            continue
+        m = re.match(r"(?i)crawl-delay\s*:\s*([0-9.]+)", l)
+        if m and (groupe_etoile or not vu_ua):
+            delai = max(delai, float(m.group(1)))
+    if delai:
+        noter_delai(host, delai)
+
+
 if __name__ == "__main__":
     if len(sys.argv) >= 3 and sys.argv[1] == "attendre":
         attendre(sys.argv[2], float(sys.argv[3]) if len(sys.argv) > 3 else 6.0)
     elif len(sys.argv) >= 3 and sys.argv[1] == "bloquer":
         bloquer(sys.argv[2], " ".join(sys.argv[3:]))
+    elif len(sys.argv) == 4 and sys.argv[1] == "noter_robots":
+        noter_robots(sys.argv[2], sys.argv[3])
+    elif len(sys.argv) == 3 and sys.argv[1] == "debloquer":
+        debloquer(sys.argv[2])
     elif len(sys.argv) == 3 and sys.argv[1] == "bloque":
         r = bloque(sys.argv[2])
         if r:

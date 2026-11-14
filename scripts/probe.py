@@ -302,7 +302,10 @@ def main():
                 snippet = r["body"][:200].decode("utf-8", "replace").replace("\n", " ")
                 line = (f"{now_utc()} | {eid} | {url} | {method} | {r['status']} {verdict} | "
                         f"{lh} | taille≥{len(r['body'])} | corps: {snippet}\n")
-                if verdict == "403_ANTI_BOT":
+                _gw = any(m in r["body"][:400] for m in (b"Missing Authentication Token", b"API_KEY_MISSING", b"invalid_apikey"))
+                if verdict == "403_ANTI_BOT" and _gw:
+                    line += "# 403 de passerelle d'API ou de clé manquante : pas un anti-bot, l'hôte n'est pas arrêté.\n"
+                elif verdict == "403_ANTI_BOT":
                     blocked_hosts.add(host)
                     _hl.bloquer(host, f"probe {cfg_path.name} 403 anti-bot")
                     line += f"# ARRÊT de l'hôte {host} (403 anti-bot). Les autres hôtes continuent.\n"

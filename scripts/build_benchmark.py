@@ -48,6 +48,14 @@ def charger():
     for slug in suivi.slugs():
         d = suivi.lire_data(slug)
         d.setdefault("slug", slug)
+        # Les agents écrivent parfois du texte au lieu d'objets dans ces listes : on normalise pour ne jamais planter.
+        for champ in ("en_tetes_observes", "blocages", "limites_documentees", "sources", "web", "a_verifier_manuellement",
+                      "endpoints_documentes", "endpoints_ecartes", "hotes_robots", "derogations"):
+            v = d.get(champ)
+            if isinstance(v, list):
+                d[champ] = [x if isinstance(x, dict) else {"texte": str(x)} for x in v]
+            elif v is not None and not isinstance(v, list):
+                d[champ] = [{"texte": str(v)}]
         s = suivi.lire_suivi(slug)
         statut, etapes = s if s else ("active", {})
         d["statut_institution"] = statut
