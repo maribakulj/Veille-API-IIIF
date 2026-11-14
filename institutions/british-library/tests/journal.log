@@ -10,3 +10,11 @@
 2026-11-13 | GET (outil de lecture web) | https://www.bl.uk/terms-and-conditions | 404 | — | page inaccessible
 # Wayback (lecture seule, hors site BL) : historique iiif.bl.uk ; capture 2026-08-02 = 403
 2026-11-13T20:35:13Z | HEAD (curl, UA honnête) | https://iiif.bl.uk/ | 403 (HTTP/2, server: Microsoft-IIS/10.0, content-length 1233) | aucun en-tête de limite | vérification ajoutée par l'orchestrateur : 403 aussi depuis la machine de veille (IP de Marcel), pas seulement via l'outil de lecture web ; cause non établie
+# Session 2026-11-14T03:17:51Z — configuration bl-digirati-manifestes.json — sonde probe.py au commit 5e57fcd
+2026-11-14T03:17:51Z | robots.txt:bl.digirati.io | https://bl.digirati.io/robots.txt | GET | 404 | robots.txt indisponible : tout est autorisé (RFC 9309)
+2026-11-14T03:17:58Z | digirati-manifeste-vdc | https://bl.digirati.io/iiif/ark:/81055/vdc_100054718159.0x000001 | GET | 200 OK | aucun en-tête de limite | taille≥851926 | corps: {"@context": "http://iiif.io/api/presentation/3/context.json", "id": "https://bl.digirati.io/iiif/ark:/81055/vdc_100054718159.0x000001", "type": "Manifest", "label": {"en": ["Ms mus. 1591"]}, "thumbna
+# corps enregistré : tests/raw/digirati-manifeste-vdc.body (851926 octets lus)
+2026-11-14T03:18:05Z | digirati-manifeste-man | https://bl.digirati.io/manifests/ark:/81055/man_10000006.0x000001 | GET | 200 OK | aucun en-tête de limite | taille≥1131389 | corps: {"@context": "http://iiif.io/api/presentation/3/context.json", "id": "https://bl.digirati.io/iiif/ark:/81055/man_10000006.0x000001", "type": "Manifest", "label": {"en": ["Cotton MS Nero D IV"]}, "thum
+# corps enregistré : tests/raw/digirati-manifeste-man.body (1131389 octets lus)
+2026-11-14T03:18:11Z | digirati-racine | https://bl.digirati.io/ | HEAD | 404 HTTP_404 | aucun en-tête de limite | taille≥0 | corps: 
+# Fin 2026-11-14T03:18:11Z — 4 requête(s) envoyée(s)

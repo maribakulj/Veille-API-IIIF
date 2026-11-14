@@ -1,0 +1,15 @@
+{
+  "slug": "british-library",
+  "min_delay_s": 6,
+  "max_requests": 15,
+  "follow_redirects": 1,
+  "robots_disallow_autorise_par_marcel": true,
+  "note": "Passe 2 : services d'image annoncés par le manifeste de la passe 1 (identifiants lus dans tests/raw/digirati-manifeste-vdc.body) : info.json Image API v2 et v3, service de vignettes, une petite image, et un deuxième exemplaire de manifeste pour repérer des en-têtes de limite.",
+  "endpoints": [
+    {"id": "digirati-info-v2", "method": "GET", "url": "https://bl.digirati.io/images/ark:/81055/vdc_100054718161.0x000001/info.json"},
+    {"id": "digirati-info-v3", "method": "GET", "url": "https://bl.digirati.io/images/v3/ark:/81055/vdc_100054718161.0x000001/info.json"},
+    {"id": "digirati-thumbs-info", "method": "GET", "url": "https://bl.digirati.io/thumbs/ark:/81055/vdc_100054718161.0x000001/info.json"},
+    {"id": "digirati-image-petite", "method": "GET", "url": "https://bl.digirati.io/images/ark:/81055/vdc_100054718161.0x000001/full/!200,200/0/default.jpg"},
+    {"id": "digirati-manifeste-vdc-bis", "method": "HEAD", "url": "https://bl.digirati.io/iiif/ark:/81055/vdc_100054718159.0x000001"}
+  ]
+}
