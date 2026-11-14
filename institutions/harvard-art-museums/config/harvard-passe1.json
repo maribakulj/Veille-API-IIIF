@@ -1,0 +1,17 @@
+{
+  "slug": "harvard-art-museums",
+  "min_delay_s": 6,
+  "max_requests": 15,
+  "follow_redirects": 0,
+  "robots_disallow_autorise_par_marcel": true,
+  "note": "Passe 1 : services cités par https://harvardartmuseums.org/collections/api et le dépôt api-docs (README.md, sections/iiif.md) : IIIF Presentation 2.1 (collection top, manifestes object 299843 et gallery 1600, exemples de la doc), IIIF Image 2.1 (nrs.harvard.edu, urn-3:HUAM:799974, exemple de la doc), visionneuse Mirador 3, et API de données sans clé (resource /object, une seule requête pour observer le 401 annoncé par la doc : aucune clé utilisée). robots.txt : api et nrs = Disallow: / (autorisé par Marcel, C12), iiif = 404.",
+  "endpoints": [
+    {"id": "api-object-sans-cle", "method": "GET", "url": "https://api.harvardartmuseums.org/object"},
+    {"id": "iiif-collection-top", "method": "GET", "url": "https://iiif.harvardartmuseums.org/collections/top"},
+    {"id": "iiif-manifeste-object", "method": "GET", "url": "https://iiif.harvardartmuseums.org/manifests/object/299843"},
+    {"id": "iiif-manifeste-gallery", "method": "GET", "url": "https://iiif.harvardartmuseums.org/manifests/gallery/1600"},
+    {"id": "image-info-json", "method": "GET", "url": "https://nrs.harvard.edu/urn-3:HUAM:799974/info.json"},
+    {"id": "image-derive-200", "method": "GET", "url": "https://nrs.harvard.edu/urn-3:HUAM:799974/full/200,/0/default.jpg"},
+    {"id": "mirador-v3", "method": "GET", "url": "https://iiif.harvardartmuseums.org/viewers/mirador/v3"}
+  ]
+}

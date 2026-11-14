@@ -1,0 +1,7 @@
+# Session 2026-11-14T01:55:41Z — configuration yale-passe1-collections.json — sonde probe.py au commit 14e60a6
+2026-11-14T01:55:41Z | robots.txt:collections.library.yale.edu | https://collections.library.yale.edu/robots.txt | GET | 200 | 3 règle(s) pour « * »
+2026-11-14T01:55:47Z | catalogue-item | https://collections.library.yale.edu/catalog/16945082 | GET | 202 OK | aucun en-tête de limite | taille≥0 | corps: 
+2026-11-14T01:55:47Z | manifeste-16945082 | robots.txt interdit https://collections.library.yale.edu/manifests/16945082 (Disallow: /manifests/) ; lancé car autorisé par Marcel (C12)
+2026-11-14T01:55:54Z | manifeste-16945082 | https://collections.library.yale.edu/manifests/16945082 | GET | 200 OK | aucun en-tête de limite | taille≥7326 | corps: {"@context":["http://iiif.io/api/search/1/context.json","http://iiif.io/api/extension/navplace/context.json","http://iiif.io/api/presentation/3/context.json"],"id":"https://collections.library.yale.ed
+# corps enregistré : tests/raw/manifeste-16945082.body (7326 octets lus)
+# Fin 2026-11-14T01:55:54Z — 3 requête(s) envoyée(s)

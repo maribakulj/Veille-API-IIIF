@@ -1,0 +1,12 @@
+{
+  "slug": "gottingen-state-gdz",
+  "endpoint": {
+    "id": "image-info-json",
+    "url": "https://images.sub.uni-goettingen.de/iiif/image/gdz:PPN519929969:00000001/info.json",
+    "method": "GET"
+  },
+  "limite_documentee_req_min": null,
+  "source_limite": "aucune limite de débit documentée (sources/wayback/digital-policies.md : « möglichst freien Nutzung », sans chiffre ; apis.io : « does not publish a unified public rate-limit table »)",
+  "duree_palier_s": 180,
+  "note": "info.json IIIF Image 2 de images.sub.uni-goettingen.de, 200 dans le journal (image-info-json, 2026-11-14T01:45:18Z) ; peu coûteux. Manifeste et OAI évités."
+}

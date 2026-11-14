@@ -1,0 +1,407 @@
+                                                Progetti
+
+
+
+L’adozione del IIIF nell’ecosistema
+digitale della Biblioteca Apostolica
+Vaticana
+                                                                                            «DigItalia» 2-2020
+                                                                                 DOI: 10.36181/digitalia-00017
+
+
+Paola Manoni
+Responsabile del Coordinamento dei Servizi Informatici della BAV
+
+
+     L’implementazione del IIIF nell’ecosistema digitale della Biblioteca Apostolica
+     Vaticana si avvia nel 2015 con la sperimentazione di un progetto pilota, a cui
+     segue l’allestimento della biblioteca digitale (DVL), basata sull’adozione di
+     standard per la gestione dei metadati e dei protocolli che consentono alle colle-
+     zioni digitali di essere interoperabili. L’ecosistema successivamente si incremen-
+     ta con software open source per la gestione di gallerie virtuali (Thematic
+     Pathways on the Web) in cui selezioni di manoscritti, annotati secondo tecnica
+     IIIF, offrono agli studiosi percorsi di ricerca tematici.
+
+
+
+Introduzione
+
+N    el 1953, in una prefazione a un catalogo di una mostra di manoscritti medie-
+     vali e rinascimentali italiani presso la Morgan Library, il grande storico dell’ar-
+te Bernard Berenson scriveva:
+
+     «Illuminated manuscripts are not easily accessible to the public and for good reasons.
+     Most of them are still in codices and can be shown only two pages at a time. There is
+     no other way unless the leaves are extracted and exhibited separately. This is not rec-
+     ommendable as it takes away from their character as book illustration and besides
+     makes them liable either to lose or change color or to fade away from permanent ex-
+     posure to light. Moreover many of them are too fragile, indeed so fragile that most
+     keepers of illuminated manuscripts would prefer to keep them like houris in a harem.
+     Not infrequently they bar access to their treasures by exacting from the common art
+     lover a written declaration of where and when he means to publish the manuscripts he
+     wishes simply to look at. The only compromise is to show them as best one can under
+     glass, and only for a short time»1.
+
+A distanza di più di mezzo secolo l’irruzione del digitale nella riproduzione delle
+collezioni librarie ha capovolto la prospettiva in un modo che Berenson non avreb-
+
+1
+    Meta P. Harrsen – George K. Boyce, Italian manuscripts in the Pierpont Morgan library: descriptive
+    survey of the principal illuminated manuscripts of the sixth to sixteenth centuries, with a selection of
+    important letters and documents, introduction by Bernard Berenson, New York: The Pierpont
+    Morgan Library, 1953 (Mediaeval and renaissance manuscripts in the Pierpont Morgan Library), p. 2.
+
+                                                    96
+                                               Progetti
+
+
+be potuto certamente prevedere. La disponibilità delle immagini e il loro accesso
+remoto sono di esperienza comune, dove la visione in digitale può sostituire un
+originale sotto teca e in taluni casi migliorare la presentazione di un foglio nei suoi
+dettagli. E altrettanto di normale prassi è oramai la consultazione e lo studio fuori
+dalle sale di lettura. A meno dell’ineguagliabile analisi autoptica degli originali, che
+resta riservata agli specialisti, il “pubblico del web” ha accesso diretto, nei termini
+di Berenson, a quei tesori lungamente “sequestrati”.
+Ma ancora, restando sul filo del discorso dello storico dell’arte:
+
+     «Students of manuscripts live in a world apart and have developed a vocabulary, a
+     phraseology, and nomenclature, a mode of reference by number which outsiders can-
+     not easily follow»2.
+
+Berenson si riferisce a una conoscenza della catalogazione così come della classifi-
+cazione e dell’ordinamento delle collezioni, che sono del tutto peculiari della tra-
+dizione delle biblioteche, e che tali permangono anche nell’apertura al web, dove
+la “consegna” digitale del materiale manoscritto è generalmente organizzata in
+modo del tutto analogo alle collezioni degli originali. Al di là della considerazione
+relativa alle necessarie conoscenze richieste per il reperimento e l’individuazione
+delle informazioni, l’approccio alla ricerca via web si sta ulteriormente trasforman-
+do, non solamente per la compresenza di cataloghi elettronici e immagini digitali,
+bensì in virtù del cambiamento paradigmatico che ha interessato la fruizione e la
+diffusione nel web degli oggetti digitali, partendo proprio dal patrimonio mano-
+scritto digitalizzato. Questo mutamento è prodotto dall’introduzione del protocol-
+lo d’interoperabilità, noto con l’acronimo IIIF3, ormai largamente adottato dalle più
+importanti biblioteche digitali che offrono liberamente nel web milioni di immagini
+digitalizzate.
+I manoscritti, al momento della loro produzione, hanno idealmente tracciato la tra-
+ma della cultura “prima dell’introduzione della stampa”. Dietro le barriere che
+menziona Berenson è stata costruita la conoscenza profonda di questi testimoni
+del passato, intesi nella loro rarità, nelle loro complesse relazioni con le collezioni
+di appartenenza e nelle connessioni delle varianti di testo delle opere che essi tra-
+mandano. Con l’allestimento dei cataloghi elettronici questo sapere, in tutto o in
+parte, si è trasferito nel web, e con le biblioteche digitali si è consentito un acces-
+so diretto ai manoscritti. Il salto significativo del IIIF sposta ancora in avanti il pun-
+to di vista che un “occhio tecnologico” può cogliere e consegnare al nostro sguar-
+do. Si potrebbe ritenere che per portare definitivamente le “huri fuori dagli ha-
+rem” (per dirla nei termini metaforici impiegati da Berenson), la posta in gioco sia
+tutta in termini tecnologici. Non solamente in un senso evolutivo, per il migliora-
+
+2
+    Ibidem.
+3
+    International Image Interoperability Framework, cfr. <https://iiif.io>.
+
+                                                   97
+                                               Progetti
+
+
+mento delle procedure di digitalizzazione, bensì per un “impiego aperto” delle im-
+magini, al fine di favorire la conoscenza e la scoperta di nessi non ancora esplorati
+di quella trama culturale di cui siamo eredi. La tecnologia del IIIF è un’ipotesi av-
+vincente soprattutto se si considera l’idea, semplice ed elegante, attorno a cui si
+sviluppa: l’accesso ai depositi degli oggetti digitali attraverso l’esposizione nel web
+semantico dei dati e degli indirizzi (URI) delle immagini mediante l’impiego di API4
+definite in modalità standard.
+Di per sé il IIIF mira alla definizione e all’impiego normato di alcune API, di cui
+menzioniamo solo le due principali.
+La prima, la cosiddetta Image API, fornisce un modo standardizzato per richiedere
+e consegnare immagini attraverso il web.
+L’URI può specificare la regione, le dimensioni, la rotazione, le caratteristiche di
+qualità e il formato dell’immagine richiesta. La struttura standard dell’URI abilita,
+da parte delle applicazioni client, la possibilità di richiedere informazioni sull’im-
+magine. In sintesi, possiamo dire che tale API è stata concepita per facilitare la ri-
+chiesta e il riutilizzo sistematico delle risorse d’immagini presenti negli archivi digi-
+tali degli enti conservatori del patrimonio culturale.
+L’obiettivo di Presentation API, è invece quello di fornire le informazioni necessa-
+rie relative all’oggetto digitalizzato per arricchire l’esperienza della visualizzazione
+online di oggetti costituiti da immagini. In altre parole, questa API ci fornisce un
+complesso di funzionalità per “presentare” oggetti digitali unitamente ai dati de-
+scrittivi che ne specificano i contenuti.
+Non è questa la sede per entrare in altri dettagli tecnici o menzionare interamente
+l’insieme di API finora identificate dallo standard IIIF. Menzioniamo tuttavia le due
+API IIIF per il nesso relativo a quello “sguardo” sui tesori del passato a cui stiamo
+mirando. La conformità del patrimonio digitale a queste API consente agli stru-
+menti di visualizzazione, software anch’essi conformi alle regole dello standard, di
+interpretare le immagini e di fornire tutto l’apparato funzionale che tipicamente
+correda l’ecosistema del digitale compatibile col IIIF.
+Un caratteristico strumento in grado di interpretare le API IIIF è l’assai diffuso
+software Mirador.
+Mirador è un visualizzatore di immagini configurabile, estensibile e facile da inte-
+grare in altre applicazioni informatiche. Presenta due caratteristiche importanti: la
+possibilità di inserire annotazioni all’interno delle immagini, consentendo la ricerca
+e la classificazione dei contenuti annotati, così come la possibilità di confrontare
+due o più immagini tratte da biblioteche digitali compatibili col protocollo d’inte-
+roperabilità, per l’analisi comparativa di manoscritti appartenenti alle più diverse
+collezioni.
+4
+    API (informatica): acronimo di Application Programming Interface: in linea generale una API è co-
+    stituita da definizioni e protocolli attraverso cui è possibile richiamare determinate funzioni di un
+    software applicativo, facilitando altresì l’interazione tra programmi e sistemi diversi.
+
+
+                                                   98
+                                       Progetti
+
+
+In altre parole, Mirador è uno strumento in grado di gestire risorse multiple basate
+su immagini, consentirne una navigazione strutturale e la sincronizzazione dei
+contenuti visivi.
+Mirador è un software sviluppato quale progetto open source che riceve regolar-
+mente contributi da una comunità internazionale di sviluppatori per migliorare
+quella “finestra” che offre una vista panoramica sulle più importanti collezioni del
+patrimonio digitale.
+
+
+L’implementazione del IIIF in Biblioteca Vaticana
+La sperimentazione dello standard IIIF inizia nel 2015 con l’allestimento di un pic-
+colo progetto pilota realizzato attraverso la selezione di un campione di 10 mano-
+scritti. Il successo dell’esperimento ebbe una risonanza molto importante perché
+da esso scaturì, l’anno successivo, la piattaforma di ricerca per i contenuti digitali
+(interagente con gli OPAC della Biblioteca), nota con l’acronimo DVL
+(DigiVatLib5), la cui architettura di sistema si fonda sulla tecnologia del IIIF. Sicché,
+con l’adozione dello standard, le collezioni digitalizzate della Vaticana hanno libera
+circolazione nel web semantico, al fine di consentire agli studiosi analisi compara-
+tive di oggetti digitalizzati, con la possibilità di visualizzare contemporaneamente
+più esemplari, così come di facilitare l’esplorazione delle immagini mediante le
+funzionalità offerte dai visualizzatori. In senso generale, un visualizzatore confor-
+
+
+
+
+Figura 1.
+
+5
+    https://digi.vatlib.it.
+
+
+                                           99
+                                       Progetti
+
+
+me al protocollo è al contempo uno strumento molto efficace per la fruizione delle
+immagini (profondità di zoom, rotazione/orientamento, gestione di contrasto/sa-
+turazione) e dei dati ad esse associati poiché consente anche la visualizzazione di
+tutti i contenuti (annotazioni e metadati) di cui si compone un oggetto digitale
+compatibile col IIIF.
+Il progetto pilota aveva due obiettivi: non solo la capacità di esporre nel web se-
+mantico il cosiddetto manifest, in sintassi json, con cui si declina nel web tutta
+l’informazione disponibile relativa a immagini e dati del manoscritto digitalizzato,
+ma anche la possibilità di annotare, evidenziare i commenti, le trascrizioni, le note
+in relazione a ogni elemento di conoscenza presente nei fogli. Dall’esito positivo
+del progetto pilota, relativo alla gestione delle annotazioni secondo lo standard
+IIIF, scaturiva una ricerca triennale (2016-2019) dal titolo Thematic Pathways on
+the Web: IIIF annotations of manuscripts from the Vatican collections, che ha da-
+to luogo all’implementazione di una piattaforma per la pubblicazione di “percorsi
+ragionati” attorno a selezioni di manoscritti annotati che si propongono nel web
+come una sorta di esposizioni virtuali6. Tale piattaforma, unitamente al DVL e agli
+OPAC, completa l’offerta informatica della BAV attualmente disponibile per lo stu-
+dio dei manoscritti digitalizzati.
+Il progetto pilota del 2015 e successivamente la ricerca triennale sono stati intera-
+mente sostenuti dalla fondazione statunitense Andrew W. Mellon che ha sovven-
+zionato le più importanti iniziative intraprese a livello internazionale per la promo-
+zione del IIIF, in particolare per quanto riguarda lo sviluppo della tecnologia per gli
+studi delle collezioni di libri rari e manoscritti.
+La concezione della piattaforma dei Thematic Pathways, oggetto della ricerca, ol-
+tre alla produzione dei contenuti curatoriali, ha visto la collaborazione tecnica del-
+la Stanford University Libraries. La sfida posta dal progetto consisteva nella realiz-
+zazione di uno strumento in grado di gestire, al contempo, sia i contenuti di meta-
+dati e di annotazioni dei manoscritti su cui verte ciascun percorso a tema, sia la
+narrazione svolta in ogni percorso ed “esibita” in exhibit dello Spotlight, ovvero il
+software open source in cui sono gestiti i Pathways.
+Nelle sue linee essenziali, ciascun percorso tematico offre tre diversi livelli di infor-
+mazione:
+1) una descrizione generale (introduzione, informazioni storiche ecc.) del tema
+scelto. Questo testo, arricchito con molti elementi visuali, è fornito in inglese e in
+italiano;
+2) i metadati descrittivi e contenutistici corredati da note curatoriali, che illustrano
+ciascun manoscritto selezionato;
+3) le annotazioni, i commenti, le analisi approfondite su parti dettagliate di un
+manoscritto e le trascrizioni di fogli.
+
+6
+    https://spotlight.vatlib.it.
+
+
+                                          100
+                                              Progetti
+
+
+
+
+Figura 2. Esempio tratto dal percorso Palinsesti vaticani: comparazione di due immagini in Mirador
+incapsulato in una pagina web
+
+
+Il software in cui sono state gestite le annotazioni è il Mirador, visibile come “og-
+getto incapsulato” nelle pagine web dei Percorsi.
+Sin dalla prima sperimentazione del 2015 la Vaticana ha contribuito allo sviluppo
+della gestione delle annotazioni nell’ambito della comunità aperta. Il software
+consente la selezione di regioni di pagine/fogli secondo diverse forme, ma grazie
+all’esperienza maturata in Vaticana tali selezioni includono ora anche i ritagli di
+immagini dal perimetro irregolare e le annotazioni multiple, annidate l’una dentro
+l’altra all’interno di una medesima forma.
+I manoscritti selezionati nei Percorsi, annotati via IIIF, includono distinte tipologie
+di annotazioni, contrassegnate da colori diversi. Ad esempio, tutte le annotazioni il
+cui perimetro è di colore turchese trattano trascrizioni mentre il colore bianco de-
+nota le annotazioni di elementi iconografici.
+L’esplorazione delle annotazioni, dei metadati e delle schede di approfondimento
+è gestita nel già menzionato software Spotlight attraverso un apparato di indici e
+una struttura di filtri (definiti, ad esempio, per provenienza, datazione, lingua, no-
+mi occorrenti nelle descrizioni), al fine di consentire ulteriori approfondimenti di
+ricerca. In questa struttura sono inoltre elencati i termini (tag, in italiano e in in-
+
+27
+     Lorcan Dempsey, Library Collections in the Life of the User: Two Directions, «Liber Quarterly», 26
+     (2017) n. 4, p. 338 -359.
+
+
+                                                  101
+                                         Progetti
+
+
+glese) con cui sono state categorizzate le annotazioni. Ad esempio, l’indicizzazio-
+ne dei soggetti iconografici identificati oppure la presenza di capilettera o di molte
+altre tipiche caratteristiche rilevate, consente il recupero immediato dei fogli dei
+manoscritti in cui tali elementi categoriali compaiono associati alle annotazioni.
+L’obiettivo della ricerca triennale, oltre al complesso allestimento del sistema, si è
+concentrato sulla pubblicazione del primo nucleo di percorsi a tema che sono:
+
+Corsi di paleografia: Paleografia Latina (dall’Antichità al Rinascimento), a cura di
+A. M. Piazzoni, e Paleografia Greca (dall’Antichità al Rinascimento), a cura T. Janz.
+Si tratta invero di due percorsi che scaturiscono dalla selezione di due distinte se-
+zioni di manoscritti, ma entrambi hanno una medesima finalità: sperimentare un
+nuovo metodo per l’insegnamento della paleografia sostituendo il tradizionale re-
+pertorio iconografico, cartaceo o “statico”, con cui si dimostra l’evoluzione delle
+scritture, con la visualizzazione “dinamica” dei manoscritti digitalizzati e annotati
+attraverso Mirador. In questi due percorsi è ovviamente molto consistente la pre-
+senza di trascrizioni relative a fogli specifici.
+L’impiego del IIIF in questi corsi di paleografia può essere considerato come un
+ausilio di auto-apprendimento per leggere e comprendere le antiche scritture negli
+alfabeti latino e greco.
+
+Classici Latini (Evoluzione e trasmissione di opere classiche) , a cura di M.
+Buonocore.
+Il percorso intende far vedere i classici latini offrendo una sorta di campionatura
+dei principali manoscritti vaticani “illustrati”, latori di testi classici latini, così da
+consentire un dialogo costruttivo e ricco di confronti con altri testimoni della cul-
+tura europea tra tarda antichità, medioevo e umanesimo.
+
+Palinsesti Vaticani (Recupero digitale di identità cancellate), a cura di A. Németh.
+La Biblioteca Apostolica Vaticana ha individuato nelle proprie collezioni oltre 550
+manoscritti con palinsesti, ossia fogli di pergamena cancellati e poi riutilizzati. Il per-
+corso si snoda attorno a questo cospicuo materiale e si concentra sulla selezione di
+24 manoscritti proponendone una ricerca approfondita, al fine di recuperare le iden-
+tità cancellate di questi palinsesti. I codici scelti coprono la storia delle scritture lati-
+ne e greche dal IV-V secolo in poi e abbracciano una vasta gamma di generi letterari
+e ambiti culturali precedenti al XII secolo, per lo più relativi al mondo bizantino.
+
+La Biblioteca di un ‘principe umanista’ (Federico da Montefeltro e i suoi mano-
+scritti), a cura di M. G. Critelli.
+Il percorso, attraverso la descrizione di una selezione di manoscritti, intende illu-
+strare le caratteristiche principali della collezione urbinate, mirabile esempio di bi-
+blioteca signorile quattrocentesca.
+
+                                            102
+                                      Progetti
+
+
+Infine l’exhibit Overview consente di svolgere ricerche incrociate su tutti i mano-
+scritti: metadati, note curatoriali e annotazioni presenti nei diversi percorsi.
+
+
+
+
+Figura 3.
+
+Oltre agli strumenti di ricerca precedentemente menzionati, in ciascuna di queste
+strutture sono proposti (alla voce di menu “browse”) delle esplorazioni dei mate-
+riali suddivisi per categorie al fine di evidenziare aspetti peculiari dei manoscritti
+selezionati quali, ad esempio, provenienze, datazioni, tipologie librarie.
+Nei tre anni di lavoro sono state complessivamente prodotte, per 256 manoscritti
+selezionati, 26.233 annotazioni: un numero di dati ragguardevole, che pone que-
+sto progetto al primo posto tra le sperimentazioni sulla gestione delle annotazioni
+secondo lo standard IIIF.
+La Biblioteca ha inteso coinvolgere i visitatori del proprio sito web sulla possibilità
+di utilizzare questi manoscritti annotati in IIIF, secondo specifici percorsi tematici:
+quelli finora realizzati e auspicabilmente future ricerche, fornendo strumenti per
+scoprire e confrontare i materiali digitalizzati. Oltre alla produzione dei percorsi
+espositivi, pubblicati come esito del progetto triennale, è attualmente disponibile
+
+                                         103
+                                           Progetti
+
+
+anche un’altra esposizione relativa a una selezione di materiali tratti da una prece-
+dente iniziativa di digitalizzazione, finanziata dalla Fondazione Polonsky. Grazie a
+questo sostegno, tra il 2012 e il 2017, le Bodleian Libraries dell’Università di
+Oxford e la Biblioteca Vaticana hanno svolto un progetto di digitalizzazione con-
+giunto. Oltre un milione e mezzo di pagine tratte da importanti collezioni sono
+state rese disponibili online per gli studiosi e per il pubblico generale. Il progetto
+di digitalizzazione si è concentrato su tre gruppi principali di testi: Manoscritti
+ebraici, Manoscritti greci e Incunaboli o Cinquecentine, oltre a una significativa
+selezione di Manoscritti latini della Vaticana. In questa mostra viene presentata
+una selezione di materiali appartenenti al Progetto7, in alcuni casi arricchiti da an-
+notazioni, scelti secondo le categorie mostrate nella sezione “Browse”.
+Il crescente numero di visitatori della piattaforma dello Spotlight della Vaticana è
+un indicatore favorevole per la prosecuzione di questo metodo di pubblicazione e
+di ricerca web, mediante l’impiego del IIIF. L’auspicio è dunque arricchire tecnica-
+mente quanto finora realizzato, gestire funzionalità per porre al servizio degli studi
+nuovi strumenti che consentano di diffondere la conoscenza del patrimonio cultu-
+rale di cui siamo custodi.
+
+
+
+    Thematic Pathways on the Web
+    Crediti
+
+
+    Curatori: Marco Buonocore, Maria Gabriella Critelli, Timoty Janz, Andras Németh,
+    Ambrogio M. Piazzoni
+    Collaboratori: Anna Berloco, Ilaria Maggiulli, Lola Massolo, Eva Ponzi, Domenico Surace
+    Gestione del Progetto: Benjamin Albritton, Paola Manoni
+    Gestione tecnica: Erin Fahy, Domenico Izzo, Sean Martin, Riccardo Moroni, Jack Reed
+    Team di sviluppo: Scott Bailey, Chris Beer, Javier de la Rosa, Jessie Keck, Mark Matienzo,
+    Stu Snydman, Camille Villa, Drew Winget
+    UX design: Gary Geisler
+    Coordinamento (collaboratori): Anna Berloco
+    Traduzioni in inglese: sr. Maria Panagia Miola
+    Architettura e Relazioni esterne: Tom Cramer, Michael A. Keller
+    Direzione: Tom Cramer, Michael A. Keller, Paola Manoni, Mons. Ceare Pasini, Ambrogio M.
+    Piazzoni
+
+
+
+
+7
+    http://bav.bodleian.ox.ac.uk/.
+
+                                              104
+                                        Progetti
+
+
+   The implementation of IIIF standards in the digital ecosystem of the Vatican
+   Apostolic Library starts in 2015 with the experimentation of a pilot project fol-
+   lowed by the setting up of the digital library (DVL), based on the adoption of
+   standards for metadata and protocols that allow the digital collections to be in-
+   teroperable. The ecosystem subsequently increases with open source software
+   for the management of virtual exhibits (Thematic Pathways on the Web) in
+   which selections of annotated manuscripts, according to the IIIF technique, of-
+   fer to scholars thematic research pathways.
+
+
+
+
+L’ultima consultazione dei siti web è avvenuta nel mese di dicembre 2020
+
+
+                                           105
+

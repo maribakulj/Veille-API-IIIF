@@ -1,0 +1,12 @@
+{
+  "slug": "harvard",
+  "endpoint": {
+    "id": "lc-items-q-peanuts",
+    "url": "https://api.lib.harvard.edu/v2/items?q=peanuts&limit=1",
+    "method": "GET"
+  },
+  "limite_documentee_req_min": 60,
+  "source_limite": "https://harvardwiki.atlassian.net/wiki/spaces/LibraryStaffDoc/pages/43287734/LibraryCloud+APIs, section « API Request Rate Limit » : « The LibraryCloud API is limited to an average of 300 requests per 5 minutes; if, after 5 minutes, that limit is exceeded, the client will receive a 5 minute timeout before they can resume requests. Please limit your requests to no more once per second. » (300 / 5 min = 60 req/min)",
+  "duree_palier_s": 180,
+  "note": "Requête Items API limit=1, 200 dans le journal (lc-items-q-peanuts, 2026-11-14T01:51:21Z). Le blocage annoncé dure 5 minutes."
+}

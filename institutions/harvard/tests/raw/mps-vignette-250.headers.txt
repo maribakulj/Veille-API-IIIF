@@ -1,0 +1,19 @@
+2026-11-14T01:53:50Z GET https://mps.lib.harvard.edu/assets/image/DRS:11927378/full/!250,250/0/default.jpg
+HTTP 200
+date: Sat, 14 Nov 2026 01:53:50 GMT
+content-type: image/jpeg
+transfer-encoding: chunked
+connection: keep-alive
+vary: Origin
+access-control-allow-credentials: true
+origin-agent-cluster: ?1
+referrer-policy: no-referrer
+strict-transport-security: max-age=15552000; includeSubDomains
+x-content-type-options: nosniff
+x-dns-prefetch-control: off
+x-frame-options: SAMEORIGIN
+x-xss-protection: 0
+x-mps-client-ip: [adresses IP redigées : IP publique de Marcel et IP internes AWS]
+cache-control: public, max-age=31536000, s-maxage=36000
+x-envoy-upstream-service-time: 45
+server: istio-envoy

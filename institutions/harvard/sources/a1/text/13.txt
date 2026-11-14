@@ -1,0 +1,104 @@
+About IIIF 
+ Skip to main content
+ Home 
+ History 
+ About IIIF 
+ Mirador 
+ Collaborators and Projects 
+ Collaborators
+ Harvard Library 
+ HarvardX and VPAL 
+ Harvard Art Museums 
+ Arts & Humanities Research Computing 
+ Academic Technology for the FAS 
+ Projects
+ Mapping Color in History 
+ Dumbarton Oaks 
+ Beyond Words 
+ Dharma and Punya 
+ Exploring Medieval Mary Magdalene 
+ MS Typ 1095 Fragments 
+ About IIIF
+ The
+ International Image Interoperability Framework (IIIF) 
+ defines universal standards for describing and delivering images over the web, and is the result of collaborative
+ efforts across universities, museums, libraries, and other cultural heritage institutions around the world. The
+ framework specifies two APIs, one for
+ image retrieval 
+ and one for
+ image display , discussed in detail below. Institutions that provide IIIF endpoints for their materials are able
+ to share these materials with anyone worldwide using a IIIF-compatible viewer. This provides an unprecedented level of
+ exposure for archives and repositories.
+ IIIF Image API
+ The IIIF Image API specifies a web service that returns an image in response to a standard HTTP or HTTPS request. The
+ URI can specify the region, size, rotation, quality characteristics and format of the requested image. A URI can also be
+ constructed to request basic technical information about the image to support client applications. This API was
+ conceived of to facilitate systematic reuse of image resources in digital image repositories maintained by cultural
+ heritage organizations. It could be adopted by any image repository or service, and can be used to retrieve static
+ images in response to a properly constructed URI.
+ [Read the full documentation here.] 
+ Unique URIs can be used to call image data from the server. A few examples are below:
+ IIIF Image API Demo
+ SERVER
+ https://ids.lib.harvard.edu/
+ PREFIX
+ ids/iiif/
+ IDENTIFIER
+ 25286607/
+ REGION
+ full/ 
+ square 
+ 1000,100,3000,2000 
+ 2000,3000,2000,3000 
+ SIZE (px)
+ 2000,/ 
+ 1000,/ 
+ 500,/ 
+ 250,/ 
+ ROTATION
+ 0/ 
+ 45/ 
+ 90/ 
+ 135/ 
+ 180/ 
+ 225/ 
+ 270/ 
+ 315/ 
+ !0 
+ !180 
+ QUALITY
+ default 
+ color 
+ gray 
+ bitonal 
+ FORMAT
+ .jpg 
+ .png 
+ .gif 
+ https://ids.lib.harvard.edu/ids/iiif/25286607/full/500,/0/default.jpg 
+ IIIF Crop Tool
+ IIIF can be used to easily crop images.
+ This implementation 
+ uses Leaflet-IIIF.
+ IIIF Resource Baseurl 
+ Change Image 
+ IIIF Presentation API
+ IIIF Presentation API 3.0 diagram 
+ The role of the IIIF presentation API is to describe a digital object that may contain hundreds of images in such a
+ way that the user and the viewer software can successfully navigate the object (via the manifest 
+ resource), the order in which individual surfaces or views are presented (the sequence resource),
+ and the individual surfaces or views ( canvas resources). Each canvas may have images and/or other content
+ resources associated with it ( content resources) to allow the view to be rendered. An object may also have parts;
+ for example, a book may have chapters where several pages may be associated with a single chapter (a range 
+ resource) or there may be groups of content resource above the page level, such as all of the texts that make up a
+ single edition of a book (a layer resource). These resource types, along with their properties, make up the
+ IIIF Presentation 
+ API .
+ [Read the full documentation here.] 
+ Read more about Harvard's
+ IIIF 
+ viewer, Mirador. 
+ © International Image Interoperability Framework at Harvard
+ University |
+ Maintained by Harvard University Arts
+ & Humanities Research Computing

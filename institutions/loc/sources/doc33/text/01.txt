@@ -1,0 +1,112 @@
+Understanding API Responses | JSON/YAML for LoC.gov | APIs at the Library of Congress | Library of Congress
+ Loading... 
+ Top of page
+ Skip to main content
+ Library of Congress 
+ Everything 
+ Audio Recordings
+ Books/Printed Material
+ Films, Videos
+ Legislation
+ Manuscripts/Mixed Material
+ Maps
+ Notated Music
+ Newspapers
+ Periodicals
+ Personal Narratives
+ Photos, Prints, Drawings
+ Software, E-Resources
+ Web Archives
+ Web Pages
+ 3D Objects
+ APIs at the Library of Congress
+ Search 
+ Toggle Search 
+ Global Menu 
+ Discover
+ Services
+ Visit
+ Education
+ Connect
+ About
+ Ask a Librarian
+ Help
+ Contact
+ Search Online Catalog
+ Copyright.gov
+ Congress.gov
+ Library of Congress 
+ More 
+ APIs at the Library of Congress 
+ JSON/YAML for LoC.gov 
+ Understanding API Responses
+ Share
+ Copied!
+ Error copying link to clipboard.
+ Services
+ APIs at the Library of Congress
+ Menu 
+ APIs for LoC.gov
+ JSON/YAML for LoC.gov
+ JSON/YAML for LoC.gov
+ Making API Requests
+ API Endpoints
+ API Request Parameters
+ Understanding API Responses
+ Search Results Responses
+ Item and Resource Responses
+ Working Within Limits
+ Dynamic Examples
+ Sitemaps
+ Microservices
+ Microservices
+ Text Services
+ Image Services
+ Streaming Services
+ Additional APIs and Data Services
+ Additional APIs and Data Services
+ Congress.gov API
+ NLS BARD API
+ Chronicling America
+ PPOC - JSON HTTP API
+ Linked Data Service
+ Search/Retrieval via URL
+ Contact
+ Understanding API Responses
+ The format of the response from the JSON/YAML API for loc.gov
+ A response is the data returned from a request to the loc.gov API in the
+ specified representation (JSON/YAML). Because the API also provides data for the
+ loc.gov website, some of its data elements (e.g. breadcrumbs, views) are
+ specifically for that purpose. This page focuses on the sections of JSON
+ responses that are most useful for working with digital collections information,
+ those from search result endpoints, item endpoints, and resource endpoints.
+/search/?q={query terms}
+/{format}/
+/collections/
+/collections/{collection name}/
+/item/{item_id}/
+/resource/{resource_id}/
+ Please note, however, that Library of Congress data is incredibly heterogenous and that there is no such thing as a standard 
+ API response. Variations in data structure can stem from differences in underlying digitization, descriptive, cataloging, and
+ technical practices. Furthermore, historic materials themselves do not neatly fall into distinct categories, especially after digitization.
+ Below, we outline some general strategies for orienting yourself to the materials and encourage you to reach out to curatorial staff via
+ the Library's Ask a Librarian service or technical staff via the LC Labs team at LC-Labs@loc.gov if you
+ have additional questions.
+ JSON Response Objects
+ Each of the endpoint types has a distinct response format, but they can be broadly grouped into two categories:
+ responses to queries for a list of items, or Search Results Responses and 
+ responses to queries for a single item, or Item and Resource Responses 
+ Back to top
+ Follow Us 
+ Take our survey 
+ Accessibility 
+ Legal 
+ Inspector General 
+ External Link Disclaimer 
+ USA.gov 
+ Contact 
+ Media 
+ Donate 
+ Shop 
+ Opens in new window 
+ Download

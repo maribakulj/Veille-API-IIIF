@@ -1,0 +1,192 @@
+LibraryCloud Metadata - Library Technology Services: Staff Documentation Center - Harvard Wiki 
+ Atlassian uses cookies to improve your browsing experience, perform analytics and research, and conduct advertising. Accept all cookies to indicate that you agree to our use of cookies on your device. 
+ Atlassian cookies and tracking notice , (opens new window) 
+ Atlassian uses cookies to improve your browsing experience, perform analytics and research, and conduct advertising. Accept all cookies to indicate that you agree to our use of cookies on your device. Atlassian cookies and tracking notice , (opens new window) 
+ Preferences Only necessary Accept all 
+ Collapse sidebar Switch sites or apps 
+ Harvard Wiki
+ Create Create 
+ Help 
+ Log in 
+ About Harvard Wiki 
+ Spaces 
+ Apps 
+ Library Technology Services: Staff Documentation Center 
+ More actions 
+ Back to top 
+ Content 
+ Results will update as you type. 
+ HOLLIS 
+ Alma 
+ JSTOR Forum 
+ About LTS 
+ Library Finance Internal Policies and Updates 
+ CURIOSity 
+ LTS Goals and Efforts 
+ LTS Newsletters 
+ Access to Library Systems and Services 
+ Administrative System Changes 
+ Aeon 
+ ArchivesSpace 
+ ArcLight 
+ Class Request Tool 
+ Collections Explorer 
+ Databases (databases.hollis.harvard.edu) 
+ DRS (Digital Repository Service) 
+ Electronic Archiving System (EAS) 
+ ePADD (email appraisal and preservation) 
+ E-Resource Management Systems 
+ ETDs@Harvard 
+ Get It! Services 
+ HART Library Reporting and the Library Reporting Warehouse 
+ Harvard Library Open Source Project Considerations 
+ Harvard Geospatial Library (HGL) 
+ How-to articles 
+ Library APIs 
+ LibraryCloud 
+ LibraryCloud APIs 
+ LibraryCloud OAI-PMH Data Provider 
+ LibraryCloud FAQ 
+ LibraryCloud Use Cases 
+ LibraryCloud Metadata 
+ PRESTO Data Lookup 
+ Scripting Requirements & Best Practices for Library Staff 
+ Library Reserves Quick Guide for Instructional Staff 
+ Link-o-matic 
+ ListView 
+ LTS Support 
+ Macro Express 
+ Media Presentation Service (MPS) 
+ Name Resolution Service (NRS) 
+ NISO Webinars 
+ OCLC services 
+ POD Aggregator (IvyPlus) data set and mapping (aka Data Lake) 
+ ProQuest ETD Service 
+ ReCAP SCSB (Shared Collection Service Bus) 
+ Springshare Products 
+ Training Archive for Alma 
+ Updating links for improved stability 
+ Wiki ShortLink JavaScript Hack 
+ NextCloud File Staging 
+ Space apps 
+ draw.io Diagrams 
+ You‘re viewing this with anonymous access, so some content might be blocked. 
+ Close 
+ Library Technology Services: Staff Documentation Center
+ /
+ LibraryCloud Metadata
+ Updated Aug 10 
+ More actions 
+ LibraryCloud Metadata
+ By Robin Wendler 
+ 21 min 
+ Add a reaction
+ On this page: 
+ Overview
+ Harvard’s LibraryCloud service provides API access to descriptive metadata for Harvard Library resources. LibraryCloud metadata is openly available to the public. Anyone can use the API to find, gather, and repurpose the metadata. It also is used within Harvard Library applications-- for example, by serving metadata to Harvard Digital Collections  and CURIOSity Digital Collections -- and it underlies sites and services developed throughout the Harvard community. It also supports Harvard’s partnerships with initiatives such as the Digital Public Library of America (DPLA). As such, the metadata aims to balance internal and external requirements and expectations. 
+ LibraryCloud aggregates Harvard Library's publicly accessible descriptive metadata from a variety of sources, primarily:
+ Alma, the integrated library system where the bulk of library cataloging is created
+ JSTOR Forum, where most visual resources are described
+ ArchivesSpace, for description of archival materials
+ Each source uses different metadata standards and vocabularies appropriate to its scope and function. To facilitate searching across and reusing the disparate metadata aggregated in LibraryCloud, the source metadata is converted into a common format, MODS (Metadata Object Description Schema). Please refer to the MODS website for full documentation of the metadata standard. Details about the LibraryCloud implementation of MODS and extensions are provided below.
+ The records undergo other transformations, normalizations, and enrichments to improve their interoperability and usefulness in the aggregated environment:
+ Incoming records are split into separate records when they represent multiple resources.
+ The names of Harvard libraries and archives are normalized into a standard full form and a short form for faceting.
+ When incoming metadata contains coded values for language and country/state of publication, equivalent text values are added.
+ Records that describe digital resources in Harvard’s Digital Repository Service (DRS) are augmented with a subset of administrative metadata from the DRS about those resources.
+ Records included in CURIOSity collections or other curatorial or administrative sets include brief information about those sets.
+ Note that LibraryCloud is not the database of record for this metadata. The metadata in LibraryCloud is neither definitive nor exhaustive. Additional metadata and more specifically-defined metadata exists in the source systems that provide metadata to LibraryCloud.
+ Record Sources and Transformations
+ There are six sources of descriptive metadata records in LibraryCloud:
+ Source Name 
+ Source Code 
+ Number of Records 
+ Source Format 
+ Transformation to MODS 
+ Updated 
+ Alma
+ MH:ALMA
+ >14,000,000
+ MARCXML
+ A lightly customized version  of the Library of Congress MARC-to-MODS stylesheet MARC21slim_MODS3-8_XSLT2-0.xsl , based on their MARC21-to-MODS mapping . 
+ daily
+ ArchivesSpace
+ MH:OASIS
+ >3,010,000
+ Encoded Archival Description (EAD)
+ EAD files are converted to individual MODS records for each archival component using a custom stylesheet .
+ daily
+ JSTOR Forum
+ MH:VIA
+ >7,660,000
+ VIA XML
+ JSTOR Forum’s SSIO XML is first converted to Harvard’s legacy VIA format , and then from VIA to MODS . Individual MODS records are created for each JSTOR Forum image record, whether or not the image has been digitized.
+ daily
+ Iranian Oral History Project 
+ MH:IOHP
+ ~900
+ Custom
+ Custom IOHP stylesheet 
+ as needed
+ Jacques Burkhardt Scientific Drawings 
+ MH:MCZArtwork
+ ~1,000
+ Custom
+ Custom MCZ stylesheet 
+ as needed
+ Milman Parry Collection of Oral Literature 
+ MH:MHPL
+ ~1,800
+ Custom
+ Custom MHPL stylesheet 
+ as needed
+ Custom stylesheets are controlled in GitHub and require permission to access.
+ LibraryCloud Ingest Timing 
+ LibraryCloud ingests are started nightly for the systems below, in this order. Each ingest can take several hours depending on the number of records to be processed, so the counts for a given record source may continue to change during the day.
+ Data source 
+ Ingest type 
+ Timeframe 
+ Data source 
+ Ingest type 
+ Timeframe 
+ Alma
+ Incremental export
+ Nightly, including work from two days prior
+ ArchivesSpace
+ Incremental export
+ Nightly, including work from the previous day
+ Images (JSTOR)
+ Incremental export
+ Nightly, including work from the previous day
+ Special Topic: Record Splitting 
+ Each incoming record will be transformed into one or more  records in MODS format. A record will be split during this process if it represents more than one resource according to specific criteria per contributing source:
+ Alma: 
+ If the incoming record contains more than one DRS URL for deliverable digital content (i.e., not counting a preview URL, such as a thumbnail image), one record will be created with all URLs plus all physical locations AND a separate record will be created for each digital manifestation.
+ The MODS recordIdentifier for each of the split records will concatenate the original Alma record identifier, an underscore, and the URN portion of the DRS URL to the deliverable content.
+ Example: https://api.lib.harvard.edu/v2/items/990088020470203941_HBS.Baker:10771779 
+ JSTOR Forum: 
+ If the incoming record contains more than one item (<display:DR>), a separate MODS record will be created for each item, each record containing information about the work plus information about one of the items.  There is no record in LibraryCloud for the Work alone or the work with all items.
+ The MODS recordIdentifier for the split records will concatenate the Work record identifier, an underscore, and either 1) the URN portion of the DRS URL to the deliverable content, or 2) the item record identifier, if the item does not reference digital content.
+ Example, Case 1: https://api.lib.harvard.edu/v2/items/S19482_urn-3:FHCL:3116579 
+ Example, Case 2: https://api.lib.harvard.edu/v2/items/S19482_olvsurrogate186373 
+ ArchivesSpace: 
+ For each finding aid (Encoded Archival Description (EAD) file), a separate MODS record will be created for every described component. No record will be created for the archival resource (aka collection) itself, because that would redundant with the corresponding collection-level cataloging record from Alma. Each component record will inherit key fields from the hierarchy of the finding aid to ensure that the archival object is placed in context.
+ The MODS recordIdentifier for each of the split records will be the component id (Ref ID) of the archival object record.
+ Example: https://api.lib.harvard.edu/v2/items/hou01365c02879 
+ Iranian Oral History Project, Jacques Burkhardt Scientific Drawings, Milman Parry Collection of Oral Literature: 
+ Records from these source are not split and may contain links to more than one digital version of the content. For example, an audio recording and a transcript of the recording.
+ MODS (Metadata Object Description Schema) Structure
+ MODS version 3.8 is the base format of all metadata returned by the LibraryCloud Item API. The documentation  of the MODS standard is comprehensive; therefore, Harvard’s profile will focus on implementation-specific and source-specific aspects of the metadata in LibraryCloud.
+ MODS consists of 20 top-level elements or element wrappers, all of which are optional and repeatable. Top-level elements may have subelements that, taken together within an instance of a top element, represent a single concept.
+ Special Topic: Hierarchical Description 
+ One of the MODS elements, relatedItem , allows for great flexibility in the way the description of a resource is structured that has implications for applications that consume the metadata.
+ All MODS top-level elements are valid within relatedItem . relatedItem has many uses, but one is crucial to the aggregation of metadata in LibraryCloud: it enables nested, hierarchical whole/part description.  
+ Collapse action bar 
+ Table of contents 
+ Open Details Panel 
+ View all comments 
+ Open Rovo Chat 
+ Add a comment
+ Add a reaction
+ We don't have a way to export this macro.
+ {"serverDuration": 29, "requestCorrelationId": "4739c5be649447778e6ba8fe4a475c67"}

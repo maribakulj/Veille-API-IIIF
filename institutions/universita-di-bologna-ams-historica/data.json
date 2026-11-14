@@ -4,10 +4,212 @@
   "pays": "Italie",
   "classeur_id": "GLAM-030",
   "type": "Institution",
-  "statut_audit": "à faire",
-  "limites_documentees": [],
-  "en_tetes_observes": [],
+  "statut_audit": "audit a–f complet (v2) ; g à faire",
+  "limites_documentees": [
+    {
+      "nature": "Limite par IP de l'interface (observée)",
+      "perimetre": "réponses du serveur Express de l'interface (sitemap_index.xml, /home)",
+      "valeur": "x-ratelimit-limit: 500 (remaining 499)",
+      "fenetre": "1 minute (défaut DSpace Angular, windowMs 60000 ; non annoncée dans la réponse)",
+      "effet": "non observé (pas de 429)",
+      "verification": "observée, fenêtre déduite d'une source tierce",
+      "source": "institutions/universita-di-bologna-ams-historica/tests/raw/sitemap-index.headers.txt ; https://raw.githubusercontent.com/DSpace/dspace-angular/main/config/config.example.yml",
+      "date": "2026-11-14"
+    }
+  ],
+  "en_tetes_observes": [
+    {
+      "nom": "x-ratelimit-limit",
+      "valeur": "500",
+      "endpoint": "https://historica.unibo.it/sitemap_index.xml",
+      "preuve": "institutions/universita-di-bologna-ams-historica/tests/raw/sitemap-index.headers.txt"
+    },
+    {
+      "nom": "x-ratelimit-remaining",
+      "valeur": "499",
+      "endpoint": "https://historica.unibo.it/home",
+      "preuve": "institutions/universita-di-bologna-ams-historica/tests/raw/ui-accueil.headers.txt"
+    },
+    {
+      "nom": "x-ratelimit-reset",
+      "valeur": "1794621039 (epoch)",
+      "endpoint": "https://historica.unibo.it/sitemap_index.xml",
+      "preuve": "institutions/universita-di-bologna-ams-historica/tests/raw/sitemap-index.headers.txt"
+    }
+  ],
   "blocages": [],
-  "sources": [],
-  "web": []
+  "sources": [
+    {
+      "url": "https://sba.unibo.it/en/attachments/all-almadl/carta_servizio_historica_EN.pdf/@@download/file/carta_servizio_historica_EN.pdf",
+      "date": "2026-11-14",
+      "etiquette": "officielle",
+      "preuve": "institutions/universita-di-bologna-ams-historica/sources/h15/SHA256SUMS"
+    },
+    {
+      "url": "https://historica.unibo.it/info/end-user-agreement",
+      "date": "2026-11-14",
+      "etiquette": "officielle",
+      "preuve": "institutions/universita-di-bologna-ams-historica/sources/h3/SHA256SUMS"
+    },
+    {
+      "url": "https://historica.unibo.it/info/general-information",
+      "date": "2026-11-14",
+      "etiquette": "officielle",
+      "preuve": "institutions/universita-di-bologna-ams-historica/sources/h2/SHA256SUMS"
+    },
+    {
+      "url": "https://historica.unibo.it/server/api",
+      "date": "2026-11-14",
+      "etiquette": "officielle",
+      "preuve": "institutions/universita-di-bologna-ams-historica/sources/h7/SHA256SUMS"
+    },
+    {
+      "url": "https://sba.unibo.it/en/almadl/almadl-services/preservation-and-enhancement-of-the-digital-cultural-heritage",
+      "date": "2026-11-14",
+      "etiquette": "officielle",
+      "preuve": "institutions/universita-di-bologna-ams-historica/sources/h12/SHA256SUMS"
+    },
+    {
+      "url": "https://sba.unibo.it/it/allegati/slide-23-ottobre-grandesso/@@download/file/2023_DL_Grandesso_23ott.pdf",
+      "date": "2026-11-14",
+      "etiquette": "présentation de l'institution",
+      "preuve": "institutions/universita-di-bologna-ams-historica/sources/h13/SHA256SUMS"
+    }
+  ],
+  "web": [
+    {
+      "categorie": "institution",
+      "url": "https://sba.unibo.it/en/attachments/all-almadl/carta_servizio_historica_EN.pdf/@@download/file/carta_servizio_historica_EN.pdf",
+      "date": "2026-11-14",
+      "etiquette": "officielle",
+      "citation": "Metadata are published and made openly and freely available through the platform's public APIs, in particular via the OAI-PMH protocol, accessible at: https://historica.unibo.it/oai",
+      "preuve": "institutions/universita-di-bologna-ams-historica/sources/h15/charter.txt"
+    },
+    {
+      "categorie": "utilisateurs",
+      "aucun_resultat": true,
+      "requete": "historica.unibo.it OR \"AMS Historica\" IIIF manifest harvest rate limit 429 error users",
+      "date": "2026-11-14",
+      "etiquette": "–",
+      "citation": "aucune plainte ni retour d'utilisateur sur 429 ou blocage de historica.unibo.it trouvé (résultats génériques sur les 429)",
+      "preuve": "institutions/universita-di-bologna-ams-historica/fiche.md"
+    },
+    {
+      "categorie": "tickets",
+      "url": "https://raw.githubusercontent.com/DSpace/dspace-angular/main/config/config.example.yml",
+      "date": "2026-11-14",
+      "etiquette": "tiers",
+      "citation": "The rateLimiter settings limit each IP to a 'limit' of 500 requests per 'windowMs' (1 minute).",
+      "preuve": "institutions/universita-di-bologna-ams-historica/fiche.md"
+    },
+    {
+      "categorie": "presentations",
+      "url": "https://zenodo.org/records/20789051",
+      "date": "2026-11-14",
+      "etiquette": "présentation de l'institution",
+      "citation": "the platform integrates IIIF based services for high quality image analysis, delivery, annotation and storytelling ; REST API et OAI-PMH cités, aucune limite mentionnée",
+      "preuve": "institutions/universita-di-bologna-ams-historica/fiche.md"
+    }
+  ],
+  "contact": "historica@unibo.it (carte de service et page About d'AMS Historica)",
+  "conclusion_quota": "Aucun quota publié par l'institution ; en-têtes x-ratelimit-limit: 500 observés sur l'interface (défaut DSpace Angular : 500 requêtes/minute/IP) ; REST, OAI, IIIF Presentation et IIIF Image testés en 200, aucun 429.",
+  "classe_quota": "limite observée (en-têtes), non documentée par l'institution",
+  "confiance": "moyenne",
+  "notes": "Fenêtre de 500 non lue dans une doc de l'institution : valeur d'un fichier de config d'un logiciel tiers. Valeurs x-ratelimit-reset incohérentes avec l'heure de réponse.",
+  "a_verifier_manuellement": [
+    {
+      "url": "https://historica.unibo.it/oai",
+      "pourquoi": "adresse OAI annoncée par la carte de service : 302 vers /server/oai?verb=Identify puis 302 non suivi (la sonde ne suit pas ce second saut) ; l'adresse /server/oai/request répond 200",
+      "a_chercher": "Vérifier dans un navigateur l'adresse OAI officielle actuelle et l'éventuelle limite de volume pour ListRecords"
+    }
+  ],
+  "endpoints_documentes": [
+    {
+      "famille": "OAI-PMH 2.0",
+      "url": "https://historica.unibo.it/server/oai/request?verb=Identify",
+      "statut": "teste",
+      "preuve": "institutions/universita-di-bologna-ams-historica/tests/raw/oai-server-identify.headers.txt"
+    },
+    {
+      "famille": "OAI : adresse annoncée /oai",
+      "url": "https://historica.unibo.it/oai?verb=Identify",
+      "statut": "teste",
+      "preuve": "institutions/universita-di-bologna-ams-historica/tests/raw/oai-carte-service-identify.headers.txt"
+    },
+    {
+      "famille": "REST DSpace 8.2 (racine, items, recherche)",
+      "url": "https://historica.unibo.it/server/api",
+      "statut": "teste",
+      "preuve": "institutions/universita-di-bologna-ams-historica/tests/raw/rest-racine.headers.txt"
+    },
+    {
+      "famille": "IIIF Presentation : manifeste",
+      "url": "https://historica.unibo.it/server/iiif/2388a439-181f-4ab7-b5a7-121d8e0752bc/manifest",
+      "statut": "teste",
+      "preuve": "institutions/universita-di-bologna-ams-historica/tests/raw/iiif-manifeste-2388a439.headers.txt"
+    },
+    {
+      "famille": "IIIF Image : info.json et dérivé",
+      "url": "https://historica.unibo.it/iiif-server/e2125690-0f05-492a-8102-f2238402eec8/info.json",
+      "statut": "teste",
+      "preuve": "institutions/universita-di-bologna-ams-historica/tests/raw/image-info-json.headers.txt"
+    },
+    {
+      "famille": "OpenSearch",
+      "url": "https://historica.unibo.it/server/opensearch/service",
+      "statut": "teste",
+      "preuve": "institutions/universita-di-bologna-ams-historica/tests/raw/opensearch-service.headers.txt"
+    },
+    {
+      "famille": "Sitemap",
+      "url": "https://historica.unibo.it/sitemap_index.xml",
+      "statut": "teste",
+      "preuve": "institutions/universita-di-bologna-ams-historica/tests/raw/sitemap-index.headers.txt"
+    },
+    {
+      "famille": "OAI ListRecords",
+      "url": "https://historica.unibo.it/server/oai/request?verb=ListRecords",
+      "statut": "non_teste",
+      "raison": "ListRecords est volumineux et sert à moissonner ; le protocole est prouvé par Identify"
+    }
+  ],
+  "endpoints_ecartes": [
+    {
+      "url": "https://amshistorica.unibo.it/oai/oai2.php",
+      "raison": "ancienne adresse OAI donnée par un registre tiers : lue par fetch_doc, elle redirige vers la page d'accueil de l'interface (sources/h14, 200 HTML), donc retirée"
+    },
+    {
+      "url": "https://proxy.handle.net/",
+      "raison": "résolveur Handle externe cité par la carte de service, service tiers hors institution"
+    },
+    {
+      "url": "https://amshistorica.unibo.it/api",
+      "raison": "URL devinée dans ma liste de doc, sautée à tort par fetch_doc.sh (faux positif « recaptcha », sources/a1/FETCH.log) ; l'API réelle est /server/api sous historica.unibo.it, testée"
+    },
+    {
+      "url": "https://amshistorica.unibo.it/iiif",
+      "raison": "URL devinée dans ma liste de doc, sautée par fetch_doc.sh (sources/a1/FETCH.log) ; l'IIIF réel est /server/iiif/{uuid}/manifest et /iiif-server/ sous historica.unibo.it, testés"
+    },
+    {
+      "url": "https://historica.unibo.it/search?page=1&configuration=documents&query=&f.fondssublevels=78252283-aa04-402e-95cd-73272d1fe847,authority&spc.page=1",
+      "raison": "page de recherche de l'interface web (lien du HTML de l'accueil), interdite par robots.txt (/search) ; l'API de recherche REST équivalente (/server/api/discover/search/objects) est testée"
+    }
+  ],
+  "hotes_robots": [
+    {
+      "hote": "historica.unibo.it",
+      "resultat": "Disallow /search, /browse/*, /server/opensearch ; pas de Crawl-delay (testé quand même, C12)",
+      "preuve": "institutions/universita-di-bologna-ams-historica/sources/h1/SHA256SUMS"
+    },
+    {
+      "hote": "amshistorica.unibo.it",
+      "resultat": "redirige vers l'accueil de historica (pas de robots.txt propre) : tout autorisé",
+      "preuve": "institutions/universita-di-bologna-ams-historica/sources/a1/SHA256SUMS"
+    },
+    {
+      "hote": "sba.unibo.it",
+      "resultat": "Disallow de chemins internes seulement ; aucune règle sur les API",
+      "preuve": "institutions/universita-di-bologna-ams-historica/sources/h11/SHA256SUMS"
+    }
+  ]
 }

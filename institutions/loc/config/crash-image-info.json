@@ -1,0 +1,12 @@
+{
+  "slug": "loc",
+  "endpoint": {
+    "id": "image-info-json",
+    "url": "https://tile.loc.gov/image-services/iiif/service:sgp:sgpbatches:batch_dlc_anacostia_ver01:data:sn84025948:0023728866A:1942081001:0202/info.json",
+    "method": "GET"
+  },
+  "limite_documentee_req_min": 150,
+  "source_limite": "https://www.loc.gov/apis/json-and-yaml/working-within-limits/ : Image Services, Requests per minute 150, Time blocked if rate is exceeded 1 hour",
+  "duree_palier_s": 180,
+  "note": "info.json IIIF Image (tile.loc.gov, Cloudflare), 200 dans le journal (image-info-json, 2026-11-14T01:56:53Z). Peu coûteux ; ni PDF, ni ALTO, ni recherche. Non lancé par l'agent. Blocage de 1 h attendu au dépassement ; plafond 2 x 150 en réseau non protégé, 60 req/min si Cloudflare détecté."
+}

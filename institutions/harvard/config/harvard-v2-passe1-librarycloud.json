@@ -1,0 +1,18 @@
+{
+  "slug": "harvard",
+  "min_delay_s": 6,
+  "max_requests": 15,
+  "follow_redirects": 1,
+  "robots_disallow_autorise_par_marcel": true,
+  "note": "Passe 1 (v2) : LibraryCloud (api.lib.harvard.edu), exemples du wiki LTS « LibraryCloud APIs » (Items, Collections) et « LibraryCloud OAI-PMH Data Provider ». La doc annonce une limite de 300 requêtes / 5 min et « no more once per second » : pauses de 6 s, bien en dessous. limit=1 partout.",
+  "endpoints": [
+    {"id": "lc-items-q-peanuts", "method": "GET", "url": "https://api.lib.harvard.edu/v2/items?q=peanuts&limit=1"},
+    {"id": "lc-items-json-title", "method": "GET", "url": "https://api.lib.harvard.edu/v2/items.dc.json?title=peanuts&limit=1"},
+    {"id": "lc-collections", "method": "GET", "url": "https://api.lib.harvard.edu/v2/collections?limit=1"},
+    {"id": "lc-collections-2-items", "method": "GET", "url": "https://api.lib.harvard.edu/v2/collections/2/items"},
+    {"id": "oai-identify", "method": "GET", "url": "https://api.lib.harvard.edu/oai/?verb=Identify"},
+    {"id": "oai-listsets", "method": "GET", "url": "https://api.lib.harvard.edu/oai/?verb=ListSets"},
+    {"id": "oai-listmetadataformats", "method": "GET", "url": "https://api.lib.harvard.edu/oai/?verb=ListMetadataFormats"},
+    {"id": "oai-getrecord-mods", "method": "GET", "url": "https://api.lib.harvard.edu/oai/?verb=GetRecord&metadataPrefix=mods&identifier=000796856"}
+  ]
+}

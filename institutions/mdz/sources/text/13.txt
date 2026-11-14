@@ -1,0 +1,125 @@
+Search Help | MDZ 
+ Search 
+ metadata 
+ full texts 
+ Filter 
+ keep active filters 
+ Zu deutscher Sprachversion wechseln 
+ RSS 
+ Collections 
+ The MDZ 
+ 2D and 3D Digitization
+ Technologies and Software Development
+ Digital Long-term Preservation
+ Publications of the MDZ (In Selection)
+ Our Data Services 
+ Download Options
+ Interfaces
+ Reproduction Orders (€)
+ Help 
+ Search Help
+ Viewer Help
+ FAQ
+ Contact
+ Imprint
+ Privacy Policy
+ Disclaimer
+ Accessibility
+ Close main menu
+ Search 
+ metadata 
+ full texts 
+ Filter 
+ keep active filters 
+ An error occurred while serving your page
+ Please make sure that you are using an up-to-date and supported browser (Edge, Firefox from version 68, Chrome from version 86, Safari from version 12). Otherwise we can't guarantee that the website is working as intended.
+If you are already using an up-to-date browser, please try refreshing the site.
+If the error persists, please get in touch via mdz@bsb-muenchen.de .
+Search Help
+ Search spaces
+ Search input
+Search spaces
+Selecting or deselecting the appropriate checkboxes determines whether the 
+ metadata 
+ (e.g. title, author, place of publication) and/or the 
+ full texts 
+ are searched.
+An already filtered set of hits will be searched while keeping the previous facets, if the checkbox 
+ 'keep active filters' 
+ is clicked before submitting the search.
+Search input
+No distinction is made between 
+ upper and lower case letters 
+.
+ Diacritical characters 
+ (e.g. é, ñ) are not considered in the search.
+The 
+ German characters ä, ö, ü 
+ are also found with ae, oe, ue, sharp s (ß) with ss.
+ Wildcards 
+ are placeholders for any characters: The asterisk (*) stands for any number of characters, the question mark (?) for exactly one character.
+ monument* 
+ finds the terms 'monument', 'monuments', 'monumental' etc.
+ reali?e 
+ considers both the spelling 'realize' and 'realise'.
+A 
+ phrase search 
+ with quotation marks finds hits in which the search terms occur exactly in the given character string. Call numbers are to be searched for as phrases, e.g. 
+ 'Bor. 301 k-1878' 
+.
+By adding the tilde (~) plus a number to a phrase, the 
+ maximum distance 
+ between the search terms is determined. For example, searching for 
+ 'georg friedrich'~2 
+ finds hits with 'Georg Wilhelm Carl Friedrich', 'Georg Carl Friedrich' or 'Georg Friedrich', but also 'Friedrich Georg' (reversed order of the search terms).
+Multiple search terms are linked with 
+ OR 
+ by default. Hits that contain all search terms are sorted further up.
+A search with 
+ AND 
+ will only return hits that contain both search terms, e.g. 
+ donau AND regensburg 
+.
+ NOT 
+ is used to exclude search terms: 
+ donau NOT regensburg 
+ leads to hits that contain 'Donau' but not 'Regensburg'.
+Instead of AND and NOT, a 
+ preceding '+' and '-' 
+ can also be used. For example, the hits of the search 
+ +donau +regensburg -passau 
+ contain the terms 'Donau' and 'Regensburg', but not additionally 'Passau'.
+A 
+ different weighting 
+ of the individual search terms is done with '^' plus a number for the factor. For the search query 
+ georg^2 friedrich 
+, for example, the term 'Georg' is twice as relevant as 'Friedrich'.
+A 
+ fuzzy search 
+ with tilde (~) returns not only the searched term but also similar spellings. For example, 
+ bismarck~ 
+ will also find 'Bißmarck' or 'Bismark'. The search 
+ bismarck~1 
+ is fuzzier and brings more hits than 
+ bismarck~0 
+.
+Please note: A search with wildcards or a fuzzy search takes significantly more time than an exact search.
+ The MDZ
+ 2D and 3D Digitization
+ Technologies and Software Development
+ Digital Long-term Preservation
+ Publications of the MDZ (In Selection)
+ Our Data Services
+ Download Options
+ Interfaces
+ Reproduction Orders (€)
+ Help
+ Search Help
+ Viewer Help
+ FAQ
+ Contact
+ Imprint
+ Privacy Policy
+ Disclaimer
+ Accessibility
+ Sitemap

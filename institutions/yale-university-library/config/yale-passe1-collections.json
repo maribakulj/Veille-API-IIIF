@@ -1,0 +1,12 @@
+{
+  "slug": "yale-university-library",
+  "min_delay_s": 6,
+  "max_requests": 15,
+  "follow_redirects": 1,
+  "robots_disallow_autorise_par_marcel": true,
+  "note": "Passe 1, hôte collections.library.yale.edu : la page d'aide (sources/a2) dit « All Digital Collections objects have a corresponding IIIF manifest » ; l'identifiant 16945082 vient d'un lien de la page d'accueil (sources/a1/raw/02.html). fetch_doc a reçu 202 à corps vide sur /catalog/16945082 et /catalog/opensearch.xml (sources/a10, a9) : on regarde les en-têtes complets de cette réponse (défi éventuel). Le chemin /manifests/ est Disallow dans robots.txt (testé selon C12) ; motif /manifests/{oid} observé sur la plateforme, à confirmer par la réponse.",
+  "endpoints": [
+    {"id": "catalogue-item", "method": "GET", "url": "https://collections.library.yale.edu/catalog/16945082"},
+    {"id": "manifeste-16945082", "method": "GET", "url": "https://collections.library.yale.edu/manifests/16945082", "save_body": 2000000}
+  ]
+}

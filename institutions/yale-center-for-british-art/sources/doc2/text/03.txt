@@ -1,0 +1,29 @@
+OAICat - An OAI-PMH v2 Repository Framework 
+ Description
+ The OAICat Open Source project is a Java Servlet web application providing an OAI-PMH v2.0 
+ repository framework. This framework can be customized to work with arbitrary data repositories
+ by implementing some Java interfaces. This demonstration of the interfaces is
+ based on the webapp distribution and can be tested through the protocol request forms listed below.
+ If you customize these pages, please include the OAICat icon below and hyperlink it to http://www.oclc.org/research/software/oai/cat.shtm
+ Caveat! This webapp assumes that Tomcat will be started from the CATALINA_HOME subdirectory. If these pages appear, but the servlets invoked from the forms below fail, chances are you started Tomcat from a different location. In this case, edit the webapps/oaicat/WEB-INF/web.xml file and change the following relative reference to an absolute file path.
+ <param-value>webapps/oaicat/WEB-INF/oaicat.properties</param-value>
+ License Information
+ OCLC Research Public License 
+ Demo baseURL
+ http://localhost:8080/oaicat/OAIHandler (assuming Tomcat's default port 8080)
+ Protocol Request Forms
+ Identify 
+ GetRecord 
+ ListIdentifiers ( Resumption )
+ ListMetadataFormats 
+ ListRecords ( Resumption )
+ ListSets ( Resumption )
+ Customization Notes
+ File System Implementation (default) 
+ Single XML File Implementation 
+ SRW/U Implementation 
+ JDBC Implementation 
+ Newton Implementation 
+ Gwen Implementation 
+ Jeff Young 
+Last modified: Tue Aug 31 17:09:04 Eastern Daylight Time 2004

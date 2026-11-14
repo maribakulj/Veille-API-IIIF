@@ -1,0 +1,134 @@
+Sitemaps | APIs at the Library of Congress | Library of Congress
+ Loading... 
+ Top of page
+ Skip to main content
+ Library of Congress 
+ Everything 
+ Audio Recordings
+ Books/Printed Material
+ Films, Videos
+ Legislation
+ Manuscripts/Mixed Material
+ Maps
+ Notated Music
+ Newspapers
+ Periodicals
+ Personal Narratives
+ Photos, Prints, Drawings
+ Software, E-Resources
+ Web Archives
+ Web Pages
+ 3D Objects
+ APIs at the Library of Congress
+ Search 
+ Toggle Search 
+ Global Menu 
+ Discover
+ Services
+ Visit
+ Education
+ Connect
+ About
+ Ask a Librarian
+ Help
+ Contact
+ Search Online Catalog
+ Copyright.gov
+ Congress.gov
+ Library of Congress 
+ More 
+ APIs at the Library of Congress 
+ Sitemaps
+ Share
+ Copied!
+ Error copying link to clipboard.
+ Services
+ APIs at the Library of Congress
+ Menu 
+ APIs for LoC.gov
+ JSON/YAML for LoC.gov
+ JSON/YAML for LoC.gov
+ Making API Requests
+ API Endpoints
+ API Request Parameters
+ Understanding API Responses
+ Search Results Responses
+ Item and Resource Responses
+ Working Within Limits
+ Dynamic Examples
+ Sitemaps
+ Microservices
+ Microservices
+ Text Services
+ Image Services
+ Streaming Services
+ Additional APIs and Data Services
+ Additional APIs and Data Services
+ Congress.gov API
+ NLS BARD API
+ Chronicling America
+ PPOC - JSON HTTP API
+ Linked Data Service
+ Search/Retrieval via URL
+ Contact
+ Sitemaps
+ An XML file listing URLs and their associated metadata.
+ What are sitemaps?
+ A sitemap provides information on the relationships between the pages, videos, images and other resources on a
+ website. They are primarily used to inform search engines about the pages that are available for crawling. It is expressed
+ as an XML file listing URLs and their associated metadata. Additional information about the sitemap protocol is available at:
+ https://www.sitemaps.org/protocol.html .
+ The LOC.gov sitemap structure
+ The top-level sitemap for loc.gov is located at: loc.gov/sitemap.xml 
+ and has the following structure:
+<sitemapindex>
+ <sitemap>
+ <loc>https://www.loc.gov/exhibitions/sitemap.xml</loc>
+ </sitemap>
+ ...
+ <sitemap>
+ <loc>https://www.loc.gov/librarians/sitemap.xml</loc>
+ </sitemap>
+</sitemapindex>
+ At this level each sitemap tag describes a portal (page) within loc.gov (e.g. loc.gov/newspapers/,
+ loc.gov/events/) and contains a link to that specific portals (pages) sitemap. In a similar fashion, the
+ sitemap for a specific portal (page) will contain links to its related resources. For example the sitemap for loc.gov/exhibitions is:
+<sitemapindex>
+ <sitemap>
+ <loc>https://www.loc.gov/exhibitions/rosa-parks-in-her-own-words/sitemap.xml</loc>
+ </sitemap>
+ ...
+ <sitemap>
+ <loc>https://www.loc.gov/exhibitions/drawing-justice-courtroom-illustrations/sitemap.xml</loc>
+ </sitemap>
+</sitemapindex>
+ Use case 
+ By traversing the nodes of the top-level sitemap one can crawl the pages on the website and map the relationship
+ between pages and other resources. Furthermore, when one encounters a terminal node (e.g. a page that does not
+ link to any other resources) the sitemap reveals useful metadata. For example the sitemap for the page
+ loc.gov/exhibitions/rosa-parks-in-her-own-words/,
+<urlset>
+ <url>
+ <loc>
+ https://www.loc.gov/exhibitions/rosa-parks-in-her-own-words/about-this-exhibition/
+ </loc>
+ <changefreq>weekly</changefreq>
+ <priority>0.5</priority>
+ </url>
+</urlset>
+ contains the url, change frequency, and the priority (used by web crawlers and search engines to signal the
+ importance of the page).
+ Back to top
+ Follow Us 
+ Take our survey 
+ Accessibility 
+ Legal 
+ Inspector General 
+ External Link Disclaimer 
+ USA.gov 
+ Contact 
+ Media 
+ Donate 
+ Shop 
+ Opens in new window 
+ Download

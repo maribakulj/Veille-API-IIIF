@@ -1,0 +1,13 @@
+2026-11-14T01:55:47Z GET https://collections.library.yale.edu/catalog/16945082
+HTTP 202
+server: awselb/2.0
+date: Sat, 14 Nov 2026 01:55:47 GMT
+content-length: 0
+connection: keep-alive
+x-amzn-waf-action: challenge
+cache-control: no-store, max-age=0
+content-type: text/html; charset=UTF-8
+access-control-allow-origin: *
+access-control-max-age: 86400
+access-control-allow-methods: OPTIONS,GET,POST
+access-control-expose-headers: x-amzn-waf-action

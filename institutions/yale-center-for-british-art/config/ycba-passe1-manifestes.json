@@ -1,0 +1,12 @@
+{
+  "slug": "yale-center-for-british-art",
+  "min_delay_s": 6,
+  "max_requests": 15,
+  "follow_redirects": 1,
+  "robots_disallow_autorise_par_marcel": true,
+  "note": "passe 1 : manifestes IIIF Presentation v3 (defaut) et v2 (« insert v2/ after the yale.edu part », https://training.iiif.io/advanced_iiif/basics/finding_yale.html) de l'objet YCBA 1772 cite en exemple par ce guide ; la doc de l'institution (britishart.yale.edu/collections-data-sharing) dit seulement que les images sont IIIF. manifests.collections.yale.edu/robots.txt = 404. Les corps sont enregistres pour lire l'identifiant du service d'image, sans le deviner.",
+  "endpoints": [
+    {"id": "manifeste-v3-ycba-1772", "method": "GET", "url": "https://manifests.collections.yale.edu/ycba/obj/1772", "save_body": 3000000},
+    {"id": "manifeste-v2-ycba-1772", "method": "GET", "url": "https://manifests.collections.yale.edu/v2/ycba/obj/1772"}
+  ]
+}

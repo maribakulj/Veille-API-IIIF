@@ -1,0 +1,321 @@
+
+<!DOCTYPE html>
+<!-- {"":{ "title": "! Kein Titel gesetzt !", "button": "" },
+"title": "Digitalisierungszentrum"} -->
+
+
+
+<html lang="de"><head>
+  <meta charset="utf-8">
+  <title>Digitalisierungszentrum</title>
+  
+  <meta name="keywords" content="">
+  <meta name="description" content="">
+  <meta http-equiv="Content-Language" content="de">
+  <meta name="organization-name" content="Universitätsbibliothek Heidelberg">
+  <meta name="organization-email" content="ub@ub.uni-heidelberg.de">
+  <meta name="city" content="Heidelberg">
+  <meta name="country" content="Germany - Deutschland">
+  <meta name="language" content="German, Deutsch, de, at, ch">
+  <meta name="robots" content="index">
+  <meta name="robots" content="follow">
+  <meta name="revisit-after" content="1 month">
+  <meta name="rating" content="General">
+  <meta http-equiv="imagetoolbar" content="no">
+  <meta name="MSSmartTagsPreventParsing" content="true">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="google-site-verification" content="Fe1egWKUFNNSp3IYTaGTmvQ_nZKTZK6L5q7QetXMfa4">
+
+  <script type="text/javascript" src="//www.ub.uni-heidelberg.de/js/jquery-1.11.1.min.js"></script>
+  <link rel="SHORTCUT ICON" href="/favicon.ico" type="image/x-icon">
+ 	<style media="screen" type="text/css">
+  	@import url(https://www.ub.uni-heidelberg.de/css/uni/core/base_ltr.css);
+  	@import url(https://www.ub.uni-heidelberg.de/css/uni/basemod_ltr_small.css);
+  	@import url(https://www.ub.uni-heidelberg.de/css/uni/content.css);
+  	@import url(https://www.ub.uni-heidelberg.de/css/uni/style_ltr.css);
+    @import url(https://www.ub.uni-heidelberg.de/css/unilayout2013_ub.css); 
+}
+  </style>
+  <link rel="stylesheet" type="text/css" href="https://www.ub.uni-heidelberg.de/css/ubhd-mod.css">
+
+  <script type="text/javascript">
+    $( document ).ready(function() {
+       var sprachumstellung =  $(".sprachumschalter").text();
+       if(sprachumstellung == '')
+          {
+             $( ".trennstrich" ).hide()
+             $( ".sprachumschalter" ).hide()
+          }
+    });
+    $(function () {
+         $('.ym-skip1[href="#"]').click(function () {  
+                   var isHidden = $( "#col1" ).is( ":hidden" );
+                   var isHidden_navi = $( "#naviMainContainer" ).is( ":hidden" );
+                   if(isHidden == true) {
+                          $('#col1').show(250); 
+                          $('#naviMainContainer').show();
+                          $( ".roundbox_white_left" ).hide();
+                          
+                          }
+                   else {
+                      if(isHidden_navi == true)
+                          {
+                           $('#naviMainContainer').show();
+                           $( ".roundbox_white_left" ).hide();
+                          } 
+                       else
+                          {
+                          $('#col1').hide(250); 
+                          }
+                   }
+          });
+          
+         $('.ym-skip2[href="#"]').click(function () { 
+                   var isHidden = $( "#col1" ).is( ":hidden" );
+                   var isHidden_einstieg = $( ".roundbox_white_left" ).is( ":hidden" );
+
+                   if(isHidden == true) {
+                          $('#col1').show(250);  
+                          $('#naviMainContainer').hide();
+                          $( ".roundbox_white_left" ).show();
+                          }
+                   else {
+                      if(isHidden_einstieg == true)
+                          {
+                           $('#naviMainContainer').hide();
+                           $( ".roundbox_white_left" ).show();
+                          }
+                       else
+                          {
+                          $('#col1').hide(250);
+                          }
+                   }
+         });
+ });
+         $("a[href^='https://www.ub.uni-heidelberg.de'], a:not([href^='http://'], [href^='#'])")
+           .click(function () {
+                var a = $(this);
+                var href=a.attr("href");
+                if ( 0 && href.test(/\?/) ) {
+                    alert("Link enthält bereits einen Querystring. Bitte &responsive=1 in Browseradresszeile ggf. selbst anfügen und neu laden.");
+                }
+                else {
+                    a.attr('href', href+'?responsive=1');
+                }
+           });
+  </script>
+
+
+
+
+</head>
+<body>
+
+	<div id="topBarInstitute">
+    <a href="#contentbegin" accesskey="6">Navigation überspringen</a><a name="up" id="up"></a>
+             <ul class="ym-skiplinks">
+                <li id="ym-skip1"><a class="ym-skip1" href="#">Hauptmenü</a></li>
+                <li>|</li>
+                <li id="ym-skip2"><a class="ym-skip2" href="#">Schnelleinstieg</a></li>
+                <li class="trennstrich">|</li>
+                <li class="sprachumschalter">
+			            <a accesskey="5" href="/Englisch/allg/litrech/katalog.html">English</a></li>
+             </ul>
+
+
+	</div>
+	<div id="page_margins">
+		<div id="page">
+			<div id="universitaet"> <!--// Schriftzug Universität //-->
+			    <a href="//www.uni-heidelberg.de/index.html" title="Zur Universität" accesskey="0"><img src="//www.ub.uni-heidelberg.de/nav4/grafik/layout/schriftzug_mit_siegel.gif" alt="Ruprecht-Karls-Universität Heidelberg"></a> 
+			</div>
+      <div id="institutslogo_rwd">
+        <a href="https://www.ub.uni-heidelberg.de" accesskey="1" title="Homepage Universitätsbibliothek Heidelberg"><img src="https://www.ub.uni-heidelberg.de/nav4/grafik/layout/ub_logo2.gif" alt="Universitätsbibliothek"></a>
+      </div>
+			<div id="greyBar">
+			</div>
+			<div id="main">   <!--// Beginn Seiten //-->
+        		<div id="col1">      <!--// Beginn linke Spalte//-->
+          			<div id="col1_content" class="clearfix">
+						<div class="institutslogo"> <!-- Logo-Schriftzug links - Breite: 204 px -->
+<!-- Link zur Startseite -->
+							<a href="//www.ub.uni-heidelberg.de" accesskey="1" title="Homepage Universitätsbibliothek Heidelberg"><img src="https://www.ub.uni-heidelberg.de/nav4/grafik/layout/ub_logo2.gif" alt="Universitätsbibliothek"></a>
+						</div>
+					
+       						<div id="naviMainContainer">  <!--// Beginn Haupt-Navi //-->
+            <div id="heidisuch">
+<form action="https://www.ub.uni-heidelberg.de/cgi-bin/search.cgi" name="suchform" method="get" accept-charset="UTF-8" enctype="application/x-www-form-urlencoded">
+<input type="text" id="suchfeld" name="query" class="inputSearchTop" placeholder="Schnellsuche ...">&nbsp;<input class="inputSearchRightButton" type="submit" value=""><br>
+<input type="hidden" name="q" value="homepage">
+<input type="hidden" name="sprache" value="ger">
+<input type="radio" name="wo" value="h" id="radh" checked="" onclick="jQuery('#suchfeld').autocomplete('option','disabled',false);">&nbsp;<label for="radh">HEIDI</label>&nbsp;&nbsp;<input type="radio" name="wo" value="w" id="radw" onclick="jQuery('#suchfeld').autocomplete('option','disabled',true);">&nbsp;<label for="radw">Web-Seiten</label>
+              </form>
+            </div>
+            <ul>
+              <!-- highlight: ="class="current"" -->
+              <li class="oberste"><a  href="https://www.ub.uni-heidelberg.de/helios/kataloge/Welcome.html">Literatursuche und -bestellung</a></li>
+              <li class="oberste"><a  href="https://www.ub.uni-heidelberg.de/helios/Welcome.html">Digitale Bibliothek</a></li>
+              <li class="oberste"><a  href="https://www.ub.uni-heidelberg.de/service/Welcome.html">Nutzung und Service</a></li>
+              <li class="oberste"><a  href="https://www.ub.uni-heidelberg.de/fachinfo/Welcome.html">Fachbezogene Informationen</a></li>
+              <li class="oberste"><a  href="https://www.ub.uni-heidelberg.de/schulung/Welcome.html">Kurse, Beratung, E-Learning</a></li>
+              <li class="oberste"><a  href="https://www.ub.uni-heidelberg.de/wir/Welcome.html">Bibliotheken der Universität</a></li>
+              <li class="oberste"><a  href="https://www.ub.uni-heidelberg.de/a-z/a.html" accesskey="3">A bis Z</a></li>
+            </ul>
+							<div class="navilast">   
+							</div>
+            </div>
+            
+              <div class="roundbox_white_left">
+                <h4 style="margin-top:5px;">Schnelleinstieg</h4>
+                <ul style="line-height: 1em;">
+                  <li style="margin-bottom: 0.7em"><a href="https://www.ub.uni-heidelberg.de/de/anmeldung-und-nutzerkonto">Anmeldung für Studierende<br>(Erstanmeldung)</a></li>
+                  <li style="margin-bottom: 0.7em;"><a href="https://www.ub.uni-heidelberg.de/allg/profil/adoeftel.html" title="Öffnungszeiten der UB Heidelberg">Öffnungszeiten</a></li>
+                  <li style="margin-bottom: 0.7em;"><a href="https://www.ub.uni-heidelberg.de/service/einsteiger/ubfuereinsteiger.html">UB für Einsteiger</a></li>
+                  <li style="margin-bottom: 0.7em;"><a href="/cgi-bin/ub3d.cgi">Virtueller Rundgang</a></li>
+                  <li style="margin-bottom: 0.7em;"><a href="https://katalog.ub.uni-heidelberg.de/cgi-bin/login.cgi">Konto</a></li>
+                  <li style="margin-bottom: 0.7em;"><a href="https://www.ub.uni-heidelberg.de/service/gruppenarbeitsraeume.html" title="Informationen zu den Gruppenarbeitsräumen">Gruppenarbeitsräume</a></li> 
+                  <li style="margin-bottom: 0.7em;"><a href="https://www.ub.uni-heidelberg.de/service/myub.html"><em lang="EN-gb">My</em>UB</a></li>
+                  <li style="margin-bottom: 0.7em;"><a href="https://www.ub.uni-heidelberg.de/schulung/literaturverwaltung/Welcome.html">Literaturverwaltung</a></li>
+                  <li style="margin-bottom: 0.7em;"><a href="https://www.ub.uni-heidelberg.de/service/openaccess/Welcome.html">Elektronisches Publizieren</a></li>
+                  <li class="fz"><span class="fragezeichen">?</span>&nbsp;<a href="https://www.ub.uni-heidelberg.de/service/auskunft.html" title="Auskunft der Abteilung Informationsdienste der UB Heidelberg">Fragen Sie uns!</a></li>
+                </ul>
+            </div>
+            <!-- <div style="font-size: 0.8em; margin-top: 15px;" id="facebook-link"><img alt="Icon Facebook" class="imgLeft" style="margin: 0 5px 0 2px;" src="https://www.uni-heidelberg.de/md/zentral/images/icon_facebook.jpg"> <a title="" href="https://www.facebook.com/ubheidelberg">Die UB auf Facebook</a></div>-->
+            <!-- ICONS -->
+            <div id="social-media-links">
+                <a title="Die UB auf Facebook" href="https://www.facebook.com/ubheidelberg">
+                    <img alt="Icon Facebook" src="/bilder/logo_facebook.png">
+                </a>
+                <a title="Die UB auf Youtube" href="https://www.youtube.com/channel/UCkWljtG6woFVHLOsAMWaDFw">
+                    <img alt="Icon Youtube" src="/bilder/logo_youtube.png">
+                </a>
+                <a title="Die UB auf Instagram" href="https://www.instagram.com/ubheidelberg/">
+                    <img alt="Icon Instagram" src="/bilder/logo_instagram.png">
+                </a>
+            </div>
+						</div> <!-- Ende Haupt-Navi -->
+
+                </div>
+				
+       			<div id="col2"><div id="col2_content" class="clearfix">
+                                
+<div class="noprint keyVisual"> <img src="/helios/digi/bilder/bereichsbild.jpg" alt="Studierende am PC" /></div> 
+
+
+<div class="headlineRightColumn">Kontakt</div>
+<div class="boxRightColumn" style="background-image:none;"> 
+ <div class="rightColumntext">
+  <p> <a href="mailto:digitalisierung@ub.uni-heidelberg.de"" title="mit Ihrem E-Mail-Programm eine E-Mail an Digitalisierungszentrum senden"><img alt="Brief" title="E-Mail" align="align='bottom'" src="/nav1/grafik/all/email_transp.gif" /> Digitalisierungszentrum</a><br />
+     Tel.: 06221-54-2376<br />
+     
+  </p>
+ </div>
+</div>
+
+<div class="headlineRightColumn">Weitere Informationen</div>
+<div class="boxRightColumn" style="background-image:none;"> 
+<div class="rightColumntext">
+<ul>
+<li><a href="https://www.ub.uni-heidelberg.de/fachinfo/kunst/wunschbuch.html">Wunschbuch Kunst</a></li>
+<li><a href="https://www.ub.uni-heidelberg.de/fachinfo/archaeologie/wunschbuch_arch.html">Wunschbuch Archäologie/Ägyptologie</a></li>
+<li><a href="https://www.ub.uni-heidelberg.de/fachinfo/suedasien/wunschbuch_sasien.html">Wunschbuch Südasien</a></li>
+<li><a href="https://www.ub.uni-heidelberg.de/publikationsdienste/digitale_editionen.html" title="Digitale Editionen">Digitale Editionen</a></li>
+<li><a href="https://heidicon.ub.uni-heidelberg.de" title="heidICON – Die Heidelberger Objekt- und Multimediadatenbank">heidICON &dash; Die Heidelberger Objekt- und Multimediadatenbank</a></li>
+</ul>
+</div></div>
+
+				</div></div> <!--ENDE rechte Spalte-->
+
+				<div id="col3">       <!--// Beginn content //-->
+					<div id="col3_content" class="clearfix">
+						<div id="content"> 
+							<div id="naviHor"> <!-- Beginn horizontale Navi -->
+								<a href="https://www.ub.uni-heidelberg.de/kontakt/Welcome.html" accesskey="4">Kontakt</a>  |  <a accesskey="5" href="https://www.ub.uni-heidelberg.de/Englisch/helios/digi/index.html">English</a>
+							</div> <!-- Ende horizontale Navi -->
+<!-- Beginn Seiteninhalt -->
+              
+
+
+    
+<!--// Beginn Breadcrumb //-->
+<div class="pathway">
+  <a href="https://www.ub.uni-heidelberg.de/">Startseite ></a> &gt;  <a href="https://www.ub.uni-heidelberg.de/helios/Welcome.html">Digitale Bibliothek ></a> &gt;  <a href="https://www.ub.uni-heidelberg.de/helios/digi/digilit.html">Heidelberger historische Bestände &ndash; digital ></a> &gt; 
+<br><br></div>
+<!--// Ende Breadcrumb //-->
+
+    <a name="contentbegin"></a>
+
+
+
+     <h1 class="einzeilig">Digitalisierungszentrum</h1>
+
+
+
+<!-- ## Mason-Tag: flags ## -->
+
+
+
+<p style="margin-bottom: 2em;">
+Wir arbeiten ständig an der Erweiterung des Angebots an digitalen Ausgaben der historischen Bestände der Universitätsbibliothek Heidelberg. Aber auch die Digitalisierung relevanter Literatur für die Fachinformationsdienste Kunst, Altertumswissenschaften und Südasien ist ein fester Bestandteil. Ebenfalls werden von uns individuelle Reproduktionsarbeiten bearbeitet.</p>
+
+<div class="floatcontainer">
+<p><img alt="Teaser Reproduktion und Nutztung" class="imgLeft" src="/helios/digi/bilder/warenkorb.jpg" style="width: 100px; height: 100px;" /><a href="../digi/reproduktion.html" title="Informationen zu den Allgemeinen Einführungen"><strong>Reproduktion und Nutzung</strong></a><br>Sie benötigen eines unserer Digitalisate für eine Buchillustration? Als Druckvorlage für ein individuelles Geschenk? Oder Gebrauchsdigitalisate für die Forschung? <a href="../digi/reproduktion.html" title="">[Mehr …]</a></p>
+  <br class="cleaner">
+<p><img alt="Teaser dwork" class="imgLeft" src="/helios/digi/bilder/dwork.jpg" style="width: 100px; height: 100px;" /><a href="../digi/dwork.html" title="Informationen zum Workflow"><strong>Workflow</strong></a><br>Die Universitätsbibliothek Heidelberg setzt bei der Digitalisierung und der Webpräsentation auf die Eigenentwicklung <strong>DWork – Heidelberger Digitalisierungsworkflow</strong>. <a href="../digi/dwork.html" title="">[Mehr …]</a></p>
+  <br class="cleaner">
+<p><img alt="Teaser Technik" class="imgLeft" src="/helios/digi/bilder/technik2.jpg" style="width: 100px; height: 100px;" /><a href="../digi/tech_workflow.html" title="Informationen zur Technik"><strong>Technik</strong></a><br>Uns steht eine Vielzahl an Geräten für die Digitalisierung zur Verfügung. Je nach Art des zu digitalisierenden Werkes kann so eine schonende und hochwertige Digitalisierung erfolgen. <a href="../digi/tech_workflow.html" title="">[Mehr …]</a></p>
+  <br class="cleaner">
+<p><img alt="Teaser Heidelberger historische Bestände" class="imgLeft" src="/helios/digi/bilder/lsh_bestand.png" style="width: 100px; height: 100px;" /><a href="../digi/digilit.html" title="Informationen zu den historischen Beständen"><strong>Heidelberger historische Bestände – digital</strong></a><br>Hier finden Sie alle bereits digitalisierten Bestände. <a href="https://www.ub.uni-heidelberg.de/helios/digi/digilit.html" title="Heidelberger historische Bestände">[Mehr&nbsp;…]</a></p>
+
+
+  <br class="cleaner">
+</div>
+
+
+
+
+
+
+
+                
+
+
+
+
+
+							</div>
+<div class="cleaner"></div>
+							<div class="topVariabel">
+								<a href="#up"></a><a href="#up"><img src="/nav4/grafik/layout/icon_top.gif" alt="zum Seitenanfang" width="39" height="13"></a></div>
+							</div>
+
+						</div>
+<!--// Ende content //-->
+						
+						<!-- IE Column Clearing -->
+						<div id="ie_clearing">
+							&nbsp; 
+						</div>
+					</div>
+					<br class="rechts">
+				</div> <!-- Ende 3./mittlere Spalte -->
+
+      		<!-- begin: #footer -->
+			<div id="footerBar">
+			</div> <!--// roter Balken Seitenfuss //-->
+			<div id="footer">
+        <div class="copyright">
+		Letzte Aktualisierung: 03.03.2026 &nbsp;&nbsp; © Universitätsbibliothek Heidelberg <a href="mailto:ub@ub.uni-heidelberg.de"" title="mit Ihrem E-Mail-Programm eine E-Mail an Universitaetsbibliothek Heidelberg senden"><img alt="Brief" title="E-Mail" align="align='bottom'" src="/nav1/grafik/all/email_transp.gif" /> Universitaetsbibliothek Heidelberg</a> <a href="https://www.ub.uni-heidelberg.de/wir/impressum.html">Impressum</a> ⋅ <a href="https://www.uni-heidelberg.de/datenschutzerklaerung_web.html">Datenschutz</a>&nbsp;&nbsp;&nbsp;<span id="intern"><a href="https://www.ub.uni-heidelberg.de/intern/">Intern</a>
+
+
+</span></div>
+			</div><!-- Ende footer -->
+			</div><!-- Ende page -->
+			<!-- Ende pagemargin -->
+
+
+
+
+
+</body>
+</html>

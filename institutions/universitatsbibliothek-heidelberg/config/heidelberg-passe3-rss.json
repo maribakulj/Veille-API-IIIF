@@ -1,0 +1,11 @@
+{
+  "slug": "universitatsbibliothek-heidelberg",
+  "min_delay_s": 6,
+  "max_requests": 15,
+  "follow_redirects": 1,
+  "robots_disallow_autorise_par_marcel": true,
+  "note": "passe 3 : flux RSS cite par la page d'accueil de la Digitale Bibliotheque de l'UB (sources/accueil/raw/02.html : https://digi.ub.uni-heidelberg.de/diglit/rss?set=handschriften). Une seule requete.",
+  "endpoints": [
+    {"id": "rss-handschriften", "method": "GET", "url": "https://digi.ub.uni-heidelberg.de/diglit/rss?set=handschriften"}
+  ]
+}

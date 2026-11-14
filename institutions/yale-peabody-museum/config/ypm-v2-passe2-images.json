@@ -1,0 +1,14 @@
+{
+  "slug": "yale-peabody-museum",
+  "min_delay_s": 6,
+  "max_requests": 15,
+  "follow_redirects": 1,
+  "robots_disallow_autorise_par_marcel": true,
+  "note": "Passe 2 (v2) : le catalogue collections.peabody.yale.edu redirige (302, Location lu dans tests/raw/catalogue-peabody.headers.txt) vers peabody.collections.yale.edu : accueil et /api/stats (chemin documenté dans lux-middletier, même application que LUX d'après le robots.txt identique). Services d'image IIIF 2 annoncés par le manifeste YCBA de la passe 1 (identifiant lu dans tests/raw/manifeste-v3-ycba-1772.body) : info.json et un dérivé de 200 px de large.",
+  "endpoints": [
+    {"id": "peabody-collections-accueil-nouvel-hote", "method": "GET", "url": "https://peabody.collections.yale.edu/"},
+    {"id": "peabody-collections-api-stats", "method": "GET", "url": "https://peabody.collections.yale.edu/api/stats"},
+    {"id": "images-info-json", "method": "GET", "url": "https://images.collections.yale.edu/iiif/2/ycba:14f52bbd-3075-40f4-9e99-6c0f149b5dcf/info.json"},
+    {"id": "images-200px", "method": "GET", "url": "https://images.collections.yale.edu/iiif/2/ycba:14f52bbd-3075-40f4-9e99-6c0f149b5dcf/full/200,/0/default.jpg"}
+  ]
+}

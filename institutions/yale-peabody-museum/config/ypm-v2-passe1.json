@@ -1,0 +1,16 @@
+{
+  "slug": "yale-peabody-museum",
+  "min_delay_s": 6,
+  "max_requests": 15,
+  "follow_redirects": 1,
+  "robots_disallow_autorise_par_marcel": true,
+  "note": "Passe 1 (v2) : pages d'accueil documentées (peabody.yale.edu/explore/collections, catalogue collections.peabody.yale.edu), API LUX documentées dans le dépôt GitHub project-lux/lux-middletier docs/api-endpoints.md (/api/stats, /api/advanced-search-config : sans paramètre), et manifestes IIIF Yale cités par le guide de formation IIIF (training.iiif.io/advanced_iiif/basics/finding_yale.html : YCBA obj/1772 en v3, YUAG v2 obj/157210) : aucun identifiant de manifeste Peabody n'est publié dans la doc lue, aucune devinette. Le corps du manifeste YCBA est enregistré pour lire l'identifiant d'image public.",
+  "endpoints": [
+    {"id": "peabody-collections-accueil", "method": "GET", "url": "https://peabody.yale.edu/explore/collections"},
+    {"id": "catalogue-peabody", "method": "GET", "url": "https://collections.peabody.yale.edu/"},
+    {"id": "lux-stats", "method": "GET", "url": "https://lux.collections.yale.edu/api/stats"},
+    {"id": "lux-advanced-search-config", "method": "GET", "url": "https://lux.collections.yale.edu/api/advanced-search-config"},
+    {"id": "manifeste-v3-ycba-1772", "method": "GET", "url": "https://manifests.collections.yale.edu/ycba/obj/1772", "save_body": 2000000},
+    {"id": "manifeste-v2-yuag-157210", "method": "GET", "url": "https://manifests.collections.yale.edu/v2/yuag/obj/157210"}
+  ]
+}

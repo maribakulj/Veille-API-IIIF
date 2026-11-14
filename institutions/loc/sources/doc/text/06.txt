@@ -1,0 +1,187 @@
+Image Services | Microservices | APIs at the Library of Congress | Library of Congress
+ Loading... 
+ Top of page
+ Skip to main content
+ Library of Congress 
+ Everything 
+ Audio Recordings
+ Books/Printed Material
+ Films, Videos
+ Legislation
+ Manuscripts/Mixed Material
+ Maps
+ Notated Music
+ Newspapers
+ Periodicals
+ Personal Narratives
+ Photos, Prints, Drawings
+ Software, E-Resources
+ Web Archives
+ Web Pages
+ 3D Objects
+ APIs at the Library of Congress
+ Search 
+ Toggle Search 
+ Global Menu 
+ Discover
+ Services
+ Visit
+ Education
+ Connect
+ About
+ Ask a Librarian
+ Help
+ Contact
+ Search Online Catalog
+ Copyright.gov
+ Congress.gov
+ Library of Congress 
+ More 
+ APIs at the Library of Congress 
+ Microservices 
+ Image Services
+ Share
+ Copied!
+ Error copying link to clipboard.
+ Services
+ APIs at the Library of Congress
+ Menu 
+ APIs for LoC.gov
+ JSON/YAML for LoC.gov
+ JSON/YAML for LoC.gov
+ Making API Requests
+ API Endpoints
+ API Request Parameters
+ Understanding API Responses
+ Search Results Responses
+ Item and Resource Responses
+ Working Within Limits
+ Dynamic Examples
+ Sitemaps
+ Microservices
+ Microservices
+ Text Services
+ Image Services
+ Streaming Services
+ Additional APIs and Data Services
+ Additional APIs and Data Services
+ Congress.gov API
+ NLS BARD API
+ Chronicling America
+ PPOC - JSON HTTP API
+ Linked Data Service
+ Search/Retrieval via URL
+ Contact
+ Image Services
+ API for accessing and manipulating images from the Library of Congress.
+ The Library of Congress Image Services API specifies a web service that
+ returns an image, or informaion about an image, in response to a
+ standard HTTPS request. The request can specify the region, size,
+ rotation, quality characteristics and format of the returned image
+ or request basic technical information about an image.
+ The Library of Congress Image Services API is implemented using the
+ IIIF Image API.
+ What is IIIF?
+ From the website [ 1 ]:
+ The International Image Interoperability Framework (IIIF) is a set of shared application programming interface (API)
+ specifications for interoperable functionality in digital image repositories. The IIIF is comprised of and driven
+ by a community of libraries, museums, archives, software companies, and other organizations working together to
+ create, test, refine, implement and promote the IIIF specifications.
+ [1] https://iiif.io/community/faq/ 
+ Rate limits
+ For rate limits, see Working within Limits 
+ The IIIF Image URI
+ The IIIF Image URI contains several parts which define how an image
+ is returned. Here is a brief overview of the various parts.
+ To learn more, please see https://iiif.io/api/image/2.0/ :
+{scheme}://{server}/{prefix}/{identifier}/{region}/{size}/{rotation}/{quality}.{format}
+ scheme - Indicates the use of the HTTP or HTTPS protocol in calling the service.
+ server - The host server on which the service resides. The parameter may also include a port number.
+ prefix - The path on the host server to the service. This prefix is optional, but may be useful when the host
+ server supports multiple services. The prefix may contain multiple path segments, delimited by slashes, but all
+ other special characters must be encoded. See URI Encoding and Decoding for more information.
+ identifier - The identifier of the requested image. This may be an ark, URN, filename, or other identifier.
+ Special characters must be URI encoded.
+ region - The region parameter defines the rectangular portion of the full image to be returned. Region can be
+ specified by pixel coordinates, percentage or by the value “full”, which specifies that the entire image should be returned.
+ size - The size parameter determines the dimensions to which the extracted region is to be scaled.
+ rotation - The rotation parameter specifies mirroring and rotation. A leading exclamation mark ("!") indicates
+ that the image should be mirrored by reflection on the vertical axis before any rotation is applied. The numerical
+ value represents the number of degrees of clockwise rotation, and may be any floating point number from 0 to 360.
+ quality - The quality parameter determines whether the image is delivered in color, grayscale or black and
+ white.
+ format - The format of the returned image is expressed as an extension at the end of the URI.
+The Library of Congress Image Server API's combination of scheme (https), server (tile.loc.gov), and prefix (image-services/iiif) result in a base image URI like this:
+https://tile.loc.gov/image-services/iiif/{identifier}
+ Using the API
+ Information about an Image
+ One can use the API to discover certain technical properties and supported services for a given image. The request returns a json response
+ with various details about the image such as available formats, quality, and orientation and supported manipulations such
+ as rotation or mirroring. This information is retrieved from a URI constructed by adding "info.json" to the base image URI:
+https://tile.loc.gov/image-services/iiif/{identifier}/info.json
+For example:
+ https://tile.loc.gov/image-services/iiif/service:sgp:sgpbatches:batch_dlc_anacostia_ver01:data:sn84025948:0023728866A:1942081001:0202/info.json
+ Retrieving an Image
+ Images are fetched using the URI pattern below, which combines the base image URI and
+ a number of request parameters that define the returned image.
+https://tile.loc.gov/image-services/iiif/{identifier}/{region}/{size}/{rotation}/{quality}.{format}
+ In this example, the the full image is returned by setting the size and region parameter to
+ "full" e.g.:
+ https://tile.loc.gov/image-services/iiif/service:sgp:sgpbatches:batch_dlc_anacostia_ver01:data:sn84025948:0023728866A:1942081001:0202/full/full/0/default.jpg
+ Specifiying the Size
+Different sizes of an image can be requested by specifiying pixel dimensions or a percentage using the keyword pct:{num} as the size parameter. Size parameter syntax is available here on the IIIF site: https://iiif.io/api/image/2.1/#size . For example, to fetch the above image at 5% the original size:
+ https://tile.loc.gov/image-services/iiif/service:sgp:sgpbatches:batch_dlc_anacostia_ver01:data:sn84025948:0023728866A:1942081001:0202/full/pct:5/0/default.jpg
+ Rotation 
+ An image can be rotated by specifying the degrees to rotate in the
+ {rotation} part of the URI.
+ The Library of Congress Image Services API only supports rotation values that are multiples of 90. 
+ Rotating the above image on its side is achieved by constructing the following URI:
+ https://tile.loc.gov/image-services/iiif/service:sgp:sgpbatches:batch_dlc_anacostia_ver01:data:sn84025948:0023728866A:1942081001:0202/full/full/90/default.jpg
+ Mirroring 
+ The {rotation} part of the URI can also be used to mirror the image by applying a ! in front of the
+ rotation (e.g. !0):
+ https://tile.loc.gov/image-services/iiif/service:sgp:sgpbatches:batch_dlc_anacostia_ver01:data:sn84025948:0023728866A:1942081001:0202/full/full/!0/default.jpg
+ Selecting a Region 
+ A region of the image can be selected by specifying the {region} part of the URI.
+ Region parameter syntax is available here on the IIIF site: https://iiif.io/api/image/2.1/#region .
+ For example, one can select a newspaper page that starts 25 percent from the x-axis and 15 percent from the y-axis, taking
+ 50 percent of the total width and 45 percent of the total height. The region component would read
+ pct:25,15,50,45 , where the full URI is:
+ https://tile.loc.gov/image-services/iiif/service:sgp:sgpbatches:batch_dlc_anacostia_ver01:data:sn84025948:0023728866A:1942081001:0202/pct:25,15,50,45/full/0/default.jpg
+ Try the API
+ Image Info 
+ Parameter
+ Description
+ identifer
+ Image identifier
+ execute 
+ URI: 
+ Fetch Image 
+ Parameter
+ Description
+ identifier
+ Image identifier
+ region
+ Rectangular portion of the full image to be return 
+ size
+ The dimensions to which the extracted region is to be scaled
+ rotation
+ The rotation parameter specifies mirroring and rotation. A leading exclamation mark ("!") indicates
+ that the image should be mirrored by reflection on the vertical axis before any rotation is applied.
+ Note, only values that are multiples of 90 are supported. 
+ execute 
+ URI: 
+ Back to top
+ Follow Us 
+ Take our survey 
+ Accessibility 
+ Legal 
+ Inspector General 
+ External Link Disclaimer 
+ USA.gov 
+ Contact 
+ Media 
+ Donate 
+ Shop 
+ Opens in new window 
+ Download

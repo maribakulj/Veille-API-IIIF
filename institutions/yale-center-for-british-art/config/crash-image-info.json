@@ -1,0 +1,12 @@
+{
+  "slug": "yale-center-for-british-art",
+  "endpoint": {
+    "id": "image-info-json",
+    "url": "https://images.collections.yale.edu/iiif/2/ycba:14f52bbd-3075-40f4-9e99-6c0f149b5dcf/info.json",
+    "method": "GET"
+  },
+  "limite_documentee_req_min": null,
+  "source_limite": "aucune limite chiffrée documentée (https://britishart.yale.edu/open-data-and-data-services-terms-use : seulement « excessive use » et « ensure that your software will not perform excessive requests »)",
+  "duree_palier_s": 180,
+  "note": "info.json IIIF Image 2 sur images.collections.yale.edu, 200 dans le journal (image-info-json, 2026-11-14T02:04:50Z). Peu coûteux ; manifeste et TIFF évités. Non lancé par l'agent. Les Terms demandent un User-Agent avec e-mail."
+}
