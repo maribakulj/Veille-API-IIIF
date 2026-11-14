@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="de">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Fehler - Porträtsammlung der HAB</title>
+		<link rel="icon" type="image/png" href="/assets/icons/favicon.png" sizes="32x32">
+		<link rel="stylesheet" href="/assets/css/styles.css">
+		<link rel="stylesheet" href="/assets/css/portrait.css">
+		<script src="/assets/javascript/hab.js"></script>
+		<noscript><link rel="stylesheet" href="/assets/css/noscript.css"></noscript>
+	</head>
+	<body>
+		<header>
+			<div id="logoHAB" class="logo-default"></div>
+			<nav>
+				<a href="/">Startseite</a>
+				<div class="dropdown">
+					<button class="dropbtn" onclick="toggleDropdown('dd1')">Suche</button>
+					<div class="dropdown-content" id="dd1">
+						<a href="/search/">Porträts</a>
+						<a href="/search-person/">Personen</a>
+					</div>
+				</div>
+
+				<a href="/about">About</a>
+				<a href="/contact">Kontakt</a>
+				<!--<a>EN/<span class="active">DE</span></a> -->
+			</nav>
+        			<form id="search-header" action="/result/">
+				<input
+					type="text"
+					name="queries[any]"
+					id="queries-any"
+					value=""
+					maxlength="80"
+					autofocus="autofocus"
+					placeholder="Porträtsuche">
+			</form>
+		</header>
+	<main>
+		<h1>Ein Fehler ist aufgetreten</h1>
+        <p>Die aufgerufene URL führt zu keiner gültigen Seite.</p>
+        <p>Sie können die Eingabe verändern oder zurückkehren zur <a href="/">Startseite.</a></p> 
+	</main>    
+		<footer>
+			<div id="logoNiedersachsen"></div>
+			<div id="footerMenu">
+				<a href="https://www.hab.de/">HAB</a>
+				<a href="https://www.hab.de/bildende-kunst-und-grafik/">Graphische Sammlung</a>
+				<a href="https://www.virtuelles-kupferstichkabinett.de/de/">VKK</a>
+				<a href="https://www.hab.de/automatische-bilderkennung-fruehneuzeitlicher-portraetgrafik-als-app/">PortApp</a>
+			</div>
+			<div id="footerWidget">
+				<p>
+					Herzog August Bibliothek<br>
+					Lessingplatz 1<br>
+					D-38304 Wolfenbüttel
+				</p>
+				<p>
+					Telefon: (05331) 808-0<br>
+					Fax: (05331) 808-173<br>
+					E-Mail: auskunft@hab.de
+				</p>
+			</div>
+			<div id="baseBar">
+				<span id="copyright">&copy; Herzog August Bibliothek</span>
+				<a href="https://www.hab.de/impressum/">Impressum</a>
+				<a href="https://www.hab.de/datenschutzerklaerung/">Datenschutzerklärung</a>
+				<a>Sitemap</a>
+			</div>
+		</footer>
+	</body>
+</html>
