@@ -1,0 +1,11 @@
+{
+  "slug": "national-library-of-scotland",
+  "min_delay_s": 6,
+  "max_requests": 15,
+  "follow_redirects": 1,
+  "robots_disallow_autorise_par_marcel": true,
+  "note": "v2 passe 6 (14/11/2026) : point d'accès REST WordPress de data.nls.uk annoncé par <link rel=alternate type=application/json href=…/wp-json/wp/v2/pages/60> dans la page d'accueil (sources/suite/raw/03.html), non documenté comme API par le NLS ; une requête GET. robots.txt de data.nls.uk lu en sources/suite/raw/02.html.",
+  "endpoints": [
+    {"id": "datanls-wp-json-pages-60", "method": "GET", "url": "https://data.nls.uk/wp-json/wp/v2/pages/60"}
+  ]
+}
