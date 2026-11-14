@@ -1,0 +1,14 @@
+{
+  "slug": "university-college-dublin-digital-ucd",
+  "min_delay_s": 6,
+  "max_requests": 15,
+  "follow_redirects": 0,
+  "robots_disallow_autorise_par_marcel": true,
+  "note": "Passe 2 : la passe 1 a échoué en TLS (SSLCertVerificationError, chaîne incomplète côté serveur, alors que curl la valide) sur toutes les URL https de digital.ucd.ie. On relève donc les en-têtes en http:// (HEAD, sans suivre la redirection) pour lire Location et les en-têtes de limite éventuels ; les corps https ont été lus par fetch_doc.sh (curl) dans sources/a1, a2, a4.",
+  "endpoints": [
+    {"id": "v2p2-http-accueil-head", "method": "HEAD", "url": "http://digital.ucd.ie/"},
+    {"id": "v2p2-http-metadata-json-head", "method": "HEAD", "url": "http://digital.ucd.ie/assets/data/metadata.json"},
+    {"id": "v2p2-http-collection-c0097-head", "method": "HEAD", "url": "http://digital.ucd.ie/c0097/"},
+    {"id": "v2p2-http-item-head", "method": "HEAD", "url": "http://digital.ucd.ie/items/ucdlib_001.html"}
+  ]
+}

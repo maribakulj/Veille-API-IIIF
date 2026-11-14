@@ -1,0 +1,29 @@
+# Session 2026-11-14T02:48:22Z — configuration ucd-v2-passe1.json — sonde probe.py au commit b3dab4c
+2026-11-14T02:48:22Z | robots.txt:digital.ucd.ie | https://digital.ucd.ie/robots.txt | GET | ERREUR_RÉSEAU | SSLCertVerificationError : tout est traité comme interdit
+2026-11-14T02:48:22Z | v2p1-accueil | robots.txt interdit https://digital.ucd.ie/ (Disallow: /) ; lancé car autorisé par Marcel (C12)
+2026-11-14T02:48:29Z | v2p1-accueil | https://digital.ucd.ie/ | GET | ERREUR_RÉSEAU | SSLCertVerificationError: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1147)
+2026-11-14T02:48:29Z | v2p1-metadata-json | robots.txt interdit https://digital.ucd.ie/assets/data/metadata.json (Disallow: /) ; lancé car autorisé par Marcel (C12)
+2026-11-14T02:48:35Z | v2p1-metadata-json | https://digital.ucd.ie/assets/data/metadata.json | GET | ERREUR_RÉSEAU | SSLCertVerificationError: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1147)
+2026-11-14T02:48:35Z | v2p1-metadata-csv-head | robots.txt interdit https://digital.ucd.ie/assets/data/metadata.csv (Disallow: /) ; lancé car autorisé par Marcel (C12)
+2026-11-14T02:48:41Z | v2p1-metadata-csv-head | https://digital.ucd.ie/assets/data/metadata.csv | HEAD | ERREUR_RÉSEAU | SSLCertVerificationError: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1147)
+2026-11-14T02:48:41Z | v2p1-facets-json-head | robots.txt interdit https://digital.ucd.ie/assets/data/facets.json (Disallow: /) ; lancé car autorisé par Marcel (C12)
+2026-11-14T02:48:47Z | v2p1-facets-json-head | https://digital.ucd.ie/assets/data/facets.json | HEAD | ERREUR_RÉSEAU | SSLCertVerificationError: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1147)
+2026-11-14T02:48:47Z | robots.txt:iiif.ucd.ie | https://iiif.ucd.ie/robots.txt | GET | ERREUR_RÉSEAU | gaierror : tout est traité comme interdit
+2026-11-14T02:48:47Z | v2p1-iiif-image-info | robots.txt interdit https://iiif.ucd.ie/loris/ivrla:439/info.json (Disallow: /) ; lancé car autorisé par Marcel (C12)
+2026-11-14T02:48:53Z | v2p1-iiif-image-info | https://iiif.ucd.ie/loris/ivrla:439/info.json | GET | ERREUR_RÉSEAU | gaierror: [Errno 8] nodename nor servname provided, or not known
+2026-11-14T02:49:13Z | robots.txt:data.ucd.ie | http://data.ucd.ie/robots.txt | GET | ERREUR_RÉSEAU | TimeoutError : tout est traité comme interdit
+2026-11-14T02:49:13Z | v2p1-iiif-manifeste | robots.txt interdit http://data.ucd.ie/api/img/manifests/ucdlib:30860 (Disallow: /) ; lancé car autorisé par Marcel (C12)
+2026-11-14T02:49:39Z | v2p1-iiif-manifeste | http://data.ucd.ie/api/img/manifests/ucdlib:30860 | GET | ERREUR_RÉSEAU | TimeoutError: timed out
+2026-11-14T02:49:39Z | v2p1-iiif-image-info-data | robots.txt interdit http://data.ucd.ie/api/img/ivrla:439/info.json (Disallow: /) ; lancé car autorisé par Marcel (C12)
+2026-11-14T02:50:05Z | v2p1-iiif-image-info-data | http://data.ucd.ie/api/img/ivrla:439/info.json | GET | ERREUR_RÉSEAU | TimeoutError: timed out
+2026-11-14T02:50:05Z | v2p1-iiif-collection | robots.txt interdit http://data.ucd.ie/api/img/collection/ucdlib:30685 (Disallow: /) ; lancé car autorisé par Marcel (C12)
+2026-11-14T02:50:31Z | v2p1-iiif-collection | http://data.ucd.ie/api/img/collection/ucdlib:30685 | GET | ERREUR_RÉSEAU | TimeoutError: timed out
+2026-11-14T02:50:31Z | v2p1-opensearch | robots.txt interdit http://data.ucd.ie/api/search/v1/?q=General+Post+Office&start=1&count=1 (Disallow: /) ; lancé car autorisé par Marcel (C12)
+2026-11-14T02:50:57Z | v2p1-opensearch | http://data.ucd.ie/api/search/v1/?q=General+Post+Office&start=1&count=1 | GET | ERREUR_RÉSEAU | TimeoutError: timed out
+2026-11-14T02:50:57Z | v2p1-unapi | robots.txt interdit http://digital.ucd.ie/api/unAPI (Disallow: /) ; lancé car autorisé par Marcel (C12)
+2026-11-14T02:50:57Z | v2p1-unapi | http://digital.ucd.ie/api/unAPI | GET | 404 HTTP_404 | aucun en-tête de limite | taille≥196 | corps: <!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN"> <html><head> <title>404 Not Found</title> </head><body> <h1>Not Found</h1> <p>The requested URL was not found on this server.</p> </body></html> 
+2026-11-14T02:50:57Z | v2p1-vue-json | robots.txt interdit http://digital.ucd.ie/view/ivrla.31285.json (Disallow: /) ; lancé car autorisé par Marcel (C12)
+2026-11-14T02:51:03Z | v2p1-vue-json | http://digital.ucd.ie/view/ivrla.31285.json | GET | 404 HTTP_404 | aucun en-tête de limite | taille≥196 | corps: <!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN"> <html><head> <title>404 Not Found</title> </head><body> <h1>Not Found</h1> <p>The requested URL was not found on this server.</p> </body></html> 
+2026-11-14T02:51:03Z | v2p1-void | robots.txt interdit http://data.ucd.ie/.well-known/void (Disallow: /) ; lancé car autorisé par Marcel (C12)
+2026-11-14T02:51:23Z | v2p1-void | http://data.ucd.ie/.well-known/void | GET | ERREUR_RÉSEAU | TimeoutError: timed out
+# Fin 2026-11-14T02:51:23Z — 15 requête(s) envoyée(s)
