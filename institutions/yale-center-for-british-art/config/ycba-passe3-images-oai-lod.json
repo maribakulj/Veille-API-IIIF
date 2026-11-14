@@ -1,0 +1,15 @@
+{
+  "slug": "yale-center-for-british-art",
+  "min_delay_s": 6,
+  "max_requests": 15,
+  "follow_redirects": 1,
+  "robots_disallow_autorise_par_marcel": true,
+  "note": "passe 3 : GetRecord LIDO, service d'image IIIF 2, vignette media et donnees liees N3, tous dont les URL sont lues dans le manifeste v3 de l'objet 1772 (tests/raw/manifeste-v3-ycba-1772.body : seeAlso, service ImageService2, media.collections.yale.edu/thumbnail, collection.britishart.yale.edu/id/page/object/1772). Les fichiers TIFF (media.collections.yale.edu/tiff) ne sont pas telecharges (volumineux). robots.txt de images., media. et harvester-bl. : 404.",
+  "endpoints": [
+    {"id": "oai-getrecord-lido", "method": "GET", "url": "https://harvester-bl.britishart.yale.edu/oaicatmuseum/OAIHandler?verb=GetRecord&identifier=oai:tms.ycba.yale.edu:1772&metadataPrefix=lido"},
+    {"id": "image-info-json", "method": "GET", "url": "https://images.collections.yale.edu/iiif/2/ycba:14f52bbd-3075-40f4-9e99-6c0f149b5dcf/info.json"},
+    {"id": "image-derive-200", "method": "GET", "url": "https://images.collections.yale.edu/iiif/2/ycba:14f52bbd-3075-40f4-9e99-6c0f149b5dcf/full/!200,200/0/default.jpg"},
+    {"id": "media-thumbnail", "method": "GET", "url": "https://media.collections.yale.edu/thumbnail/ycba/14f52bbd-3075-40f4-9e99-6c0f149b5dcf"},
+    {"id": "lod-object-n3", "method": "GET", "url": "http://collection.britishart.yale.edu/id/page/object/1772"}
+  ]
+}
