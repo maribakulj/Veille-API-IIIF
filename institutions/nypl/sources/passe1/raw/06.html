@@ -1,0 +1,1404 @@
+<!DOCTYPE html>
+<html>
+    <head>
+      <title>NYPL Digital Collections API</title>
+      <link rel="stylesheet" href="/css/bootstrap.min.css" media="screen" />
+      <link rel="stylesheet" href="/css/style.css" media="screen" />
+      <link rel="stylesheet" href="/css/icon-style.css" media="screen" />
+      <link rel="stylesheet" href="/css/bootstrap-responsive.min.css" media="screen" />
+      <link rel="stylesheet" href="/css/prettify.css" media="screen" />
+      <link rel="stylesheet" href="/css/docs.css" media="screen" />
+      <meta name="csrf-param" content="authenticity_token" />
+<meta name="csrf-token" content="uNApUoG9nxenjL8M5pRoTEz2Woolkr5ksgJW8DBtHvbVWI0gsDqbuxq40hmhVFV0Yh3w_6ihBaUb66btNNZjUw" />
+      <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
+      <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+      <![endif]-->
+
+      <!-- Le fav and touch icons -->
+      <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
+      <link rel="icon" href="img/favicon.ico" type="image/x-icon">
+    </head>
+
+    <body>
+        <div class="navbar navbar-fixed-top">
+  <div class="navbar-inner">
+    <div class="container-fluid">
+      <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </a>
+      <div class="nav-collapse">
+        <ul class="nav">
+          <li><a href="#"> NYPL Digital Collections API</a></li>
+          <li class="divider-vertical"></li>
+          <li class="active"><a href="/"> API V2 Documentation</a></li>
+          <li class=""><a href="/api_documentation_v1"> API V1 Documentation</a></li>
+          <li class="divider-vertical"></li>
+        </ul>
+        <ul class="nav pull-right">
+                <li class="divider-vertical"></li>
+                <li class=""><a href="/log_in"><i class="icon-lock"></i> Profile</a></li>
+                <li class="divider-vertical"></li>
+                <li class=""><a href="/sign_up"><i class="icon-lock"></i> Sign Up</a></li>
+        </ul>
+      </div><!--/.nav-collapse -->
+    </div>
+  </div>
+</div><div class="api_documentation_all_container container">
+  <div class="row">
+    <div class="span9">
+      <div class="docs-wrapper">
+        
+        <div class="header-globalAlerts">
+  <div class="header-globalAlerts-box">
+    <div class="header-globalAlerts-box-item">
+      <div align="center">
+        <p>The Repo API is being deprecated and will no longer be available starting August 1st, 2026. No public API replacement is planned at this time. If you have any questions or concerns, contact us <a href="mailto:digitaldam@nypl.org">digitaldam@nypl.org</a>.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+        
+        <section id="the-new-york-public-library-digital-collections-api">
+          <h2>The New York Public Library Digital Collections API</h2>
+
+          <p>For more than a century, The New York Public Library has amassed an extraordinary trove of rare and unique material
+          covering the full spectrum of recorded knowledge. Now, for the first time, significant portions of the Library's
+          digitized collections are available as machine-readable data: over one million objects and records for you to search,
+          crawl and compute. Sign up and get hacking today!</p>
+
+          <p>Questions/feedback? Write to: <a href="mailto:repoapi@nypl.org">repoapi@nypl.org</a></p>
+        </section>
+
+        <section id="sign-up-and-authentication">
+          <h2>Sign Up and Authentication</h2>
+
+          <p>You will need to authenticate in order to use the Digital Collections API -- either via direct login with a
+          username/password, or an authentication token that you will receive when you <a href="/sign_up">sign up for API access</a>.</p>
+
+          <h4>
+            <a href="/sign_up">Sign Up</a>
+          </h4>
+
+          <h4>
+            <a href="/sign_in">Sign In</a>
+          </h4>
+        </section>
+
+        <section id="table-of-contents">
+          <h2>Table of Contents</h2>
+
+          <ul>
+            <li>The New York Public Library Digital Collections API
+              <ul>
+                <li>
+                  <a href="#access-methods">Access Methods</a>
+                </li>
+                <li>
+                  <a href="#data-model">Data Model</a>
+                </li>
+                <li>
+                  <a href="#mods-help">MODS Help</a>
+                </li>
+                <li>
+                  <a href="#params">Parameters to Pass to the API</a>
+                </li>
+                <li>
+                  <a href="#pd-filter">Public Domain Filtering</a>
+                </li>
+                <li>
+                  <a href="#image-links">Image Links in the API</a>
+                </li>
+                <li>
+                  <a href="#rights-statements">Rights Statements in the Digital Collections API</a>
+                </li>
+              </ul>
+            </li>
+
+            <li>Available endpoints and how to use them
+              <ul>
+                <li>
+                  <a href="#items-total">GET: /items/total</a>
+                </li>
+                <li>
+                  <a href="#items-featured">GET: /items/featured</a>
+                </li>
+                <li>
+                  <a href="#items-roots">GET: /items/roots</a>
+                </li>
+                <li>
+                  <a href="#collections">GET: /collections</a>
+                </li>
+                <li>
+                  <a href="#collections-uuid">GET: /collections/[:uuid]</a>
+                </li>
+                <li>
+                  <a href="#collections-uuid-subcollections">GET: /collections/[:uuid]/subcollections</a>
+                </li>
+                <li>
+                  <a href="#collections-uuid-items">GET: /collections/[:uuid]/items</a>
+                </li>
+                <li>
+                  <a href="#mods">GET: /mods</a>
+                </li>
+                <!-- <li>
+                  <a href="#items-mods">GET: /items/mods</a>
+                </li> -->
+                <li>
+                  <a href="#items-mods-captures">GET: /items/mods_captures</a>
+                </li>
+                <li>
+                  <a href="#items-item-details">GET: /items/item_details</a>
+                </li>
+                <li>
+                  <a href="#items-type-id">GET: /items/[:type]/[:id]</a>
+                </li>
+                <li>
+                  <a href="#items">GET: /items</a>
+                </li>
+                <li>
+                  <a href="#items-collection">GET: /items/collection</a>
+                </li>
+                <li>
+                  <a href="#items-collection-all">GET: /items/collection/all</a>
+                </li>
+                <li>
+                  <a href="#items-plain-text">GET: /items/plain_text</a>
+                </li>
+                <li>
+                  <a href="#items-minified-alto">GET: /items/minified_alto</a>
+                </li>
+                <li>
+                  <a href="#items-mets-alto">GET: /items/mets_alto</a>
+                </li>
+                <li>
+                  <a href="#items-recent">GET: /items/recent</a>
+                </li>
+                <li>
+                  <a href="#items-search">GET: /items/search</a>
+                </li>
+                <li>
+                  <a href="#items-rights">GET: /items/rights</a>
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </section>
+        
+        <section id="access-methods">
+          <h2>Access Methods</h2>
+          <p>There are two ways to access the API: via a browser, or via token authentication.</p>
+          <ol>
+            <li>
+              <h4>Make a call to the API through the browser</h4>
+              <ul>
+                <li>
+                  <p>Either provide your username and password when prompted by the browser:</p>
+                  <pre><code>  https://api.repo.nypl.org/api/v2/items/search?q=cats&publicDomainOnly=true</code></pre>
+                </li>
+                <li>
+                  <p>Or pass your username and password to the browser directly:</p>
+                  <pre><code>  https://username:password@api.repo.nypl.org/api/v2/items/search?q=cats&publicDomainOnly=true</code></pre>
+                </li>
+              </ul>
+            </li>
+            <li>
+              <h4>Make a call using a curl request or from a background application using the token</h4>
+              <p>In the examples below, <code>'abcdefghijklmn'</code> is the authentication token you receive via email when you sign up for API access.</p>
+              <p>Example curl request: </p>
+              <pre><code>  curl "https://api.repo.nypl.org/api/v2/items/search?q=cats&publicDomainOnly=true" -H 'Authorization: Token token="abcdefghijklmn"'</code></pre>
+              <p>Example Ruby code:</p> 
+              <pre>
+                <code>
+  require 'net/http'
+  require 'uri'
+  
+  uri = URI.parse("https://api.repo.nypl.org/api/v2/items/search?q=cats&publicDomainOnly=true")
+  request = Net::HTTP::Get.new(uri)
+  request["Authorization"] = "Token token=\"abcdefghijklmn\""
+
+  req_options = {
+    use_ssl: uri.scheme == "https",
+  }
+
+  response = Net::HTTP.start(uri.hostname, uri.port, req_options) do |http|
+    http.request(request)
+  end
+
+  # response.code
+  # response.body</code>
+              </pre>
+
+              <p>Example Python code:</p>
+              <pre>
+                <code>
+  import requests
+  from requests.structures import CaseInsensitiveDict
+  url = "https://api.repo.nypl.org/api/v2/items/search?q=cats&publicDomainOnly=true"
+
+  headers = CaseInsensitiveDict()
+  headers["Authorization"] = "Token token=\"abcdefghijklmn\""
+
+  resp = requests.get(url, headers=headers)
+
+  # resp.status_code
+  # resp.content</code>
+              </pre>
+            </li>
+          </ol>
+    
+          <h3><a aria-hidden="true" class="anchor" href="#rest-api-version" id="rest-api-version"></a>REST API version</h3>
+
+          <p>The most recent version of the API is v2.</p>
+
+          <h3><a aria-hidden="true" class="anchor" href="#api-request-limitations" id=
+          "api-request-limitations"></a>API Request Limitations</h3>
+
+          <p>The limit per authentication token while connecting from an application or curl request is 10,000 requests per
+          day.</p>
+        
+          <p style="text-align:right;"><a href="#table-of-contents">Table of Contents</a></p>
+        </section>
+
+        <section id="data-model">
+          <h2>A note about our data model</h2>
+
+          <h3><a aria-hidden="true" class="anchor" href="#key-concepts" id="key-concepts"></a>Key concepts:</h3>
+
+          <ul>
+            <li>Collection</li>
+            <li>Container</li>
+            <li>Item</li>
+            <li>Capture</li>
+          </ul>
+
+          <p><strong>Collections</strong> in Digital Collections are made up of one or more <strong>Items</strong> that are
+          further organized by <strong>Containers</strong>.</p>
+
+          <p>A <strong>Collection</strong> may contain zero or more <strong>Containers</strong>, which can contain zero or more
+          <strong>Containers</strong> and/or zero or more <strong>Items</strong>, creating a tree-like hierarchy (see below).</p>
+
+          <p>Not all <strong>Items</strong> belong to a <strong>Collection</strong>, but most do. (You can see the direct lineage
+          of an Item in the <code>&lt;relatedItem&gt;</code> fields of the <code>/mods/[:uuid]</code> response -- see <a href="#mods">method below</a>.)</p>
+
+          <p><strong>Items</strong> in Digital Collections are made up of one or more <strong>Captures</strong> that represent
+          physical components, like the page of a book or the front of a photograph.</p>
+
+          <p>Each <strong>Capture</strong> has a corresponding image, video, or audio asset.</p>
+
+          <p>Example hierarchy:</p>
+
+          <pre>
+          <code>
+  | -- Collection
+    | -- Container
+        | -- Item
+            | -- Capture 1
+            | -- Capture 2
+        | -- Item
+            | -- Capture 1
+            | -- Capture 2
+            | -- Capture 3
+    | -- Container
+        | -- Item
+            | -- Capture 1
+        | -- Item
+            | -- Capture 1
+        | -- Container
+            | -- item
+                 | -- Capture 1
+                 | -- Capture 2
+          Etc.
+          </code>
+          </pre>
+
+          <p>(You can see a list of all <strong>Captures</strong> in an <strong>Item</strong>, <strong>Container</strong>, or
+          <strong>Collection</strong>, their basic information, and links to corresponding digital assets in the
+          <code>/items/[:UUID]</code> response -- see <a href="#items">method below</a></a>.)</p>
+        
+          <p style="text-align:right;"><a href="#table-of-contents">Table of Contents</a></p>
+        
+        </section>
+
+        <section id="mods-help">
+          <h2>MODS Help</h2>
+
+          <p>NYPL uses the <a href="http://www.loc.gov/standards/mods/">MODS</a> XML standard to describe the content of items in
+          Digital Collections. You can view the <a href="http://www.loc.gov/standards/mods/userguide/generalapp.html#top_level">schema documentation</a> for element
+          definitions, but here are some of the most commonly used elements:</p>
+
+          <table class="table table-striped">
+            <thead>
+              <tr>
+                <th>Element</th>
+                <th>Definition</th>
+              </tr>
+            </thead>
+
+            <tbody>
+              <tr>
+                <td>Title</td>
+                <td>The title of the resource. An item may have one or more titles. The primary title of an item is denoted by 
+                  the <code>&lt;titleInfo&gt;</code> "usage" attribute with a value of "primary." A <code>&lt;titleInfo&gt;</code> 
+                  element might also contain other parts of the title, including <code>&lt;subtitle&gt;</code>, <code>&lt;partName&gt;</code>, 
+                  <code>&lt;partNumber&gt;</code>.</td>
+              </tr>
+
+              <tr>
+                <td>Type of Resource</td>
+                <td>The general type of the original resource content. Values are from an enumerated list and include: "text", "still image", "cartographic", "notated music", "sound recording", "moving image", "three dimensional object".</td>
+              </tr>
+
+              <tr>
+                <td>Identifier</td>
+                <td>An identifier associated with the resource. Locally, common identifiers are associated with source description, such as an NYPL catalog record or finding aid.</td>
+              </tr>
+
+              <tr>
+                <td>Date</td>
+                <td>The date of creation (<code>&lt;dateCreated&gt;</code>) or publication (<code>&lt;dateIssued&gt;</code>) of the resource. 
+                  Many of our dates are w3cdtf encoded in yyyy-mm-dd format, while some are represented as text strings (e.g., "ca. 2200 - 1600 BCE"). 
+                  Date ranges are represented by two date subelements, each with a "point" attribute, one with the value "start" and one with "end". 
+                  Approximate or questionable dates are noted in the "qualifier" attribute with the value "approximate", "questionable", or "inferred". </td>
+              </tr>
+
+              <tr>
+                <td>Genre</td>
+                <td>Describes the nature of the content or function of the resource at a greater level of specificity than Type of Resource.</td>
+              </tr>
+
+              <tr>
+                <td>Physical Location</td>
+                <td>Specifies the NYPL content owner/division and physical location of the original resource.</td>
+              </tr>
+
+              <tr>
+                <td>Language</td>
+                <td>The language(s) expressed in a resource.</td>
+              </tr>
+
+              <tr>
+                <td>Name</td>
+                <td>A person or organization related to the creation or production of the item content. The role of the name can 
+                  be found in the <code>&lt;role&gt;</code> subelement.</td>
+              </tr>
+
+              <tr>
+                <td>Subject</td>
+                <td>Subjects may be of type <code>&lt;topic&gt;</code>, <code>&lt;geographic&gt;</code>,
+                  <code>&lt;name&gt;</code>, <code>&lt;temporal&gt;</code>, <code>&lt;occupation&gt;</code>, or <code>&lt;titleInfo&gt;</code>. 
+                  Complex subjects may include a combination of any of these subelements. For complex Library of Congress Subject Headings, 
+                  subelements are usually displayed with "--" delimiters in the order they appear within the <code>&lt;subject&gt;</code> element.</td>
+              </tr>
+            </tbody>
+          </table>
+        
+          <p style="text-align:right;"><a href="#table-of-contents">Table of Contents</a></p>
+        
+        </section>
+        <section id="params">
+          <h2>Parameters to Pass to the API</h2>
+
+          <h3><a aria-hidden="true" class="anchor" href="#available-request-parameters" id=
+          "available-request-parameters"></a>Available Request Parameters</h3>
+
+          <h3><a aria-hidden="true" class="anchor" href="#formats" id="formats"></a>Formats</h3>
+
+          <p>All API responses are available in json format and xml. The json is available by default, so <code>.json</code> can
+          be omitted; the XML can be accessed by appending <code>.xml</code> to the API call.</p>
+
+          <p>For example:</p>
+
+          <p>json:</p>
+
+          <ul>
+            <li>
+              <a href=
+              "https://api.repo.nypl.org/api/v2/items/item_details/1c664900-f3a2-0130-513b-58d385a7b928">https://api.repo.nypl.org/api/v2/items/item_details/1c664900-f3a2-0130-513b-58d385a7b928</a>
+            </li>
+
+
+            <li>
+              <a href=
+              "https://api.repo.nypl.org/api/v2/items/search?q=cats&amp;publicDomainOnly=true">https://api.repo.nypl.org/api/v2/items/search?q=cats&amp;publicDomainOnly=true</a>
+            </li>
+          </ul>
+
+          <p>xml:</p>
+
+          <ul>
+            <li>
+              <a href=
+              "https://api.repo.nypl.org/api/v2/items/item_details/1c664900-f3a2-0130-513b-58d385a7b928.xml">https://api.repo.nypl.org/api/v2/items/item_details/1c664900-f3a2-0130-513b-58d385a7b928.xml</a>
+            </li>
+
+            <li>
+              <a href=
+              "https://api.repo.nypl.org/api/v2/items/search.xml?q=cats&amp;publicDomainOnly=true">https://api.repo.nypl.org/api/v2/items/search.xml?q=cats&amp;publicDomainOnly=true</a>
+            </li>
+          </ul>
+
+          <table class="table table-striped">
+            <thead>
+              <tr>
+                <th>Parameter</th>
+                <th>Value</th>
+                <th>Default value</th>
+                <th>Optional</th>
+                <th>Description</th>
+              </tr>
+            </thead>
+
+            <tbody>
+              <tr>
+                <td>.json</td>
+                <td>-</td>
+                <td>-</td>
+                <td>yes</td>
+                <td>return response in json format (default)</td>
+              </tr>
+
+              <tr>
+                <td>.xml</td>
+                <td>-</td>
+                <td>-</td>
+                <td>yes</td>
+                <td>return response in xml format</td>
+              </tr>
+            </tbody>
+          </table>
+
+          <h3>Pagination</h3>
+
+          <p>If a response has many results, the request is paginated with the default results per page being 10. Users can get
+          to the second page by passing in the page parameter, e.g. <a href=
+          "https://api.repo.nypl.org/api/v2/items/collection/5e66b3e8-e3dd-d471-e040-e00a180654d7.xml?page=2">https://api.repo.nypl.org/api/v2/items/collection/5e66b3e8-e3dd-d471-e040-e00a180654d7.xml?page=2</a>,
+          or change the number of captures returned on a page with the per_page parameter <a href=
+          "https://api.repo.nypl.org/api/v2/items/collection/5e66b3e8-e3dd-d471-e040-e00a180654d7.xml?per_page=20">https://api.repo.nypl.org/api/v2/items/collection/5e66b3e8-e3dd-d471-e040-e00a180654d7.xml?per_page=20</a>.
+          A combination of these two parameters also works <a href=
+          "https://api.repo.nypl.org/api/v2/items/collection/5e66b3e8-e3dd-d471-e040-e00a180654d7.xml?page=2&amp;per_page=20">https://api.repo.nypl.org/api/v2/items/collection/5e66b3e8-e3dd-d471-e040-e00a180654d7.xml?page=2&amp;per_page=20</a>.</p>
+
+          <table class="table table-striped">
+            <thead>
+              <tr>
+                <th>Parameter</th>
+                <th>Value</th>
+                <th>Default value</th>
+                <th>Optional</th>
+                <th>Description</th>
+              </tr>
+            </thead>
+
+            <tbody>
+              <tr>
+                <td>per_page</td>
+                <td>integer, maximum 500</td>
+                <td>10</td>
+                <td>yes</td>
+                <td>url parameter for number of rows to return per page</td>
+              </tr>
+
+              <tr>
+                <td>page</td>
+                <td>integer, starts at 1</td>
+                <td>1</td>
+                <td>yes</td>
+                <td>returns current row of results</td>
+              </tr>
+            </tbody>
+          </table>
+        
+          <p style="text-align:right;"><a href="#table-of-contents">Table of Contents</a></p>
+        </section>
+        <section id="pd-filter">
+          <h2>Public Domain Filtering</h2>
+
+          <p>The Public Domain filter limits results from the API to materials that have no copyright issues so you can easily
+          work with the results and links to images without having to worry about potential US Copyright restrictions (see our
+          <a href="http://digitalcollections.nypl.org/about#use">Rights section of the Digital Collections about page</a> for
+          more info).</p>
+
+          <table class="table table-striped">
+            <thead>
+              <tr>
+                <th>Parameter</th>
+                <th>Value</th>
+                <th>Default value</th>
+                <th>Optional</th>
+                <th>Description</th>
+              </tr>
+            </thead>
+
+            <tbody>
+              <tr>
+                <td>publicDomainOnly</td>
+                <td>Boolean: true, false</td>
+                <td>-</td>
+                <td>yes</td>
+                <td>returns only Public Domain results</td>
+              </tr>
+            </tbody>
+          </table>
+
+          <p><code>https://api.repo.nypl.org/api/v2/items/search?q=[search-terms]&amp;publicDomainOnly=true</code></p>
+
+          <p>Example:</p>
+          <p><a href="https://api.repo.nypl.org/api/v2/items/search?q=cats&amp;publicDomainOnly=true">https://api.repo.nypl.org/api/v2/items/search?q=cats&amp;publicDomainOnly=true</a></p>
+          
+          <p style="text-align:right;"><a href="#table-of-contents">Table of Contents</a></p>
+        </section>
+
+        <section id="image-links">
+          <h2>Image links in the API</h2>
+
+          <p>For certain materials that have been cleared as having no known U.S. Copyright restrictions, we are able to provide
+          image links directly in the API responses.</p>
+
+          <p>For eligible materials, within the <code>capture</code> node in the <code>item_details</code> endpoint (see <a href="#items-mods-captures">method below</a>), there will be a <code>imageLinks</code> node, and within that, one or more
+          <code>imageLink</code> nodes. The <code>imageLink</code> node will feature the direct links to a variety of
+          derivatives.</p>
+
+          <p>The <code>imageLinks</code>, <code>imageLink</code> nodes also appear in all results using the Public Domain filter
+          described above.</p>
+
+          <p>The following are the possible derivative types you might find:</p>
+
+          <pre>
+          <code>
+  b - .jpeg center cropped thumbnail (100x100 pixels)
+  f - .jpeg (140 pixels tall with variable width)
+  t - .gif (150 pixels on the long side)
+  r - .jpeg (300 pixels on the long side)
+  w - .jpeg (760 pixels on the long side)
+  q - .jpeg (1600 pixels on the long side)
+  v - .jpeg (2560 pixels on the long side)
+  g - .jpeg original dimensions</code>
+          </pre>
+
+          <p>Note: Not all captures will have all possible derivative types.</p>
+
+          <p>In the case of materials that have not explicitly been marked as "No Known U.S. Copyright restrictions," we're not
+          able to offer the direct links to the derivative types. For this reason, you may find an empty <code>imageLinks</code>
+          node. If you only want to work with the parts of the API that will have populated <code>imageLinks</code>, please see
+          the section above on "<a href="#pd-filter">Public Domain Filtering</a>."</p>
+
+          <h3><a aria-hidden="true" class="anchor" href="#highreslink" id="highreslink"></a>highResLink</h3>
+
+          <p>For as many materials as possible, we also have included a <code>highResLink</code> node, which includes a link to
+          the original, uncropped 8-bit TIFF file (including color bars) that represents the original dimensions and uncompressed
+          image file that came off the camera in the NYPL Labs Digital Imaging Unit. These are enormous files, generally greater
+          than 200mb, so please be mindful when pulling these assets.</p>
+
+          <p>Note: In the case of materials that have not explicitly been marked as "No Known U.S. Copyright restrictions," we're
+          not able to offer the <code>highResLink</code>. If you only want to work with the parts of the API that will have
+          populated <code>highResLink</code>, please see the section above on "<a href="#pd-filter">Public Domain
+          Filtering</a>."</p>
+        
+          <p style="text-align:right;"><a href="#table-of-contents">Table of Contents</a></p>
+
+        </section>
+        <section id="rights-statements">
+          <h2>Rights statements in the Digital Collections API</h2>
+
+          <p>Rights statements apply to materials at the capture level, and generally describe the copyright status of those
+          images to the extent that we have that status documented. Currently, there are four possible rights statements
+          available via the Digital Collections API:</p>
+
+          <p><strong>No Known U.S. Copyright:</strong></p>
+
+          <p>We believe that this item has no known US copyright restrictions. The item may be subject to rights of
+          privacy, rights of publicity and other restrictions. Though not required, if you want to credit us as the source,
+          please use the following statement, "From The New York Public Library," and provide a link back to the item on our
+          Digital Collections site. Doing so helps us track how our collection is used and helps justify freely releasing even
+          more content in the future.
+          </p>
+
+          <p><strong>CC0:</strong></p>
+
+          <p>To the extent that a jurisdiction grants the New York Public Library a copyright in this item, NYPL makes this
+          item available under a Creative Commons CC0 1.0 Universal Public Domain Dedication:
+          <a href="https://creativecommons.org/publicdomain/zero/1.0/">https://creativecommons.org/publicdomain/zero/1.0/</a>. Though not required, if you want to credit us as the source, please use the following statement, "From the New York Public Library," and provide a link back to the item on our Digital Collections site. Doing so helps us track how our collection is used and helps justify freely releasing even more content in the future.
+          </p>
+
+          <p><strong>Copyright Held or Managed by the New York Public Library:</strong></p>
+
+          <p>The New York Public Library holds or manages the copyright(s) in this item. If you need information about
+          reusing this item, please go to <a href="http://nypl.org/permissions">http://nypl.org/permissions</a>.
+          </p>
+
+          <p><strong>Undetermined:</strong></p>
+
+          <p>The New York Public Library is interested in learning more about items you've seen on our websites or
+          elsewhere online. If you have any more information about an item or its copyright status, we want to hear from you.
+          Please contact DigitalCollections@nypl.org with your contact information and a link to the relevant content.
+          </p>
+        
+          <p style="text-align:right;"><a href="#table-of-contents">Table of Contents</a></p>
+        </section>
+
+        <section id="available-endpoints">
+          <h2>Available endpoints and how to use them</h2>
+        </section>
+
+        <section id="items-total">
+          <h2>GET: /items/total</h2>
+
+          <p><strong>Request URL:</strong> <code>https://api.repo.nypl.org/api/v2/items/total</code></p>
+
+          <p><strong>Description:</strong> Returns the total number of digitized items.</p>
+
+          <p><strong>Return Value:</strong> Total number of digitized items.</p>
+
+          <p><strong>Example Requests:</strong>
+            <ul>
+              <li><a href="/api/v2/items/total.xml">https://api.repo.nypl.org/api/v2/items/total.xml</a></li>
+              <li><a href="/api/v2/items/total">https://api.repo.nypl.org/api/v2/items/total</a></li>
+            </ul>
+          </p>
+
+          <p style="text-align:right;"><a href="#table-of-contents">Table of Contents</a></p>
+        </section>
+
+        <section id="items-featured">
+          <h2>GET: /items/featured</h2>
+
+          <p><strong>Request URL:</strong> <code>https://api.repo.nypl.org/api/v2/items/featured</code></p>
+
+          <p><strong>Description:</strong> Featured items.</p>
+
+          <p><strong>Return Value:</strong> Featured items.</p>
+
+          <p><strong>Example Requests:</strong>
+            <ul>
+              <li><a href="/api/v2/items/featured.xml">https://api.repo.nypl.org/api/v2/items/featured.xml</a></li>
+              <li><a href="/api/v2/items/featured">https://api.repo.nypl.org/api/v2/items/featured</a></li>
+            </ul>
+          </p>
+
+          <p style="text-align:right;"><a href="#table-of-contents">Table of Contents</a></p>
+        </section>
+
+        <section id="items-counts">
+          <h2>POST: /items/counts</h2>
+
+          <p><strong>Request URL:</strong> <code>https://api.repo.nypl.org/api/v2/items/counts</code></p>
+
+          <p><strong>Description:</strong> Collection item counts.</p>
+
+          <p><strong>Return Value:</strong> Collection item counts.</p>
+
+          <p><strong>Example Requests:</strong>
+            <ul>
+              <li><a href="/api/v2/items/counts.xml">https://api.repo.nypl.org/api/v2/items/counts.xml</a></li>
+              <li><a href="/api/v2/items/counts">https://api.repo.nypl.org/api/v2/items/counts</a></li>
+            </ul>
+          </p>
+
+          <p style="text-align:right;"><a href="#table-of-contents">Table of Contents</a></p>
+        </section>
+
+        <section id="items-roots">
+          <h2>GET: /items/roots</h2>
+
+          <p><strong>Request URL:</strong> <code>https://api.repo.nypl.org/api/v2/items/roots</code></p>
+
+          <p><strong>Description:</strong> Returns all top-level UUIDS. These UUIDs can then be used to drill down to deeper content. Response is not paginated. Responds as either XML or JSON (default). Results returned are limited by rights restrictions.</p>
+
+          <p>Response returns both uuids for top-level collection records as well as item records without parents (orphan items, belonging to no collection).</p>
+
+          <p><strong>Return Values:</strong> Top level UUIDs.</p>
+
+          <p><strong>Example Requests:</strong>
+            <ul>
+              <li><a href="/api/v2/items/roots.xml">https://api.repo.nypl.org/api/v2/items/roots.xml</a></li>
+              <li><a href="/api/v2/items/roots">https://api.repo.nypl.org/api/v2/items/roots</a></li>
+            </ul>
+          </p>
+        
+          <p style="text-align:right;"><a href="#table-of-contents">Table of Contents</a></p>
+        </section>
+      
+        <section id="collections">
+          <h2>GET: /collections</h2>
+          
+          <p><strong>Request URL:</strong> <code>https://api.repo.nypl.org/api/v2/collections</code></p>
+          
+          <p><strong>PARAMS:</strong>
+            <ul>
+              <li><strong>q</strong>: string, query term for searching titles of collections or containers.</li>
+              <li><strong>page</strong>: page number</li>
+              <li><strong>per_page</strong>: number of results per page</li>
+              <li><strong>search_recursive</strong>: boolean, determines whether mid-level container information is searched</li>
+            </ul>
+          <p>
+
+          <p><strong>Description:</strong> Returns paginated information about all collections. Useful as a starting point for navigating down from the top of the hierarchy. Includes no item records without parents (orphan items, belonging to no collection).</p>
+
+          <p>Response returns both uuids for top-level collection records as well as item records without parents (orphan items, belonging to no collection).</p>
+
+          <p><strong>Return Values:</strong> Top level collection information.
+            <ul>
+              <li>uuid</li>
+              <li>apiUri</li>
+              <li>title</li>
+              <li>numItems</li>
+            </ul>
+          </p>
+
+          <p><strong>Example Requests:</strong>
+            <ul>
+              <li><a href="/api/v2/collections">https://api.repo.nypl.org/api/v2/collections</a></li>
+              <li><a href="/api/v2/collections.xml">https://api.repo.nypl.org/api/v2/collections.xml</a></li>
+              <li><a href="/api/v2/collections?q=cats">https://api.repo.nypl.org/api/v2/collections?q=cats</a></li>
+            </ul>
+          </p>
+        
+          <p style="text-align:right;"><a href="#table-of-contents">Table of Contents</a></p>
+        </section>
+        
+        <section id="collections-uuid">
+          <h2>GET: /collections/[:uuid]</h2>
+          
+          <p><strong>Request URL:</strong> <code>https://api.repo.nypl.org/api/v2/collections/[:uuid]</code></p>
+          
+          <p><strong>PARAMS:</strong>
+            <ul>
+              <li><strong>uuid</strong>: string, required, belonging to a collection or a container.</li>
+              <li><strong>page</strong>: page number</li>
+              <li><strong>per_page</strong>: number of results per page</li>
+            </ul>
+          <p>
+
+          <p><strong>Description:</strong> Returns paginated information about all child captures for a given collection or subcollection's/container’s UUID. Useful for following information through the hierarchy.</p>
+
+          <p><strong>Return Values:</strong> Collection's children information, including links to continue to child MODS information or child hierarchy level.
+            <ul>
+              <li>apiUri is a link to the child's MODS information</li>
+              <li>levelUri is a link to display hierarchical information below the child level.</li>
+              <li>grandParentLevelUri is a link to navigate to the parent of the current :uuid's record.</li>
+            </ul>
+            I.e., use levelUri to go lower in the hierarchy, grandParentUri to go above where you are now, apiUri to learn more about the child.
+          </p>
+
+          <p><strong>Example Requests:</strong>
+            <ul>
+              <li><a href="https://api.repo.nypl.org/api/v2/collections/d94adb20-c53a-012f-399c-58d385a7bc34">https://api.repo.nypl.org/api/v2/collections/d94adb20-c53a-012f-399c-58d385a7bc34</a></li>
+              <li><a href="https://api.repo.nypl.org/api/v2/collections/d94adb20-c53a-012f-399c-58d385a7bc34.xml">https://api.repo.nypl.org/api/v2/collections/d94adb20-c53a-012f-399c-58d385a7bc34.xml</a></li>
+            </ul>
+          </p>
+            
+          <p style="text-align:right;"><a href="#table-of-contents">Table of Contents</a></p>
+        </section>
+        
+        <section id="collections-uuid-subcollections">
+          <h2>GET: /collections/[:uuid]/subcollections</h2>
+          
+          <p><strong>Request URL:</strong> <code>https://api.repo.nypl.org/api/v2/collections/[:uuid]/subcollections</code></p>
+          
+          <p><strong>PARAMS:</strong>
+            <ul>
+              <li><strong>uuid</strong>: string, required, belonging to a collection or a container.</li>
+              <li><strong>page</strong>: page number</li>
+              <li><strong>per_page</strong>: number of results per page</li>
+            </ul>
+          <p>
+
+          <p><strong>Description:</strong> Returns immediate child containers of collection or container with the supplied uuid. Does not return items or captures.</p>
+
+          <p><strong>Return Values:</strong> Collection's subcollection information (as collections), including links to continue to child MODS information or child hierarchy level.
+            <ul>
+              <li>numSubCollections: number of direct child containers</li>
+              <li>numItems: number of total child items beneath this level, regardless of hierarchy level</li>
+              <li>numResults: number of direct children</li>
+              <li>collection: collection object and related data, including API links.</li>
+            </ul>
+          </p>
+
+          <p><strong>Example Requests:</strong>
+            <ul>
+              <li><a href="https://api.repo.nypl.org/api/v2/collections/17513b20-c52e-012f-78fb-58d385a7bc34/subcollections">https://api.repo.nypl.org/api/v2/collections/17513b20-c52e-012f-78fb-58d385a7bc34/subcollections</a></li>
+              <li><a href="https://api.repo.nypl.org/api/v2/collections/17513b20-c52e-012f-78fb-58d385a7bc34/subcollections.xml">https://api.repo.nypl.org/api/v2/collections/17513b20-c52e-012f-78fb-58d385a7bc34/subcollections.xml</a></li>
+            </ul>
+          </p>
+            
+          <p style="text-align:right;"><a href="#table-of-contents">Table of Contents</a></p>
+        </section>
+        
+        <section id="collections-uuid-items">
+          <h2>GET: /collections/[:uuid]/items</h2>
+          
+          <p><strong>Request URL:</strong> <code>https://api.repo.nypl.org/api/v2/collections/[:uuid]/items</code></p>
+          
+          <p><strong>PARAMS:</strong>
+            <ul>
+              <li><strong>uuid</strong>: string, required, belonging to a collection or a container.</li>
+              <li><strong>page</strong>: page number</li>
+              <li><strong>per_page</strong>: number of results per page</li>
+            </ul>
+          <p>
+
+          <p><strong>Description:</strong> Returns items directly attached to a container or items attached to a collection.</p>
+
+          <p><strong>Return Values:</strong> numSubCollections, numItems, numResults, item objects.
+            <ul>
+              <li>numSubCollections: number of direct child containers</li>
+              <li>numItems: number of total child items beneath this level, regardless of hierarchy level</li>
+              <li>numResults: number of direct children</li>
+              <li>item: item object and related data, including API links.</li>
+            </ul>
+          </p>
+
+          <p><strong>Example Requests:</strong>
+            <ul>
+              <li><a href="https://api.repo.nypl.org/api/v2/collections/17e4bce0-c52e-012f-8d13-58d385a7bc34/items">https://api.repo.nypl.org/api/v2/collections/17e4bce0-c52e-012f-8d13-58d385a7bc34/items</a></li>
+              <li><a href="https://api.repo.nypl.org/api/v2/collections/17e4bce0-c52e-012f-8d13-58d385a7bc34/items.xml">https://api.repo.nypl.org/api/v2/collections/17e4bce0-c52e-012f-8d13-58d385a7bc34/items.xml</a></li>
+            </ul>
+          </p>
+            
+          <p style="text-align:right;"><a href="#table-of-contents">Table of Contents</a></p>
+        </section>
+        
+        <section id="mods">
+          <h2>GET: /mods</h2>
+          
+          <p><strong>Request URL:</strong> <code>https://api.repo.nypl.org/api/v2/mods/[:uuid]</code></p>
+          
+          <p><strong>PARAMS:</strong>
+            <ul>
+              <li><strong>uuid</strong>: string, required</li>
+            </ul>
+          <p>
+
+          <p><strong>Description:</strong> Returns the MODS information for the requested ID. Accepts capture, item, container, or collection UUID.</p>
+
+          <p><strong>Return Values:</strong> A MODS bibliographic data record.</p>
+
+          <p><strong>Example Requests:</strong>
+            <ul>
+              <li><a href="https://api.repo.nypl.org/api/v2/mods/5e66b3e8-e3dd-d471-e040-e00a180654d7">https://api.repo.nypl.org/api/v2/mods/5e66b3e8-e3dd-d471-e040-e00a180654d7</a></li>
+              <li><a href="https://api.repo.nypl.org/api/v2/mods/5e66b3e8-e3dd-d471-e040-e00a180654d7.xml">https://api.repo.nypl.org/api/v2/mods/5e66b3e8-e3dd-d471-e040-e00a180654d7.xml</a></li>
+            </ul>
+          </p>
+            
+          <p style="text-align:right;"><a href="#table-of-contents">Table of Contents</a></p>
+        </section>
+        
+        <!-- DEPRECATED: This endpoint is repetitive and we're keeping the /mods endpoint instead.  
+          
+          <section id="items-mods">
+          <h2>GET: /items/mods</h2>
+
+          <p><strong>Request URL:</strong> <code>https://api.repo.nypl.org/api/v2/items/mods/[:uuid]</code></p>
+
+          <p><strong>PARAMS:</strong>
+            <ul>
+              <li><strong>uuid</strong>: string, required</li>
+            </ul>
+          <p>
+
+          <p><strong>Description:</strong> DEPRECATED version of /mods. Returns the MODS information for the requested ID. Accepts capture, item, container, or collection UUID.</p>
+
+          <p><strong>Return Values:</strong> A MODS bibliographic data record.</p>
+
+          <p><strong>Example Requests:</strong>
+            <ul>
+              <li><a href="https://api.repo.nypl.org/api/v2/items/mods/5e66b3e8-e3dd-d471-e040-e00a180654d7">https://api.repo.nypl.org/api/v2/items/mods/5e66b3e8-e3dd-d471-e040-e00a180654d7</a></li>
+              <li><a href="https://api.repo.nypl.org/api/v2/items/mods/5e66b3e8-e3dd-d471-e040-e00a180654d7.xml">https://api.repo.nypl.org/api/v2/items/mods/5e66b3e8-e3dd-d471-e040-e00a180654d7.xml</a></li>
+            </ul>
+          </p>
+
+          <p style="text-align:right;"><a href="#table-of-contents">Table of Contents</a></p>
+        </section> -->
+        
+        <section id="items-mods-captures">
+          <h2>GET: /items/mods_captures</h2>
+          
+          <p><strong>Request URL:</strong> <code>https://api.repo.nypl.org/api/v2/items/mods_captures/[:uuid]</code></p>
+          
+          <p><strong>PARAMS:</strong>
+            <ul>
+              <li><strong>uuid</strong>: string, required</li>
+              <li><strong>show_mods</strong>: nil or "no", determines whether mods is suppressed from return; default nil shows mods</li>
+            </ul>
+          <p>
+
+          <p><strong>Description:</strong> Returns the MODS and capture information for the requested uuid. Users can pass in a capture, item, container, or collection UUID.</p>
+
+          <p><strong>Return Values:</strong> A MODS bibliographic data record and related information.
+            <ul>
+              <li>A MODS bibliographic data record</li>
+              <li>uuid</li>
+              <li>imageID</li>
+              <li>itemLink</li>
+              <li>title</li>
+            </ul>
+          </p>
+
+          <p><strong>Example Requests:</strong>
+            <ul>
+              <li><a href="https://api.repo.nypl.org/api/v2/items/mods_captures/5e66b3e8-e3dd-d471-e040-e00a180654d7">https://api.repo.nypl.org/api/v2/items/mods_captures/5e66b3e8-e3dd-d471-e040-e00a180654d7</a></li>
+              <li><a href="https://api.repo.nypl.org/api/v2/items/mods_captures/5e66b3e8-e3dd-d471-e040-e00a180654d7.xml">https://api.repo.nypl.org/api/v2/items/mods_captures/5e66b3e8-e3dd-d471-e040-e00a180654d7.xml</a></li>
+              <li><a href="https://api.repo.nypl.org/api/v2/items/mods_captures/5e66b3e8-e3dd-d471-e040-e00a180654d7.xml?show_mods=no">https://api.repo.nypl.org/api/v2/items/mods_captures/5e66b3e8-e3dd-d471-e040-e00a180654d7.xml?show_mods=no</a></li>
+            </ul>
+          </p>
+            
+          <p style="text-align:right;"><a href="#table-of-contents">Table of Contents</a></p>
+        </section>
+        
+        <section id="items-item-details">
+          <h2>GET: /items/item_details</h2>
+          
+          <p><strong>Request URL:</strong> <code>https://api.repo.nypl.org/api/v2/items/item_details/[:uuid]</code></p>
+          
+          <p><strong>PARAMS:</strong>
+            <ul>
+              <li><strong>uuid</strong>: string, required</li>
+              <li><strong>show_mods</strong>: nil or "no", determines whether mods is suppressed from return; default nil shows mods</li>
+            </ul>
+          <p>
+
+          <p><strong>Description:</strong> Returns MODS for a capture uuid, along with information about related captures. UUID *must* belong to a valid capture.</p>
+          
+          <p>Additional fields provide information about sibling captures (sibling_captures), captures related at the root collection level (root_captures), and immediate neighboring captures (imm_captures). sibling_captures will always contain at least one capture because the capture is listed as a sibling of itself. In the case of recto/verso (a scan of the front and back of a single piece of paper), there should be in total two sibling captures. In the case of a scanned book, there will be many sibling captures. Root captures will display all captures associated with the requested capture. Immediate captures (imm_captures) will display all captures in the parent container. This number will be the same as root_captures if the captures belong to a collection or container at the top of the hierarchy. Otherwise, immediate captures will only display everything "one level up."</p>
+          
+          <p>Sibling captures will display metadata about each capture contained within the <code>capture</code> field. The total number of captures is listed one level above as <code>numResults</code> after the <code>mods</code> information. Alternatively, root_captures and imm_captures return the total number of captures nested within the element, also as <code>numResults</code>. Following the closed <code>/numResults</code> tag, each capture is represented within the <code>capture</code> tags.</p>
+
+          <p><strong>Return Values:</strong> 
+            <ul>
+              <li>uuid</li>
+              <li>imageLinks</li>
+              <li>typeOfResource</li>
+              <li>imageID</li>
+              <li>sortString</li>
+              <li>itemLink</li>
+            </ul>
+          </p>
+
+          <p><strong>Example Requests:</strong>
+            <ul>
+              <li><a href="https://api.repo.nypl.org/api/v2/items/item_details/5e66b3e8-e3dd-d471-e040-e00a180654d7">https://api.repo.nypl.org/api/v2/items/item_details/5e66b3e8-e3dd-d471-e040-e00a180654d7</a></li>
+              <li><a href="https://api.repo.nypl.org/api/v2/items/item_details/5e66b3e8-e3dd-d471-e040-e00a180654d7.xml">https://api.repo.nypl.org/api/v2/items/item_details/5e66b3e8-e3dd-d471-e040-e00a180654d7.xml</a></li>
+            </ul>
+          </p>
+            
+          <p style="text-align:right;"><a href="#table-of-contents">Table of Contents</a></p>
+        </section>
+        
+        <section id="items-type-id">
+          <h2>GET: /items/[:type]/[:id]</h2>
+          
+          <p><strong>Request URL:</strong> <code>https://api.repo.nypl.org/api/v2/items/[:type]/[:id]</code></p>
+          
+          <p><strong>PARAMS:</strong>
+            <ul>
+              <li><strong>uuid</strong>: string, required</li>
+              <li><strong>type</strong>: string, required</li>
+            </ul>
+          <p>
+
+          <p><strong>Description:</strong> Returns the UUID for the given identifier type and identifier value. Type should be a valid identifier type, and id should be a string identifier value. Though some examples are listed below, this is only a subset of all the identifiers we have, and we might have many more in the future. Identifier field names can be found in the "type" attribute of the MODS <code>identifier</code> element (e.g. <code>&lt;identifier&gt;type="local_[:identifier-field-name]"&lt;/identifier&gt;</code>).</p>
+          
+          <h3>Example Type Values</h3>
+          <table class="table table-striped">
+            <thead>
+              <tr>
+                <th>Identifier Type</th>
+                <th>Example</th>
+                <th>Description</th>
+              </tr>
+            </thead>
+
+            <tbody>
+              <tr>
+                <td>local_image_id</td>
+                <td>1666689</td>
+                <td>Unique string value for digital images</td>
+              </tr>
+
+              <tr>
+                <td>local_bnumber</td>
+                <td>b16981665</td>
+                <td>NYPL catalog record identifier</td>
+              </tr>
+              
+              <tr>
+                <td>local_barcode</td>
+                <td>33433113142867</td>
+                <td>NYPL barcode</td>
+              </tr>
+              
+              <tr>
+                <td>local_mss</td>
+                <td>22827</td>
+                <td>NYPL MSS ID</td>
+              </tr>
+              
+              <tr>
+                <td>local_archives_ead</td>
+                <td>693400</td>
+                <td>Archives EAD ID</td>
+              </tr>
+              
+              <tr>
+                <td>local_tms_id</td>
+                <td>399290</td>
+                <td>TMS ID</td>
+              </tr>
+              
+              <tr>
+                <td>oclc</td>
+                <td>6103142</td>
+                <td>OCLC number</td>
+              </tr>
+              
+              <tr>
+                <td>isbn</td>
+                <td>0700410309 lccn</td>
+                <td>International Standard Book Number</td>
+              </tr>
+            </tbody>
+          </table>
+
+          <p><strong>Return Values:</strong>
+            <ul>
+              <li>uuid</li>
+              <li>apiUri</li>
+              <li>numResults</li>
+            </ul>
+          </p>
+
+          <p><strong>Example Requests:</strong>
+            <ul>
+              <li><a href="https://api.repo.nypl.org/api/v2/items/local_image_id/1666689">https://api.repo.nypl.org/api/v2/items/local_image_id/1666689</a></li>
+              <li><a href="https://api.repo.nypl.org/api/v2/items/local_image_id/1666689.xml">https://api.repo.nypl.org/api/v2/items/local_image_id/1666689.xml</a></li>
+            </ul>
+          </p>
+            
+          <p style="text-align:right;"><a href="#table-of-contents">Table of Contents</a></p>
+        </section>
+        
+        <section id="items">
+          <h2>GET: /items</h2>
+          
+          <p><strong>Request URL:</strong> <code>https://api.repo.nypl.org/api/v2/items/[:uuid]</code></p>
+          
+          <p><strong>PARAMS:</strong>
+            <ul>
+              <li><strong>uuid</strong>: string, required</li>
+            </ul>
+          <p>
+
+          <p><strong>Description:</strong> Returns all capture UUIDs, imageIDs, itemLinks and titles for any UUID. Accepts a UUID for an item, a container, or a collection. Capture UUIDs are not valid input values.</p>
+
+          <p><strong>Return Values:</strong>
+            <ul>
+              <li>uuid</li>
+              <li>imageID</li>
+              <li>itemLink</li>
+              <li>title</li>
+            </ul>
+          </p>
+
+          <p><strong>Example Requests:</strong>
+            <ul>
+              <li><a href="https://api.repo.nypl.org/api/v2/items/d5aa2f40-c53a-012f-9dac-58d385a7bc34">https://api.repo.nypl.org/api/v2/items/d5aa2f40-c53a-012f-9dac-58d385a7bc34</a></li>
+              <li><a href="https://api.repo.nypl.org/api/v2/items/d5aa2f40-c53a-012f-9dac-58d385a7bc34.xml">https://api.repo.nypl.org/api/v2/items/d5aa2f40-c53a-012f-9dac-58d385a7bc34.xml</a></li>
+            </ul>
+          </p>
+            
+          <p style="text-align:right;"><a href="#table-of-contents">Table of Contents</a></p>
+        </section>
+        
+        <section id="items-collection">
+          <h2>GET: /items/collection</h2>
+          
+          <p><strong>Request URL:</strong> <code>https://api.repo.nypl.org/api/v2/items/collection/[:uuid]</code></p>
+          
+          <p><strong>PARAMS:</strong>
+            <ul>
+              <li><strong>uuid</strong>: string, required</li>
+            </ul>
+          <p>
+
+          <p><strong>Description:</strong> Return all capture UUIDs, imageIDs, itemLinks and titles for any UUID. Accepts a UUID for a capture, item, container, or collection.</p>
+
+          <p><strong>Return Values:</strong>
+            <ul>
+              <li>uuid</li>
+              <li>imageID</li>
+              <li>itemLink</li>
+              <li>title</li>
+            </ul>
+          </p>
+
+          <p><strong>Example Requests:</strong>
+            <ul>
+              <li><a href="https://api.repo.nypl.org/api/v2/items/collection/d5aa2f40-c53a-012f-9dac-58d385a7bc34">https://api.repo.nypl.org/api/v2/items/collection/d5aa2f40-c53a-012f-9dac-58d385a7bc34</a></li>
+              <li><a href="https://api.repo.nypl.org/api/v2/items/collection/d5aa2f40-c53a-012f-9dac-58d385a7bc34.xml">https://api.repo.nypl.org/api/v2/items/collection/d5aa2f40-c53a-012f-9dac-58d385a7bc34.xml</a></li>
+            </ul>
+          </p>
+            
+          <p style="text-align:right;"><a href="#table-of-contents">Table of Contents</a></p>
+        </section>
+        
+        <section id="items-collection-all">
+          <h2>GET: /items/collection/all</h2>
+          
+          <p><strong>Request URL:</strong> <code>https://api.repo.nypl.org/api/v2/items/collection/all/[:uuid]</code></p>
+          
+          <p><strong>PARAMS:</strong>
+            <ul>
+              <li><strong>uuid</strong>: string, required</li>
+            </ul>
+          <p>
+
+          <p><strong>Description:</strong> Return all capture UUIDs, imageIDs, itemLinks and titles for any UUID. Accepts a UUID for a capture, item, container, or collection.</p>
+
+          <p><strong>Return Values:</strong>
+            <ul>
+              <li>uuid</li>
+              <li>imageID</li>
+              <li>itemLink</li>
+              <li>title</li>
+            </ul>
+          </p>
+
+          <p><strong>Example Requests:</strong>
+            <ul>
+              <li><a href="https://api.repo.nypl.org/api/v2/items/collection/all/d5aa2f40-c53a-012f-9dac-58d385a7bc34">https://api.repo.nypl.org/api/v2/items/collection/all/d5aa2f40-c53a-012f-9dac-58d385a7bc34</a></li>
+              <li><a href="https://api.repo.nypl.org/api/v2/items/collection/all/d5aa2f40-c53a-012f-9dac-58d385a7bc34.xml">https://api.repo.nypl.org/api/v2/items/collection/all/d5aa2f40-c53a-012f-9dac-58d385a7bc34.xml</a></li>
+            </ul>
+          </p>
+            
+          <p style="text-align:right;"><a href="#table-of-contents">Table of Contents</a></p>
+        </section>
+        
+        <section id="items-plain-text">
+          <h2>GET: /items/plain_text</h2>
+          
+          <p><strong>Request URL:</strong> <code>https://api.repo.nypl.org/api/v2/items/plain_text/[:uuid]</code></p>
+          
+          <p><strong>PARAMS:</strong>
+            <ul>
+              <li><strong>uuid</strong>: string, required</li>
+            </ul>
+          <p>
+
+          <p><strong>Description:</strong> Returns an array of altos, with parsed plain text, for a given capture UUID.</p>
+
+          <p><strong>Return Values:</strong>
+            <ul>
+              <li>uuid</li>
+              <li>alto</li>
+              <li>plainText</li>
+              <li>rightsStatement</li>
+            </ul>
+          </p>
+
+          <p><strong>Example Requests:</strong>
+            <ul>
+              <li><a href="https://api.repo.nypl.org/api/v2/items/plain_text/8fcbf960-fed9-0130-73f0-58d385a7bbd0">https://api.repo.nypl.org/api/v2/items/plain_text/8fcbf960-fed9-0130-73f0-58d385a7bbd0</a></li>
+              <li><a href="https://api.repo.nypl.org/api/v2/items/plain_text/8fcbf960-fed9-0130-73f0-58d385a7bbd0.xml">https://api.repo.nypl.org/api/v2/items/plain_text/8fcbf960-fed9-0130-73f0-58d385a7bbd0.xml</a></li>
+            </ul>
+          </p>
+            
+          <p style="text-align:right;"><a href="#table-of-contents">Table of Contents</a></p>
+        </section>
+        
+        <section id="items-minified-alto">
+          <h2>GET: /items/minified_alto</h2>
+          
+          <p><strong>Request URL:</strong> <code>https://api.repo.nypl.org/api/v2/items/minified_alto/[:uuid]</code></p>
+          
+          <p><strong>PARAMS:</strong>
+            <ul>
+              <li><strong>uuid</strong>: string, required</li>
+            </ul>
+          <p>
+
+          <p><strong>Description:</strong> Returns an array of minified alto for a given capture UUID.</p>
+
+          <p><strong>Return Values:</strong>
+            <ul>
+              <li>uuid</li>
+              <li>alto</li>
+              <li>minContent</li>
+            </ul>
+          </p>
+
+          <p><strong>Example Requests:</strong>
+            <ul>
+              <li><a href="https://api.repo.nypl.org/api/v2/items/minified_alto/8fcbf960-fed9-0130-73f0-58d385a7bbd0">https://api.repo.nypl.org/api/v2/items/minified_alto/8fcbf960-fed9-0130-73f0-58d385a7bbd0</a></li>
+              <li><a href="https://api.repo.nypl.org/api/v2/items/minified_alto/8fcbf960-fed9-0130-73f0-58d385a7bbd0.xml">https://api.repo.nypl.org/api/v2/items/minified_alto/8fcbf960-fed9-0130-73f0-58d385a7bbd0.xml</a></li>
+            </ul>
+          </p>
+            
+          <p style="text-align:right;"><a href="#table-of-contents">Table of Contents</a></p>
+        </section>
+        
+        <section id="items-mets-alto">
+          <h2>GET: /items/mets_alto</h2>
+          
+          <p><strong>Request URL:</strong> <code>https://api.repo.nypl.org/api/v2/items/mets_alto/[:uuid]</code></p>
+          
+          <p><strong>PARAMS:</strong>
+            <ul>
+              <li><strong>uuid</strong>: string, required</li>
+            </ul>
+          <p>
+
+          <p><strong>Description:</strong> Returns an array of mets alto for a given capture UUID.</p>
+
+          <p><strong>Return Values:</strong>
+            <ul>
+              <li>alto</li>
+              <li>Description</li>
+              <li>Styles</li>
+              <li>Layout</li>
+            </ul>
+          </p>
+
+          <p><strong>Example Requests:</strong>
+            <ul>
+              <li><a href="https://api.repo.nypl.org/api/v2/items/mets_alto/8fcbf960-fed9-0130-73f0-58d385a7bbd0">https://api.repo.nypl.org/api/v2/items/mets_alto/8fcbf960-fed9-0130-73f0-58d385a7bbd0</a></li>
+              <li><a href="https://api.repo.nypl.org/api/v2/items/mets_alto/8fcbf960-fed9-0130-73f0-58d385a7bbd0.xml">https://api.repo.nypl.org/api/v2/items/mets_alto/8fcbf960-fed9-0130-73f0-58d385a7bbd0.xml</a></li>
+            </ul>
+          </p>
+
+          <p style="text-align:right;"><a href="#table-of-contents">Table of Contents</a></p>
+        </section>
+
+        <section id="items-recent">
+          <h2>GET: /items/recent</h2>
+
+          <p><strong>Request URL:</strong> <code>https://api.repo.nypl.org/api/v2/items/recent</code></p>
+
+          <p><strong>Description:</strong> Returns list of most recently added captures.</p>
+
+          <p><strong>Return Values:</strong>
+            <ul>
+              <li>uuid</li>
+              <li>apiUri</li>
+              <li>typeOfResource</li>
+              <li>imageID</li>
+              <li>sortString</li>
+              <li>firstIndexed</li>
+              <li>dateDigitized</li>
+              <li>itemLink</li>
+              <li>title</li>
+              <li>rightsStatement</li>
+              <li>rightsStatementURI</li>
+            </ul>
+          </p>
+
+          <p><strong>Example Requests:</strong>
+            <ul>
+              <li><a href="/api/v2/items/recent">https://api.repo.nypl.org/api/v2/items/recent</a></li>
+              <li><a href="/api/v2/items/recent.xml">https://api.repo.nypl.org/api/v2/items/recent.xml</a></li>
+            </ul>
+          </p>
+
+          <p style="text-align:right;"><a href="#table-of-contents">Table of Contents</a></p>
+        </section>
+
+        <section id="items-search">
+          <h2>GET: /items/search</h2>
+
+          <p><strong>Request URL:</strong> <code>https://api.repo.nypl.org/api/v2/items/search?q=[:q]&amp;field=[:field]&amp;ftype=[:ftype]&amp;filter[]=[:filter]</code></p>
+
+          <p><strong>PARAMS:</strong>
+            <ul>
+              <li><strong>q</strong>: string, required</li>
+              <li><strong>field</strong>: string, optional mods field to search</li>
+              <li><strong>ftype</strong>: string, field type, defaults to fuzzy</li>
+              <li><strong>filter</strong>: array of strings, optional filters on results</li>
+            </ul>
+          <p>
+
+          <p><strong>Description:</strong> Returns results that match a given keyword anywhere in a MODS metadata record. Accepts one or more search terms and can also take a metadata field, ftype, or filter.</p>
+
+          <p><strong>Return Values:</strong>
+            <ul>
+              <li>uuid</li>
+              <li>imageID</li>
+              <li>itemLink</li>
+              <li>title</li>
+              <li>search_text</li>
+            </ul>
+          </p>
+
+          <p><strong>Example Requests:</strong>
+            <ul>
+              <li><a href="/api/v2/items/search?q=birds">https://api.repo.nypl.org/api/v2/items/search?q=birds</a></li>
+              <li><a href="/api/v2/items/search.xml?q=birds">https://api.repo.nypl.org/api/v2/items/search.xml?q=birds</a></li>
+              <li><a href="/api/v2/items/search?field=topic&amp;q=birds">https://api.repo.nypl.org/api/v2/items/search?field=topic&amp;q=birds</a></li>
+              <li><a href="/api/v2/items/search.xml?field=topic&amp;q=birds">https://api.repo.nypl.org/api/v2/items/search.xml?field=topic&amp;q=birds</a></li>
+              <li><a href="/api/v2/items/search?field=topic&amp;filter%5B%5D=typeOfResource%3Astill+image&amp;q=birds">https://api.repo.nypl.org/api/v2/items/search?field=topic&amp;filter%5B%5D=typeOfResource%3Astill+image&amp;q=birds</a></li>
+              <li><a href="/api/v2/items/search.xml?field=topic&amp;filter%5B%5D=typeOfResource%3Astill+image&amp;q=birds">https://api.repo.nypl.org/api/v2/items/search.xml?field=topic&amp;filter%5B%5D=typeOfResource%3Astill+image&amp;q=birds</a></li>
+ 
+            </ul>
+          </p>
+
+          <p style="text-align:right;"><a href="#table-of-contents">Table of Contents</a></p>
+        </section>
+
+        <section id="items-rights">
+          <h2>GET: /items/rights</h2>
+          
+          <p><strong>Request URL:</strong> <code>https://api.repo.nypl.org/api/v2/items/rights/[:uuid]</code></p>
+          
+          <p><strong>PARAMS:</strong>
+            <ul>
+              <li><strong>uuid</strong>: string, required</li>
+            </ul>
+          <p>
+          
+          <p><strong>Description:</strong> Returns rights profile information for the given uuid.</p>
+
+          <p><strong>Return Values:</strong>
+            <ul>
+              <li>useStatement</li>
+              <li>rightsNotes</li>
+            </ul>
+          </p>
+
+          <p><strong>Example Requests:</strong>
+            <ul>
+              <li><a href="https://api.repo.nypl.org/api/v2/items/rights/d9067de0-aa17-0133-ab91-60f81dd2b63c">https://api.repo.nypl.org/api/v2/items/rights/d9067de0-aa17-0133-ab91-60f81dd2b63c</a></li>
+              <li><a href="https://api.repo.nypl.org/api/v2/items/rights/d9067de0-aa17-0133-ab91-60f81dd2b63c.xml">https://api.repo.nypl.org/api/v2/items/rights/d9067de0-aa17-0133-ab91-60f81dd2b63c.xml</a></li>
+          </p>
+            
+          <p style="text-align:right;"><a href="#table-of-contents">Table of Contents</a></p>
+        </section>
+
+      </div> <!-- /docs-wrapper -->
+      <div class="footer">
+        <hr class="alt" />
+        <div class="row">
+          <div class="span6">&copy; 2022   The New York Public Library. All rights reserved.</div>
+          <div class="span3">
+            <ul>
+              <li><a href="/terms_conditions">Terms &amp; Conditions</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div> <!-- /span9 -->
+  </div> <!-- /row -->
+</div> <!-- /container -->
+
+
+
+        <!-- Le javascript
+        ================================================== -->
+        <!-- Placed at the end of the document so the pages load faster -->
+        <script src="/javascripts/application.js"></script>
+        <script src="/js/bootstrap.min.js"></script>
+        <script src="/js/prettify.js"></script>
+        <script src="/js/docs.js"></script>
+
+    </body>
+</html>

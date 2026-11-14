@@ -1,0 +1,8 @@
+{
+  "slug": "british-library",
+  "endpoint": {"id": "crash-digirati-thumbs-info", "url": "https://bl.digirati.io/thumbs/ark:/81055/vdc_100054718161.0x000001/info.json", "method": "GET"},
+  "limite_documentee_req_min": null,
+  "source_limite": "aucune limite documentée (pages bl.uk/terms, collection-metadata-services, digitised-manuscripts-archives lues le 2026-11-14)",
+  "duree_palier_s": 180,
+  "note": "info.json de vignettes (petit, 200 vu en passe 2, journal tests/journal.log). Hôte derrière CloudFront."
+}

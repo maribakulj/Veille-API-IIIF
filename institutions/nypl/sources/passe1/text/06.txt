@@ -1,0 +1,623 @@
+NYPL Digital Collections API 
+ NYPL Digital Collections API 
+ API V2 Documentation 
+ API V1 Documentation 
+ Profile 
+ Sign Up 
+ The Repo API is being deprecated and will no longer be available starting August 1st, 2026. No public API replacement is planned at this time. If you have any questions or concerns, contact us digitaldam@nypl.org .
+ The New York Public Library Digital Collections API
+ For more than a century, The New York Public Library has amassed an extraordinary trove of rare and unique material
+ covering the full spectrum of recorded knowledge. Now, for the first time, significant portions of the Library's
+ digitized collections are available as machine-readable data: over one million objects and records for you to search,
+ crawl and compute. Sign up and get hacking today!
+ Questions/feedback? Write to: repoapi@nypl.org 
+ Sign Up and Authentication
+ You will need to authenticate in order to use the Digital Collections API -- either via direct login with a
+ username/password, or an authentication token that you will receive when you sign up for API access .
+ Sign Up 
+ Sign In 
+ Table of Contents
+ The New York Public Library Digital Collections API
+ Access Methods 
+ Data Model 
+ MODS Help 
+ Parameters to Pass to the API 
+ Public Domain Filtering 
+ Image Links in the API 
+ Rights Statements in the Digital Collections API 
+ Available endpoints and how to use them
+ GET: /items/total 
+ GET: /items/featured 
+ GET: /items/roots 
+ GET: /collections 
+ GET: /collections/[:uuid] 
+ GET: /collections/[:uuid]/subcollections 
+ GET: /collections/[:uuid]/items 
+ GET: /mods 
+ GET: /items/mods 
+ -->
+ GET: /items/mods_captures 
+ GET: /items/item_details 
+ GET: /items/[:type]/[:id] 
+ GET: /items 
+ GET: /items/collection 
+ GET: /items/collection/all 
+ GET: /items/plain_text 
+ GET: /items/minified_alto 
+ GET: /items/mets_alto 
+ GET: /items/recent 
+ GET: /items/search 
+ GET: /items/rights 
+ Access Methods
+ There are two ways to access the API: via a browser, or via token authentication.
+ Make a call to the API through the browser
+ Either provide your username and password when prompted by the browser:
+ https://api.repo.nypl.org/api/v2/items/search?q=cats&publicDomainOnly=true 
+ Or pass your username and password to the browser directly:
+ https://username:password@api.repo.nypl.org/api/v2/items/search?q=cats&publicDomainOnly=true 
+ Make a call using a curl request or from a background application using the token
+ In the examples below, 'abcdefghijklmn' is the authentication token you receive via email when you sign up for API access.
+ Example curl request: 
+ curl "https://api.repo.nypl.org/api/v2/items/search?q=cats&publicDomainOnly=true" -H 'Authorization: Token token="abcdefghijklmn"' 
+ Example Ruby code:
+ require 'net/http'
+ require 'uri'
+ uri = URI.parse("https://api.repo.nypl.org/api/v2/items/search?q=cats&publicDomainOnly=true")
+ request = Net::HTTP::Get.new(uri)
+ request["Authorization"] = "Token token=\"abcdefghijklmn\""
+ req_options = {
+ use_ssl: uri.scheme == "https",
+ }
+ response = Net::HTTP.start(uri.hostname, uri.port, req_options) do |http|
+ http.request(request)
+ end
+ # response.code
+ # response.body 
+ Example Python code:
+ import requests
+ from requests.structures import CaseInsensitiveDict
+ url = "https://api.repo.nypl.org/api/v2/items/search?q=cats&publicDomainOnly=true"
+ headers = CaseInsensitiveDict()
+ headers["Authorization"] = "Token token=\"abcdefghijklmn\""
+ resp = requests.get(url, headers=headers)
+ # resp.status_code
+ # resp.content 
+ REST API version
+ The most recent version of the API is v2.
+ API Request Limitations
+ The limit per authentication token while connecting from an application or curl request is 10,000 requests per
+ day.
+ Table of Contents 
+ A note about our data model
+ Key concepts:
+ Collection
+ Container
+ Item
+ Capture
+ Collections in Digital Collections are made up of one or more Items that are
+ further organized by Containers .
+ A Collection may contain zero or more Containers , which can contain zero or more
+ Containers and/or zero or more Items , creating a tree-like hierarchy (see below).
+ Not all Items belong to a Collection , but most do. (You can see the direct lineage
+ of an Item in the <relatedItem> fields of the /mods/[:uuid] response -- see method below .)
+ Items in Digital Collections are made up of one or more Captures that represent
+ physical components, like the page of a book or the front of a photograph.
+ Each Capture has a corresponding image, video, or audio asset.
+ Example hierarchy:
+ | -- Collection
+ | -- Container
+ | -- Item
+ | -- Capture 1
+ | -- Capture 2
+ | -- Item
+ | -- Capture 1
+ | -- Capture 2
+ | -- Capture 3
+ | -- Container
+ | -- Item
+ | -- Capture 1
+ | -- Item
+ | -- Capture 1
+ | -- Container
+ | -- item
+ | -- Capture 1
+ | -- Capture 2
+ Etc.
+ (You can see a list of all Captures in an Item , Container , or
+ Collection , their basic information, and links to corresponding digital assets in the
+ /items/[:UUID] response -- see method below .)
+ Table of Contents 
+ MODS Help
+ NYPL uses the MODS XML standard to describe the content of items in
+ Digital Collections. You can view the schema documentation for element
+ definitions, but here are some of the most commonly used elements:
+ Element 
+ Definition 
+ Title 
+ The title of the resource. An item may have one or more titles. The primary title of an item is denoted by 
+ the <titleInfo> "usage" attribute with a value of "primary." A <titleInfo> 
+ element might also contain other parts of the title, including <subtitle> , <partName> , 
+ <partNumber> . 
+ Type of Resource 
+ The general type of the original resource content. Values are from an enumerated list and include: "text", "still image", "cartographic", "notated music", "sound recording", "moving image", "three dimensional object". 
+ Identifier 
+ An identifier associated with the resource. Locally, common identifiers are associated with source description, such as an NYPL catalog record or finding aid. 
+ Date 
+ The date of creation ( <dateCreated> ) or publication ( <dateIssued> ) of the resource. 
+ Many of our dates are w3cdtf encoded in yyyy-mm-dd format, while some are represented as text strings (e.g., "ca. 2200 - 1600 BCE"). 
+ Date ranges are represented by two date subelements, each with a "point" attribute, one with the value "start" and one with "end". 
+ Approximate or questionable dates are noted in the "qualifier" attribute with the value "approximate", "questionable", or "inferred". 
+ Genre 
+ Describes the nature of the content or function of the resource at a greater level of specificity than Type of Resource. 
+ Physical Location 
+ Specifies the NYPL content owner/division and physical location of the original resource. 
+ Language 
+ The language(s) expressed in a resource. 
+ Name 
+ A person or organization related to the creation or production of the item content. The role of the name can 
+ be found in the <role> subelement. 
+ Subject 
+ Subjects may be of type <topic> , <geographic> ,
+ <name> , <temporal> , <occupation> , or <titleInfo> . 
+ Complex subjects may include a combination of any of these subelements. For complex Library of Congress Subject Headings, 
+ subelements are usually displayed with "--" delimiters in the order they appear within the <subject> element. 
+ Table of Contents 
+ Parameters to Pass to the API
+ Available Request Parameters
+ Formats
+ All API responses are available in json format and xml. The json is available by default, so .json can
+ be omitted; the XML can be accessed by appending .xml to the API call.
+ For example:
+ json:
+ https://api.repo.nypl.org/api/v2/items/item_details/1c664900-f3a2-0130-513b-58d385a7b928 
+ https://api.repo.nypl.org/api/v2/items/search?q=cats&publicDomainOnly=true 
+ xml:
+ https://api.repo.nypl.org/api/v2/items/item_details/1c664900-f3a2-0130-513b-58d385a7b928.xml 
+ https://api.repo.nypl.org/api/v2/items/search.xml?q=cats&publicDomainOnly=true 
+ Parameter 
+ Value 
+ Default value 
+ Optional 
+ Description 
+ .json 
+ - 
+ - 
+ yes 
+ return response in json format (default) 
+ .xml 
+ - 
+ - 
+ yes 
+ return response in xml format 
+ Pagination
+ If a response has many results, the request is paginated with the default results per page being 10. Users can get
+ to the second page by passing in the page parameter, e.g. https://api.repo.nypl.org/api/v2/items/collection/5e66b3e8-e3dd-d471-e040-e00a180654d7.xml?page=2 ,
+ or change the number of captures returned on a page with the per_page parameter https://api.repo.nypl.org/api/v2/items/collection/5e66b3e8-e3dd-d471-e040-e00a180654d7.xml?per_page=20 .
+ A combination of these two parameters also works https://api.repo.nypl.org/api/v2/items/collection/5e66b3e8-e3dd-d471-e040-e00a180654d7.xml?page=2&per_page=20 .
+ Parameter 
+ Value 
+ Default value 
+ Optional 
+ Description 
+ per_page 
+ integer, maximum 500 
+ 10 
+ yes 
+ url parameter for number of rows to return per page 
+ page 
+ integer, starts at 1 
+ 1 
+ yes 
+ returns current row of results 
+ Table of Contents 
+ Public Domain Filtering
+ The Public Domain filter limits results from the API to materials that have no copyright issues so you can easily
+ work with the results and links to images without having to worry about potential US Copyright restrictions (see our
+ Rights section of the Digital Collections about page for
+ more info).
+ Parameter 
+ Value 
+ Default value 
+ Optional 
+ Description 
+ publicDomainOnly 
+ Boolean: true, false 
+ - 
+ yes 
+ returns only Public Domain results 
+ https://api.repo.nypl.org/api/v2/items/search?q=[search-terms]&publicDomainOnly=true 
+ Example:
+ https://api.repo.nypl.org/api/v2/items/search?q=cats&publicDomainOnly=true 
+ Table of Contents 
+ Image links in the API
+ For certain materials that have been cleared as having no known U.S. Copyright restrictions, we are able to provide
+ image links directly in the API responses.
+ For eligible materials, within the capture node in the item_details endpoint (see method below ), there will be a imageLinks node, and within that, one or more
+ imageLink nodes. The imageLink node will feature the direct links to a variety of
+ derivatives.
+ The imageLinks , imageLink nodes also appear in all results using the Public Domain filter
+ described above.
+ The following are the possible derivative types you might find:
+ b - .jpeg center cropped thumbnail (100x100 pixels)
+ f - .jpeg (140 pixels tall with variable width)
+ t - .gif (150 pixels on the long side)
+ r - .jpeg (300 pixels on the long side)
+ w - .jpeg (760 pixels on the long side)
+ q - .jpeg (1600 pixels on the long side)
+ v - .jpeg (2560 pixels on the long side)
+ g - .jpeg original dimensions 
+ Note: Not all captures will have all possible derivative types.
+ In the case of materials that have not explicitly been marked as "No Known U.S. Copyright restrictions," we're not
+ able to offer the direct links to the derivative types. For this reason, you may find an empty imageLinks 
+ node. If you only want to work with the parts of the API that will have populated imageLinks , please see
+ the section above on " Public Domain Filtering ."
+ highResLink
+ For as many materials as possible, we also have included a highResLink node, which includes a link to
+ the original, uncropped 8-bit TIFF file (including color bars) that represents the original dimensions and uncompressed
+ image file that came off the camera in the NYPL Labs Digital Imaging Unit. These are enormous files, generally greater
+ than 200mb, so please be mindful when pulling these assets.
+ Note: In the case of materials that have not explicitly been marked as "No Known U.S. Copyright restrictions," we're
+ not able to offer the highResLink . If you only want to work with the parts of the API that will have
+ populated highResLink , please see the section above on " Public Domain
+ Filtering ."
+ Table of Contents 
+ Rights statements in the Digital Collections API
+ Rights statements apply to materials at the capture level, and generally describe the copyright status of those
+ images to the extent that we have that status documented. Currently, there are four possible rights statements
+ available via the Digital Collections API:
+ No Known U.S. Copyright: 
+ We believe that this item has no known US copyright restrictions. The item may be subject to rights of
+ privacy, rights of publicity and other restrictions. Though not required, if you want to credit us as the source,
+ please use the following statement, "From The New York Public Library," and provide a link back to the item on our
+ Digital Collections site. Doing so helps us track how our collection is used and helps justify freely releasing even
+ more content in the future.
+ CC0: 
+ To the extent that a jurisdiction grants the New York Public Library a copyright in this item, NYPL makes this
+ item available under a Creative Commons CC0 1.0 Universal Public Domain Dedication:
+ https://creativecommons.org/publicdomain/zero/1.0/ . Though not required, if you want to credit us as the source, please use the following statement, "From the New York Public Library," and provide a link back to the item on our Digital Collections site. Doing so helps us track how our collection is used and helps justify freely releasing even more content in the future.
+ Copyright Held or Managed by the New York Public Library: 
+ The New York Public Library holds or manages the copyright(s) in this item. If you need information about
+ reusing this item, please go to http://nypl.org/permissions .
+ Undetermined: 
+ The New York Public Library is interested in learning more about items you've seen on our websites or
+ elsewhere online. If you have any more information about an item or its copyright status, we want to hear from you.
+ Please contact DigitalCollections@nypl.org with your contact information and a link to the relevant content.
+ Table of Contents 
+ Available endpoints and how to use them
+ GET: /items/total
+ Request URL: https://api.repo.nypl.org/api/v2/items/total 
+ Description: Returns the total number of digitized items.
+ Return Value: Total number of digitized items.
+ Example Requests: 
+ https://api.repo.nypl.org/api/v2/items/total.xml 
+ https://api.repo.nypl.org/api/v2/items/total 
+ Table of Contents 
+ GET: /items/featured
+ Request URL: https://api.repo.nypl.org/api/v2/items/featured 
+ Description: Featured items.
+ Return Value: Featured items.
+ Example Requests: 
+ https://api.repo.nypl.org/api/v2/items/featured.xml 
+ https://api.repo.nypl.org/api/v2/items/featured 
+ Table of Contents 
+ POST: /items/counts
+ Request URL: https://api.repo.nypl.org/api/v2/items/counts 
+ Description: Collection item counts.
+ Return Value: Collection item counts.
+ Example Requests: 
+ https://api.repo.nypl.org/api/v2/items/counts.xml 
+ https://api.repo.nypl.org/api/v2/items/counts 
+ Table of Contents 
+ GET: /items/roots
+ Request URL: https://api.repo.nypl.org/api/v2/items/roots 
+ Description: Returns all top-level UUIDS. These UUIDs can then be used to drill down to deeper content. Response is not paginated. Responds as either XML or JSON (default). Results returned are limited by rights restrictions.
+ Response returns both uuids for top-level collection records as well as item records without parents (orphan items, belonging to no collection).
+ Return Values: Top level UUIDs.
+ Example Requests: 
+ https://api.repo.nypl.org/api/v2/items/roots.xml 
+ https://api.repo.nypl.org/api/v2/items/roots 
+ Table of Contents 
+ GET: /collections
+ Request URL: https://api.repo.nypl.org/api/v2/collections 
+ PARAMS: 
+ q : string, query term for searching titles of collections or containers.
+ page : page number
+ per_page : number of results per page
+ search_recursive : boolean, determines whether mid-level container information is searched
+ Description: Returns paginated information about all collections. Useful as a starting point for navigating down from the top of the hierarchy. Includes no item records without parents (orphan items, belonging to no collection).
+ Response returns both uuids for top-level collection records as well as item records without parents (orphan items, belonging to no collection).
+ Return Values: Top level collection information.
+ uuid
+ apiUri
+ title
+ numItems
+ Example Requests: 
+ https://api.repo.nypl.org/api/v2/collections 
+ https://api.repo.nypl.org/api/v2/collections.xml 
+ https://api.repo.nypl.org/api/v2/collections?q=cats 
+ Table of Contents 
+ GET: /collections/[:uuid]
+ Request URL: https://api.repo.nypl.org/api/v2/collections/[:uuid] 
+ PARAMS: 
+ uuid : string, required, belonging to a collection or a container.
+ page : page number
+ per_page : number of results per page
+ Description: Returns paginated information about all child captures for a given collection or subcollection's/container’s UUID. Useful for following information through the hierarchy.
+ Return Values: Collection's children information, including links to continue to child MODS information or child hierarchy level.
+ apiUri is a link to the child's MODS information
+ levelUri is a link to display hierarchical information below the child level.
+ grandParentLevelUri is a link to navigate to the parent of the current :uuid's record.
+ I.e., use levelUri to go lower in the hierarchy, grandParentUri to go above where you are now, apiUri to learn more about the child.
+ Example Requests: 
+ https://api.repo.nypl.org/api/v2/collections/d94adb20-c53a-012f-399c-58d385a7bc34 
+ https://api.repo.nypl.org/api/v2/collections/d94adb20-c53a-012f-399c-58d385a7bc34.xml 
+ Table of Contents 
+ GET: /collections/[:uuid]/subcollections
+ Request URL: https://api.repo.nypl.org/api/v2/collections/[:uuid]/subcollections 
+ PARAMS: 
+ uuid : string, required, belonging to a collection or a container.
+ page : page number
+ per_page : number of results per page
+ Description: Returns immediate child containers of collection or container with the supplied uuid. Does not return items or captures.
+ Return Values: Collection's subcollection information (as collections), including links to continue to child MODS information or child hierarchy level.
+ numSubCollections: number of direct child containers
+ numItems: number of total child items beneath this level, regardless of hierarchy level
+ numResults: number of direct children
+ collection: collection object and related data, including API links.
+ Example Requests: 
+ https://api.repo.nypl.org/api/v2/collections/17513b20-c52e-012f-78fb-58d385a7bc34/subcollections 
+ https://api.repo.nypl.org/api/v2/collections/17513b20-c52e-012f-78fb-58d385a7bc34/subcollections.xml 
+ Table of Contents 
+ GET: /collections/[:uuid]/items
+ Request URL: https://api.repo.nypl.org/api/v2/collections/[:uuid]/items 
+ PARAMS: 
+ uuid : string, required, belonging to a collection or a container.
+ page : page number
+ per_page : number of results per page
+ Description: Returns items directly attached to a container or items attached to a collection.
+ Return Values: numSubCollections, numItems, numResults, item objects.
+ numSubCollections: number of direct child containers
+ numItems: number of total child items beneath this level, regardless of hierarchy level
+ numResults: number of direct children
+ item: item object and related data, including API links.
+ Example Requests: 
+ https://api.repo.nypl.org/api/v2/collections/17e4bce0-c52e-012f-8d13-58d385a7bc34/items 
+ https://api.repo.nypl.org/api/v2/collections/17e4bce0-c52e-012f-8d13-58d385a7bc34/items.xml 
+ Table of Contents 
+ GET: /mods
+ Request URL: https://api.repo.nypl.org/api/v2/mods/[:uuid] 
+ PARAMS: 
+ uuid : string, required
+ Description: Returns the MODS information for the requested ID. Accepts capture, item, container, or collection UUID.
+ Return Values: A MODS bibliographic data record.
+ Example Requests: 
+ https://api.repo.nypl.org/api/v2/mods/5e66b3e8-e3dd-d471-e040-e00a180654d7 
+ https://api.repo.nypl.org/api/v2/mods/5e66b3e8-e3dd-d471-e040-e00a180654d7.xml 
+ Table of Contents 
+ GET: /items/mods
+ Request URL: https://api.repo.nypl.org/api/v2/items/mods/[:uuid] 
+ PARAMS: 
+ uuid : string, required
+ Description: DEPRECATED version of /mods. Returns the MODS information for the requested ID. Accepts capture, item, container, or collection UUID.
+ Return Values: A MODS bibliographic data record.
+ Example Requests: 
+ https://api.repo.nypl.org/api/v2/items/mods/5e66b3e8-e3dd-d471-e040-e00a180654d7 
+ https://api.repo.nypl.org/api/v2/items/mods/5e66b3e8-e3dd-d471-e040-e00a180654d7.xml 
+ Table of Contents 
+ -->
+ GET: /items/mods_captures
+ Request URL: https://api.repo.nypl.org/api/v2/items/mods_captures/[:uuid] 
+ PARAMS: 
+ uuid : string, required
+ show_mods : nil or "no", determines whether mods is suppressed from return; default nil shows mods
+ Description: Returns the MODS and capture information for the requested uuid. Users can pass in a capture, item, container, or collection UUID.
+ Return Values: A MODS bibliographic data record and related information.
+ A MODS bibliographic data record
+ uuid
+ imageID
+ itemLink
+ title
+ Example Requests: 
+ https://api.repo.nypl.org/api/v2/items/mods_captures/5e66b3e8-e3dd-d471-e040-e00a180654d7 
+ https://api.repo.nypl.org/api/v2/items/mods_captures/5e66b3e8-e3dd-d471-e040-e00a180654d7.xml 
+ https://api.repo.nypl.org/api/v2/items/mods_captures/5e66b3e8-e3dd-d471-e040-e00a180654d7.xml?show_mods=no 
+ Table of Contents 
+ GET: /items/item_details
+ Request URL: https://api.repo.nypl.org/api/v2/items/item_details/[:uuid] 
+ PARAMS: 
+ uuid : string, required
+ show_mods : nil or "no", determines whether mods is suppressed from return; default nil shows mods
+ Description: Returns MODS for a capture uuid, along with information about related captures. UUID *must* belong to a valid capture.
+ Additional fields provide information about sibling captures (sibling_captures), captures related at the root collection level (root_captures), and immediate neighboring captures (imm_captures). sibling_captures will always contain at least one capture because the capture is listed as a sibling of itself. In the case of recto/verso (a scan of the front and back of a single piece of paper), there should be in total two sibling captures. In the case of a scanned book, there will be many sibling captures. Root captures will display all captures associated with the requested capture. Immediate captures (imm_captures) will display all captures in the parent container. This number will be the same as root_captures if the captures belong to a collection or container at the top of the hierarchy. Otherwise, immediate captures will only display everything "one level up."
+ Sibling captures will display metadata about each capture contained within the capture field. The total number of captures is listed one level above as numResults after the mods information. Alternatively, root_captures and imm_captures return the total number of captures nested within the element, also as numResults . Following the closed /numResults tag, each capture is represented within the capture tags.
+ Return Values: 
+ uuid
+ imageLinks
+ typeOfResource
+ imageID
+ sortString
+ itemLink
+ Example Requests: 
+ https://api.repo.nypl.org/api/v2/items/item_details/5e66b3e8-e3dd-d471-e040-e00a180654d7 
+ https://api.repo.nypl.org/api/v2/items/item_details/5e66b3e8-e3dd-d471-e040-e00a180654d7.xml 
+ Table of Contents 
+ GET: /items/[:type]/[:id]
+ Request URL: https://api.repo.nypl.org/api/v2/items/[:type]/[:id] 
+ PARAMS: 
+ uuid : string, required
+ type : string, required
+ Description: Returns the UUID for the given identifier type and identifier value. Type should be a valid identifier type, and id should be a string identifier value. Though some examples are listed below, this is only a subset of all the identifiers we have, and we might have many more in the future. Identifier field names can be found in the "type" attribute of the MODS identifier element (e.g. <identifier>type="local_[:identifier-field-name]"</identifier> ).
+ Example Type Values
+ Identifier Type 
+ Example 
+ Description 
+ local_image_id 
+ 1666689 
+ Unique string value for digital images 
+ local_bnumber 
+ b16981665 
+ NYPL catalog record identifier 
+ local_barcode 
+ 33433113142867 
+ NYPL barcode 
+ local_mss 
+ 22827 
+ NYPL MSS ID 
+ local_archives_ead 
+ 693400 
+ Archives EAD ID 
+ local_tms_id 
+ 399290 
+ TMS ID 
+ oclc 
+ 6103142 
+ OCLC number 
+ isbn 
+ 0700410309 lccn 
+ International Standard Book Number 
+ Return Values: 
+ uuid
+ apiUri
+ numResults
+ Example Requests: 
+ https://api.repo.nypl.org/api/v2/items/local_image_id/1666689 
+ https://api.repo.nypl.org/api/v2/items/local_image_id/1666689.xml 
+ Table of Contents 
+ GET: /items
+ Request URL: https://api.repo.nypl.org/api/v2/items/[:uuid] 
+ PARAMS: 
+ uuid : string, required
+ Description: Returns all capture UUIDs, imageIDs, itemLinks and titles for any UUID. Accepts a UUID for an item, a container, or a collection. Capture UUIDs are not valid input values.
+ Return Values: 
+ uuid
+ imageID
+ itemLink
+ title
+ Example Requests: 
+ https://api.repo.nypl.org/api/v2/items/d5aa2f40-c53a-012f-9dac-58d385a7bc34 
+ https://api.repo.nypl.org/api/v2/items/d5aa2f40-c53a-012f-9dac-58d385a7bc34.xml 
+ Table of Contents 
+ GET: /items/collection
+ Request URL: https://api.repo.nypl.org/api/v2/items/collection/[:uuid] 
+ PARAMS: 
+ uuid : string, required
+ Description: Return all capture UUIDs, imageIDs, itemLinks and titles for any UUID. Accepts a UUID for a capture, item, container, or collection.
+ Return Values: 
+ uuid
+ imageID
+ itemLink
+ title
+ Example Requests: 
+ https://api.repo.nypl.org/api/v2/items/collection/d5aa2f40-c53a-012f-9dac-58d385a7bc34 
+ https://api.repo.nypl.org/api/v2/items/collection/d5aa2f40-c53a-012f-9dac-58d385a7bc34.xml 
+ Table of Contents 
+ GET: /items/collection/all
+ Request URL: https://api.repo.nypl.org/api/v2/items/collection/all/[:uuid] 
+ PARAMS: 
+ uuid : string, required
+ Description: Return all capture UUIDs, imageIDs, itemLinks and titles for any UUID. Accepts a UUID for a capture, item, container, or collection.
+ Return Values: 
+ uuid
+ imageID
+ itemLink
+ title
+ Example Requests: 
+ https://api.repo.nypl.org/api/v2/items/collection/all/d5aa2f40-c53a-012f-9dac-58d385a7bc34 
+ https://api.repo.nypl.org/api/v2/items/collection/all/d5aa2f40-c53a-012f-9dac-58d385a7bc34.xml 
+ Table of Contents 
+ GET: /items/plain_text
+ Request URL: https://api.repo.nypl.org/api/v2/items/plain_text/[:uuid] 
+ PARAMS: 
+ uuid : string, required
+ Description: Returns an array of altos, with parsed plain text, for a given capture UUID.
+ Return Values: 
+ uuid
+ alto
+ plainText
+ rightsStatement
+ Example Requests: 
+ https://api.repo.nypl.org/api/v2/items/plain_text/8fcbf960-fed9-0130-73f0-58d385a7bbd0 
+ https://api.repo.nypl.org/api/v2/items/plain_text/8fcbf960-fed9-0130-73f0-58d385a7bbd0.xml 
+ Table of Contents 
+ GET: /items/minified_alto
+ Request URL: https://api.repo.nypl.org/api/v2/items/minified_alto/[:uuid] 
+ PARAMS: 
+ uuid : string, required
+ Description: Returns an array of minified alto for a given capture UUID.
+ Return Values: 
+ uuid
+ alto
+ minContent
+ Example Requests: 
+ https://api.repo.nypl.org/api/v2/items/minified_alto/8fcbf960-fed9-0130-73f0-58d385a7bbd0 
+ https://api.repo.nypl.org/api/v2/items/minified_alto/8fcbf960-fed9-0130-73f0-58d385a7bbd0.xml 
+ Table of Contents 
+ GET: /items/mets_alto
+ Request URL: https://api.repo.nypl.org/api/v2/items/mets_alto/[:uuid] 
+ PARAMS: 
+ uuid : string, required
+ Description: Returns an array of mets alto for a given capture UUID.
+ Return Values: 
+ alto
+ Description
+ Styles
+ Layout
+ Example Requests: 
+ https://api.repo.nypl.org/api/v2/items/mets_alto/8fcbf960-fed9-0130-73f0-58d385a7bbd0 
+ https://api.repo.nypl.org/api/v2/items/mets_alto/8fcbf960-fed9-0130-73f0-58d385a7bbd0.xml 
+ Table of Contents 
+ GET: /items/recent
+ Request URL: https://api.repo.nypl.org/api/v2/items/recent 
+ Description: Returns list of most recently added captures.
+ Return Values: 
+ uuid
+ apiUri
+ typeOfResource
+ imageID
+ sortString
+ firstIndexed
+ dateDigitized
+ itemLink
+ title
+ rightsStatement
+ rightsStatementURI
+ Example Requests: 
+ https://api.repo.nypl.org/api/v2/items/recent 
+ https://api.repo.nypl.org/api/v2/items/recent.xml 
+ Table of Contents 
+ GET: /items/search
+ Request URL: https://api.repo.nypl.org/api/v2/items/search?q=[:q]&field=[:field]&ftype=[:ftype]&filter[]=[:filter] 
+ PARAMS: 
+ q : string, required
+ field : string, optional mods field to search
+ ftype : string, field type, defaults to fuzzy
+ filter : array of strings, optional filters on results
+ Description: Returns results that match a given keyword anywhere in a MODS metadata record. Accepts one or more search terms and can also take a metadata field, ftype, or filter.
+ Return Values: 
+ uuid
+ imageID
+ itemLink
+ title
+ search_text
+ Example Requests: 
+ https://api.repo.nypl.org/api/v2/items/search?q=birds 
+ https://api.repo.nypl.org/api/v2/items/search.xml?q=birds 
+ https://api.repo.nypl.org/api/v2/items/search?field=topic&q=birds 
+ https://api.repo.nypl.org/api/v2/items/search.xml?field=topic&q=birds 
+ https://api.repo.nypl.org/api/v2/items/search?field=topic&filter%5B%5D=typeOfResource%3Astill+image&q=birds 
+ https://api.repo.nypl.org/api/v2/items/search.xml?field=topic&filter%5B%5D=typeOfResource%3Astill+image&q=birds 
+ Table of Contents 
+ GET: /items/rights
+ Request URL: https://api.repo.nypl.org/api/v2/items/rights/[:uuid] 
+ PARAMS: 
+ uuid : string, required
+ Description: Returns rights profile information for the given uuid.
+ Return Values: 
+ useStatement
+ rightsNotes
+ Example Requests: 
+ https://api.repo.nypl.org/api/v2/items/rights/d9067de0-aa17-0133-ab91-60f81dd2b63c 
+ https://api.repo.nypl.org/api/v2/items/rights/d9067de0-aa17-0133-ab91-60f81dd2b63c.xml 
+ Table of Contents 
+ © 2022 The New York Public Library. All rights reserved.
+ Terms & Conditions

@@ -1,0 +1,203 @@
+GitHub - britishlibrary/TremendousIIIF: A bigly good IIIF image server. · GitHub 
+ Skip to content 
+ Navigation Menu
+ Sign in 
+ Products Platform GitHub Repository hosting, code review, and collaboration 
+ Copilot AI coding agent for tasks, projects, and automated work 
+ Build & Ship Actions CI/CD and automation 
+ Code Quality Quality analysis, fixes, and enforcement 
+ Codespaces Cloud development environments 
+ Secure Code Security Vulnerability detection and remediation 
+ Secret Protection Secret scanning and leak prevention 
+ All Features 
+ Developers Learn Documentation 
+ Training 
+ Certifications 
+ Build Build with Copilot 
+ Customize Copilot 
+ Integrations 
+ Explore Trending repos 
+ GitHub Sponsors 
+ Developer articles 
+ Changelog Changelog Your source for the latest features, improvements, and fixes across GitHub products, all in one place. 
+ Businesses By Stage Enterprises 
+ Team 
+ Startups 
+ Nonprofits 
+ By Industry Healthcare 
+ Financial services 
+ Manufacturing 
+ Government 
+ See all industries 
+ Evaluate GitHub Why GitHub 
+ Customer Stories 
+ Business insights 
+ Trust Center 
+ Add-ons GitHub Advanced Security Enterprise-grade code security 
+ Copilot for business Enterprise-grade AI features 
+ Premium Support Enterprise-grade 24/7 support 
+ Resources Learn & Connect Documentation 
+ Resource center 
+ Blog 
+ Events & webinars 
+ Community Forum 
+ Customer Stories 
+ Integrations 
+ Support Customer support 
+ Training 
+ GitHub Status 
+ Company About 
+ Partners 
+ Changelog 
+ GitHub Universe GitHub Universe The event for developers, by developers — talks, workshops, and what’s next for GitHub. 
+ Pricing 
+ Search / 
+ Sign in 
+ Sign up Appearance settings
+ You signed in with another tab or window. Reload to refresh your session. 
+ You signed out in another tab or window. Reload to refresh your session. 
+ You switched accounts on another tab or window. Reload to refresh your session. 
+ Dismiss alert 
+ {{ message }}
+ britishlibrary 
+ TremendousIIIF 
+ Repository navigation
+ Code 
+ Issues 3  ( 3 ) 
+ Pull requests 3  ( 3 ) 
+ Actions 
+ Projects 
+ Security and quality 
+ Insights 
+ More items 
+ TremendousIIIF 
+ Public 
+ Notifications You must be signed in to change notification settings 
+ Fork 1  ( 1 ) 
+ Star 8  ( 8 ) You must be signed in to star a repository 
+ About 
+ A bigly good IIIF image server.
+ Topics 
+ iiif iiif-image kakadu 
+ Resources 
+ Readme 
+ AGPL-3.0 license 
+ Activity 
+ Custom properties 
+ Stars 
+ 8 stars 
+ Watchers 
+ 3 watching 
+ Forks 
+ 1 fork 
+ Report repository 
+ master 
+ Branches Tags 
+ Go to file 
+ Code Open more actions menu 
+ Latest commit
+ History
+ 52 Commits 
+ 52 Commits 
+ Folders and files
+ Name Name Last commit message 
+ Last commit date 
+ Image.Common 
+ Image.Common 
+ Image.Tiff.Test 
+ Image.Tiff.Test 
+ Image.Tiff 
+ Image.Tiff 
+ ImageProcessing.Test 
+ ImageProcessing.Test 
+ ImageProcessing 
+ ImageProcessing 
+ Jpeg2000.Test 
+ Jpeg2000.Test 
+ Jpeg2000 
+ Jpeg2000 
+ SDK 
+ SDK 
+ TremendousIIIF.Benchmark 
+ TremendousIIIF.Benchmark 
+ TremendousIIIF.Common 
+ TremendousIIIF.Common 
+ TremendousIIIF.Test 
+ TremendousIIIF.Test 
+ TremendousIIIF 
+ TremendousIIIF 
+ .gitattributes 
+ .gitattributes 
+ .gitignore 
+ .gitignore 
+ LICENSE 
+ LICENSE 
+ README.md 
+ README.md 
+ TremendousIIIF.sln 
+ TremendousIIIF.sln 
+ View all files 
+ Repository files navigation
+ README 
+ AGPL-3.0 license 
+ More items 
+ TremendousIIIF
+ A bigly good IIIF image server.
+ Features
+ (or, why another image server)
+ Complies with IIIF Image API 2.1, level 2
+ Supports additional features from IIIF Image API 2.1 above level 2, such as square region, sizeAboveFull , arbitrary rotation, mirroring 
+ Supports JPG, PNG or WEBP output encoding
+ Supports JPEG2000 source, using the Kakadu library
+ Supports TIFF source as a last resort (not recomended)
+ Access source images directly over HTTP, or via file system
+ Uses the Skia library for image manipulation (as used in Chrome, and is very fast)
+ Configuration lets you control things like sizeAboveFull , maxArea , maxWidth or maxHeight 
+ supports jpg, png, webp, pdf output natively, experimental tif and jp2 output (everything above jpg & png configurable)
+ Dependencies
+ .NET 4.6.2
+ Kakadu 7.10.1, x64 version built against MSVC2017 runtime. kdu_a7AR.dll and kdu_v7AR.dll should be in the runtime directory (this is a change in dotnet core 2).
+ If you do not have a Kakadu licence, this will not work 
+ A note on TIFF support
+ We don't have any pyramidal tiff as image sources, we almost exclusively use JPEG2000. However, we have a small number of tiff files which are not optimised for delivery at all...
+ Given how infrequently they are accessed, and the small number of them, it's less effort to simply treat them as though they were.
+ We've done some measurements internally and with those images we see a penalty of around 80ms per tile request
+ History
+ The British Library has a long history of working with JPEG2000 and with IIIF in particular, and some of our early experiements are available on github. They were never used in production.
+ TremendousIIIF is written from scratch, but based on the accumulated knowledge over the years and countless man hours of effort by many colleagues, most of whom are sadly no longer working with us. It is currently used in production.
+ Future
+ Currently builds net462/netstandard2.0/netcoreapp2.0, but not all dependecies are fully compatable (yet)
+ About 
+ A bigly good IIIF image server.
+ Topics 
+ iiif iiif-image kakadu 
+ Resources 
+ Readme 
+ AGPL-3.0 license 
+ Activity 
+ Custom properties 
+ Stars 
+ 8 stars 
+ Watchers 
+ 3 watching 
+ Forks 
+ 1 fork 
+ Report repository 
+ Releases 
+ Packages 
+ Used by 
+ Contributors 
+ Languages 
+ Footer
+ © 2026 GitHub, Inc.
+ Footer navigation
+ Terms 
+ Privacy 
+ Security 
+ Status 
+ Community 
+ Docs 
+ Contact 
+ Manage cookies
+ Do not share my personal information
+ You can’t perform that action at this time.

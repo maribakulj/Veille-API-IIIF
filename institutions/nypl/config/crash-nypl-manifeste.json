@@ -1,0 +1,8 @@
+{
+  "slug": "nypl",
+  "endpoint": {"id": "crash-api-collections-manifeste", "url": "https://api-collections.nypl.org/manifests/333ce2c0-3144-0132-b540-3c075448cc4b", "method": "GET"},
+  "limite_documentee_req_min": null,
+  "source_limite": "aucune limite documentée pour les manifestes (la limite de 10 000 requetes/jour/jeton de https://api.repo.nypl.org/ ne concerne que l'API Repo à jeton)",
+  "duree_palier_s": 180,
+  "note": "manifeste de 7,5 ko, 200 observé dans les journaux (passes 2026-11-13 et v2-1)."
+}

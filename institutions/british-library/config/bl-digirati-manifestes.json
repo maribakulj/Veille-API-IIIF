@@ -1,0 +1,13 @@
+{
+  "slug": "british-library",
+  "min_delay_s": 6,
+  "max_requests": 15,
+  "follow_redirects": 1,
+  "robots_disallow_autorise_par_marcel": true,
+  "note": "Passe 1 : manifestes IIIF cités par la page www.bl.uk/collection/digitised-manuscripts-archives (liens iiif.bl.uk/uv/#?manifest=https://bl.digirati.io/...). iiif.bl.uk est en 403 (non retesté). Corps enregistrés pour extraire un service d'image.",
+  "endpoints": [
+    {"id": "digirati-manifeste-vdc", "method": "GET", "url": "https://bl.digirati.io/iiif/ark:/81055/vdc_100054718159.0x000001", "save_body": 2000000},
+    {"id": "digirati-manifeste-man", "method": "GET", "url": "https://bl.digirati.io/manifests/ark:/81055/man_10000006.0x000001", "save_body": 2000000},
+    {"id": "digirati-racine", "method": "HEAD", "url": "https://bl.digirati.io/"}
+  ]
+}

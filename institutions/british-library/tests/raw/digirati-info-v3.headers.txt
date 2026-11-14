@@ -1,0 +1,19 @@
+2026-11-14T03:19:00Z GET https://bl.digirati.io/images/v3/ark:/81055/vdc_100054718161.0x000001/info.json
+HTTP 200
+content-type: application/ld+json; profile="http://iiif.io/api/image/3/context.json"
+content-length: 1056
+connection: keep-alive
+date: Sat, 14 Nov 2026 03:19:00 GMT
+x-cache-hits: 1
+server: Kestrel
+cache-control: public, max-age=86400, s-maxage=86400
+x-asset-id: 2/3/81055___vdc_100054718161.0x000001
+access-control-allow-origin: *
+x-varnish: 79200719 67570615
+via: 1.1 varnish (Varnish/7.1), 1.1 8577d464804bad787bf79e34c6a8bd9a.cloudfront.net (CloudFront)
+accept-ranges: bytes
+vary: Accept-Encoding
+x-cache: Miss from cloudfront
+x-amz-cf-pop: MXP63-P7
+x-amz-cf-id: ry_5ED7Lm_KKt2xLkjHzhW68MPGgsGY3dopg3H3ZfOSWBZHX3HJVdg==
+age: 40059

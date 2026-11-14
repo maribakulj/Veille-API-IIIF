@@ -2,45 +2,220 @@
   "slug": "british-library",
   "nom": "British Library",
   "pays": "Royaume-Uni",
-  "statut_audit": "incomplet (doc BL non lue)",
-  "limites_documentees": [],
-  "en_tetes_observes": [],
-  "blocages": [
+  "statut_audit": "complet (a à f) ; iiif.bl.uk en 403 (non contourné) ; API IIIF active sur bl.digirati.io, sans limite publiée",
+  "limites_documentees": [
     {
-      "date": "2026-11-13 20:35Z",
-      "hote": "iiif.bl.uk",
-      "code": "403",
-      "nature": "Microsoft-IIS, reproduit en curl depuis la machine de veille",
-      "suite": "non réessayé"
+      "nature": "Interdiction de téléchargement programmatique (e-ressources des lecteurs)",
+      "perimetre": "Reader Services / Eresource",
+      "valeur": "« Readers shall not systematically or programmatically download or print any Eresource. »",
+      "fenetre": "–",
+      "effet": "interdiction contractuelle, sans mécanisme technique cité",
+      "verification": "officielle, lue en entier ; portée IIIF non précisée",
+      "source": "https://www.bl.uk/terms (art. 10.4)",
+      "date": "2026-11-14"
     },
     {
-      "date": "2026-11-13 20:33Z",
-      "hote": "api.bl.uk",
-      "code": "DNS",
-      "nature": "non résolu",
-      "suite": "–"
+      "nature": "Interdiction de constituer une base à partir du site",
+      "perimetre": "site web bl.uk et services en ligne associés",
+      "valeur": "« to create a database (electronic or otherwise) that includes material downloaded or otherwise obtained from the Website except where expressly permitted on the Website or otherwise permitted in writing »",
+      "fenetre": "–",
+      "effet": "interdiction contractuelle",
+      "verification": "officielle, lue en entier ; l'application à bl.digirati.io n'est pas écrite",
+      "source": "https://www.bl.uk/terms (conditions du site, art. 3)",
+      "date": "2026-11-14"
     }
   ],
-  "contact": "permissions@bl.uk (à confirmer)",
-  "conclusion_quota": "Non vérifiable : doc IIIF non lue, hôte bloqué.",
-  "classe_quota": "non vérifiable",
-  "confiance": "faible",
-  "notes": "Conditions : bl.uk/help/terms-of-use lue (CC-BY, aucun quota).",
+  "en_tetes_observes": [
+    "cache-control: public, max-age=86400, s-maxage=86400 (info.json)",
+    "access-control-allow-origin: *",
+    "via: varnish, CloudFront ; server: AmazonS3 (manifestes) / Kestrel (images)",
+    "aucun RateLimit-*, X-RateLimit-*, Retry-After"
+  ],
+  "blocages": [
+    {
+      "date": "2026-11-14T03:15:50Z",
+      "hote": "iiif.bl.uk",
+      "code": "403",
+      "nature": "Microsoft-IIS 403 sur la racine (fetch_doc) ; robots.txt du même hôte en 404",
+      "suite": "hôte arrêté, registre partagé ; aucune sonde lancée vers lui"
+    },
+    {
+      "date": "2026-11-14T03:15:27Z",
+      "hote": "api.bl.uk",
+      "code": "DNS",
+      "nature": "Could not resolve host",
+      "suite": "non retesté"
+    }
+  ],
+  "contact": "metadata@bl.uk (métadonnées, page collection-metadata-services) ; licensing@bl.uk ; FOI-Enquiries@bl.uk",
+  "conclusion_quota": "Aucune limite de débit publiée ni observée. Le service IIIF actif est bl.digirati.io (manifestes IIIF Présentation 3, services d'image v2/v3, derrière CloudFront) : 200 sans en-tête de limite sur 8 requêtes. iiif.bl.uk (visionneuse) répond 403 IIS à notre client ; api.bl.uk ne se résout plus. Les conditions de la BL interdisent le téléchargement systématique ou programmatique des eressources et la constitution de bases (conditions du site), sans chiffre.",
+  "classe_quota": "non publiée (interdiction textuelle de moissonnage systématique, pas de chiffre)",
+  "confiance": "moyenne",
+  "notes": "Anciens hôtes api.bl.uk (DNS KO le 2026-11-14) et iiif.bl.uk (403, arrêt). La page /help/terms-of-use est maintenant remplacée par /terms ; /help/how-to-reuse-images-of-unpublished-manuscripts renvoie la page Research (200 sans le contenu). Wayback : aucune capture 200 de iiif.bl.uk.",
   "classeur_id": "hors 84 (ajouté)",
   "type": "Institution",
-  "sources": [],
-  "web": [],
+  "sources": [
+    {
+      "url": "https://www.bl.uk/terms",
+      "date": "2026-11-14",
+      "etiquette": "officielle",
+      "preuve": "institutions/british-library/sources/passe2/SHA256SUMS"
+    },
+    {
+      "url": "https://www.bl.uk/services/collection-metadata-services",
+      "date": "2026-11-14",
+      "etiquette": "officielle",
+      "preuve": "institutions/british-library/sources/passe2/SHA256SUMS"
+    },
+    {
+      "url": "https://www.bl.uk/collection/digitised-manuscripts-archives",
+      "date": "2026-11-14",
+      "etiquette": "officielle",
+      "preuve": "institutions/british-library/sources/passe3/SHA256SUMS"
+    },
+    {
+      "url": "https://www.bl.uk/about/governance/policies/sharing-british-library-open-metadata-with-our-communities",
+      "date": "2026-11-14",
+      "etiquette": "officielle",
+      "preuve": "institutions/british-library/sources/passe3/SHA256SUMS"
+    },
+    {
+      "url": "https://github.com/britishlibrary/TremendousIIIF",
+      "date": "2026-11-14",
+      "etiquette": "officielle (GitHub de l'institution)",
+      "preuve": "institutions/british-library/sources/passe1/SHA256SUMS"
+    },
+    {
+      "url": "https://www.bl.uk/robots.txt",
+      "date": "2026-11-14",
+      "etiquette": "officielle",
+      "preuve": "institutions/british-library/sources/passe1/SHA256SUMS"
+    }
+  ],
+  "web": [
+    {
+      "categorie": "institution",
+      "url": "https://www.bl.uk/about/governance/policies/sharing-british-library-open-metadata-with-our-communities",
+      "date": "2026-11-14",
+      "etiquette": "officielle",
+      "citation": "« The default licence offered is Creative Commons (CC0). » ; aucune limite de débit.",
+      "preuve": "institutions/british-library/sources/passe3/text/02.txt"
+    },
+    {
+      "categorie": "utilisateurs",
+      "url": "https://groups.google.com/g/iiif-discuss/c/Fc1epNUG1N0",
+      "date": "2026-11-14",
+      "etiquette": "tiers (résumé de moteur, non vérifié ; concerne le Vatican, pas la BL)",
+      "citation": "recherche « iiif.bl.uk 403 OR 429 » : aucune plainte sur la BL ; seul résultat voisin : 403 sur le Vatican.",
+      "preuve": "institutions/british-library/fiche.md"
+    },
+    {
+      "categorie": "tickets",
+      "url": "https://github.com/ryanfb/iiif-dl",
+      "date": "2026-11-14",
+      "etiquette": "tiers (résumé de moteur, non vérifié)",
+      "citation": "outil de téléchargement IIIF ; aucun ticket sur bl.digirati.io / iiif.bl.uk / api.bl.uk trouvé.",
+      "preuve": "institutions/british-library/fiche.md"
+    },
+    {
+      "categorie": "presentations",
+      "url": "https://training.iiif.io/iiif-bl-workshop/day-two/image-servers/bl_images.html",
+      "date": "2026-11-14",
+      "etiquette": "tiers (atelier IIIF), lu dans l'original",
+      "citation": "« some collections like the Google printed books collection do not currently allow sharing » ; aucune limite de débit pour les hôtes BL.",
+      "preuve": "institutions/british-library/fiche.md"
+    }
+  ],
   "donnees_a_revalider": true,
   "a_verifier_manuellement": [
     {
       "url": "https://iiif.bl.uk/",
-      "pourquoi": "403 anti-bot",
-      "a_chercher": "Documentation IIIF de la BL, robots.txt, limites"
+      "pourquoi": "403 anti-bot constaté, hôte arrêté",
+      "a_chercher": "Documentation IIIF ou conditions éventuelles de la visionneuse ; limites"
     },
     {
-      "url": "https://api.bl.uk/",
-      "pourquoi": "DNS : l'hôte ne se résout pas",
-      "a_chercher": "Existe-t-il encore une API publique ? Adresse actuelle"
+      "url": "https://www.bl.uk/help/how-to-reuse-images-of-unpublished-manuscripts",
+      "pourquoi": "URL citée par le champ rights des manifestes ; renvoie la page Research générique (contenu absent)",
+      "a_chercher": "Conditions de réutilisation des images, éventuelle mention d'accès automatisé"
+    }
+  ],
+  "endpoints_documentes": [
+    {
+      "famille": "Manifestes IIIF Présentation (bl.digirati.io/iiif et /manifests)",
+      "url": "https://bl.digirati.io/iiif/ark:/81055/vdc_100054718159.0x000001",
+      "statut": "teste",
+      "preuve": "institutions/british-library/tests/raw/digirati-manifeste-vdc.headers.txt"
+    },
+    {
+      "famille": "Manifeste (variante /manifests/ man_)",
+      "url": "https://bl.digirati.io/manifests/ark:/81055/man_10000006.0x000001",
+      "statut": "teste",
+      "preuve": "institutions/british-library/tests/raw/digirati-manifeste-man.headers.txt"
+    },
+    {
+      "famille": "IIIF Image API v2 et v3 (bl.digirati.io/images, /images/v3)",
+      "url": "https://bl.digirati.io/images/ark:/81055/vdc_100054718161.0x000001/info.json",
+      "statut": "teste",
+      "preuve": "institutions/british-library/tests/raw/digirati-info-v2.headers.txt"
+    },
+    {
+      "famille": "Service de vignettes (bl.digirati.io/thumbs)",
+      "url": "https://bl.digirati.io/thumbs/ark:/81055/vdc_100054718161.0x000001/info.json",
+      "statut": "teste",
+      "preuve": "institutions/british-library/tests/raw/digirati-thumbs-info.headers.txt"
+    },
+    {
+      "famille": "Visionneuse Universal Viewer (iiif.bl.uk/uv)",
+      "url": "https://iiif.bl.uk/uv/#?manifest=https://bl.digirati.io/iiif/ark:/81055/vdc_100054718159.0x000001",
+      "statut": "non_teste",
+      "raison": "iiif.bl.uk répond 403 IIS à notre client (passe1/FETCH.log) : hôte arrêté par la règle C12, et le fragment # n'est pas envoyé au serveur."
+    },
+    {
+      "famille": "Z39.50 MARC 21 (métadonnées)",
+      "url": "https://www.bl.uk/services/collection-metadata-services",
+      "statut": "non_teste",
+      "raison": "service authentifié sur identifiants fournis après accord par metadata@bl.uk, protocole non HTTP : hors périmètre IIIF et clé nécessaire."
+    }
+  ],
+  "endpoints_ecartes": [
+    {
+      "url": "https://api.bl.uk/metadata/iiif/ark:/81055/vdc_100104060212.0x000001/manifest.json",
+      "raison": "ancien hôte de manifestes cité par une source tierce, non par la doc BL ; ne se résout plus en DNS (passe1/FETCH.log)"
+    },
+    {
+      "url": "https://data.cerl.org/istc/_search",
+      "raison": "service du CERL, tiers, lié depuis la page collection ; pas une API de la BL"
+    },
+    {
+      "url": "https://bl.natbib-lod.org/",
+      "raison": "portail de données liées BNB (autre service, non IIIF) lié depuis la page collection ; hors périmètre de cet audit IIIF"
+    }
+  ],
+  "hotes_robots": [
+    {
+      "hote": "www.bl.uk",
+      "resultat": "User-Agent: * Allow: / ; pas de Crawl-delay",
+      "preuve": "institutions/british-library/sources/passe1/SHA256SUMS"
+    },
+    {
+      "hote": "iiif.bl.uk",
+      "resultat": "404 (IIS) : tout autorisé, mais la racine est en 403",
+      "preuve": "institutions/british-library/sources/passe1/SHA256SUMS"
+    },
+    {
+      "hote": "api.bl.uk",
+      "resultat": "DNS non résolu, aucun robots.txt",
+      "preuve": "institutions/british-library/sources/passe1/FETCH.log"
+    },
+    {
+      "hote": "bl.digirati.io",
+      "resultat": "404 : tout autorisé",
+      "preuve": "institutions/british-library/sources/passe4/FETCH.log"
+    },
+    {
+      "hote": "github.com",
+      "resultat": "robots.txt de GitHub lu (hôte de doc tiers)",
+      "preuve": "institutions/british-library/sources/passe1/SHA256SUMS"
     }
   ]
 }

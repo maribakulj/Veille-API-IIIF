@@ -2,51 +2,51 @@
 
 - **Dossier** : `institutions/british-library/`  ·  **Classeur de référence** : hors 84 (ajouté)  ·  **Pays** : Royaume-Uni
 - **Statut d'institution** : active
-- **Dernière mise à jour du suivi** : (à renseigner à chaque modification)
+- **Dernière mise à jour du suivi** : 2026-11-14
 
 ## Suivi par étape (à cocher, avec justification et preuves)
 
 ### a) Documentation lue en entier
 > Toutes les pages de doc liées à l'API (développeurs, interfaces, conditions, FAQ, aide, mentions légales, robots.txt), téléchargées avec `scripts/fetch_doc.sh` (URL, date, SHA-256), lues en entier (`scripts/extract_text.py`).
 
-- [ ] **Pas fait**
-  - **Justification** : Passe antérieure non conforme à la méthode v2 (AUDIT-HAIKU.md) : à refaire. Le matériel déjà présent dans ce dossier est conservé comme historique.
-  - **Preuves** : 
+- [x] **Fait**
+  - **Justification** : Doc bl.uk lue (terms, metadata services, collection, open metadata, GitHub TremendousIIIF) et robots.txt de chaque hôte ; iiif.bl.uk en 403, Wayback consulté sans capture 200.
+  - **Preuves** : `institutions/british-library/sources/passe1/SHA256SUMS`, `institutions/british-library/sources/passe2/SHA256SUMS`, `institutions/british-library/sources/passe3/SHA256SUMS`, `institutions/british-library/sources/passe4/SHA256SUMS`, `institutions/british-library/sources/wayback/iiif-bl-uk.md`
 
 ### b) Endpoints tirés de la doc
 > Liste des endpoints citée par la doc (URL, exemples). Jamais devinée. Une interdiction ou une impossibilité écrite dans la doc justifie de renoncer (citer la phrase).
 
-- [ ] **Pas fait**
-  - **Justification** : Passe antérieure non conforme à la méthode v2 (AUDIT-HAIKU.md) : à refaire. Le matériel déjà présent dans ce dossier est conservé comme historique.
-  - **Preuves** : 
+- [x] **Fait**
+  - **Justification** : Endpoints tirés des liens de la page digitised-manuscripts (manifestes bl.digirati.io) et des services d'image du manifeste ; voir data.json endpoints_documentes/ecartes.
+  - **Preuves** : `institutions/british-library/data.json`, `institutions/british-library/sources/passe3/text/03.txt`
 
 ### c) Configuration écrite AVANT les tests
 > `config/<nom>.json` pilote `scripts/probe.py`, committée avant le lancement. Un endpoint absent de la doc mais non interdit se teste avec un script poli (identifiants issus de pages publiques ou d'exemples de la doc, pas de devinette).
 
-- [ ] **Pas fait**
-  - **Justification** : Passe antérieure non conforme à la méthode v2 (AUDIT-HAIKU.md) : à refaire. Le matériel déjà présent dans ce dossier est conservé comme historique.
-  - **Preuves** : 
+- [x] **Fait**
+  - **Justification** : Deux configurations committées avant chaque lancement (passe 1 manifestes, passe 2 images), plus la configuration de crash test.
+  - **Preuves** : `institutions/british-library/config/bl-digirati-manifestes.json`, `institutions/british-library/config/bl-digirati-images.json`, `institutions/british-library/config/crash-bl-digirati.json`
 
 ### d) Quota cherché dans la doc
 > Pour chaque page lue : endpoint de statut, en-têtes de limite documentés, clé ou compte donnant un quota, contact pour un volume plus élevé. Chaque réponse cite sa source.
 
-- [ ] **Pas fait**
-  - **Justification** : Passe antérieure non conforme à la méthode v2 (AUDIT-HAIKU.md) : à refaire. Le matériel déjà présent dans ce dossier est conservé comme historique.
-  - **Preuves** : 
+- [x] **Fait**
+  - **Justification** : Quota cherché dans toutes les pages lues : aucune limite chiffrée, aucun endpoint de statut ni en-tête documenté ; interdictions de téléchargement systématique (terms art. 10.4) ; contact metadata@bl.uk.
+  - **Preuves** : `institutions/british-library/sources/passe2/text/01.txt`, `institutions/british-library/sources/passe2/text/02.txt`, `institutions/british-library/fiche.md`
 
 ### e) Test systématique de chaque endpoint
 > Chaque endpoint documenté est testé (budget 15 requêtes par passe, pause ≥ 6 s, GET/HEAD, UA du projet). Redirections du même hôte suivies. Un 403 arrête son hôte, un 429 arrête l'institution. Seules les interdictions écrites dans la doc dispensent de tester.
 
-- [ ] **Pas fait**
-  - **Justification** : Passe antérieure non conforme à la méthode v2 (AUDIT-HAIKU.md) : à refaire. Le matériel déjà présent dans ce dossier est conservé comme historique.
-  - **Preuves** : 
+- [x] **Fait**
+  - **Justification** : Familles testées : manifestes, info.json v2/v3, vignettes, image, HEAD ; iiif.bl.uk arrêté par 403, api.bl.uk DNS ; 8 requêtes sans en-tête de limite.
+  - **Preuves** : `institutions/british-library/tests/journal.log`, `institutions/british-library/tests/raw/digirati-manifeste-vdc.headers.txt`, `institutions/british-library/tests/raw/digirati-info-v2.headers.txt`
 
 ### f) Ce que disent les gens sur le web
 > Plaintes, discussions, présentations de l'institution, politique envers les API et les bots, blogs, GitHub, forums, listes de diffusion. Sources étiquetées (officielle / institution / utilisateur / tiers), lues, citées.
 
-- [ ] **Pas fait**
-  - **Justification** : Passe antérieure non conforme à la méthode v2 (AUDIT-HAIKU.md) : à refaire. Le matériel déjà présent dans ce dossier est conservé comme historique.
-  - **Preuves** : 
+- [x] **Fait**
+  - **Justification** : 4 recherches web (une par catégorie), deux originaux tiers lus (training.iiif.io) ; aucune plainte ni ticket trouvés pour la BL.
+  - **Preuves** : `institutions/british-library/fiche.md`, `institutions/british-library/data.json`
 
 ### g) Crash test progressif
 > Seulement après l'audit complet (a à f) de toutes les institutions et avec l'accord de Marcel : paliers jusqu'à 2 × la limite documentée, ou 200 req/min si illimité ou sans limite documentée. Arrêt au premier 429/403/CAPTCHA.
@@ -60,9 +60,9 @@
 
 <!-- AUTO:DEBUT -->
 ## Contrôles automatiques (calculés depuis `tests/journal.log`)
-- Requêtes enregistrées : **1** (sessions de sonde : 0, maximum par session : 0)
-- Plus courte pause vers un même hôte : **—** (règle : ≥ 6 s)
-- Méthodes utilisées : GET (règle : GET/HEAD seulement)
+- Requêtes enregistrées : **11** (sessions de sonde : 2, maximum par session : 6)
+- Plus courte pause vers un même hôte : **6 s** (règle : ≥ 6 s)
+- Méthodes utilisées : GET, HEAD (règle : GET/HEAD seulement)
 - Anomalies : aucune
 <!-- AUTO:FIN -->
 
