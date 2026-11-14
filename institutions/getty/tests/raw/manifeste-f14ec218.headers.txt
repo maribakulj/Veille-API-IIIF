@@ -1,0 +1,19 @@
+2026-11-14T02:16:01Z GET https://media.getty.edu/iiif/manifest/f14ec218-f9c4-403c-8421-449c2e8530f2
+HTTP 200
+content-type: application/json; charset=utf-8
+transfer-encoding: chunked
+connection: keep-alive
+server: envoy
+date: Sat, 14 Nov 2026 02:16:01 GMT
+access-control-allow-origin: *
+x-varnish: 1869494
+via: 1.1 varnish (Varnish/6.5), 1.1 ab53e702b8e47433720e4402b160be84.cloudfront.net (CloudFront)
+cache-control: max-age=1800
+accept-ranges: bytes
+x-envoy-upstream-service-time: 10
+vary: Accept-Encoding
+x-cache: Miss from cloudfront
+x-amz-cf-pop: MXP64-P2
+x-amz-cf-id: eDiUz0uSJCU6tPZds1GT1cPy5DEiZK5VQ1xjVkZDNLt41ca28goDig==
+age: 0
+content-disposition: 

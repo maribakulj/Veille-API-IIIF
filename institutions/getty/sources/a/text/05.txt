@@ -1,0 +1,162 @@
+Getty API Documentation 
+ Skip to content 
+ Site Navigation 
+ API Documentation 
+ Getty Museum Collection / Revision History
+ Information about changes to the schema and structure of the Museum's APIs
+ back to Getty Museum Collection 
+ Version 1.3 - March 21, 2022 
+ Summary 
+ First Public Release 
+ This was the final clean-up pass of the data, removing some old mappings and data, adding new information, and tidying up for public release. 
+ Deprecation Notes 
+ Removed the original Relationship model for object hierarchies—it has been superceded by the part / part_of relationships, and was never valid CIDOC-CRM. 
+ Removed Educational Resources from object records. They will be re-added via explicit relationships in the ID Manager once the data has been vetted. 
+ Added 
+ Added Gallery Descriptions and Titles 
+ Added Exhibition Descriptions 
+ Added classifications for fragmentary objects 
+ Added URLS for bibliographic citations when available 
+ Added explicit sort orders for objects 
+ Version 1.2 - November 29, 2021 
+ Summary 
+ This revision was primarily focused on managing complex objects, mapping the hierarchies of part relationships for manuscripts, shards, and other objects that are made up of other objects. 
+ There was also improvements to provenance—both incorporating newly minted AAT terms that superceded our custom terms, adding Lught numbers, and adding dates to find spot records. 
+ This also added in Markdown versions of formatted text to facilitate reuse in non-HTML environments. 
+ Deprecation Notes 
+ The HTML version of Artist Biographies and Object Descriptions are now deprecated, replaced with Markdown versions. Both remain for now, but the Markdown version should be used going forward. 
+ Added 
+ Added hierarchial relationships for objects using part and part_of properties, as well as classifying which kind using Object Record Structure Types . 
+ Added slugs as new identifer types to all entities, classified as Slug Identifier 
+ Added additional metadata around NEPIP statements 
+ Added date information to Place Found 
+ Added Lught numbers to Person records when available 
+ Provided Object Descriptions and Artist Biographies as Markdown formatted texts 
+ Deprecated Classifications 
+ We continue to improve our classifications as new AAT terms are added and as we try and make our internal terms more consistent. We have done so in a backwards-compatible way, leaving the previous classifications in the data, but marking them as "deprecated" within the data. 
+ If you are using any of the terms below, please update them with the new term. 
+ Classification Name Previous URL New URL 
+ Provenance Sale Note https://data.getty.edu/local/thesaurus/provenance-sale-note http://vocab.getty.edu/aat/300444172 
+ Provenance Remarks https://data.getty.edu/local/thesaurus/provenance-remarks http://vocab.getty.edu/aat/300444173 
+ Provenance Statement https://data.getty.edu/local/thesaurus/provenance-statement http://vocab.getty.edu/aat/300444174 
+ Provenance Location https://data.getty.edu/local/thesaurus/provenance-location http://vocab.getty.edu/aat/300444175 
+ Version 1.1 - April 1, 2021 
+ Summary 
+ This revision was focused on improving our presentation of rights within the API. We added explicit rights statements to written content within the API that cannot be released under the CC0 license that the rest of our data falls under. 
+ The other major addition was that we added references to every image connected to an object, and provide the Collection Online preferred ordering for those objects. They are included as references to our Media API, which lets us use a consistent pattern for images from any of our many collections (or even images that aren't part of a collection!) 
+ We also added lots of links to other resources about the objects, including educational resources and essays. 
+ Deprecation Notes 
+ In a future version, we intend to reduce the pixel size returned for the representative image within the object record to avoid serving extremely large images by default. The syntax will not change—just the size of the returned image. 
+ Added 
+ Added references to each media image for object, along with their display ordering. 
+ Added a rights statement and a citable acknowledgments statement to Object Descriptions. 
+ Added a rights statement and a citable acknowledgments statement to Artist/Maker Biographies. 
+ Added Related Works for objects. 
+ Added Related Media for objects. 
+ Added Related Education Resources for objects. 
+ Added Bibliographic Citations for objects. 
+ Added Bibliographic Resources for objects. 
+ Added Curatorial Essays for objects. 
+ Added Previous Attributions for objects. 
+ Added the InformationObject type to the conforms_to` property of IIIF Manifests 
+ Added the IIIF Manifest classification to IIIF Manifests. 
+ Added Exhibition venue Activity display date labels. 
+ Added Exhibition venue names, classified as Common Names , and venue locations, classified as Place Names . These supplement the existing Exhibition venue display string, which combined them. 
+ Added Compound Names and Preferred Term as classifications for Exhibition venue display names. 
+ Added Exhibition Spaces as a classification on Exhibition Venues. 
+ Added Producer Name Prefix, Name, Suffix, and Nationality & Dates, classified as Common Names , and venue locations, classified as Producer Name Prefix , Producer Name , Producer Name Suffix , and Producer Nationality & Dates . These supplement the existing Producer description string, which combined them. 
+ Added a Nationality Statement for People and Groups, classified as Nationality . 
+ Added a Nationality & Dates Statement for People and Groups as Nationality & Dates Statement . 
+ Added Preferred Term as a classification to the "Gallery Name" for Galleries. 
+ Added Standard Credit Line as a classification to the “standard” Object Credit Line. 
+ Added Preferred Term as a classification to the Curatorial Department Name for department names. 
+ Fixed 
+ Dates with years in the range -999 ≥ 0 ≤ 999 are now correctly padded to four digits. 
+ IIIF Manifest URLs no longer end in .json, eliminating an un-needed redirect. 
+ Bibliographic resource documents are now correctly typed as LinguisticObject , not as a Identity . 
+ All labels for entity types in the Activity Stream now match their internal types. Previously, objects and exhibitions had incorrect labels, though the correct type URL. 
+ Deprecated Classifications 
+ We continue to improve our classifications as new AAT terms are added and as we try and make our internal terms more consistent. We have done so in a backwards-compatible way, leaving the previous classifications in the data, but marking them as "deprecated" within the data. 
+ If you are using any of the terms below, please update them with the new term. 
+ Classification Name Previous URL New URL 
+ DOR Integer Identifier local/thesaurus/dor-id 
+ DOR UUID local/thesaurus/dor-uuid 
+ TMS Integer Identifier local/thesaurus/tms-id 
+ Curatorial Essay museum/ontology/linked-data/media/curatorial-essay local/thesaurus/curatorial-essay 
+ Birth Place Description museum/ontology/linked-data/person/birth-place-description local/thesaurus/birth-place-description 
+ Rights Statement museum/ontology/linked-data/object/rights-statement local/thesaurus/rights-statement 
+ Place Depicted museum/ontology/linked-data/tms/object/place/depicted local/thesaurus/place-depicted 
+ Place Found museum/ontology/linked-data/tms/object/place/found local/thesaurus/place-found 
+ Producer Description museum/ontology/linked-data/tms/object/producer-description local/thesaurus/producer-description 
+ Unknown Maker (Concept) museum/ontology/linked-data/tms/object/unknown-maker local/thesaurus/unknown-maker 
+ Artist/Maker Role Statement museum/ontology/linked-data/object/artist-maker-role-statement local/thesaurus/artist-maker-role-statement 
+ Death Place Description museum/ontology/linked-data/person/death-place-description local/thesaurus/death-place-description 
+ Birth Date Description museum/ontology/linked-data/person/birth-date-description local/thesaurus/birth-date-description 
+ Death Date Description museum/ontology/linked-data/person/death-date-description local/thesaurus/death-date-description 
+ Life Dates Description museum/ontology/linked-data/person/life-dates-description local/thesaurus/life-dates-description 
+ Pavilion Mnemonic museum/ontology/linked-data/tms/pavilion-mnemonic local/thesaurus/pavilion-mnemonic 
+ Pavilion Name museum/ontology/linked-data/tms/pavilion-name local/thesaurus/pavilion-name 
+ Building Mnemonic museum/ontology/linked-data/tms/building-mnemonic local/thesaurus/building-mnemonic 
+ Building Name museum/ontology/linked-data/tms/building-name local/thesaurus/building-name 
+ Floor Mnemonic museum/ontology/linked-data/tms/floor-mnemonic local/thesaurus/floor-mnemonic 
+ Floor Name museum/ontology/linked-data/tms/floor-name local/thesaurus/floor-name 
+ Room Mnemonic museum/ontology/linked-data/tms/room-mnemonic local/thesaurus/room-mnemonic 
+ Room Name museum/ontology/linked-data/tms/room-name local/thesaurus/room-name 
+ Getty Manuscript Number museum/ontology/linked-data/tms/object/number/manuscript http://vocab.getty.edu/aat/300404013 
+ Footer
+ Social Navigation
+ See all 
+ Footer Primary Navigation 
+ Visit 
+ What’s On 
+ Explore Art 
+ Research & Conservation 
+ Funding 
+ About 
+ Getty Center
+ Address
+ 1200 Getty Center Drive, Los Angeles, CA 90049 
+ Getty Villa
+ Address
+ 17985 Pacific Coast Highway, Pacific Palisades, CA 90272 
+ Site Map Navigation
+ Books and Publications 
+ Getty Publications 
+ Virtual Library 
+ Digital Publishing 
+ Getty Research Journal 
+ Getty Store 
+ Education 
+ Events and Programs 
+ K-12 Resources 
+ School Visits 
+ Art and Research 
+ Getty Library 
+ Art Collection 
+ Research Collections 
+ Tools & Databases 
+ Open Content Program 
+ Opportunities 
+ Jobs 
+ Docents & Volunteers 
+ Join & Give 
+ Conservation 
+ Conservation Institute Projects 
+ Museum Conservation 
+ Publications and Resources 
+ Funding Opportunities 
+ Paid Internships 
+ Library Research Grants 
+ Residential Grants 
+ Funding Initiatives 
+ News and Contact 
+ News & Stories 
+ Press Room 
+ E-Newsletters 
+ Contact & Connect 
+ © J. Paul Getty Trust 
+ Accessibility 
+ Sustainability 
+ Privacy Policy 
+ Cookies Notice 
+ Terms of Use

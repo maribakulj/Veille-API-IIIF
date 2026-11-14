@@ -1,0 +1,168 @@
+API - UNT Digital Library 
+ Skip to main content 
+ Menu 
+ University Libraries 
+ UNT Digital Library 
+ University Libraries Site Links 
+ About the UNT Libraries 
+ Libraries: Research 
+ Libraries: Services 
+ Libraries: Spaces 
+ Libraries: News 
+ Libraries: Calendar 
+ Site Search Options">
+ Site Search Options 
+ Search
+ Guided Search 
+ Advanced Search 
+ Proximity Search 
+ Searching Help 
+ Explore 
+ Overview 
+ Collections 
+ Partners 
+ Titles 
+ Locations 
+ Resource Types 
+ Dates 
+ Tour 
+ About 
+ Overview 
+ Purpose 
+ Collaboration 
+ Technology 
+ Policies 
+ Statistics 
+ API 
+ Help 
+ Accessibility 
+ Contact Us 
+ Home 
+ Collections 
+ Partners 
+ Titles 
+ Locations 
+ Types 
+ Dates 
+ Explore 
+ Overview 
+ Collections 
+ Partners 
+ Titles 
+ Locations 
+ Resource Types 
+ Dates 
+ About 
+ Overview 
+ Purpose 
+ Collaboration 
+ Technology 
+ Policies 
+ Statistics 
+ API 
+ Help 
+ Accessibility 
+ Contact Us 
+ Tour 
+ Contact Us 
+ You Are Here:
+ University Libraries 
+ UNT Digital Library 
+ About 
+ API 
+ UNT Digital Library API 
+ Overview
+ UNT Digital Library provides public access to a number of Application Programming Interfaces (APIs) to the collections within the system. Below are examples of APIs available for this site that can be used openly by those interested in programmatically accessing data from this system. You do not need to apply for a special key to use these APIs.
+ For additional information about these APIs or if you have general questions about machine interaction with UNT Digital Library please contact Mark Phillips .
+ Note that all example URLs below use the same protocol and server name, 
+ https://digital.library.unt.edu/
+ .
+ We only show the URL paths and parameters below to save space.
+ Note, there are dedicated API pages for each collection and partner within the Digital Library. Instructions and special features are linked from each collection or partner's 'about' page.
+ OAI-PMH
+ The Open Archives Initiative's Protocol for Metadata Harvesting (OAI-PMH) allows programmatic access to this site's metadata. Two metadata formats are currently supported, the standard oai_dc and the UNT Libraries native metadata format untl.
+ Below are example URLs which demonstrate some of the standard views of this OAI-PMH repository:
+ oai/ 
+ base URL for OAI-PMH repository 
+ oai/?verb=Identify 
+ Display information about this repository 
+ oai/?verb=ListMetadataFormats 
+ List available metadata formats 
+ oai/?verb=ListSets 
+ List available sets 
+ oai/?verb=ListRecords&metadataPrefix=oai_dc 
+ Display records in the oai_dc metadata format 
+ oai/?verb=ListRecords&metadataPrefix=untl 
+ Display records in the untl metadata format 
+ International Image Interoperability Framework (IIIF)
+ The International Image Interoperability Framework (IIIF) is a set of Application Programming Interfaces (APIs) for making image-based collections available in a variety of viewers and applications.
+ This site implements the IIIF Presentation API for individual collections and partners through their respective API pages.
+ In addition to the IIIF Collection level Manifest, each object is made available using the IIIF Presentation API. By adding "manifest" to the end of the URL you can access the IIIF JSON that further links to other resources available in the object.
+ Here is an example URL that will return the JSON file for a IIIF Presentation Manifest.
+ https://digital.library.unt.edu/ark:/67531/metapth12412/ manifest/ 
+ RSS/ATOM Feeds
+ If you are interested in following along with new additions to the site you can subscribe to one of its feeds. We make use of the ATOM Syndication Format for our feeds.
+ New Item Feed - feed/ 
+ OpenSearch
+ OpenSearch is a search protocol which enables simple full-text searches to be performed on this site's content. The availability of this protocol is advertised in a LINK header element of the site's HTML template as "Search ," using this OpenSearch Description document.
+ A human-readable stylesheet has been added to help demonstrate searches via OpenSearch. You can see this interface at the following url. 
+ search/opensearch/ 
+ Custom Search
+ A custom search can be embedded on your local sites to query UNT Digital Library. You can copy and paste this code into the page you'd like to feature this search form. Note, you may need to adjust the HTML to match your site's branding/style guidelines.
+<!-- Start of Custom Search code -->
+<form role="search" method="GET" action="https://digital.library.unt.edu/search/">
+ <label for="q">Search - UNT Digital Library</label>
+ <input type="text" name="q" />
+ <input type="hidden" name="t" value="fulltext" />
+ <input type="hidden" name="source" value="custom" />
+ <input type="submit" value="submit" />
+</form>
+<!-- End of Custom Search code -->
+ Copy Custom Search Code
+ Thumbnails
+ Each item in this site has a convenient way of obtaining the thumbnail image. This is accomplished by appending /thumbnail/ to the end of an objects ARK URL. For example: 
+ https://digital.library.unt.edu/ark:/67531/metapth12412/thumbnail/ 
+ The response will be application/jpeg containing a thumbnail for the item requested.
+ About
+ About Us Overview 
+ Purpose 
+ Collaboration 
+ Technology 
+ Policies 
+ Statistics 
+ API 
+ API Overview 
+ OAI-PMH 
+ IIIF 
+ OpenSearch 
+ Custom Search 
+ Thumbnails 
+ Help 
+ Accessibility 
+ Contact Us 
+ Get in Touch
+ Questions / Feedback 
+ Report Problems 
+ Follow Along
+ New Items (RSS)
+ News
+ Additional Resources
+ The Portal to Texas History
+ A gateway to rare, historical, and primary source materials from or about Texas.
+ Gateway to Oklahoma History
+ Historic newspapers digitized from across the Red River.
+ UNT Digital Projects Unit
+ For partners and peer institutions seeking information about standards, project requests, and our services.
+ Research @ The UNT Libraries
+ Links and search tools for all of the collections and resources available from UNT.
+ Get Updates in Your Inbox
+ Sign up for our periodic e-mail newsletter, and get news about our collections, new partnerships, information on research, trivia, awards, and more.
+ Subscribe Now
+ External Links
+ UNT Libraries 
+ Terms 
+ Privacy 
+ Accessibility 
+ State of Texas Online 
+ Updated: Friday, Nov 06, 2026 
+ Back to Top of Screen

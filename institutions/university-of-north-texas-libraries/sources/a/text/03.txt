@@ -1,0 +1,175 @@
+Texas Digital Newspaper Program - API - The Portal to Texas History 
+ Skip to main content 
+ Menu
+ The Portal to Texas History
+ Home
+ Tour
+ About
+ Overview
+ History
+ Collaboration
+ Endowment
+ Technology
+ Policies
+ Harmful Content Statement
+ Help
+ Accessibility
+ Contact Us
+ News
+ Statistics
+ API
+ Explore
+ Overview
+ Collections
+ Partners
+ Locations
+ Subjects
+ Resource Types
+ Dates
+ Titles
+ Search
+ Submit
+ Guided Search
+ Advanced Search
+ Proximity Search
+ Searching Help
+ You Are Here:
+ Home 
+ Explore 
+ Collections 
+ Texas Digital Newspaper Program 
+ Api 
+ Texas Digital Newspaper Program - API 
+ Overview
+ The Portal to Texas History provides public access to a number of Application Programming Interfaces (APIs) to the collections within the system. Below are examples of APIs available for Texas Digital Newspaper Program that can be used openly by those interested in programmatically accessing data from this system. You do not need to apply for a special key to use these APIs.
+ For additional information about these APIs or if you have general questions about machine interaction with The Portal to Texas History please contact Mark Phillips .
+ Note that all example URLs below use the same protocol and server name, 
+ https://texashistory.unt.edu/explore/collections/TDNP/
+ .
+ We only show the URL paths and parameters below to save space.
+ OAI-PMH
+ The Open Archives Initiative's Protocol for Metadata Harvesting (OAI-PMH) allows programmatic access to this collection's metadata. Two metadata formats are currently supported, the standard oai_dc and the UNT Libraries native metadata format untl.
+ Below are example URLs which demonstrate some of the standard views of this OAI-PMH repository:
+ oai/ 
+ base URL for OAI-PMH repository 
+ oai/?verb=Identify 
+ Display information about this repository 
+ oai/?verb=ListMetadataFormats 
+ List available metadata formats 
+ oai/?verb=ListSets 
+ List available sets 
+ oai/?verb=ListRecords&metadataPrefix=oai_dc 
+ Display records in the oai_dc metadata format 
+ oai/?verb=ListRecords&metadataPrefix=untl 
+ Display records in the untl metadata format 
+ International Image Interoperability Framework (IIIF)
+ The International Image Interoperability Framework (IIIF) is a set of Application Programming Interfaces (APIs) for making image-based collections available in a variety of viewers and applications.
+ This site's implementation of the IIIF Presentation API makes items from this collection available for other applications.
+ Access to the IIIF Presentation API for this collection can be found here . 
+ In addition to the IIIF Collection level Manifest for this collection each object is made available using the IIIF Presentation API. By adding `manifest` to the end of the URL you can access the IIIF JSON that further links to other resources available in the object.
+ Here is an example URL that will return the JSON file for a IIIF Presentation Manifest.
+ https://texashistory.unt.edu/ark:/67531/metapth12412/ manifest/ 
+ RSS/ATOM Feeds
+ If you are interested in following along with new additions to the collection you can subscribe to one of its feeds. We make use of the ATOM Syndication Format for our feeds.
+ New Item Feed - feed/ 
+ Recent Edit Feed - edit-feed/ 
+ OpenSearch
+ OpenSearch is a search protocol which enables simple full-text searches to be performed on this collection's content. The availability of this protocol is advertised in a LINK header element of the site's HTML template as "Search Texas Digital Newspaper Program," using this OpenSearch Description document.
+ A human-readable stylesheet has been added to help demonstrate searches via OpenSearch. You can see this interface at the following url. 
+ opensearch/ 
+ Custom Search
+ A custom search can be embedded on your local sites to query The Portal to Texas History. You can copy and paste this code into the page you'd like to feature this search form. Note, you may need to adjust the HTML to match your site's branding/style guidelines.
+<!-- Start of Custom Search code -->
+<form role="search" method="GET" action="https://texashistory.unt.edu/explore/collections/TDNP/browse/">
+ <label for="q">Search - Texas Digital Newspaper Program - The Portal to Texas History</label>
+ <input type="text" name="q" />
+ <input type="hidden" name="t" value="fulltext" />
+ <input type="hidden" name="source" value="custom" />
+ <input type="submit" value="submit" />
+</form>
+<!-- End of Custom Search code -->
+ Copy Custom Search Code
+ Thumbnails
+ Each item in this collection has a convenient way of obtaining the thumbnail image. This is accomplished by appending /thumbnail/ to the end of an objects ARK URL. For example: 
+ https://texashistory.unt.edu/ark:/67531/metapth12412/thumbnail/ 
+ The response will be application/jpeg containing a thumbnail for the item requested.
+ Identifiers
+ A convenient way to obtain a list of all identifiers for a given Texas Digital Newspaper Program is available by appending /identifiers/ to the base of the collection URL.
+ identifiers/ 
+ The response will be application/txt containing one ARK identifier per line.
+ Titles
+ A convenient way to obtain a list of all titles for the Texas Digital Newspaper Program is to append 'titles.txt' to the base of the collection URL. The response will be application/txt containing one title per line.
+ titles.txt 
+ A JSON formatted response is also available by appending 'titles.json'. In addition to the title, a link to the search results for just that title in the system and the number of items associated with that title are given. An optional callback parameter can be used if needed.
+ titles.json?callback=foo 
+ About this Collection
+ Overview 
+ At a Glance 
+ Latest Additions 
+ Cite This Collection 
+ Explore Holdings 
+ Contact Us 
+ Items 
+ Titles 
+ Dates 
+ Locations 
+ Statistics 
+ API 
+ API Overview 
+ OAI-PMH 
+ IIIF 
+ Feeds 
+ OpenSearch 
+ Custom Search 
+ Thumbnails 
+ Share
+ Email 
+ Twitter 
+ Facebook 
+ Tumblr 
+ Reddit 
+ Search this Collection
+ Search Inside 
+ Feed 
+ Get in Touch
+ Questions / Feedback
+ Report Problems
+ Follow Along
+ New Items (RSS)
+ News
+ Facebook
+ Additional Resources
+ Texas History for Teachers
+ K-12 lesson plans, tools, and other help for history teachers.
+ Gateway to Oklahoma History
+ Historic newspapers digitized from across the Red River.
+ UNT Digital Library
+ UNT's history and scholarship, library special collections, plus a
+ large collection of U.S. government documents.
+ UNT Digital Projects Unit
+ For partners and peer institutions seeking information about
+ standards, project requests, and our services.
+ Harmful Content Statement
+ Some content on this site may be difficult to view. Read more
+ about this topic here.
+ Make a Donation
+ We've created an
+ endowment
+ to improve everyone's access to primary sources online.
+ Your support aids students of all ages, rural communities,
+ as well as independent and professional researchers.
+ Donate Now
+ Get Updates in Your Inbox
+ Sign up for our periodic e-mail newsletter, and get news about our
+ collections, new partnerships, information on research, trivia,
+ awards, and more.
+ Subscribe Now
+ External Links
+ UNT Libraries
+ Terms
+ Privacy
+ Accessibility
+ State of Texas Online
+ Updated:
+ Monday, Nov 09, 2026
+ Back to Top of Screen

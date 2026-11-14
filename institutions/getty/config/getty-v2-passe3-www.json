@@ -1,0 +1,15 @@
+{
+  "slug": "getty",
+  "min_delay_s": 6,
+  "max_requests": 15,
+  "follow_redirects": 1,
+  "robots_disallow_autorise_par_marcel": true,
+  "note": "v2 passe 3 : site www.getty.edu (pages de conditions et de l'initiative Open Data and APIs, citées par la doc). Déjà lues en direct par fetch_doc ; une requête de sonde pour observer les en-têtes.",
+  "endpoints": [
+    {
+      "id": "www-open-data-apis",
+      "method": "GET",
+      "url": "https://www.getty.edu/projects/open-data-apis"
+    }
+  ]
+}

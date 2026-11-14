@@ -1,0 +1,259 @@
+GitHub - unt-libraries/django-altcha-middleware: Proof-of-work bot deterrent for Django sites using provided middleware to cover whole site or decorator to cover specific views. Uses ALTCHA. · GitHub 
+ Skip to content 
+ Navigation Menu
+ Sign in 
+ Products Platform GitHub Repository hosting, code review, and collaboration 
+ Copilot AI coding agent for tasks, projects, and automated work 
+ Build & Ship Actions CI/CD and automation 
+ Code Quality Quality analysis, fixes, and enforcement 
+ Codespaces Cloud development environments 
+ Secure Code Security Vulnerability detection and remediation 
+ Secret Protection Secret scanning and leak prevention 
+ All Features 
+ Developers Learn Documentation 
+ Training 
+ Certifications 
+ Build Build with Copilot 
+ Customize Copilot 
+ Integrations 
+ Explore Trending repos 
+ GitHub Sponsors 
+ Developer articles 
+ Changelog Changelog Your source for the latest features, improvements, and fixes across GitHub products, all in one place. 
+ Businesses By Stage Enterprises 
+ Team 
+ Startups 
+ Nonprofits 
+ By Industry Healthcare 
+ Financial services 
+ Manufacturing 
+ Government 
+ See all industries 
+ Evaluate GitHub Why GitHub 
+ Customer Stories 
+ Business insights 
+ Trust Center 
+ Add-ons GitHub Advanced Security Enterprise-grade code security 
+ Copilot for business Enterprise-grade AI features 
+ Premium Support Enterprise-grade 24/7 support 
+ Resources Learn & Connect Documentation 
+ Resource center 
+ Blog 
+ Events & webinars 
+ Community Forum 
+ Customer Stories 
+ Integrations 
+ Support Customer support 
+ Training 
+ GitHub Status 
+ Company About 
+ Partners 
+ Changelog 
+ GitHub Universe GitHub Universe The event for developers, by developers — talks, workshops, and what’s next for GitHub. 
+ Pricing 
+ Search / 
+ Sign in 
+ Sign up Appearance settings
+ You signed in with another tab or window. Reload to refresh your session. 
+ You signed out in another tab or window. Reload to refresh your session. 
+ You switched accounts on another tab or window. Reload to refresh your session. 
+ Dismiss alert 
+ {{ message }}
+ unt-libraries 
+ django-altcha-middleware 
+ Repository navigation
+ Code 
+ Issues 1  ( 1 ) 
+ Pull requests 
+ Actions 
+ Projects 
+ Security and quality 
+ Insights 
+ More items 
+ django-altcha-middleware 
+ Public 
+ Notifications You must be signed in to change notification settings 
+ Fork 0  ( 0 ) 
+ Star 1  ( 1 ) You must be signed in to star a repository 
+ About 
+ Proof-of-work bot deterrent for Django sites using provided middleware to cover whole site or decorator to cover specific views. Uses ALTCHA.
+ Resources 
+ Readme 
+ BSD-3-Clause license 
+ Activity 
+ Custom properties 
+ Stars 
+ 1 star 
+ Watchers 
+ 1 watching 
+ Forks 
+ 0 forks 
+ Report repository 
+ main 
+ Branches Tags 
+ Go to file 
+ Code Open more actions menu 
+ Latest commit
+ History
+ 87 Commits 
+ 87 Commits 
+ Folders and files
+ Name Name Last commit message 
+ Last commit date 
+ .github/ workflows 
+ .github/ workflows 
+ dam 
+ dam 
+ tests 
+ tests 
+ .gitignore 
+ .gitignore 
+ CHANGELOG.md 
+ CHANGELOG.md 
+ LICENSE.txt 
+ LICENSE.txt 
+ MANIFEST.in 
+ MANIFEST.in 
+ README.md 
+ README.md 
+ manage.py 
+ manage.py 
+ pyproject.toml 
+ pyproject.toml 
+ View all files 
+ Repository files navigation
+ README 
+ BSD-3-Clause license 
+ More items 
+ Django Altcha Middleware
+ About
+ Django-altcha-middleware (dam) is meant to be a proof-of-work deterrent for bots.
+This Django app uses Altcha to create a challenge for protected pages that is solved
+by using cryptographic functions to find a hidden number. Once a user successfully
+solves a challenge (done automatically by the browser, no user input required), they
+will not be challenged again for a period defined by ALTCHA_AUTH_EXPIRE_MINUTES. This app
+may be used to protect an entire site by using the provided middleware, or only certain
+views by using the provided decorator.
+ Requirements
+ Python 3.9-3.14
+ Django 4.2-6.1
+ Installation
+ To install this app into your existing Django project:
+ Install the django-altcha-middleware package into your Python installation
+(if using a virtual environment, for instance, activate it first):
+ $ pip install git+https://github.com/unt-libraries/django-altcha-middleware 
+ Within your project's settings file, add dam to your Django project's INSTALLED_APPS list and
+define ALTCHA_HMAC_KEY , ALTCHA_HMAC_KEY_SECRET , and ALTCHA_COST , as well as the other settings
+if you'd like to override their default values (shown below):
+ INSTALLED_APPS = [
+ ...,
+ 'dam' ,
+]
+ ALTCHA_HMAC_KEY = 'something' # REQUIRED: Secret string used for challenges. 
+ ALTCHA_HMAC_KEY_SECRET = 'something-else' # REQUIRED: Enables fast server-side verification without re-deriving the key. 
+ ALTCHA_COST = 2_500 # REQUIRED: The exact amount of key derivations required by the client. Determines how much time/effort is required. 
+ ALTCHA_AUTO = 'onload' # Determines when the client's browser starts solving the challenge. Value should be one of the following strings: 'off', 'onfocus', 'onload', or 'onsubmit'. 
+ ALTCHA_AUTH_EXPIRE_MINUTES = 480 # Minutes the user is authorized for after solving a challenge. 
+ ALTCHA_CHALLENGE_EXPIRE_MINUTES = 2 # Minutes before a given challenge expires. 
+ ALTCHA_SESSION_KEY = 'altcha_verified' # Session key name that tracks successful challenges. 
+ ALTCHA_SITE_ICON_URL = '' # Where to find the site icon for use on the challenge page. 
+ ALTCHA_JS_URL = ( f' { STATIC_URL } altcha/' # Where to find the altcha widget JS. 
+ 'altcha.min.js' )
+ ALTCHA_CSS_URL = f' { STATIC_URL } dam/dam.css' # Where to find the altcha widget CSS. 
+ ALTCHA_MESSAGE = ( 'Gauging your humanity...' # Message to present to users on the challenge page. 
+ 'This may take some seconds.' )
+ ALTCHA_HELP_MESSAGE = '' # Message shown on challenge page and in errors indicating how to seek help on challenge failure/error. 
+ ALTCHA_FAIL_MESSAGE = ( 'Challenge failed or no' # Message to show users when their challenge response is unsuccessful. 
+ ' longer valid.' )
+ ALTCHA_EXCLUDE_PATHS = [] # List of regular expressions (as raw strings) used to exempt URL paths from challenge. 
+ # Example: [r'^/api/.*', r'secret', r'\.json$'] 
+ # Above would exempt paths starting with '/api/', any with 'secret' in the path, and any ending in '.json' 
+ ALTCHA_EXCLUDE_IPS = [] # List of strings representing CIDRs or IPs to never challenge. 
+ ALTCHA_EXCLUDE_HEADERS = {} # Dict of HTTP header keys (case insensitive) with values to exempt from challenge. 
+ # Values should be given as raw strings as the middleware converts them to case-insensitive regex patterns. 
+ # Example: {'User-Agent': r'Googlebot|Siteimprove\.com'} 
+ Add the challenge URL to your project's urls.py module:
+ urlpatterns = [
+ ...,
+ path ( '' , include ( 'dam.urls' )),
+] 
+ Decide whether you'd like to protect individual views or your whole site.
+ If you'd like to protect your whole site with dam , then add it to your MIDDLEWARE list in
+your settings file:
+ MIDDLEWARE = [
+ ...,
+ 'dam.middleware.AltchaMiddleware' ,
+] 
+ Or, if you'd like to only protect certain views, then use the @dam decorator on them:
+ from dam . decorators import dam 
+...
+ @ dam 
+ def my_precious_view ( request ):
+ """I don't want bots crawling this page.""" 
+ ...
+ return HttpResponse ( "Can't touch this!" ) 
+ Development
+ Setup
+ Follow the steps below to set up a development environment for if you'd like to be able to test out
+the project without setting up your own Django project, run the unit tests, or make changes.
+ Clone this repo and then navigate inside of it:
+ $ git clone git@github.com:unt-libraries/django-altcha-middleware.git && cd django-altcha-middleware 
+ Set up a Python virtual environment and then activate it:
+ $ python3 -m venv env && source env/bin/activate 
+ Install the main and test requirements:
+ $ pip install -e . ' [test] ' 
+ Running the test project
+ Run the migrations (only needs to be done once unless you upgrade Django versions):
+ $ python3 manage.py migrate 
+ Start the Django test server:
+ $ python3 manage.py runserver 
+ While that is running, open your browser and you can experience the challenge page by visiting
+ http://localhost:8000/protected . The test project is set up to protect the /protected page
+(redirecting to the / challenge page until the challenge is solved, then redirecting again to
+ /protected after completing the challenge) while leaving the /open page available with no
+challenge.
+ When you are done viewing the pages, you can stop the test server with CTRL-C.
+ Running the tests
+ Install tox and run the unit tests against all available versions of Python from 3.9 - 3.14, as well as the
+Ruff lint/style checks and coverage report:
+ $ pip install tox
+$ tox 
+ Or, to just run the tests against your current versions of Python and Django, along with viewing the coverage report:
+ $ coverage run -m pytest
+$ coverage report -m 
+ License
+ See LICENSE.txt
+ Contributors
+ Lauren Ko 
+ Gio Gottardi 
+ About 
+ Proof-of-work bot deterrent for Django sites using provided middleware to cover whole site or decorator to cover specific views. Uses ALTCHA.
+ Resources 
+ Readme 
+ BSD-3-Clause license 
+ Activity 
+ Custom properties 
+ Stars 
+ 1 star 
+ Watchers 
+ 1 watching 
+ Forks 
+ 0 forks 
+ Report repository 
+ Releases 
+ Packages 
+ Contributors 
+ Languages 
+ Footer
+ © 2026 GitHub, Inc.
+ Footer navigation
+ Terms 
+ Privacy 
+ Security 
+ Status 
+ Community 
+ Docs 
+ Contact 
+ Manage cookies
+ Do not share my personal information
+ You can’t perform that action at this time.

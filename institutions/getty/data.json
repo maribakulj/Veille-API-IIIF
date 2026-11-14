@@ -2,18 +2,235 @@
   "slug": "getty",
   "nom": "Getty (Open Content / Linked Art)",
   "pays": "États-Unis",
-  "statut_audit": "partiel (ancienne méthode)",
-  "limites_documentees": [],
+  "statut_audit": "audit a–f complet (v2) ; g à faire (configuration prête)",
+  "limites_documentees": [
+    {
+      "nature": "Libre usage des données",
+      "perimetre": "API Museum Collection et Provenance Index (data.getty.edu)",
+      "valeur": "« We are providing this data without restrictions for all to enjoy. »",
+      "fenetre": "–",
+      "effet": "–",
+      "verification": "officielle, lue en entier (payload.json de la doc) ; aucune mention de limite de débit",
+      "source": "https://data.getty.edu/museum/collection/docs/",
+      "date": "2026-11-14"
+    },
+    {
+      "nature": "Conditions distinctes pour les images",
+      "perimetre": "images (IIIF) et textes avec droits",
+      "valeur": "« Images are not always available under the same terms as the dataset. »",
+      "fenetre": "–",
+      "effet": "–",
+      "verification": "officielle, lue en entier",
+      "source": "https://data.getty.edu/museum/collection/docs/",
+      "date": "2026-11-14"
+    }
+  ],
   "en_tetes_observes": [],
-  "blocages": [],
-  "contact": "MuseumCollections@getty.edu (données), rights@getty.edu (images)",
-  "conclusion_quota": "Aucun quota ni clé documenté (lecture partielle).",
+  "blocages": [
+    {
+      "hote": "media.getty.edu",
+      "code": "503",
+      "detail": "robots.txt : 503 nginx (fetch_doc 02:13 UTC et sonde 02:15 UTC) ; les ressources IIIF ont toutes répondu 200"
+    }
+  ],
+  "contact": "MuseumCollections@getty.edu (données du musée), provenanceindex@getty.edu (Provenance Index), rights@getty.edu (droits des images)",
+  "conclusion_quota": "Aucun quota, limite de débit, clé ni endpoint de statut documentés pour data.getty.edu et media.getty.edu ; données « without restrictions » (CC0 sauf images et textes sous droits) ; 19 requêtes de test sur 3 hôtes : 200 (ou 400 SPARQL sans requête), aucun 429, aucun en-tête de limite ; media.getty.edu est derrière CloudFront.",
   "classe_quota": "aucun quota trouvé",
-  "confiance": "faible",
-  "notes": "Doc tronquée à la lecture : à relire en entier.",
+  "confiance": "moyenne",
+  "notes": "Ancien audit (Haiku, 2026-11-13) remplacé : sa configuration avait été committée après le lancement, session archivée verbatim dans tests/archive/. Le robots.txt de media.getty.edu répond 503 (sonde : lancé par l'option C12). L'ID Management Service est documenté sans URL d'exemple : non testé. Pas de SPARQL avec requête (GET d'une requête non décrite par la doc).",
   "classeur_id": "GLAM-048",
   "type": "Institution",
-  "sources": [],
-  "web": [],
-  "donnees_a_revalider": true
+  "sources": [
+    {
+      "url": "https://data.getty.edu/",
+      "date": "2026-11-14",
+      "etiquette": "officielle",
+      "preuve": "institutions/getty/sources/a/SHA256SUMS"
+    },
+    {
+      "url": "https://data.getty.edu/museum/collection/docs/_payload.json",
+      "date": "2026-11-14",
+      "etiquette": "officielle",
+      "preuve": "institutions/getty/sources/a/SHA256SUMS"
+    },
+    {
+      "url": "https://data.getty.edu/provenance/docs/_payload.json",
+      "date": "2026-11-14",
+      "etiquette": "officielle",
+      "preuve": "institutions/getty/sources/a2/SHA256SUMS"
+    },
+    {
+      "url": "https://data.getty.edu/tools/id_manager/docs/_payload.json",
+      "date": "2026-11-14",
+      "etiquette": "officielle",
+      "preuve": "institutions/getty/sources/a2/SHA256SUMS"
+    },
+    {
+      "url": "https://www.getty.edu/legal/terms-of-use/",
+      "date": "2026-11-14",
+      "etiquette": "officielle",
+      "preuve": "institutions/getty/sources/a/SHA256SUMS"
+    },
+    {
+      "url": "https://www.getty.edu/projects/open-data-apis",
+      "date": "2026-11-14",
+      "etiquette": "officielle",
+      "preuve": "institutions/getty/sources/a/SHA256SUMS"
+    },
+    {
+      "url": "https://www.getty.edu/robots.txt",
+      "date": "2026-11-14",
+      "etiquette": "officielle",
+      "preuve": "institutions/getty/sources/a/SHA256SUMS"
+    }
+  ],
+  "web": [
+    {
+      "categorie": "institution",
+      "url": "https://data.getty.edu/museum/collection/docs/",
+      "date": "2026-11-14",
+      "etiquette": "officielle",
+      "citation": "« We are providing this data without restrictions for all to enjoy. »",
+      "preuve": "institutions/getty/sources/a/SHA256SUMS"
+    },
+    {
+      "categorie": "utilisateurs",
+      "url": "http://www.navigating.art/education/open-access-2026",
+      "date": "2026-11-14",
+      "etiquette": "tiers (article lu)",
+      "citation": "« The Getty's collection is publicly accessible without any API key » ; rien sur des limites de débit ni des blocages",
+      "preuve": "institutions/getty/fiche.md"
+    },
+    {
+      "categorie": "tickets",
+      "aucun_resultat": true,
+      "requete": "github issue media.getty.edu iiif download \"429\" OR \"403\" OR \"rate limit\" Getty images scraper",
+      "date": "2026-11-14",
+      "etiquette": "–",
+      "citation": "aucun ticket concernant media.getty.edu ou data.getty.edu ; les 429 trouvés concernent Getty Images (service commercial distinct) et d'autres sites (résumé de moteur, non vérifié)",
+      "preuve": "institutions/getty/fiche.md"
+    },
+    {
+      "categorie": "presentations",
+      "url": "https://www.getty.edu/news/30000-getty-museum-images-published-iiif/",
+      "date": "2026-11-14",
+      "etiquette": "institution (résumé de moteur, non vérifié)",
+      "citation": "annonce de 2017 : plus de 30 000 images du musée publiées en IIIF ; pas de politique de débit ; présentation IIIF 2024 « Connecting IIIF and Semantic Cultural Heritage Metadata for Discovery » signalée (non lue)",
+      "preuve": "institutions/getty/fiche.md"
+    }
+  ],
+  "donnees_a_revalider": true,
+  "a_verifier_manuellement": [
+    {
+      "url": "https://media.getty.edu/robots.txt",
+      "pourquoi": "503 à chaque lecture, alors que les endpoints IIIF répondent 200",
+      "a_chercher": "vérifier depuis un navigateur si un robots.txt existe et s'il contient un Crawl-delay"
+    },
+    {
+      "url": "https://data.getty.edu/tools/id_manager/docs/",
+      "pourquoi": "ID Management Service : doc sans URL d'exemple d'API",
+      "a_chercher": "URL de l'API de requête et éventuelle limite"
+    }
+  ],
+  "endpoints_documentes": [
+    {
+      "famille": "Museum Collection REST Linked Art + ActivityStreams",
+      "url": "https://data.getty.edu/museum/collection/object/e099dc86-c28e-4ad0-8b02-d7d258caec56",
+      "statut": "teste",
+      "preuve": "institutions/getty/tests/raw/objet-e099dc86.headers.txt"
+    },
+    {
+      "famille": "Museum Collection SPARQL (et sparql-ui)",
+      "url": "https://data.getty.edu/museum/collection/sparql",
+      "statut": "teste",
+      "preuve": "institutions/getty/tests/raw/sparql-sans-requete.headers.txt"
+    },
+    {
+      "famille": "Provenance Index REST et ActivityStreams",
+      "url": "https://data.getty.edu/provenance/activity-stream",
+      "statut": "teste",
+      "preuve": "institutions/getty/tests/raw/provenance-activity-stream.headers.txt"
+    },
+    {
+      "famille": "Provenance Index SPARQL",
+      "url": "https://data.getty.edu/provenance/sparql",
+      "statut": "teste",
+      "preuve": "institutions/getty/tests/raw/provenance-sparql.headers.txt"
+    },
+    {
+      "famille": "IIIF Presentation (manifestes)",
+      "url": "https://media.getty.edu/iiif/manifest/53be857e-41e8-4198-b45d-2e0f52d3051b",
+      "statut": "teste",
+      "preuve": "institutions/getty/tests/raw/manifeste-53be857e.headers.txt"
+    },
+    {
+      "famille": "IIIF Image (info.json et dérivé 600 px)",
+      "url": "https://media.getty.edu/iiif/image/8c1874d7-6a1b-46a1-9cd6-0651ecc50cdd/info.json",
+      "statut": "teste",
+      "preuve": "institutions/getty/tests/raw/info-8c1874d7.headers.txt"
+    },
+    {
+      "famille": "ID Management Service (liens entre identifiants)",
+      "url": "https://data.getty.edu/tools/id_manager/docs/",
+      "statut": "non_teste",
+      "raison": "la doc décrit l'API (REST, bibliothèque Python) sans donner d'URL d'exemple ni d'identifiant ; on ne devine pas d'endpoint (méthode v2)"
+    },
+    {
+      "famille": "LinkedArt JavaScript Library",
+      "url": "https://data.getty.edu/",
+      "statut": "non_teste",
+      "raison": "bibliothèque JavaScript locale, pas un service réseau : aucun endpoint à interroger"
+    }
+  ],
+  "endpoints_ecartes": [
+    {
+      "url": "https://www.getty.edu/legal/copyright.html#collection",
+      "raison": "page de conditions d'usage du site, pas une API (redirigée vers legal/terms-of-use, lue en entier)"
+    },
+    {
+      "url": "https://static.getty.edu/contexts/linked.art/ns/v1.1.0/linked-art.json",
+      "raison": "contexte JSON-LD statique cité dans les réponses, pas une API de données du musée"
+    },
+    {
+      "url": "https://www.getty.edu/databases-tools-and-technologies/provenance/",
+      "raison": "page descriptive du Provenance Index, pas une API"
+    },
+    {
+      "url": "https://data.getty.edu/local/thesaurus/iiif-manifest",
+      "raison": "identifiant de vocabulaire (classification) cité dans la doc, pas un endpoint d'API"
+    },
+    {
+      "url": "https://www.getty.edu/art/collection/search?open_content=true",
+      "raison": "interface de recherche HTML du site Collection en ligne (page web, pas l'API documentée) ; non lancée : recherche"
+    },
+    {
+      "url": "https://www.getty.edu/project-files/iiif_getty_research_report.pdf",
+      "raison": "rapport PDF de recherche cité par une page, document et non API"
+    },
+    {
+      "url": "https://www.getty.edu/research/collections/search?is_open_content=true",
+      "raison": "interface de recherche HTML du site Research Collections, pas l'API documentée ; non lancée : recherche"
+    },
+    {
+      "url": "https://www.getty.edu/search/",
+      "raison": "moteur de recherche HTML du site, pas une API ; non lancé : recherche"
+    }
+  ],
+  "hotes_robots": [
+    {
+      "hote": "data.getty.edu",
+      "resultat": "404 (NoSuchKey) : pas de robots.txt, tout autorisé",
+      "preuve": "institutions/getty/sources/a/SHA256SUMS"
+    },
+    {
+      "hote": "media.getty.edu",
+      "resultat": "503 à chaque lecture : indisponible ; sonde lancée avec robots_disallow_autorise_par_marcel",
+      "preuve": "institutions/getty/sources/a/SHA256SUMS"
+    },
+    {
+      "hote": "www.getty.edu",
+      "resultat": "Disallow /cgi-bin, /slampoets, /research/collections/mirador/ ; Yeti : /art/collection/ ; AhrefsBot interdit ; pas de Crawl-delay",
+      "preuve": "institutions/getty/sources/a/SHA256SUMS"
+    }
+  ]
 }
