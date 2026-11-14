@@ -1,0 +1,17 @@
+{
+  "slug": "utrecht-university-library",
+  "min_delay_s": 6,
+  "max_requests": 15,
+  "follow_redirects": 1,
+  "robots_disallow_autorise_par_marcel": true,
+  "note": "v2 passe 1 : IIIF de objects.library.uu.nl. URL tirées de la page 'About IIIF' du lecteur (sources/doc2/raw/03.html). robots.txt de objects.library.uu.nl interdit /manifest et /fcgi-bin/iipsrv.fcgi : test autorisé par Marcel (C12). Pas de Crawl-delay dans les robots.txt lus.",
+  "endpoints": [
+    {"id": "p1-manifest-v2", "method": "GET", "url": "https://objects.library.uu.nl/manifest/iiif/v2/1874-309349", "save_body": 2000000},
+    {"id": "p1-manifest-v3", "method": "GET", "url": "https://objects.library.uu.nl/manifest/iiif/v3/1874-309349"},
+    {"id": "p1-image-info", "method": "GET", "url": "https://objects.library.uu.nl/fcgi-bin/iipsrv.fcgi?IIIF=/manifestation/viewer/16/02/19/160219835246961184091063990636348658778jp2/info.json"},
+    {"id": "p1-image-150", "method": "GET", "url": "https://objects.library.uu.nl/fcgi-bin/iipsrv.fcgi?IIIF=/manifestation/viewer/16/02/19/160219835246961184091063990636348658778jp2/full/150,/0/default.jpg"},
+    {"id": "p1-fulltext-head", "method": "HEAD", "url": "https://objects.library.uu.nl/download/1874-309349/fulltext"},
+    {"id": "p1-pdf-head", "method": "HEAD", "url": "https://objects.library.uu.nl/download/1874-309349/pdf"},
+    {"id": "p1-metadata", "method": "GET", "url": "https://objects.library.uu.nl/reader/1874-309349/metadata"}
+  ]
+}

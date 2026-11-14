@@ -1,0 +1,58 @@
+IIPImage 
+ Skip to content 
+ Main Navigation 
+ About 
+ Blog 
+ Demos 
+ Documentation 
+ Getting Started 
+ Server 
+ Images 
+ Protocol 
+ IIIF 
+ Image Security 
+ Viewers 
+ IIPMooViewer 
+ IIPZoom 
+ Troubleshooting 
+ Analytics 
+ History 
+ Links 
+ Download 
+ Contact 
+ About
+ About
+ IIPImage is an advanced high-performance feature-rich image server system for web-based streamed viewing and zooming of ultra high-resolution images. It is designed to be fast and bandwidth-efficient with low processor and memory requirements. The system can comfortably handle gigapixel size images as well as advanced image features such as 8, 16 and 32 bits per channel, CIELAB colorimetric images and scientific imagery such as multispectral images and digital elevation maps. 
+ Streaming is tile-based, making it possible to view, navigate and zoom in real-time around gigapixel size images that would be impossible to download and manipulate on the local machine. It also makes the system very scalable as the number of image tile downloads will remain the same regardless of the size of the source image.
+ Source input images can be in either TIFF, JPEG2000 or JPEG format. Whole images or regions within images can also be rapidly and dynamically resized and exported by the server from a single source image without the need to store multiple files in various sizes.
+ IIPMooViewer 2.0 with streamed 14400 x 9600 pixel image
+ See demo page to see some more examples of use. IIPImage is used around the world by a wide variety of users including museums, scientific imaging, astronomy, medical imaging, geographical information systems and many many others. See also our links page for examples or read more about the history of IIPImage.
+ Features
+ Fast lightweight FastCGI server that can be used with any FCGI-capable web server ( Apache , IIS , Lighttpd , Nginx etc) or used standalone
+ Instant dynamic generation of overviews or details at any resolution
+ Allows easy viewing of extremely large images (terabyte size) with low processor and memory requirements
+ One single image source file, not thousands of small separate files
+ TIFF input support (tiled pyramid multi-resolution TIFF)
+ JPEG2000 input support
+ 1, 2, 4, 6, 8, 16 or 32 bits (both fixed and floating point) per channel image handling
+ Grayscale, sRGB and CIE L*a*b* color spaces
+ ICC profile support
+ JPEG, PNG, WebP, AVIF or TIFF output
+ Multispectral imaging
+ Image stacks
+ Image blending
+ Multiple client APIs with support for the IIP , IIIF , Zoomify and DeepZoom APIs
+ Dynamic watermarking
+ Support for Memcached , a distributed memory object caching system
+ Secure image distribution: only compressed derivative views of the image are sent to the client. The full-resolution image does not need to be accessible
+ Panoramic 3D object image sequences
+ Latest News
+ See the blog for the latest news, tutorials, guest posts and more!
+ Latest articles: New Official APT Repository: Faster Access to the Latest IIPImage Releases for Debian & Ubuntu , Version 1.3 of the IIPImage Server Released , Alpine Linux , TIFF Image Encoding: Optimizing for Size, Speed and Quality , OME-TIFF Whole Slide Microscopy , Image Comparison of Ancient Mummy Portraits: The Appear Project , IIIF – The International Image Interoperability Framework , IIPImage Case Study: National Gallery of Art, Washington , The Cranach Digital Archive and Using IIPImage to serve dynamic responsive images .
+ Follow the latest IIPImage news also via Twitter , our Facebook page or subscribe to our RSS news feed or subscribe to news by email .
+ Finding Out More
+ To find out more, see the documentation. See this overview to help you get started. 
+ Download
+ The IIPImage server and viewers can be downloaded from the Download section .
+ IIPImage 
+ Copyright © 2026 Ruven Pillay. All Rights Reserved.

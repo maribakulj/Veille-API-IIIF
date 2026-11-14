@@ -1,0 +1,154 @@
+Handleidingen
+Gebruik van de nieuwe viewer Mirador op onze website. .............................................................................................................................................................. 1
+   Viewer menu ............................................................................................................................................................................................................................... 2
+   Object menu in de viewer............................................................................................................................................................................................................ 6
+Workarounds IIIF viewer Inleiding ............................................................................................................................................
+   1 Bladeren in een boek of atlas met de pijlen op een aangesloten toetsenbord........................................................................................................................ 7
+   2 Exporteren en importeren van een sessie ................................................................................................................................................................................ 7
+
+
+
+
+Gebruik van de nieuwe viewer Mirador op onze website.
+Sinds 2 augustus 2024 gebruiken we Mirador als onze standaard reader en viewer. Op 17 september 2025 is een vernieuwde website met deze viewer
+in gebruik genomen, die met name de overzichtelijkheid en ruimte in het leesvenster vergroot.
+
+In dit document een overzicht en korte uitleg van het Viewer menu en het Object menu.
+Er wordt uitgegaan van de taal instelling in het Mirador menu Nederlands, als u het menu liever in het Engels gebruikt en behoefte heeft aan de
+Engelse termen leest u dan de Engelstalige versie
+
+Als u vragen heeft over deze handleiding of onze library.objects.uu.nl website, stuur ze dan naar ubu.fb.digitalisering@uu.nl
+Viewer menu
+
+
+
+
+              Met het plusje kunt u bij Voeg bron toe
+
+
+
+              Een extra IIIF manifest url (bron) toevoegen,
+              zodat een tweede publicatie getoond kan
+              worden.
+              Een andere IIIF url (bron) kan opgehaald worden
+              door de publicatie in een ander venster op te
+              zoeken daarna op de menuknop IIIF te klikken
+              en daar het bovenste Manifest url adres te
+              kopiëren
+Keer daarna terug naar het venster waarin u de
+tweede url wilt gebruiken zodat u werken kunt
+gaan zien in één venster en plak de url
+
+
+
+
+Plak de gekopieerde url in het tekstveld en klik
+op ‘Voeg toe’
+
+
+Om de beide werken zichtbaar te maken in het
+venster van de viewer moet er wel op het object
+geklikt worden in dit venster ‘Voeg bron toe’
+daarna ziet u ook beide objecten dit is ook te
+zien in het pictogram ‘Ga naar venster, deze zal
+
+van 1    naar 2 gaan           én zo verder als u
+meer bronnen toevoegt.
+
+
+
+Workspace instellingen hieronder een uitleg
+welke instellingen dat zijn
+Met verberg of toon zoomknoppen stelt u in of
+deze zichtbaar zijn in het leesvenster of niet.
+
+
+
+
+Er staat een goede uitleg bij, door beide typen
+uit te proberen kunt u ondervinden wat voor u
+goed werkt.
+
+
+
+
+Taal van het menu van de IIIF viewer instellen,
+dit geldt dan ook voor het menu van het object.
+Het object zelf blijft in de oorspronkelijke taal.
+Deze optie wijst zichzelf, door beide typen uit te
+proberen kunt u ondervinden wat voor u goed
+werkt.
+
+
+
+Bied de mogelijkheid IIIFmanifest urls bij elkaar
+te hergebruiken. Zie de IIIF viewer Opties
+handleidingen om te lezen hoe dit gebruikt kan
+worden binnen onze site
+Volledig scherm, om weer terug te keren naar
+normale weergave klikt u op
+
+     Verlaat volledig scherm of de Esc knop op
+uw toetsenbord
+ Object menu in de
+viewer
+
+
+
+
+                     Het object menu opent en / of sluit
+
+                     Informatie over het geopende object
+
+                     Licentie informatie over het getoonde object
+
+                     De index in de weergave kan gekozen worden uit:
+                     (in Nederlandstalige IIIFviewer instelling)
+
+                                          Compacte lijst
+                     of
+                                           Lijst Thumbnails
+
+
+                     Alleen als een publicatie annotaties heeft dan is er dit pictogram te zien. Door er op te klikken worden de annotaties
+                     zichtbaar. Tweetalig. Het Engelstalige en dan het Nederlandstalige
+Nieuwe en bijzondere functies
+Binnen de nieuwe viewer (landing pagina van alle gedigitaliseerde werken) https://objects.library.uu.nl
+zijn er een aantal aspecten die anders werken of heel nieuw zijn.
+1 is een functionaliteit die in de voormalige bladeraar mogelijk was maar by design niet in de IIIF viewer kan: bladeren m.b.v. de pijltjes op het toetsenbord
+2 een functionaliteit die binnen objects niet werkt namelijk het zonder handelingen zelf te verrichten kunnen exporteren en importeren van de workspace.
+Dit is vooral nuttig als een sessie meerdere resources bevatte waar je op een ander moment verder mee wil werken.
+3 een functionaliteit om de huidige pagina (image) te kunnen delen in het menu.
+
+1 Bladeren in een boek of atlas met de pijlen op een aangesloten toetsenbord
+De IIIF viewer Mirador werkt met de eigen pijltjes in het eigen viewer menu. Het werkt niet met de pijlen op een, op uw pc, laptop of tablet aangesloten
+toetsenbord.
+Wilt u toch graag klikken met de pijlen op uw toetsenbord dan komt de volgende methode dicht in de buurt van die wens. Ga met de muis naar de pijl met
+de blader richting die u op wilt. De functie pagina vooruit of pagina achteruit moet met de muis geselecteerd worden maar kan daarna bediend worden met
+de entertoets op uw toetsenbord.
+
+
+
+2 Exporteren en importeren van een sessie
+Het exporteren en importeren van de workspace, is nuttig als een sessie meerdere resources bevat waar je op een ander moment verder mee wil werken.
+Mirador zelf kan dat niet opslaan. Het exporteren gaat als volgt:
+
+    • Klik op de 3 horizontake puntjes in het menu van de viewer … Export workspace,
+    • klik op copy
+    • Open een source code editor, bijvoorbeeld Notepad ++ (gratis te downloaden en te gebruiken, ik ga in deze instructie verder uit van Notepad ++)
+    • Plak de data in een nieuw bestand en klik op menu Syntaxis
+    • Klik onder de J op JSON
+    • De data veranderen van kleur vanwege gewijzigde code
+    • Sla het bestand op met een titel waardoor u de sessie herkent als u deze weer wil importeren.
+Het importeren werkt als volgt:
+
+    •   Navigeer naar het JSON bestand die u had opgeslagen en open deze met Notepad++
+    •   Selecteer alles in het bestand en kopieer
+•   Open een object op https://objects.library.uu.nl
+•   Klik op de 3 horizontake puntjes in het menu van de viewer … Import workspace
+•   Plak de gekopieerde tekst en klik op Import
+•   Klik op de blauwe cirkel met het witte + teken
+•   Klik daar op de objecten die u in uw werkvenster wil zien
+•   Ze verschijnen in het venster van de viewer en het aantal actieve objecten wordt aangegeven in het pictogram ‘Ga naar venster’, het pictogram
+    onder de blauwe cirkel met het witte + teken.
+
