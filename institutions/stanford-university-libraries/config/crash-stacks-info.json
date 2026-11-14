@@ -1,0 +1,12 @@
+{
+  "slug": "stanford-university-libraries",
+  "endpoint": {
+    "id": "stacks-info-json",
+    "url": "https://stacks.stanford.edu/image/iiif/wy323vc0101%2F36105115643962_0002/info.json",
+    "method": "GET"
+  },
+  "limite_documentee_req_min": null,
+  "source_limite": "aucune limite de débit documentée (https://api.library.stanford.edu/docs/iiif/api/ et /docs/digital-stacks/api/ : aucune mention)",
+  "duree_palier_s": 180,
+  "note": "info.json d'image IIIF 2 sur stacks.stanford.edu, 200 dans le journal (stacks-info-json, 2026-11-14T02:04:21Z), réponse de quelques centaines d'octets."
+}
