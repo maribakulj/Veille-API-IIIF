@@ -2,51 +2,51 @@
 
 - **Dossier** : `institutions/university-leeds-cultural-collections/`  ·  **Classeur de référence** : GLAM-066  ·  **Pays** : Royaume-Uni
 - **Statut d'institution** : active
-- **Dernière mise à jour du suivi** : (à renseigner à chaque modification)
+- **Dernière mise à jour du suivi** : 2026-11-14
 
 ## Suivi par étape (à cocher, avec justification et preuves)
 
 ### a) Documentation lue en entier
 > Toutes les pages de doc liées à l'API (développeurs, interfaces, conditions, FAQ, aide, mentions légales, robots.txt), téléchargées avec `scripts/fetch_doc.sh` (URL, date, SHA-256), lues en entier (`scripts/extract_text.py`).
 
-- [ ] **Pas fait**
-  - **Justification** : Pas encore traitée : l'audit suit l'ordre du classeur de référence (une institution à la fois).
-  - **Preuves** : 
+- [x] **Fait**
+  - **Justification** : robots.txt de chaque hôte lus, page d'item via Wayback (403), support d'atelier, actualité et notice de la bibliothèque ; aucune doc d'API officielle trouvée.
+  - **Preuves** : `institutions/university-leeds-cultural-collections/sources/doc/SHA256SUMS`, `institutions/university-leeds-cultural-collections/sources/wayback/explore-372687-20241224.md`, `institutions/university-leeds-cultural-collections/sources/web/SHA256SUMS`
 
 ### b) Endpoints tirés de la doc
 > Liste des endpoints citée par la doc (URL, exemples). Jamais devinée. Une interdiction ou une impossibilité écrite dans la doc justifie de renoncer (citer la phrase).
 
-- [ ] **Pas fait**
-  - **Justification** : Pas encore traitée : l'audit suit l'ordre du classeur de référence (une institution à la fois).
-  - **Preuves** : 
+- [x] **Fait**
+  - **Justification** : Familles Presentation 3, Image 2/3, miniatures tirées du manifeste d'exemple de l'atelier ; catalogue explore non testé (403) ; voir data.json.
+  - **Preuves** : `institutions/university-leeds-cultural-collections/data.json`, `institutions/university-leeds-cultural-collections/sources/doc/text/05.txt`
 
 ### c) Configuration écrite AVANT les tests
 > `config/<nom>.json` pilote `scripts/probe.py`, committée avant le lancement. Un endpoint absent de la doc mais non interdit se teste avec un script poli (identifiants issus de pages publiques ou d'exemples de la doc, pas de devinette).
 
-- [ ] **Pas fait**
-  - **Justification** : Pas encore traitée : l'audit suit l'ordre du classeur de référence (une institution à la fois).
-  - **Preuves** : 
+- [x] **Fait**
+  - **Justification** : Configurations passe1-manifeste.json et passe2-images.json écrites et committées avant chaque lancement (commits dédiés).
+  - **Preuves** : `institutions/university-leeds-cultural-collections/config/passe1-manifeste.json`, `institutions/university-leeds-cultural-collections/config/passe2-images.json`
 
 ### d) Quota cherché dans la doc
 > Pour chaque page lue : endpoint de statut, en-têtes de limite documentés, clé ou compte donnant un quota, contact pour un volume plus élevé. Chaque réponse cite sa source.
 
-- [ ] **Pas fait**
-  - **Justification** : Pas encore traitée : l'audit suit l'ordre du classeur de référence (une institution à la fois).
-  - **Preuves** : 
+- [x] **Fait**
+  - **Justification** : Aucun quota, en-tête, clé ou endpoint de statut dans les pages lues ; contact courriel trouvé ; voir fiche.
+  - **Preuves** : `institutions/university-leeds-cultural-collections/fiche.md`, `institutions/university-leeds-cultural-collections/sources/web/text/02.txt`
 
 ### e) Test systématique de chaque endpoint
 > Chaque endpoint documenté est testé (budget 15 requêtes par passe, pause ≥ 6 s, GET/HEAD, UA du projet). Redirections du même hôte suivies. Un 403 arrête son hôte, un 429 arrête l'institution. Seules les interdictions écrites dans la doc dispensent de tester.
 
-- [ ] **Pas fait**
-  - **Justification** : Pas encore traitée : l'audit suit l'ordre du classeur de référence (une institution à la fois).
-  - **Preuves** : 
+- [x] **Fait**
+  - **Justification** : 6 requêtes IIIF en 200 sans en-tête de limite sur 2 passes ; catalogue explore non testé (403 Cloudflare), noté dans data.json.
+  - **Preuves** : `institutions/university-leeds-cultural-collections/tests/journal.log`
 
 ### f) Ce que disent les gens sur le web
 > Plaintes, discussions, présentations de l'institution, politique envers les API et les bots, blogs, GitHub, forums, listes de diffusion. Sources étiquetées (officielle / institution / utilisateur / tiers), lues, citées.
 
-- [ ] **Pas fait**
-  - **Justification** : Pas encore traitée : l'audit suit l'ordre du classeur de référence (une institution à la fois).
-  - **Preuves** : 
+- [x] **Fait**
+  - **Justification** : 4 catégories : institution, présentations et tickets lues ; utilisateurs sans résultat avec requête consignée ; voir data.json.
+  - **Preuves** : `institutions/university-leeds-cultural-collections/fiche.md`, `institutions/university-leeds-cultural-collections/data.json`
 
 ### g) Crash test progressif
 > Seulement après l'audit complet (a à f) de toutes les institutions et avec l'accord de Marcel : paliers jusqu'à 2 × la limite documentée, ou 200 req/min si illimité ou sans limite documentée. Arrêt au premier 429/403/CAPTCHA.
@@ -60,7 +60,7 @@
 
 <!-- AUTO:DEBUT -->
 ## Contrôles automatiques (calculés depuis `tests/journal.log`)
-- Requêtes enregistrées : **2** (sessions de sonde : 1, maximum par session : 2)
+- Requêtes enregistrées : **7** (sessions de sonde : 2, maximum par session : 5)
 - Plus courte pause vers un même hôte : **6 s** (règle : ≥ 6 s)
 - Méthodes utilisées : GET (règle : GET/HEAD seulement)
 - Anomalies : aucune

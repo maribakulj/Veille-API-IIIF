@@ -1,0 +1,20 @@
+2026-11-14T02:40:55Z GET https://iiif.library.leeds.ac.uk/image/hbzcdj81_objects_LEEUA_1999.015.119_01.tif/info.json
+HTTP 200
+content-type: application/ld+json; profile="http://iiif.io/api/image/3/context.json"
+content-length: 1068
+connection: keep-alive
+date: Sat, 14 Nov 2026 02:40:55 GMT
+x-cache-hits: 0
+server: Kestrel
+cache-control: public, max-age=86400, s-maxage=86400
+x-correlation-id: fd88bb75-2baa-4b82-af2e-63851ececc5f
+x-asset-id: 4/5/hbzcdj81_objects_LEEUA_1999.015.119_01.tif
+access-control-allow-origin: *
+x-varnish: 3277964
+via: 1.1 varnish (Varnish/7.1), 1.1 4224c492a5822573d353a8fd476a5122.cloudfront.net (CloudFront)
+accept-ranges: bytes
+vary: Accept-Encoding,Accept
+x-cache: Miss from cloudfront
+x-amz-cf-pop: MXP63-P3
+x-amz-cf-id: rNpHAoPbkmnVdQruSYngNS_Sn4MWjt1JV8Hwzp_HTREYzqDJMQnt0w==
+age: 0

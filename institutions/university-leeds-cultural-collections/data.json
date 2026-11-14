@@ -4,10 +4,223 @@
   "pays": "Royaume-Uni",
   "classeur_id": "GLAM-066",
   "type": "Institution",
-  "statut_audit": "à faire",
-  "limites_documentees": [],
+  "statut_audit": "méthode v2 complète sauf g (configuration crash prête) ; explore.library.leeds.ac.uk en 403 Cloudflare",
+  "limites_documentees": [
+    {
+      "nature": "Signal de contenu robots.txt (pas un quota)",
+      "perimetre": "explore.library.leeds.ac.uk",
+      "valeur": "search=yes, ai-train=yes, use=reference ; agents d'IA « utilisateur » interdits",
+      "fenetre": "–",
+      "effet": "interdiction de robots nommés (Claude-User, ChatGPT-User, FireCrawl…)",
+      "verification": "officielle, robots.txt lu",
+      "source": "https://explore.library.leeds.ac.uk/robots.txt",
+      "date": "2026-11-14"
+    }
+  ],
   "en_tetes_observes": [],
-  "blocages": [],
-  "sources": [],
-  "web": []
+  "blocages": [
+    {
+      "date": "2026-11-14",
+      "hote": "explore.library.leeds.ac.uk",
+      "code": "403",
+      "nature": "défi Cloudflare « Just a moment... » sur /special-collections-explore/372687 à 02:39:38Z",
+      "suite": "hôte arrêté ; catalogue non testé ; page lue via Wayback (capture 2024-12-24)"
+    }
+  ],
+  "sources": [
+    {
+      "url": "https://explore.library.leeds.ac.uk/robots.txt",
+      "date": "2026-11-14",
+      "etiquette": "officielle",
+      "preuve": "institutions/university-leeds-cultural-collections/sources/doc/SHA256SUMS"
+    },
+    {
+      "url": "https://iiif.library.leeds.ac.uk/robots.txt",
+      "date": "2026-11-14",
+      "etiquette": "officielle (404)",
+      "preuve": "institutions/university-leeds-cultural-collections/sources/doc/SHA256SUMS"
+    },
+    {
+      "url": "https://library.leeds.ac.uk/robots.txt",
+      "date": "2026-11-14",
+      "etiquette": "officielle (200, vide)",
+      "preuve": "institutions/university-leeds-cultural-collections/sources/doc/SHA256SUMS"
+    },
+    {
+      "url": "https://explore.library.leeds.ac.uk/special-collections-explore/372687",
+      "date": "2026-11-14",
+      "etiquette": "officielle (403 ; lue via Wayback)",
+      "preuve": "institutions/university-leeds-cultural-collections/sources/wayback/explore-372687-20241224.md"
+    },
+    {
+      "url": "https://imc-leeds-2025.pages.dev/examples-of-iiif-to-explore",
+      "date": "2026-11-14",
+      "etiquette": "tiers (atelier IMC Leeds 2025)",
+      "preuve": "institutions/university-leeds-cultural-collections/sources/doc/SHA256SUMS"
+    },
+    {
+      "url": "https://library.leeds.ac.uk/news/article/310/dive-deeper-into-our-collections-with-new-tech",
+      "date": "2026-11-14",
+      "etiquette": "institution (actualité 2025-05-28)",
+      "preuve": "institutions/university-leeds-cultural-collections/sources/web/SHA256SUMS"
+    },
+    {
+      "url": "https://library.leeds.ac.uk/info/1500/special-collections/182/searching-and-browsing-special-collections-is-temporarily-unavailable",
+      "date": "2026-11-14",
+      "etiquette": "institution (notice)",
+      "preuve": "institutions/university-leeds-cultural-collections/sources/web/SHA256SUMS"
+    }
+  ],
+  "web": [
+    {
+      "categorie": "institution",
+      "url": "https://library.leeds.ac.uk/news/article/310/dive-deeper-into-our-collections-with-new-tech",
+      "date": "2025-05-28",
+      "etiquette": "institution (actualité de la bibliothèque)",
+      "citation": "« Thanks to the introduction of IIIF (International Image Interoperability Framework) our catalogue records have a new look with improved functionality. » (aucune mention de quota ni de politique de moissonnage)",
+      "preuve": "institutions/university-leeds-cultural-collections/sources/web/text/01.txt"
+    },
+    {
+      "categorie": "presentations",
+      "url": "https://imc-leeds-2025.pages.dev/examples-of-iiif-to-explore",
+      "date": "2026-11-14",
+      "etiquette": "tiers (support d'atelier IMC Leeds 2025 de l'université)",
+      "citation": "« https://iiif.library.leeds.ac.uk/presentation/cc/hbzcdj81 (Sketch by Marie Hartley, \"The Blacksmith made all the hinges and snecks\") » (manifeste d'exemple ; aucune règle de débit)",
+      "preuve": "institutions/university-leeds-cultural-collections/sources/doc/text/05.txt"
+    },
+    {
+      "categorie": "tickets",
+      "url": "https://github.com/uol-library/eprints-iiif-manifest/issues",
+      "date": "2026-11-14",
+      "etiquette": "institution (GitHub de l'université)",
+      "citation": "Page des tickets du dépôt uol-library/eprints-iiif-manifest lue : aucun ticket sur des 429/403 ; recherche de tickets tiers sur iiif.library.leeds.ac.uk : aucun résultat (moteur, non vérifié)",
+      "preuve": "institutions/university-leeds-cultural-collections/sources/web/text/03.txt"
+    },
+    {
+      "categorie": "utilisateurs",
+      "aucun_resultat": true,
+      "requete": "\"iiif.library.leeds.ac.uk\" OR \"explore.library.leeds.ac.uk\" 403 OR 429 OR blocked OR \"too many requests\" harvest manifest",
+      "date": "2026-11-14",
+      "etiquette": "–",
+      "citation": "Aucune plainte d'utilisateur sur Leeds trouvée (résumé de moteur, non vérifié) ; seule une notice de panne du catalogue, sans rapport avec un quota.",
+      "preuve": "institutions/university-leeds-cultural-collections/sources/web/text/02.txt"
+    }
+  ],
+  "contact": "specialcollections@library.leeds.ac.uk (indiqué par la page « Contact Cultural Collections » de library.leeds.ac.uk)",
+  "conclusion_quota": "Aucun quota, en-tête ni doc d'API trouvés. iiif.library.leeds.ac.uk (CloudFront, Digirati) répond 200 à 6 requêtes sans en-tête de limite ; le site de recherche explore.library.leeds.ac.uk est derrière Cloudflare et a renvoyé un défi 403 à notre client (non testé, non contourné).",
+  "classe_quota": "aucun quota trouvé (403 anti-bot Cloudflare sur le catalogue)",
+  "confiance": "moyenne",
+  "notes": "Le manifeste donné en exemple vient d'une page d'atelier IMC Leeds 2025 (tiers, pages.dev), pas d'une doc officielle d'API. Le défi Cloudflare est survenu à la 3e requête vers explore (page d'item), après robots.txt 200 (robots.txt : Allow / pour *, certains agents d'IA interdits). Contact courriel lu sur la page de notice.",
+  "a_verifier_manuellement": [
+    {
+      "url": "https://explore.library.leeds.ac.uk/special-collections-explore/372687",
+      "pourquoi": "403 Cloudflare reçu ; page lue via Wayback (capture 2024-12-24) sans lien de manifeste visible",
+      "a_chercher": "emplacement du lien de manifeste IIIF et du lien Mirador sur la page d'item, et toute règle de moissonnage"
+    }
+  ],
+  "endpoints_documentes": [
+    {
+      "famille": "IIIF Presentation 3 : manifeste /presentation/cc/{id}",
+      "url": "https://iiif.library.leeds.ac.uk/presentation/cc/hbzcdj81",
+      "statut": "teste",
+      "preuve": "institutions/university-leeds-cultural-collections/tests/raw/p1-manifeste-hbzcdj81.headers.txt"
+    },
+    {
+      "famille": "IIIF Image API 3 : /image/{id}/info.json",
+      "url": "https://iiif.library.leeds.ac.uk/image/hbzcdj81_objects_LEEUA_1999.015.119_01.tif/info.json",
+      "statut": "teste",
+      "preuve": "institutions/university-leeds-cultural-collections/tests/raw/p2-image-v3-info.headers.txt"
+    },
+    {
+      "famille": "IIIF Image API 2 : /image/v2/{id}/info.json",
+      "url": "https://iiif.library.leeds.ac.uk/image/v2/hbzcdj81_objects_LEEUA_1999.015.119_01.tif/info.json",
+      "statut": "teste",
+      "preuve": "institutions/university-leeds-cultural-collections/tests/raw/p2-image-v2-info.headers.txt"
+    },
+    {
+      "famille": "Miniatures /thumbs/{id}",
+      "url": "https://iiif.library.leeds.ac.uk/thumbs/hbzcdj81_objects_LEEUA_1999.015.119_01.tif/info.json",
+      "statut": "teste",
+      "preuve": "institutions/university-leeds-cultural-collections/tests/raw/p2-thumbs-info.headers.txt"
+    },
+    {
+      "famille": "Dérivé image (full/200,151)",
+      "url": "https://iiif.library.leeds.ac.uk/thumbs/hbzcdj81_objects_LEEUA_1999.015.119_01.tif/full/200,151/0/default.jpg",
+      "statut": "teste",
+      "preuve": "institutions/university-leeds-cultural-collections/tests/raw/p2-thumbs-derive.headers.txt"
+    },
+    {
+      "famille": "Catalogue Explore (pages d'item /special-collections-explore/{id})",
+      "url": "https://explore.library.leeds.ac.uk/special-collections-explore/372687",
+      "statut": "non_teste",
+      "raison": "hôte arrêté : 403 Cloudflare « Just a moment... » reçu à 02:39:38Z ; pas de contournement ; page lue via Wayback",
+      "preuve": "institutions/university-leeds-cultural-collections/sources/doc/raw/03.html"
+    },
+    {
+      "famille": "Collection IIIF Digirati de l'atelier (presentation-api.dlcs-trial.digirati.io)",
+      "url": "https://presentation-api.dlcs-trial.digirati.io/176/leeds-imc/university-of-leeds-medieval-manuscripts",
+      "statut": "non_teste",
+      "raison": "service d'essai de Digirati (domaine tiers dlcs-trial), pas une API de l'université ; non contacté, pas d'hôte tiers hors périmètre",
+      "preuve": "institutions/university-leeds-cultural-collections/sources/doc/text/05.txt"
+    }
+  ],
+  "endpoints_ecartes": [
+    {
+      "url": "https://iiif.library.leeds.ac.uk/presentation/cc/fbw7jt45",
+      "raison": "deuxième manifeste d'exemple de la même famille Presentation que le manifeste testé (même service) ; non interrogé pour limiter le trafic"
+    },
+    {
+      "url": "https://iiif.library.leeds.ac.uk/presentation/cc/mh4cf1hy",
+      "raison": "troisième manifeste d'exemple de la même famille Presentation que le manifeste testé ; non interrogé pour limiter le trafic"
+    },
+    {
+      "url": "https://iiif.wellcomecollection.org/presentation/b18035723",
+      "raison": "manifeste de la Wellcome cité en exemple dans la page d'atelier : autre institution, déjà auditée à part"
+    },
+    {
+      "url": "https://iiif.wellcomecollection.org/presentation/collections/archives/MS.1978",
+      "raison": "manifeste de la Wellcome cité en exemple dans la page d'atelier : autre institution, déjà auditée à part"
+    },
+    {
+      "url": "https://library.leeds.ac.uk/search",
+      "raison": "formulaire de recherche du site de la bibliothèque (page HTML citée dans la navigation des pages lues), pas une API IIIF de l'institution"
+    }
+  ],
+  "hotes_robots": [
+    {
+      "hote": "iiif.library.leeds.ac.uk",
+      "resultat": "robots.txt : 404, tout autorisé",
+      "preuve": "institutions/university-leeds-cultural-collections/sources/doc/SHA256SUMS"
+    },
+    {
+      "hote": "explore.library.leeds.ac.uk",
+      "resultat": "robots.txt 200 : Allow / pour *, Content-Signal ai-train=yes, plusieurs agents d'IA « utilisateur » interdits ; pas de Crawl-delay",
+      "preuve": "institutions/university-leeds-cultural-collections/sources/doc/SHA256SUMS"
+    },
+    {
+      "hote": "library.leeds.ac.uk",
+      "resultat": "robots.txt : 200 vide, tout autorisé",
+      "preuve": "institutions/university-leeds-cultural-collections/sources/doc/SHA256SUMS"
+    },
+    {
+      "hote": "imc-leeds-2025.pages.dev",
+      "resultat": "hôte tiers d'un support d'atelier ; robots.txt non demandé, 2 pages lues (200)",
+      "preuve": "institutions/university-leeds-cultural-collections/sources/doc/SHA256SUMS"
+    },
+    {
+      "hote": "github.com",
+      "resultat": "robots.txt lu (200), hôte cité pour le dépôt de l'université",
+      "preuve": "institutions/university-leeds-cultural-collections/sources/web/SHA256SUMS"
+    },
+    {
+      "hote": "presentation-api.dlcs-trial.digirati.io",
+      "resultat": "hôte cité seulement (service d'essai Digirati), non contacté",
+      "preuve": "institutions/university-leeds-cultural-collections/sources/doc/SHA256SUMS"
+    },
+    {
+      "hote": "iiif.wellcomecollection.org",
+      "resultat": "hôte cité seulement (exemples d'une autre institution), non contacté",
+      "preuve": "institutions/university-leeds-cultural-collections/sources/doc/SHA256SUMS"
+    }
+  ]
 }

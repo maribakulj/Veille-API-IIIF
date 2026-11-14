@@ -1,0 +1,20 @@
+{
+  "@context": "http://iiif.io/api/image/3/context.json",
+  "id": "https://iiif.library.leeds.ac.uk/thumbs/hbzcdj81_objects_LEEUA_1999.015.119_01.tif",
+  "type": "ImageService3",
+  "profile": "level0",
+  "protocol": "http://iiif.io/api/image",
+  "width": 1024,
+  "height": 775,
+  "sizes": [
+    {"width":100,"height":76},
+    {"width":200,"height":151},
+    {"width":400,"height":303},
+    {"width":1024,"height":775}
+  ],
+  "preferredFormats": ["jpg"],
+  "extraFeatures": [
+    "profileLinkHeader",
+    "jsonldMediaType"
+  ]
+}
