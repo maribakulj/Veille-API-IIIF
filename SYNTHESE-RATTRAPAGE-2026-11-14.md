@@ -8,7 +8,7 @@ Le 14/11, l'ensemble des **93 fichiers** `institutions/*/data.json` de la branch
 
 Ces **260 lignes ne sont pas 260 défauts d'accès vérifiés**, ni 260 tâches qui exigent une intervention humaine. Aucun bilan « 260 contrôlés et terminés » n'est revendiqué.
 
-Le registre **`data/reverifications-chatgpt-2026-11-14.csv`** contient désormais **211 observations explicites**, de nature différente : URL effectivement lues, source institutionnelle de substitution, vérification de code, erreur 404/503/WAF, correction de catégorie, ressource technique non testée, etc. Toutes les observations ne correspondent pas à une URL initialement inscrite dans `a_verifier_manuellement` : certaines signalent une nouvelle source ou une incohérence du benchmark. Ces 211 observations **ne représentent pas 211 items clos**.
+Le registre **`data/reverifications-chatgpt-2026-11-14.csv`** contient désormais **231 observations explicites**, de nature différente : URL effectivement lues, source institutionnelle de substitution, vérification de code, erreur 404/503/WAF, correction de catégorie, ressource technique non testée, etc. Toutes les observations ne correspondent pas à une URL initialement inscrite dans `a_verifier_manuellement` : certaines signalent une nouvelle source ou une incohérence du benchmark. Ces 231 observations **ne représentent pas 231 items clos**.
 
 ## Rapports détaillés
 
@@ -153,3 +153,26 @@ Les principales nouvelles découvertes sont : **le contenu historique de l'ancie
 | Observations hors liste initiale | **23** | Sources de substitution, exemples de manifestes |
 
 Ces chiffres **supplantent** les instantanés des sections précédentes. La priorité demeure de récupérer le **contenu** des 183 autres entrées ou de justifier pourquoi le document n'est pas publiquement lisible, puis de réduire la liste destinée à une intervention humaine. Les `data.json` canoniques et `BENCHMARK.xlsx` restent inchangés en attendant la validation simultanée du pipeline ; la PR est toujours en brouillon.
+
+## Dernière passe S (14/11) : 20 URL Yale, Folger, NC State, Princeton, Huntington
+
+[Rapport S](VERIFICATIONS-CHATGPT-2026-11-14-S-LECTURES.md) : vingt URL de la file d'origine à nouveau tentées, en privilégiant la lecture réelle de contenu. Deux preuves de ressources machine viennent de **Yale University Library** : `GET /catalog/oai?verb=Identify` donne le texte de la réponse OAI-PMH, et `GET /iiif/2/32352934/info.json` donne un JSON Image API 2 (5 095 × 6 784 px, tuiles 512). Aucune mesure d'en-têtes ni plafond IIIF n'est déduit. **Folger Digital Collections** reste devant une page de vérification humaine, et le `robots.txt` de **Huntington** a été récupéré. La copie du portail n'équivaut jamais à un contrôle du serveur d'images.
+
+**État du registre et de la file manuelle selon [GitHub Actions #43615051749](https://github.com/maribakulj/Veille-API-IIIF/actions/runs/43615051749) réussi (5 tests sur 5)** :
+
+| Indicateur | Dernier état |
+|---|---:|
+| Institutions / entrées manuelles de départ | **93 / 260** |
+| Observations au registre | **231** |
+| Entrées avec au moins un constat exact | **172 / 260** |
+| Entrées sans constat associé | **88 / 260** |
+| Entrées avec contenu lu au lecteur web | **11** |
+| Entrées avec texte/JSON récupéré en copie datée | **80** |
+| **Entrées disposant d'une lecture documentaire du contenu** | **91 / 260** |
+| **Entrées sans preuve de contenu dans les passes O–S** | **169 / 260** |
+| Entrées avec plusieurs constats | **36** |
+| Sources supplémentaires hors de la file initiale | **23** |
+
+La qualification des 169 **ne veut pas dire** « 169 pages bloquées ». Elle inclut les URLs qui sont des contacts, des anciennes routes, des réponses HTTP refusées, des pages de protection sans document, et celles qui n'ont pas encore été reprises.
+
+**À poursuivre en priorité :** les 88 entrées sans aucune correspondance avec le registre; puis les autres sans contenu. Ne pas demander à l'utilisateur de tout relire : seul le résidu qui exige réellement un navigateur humain, un compte ou une réponse institutionnelle est à conserver comme « vérification manuelle ». Les anciennes sections ci-dessus sont des mesures historisées; **ce tableau est l'état courant**. La source de vérité `data.json` et le classeur `BENCHMARK.xlsx` restent inchangés jusqu'à régénération validée.
