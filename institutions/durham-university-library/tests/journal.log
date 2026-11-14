@@ -1,0 +1,12 @@
+# Session 2026-11-14T02:34:00Z — configuration durham-passe1-iiif.json — sonde probe.py au commit 2f3052d
+2026-11-14T02:34:00Z | robots.txt:iiif.durham.ac.uk | https://iiif.durham.ac.uk/robots.txt | GET | 200 | 1 règle(s) pour « * »
+2026-11-14T02:34:00Z | dur-p1-manifeste-clb | robots.txt interdit https://iiif.durham.ac.uk/manifests/dul/clb/clb1-94.json (Disallow: /) ; lancé car autorisé par Marcel (C12)
+2026-11-14T02:34:06Z | dur-p1-manifeste-clb | https://iiif.durham.ac.uk/manifests/dul/clb/clb1-94.json | GET | 404 HTTP_404 | aucun en-tête de limite | taille≥263 | corps: <!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN"> <html><head> <title>404 Not Found</title> </head><body> <h1>Not Found</h1> <p>The requested URL was not found on this server.</p> <hr> <address>Apach
+2026-11-14T02:34:06Z | dur-p1-collection-index-head | robots.txt interdit https://iiif.durham.ac.uk/manifests/trifle/collection/index (Disallow: /) ; lancé car autorisé par Marcel (C12)
+2026-11-14T02:34:13Z | dur-p1-collection-index-head | https://iiif.durham.ac.uk/manifests/trifle/collection/index | HEAD | 200 OK | aucun en-tête de limite | taille≥0 | corps: 
+2026-11-14T02:34:15Z | robots.txt:n2t.durham.ac.uk | https://n2t.durham.ac.uk/robots.txt | GET | 404 | robots.txt indisponible : tout est autorisé (RFC 9309)
+2026-11-14T02:34:21Z | dur-p1-mets-ark-head | https://n2t.durham.ac.uk/ark:/32150/s1xp68kg331.xml | HEAD | 302 REDIRECTION_NON_SUIVIE | aucun en-tête de limite | taille≥0 | corps: 
+# redirection vers http://reed.dur.ac.uk/xtf/view?docId=ark/32150_s1xp68kg331.xml : NON suivie (autre hôte)
+2026-11-14T02:34:21Z | dur-p1-jalava | robots.txt interdit https://iiif.durham.ac.uk/jalava/ (Disallow: /) ; lancé car autorisé par Marcel (C12)
+2026-11-14T02:34:21Z | dur-p1-jalava | https://iiif.durham.ac.uk/jalava/ | GET | 200 OK | aucun en-tête de limite | taille≥200 | corps: <!DOCTYPE html> <html>  <head>   <title>Jalava</title>   <script src="ie_polyfill.js"></script>    <meta charset="utf-8">   <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink
+# Fin 2026-11-14T02:34:21Z — 6 requête(s) envoyée(s)
