@@ -2,51 +2,51 @@
 
 - **Dossier** : `institutions/digital-commonwealth/`  ·  **Classeur de référence** : GLAM-059  ·  **Pays** : États-Unis
 - **Statut d'institution** : active
-- **Dernière mise à jour du suivi** : (à renseigner à chaque modification)
+- **Dernière mise à jour du suivi** : 2026-11-14
 
 ## Suivi par étape (à cocher, avec justification et preuves)
 
 ### a) Documentation lue en entier
 > Toutes les pages de doc liées à l'API (développeurs, interfaces, conditions, FAQ, aide, mentions légales, robots.txt), téléchargées avec `scripts/fetch_doc.sh` (URL, date, SHA-256), lues en entier (`scripts/extract_text.py`).
 
-- [ ] **Pas fait**
-  - **Justification** : Pas encore traitée : l'audit suit l'ordre du classeur de référence (une institution à la fois).
-  - **Preuves** : 
+- [x] **Fait**
+  - **Justification** : Doc lue : page API, accueil, about, contact, wiki GitHub des champs JSON, blog, robots.txt de 5 hôtes ; copyright et about lus via Wayback car l'hôte www a été arrêté (faux positif reCAPTCHA) ; pages non lues listées à vérifier à la main.
+  - **Preuves** : `institutions/digital-commonwealth/sources/doc/SHA256SUMS`, `institutions/digital-commonwealth/sources/doc-b/SHA256SUMS`, `institutions/digital-commonwealth/sources/wayback/pages-www.md`
 
 ### b) Endpoints tirés de la doc
 > Liste des endpoints citée par la doc (URL, exemples). Jamais devinée. Une interdiction ou une impossibilité écrite dans la doc justifie de renoncer (citer la phrase).
 
-- [ ] **Pas fait**
-  - **Justification** : Pas encore traitée : l'audit suit l'ordre du classeur de référence (une institution à la fois).
-  - **Preuves** : 
+- [x] **Fait**
+  - **Justification** : 7 familles tirées de la page /api (OAI, JSON recherche, JSON item, IIIF Image info et dérivé, Presentation) dans data.json endpoints_documentes ; 1 URL de doc 404 écartée avec raison.
+  - **Preuves** : `institutions/digital-commonwealth/data.json`, `institutions/digital-commonwealth/sources/doc/text/04.txt`
 
 ### c) Configuration écrite AVANT les tests
 > `config/<nom>.json` pilote `scripts/probe.py`, committée avant le lancement. Un endpoint absent de la doc mais non interdit se teste avec un script poli (identifiants issus de pages publiques ou d'exemples de la doc, pas de devinette).
 
-- [ ] **Pas fait**
-  - **Justification** : Pas encore traitée : l'audit suit l'ordre du classeur de référence (une institution à la fois).
-  - **Preuves** : 
+- [x] **Fait**
+  - **Justification** : Configuration dc-passe1-oai-iiif.json écrite et committée (fd7ecb4) avant le lancement, pause 10 s, robots_disallow_autorise_par_marcel, 7 endpoints dont 3 que le registre a refusés ; config de crash préparée.
+  - **Preuves** : `institutions/digital-commonwealth/config/dc-passe1-oai-iiif.json`
 
 ### d) Quota cherché dans la doc
 > Pour chaque page lue : endpoint de statut, en-têtes de limite documentés, clé ou compte donnant un quota, contact pour un volume plus élevé. Chaque réponse cite sa source.
 
-- [ ] **Pas fait**
-  - **Justification** : Pas encore traitée : l'audit suit l'ordre du classeur de référence (une institution à la fois).
-  - **Preuves** : 
+- [x] **Fait**
+  - **Justification** : Recherche de quota dans chaque source lue : aucun endpoint de statut, aucun en-tête de limite, aucune clé ou compte, contact via /contact ; seuls Crawl-Delay 5 (robots www) et Disallow / sur iiif., voir limites_documentees et fiche.
+  - **Preuves** : `institutions/digital-commonwealth/fiche.md`, `institutions/digital-commonwealth/data.json`
 
 ### e) Test systématique de chaque endpoint
 > Chaque endpoint documenté est testé (budget 15 requêtes par passe, pause ≥ 6 s, GET/HEAD, UA du projet). Redirections du même hôte suivies. Un 403 arrête son hôte, un 429 arrête l'institution. Seules les interdictions écrites dans la doc dispensent de tester.
 
-- [ ] **Pas fait**
-  - **Justification** : Pas encore traitée : l'audit suit l'ordre du classeur de référence (une institution à la fois).
-  - **Preuves** : 
+- [x] **Fait**
+  - **Justification** : OAI Identify et ListMetadataFormats, IIIF info.json et dérivé testés en 200 sans en-tête de limite ; JSON recherche, JSON item et manifeste NON LANCÉS car hôte www arrêté par le registre (faux positif reCAPTCHA), raison consignée et URL à vérifier à la main.
+  - **Preuves** : `institutions/digital-commonwealth/tests/journal.log`, `institutions/digital-commonwealth/tests/raw/iiif-info.headers.txt`, `institutions/digital-commonwealth/tests/raw/oai-identify.headers.txt`
 
 ### f) Ce que disent les gens sur le web
 > Plaintes, discussions, présentations de l'institution, politique envers les API et les bots, blogs, GitHub, forums, listes de diffusion. Sources étiquetées (officielle / institution / utilisateur / tiers), lues, citées.
 
-- [ ] **Pas fait**
-  - **Justification** : Pas encore traitée : l'audit suit l'ordre du classeur de référence (une institution à la fois).
-  - **Preuves** : 
+- [x] **Fait**
+  - **Justification** : 4 catégories : institution (page API et copyright lus), presentations, utilisateurs et tickets sans résultat Digital Commonwealth (requêtes consignées, résumé de moteur non vérifié) ; blog officiel et wiki GitHub lus.
+  - **Preuves** : `institutions/digital-commonwealth/data.json`, `institutions/digital-commonwealth/fiche.md`, `institutions/digital-commonwealth/sources/doc-b/text/11.txt`
 
 ### g) Crash test progressif
 > Seulement après l'audit complet (a à f) de toutes les institutions et avec l'accord de Marcel : paliers jusqu'à 2 × la limite documentée, ou 200 req/min si illimité ou sans limite documentée. Arrêt au premier 429/403/CAPTCHA.
@@ -60,7 +60,10 @@
 
 <!-- AUTO:DEBUT -->
 ## Contrôles automatiques (calculés depuis `tests/journal.log`)
-Aucune requête enregistrée dans `tests/journal.log`.
+- Requêtes enregistrées : **6** (sessions de sonde : 1, maximum par session : 6)
+- Plus courte pause vers un même hôte : **10 s** (règle : ≥ 6 s)
+- Méthodes utilisées : GET (règle : GET/HEAD seulement)
+- Anomalies : aucune
 <!-- AUTO:FIN -->
 
 ## Consigne intégrale

@@ -1,0 +1,12 @@
+{
+  "slug": "radboud-university-library",
+  "min_delay_s": 6,
+  "max_requests": 15,
+  "follow_redirects": 2,
+  "robots_disallow_autorise_par_marcel": true,
+  "note": "Passe 6 : service d'image IIIF (Cantaloupe d'OCLC, en-tête x-oclc-iiif-provider) de l'objet Handschriften:11155 lu dans le manifeste d'objet (tests/raw/r5-manifeste-objet+redir+redir.body), qui l'annonce sur cdm21010.contentdm.oclc.org (robots.txt lu, sources/d) : info.json sur cet hôte, puis le même chemin sur bijzonderecollecties.ubn.ru.nl.",
+  "endpoints": [
+    {"id": "r6-image-info-cdm", "method": "GET", "url": "https://cdm21010.contentdm.oclc.org/iiif/2/Handschriften:11155/info.json"},
+    {"id": "r6-image-info-site", "method": "GET", "url": "https://bijzonderecollecties.ubn.ru.nl/iiif/2/Handschriften:11155/info.json"}
+  ]
+}

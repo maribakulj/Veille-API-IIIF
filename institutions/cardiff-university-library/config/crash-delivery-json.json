@@ -1,0 +1,12 @@
+{
+  "slug": "cardiff-university-library",
+  "endpoint": {
+    "id": "delivery-json",
+    "url": "https://librarysearch.cardiff.ac.uk/view/delivery/44WHELF_CAR/12204337930002420.json",
+    "method": "GET"
+  },
+  "limite_documentee_req_min": null,
+  "source_limite": "aucune limite documentée pour le IIIF/la livraison (robots.txt https://librarysearch.cardiff.ac.uk/robots.txt : Crawl-delay 10 s seulement ; seuil Ex Libris d'API Alma non applicable)",
+  "duree_palier_s": 180,
+  "note": "JSON de livraison Alma, 200 dans le journal (delivery-json, 2026-11-14T02:39:54Z), taille non mesurée (transfert chunked, corps tronqué à 200 octets par la sonde) : à vérifier avant le lancement. Crawl-delay de 10 s à lire avant le lancement."
+}

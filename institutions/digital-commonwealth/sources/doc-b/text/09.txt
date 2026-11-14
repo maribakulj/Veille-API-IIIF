@@ -1,0 +1,761 @@
+SolrDocument field reference: public API · boston-library/solr-core-conf Wiki · GitHub 
+ Skip to content 
+ Navigation Menu
+ Sign in 
+ Products Platform GitHub Repository hosting, code review, and collaboration 
+ Copilot AI coding agent for tasks, projects, and automated work 
+ Build & Ship Actions CI/CD and automation 
+ Code Quality Quality analysis, fixes, and enforcement 
+ Codespaces Cloud development environments 
+ Secure Code Security Vulnerability detection and remediation 
+ Secret Protection Secret scanning and leak prevention 
+ All Features 
+ Developers Learn Documentation 
+ Training 
+ Certifications 
+ Build Build with Copilot 
+ Customize Copilot 
+ Integrations 
+ Explore Trending repos 
+ GitHub Sponsors 
+ Developer articles 
+ Changelog Changelog Your source for the latest features, improvements, and fixes across GitHub products, all in one place. 
+ Businesses By Stage Enterprises 
+ Team 
+ Startups 
+ Nonprofits 
+ By Industry Healthcare 
+ Financial services 
+ Manufacturing 
+ Government 
+ See all industries 
+ Evaluate GitHub Why GitHub 
+ Customer Stories 
+ Business insights 
+ Trust Center 
+ Add-ons GitHub Advanced Security Enterprise-grade code security 
+ Copilot for business Enterprise-grade AI features 
+ Premium Support Enterprise-grade 24/7 support 
+ Resources Learn & Connect Documentation 
+ Resource center 
+ Blog 
+ Events & webinars 
+ Community Forum 
+ Customer Stories 
+ Integrations 
+ Support Customer support 
+ Training 
+ GitHub Status 
+ Company About 
+ Partners 
+ Changelog 
+ GitHub Universe GitHub Universe The event for developers, by developers — talks, workshops, and what’s next for GitHub. 
+ Pricing 
+ Search / 
+ Sign in 
+ Sign up Appearance settings
+ You signed in with another tab or window. Reload to refresh your session. 
+ You signed out in another tab or window. Reload to refresh your session. 
+ You switched accounts on another tab or window. Reload to refresh your session. 
+ Dismiss alert 
+ {{ message }}
+ boston-library 
+ solr-core-conf 
+ Repository navigation
+ Code 
+ Issues 2  ( 2 ) 
+ Pull requests 
+ Actions 
+ Projects 
+ Wiki 
+ Security and quality 
+ Insights 
+ More items 
+ SolrDocument field reference: public API
+ Jump to bottom 
+ Edit 
+ New page 
+ Eben English edited this page Apr 7, 2022 
+ ·
+ 4 revisions 
+ Master list of all publicly-accessible Solr fields for BPL Digital Repository items.
+ field name 
+ data type 
+ content type 
+ searchable 
+ description 
+ abstract_tsi 
+ String 
+ String 
+ true 
+ Description of the item 
+ admin_set_ark_id_ssi 
+ String 
+ String 
+ true 
+ ARK id for the item's primary parent collection 
+ admin_set_name_ssi 
+ String 
+ String 
+ true 
+ Title of the item's primary parent collection 
+ collection_ark_id_ssim 
+ Array 
+ String 
+ true 
+ ARK ids for all collections the item belongs to 
+ collection_name_ssim 
+ Array 
+ String 
+ true 
+ Titles of all collections the item belongs to 
+ curator_model_ssi 
+ String 
+ String 
+ true 
+ Full model class name of the object 
+ curator_model_suffix_ssi 
+ String 
+ String 
+ true 
+ De-module-ized model class name of the object 
+ date_edtf_ssm 
+ Array 
+ String ( EDTF ) 
+ Creation, copyright, or issue date of the item 
+ date_end_dtsi 
+ String 
+ String ( ISO 8601 ) 
+ true 
+ End date for the item's date range 
+ date_facet_yearly_itim 
+ Array 
+ Integer 
+ true 
+ All years in the item's date range 
+ date_start_dtsi 
+ String 
+ String ( ISO 8601 ) 
+ true 
+ Start date for the item's date range 
+ date_tsim 
+ Array 
+ String 
+ true 
+ Display-friendly value of the date of the item 
+ date_type_ssm 
+ Array 
+ String 
+ The type of date value (created, issued, copyright) 
+ destination_site_ssim 
+ Array 
+ String 
+ true 
+ Code for the front-end interfaces where the item should be included 
+ digital_origin_ssi 
+ String 
+ String 
+ true 
+ Method by which the resource achieved digital form 
+ edition_name_tsi 
+ String 
+ String 
+ true 
+ Edition name 
+ edition_number_tsi 
+ String 
+ String 
+ true 
+ Edition number 
+ exemplary_image_key_base_ss 
+ String 
+ String 
+ Cloud storage key base for the item's exemplary image 
+ exemplary_image_ssi 
+ String 
+ String 
+ true 
+ ARK id for the item's exemplary image 
+ extent_tsi 
+ String 
+ String 
+ true 
+ Physical properties of the source item (units of measurement, material) 
+ filenames_ssim 
+ Array 
+ String 
+ true 
+ File name base of the files that make up the item 
+ flagged_content_ssi 
+ String 
+ String 
+ true 
+ Whether the item contains explicit or offensive content 
+ frequency_tsi 
+ String 
+ String 
+ true 
+ Frequency of publication 
+ genre_basic_ssim 
+ Array 
+ String 
+ true 
+ Generic terms describing the item's form or content 
+ genre_specific_ssim 
+ Array 
+ String 
+ true 
+ Specific terms describing the item's style, form, or content 
+ georeferenced_bsi 
+ Boolean 
+ Boolean 
+ true 
+ If the item has been georeferenced/georectified 
+ harvesting_status_bsi 
+ Boolean 
+ Boolean 
+ true 
+ If the item should be included in OAI-PMH responses 
+ has_searchable_pages_bsi 
+ Boolean 
+ Boolean 
+ true 
+ If the item has searchable text 
+ hosting_status_ssi 
+ String 
+ String 
+ true 
+ If the item's files are hosted in the digital repository, or represents a record harvested via OAI-PMH 
+ id 
+ String 
+ String 
+ true 
+ ARK id 
+ identifier_ia_id_ssi 
+ String 
+ String 
+ true 
+ Internet Archive identifier 
+ identifier_isbn_ssim 
+ Array 
+ String 
+ true 
+ ISBN (International Standard Book Number) 
+ identifier_ismn_ssim 
+ Array 
+ String 
+ true 
+ ISMN (International Standard Music Number) 
+ identifier_isrc_ssim 
+ Array 
+ String 
+ true 
+ ISRC (International Standard Recording Code) 
+ identifier_issn_ssim 
+ Array 
+ String 
+ true 
+ ISSN (International Standard Serial Number) 
+ identifier_issue_number_ssim 
+ Array 
+ String 
+ true 
+ Sound recording issue number 
+ identifier_lccn_ssim 
+ Array 
+ String 
+ true 
+ LCCN (Library of Congress Control Number) 
+ identifier_local_accession_tsim 
+ Array 
+ String 
+ true 
+ Local accession identifier 
+ identifier_local_barcode_invalid_tsim 
+ Array 
+ String 
+ true 
+ Local barcode: Invalid 
+ identifier_local_barcode_tsim 
+ Array 
+ String 
+ true 
+ Local barcode 
+ identifier_local_call_invalid_tsim 
+ Array 
+ String 
+ true 
+ Local call number: Invalid 
+ identifier_local_call_tsim 
+ Array 
+ String 
+ true 
+ Local call number 
+ identifier_local_other_invalid_tsim 
+ Array 
+ String 
+ true 
+ Other local identifier: Invalid 
+ identifier_local_other_tsim 
+ Array 
+ String 
+ true 
+ Other local identifier 
+ identifier_matrix_number_ssim 
+ Array 
+ String 
+ true 
+ Sound recording matrix number 
+ identifier_music_plate_ssim 
+ Array 
+ String 
+ true 
+ Publisher's music plate number 
+ identifier_music_publisher_ssim 
+ Array 
+ String 
+ true 
+ Publisher-assigned music number 
+ identifier_sici_ssim 
+ Array 
+ String 
+ true 
+ SICI (Serial Item and Contribution Identifier) 
+ identifier_uri_ss 
+ String 
+ String 
+ Primary URL for the item 
+ identifier_videorecording_ssim 
+ Array 
+ String 
+ true 
+ Publisher-assigned videorecording number 
+ institution_ark_id_ssi 
+ String 
+ String 
+ true 
+ ARK id for the item's parent institution 
+ institution_name_ssi 
+ String 
+ String 
+ true 
+ Name of the item's parent institution 
+ issuance_tsi 
+ String 
+ String 
+ true 
+ designates how the resource is issued 
+ issue_number_tsi 
+ String 
+ String 
+ true 
+ Issue number 
+ lang_term_ssim 
+ Array 
+ String 
+ true 
+ Language (controlled values from ISO639-2 Languages ). 
+ license_ss 
+ String 
+ String 
+ License under which the item is made available 
+ license_uri_ss 
+ String 
+ String (URL) 
+ URL for the license under which the item is made available 
+ name_facet_ssim 
+ Array 
+ String 
+ true 
+ All names associated with the item's provenance 
+ name_role_tsim 
+ Array 
+ String 
+ true 
+ Roles for names associated with the item's provenance (controlled values from Relators ) 
+ name_tsim 
+ Array 
+ String 
+ true 
+ Names of persons or groups associated with the item's provenance 
+ note_acquisition_tsim 
+ Array 
+ String 
+ true 
+ Notes concerning the immediate source of acquisition of the item 
+ note_arrangement_tsim 
+ Array 
+ String 
+ true 
+ Note(s) about the manner in which the item is subdivided into smaller units 
+ note_bibliography_tsim 
+ Array 
+ String 
+ true 
+ Note(s) concerning information on the presence of one or more bibliographies and/or other bibliographic references in the item or accompanying material. 
+ note_biographical_tsim 
+ Array 
+ String 
+ true 
+ A note concerning biographical or historical information about an individual, institution, or other entity present in or involved with the creation of the item 
+ note_citation_tsim 
+ Array 
+ String 
+ true 
+ Note concerning the format for the citation of the item that is preferred by the custodian. 
+ note_credits_tsim 
+ Array 
+ String 
+ true 
+ Note(s) concerning credits for persons or organizations, other than cast, who have participated in the creation and/or production of the item 
+ note_date_tsim 
+ Array 
+ String 
+ true 
+ Note(s) about the date of creation associated with the item 
+ note_exhibitions_tsim 
+ Array 
+ String 
+ true 
+ Note(s) that cite exhibitions where the item has been shown. 
+ note_funding_tsim 
+ Array 
+ String 
+ true 
+ A note concerning the funding of the creation of the item 
+ note_language_tsim 
+ Array 
+ String 
+ true 
+ A note about the textual information on the language or notation system used to convey the content of the item 
+ note_ownership_tsim 
+ Array 
+ String 
+ true 
+ A note concerning the ownership and custodial history of the item from the time of its creation to the time of accessioning 
+ note_performers_tsim 
+ Array 
+ String 
+ true 
+ Note(s) concening information about the participants, players, narrators, presenters, or performers (the cast) 
+ note_physical_tsim 
+ Array 
+ String 
+ true 
+ Notes on the item's physical condition 
+ note_publications_tsim 
+ Array 
+ String 
+ true 
+ Note(s) for citations or information about a publication that is based on the use, study, or analysis of the objects described in the record. Can also be used to record citations to published sources that contain photocopies or reproductions of objects. 
+ note_reference_tsim 
+ Array 
+ String 
+ true 
+ Note(s) about citations or references to published bibliographic descriptions, reviews, abstracts, or indexes of the content of the item 
+ note_resp_tsim 
+ Array 
+ String 
+ true 
+ Names of persons or groups having contributed to the creative and intellectual content of the item 
+ note_tsim 
+ Array 
+ String 
+ true 
+ General notes on the item's content or provenance 
+ note_venue_tsim 
+ Array 
+ String 
+ true 
+ Note(s) about the place of creation, capture, recording, filming, execution, or broadcast associated with the item 
+ oai_header_id_ss 
+ String 
+ String 
+ The OAI-PMH identifier of a harvested item 
+ physical_location_ssim 
+ Array 
+ String 
+ true 
+ Location of the physical item 
+ processing_state_ssi 
+ String 
+ String 
+ true 
+ Processing state of the item's files in the digital repository ('derivatives' or 'complete') 
+ projection_tsi 
+ String 
+ String 
+ true 
+ Statement of projection, the method of representing the surface of a sphere or other shape on a plane 
+ publisher_tsi 
+ String 
+ String 
+ true 
+ Name of the item's publisher 
+ publishing_state_ssi 
+ String 
+ String 
+ true 
+ Publishing state of the item in the digital repository ('draft' or 'published'). 
+ pubplace_tsi 
+ String 
+ String 
+ true 
+ Place of publication 
+ related_item_constituent_tsim 
+ Array 
+ String 
+ true 
+ Information concerning constituent units of the item 
+ related_item_host_ssim 
+ Array 
+ String 
+ true 
+ THost collection name from which the item originates 
+ related_item_isreferencedby_ssm 
+ Array 
+ JSON 
+ Links to citations or references to published bibliographic descriptions, reviews, abstracts, or indexes of the content of the item 
+ related_item_other_format_tsim 
+ Array 
+ String 
+ true 
+ Information concerning another format of the object (change in physical format) 
+ related_item_references_ssm 
+ Array 
+ String (URL) 
+ Information concerning a resource cited or referred to in the item 
+ related_item_review_ssm 
+ Array 
+ String (URL) 
+ Links to information concerning a resource reviewed in the content of the object 
+ related_item_series_ssi 
+ String 
+ String 
+ true 
+ Series title 
+ related_item_subseries_ssi 
+ String 
+ String 
+ true 
+ Subseries title 
+ related_item_subsubseries_ssi 
+ String 
+ String 
+ true 
+ Sub-subseries title 
+ resource_type_manuscript_bsi 
+ Boolean 
+ Boolean 
+ true 
+ If the item is a manuscript 
+ restrictions_on_access_ss 
+ String 
+ String 
+ Restrictions on access 
+ reuse_allowed_ssi 
+ String 
+ String 
+ true 
+ Categories of allowed types of re-use or reproduction for the item. 
+ rights_ss 
+ String 
+ String 
+ Copyright or ownership statement 
+ rightsstatement_ss 
+ String 
+ String 
+ Controlled copyright statement using values from rightsstatements.org 
+ rightsstatement_uri_ss 
+ String 
+ String (URL) 
+ URL for controlled copyright statement from rightsstatements.org 
+ scale_tsim 
+ Array 
+ String 
+ true 
+ Statement of scale, the ratio between the actual size and its representation 
+ shelf_locator_tsi 
+ String 
+ String 
+ true 
+ Shelf locator for the physical item. 
+ sub_location_tsi 
+ String 
+ String 
+ true 
+ Sub-location or department of the physical item 
+ subject_bbox_geospatial 
+ Array 
+ String (Coordinates: "minX minY maxX maxY") 
+ true 
+ Bounding box for locations depicted in the item 
+ subject_coordinates_geospatial 
+ Array 
+ String (Coordinates: "lat,lon") 
+ true 
+ Coordinates for locations depicted in the item 
+ subject_date_end_dtsi 
+ String 
+ String ( ISO 8601 ) 
+ true 
+ End of the date range for events depicted or described in the item 
+ subject_date_start_dtsi 
+ String 
+ String ( ISO 8601 ) 
+ true 
+ Start of the date range for events depicted or described in the item 
+ subject_date_tsim 
+ Array 
+ String 
+ true 
+ Temporal periods for events depicted or described in the item 
+ subject_facet_ssim 
+ Array 
+ String 
+ true 
+ All subject terms assigned to the item 
+ subject_geo_other_ssm 
+ Array 
+ String 
+ Geographic subject terms without coordinates or from uncontrolled authority sources 
+ subject_geojson_facet_ssim 
+ Array 
+ String ( GeoJSON ) 
+ true 
+ GeoJSON representation of a location represented in the item, with a display-friendly label 
+ subject_hiergeo_geojson_ssm 
+ Array 
+ String ( GeoJSON ) 
+ GeoJSON representation of a location represented in the item, with full geographic hierarchy 
+ subject_name_tsim 
+ Array 
+ String 
+ true 
+ Names of persons or groups represented in the item 
+ subject_point_geospatial 
+ String 
+ String (Coordinates: lat,lon) 
+ true 
+ Coordinates for locations depicted in the item 
+ subject_title_tsim 
+ Array 
+ String 
+ true 
+ Uniform title of a work described in the item 
+ subject_topic_tsim 
+ Array 
+ String 
+ true 
+ Topics, concepts, or things represented in the item content 
+ system_create_dtsi 
+ String 
+ String ( ISO 8601 ) 
+ true 
+ Date of creation in the digital repository 
+ system_modified_dtsi 
+ String 
+ String ( ISO 8601 ) 
+ true 
+ Date of last update in the digital repository 
+ table_of_contents_tsi 
+ String 
+ String 
+ true 
+ Table of contents 
+ table_of_contents_url_ss 
+ String 
+ String (URL) 
+ Link to a table of contents 
+ text_direction_ssi 
+ String 
+ String 
+ true 
+ Reading direction of the text ("ltr" or "rtl") 
+ timestamp 
+ String 
+ String ( ISO 8601 ) 
+ Solr record's internal timestamp 
+ title_info_alternative_label_ssm 
+ Array 
+ String 
+ Descriptive label for an alternative title 
+ title_info_alternative_tsim 
+ Array 
+ String 
+ true 
+ Alternative title 
+ title_info_other_subtitle_tsim 
+ Array 
+ String 
+ true 
+ Subtitles for any non-primary titles 
+ title_info_partnum_tsi 
+ String 
+ String 
+ true 
+ Part number of the title (typically only used for serials or multi-volume works) 
+ title_info_primary_subtitle_tsi 
+ String 
+ String 
+ true 
+ Subtitle of the primary title 
+ title_info_primary_trans_tsim 
+ Array 
+ String 
+ true 
+ Translated version of the primary title 
+ title_info_primary_tsi 
+ String 
+ String 
+ true 
+ Primary title 
+ title_info_translated_tsim 
+ Array 
+ String 
+ true 
+ Translated version of non-primary title 
+ title_info_uniform_ssim 
+ Array 
+ String 
+ true 
+ Uniform title (as string for faceting) 
+ title_info_uniform_tsim 
+ Array 
+ String 
+ true 
+ Uniform title (as text for searching) 
+ type_of_resource_ssim 
+ Array 
+ String 
+ true 
+ The resource type of the item (controlled values from Resource Types Scheme ) 
+ volume_tsi 
+ String 
+ String 
+ true 
+ Volume number 
+ Add a custom footer
+ Wiki pages 
+ Pages 2 
+ Loading 
+ Home
+ Uh oh!
+ There was an error while loading. Please reload this page .
+ Loading 
+ SolrDocument field reference: public API
+ Add a custom sidebar
+ Clone this wiki locally
+ Footer
+ © 2026 GitHub, Inc.
+ Footer navigation
+ Terms 
+ Privacy 
+ Security 
+ Status 
+ Community 
+ Docs 
+ Contact 
+ Manage cookies
+ Do not share my personal information
+ You can’t perform that action at this time.

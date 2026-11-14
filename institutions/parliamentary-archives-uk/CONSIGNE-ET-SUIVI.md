@@ -2,51 +2,51 @@
 
 - **Dossier** : `institutions/parliamentary-archives-uk/`  ·  **Classeur de référence** : GLAM-069  ·  **Pays** : Royaume-Uni
 - **Statut d'institution** : active
-- **Dernière mise à jour du suivi** : (à renseigner à chaque modification)
+- **Dernière mise à jour du suivi** : 2026-11-14
 
 ## Suivi par étape (à cocher, avec justification et preuves)
 
 ### a) Documentation lue en entier
 > Toutes les pages de doc liées à l'API (développeurs, interfaces, conditions, FAQ, aide, mentions légales, robots.txt), téléchargées avec `scripts/fetch_doc.sh` (URL, date, SHA-256), lues en entier (`scripts/extract_text.py`).
 
-- [ ] **Pas fait**
-  - **Justification** : Pas encore traitée : l'audit suit l'ordre du classeur de référence (une institution à la fois).
-  - **Preuves** : 
+- [x] **Fait**
+  - **Justification** : Pages de doc téléchargées avec fetch_doc.sh : archives.parliament.uk, www.parliament.uk et developer.parliament.uk en défi Cloudflare (403), arrêtés sans contournement ; lues via Wayback (extraits verbatim avec URL de réplique) ; robots.txt de six hôtes lus ; URL listées dans a_verifier_manuellement.
+  - **Preuves** : `institutions/parliamentary-archives-uk/sources/doc/SHA256SUMS`, `institutions/parliamentary-archives-uk/sources/doc/FETCH.log`, `institutions/parliamentary-archives-uk/sources/wayback/archives-parliament-uk-robots.md`, `institutions/parliamentary-archives-uk/sources/wayback/developer-hub.md`, `institutions/parliamentary-archives-uk/sources/api-hotes/SHA256SUMS`
 
 ### b) Endpoints tirés de la doc
 > Liste des endpoints citée par la doc (URL, exemples). Jamais devinée. Une interdiction ou une impossibilité écrite dans la doc justifie de renoncer (citer la phrase).
 
-- [ ] **Pas fait**
-  - **Justification** : Pas encore traitée : l'audit suit l'ordre du classeur de référence (une institution à la fois).
-  - **Preuves** : 
+- [x] **Fait**
+  - **Justification** : Aucune API ni IIIF documentés pour les Archives (pages Wayback) ; le Developer hub liste douze API de données du Parlement : trois testées, les autres non_teste avec raison ; URL de licence et plan du site écartées avec raison dans data.json.
+  - **Preuves** : `institutions/parliamentary-archives-uk/data.json`, `institutions/parliamentary-archives-uk/sources/wayback/developer-hub.md`
 
 ### c) Configuration écrite AVANT les tests
 > `config/<nom>.json` pilote `scripts/probe.py`, committée avant le lancement. Un endpoint absent de la doc mais non interdit se teste avec un script poli (identifiants issus de pages publiques ou d'exemples de la doc, pas de devinette).
 
-- [ ] **Pas fait**
-  - **Justification** : Pas encore traitée : l'audit suit l'ordre du classeur de référence (une institution à la fois).
-  - **Preuves** : 
+- [x] **Fait**
+  - **Justification** : Deux configurations committées avant lancement (passe 1 et passe 2 sur members-api, bills-api, committees-api), robots_disallow_autorise_par_marcel, pause 6 s, moins de 15 requêtes, paramètres tirés du swagger.json lu en passe 1 ; crash-members-constituency.json préparé.
+  - **Preuves** : `institutions/parliamentary-archives-uk/config/pa-uk-passe1-members-api.json`, `institutions/parliamentary-archives-uk/config/pa-uk-passe2-apis.json`, `institutions/parliamentary-archives-uk/config/crash-members-constituency.json`
 
 ### d) Quota cherché dans la doc
 > Pour chaque page lue : endpoint de statut, en-têtes de limite documentés, clé ou compte donnant un quota, contact pour un volume plus élevé. Chaque réponse cite sa source.
 
-- [ ] **Pas fait**
-  - **Justification** : Pas encore traitée : l'audit suit l'ordre du classeur de référence (une institution à la fois).
-  - **Preuves** : 
+- [x] **Fait**
+  - **Justification** : Quota cherché dans chaque source lue : seul Crawl-delay 10 dans le robots.txt de archives.parliament.uk ; aucun endpoint de statut, en-tête de limite, clé ou contact de volume documentés ; contacts notés dans data.json.
+  - **Preuves** : `institutions/parliamentary-archives-uk/fiche.md`, `institutions/parliamentary-archives-uk/sources/wayback/archives-parliament-uk-robots.md`, `institutions/parliamentary-archives-uk/sources/wayback/copyright-parliament.md`
 
 ### e) Test systématique de chaque endpoint
 > Chaque endpoint documenté est testé (budget 15 requêtes par passe, pause ≥ 6 s, GET/HEAD, UA du projet). Redirections du même hôte suivies. Un 403 arrête son hôte, un 429 arrête l'institution. Seules les interdictions écrites dans la doc dispensent de tester.
 
-- [ ] **Pas fait**
-  - **Justification** : Pas encore traitée : l'audit suit l'ordre du classeur de référence (une institution à la fois).
-  - **Preuves** : 
+- [x] **Fait**
+  - **Justification** : Sept requêtes sondées (members-api index, swagger, deux recherches dont une répétée ; swagger de bills-api et committees-api), toutes en 200 sans en-tête de limite ; catalogue des Archives non testable (défi Cloudflare, non contourné), noté non_teste et a_verifier_manuellement.
+  - **Preuves** : `institutions/parliamentary-archives-uk/tests/journal.log`, `institutions/parliamentary-archives-uk/tests/raw/pa2-members-search.headers.txt`, `institutions/parliamentary-archives-uk/tests/raw/pa2-bills-swagger.headers.txt`
 
 ### f) Ce que disent les gens sur le web
 > Plaintes, discussions, présentations de l'institution, politique envers les API et les bots, blogs, GitHub, forums, listes de diffusion. Sources étiquetées (officielle / institution / utilisateur / tiers), lues, citées.
 
-- [ ] **Pas fait**
-  - **Justification** : Pas encore traitée : l'audit suit l'ordre du classeur de référence (une institution à la fois).
-  - **Preuves** : 
+- [x] **Fait**
+  - **Justification** : Quatre recherches web (institution, utilisateurs, tickets, presentations) du 2026-11-14 ; originaux illisibles (ijdc.net 403, nationalarchives.gov.uk refusé par les permissions) donc résumés de moteur marqués non vérifiés ; deux catégories sans résultat.
+  - **Preuves** : `institutions/parliamentary-archives-uk/fiche.md`, `institutions/parliamentary-archives-uk/data.json`
 
 ### g) Crash test progressif
 > Seulement après l'audit complet (a à f) de toutes les institutions et avec l'accord de Marcel : paliers jusqu'à 2 × la limite documentée, ou 200 req/min si illimité ou sans limite documentée. Arrêt au premier 429/403/CAPTCHA.
@@ -60,7 +60,10 @@
 
 <!-- AUTO:DEBUT -->
 ## Contrôles automatiques (calculés depuis `tests/journal.log`)
-Aucune requête enregistrée dans `tests/journal.log`.
+- Requêtes enregistrées : **11** (sessions de sonde : 2, maximum par session : 8)
+- Plus courte pause vers un même hôte : **6 s** (règle : ≥ 6 s)
+- Méthodes utilisées : GET (règle : GET/HEAD seulement)
+- Anomalies : aucune
 <!-- AUTO:FIN -->
 
 ## Consigne intégrale

@@ -1,0 +1,17 @@
+{
+  "slug": "digital-commonwealth",
+  "min_delay_s": 10,
+  "max_requests": 10,
+  "follow_redirects": 1,
+  "robots_disallow_autorise_par_marcel": true,
+  "note": "Passe 1 : hotes oai. et iiif. de la doc https://www.digitalcommonwealth.org/api (sources/doc/text/04.txt). Hote www.digitalcommonwealth.org arrete dans le registre partage (faux positif reCAPTCHA de /contact) : JSON et manifeste non lances. Identifiant d'image commonwealth:hd76s0677 pris dans la page d'accueil publique (URL iiif.digitalcommonwealth.org/iiif/2/commonwealth:hd76s0677/...). robots.txt oai : 404 (tout autorise), iiif : 200.",
+  "endpoints": [
+    {"id": "oai-identify", "method": "GET", "url": "https://oai.digitalcommonwealth.org/catalog/oai?verb=Identify"},
+    {"id": "oai-listmetadataformats", "method": "GET", "url": "https://oai.digitalcommonwealth.org/catalog/oai?verb=ListMetadataFormats"},
+    {"id": "iiif-info", "method": "GET", "url": "https://iiif.digitalcommonwealth.org/iiif/2/commonwealth:hd76s0677/info.json"},
+    {"id": "iiif-derive-pct10", "method": "GET", "url": "https://iiif.digitalcommonwealth.org/iiif/2/commonwealth:hd76s0677/full/pct:10/0/default.jpg"},
+    {"id": "json-recherche", "method": "GET", "url": "https://www.digitalcommonwealth.org/search.json?q=Boston"},
+    {"id": "json-item", "method": "GET", "url": "https://www.digitalcommonwealth.org/search/commonwealth:hd76s0677.json"},
+    {"id": "manifeste-item", "method": "GET", "url": "https://www.digitalcommonwealth.org/search/commonwealth:hd76s0677/manifest"}
+  ]
+}

@@ -1,0 +1,13 @@
+{
+  "slug": "radboud-university-library",
+  "min_delay_s": 6,
+  "max_requests": 15,
+  "follow_redirects": 1,
+  "robots_disallow_autorise_par_marcel": true,
+  "note": "Passe 1 : Radboud Special Collections, CONTENTdm (bijzonderecollecties.ubn.ru.nl ; page d'accueil sources/b : iiifEnabled true, cdmServerUrl server21010.contentdm.oclc.org). Modèles d'URL de la doc OCLC (sources/c : iiif/info/manifest.json, /bl/dmwebservices/ ; OAI de CONTENTdm). robots.txt : Disallow /oai/ (testé sous C12), Crawl-Delay 1 ; notre pause de 6 s la dépasse.",
+  "endpoints": [
+    {"id": "r1-manifeste-global", "method": "GET", "url": "https://bijzonderecollecties.ubn.ru.nl/iiif/info/manifest.json", "save_body": 500000},
+    {"id": "r1-dmwebservices-collections", "method": "GET", "url": "https://bijzonderecollecties.ubn.ru.nl/digital/bl/dmwebservices/index.php?q=dmGetCollectionList/json"},
+    {"id": "r1-oai-identify", "method": "GET", "url": "https://bijzonderecollecties.ubn.ru.nl/oai/oai.php?verb=Identify"}
+  ]
+}

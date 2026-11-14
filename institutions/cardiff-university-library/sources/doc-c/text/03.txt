@@ -1,0 +1,69 @@
+API call limitation Sandbox - Ex Libris Knowledge Center 
+ Skip to main content 
+ More Sites Exlibris Site Support Center ExLibris Trust Center Developer Network Idea Exchange 
+ System-Status Submit a Case 
+ Knowledge Assistant
+ BETA 
+ Subscribe by RSS 
+ Back 
+ Search site 
+ Search
+ Search
+ Go back to previous article 
+ Username 
+ Password 
+ Sign in 
+ Sign in 
+ Sign in
+ Forgot password
+ Expand/collapse global hierarchy
+ Home
+ Alma
+ Knowledge Articles
+ API call limitation Sandbox
+ Expand/collapse global location
+ API call limitation Sandbox
+ Last updated 
+ Save as PDF
+ Share 
+ Share 
+ Tweet 
+ Share 
+ Question 
+ Answer 
+ Question
+ Does the API call limitation also considers calls to the Alma (Standard) sandbox?
+ Or are these counted separately? 
+ Daily API Request Threshold 
+ The Daily API Request Threshold permits 1000 API calls per number of named user licenses per day (the threshold is not per-user basis - it is enforced against the aggregate of all API calls made by the institution in a 24 hour period). For example, for an institution with a 100 named users license, the Daily API Request Threshold is 100,000 requests (100 named users X 1000 calls = 100,000 daily requests). If the number of API requests exceeds the daily threshold, an error is returned for any additional API request
+ Answer
+ The threshold includes calls to the sandbox. It is expected that, being a test environment not many calls will be made.
+ Product:  Alma
+ Product Version:  all
+ Relevant for Installation Type:  
+ Article last edited:  29-Aug-2017
+ View article in the Exlibris Knowledge Center 
+ Back to top 
+ ALMA ANALYTICS - Display Name instead of Owner ID number? 
+ API permissions for Microsoft Azure (Graph) 
+ Was this article helpful?
+ Yes 
+ No 
+ Recommended articles
+ Article type 
+ Topic 
+ Content Type 
+ Documentation 
+ Language 
+ English 
+ Product 
+ Alma 
+ Tags 
+ This page has no tags.
+ © Copyright 2026 Ex Libris Knowledge Center
+ Powered by NiCE Knowledge Management
+ ® 
+ Term of Use 
+ Privacy Policy 
+ Contact Us 
+ 2025 Ex Libris. All rights reserved

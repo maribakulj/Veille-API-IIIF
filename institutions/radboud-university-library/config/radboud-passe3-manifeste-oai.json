@@ -1,0 +1,12 @@
+{
+  "slug": "radboud-university-library",
+  "min_delay_s": 10,
+  "max_requests": 15,
+  "follow_redirects": 2,
+  "robots_disallow_autorise_par_marcel": true,
+  "note": "Passe 3 : (1) la passe 1 a lu la chaîne de redirections du manifeste global (301 vers /iiif/manifest.json puis 302, location lue dans tests/raw/r1-manifeste-global+redir.headers.txt) vers https://bijzonderecollecties.ubn.ru.nl/iiif/2/manifest.json : un GET pour lire la liste des collections (corps limité à 500 ko, identifiants publics). (2) Nouvel essai de l'OAI du dépôt, qui a dépassé le délai de lecture en passe 2 (pas un 429). Pause 10 s (Crawl-delay du dépôt).",
+  "endpoints": [
+    {"id": "r3-manifeste-global-v2", "method": "GET", "url": "https://bijzonderecollecties.ubn.ru.nl/iiif/2/manifest.json", "save_body": 500000},
+    {"id": "r3-oai-identify-reessai", "method": "GET", "url": "https://repository.ubn.ru.nl/oai/request?verb=Identify"}
+  ]
+}

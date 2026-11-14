@@ -2,44 +2,44 @@
 
 - **Dossier** : `institutions/keio-digital-collections/`  ·  **Classeur de référence** : GLAM-079  ·  **Pays** : Japon
 - **Statut d'institution** : active
-- **Dernière mise à jour du suivi** : (à renseigner à chaque modification)
+- **Dernière mise à jour du suivi** : 2026-11-14
 
 ## Suivi par étape (à cocher, avec justification et preuves)
 
 ### a) Documentation lue en entier
 > Toutes les pages de doc liées à l'API (développeurs, interfaces, conditions, FAQ, aide, mentions légales, robots.txt), téléchargées avec `scripts/fetch_doc.sh` (URL, date, SHA-256), lues en entier (`scripts/extract_text.py`).
 
-- [ ] **Pas fait**
-  - **Justification** : Pas encore traitée : l'audit suit l'ordre du classeur de référence (une institution à la fois).
-  - **Preuves** : 
+- [x] **Fait**
+  - **Justification** : Pages About, Contact, notice, robots.txt de trois hôtes téléchargées avec fetch_doc.sh puis extract_text.py ; deux URL devinées en 404 ; aucune page en 403 ; PDF et visionneuse listés dans a_verifier_manuellement.
+  - **Preuves** : `institutions/keio-digital-collections/sources/doc/SHA256SUMS`, `institutions/keio-digital-collections/sources/b/SHA256SUMS`, `institutions/keio-digital-collections/sources/f/SHA256SUMS`, `institutions/keio-digital-collections/sources/c/SHA256SUMS`
 
 ### b) Endpoints tirés de la doc
 > Liste des endpoints citée par la doc (URL, exemples). Jamais devinée. Une interdiction ou une impossibilité écrite dans la doc justifie de renoncer (citer la phrase).
 
-- [ ] **Pas fait**
-  - **Justification** : Pas encore traitée : l'audit suit l'ordre du classeur de référence (une institution à la fois).
-  - **Preuves** : 
+- [x] **Fait**
+  - **Justification** : Endpoints lus dans la page de notice (manifeste, service d'image IIPImage, PDF, visionneuse) ; images et PDF non testés car la page About interdit la reproduction ; raisons dans data.json.
+  - **Preuves** : `institutions/keio-digital-collections/data.json`, `institutions/keio-digital-collections/sources/f/SHA256SUMS`
 
 ### c) Configuration écrite AVANT les tests
 > `config/<nom>.json` pilote `scripts/probe.py`, committée avant le lancement. Un endpoint absent de la doc mais non interdit se teste avec un script poli (identifiants issus de pages publiques ou d'exemples de la doc, pas de devinette).
 
-- [ ] **Pas fait**
-  - **Justification** : Pas encore traitée : l'audit suit l'ordre du classeur de référence (une institution à la fois).
-  - **Preuves** : 
+- [x] **Fait**
+  - **Justification** : Configuration keio-passe1-iiif.json committée avant le lancement, robots_disallow_autorise_par_marcel, pause 6 s, 4 requêtes, URL tirées de la page de notice.
+  - **Preuves** : `institutions/keio-digital-collections/config/keio-passe1-iiif.json`
 
 ### d) Quota cherché dans la doc
 > Pour chaque page lue : endpoint de statut, en-têtes de limite documentés, clé ou compte donnant un quota, contact pour un volume plus élevé. Chaque réponse cite sa source.
 
-- [ ] **Pas fait**
-  - **Justification** : Pas encore traitée : l'audit suit l'ordre du classeur de référence (une institution à la fois).
-  - **Preuves** : 
+- [x] **Fait**
+  - **Justification** : Quota cherché dans About, Contact, robots.txt : aucune règle de débit, seulement l'interdiction de reproduction ; contact par formulaire.
+  - **Preuves** : `institutions/keio-digital-collections/fiche.md`, `institutions/keio-digital-collections/sources/doc/SHA256SUMS`
 
 ### e) Test systématique de chaque endpoint
 > Chaque endpoint documenté est testé (budget 15 requêtes par passe, pause ≥ 6 s, GET/HEAD, UA du projet). Redirections du même hôte suivies. Un 403 arrête son hôte, un 429 arrête l'institution. Seules les interdictions écrites dans la doc dispensent de tester.
 
-- [ ] **Pas fait**
-  - **Justification** : Pas encore traitée : l'audit suit l'ordre du classeur de référence (une institution à la fois).
-  - **Preuves** : 
+- [x] **Fait**
+  - **Justification** : Manifeste, info.json (deux fois) et visionneuse sondés : 200 sans en-tête de limite, connexion réinitialisée sur la visionneuse, non insisté ; images et PDF non testés (reproduction interdite).
+  - **Preuves** : `institutions/keio-digital-collections/tests/journal.log`, `institutions/keio-digital-collections/tests/raw/k1-manifeste.headers.txt`, `institutions/keio-digital-collections/tests/raw/k1-image-info.headers.txt`
 
 ### f) Ce que disent les gens sur le web
 > Plaintes, discussions, présentations de l'institution, politique envers les API et les bots, blogs, GitHub, forums, listes de diffusion. Sources étiquetées (officielle / institution / utilisateur / tiers), lues, citées.
@@ -60,7 +60,10 @@
 
 <!-- AUTO:DEBUT -->
 ## Contrôles automatiques (calculés depuis `tests/journal.log`)
-Aucune requête enregistrée dans `tests/journal.log`.
+- Requêtes enregistrées : **6** (sessions de sonde : 1, maximum par session : 6)
+- Plus courte pause vers un même hôte : **7 s** (règle : ≥ 6 s)
+- Méthodes utilisées : GET (règle : GET/HEAD seulement)
+- Anomalies : aucune
 <!-- AUTO:FIN -->
 
 ## Consigne intégrale

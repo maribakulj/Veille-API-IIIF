@@ -1,0 +1,17 @@
+{
+  "slug": "university-of-washington-libraries",
+  "min_delay_s": 10,
+  "max_requests": 12,
+  "follow_redirects": 1,
+  "robots_disallow_autorise_par_marcel": true,
+  "note": "Passe 2 : l'hote digitalcollections.lib.washington.edu est arrete (403 Cloudflare sur ordering.html, registre partage). Le manifeste UW kccollects:343 (lu via Wayback, sources/wayback/manifest-kccollects-343.md) annonce lui-meme l'hote OCLC cdm16786.contentdm.oclc.org pour manifeste, collection, service d'image et OAI ; son robots.txt a ete lu (sources/doc-c). Les URL ci-dessous sont celles annoncees par ce manifeste ou le motif de la doc OCLC, avec le seul identifiant d'exemple du manifeste.",
+  "endpoints": [
+    {"id": "robots-deja-lu-presentation-item", "method": "GET", "url": "https://cdm16786.contentdm.oclc.org/iiif/kccollects:343/manifest.json"},
+    {"id": "image-info", "method": "GET", "url": "https://cdm16786.contentdm.oclc.org/iiif/2/kccollects:343/info.json"},
+    {"id": "image-derive-150", "method": "GET", "url": "https://cdm16786.contentdm.oclc.org/iiif/2/kccollects:343/full/150,/0/default.jpg"},
+    {"id": "presentation-collection", "method": "GET", "url": "https://cdm16786.contentdm.oclc.org/iiif/kccollects/manifest.json", "save_body": 200000},
+    {"id": "presentation-sitewide", "method": "GET", "url": "https://cdm16786.contentdm.oclc.org/iiif/info/manifest.json", "save_body": 200000},
+    {"id": "oai-getrecord", "method": "GET", "url": "https://cdm16786.contentdm.oclc.org/oai/oai.php?verb=GetRecord&identifier=oai:cdm16786.contentdm.oclc.org:kccollects/343&metadataPrefix=oai_qdc"},
+    {"id": "dmwebservices", "method": "GET", "url": "https://cdm16786.contentdm.oclc.org/bl/dmwebservices/index.php?q=dmGetCollectionList/json"}
+  ]
+}

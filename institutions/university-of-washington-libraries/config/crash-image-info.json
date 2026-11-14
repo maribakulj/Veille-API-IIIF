@@ -1,0 +1,12 @@
+{
+  "slug": "university-of-washington-libraries",
+  "endpoint": {
+    "id": "image-info",
+    "url": "https://cdm16786.contentdm.oclc.org/iiif/2/kccollects:343/info.json",
+    "method": "GET"
+  },
+  "limite_documentee_req_min": null,
+  "source_limite": "aucune limite documentée (doc OCLC IIIF https://help.oclc.org/Metadata_Services/CONTENTdm/Advanced_website_customization/API_Reference/IIIF_API_reference ; terms UW https://www.washington.edu/online/terms/ : sans chiffre)",
+  "duree_palier_s": 180,
+  "note": "info.json d'image IIIF 2 (843 octets), 200 dans le journal (image-info, 2026-11-14T02:26:57Z), sur l'hote OCLC cdm16786 annonce par les manifestes UW. L'hote digitalcollections.lib.washington.edu est en 403 Cloudflare : non utilise."
+}

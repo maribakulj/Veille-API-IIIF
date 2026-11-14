@@ -1,0 +1,18 @@
+# Session 2026-11-14T02:37:45Z — configuration cardiff-passe1-librarysearch.json — sonde probe.py au commit c27d1d6
+2026-11-14T02:37:45Z | robots.txt:librarysearch.cardiff.ac.uk | https://librarysearch.cardiff.ac.uk/robots.txt | GET | 200 | 3 règle(s) pour « * » ; Crawl-delay 10.0 s
+2026-11-14T02:37:55Z | collection-discovery | https://librarysearch.cardiff.ac.uk/discovery/collectionDiscovery?vid=44WHELF_CAR:44WHELF_CAR_VU1 | GET | 302 REDIRECTION_NON_SUIVIE | aucun en-tête de limite | taille≥0 | corps: 
+# redirection vers https://librarysearch.cardiff.ac.uk/nde/collectionDiscovery?vid=44WHELF_CAR%3ACAR : suivie (même hôte, comptée dans le budget)
+2026-11-14T02:38:05Z | collection-discovery+redir | https://librarysearch.cardiff.ac.uk/nde/collectionDiscovery?vid=44WHELF_CAR%3ACAR | GET | 200 OK | aucun en-tête de limite | taille≥200 | corps: <!doctype html> <html lang="en">  <head>   <meta charset="utf-8">   <title>PrimoVeNde</title>   <base href="/nde/">   <meta name="robots" content="noindex">   <meta name="viewport" content="width=devi
+2026-11-14T02:38:16Z | siteindex | https://librarysearch.cardiff.ac.uk/view/scholar/siteindex.xml | GET | 200 OK | aucun en-tête de limite | taille≥141 | corps: <?xml version="1.0" encoding="UTF-8" standalone="yes"?> <sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">	 </sitemapindex>  
+# corps enregistré : tests/raw/siteindex.body (141 octets lus)
+# Fin 2026-11-14T02:38:16Z — 4 requête(s) envoyée(s)
+# Session 2026-11-14T02:39:27Z — configuration cardiff-passe2-manifest.json — sonde probe.py au commit 7a1e41f
+2026-11-14T02:39:27Z | robots.txt:librarysearch.cardiff.ac.uk | https://librarysearch.cardiff.ac.uk/robots.txt | GET | 200 | 3 règle(s) pour « * » ; Crawl-delay 10.0 s
+2026-11-14T02:39:38Z | manifest-v2 | https://librarysearch.cardiff.ac.uk/view/iiif/presentation/44WHELF_CAR/12204337930002420/manifest?iiifVersion=2 | GET | 200 OK | aucun en-tête de limite | taille≥107315 | corps: {   "metadata" : [ {     "label" : "Title",     "value" : "Scop hwīlum sang "   }, {     "label" : "Author",     "value" : "Jones, Shirley, 1934-"   }, {     "label" : "Subjects",     "value" : "Aqua
+# corps enregistré : tests/raw/manifest-v2.body (107315 octets lus)
+2026-11-14T02:39:54Z | delivery-json | https://librarysearch.cardiff.ac.uk/view/delivery/44WHELF_CAR/12204337930002420.json | GET | 200 OK | aucun en-tête de limite | taille≥200 | corps: {   "id" : "12204337930002420",   "mms_id" : "9911991474402420",   "metadata" : [ {     "label" : "Title",     "value" : "Scop hwīlum sang "   }, {     "label" : "Author",     "value" : "Jones, Shirl
+# Fin 2026-11-14T02:39:54Z — 3 requête(s) envoyée(s)
+# Session 2026-11-14T02:40:15Z — configuration cardiff-passe3-image.json — sonde probe.py au commit 925c6b3
+2026-11-14T02:40:15Z | image-info | NON LANCÉ : hôte eu-img02.ext.exlibrisgroup.com arrêté (registre partagé : fetch_doc 403 2026-11-14T02:40:04Z)
+2026-11-14T02:40:15Z | image-derive-150 | NON LANCÉ : hôte eu-img02.ext.exlibrisgroup.com arrêté (registre partagé : fetch_doc 403 2026-11-14T02:40:04Z)
+# Fin 2026-11-14T02:40:15Z — 0 requête(s) envoyée(s)

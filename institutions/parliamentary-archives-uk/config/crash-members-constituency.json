@@ -1,0 +1,12 @@
+{
+  "slug": "parliamentary-archives-uk",
+  "endpoint": {
+    "id": "crash-members-constituency",
+    "url": "https://members-api.parliament.uk/api/Location/Constituency/Search?searchText=Westminster&take=1",
+    "method": "GET"
+  },
+  "limite_documentee_req_min": null,
+  "source_limite": "aucune limite de débit documentée (https://web.archive.org/web/20250524214239/https://developer.parliament.uk/ : seulement « All data is made available under the Open Parliament Licence »)",
+  "duree_palier_s": 180,
+  "note": "Recherche de circonscription avec take=1 sur members-api.parliament.uk (hôte derrière Cloudflare), 200 dans le journal (pa2-constituency-search, 2026-11-14T02:48:34Z). Les hôtes du catalogue des Archives sont en défi Cloudflare, donc non testables."
+}

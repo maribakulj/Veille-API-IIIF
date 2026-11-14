@@ -1,0 +1,13 @@
+{
+  "slug": "radboud-university-library",
+  "min_delay_s": 10,
+  "max_requests": 15,
+  "follow_redirects": 1,
+  "robots_disallow_autorise_par_marcel": true,
+  "note": "Passe 2 : Radboud Repository (DSpace, thème Mirage2, repository.ubn.ru.nl). robots.txt : Crawl-delay 10 (donc pause 10 s), Disallow /discover, /browse (non testés). Endpoints : description OpenSearch liée depuis la page d'accueil (sources/doc), interfaces standard DSpace OAI-PMH (/oai/request) et REST (/rest) testées avec un script poli, une requête chacune, sans identifiant.",
+  "endpoints": [
+    {"id": "r2-opensearch-description", "method": "GET", "url": "https://repository.ubn.ru.nl/open-search/description.xml"},
+    {"id": "r2-oai-identify", "method": "GET", "url": "https://repository.ubn.ru.nl/oai/request?verb=Identify"},
+    {"id": "r2-rest-communities", "method": "GET", "url": "https://repository.ubn.ru.nl/rest/communities?limit=1"}
+  ]
+}

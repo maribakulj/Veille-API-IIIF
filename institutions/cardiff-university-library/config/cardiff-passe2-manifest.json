@@ -1,0 +1,12 @@
+{
+  "slug": "cardiff-university-library",
+  "min_delay_s": 10,
+  "max_requests": 4,
+  "follow_redirects": 1,
+  "robots_disallow_autorise_par_marcel": true,
+  "note": "Passe 2 : manifeste Alma Digital de Cardiff dont l'URL est publiee par un tiers (https://aeh0.github.io/experiiiments/2022/09/13/universal-viewer-2.html, lu en original) : identifiant de representation 12204337930002420 ; motif /view/iiif/presentation/{RepresentationID}/manifest et /view/delivery/{vid}/{RepresentationID}.json decrit pour Alma par la ZB Zurich (sources/doc-c/raw/05.html). Crawl-delay 10 s de librarysearch.cardiff.ac.uk.",
+  "endpoints": [
+    {"id": "manifest-v2", "method": "GET", "url": "https://librarysearch.cardiff.ac.uk/view/iiif/presentation/44WHELF_CAR/12204337930002420/manifest?iiifVersion=2", "save_body": 300000},
+    {"id": "delivery-json", "method": "GET", "url": "https://librarysearch.cardiff.ac.uk/view/delivery/44WHELF_CAR/12204337930002420.json"}
+  ]
+}

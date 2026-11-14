@@ -1,0 +1,12 @@
+{
+  "slug": "radboud-university-library",
+  "endpoint": {
+    "id": "crash-image-info",
+    "url": "https://bijzonderecollecties.ubn.ru.nl/iiif/2/Handschriften:11155/info.json",
+    "method": "GET"
+  },
+  "limite_documentee_req_min": null,
+  "source_limite": "aucune limite de débit documentée (https://bijzonderecollecties.ubn.ru.nl/robots.txt : seulement Crawl-Delay: 1 ; doc OCLC https://help.oclc.org/Metadata_Services/CONTENTdm/Advanced_website_customization/API_Reference/IIIF_API_reference : aucune règle de débit)",
+  "duree_palier_s": 180,
+  "note": "info.json IIIF Image 2 (Cantaloupe d'OCLC), 200 dans le journal (r6-image-info-site, 2026-11-14T02:56:32Z), réponse de quelques centaines d'octets."
+}
