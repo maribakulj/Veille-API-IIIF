@@ -1,0 +1,279 @@
+Using IIIF to work with digitised collections | SLV LAB 
+ Open SLV Lab menu SLV LAB -> 
+ Using IIIF to work with… 
+ × 
+ Search 
+ tutorial Date added: 04.04.25
+ Using IIIF to work with the Library's digitised collections
+ A hands-on introduction to the International Image Interoperability Framework (IIIF) presentation and image APIs, and using them to work with the Library's digitised collections. 
+ Contributor:
+ Sotirios Alpanis -> 
+ Title:
+ Using IIIF to work with the Library's digitised collections
+ Last updated:
+ 01.05.25
+ Description:
+ A practical introduction to working with the Library's digitised images via IIIF. 
+ Format:
+ .pdf
+ Filesize:
+ 51.15 MB
+ Tags:
+ IIIF 
+ Digitisation 
+ Python 
+ Experiment:
+ ManIIIFestor Browser Extension -> 
+ CC BY 4.0 
+ Read on Google Colab -> 
+ Download PDF 
+ ( working_with_images_iiif.pdf )
+ Tutorial: How to use IIIF to access State Library Victoria's digitised materials
+ IIIF: Making digital collections more accessible
+ State Library Victoria and other GLAM (galleries, libraries, archives, and museums) institutions use the International Image Interoperability Framework (IIIF, pronounced "triple-eye eff") to share their digitised materials.
+ What is IIIF?
+ Think of IIIF like the USB standard for digital materials. Just as USB-C allows you to use the same charger across different devices, IIIF creates a common protocol for digital images that works across organisations.
+ Why this matters
+ This standardisation offers significant benefits: 
+ image viewers and servers can be developed once and used everywhere 
+ organisations can share infrastructure instead of building custom solutions 
+ users get consistent experiences across different digital collections
+ About this guide
+ While this guide uses examples from State Library Victoria's digital collection, the same techniques can be applied to IIIF images from institutions worldwide with minimal adjustments. Check out these guides to finding IIIF resources 
+ In this guide, we will:
+ get familiar with the IIIF presentation manifest 
+ use this manifest to pull out useful information 
+ familiarise ourselves with the IIIF image API URI schema 
+ demonstrate how the URI parameters can be used to format and request different elements from an image
+ Note: Although this introduction to IIIF can be read as prose, it is intended to be a practical hands-on guide. Therefore it has been deployed as a "code-along" Jupyter notebook on the following platform:
+ Colab 
+ Finding sample images from the Library's collection
+ In order to explore IIIF using the Library's digitised collection, we will need to find one or more images we would like to explore. Helpfully, the Library has a pool of copyright-free images that can be accessed on its website: https://www.slv.vic.gov.au/images . 
+ Once we have found an image we would like to explore we will need to find the identifier from the URL: 
+ https://viewer.slv.vic.gov.au/?entity={ie_pid}&mode=browse 
+ For the remainder of this guide we will use the image identifier IE145082 and add it to a variable:
+ Copy ie_pid = "IE145082"
+ Working with IIIF manifests
+ IIIF manifests are files that contain relevant information about the digitised resources being made available. They use JSON, which organises the data into unique labels that have values assigned to them.
+ The image_id that we retrieved from the URL allows us to request the 'IIIF presentation manifest' for the object. The presentation manifest aims to combine digitised materials (images in this case) with relevant metadata about the material.
+ Copy import requests
+import pprint
+manifest_url = f"https://rosetta.slv.vic.gov.au/delivery/iiif/presentation/2.1/{ie_pid}/manifest"
+response = requests.get(manifest_url)
+manifest = response.json()
+pp = pprint.PrettyPrinter()
+pp.pprint(manifest) 
+ {'@context': 'http://iiif.io/api/presentation/2/context.json',
+ '@id': 'https://rosetta.slv.vic.gov.au:443/delivery/iiif/presentation/2.1/IE145082/manifest',
+ '@type': 'sc:Manifest',
+ 'attribution': 'This work is out of copyright',
+ 'description': '',
+ 'label': '[Berkshire pig with points marked on image]',
+ 'license': 'https://rosetta.slv.vic.gov.au:443/delivery/general/termsofuse.jsp?dps_dvs=1745375042218~738',
+ 'logo': 'https://rosetta.slv.vic.gov.au:443/delivery/images/1328468835/logo-main.png',
+ 'metadata': [],
+ 'sequences': [{'@id': 'https://rosetta.slv.vic.gov.au:443/delivery/iiif/presentation/2.1/IE145082/sequence/REP21000767 '
+ 'REP16336250',
+ '@type': 'sc:Sequence',
+ 'canvases': [{'@context': 'http://iiif.io/api/presentation/2/context.json',
+ '@id': 'https://rosetta.slv.vic.gov.au:443/delivery/iiif/presentation/2.1/IE145082/canvas/FL21000768',
+ '@type': 'sc:Canvas',
+ 'height': 5257,
+ 'images': [{'@context': 'http://iiif.io/api/presentation/2/context.json',
+ '@id': 'https://rosetta.slv.vic.gov.au:443/delivery/iiif/presentation/2.1/IE145082/annotation/FL21000768',
+ '@type': 'oa:Annotation',
+ 'motivation': 'sc:painting',
+ 'on': 'https://rosetta.slv.vic.gov.au:443/delivery/iiif/presentation/2.1/IE145082/canvas/FL21000768',
+ 'resource': {'@id': 'https://rosetta.slv.vic.gov.au:443/delivery/iiif/presentation/2.1/IE145082/res/FL21000768.jpg',
+ '@type': 'dctypes:Image',
+ 'format': 'image/jpeg',
+ 'height': 5257,
+ 'service': {'@context': 'http://iiif.io/api/image/2/context.json',
+ '@id': 'https://rosetta.slv.vic.gov.au:2083/iiif/2/IE145082:FL21000768.jpg',
+ 'profile': 'http://iiif.io/api/image/2/level1.json'},
+ 'width': 7000}}],
+ 'label': 'Image H2002',
+ 'thumbnail': 'https://rosetta.slv.vic.gov.au:443/delivery/DeliveryManagerServlet?dps_pid=FL21000768&dps_func=thumbnail',
+ 'width': 7000},
+ {'@context': 'http://iiif.io/api/presentation/2/context.json',
+ '@id': 'https://rosetta.slv.vic.gov.au:443/delivery/iiif/presentation/2.1/IE145082/canvas/FL16336251',
+ '@type': 'sc:Canvas',
+ 'height': 2999,
+ 'images': [{'@context': 'http://iiif.io/api/presentation/2/context.json',
+ '@id': 'https://rosetta.slv.vic.gov.au:443/delivery/iiif/presentation/2.1/IE145082/annotation/FL16336251',
+ '@type': 'oa:Annotation',
+ 'motivation': 'sc:painting',
+ 'on': 'https://rosetta.slv.vic.gov.au:443/delivery/iiif/presentation/2.1/IE145082/canvas/FL16336251',
+ 'resource': {'@id': 'https://rosetta.slv.vic.gov.au:443/delivery/iiif/presentation/2.1/IE145082/res/FL16336251.tif',
+ '@type': 'dctypes:Image',
+ 'format': 'image/tiff',
+ 'height': 2999,
+ 'service': {'@context': 'http://iiif.io/api/image/2/context.json',
+ '@id': 'https://rosetta.slv.vic.gov.au:2083/iiif/2/IE145082:FL16336251.tif',
+ 'profile': 'http://iiif.io/api/image/2/level1.json'},
+ 'width': 3993}}],
+ 'label': 'Image H2002.199/2487',
+ 'thumbnail': 'https://rosetta.slv.vic.gov.au:443/delivery/DeliveryManagerServlet?dps_pid=FL16336251&dps_func=thumbnail',
+ 'width': 3993}],
+ 'label': 'Table of Contents Table of Contents',
+ 'viewingDirection': 'left-to-right',
+ 'viewingHint': 'individuals'}],
+ 'structures': [],
+ 'thumbnail': 'https://rosetta.slv.vic.gov.au:443/delivery/DeliveryManagerServlet?dps_pid=IE145082&dps_func=thumbnail'} 
+ Retrieving useful information from the manifest
+ The data returned by the manifest may look complicated to begin with, but with a little guidance it is easy to interpret and retrieve useful data from. 
+ Note: a neat way of seeing what the presentation manifest contains, and can be used for is by adding the manifest URL https://rosetta.slv.vic.gov.au/delivery/iiif/presentation/2.1/IE145082/manifest to the Mirador Viewer demo site https://projectmirador.org/demo/ .
+ Descriptive and attribution metadata
+ The manifest data can contain useful information about the digitised resource. For example its rights attribution, and some descriptive metadata like a title. 
+ e.g.
+ {... 
+'attribution': 'This work is out of copyright', 
+'description': '', 
+'label': '[Berkshire pig with points marked on image]', 
+...} 
+ The keys for these fields can be used to access the data:
+ Copy attribution = manifest["attribution"] 
+title = manifest["label"] 
+f"Copyright: {attribution}. Title: {title}" 
+ "Copyright: This work is out of copyright. Title: [Berkshire pig with points marked on image]" 
+ Images
+ In the manifest, information about the images are contained within the canvases array. The canvases are themselves nestled within a JSON array entitled sequences . 
+ Copy canvases = manifest["sequences"][0]["canvases"]
+canvases 
+ [{'@context': 'http://iiif.io/api/presentation/2/context.json',
+ '@id': 'https://rosetta.slv.vic.gov.au:443/delivery/iiif/presentation/2.1/IE145082/canvas/FL21000768',
+ '@type': 'sc:Canvas',
+ 'label': 'Image H2002',
+ 'thumbnail': 'https://rosetta.slv.vic.gov.au:443/delivery/DeliveryManagerServlet?dps_pid=FL21000768&dps_func=thumbnail',
+ 'height': 5257,
+ 'width': 7000,
+ 'images': [{'@context': 'http://iiif.io/api/presentation/2/context.json',
+ '@id': 'https://rosetta.slv.vic.gov.au:443/delivery/iiif/presentation/2.1/IE145082/annotation/FL21000768',
+ '@type': 'oa:Annotation',
+ 'motivation': 'sc:painting',
+ 'resource': {'@id': 'https://rosetta.slv.vic.gov.au:443/delivery/iiif/presentation/2.1/IE145082/res/FL21000768.jpg',
+ '@type': 'dctypes:Image',
+ 'format': 'image/jpeg',
+ 'service': {'@context': 'http://iiif.io/api/image/2/context.json',
+ '@id': 'https://rosetta.slv.vic.gov.au:2083/iiif/2/IE145082:FL21000768.jpg',
+ 'profile': 'http://iiif.io/api/image/2/level1.json'},
+ 'height': 5257,
+ 'width': 7000},
+ 'on': 'https://rosetta.slv.vic.gov.au:443/delivery/iiif/presentation/2.1/IE145082/canvas/FL21000768'}]},
+ {'@context': 'http://iiif.io/api/presentation/2/context.json',
+ '@id': 'https://rosetta.slv.vic.gov.au:443/delivery/iiif/presentation/2.1/IE145082/canvas/FL16336251',
+ '@type': 'sc:Canvas',
+ 'label': 'Image H2002.199/2487',
+ 'thumbnail': 'https://rosetta.slv.vic.gov.au:443/delivery/DeliveryManagerServlet?dps_pid=FL16336251&dps_func=thumbnail',
+ 'height': 2999,
+ 'width': 3993,
+ 'images': [{'@context': 'http://iiif.io/api/presentation/2/context.json',
+ '@id': 'https://rosetta.slv.vic.gov.au:443/delivery/iiif/presentation/2.1/IE145082/annotation/FL16336251',
+ '@type': 'oa:Annotation',
+ 'motivation': 'sc:painting',
+ 'resource': {'@id': 'https://rosetta.slv.vic.gov.au:443/delivery/iiif/presentation/2.1/IE145082/res/FL16336251.tif',
+ '@type': 'dctypes:Image',
+ 'format': 'image/tiff',
+ 'service': {'@context': 'http://iiif.io/api/image/2/context.json',
+ '@id': 'https://rosetta.slv.vic.gov.au:2083/iiif/2/IE145082:FL16336251.tif',
+ 'profile': 'http://iiif.io/api/image/2/level1.json'},
+ 'height': 2999,
+ 'width': 3993},
+ 'on': 'https://rosetta.slv.vic.gov.au:443/delivery/iiif/presentation/2.1/IE145082/canvas/FL16336251'}]}] 
+ Each canvas contains information about the images: including the image id, its format and dimensions.
+ 'images': [...
+ 'format': 'image/jpeg',
+ 'service': {...
+ '@id': 'https://rosetta.slv.vic.gov.au:2083/iiif/2/IE145082:FL21000768.jpg',
+ ...},
+ 'height': 5257,
+ 'width': 7000},
+...]},
+ Let's loop through each canvas in the array and display the id, format, height and width.
+ Copy for canvas in canvases:
+ print("Image ID",canvas["images"][0]["resource"]["service"]["@id"])
+ print("Format",canvas["images"][0]["resource"]["format"])
+ print("Width",canvas["images"][0]["resource"]["width"])
+ print("Height",canvas["images"][0]["resource"]["height"]) 
+ Image ID https://rosetta.slv.vic.gov.au:2083/iiif/2/IE145082:FL21000768.jpg 
+Format image/jpeg 
+Width 7000 
+Height 5257 
+Image ID https://rosetta.slv.vic.gov.au:2083/iiif/2/IE145082:FL16336251.tif 
+Format image/tiff 
+Width 3993 
+Height 2999 
+ Explore the IIIF Image API
+ Now that we have retrieved the presentation manifest and identified some useful elements from it, we can use them to start exploring the image API. 
+ The image API is designed to offer a structured but flexible way of retrieving images, or regions of images in a range of sizes, orientations and formats. 
+ Image URI syntax
+ {scheme}://{server}/{prefix}/{identifier}/{region}/{size}/{rotation}/{quality}.{format} 
+ Official documentation https://iiif.io/api/image/3.0/ 
+ Returning to our example, the first four parameters in the schema are taken care of by the data retrieved from the manifest:
+ Copy image_id = canvases[0]["images"][0]["resource"]["service"]["@id"]
+image_id 
+ 'https://rosetta.slv.vic.gov.au:2083/iiif/2/IE145082:FL21000768.jpg ' 
+ If we add some default values for the remaining URI parameters, then we can retrieve and display the image:
+ Copy from PIL import Image
+image_url = f"{image_id}/full/max/0/default.jpg"
+img = Image.open(requests.get(image_url, stream=True).raw)
+display(img) 
+ This basic retrieval and display shows the image exactly as it appears in SLV's system. Image Source: "Berkshire pig with points marked on image", Argus Newspaper Collection of Photographs, State Library Victoria, Public Domain. With the full image retrieved we can consider how we might want to update the URI parameters to retrieve different parts of the image.
+ Rotation
+ We will fix the rotation for each image request at 0 
+ Size
+ We will use the pct: format to determine the size of the returned image by percentage of the original.
+ Copy region = "full"
+rotation = "0"
+size = "pct:10"
+quality = "default"
+image_url = f"{image_id}/{region}/{size}/{rotation}/{quality}.jpg"
+img = Image.open(requests.get(image_url, stream=True).raw)
+display(img) 
+ With the modified code, the IIIF image API reduces the image size to 10% of the original. Image Source: State Library Victoria. 
+ Quality
+ Given that the original image is effectively black-and-white we can update the quality param to gray .
+ Copy quality = "gray"
+image_url = f"{image_id}/{region}/{size}/{rotation}/{quality}.jpg"
+img = Image.open(requests.get(image_url, stream=True).raw)
+display(img) 
+ This modification successfully returns the image iin pure black and white. Image Source: State Library Victoria. 
+ Region
+ For these examples we will use the format x,y,w,h to select specific parts of the image. 
+ By specifying a region we are able to pick out interesting features and request that the image returns them. 
+ Note: The IIIF API playground allows you update the different URL query parameters and see the results in browser https://www.learniiif.org/image-api/playground .
+ Copy region = "0,1400,2400,2300"
+size = "pct:15"
+image_url = f"{image_id}/{region}/{size}/{rotation}/{quality}.jpg
+img = Image.open(requests.get(image_url, stream=True).raw) 
+ This set of parameters returns a cropped image focused on the pig's head, bringing attention to the attached text. Image Source: State Library Victoria. 
+ Copy region = "3400,1400,2700,2700"
+image_url = f"{image_id}/{region}/{size}/{rotation}/{quality}.jpg"
+img = Image.open(requests.get(image_url, stream=True).raw)
+display(img) 
+ Altering the region parameter results in a different part of the original image being returned. Image Source: State Library Victoria. Wrapping up
+ By following this guide you should be more familiar with how IIIF protocol structure data about images and their presentation, by using JSON manifests. You should also be confident in accessing the Library's images via IIIF, and hopefully inspired to explore the 100,000s of digitised images made available by the Library via IIIF.
+ References
+ the IIIF homepage has a plethora of useful information, including demos, learning resources and a calendar of community events https://iiif.io/ 
+ the "SLV" section on GLAM workbench site is another very useful introduction to working with the Library's collections via IIIF https://glam-workbench.net/slv/ 
+ Related Resources
+Title
+ Type Author(s) Tags 
+ ManIIIFestor code repository ManIIIFestor Browser Extension -> 
+ codebase Nick Paustian -> Sotirios Alpanis -> 
+ IIIF 
+ JavaScript 
+ Back to top 
+ SLV LAB is State Library Victoria's prototyping and innovation lab. We experiment with technology to open access to collections, data and spaces.
+ State Library Victoria acknowledges the traditional lands of all the Victorian Aboriginal clans, and their cultural practices and knowledge systems. We recognise that our collections hold traditional cultural knowledge belonging to Indigenous communities in Victoria and around the country. We support communities to protect the integrity of this information, gathered from their Ancestors in the colonial period. We pay our respects to their Elders, past and present, who have handed down these systems of practice to each new generation for millennia
+ Home 
+ Experiments 
+ Conversations 
+ Resources 
+ Participate 
+ About 
+ Feedback 
+ Disclaimer 
+ Privacy 
+ RSS Feed 
+ © 2025 State Library Victoria

@@ -1,0 +1,13 @@
+{
+  "slug": "state-library-victoria",
+  "min_delay_s": 10,
+  "max_requests": 15,
+  "follow_redirects": 1,
+  "robots_disallow_autorise_par_marcel": true,
+  "note": "v2 passe 1 : hôtes de SLV autres que rosetta.slv.vic.gov.au (403 Cloudflare dès le robots.txt, hôte arrêté, aucune requête vers lui : sources/wayback/rosetta-wayback.md). Exemples tirés de la doc officielle SLV LAB (sources/v2/text/01.txt) : résolveur Handle http://handle.slv.vic.gov.au/10381/4338980 (Crawl-delay 1 au robots.txt) ; visualiseur https://viewer.slv.vic.gov.au/?entity=IE24074939&mode=browse (robots.txt 404) ; notice Primo citée par la doc (find.slv.vic.gov.au : Crawl-delay 10, d'où la pause de 10 s). HEAD seulement. Redirection de handle vers un autre hôte : non suivie, location lue dans les en-têtes.",
+  "endpoints": [
+    {"id": "p1-handle-4338980", "method": "HEAD", "url": "http://handle.slv.vic.gov.au/10381/4338980"},
+    {"id": "p1-viewer-IE24074939", "method": "HEAD", "url": "https://viewer.slv.vic.gov.au/?entity=IE24074939&mode=browse"},
+    {"id": "p1-find-fulldisplay", "method": "HEAD", "url": "https://find.slv.vic.gov.au/discovery/fulldisplay?vid=61SLV_INST:SLV&search_scope=slv_local&tab=searchProfile&context=L&docid=alma9941325055707636"}
+  ]
+}
