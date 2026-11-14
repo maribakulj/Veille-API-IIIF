@@ -37,16 +37,16 @@
 ### e) Test systématique de chaque endpoint
 > Chaque endpoint documenté est testé (budget 15 requêtes par passe, pause ≥ 6 s, GET/HEAD, UA du projet). Redirections du même hôte suivies. Un 403 arrête son hôte, un 429 arrête l'institution. Seules les interdictions écrites dans la doc dispensent de tester.
 
-- [ ] **Pas fait**
-  - **Justification** : DÉCOCHÉE le 2026-11-14 (verrou renforcé) : 1 élément(s) de rattrapage_a_faire non traités | ancienne justification : Chaîne complète testée (4 passes, 5 requêtes de données) : 302, 301, puis 200 pour manifeste, info.json et dérivé ; aucun 429 ni en-tête de limite.
-  - **Preuves** : 
+- [x] **Fait**
+  - **Justification** : Chaîne complète testée en 4 passes (302, 301, 200 manifeste Primo, 200 info.json et dérivé Ex Libris) sans 429 ni en-tête de limite ; OAI-PMH/SRU non testés (URL absentes des sources de Gand) ; libraryguides.ugent.be non résolu en DNS, consigné.
+  - **Preuves** : `institutions/ghent-university-library/tests/journal.log`, `institutions/ghent-university-library/sources/d/FETCH.log`, `institutions/ghent-university-library/data.json`
 
 ### f) Ce que disent les gens sur le web
 > Plaintes, discussions, présentations de l'institution, politique envers les API et les bots, blogs, GitHub, forums, listes de diffusion. Sources étiquetées (officielle / institution / utilisateur / tiers), lues, citées.
 
 - [x] **Fait**
-  - **Justification** : 1 recherche web : seulement des notices Biblissima ; aucune politique de débit ni de bots de Gand.
-  - **Preuves** : `institutions/ghent-university-library/fiche.md`
+  - **Justification** : 4 recherches web (institution, utilisateurs, tickets, présentations) : aucune politique de débit, plainte ni ticket visant Gand ; annuaire tiers apis.io lu ; catégories sans piste marquées aucun_resultat.
+  - **Preuves** : `institutions/ghent-university-library/fiche.md`, `institutions/ghent-university-library/data.json`
 
 ### g) Crash test progressif
 > Seulement après l'audit complet (a à f) de toutes les institutions et avec l'accord de Marcel : paliers jusqu'à 2 × la limite documentée, ou 200 req/min si illimité ou sans limite documentée. Arrêt au premier 429/403/CAPTCHA.

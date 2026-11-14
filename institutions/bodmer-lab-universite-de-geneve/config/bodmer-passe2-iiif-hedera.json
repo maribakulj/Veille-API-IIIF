@@ -1,0 +1,13 @@
+{
+  "slug": "bodmer-lab-universite-de-geneve",
+  "min_delay_s": 10,
+  "max_requests": 15,
+  "follow_redirects": 1,
+  "robots_disallow_autorise_par_marcel": true,
+  "note": "Passe 2 (lot D) : hôte iiif.hedera.unige.ch annoncé par le manifeste de la passe 1 (@id du manifeste, service IIIF Image 2 niveau 2). robots.txt de cet hôte : 401 (sources/a2/FETCH.log), lu comme indisponible. Info.json et dérivé pct:2 (le motif que le site de Bodmer Lab emploie lui-même dans ses pages, sources/a2/raw/04.html). Pause 10 s (Crawl-delay 40 sur hedera.unige.ch, hôte voisin non contacté).",
+  "endpoints": [
+    {"id": "hedera-manifeste", "method": "HEAD", "url": "https://iiif.hedera.unige.ch/iiif/manifests/bodmerlab/IIIFManifest_1072205386.json"},
+    {"id": "hedera-info-json", "method": "GET", "url": "https://iiif.hedera.unige.ch/iiif/2/bodmerlab/1072205386/1072205386_002.jpg/info.json"},
+    {"id": "hedera-derive-pct2", "method": "GET", "url": "https://iiif.hedera.unige.ch/iiif/2/bodmerlab/1072205386/1072205386_002.jpg/full/pct:2/0/default.jpg"}
+  ]
+}

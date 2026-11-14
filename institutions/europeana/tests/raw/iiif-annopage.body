@@ -1,0 +1,283 @@
+{
+  "@context" : [ "http://iiif.io/api/presentation/2/context.json", "http://iiif.io/api/extension/text-granularity/context.json", "https://www.europeana.eu/schemas/context/edm.jsonld" ],
+  "@id" : "https://iiif.europeana.eu/presentation/9200396/BibliographicResource_3000118436165/annopage/0090019?lang=fr",
+  "@type" : "sc:AnnotationList",
+  "language" : "fr",
+  "textGranularity" : [ "page", "word", "line", "block" ],
+  "resources" : [ {
+    "@id" : "https://data.europeana.eu/annotation/9200396/BibliographicResource_3000118436165/80bbd2a2ddb9d9bca782894c4a187ac8",
+    "@type" : "oa:Annotation",
+    "motivation" : "sc:painting",
+    "textGranularity" : "page",
+    "resource" : {
+      "@id" : "https://api.europeana.eu/fulltext/9200396/BibliographicResource_3000118436165/0090019"
+    },
+    "on" : [ "https://iiif.europeana.eu/image/QNYVL2Z2FVHRGMK2UNXIP4DUUOTOVA2ND3WIPJQF6V23SO2CJ5UA/presentation_images/ee0edfa0-0220-11e6-a696-fa163e2dd531/node-3/image/BNL/Journal_historique_et_littéraire/1788/09/01/00025/full/full/0/default.jpg" ]
+  }, {
+    "@id" : "https://data.europeana.eu/annotation/9200396/BibliographicResource_3000118436165/e9648aa55e2e620fb95362b2e41e9c7b",
+    "@type" : "oa:Annotation",
+    "motivation" : "sc:painting",
+    "textGranularity" : "word",
+    "resource" : {
+      "@id" : "https://api.europeana.eu/fulltext/9200396/BibliographicResource_3000118436165/0090019#char=0,2"
+    },
+    "on" : [ "https://iiif.europeana.eu/image/QNYVL2Z2FVHRGMK2UNXIP4DUUOTOVA2ND3WIPJQF6V23SO2CJ5UA/presentation_images/ee0edfa0-0220-11e6-a696-fa163e2dd531/node-3/image/BNL/Journal_historique_et_littéraire/1788/09/01/00025/full/full/0/default.jpg#xywh=475,301,22,21" ]
+  }, {
+    "@id" : "https://data.europeana.eu/annotation/9200396/BibliographicResource_3000118436165/833c45d6ae4417c2c93e8d0ba13ee83a",
+    "@type" : "oa:Annotation",
+    "motivation" : "sc:painting",
+    "textGranularity" : "word",
+    "resource" : {
+      "@id" : "https://api.europeana.eu/fulltext/9200396/BibliographicResource_3000118436165/0090019#char=3,12"
+    },
+    "on" : [ "https://iiif.europeana.eu/image/QNYVL2Z2FVHRGMK2UNXIP4DUUOTOVA2ND3WIPJQF6V23SO2CJ5UA/presentation_images/ee0edfa0-0220-11e6-a696-fa163e2dd531/node-3/image/BNL/Journal_historique_et_littéraire/1788/09/01/00025/full/full/0/default.jpg#xywh=520,293,151,36" ]
+  }, {
+    "@id" : "https://data.europeana.eu/annotation/9200396/BibliographicResource_3000118436165/8448df9d25eb1494b07ef45442b119ab",
+    "@type" : "oa:Annotation",
+    "motivation" : "sc:painting",
+    "textGranularity" : "word",
+    "resource" : {
+      "@id" : "https://api.europeana.eu/fulltext/9200396/BibliographicResource_3000118436165/0090019#char=13,18"
+    },
+    "on" : [ "https://iiif.europeana.eu/image/QNYVL2Z2FVHRGMK2UNXIP4DUUOTOVA2ND3WIPJQF6V23SO2CJ5UA/presentation_images/ee0edfa0-0220-11e6-a696-fa163e2dd531/node-3/image/BNL/Journal_historique_et_littéraire/1788/09/01/00025/full/full/0/default.jpg#xywh=695,294,81,35" ]
+  }, {
+    "@id" : "https://data.europeana.eu/annotation/9200396/BibliographicResource_3000118436165/6536ea87c2f792a6085123f7a63e2ec1",
+    "@type" : "oa:Annotation",
+    "motivation" : "sc:painting",
+    "textGranularity" : "line",
+    "resource" : {
+      "@id" : "https://api.europeana.eu/fulltext/9200396/BibliographicResource_3000118436165/0090019#char=0,18"
+    },
+    "on" : [ "https://iiif.europeana.eu/image/QNYVL2Z2FVHRGMK2UNXIP4DUUOTOVA2ND3WIPJQF6V23SO2CJ5UA/presentation_images/ee0edfa0-0220-11e6-a696-fa163e2dd531/node-3/image/BNL/Journal_historique_et_littéraire/1788/09/01/00025/full/full/0/default.jpg#xywh=475,293,301,36" ]
+  }, {
+    "@id" : "https://data.europeana.eu/annotation/9200396/BibliographicResource_3000118436165/5c8e47bd977f7555a1c8aa6d575d9734",
+    "@type" : "oa:Annotation",
+    "motivation" : "sc:painting",
+    "textGranularity" : "word",
+    "resource" : {
+      "@id" : "https://api.europeana.eu/fulltext/9200396/BibliographicResource_3000118436165/0090019#char=19,24"
+    },
+    "on" : [ "https://iiif.europeana.eu/image/QNYVL2Z2FVHRGMK2UNXIP4DUUOTOVA2ND3WIPJQF6V23SO2CJ5UA/presentation_images/ee0edfa0-0220-11e6-a696-fa163e2dd531/node-3/image/BNL/Journal_historique_et_littéraire/1788/09/01/00025/full/full/0/default.jpg#xywh=317,347,92,26" ]
+  }, {
+    "@id" : "https://data.europeana.eu/annotation/9200396/BibliographicResource_3000118436165/14141c61523f3543926a400e7b9c27de",
+    "@type" : "oa:Annotation",
+    "motivation" : "sc:painting",
+    "textGranularity" : "word",
+    "resource" : {
+      "@id" : "https://api.europeana.eu/fulltext/9200396/BibliographicResource_3000118436165/0090019#char=25,27"
+    },
+    "on" : [ "https://iiif.europeana.eu/image/QNYVL2Z2FVHRGMK2UNXIP4DUUOTOVA2ND3WIPJQF6V23SO2CJ5UA/presentation_images/ee0edfa0-0220-11e6-a696-fa163e2dd531/node-3/image/BNL/Journal_historique_et_littéraire/1788/09/01/00025/full/full/0/default.jpg#xywh=428,347,34,20" ]
+  }, {
+    "@id" : "https://data.europeana.eu/annotation/9200396/BibliographicResource_3000118436165/b7acfbea7a76412a4df7e007ba800709",
+    "@type" : "oa:Annotation",
+    "motivation" : "sc:painting",
+    "textGranularity" : "word",
+    "resource" : {
+      "@id" : "https://api.europeana.eu/fulltext/9200396/BibliographicResource_3000118436165/0090019#char=28,41"
+    },
+    "on" : [ "https://iiif.europeana.eu/image/QNYVL2Z2FVHRGMK2UNXIP4DUUOTOVA2ND3WIPJQF6V23SO2CJ5UA/presentation_images/ee0edfa0-0220-11e6-a696-fa163e2dd531/node-3/image/BNL/Journal_historique_et_littéraire/1788/09/01/00025/full/full/0/default.jpg#xywh=482,340,187,28" ]
+  }, {
+    "@id" : "https://data.europeana.eu/annotation/9200396/BibliographicResource_3000118436165/e495ca1146f86acf964261be3a15f034",
+    "@type" : "oa:Annotation",
+    "motivation" : "sc:painting",
+    "textGranularity" : "word",
+    "resource" : {
+      "@id" : "https://api.europeana.eu/fulltext/9200396/BibliographicResource_3000118436165/0090019#char=42,45"
+    },
+    "on" : [ "https://iiif.europeana.eu/image/QNYVL2Z2FVHRGMK2UNXIP4DUUOTOVA2ND3WIPJQF6V23SO2CJ5UA/presentation_images/ee0edfa0-0220-11e6-a696-fa163e2dd531/node-3/image/BNL/Journal_historique_et_littéraire/1788/09/01/00025/full/full/0/default.jpg#xywh=690,349,48,24" ]
+  }, {
+    "@id" : "https://data.europeana.eu/annotation/9200396/BibliographicResource_3000118436165/ecfa08cc552da7c56d749e2260b51a90",
+    "@type" : "oa:Annotation",
+    "motivation" : "sc:painting",
+    "textGranularity" : "word",
+    "resource" : {
+      "@id" : "https://api.europeana.eu/fulltext/9200396/BibliographicResource_3000118436165/0090019#char=46,48"
+    },
+    "on" : [ "https://iiif.europeana.eu/image/QNYVL2Z2FVHRGMK2UNXIP4DUUOTOVA2ND3WIPJQF6V23SO2CJ5UA/presentation_images/ee0edfa0-0220-11e6-a696-fa163e2dd531/node-3/image/BNL/Journal_historique_et_littéraire/1788/09/01/00025/full/full/0/default.jpg#xywh=757,343,15,23" ]
+  }, {
+    "@id" : "https://data.europeana.eu/annotation/9200396/BibliographicResource_3000118436165/c63083f30df1feda80cb04c87142dfc4",
+    "@type" : "oa:Annotation",
+    "motivation" : "sc:painting",
+    "textGranularity" : "word",
+    "resource" : {
+      "@id" : "https://api.europeana.eu/fulltext/9200396/BibliographicResource_3000118436165/0090019#char=49,58"
+    },
+    "on" : [ "https://iiif.europeana.eu/image/QNYVL2Z2FVHRGMK2UNXIP4DUUOTOVA2ND3WIPJQF6V23SO2CJ5UA/presentation_images/ee0edfa0-0220-11e6-a696-fa163e2dd531/node-3/image/BNL/Journal_historique_et_littéraire/1788/09/01/00025/full/full/0/default.jpg#xywh=791,344,128,28" ]
+  }, {
+    "@id" : "https://data.europeana.eu/annotation/9200396/BibliographicResource_3000118436165/af279724795c4cd257f99cd2f0abe96f",
+    "@type" : "oa:Annotation",
+    "motivation" : "sc:painting",
+    "textGranularity" : "word",
+    "resource" : {
+      "@id" : "https://api.europeana.eu/fulltext/9200396/BibliographicResource_3000118436165/0090019#char=59,61"
+    },
+    "on" : [ "https://iiif.europeana.eu/image/QNYVL2Z2FVHRGMK2UNXIP4DUUOTOVA2ND3WIPJQF6V23SO2CJ5UA/presentation_images/ee0edfa0-0220-11e6-a696-fa163e2dd531/node-3/image/BNL/Journal_historique_et_littéraire/1788/09/01/00025/full/full/0/default.jpg#xywh=938,339,25,25" ]
+  }, {
+    "@id" : "https://data.europeana.eu/annotation/9200396/BibliographicResource_3000118436165/650d2e8bb37fd829e7f9323093dabff0",
+    "@type" : "oa:Annotation",
+    "motivation" : "sc:painting",
+    "textGranularity" : "line",
+    "resource" : {
+      "@id" : "https://api.europeana.eu/fulltext/9200396/BibliographicResource_3000118436165/0090019#char=19,61"
+    },
+    "on" : [ "https://iiif.europeana.eu/image/QNYVL2Z2FVHRGMK2UNXIP4DUUOTOVA2ND3WIPJQF6V23SO2CJ5UA/presentation_images/ee0edfa0-0220-11e6-a696-fa163e2dd531/node-3/image/BNL/Journal_historique_et_littéraire/1788/09/01/00025/full/full/0/default.jpg#xywh=317,339,646,34" ]
+  }, {
+    "@id" : "https://data.europeana.eu/annotation/9200396/BibliographicResource_3000118436165/cf93771991533dfe7888a8b6967019ae",
+    "@type" : "oa:Annotation",
+    "motivation" : "sc:painting",
+    "textGranularity" : "word",
+    "resource" : {
+      "@id" : "https://api.europeana.eu/fulltext/9200396/BibliographicResource_3000118436165/0090019#char=62,72"
+    },
+    "on" : [ "https://iiif.europeana.eu/image/QNYVL2Z2FVHRGMK2UNXIP4DUUOTOVA2ND3WIPJQF6V23SO2CJ5UA/presentation_images/ee0edfa0-0220-11e6-a696-fa163e2dd531/node-3/image/BNL/Journal_historique_et_littéraire/1788/09/01/00025/full/full/0/default.jpg#xywh=319,378,174,28" ]
+  }, {
+    "@id" : "https://data.europeana.eu/annotation/9200396/BibliographicResource_3000118436165/3eb95cda746e239f4ca65add201d96fc",
+    "@type" : "oa:Annotation",
+    "motivation" : "sc:painting",
+    "textGranularity" : "word",
+    "resource" : {
+      "@id" : "https://api.europeana.eu/fulltext/9200396/BibliographicResource_3000118436165/0090019#char=73,75"
+    },
+    "on" : [ "https://iiif.europeana.eu/image/QNYVL2Z2FVHRGMK2UNXIP4DUUOTOVA2ND3WIPJQF6V23SO2CJ5UA/presentation_images/ee0edfa0-0220-11e6-a696-fa163e2dd531/node-3/image/BNL/Journal_historique_et_littéraire/1788/09/01/00025/full/full/0/default.jpg#xywh=508,378,35,27" ]
+  }, {
+    "@id" : "https://data.europeana.eu/annotation/9200396/BibliographicResource_3000118436165/793cb163d29f05bde04d59f122a3612b",
+    "@type" : "oa:Annotation",
+    "motivation" : "sc:painting",
+    "textGranularity" : "word",
+    "resource" : {
+      "@id" : "https://api.europeana.eu/fulltext/9200396/BibliographicResource_3000118436165/0090019#char=76,81"
+    },
+    "on" : [ "https://iiif.europeana.eu/image/QNYVL2Z2FVHRGMK2UNXIP4DUUOTOVA2ND3WIPJQF6V23SO2CJ5UA/presentation_images/ee0edfa0-0220-11e6-a696-fa163e2dd531/node-3/image/BNL/Journal_historique_et_littéraire/1788/09/01/00025/full/full/0/default.jpg#xywh=553,379,72,26" ]
+  }, {
+    "@id" : "https://data.europeana.eu/annotation/9200396/BibliographicResource_3000118436165/27f74e006058f5229a00b854b8317d3a",
+    "@type" : "oa:Annotation",
+    "motivation" : "sc:painting",
+    "textGranularity" : "word",
+    "resource" : {
+      "@id" : "https://api.europeana.eu/fulltext/9200396/BibliographicResource_3000118436165/0090019#char=82,89"
+    },
+    "on" : [ "https://iiif.europeana.eu/image/QNYVL2Z2FVHRGMK2UNXIP4DUUOTOVA2ND3WIPJQF6V23SO2CJ5UA/presentation_images/ee0edfa0-0220-11e6-a696-fa163e2dd531/node-3/image/BNL/Journal_historique_et_littéraire/1788/09/01/00025/full/full/0/default.jpg#xywh=643,379,112,26" ]
+  }, {
+    "@id" : "https://data.europeana.eu/annotation/9200396/BibliographicResource_3000118436165/31afb464fd4b02bca894b70e7e82a838",
+    "@type" : "oa:Annotation",
+    "motivation" : "sc:painting",
+    "textGranularity" : "word",
+    "resource" : {
+      "@id" : "https://api.europeana.eu/fulltext/9200396/BibliographicResource_3000118436165/0090019#char=90,100"
+    },
+    "on" : [ "https://iiif.europeana.eu/image/QNYVL2Z2FVHRGMK2UNXIP4DUUOTOVA2ND3WIPJQF6V23SO2CJ5UA/presentation_images/ee0edfa0-0220-11e6-a696-fa163e2dd531/node-3/image/BNL/Journal_historique_et_littéraire/1788/09/01/00025/full/full/0/default.jpg#xywh=764,379,158,26" ]
+  }, {
+    "@id" : "https://data.europeana.eu/annotation/9200396/BibliographicResource_3000118436165/77b0d1c35e12eafdb1b03c60c449b521",
+    "@type" : "oa:Annotation",
+    "motivation" : "sc:painting",
+    "textGranularity" : "line",
+    "resource" : {
+      "@id" : "https://api.europeana.eu/fulltext/9200396/BibliographicResource_3000118436165/0090019#char=62,100"
+    },
+    "on" : [ "https://iiif.europeana.eu/image/QNYVL2Z2FVHRGMK2UNXIP4DUUOTOVA2ND3WIPJQF6V23SO2CJ5UA/presentation_images/ee0edfa0-0220-11e6-a696-fa163e2dd531/node-3/image/BNL/Journal_historique_et_littéraire/1788/09/01/00025/full/full/0/default.jpg#xywh=319,378,603,28" ]
+  }, {
+    "@id" : "https://data.europeana.eu/annotation/9200396/BibliographicResource_3000118436165/3ce34d049f4441da4293fb0bdacc54fe",
+    "@type" : "oa:Annotation",
+    "motivation" : "sc:painting",
+    "textGranularity" : "block",
+    "resource" : {
+      "@id" : "https://api.europeana.eu/fulltext/9200396/BibliographicResource_3000118436165/0090019#char=0,100"
+    },
+    "on" : [ "https://iiif.europeana.eu/image/QNYVL2Z2FVHRGMK2UNXIP4DUUOTOVA2ND3WIPJQF6V23SO2CJ5UA/presentation_images/ee0edfa0-0220-11e6-a696-fa163e2dd531/node-3/image/BNL/Journal_historique_et_littéraire/1788/09/01/00025/full/full/0/default.jpg#xywh=316,292,648,115" ]
+  }, {
+    "@id" : "https://data.europeana.eu/annotation/9200396/BibliographicResource_3000118436165/d2710712c0a2a63239a1769a502b9ce0",
+    "@type" : "oa:Annotation",
+    "motivation" : "sc:painting",
+    "textGranularity" : "word",
+    "resource" : {
+      "@id" : "https://api.europeana.eu/fulltext/9200396/BibliographicResource_3000118436165/0090019#char=101,103"
+    },
+    "on" : [ "https://iiif.europeana.eu/image/QNYVL2Z2FVHRGMK2UNXIP4DUUOTOVA2ND3WIPJQF6V23SO2CJ5UA/presentation_images/ee0edfa0-0220-11e6-a696-fa163e2dd531/node-3/image/BNL/Journal_historique_et_littéraire/1788/09/01/00025/full/full/0/default.jpg#xywh=932,298,37,29" ]
+  }, {
+    "@id" : "https://data.europeana.eu/annotation/9200396/BibliographicResource_3000118436165/bb3321d1398eb96762321dd0b8b2b021",
+    "@type" : "oa:Annotation",
+    "motivation" : "sc:painting",
+    "textGranularity" : "line",
+    "resource" : {
+      "@id" : "https://api.europeana.eu/fulltext/9200396/BibliographicResource_3000118436165/0090019#char=101,103"
+    },
+    "on" : [ "https://iiif.europeana.eu/image/QNYVL2Z2FVHRGMK2UNXIP4DUUOTOVA2ND3WIPJQF6V23SO2CJ5UA/presentation_images/ee0edfa0-0220-11e6-a696-fa163e2dd531/node-3/image/BNL/Journal_historique_et_littéraire/1788/09/01/00025/full/full/0/default.jpg#xywh=932,298,37,29" ]
+  }, {
+    "@id" : "https://data.europeana.eu/annotation/9200396/BibliographicResource_3000118436165/c96ccb1e1c33d7d28f54c351c0dc12b3",
+    "@type" : "oa:Annotation",
+    "motivation" : "sc:painting",
+    "textGranularity" : "block",
+    "resource" : {
+      "@id" : "https://api.europeana.eu/fulltext/9200396/BibliographicResource_3000118436165/0090019#char=101,103"
+    },
+    "on" : [ "https://iiif.europeana.eu/image/QNYVL2Z2FVHRGMK2UNXIP4DUUOTOVA2ND3WIPJQF6V23SO2CJ5UA/presentation_images/ee0edfa0-0220-11e6-a696-fa163e2dd531/node-3/image/BNL/Journal_historique_et_littéraire/1788/09/01/00025/full/full/0/default.jpg#xywh=926,292,49,41" ]
+  }, {
+    "@id" : "https://data.europeana.eu/annotation/9200396/BibliographicResource_3000118436165/13769dbf5def287a4697f2d33af60d25",
+    "@type" : "oa:Annotation",
+    "motivation" : "sc:painting",
+    "textGranularity" : "word",
+    "resource" : {
+      "@id" : "https://api.europeana.eu/fulltext/9200396/BibliographicResource_3000118436165/0090019#char=104,105"
+    },
+    "on" : [ "https://iiif.europeana.eu/image/QNYVL2Z2FVHRGMK2UNXIP4DUUOTOVA2ND3WIPJQF6V23SO2CJ5UA/presentation_images/ee0edfa0-0220-11e6-a696-fa163e2dd531/node-3/image/BNL/Journal_historique_et_littéraire/1788/09/01/00025/full/full/0/default.jpg#xywh=279,355,19,15" ]
+  }, {
+    "@id" : "https://data.europeana.eu/annotation/9200396/BibliographicResource_3000118436165/c059c9a7f1d97efd2a09cc197008d6a3",
+    "@type" : "oa:Annotation",
+    "motivation" : "sc:painting",
+    "textGranularity" : "line",
+    "resource" : {
+      "@id" : "https://api.europeana.eu/fulltext/9200396/BibliographicResource_3000118436165/0090019"
+    },
+    "on" : [ "https://iiif.europeana.eu/image/QNYVL2Z2FVHRGMK2UNXIP4DUUOTOVA2ND3WIPJQF6V23SO2CJ5UA/presentation_images/ee0edfa0-0220-11e6-a696-fa163e2dd531/node-3/image/BNL/Journal_historique_et_littéraire/1788/09/01/00025/full/full/0/default.jpg#xywh=279,355,19,15" ]
+  }, {
+    "@id" : "https://data.europeana.eu/annotation/9200396/BibliographicResource_3000118436165/48a301facd35a49c116667f0d553138a",
+    "@type" : "oa:Annotation",
+    "motivation" : "sc:painting",
+    "textGranularity" : "block",
+    "resource" : {
+      "@id" : "https://api.europeana.eu/fulltext/9200396/BibliographicResource_3000118436165/0090019"
+    },
+    "on" : [ "https://iiif.europeana.eu/image/QNYVL2Z2FVHRGMK2UNXIP4DUUOTOVA2ND3WIPJQF6V23SO2CJ5UA/presentation_images/ee0edfa0-0220-11e6-a696-fa163e2dd531/node-3/image/BNL/Journal_historique_et_littéraire/1788/09/01/00025/full/full/0/default.jpg#xywh=271,350,33,26" ]
+  }, {
+    "@id" : "https://data.europeana.eu/annotation/9200396/BibliographicResource_3000118436165/7c01b7df6d19dd5dd787b9e478138464",
+    "@type" : "oa:Annotation",
+    "motivation" : "sc:painting",
+    "textGranularity" : "word",
+    "resource" : {
+      "@id" : "https://api.europeana.eu/fulltext/9200396/BibliographicResource_3000118436165/0090019#char=106,108"
+    },
+    "on" : [ "https://iiif.europeana.eu/image/QNYVL2Z2FVHRGMK2UNXIP4DUUOTOVA2ND3WIPJQF6V23SO2CJ5UA/presentation_images/ee0edfa0-0220-11e6-a696-fa163e2dd531/node-3/image/BNL/Journal_historique_et_littéraire/1788/09/01/00025/full/full/0/default.jpg#xywh=277,393,19,16" ]
+  }, {
+    "@id" : "https://data.europeana.eu/annotation/9200396/BibliographicResource_3000118436165/d11278a6741bf075dd9e91a162ceb71d",
+    "@type" : "oa:Annotation",
+    "motivation" : "sc:painting",
+    "textGranularity" : "line",
+    "resource" : {
+      "@id" : "https://api.europeana.eu/fulltext/9200396/BibliographicResource_3000118436165/0090019#char=106,108"
+    },
+    "on" : [ "https://iiif.europeana.eu/image/QNYVL2Z2FVHRGMK2UNXIP4DUUOTOVA2ND3WIPJQF6V23SO2CJ5UA/presentation_images/ee0edfa0-0220-11e6-a696-fa163e2dd531/node-3/image/BNL/Journal_historique_et_littéraire/1788/09/01/00025/full/full/0/default.jpg#xywh=277,393,19,16" ]
+  }, {
+    "@id" : "https://data.europeana.eu/annotation/9200396/BibliographicResource_3000118436165/f6af37f511d8703fc9d9a11109906a51",
+    "@type" : "oa:Annotation",
+    "motivation" : "sc:painting",
+    "textGranularity" : "block",
+    "resource" : {
+      "@id" : "https://api.europeana.eu/fulltext/9200396/BibliographicResource_3000118436165/0090019#char=106,108"
+    },
+    "on" : [ "https://iiif.europeana.eu/image/QNYVL2Z2FVHRGMK2UNXIP4DUUOTOVA2ND3WIPJQF6V23SO2CJ5UA/presentation_images/ee0edfa0-0220-11e6-a696-fa163e2dd531/node-3/image/BNL/Journal_historique_et_littéraire/1788/09/01/00025/full/full/0/default.jpg#xywh=272,388,31,27" ]
+  }, {
+    "@id" : "https://data.europeana.eu/annotation/9200396/BibliographicResource_3000118436165/f5ba2734b3edeca08b2f1d1c5345ef72",
+    "@type" : "oa:Annotation",
+    "motivation" : "sc:painting",
+    "textGranularity" : "word",
+    "resource" : {
+      "@id" : "https://api.europeana.eu/fulltext/9200396/BibliographicResource_3000118436165/0090019#char=109,110"
+    },
+    "on" : [ "https://iiif.europeana.eu/image/QNYVL2Z2FVHRGMK2UNXIP4DUUOTOVA2ND3WIPJQF6V23SO2CJ5UA/presentation_images/ee0edfa0-0220-11e6-a696-fa163e2dd531/node-3/image/BNL/Journal_historique_et_littéraire/1788/09/01/00025/full/full/0/default.jpg#xywh=925,396,5,5" ]
+  }, {
+    "@id" : "https://data.europeana.eu/annotation/9200396/BibliographicResource_3000118436165/fc9bd1c89d557f503784c2bd6c8aad57",
+    "@type" : "oa:Annotation",
+    "motivation" : "sc:painting",
+    "textGranularity" : "word",
+    "resource" : {
+      "@id" : "https://api.europeana.eu/fulltext/9200396/BibliographicResource
