@@ -1,0 +1,24 @@
+# Session 2026-11-14T03:29:36Z — configuration cj-passe1-api.json — sonde probe.py au commit 3b1ec45
+2026-11-14T03:29:36Z | robots.txt:api.cultural.jp | https://api.cultural.jp/robots.txt | GET | 200 | 1 règle(s) pour « * »
+2026-11-14T03:29:36Z | cj-count | robots.txt interdit https://api.cultural.jp/count?keyword=Map (Disallow: /) ; lancé car autorisé par Marcel (C12)
+2026-11-14T03:29:42Z | cj-count | https://api.cultural.jp/count?keyword=Map | GET | 200 OK | aucun en-tête de limite | taille≥14 | corps: {"count":5529}
+2026-11-14T03:29:42Z | cj-search-1 | robots.txt interdit https://api.cultural.jp/search?keyword=Map&size=1 (Disallow: /) ; lancé car autorisé par Marcel (C12)
+2026-11-14T03:29:49Z | cj-search-1 | https://api.cultural.jp/search?keyword=Map&size=1 | GET | 200 OK | aucun en-tête de limite | taille≥200 | corps: {"hits":{"total":{"value":5529},"hits":[{"id":"britishm-1396321","manifest":["https://api.cultural.jp/iiif/britishm-1396321/manifest"],"image":["https://media.britishmuseum.org/media/Repository/Docume
+2026-11-14T03:29:49Z | cj-item | robots.txt interdit https://api.cultural.jp/item/stanfordsw-2842816 (Disallow: /) ; lancé car autorisé par Marcel (C12)
+2026-11-14T03:29:55Z | cj-item | https://api.cultural.jp/item/stanfordsw-2842816 | GET | 200 OK | aucun en-tête de limite | taille≥200 | corps: {"id":"stanfordsw-2842816","description":["Description: Map — col. map. 56 x 53 cm.","Docmeta: 1st ed.-AMS 1. - Washington, 1945."],"name":["Rumoi, Rumoi [Sub]prefecture. Hokkaido, Japan"],"honkoku"
+2026-11-14T03:29:55Z | cj-manifeste | robots.txt interdit https://api.cultural.jp/iiif/stanfordsw-2842816/manifest (Disallow: /) ; lancé car autorisé par Marcel (C12)
+2026-11-14T03:30:03Z | cj-manifeste | https://api.cultural.jp/iiif/stanfordsw-2842816/manifest | GET | 200 OK | aucun en-tête de limite | taille≥3366 | corps: {"@context":"http://iiif.io/api/presentation/2/context.json","@id":"https://api.cultural.jp/iiif/stanfordsw-2842816/manifest","@type":"sc:Manifest","label":[{"@language":"ja","@value":"Rumoi, Rumoi [S
+# corps enregistré : tests/raw/cj-manifeste.body (3366 octets lus)
+2026-11-14T03:30:03Z | cj-exhibition-liste | robots.txt interdit https://api.cultural.jp/iiif/2/exhibition (Disallow: /) ; lancé car autorisé par Marcel (C12)
+2026-11-14T03:30:11Z | cj-exhibition-liste | https://api.cultural.jp/iiif/2/exhibition | GET | 200 OK | aucun en-tête de limite | taille≥171695 | corps: {"@context":"http://iiif.io/api/presentation/2/context.json","@id":"https://api.cultural.jp/iiif/2/exhibition","@type":"sc:Collection","label":"カルチュラルジャパン展覧会アーカイブ",
+# corps enregistré : tests/raw/cj-exhibition-liste.body (171695 octets lus)
+2026-11-14T03:30:11Z | cj-exhibition-collection | robots.txt interdit https://api.cultural.jp/exhibition/iiif/collection/minneapolis-exhib-2021-japan (Disallow: /) ; lancé car autorisé par Marcel (C12)
+2026-11-14T03:30:19Z | cj-exhibition-collection | https://api.cultural.jp/exhibition/iiif/collection/minneapolis-exhib-2021-japan | GET | 200 OK | aucun en-tête de limite | taille≥22188 | corps: {"@context":"http://iiif.io/api/presentation/2/context.json","@type":"sc:Collection","@id":"https://api.cultural.jp/exhibition/iiif/collection/minneapolis-exhib-2021-japan","label":[{"@value":"ミネ�
+# corps enregistré : tests/raw/cj-exhibition-collection.body (22188 octets lus)
+2026-11-14T03:30:19Z | cj-collection-map | robots.txt interdit https://api.cultural.jp/collection?keyword=Map (Disallow: /) ; lancé car autorisé par Marcel (C12)
+2026-11-14T03:30:25Z | cj-collection-map | https://api.cultural.jp/collection?keyword=Map | GET | 200 OK | aucun en-tête de limite | taille≥4514 | corps: {"@context":"http://iiif.io/api/presentation/2/context.json","@id":"https://api.cultural.jp/collection?keyword=Map","@type":"sc:Collection","label":"IIIF collection from Cultural Japan","vhint":"use-t
+# corps enregistré : tests/raw/cj-collection-map.body (4514 octets lus)
+2026-11-14T03:30:26Z | robots.txt:ld.cultural.jp | https://ld.cultural.jp/robots.txt | GET | 200 | 4 règle(s) pour « * »
+2026-11-14T03:30:26Z | cj-sparql-ask | robots.txt interdit https://ld.cultural.jp/sparql/?query=ASK%7B%7D (Disallow: /sparql) ; lancé car autorisé par Marcel (C12)
+2026-11-14T03:30:33Z | cj-sparql-ask | https://ld.cultural.jp/sparql/?query=ASK%7B%7D | GET | 200 OK | aucun en-tête de limite | taille≥4 | corps: true
+# Fin 2026-11-14T03:30:33Z — 10 requête(s) envoyée(s)

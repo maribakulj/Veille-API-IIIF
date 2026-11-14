@@ -1,0 +1,8 @@
+{
+  "slug": "cultural-japan",
+  "endpoint": {"id": "crash-cj-count", "url": "https://api.cultural.jp/count?keyword=Map", "method": "GET"},
+  "limite_documentee_req_min": null,
+  "source_limite": "aucune limite documentée (openapi.json, policy et robots.txt de cultural.jp : aucun chiffre)",
+  "duree_palier_s": 180,
+  "note": "Réponse de 14 octets, vue en 200 dans tests/journal.log (cj-count). Étape g non lancée."
+}
