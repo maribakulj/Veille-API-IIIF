@@ -16,37 +16,37 @@
 ### b) Endpoints tirés de la doc
 > Liste des endpoints citée par la doc (URL, exemples). Jamais devinée. Une interdiction ou une impossibilité écrite dans la doc justifie de renoncer (citer la phrase).
 
-- [ ] **Pas fait**
-  - **Justification** : DÉCOCHÉE le 2026-11-14 (verrou renforcé) : URL d'API citée par la doc et ni testée ni justifiée : https://www.bl.uk/collection-guides/iiif (ajouter à endpoints_documentes, ou à endpoints_ecartes avec url + raison) | ancienne justification : Un endpoint documenté : manifeste IIIF /archive-file/{id}/manifest (page Tools, exemple EAP099-1-2-5-2), plus un outil de téléchargement JPEG qui exige ce manifeste. Aucun service d'image, aucune API 
-  - **Preuves** : 
+- [x] **Fait**
+  - **Justification** : Familles d'API tirées de la doc (eap.bl.uk/tools : manifeste /manifest, outil JPEG) et du manifeste (images.eap.bl.uk) ; guide bl.uk/collection-guides/iiif cité mais en 404 (suite4), écarté avec raison ; iiif.bl.uk testé.
+  - **Preuves** : `institutions/eap-bl/data.json`, `institutions/eap-bl/sources/suite4/SHA256SUMS`, `institutions/eap-bl/sources/suite3/text/01.txt`
 
 ### c) Configuration écrite AVANT les tests
 > `config/<nom>.json` pilote `scripts/probe.py`, committée avant le lancement. Un endpoint absent de la doc mais non interdit se teste avec un script poli (identifiants issus de pages publiques ou d'exemples de la doc, pas de devinette).
 
 - [x] **Fait**
-  - **Justification** : Aucune configuration de sonde écrite : le seul endpoint documenté (manifeste) est interdit aux robots par robots.txt (« Disallow: */manifest* »). Renoncer est prévu par la consigne C8.
-  - **Preuves** : `institutions/eap-bl/sources/suite3/raw/03.html`
+  - **Justification** : Deux configurations écrites et committées avant lancement (passe 1 manifeste, passe 2 images), robots_disallow_autorise_par_marcel, pause 6 s, 15 requêtes max par passe, identifiants tirés de l'exemple de la doc et du manifeste.
+  - **Preuves** : `institutions/eap-bl/config/eap-v2-passe1-manifeste.json`, `institutions/eap-bl/config/eap-v2-passe2-images.json`
 
 ### d) Quota cherché dans la doc
 > Pour chaque page lue : endpoint de statut, en-têtes de limite documentés, clé ou compte donnant un quota, contact pour un volume plus élevé. Chaque réponse cite sa source.
 
 - [x] **Fait**
-  - **Justification** : Aucun quota, en-tête, clé ni endpoint de statut. Règles trouvées : robots.txt interdit */manifest* à tous les robots et bloque 128 robots d'IA ; Crawl-delay 2 s rattaché au seul groupe MegaIndex ; haute résolution refusée pour de grandes quantités ; bl.uk/terms interdit le téléchargement systématique ou programmatique d'un Eresource (portée Readers, à confirmer).
-  - **Preuves** : `institutions/eap-bl/sources/suite3/raw/03.html`, `institutions/eap-bl/sources/suite3/text/02.txt`, `institutions/eap-bl/sources/suite/text/03.txt`
+  - **Justification** : Quota cherché dans chaque source : aucun quota, en-tête, clé ni endpoint de statut ; règles : robots.txt (*/manifest*, 128 robots d'IA), pas de haute résolution en volume, bl.uk/terms (Readers) ; réponses réelles sans en-tête de limite ; guide iiif en 404.
+  - **Preuves** : `institutions/eap-bl/sources/suite3/raw/03.html`, `institutions/eap-bl/sources/suite3/text/02.txt`, `institutions/eap-bl/tests/journal.log`
 
 ### e) Test systématique de chaque endpoint
 > Chaque endpoint documenté est testé (budget 15 requêtes par passe, pause ≥ 6 s, GET/HEAD, UA du projet). Redirections du même hôte suivies. Un 403 arrête son hôte, un 429 arrête l'institution. Seules les interdictions écrites dans la doc dispensent de tester.
 
-- [ ] **Pas fait**
-  - **Justification** : DÉCOCHÉE le 2026-11-14 (verrou renforcé) : 1 élément(s) de rattrapage_a_faire non traités | ancienne justification : Renoncement justifié par la doc (consigne C8) : robots.txt interdit */manifest* (ligne 80) ; l'hôte d'images iiif.bl.uk renvoie 403 anti-bot (journal de l'institution british-library) et aucun endpoin
-  - **Preuves** : 
+- [x] **Fait**
+  - **Justification** : Passe 1 : manifeste 200 ; passe 2 : info.json et vignette images.eap.bl.uk 200, iiif.bl.uk 403 anti-bot (arrêt de l'hôte, non contourné). Aucun en-tête de limite, aucun 429 ; 7 requêtes au total, outil de téléchargement non appelable séparément.
+  - **Preuves** : `institutions/eap-bl/tests/journal.log`, `institutions/eap-bl/tests/raw/manifeste-eap099-1-2-5-2.headers.txt`, `institutions/eap-bl/tests/raw/image-info-json.headers.txt`, `institutions/eap-bl/tests/raw/iiif-bl-uk-racine.headers.txt`
 
 ### f) Ce que disent les gens sur le web
 > Plaintes, discussions, présentations de l'institution, politique envers les API et les bots, blogs, GitHub, forums, listes de diffusion. Sources étiquetées (officielle / institution / utilisateur / tiers), lues, citées.
 
 - [x] **Fait**
-  - **Justification** : Recherches web (3) : position officielle envers les robots (robots.txt, 128 robots d'IA bloqués) et politique de réutilisation lues en entier ; cyberattaque 2023 et restauration jusqu'en 2024 (presse, tiers, résumé) ; outils tiers de téléchargement par manifeste ; aucune plainte ni politique de quota trouvée.
-  - **Preuves** : `institutions/eap-bl/sources/suite3/raw/03.html`, `institutions/eap-bl/sources/suite3/text/02.txt`, `institutions/eap-bl/fiche.md`
+  - **Justification** : Cinq recherches web, 4 catégories : robots.txt et politique de réutilisation, page Cogapp et script tiers lus, aucune plainte ni ticket ni conditions d'API supplémentaires trouvés ; résumés de moteur marqués non vérifiés.
+  - **Preuves** : `institutions/eap-bl/fiche.md`, `institutions/eap-bl/data.json`
 
 ### g) Crash test progressif
 > Seulement après l'audit complet (a à f) de toutes les institutions et avec l'accord de Marcel : paliers jusqu'à 2 × la limite documentée, ou 200 req/min si illimité ou sans limite documentée. Arrêt au premier 429/403/CAPTCHA.
@@ -60,7 +60,7 @@
 
 <!-- AUTO:DEBUT -->
 ## Contrôles automatiques (calculés depuis `tests/journal.log`)
-- Requêtes enregistrées : **2** (sessions de sonde : 1, maximum par session : 2)
+- Requêtes enregistrées : **7** (sessions de sonde : 2, maximum par session : 5)
 - Plus courte pause vers un même hôte : **6 s** (règle : ≥ 6 s)
 - Méthodes utilisées : GET (règle : GET/HEAD seulement)
 - Anomalies : aucune

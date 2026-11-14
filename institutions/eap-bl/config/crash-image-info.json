@@ -1,0 +1,12 @@
+{
+  "slug": "eap-bl",
+  "endpoint": {
+    "id": "image-info-json",
+    "url": "https://images.eap.bl.uk/EAP099/EAP099_1_2_5_2/1.jp2/info.json",
+    "method": "GET"
+  },
+  "limite_documentee_req_min": null,
+  "source_limite": "aucune limite de débit documentée (eap.bl.uk/tools, politique de réutilisation, robots.txt : lus, sources/suite3)",
+  "duree_palier_s": 180,
+  "note": "info.json (200, 2026-11-14T01:18:43Z, journal image-info-json) sur images.eap.bl.uk (IIPImage derrière CloudFront). Manifeste évité (interdit par robots.txt, 126 ko)."
+}

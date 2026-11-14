@@ -14,19 +14,26 @@
 
 ## Contradiction à signaler
 
-La page « Tools » présente les manifestes comme la voie d'accès aux images, mais `robots.txt` les interdit aux robots. Notre sonde étant un client automatisé, **je renonce à les tester**, comme le prévoit la consigne (une interdiction écrite dans la doc dispense de tester).
+La page « Tools » présente les manifestes comme la voie d'accès aux images, mais `robots.txt` les interdit aux robots (`Disallow: */manifest*`). Depuis la consigne C12 de Marcel (14/11/2026), ce Disallow n'arrête plus le test : il est journalisé et la requête part.
 
-## Tests
+## Tests (2026-11-14, `tests/journal.log`, configurations `config/eap-v2-passe1-manifeste.json` et `eap-v2-passe2-images.json`, committées avant lancement)
 
-Aucune requête d'API envoyée à `eap.bl.uk`. L'hôte d'images `iiif.bl.uk` renvoie 403 anti-bot (voir `institutions/british-library/`), et aucun endpoint d'image n'est documenté pour l'EAP.
+- Passe 1 (2 requêtes) : `robots.txt` de eap.bl.uk (200), puis le manifeste `eap.bl.uk/archive-file/EAP099-1-2-5-2/manifest` : 200, JSON IIIF Presentation 3, 126 749 octets, derrière Varnish/CloudFront, **aucun en-tête de limite**.
+- Le manifeste annonce le service d'images `images.eap.bl.uk` (Image API 2, level2) : hôte nouveau, `robots.txt` lu avant la passe 2 (`sources/suite5`) : 404 après redirection, tout autorisé ; `iiif.bl.uk/robots.txt` : 404.
+- Passe 2 (5 requêtes) : `info.json` et vignette `full/!128,128` de `images.eap.bl.uk` : 200 (IIPImage, CloudFront), **aucun en-tête de limite** ; racine `iiif.bl.uk` : **403 anti-bot** (IIS), hôte arrêté, non contourné, listé dans `a_verifier_manuellement`.
+- Le guide `bl.uk/collection-guides/iiif` cité par la page de l'IIIF training est en **404** (`sources/suite4`).
+- Aucun 429 ; limite jamais observée ni documentée.
 
-## Web
+## Web (4 catégories, 2026-11-14)
 
-Politique de l'institution envers les robots : `robots.txt` (ci-dessus). Presse : cyberattaque d'octobre 2023, restauration progressive jusqu'en octobre 2024 (tiers, résumé). Outils tiers de téléchargement par manifeste existent (iiif-download…). **Aucune plainte, aucun quota, aucune politique de moissonnage de l'EAP** n'a été trouvé.
+- Institution : robots.txt, politique de réutilisation ; recherche de conditions d'API ou de politique de moissonnage : aucun résultat de plus (résumé de moteur, non vérifié).
+- Utilisateurs : aucune plainte 429/503/blocage sur images.eap.bl.uk (résumé de moteur, non vérifié).
+- Tickets : aucun ticket GitHub sur eap.bl.uk ; un script tiers (gist, pause `sleep(3)`, 8 fils) lu en entier.
+- Présentations : page du prestataire Cogapp lue : « The new site delivers six million images via the open source Universal Viewer and IIIF » et service IIPImage ; rien sur le trafic ni les limites. Presse sur la cyberattaque de 2023 (tiers, résumé).
 
 ## Conclusion
 
-- **Limite documentée chiffrée** : non. **Limite observée** : non testable. **403** : oui sur `iiif.bl.uk`.
+- **Limite documentée chiffrée** : non. **Limite observée** : non (manifeste et images en 200, sans en-tête). **403** : oui sur `iiif.bl.uk`.
 - **Politique envers les robots** : manifestes interdits, robots d'IA bloqués, pas de haute résolution en volume.
 - **Moyen d'interroger le quota** : aucun.
 - **Confiance** : moyenne.
