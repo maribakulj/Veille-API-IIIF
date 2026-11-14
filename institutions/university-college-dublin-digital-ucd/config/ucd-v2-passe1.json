@@ -1,0 +1,22 @@
+{
+  "slug": "university-college-dublin-digital-ucd",
+  "min_delay_s": 6,
+  "max_requests": 15,
+  "follow_redirects": 1,
+  "robots_disallow_autorise_par_marcel": true,
+  "note": "Passe 1 : plateforme temporaire (CollectionBuilder) + endpoints de l'ancienne plateforme cités par la doc Wayback (digital.ucd.ie/research/) : IIIF Image (iiif.ucd.ie), IIIF Presentation et OpenSearch (data.ucd.ie), unAPI et vues .json (digital.ucd.ie).",
+  "endpoints": [
+    {"id": "v2p1-accueil", "method": "GET", "url": "https://digital.ucd.ie/"},
+    {"id": "v2p1-metadata-json", "method": "GET", "url": "https://digital.ucd.ie/assets/data/metadata.json", "save_body": 200000},
+    {"id": "v2p1-metadata-csv-head", "method": "HEAD", "url": "https://digital.ucd.ie/assets/data/metadata.csv"},
+    {"id": "v2p1-facets-json-head", "method": "HEAD", "url": "https://digital.ucd.ie/assets/data/facets.json"},
+    {"id": "v2p1-iiif-image-info", "method": "GET", "url": "https://iiif.ucd.ie/loris/ivrla:439/info.json"},
+    {"id": "v2p1-iiif-manifeste", "method": "GET", "url": "http://data.ucd.ie/api/img/manifests/ucdlib:30860"},
+    {"id": "v2p1-iiif-image-info-data", "method": "GET", "url": "http://data.ucd.ie/api/img/ivrla:439/info.json"},
+    {"id": "v2p1-iiif-collection", "method": "GET", "url": "http://data.ucd.ie/api/img/collection/ucdlib:30685"},
+    {"id": "v2p1-opensearch", "method": "GET", "url": "http://data.ucd.ie/api/search/v1/?q=General+Post+Office&start=1&count=1"},
+    {"id": "v2p1-unapi", "method": "GET", "url": "http://digital.ucd.ie/api/unAPI"},
+    {"id": "v2p1-vue-json", "method": "GET", "url": "http://digital.ucd.ie/view/ivrla.31285.json"},
+    {"id": "v2p1-void", "method": "GET", "url": "http://data.ucd.ie/.well-known/void"}
+  ]
+}
