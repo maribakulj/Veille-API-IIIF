@@ -5,3 +5,8 @@
 - huntington-art-museum-botanical-gardens (lot E) : décision de l'agent : le 429 « Vercel Security Checkpoint » de www.huntington.org n'a arrêté que cet hôte, pas toute l'institution (la consigne d'origine dit « 429 = stop de l'institution ») : à confirmer par Marcel.
 - utrecht-university-library (lot E) : catégorie web « tickets » non cherchée (quota de recherche épuisé) : refaire la recherche.
 - waseda (lot E) : un agent a téléchargé un PDF par curl depuis web.archive.org (écart au briefing, hors domaine d'institution).
+- national-diet-library-japan (lot C) : **429 reçu (SRU, 14/11/2026 02:59Z) → institution arrêtée** (règle d'origine : prévenir Marcel). OpenURL, OAI-PMH, manifeste IIIF et images non testés ; g marquée « impossible » à tort (aucun 200 au journal) : à rejouer quand le 429 sera retombé ; vérifier la limite de concurrence annoncée.
+- university-college-dublin-digital-ucd, national-diet-library-japan, e-museum-national-institutes (lot C) : étape f partielle (recherches web remplacées par WebFetch de pages tierces, quota de WebSearch épuisé) : refaire les recherches tickets/présentations/institution.
+- keio-digital-collections (lot A) : étape f non faite (quota) ; résultats provisoires « institution » et « utilisateurs » à transcrire ; refaire « tickets » et « présentations ».
+- universite-college-dublin (lot C) : la sonde ne désactive pas la vérification TLS : en-têtes https de digital.ucd.ie jamais relevés.
+- Ordonnancement : quota WebSearch ≈ 200 par session, ~100/h de recharge : pas plus de 3 agents simultanés.
