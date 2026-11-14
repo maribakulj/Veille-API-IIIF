@@ -1,0 +1,17 @@
+{
+  "slug": "princeton-university-art-museum",
+  "min_delay_s": 6,
+  "max_requests": 15,
+  "follow_redirects": 1,
+  "robots_disallow_autorise_par_marcel": true,
+  "note": "Passe 1 : API de donnees data.artmuseum.princeton.edu, exemples de la doc GitHub puam-api-docs (sources/b, sources/c) : objects/9449, objects/9449/tombstone, makers/6353, packages/123, objects?maker=6353 (size=2, parametre documente), search?q=blue&type=all (size=2). Plus un manifeste IIIF Presentation 3 de l'hote (identifiant 24625 cite par les resultats de recherche web, non devine), corps enregistre pour lire l'identifiant du service d'image (passe 2). robots.txt de data : 404 (autorise). artmuseum.princeton.edu en defi Cloudflare : non contacte.",
+  "endpoints": [
+    {"id": "objects-9449", "method": "GET", "url": "https://data.artmuseum.princeton.edu/objects/9449"},
+    {"id": "objects-9449-tombstone", "method": "GET", "url": "https://data.artmuseum.princeton.edu/objects/9449/tombstone"},
+    {"id": "makers-6353", "method": "GET", "url": "https://data.artmuseum.princeton.edu/makers/6353"},
+    {"id": "packages-123", "method": "GET", "url": "https://data.artmuseum.princeton.edu/packages/123"},
+    {"id": "objects-maker-6353", "method": "GET", "url": "https://data.artmuseum.princeton.edu/objects?maker=6353&size=2"},
+    {"id": "search-blue-all", "method": "GET", "url": "https://data.artmuseum.princeton.edu/search?q=blue&type=all&size=2"},
+    {"id": "iiif-manifest-24625", "method": "GET", "url": "https://data.artmuseum.princeton.edu/iiif/objects/24625", "save_body": 500000}
+  ]
+}
