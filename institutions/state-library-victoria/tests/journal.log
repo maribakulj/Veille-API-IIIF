@@ -8,3 +8,8 @@
 2026-11-14T03:06:22Z | robots.txt:find.slv.vic.gov.au | https://find.slv.vic.gov.au/robots.txt | GET | 200 | 3 règle(s) pour « * » ; Crawl-delay 10.0 s
 2026-11-14T03:06:33Z | p1-find-fulldisplay | https://find.slv.vic.gov.au/discovery/fulldisplay?vid=61SLV_INST:SLV&search_scope=slv_local&tab=searchProfile&context=L&docid=alma9941325055707636 | HEAD | 200 OK | aucun en-tête de limite | taille≥0 | corps: 
 # Fin 2026-11-14T03:06:33Z — 7 requête(s) envoyée(s)
+# Session 2026-11-14T03:07:36Z — configuration slv-v2-passe2-primaws.json — sonde probe.py au commit c80283a
+2026-11-14T03:07:37Z | robots.txt:find.slv.vic.gov.au | https://find.slv.vic.gov.au/robots.txt | GET | 200 | 3 règle(s) pour « * » ; Crawl-delay 10.0 s
+2026-11-14T03:07:37Z | p2-primaws-sourceRecord | robots.txt interdit https://find.slv.vic.gov.au/primaws/rest/pub/sourceRecord?docId=alma9941325055707636&vid=61SLV_INST:SLV&recordOwner=61SLV_INST&lang=en (Disallow: /primaws) ; lancé car autorisé par Marcel (C12)
+2026-11-14T03:07:49Z | p2-primaws-sourceRecord | https://find.slv.vic.gov.au/primaws/rest/pub/sourceRecord?docId=alma9941325055707636&vid=61SLV_INST:SLV&recordOwner=61SLV_INST&lang=en | GET | 200 OK | aucun en-tête de limite | taille≥200 | corps: leader	01651nkm a2200385 i 4500 001	9941325055707636 005	20250714180217.0 006	m     o  z         007	cr#|n#---||||| 008	250708q19701974vrannn        o   kneng d 035	##$aIE24074939  037	##$aCUAEK 17/5 
+# Fin 2026-11-14T03:07:49Z — 2 requête(s) envoyée(s)

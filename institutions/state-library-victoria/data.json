@@ -110,7 +110,7 @@
     }
   ],
   "contact": "slv-lab@slv.vic.gov.au (SLV LAB) et opendata@slv.vic.gov.au (open data), cités par les pages officielles",
-  "conclusion_quota": "Aucune limite de débit, quota ni doc d'API publiés ; la doc officielle SLV LAB décrit les manifestes IIIF 2.1 et le serveur d'images sur rosetta.slv.vic.gov.au, mais cet hôte répond 403 Cloudflare (« Attention Required ») dès le robots.txt : il n'a pas été testé (403 anti-bot, pas un quota). Les autres hôtes (handle, viewer, find/Limo-like Primo) répondent 200/302 sans en-tête de limite ; Crawl-delay 1 (handle) et 10 (find).",
+  "conclusion_quota": "Aucune limite de débit, quota ni doc d'API publiés ; la doc officielle SLV LAB décrit les manifestes IIIF 2.1 et le serveur d'images sur rosetta.slv.vic.gov.au, mais cet hôte répond 403 Cloudflare (« Attention Required ») dès le robots.txt : il n'a pas été testé (403 anti-bot, pas un quota). Les autres hôtes (handle, viewer, find (Primo, y compris l'API REST /primaws)) répondent 200/302 sans en-tête de limite ; Crawl-delay 1 (handle) et 10 (find).",
   "classe_quota": "accès refusé à ce client (403 anti-bot)",
   "confiance": "faible",
   "notes": "Wayback montre des captures 200 du manifeste de l'exemple (contenu illisible, texte vide) : l'hôte sert les robots de capture mais refuse notre client. Réutilisation : métadonnées CC BY 4.0, images du domaine public libres. Recherches web 'utilisateurs' et 'tickets' ciblées non lancées : plafond de recherches web de la session atteint.",
@@ -156,6 +156,12 @@
       "url": "https://github.com/statelibraryvic/opendata",
       "statut": "non_teste",
       "raison": "fichiers CSV statiques hébergés par GitHub et data.vic.gov.au, hôtes tiers hors de l'institution ; la page GitHub a été lue comme doc (200), aucune API d'institution"
+    },
+    {
+      "famille": "Primo REST publique (primaws sourceRecord, MARC)",
+      "url": "https://find.slv.vic.gov.au/primaws/rest/pub/sourceRecord?docId=alma9941325055707636&vid=61SLV_INST:SLV&recordOwner=61SLV_INST&lang=en",
+      "statut": "teste",
+      "preuve": "institutions/state-library-victoria/tests/raw/p2-primaws-sourceRecord.headers.txt"
     }
   ],
   "endpoints_ecartes": [
