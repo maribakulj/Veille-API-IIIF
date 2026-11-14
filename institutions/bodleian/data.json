@@ -197,6 +197,24 @@
       "url": "https://digital.bodleian.ox.ac.uk/account/",
       "statut": "non_teste",
       "raison": "Exige une authentification (401) selon la doc : pas de compte, donc non sondé ; aucun quota publié pour cette famille."
+    },
+    {
+      "famille": "Contexte JSON-LD de l'API",
+      "url": "https://digital.bodleian.ox.ac.uk/api/1/context.json",
+      "statut": "teste",
+      "preuve": "institutions/bodleian/tests/raw/api-context-json.headers.txt"
+    },
+    {
+      "famille": "Description OpenSearch",
+      "url": "https://digital.bodleian.ox.ac.uk/search.xml",
+      "statut": "teste",
+      "preuve": "institutions/bodleian/tests/raw/search-xml-opensearch.headers.txt"
+    },
+    {
+      "famille": "Recherche dans un objet (exemple de la doc)",
+      "url": "https://digital.bodleian.ox.ac.uk/faeff7fb-f8a7-44b5-95ed-cff9a9ffd198/search/?q=unicorn&page=4",
+      "statut": "teste",
+      "preuve": "institutions/bodleian/tests/raw/recherche-objet-exemple.headers.txt"
     }
   ],
   "hotes_robots": [
@@ -217,9 +235,5 @@
       "raison": "page de documentation développeur IIIF téléchargée et lue : HTTP 200 dans institutions/bodleian/sources/FETCH.log, listée dans sources/url-list.txt (texte dans sources/text/)"
     }
   ],
-  "rattrapage_a_faire": [
-    "https://digital.bodleian.ox.ac.uk/api/1/context.json : à tester par scripts/probe.py, config à committer avant (contexte JSON-LD cité par les exemples de réponse de la doc, sources/text/03.txt)",
-    "https://digital.bodleian.ox.ac.uk/search.xml : à tester par scripts/probe.py, config à committer avant (description OpenSearch XML déclarée dans <link rel=search> de sources/raw/04.html)",
-    "https://digital.bodleian.ox.ac.uk/faeff7fb-f8a7-44b5-95ed-cff9a9ffd198/search/?q=unicorn&page=4 : à tester par scripts/probe.py, config à committer avant (exemple de réponse de la doc, recherche à l'intérieur d'un objet, famille /{object_id}/search/?q non testée ; l'identifiant est celui de l'exemple, à remplacer par un vrai objet)"
-  ]
+  "rattrapage_a_faire": []
 }

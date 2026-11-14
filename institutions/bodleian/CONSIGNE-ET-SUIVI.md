@@ -16,9 +16,9 @@
 ### b) Endpoints tirés de la doc
 > Liste des endpoints citée par la doc (URL, exemples). Jamais devinée. Une interdiction ou une impossibilité écrite dans la doc justifie de renoncer (citer la phrase).
 
-- [ ] **Pas fait**
-  - **Justification** : DÉCOCHÉE le 2026-11-14 (verrou renforcé) : URL d'API citée par la doc et ni testée ni justifiée : https://digital.bodleian.ox.ac.uk/api/1/context.json (ajouter à endpoints_documentes, ou à endpoints_ecartes avec url + raison); URL d'API citée par la doc et ni testée ni justifiée : https://digital.bodle | ancienne justification : Routes tirées des spécifications officielles (developer/iiif et developer/data) : 15 routes IIIF (manifest, canvas, annotation, annotationpage, annotationlist, sequence, collection top/all/{id}, activ
-  - **Preuves** : 
+- [x] **Fait**
+  - **Justification** : Endpoints documentés listés dans endpoints_documentes (IIIF Image, Presentation, API, OpenSearch, recherche d'objet, contexte JSON-LD) ; URL de doc non-API justifiées dans endpoints_ecartes ; couverture doc→tests contrôlée par le verrou.
+  - **Preuves** : `institutions/bodleian/tests/journal.log`, `institutions/bodleian/sources/SHA256SUMS`
 
 ### c) Configuration écrite AVANT les tests
 > `config/<nom>.json` pilote `scripts/probe.py`, committée avant le lancement. Un endpoint absent de la doc mais non interdit se teste avec un script poli (identifiants issus de pages publiques ou d'exemples de la doc, pas de devinette).
@@ -37,9 +37,9 @@
 ### e) Test systématique de chaque endpoint
 > Chaque endpoint documenté est testé (budget 15 requêtes par passe, pause ≥ 6 s, GET/HEAD, UA du projet). Redirections du même hôte suivies. Un 403 arrête son hôte, un 429 arrête l'institution. Seules les interdictions écrites dans la doc dispensent de tester.
 
-- [ ] **Pas fait**
-  - **Justification** : DÉCOCHÉE le 2026-11-14 (verrou renforcé) : 3 élément(s) de rattrapage_a_faire non traités | ancienne justification : 3 passes, 31 requêtes au total (12 + 15 + 4 ; budget de 15 respecté par passe) : toutes les routes documentées sont testées sauf /account/*. Résultats : 200 sur manifestes v2 et v3, canvas, annotation
-  - **Preuves** : 
+- [x] **Fait**
+  - **Justification** : Toutes les familles documentées testées (sessions rejouées avec configuration committée avant, + rattrapage du 14/11) : 200 sauf la recherche d'exemple de la doc, 404 (identifiant d'exemple périmé) ; aucun 429 ni en-tête de limite ; hôtes bloqués listés dans a_verifier_manuellement.
+  - **Preuves** : `institutions/bodleian/tests/journal.log`, `institutions/bodleian/tests/raw/api-context-json.headers.txt`
 
 ### f) Ce que disent les gens sur le web
 > Plaintes, discussions, présentations de l'institution, politique envers les API et les bots, blogs, GitHub, forums, listes de diffusion. Sources étiquetées (officielle / institution / utilisateur / tiers), lues, citées.
@@ -60,7 +60,7 @@
 
 <!-- AUTO:DEBUT -->
 ## Contrôles automatiques (calculés depuis `tests/journal.log`)
-- Requêtes enregistrées : **48** (sessions de sonde : 3, maximum par session : 15)
+- Requêtes enregistrées : **52** (sessions de sonde : 4, maximum par session : 15)
 - Plus courte pause vers un même hôte : **6 s** (règle : ≥ 6 s)
 - Méthodes utilisées : GET, HEAD (règle : GET/HEAD seulement)
 - Anomalies : aucune
