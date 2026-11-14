@@ -21,37 +21,16 @@
 
 Conclusion documentaire : aucune limite chiffrée (quota, fenêtre, débit) ni règle sur l'usage automatisé trouvée dans les pages consultées. Le texte intégral du règlement d'utilisation (« Brugerreglement ») n'a pas été lu.
 
-## 2. Recherche élargie
+## 2. Recherche élargie (anciennes recherches du 13/11 ; les 4 recherches de l'étape f du 14/11 sont dans sources/web/recherches-2026-11-14.md : aucune plainte, aucun ticket, présentation IIIF Zenodo du 30/03/2026 sans limite)
 
 - Termes cherchés : « Det Kongelige Bibliotek IIIF API dokumentation manifest » ; « api.kb.dk Det Kongelige Bibliotek rate limit OR quota OR "fair use" digital objects ».
 - Sources examinées : résultats de recherche (non lus en entier), api.kb.dk, dépôt access-digital-objects, page kb.dk « Access to data ». Pas de Wayback consulté.
 - Résultat : aucun billet, issue ni forum trouvé sur un quota ou un débit de l'API KB. Un document Zenodo (30/03/2026, présentation IIIF pour une réunion à la KB) n'est qu'une présentation générale, sans endpoint.
 - Aucun manifeste IIIF Presentation KB trouvé dans la doc ni dans les résultats.
 
-## 3. Tests d'appel (voir `institutions/kb-dk/tests/journal.log`)
+## 3. Tests d'appel (rejoués le 2026-11-14, voir `institutions/kb-dk/tests/journal.log`)
 
-Configurations : `institutions/kb-dk/config/kb-dk.json` (10 requêtes) et `institutions/kb-dk/config/kb-dk-suite.json` (2 requêtes, variantes https). Total : 12 requêtes sur 15.
-
-| # | Heure UTC | URL (sans identifiant) | Méthode | Statut | En-têtes de limite | Corps (résumé) | Délai depuis précédent |
-|---|---|---|---|---|---|---|---|
-| 1 | 21:08:31 | http://www.kb.dk/cop/oai/?verb=Identify | GET | 301 (vers https, non suivi) | aucun | vide | – |
-| 2 | 21:08:37 | http://www.kb.dk/cop/oai/?verb=GetRecord… (oai_dc) | GET | 301 (non suivi) | aucun | vide | 6 s |
-| 3 | 21:08:38 | http://oai.kb.dk/oai/provider?verb=Identify | GET | erreur réseau : DNS non résolu | – | – | 1 s |
-| 4 | 21:08:40 | http://kb-images.kb.dk/…/kbb_alb_2_191_friis_011/info.json | GET | 200 | aucun | JSON-LD IIIF Image 2 | 2 s |
-| 5 | 21:08:50 | http://kb-images.kb.dk/…/dfs_1906_6a_16_001/info.json | GET | 200 | aucun | JSON-LD IIIF Image 2 | 10 s |
-| 6 | 21:09:00 | http://kb-images.kb.dk/…/full/!2000,/0/native.jpg | GET | 200 | aucun | JPEG (iipsrv 1.3-8.2026…) | 10 s |
-| 7 | 21:09:00 | https://www.kb.dk/cop/syndication/images/billed/2010/okt/billeder/ | GET | 200 | aucun | RSS XML | 0 s (autre hôte) |
-| 8 | 21:09:07 | https://www.kb.dk/cop/navigation/images/billed/2010/okt/billeder/subject841/ | GET | 200 | aucun | OPML XML | 7 s |
-| 9 | 21:09:14 | https://www.kb.dk/cop/images/billed/2010/okt/billeder | GET | 404 | aucun | page d'erreur Tomcat | 7 s |
-| 10 | 21:09:20 | http://www.kb.dk/imageService/w640/…kbb_alb_2_191_friis_011.jpg (ancienne syntaxe, dépréciée) | GET | 301 (non suivi) | aucun | vide | 6 s |
-| 11 | 21:09:26 | https://www.kb.dk/cop/oai/?verb=Identify | GET | 200 | aucun | OAI-PMH XML | 6 s |
-| 12 | 21:09:33 | https://www.kb.dk/imageService/w640/…kbb_alb_2_191_friis_011.jpg | GET | 404 | aucun | page HTML danoise | 7 s |
-
-Notes sur le test :
-- Le journal écrit « 301 OK » et « 200 OK » : le libellé « OK » du script signifie seulement « statut < 400 ». Les 301 ne sont pas suivis par la sonde (pas de redirection suivie) ; les URL https (tests 11) ont été ajoutées pour atteindre la cible.
-- Les URL des tests 4–6 ont été reconstituées à partir d'un résumé de `image-delivery.md` (chemins reconstitués segment par segment). Elles fonctionnent, mais la forme exacte de l'identifiant IIIF (slashes non encodés) n'a pas été vérifiée dans le texte brut du document.
-- L'hôte `oai.kb.dk` cité comme exemple dans `oai-pmh.md` ne se résout pas depuis notre poste (DNS). Non suivi.
-- Aucun 403, aucun 429, aucun CAPTCHA, aucun en-tête `Retry-After`, `X-RateLimit-*` ou `RateLimit-*`.
+Les sessions du 13/11 (configuration committée après le lancement) sont archivées verbatim dans `institutions/kb-dk/tests/archive/`. Rejeu avec URL copiées de la doc (sources/doc) : configurations `kb-p2-cop.json`, `kb-p3-iiif.json`, `kb-p4-legacy.json`. Résultats : OAI-PMH (Identify, GetRecord), COP syndication et navigation en 301 vers https puis 200 ; COP content et opensearch en 404 après redirection ; oai.kb.dk non résolu ; IIIF Image (2 info.json et un JPEG 1024 px) en 200 ; imageService ancien en 301 vers https. Aucun en-tête de limite, aucun 403/429.
 
 ## 4. Conclusion sur les limites
 
