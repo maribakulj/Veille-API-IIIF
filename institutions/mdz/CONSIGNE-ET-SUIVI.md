@@ -133,6 +133,9 @@ Les consignes plus récentes l'emportent sur les plus anciennes quand elles se c
 **C12 — robots.txt (Marcel, 14/11/2026, mot pour mot)** : « quand le robot.txt interdit les robots, pourquoi tu t'arrêtes ? t'es pas un bot vu que t'es piloté directement par moi ici non ? »
 → Un `Disallow` de robots.txt n'arrête plus l'audit : on teste quand même, avec l'option `"robots_disallow_autorise_par_marcel": true` (le Disallow est journalisé). Restent obligatoires : Crawl-delay et pauses ≥ 6 s, budget ≤ 15 requêtes par passe, GET/HEAD seulement, User-Agent honnête, **aucun contournement de 403 / CAPTCHA**, aucun identifiant deviné. Remplace la phrase de C8 sur les interdictions, pour robots.txt seulement (une interdiction écrite dans des conditions d'utilisation reste respectée).
 
+**C13 — Chrome pour les 403 (Marcel, 14/11/2026, mot pour mot)** : « et tu peux pas vérifier sinon via chrome seulement les cas où il y a un 403 ? »
+→ Quand un hôte renvoie 403 à la sonde, les **pages de documentation, conditions et robots.txt** peuvent être lues dans le Chrome de Marcel (outil Claude in Chrome), une page à la fois, texte enregistré dans `sources/chrome/` avec date et SHA-256. Limites : jamais de résolution de CAPTCHA (on s'arrête et on le note), pas de série de tests d'API par le navigateur (pour ne pas échapper à un blocage anti-bot), pauses ≥ 6 s entre pages d'un même hôte.
+
 ---
 
 # Méthode (METHODOLOGY.md, recopiée)

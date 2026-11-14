@@ -1,0 +1,16 @@
+{
+  "slug": "leiden-university-libraries",
+  "min_delay_s": 10,
+  "max_requests": 15,
+  "follow_redirects": 1,
+  "robots_disallow_autorise_par_marcel": true,
+  "note": "Passe 3 : le 302 de la passe 2 désigne le manifeste Primo (catalogue.leidenuniv.nl, robots.txt : Crawl-delay 10, Disallow /primaws, /discovery/search, /nde/search ; le chemin /view/iiif/ n'est pas visé). Même item.",
+  "endpoints": [
+    {
+      "id": "manifeste-primo-v3",
+      "method": "GET",
+      "url": "https://catalogue.leidenuniv.nl/view/iiif/presentation/31UKB_LEU/12524817730002711/manifest?iiifVersion=3",
+      "save_body": 3000000
+    }
+  ]
+}
