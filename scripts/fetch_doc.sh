@@ -24,6 +24,12 @@ while IFS= read -r url; do
   n=$((n+1))
   f="$out/raw/$(printf '%02d' $n).html"
   host=$(printf '%s' "$url" | sed -E 's#^[a-z]+://([^/]+).*#\1#')
+  if raison=$(python3 "$MAIN/scripts/hostlock.py" bloque "$host"); then
+    : > "$f"
+    echo "$(date -u +%Y-%m-%dT%H:%M:%SZ) | SKIP | 0 o | $url" >> "$out/FETCH.log"
+    echo "SAUTÉ (hôte $host arrêté, registre partagé : $raison) : $url" >&2
+    continue
+  fi
   case " $bloques " in
     *" $host "*)
       : > "$f"
@@ -40,6 +46,7 @@ while IFS= read -r url; do
   if [ "$code" = "429" ]; then echo "429 reçu : arrêt de toute la liste" >&2; break; fi
   if [ "$code" = "403" ] || [ "$code" = "405" ] || { [ "$(wc -c < "$f" 2>/dev/null || echo 0)" -lt 30000 ] && grep -qiE "verifying your browser|human verification|captcha|request blocked|just a moment|attention required|x-amzn-waf-action" "$f" 2>/dev/null; }; then
     bloques="$bloques $host"
+    python3 "$MAIN/scripts/hostlock.py" bloquer "$host" "fetch_doc $code $(date -u +%FT%TZ)"
   fi
   sleep 3
 done < "$list"
