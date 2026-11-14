@@ -1,0 +1,7 @@
+# Session 2026-11-14T03:43:24Z — configuration lancaster-v2-passe1-iiif-collection.json — sonde probe.py au commit 9e319d0
+2026-11-14T03:43:24Z | robots.txt:digitalcollections.lancaster.ac.uk | https://digitalcollections.lancaster.ac.uk/robots.txt | GET | 200 | 0 règle(s) pour « * »
+2026-11-14T03:43:30Z | iiif-collection-davy | https://digitalcollections.lancaster.ac.uk/iiif/collection/davy | GET | 200 OK | aucun en-tête de limite | taille≥18735 | corps: {  "@type": "sc:Collection",  "manifests": [   {    "@type": "sc:Manifest",    "label": "MS-DAVY-11306",    "@id": "https://digitalcollections.lancaster.ac.uk/iiif/MS-DAVY-11306"   },   {    "@type": 
+# corps enregistré : tests/raw/iiif-collection-davy.body (18735 octets lus)
+2026-11-14T03:43:36Z | sitemap-xml | https://digitalcollections.lancaster.ac.uk/sitemap.xml | GET | 200 OK | aucun en-tête de limite | taille≥200 | corps: <?xml version="1.0" encoding="UTF-8"?> <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"  xmlns:image="http://www.google.com/schemas/sitemap-image/1.1"  xmlns:video="http://www.google.com/sc
+2026-11-14T03:43:43Z | page-collection-davy | https://digitalcollections.lancaster.ac.uk/collections/davy | HEAD | 200 OK | aucun en-tête de limite | taille≥0 | corps: 
+# Fin 2026-11-14T03:43:43Z — 4 requête(s) envoyée(s)
