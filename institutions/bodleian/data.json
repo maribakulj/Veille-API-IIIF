@@ -115,5 +115,12 @@
     }
   ],
   "classeur_id": "GLAM-002",
-  "type": "Institution"
+  "type": "Institution",
+  "a_verifier_manuellement": [
+    {
+      "url": "https://iiif.bodleian.ox.ac.uk/robots.txt",
+      "pourquoi": "400 « Bad request » (pas un robots.txt lisible) ; non lue ailleurs",
+      "a_chercher": "Existe-t-il un robots.txt sur l'hôte IIIF ? Crawl-delay, Disallow, règle sur les robots/IA"
+    }
+  ]
 }

@@ -202,6 +202,11 @@
       "url": "https://stacks.wellcomecollection.org/ten-years-and-counting-wellcome-collection-and-iiif-9015cdcdefd8",
       "pourquoi": "403 (Medium) ; lue par Wayback (18/10/2026)",
       "a_chercher": "Mentions de limites ou de règles d'usage de l'IIIF"
+    },
+    {
+      "url": "https://data.wellcomecollection.org/robots.txt",
+      "pourquoi": "403 (robots.txt indisponible, pas un 'Missing Authentication Token' confirmé)",
+      "a_chercher": "robots.txt actuel : Crawl-delay, Disallow, règle sur les robots d'IA ou les API"
     }
   ]
 }

@@ -139,6 +139,16 @@
       "url": "https://www.library.wales/robots.txt",
       "pourquoi": "403 anti-bot",
       "a_chercher": "robots.txt actuel"
+    },
+    {
+      "url": "https://www.library.wales/",
+      "pourquoi": "403 anti-bot (Cloudflare « Just a moment »)",
+      "a_chercher": "Page d'accueil/pages « IIIF », « Terms » : mention d'API, limites, conditions de réutilisation"
+    },
+    {
+      "url": "https://www.library.wales/about-nlw/press-and-news/press-releases/2017-press-releases/the-national-library-of-wales-joins-the-iiif-c",
+      "pourquoi": "403 anti-bot ; URL tronquée dans le journal FETCH.log (suffixe probable « …iiif-consortium »)",
+      "a_chercher": "Communiqué d'adhésion à IIIF : engagements d'ouverture, éventuelles limites"
     }
   ]
 }

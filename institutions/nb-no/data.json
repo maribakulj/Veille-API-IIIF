@@ -98,5 +98,12 @@
       "preuve": "institutions/nb-no/sources/v2b/text/03.txt"
     }
   ],
-  "donnees_a_revalider": false
+  "donnees_a_revalider": false,
+  "a_verifier_manuellement": [
+    {
+      "url": "https://www.nb.no/services/search/v2/",
+      "pourquoi": "000ERR : délai dépassé (30 s, 0 octet reçu)",
+      "a_chercher": "Ancienne page de l'API de recherche : limites, conditions, clé ; est-elle toujours active ?"
+    }
+  ]
 }

@@ -167,6 +167,16 @@
       "url": "https://pro.europeana.eu/page/apis",
       "pourquoi": "403 anti-bot",
       "a_chercher": "Limites de la clé API (requêtes/jour ?) et conditions d'usage des API Search, Record, IIIF"
+    },
+    {
+      "url": "https://pro.europeana.eu/robots.txt",
+      "pourquoi": "403 anti-bot",
+      "a_chercher": "robots.txt du portail pro : Crawl-delay, règle sur les robots/IA"
+    },
+    {
+      "url": "https://pro.europeana.eu/page/search",
+      "pourquoi": "403 anti-bot (WebFetch) ; non lue directement",
+      "a_chercher": "Documentation de l'API Search : clé, limites (requêtes/jour, résultats max), conditions"
     }
   ]
 }

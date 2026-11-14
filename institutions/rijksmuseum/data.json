@@ -168,6 +168,11 @@
       "url": "https://rijks-web.azurewebsites.net/en/data/terms-of-use",
       "pourquoi": "403 ; ancienne page de conditions (préproduction Azure)",
       "a_chercher": "Conditions de l'ancienne API : « fair use », capacité des serveurs ; toujours applicables ?"
+    },
+    {
+      "url": "https://id.rijksmuseum.nl/robots.txt",
+      "pourquoi": "400 (réponse d'erreur, pas de robots.txt lisible)",
+      "a_chercher": "Existe-t-il un robots.txt ? Règle sur les robots/API"
     }
   ]
 }

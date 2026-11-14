@@ -1,0 +1,16 @@
+{
+  "slug": "ghent-university-library",
+  "min_delay_s": 6,
+  "max_requests": 15,
+  "follow_redirects": 1,
+  "robots_disallow_autorise_par_marcel": true,
+  "note": "Passe 3 : le 301 de la passe 2 désigne le manifeste Primo libcatalog.ugent.be (robots.txt lu avant, voir sources/c).",
+  "endpoints": [
+    {
+      "id": "manifeste-primo-v3",
+      "method": "GET",
+      "url": "https://libcatalog.ugent.be/view/iiif/presentation/32RUG_INST/12276729150009161/manifest?iiifVersion=3",
+      "save_body": 4000000
+    }
+  ]
+}

@@ -130,6 +130,31 @@
       "url": "https://cudl.lib.cam.ac.uk/robots.txt",
       "pourquoi": "403 CloudFront",
       "a_chercher": "robots.txt actuel"
+    },
+    {
+      "url": "https://cudl.link/v1/metadata/",
+      "pourquoi": "échec DNS (hôte cudl.link non résolu depuis le poste) ; aucune requête HTTP partie",
+      "a_chercher": "Hôte des services de métadonnées/transcription CUDL : toujours actif ? Limites de débit, conditions d'usage"
+    },
+    {
+      "url": "https://cudl.link/v1/transcription/tei/diplomatic/internal/MS-ADD-03958/i111",
+      "pourquoi": "échec DNS (hôte cudl.link non résolu) ; exemple tiré du README des services",
+      "a_chercher": "Le service de transcription répond-il ? Quota, clé, conditions"
+    },
+    {
+      "url": "https://cudl.lib.cam.ac.uk/terms",
+      "pourquoi": "403 CloudFront « Request blocked » ; lue par Wayback (19/11/2025, voir l'entrée /terms/)",
+      "a_chercher": "Interdiction d'« extraire systématiquement » toujours là ? Règle sur IIIF/API/robots"
+    },
+    {
+      "url": "https://cudl.lib.cam.ac.uk/help",
+      "pourquoi": "403 CloudFront ; lue par Wayback (voir l'entrée /help/)",
+      "a_chercher": "FAQ à jour : formats, API, téléchargement, limites"
+    },
+    {
+      "url": "https://cudl.lib.cam.ac.uk/about/",
+      "pourquoi": "403 CloudFront ; lue par Wayback (17/10/2026, voir /about)",
+      "a_chercher": "Accès par API « such as IIIF » : limites éventuelles"
     }
   ]
 }

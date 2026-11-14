@@ -3,3 +3,8 @@
 2026-11-14T00:40:49Z | manifeste-hs224 | https://adore.ugent.be/IIIF/manifests/archive.ugent.be%3AE336B140-751E-11E6-9B48-3FC1D43445F2 | GET | 302 REDIRECTION_NON_SUIVIE | aucun en-tête de limite | taille≥350 | corps: <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd"> <html><head> <title>302 Found</title> </head><body> <h1>Found</h1> <p>The document has moved <a href="https:/
 # redirection vers https://resolver.lib.ugent.be/?url=https://adore.ugent.be/IIIF/manifests/archive.ugent.be:E336B140-751E-11E6-9B48-3FC1D43445F2 : NON suivie (autre hôte)
 # Fin 2026-11-14T00:40:49Z — 2 requête(s) envoyée(s)
+# Session 2026-11-14T00:40:59Z — configuration ghent-passe2.json — sonde probe.py au commit 43720e5
+2026-11-14T00:40:59Z | robots.txt:resolver.lib.ugent.be | https://resolver.lib.ugent.be/robots.txt | GET | 404 | robots.txt indisponible : tout est autorisé (RFC 9309)
+2026-11-14T00:41:05Z | manifeste-resolver-hs224 | https://resolver.lib.ugent.be/?url=https://adore.ugent.be/IIIF/manifests/archive.ugent.be:E336B140-751E-11E6-9B48-3FC1D43445F2 | GET | 301 REDIRECTION_NON_SUIVIE | aucun en-tête de limite | taille≥137 | corps: <a href="https://libcatalog.ugent.be/view/iiif/presentation/32RUG_INST/12276729150009161/manifest?iiifVersion=3">Moved Permanently</a>.  
+# redirection vers https://libcatalog.ugent.be/view/iiif/presentation/32RUG_INST/12276729150009161/manifest?iiifVersion=3 : NON suivie (autre hôte)
+# Fin 2026-11-14T00:41:05Z — 2 requête(s) envoyée(s)

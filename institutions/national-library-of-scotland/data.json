@@ -144,6 +144,26 @@
       "url": "https://maps.nls.uk/projects/api/",
       "pourquoi": "CAPTCHA ; lue par Wayback (14/11/2025)",
       "a_chercher": "Quota MapTiler (100 000 tuiles/mois gratuit) toujours valable ? Existe-t-il une limite pour le service IIIF ?"
+    },
+    {
+      "url": "https://digital.nls.uk/",
+      "pourquoi": "405 CAPTCHA « Human Verification » ; lue par Wayback pour d'autres pages seulement",
+      "a_chercher": "Page d'accueil/conditions de digital.nls.uk : conditions d'usage, règle sur le moissonnage, robots d'IA"
+    },
+    {
+      "url": "https://maps.nls.uk/view/help/",
+      "pourquoi": "405 CAPTCHA ; aucune copie Wayback récente (non lue)",
+      "a_chercher": "Aide de maps.nls.uk : règles de téléchargement, usage des API, débit"
+    },
+    {
+      "url": "https://maps.nls.uk/robots.txt",
+      "pourquoi": "405 CAPTCHA",
+      "a_chercher": "robots.txt actuel : Crawl-delay, Disallow, robots d'IA"
+    },
+    {
+      "url": "https://data.nls.uk/about/ai-statement/",
+      "pourquoi": "déclaration IA lue, mais le détail est dans un document Word non lu (lien à repérer sur la page)",
+      "a_chercher": "Politique IA du NLS : règles sur l'usage de ses données par des tiers/robots, limites"
     }
   ]
 }

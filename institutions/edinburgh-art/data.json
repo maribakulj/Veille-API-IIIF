@@ -125,5 +125,17 @@
     }
   ],
   "type": "Institution",
-  "donnees_a_revalider": false
+  "donnees_a_revalider": false,
+  "a_verifier_manuellement": [
+    {
+      "url": "https://collections.ed.ac.uk/art/terms",
+      "pourquoi": "404 (page introuvable, non lue)",
+      "a_chercher": "Conditions d'usage de la collection d'art : réutilisation, accès automatisé, limites de débit"
+    },
+    {
+      "url": "https://collections.ed.ac.uk/art/feedback",
+      "pourquoi": "404 (page introuvable, non lue)",
+      "a_chercher": "Contact/formulaire : où demander un volume plus élevé ou signaler un blocage"
+    }
+  ]
 }

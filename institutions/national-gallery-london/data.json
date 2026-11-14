@@ -80,5 +80,12 @@
   "conclusion_quota": "Aucun quota ni en-tête. Interdiction contractuelle de constituer une base de données à partir du site sans autorisation écrite. full/max plafonné à 800×730 px (mesuré).",
   "classe_quota": "aucun quota trouvé (interdiction contractuelle de base de données)",
   "confiance": "moyenne",
-  "notes": "Service IIIF complet en cours de déploiement (Presentation API non disponible). Les hôtes IIIF n'ont pas de robots.txt."
+  "notes": "Service IIIF complet en cours de déploiement (Presentation API non disponible). Les hôtes IIIF n'ont pas de robots.txt.",
+  "a_verifier_manuellement": [
+    {
+      "url": "https://research.ng-london.org.uk/ss-iiif/end-points",
+      "pourquoi": "404 (page introuvable, non lue)",
+      "a_chercher": "Liste des endpoints IIIF du Scientific Department : limites, conditions, contact"
+    }
+  ]
 }
