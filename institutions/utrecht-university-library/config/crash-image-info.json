@@ -1,0 +1,12 @@
+{
+  "slug": "utrecht-university-library",
+  "endpoint": {
+    "id": "image-info-json",
+    "url": "https://objects.library.uu.nl/fcgi-bin/iipsrv.fcgi?IIIF=/manifestation/viewer/16/02/19/160219835246961184091063990636348658778.jp2/info.json",
+    "method": "GET"
+  },
+  "limite_documentee_req_min": null,
+  "source_limite": "aucune limite de débit documentée (pages lues : sources/doc, sources/doc2 ; robots.txt sans Crawl-delay : sources/robots)",
+  "duree_palier_s": 180,
+  "note": "info.json IIIF d'IIPImage, 200 en passe 2 (p2-image-info, 2026-11-14T02:49:06Z). Peu coûteux. Le robots.txt interdit /fcgi-bin/iipsrv.fcgi : test autorisé par Marcel (C12). Crash test non lancé par l'agent."
+}
