@@ -1,0 +1,12 @@
+{
+  "slug": "universitatsbibliothek-heidelberg",
+  "endpoint": {
+    "id": "image-info-v2",
+    "url": "https://digi.ub.uni-heidelberg.de/iiif/2/aaha1928%3A00000_a.jpg/info.json",
+    "method": "GET"
+  },
+  "limite_documentee_req_min": null,
+  "source_limite": "aucune limite de débit documentée (https://www.ub.uni-heidelberg.de/helios/digi/nutzung/Welcome.html : seulement les conditions d'usage des Digitalisate, sans gestion de débit)",
+  "duree_palier_s": 180,
+  "note": "info.json d'image IIIF 2 (Cantaloupe 5.0.3), 200 dans le journal (image-info-v2, 2026-11-14T01:43:42Z). Peu coûteux ; manifeste évité (~550 ko). Hôte digi.ub protégé par Anubis sur les pages d'ouvrage : requête témoin à surveiller. Non lancé par l'agent."
+}

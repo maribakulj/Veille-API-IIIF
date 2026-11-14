@@ -1,0 +1,4 @@
+# The Signal (blog de la Library of Congress), 12 juin 2023 — lu dans la Wayback Machine (ia_get_snapshot, 2026-11-14)
+Réplique : https://web.archive.org/web/20241219024514/https://blogs.loc.gov/thesignal/2023/06/discussing-library-of-congress-api-documentation-with-laura-wrubel-and-patrick-rourke/ (capture 20241219024514). Domaine de l'institution : non lu en direct.
+
+> One of my primary interests in working with the API documentation is to teach people how to use the API in ways that have the least impact on them — and on other users. For example, that's why we now have a whole section on how to work around the various limits imposed on API use. We don't have API keys for loc.gov, which means that we can't control the number people are hitting the API at any one time, so we've had to add rate limiting. (Patrick Rourke, développeur loc.gov)

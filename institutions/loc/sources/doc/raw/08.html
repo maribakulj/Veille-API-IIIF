@@ -1,0 +1,236 @@
+
+        <!DOCTYPE html>
+<html
+    lang="en"
+    prefix="lc: http://loc.gov/#"
+    data-bs-theme="auto">
+
+<head>
+
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="version" content="$Revision$">
+<meta name="msvalidate.01" content="5C89FB9D99590AB2F55BD95C3A59BD81">
+<link title="schema(DC)" rel="schema.dc" href="http://purl.org/dc/elements/1.1/">
+<meta name="dc.language" content="eng">
+<meta name="dc.source" content="Library of Congress, Washington, D.C. 20540 USA">
+<meta property="fb:admins" content="libraryofcongress">
+<meta property="og:site_name" content="The Library of Congress">
+<meta property="og:type" content="article">
+<meta property="twitter:site" content="librarycongress">
+
+ 
+<title>
+    Additional APIs and Data Services | APIs at the Library of Congress | Library of Congress
+</title>
+<meta name="dc.title"
+        content="Additional APIs and Data Services | APIs at the Library of Congress | Library of Congress">
+<meta property="og:title"
+        content="Additional APIs and Data Services | APIs at the Library of Congress | Library of Congress">
+    <meta name='description' content='In addition to the loc.gov API, there are several other APIs and machine-readable data services maintained by the Library of Congress separately from the loc.gov API and its associated microservice APIs.'>
+    <meta property="og:description" content="In addition to the loc.gov API, there are several other APIs and machine-readable data services maintained by the Library of Congress separately from the loc.gov API and its associated microservice APIs.">
+
+<meta name="dc.rights" content="Text is U.S. Government Work">
+<link rel="dc.rights" title="Rights Restriction" href="http://www.loc.gov/text-us-government-work">
+    <meta name='dc.type' content='web page'>
+    <meta property="og:image" content='http://www.loc.gov/static/images/favicons/open-graph-logo.png'>
+    <meta property="og:image:secure_url" content='https://www.loc.gov/static/images/favicons/open-graph-logo.png'>
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+
+
+
+<link
+    rel="dc.relation.isPartOf"
+    title='APIs at the Library of Congress'
+    href='https://www.loc.gov/apis/'>
+<script>
+// Settings
+const LOC_SETTINGS = {
+    DEBUG: 'False',
+    CSS_DEBUG: 'False',
+    SOLR_DEBUG: 'False',
+    SIMULATE_FORM_ERROR: 'False',
+    TODAY: '2026-11-13',
+    PORTAL_FORM_KEY: '4e5475549a1723ca242666c010665a9e',
+    PORTAL_FORM_URL: 'c06012014ae40f569afa1af218eec97e',
+    STATUS: 'production',
+    URL_ROOT: 'https://www.loc.gov',
+    CONTENT_HOST: 'tile.loc.gov',
+    DOWNLOAD_SERVICE: 'https://tile-dev.loc.gov/download-services/',
+    STREAMING_SERVICE: 'https://tile.loc.gov/streaming-services/',
+    TEXT_SERVICE: 'https://tile.loc.gov/text-services/',
+    TRANSFER_SERVICE: 'https://tile-dev.loc.gov/transfer-services/',
+    TILE_SERVICE: 'https://tile.loc.gov/image-services/',
+    WORDPRESS_SERVICE: 'https://tile.loc.gov/wordpress-services/',
+    MEDIA_URL: 'https://media.loc.gov',
+    NDNP_DATASET_PATH: '/service/ndnp',
+    UISTANDARDS: '/static',
+    STATIC_URL_ROOT: '/static',
+    CONTENT_SERVER: 'https://dev.loc.gov',
+    CONTENT_SERVICES: '{}',
+    ALLOWED_FEATURES: '[&#39;past_future_today_keywords&#39;, &#39;autoplay-a-b&#39;, &#39;sentry&#39;, &#39;pdf-viewer&#39;, &#39;epub-viewer&#39;, &#39;media-transcript&#39;, &#39;ajax-text-services&#39;, &#39;no-redirect-about-this&#39;, &#39;webarchive-beta&#39;]',
+    UPLOADS_HOST: 'https://www.loc.gov',
+    GALLERY_STYLES: '(&#39;thumbnail&#39;, &#39;gallery&#39;)',
+    GRID_STYLES: '(&#39;grid&#39;,)',
+    SLIDESHOW_STYLES: '(&#39;slideshow&#39;,)',
+    WALL_STYLES: '(&#39;wall&#39;,)',
+    LIST_STYLES: '(&#39;list&#39;, None)',
+    ZOOM_STYLES: '(&#39;single&#39;, &#39;text&#39;, &#39;image&#39;, &#39;pdf&#39;)',
+    BRIEF_STYLES: '(&#39;brief&#39;,)',
+    GALLERY_PER_PAGE: '40',
+    BRIEF_PER_PAGE: '50',
+    GRID_PER_PAGE: '100',
+    SLIDESHOW_PER_PAGE: '100',
+    LIST_PER_PAGE: '25',
+    ZOOM_PER_PAGE: '1',
+    MAX_PER_PAGE: '1000',
+    GEOJSON_MAX: '5000',
+    MAX_INDEX_DEPTH: '100000',
+    LOC_USER_AGENT: 'Library of Congress - ( Custom User-Agent )',
+    UNDIGITIZED_SITES: '[&#39;directory of u.s. newspapers in american libraries&#39;]',
+    FACET_LIMIT: '700',
+};
+window['LOC_SETTINGS'] = LOC_SETTINGS;
+</script>
+<link rel="prefetch" href="/static/javascript/web-components.js">
+<script src='/static/javascript/web-components.js'></script>
+<link href='/static/ui2/dist/css/base.css' type='text/css' rel='stylesheet'>
+<link href='/static/ui2/dist/fontawesome/css/all.css' type='text/css' rel='stylesheet'>
+<link href='/static/ui2/dist/css/syntax-highlighter.css' type='text/css' rel='stylesheet'>
+
+<style>
+:root {
+    --icon-angle-down: "\f107";
+    --icon-angle-left: "\f104";
+    --icon-angle-right: "\f105";
+    --icon-angle-up: "\f106";
+    --icon-angles-right: "\f101";
+    --icon-angles-left: "\f100";
+    --icon-arrow-up-right-from-square: "\f08e";
+    --icon-book: "\f02d";
+    --icon-calendar-days: "\f073";
+    --icon-circle-half-stroke: "\f042";
+    --icon-copy: "\f0c5";
+    --icon-download: "\f019";
+    --icon-list: "\f03a";
+    --icon-location-dot: "\f3c5";
+    --icon-magnifying-glass: "\f002";
+    --icon-magnifying-glass-plus: "\f00e";
+    --icon-minus: "\f068";
+    --icon-moon: "\f186";
+    --icon-person: "\f183";
+    --icon-person-dress: "\f182";
+    --icon-plus: "\2b";
+    --icon-rectangle-xmark: "\f410";
+    --icon-rss: "\f09e";
+    --icon-sort: "\f0dc";
+    --icon-sort-down: "\f0dd";
+    --icon-sort-up: "\f0de";
+    --icon-spinner: "\f110";
+    --icon-square-minus: "\f146";
+    --icon-square-plus: "\f0fe";
+    --icon-sun: "\f185";
+    --icon-video: "\f03d";
+    --icon-volume-high: "\f028";
+    --icon-wheelchair: "\f193";
+    --icon-wifi: "\f1eb";
+    --icon-xmark: "\f00d";
+}
+</style>
+
+<script src='/static/ui2/dist/js/jquery-1.8.2.js'></script>
+
+
+<script>
+var analytics = {};
+document.addEventListener("DOMContentLoaded", () => {
+    analytics.item = null;
+    analytics.search_facets = null;
+    analytics.status = null;
+    analytics.title = "APIs at the Library of Congress";
+    analytics.views= null;
+    analytics.options = {
+  "access_group": [
+    ""
+  ],
+  "access_group_raw": "",
+  "all": null,
+  "api_version": "1",
+  "app_context": null,
+  "application_shim": null,
+  "application_version": "$Revision$",
+  "attribute": null,
+  "attribute!": null,
+  "attribute_map": null,
+  "cache_tags": [],
+  "callback": null,
+  "clip": null,
+  "clip_image_width": null,
+  "clip_rotation": null,
+  "content_filter": null,
+  "content_replacement": "",
+  "count": null,
+  "dates": null,
+  "default_count": 25,
+  "delimiter": null,
+  "digital_id": null,
+  "display_level": null,
+  "distance": null,
+  "downloadOption": null,
+  "duration": 0.004033803939819336,
+  "embed": [],
+  "embed!": [],
+  "engine": "ui2",
+  "error_response_status": null,
+  "excludeTerms": null,
+  "facetLimits": "",
+  "facetPrefix": null,
+  "facet_count": null,
+  "facet_style": null,
+  "field": null,
+  "format": null,
+  "host": "www.loc.gov",
+  "ical": false,
+  "id": null,
+  "iiif": false,
+  "index": null,
+  "inputEncoding": "UTF-8",
+  "item": null,
+  "items": null,
+  "keys": null,
+  "language": null,
+  "latlong": null,
+  "method": "GET",
+  "newSearch": null,
+  "new_clip_url": false,
+  "onsite": false,
+  "operator": null,
+  "outputEncoding": "UTF-8",
+  "page_campaigns": [],
+  "path_info": "/apis/additional-apis/",
+  "port": "443",
+  "proxypath": null,
+  "query_string": "",
+  "redirect_proxy": false,
+  "redirect_to_item": null,
+  "referer": "",
+  "region": "",
+  "release_id": 123456789,
+  "request_host": "www.loc.gov",
+  "request_params": {},
+  "request_url": "https://www.loc.gov/apis/additional-apis/",
+  "resource": "additional-apis/",
+  "resource_sequence": null,
+  "scheme": "https",
+  "searchIn": "partof:apis at the library of congress",
+  "searchTerms": "",
+  "segments": null,
+  "site_id": null,
+  "site_type": "apis",
+  "solrQuery": "",
+  "sortBy": null,
+  "sortOrder": null,
+ 

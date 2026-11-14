@@ -1,0 +1,15 @@
+{
+  "slug": "loc",
+  "min_delay_s": 12,
+  "max_requests": 15,
+  "follow_redirects": 1,
+  "robots_disallow_autorise_par_marcel": true,
+  "note": "passe 5 : SRU du catalogue (doc sources/doc41, lcServers.html). Une seule requete : exemple de la doc, maximumRecords=1. lx2.loc.gov/robots.txt a repondu une page 'LCCN Permalink - No Connections Available' le 14/11 (sources/doc44) : robots illisible, la requete reste autorisee par C12.",
+  "endpoints": [
+    {
+      "id": "sru-lcdb",
+      "method": "GET",
+      "url": "http://lx2.loc.gov:210/lcdb?version=1.1&operation=searchRetrieve&query=%22Marv%20Throneberry%22&startRecord=1&maximumRecords=1&recordSchema=mods"
+    }
+  ]
+}
