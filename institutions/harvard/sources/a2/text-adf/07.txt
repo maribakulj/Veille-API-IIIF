@@ -1,0 +1,1399 @@
+On this page:
+Overview
+Harvard’s LibraryCloud service provides API access to descriptive metadata for Harvard Library resources. LibraryCloud metadata is openly available to the public. Anyone can use the API to find, gather, and repurpose the metadata. It also is used within Harvard Library applications-- for example, by serving metadata to 
+Harvard Digital Collections
+ and 
+CURIOSity Digital Collections
+-- and it underlies sites and services developed throughout the Harvard community. It also supports Harvard’s partnerships with initiatives such as the 
+Digital Public Library of America
+ (DPLA). As such, the metadata aims to balance internal and external requirements and expectations. 
+LibraryCloud aggregates Harvard Library's publicly accessible descriptive metadata from a variety of sources, primarily:
+Alma, the integrated library system where the bulk of library cataloging is created
+JSTOR Forum, where most visual resources are described
+ArchivesSpace, for description of archival materials
+Each source uses different metadata standards and vocabularies appropriate to its scope and function. To facilitate searching across and reusing the disparate metadata aggregated in LibraryCloud, the source metadata is converted into a common format, 
+MODS
+ (Metadata Object Description Schema). 
+Please refer to the 
+MODS
+ website for full documentation of the metadata standard.
+ Details about the LibraryCloud implementation of MODS and extensions are provided below.
+The records undergo other transformations, normalizations, and enrichments to improve their interoperability and usefulness in the aggregated environment:
+Incoming records are split into separate records when they represent multiple resources.
+The names of Harvard libraries and archives are normalized into a standard full form and a short form for faceting.
+When incoming metadata contains coded values for language and country/state of publication, equivalent text values are added.
+Records that describe digital resources in Harvard’s Digital Repository Service (DRS) are augmented with a subset of administrative metadata from the DRS about those resources.
+Records included in CURIOSity collections or other curatorial or administrative sets include brief information about those sets.
+Note that 
+LibraryCloud is not the database of record
+ for this metadata. The metadata in LibraryCloud is neither definitive nor exhaustive. Additional metadata and more specifically-defined metadata exists in the source systems that provide metadata to LibraryCloud.
+Record Sources and Transformations
+There are six sources of descriptive metadata records in LibraryCloud:
+Source Name
+Source Code
+Number of Records
+Source Format
+Transformation to MODS
+Updated
+Alma
+MH:ALMA
+>14,000,000
+MARCXML
+A lightly 
+customized version
+ of the Library of Congress MARC-to-MODS stylesheet 
+MARC21slim_MODS3-8_XSLT2-0.xsl
+, based on their 
+MARC21-to-MODS mapping
+. 
+daily
+ArchivesSpace
+MH:OASIS
+>3,010,000
+Encoded Archival Description (EAD)
+EAD files are converted to individual MODS records for each archival component using a 
+custom stylesheet
+.
+daily
+JSTOR Forum
+MH:VIA
+>7,660,000
+VIA XML
+JSTOR Forum’s SSIO XML is first converted to Harvard’s 
+legacy VIA format
+, and then from 
+VIA to MODS
+. Individual MODS records are created for each JSTOR Forum image record, whether or not the image has been digitized.
+daily
+Iranian Oral History Project
+MH:IOHP
+~900
+Custom
+Custom IOHP stylesheet
+as needed
+Jacques Burkhardt Scientific Drawings
+MH:MCZArtwork
+~1,000
+Custom
+Custom MCZ stylesheet
+as needed
+Milman Parry Collection of Oral Literature
+MH:MHPL
+~1,800
+Custom
+Custom MHPL stylesheet
+as needed
+Custom stylesheets are controlled in GitHub and require permission to access.
+LibraryCloud Ingest Timing
+LibraryCloud ingests are started nightly for the systems below, in this order. Each ingest can take several hours depending on the number of records to be processed, so the counts for a given record source may continue to change during the day.
+Data source
+Ingest type
+Timeframe
+Alma
+Incremental export
+Nightly, including work from two days prior
+ArchivesSpace
+Incremental export
+Nightly, including work from the previous day
+Images (JSTOR)
+Incremental export
+Nightly, including work from the previous day
+Special Topic: Record Splitting
+Each incoming record will be transformed into one 
+or more
+ records in MODS format. A record will be split during this process if it represents more than one resource according to specific criteria per contributing source:
+Alma:
+If the incoming record contains more than one DRS URL for deliverable digital content (i.e., not counting a preview URL, such as a thumbnail image), one record will be created with all URLs plus all physical locations AND a separate record will be created for each digital manifestation.
+The MODS 
+recordIdentifier
+ for each of the split records will concatenate the original Alma record identifier, an underscore, and the URN portion of the DRS URL to the deliverable content.
+Example: 
+https://api.lib.harvard.edu/v2/items/990088020470203941_HBS.Baker:10771779
+JSTOR Forum: 
+If the incoming record contains more than one item (<display:DR>), a separate MODS record will be created for each item, each record containing information about the work plus information about one of the items.  There is no record in LibraryCloud for the Work alone or the work with all items.
+The MODS 
+recordIdentifier
+ for the split records will concatenate the Work record identifier, an underscore, and either 1) the URN portion of the DRS URL to the deliverable content, or 2) the item record identifier, if the item does not reference digital content.
+Example, Case 1: 
+https://api.lib.harvard.edu/v2/items/S19482_urn-3:FHCL:3116579
+Example, Case 2: 
+https://api.lib.harvard.edu/v2/items/S19482_olvsurrogate186373
+ArchivesSpace:
+For each finding aid (Encoded Archival Description (EAD) file), a separate MODS record will be created for every described component. No record will be created for the archival resource (aka collection) itself, because that would redundant with the corresponding collection-level cataloging record from Alma. Each component record will inherit key fields from the hierarchy of the finding aid to ensure that the archival object is placed in context.
+The MODS 
+recordIdentifier
+ for each of the split records will be the component id (Ref ID) of the archival object record.
+Example: 
+https://api.lib.harvard.edu/v2/items/hou01365c02879
+Iranian Oral History Project, Jacques Burkhardt Scientific Drawings, Milman Parry Collection of Oral Literature:
+Records from these source are not split and may contain links to more than one digital version of the content. For example, an audio recording and a transcript of the recording.
+MODS (Metadata Object Description Schema) Structure
+MODS version 3.8 is the base format of all metadata returned by the LibraryCloud Item API. The 
+documentation
+ of the MODS standard is comprehensive; therefore, Harvard’s profile will focus on implementation-specific and source-specific aspects of the metadata in LibraryCloud.
+MODS consists of 20 top-level elements or element wrappers, all of which are optional and repeatable. Top-level elements may have subelements that, taken together within an instance of a top element, represent a single concept.
+Special Topic: Hierarchical Description
+One of the MODS elements, 
+relatedItem
+, allows for great flexibility in the way the description of a resource is structured that has implications for applications that consume the metadata.
+All MODS top-level elements are valid within 
+relatedItem
+. 
+relatedItem
+ has many uses, but one is crucial to the aggregation of metadata in LibraryCloud: it enables nested, hierarchical whole/part description.  
+Records from JSTOR Forum and from ArchivesSpace both take advantage of this hierarchical structure, but in different ways. In both cases, the record overall represents one resource (which may be a compound resource, such as a folder of letters that are not individually described) and a larger context for it. However, in ArchivesSpace records, the description moves from narrower to broader, while in JSTOR Forum, the description moves from the broader context to the specific item.
+ For both ArchivesSpace and JSTOR Forum records, relatedItem information is essential to provide context or specificity about the described resource
+.
+The 
+type
+ and 
+displayLabel
+ attributes in the 
+relatedItem
+ element indicate the kind of relationship:
+<relatedItem type=”host”> 
+               A larger context of which the described resource is a part.
+<relatedItem type=”host” displayLabel=”collection”>
+               The largest unit –the collection—of which the resource is a part.              
+<relatedItem type=”constituent”>
+               An item which is part of or representative of the primary object of description.
+Records for archival components from ArchivesSpace start with the description of one component of a collection, followed by 
+any number
+ of levels of description that provide the context of that component within the collection.
+For example: 
+https://api.lib.harvard.edu/v2/items/hou01365c02879
+Archival component
+--Sub-Series <relatedItem type=”host”>
+----Series <relatedItem type=”host”>
+------Collection <relatedItem type=”host” displayLabel=”collection”>
+Records from JSTOR Forum, in contrast, start with the broader description of a painting, building, event, etc., and may have 0-2 additional levels of description for a specific view, such as a perspective, a detail, or a verso.
+For example, 
+https://api.lib.harvard.edu/v2/items/W209586_URN-3:VIT.BB:25445424
+Painting
+--X-Ray (detail)  <relatedItem type=”constituent”>
+Or 
+https://api.lib.harvard.edu/v2/items?recordIdentifier=G80_olvsurrogate307431
+: 
+Quilt series
+--One quilt <relatedItem type=”constituent”>
+----Total view of the quilt <relatedItem type=”constituent”>
+Other common uses of the 
+relatedItem
+ element:
+To identify a series in which a published item appears:
+<mods:relatedItem type=\
+<mods:titleInfo>
+<mods:title>Information-education bulletin ; no. 1</mods:title>
+</mods:titleInfo>
+</mods:relatedItem>
+To provide a permalink to the catalog view of original record from which the LibraryCloud record was derived:
+<mods:relatedItem otherType=\
+<mods:location>
+<mods:url>
+https://id.lib.harvard.edu/alma/990000000120203941/catalog
+</mods:url>
+</mods:location>
+</mods:relatedItem>
+Special Topic: Non-Latin Script Metadata
+Non-Latin script may appear in LibraryCloud records from any source. However, the
+ 
+MODS
+ altRepGroup 
+attribute appears only in Alma records, designating paired elements that contain corresponding information in transliteration and in original script
+.
+If an 
+altRepGroup
+ attribute is present with a value other than “00”, there will be another element with an identical 
+altRepGroup
+ value containing a representation of some or all of the element information in a different script (e.g., Arabic).
+Example from 
+https://api.lib.harvard.edu/v2/items/990000773410203941
+:
+<mods:titleInfo altRepGroup=\
+<mods:nonSort>al- </mods:nonSort>
+<mods:title>Nahḍah al-Isrāʼīlīyah wa-tārīkhuhā al-khālid</mods:title>
+<mods:subTitle>muzayyinan bi-rusūm ʻuẓmāʼ al-Isrāʼīlīyīn fī al-ʻālam</mods:subTitle>
+</mods:titleInfo>
+<mods:titleInfo altRepGroup=\
+<mods:title>نهضة الاسرائيلية وتاريخها الخالد</mods:title>
+<mods:subTitle>مزينا برسوم عظماء الاسرائيلية في العالم</mods:subTitle>
+</mods:titleInfo>
+Non-Latin script metadata may occur in records from other sources, but it will not be marked for association with its transliteration.
+Selected MODS Elements
+titleInfo
+Most, but not all, records will include at least one top-level 
+titleInfo
+ element. The exception is a subset of archival component records from ArchivesSpace. Lacking a 
+titleInfo
+, these are required to have a top-level 
+originInfo/dateCreated
+. See 
+https://api.lib.harvard.edu/v2/items?q=hou02652c00990
+ as an example.
+Attribute Usage:
+type
+ or 
+otherType:
+-        
+type
+ values: abbreviated, translated, alternative, uniform
+-        
+otherType
+ values are uncontrolled
+-        
+titleInfo
+ elements that contain neither 
+type
+ nor 
+otherType 
+attributes can be considered primary titles.
+titleInfo
+ is a wrapper element that will contain one or more subelements: 
+Subelement
+Source
+nonSort
+Alma
+title
+Alma, ArchivesSpace, JSTOR Forum, Iranian Oral History, Jacques Burkhardt Scientific Drawings, Milman Parry
+subTitle
+Alma
+partNumber
+Alma, Iranian Oral History
+partName
+Alma
+When multiple subelements are used, their order is important and should be retained in displays to insure intelligibility.
+ 
+name
+name
+ is a wrapper element that will contain one or more subelements: 
+Subelement
+Source
+namePart
+Alma, ArchivesSpace, JSTOR Forum, Iranian Oral History, Jacques Burkhardt Scientific Drawings, Milman Parry
+nameIdentifier
+none
+displayForm
+none
+affiliation
+Alma maybe?
+role/roleTerm
+Alma, ArchivesSpace, JSTOR Forum, Iranian Oral History, Jacques Burkhardt Scientific Drawings, Milman Parry
+description
+none
+etal
+Alma maybe?
+Names in MODS can be highly structured, but in practice most MODS name subelements are rarely used. Among LibraryCloud sources, only Alma and JSTOR Forum records can contain multiple 
+namePart
+ elements, and only Alma records include a type attribute on the 
+name
+ element. When multiple 
+namePart
+ subelements are used, their order is important and should be retained in displays to insure intelligibility.
+ 
+Alma:
+<mods:name type=\
+<mods:namePart>Harrowby, Dudley Ryder</mods:namePart>
+<mods:namePart type=\
+<mods:namePart type=\
+</mods:name>
+JSTOR Forum records can combine dates and nationality in a 
+namePart
+ with 
+type
+=\
+<mods:name>
+<mods:namePart>Bernini, Gian Lorenzo</mods:namePart>
+<mods:namePart type=\
+</mods:name>
+Other sources combine all information except role into a single 
+namePart
+ subelement:
+<mods:namePart>
+Bearzi, Bruno, 1894-1983
+</mods:namePart>
+Names from all sources often include one or more 
+role
+ subelements, each of which will include a single 
+roleTerm
+ subelement. When multiple 
+role
+ subelements are used, it is either because there is a general role and a more specific role or because a single role is expressed multiple ways.
+<mods:role>
+<mods:roleTerm>creator</mods:roleTerm>
+</mods:role>
+<mods:role>
+<mods:roleTerm>artist</mods:roleTerm>
+</mods:role>
+<mods:role>
+<mods:roleTerm type=\
+</mods:role>
+<mods:role>
+<mods:roleTerm type=\
+</mods:role>
+<mods:role>
+<mods:roleTerm type=\
+http://id.loc.gov/vocabulary/relators/edt
+</mods:roleTerm>
+</mods:role>
+Names which are subjects are coded differently in records from Alma vs records from JSTOR Forum. This should be normalized on ingest to LibraryCloud, but that is a future enhancement.
+Alma uses 
+name
+ as a subelement within 
+subject
+: 
+<mods:subject authority=\
+<mods:name type=\
+<mods:namePart>Michelangelo Buonarroti</mods:namePart>
+<mods:namePart type=\
+</mods:name>
+JSTOR Forum records usually have 
+name
+ as a top-level element with \
+<mods:name>
+<mods:namePart>Harleston, Elise Forrest</mods:namePart>
+<mods:namePart type=\
+<mods:role>
+<mods:roleTerm>associated name</mods:roleTerm>
+</mods:role>
+<mods:role>
+<mods:roleTerm>subject</mods:roleTerm>
+</mods:role>
+typeOfResource
+typeOfResource
+ appears in Alma and JSTOR Forum records; it is not present in ArchivesSpace records. While repeatable, it is not, in fact, repeated.
+Alma records can contain any of the values enumerated in the MODS 3.8 schema. All JSTOR Forum records will have the value “still image”.
+Attribute Usage
+:
+collection=”yes”
+: Records from Alma representing collection-level description will contain the 
+typeOfResource
+ attribute 
+collection=”yes”
+manuscript=\
+: Records from Alma representing manuscript material will contain the 
+typeOfResource
+ attribute 
+manuscript=\
+genre 
+The 
+genre
+ element is present in many Alma records, nearly all JSTOR Forum records, and all Jacques Burkhardt records.
+It is not present in ArchivesSpace records, Iranian Oral History, or Milman Parry records.
+ 
+originInfo
+ 
+The 
+originInfo
+ element is a wrapper element for information about the creation or issuance of the resource. There may be more than one 
+originInfo 
+element at the same level of MODS purely as an artifact of conversion from another format, and the subelements within these should be considered as siblings.
+Subelement
+May occur in records from
+place/placeTerm
+Alma, JSTOR Forum, ArchivesSpace
+publisher
+Alma
+copyrightDate
+Alma
+dateCaptured
+Alma, Iranian Oral History
+dateCreated
+Alma, ArchivesSpace, JSTOR Forum, Jacques Burkhardt Scientific Drawings
+dateIssued
+Alma
+dateOther
+JSTOR Forum, Milman Parry
+place
+               The 
+place
+ wrapper element will contain one or more 
+placeTerm
+ elements. If more than one 
+placeTerm
+ is present within a single 
+place
+ element, all 
+placeTerms
+ contain different representations of the same place. 
+placeTerms
+ that represent different places will have different 
+place
+ parent elements
+Example: 
+https://api.lib.harvard.edu/v2/items/990026310040203941
+<mods:place>
+<mods:placeTerm authority=\
+<mods:placeTerm authority=\
+</mods:place>
+<mods:place>
+<mods:placeTerm type=\
+</mods:place>
+ Note the use of the attribute 
+type=”code”
+ in Alma records, which can be useful for eliminating coded place values from displays.
+date elements 
+MODS supports seven different elements to express dates associated with the creation of a resource. Any of these may appear in LibraryCloud, but generally ArchivesSpace and JSTOR Forum dates will be in the 
+dateCreated
+ element, while Alma dates will most often appear in 
+dateIssued 
+for published materials and 
+dateCreated
+ for manuscripts.
+               
+Date Elements Attribute Usage
+               
+Date elements with no attributes or with the keyDate attribute are free-text date expressions suitable for display.
+               Some attributes are important for applications that use LibraryCloud metadata:
+               
+encoding: 
+    The encoding attribute will only occur in records from Alma, and the only value is “marc”. These date elements are designed to support date and date-range searching and are best omitted from displays.
+point: 
+          These date elements designate the start and end of a date range. They support date-range searching and are best omitted from displays. There will typically be another date element better suited for display in the same 
+originInfo
+ element or in a sibling 
+originInfo
+ element.
+               
+keyDate:       
+The 
+keyDate
+ attribute only appears in JSTOR Forum records. It duplicates 
+dateCreated
+ [lacking attributes] in dateOther with keyDate=\
+<mods:originInfo>
+<mods:dateOther keyDate=\
+<mods:dateCreated point=\
+<mods:dateCreated point=\
+<mods:dateCreated>early/mid 20th century</mods:dateCreated>
+</mods:originInfo>
+language
+All Alma records contain one or more coded language designation in a
+ languageTerm 
+element. The primary language code will also be available as text in a second
+ languageTerm 
+element in the same 
+language
+ parent element.
+  
+Language terms for different languages, as opposed to different ways of expressing the same language, will be in separate 
+language
+ elements. 
+Use the 
+type
+ attribute to select between code and text values:
+<mods:language>
+<mods:languageTerm authority=\
+per 
+</mods:languageTerm>
+<mods:languageTerm authority=\
+Persian 
+</mods:languageTerm>
+</mods:language>
+ JSTOR Forum records do not contain language information, so for the purposes of LibraryCloud, the following has been added to all records derived from JSTOR Forum:
+<mods:languageTerm type=\
+zxx
+</mods:languageTerm>
+<mods:languageTerm type=\
+No linguistic content
+</mods:languageTerm>
+ In ArchivesSpace records, language is set at the collection-level and may not be accurate for all items in the collection. For that reason, item level records derived from ArchivesSpace have language set to \
+<mods:languageTerm authority=\
+und
+</mods:languageTerm>
+<mods:languageTerm authority=\
+Undefined
+</mods:languageTerm>
+location
+location
+ is wrapper element that will contain one or more subelements, the most common being 
+physicalLocation, shelfLocator,
+ and 
+url
+. The two most important uses of location in LibraryCloud records are for 1) information about the Harvard repository holding the material, and 2) links to digital content.
+physicalLocation
+There can be zero, one, or several 
+location
+ elements each containing one 
+physicalLocation. physicalLocations
+ that represent Harvard holdings will contain the attribute 
+displayLabel=\
+to distinguish them from the repository of an original item of which Harvard has a copy, e.g., . Most of these will also
+ 
+contain a valueURI attribute with an URI from International Standard Name Identifier (ISNI) or the Library of Congress Name Authority File (LCNAF).
+There is no MODS equivalent of 852 $c, so Alma Location codes do not appear in LibraryCloud records. 
+If there is an accession number or classification number for the item in that repository, it will appear in a 
+shelfLocator
+ element in the same 
+location 
+element. For JSTOR Forum records, if both an accession number and a classification number exist in the source record, the accession number is the value in 
+shelfLocator
+.
+Harvard repository:
+<mods:location>
+<mods:physicalLocation valueURI=\
+http://isni.org/isni/0000000109426663
+\
+<mods:shelfLocator>sch00326c01444_0001</mods:shelfLocator>
+</mods:location>
+Non-Harvard repository:
+<mods:location>
+<mods:physicalLocation type=\
+<mods:shelfLocator>RF 2608</mods:shelfLocator>
+</mods:location>
+url
+url
+ elements with no attributes are typically links to additional metadata in a Harvard discovery system or catalog or to free or licensed resources external to Harvard.
+<mods:url>
+https://id.lib.harvard.edu/alma/990040672870203941/catalog
+</mods:url>
+<mods:url>
+https://nrs.harvard.edu/urn-3:hul.ebookbatch.MOML_batch:GALEHSTR07367
+</mods:url>
+The 
+access 
+attribute conveys specific information about digital content in the DRS or its metadata:
+mods:url access=\
+ links to deliverable digital content in the DRS.
+mods:url access=\
+ links to thumbnail images for content in the DRS.
+mods:url access=\
+ links to a bibliographic record for the digital content from the DRS as shown in the context of a curated collection website. The specific collection will be indicated with a 
+displayLabel
+ attribute.
+<mods:url displayLabel=\
+https://id.lib.harvard.edu/curiosity/studies-in-scarlet/41-990063999920203941
+</mods:url>
+subject
+subject
+ is a wrapper element that can contain one or more of the following subelements in any order.  When multiple subelements are used, their order is important and should be retained in displays to insure intelligibility.
+ 
+Conventionally, multiple subelements within a single subject element should be separated by a double hyphen at the point of display in public-facing systems.
+Subelement
+May occur in records from
+Note
+topic
+Alma, JSTOR Forum, Iranian Oral History, Jacques Burkhardt Scientific Drawings
+geographic
+Alma
+temporal
+Alma
+titleInfo
+Alma, Jacques Burkhardt Scientific Drawings
+See 
+titleInfo
+ above for subelements.
+name
+Alma, Iranian Oral History
+See 
+name
+ above for subelements.
+Many names are coded as topics in Iranian Oral History
+geographic code
+Alma
+genre
+Alma, JSTOR Forum, Jacques Burkhardt Scientific Drawings
+hierarchicalGeographic
+Alma
+See 
+MODS documentation
+ for subelements.
+cartographics
+Alma
+See 
+MODS documentation
+ for subelements.
+occupation
+Alma (extraordinarily rare, if present)
+recordInfo
+A LibraryCloud record will contain one or more 
+recordInfo
+ wrapper elements, with at most one occurrence per level of hierarchy. That is, each 
+relatedItem
+ may also include a 
+recordInfo
+ element that applies specifically to the content of that related item. The primary 
+recordInfo
+—the one that applies to the record as a whole--occurs at the top level of the record, that is, as a child of the 
+mods
+ element. Only the primary 
+recordInfo
+ will include the recordIdentifier with a 
+source
+ attribute.
+The subelements within the primary 
+recordInfo
+ element vary by source, but all will include 
+recordIdentifier
+ and 
+recordChangeDate.
+JSTOR Forum Example:
+<mods:recordInfo>
+<mods:recordContentSource authority=\
+<mods:recordContentSource authority=\
+<mods:recordChangeDate encoding=\
+<mods:recordIdentifier source=\
+<mods:languageOfCataloging>
+<mods:languageTerm>eng</mods:languageTerm>
+</mods:languageOfCataloging>
+</mods:recordInfo>
+ Alma Example: 
+<mods:recordInfo>
+<mods:recordCreationDate encoding=\
+<mods:recordChangeDate encoding=\
+<mods:recordIdentifier source=\
+<mods:recordOrigin>Converted from MARCXML to MODS version 3.6 using MARC21slim2MODS3-6.xsl (Revision 1.117 2017/02/14)</mods:recordOrigin>
+</mods:recordInfo>
+ ArchivesSpace Example: 
+<mods:recordInfo>
+<mods:recordChangeDate encoding=\
+<mods:recordIdentifier source=\
+</mods:recordInfo>
+
+MODS Extensions
+MODS includes an 
+extension
+ element for embedding additional metadata beyond what the basic MODS element support. LibraryCloud uses multiple 
+extension
+ elements: three for 
+CDWA Lite
+ elements used only in records from JSTOR Forum, one with supplementary metadata about digital content managed in Harvard's Digital Repository (DRS), one for enrichments and administrative metadata about the record in LibraryCloud, and one that designates curatorial set(s) in which the record is included.  
+cdwalite:cultureWrap
+cultureWrap
+ is a wrapper element containing a single 
+cdwalite:culture
+ element. Multiple cultures will appear in separate extensions. This extension only occurs in JSTOR Forum records.
+<mods:extension>
+<cdwalite:cultureWrap xmlns:cdwalite=\
+http://www.getty.edu/research/conducting_research/standards/cdwa/cdwalite
+\
+<cdwalite:culture>Egyptian</cdwalite:culture>
+</cdwalite:cultureWrap>
+</mods:extension>
+cdwalite:indexingMaterialsTechSet
+indexingMaterialsTechSet
+ is a wrapper element containing a single 
+cdwalite:termMaterialsTech 
+element. Multiple materials or techniques will appear in separate extensions. This extension only occurs in JSTOR Forum records.
+<mods:extension>
+<cdwalite:indexingMaterialsTechSet xmlns:cdwalite=\
+http://www.getty.edu/research/conducting_research/standards/cdwa/cdwalite>
+<cdwalite:termMaterialsTech>granite</cdwalite:termMaterialsTech>
+</cdwalite:indexingMaterialsTechSet>
+</mods:extension>
+cdwalite:styleWrap
+styleWrap
+ is a wrapper element containing a single 
+cdwalite:style
+ element. Multiple styles will appear in separate extensions. This extension only occurs in JSTOR Forum records.
+<mods:extension>
+<cdwalite:styleWrap xmlns:cdwalite=\
+http://www.getty.edu/research/conducting_research/standards/cdwa/cdwalite
+\
+<cdwalite:style>New Kingdom</cdwalite:style>
+</cdwalite:styleWrap>
+</mods:extension>
+DRSMetadata Extension 
+The DRSMetadata extension includes a subset of administrative and technical metadata copied from the HarvardDigital Repository Service (DRS) to facilitate discovery and use of digital content available from the DRS. No attributes have been defined for DRSExtension elements.
+Add table block for DRSMetadata wrapper
+Element
+inDRS
+Description
+A flag indicating that there is digital content in the DRS associated with this record.
+Content
+\
+Obligation
+Required
+Repeatable
+No
+Contained In
+//HarvardDRS:DRSMetadata
+Note
+The element exists to facilitate searching and faceting.
+Only 
+inDRS=”true”
+ is explicit in the metadata. Any record lacking a DRSMetadata extension will be recorded as 
+inDRS=“false”
+ in the LibraryCloud Item API, and there will be no DRSMetadata extension in the record.
+Example
+<HarvardDRS:inDRS>true</HarvardDRS:inDRS>
+Element
+accessFlag
+Description
+A code indicating whether the DRS digital content is accessible to the public or is restricted to Harvard affiliates.
+Content
+Controlled values:
+P (public)
+R (restricted)
+Obligation
+Required
+Repeatable
+No
+Contained In
+//HarvardDRS:DRSMetadata
+Note
+The value applies to a file in the DRS if the URN in the LibraryCloud record resolves to a specific file.  If the URN resolves to a multifile object, the accessFlag will be the least restrictive accessFlag value associated with any deliverable file in the object.
+Example
+<HarvardDRS:accessFlag>P</HarvardDRS:accessFlag>
+Element
+contentModel
+Description
+An indication of type and structure of the digital object in the DRS.
+Content
+Controlled values:
+AUDIO
+DOCUMENT
+OPAQUE
+PDS DOCUMENT
+PDS DOCUMENT LIST
+STILL IMAGE
+TEXT
+VIDEO
+Obligation
+Required
+Repeatable
+No
+Contained In
+//HarvardDRS:DRSMetadata
+Example
+<HarvardDRS:contentModel>
+STILL IMAGE
+</HarvardDRS:contentModel>
+Element
+contentModelCode
+Description
+A coded value representing the type and structure of the digital object in the DRS.
+Content
+Controlled values:
+CMID-1.0 = OPAQUE
+CMID-2.0 = AUDIO
+CMID-4.0 = PDS DOCUMENT
+CMID-4.1 = DOCUMENT
+CMID-5.0 = STILL IMAGE
+CMID-6.0 = TEXT
+CMID-12.0 = VIDEO
+CMID-14.0 = PDS DOCUMENT LIST
+Obligation
+Required
+Repeatable
+No
+Contained In
+//HarvardDRS:DRSMetadata
+Example
+<HarvardDRS:contentModelCode>
+CMID-14.0
+</HarvardDRS:contentModelCode>
+Element
+drsObjectId
+Description
+The database record number of the object in the DRS representing the digital content.
+Content
+Obligation
+Required
+Repeatable
+No
+Contained In
+//HarvardDRS:DRSMetadata
+Example
+<HarvardDRS:drsObjectId>
+416373630
+</HarvardDRS:drsObjectId>
+Element
+drsFileId
+Description
+The database record number of the file in the DRS representing the digital content.
+Content
+Obligation
+Required
+Repeatable
+No
+Contained In
+//HarvardDRS:DRSMetadata
+Example
+<HarvardDRS:drsFileId>
+50595976
+</HarvardDRS:drsFileId>
+Element
+uriType
+Description
+A code for the type of service that will be used to deliver the content to the user.
+Content
+Controlled values:
+FDS
+IDS
+PDS
+PDS_LIST
+SDS
+SDS_VIDEO
+Obligation
+Optional
+Repeatable
+No
+Contained In
+//HarvardDRS:DRSMetadata
+Note
+Delivery service types: FDS (text documents), IDS (images), PDS (page-turned objects), PDS_LIST (list of page-turned objects), SDS (streaming audio), (SDS_VIDEO (streaming video)
+Example
+<HarvardDRS:uriType>SDS</HarvardDRS:uriType>
+Element
+fileDeliveryUrl
+Description
+The persistent identifier for delivery of the DRS content.
+Content
+Obligation
+Required
+Repeatable
+No
+Contained In
+//HarvardDRS:DRSMetadata
+Note
+This URL serves to associate a URL in descriptive record with its corresponding DRS metadata.
+ Despite its name, it does not necessarily correspond to a delivered file. Most often it delivers content in a dedicated viewer or rendering application.
+Example
+<HarvardDRS:fileDeliveryURL>
+https://nrs.harvard.edu/urn-3:FHCL:2789166</HarvardDRS:fileDeliveryURL
+>
+ 
+Element
+ownerCode
+Description
+A DRS code identifying the Harvard library, archive, or other repository responsible for the digital content.
+Content
+[is there a public code list?]
+Obligation
+Required
+Repeatable
+No
+Contained In
+//HarvardDRS:DRSMetadata
+Note
+This value is expanded into the human-readable text form of the unit name in the ownerCodeDisplayName element.
+Example
+<HarvardDRS:ownerCode>FHCL.HOUGH</HarvardDRS:ownerCode>
+ 
+Element
+ownerCodeDisplayName
+Description
+The DRS name for the Harvard library, archive, or other repository responsible for the digital content.
+Content
+A text string [is there a public code list?]
+Obligation
+Required
+Repeatable
+No
+Contained In
+//HarvardDRS:DRSMetadata
+Note
+This value corresponds to the code for the unit name in the ownerCode element.
+Example
+<HarvardDRS:ownerCodeDisplayName>Houghton Library</HarvardDRS:ownerCodeDisplayName>
+ 
+Element
+metsLabel
+Description
+A descriptive string from the METS object descriptor file in the DRS for identifying an object to a user.
+Content
+A text string
+Obligation
+Optional
+Repeatable
+No
+Contained In
+//HarvardDRS:DRSMetadata
+Example
+<HarvardDRS:metsLabel>LN 93. Derviš, Zilić. Ide Tito preko Romanije. Stolac, June 9, 1950. Albert B. Lord Collection. Milman Parry Collection of Oral Literature.</HarvardDRS:metsLabel>
+ 
+Element
+lastModificationDate
+Description
+The date and time of the most recent update to the object in the DRS.
+Content
+ISO8601 timestamp in the form YYYY-MM-DDThh:mm:ss.SSSZ
+Obligation
+Required
+Repeatable
+No
+Contained In
+//HarvardDRS:DRSMetadata
+Example
+<HarvardDRS:lastModifiedDate>2015-11-02T15:06:39.404Z</HarvardDRS:lastModifiedDate>
+Element
+insertionDate
+Description
+The date and time the file was deposited in the DRS. 
+ 
+Is this accurate?
+Content
+ISO8601 timestamp in the form YYYY-MM-DDThh:mm:ss.SSSZ
+Obligation
+Required
+Repeatable
+No
+Contained In
+//HarvardDRS:DRSMetadata
+Example
+<HarvardDRS:insertionDate>
+2018-07-27T19:34:56Z
+</HarvardDRS:insertionDate>
+Element
+ownerSuppliedName
+Description
+A name provided by the owner of the content to assist them in identification and retrieval.
+Content
+Obligation
+Required
+Repeatable
+No
+Contained In
+//HarvardDRS:DRSMetadata
+Example
+<HarvardDRS:ownerSuppliedName>
+U951744_1
+</HarvardDRS:ownerSuppliedName>
+Element
+viewText
+Description
+An indication of whether the content is accompanied by displayable text.
+Content
+off
+on
+Obligation
+Required
+Repeatable
+No
+Contained In
+//HarvardDRS:DRSMetadata
+Note
+This will only have the value \
+Example
+<HarvardDRS:viewText>
+off
+</HarvardDRS:viewText>
+Element
+mimeType
+Description
+A standard media type for classifying file formats on the Internet
+Content
+Controlled values drawn from 
+https://www.iana.org/assignments/media-types/media-types.xhtml
+Obligation
+Required
+Repeatable
+No
+Contained In
+//HarvardDRS:DRSMetadata
+Example
+<HarvardDRS:mimeType>
+image/jp2
+</HarvardDRS:mimeType>
+Element
+suppliedFilename
+Description
+The name of the file when it was submitted for deposit into the DRS.
+Content
+Obligation
+Required
+Repeatable
+No
+Contained In
+//HarvardDRS:DRSMetadata
+Example
+<HarvardDRS:suppliedFilename>
+U951744_1.jp2
+</HarvardDRS:suppliedFilename>
+Element
+harvardMetadataLinks
+Description
+harvardMetadataLinks is a wrapper element that will contain one or more harvardMetadataLink elements.
+Content
+Subelement: <harvardMetadataLink>
+Obligation
+Required
+Repeatable
+No
+Contained In
+//HarvardDRS:DRSMetadata
+Example
+<HarvardDRS:harvardMetadataLinks>
+<HarvardDRS:harvardMetadataLink>
+<HarvardDRS:metadataIdentifier>990024644190203941</HarvardDRS:metadataIdentifier>
+<HarvardDRS:metadataType>Alma</HarvardDRS:metadataType>
+<HarvardDRS:displayLabel>HOLLIS</HarvardDRS:displayLabel>
+</HarvardDRS:harvardMetadataLink>
+</HarvardDRS:harvardMetadataLinks>
+Element
+harvardMetadataLink
+Description
+harvardMetadataLink is a wrapper that must container subelements that identify and characterize Harvard metadata about the content in other systems.
+Content
+Subelements:
+<metadataIdentifier>
+<metadataType>
+<displayLabel>
+Obligation
+Required
+Repeatable
+No
+Contained In
+//HarvardDRS:harvardMetadataLinks
+Example
+See harvardMetadataLinks, above.
+Element
+metadataIdentifier
+Description
+A value identifying Harvard metadata about the DRS object in another system, service, or context.
+Content
+Uncontrolled text string
+Obligation
+Required
+Repeatable
+No
+Contained In
+//HarvardDRS:harvardMetadataLink
+Note
+The form of the identifier values has not been entirely consistent. For example, with the Finding Aid metadata type, eadid alone or an id.lib URI resolving to a discovery system (hou00223 vs. 
+http://id.lib.harvard.edu/ead/hou00223/catalog
+). 
+Example
+<HarvardDRS:metadataIdentifier>
+990024644190203941
+</HarvardDRS:metadataIdentifier>
+Element
+metadataType
+Description
+metadataType designates the context for the metadataIdentifier. The type can reference a system that assigned the identifier, a system-independent identifier, or an unspecified link.
+Content
+Controlled values:
+Aleph
+Alma
+DASH
+Finding Aid
+Gale
+HLSL
+HULPR
+Local
+OCLC
+RLIN
+SharedShelf
+URI
+Obligation
+Required
+Repeatable
+No
+Contained In
+//HarvardDRS:harvardMetadataLink
+Note
+Aleph and Alma are different generations of the Harvard Library's primary library processing system. Each system had different formats of record identifiers, but both can be used to find the records in current systems.
+SharedShelf was the original name of what is now called JSTOR Forum.
+HULPR is a valid value but does not occur in the data.
+Example
+<HarvardDRS:metadataType>
+Alma
+</HarvardDRS:metadataType>
+Element
+displayLabel
+Description
+A value that may be used to override the metadataType when displaying the Harvard metadata link.
+Content
+Uncontrolled text string
+Obligation
+Optional
+Repeatable
+No
+Contained In
+//HarvardDRS:harvardMetadataLink
+Example
+<HarvardDRS:displayLabel>
+HOLLIS
+</HarvardDRS:displayLabel>
+librarycloud Extension
+The 
+librarycloud
+ extension provides alternative, normalized, or user-friendly values to improve searching, faceting, or display, as well as auxiliary and administrative information.
+The elements may occur together in one 
+librarycloud
+ wrapper element in a single 
+mods:extension
+ or split across more than one 
+mods:extension
+, and they may occur at any level of the hierarchy.
+Add table block for librarycloud wrapper
+Element
+availableTo
+Description
+A single value that represents the broadest access for any DRS content referenced by the LibraryCloud record. If any part of the DRS content is public, the value will be “Everyone”.
+Content
+Values:
+Everyone
+Restricted
+Obligation
+Optional
+Repeatable
+No
+Contained In
+//librarycloud:librarycloud
+Note
+availableTo values are derived from HarvardDRS:accessFlag values. 
+accessFlag P: Everyone
+accessFlag R: Restricted
+Two types of content may have inaccurate values:
+1)     Restricted images that have separate thumbnail images deposited in the DRS will appear as “Everyone” 
+--Is this still true?
+2)     Restricted Audio content that is accessed through a DRS playlist appears as “Everyone” because the playlist is public, even if the underlying audio files are not.
+NB: value corresponding to accessFlag R was originally \
+Example
+<librarycloud:availableTo>Everyone</librarycloud:availableTo>
+Element
+digitalFormats
+Description
+digitalFormats is a wrapper element containing one digitalFormat element for each type of DRS content described in the LibraryCloud record.
+Content
+Subelement: <digitalFormat>
+Obligation
+Required
+Repeatable
+No
+Contained In
+//librarycloud:librarycloud
+Note
+Most LibraryCloud records will contain no more than one.
+Example
+<librarycloud:digitalFormats>
+<librarycloud:digitalFormat>Audio</librarycloud:digitalFormat>
+<librarycloud:digitalFormat>Books and documents</librarycloud:digitalFormat>
+</librarycloud:digitalFormats>
+Element
+digitalFormat 
+Description
+digitalFormat contains a descriptive word or phrase for the type of DRS content described in the LibraryCloud record. The values are derived from a combination of the DRSMetadata contentModel and uriType elements.
+Content
+Controlled values:
+Audio: when ContentModel=AUDIO or (ContentModel=TEXT and uriType=SDS)
+Books and documents: when ContentModel=DOCUMENT, PDS_DOCUMENT, or PDS_LIST_OBJECT
+Images: when ContentModel=STILL_IMAGE
+Videos: when ContentModel=VIDEO
+Obligation
+Required
+Repeatable
+Yes
+Contained In
+//librarycloud:librarycloud/librarycloud:digitalFormats
+Note
+Most LibraryCloud records will contain no more than one digitalFormat element.
+Example
+<librarycloud:digitalFormat>Audio</librarycloud:digitalFormat>
+Element
+HarvardRepositories
+Description
+HarvardRepositories is a wrapper element containing one HarvardRepository element for each unique repository name occurring in the LibraryCloud record.
+Content
+Subelement: <HarvardRepository>
+Obligation
+Optional
+Repeatable
+No
+Contained In
+//librarycloud:librarycloud
+Example
+See under HarvardRepository below.
+Element
+HarvardRepository
+Description
+HarvardRepository contains the short form of the name of a Harvard repository appearing in the LibraryCloud record. Each HarvardRepository value will occur only once per record.
+Content
+Text
+Obligation
+Required
+Repeatable
+Yes
+Contained In
+//librarycloud:HarvardRepositories
+Note
+Each unique value in //physicalLocation[@displayLabel=”Harvard repository”] will be mapped to a corresponding short form of repository name. The forms are added from the normalization file RepositoryNameMapping.xml.
+Example
+<librarycloud:HarvardRepositories>
+<librarycloud:HarvardRepository>Houghton</librarycloud:HarvardRepository>
+<librarycloud:HarvardRepository>Widener</librarycloud:HarvardRepository>
+</librarycloud:HarvardRepositories>
+Element
+originalDocument
+Description
+This element contains a URL link to a downloadable copy of the source record from which the LibraryCloud record was derived.
+Content
+URL
+Obligation
+Required
+Repeatable
+No
+Contained In
+//librarycloud:librarycloud
+Note
+The source record referred to by the originalDocument link may already have transformed from the internal format of the source system before it reaches the LibraryCloud ingest process.
+More than one LibraryCloud may be derived from the same source record. See Record Splitting in the MODS Application Profile for LibraryCloud
+Example
+<librarycloud:originalDocument>
+https://s3.amazonaws.com/harvard.librarycloud.marc/990014252210203941
+</librarycloud:originalDocument>
+  
+Element
+priorrecordids
+Description
+Contains one or more subelements containing superseded identifiers for the record, such as those from previous generations of cataloging systems.
+Content
+Subelement: <recordIdentifier>
+Obligation
+Optional
+Repeatable
+No
+Contained In
+//librarycloud:librarycloud
+Example
+<librarycloud:priorrecordids>
+<librarycloud:recordIdentifier source=\
+</librarycloud:priorrecordids>
+Element
+recordIdentifier
+Description
+Contains a single superseded identifier for the record, such as the identifier from a previous generation of cataloging system.
+Content
+Obligation
+Required when parent is present
+Repeatable
+Yes
+Contained In
+//librarycloud:priorrecordids
+Example
+<librarycloud:recordIdentifier source=\
+Element
+processingDate
+Description
+The processingDate element includes a timestamp for the date 
+this version
+ of the record was ingested by LibraryCloud.  The date is replaced each time an updated version of the record is processed.
+Content
+Timestamp in the form YYYY-MM-DDTHH:mmZ
+Obligation
+Required
+Repeatable
+No
+Contained In
+//librarycloud:librarycloud
+Note
+There is no date in LibraryCloud to represent the first date that a record was loaded.
+Example
+<librarycloud:processingDate>2019-04-16T05:49Z</librarycloud:processingDate>
+sets Extension
+The sets extension identifies curated collections in which the item is included, specifically collections created and maintained through Harvard’s Collection Builder service.
+These sets may be available for OAI-PMH harvesting (see 
+https://harvardwiki.atlassian.net/wiki/display/LibraryStaffDoc/LibraryCloud+OAI-PMH+Data+Provider
+).
+They may have dedicated exhibit sites, e.g., 
+http://curiosity.lib.harvard.edu/women-working-1800-1930
+.
+Element
+sets
+Description
+sets is the wrapper element containing information about each of the curated collections or sets in which the record is included.
+Content
+Subelements: <set>
+Obligation
+Optional
+Repeatable
+No
+Contained In
+//mods:extension
+Example
+<sets:sets>
+<sets:set>
+<sets:systemId>57217</sets:systemId>
+<sets:setName>Women Working, 1800-1930</sets:setName>
+<sets:setSpec>ww</sets:setSpec>
+<sets:baseUrl>
+https://id.lib.harvard.edu/curiosity/women-working-1800-1930/45-
+</sets:baseUrl>
+</sets:set>
+</sets:sets>
+Element
+set
+Description
+set is a wrapper element containing information about a single curated collection.
+Content
+Subelements:
+<systemId>
+<setName>
+<setSpec>
+<baseUrl>
+Obligation
+Required when parent is present
+Repeatable
+Yes
+Contained In
+//sets:sets
+Example
+See 
+sets
+, above.
+Element
+systemId
+Description
+The identifier of the collection record in the collection database.
+Content
+One numeric identifier
+Obligation
+Required when parent is present
+Repeatable
+No
+Contained In
+//sets:set
+Example
+<sets:systemId>57218</sets:systemId>
+Element
+setName
+Description
+A human-readable string naming the set or collection.
+Content
+Text string
+Obligation
+Required when parent is present
+Repeatable
+No
+Contained In
+//sets:set
+Note
+This is the same as the setName in 
+OAI-PMH
+Example
+<sets:setName>Women Working, 1800-1930</sets:setName>
+Element
+setSpec
+Description
+A unique identifier for the set in the context of the LibraryCloud OAI-PMH Data Provider.
+Content
+Text string
+Obligation
+Required when parent is present
+Repeatable
+No
+Contained In
+//sets:set
+Note
+This is the same as the setSpec in OAI-PMH
+Example
+<sets:setSpec>ww</sets:setSpec>
+Element
+baseUrl
+Description
+URL used to construct item level object-in-context links for records in the set or collection
+Content
+URL
+Obligation
+Optional
+Repeatable
+No
+Contained In
+//sets:set
+Note
+baseUrl will only be present if there is a public exhibit or site for the collection.
+Example
+<sets:baseUrl>
+https://id.lib.harvard.edu/curiosity/women-working-1800-1930/45-
+</sets:baseUrl>

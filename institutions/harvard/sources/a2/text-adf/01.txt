@@ -1,0 +1,940 @@
+Library Cloud is a metadata service that provides open, programmatic access to the metadata available within the Harvard Library ecosystem. It normalizes metadata so that it can be found across silos, and enriches it with connections to information within the Library’s collection and beyond.  If 
+a resource that should be part of Library Cloud is added or updated, the metadata should be in LibraryCloud the next day.
+LibraryCloud offers 
+item
+ and 
+collection 
+APIs that provide search access to Harvard collections metadata:
+The 
+item API
+ searches over 20 million aggregated metadata records sourced from Harvard Library's main catalog (Alma), JSTOR Forum (for visual information components), and ArchivesSpace (for archival finding aid components). When digitized content is available, these metadata records are enriched with information from Harvard Library's digital repository (DRS). 
+The 
+collection API
+ provides access to metadata about groupings or sets of these items created for administrative and discovery purposes by Harvard staff.
+Need help?
+ If you have questions or need to report a problem when using LibraryCloud APIs, please contact 
+LTS Support
+. 
+About the Collections API
+The base URI for the collections API is 
+https://api.lib.harvard.edu/v2/collections
+. Use this API to: 
+Retrieve a list of all existing collections (sets), with full set metadata including set name, abbreviation (setSpec), set identifier, size, and description:
+https://api.lib.harvard.edu/v2/collections?limit=100
+ (include a limit parameter, otherwise this query returns the first 10 sets only). 
+Retrieve collection metadata for a single set, by set identifier:
+https://api.lib.harvard.edu/v2/collections/2/ 
+(11/13/23 Note: currently unavailable, under investigation)
+Retrieve a list of items in a specific set, by set identifier: 
+https://api.lib.harvard.edu/v2/collections/2/items
+ (returns a simple list of record identifiers for items in the set)
+Note: The Items API supports querying full item records by associated set metadata. For example, the following items API queries use set metadata to return items in the 
+English Crime and Execution Broadsides
+ set:
+Retrieve items by collectionID:
+https://api.lib.harvard.edu/v2/items?collectionId=2
+Retrieve items by collectionTitle:
+https://api.lib.harvard.edu/v2/items?collectionTitle=English Crime and Execution Broadsides
+Retrieve items by setName:
+https://api.lib.harvard.edu/v2/items?setName=English Crime and Execution Broadsides
+Retrieve items by setSpec:
+https://api.lib.harvard.edu/v2/items?setSpec=crimes
+About the Items API
+The base URI for items is 
+https://api.lib.harvard.edu/v2/items
+. 
+Keyword Query
+The simplest query to the API includes only a search term:
+https://api.lib.harvard.edu/v2/items?q=peanuts 
+The response will include all items where any field contains the text “peanuts”.
+Multiple terms may be used in a simple query:
+https://api.lib.harvard.edu/v2/items?q=Schulz peanuts
+https://api.lib.harvard.edu/v2/items?q=Schulz+peanuts
+https://api.lib.harvard.edu/v2/items?q=Schulz AND peanuts
+ 
+All the above queries will return items where any field contains the text “Schulz” AND “peanuts”.
+https://api.lib.harvard.edu/v2/items?q=Schulz OR peanuts
+The response will include all items where any field contains the text “Schulz” OR “peanuts.
+https://api.lib.harvard.edu/v2/items?q=Schulz NOT peanuts
+The response will include all items where any field contains the text \
+Multiple terms can be combined with Boolean operators and parentheses in a complex query:
+https://api.lib.harvard.edu/v2/items?q=(ethic*+OR+moral*)+AND+(bioengineering+OR+cloning)
+Query Response
+The response to any query contains the total number of matching records, the number of records included within this response, the page number of this response, and the matching records. 
+Sample XML response:
+https://api.lib.harvard.edu/v2/items?q=peanuts
+Sample JSON response: 
+https://api.lib.harvard.edu/v2/items.json?q=peanuts
+ 
+Searching by Field
+See the 
+Field Reference
+ for a list of field-based queries.
+A query can be limited to a particular field:
+https://api.lib.harvard.edu/v2/items?title=peanuts
+This query returns all items with the text “peanuts” in the title field.
+Field-based queries support combining or excluding terms with AND, OR, NOT:
+https://api.lib.harvard.edu/v2/items?subject=schulz charles
+https://api.lib.harvard.edu/v2/items?subject=schulz+charles
+https://api.lib.harvard.edu/v2/items?subject=schulz AND charles
+All the above queries will return items where any subject field contains the text “schulz” AND “charles”.
+https://api.lib.harvard.edu/v2/items?title=archaeology OR archeology
+This query returns all items containing the text \
+https://api.lib.harvard.edu/v2/items?name=updike NOT john
+ 
+This query returns all items where any name field contains the text \
+Multiple queries can be combined:
+https://api.lib.harvard.edu/v2/items?title=peanuts&q=snack
+This query returns all items with the text “peanuts” in a title field and “snack” anywhere in the record.
+https://api.lib.harvard.edu/v2/items?title=peanuts&name=Schulz
+This query returns all items with the text “peanuts” in the title field and “Schulz” in the name field.
+Case-sensitive exact-match queries
+ can be done on specific fields by appending 
+_exact
+ to the field name:
+https://api.lib.harvard.edu/v2/items?title_exact=Peanuts
+This query returns all items with a title of exactly “Peanuts”. In the 
+Field Reference
+ list, the \
+Accented Characters and Punctuation
+If your query terms contain accented characters, include these in the search:
+https://api.lib.harvard.edu/v2/items?name=Saint-Exupéry, Antoine de
+https://api.lib.harvard.edu/v2/items?name=Molière
+If your query includes an ampersand, the ampersand must be replaced by the URL-encoded equivalent (%26). For example, to search the title 
+Saxo Grammaticus & the life of Hamlet
+:
+https://api.lib.harvard.edu/v2/items?title_exact=Saxo+
+Grammaticus+
+%26+the+life+of+Hamlet
+ 
+At this time, LibraryCloud queries can be sensitive to the presence of punctuation. Some MODS fields (e.g. Genre) include supplied punctuation (e.g., a terminal period or comma) that must be included in the query or it will fail. 
+Stemming, Stopwords and Wildcards
+LibraryCloud uses standard Solr index stemming and stopword lists. The stemming algorithm is based on the Porter stemming algorithm.
+Keywords may be wild-carded with an asterisk:
+https://api.lib.harvard.edu/v2/items?title=peanut*
+https://api.lib.harvard.edu/v2/items?title=p*nut
+Pagination
+By default, a query response will include the first 10 records available. You can increase the number of records returned (up to a max of 250) by using the optional 
+limit
+ parameter. For example, the following query will return the first set of 50 matching records:
+https://api.lib.harvard.edu/v2/items?title=peanuts&limit=50
+You can combine 
+limit
+ with either the 
+start
+ or 
+cursor
+ parameters to paginate an entire result set. Do not combine start and cursor parameters in a single query.
+Parameter
+Description
+limit
+The number of results to return. Omit limit and the default is 10 records. May be between 0 and 250.
+start
+The row number to start returning results from. If omitted, will default to 1.
+cursor
+Encoded pointer to a specific record in the search results set. On subsequent requests, the server returns results after the given pointer.
+Paginating with Start
+Use the 
+start
+ parameter to set a numerical offset at which the next page will start and add the 
+limit
+ parameter to set the number of results per page. (Omit the limit parameter and the api will return 10 records per page by default.) For example, the following query will return results starting at item 100, with a page size of 50 (e.g., records 100 through 149): 
+https://api.lib.harvard.edu/v2/items?title=peanuts&start=100&limit=50
+Query results will include this top-level <pagination> block: 
+<pagination>\n<maxPageableSet>100000</maxPageableSet>\n<numFound>768</numFound>\n<query>start=100&limit=50&title=peanuts</query>\n<limit>50</limit>\n<start>100</start>\n</pagination>
+As the <maxPageableSet> element indicates, for performance reasons this api can paginate result sets up to a maximum size of 100,000 records. Beyond this number, you'll need to adjust the query to reduce results to a size that can be paginated. 
+Pros:
+ Pagination using the start parameter supports the default sort by relevancy or alphanumeric sort (when available). 
+Cons:
+ Pagination using the start parameter does not scale well with larger result sets. For example, queries using start can time out at around 30,000 record hits.
+Paginating with Cursor
+A cursor is a pointer to a specific record in a result set. (In this case, the cursor is an encoded version of a record identifier.) The api uses the cursor to divide a list of results into records that fall before the cursor and records that fall after the cursor. In your initial query, include the parameter 
+cursor=* 
+(along with a limit parameter to define number of results per page) and the api will return the first page of results plus a <nextCursor> value. For example, the following query will return the first 50 records that match the query along with a nextCursor value that can be used as the cursor value in the next request: 
+https://api.lib.harvard.edu/v2/items?title=peanuts&cursor=*&limit=50
+Query results will include this top-level <pagination> block: 
+<pagination>\n<maxPageableSet>100000</maxPageableSet>\n<nextCursor>AoEyOTkwMDM3NTk4NzAwMjAzOTQx</nextCursor>\n<numFound>769</numFound>\n<query>cursor=*&limit=50&title=peanuts</query>\n<limit>50</limit>\n<start>0</start>\n</pagination>
+To get the next set of results, the client (web browser or application) would make another query that uses the <nextCursor> value as cursor parameter. For example, the following query will return the next 50 matching records:
+https://api.lib.harvard.edu/v2/items?title=peanuts&cursor=AoEyOTkwMDM3NTk4NzAwMjAzOTQx&limit=50
+The <pagination> block in the next set of query results will include a new <nextCursor> value that can be used in the subsequent query, and so on.
+Pros:
+  Pagination using the cursor parameter works well with large result sets but note that the api can paginate result sets up to a maximum size of 100,000 records. Beyond this number, you'll need to adjust the query to reduce results to a size that can be paginated.  
+Cons:
+ Pagination using the cursor parameter currently returns results in alphanumeric order by record identifier. Support for sort by relevancy is planned for the future. Also, at this time the api will return a <nextCursor> value even if there are no more results to return. 
+Sorting
+By default, query responses are sorted by relevancy and sub-sorted by record identifier. In some cases, query responses can be sorted in ascending or descending alphanumeric order. See the \
+Field Reference
+ for an indication of which fields support alphanumeric sorting. 
+This query returns results sorted in ascending order by source of item:
+https://api.lib.harvard.edu/v2/items?q=university AND choir&sort=source
+This query returns results sorted in descending order by recordIdentifier of item:
+https://api.lib.harvard.edu/v2/items?title=peanuts&sort.desc=recordIdentifier
+Parameter
+Description
+sort.asc OR sort
+The field to use for sorting, in ascending order
+sort.desc
+The field to use for sorting, in descending order
+Facets
+Facets are attributes of an item (name, genre, type of resource, language, date, etc.) that can be used to power a faceted search or browse option in a discovery system. The items API supports a facets parameter that will return a list of facet values present in the query results. Many item API fields are available for faceting – see the 
+Field Reference
+ \
+For example, this query will return items that contain \
+https://api.lib.harvard.edu/v2/items.json?title=peanuts&facets=name,resourceType
+Parameter
+Description
+facets
+A comma-separated list of facets to return
+facet_size
+The maximum number of facets to be returned for each faceted field. Default is 10. May be between 1 and 100.
+Response Format
+By default, all responses are in 
+MODS
+ format. Dublin Core (DC) can be requested by adding .dc to the base URI
+https://api.lib.harvard.edu/v2/items.dc?title=peanuts
+Response Serialization
+By default, all responses are returned as XML. Responses can be returned as JSON either by adding “.json” to the base URI, or by setting the “Accept” HTTP header in the request to “application/json”. When specifying both the response format and serialization, the format should be added first.
+https://api.lib.harvard.edu/v2/items.json?title=peanuts
+https://api.lib.harvard.edu/v2/items.dc.json?title=peanuts
+API Request Rate Limit
+The LibraryCloud API is limited to an average of 300 requests per 5 minutes; if, after 5 minutes, that limit is exceeded, the client will receive a 5 minute timeout before they can resume requests. Please limit your requests to no more once per second.
+Cross-Domain Queries
+The API sets the necessary CORS header to allow cross-domain requests in supported browsers. Cross-domain queries can also use 
+JSONP
+ by specifying a callback function name in a “callback” parameter.
+https://api.lib.harvard.edu/v2/items.json?title=peanuts&callback=myfunction
+Parameter
+Description
+callback
+Javascript function name. The response data will enclosed in a javascript function call with this name.
+ API Versioning
+The version number of the API is specified in the base URL (e.g. “v2”). A version number is always required when accessing the API. The version number will be incremented whenever breaking (non backwards-compatible) changes are made to the API.
+Field Reference
+This section describes the fields available for searching through the API. In some cases, fields available through the API aggregate multiple fields within the MODS records. When applicable, this is identified in the MODS field mapping column.
+Name
+Exact Match Search
+Alpha Sort
+Can Facet
+MODS Field Mapping
+Examples/Notes
+abstractTOC
+No
+No
+No
+abstract
+tableOfContents
+This query returns items with the keyword \
+https://api.lib.harvard.edu/v2/items?abstractTOC=Justinian
+classification
+Yes
+No
+Yes
+classification
+Physical organization code. Includes bibliographic-level classification but not holdings. See 
+LibraryCloud APIs#shelfLocator
+ for holdings-level classification.
+https://api.lib.harvard.edu/v2/items?classification=F1435.3
+Case-sensitive exact match:
+https://api.lib.harvard.edu/v2/items?classification_exact=PR2825.A2 I8
+collectionId
+Yes
+No
+Yes
+extension.sets.systemId
+Query by the set/collection ID assigned to items that have been grouped together for delivery via Harvard Digital Collections.
+This query returns items associated with a specific set by its identifier: 
+https://api.lib.harvard.edu/v2/items?collectionId=84560
+ 
+Case-sensitive exact match:
+https://api.lib.harvard.edu/v2/items?collectionId_exact=84560
+collectionTitle
+Yes
+No
+Yes
+extension.sets.setName
+extension.sets.setSpec
+Query by the set/collection title assigned to items that have been grouped together for delivery via Harvard Digital Collections.
+This query returns items associated with a specific set by set title:
+https://api.lib.harvard.edu/v2/items?collectionTitle=Chinese Rare Books
+Case-sensitive exact match:
+https://api.lib.harvard.edu/v2/items?collectionTitle_exact=Chinese Rare Books
+copyrightDate
+Yes
+No
+Yes
+originInfo.copyrightDate
+Use YYYY format to search.
+https://api.lib.harvard.edu/v2/items?copyrightDate=2010
+dateCaptured
+Yes
+No
+Yes
+originInfo.dateCaptured
+https://api.lib.harvard.edu/v2/items?dateCaptured=2016&genre=performed+music
+Case-sensitive exact match:
+https://api.lib.harvard.edu/v2/items?dateCaptured_exact=201502--
+dateCreated
+Yes
+No
+Yes
+originInfo.dateCreated
+https://api.lib.harvard.edu/v2/items?q=daguerreotypes&dateCreated=1806
+Case-sensitive exact match:
+https://api.lib.harvard.edu/v2/items?dateCreated_exact=late 18th-early 19th century
+dateIssued
+Yes
+No
+Yes
+originInfo.dateIssued
+https://api.lib.harvard.edu/v2/items?name=asimov isaac&dateIssued=1961
+Case-sensitive exact match:
+https://api.lib.harvard.edu/v2/items?name=asimov isaac&dateIssued_exact=[1961
+]
+dateRange (future)
+dates.start
+No
+No
+No
+originInfo.dateIssued
+originInfo.dateCreated
+Use YYYY format to search.
+This query returns all works by Molière published from 1990 forward:
+https://api.lib.harvard.edu/v2/items?name=Molière&dates.start=1990
+This query returns all works by Molière published from 1990 backward:
+https://api.lib.harvard.edu/v2/items?name=Molière&dates.end=1990
+This query returns all works by Molière published from 1990 to 2000:
+https://api.lib.harvard.edu/v2/items?name=Molière&dates.start=1990&dates.end=2000
+dates.end
+edition
+Yes
+No
+Yes
+originInfo.edition
+https://api.lib.harvard.edu/v2/items?name=Molière&edition=7th. ed.
+Case-sensitive exact match:
+https://api.lib.harvard.edu/v2/items?name=wordsworth&edition_exact=[1st ed.]
+genre
+Yes
+No
+Yes
+genre
+https://api.lib.harvard.edu/v2/items?q=fish+watercolor&genre=Drawings
+Case-sensitive exact match:
+https://api.lib.harvard.edu/v2/items?genre_exact=pendants (jewelry)
+identifier
+Yes
+No
+No
+identifier
+(Identifier of an item in another system)
+This query returns an item by its ISBN:
+https://api.lib.harvard.edu/v2/items?identifier=9789601426440
+isCollection
+Yes
+No
+Yes
+typeOfResource (where collection=\
+Values are “true” or “false”.
+Indicates whether or not a record describes a collection of items. 
+https://api.lib.harvard.edu/v2/items?q=colonial+north+america&isCollection=true
+ 
+isManuscript
+Yes
+No
+Yes
+typeOfResource (where manuscript=\
+Values are “true” or “false”.
+Indicates whether or not a record describes manuscript or archival material. 
+https://api.lib.harvard.edu/v2/items?q=colonial+north+america&isManuscript=true
+isOnline
+No
+Yes†
+Yes
+\
+Indicates whether or not an item is available in digital form; values are \
+LibraryCloud APIs#inDRS
+.
+https://api.lib.harvard.edu/v2/items?q=earhart amelia&isOnline=true
+†Will sort all @access=raw object items together in a result set.
+issuance
+Yes
+No
+Yes
+originInfo.issuance
+This query returns items with subject \
+https://api.lib.harvard.edu/v2/items?subject=astronomy&issuance=serial
+languageCode
+Yes
+No
+Yes
+language.languageTerm (where languageTerm type
+=\
+code
+\
+Search is based on language ISO code.
+This query returns items of Shakespeare in Chinese:
+https://api.lib.harvard.edu/v2/items?name=shakespeare&languageCode=chi
+languageText
+Yes
+No
+Yes
+language.languageTerm (where languageTerm type=\
+Facet as \
+For exact match, use \
+Search is based on language name text.
+This query returns items by or about Laozi in Chinese:
+https://api.lib.harvard.edu/v2/items?title=laozi&languageText=Chinese
+Case-sensitive exact match: 
+https://api.lib.harvard.edu/v2/items?title=laozi&language_exact=Chinese
+name
+Not available
+ 
+No
+Yes
+name.namePart
+e.g. \
+Will find term in any name field:
+https://api.lib.harvard.edu/v2/items?name=shakespeare
+ 
+originDate
+Yes
+No
+Yes
+originInfo.dateIssued
+originInfo.dateCreated
+originInfo.dateCaptured
+originInfo.copyrightDate
+originInfo.dateOther
+https://api.lib.harvard.edu/v2/items?name=asimov+isaac&originDate=1961
+Case-sensitive exact match:
+https://api.lib.harvard.edu/v2/items?name=asimov+isaac&originDate_exact=[1961]
+originPlace
+Yes
+No
+Yes
+originInfo.place.placeTerm
+https://api.lib.harvard.edu/v2/items?q=colonial+north+america&originPlace=Boston
+Case-sensitive exact match:
+https://api.lib.harvard.edu/v2/items?originPlace_exact=New-England
+physicalDescription
+No
+No
+physicalDescription.form
+physicalDescription.note
+This query returns items in print form with \
+https://api.lib.harvard.edu/v2/items?title=peanut&physicalDescription=print
+physicalLocation
+No
+No
+Yes
+location.physicalLocation
+Includes Harvard repository names but also non-Harvard locations, especially for artworks.
+https://api.lib.harvard.edu/v2/items?physicalLocation=tozzer&subject=cylinder seals
+publisher
+Yes
+No
+Yes
+originInfo.publisher
+https://api.lib.harvard.edu/v2/items?q=shakespeare&publisher=Arden
+Case-sensitive exact match:
+https://api.lib.harvard.edu/v2/items?q=shakespeare&publisher_exact=Arden Shakespeare
+recordIdentifier
+Yes
+No
+No
+recordInfo.recordIdentifier 
+at the top level only
+priorrecordids.recordIdentifier
+e.g. recordIdentifier=sch00443c00117  (for finding aids), recordIdentifier=S26791_olvsurrogate827653 (for images), recordIdentifier=012956251 (for Aleph)
+Internal recordInfo.recordIdentifier elements in finding aid components and image records can be searched as keywords.
+https://api.lib.harvard.edu/v2/items?recordIdentifier=990148733450203941
+ (for Alma)
+https://api.lib.harvard.edu/v2/items?recordIdentifier=014873345
+ (for Aleph)
+https://api.lib.harvard.edu/v2/items?recordIdentifier=sch00227c00197
+ (for finding aids)
+https://api.lib.harvard.edu/v2/items?recordIdentifier=W42143_urn-3:FHCL:1176307
+ (for images)
+Use a keyword query to retrieve items based on record ID in finding aid components and image records:
+https://api.lib.harvard.edu/v2/items?q=olvsurrogate717044
+repository
+Yes
+No
+Yes
+Search: location.physicalLocation (where @type=\
+Facet: extension.librarycloud.HarvardRepositories.HarvardRepository
+Includes Harvard repositories only.
+A search will query the long form repository name (e.g.Eda Kuhn Loeb Music Library); faceting will return the short form repository name (e.g. Loeb Music).
+https://api.lib.harvard.edu/v2/items?q=peanuts&repository=Oakes Ames
+resourceType
+(4/11/19: not working correctly)
+Yes
+No
+Yes
+typeOfResource
+https://api.lib.harvard.edu/v2/items?name=shakespeare&resourceType=three dimensional object
+role
+Yes
+No
+Yes
+name.namePart.role.roleTerm
+https://api.lib.harvard.edu/v2/items?name=shakespeare&role=publisher
+seriesTitle
+Yes
+No
+Yes
+In relatedItem[@type='series']:
+titleInfo.title
+titleInfo.subtitle
+titleInfo.partName
+titleInfo.partNumber
+facet as \
+https://api.lib.harvard.edu/v2/items?seriesTitle=Harvard-Yenching Institute Monograph Series
+ shelfLocator
+Yes
+No
+Yes
+location.shelfLocator
+https://api.lib.harvard.edu/v2/items?q=peanuts&shelfLocator=Film Mas
+Case-sensitive exact match:
+https://api.lib.harvard.edu/v2/items?q=peanuts&shelfLocator_exact=Film%20Mas%2025860
+source
+No
+Yes
+Yes
+recordInfo.recordIdentifier source attribute
+Sources are currently MH:ALMA (from Alma), MH:VIA (image items from JSTOR forum), or MH:OASIS (finding aid components from ArchivesSpace). 
+Attribute occurs only on top-level recordInfo.recordIdentifier elements
+https://api.lib.harvard.edu/v2/items?q=earhart amelia&source=MH:ALMA
+subject
+Yes
+No
+Yes
+subject.topic
+subject.geographic
+subject.temporal
+subject.titleInfo
+subject.name
+subject.genre
+subject.hierarchicalGeographic.continent
+subject.hierarchicalGeographic.country
+subject.hierarchicalGeographic.province
+subject.hierarchicalGeographic.region
+subject.hierarchicalGeographic.state
+subject.hierarchicalGeographic.territory
+subject.hierarchicalGeographic.county
+subject.hierarchicalGeographic.city
+subject.hierarchicalGeographic.island
+subject.hierarchicalGeographic.area
+subject.hierarchicalGeographic.extraterrestrialArea
+subject.hierarchicalGeographic.citySection
+https://api.lib.harvard.edu/v2/items?subject=perseus
+Case-sensitive exact match: 
+https://api.lib.harvard.edu/v2/items?subject_exact=cylinder seals
+Note: 
+An exact query can match on contents of a single field only. In LibraryCloud MODS, a subject heading and its subdivision(s) are split into separate fields, e.g. the subject heading \
+<mods:topic>Older people</mods:topic>
+<mods:topic>Services for</mods:topic>
+subject.genre
+Yes
+No
+Yes
+subject.genre
+https://api.lib.harvard.edu/v2/items?subject.genre=folklore
+Case-sensitive exact match:
+https://api.lib.harvard.edu/v2/items?subject.genre_exact=Folklore
+subject.geographic
+Yes
+No
+Yes
+subject.geographic
+https://api.lib.harvard.edu/v2/items?subject.geographic=giza
+Case-sensitive exact match:
+https://api.lib.harvard.edu/v2/items?subject.geographic_exact=Giza, Egypt
+subject.hierarchicalGeographic
+Yes
+No
+No
+subject.hierarchicalGeographic.continent
+subject.hierarchicalGeographic.country
+subject.hierarchicalGeographic.province
+subject.hierarchicalGeographic.region
+subject.hierarchicalGeographic.state
+subject.hierarchicalGeographic.territory
+subject.hierarchicalGeographic.county
+subject.hierarchicalGeographic.city
+subject.hierarchicalGeographic.island
+subject.hierarchicalGeographic.area
+subject.hierarchicalGeographic.extraterrestrialArea
+subject.hierarchicalGeographic.citySection
+https://api.lib.harvard.edu/v2/items?subject.hierarchicalGeographic=Boston
+subject.hierarchicalGeographic.area
+Yes
+No
+Yes
+subject.hierarchicalGeographic.area
+https://api.lib.harvard.edu/v2/items?subject.hierarchicalGeographic.area=galicia
+subject.hierarchicalGeographic.city
+Yes
+No
+Yes
+subject.hierarchicalGeographic.city
+https://api.lib.harvard.edu/v2/items?subject.hierarchicalGeographic.city=Cochituate&q=maps
+subject.hierarchicalGeographic.citySection
+Yes
+No
+Yes
+subject.hierarchicalGeographic.citySection
+https://api.lib.harvard.edu/v2/items?subject.hierarchicalGeographic.citySection=charlestown
+subject.hierarchicalGeographic.continent
+Yes
+No
+Yes
+subject.hierarchicalGeographic.continent
+https://api.lib.harvard.edu/v2/items?subject.hierarchicalGeographic.continent=africa
+subject.hierarchicalGeographic.country
+Yes
+No
+Yes
+subject.hierarchicalGeographic.country
+https://api.lib.harvard.edu/v2/items?subject.hierarchicalGeographic.country=canada
+subject.hierarchicalGeographic.county
+Yes
+No
+Yes
+subject.hierarchicalGeographic.county
+https://api.lib.harvard.edu/v2/items?subject.hierarchicalGeographic.county=middlesex
+subject.hierarchicalGeographic.extraterrestrialArea
+Yes
+No
+Yes
+subject.hierarchicalGeographic.extraterrestrialArea
+https://api.lib.harvard.edu/v2/items?subject.hierarchicalGeographic.extraterrestrialArea=*
+subject.hierarchicalGeographic.island
+Yes
+No
+Yes
+subject.hierarchicalGeographic.island
+https://api.lib.harvard.edu/v2/items?subject.hierarchicalGeographic.island=*
+subject.hierarchicalGeographic.province
+Yes
+No
+Yes
+subject.hierarchicalGeographic.province
+https://api.lib.harvard.edu/v2/items?subject.hierarchicalGeographic.province=quebec
+subject.hierarchicalGeographic.region
+Yes
+No
+Yes
+subject.hierarchicalGeographic.region
+https://api.lib.harvard.edu/v2/items?subject.hierarchicalGeographic.region=nile
+subject.hierarchicalGeographic.state
+Yes
+No
+Yes
+subject.hierarchicalGeographic.state
+https://api.lib.harvard.edu/v2/items?subject.hierarchicalGeographic.state=massachusetts&q=maps
+subject.hierarchicalGeographic.territory
+Yes
+No
+Yes
+subject.hierarchicalGeographic.territory
+https://api.lib.harvard.edu/v2/items?subject.hierarchicalGeographic.territory=*
+subject.name
+Yes
+No
+Yes
+subject.name
+subject.name
+.namePart
+ 
+https://api.lib.harvard.edu/v2/items?subject.name=kubrick stanley 
+Case-sensitive exact match:
+https://api.lib.harvard.edu/v2/items?subject.name=Kubrick, Stanley
+subject.name
+.role
+Yes
+No
+Yes
+subject.name
+.role.roleTerm
+Terms may be expressed as a word (photographer.) or abbreviation (\
+https://api.lib.harvard.edu/v2/items?subject.name.role=cmp
+Case-sensitive exact match:
+https://api.lib.harvard.edu/v2/items?subject.name.role_exact=photographer.
+subject.temporal
+Yes
+No
+Yes
+subject.temporal
+https://api.lib.harvard.edu/v2/items?q=samurai&subject.temporal=edo
+Case-sensitive exact match:
+https://api.lib.harvard.edu/v2/items?q=samurai&subject.temporal_exact=Edo period, 1600-1868
+subject.titleInfo
+Yes
+No
+Yes
+subject.titleInfo.title
+subject.titleInfo.subTitle
+subject.titleInfo.partNumber
+subject.titleInfo.partName
+https://api.lib.harvard.edu/v2/items?subject.titleInfo=Middlemarch
+Case-sensitive exact match:
+https://api.lib.harvard.edu/v2/items?subject.titleInfo_exact=Gospel%20of%20Mary
+subject.topic
+Yes
+No
+Yes
+subject.topic
+https://api.lib.harvard.edu/v2/items?subject.topic=mochica pottery
+Case-sensitive exact match:
+https://api.lib.harvard.edu/v2/items?subject.topic_exact=Mochica pottery
+title
+Yes
+No
+No
+titleInfo.title
+titleInfo.subTitle
+titleInfo.partNumber
+titleInfo.partName
+https://api.lib.harvard.edu/v2/items?title=complete
+ motown singles
+Case-sensitive exact match:
+https://api.lib.harvard.edu/v2/items?title_exact=Labour
+ Party
+url
+Yes
+No
+No
+location.url
+Can be URLs or URNs; includes links to digital content and catalog records. 
+https://api.lib.harvard.edu/v2/items?q=earhart amelia&url=*RAD.SCHL*
+Case-sensitive exact match:
+https://api.lib.harvard.edu/v2/items?q=earhart amelia&url_exact=https://nrs.harvard.edu/urn-3:RAD.SCHL:29639951
+url.access
+Yes
+No
+Yes
+location.url.access (range = <preview, raw object>) 
+facet as url.access.preview or url.access.raw_object
+Query for records containing a url field with a specific @access attribute. Values are:
+\
+\
+ 
+This query returns items containing a url with the attribute access=\
+https://api.lib.harvard.edu/v2/items?q=earhart amelia&url.access=preview
+ 
+This query returns items containing a url with the attribute access=\
+https://api.lib.harvard.edu/v2/items?q=earhart%20amelia&url.access=raw+object
+urn
+No
+No
+No
+location.url
+Queries an item by its NRS URN (the URN only e.g., \
+https://api.lib.harvard.edu/v2/items?urn=urn-3:FHCL:1155043
+DRS Extensions
+drsFileId (valid if inDRS=true)
+extension.HarvardDRS.drsFileId
+The database identifier in the DRS for a file.
+This query returns a LibraryCloud item by the corresponding DRS file ID:
+https://api.lib.harvard.edu/v2/items?drsFileId=481890727
+drsObjectId (valid if inDRS=true)
+extension.HarvardDRS.drsObjectId
+The database identifier in the DRS for an object.
+This query returns an item for the 
+Harvard Book
+ by corresponding DRS object ID:
+https://api.lib.harvard.edu/v2/items?drsObjectId=2573632
+This query returns all items in Library Cloud that have a corresponding digital object in the DRS:
+https://api.lib.harvard.edu/v2/items?drsObjectId=*
+accessFlag (valid if inDRS=true)
+Yes
+No
+Yes
+extension.HarvardDRS.accessFlag (range = <P, R, N>)
+P (publicly accessible), R (restricted to Harvard), N (not available for delivery)
+See also: 
+LibraryCloud APIs#availableTo
+ to query human-readable version of DRS accessFlags.
+https://api.lib.harvard.edu/v2/items?genre=daguerreotype&accessFlag=P
+contentModel (valid if inDRS=true)
+Yes
+No
+Yes
+extension.HarvardDRS.contentModel (range = <AUDIO, DOCUMENT, PDS DOCUMENT, PDS DOCUMENT LIST, STILL IMAGE, TEXT, VIDEO>)
+Use _exact query to find \
+See also: 
+LibraryCloud APIs#digitalFormat
+ to query by human-readable value derived from the contentModel for an object in Harvard's Digital Repository Service (DRS).
+https://api.lib.harvard.edu/v2/items?title=biodiversity&limit=100&contentModel=PDS DOCUMENT
+Use the case-sensitive exact match query to find \
+https://api.lib.harvard.edu/v2/items?contentModel_exact=DOCUMENT
+contentModelCode
+(valid if inDRS=true)
+extension.HarvardDRS.contentModelCode
+An identifier that uniquely identifies a specific DRS content model. For example, CMID-5.0 identifies the Still Image content model. See the 
+DRS Content Guide
+ for content model names and identifiers.
+This query will return all items in Library Cloud that have a corresponding digital object in DRS with content model CMID-5.0 (Still Image):
+https://api.lib.harvard.edu/v2/items?contentModelCode=CMID-5.0
+fileDeliveryURL (valid if inDRS=true)
+Yes
+No
+No
+extension.HarvardDRS.fileDeliveryURL, eg. 
+\
+\
+Query an item by its full delivery URL.
+https://api.lib.harvard.edu/v2/items?title=annual+report&fileDeliveryURL=https://nrs.harvard.edu/urn-3:HMS.COUNT:22923642
+harvardMetadataLinks
+inDRS
+Yes
+No
+Yes
+extension.HarvardDRS.inDRS  (range = <\
+Query for items in Harvard Library's digital repository service. See also 
+LibraryCloud APIs#isOnline
+.
+https://api.lib.harvard.edu/v2/items?genre=daguerreotype&inDRS=true
+insertionDate
+lastModifiedDate
+maxImageDeliveryDimension (future)
+Future
+No
+Future
+extension.HarvardDRS.maxImageDeliveryDimension - e.g., \
+metsLabel (valid if inDRS=true)
+Yes
+No
+No
+extension.HarvardDRS.metsLabel  eg. Any text string
+Query for items by keywords in the descriptive METS label - if defined in DRS metadata.
+https://api.lib.harvard.edu/v2/items?metsLabel=seward
+Case-sensitive exact match:
+https://api.lib.harvard.edu/v2/items?metsLabel_exact=The Italians in Chicago. Washington: G.P.O., 1897.
+modified.after (valid if inDRS=true)
+Yes
+No
+No
+extension.HarvardDRS.lastModifiedDate - eg. \
+Query items by the \
+This query returns items in DRS last modified after 2016-01-05:
+ 
+https://api.lib.harvard.edu/v2/items?q=*&modified.after=2016-01-05
+This query returns items in DRS last modified before a specific date:
+https://api.lib.harvard.edu/v2/items?q=*&modified.before=2016-01-05
+This query returns items in DRS last modified on 2016-01-05:
+https://api.lib.harvard.edu/v2/items?q=*&modified.after=2016-01-04&modified.before=2016-01-06
+modified.before (valid if inDRS=true)
+No
+No
+This query returns items in DRS last modified prior to 2015-01-01:
+https://api.lib.harvard.edu/v2/items?q=*&modified.before=2015-01-01
+ownerCode (valid if inDRS=true)
+Yes
+No
+Yes
+extension.HarvardDRS.ownerCode, eg. \
+https://api.lib.harvard.edu/v2/items?q=cookbook*&ownerCode=RAD.SCHL
+ownerCodeDisplayName (valid if inDRS=true)
+Yes
+No
+Yes
+extension.HarvardDRS.ownerCodeDisplayName, eg. \
+ 
+https://api.lib.harvard.edu/v2/items?q=daguerreotype&ownerCodeDisplayName=Schlesinger
+ownerSuppliedName (valid if inDRS=true)
+extension.HarvardDRS.ownerSuppliedName
+The distinctive name for the digital item provided by the owning Harvard repository responsible for the content. This is the DRS object owner supplied name (OSN).
+This query returns the LibraryCloud item for the 
+Harvard Book
+ by its object owner supplied name: 
+https://api.lib.harvard.edu/v2/items?ownerSuppliedName=124783.xml
+suppliedFilename (valid if inDRS=true)
+extension.HarvardDRS.suppliedFilename
+Put in quotes if filename includes punctuation.
+uriType (valid if inDRS=true)
+Yes
+No
+Yes
+extension.HarvardDRS.uriType  (range = <FDS, IDS, PDS, PDS_LIST, SDS, SDS_VIDEO>)
+Query for items by type of delivery urn, which is a proxy for type of delivery service.
+Delivery service types: FDS (text documents), IDS (images), PDS (page-turned objects), PDS_LIST (list of page-turned objects), SDS (streaming audio), (SDS_VIDEO (streaming video)
+https://api.lib.harvard.edu/v2/items?subject=jazz&uriType=SDS
+ 
+viewText (valid if inDRS=true)
+extension.HarvardDRS.viewText (range = <on, off>)
+Query items by status of the View Text setting of the object in DRS. View Text is an object-level field that controls the View Text menu option in the PDS user interface.
+This query returns items owned by Houghton that have the View Text control set \
+https://api.lib.harvard.edu/v2/items?repository=houghton&viewText=off
+LibraryCloud Extensions
+availableTo
+Yes
+No
+Yes
+extension.librarycloud.availableTo
+Human-readable values for access to digital content in Harvard's Digital Repository Service (DRS).
+Values are \
+See also: 
+availableTo
+ to query by DRS accessFlag. 
+https://api.lib.harvard.edu/v2/items?q=colonialism&availableTo=Everyone
+digitalFormat
+No
+Yes
+extension.librarycloud.digitalFormats.digitalFormat
+Human readable values derived from the contentModel for an object in Harvard's Digital Repository Service (DRS).
+Values are audio, books and documents, images, and video.
+See also: 
+LibraryCloud APIs#contentModel
+ 
+to query by the DRS content model of an object in Harvard's Digital Repository Service (DRS).
+https://api.lib.harvard.edu/v2/items?subject=poetry&digitalFormat=audio
+processed.after
+Yes
+No
+No
+extension.librarycloud.processingDate 
+Use YYYY-MM-DD format to search.
+This processing date indicates the most recent re-ingest of a metadata record (an \
+This query returns items processed after the date specified:
+https://api.lib.harvard.edu/v2/items?processed.after=2019-01-01
+This query returns items processed before the date specified:
+https://api.lib.harvard.edu/v2/items?processed.before=2019-01-02
+This query returns items processed between the specified dates:
+https://api.lib.harvard.edu/v2/items?processed.after=2018-07-01&processed.before=2019-01-01
+processed.before
+Sets Extensions
+setName
+No
+Yes
+extension.sets.set.setName
+Human-readable names that identify a set of materials selected by, for example, a curator for administrative or discovery purposes or for harvesting via OAI-PMH.
+https://api.lib.harvard.edu/v2/items?setName=chinese rare books
+setSpec
+No
+Yes
+extension.sets.set.setSpec
+Codes used to identify a set of materials selected by, for example, a curator for administrative or discovery purposes or for harvesting via OAI-PMH.
+https://api.lib.harvard.edu/v2/items?setSpec=crb
+More Query Examples
+#Search all of LibraryCloud for “peanuts” in the title:
+https://api.lib.harvard.edu/v2/items?title=peanuts
+#Search finding aid components for “peanuts” in the title:
+https://api.lib.harvard.edu/v2/items?title=peanuts&source=MH:OASIS
+   (can use MH:OASIS, MH:VIA, or MH:ALMA)
+#Search for a specific component identifier in a finding aid:
+https://api.lib.harvard.edu/v2/items?source=MH:OASIS&recordIdentifier=sch00443c00072
+#Search for a specific image component identifier in JSTOR Forum (the identifier actually has the form \
+https://api.lib.harvard.edu/v2/items?recordIdentifier=W188002*
+#Search for all components in an OASIS record:
+https://api.lib.harvard.edu/v2/items?recordIdentifier=sch00443*
+#Look up the MODS for a PDS object given its URN:
+https://api.lib.harvard.edu/v2/items?urn=urn-3:FHCL.HOUGH:25620083
+#Search all of library cloud for VIA records that are public and have “peanuts” in the title:
+https://api.lib.harvard.edu/v2/items?title=peanuts&source=MH:VIA&accessFlag=P
+#Get the facet counts for collections with various collection titles:
+https://api.lib.harvard.edu/v2/items?facets=collectionTitle
+#Get all manuscripts from Schlesinger Library that contain either the string \
+https://api.lib.harvard.edu/v2/items?physicalLocation=sch&isManuscript=true&q=(electronic finding aid available) OR (electronic container list available)

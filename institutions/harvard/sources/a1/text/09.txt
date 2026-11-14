@@ -1,0 +1,109 @@
+LibraryCloud - Library Technology Services: Staff Documentation Center - Harvard Wiki 
+ Atlassian uses cookies to improve your browsing experience, perform analytics and research, and conduct advertising. Accept all cookies to indicate that you agree to our use of cookies on your device. 
+ Atlassian cookies and tracking notice , (opens new window) 
+ Atlassian uses cookies to improve your browsing experience, perform analytics and research, and conduct advertising. Accept all cookies to indicate that you agree to our use of cookies on your device. Atlassian cookies and tracking notice , (opens new window) 
+ Preferences Only necessary Accept all 
+ Collapse sidebar Switch sites or apps 
+ Harvard Wiki
+ Create Create 
+ Help 
+ Log in 
+ About Harvard Wiki 
+ Spaces 
+ Apps 
+ Library Technology Services: Staff Documentation Center 
+ More actions 
+ Back to top 
+ Content 
+ Results will update as you type. 
+ HOLLIS 
+ Alma 
+ JSTOR Forum 
+ About LTS 
+ Library Finance Internal Policies and Updates 
+ CURIOSity 
+ LTS Goals and Efforts 
+ LTS Newsletters 
+ Access to Library Systems and Services 
+ Administrative System Changes 
+ Aeon 
+ ArchivesSpace 
+ ArcLight 
+ Class Request Tool 
+ Collections Explorer 
+ Databases (databases.hollis.harvard.edu) 
+ DRS (Digital Repository Service) 
+ Electronic Archiving System (EAS) 
+ ePADD (email appraisal and preservation) 
+ E-Resource Management Systems 
+ ETDs@Harvard 
+ Get It! Services 
+ HART Library Reporting and the Library Reporting Warehouse 
+ Harvard Library Open Source Project Considerations 
+ Harvard Geospatial Library (HGL) 
+ How-to articles 
+ Library APIs 
+ LibraryCloud 
+ LibraryCloud APIs 
+ LibraryCloud OAI-PMH Data Provider 
+ LibraryCloud FAQ 
+ LibraryCloud Use Cases 
+ LibraryCloud Metadata 
+ PRESTO Data Lookup 
+ Scripting Requirements & Best Practices for Library Staff 
+ Library Reserves Quick Guide for Instructional Staff 
+ Link-o-matic 
+ ListView 
+ LTS Support 
+ Macro Express 
+ Media Presentation Service (MPS) 
+ Name Resolution Service (NRS) 
+ NISO Webinars 
+ OCLC services 
+ POD Aggregator (IvyPlus) data set and mapping (aka Data Lake) 
+ ProQuest ETD Service 
+ ReCAP SCSB (Shared Collection Service Bus) 
+ Springshare Products 
+ Training Archive for Alma 
+ Updating links for improved stability 
+ Wiki ShortLink JavaScript Hack 
+ NextCloud File Staging 
+ Space apps 
+ draw.io Diagrams 
+ You‘re viewing this with anonymous access, so some content might be blocked. 
+ Close 
+ Library Technology Services: Staff Documentation Center
+ /
+ LibraryCloud
+ Updated Aug 20, 2021 
+ More actions 
+ LibraryCloud
+ By Former user (Deleted) 
+ Aug 20, 2021
+ 1 min 
+ Add a reaction
+ On this page: 
+ In this section: 
+ LibraryCloud APIs 
+ LibraryCloud FAQ 
+ LibraryCloud Metadata 
+ LibraryCloud OAI-PMH Data Provider 
+ LibraryCloud Use Cases 
+ Search LibraryCloud documentation: 
+ Harvard LibraryCloud is a metadata hub that provides granular, open access to a large aggregation of Harvard library bibliographic metadata. The public LibraryCloud Item API supports searching LibraryCloud and obtaining results in a normalized MODS or Dublin Core format. LibraryCloud contains records from Harvard's Alma ILS (over 16M bib records), JSTOR Forum (6.7M image records), and ArchivesSpace finding aids (2.6M finding aid components). Records for materials in Harvard's Digital Repository Service (DRS) are enriched with a subset of administrative metadata from that repository. Some records are also marked for inclusion in curated sets accessible via OAI-PMH.  
+ LibraryCloud also contains an alpha release of a Collections API, that is planned for use as a digital collection definition and export service. The Collection API allows a group of LibraryCloud records to be labeled as part of a named collection. The collection may then be harvested through OAI-PMH in order to import metadata into on-line digital exhibit platforms, such as Omeka or DPLA. The full build out of the collection API and a collection builder web application is still a work in progress. 
+ Need help? If you have questions or need to report a problem when using LibraryCloud APIs, please contact LTS Support . 
+ LibraryCloud documentation 
+ LibraryCloud APIs 
+ LibraryCloud Metadata 
+ LibraryCloud Support 
+ Technical Information
+ LibraryCloud's backend is built on a scalable metadata processing pipeline. The technology stack includes: 
+ Amazon Web Services (including the Simple Queue Service, Simple Notification Service, and Apache camel), deploying up to 10 EC2 servers to quickly update the data from source catalogs 3 times/week. 
+ A Java RESTful API Service that uses solr/lucene as the search index supporting Item API search functions 
+ A Java RESTful API Service that uses a simple Amazon RDS database supporting the Collections API 
+ An OAI-PMH data provider 
+ LibraryCloud is open source software that can be downloaded from Github at https://github.com/harvard-library 
+ An overview of the metadata processing pipeline is shown below. 
+ Open LibraryCloud as a backbone for the LD4L Labs BIBFRAME converter.jpg 
+ {"serverDuration": 36, "requestCorrelationId": "63b786736e6049f29a957edfb24e6a8a"}

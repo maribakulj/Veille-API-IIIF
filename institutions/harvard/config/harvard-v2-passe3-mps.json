@@ -1,0 +1,14 @@
+{
+  "slug": "harvard",
+  "min_delay_s": 6,
+  "max_requests": 15,
+  "follow_redirects": 1,
+  "robots_disallow_autorise_par_marcel": true,
+  "note": "Passe 3 (v2) : cibles des redirections lues dans tests/raw/*.headers.txt de la passe 2 (Location) : MPS (mps.lib.harvard.edu) manifestes IIIF 3 et 2, vignette, info.json d'image (identifiants lus dans les Location, issus de l'exemple de la doc). Attention : mps.lib.harvard.edu/robots.txt a répondu 202 vide, et viewer.lib.harvard.edu 202 avec x-amzn-waf-action: challenge (défi AWS WAF) : on ne contourne pas ; si une réponse de cette passe est un défi (202 vide / x-amzn-waf-action), on s'arrête sur l'hôte.",
+  "endpoints": [
+    {"id": "mps-manifest-3", "method": "GET", "url": "https://mps.lib.harvard.edu/iiif/3/URN-3:HUAM:INV204583_DYNMC"},
+    {"id": "mps-manifest-2", "method": "GET", "url": "https://mps.lib.harvard.edu/iiif/2/URN-3:HUAM:INV204583_DYNMC"},
+    {"id": "mps-info-json", "method": "GET", "url": "https://mps.lib.harvard.edu/assets/images/drs:25286607/info.json"},
+    {"id": "mps-vignette-250", "method": "GET", "url": "https://mps.lib.harvard.edu/assets/image/DRS:11927378/full/!250,250/0/default.jpg"}
+  ]
+}

@@ -4,10 +4,256 @@
   "pays": "États-Unis",
   "classeur_id": "GLAM-038",
   "type": "Institution",
-  "statut_audit": "à faire",
-  "limites_documentees": [],
+  "statut_audit": "audit a–f complet (v2) ; g à faire",
+  "limites_documentees": [
+    {
+      "nature": "Usage des actifs numériques (téléchargement)",
+      "perimetre": "peabody.yale.edu et ses services web",
+      "valeur": "« users may download these files for their personal or educational use, subject to any additional terms or restrictions »",
+      "fenetre": "–",
+      "effet": "autre usage : permission écrite du détenteur des droits",
+      "verification": "officielle, lue en entier",
+      "source": "https://peabody.yale.edu/about/terms-of-use",
+      "date": "2026-11-14"
+    },
+    {
+      "nature": "Délai demandé aux robots",
+      "perimetre": "lux.collections.yale.edu / peabody.collections.yale.edu",
+      "valeur": "Disallow: /view/results/ (aucun Crawl-delay)",
+      "fenetre": "–",
+      "effet": "pages de résultats interdites aux robots",
+      "verification": "officielle, lue (robots.txt)",
+      "source": "https://lux.collections.yale.edu/robots.txt",
+      "date": "2026-11-14"
+    }
+  ],
   "en_tetes_observes": [],
-  "blocages": [],
-  "sources": [],
-  "web": []
+  "blocages": [
+    {
+      "date": "2026-11-14",
+      "hote": "yaleits.atlassian.net",
+      "code": "202",
+      "nature": "réponse vide aux liens courts /wiki/x/… (3 pages) et au wiki LUX",
+      "suite": "non lu ; listé à vérifier à la main ; pas de contournement"
+    }
+  ],
+  "sources": [
+    {
+      "url": "https://peabody.yale.edu/about/terms-of-use",
+      "date": "2026-11-14",
+      "etiquette": "officielle",
+      "preuve": "institutions/yale-peabody-museum/sources/a2/SHA256SUMS"
+    },
+    {
+      "url": "https://peabody.yale.edu/about/collections-policies",
+      "date": "2026-11-14",
+      "etiquette": "officielle",
+      "preuve": "institutions/yale-peabody-museum/sources/a2/SHA256SUMS"
+    },
+    {
+      "url": "https://peabody.yale.edu/explore/collections",
+      "date": "2026-11-14",
+      "etiquette": "officielle",
+      "preuve": "institutions/yale-peabody-museum/sources/a1/SHA256SUMS"
+    },
+    {
+      "url": "https://peabody.yale.edu/contact-us",
+      "date": "2026-11-14",
+      "etiquette": "officielle",
+      "preuve": "institutions/yale-peabody-museum/sources/a2/SHA256SUMS"
+    },
+    {
+      "url": "https://lux.collections.yale.edu/robots.txt",
+      "date": "2026-11-14",
+      "etiquette": "officielle",
+      "preuve": "institutions/yale-peabody-museum/sources/a1/SHA256SUMS"
+    },
+    {
+      "url": "https://guides.iiif.io/guides/collections.peabody.yale.edu/",
+      "date": "2026-11-14",
+      "etiquette": "tiers",
+      "preuve": "institutions/yale-peabody-museum/sources/a1/SHA256SUMS"
+    },
+    {
+      "url": "https://library.yale.edu/news/yale-launches-lux-powerful-new-search-tool-cross-collection-exploration",
+      "date": "2026-11-14",
+      "etiquette": "officielle",
+      "preuve": "institutions/yale-peabody-museum/sources/a2/SHA256SUMS"
+    }
+  ],
+  "web": [
+    {
+      "categorie": "institution",
+      "url": "https://peabody.yale.edu/about/terms-of-use",
+      "date": "2026-11-14",
+      "etiquette": "officielle",
+      "citation": "« users may download these files for their personal or educational use, subject to any additional terms or restrictions » ; aucune règle de débit ni de bots.",
+      "preuve": "institutions/yale-peabody-museum/sources/web/recherches-web-2026-11-14.md"
+    },
+    {
+      "categorie": "presentations",
+      "url": "https://ar5iv.labs.arxiv.org/html/2309.16635",
+      "date": "2023",
+      "etiquette": "tiers",
+      "citation": "article arXiv:2309.16635 citant le Yale Peabody Museum (YPM) ; aucune mention de limite de débit ou de politique d'API.",
+      "preuve": "institutions/yale-peabody-museum/sources/web/recherches-web-2026-11-14.md"
+    },
+    {
+      "categorie": "utilisateurs",
+      "aucun_resultat": true,
+      "requete": "manifests.collections.yale.edu OR lux.collections.yale.edu OR images.collections.yale.edu 429 OR 503 OR \"rate limit\" OR blocked",
+      "date": "2026-11-14",
+      "etiquette": "–",
+      "citation": "aucun rapport de 429, 503 ou blocage sur les serveurs Yale trouvé",
+      "preuve": "institutions/yale-peabody-museum/sources/web/recherches-web-2026-11-14.md"
+    },
+    {
+      "categorie": "tickets",
+      "aucun_resultat": true,
+      "requete": "github issue \"collections.yale.edu\" OR \"peabody.yale.edu\" IIIF manifest harvester OR importer OR connector",
+      "date": "2026-11-14",
+      "etiquette": "–",
+      "citation": "aucun ticket d'outil tiers mentionnant les serveurs Yale trouvé (seul voisin : dlme-airflow, non vérifié)",
+      "preuve": "institutions/yale-peabody-museum/sources/web/recherches-web-2026-11-14.md"
+    }
+  ],
+  "contact": "peabody.permissions@yale.edu (permissions et reproduction, page Terms of Use) ; formulaire Contact us du Peabody (reCAPTCHA)",
+  "conclusion_quota": "Aucun quota, limite de débit ni politique d'API ou de bots publiés par le Peabody ni par LUX/Yale pour les manifestes et images ; conditions d'utilisation : fair use, téléchargement pour usage personnel ou éducatif. 14 requêtes de sonde (2 passes), toutes 200 (un 302 vers peabody.collections.yale.edu), aucun en-tête de limite. Aucun manifeste propre au Peabody n'a pu être testé (aucun identifiant publié) : le test porte sur le même serveur de manifestes (YCBA, YUAG).",
+  "classe_quota": "aucun quota trouvé",
+  "confiance": "moyenne",
+  "notes": "Le catalogue du Peabody est servi par l'application LUX (peabody.collections.yale.edu, même robots.txt que lux.collections.yale.edu). Chaîne CloudFront + Varnish devant LUX ; serveur d'images Cantaloupe 4.1.9. Documentation publique des API de LUX limitée au dépôt GitHub project-lux ; wiki Yale ITS illisible à la sonde.",
+  "donnees_a_revalider": false,
+  "a_verifier_manuellement": [
+    {
+      "url": "https://yaleits.atlassian.net/wiki/x/OYDXog",
+      "pourquoi": "202 vide à la sonde (page LUX 1.0 du wiki Yale ITS)",
+      "a_chercher": "Documentation de l'API de LUX : endpoints publics, limites de débit, conditions d'usage"
+    },
+    {
+      "url": "https://yaleits.atlassian.net/wiki/x/TQDQZ",
+      "pourquoi": "202 vide ; page citée par la recherche comme décrivant les manifestes des unités YCBA, YUAG et YPM",
+      "a_chercher": "Gabarit exact des manifestes du Peabody (identifiants), limites éventuelles"
+    },
+    {
+      "url": "https://www.cni.org/wp-content/uploads/2022/12/LUX-CNI-Susan-Rob-Rob-Sanderson.pdf",
+      "pourquoi": "403 à WebFetch (site tiers)",
+      "a_chercher": "Place du Peabody dans LUX et politique d'accès"
+    },
+    {
+      "url": "https://peabody.yale.edu/contact-us",
+      "pourquoi": "formulaire protégé par reCAPTCHA, lu sans le remplir",
+      "a_chercher": "Demander au Peabody s'il existe une limite non publiée pour le moissonnage des manifestes et de l'API LUX"
+    }
+  ],
+  "endpoints_documentes": [
+    {
+      "famille": "Catalogue en ligne du Peabody (application LUX)",
+      "url": "https://peabody.collections.yale.edu/",
+      "statut": "teste",
+      "preuve": "institutions/yale-peabody-museum/tests/raw/peabody-collections-accueil-nouvel-hote.headers.txt"
+    },
+    {
+      "famille": "API LUX (/api/stats, /api/advanced-search-config)",
+      "url": "https://lux.collections.yale.edu/api/stats",
+      "statut": "teste",
+      "preuve": "institutions/yale-peabody-museum/tests/raw/lux-stats.headers.txt"
+    },
+    {
+      "famille": "API LUX de recherche et de données (/api/search/:scope, /data/{id})",
+      "url": "https://lux.collections.yale.edu/api/search/item",
+      "statut": "non_teste",
+      "raison": "la doc lue (lux-middletier api-endpoints.md) ne donne pas le format de la requête ni d'identifiant d'exemple : on ne devine pas d'identifiant ni de requête ; listé à vérifier à la main"
+    },
+    {
+      "famille": "Manifestes IIIF Presentation 3 et 2 (manifests.collections.yale.edu)",
+      "url": "https://manifests.collections.yale.edu/ycba/obj/1772",
+      "statut": "teste",
+      "preuve": "institutions/yale-peabody-museum/tests/raw/manifeste-v3-ycba-1772.headers.txt"
+    },
+    {
+      "famille": "Manifestes IIIF Peabody (unité ypm)",
+      "url": "https://manifests.collections.yale.edu/",
+      "statut": "non_teste",
+      "raison": "aucun identifiant de manifeste du Peabody n'est publié dans la doc lue (le guide IIIF renvoie au bouton IIIF du catalogue, une application JavaScript) ; on ne devine pas d'identifiant ; même serveur testé avec les exemples YCBA et YUAG"
+    },
+    {
+      "famille": "Images IIIF 2 (images.collections.yale.edu, Cantaloupe)",
+      "url": "https://images.collections.yale.edu/iiif/2/ycba:14f52bbd-3075-40f4-9e99-6c0f149b5dcf/info.json",
+      "statut": "teste",
+      "preuve": "institutions/yale-peabody-museum/tests/raw/images-info-json.headers.txt"
+    }
+  ],
+  "endpoints_ecartes": [
+    {
+      "url": "https://peabody.yale.edu/explore/collections/information-science",
+      "raison": "page de doc du site Peabody renvoyant 404 (sources/a1/FETCH.log), pas une API ; aucune API à tester"
+    },
+    {
+      "url": "https://peabody.yale.edu/collections/informatics",
+      "raison": "page de doc du site Peabody renvoyant 404 (sources/a1/FETCH.log), pas une API ; aucune API à tester"
+    },
+    {
+      "url": "https://iiif.io/",
+      "raison": "site du consortium IIIF cité dans le guide : pas une API de l'institution, aucune API à tester"
+    },
+    {
+      "url": "https://github.com/project-lux",
+      "raison": "organisation GitHub du code de LUX : dépôts de documentation lus, aucune API à tester"
+    },
+    {
+      "url": "https://guides.iiif.io/assets/site.webmanifest",
+      "raison": "web app manifest (icônes) du site guides.iiif.io, pas un manifeste IIIF ni une API de l'institution"
+    },
+    {
+      "url": "https://lux.collections.yale.edu/manifest.json",
+      "raison": "web app manifest PWA de la page d'accueil de LUX (balise link rel=manifest), pas un manifeste IIIF ni une API de données"
+    }
+  ],
+  "hotes_robots": [
+    {
+      "hote": "peabody.yale.edu",
+      "resultat": "Disallow /search/, /admin/, /node/add/… ; pas de Crawl-delay : pages de doc autorisées",
+      "preuve": "institutions/yale-peabody-museum/sources/a1/SHA256SUMS"
+    },
+    {
+      "hote": "collections.peabody.yale.edu",
+      "resultat": "302 vers peabody.collections.yale.edu : pas de robots.txt propre, tout autorisé",
+      "preuve": "institutions/yale-peabody-museum/sources/a1/SHA256SUMS"
+    },
+    {
+      "hote": "peabody.collections.yale.edu",
+      "resultat": "Twitterbot : tout ; autres : Disallow /view/results/",
+      "preuve": "institutions/yale-peabody-museum/sources/a4/SHA256SUMS"
+    },
+    {
+      "hote": "lux.collections.yale.edu",
+      "resultat": "Twitterbot : tout ; autres : Disallow /view/results/",
+      "preuve": "institutions/yale-peabody-museum/sources/a1/SHA256SUMS"
+    },
+    {
+      "hote": "manifests.collections.yale.edu",
+      "resultat": "robots.txt 404 : tout autorisé",
+      "preuve": "institutions/yale-peabody-museum/sources/a1/SHA256SUMS"
+    },
+    {
+      "hote": "images.collections.yale.edu",
+      "resultat": "robots.txt 404 : tout autorisé",
+      "preuve": "institutions/yale-peabody-museum/sources/a4/SHA256SUMS"
+    },
+    {
+      "hote": "www.yale.edu",
+      "resultat": "robots.txt Drupal standard (lu, Disallow de répertoires internes) ; terms-use 404",
+      "preuve": "institutions/yale-peabody-museum/sources/a3/SHA256SUMS"
+    },
+    {
+      "hote": "yaleits.atlassian.net",
+      "resultat": "Crawl-delay 1 ; /wiki/ autorisé ; pages /wiki/x/ : 202 vide",
+      "preuve": "institutions/yale-peabody-museum/sources/a2/SHA256SUMS"
+    },
+    {
+      "hote": "guides.iiif.io",
+      "resultat": "page lue (guide IIIF, site tiers) ; robots.txt non demandé : site du consortium, pas du Peabody",
+      "preuve": "institutions/yale-peabody-museum/sources/a1/SHA256SUMS"
+    }
+  ]
 }

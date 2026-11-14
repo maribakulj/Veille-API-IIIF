@@ -1,0 +1,115 @@
+LibraryCloud FAQ - Library Technology Services: Staff Documentation Center - Harvard Wiki 
+ Atlassian uses cookies to improve your browsing experience, perform analytics and research, and conduct advertising. Accept all cookies to indicate that you agree to our use of cookies on your device. 
+ Atlassian cookies and tracking notice , (opens new window) 
+ Atlassian uses cookies to improve your browsing experience, perform analytics and research, and conduct advertising. Accept all cookies to indicate that you agree to our use of cookies on your device. Atlassian cookies and tracking notice , (opens new window) 
+ Preferences Only necessary Accept all 
+ Collapse sidebar Switch sites or apps 
+ Harvard Wiki
+ Create Create 
+ Help 
+ Log in 
+ About Harvard Wiki 
+ Spaces 
+ Apps 
+ Library Technology Services: Staff Documentation Center 
+ More actions 
+ Back to top 
+ Content 
+ Results will update as you type. 
+ HOLLIS 
+ Alma 
+ JSTOR Forum 
+ About LTS 
+ Library Finance Internal Policies and Updates 
+ CURIOSity 
+ LTS Goals and Efforts 
+ LTS Newsletters 
+ Access to Library Systems and Services 
+ Administrative System Changes 
+ Aeon 
+ ArchivesSpace 
+ ArcLight 
+ Class Request Tool 
+ Collections Explorer 
+ Databases (databases.hollis.harvard.edu) 
+ DRS (Digital Repository Service) 
+ Electronic Archiving System (EAS) 
+ ePADD (email appraisal and preservation) 
+ E-Resource Management Systems 
+ ETDs@Harvard 
+ Get It! Services 
+ HART Library Reporting and the Library Reporting Warehouse 
+ Harvard Library Open Source Project Considerations 
+ Harvard Geospatial Library (HGL) 
+ How-to articles 
+ Library APIs 
+ LibraryCloud 
+ LibraryCloud APIs 
+ LibraryCloud OAI-PMH Data Provider 
+ LibraryCloud FAQ 
+ LibraryCloud Use Cases 
+ LibraryCloud Metadata 
+ PRESTO Data Lookup 
+ Scripting Requirements & Best Practices for Library Staff 
+ Library Reserves Quick Guide for Instructional Staff 
+ Link-o-matic 
+ ListView 
+ LTS Support 
+ Macro Express 
+ Media Presentation Service (MPS) 
+ Name Resolution Service (NRS) 
+ NISO Webinars 
+ OCLC services 
+ POD Aggregator (IvyPlus) data set and mapping (aka Data Lake) 
+ ProQuest ETD Service 
+ ReCAP SCSB (Shared Collection Service Bus) 
+ Springshare Products 
+ Training Archive for Alma 
+ Updating links for improved stability 
+ Wiki ShortLink JavaScript Hack 
+ NextCloud File Staging 
+ Space apps 
+ draw.io Diagrams 
+ You‘re viewing this with anonymous access, so some content might be blocked. 
+ Close 
+ Library Technology Services: Staff Documentation Center
+ /
+ LibraryCloud FAQ
+ Updated Mar 04, 2015 
+ More actions 
+ LibraryCloud FAQ
+ By abigail_bordeaux 
+ Mar 04, 2015
+ 3 min 
+ Add a reaction
+ Q : Why did Harvard build LibraryCloud?
+ A : Initially, the idea was to create a multi-library platform to enable broader use of metadata that libraries possess but have generally not chosen to make public. Over time, it became a server that would help those maintaining the complex information flows libraries deal with, as well as a platform for innovation.
+ Q : What is its current status?
+ A : The initial beta development phase came to an end in November, 2014. Work continues to automate data updates and complete some API development, and LibraryCloud will be reviewed for next steps and further work in March. LibraryCloud currently supports access to over 12 million Harvard bibliographic records from Aleph, plus 4 million visual information records from Harvard's VIA, and 2 million Harvard archival finding aid components.
+ Q :  What is the relationship of the two LibraryClouds?
+ A : An earlier, first version was created by the  Harvard Library Innovation Lab . The current version builds on that work, adds a workflow engine to automate its processes, and is designed to be more scalable and maintainable. The first version, now renamed lilCloud, serves as a prototyping engine for the current version.
+ Q :  What is the connection of LibraryCloud and the  Digital Public Library of America ?
+ A : None, except that both are platforms that provide access to library metadata. LibraryCloud could eventually become a way Harvard shares metadata with the DPLA. And we are fans of the DPLA. There are some informal connections, however.  The project lead for LibraryCloud (Jeffrey Licht of Pod Consulting) was also the leader of the DPLA's platform development team. Further, t he group that created lilCloud also created the first version of the DPLA’s platform.
+ Q :  How about the connection to the  Linked Data for Libraries  (LD4L) project?
+ A : LD4L is a Mellon-funded project driven by Harvard Library, Cornell University Library, and Stanford University Library. The Harvard Library Innovation Lab is also a partner in that project. LD4L is a Linked Open Data project. LibraryCloud is not. We hope and expect that eventually there will be some level of integration between the two projects.
+ Q :  How about the connection to  StackLife ?
+ A : StackLife is a visual library browser developed by the Harvard Library Innovation Lab. It currently uses the lilCloud API, but at some point we might switch it to the current LibraryCloud API. LibraryCloud incorporates a bibliographic item usage metric, Stackscore, that is computed by lilCloud.
+ Q :  Can I use LibraryCloud for my institution's library?
+ A : Yes, please! The code is available on  GitHub . Of course you’ll likely have to write your own connectors so that you can ingest your data, but please do and share them!
+ Q :   Can I get the bibliographic data as a download or only through the API?
+ A : The Aleph bib data is available  for bulk download, thanks to Harvard’s  Open Metadata policy  that put all but a tiny percentage of those records into the public domain. VIA and finding aid data is not currently available for bulk download.
+ Q :  How do you manage the privacy of the users whose the usage data you’re making available through the API?
+ A : We compute what we call a “stackscore” that accords each item a number 1-100 based on how relevant the item is to the Harvard community. To compute the stackscore, we combine checkouts  aggregated o ver the past ten years, the number of times an item has been put on reserve, the number of copies in Harvard’s 73 different libraries, and more. We assign different weights to these factors. We do not believe there is any significant risk of identifying individuals who have consulted these works.
+ Q :  What schema do you use, and why?
+ A : We use  MODS  because it’s a well-developed standard that captures a vast amount of detailed data relevant to library items. Our API returns JSON or XML modeled on MODS or in the  Dublin Core  format. Dublin Core is simpler, and is used more widely across the Web, but MODS preserves more of the library-based information.
+ Q :  What is the status and future of LibraryCloud?
+ A : LibraryCloud is currently in beta release. We hope that it will be implemented and further developed by Harvard Library. In any case, lilCloud will remain operational for the foreseeable future, and the Harvard LibraryCloud code will remain available at  GitHub .
+ Collapse action bar 
+ Table of contents 
+ Open Details Panel 
+ View all comments 
+ Open Rovo Chat 
+ Add a comment
+ Add a reaction
+ We don't have a way to export this macro.
+ {"serverDuration": 23, "requestCorrelationId": "9ebf10dd800147e5891a4a110106e503"}

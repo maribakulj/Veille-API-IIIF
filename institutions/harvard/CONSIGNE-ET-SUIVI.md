@@ -2,51 +2,51 @@
 
 - **Dossier** : `institutions/harvard/`  ·  **Classeur de référence** : GLAM-033  ·  **Pays** : États-Unis
 - **Statut d'institution** : active
-- **Dernière mise à jour du suivi** : (à renseigner à chaque modification)
+- **Dernière mise à jour du suivi** : 2026-11-14
 
 ## Suivi par étape (à cocher, avec justification et preuves)
 
 ### a) Documentation lue en entier
 > Toutes les pages de doc liées à l'API (développeurs, interfaces, conditions, FAQ, aide, mentions légales, robots.txt), téléchargées avec `scripts/fetch_doc.sh` (URL, date, SHA-256), lues en entier (`scripts/extract_text.py`).
 
-- [ ] **Pas fait**
-  - **Justification** : Passe antérieure non conforme à la méthode v2 (AUDIT-HAIKU.md) : à refaire. Le matériel déjà présent dans ce dossier est conservé comme historique.
-  - **Preuves** : 
+- [x] **Fait**
+  - **Justification** : Doc lue en entier : wiki LTS (LibraryCloud APIs/OAI/MPS Delivery API/IIIF Redesign), library.harvard.edu, iiif.harvard.edu, robots.txt des 11 hôtes ; enterprisearchitecture en 403 lu via Wayback ; texte extrait (dont text-adf)
+  - **Preuves** : `institutions/harvard/sources/a1/SHA256SUMS`, `institutions/harvard/sources/a2/SHA256SUMS`, `institutions/harvard/sources/a3/SHA256SUMS`, `institutions/harvard/sources/a4/SHA256SUMS`, `institutions/harvard/sources/wayback/enterprisearchitecture-api-gateway-20260210.md`
 
 ### b) Endpoints tirés de la doc
 > Liste des endpoints citée par la doc (URL, exemples). Jamais devinée. Une interdiction ou une impossibilité écrite dans la doc justifie de renoncer (citer la phrase).
 
-- [ ] **Pas fait**
-  - **Justification** : Passe antérieure non conforme à la méthode v2 (AUDIT-HAIKU.md) : à refaire. Le matériel déjà présent dans ce dossier est conservé comme historique.
-  - **Preuves** : 
+- [x] **Fait**
+  - **Justification** : Familles d'API tirées de la doc (Items, Collections, OAI, NRS, MPS, IIIF Image ids, Viewer) dans data.json endpoints_documentes ; écartés justifiés
+  - **Preuves** : `institutions/harvard/data.json`, `institutions/harvard/fiche.md`
 
 ### c) Configuration écrite AVANT les tests
 > `config/<nom>.json` pilote `scripts/probe.py`, committée avant le lancement. Un endpoint absent de la doc mais non interdit se teste avec un script poli (identifiants issus de pages publiques ou d'exemples de la doc, pas de devinette).
 
-- [ ] **Pas fait**
-  - **Justification** : Passe antérieure non conforme à la méthode v2 (AUDIT-HAIKU.md) : à refaire. Le matériel déjà présent dans ce dossier est conservé comme historique.
-  - **Preuves** : 
+- [x] **Fait**
+  - **Justification** : Quatre configurations harvard-v2-passe1 à passe4 committées avant chaque lancement ; journal de la passe antérieure archivé dans tests/archive
+  - **Preuves** : `institutions/harvard/config/harvard-v2-passe1-librarycloud.json`, `institutions/harvard/config/harvard-v2-passe2-iiif.json`, `institutions/harvard/config/harvard-v2-passe3-mps.json`, `institutions/harvard/config/harvard-v2-passe4-complements.json`, `institutions/harvard/tests/archive/journal-sessions-avant-config-committee.log`
 
 ### d) Quota cherché dans la doc
 > Pour chaque page lue : endpoint de statut, en-têtes de limite documentés, clé ou compte donnant un quota, contact pour un volume plus élevé. Chaque réponse cite sa source.
 
-- [ ] **Pas fait**
-  - **Justification** : Passe antérieure non conforme à la méthode v2 (AUDIT-HAIKU.md) : à refaire. Le matériel déjà présent dans ce dossier est conservé comme historique.
-  - **Preuves** : 
+- [x] **Fait**
+  - **Justification** : Recherche de quota dans chaque page : limite chiffrée LibraryCloud trouvée (300 req/5 min, timeout 5 min), aucun endpoint de statut ni en-tête documenté, contact LTS Support (fiche §1)
+  - **Preuves** : `institutions/harvard/fiche.md`, `institutions/harvard/sources/a2/text-adf/01.txt`
 
 ### e) Test systématique de chaque endpoint
 > Chaque endpoint documenté est testé (budget 15 requêtes par passe, pause ≥ 6 s, GET/HEAD, UA du projet). Redirections du même hôte suivies. Un 403 arrête son hôte, un 429 arrête l'institution. Seules les interdictions écrites dans la doc dispensent de tester.
 
-- [ ] **Pas fait**
-  - **Justification** : Passe antérieure non conforme à la méthode v2 (AUDIT-HAIKU.md) : à refaire. Le matériel déjà présent dans ce dossier est conservé comme historique.
-  - **Preuves** : 
+- [x] **Fait**
+  - **Justification** : 29 requêtes en 4 passes : LibraryCloud, OAI, NRS, MPS, IDS testés ; viewer en défi AWS WAF documenté, non contourné ; aucun 429
+  - **Preuves** : `institutions/harvard/tests/journal.log`, `institutions/harvard/tests/raw/lc-items-q-peanuts.headers.txt`, `institutions/harvard/tests/raw/mps-manifest-3.headers.txt`
 
 ### f) Ce que disent les gens sur le web
 > Plaintes, discussions, présentations de l'institution, politique envers les API et les bots, blogs, GitHub, forums, listes de diffusion. Sources étiquetées (officielle / institution / utilisateur / tiers), lues, citées.
 
-- [ ] **Pas fait**
-  - **Justification** : Passe antérieure non conforme à la méthode v2 (AUDIT-HAIKU.md) : à refaire. Le matériel déjà présent dans ce dossier est conservé comme historique.
-  - **Preuves** : 
+- [x] **Fait**
+  - **Justification** : 4 recherches web (une par catégorie) + requête complémentaire institution ; originaux lus (wiki officiel, talk code4lib 2023) ; utilisateurs et tickets sans résultat
+  - **Preuves** : `institutions/harvard/sources/web/recherches-web-2026-11-14.md`
 
 ### g) Crash test progressif
 > Seulement après l'audit complet (a à f) de toutes les institutions et avec l'accord de Marcel : paliers jusqu'à 2 × la limite documentée, ou 200 req/min si illimité ou sans limite documentée. Arrêt au premier 429/403/CAPTCHA.
@@ -60,7 +60,7 @@
 
 <!-- AUTO:DEBUT -->
 ## Contrôles automatiques (calculés depuis `tests/journal.log`)
-- Requêtes enregistrées : **9** (sessions de sonde : 0, maximum par session : 0)
+- Requêtes enregistrées : **30** (sessions de sonde : 4, maximum par session : 11)
 - Plus courte pause vers un même hôte : **6 s** (règle : ≥ 6 s)
 - Méthodes utilisées : GET (règle : GET/HEAD seulement)
 - Anomalies : aucune

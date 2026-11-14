@@ -1,0 +1,52 @@
+Problem/Value Statement
+Problem Statement
+The Harvard Library maintains a technology infrastructure for delivering images and metadata to users in platforms like HOLLIS, HOLLIS Images, HOLLIS for Archival Discovery, Harvard Digital Collections and CURIOsity. This infrastructure is largely based on standards and technologies compatible with the 
+International Image Interoperability Framework
+. The IIIF environment hosted by the Harvard Library is also used by the Harvard Art Museums, HUIT Academic Technology (with integration into Canvas) and HarvardX, and is considered critical university-wide infrastructure for teaching and research.
+In recent months the service has experienced an increasing number of outages and performance issues, revealing the need for a major upgrade. As such, the Harvard Library intends to modernize its IIIF-powered digital image delivery infrastructure to take full advantage of the latest technologies and specifications, and deliver a best-in-class infrastructure to Harvard.
+Business Value
+As we anticipate an increase in the use of our digital collections in the context of remote research and teaching, it is critical that our digital image delivery infrastructure is performant, resilient, and scalable. To support a world-class program of teaching and research, it is critical that images are delivered to patrons seamlessly, and the service is available with minimal to no service disruptions. We also expect to see innovation in the use of digital content in research and teaching, including a desire for more interactivity and engagement with content. This work will position Harvard to support new online services (such as controlled digital lending), and innovative uses of our digital content, such as annotation creation or applications of machine learning and artificial intelligence.
+Vision and Approach
+The redesign of the Harvard Library digital image delivery infrastructure is being addressed in two phases: Discovery and Implementation. The Discovery phase has included consultation with  
+Digirati
+, a UK firm with extensive experience in building similar environments for large cultural heritage organizations.   The Implementation phase is being led by LTS in collaboration with other Harvard IIIF partners.
+Discovery Phase Objectives
+To conduct a high level Harvard-wide review of IIIF services and tools, the IIIF architecture, the technologies that have been implemented, and how IIIF services are connected, related, or dependent across Harvard;
+to identify, document and understand the use cases and needs across Harvard departments that could best be served by IIIF services and tools; 
+to assess the extent to which Harvard’s current IIIF infrastructure is meeting Harvard’s needs, and identify gaps, performance issues, or sources of instability or risk;
+to develop a plan to modernize and rationalize IIIF services across Harvard; and
+to evaluate 
+Digirati’s Digital Library Cloud Service (DLCS)
+ as an option for Harvard’s IIIF architecture.
+Implementation Phase Objectives
+ To develop a 
+performant, resilient, and scalable
+ multi tenant infrastructure for IIIF image delivery at Harvard. The implementation will involve three sub-projects:
+IIIF Asset Delivery
+Objective: 
+Develop a scalable, stable performant and multi tenant solution for image delivery
+;
+IIIF Services
+Objective: 
+Develop a scalable, stable performant and multi tenant presentation service layer for IIIF assets
+;
+IIIF Viewer / UI
+Objective: I
+mplement a universally embeddable image viewing solution that supports the latest versions of IIIF APIs and uses Mirador 3. 
+Documents
+IIIF Infrastructure Redesign Documents (Google Drive): 
+https://drive.google.com/drive/folders/0AKXD9YGn95wmUk9PVA
+Demos
+Sprints 8 & 9 Open Demo Recording
+ (1/20/21)
+Sprint 7 Open Demo Recording
+ (11/12/20) | Documents: 
+, 
+Sprint 5 Open Demo Recording
+ (10/14/20)
+Sprint 4 Open Demo Recording
+ (10/1/20); 
+Sprint 3 Open Demo Recording
+ (9/16/20)
+Sprint 2 Open Demo Recording
+ (9/3/20)

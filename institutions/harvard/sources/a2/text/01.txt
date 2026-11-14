@@ -1,0 +1,152 @@
+LibraryCloud APIs - Library Technology Services: Staff Documentation Center - Harvard Wiki 
+ Atlassian uses cookies to improve your browsing experience, perform analytics and research, and conduct advertising. Accept all cookies to indicate that you agree to our use of cookies on your device. 
+ Atlassian cookies and tracking notice , (opens new window) 
+ Atlassian uses cookies to improve your browsing experience, perform analytics and research, and conduct advertising. Accept all cookies to indicate that you agree to our use of cookies on your device. Atlassian cookies and tracking notice , (opens new window) 
+ Preferences Only necessary Accept all 
+ Collapse sidebar Switch sites or apps 
+ Harvard Wiki
+ Create Create 
+ Help 
+ Log in 
+ About Harvard Wiki 
+ Spaces 
+ Apps 
+ Library Technology Services: Staff Documentation Center 
+ More actions 
+ Back to top 
+ Content 
+ Results will update as you type. 
+ HOLLIS 
+ Alma 
+ JSTOR Forum 
+ About LTS 
+ Library Finance Internal Policies and Updates 
+ CURIOSity 
+ LTS Goals and Efforts 
+ LTS Newsletters 
+ Access to Library Systems and Services 
+ Administrative System Changes 
+ Aeon 
+ ArchivesSpace 
+ ArcLight 
+ Class Request Tool 
+ Collections Explorer 
+ Databases (databases.hollis.harvard.edu) 
+ DRS (Digital Repository Service) 
+ Electronic Archiving System (EAS) 
+ ePADD (email appraisal and preservation) 
+ E-Resource Management Systems 
+ ETDs@Harvard 
+ Get It! Services 
+ HART Library Reporting and the Library Reporting Warehouse 
+ Harvard Library Open Source Project Considerations 
+ Harvard Geospatial Library (HGL) 
+ How-to articles 
+ Library APIs 
+ LibraryCloud 
+ LibraryCloud APIs 
+ LibraryCloud OAI-PMH Data Provider 
+ LibraryCloud FAQ 
+ LibraryCloud Use Cases 
+ LibraryCloud Metadata 
+ PRESTO Data Lookup 
+ Scripting Requirements & Best Practices for Library Staff 
+ Library Reserves Quick Guide for Instructional Staff 
+ Link-o-matic 
+ ListView 
+ LTS Support 
+ Macro Express 
+ Media Presentation Service (MPS) 
+ Name Resolution Service (NRS) 
+ NISO Webinars 
+ OCLC services 
+ POD Aggregator (IvyPlus) data set and mapping (aka Data Lake) 
+ ProQuest ETD Service 
+ ReCAP SCSB (Shared Collection Service Bus) 
+ Springshare Products 
+ Training Archive for Alma 
+ Updating links for improved stability 
+ Wiki ShortLink JavaScript Hack 
+ NextCloud File Staging 
+ Space apps 
+ draw.io Diagrams 
+ You‘re viewing this with anonymous access, so some content might be blocked. 
+ Close 
+ Library Technology Services: Staff Documentation Center
+ /
+ LibraryCloud APIs
+ Updated May 11 
+ More actions 
+ LibraryCloud APIs
+ By Former user (Deleted) 
+ 16 min 
+ Add a reaction
+ 1 About the Collections API 
+ 2 About the Items API 2.1 Keyword Query 
+ 2.2 Query Response 
+ 2.3 Searching by Field 
+ 2.4 Accented Characters and Punctuation 
+ 2.5 Stemming, Stopwords and Wildcards 
+ 2.6 Pagination 2.6.1 Paginating with Start 
+ 2.6.2 Paginating with Cursor 
+ 2.7 Sorting 
+ 2.8 Facets 
+ 2.9 Response Format 
+ 2.10 Response Serialization 
+ 2.11 API Request Rate Limit 
+ 2.12 Cross-Domain Queries 
+ 2.13  API Versioning 
+ 2.14 Field Reference 
+ 2.15 More Query Examples 
+ Library Cloud is a metadata service that provides open, programmatic access to the metadata available within the Harvard Library ecosystem. It normalizes metadata so that it can be found across silos, and enriches it with connections to information within the Library’s collection and beyond.  If a resource that should be part of Library Cloud is added or updated, the metadata should be in LibraryCloud the next day. 
+ LibraryCloud offers  item  and  collection  APIs that provide search access to Harvard collections metadata:
+ The  item API  searches over 20 million aggregated metadata records sourced from Harvard Library's main catalog (Alma), JSTOR Forum (for visual information components), and ArchivesSpace (for archival finding aid components). When digitized content is available, these metadata records are enriched with information from Harvard Library's digital repository (DRS). 
+ The  collection API  provides access to metadata about groupings or sets of these items created for administrative and discovery purposes by Harvard staff.
+ Need help? If you have questions or need to report a problem when using LibraryCloud APIs, please contact LTS Support . 
+ About the Collections API 
+ The base URI for the collections API is  https://api.lib.harvard.edu/v2/collections . Use this API to: 
+ Retrieve a list of all existing collections (sets), with full set metadata including set name, abbreviation (setSpec), set identifier, size, and description:
+ https://api.lib.harvard.edu/v2/collections?limit=100  (include a limit parameter, otherwise this query returns the first 10 sets only). 
+ Retrieve collection metadata for a single set, by set identifier:
+ https://api.lib.harvard.edu/v2/collections/2/  (11/13/23 Note: currently unavailable, under investigation)
+ Retrieve a list of items in a specific set, by set identifier: 
+ https://api.lib.harvard.edu/v2/collections/2/items  (returns a simple list of record identifiers for items in the set)
+ Note: The Items API supports querying full item records by associated set metadata. For example, the following items API queries use set metadata to return items in the  English Crime and Execution Broadsides  set:
+ Retrieve items by collectionID:
+ https://api.lib.harvard.edu/v2/items?collectionId=2 
+ Retrieve items by collectionTitle:
+ https://api.lib.harvard.edu/v2/items?collectionTitle=English Crime and Execution Broadsides 
+ Retrieve items by setName:
+ https://api.lib.harvard.edu/v2/items?setName=English Crime and Execution Broadsides 
+ Retrieve items by setSpec:
+ https://api.lib.harvard.edu/v2/items?setSpec=crimes 
+ About the Items API
+ The base URI for items is  https://api.lib.harvard.edu/v2/items . 
+ Keyword Query
+ The simplest query to the API includes only a search term:
+ https://api.lib.harvard.edu/v2/items?q=peanuts  
+The response will include all items where any field contains the text “peanuts”.
+ Multiple terms may be used in a simple query:
+ https://api.lib.harvard.edu/v2/items?q=Schulz peanuts 
+ https://api.lib.harvard.edu/v2/items?q=Schulz+peanuts 
+ https://api.lib.harvard.edu/v2/items?q=Schulz AND peanuts  
+All the above queries will return items where any field contains the text “Schulz” AND “peanuts”.
+ https://api.lib.harvard.edu/v2/items?q=Schulz OR peanuts 
+The response will include all items where any field contains the text “Schulz” OR “peanuts.
+ https://api.lib.harvard.edu/v2/items?q=Schulz NOT peanuts 
+The response will include all items where any field contains the text "Schulz" but NOT "peanuts".
+ Multiple terms can be combined with Boolean operators and parentheses in a complex query:
+ https://api.lib.harvard.edu/v2/items?q=(ethic*+OR+moral*)+AND+(bioengineering+OR+cloning) 
+ Query Response
+ The response to any query contains the total number of matching records, the number of records included within this response, the page number of this response, and the matching records. 
+ Sample XML response:
+ https://api.lib.harvard.edu/v2/items?q=peanuts 
+ Collapse action bar 
+ Table of contents 
+ Open Details Panel 
+ View all comments 
+ Open Rovo Chat 
+ Add a comment
+ Add a reaction
+ We don't have a way to export this macro.
+ {"serverDuration": 18, "requestCorrelationId": "8f12e0bfee91491a8260ebd0d7329eb8"}
