@@ -2,57 +2,57 @@
 
 - **Dossier** : `institutions/ghent-university-library/`  ·  **Classeur de référence** : GLAM-016  ·  **Pays** : Belgique
 - **Statut d'institution** : active
-- **Dernière mise à jour du suivi** : (à renseigner à chaque modification)
+- **Dernière mise à jour du suivi** : 2026-11-14
 
 ## Suivi par étape (à cocher, avec justification et preuves)
 
 ### a) Documentation lue en entier
 > Toutes les pages de doc liées à l'API (développeurs, interfaces, conditions, FAQ, aide, mentions légales, robots.txt), téléchargées avec `scripts/fetch_doc.sh` (URL, date, SHA-256), lues en entier (`scripts/extract_text.py`).
 
-- [ ] **Pas fait**
-  - **Justification** : Pas encore traitée : l'audit suit l'ordre du classeur de référence (une institution à la fois).
-  - **Preuves** : 
+- [x] **Fait**
+  - **Justification** : Lus et hachés : robots.txt de 4 hôtes (adore, resolver, lib, libcatalog), pages d'accueil de adore et du catalogue. Aucune page de doc d'API ou de conditions d'usage trouvée sur les domaines de Gand.
+  - **Preuves** : `institutions/ghent-university-library/sources/SHA256SUMS`, `institutions/ghent-university-library/sources/b/SHA256SUMS`, `institutions/ghent-university-library/sources/c/SHA256SUMS`
 
 ### b) Endpoints tirés de la doc
 > Liste des endpoints citée par la doc (URL, exemples). Jamais devinée. Une interdiction ou une impossibilité écrite dans la doc justifie de renoncer (citer la phrase).
 
-- [ ] **Pas fait**
-  - **Justification** : Pas encore traitée : l'audit suit l'ordre du classeur de référence (une institution à la fois).
-  - **Preuves** : 
+- [x] **Fait**
+  - **Justification** : Pas d'API documentée : manifeste adore.ugent.be/IIIF/manifests/<id> (motif publié par Biblissima), puis URL annoncées par les redirections et le manifeste (Primo, Ex Libris IIIF Image 2).
+  - **Preuves** : `institutions/ghent-university-library/sources/c/raw/01.html`, `institutions/ghent-university-library/tests/journal.log`
 
 ### c) Configuration écrite AVANT les tests
 > `config/<nom>.json` pilote `scripts/probe.py`, committée avant le lancement. Un endpoint absent de la doc mais non interdit se teste avec un script poli (identifiants issus de pages publiques ou d'exemples de la doc, pas de devinette).
 
-- [ ] **Pas fait**
-  - **Justification** : Pas encore traitée : l'audit suit l'ordre du classeur de référence (une institution à la fois).
-  - **Preuves** : 
+- [x] **Fait**
+  - **Justification** : 4 configurations committées avant lancement ; robots.txt de chaque nouvel hôte lu avant la passe suivante.
+  - **Preuves** : `institutions/ghent-university-library/config/ghent-passe1.json`, `institutions/ghent-university-library/config/ghent-passe2.json`, `institutions/ghent-university-library/config/ghent-passe3.json`, `institutions/ghent-university-library/config/ghent-passe4.json`
 
 ### d) Quota cherché dans la doc
 > Pour chaque page lue : endpoint de statut, en-têtes de limite documentés, clé ou compte donnant un quota, contact pour un volume plus élevé. Chaque réponse cite sa source.
 
-- [ ] **Pas fait**
-  - **Justification** : Pas encore traitée : l'audit suit l'ordre du classeur de référence (une institution à la fois).
-  - **Preuves** : 
+- [x] **Fait**
+  - **Justification** : Aucun quota, en-tête de limite ni endpoint de statut dans les pages lues ; seule règle écrite : Crawl-delay 10 s sur le catalogue Primo.
+  - **Preuves** : `institutions/ghent-university-library/sources/c/raw/01.html`, `institutions/ghent-university-library/sources/raw/04.html`
 
 ### e) Test systématique de chaque endpoint
 > Chaque endpoint documenté est testé (budget 15 requêtes par passe, pause ≥ 6 s, GET/HEAD, UA du projet). Redirections du même hôte suivies. Un 403 arrête son hôte, un 429 arrête l'institution. Seules les interdictions écrites dans la doc dispensent de tester.
 
-- [ ] **Pas fait**
-  - **Justification** : Pas encore traitée : l'audit suit l'ordre du classeur de référence (une institution à la fois).
-  - **Preuves** : 
+- [x] **Fait**
+  - **Justification** : Chaîne complète testée (4 passes, 5 requêtes de données) : 302, 301, puis 200 pour manifeste, info.json et dérivé ; aucun 429 ni en-tête de limite.
+  - **Preuves** : `institutions/ghent-university-library/tests/journal.log`, `institutions/ghent-university-library/tests/raw/manifeste-primo-v3.headers.txt`, `institutions/ghent-university-library/tests/raw/exlibris-info-json.headers.txt`
 
 ### f) Ce que disent les gens sur le web
 > Plaintes, discussions, présentations de l'institution, politique envers les API et les bots, blogs, GitHub, forums, listes de diffusion. Sources étiquetées (officielle / institution / utilisateur / tiers), lues, citées.
 
-- [ ] **Pas fait**
-  - **Justification** : Pas encore traitée : l'audit suit l'ordre du classeur de référence (une institution à la fois).
-  - **Preuves** : 
+- [x] **Fait**
+  - **Justification** : 1 recherche web : seulement des notices Biblissima ; aucune politique de débit ni de bots de Gand.
+  - **Preuves** : `institutions/ghent-university-library/fiche.md`
 
 ### g) Crash test progressif
 > Seulement après l'audit complet (a à f) de toutes les institutions et avec l'accord de Marcel : paliers jusqu'à 2 × la limite documentée, ou 200 req/min si illimité ou sans limite documentée. Arrêt au premier 429/403/CAPTCHA.
 
 - [ ] **Pas fait**
-  - **Justification** : Pas encore traitée : l'audit suit l'ordre du classeur de référence (une institution à la fois).
+  - **Justification** : À faire à la fin et avec l'accord de Marcel : plafond 200 req/min ; la limite éventuelle des images appartient à Ex Libris.
   - **Preuves** : 
 
 ### Contrôles transversaux
@@ -60,7 +60,7 @@
 
 <!-- AUTO:DEBUT -->
 ## Contrôles automatiques (calculés depuis `tests/journal.log`)
-- Requêtes enregistrées : **6** (sessions de sonde : 3, maximum par session : 2)
+- Requêtes enregistrées : **9** (sessions de sonde : 4, maximum par session : 3)
 - Plus courte pause vers un même hôte : **6 s** (règle : ≥ 6 s)
 - Méthodes utilisées : GET (règle : GET/HEAD seulement)
 - Anomalies : aucune

@@ -4,10 +4,61 @@
   "pays": "Belgique",
   "classeur_id": "GLAM-016",
   "type": "Institution",
-  "statut_audit": "à faire",
-  "limites_documentees": [],
+  "statut_audit": "audit a–f complet ; g à faire",
+  "limites_documentees": [
+    {
+      "nature": "Crawl-delay",
+      "perimetre": "libcatalog.ugent.be, User-agent: *",
+      "valeur": "10 secondes",
+      "fenetre": "entre requêtes",
+      "effet": "non précisé",
+      "verification": "officielle, lue en entier",
+      "source": "https://libcatalog.ugent.be/robots.txt",
+      "date": "2026-11-14"
+    }
+  ],
   "en_tetes_observes": [],
   "blocages": [],
-  "sources": [],
-  "web": []
+  "sources": [
+    {
+      "url": "https://adore.ugent.be/robots.txt",
+      "date": "2026-11-14",
+      "etiquette": "officielle",
+      "preuve": "institutions/ghent-university-library/sources/SHA256SUMS"
+    },
+    {
+      "url": "https://lib.ugent.be/robots.txt",
+      "date": "2026-11-14",
+      "etiquette": "officielle",
+      "preuve": "institutions/ghent-university-library/sources/SHA256SUMS"
+    },
+    {
+      "url": "https://resolver.lib.ugent.be/robots.txt",
+      "date": "2026-11-14",
+      "etiquette": "officielle",
+      "preuve": "institutions/ghent-university-library/sources/b/SHA256SUMS"
+    },
+    {
+      "url": "https://libcatalog.ugent.be/robots.txt",
+      "date": "2026-11-14",
+      "etiquette": "officielle",
+      "preuve": "institutions/ghent-university-library/sources/c/SHA256SUMS"
+    }
+  ],
+  "web": [
+    {
+      "url": "https://iiif.biblissima.fr/collections/manifest/3c42d4d5668e9f93c2ecd36507f9c91d841f6a57",
+      "date": "2026-11-14",
+      "etiquette": "tiers (agrégateur)",
+      "citation": "manifeste adore.ugent.be/IIIF/manifests/archive.ugent.be:E336B140-… ; licence CC BY-SA 4.0 ; aucune règle de débit.",
+      "preuve": "institutions/ghent-university-library/fiche.md"
+    }
+  ],
+  "donnees_a_revalider": false,
+  "contact": "Ghent University Library (formulaire de contact lib.ugent.be)",
+  "conclusion_quota": "Aucun quota ni doc d'API publiés ; Crawl-delay 10 s sur le catalogue Primo ; chaîne adore → resolver → libcatalog → Ex Libris testée, 200 partout, aucun en-tête de limite.",
+  "classe_quota": "limite documentée chiffrée (Crawl-delay 10 s uniquement)",
+  "confiance": "moyenne à faible",
+  "notes": "Pas de page de conditions d'usage trouvée ; images chez Ex Libris.",
+  "a_verifier_manuellement": []
 }
