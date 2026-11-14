@@ -1,0 +1,242 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<html lang="pt-PT">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-VG733SDJ7E"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-VG733SDJ7E');
+</script>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-6922527-8"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-6922527-8');
+</script>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>OpenData - OAI-PMH</title>
+<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+<link rel="icon" href="imagens/favicon.ico" type="image/x-icon">
+<style type="text/css"></style>
+<link href="css_2026.css" rel="stylesheet" type="text/css" />
+<style type="text/css">
+
+</style>
+<!-- <script> -->
+  <!-- (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){ -->
+  <!-- (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o), -->
+  <!-- m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m) -->
+  <!-- })(window,document,'script','//www.google-analytics.com/analytics.js','ga'); -->
+
+  <!-- ga('create', 'UA-6922527-8', 'auto'); -->
+  <!-- ga('send', 'pageview'); -->
+<!-- </script> -->
+</head>
+
+
+
+<body>
+    <a href="#content" class="skip-link">Saltar para o conteúdo</a>
+	<div id="wrapper">
+		
+		<div id="header">
+		<table width="100%" border="0" cellpadding="0" cellspacing="0">
+  <tr>
+    <td bgcolor="#333333"><table width="800" border="0" align="center" cellpadding="0" cellspacing="0">
+      <tr>
+        <td width="430"><p><a href="index.htm"><img src="imagens/opendata_logo.png" alt="Open Data Biblioteca Nacional de Portugal" width="425" height="78" border="0" longdesc="https://opendata.bnportugal.gov.pt" /></a></p></td>
+        <td width="370" valign="middle"><div align="right">
+          <p class="logos"><a href="https://www.portugal.gov.pt/pt/gc25/area-de-governo/cultura-juventude-e-desporto" target="_blank"><br />
+            <img class="rp" src="imagens/rp.png" alt="República Portuguesa: Ministério da Cultura" border="0" /></a><a href="http://www.bnportugal.gov.pt" target="_blank"><img src="imagens/bnp_2026.png" alt="Biblioteca Nacional de Portugal" border="0" /></a><br />
+          </p>
+          <p class="idioma"><a href="ids_persistentes.htm" class="idioma">PT</a> | <a href="eng_persistent_ids.htm" class="idioma">EN</a> </p>
+        </div></td>
+      </tr>
+    </table></td>
+  </tr>
+</table>
+		</div><!-- #header -->
+		
+		<div id="nav">
+		</div><!-- #content -->
+		<table width="100%" border="0" cellpadding="0" cellspacing="0">
+		<td bgcolor="#FFFFFF"><table width="800" border="0" align="center" cellpadding="0" cellspacing="0">
+      <tr>
+        <td><html>
+  <body>    <div class="nav1">
+    <div align="left">
+      <ul class="nav-underline nav-en">
+        <li><a href="eng_index.htm">About</a></li>
+        <li><a href="eng_services.htm">Search and retrieve data services</a></li>
+        <li><a href="eng_oai-pmh.htm">Datasets by OAI-PMH</a></li>
+        <li><a href="eng_downloads.htm">Bulk downloads</a></li>
+        <li><a href="eng_persistent_ids.htm">Persistent identifiers</a></li>           
+        <li><a href="eng_documentation.htm">Documentation</a></li>
+        <li><a href="#">Projects</a></li>   
+      </ul>
+    </div>
+  </div></td>
+		</table></td>
+  </tr>
+</table>
+		
+		<div id="content">
+		<td background="imagens/bg.png" bgcolor="#EBEBEB"><table width="800" border="0" align="center" cellpadding="0" cellspacing="0">
+      <tr>
+        <td>&nbsp;</td>
+        </tr>
+      <tr>
+        <td height="1" bgcolor="#FFFFFF" class="texto">
+          <h1>Persistent Identifiers </h1>
+          <p>In an environment of increasingly widespread data sharing and reuse, requirements for its unique identification and permanent access are essential for both digital preservation and semantic web exploitation, in particular in the field of linked data.</p>
+                    
+          <br /><p><strong>IDENTIFIERS FOR METADATA RECORDS</strong><br />
+          <p>BNP has implemented a system of persistent identifiers for metadata records contained in its different information systems, consisting of two components. The first is a unique identifier for each data record that also identifies the data provenance through a namespace. The second component is a service that permanently locates the metadata record on the network, regardless of application / location changes, ensuring that the identifier always resolves to the correct address where the data is currently located. </p>
+          <p>Furthermore, with this system of identifiers used as persistent URLs, one gets clearer and more concise web addresses than the URLs generated by software applications, usually composed dynamically by the various data elements that make up a search query.</p>
+          <p class="pcdd"><strong>Namespace and identifier composition</strong></p>
+          <p>The implemented namespace root is <strong class="otl">https://id.bnportugal.gov.pt</strong></p>
+          <p></p>The identifier has three components, separated by “/”: </p>
+          <ul>
+            <li>Resource type (record type, bibliographic {bib} or authority {aut})</li>
+            <li>Data source, designating the system to which the record belongs:</li> 
+              <ul>
+                <li>BNP Catalog {catbnp}</li>
+                <li>Portuguese National Bibliography {bibnacional}</li>
+                <li>PORBASE Collective Catalog {porbase}</li>
+                <li>National Register of Digital Objects {rnod}</li>
+				<li>DDJ - Digital Newspaper Deposit {ddj}</li>
+              </ul>
+          <li>Unique identifier within the data source (the record number in the source database)</li>
+        </ul>
+        <p>Therefore, the identifier syntax  is as follows:
+          <br />
+        <strong>https://id.bnportugal.gov.pt/{type-of-record}/{data-source}/{id}</strong></p>
+        <br />
+        <strong>Some examples:</strong>
+        <p></p>Identifier for the bibliographic record 2023068 in the BNP Catalogue 
+        <br /><a href="https://id.bnportugal.gov.pt/bib/catbnp/2023068" target="_blank">https://id.bnportugal.gov.pt/bib/catbnp/2023068</a>
+        <br />corresponding, in the respective online service, to the URL
+        <br /><a href="https://catalogo.bnportugal.gov.pt/ipac20/ipac.jsp?profile=bn&uri=full=3100024~!2023068~!0" target="_blank">https://catalogo.bnportugal.gov.pt/ipac20/ipac.jsp?profile=bn&uri=full=3100024~!2023068~!0</a>
+        </p>
+        <p>Identifier for the authority record 1047133 in the BNP Catalogue
+          <br /><a href="https://id.bnportugal.gov.pt/aut/catbnp/1047133" target="_blank">https://id.bnportugal.gov.pt/aut/catbnp/1047133</a>
+        </p>
+        <p>Identifier for the bibliographic record 2026159 in the Portuguese National Bibliography
+          <br /><a href="https://id.bnportugal.gov.pt/bib/bibnacional/2026159" target="_blank">https://id.bnportugal.gov.pt/bib/bibnacional/2026159</a>
+          <br />corresponding, in the respective online service, to the URL
+          <br /><a href="https://bibliografia.bnportugal.gov.pt/bnp/bnp.exe/registo?2026159" target="_blank">https://bibliografia.bnportugal.gov.pt/bnp/bnp.exe/registo?2026159</a>
+          </p>
+          <br />
+          <strong>Implementation</strong>
+          <p>Persistent identifiers are implemented in field 003 (Persistent Identifier) of the UNIMARC bibliographic records of the following information systems: 
+            <a href="https://catalogo.bnportugal.gov.pt/" target="_blank">BNP Catalogue</a>, <a href="https://porbase.bnportugal.gov.pt/" target="_blank">PORBASE Union Catalog</a>,
+            <a href="https://rnod.bnportugal.gov.pt/" target="_blank">RNOD - National Register of Digital Objects</a> e <a href="https://bibliografia.bnportugal.gov.pt/" target="_blank">Portuguese National Bibliography</a>. 
+            They are also implemented in field 003 of the UNIMARC authority records of the <a href="https://catalogo.bnportugal.gov.pt/" target="_blank">BNP Catalogue</a>. 
+            In these systems a feature was also implemented to enable view and copy of the persistent URL of each record when displayed. All datasets available on this Open Data Portal have been updated accordingly.
+          </p>
+
+          <br /><p><strong>IDENTIFIERS FOR DIGITAL RESOURCES</strong><br />
+            <p>The resources available in the <a href="https://purl.pt/index/geral/PT/index.html" target="_blank">National Digital Library (BND)</a> have persistent identifiers under the Persistent Uniform Resource Locator (PURL) system.</p>
+            <br /><strong>Namespace</strong>
+            <br />The namespace root is <strong class="otl">https://purl.pt</strong>
+            <br /><br /><strong>General identifier of each resource</strong>
+            <br />The general identifier of a resource is its record number in the source database, after the separator character “/”. Example: <a href="https://purl.pt/32689" target="_blank">https://purl.pt/32689</a>, identifies a resource, providing access to the resource information page.
+            <br /><br /><strong>Identifiers for different formats of the same resource</strong>
+            <br />For each file format in which the resource is made available, an extension is created, following the separator “/”:
+            <br /><br /><strong class="otl">https://purl.pt/{resource-identifier}/1 (for the resource in .jpg).</strong>
+            <br />Example: <a href="https://purl.pt/32689/1" target="_blank">https://purl.pt/32689/1</a>
+            <br /><br /><strong class="otl">https://purl.pt/{resource-identifier}/2 (for the resource in .pdf).</strong> 
+            <br />Example: <a href="https://purl.pt/32689/2" target="_blank">https://purl.pt/32689/2</a> 
+            <!-- <br /><br /><strong class="otl">https://purl.pt/{resource-identifier}/3 (for the resource in Flash).</strong>  -->
+            <!-- <br />Example: <a href="https://purl.pt/32689/3" target="_blank">https://purl.pt/32689/3</a>  -->
+            <br /><br />
+            The correspondence between item number and file format has been systematically implemented since june 2017 (purl 31000)
+            <br /><br />
+            <p><strong>Identifiers for the component parts of a resource</strong>
+            <br /><br />
+            Persistent identifiers are provided for each of the component parts of a resource, where applicable (pages of a single item or volume resource; and volumes and pages of resources with two or more items or volumes), using the following syntax: 
+            </p>
+            <br />
+            <strong>a) Resources with a single item or volume</strong>
+            <br />
+            <br />
+            <strong><u>Pages of the resource in .jpg format</u></strong>
+            <br /><br /><strong class="otl">https://purl.com/{resource-identifier}/{format-type}/index.html#/{page}</strong>
+            <br />Example: <a href="https://purl.pt/29001/1/index.html#/4" target="_blank">https://purl.pt/29001/1/index.html#/4</a> (page 4 of the resource in .jpg)
+            <!-- <br /><br /><strong><u>Pages of the resource in Flash:</u></strong> -->
+            <!-- <br /><strong class="otl">https://purl.com/{resource-identifier}/{format-type}/#/{page}</strong> -->
+            <!-- <br />Example: <a href="https://purl.pt/29001/3/#/4" target="_blank">https://purl.pt/29001/3/#/4</a> (page 4 of the resource in Flash) -->
+            
+            <br /><br /><br />
+            <strong>b) Resources with two or more items or volumes</strong>
+            <br /><br />
+            <!-- <strong><u>Volumes in .jpg and Flash:</u></strong> -->
+            <!-- <br /><br /><strong class="otl">https://purl.pt/{resource-identifier}/{format-type}/{volume-shelfmark}</strong> -->
+            <!-- <br />Examples:  -->
+            <!-- <br /><a href="https://purl.pt/34947/1/hg-9611-p/html/index.html" target="_blank">https://purl.pt/34947/1/hg-9611-p/html/index.html</a> and  -->
+            <!-- <a href="https://purl.pt/34947/1/hg-9612-p/html/index.html" target="_blank">https://purl.pt/34947/1/hg-9612-p/html/index.html</a> (for a resource in 2 volumes, in .jpg) -->
+            <!-- <br /><a href="https://purl.pt/34947/3/hg-9611-p/index.html" target="_blank">https://purl.pt/34947/3/hg-9611-p/index.html</a> and <a href="https://purl.pt/34947/3/hg-9612-p/index.html" target="_blank">https://purl.pt/34947/3/hg-9612-p/index.html</a> -->
+            <!-- (for a resource in 2 volumes, in Flash) -->
+
+            <strong><u>Volumes in .jpg:</u></strong>
+            <br /><br /><strong class="otl">https://purl.pt/{resource-identifier}/{format-type}/{volume-shelfmark}</strong>
+            <br />Examples: 
+            <br /><a href="https://purl.pt/34947/1/hg-9611-p/html/index.html" target="_blank">https://purl.pt/34947/1/hg-9611-p/html/index.html</a> and 
+            <a href="https://purl.pt/34947/1/hg-9612-p/html/index.html" target="_blank">https://purl.pt/34947/1/hg-9612-p/html/index.html</a> (for a resource in 2 volumes, in .jpg)
+            <!-- <br /><a href="https://purl.pt/34947/3/hg-9611-p/index.html" target="_blank">https://purl.pt/34947/3/hg-9611-p/index.html</a> and <a href="https://purl.pt/34947/3/hg-9612-p/index.html" target="_blank">https://purl.pt/34947/3/hg-9612-p/index.html</a> -->
+            <!-- (for a resource in 2 volumes, in Flash) -->
+            
+            <br /><br /><br />
+            <strong><u>Volumes in .pdf</u></strong>
+            <br /><br /><strong class="otl">https://purl.pt/{resource-identifier}/{master-folder}/{volume-shelfmark}/{volume-shelfmark}_PDF/{file-name.pdf}</strong>
+            <br />Examples:
+            <br /><a href="https://purl.pt/34947/hg-9611-p_2_master/hg-9611-p/hg-9611-p_PDF/hg-9611-p_0000.pdf" target="_blank">https://purl.pt/34947/hg-9611-p_2_master/hg-9611-p/hg-9611-p_PDF/hg-9611-p_0000.pdf</a> 
+            <br />and <a href="https://purl.pt/34947/hg-9611-p_2_master/hg-9612-p/hg-9612-p_PDF/hg-9612-p_0000.pdf" target="_blank">https://purl.pt/34947/hg-9611-p_2_master/hg-9612-p/hg-9612-p_PDF/hg-9612-p_0000.pdf</a> (for a resource in 2 volumes, in .pdf)
+
+            <br /><br /><br />
+            <strong><u>Pages of a volume, in .jpg</u></strong>
+            <br /><br /><strong class="otl">https://purl.pt/{resource-identifier}/{format-type}/{volume-shelfmark}/html/index.html#/{page}</strong>
+            <br />Example: <a href="https://purl.pt/34947/1/hg-9611-p/html/index.html#/6" target="_blank">https://purl.pt/34947/1/hg-9611-p/html/index.html#/6</a> (page 6 of the volume, in .jpg)
+
+            <br /><br /><br />            
+            <!-- <strong><u>Pages of a volume, in Flash</u></strong> -->
+            <!-- <br /><br /><strong class="otl">https://purl.pt/{resource-identifier}/{format-type}/{volume-shelfmark}/index.html#/{page}</strong> -->
+            <!-- <br />Example: <a href="https://purl.pt/34947/3/hg-9611-p/index.html#/6" target="_blank">https://purl.pt/34947/3/hg-9611-p/index.html#/6</a> (page 6 of the volume, in Flash). -->
+            
+            <p>&nbsp;</p>
+      </tr>
+      <tr>
+        <td><div align="center"><br />
+            <span class="mail">Para mais informação ou suporte contacte: <a href="mailto:OpendataBNP@bnportugal.gov.pt" target="_blank">OpendataBNP@bnportugal.gov.pt</a></span><br />
+            <br />
+        </div>
+        <td valign="middle"><div></div>
+          </td>
+        </tr>
+    </table>
+	</div><!-- #content -->
+		
+		<div id="footer">
+		<table width="800" border="0" align="center" cellpadding="0" cellspacing="0">
+      <tr valign="middle">
+        <td><div align="center"><a href="http://www.bnportugal.gov.pt" target="_blank" class="footer">  <br />
+              <span class="footer">2016 | Biblioteca Nacional de Portugal<a class="acessibilidade" href="acessibilidade.html" target="_blank">Acessibilidade</a></span><br />
+              <br />
+          </a></div></td>
+        </tr>
+    </table></tr>
+		</div><!-- #footer -->
+		
+	</div>
+	<!-- #wrapper -->
+	
+</body>
+
+</html>

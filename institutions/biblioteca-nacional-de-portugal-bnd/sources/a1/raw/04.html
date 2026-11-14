@@ -1,0 +1,420 @@
+
+<!DOCTYPE html>
+<!--[if lt IE 7 ]><html class="ie ie6" lang="en" class="LTR" dir="LTR"> <![endif]-->
+<!--[if IE 7 ]><html class="ie ie7" lang="en" class="LTR" dir="LTR"> <![endif]-->
+<!--[if IE 8 ]><html class="ie ie8" lang="en" class="LTR" dir="LTR"> <![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!--><html lang="en" class="LTR" dir="LTR"> <!--<![endif]-->
+    <head>
+
+        <!-- Basic Page Needs
+  ================================================== -->
+        <meta charset="utf-8">
+        <title>Home</title>
+        <meta name="description" content="National Digital Library homepage">
+                <!-- Mobile Specific Metas
+  ================================================== -->
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+        <!-- CSS
+  ================================================== -->
+<link rel="stylesheet" href="/assets/ionicons/css/ionicons.min.css?v=4.6.2.5." media="all" /><link rel="stylesheet" href="/assets/styles/lgslider.css?v=4.6.2.5." media="all" /><link rel="stylesheet" href="/assets/styles/timeline_histogram.css?v=4.6.2.5." media="all" /><link rel="stylesheet" href="/assets/styles/date_slider.css?v=4.6.2.5." media="all" /><link rel="stylesheet" href="/assets/styles/jquery.ui.css?v=4.6.2.5." media="all" /><link rel="stylesheet" href="/assets/styles/grapesjs_responsive.css?v=4.6.2.5." media="all" /><link rel="stylesheet" href="/assets/javascripts/library/daterangepicker/daterangepicker.css?v=4.6.2.5." media="all" /><link rel="stylesheet" href="/assets/javascripts/library/fancybox/jquery.fancybox.css?v=2.1.5" media="all" /><link rel="stylesheet" href="/assets/javascripts/library/leaflet/leaflet.css?v=4.6.2.5." media="all" /><link rel="stylesheet" href="/assets/javascripts/library/leaflet/MarkerCluster.Default.css?v=4.6.2.5." media="all" /><link rel="stylesheet" href="/assets/javascripts/library/leaflet/MarkerCluster.css?v=4.6.2.5." media="all" />        <link rel="icon" href="/themes/BNP/images/cropped-bnd6-32x32.png" sizes="32x32" />
+        <link rel="icon" href="/themes/BNP/images/cropped-bnd6-192x192.png" sizes="192x192" />
+        <link rel="apple-touch-icon-precomposed" href="/themes/BNP/images/cropped-bnd6-180x180.png" />
+        <link rel="stylesheet" href="/themes/BNP/styles/skeleton.css?v=2">
+        <link rel="stylesheet" href="/themes/BNP/styles/style.css?v=2">
+	<link rel="stylesheet" type="text/css" href="/assets/javascripts/library/fancybox/jquery.fancybox.css?v=2" media="screen" />
+	<link rel="stylesheet" href="/resources/styles/styles.css?v=2" />
+            </head>
+    <body class="body_home">
+        <!-- Primary Page Layout
+        ================================================== -->
+
+        
+        <!-- Delete everything in this .container and get started on your own site! -->
+
+
+
+        <!-- Delete everything in this .container and get started on your own site! -->
+        <div id="header">
+        <div id="header_content">
+        <div id="menu_lang">
+                                <a href="/en/">en</a>
+                                        <a href="/">pt</a>
+                    
+            <a class="user_account" href="/en/user-account"><i class="ion-person"></i> Sign in</a>
+        </div>
+            <div id="search_form">
+                <form action="/en/records#page" method="get" id="search_submit">
+                    <input type="hidden" name="navigation" value="">
+                    <input type="hidden" name="perpage" value="">
+                    <input type="hidden" name="page" value="1">
+                    <input type="text" class="autocomplete" id="search_txt" name="search" value="" data-options='{"itemtype_id":""}' placeholder="Search..." autocomplete="off">
+                <input id="fulltext_checkbox" type="hidden" name="fulltext" value="1">
+                <input id="child_checkbox" type="hidden" name="child" value="1">
+                <input id="bookmarks_checkbox" type="hidden" name="bookmarks" value="1" >
+                <input type="hidden" name="sort" value="_score" >
+
+
+                                                                
+                <button type="submit"  id="search_bt" name="search_submit" value="1"><i class="ion-search"></i></button>
+                
+
+                    
+                </form>
+
+                
+                
+
+                <a class="recherche-avancee" href="/en/advanced-search"><i class="ion-android-more-horizontal"></i></a>
+            </div>
+        </div>
+        
+
+       
+
+            <!-- <div id="header_content" class="container">
+
+                <div class="two-thirds column">
+                    <div id="logo">
+						<a href="/" target="_blank"><img src="/themes/BNP/images/logo_right.png" alt="Header_Title" class="scale-with-grid"></a>
+                    </div>
+                </div>
+                <div class="one-third column">
+                    <div id="logor">
+                        <a href="/"><img src="/themes/BNP/images/logo.png" alt="Header_Title" class="scale-with-grid"></a>
+                    </div>
+                </div>
+
+            </div> -->
+        </div>
+<div class="menu_top_bg">
+
+    
+    <div class="container">
+        
+        <a href="/en/" ><img src="/themes/BNP/images/bnd_logo_dark.png" alt="Header_Title" class="scale-with-grid"></a>
+    <ul class="menu" id="menu-top" ><li class="active"><a class="active" href="/en"  title="Go to Home" alt="Go to Home">Home</a></li><li ><a  href="/en/advanced-search"  title="Go to Search" alt="Go to Search">Search</a></li><li ><a  href="/en/help"  title="Go to Help" alt="Go to Help">Help</a></li><li ><a  href="/en/records?search=&sort=-PURL_ID,_score"  title="Go to More Recent" alt="Go to More Recent">More Recent</a></li><li ><a  href="/en/collections"  title="Go to Collections" alt="Go to Collections">Collections</a></li><li ><a  href="/en/serials/default?search=&sort=Date,_score&perpage=5&page=1&"  title="Go to Periodicals" alt="Go to Periodicals">Periodicals</a></li><li ><a  href="/en/themes"  title="Go to Themes" alt="Go to Themes">Themes</a></li><li ><a  href="/en/blog"  title="Go to Blog" alt="Go to Blog">Blog</a></li><li ><a  href="/en/about-us"  title="Go to About us" alt="Go to About us">About us</a></li></ul><div id="menu-top-mobile"><i class="menu-top-mobile-bar open_modal ion-navicon" data-content="menu-top-mobile-content" "></i></span><div id="menu-top-mobile-content"><ul class="menu" id="menu-top-mobile-content-ul" ><li class="active"><a class="active" href="/en"  title="Go to Home" alt="Go to Home">Home</a></li><li ><a  href="/en/advanced-search"  title="Go to Search" alt="Go to Search">Search</a></li><li ><a  href="/en/help"  title="Go to Help" alt="Go to Help">Help</a></li><li ><a  href="/en/records?search=&sort=-PURL_ID,_score"  title="Go to More Recent" alt="Go to More Recent">More Recent</a></li><li ><a  href="/en/collections"  title="Go to Collections" alt="Go to Collections">Collections</a></li><li ><a  href="/en/serials/default?search=&sort=Date,_score&perpage=5&page=1&"  title="Go to Periodicals" alt="Go to Periodicals">Periodicals</a></li><li ><a  href="/en/themes"  title="Go to Themes" alt="Go to Themes">Themes</a></li><li ><a  href="/en/blog"  title="Go to Blog" alt="Go to Blog">Blog</a></li><li ><a  href="/en/about-us"  title="Go to About us" alt="Go to About us">About us</a></li></ul></div></div> 
+
+
+                  
+
+
+</div>
+</div>
+<div style="clear:both"></div>
+
+
+        <div id="content" class="container">
+
+
+
+
+<div id="home">
+                
+    <div id="homeslider" class="container lgslider" data-options='{"ratio":"0.39","arrow_padding":"30","reload_resize":"0","speed":"1500","txt_effect":"alpha","prev_next_inside":1}' role="slider">
+        <div class="sixteen columns" id="home">
+            <ul>
+                                            <li>
+                                <figure>
+                                    <a href="https://purl.pt/32215">                                    <img  loading="lazy" style="display:none" src="/resources/images/banner/2026/out/32215.jpg" alt="Expositio viginti Librorum Titi Livii">
+                                    </a>                                    <figcaption></figcaption>
+                                </figure>
+                            </li>
+                                                        <li>
+                                <figure>
+                                    <a href="https://purl.pt/25661">                                    <img  loading="lazy" style="display:none" src="/resources/images/banner/2026/out/25661.jpg" alt="Insula Antonij Vaazii">
+                                    </a>                                    <figcaption></figcaption>
+                                </figure>
+                            </li>
+                                                        <li>
+                                <figure>
+                                    <a href="https://purl.pt/33404">                                    <img  loading="lazy" style="display:none" src="/resources/images/banner/2026/out/33404.jpg" alt="Coleção de estampas intitulada Ruas de Lisboa">
+                                    </a>                                    <figcaption></figcaption>
+                                </figure>
+                            </li>
+                                                        <li>
+                                <figure>
+                                    <a href="https://purl.pt/40661">                                    <img  loading="lazy" style="display:none" src="/resources/images/banner/2026/out/40661.jpg" alt="Landgraviatus Hassiae inferioris comitatus…">
+                                    </a>                                    <figcaption></figcaption>
+                                </figure>
+                            </li>
+                                                        <li>
+                                <figure>
+                                    <a href="https://purl.pt/16521">                                    <img  loading="lazy" style="display:none" src="/resources/images/banner/2026/out/16521.jpg" alt="Leitura da proclamação da Republica na sessão inaugural das Constituintes">
+                                    </a>                                    <figcaption></figcaption>
+                                </figure>
+                            </li>
+                                                        <li>
+                                <figure>
+                                    <a href="https://purl.pt/16519">                                    <img  loading="lazy" style="display:none" src="/resources/images/banner/2026/out/16519.jpg" alt="Revolução de 5 de Outubro de 1910">
+                                    </a>                                    <figcaption></figcaption>
+                                </figure>
+                            </li>
+                                                        <li>
+                                <figure>
+                                    <a href="https://purl.pt/55950">                                    <img  loading="lazy" style="display:none" src="/resources/images/banner/2026/out/55950.jpg" alt="The flowers and gardens of Madeira">
+                                    </a>                                    <figcaption></figcaption>
+                                </figure>
+                            </li>
+                                                        <li>
+                                <figure>
+                                    <a href="https://purl.pt/3591">                                    <img  loading="lazy" style="display:none" src="/resources/images/banner/2026/out/3591.jpg" alt="Representation de la forte ville et chasteau de Portologone en Lisle Delbe">
+                                    </a>                                    <figcaption></figcaption>
+                                </figure>
+                            </li>
+                                        </ul>
+
+        </div>
+    </div>
+                            
+    
+
+    <h3 class="bnp_title">Collections</h3>
+    <div class="home_boxes">
+                 <div class="myline">                                <div class="one-third column">
+                                    <div class="page_content  " >
+                                        <div class="page_content_box">
+                                            
+                                                <div class="home_box_img lazy" data-bg="/resources/images/boxes/Atlas.png" >
+                                                <a href="/en/records?page=1&refine[DocumentType_EN][]=Maps&sort=-PURL_ID"></a>                                            </div>
+                                                                                    </div>
+                                        <div><h3>Maps</h3></div>
+                                    </div>
+                                </div>
+
+                                                            <div class="one-third column">
+                                    <div class="page_content  " >
+                                        <div class="page_content_box">
+                                            
+                                                <div class="home_box_img lazy" data-bg="/resources/images/boxes/espolios-580x400.jpg" >
+                                                <a href="/en/personal-archives"></a>                                            </div>
+                                                                                    </div>
+                                        <div><h3>Personal archives</h3></div>
+                                    </div>
+                                </div>
+
+                                                            <div class="one-third column">
+                                    <div class="page_content  " >
+                                        <div class="page_content_box">
+                                            
+                                                <div class="home_box_img lazy" data-bg="/resources/images/boxes/O-Parnaso-580x420.jpg" >
+                                                <a href="/en/records?page=1&refine[DocumentType_EN][]=Iconography&sort=-PURL_ID"></a>                                            </div>
+                                                                                    </div>
+                                        <div><h3>Iconography</h3></div>
+                                    </div>
+                                </div>
+
+                                                            <div class="one-third column">
+                                    <div class="page_content  " >
+                                        <div class="page_content_box">
+                                            
+                                                <div class="home_box_img lazy" data-bg="/resources/images/boxes/livro-bnd-580x420.jpg" >
+                                                <a href="/en/records?page=1&refine[DocumentType_EN][]=Books&sort=-PURL_ID"></a>                                            </div>
+                                                                                    </div>
+                                        <div><h3>Books</h3></div>
+                                    </div>
+                                </div>
+
+                            </div><div class="myline">                                <div class="one-third column">
+                                    <div class="page_content  " >
+                                        <div class="page_content_box">
+                                            
+                                                <div class="home_box_img lazy" data-bg="/resources/images/boxes/partitura-bnd-580x284.jpg" >
+                                                <a href="/en/records?page=1&refine[DocumentType_EN][]=Scores&sort=-PURL_ID"></a>                                            </div>
+                                                                                    </div>
+                                        <div><h3>Scores</h3></div>
+                                    </div>
+                                </div>
+
+                                                            <div class="one-third column">
+                                    <div class="page_content  " >
+                                        <div class="page_content_box">
+                                            
+                                                <div class="home_box_img lazy" data-bg="/resources/images/boxes/periodico-bnd-580x420.jpg" >
+                                                <a href="/serials/default?search=&sort=Date,_score&perpage=5&page=1"></a>                                            </div>
+                                                                                    </div>
+                                        <div><h3>Serials</h3></div>
+                                    </div>
+                                </div>
+
+                                                            <div class="one-third column">
+                                    <div class="page_content  " >
+                                        <div class="page_content_box">
+                                            
+                                                <div class="home_box_img lazy" data-bg="/resources/images/boxes/alcobacences-580x400.jpg" >
+                                                <a href="/en/records?page=1&refine[Collection_EN][]=Alcobaça codices&sort=-PURL_ID"></a>                                            </div>
+                                                                                    </div>
+                                        <div><h3>Alcobaça codices</h3></div>
+                                    </div>
+                                </div>
+
+                                                            <div class="one-third column">
+                                    <div class="page_content  " >
+                                        <div class="page_content_box">
+                                            
+                                                <div class="home_box_img lazy" data-bg="/resources/images/boxes/iluminado4.png" >
+                                                <a href="/en/records?page=1&refine[Collection_EN][]=Illuminated items&sort=-PURL_ID"></a>                                            </div>
+                                                                                    </div>
+                                        <div><h3>Illuminated items</h3></div>
+                                    </div>
+                                </div>
+
+                            </div><div class="myline">                                <div class="one-third column">
+                                    <div class="page_content  " >
+                                        <div class="page_content_box">
+                                            
+                                                <div class="home_box_img lazy" data-bg="/resources/images/boxes/incunabulos-580x420.jpg" >
+                                                <a href="/en/records?page=1&refine[Collection_EN][]=Incunabula&sort=-PURL_ID"></a>                                            </div>
+                                                                                    </div>
+                                        <div><h3>Incunabula</h3></div>
+                                    </div>
+                                </div>
+
+                                                            <div class="one-third column">
+                                    <div class="page_content  " >
+                                        <div class="page_content_box">
+                                            
+                                                <div class="home_box_img lazy" data-bg="/resources/images/boxes/reservados-1-580x420.jpg" >
+                                                <a href="/en/records?page=1&refine[Collection_EN][]=Rare books, printed&sort=-PURL_ID"></a>                                            </div>
+                                                                                    </div>
+                                        <div><h3>Rare books, printed</h3></div>
+                                    </div>
+                                </div>
+
+                                                            <div class="one-third column">
+                                    <div class="page_content  " >
+                                        <div class="page_content_box">
+                                            
+                                                <div class="home_box_img lazy" data-bg="/resources/images/boxes/reservado-manuscrito-6-360x285.jpg" >
+                                                <a href="/en/records?page=1&refine[Collection_EN][]=Rare books, manuscripts&sort=-PURL_ID"></a>                                            </div>
+                                                                                    </div>
+                                        <div><h3>Rare books, manuscripts</h3></div>
+                                    </div>
+                                </div>
+
+                                                            <div class="one-third column">
+                                    <div class="page_content  " >
+                                        <div class="page_content_box">
+                                            
+                                                <div class="home_box_img lazy" data-bg="/resources/images/boxes/vilancicos.png" >
+                                                <a href="/en/records?page=1&refine[Collection_EN][]=Villancicos&sort=-PURL_ID"></a>                                            </div>
+                                                                                    </div>
+                                        <div><h3>Villancicos</h3></div>
+                                    </div>
+                                </div>
+
+                            </div><div class="myline">                                <div class="one-third column">
+                                    <div class="page_content  " >
+                                        <div class="page_content_box">
+                                            
+                                                <div class="home_box_img lazy" data-bg="/resources/images/boxes/grande-guerra-bnd.jpg" >
+                                                <a href="/en/records?page=1&refine[Collection_EN][]=WWI Digital Library&sort=-PURL_ID"></a>                                            </div>
+                                                                                    </div>
+                                        <div><h3>WWI Digital Library</h3></div>
+                                    </div>
+                                </div>
+
+                                                            <div class="one-third column">
+                                    <div class="page_content  " >
+                                        <div class="page_content_box">
+                                            
+                                                <div class="home_box_img lazy" data-bg="/resources/images/boxes/portuguese-culture.jpg" >
+                                                <a href="/en/records?page=1&refine[Collection_EN][]=Portuguese Culture&sort=-PURL_ID"></a>                                            </div>
+                                                                                    </div>
+                                        <div><h3>Portuguese Culture</h3></div>
+                                    </div>
+                                </div>
+
+                                                        <div class="one-third column"></div>
+                                                        <div class="one-third column"></div>
+                            </div><div class="myline"></div>
+    <div style="clear: both"></div>
+
+
+
+</div>
+</div><!-- container -->
+</div>
+<div id="footer">
+<div class="container">
+
+
+
+    <div class="one-quart column">
+        <div class="p_left">
+            <a href="https://www.portugal.gov.pt/pt/gc21/area-de-governo/cultura" target="_blank"><img class="logo_cultura" src="/themes/BNP/images/logo_invert.png" alt="Header_Title"></a><br>
+<!--            
+Footer_Text1-->
+        </div>
+    </div>
+
+    <div class="one-quart column">
+
+        <div class="p_left">
+            <a href="http://www.bnportugal.gov.pt/" target="_blank"><img class="logo_bnp" src="/themes/BNP/images/logo_bnp.png" alt="Logo BNP" class="scale-with-grid"></a><br>
+          </div>
+<!--
+        <div class="p_center">
+            <p>
+        Footer_Title1<br>
+        </p>
+        </div>
+-->
+    </div>
+
+
+    <div class="one-quart column">
+	<p></p>
+<!--
+        <div class="p_center">
+        <p><a href="http://catalogo.bnportugal.gov.pt/ipac20/ipac.jsp?profile=bn" target="_blank">catalogo.bnportugal.gov.pt</a><br></p>
+
+    <div class="social">
+            <a href="" target="_blank" rel="nofollow"><i class="ion-social-twitter"></i></a>
+            <a href="" target="_blank" rel="nofollow"><i class="ion-social-facebook"></i></a>
+            <a href="" target="_blank" rel="nofollow"><i class="ion-social-instagram"></i></a>
+            <a href="" target="_blank" rel="nofollow"><i class="ion-social-youtube"></i></a>
+            <a href="" target="_blank" rel="nofollow"><i class="ion-social-linkedin"></i></a>
+
+    </div>
+
+        </div>
+-->
+    </div>
+
+    <div class="one-quart column">
+        <div class="p_right">
+            <p>
+        <ul class="menu" id="menu-bottom" ><li ><a  href="/en/technical-and-legal-notice" target="_blank" title="Go to Technical and legal notice" alt="Go to Technical and legal notice">Technical and legal notice</a></li><li ><a  href="resources/documents/acessibilidade.html"  title="Go to Acessibility" alt="Go to Acessibility">Acessibility</a></li><li ><a  href="mailto: bndigital@bnportugal.gov.pt" target="_blank" title="Go to bndigital@bnportugal.gov.pt" alt="Go to bndigital@bnportugal.gov.pt">bndigital@bnportugal.gov.pt</a></li></ul>  
+        </p>
+        </div>
+    </div>
+
+</div>
+   <div class="container"> 
+
+</div>
+    <div style="clear: both"></div>
+</div>
+<div id="modal_content" style="display:none;"></div>
+<!-- End Document
+================================================== -->
+
+<!--[if lt IE 9]>
+        <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+<![endif]-->
+<script src="/assets/javascripts/jquery2.js?v=4.6.2.5."></script><script src="/assets/javascripts/library/popper.min.js?v=4.6.2.5."></script><script src="/assets/javascripts/library/tippy-bundle.umd.js?v=4.6.2.5."></script><script src="/assets/javascripts/helpers.js?v=4.6.2.5."></script><script src="/assets/javascripts/locales.php?l=pt"></script><script src="/assets/javascripts/library/leaflet/leaflet.js?v=4.6.2.5."></script><script src="/assets/javascripts/geomap-leaflet.js?v=4.6.2.5."></script><script src="/assets/javascripts/library/leaflet/leaflet.markercluster.js?v=4.6.2.5."></script><script src="/assets/javascripts/library/jquery-ui.min.js?v=4.6.2.5."></script><script src="/assets/javascripts/library/d3.min.js?v=4.6.2.5."></script><script src="/assets/javascripts/library/mediaelementjs/mediaelement.js?v=4.6.2.5."></script><script src="/assets/javascripts/library/fancybox/jquery.fancybox.js?v=2.1.5"></script><script src="/assets/javascripts/timeline_histogram.js?v=4.6.2.5."></script><script src="/assets/javascripts/date_calendar.js?v=4.6.2.5."></script><script src="/assets/javascripts/jQDateRangeSlider-min.js?v=4.6.2.5."></script><script src="/assets/javascripts/date_slider.js?v=4.6.2.5."></script><script src="/assets/javascripts/slider.js?v=4.6.2.5."></script><script src="/assets/javascripts/lgslider.js?v=4.6.2.5."></script><script src="/assets/javascripts/autocomplete.js?v=4.6.2.5."></script><script src="/assets/javascripts/viewfulltextpage.js?v=4.6.2.5."></script><script src="/assets/javascripts/viewbookmarkspage.js?v=4.6.2.5."></script><script src="/assets/javascripts/viewchildpage.js?v=4.6.2.5."></script><script src="/assets/javascripts/map.js?v=4.6.2.5."></script><script src="/assets/javascripts/articles_ticker.js?v=4.6.2.5."></script><script src="/assets/javascripts/basket.js?v=4.6.2.5."></script><script src="/assets/javascripts/auth.js?v=4.6.2.5."></script><script src="/assets/javascripts/grapes_front.js?v=4.6.2.5."></script><script src="/assets/javascripts/short_url.js?v=4.6.2.5."></script><script src="/assets/javascripts/lg_login_form.js?v=4.6.2.5."></script><script src="/assets/javascripts/library/daterangepicker/moment.js?v=4.6.2.5."></script><script src="/assets/javascripts/library/daterangepicker/daterangepicker.js?v=4.6.2.5."></script><script src="/assets/javascripts/loan_disponibility.js?v=4.6.2.5."></script><script src="/assets/javascripts/stats.js?v=4.6.2.5."></script><script src="/assets/javascripts/locales.php?l=en"></script><script type="text/javascript" src="/themes/BNP/javascripts/lazyload.min.js?v=2"></script>
+<script type="text/javascript" src="/themes/BNP/javascripts/lgslider.js?v=2"></script>
+<script type="text/javascript" src="/themes/BNP/javascripts/auth.js?v=2"></script>
+<script type="text/javascript" src="/themes/BNP/javascripts/basket.js?v=2"></script>
+<script type="text/javascript" src="/themes/BNP/javascripts/modal.js?v=2"></script>
+<script type="text/javascript" src="/themes/BNP/javascripts/articles.js?v=2"></script>
+<script type="text/javascript" src="/themes/BNP/javascripts/widgets.js?v=2"></script>
+<script type="text/javascript" src="/themes/BNP/javascripts/supra.js?v=2"></script>
+<script type="text/javascript" src="/themes/BNP/javascripts/tracking.js?v=2"></script>
+<script type="text/javascript" src="/resources/javascripts/locales/js.js?v=2"></script>
+
+
+
+</body>
+</html>
