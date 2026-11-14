@@ -1,0 +1,4 @@
+# University Collections — About (Wayback ; la page live renvoie la page d'accueil des collections)
+Réplique : https://web.archive.org/web/20250303202723/https://www.st-andrews.ac.uk/collections/about/ (capture 2025-03-03)
+Extrait verbatim : « The Collections site uses the International Image Interoperability Framework (IIIF), a defined universal standard which enables the deep-zoom, sharing, and re-use of many of our images in a variety of tools such as Exhibit, workspace, Recogito, or even creating your own virtual museum. To re-use any of our records/images in other IIIF tools, copy the "IIIF Manifest" link found on the record pages, or look for buttons on "my selection" after creating a selection. »
+Contacts : unicolls@st-andrews.ac.uk (University Collections), museumenquiries@st-andrews.ac.uk (Museums). Aucune mention de quota, de débit ni de moissonnage.

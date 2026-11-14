@@ -1,0 +1,3 @@
+# Digitisation service (Wayback)
+Réplique : https://web.archive.org/web/20261019050844/https://www.st-andrews.ac.uk/collections/use-collections/digitisation-service/ (capture 2026-10-19)
+Extraits verbatim : « Anyone can request digital reproductions of items held in University Collections. You can access digital and already digitised collections using the collections search. In most cases, you should be able to request copies of images for non-commercial use at no charge. » ; « Email unicolls@st-andrews.ac.uk to request a digital reproduction. » Aucune mention de quota, de débit, d'API ni de robots.
