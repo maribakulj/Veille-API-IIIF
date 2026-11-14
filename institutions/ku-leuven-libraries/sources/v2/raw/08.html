@@ -1,0 +1,63 @@
+<!DOCTYPE html><html lang="en-US">    <head>
+        <meta charset="utf-8">
+<meta name="viewport" content="width&#x3D;device-width,&#x20;initial-scale&#x3D;1">        <title>Page not found · Libis</title>        <link href="&#x2F;&#x2F;fonts.googleapis.com&#x2F;css&#x3F;family&#x3D;Source&#x2B;Code&#x2B;Pro&#x7C;Lato&#x3A;400,400italic,700,700italic" media="screen" rel="stylesheet" type="text&#x2F;css">
+<link href="&#x2F;application&#x2F;asset&#x2F;css&#x2F;iconfonts.css&#x3F;v&#x3D;3.2.3" media="screen" rel="stylesheet" type="text&#x2F;css">
+<link href="&#x2F;application&#x2F;asset&#x2F;css&#x2F;style.css&#x3F;v&#x3D;3.2.3" media="screen" rel="stylesheet" type="text&#x2F;css">                <script  src="&#x2F;&#x2F;ajax.googleapis.com&#x2F;ajax&#x2F;libs&#x2F;jquery&#x2F;3.6.0&#x2F;jquery.min.js"></script>
+<script  src="&#x2F;modules&#x2F;AdvancedSearch&#x2F;asset&#x2F;js&#x2F;global.js&#x3F;v&#x3D;3.4.6.20"></script>    </head>
+    <body class="minimal">                <div id="content" role="main">
+                        <h1><span class="title">Page not found</span></h1>
+<p>The page you are trying to view does not exist. Use the back button to return to the last page.</p>
+
+        </div>
+        <footer>
+            <span class="powered-by">Powered by Omeka S</span>
+        </footer>
+    <!-- Cookie Consent Banner – injected by Traefik middleware -->
+<div id="cc-banner" style="
+  position:fixed; bottom:0; left:0; right:0;
+  background:#111827; color:#f9fafb;
+  padding:16px 24px;
+  display:flex; align-items:center; justify-content:space-between; gap:16px;
+  z-index:99999; box-shadow:0 -4px 16px rgba(0,0,0,.4);
+  font-family:system-ui,-apple-system,sans-serif; flex-wrap:wrap;
+">
+  <div style="flex:1; min-width:260px">
+    <p style="margin:0; font-size:15px; font-weight:600">&#x1F36A; Wij gebruiken cookies</p>
+    <p style="margin:6px 0 0; font-size:13px; opacity:.8; line-height:1.5">
+      Deze site gebruikt alleen essentiële cookies die nodig zijn voor de basisfunctionaliteit.
+      Door op <strong style="color:#fff; font-weight:700">Accepteren</strong> te klikken, stemt u in met het gebruik ervan.
+    </p>
+  </div>
+  <div style="display:flex; gap:8px; flex-shrink:0">
+    <button id="cc-accept" style="
+      background:#2563eb; color:#fff; border:none;
+      padding:9px 20px; border-radius:6px; cursor:pointer;
+      font-size:13px; font-weight:600;
+    ">Accepteren</button>
+  </div>
+</div>
+<script>
+(function () {
+  var banner = document.getElementById('cc-banner');
+
+  // Hide immediately if consent was already given
+  if (document.cookie.match(/\bcookie_consent=/)) {
+    if (banner) banner.style.display = 'none';
+    return;
+  }
+
+  function setConsent(value) {
+    document.cookie =
+      'cookie_consent=' + value +
+      '; max-age=31536000; path=/; SameSite=Lax';
+  }
+
+  document.getElementById('cc-accept').addEventListener('click', function () {
+    setConsent('accepted');
+    if (banner) banner.style.display = 'none';
+  });
+
+})();
+</script>
+</body>
+</html>

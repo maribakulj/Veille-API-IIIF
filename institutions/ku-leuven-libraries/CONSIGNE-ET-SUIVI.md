@@ -2,51 +2,51 @@
 
 - **Dossier** : `institutions/ku-leuven-libraries/`  ·  **Classeur de référence** : GLAM-072  ·  **Pays** : Belgique
 - **Statut d'institution** : active
-- **Dernière mise à jour du suivi** : (à renseigner à chaque modification)
+- **Dernière mise à jour du suivi** : 2026-11-14
 
 ## Suivi par étape (à cocher, avec justification et preuves)
 
 ### a) Documentation lue en entier
 > Toutes les pages de doc liées à l'API (développeurs, interfaces, conditions, FAQ, aide, mentions légales, robots.txt), téléchargées avec `scripts/fetch_doc.sh` (URL, date, SHA-256), lues en entier (`scripts/extract_text.py`).
 
-- [ ] **Pas fait**
-  - **Justification** : Pas encore traitée : l'audit suit l'ordre du classeur de référence (une institution à la fois).
-  - **Preuves** : 
+- [x] **Fait**
+  - **Justification** : Doc officielle lue (digitisation, copyright, conditions d'usage, images open data, GitHub, Zenodo, robots.txt bib/expo/Limo) ; pages libis.be illisibles (timeouts) lues via Wayback ou listées à vérifier à la main
+  - **Preuves** : `institutions/ku-leuven-libraries/sources/v2/SHA256SUMS`, `institutions/ku-leuven-libraries/sources/b/SHA256SUMS`, `institutions/ku-leuven-libraries/sources/c/SHA256SUMS`, `institutions/ku-leuven-libraries/sources/wayback/libis-wayback.md`
 
 ### b) Endpoints tirés de la doc
 > Liste des endpoints citée par la doc (URL, exemples). Jamais devinée. Une interdiction ou une impossibilité écrite dans la doc justifie de renoncer (citer la phrase).
 
-- [ ] **Pas fait**
-  - **Justification** : Pas encore traitée : l'audit suit l'ordre du classeur de référence (une institution à la fois).
-  - **Preuves** : 
+- [x] **Fait**
+  - **Justification** : Endpoints tirés du GitHub de l'institution (resolver.libis.be/IE978853) , de la page Limo officielle et d'une capture Wayback (services.libis.be/m2/manifest) ; liste dans data.json endpoints_documentes
+  - **Preuves** : `institutions/ku-leuven-libraries/data.json`, `institutions/ku-leuven-libraries/sources/wayback/libis-wayback.md`
 
 ### c) Configuration écrite AVANT les tests
 > `config/<nom>.json` pilote `scripts/probe.py`, committée avant le lancement. Un endpoint absent de la doc mais non interdit se teste avec un script poli (identifiants issus de pages publiques ou d'exemples de la doc, pas de devinette).
 
-- [ ] **Pas fait**
-  - **Justification** : Pas encore traitée : l'audit suit l'ordre du classeur de référence (une institution à la fois).
-  - **Preuves** : 
+- [x] **Fait**
+  - **Justification** : Deux configurations committées avant lancement (passe 1 commit 48eab7a, passe 2 committée avant sa sonde), min_delay 10 s = Crawl-delay Limo
+  - **Preuves** : `institutions/ku-leuven-libraries/config/ku-leuven-v2-passe1.json`, `institutions/ku-leuven-libraries/config/ku-leuven-v2-passe2.json`
 
 ### d) Quota cherché dans la doc
 > Pour chaque page lue : endpoint de statut, en-têtes de limite documentés, clé ou compte donnant un quota, contact pour un volume plus élevé. Chaque réponse cite sa source.
 
-- [ ] **Pas fait**
-  - **Justification** : Pas encore traitée : l'audit suit l'ordre du classeur de référence (une institution à la fois).
-  - **Preuves** : 
+- [x] **Fait**
+  - **Justification** : Aucun endpoint de statut, en-tête de limite, clé ni quota dans les pages lues ; contact digitisation@kuleuven.be cité par les conditions d'usage (sources/b/text/01.txt)
+  - **Preuves** : `institutions/ku-leuven-libraries/sources/b/SHA256SUMS`, `institutions/ku-leuven-libraries/data.json`
 
 ### e) Test systématique de chaque endpoint
 > Chaque endpoint documenté est testé (budget 15 requêtes par passe, pause ≥ 6 s, GET/HEAD, UA du projet). Redirections du même hôte suivies. Un 403 arrête son hôte, un 429 arrête l'institution. Seules les interdictions écrites dans la doc dispensent de tester.
 
-- [ ] **Pas fait**
-  - **Justification** : Pas encore traitée : l'audit suit l'ordre du classeur de référence (une institution à la fois).
-  - **Preuves** : 
+- [x] **Fait**
+  - **Justification** : Passes 1 et 2 : 13 requêtes en tout ; resolver, services, teneo en délai dépassé, Limo HEAD 200 sans en-tête de limite ; Disallow robots lancés (C12) ; aucun 403/429
+  - **Preuves** : `institutions/ku-leuven-libraries/tests/journal.log`, `institutions/ku-leuven-libraries/tests/raw/p2-limo-collection.headers.txt`
 
 ### f) Ce que disent les gens sur le web
 > Plaintes, discussions, présentations de l'institution, politique envers les API et les bots, blogs, GitHub, forums, listes de diffusion. Sources étiquetées (officielle / institution / utilisateur / tiers), lues, citées.
 
-- [ ] **Pas fait**
-  - **Justification** : Pas encore traitée : l'audit suit l'ordre du classeur de référence (une institution à la fois).
-  - **Preuves** : 
+- [x] **Fait**
+  - **Justification** : 4 catégories : institution, présentations (Zenodo lu, LIBIS 2017 résumé de moteur), utilisateurs et tickets sans résultat, requêtes consignées
+  - **Preuves** : `institutions/ku-leuven-libraries/data.json`, `institutions/ku-leuven-libraries/fiche.md`
 
 ### g) Crash test progressif
 > Seulement après l'audit complet (a à f) de toutes les institutions et avec l'accord de Marcel : paliers jusqu'à 2 × la limite documentée, ou 200 req/min si illimité ou sans limite documentée. Arrêt au premier 429/403/CAPTCHA.
@@ -60,7 +60,10 @@
 
 <!-- AUTO:DEBUT -->
 ## Contrôles automatiques (calculés depuis `tests/journal.log`)
-Aucune requête enregistrée dans `tests/journal.log`.
+- Requêtes enregistrées : **13** (sessions de sonde : 2, maximum par session : 7)
+- Plus courte pause vers un même hôte : **10 s** (règle : ≥ 6 s)
+- Méthodes utilisées : GET, HEAD (règle : GET/HEAD seulement)
+- Anomalies : aucune
 <!-- AUTO:FIN -->
 
 ## Consigne intégrale

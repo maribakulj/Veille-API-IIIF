@@ -4,10 +4,178 @@
   "pays": "Japon",
   "classeur_id": "GLAM-077",
   "type": "Institution",
-  "statut_audit": "à faire",
-  "limites_documentees": [],
-  "en_tetes_observes": [],
+  "statut_audit": "audit a–f complet (v2) ; g à faire",
+  "limites_documentees": [
+    {
+      "nature": "Taille des images téléchargées",
+      "perimetre": "téléchargement via le site",
+      "valeur": "« The Images output in JPEG format with a maximum size of 2000pixel per side. »",
+      "fenetre": "–",
+      "effet": "images originales sur demande à la bibliothèque",
+      "verification": "officielle, lue en entier",
+      "source": "https://rmda.kulib.kyoto-u.ac.jp/en/reuse",
+      "date": "2026-11-14"
+    },
+    {
+      "nature": "Conditions de réutilisation",
+      "perimetre": "images des bibliothèques de Kyoto University Library Network",
+      "valeur": "réutilisation gratuite avec mention de la bibliothèque et lien vers le site ; certaines collections sur autorisation",
+      "fenetre": "–",
+      "effet": "–",
+      "verification": "officielle, lue en entier",
+      "source": "https://rmda.kulib.kyoto-u.ac.jp/en/reuse",
+      "date": "2026-11-14"
+    }
+  ],
+  "en_tetes_observes": [
+    {
+      "nom": "x-powered-by",
+      "valeur": "Cantaloupe/5.0.6",
+      "preuve": "institutions/kyoto-rare-materials-digital-archive/tests/raw/p2-image-info.headers.txt"
+    }
+  ],
   "blocages": [],
-  "sources": [],
-  "web": []
+  "sources": [
+    {
+      "url": "https://rmda.kulib.kyoto-u.ac.jp/en/about",
+      "date": "2026-11-14",
+      "etiquette": "officielle",
+      "preuve": "institutions/kyoto-rare-materials-digital-archive/sources/v2/SHA256SUMS"
+    },
+    {
+      "url": "https://rmda.kulib.kyoto-u.ac.jp/en/howto",
+      "date": "2026-11-14",
+      "etiquette": "officielle",
+      "preuve": "institutions/kyoto-rare-materials-digital-archive/sources/b/SHA256SUMS"
+    },
+    {
+      "url": "https://rmda.kulib.kyoto-u.ac.jp/en/reuse",
+      "date": "2026-11-14",
+      "etiquette": "officielle",
+      "preuve": "institutions/kyoto-rare-materials-digital-archive/sources/c/SHA256SUMS"
+    },
+    {
+      "url": "https://rmda.kulib.kyoto-u.ac.jp/en/item/rb00000122",
+      "date": "2026-11-14",
+      "etiquette": "officielle",
+      "preuve": "institutions/kyoto-rare-materials-digital-archive/sources/c/SHA256SUMS"
+    },
+    {
+      "url": "https://rmda.kulib.kyoto-u.ac.jp/robots.txt",
+      "date": "2026-11-14",
+      "etiquette": "officielle",
+      "preuve": "institutions/kyoto-rare-materials-digital-archive/sources/v2/SHA256SUMS"
+    },
+    {
+      "url": "https://www.kulib.kyoto-u.ac.jp/robots.txt",
+      "date": "2026-11-14",
+      "etiquette": "officielle",
+      "preuve": "institutions/kyoto-rare-materials-digital-archive/sources/v2/SHA256SUMS"
+    }
+  ],
+  "web": [
+    {
+      "categorie": "institution",
+      "url": "https://rmda.kulib.kyoto-u.ac.jp/en/reuse",
+      "date": "2026-11-14",
+      "etiquette": "officielle",
+      "citation": "« Users should download the Images from this Website by themselves. » Aucune politique de bots ni de débit.",
+      "preuve": "institutions/kyoto-rare-materials-digital-archive/sources/c/SHA256SUMS"
+    },
+    {
+      "categorie": "presentations",
+      "url": "https://www.kulib.kyoto-u.ac.jp/bulletin/1376698?lang=en",
+      "date": "2026-11-14",
+      "etiquette": "institution",
+      "citation": "annonce de l'ouverture : archive compatible IIIF, 394 069 images de 3 719 titres au 1er décembre 2017 ; aucune limite citée.",
+      "preuve": "institutions/kyoto-rare-materials-digital-archive/sources/v2/SHA256SUMS"
+    },
+    {
+      "categorie": "presentations",
+      "url": "https://repository.kulib.kyoto-u.ac.jp/dspace/bitstream/2433/243231/1/IIAI-AAI.2018.00099.pdf",
+      "date": "2026-11-14",
+      "etiquette": "institution (article 2018), (résumé de moteur, non vérifié)",
+      "citation": "article sur la mise en œuvre IIIF de l'archive ; aucune limite de débit signalée par le résumé.",
+      "preuve": "institutions/kyoto-rare-materials-digital-archive/fiche.md"
+    },
+    {
+      "categorie": "utilisateurs",
+      "aucun_resultat": true,
+      "requete": "Kyoto University Rare Materials Digital Archive IIIF 429 OR \"rate limit\" OR blocked OR \"too many requests\" rmda.kulib.kyoto-u.ac.jp",
+      "date": "2026-11-14",
+      "etiquette": "–",
+      "citation": "aucune plainte 429/blocage ; seuls des avis de maintenance et des règles pour revues électroniques (hors archive) sont ressortis",
+      "preuve": "institutions/kyoto-rare-materials-digital-archive/fiche.md"
+    },
+    {
+      "categorie": "tickets",
+      "aucun_resultat": true,
+      "requete": "github \"rmda.kulib.kyoto-u.ac.jp\" manifest issue OR script OR downloader",
+      "date": "2026-11-14",
+      "etiquette": "–",
+      "citation": "aucun ticket d'outil tiers mentionnant le domaine ; seuls des téléchargeurs IIIF génériques apparaissent",
+      "preuve": "institutions/kyoto-rare-materials-digital-archive/fiche.md"
+    }
+  ],
+  "contact": "gazo660[a]mail2.adm.kyoto-u.ac.jp (Digital Archive Section, Research Support Division, Main Library, Kyoto University), cité par rmda.kulib.kyoto-u.ac.jp/en/about",
+  "conclusion_quota": "Aucune limite de débit, quota ni documentation d'API publiés ; le manifeste IIIF 3 (Drupal) et le serveur d'images (Cantaloupe 5.0.6, IIIF Image 3 level2) répondent 200 sans aucun en-tête de limite. Seules règles écrites : réutilisation libre avec mention de la bibliothèque, images téléchargées limitées à 2000 px.",
+  "classe_quota": "aucun quota trouvé",
+  "confiance": "moyenne",
+  "notes": "4 requêtes de sonde en passe 1 et 3 en passe 2 (robots.txt compris). Un timeout et une erreur DNS sur deux pages de doc (rmda /en/reuse, /howto) pendant la lecture : lues ailleurs. Pas de collection IIIF racine documentée.",
+  "endpoints_documentes": [
+    {
+      "famille": "IIIF Presentation 3 : manifeste d'item",
+      "url": "https://rmda.kulib.kyoto-u.ac.jp/iiif/metadata_manifest/RB00000122/manifest.json",
+      "statut": "teste",
+      "preuve": "institutions/kyoto-rare-materials-digital-archive/tests/raw/p1-manifest-RB00000122.headers.txt"
+    },
+    {
+      "famille": "IIIF Image 3 : info.json et dérivé (Cantaloupe)",
+      "url": "https://rmda.kulib.kyoto-u.ac.jp/iiif/3/RB00000122%2FRB00000122_00002_0.ptif/info.json",
+      "statut": "teste",
+      "preuve": "institutions/kyoto-rare-materials-digital-archive/tests/raw/p2-image-info.headers.txt"
+    },
+    {
+      "famille": "Visualiseur Mirador 3",
+      "url": "https://rmda.kulib.kyoto-u.ac.jp/libraries/mirador/mirador.html?manifest=/iiif/metadata_manifest/RB00000122/manifest.json",
+      "statut": "teste",
+      "preuve": "institutions/kyoto-rare-materials-digital-archive/tests/raw/p2-mirador-page.headers.txt"
+    },
+    {
+      "famille": "Visualiseur Universal Viewer 3",
+      "url": "https://rmda.kulib.kyoto-u.ac.jp/libraries/uv3/uv.html#?manifest=/iiif/metadata_manifest/RB00000122/manifest.json",
+      "statut": "non_teste",
+      "raison": "page de visualiseur statique de même nature que Mirador (testé, 200) ; elle consomme le même manifeste déjà testé, aucun endpoint d'API distinct"
+    },
+    {
+      "famille": "Recherche du site (/search)",
+      "url": "https://rmda.kulib.kyoto-u.ac.jp/en/search",
+      "statut": "non_teste",
+      "raison": "Disallow: /search et /search? dans le robots.txt, aucune API de recherche documentée ; interface web Drupal, pas une API IIIF"
+    }
+  ],
+  "endpoints_ecartes": [
+    {
+      "url": "https://rmda.kulib.kyoto-u.ac.jp/en/contact",
+      "raison": "page de contact absente (404 constaté, sources/c/FETCH.log) : le contact est sur /en/about ; aucune API à tester"
+    },
+    {
+      "url": "https://rmda.kulib.kyoto-u.ac.jp/howto",
+      "raison": "variante sans /en de /en/howto (déjà lue) : erreur DNS pendant la lecture, aucune API"
+    }
+  ],
+  "hotes_robots": [
+    {
+      "hote": "rmda.kulib.kyoto-u.ac.jp",
+      "resultat": "Disallow /search, /core/, /admin/ etc. ; rien sur /iiif ; pas de Crawl-delay ; GPTBot non cité",
+      "preuve": "institutions/kyoto-rare-materials-digital-archive/sources/v2/SHA256SUMS"
+    }
+  ],
+  "a_verifier_manuellement": [
+    {
+      "url": "https://rmda.kulib.kyoto-u.ac.jp/en/reuse",
+      "pourquoi": "un essai de lecture a dépassé le délai de 30 s ; page lue au deuxième essai",
+      "a_chercher": "Demander par e-mail (adresse de /en/about) s'il existe une limite non publiée pour le moissonnage IIIF"
+    }
+  ]
 }

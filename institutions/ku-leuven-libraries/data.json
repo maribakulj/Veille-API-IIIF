@@ -4,10 +4,204 @@
   "pays": "Belgique",
   "classeur_id": "GLAM-072",
   "type": "Institution",
-  "statut_audit": "à faire",
-  "limites_documentees": [],
+  "statut_audit": "audit a–f complet (v2) ; g impossible à tester ; hôtes libis.be sans réponse",
+  "limites_documentees": [
+    {
+      "nature": "Libre usage des images du domaine public",
+      "perimetre": "consultation copies antérieures à 1901",
+      "valeur": "« Everyone interested may download and freely use these images. »",
+      "fenetre": "–",
+      "effet": "–",
+      "verification": "officielle, lue en entier",
+      "source": "https://bib.kuleuven.be/english/library-services/digitisation-and-enrichment/images-as-open-data",
+      "date": "2026-11-14"
+    },
+    {
+      "nature": "Crawl-delay robots.txt",
+      "perimetre": "kuleuven.limo.libis.be",
+      "valeur": "Crawl-delay: 10",
+      "fenetre": "10 s entre requêtes",
+      "effet": "respecté (pause 10 s)",
+      "verification": "robots.txt lu et lu par la sonde",
+      "source": "https://kuleuven.limo.libis.be/robots.txt",
+      "date": "2026-11-14"
+    }
+  ],
   "en_tetes_observes": [],
-  "blocages": [],
-  "sources": [],
-  "web": []
+  "blocages": [
+    {
+      "hote": "resolver.libis.be, services.libis.be, repository.teneo.libis.be, bib.kuleuven.be (pages 3 à 11), libis.be, www.kuleuven.be",
+      "nature": "délai de connexion/lecture de 30 s dépassé (ni 403, ni 429, ni CAPTCHA)",
+      "preuve": "institutions/ku-leuven-libraries/tests/journal.log"
+    }
+  ],
+  "sources": [
+    {
+      "url": "https://bib.kuleuven.be/english/BD/digit/digitisation",
+      "date": "2026-11-14",
+      "etiquette": "officielle",
+      "preuve": "institutions/ku-leuven-libraries/sources/v2/SHA256SUMS"
+    },
+    {
+      "url": "https://expo.bib.kuleuven.be/en/copyright",
+      "date": "2026-11-14",
+      "etiquette": "officielle",
+      "preuve": "institutions/ku-leuven-libraries/sources/v2/SHA256SUMS"
+    },
+    {
+      "url": "https://bib.kuleuven.be/BD/digitalisering-en-document-delivery/digitalisering/gebruiksvoorwaarden",
+      "date": "2026-11-14",
+      "etiquette": "officielle",
+      "preuve": "institutions/ku-leuven-libraries/sources/b/SHA256SUMS"
+    },
+    {
+      "url": "https://bib.kuleuven.be/english/library-services/digitisation-and-enrichment/images-as-open-data",
+      "date": "2026-11-14",
+      "etiquette": "officielle",
+      "preuve": "institutions/ku-leuven-libraries/sources/b/SHA256SUMS"
+    },
+    {
+      "url": "https://github.com/KULeuvenDigitalisering/The-Views-of-Leuven-Collection-Dataset",
+      "date": "2026-11-14",
+      "etiquette": "officielle",
+      "preuve": "institutions/ku-leuven-libraries/sources/b/SHA256SUMS"
+    },
+    {
+      "url": "https://kuleuven.limo.libis.be/robots.txt",
+      "date": "2026-11-14",
+      "etiquette": "officielle",
+      "preuve": "institutions/ku-leuven-libraries/sources/c/SHA256SUMS"
+    }
+  ],
+  "web": [
+    {
+      "categorie": "institution",
+      "url": "https://bib.kuleuven.be/english/library-services/digitisation-and-enrichment/images-as-open-data",
+      "date": "2026-11-14",
+      "etiquette": "officielle",
+      "citation": "« KU Leuven Libraries offers the available data that was created through digitisation of public domain library materials to the public as open data. » Aucune politique de bots ni de débit.",
+      "preuve": "institutions/ku-leuven-libraries/sources/b/SHA256SUMS"
+    },
+    {
+      "categorie": "presentations",
+      "url": "https://zenodo.org/records/11456763",
+      "date": "2026-11-14",
+      "etiquette": "présentation de l'institution (poster DHBenelux 2024), lue",
+      "citation": "poster « From Digitised Collections to Datasets » : jeux de données diffusés sur GitHub ; ni IIIF ni limite de débit cités.",
+      "preuve": "institutions/ku-leuven-libraries/sources/v2/SHA256SUMS"
+    },
+    {
+      "categorie": "presentations",
+      "url": "https://indico.egi.eu/event/3455/contributions/8284",
+      "date": "2026-11-14",
+      "etiquette": "présentation de l'institution (LIBIS, 2017), (résumé de moteur, non vérifié : 403 en lecture)",
+      "citation": "IIIF adopté en 2015 par KU Leuven (idemdatabase.org), moissonnage d'URL de manifestes évoqué ; aucune limitation citée.",
+      "preuve": "institutions/ku-leuven-libraries/sources/wayback/libis-wayback.md"
+    },
+    {
+      "categorie": "utilisateurs",
+      "aucun_resultat": true,
+      "requete": "LIBIS KU Leuven IIIF manifest error OR blocked OR \"too many requests\" OR timeout issue github",
+      "date": "2026-11-14",
+      "etiquette": "–",
+      "citation": "aucune plainte de quota, 429 ou blocage trouvée pour les services KU Leuven/LIBIS",
+      "preuve": "institutions/ku-leuven-libraries/fiche.md"
+    },
+    {
+      "categorie": "tickets",
+      "aucun_resultat": true,
+      "requete": "github issue \"libis.be\" OR \"kuleuven\" IIIF manifest harvester Mirador resolver.libis.be",
+      "date": "2026-11-14",
+      "etiquette": "–",
+      "citation": "aucun ticket d'outil tiers mentionnant resolver.libis.be ou KU Leuven ; résultats sans rapport",
+      "preuve": "institutions/ku-leuven-libraries/fiche.md"
+    }
+  ],
+  "contact": "digitisation@kuleuven.be (LS Digitisation and Enrichment of Collections, KU Leuven Libraries) — cité par les conditions d'utilisation",
+  "conclusion_quota": "Aucune limite de débit, quota ni documentation d'API publiée par KU Leuven Libraries / LIBIS ; seules sont écrites une politique d'images en libre usage (avant 1901, public domain) et des conditions d'usage. Les hôtes de service libis.be (resolver, services, repository.teneo) n'ont pas répondu (délais dépassés 30 s, 5 essais sur 3 hôtes) : aucun en-tête de quota observé. Seul Limo (Ex Libris, Crawl-delay 10) a répondu 200 sans en-tête de limite.",
+  "classe_quota": "aucun quota trouvé",
+  "confiance": "faible",
+  "notes": "Plateforme Teneo/Rosetta (LIBIS). Disallow: / sur resolver.libis.be et repository.teneo.libis.be (Wayback). Timeouts à partir de 02:43Z sur bib.kuleuven.be et libis.be, après deux réponses 200 : cause inconnue (pas de 403/429/CAPTCHA).",
+  "endpoints_documentes": [
+    {
+      "famille": "Résolveur LIBIS (resolver.libis.be/IE…/representation, /thumbnail)",
+      "url": "http://resolver.libis.be/IE978853/representation",
+      "statut": "teste",
+      "preuve": "institutions/ku-leuven-libraries/tests/journal.log"
+    },
+    {
+      "famille": "IIIF Presentation : manifeste / collection (services.libis.be/m2/manifest)",
+      "url": "http://services.libis.be/m2/manifest/IE11541569",
+      "statut": "teste",
+      "preuve": "institutions/ku-leuven-libraries/tests/journal.log"
+    },
+    {
+      "famille": "Teneo (Rosetta) DeliveryManager",
+      "url": "https://repository.teneo.libis.be/delivery/DeliveryManagerServlet?dps_pid=IE17414261",
+      "statut": "teste",
+      "preuve": "institutions/ku-leuven-libraries/tests/journal.log"
+    },
+    {
+      "famille": "Limo (Primo VE) collections",
+      "url": "https://kuleuven.limo.libis.be/discovery/collectionDiscovery?vid=32KUL_KUL:KULeuven&collectionId=81475525920001488",
+      "statut": "teste",
+      "preuve": "institutions/ku-leuven-libraries/tests/raw/p2-limo-collection.headers.txt"
+    },
+    {
+      "famille": "Primo/Limo recherche (discovery/search, primaws)",
+      "url": "https://kuleuven.limo.libis.be/discovery/search",
+      "statut": "non_teste",
+      "raison": "Disallow: /discovery/search et /primaws dans le robots.txt de Limo, application JavaScript sans API publique documentée ; non lancé par prudence"
+    }
+  ],
+  "endpoints_ecartes": [
+    {
+      "url": "https://libis.be/mirador-iiif-en",
+      "raison": "page citée par une présentation 2017 : 404 en direct (sources/v2/FETCH.log), redirection dans Wayback ; aucune API à tester"
+    }
+  ],
+  "hotes_robots": [
+    {
+      "hote": "kuleuven.limo.libis.be",
+      "resultat": "Disallow /primaws, /discovery/search, /nde/search ; Crawl-delay 10 ; GPTBot refusé",
+      "preuve": "institutions/ku-leuven-libraries/sources/c/SHA256SUMS"
+    },
+    {
+      "hote": "resolver.libis.be",
+      "resultat": "illisible en direct (500 puis timeout) ; Wayback 2023 : Disallow: /",
+      "preuve": "institutions/ku-leuven-libraries/sources/wayback/libis-wayback.md"
+    },
+    {
+      "hote": "services.libis.be",
+      "resultat": "404 : tout autorisé (lu en direct)",
+      "preuve": "institutions/ku-leuven-libraries/sources/v2/SHA256SUMS"
+    },
+    {
+      "hote": "repository.teneo.libis.be",
+      "resultat": "illisible en direct (timeout) ; Wayback 2025 : Disallow: / pour *",
+      "preuve": "institutions/ku-leuven-libraries/sources/wayback/libis-wayback.md"
+    }
+  ],
+  "a_verifier_manuellement": [
+    {
+      "url": "https://bib.kuleuven.be/english/libis/libis",
+      "pourquoi": "délai de 30 s dépassé en lecture directe (deux essais)",
+      "a_chercher": "description du service LIBIS/Teneo, politique d'accès, IIIF"
+    },
+    {
+      "url": "https://libis.be/teneo",
+      "pourquoi": "délai de 30 s dépassé",
+      "a_chercher": "documentation de Teneo et de ses interfaces IIIF/téléchargement"
+    },
+    {
+      "url": "http://services.libis.be/m2/manifest/IE11541569",
+      "pourquoi": "délais dépassés sur tous les hôtes libis.be (passes 1 et 2)",
+      "a_chercher": "manifeste IIIF toujours servi ? en-têtes de limite, redirection vue en 2024 (302)"
+    },
+    {
+      "url": "https://resolver.libis.be/IE978853/representation",
+      "pourquoi": "délais dépassés ; robots.txt Disallow: / d'après Wayback",
+      "a_chercher": "réponse du résolveur et éventuelle limite de débit"
+    }
+  ]
 }

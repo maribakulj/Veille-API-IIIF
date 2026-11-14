@@ -1,0 +1,12 @@
+{
+  "slug": "ku-leuven-libraries",
+  "endpoint": {
+    "id": "limo-collection",
+    "url": "https://kuleuven.limo.libis.be/discovery/collectionDiscovery?vid=32KUL_KUL:KULeuven&collectionId=81475525920001488",
+    "method": "GET"
+  },
+  "limite_documentee_req_min": 6,
+  "source_limite": "Crawl-delay: 10 dans https://kuleuven.limo.libis.be/robots.txt (soit 6 req/min) ; aucune autre limite documentée",
+  "duree_palier_s": 180,
+  "note": "page collection de Limo (Primo VE), 200 dans le journal (p2-limo-collection, 2026-11-14T02:57:23Z), 4,8 ko. Les hôtes IIIF libis.be n'ont pas répondu."
+}

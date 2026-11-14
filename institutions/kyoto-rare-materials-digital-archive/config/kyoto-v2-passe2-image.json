@@ -1,0 +1,13 @@
+{
+  "slug": "kyoto-rare-materials-digital-archive",
+  "min_delay_s": 6,
+  "max_requests": 15,
+  "follow_redirects": 1,
+  "robots_disallow_autorise_par_marcel": true,
+  "note": "v2 passe 2 : service d'image IIIF 3 lu dans le manifeste de la passe 1 (corps tests/raw/p1-manifest-RB00000122.body) : service id https://rmda.kulib.kyoto-u.ac.jp/iiif/3/RB00000122%2FRB00000122_00002_0.ptif (ImageService3 level2). info.json, un dérivé de 200 px (petite taille) et la page du visualiseur Mirador citée par la page item (HEAD).",
+  "endpoints": [
+    {"id": "p2-image-info", "method": "GET", "url": "https://rmda.kulib.kyoto-u.ac.jp/iiif/3/RB00000122%2FRB00000122_00002_0.ptif/info.json"},
+    {"id": "p2-image-200", "method": "GET", "url": "https://rmda.kulib.kyoto-u.ac.jp/iiif/3/RB00000122%2FRB00000122_00002_0.ptif/full/200,/0/default.jpg"},
+    {"id": "p2-mirador-page", "method": "HEAD", "url": "https://rmda.kulib.kyoto-u.ac.jp/libraries/mirador/mirador.html?manifest=/iiif/metadata_manifest/RB00000122/manifest.json"}
+  ]
+}

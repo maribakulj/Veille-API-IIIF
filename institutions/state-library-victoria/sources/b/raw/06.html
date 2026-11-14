@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="en-AU">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<meta name="text-scale" content="scale" />
+		<meta name="color-scheme" content="light dark" />
+		<script>
+			try {
+				const root = document.documentElement
+				const theme = JSON.parse(localStorage.getItem('slv:theme'))
+				if (theme === 'light' || theme === 'dark') root.setAttribute('data-theme', theme)
+				const storedMotion = JSON.parse(localStorage.getItem('slv:reduced-motion'))
+				const reducedMotion = storedMotion ?? matchMedia('(prefers-reduced-motion: reduce)').matches
+				if (reducedMotion) root.classList.add('reduced-motion')
+			} catch {}
+		</script>
+		<!-- Mirrors the first page the grid asks for (searchObjects / getRandomBatch), so it
+		     downloads alongside the bundle. A URL that doesn't match is simply ignored -->
+		<script>
+			try {
+				const query = (new URLSearchParams(location.search).get('q') || '').trim()
+				const firstPage = { from: '0', size: '20' }
+				const params = new URLSearchParams(query ? { q: query, ...firstPage } : firstPage)
+				const path = query ? 'search' : 'random/batch'
+				const url = `https://search.idx.slv.vic.gov.au/${path}?${params}`
+				const response = fetch(url, { signal: AbortSignal.timeout(10000) })
+				response.catch(() => {})
+				window.__firstSearch = { url, response }
+			} catch {}
+		</script>
+		<!-- Must precede sveltekit.head: the bundled stylesheet is parsed first in
+		     production and would otherwise register the layers in its own order -->
+		<style>
+			@layer foundations, primitives, components, variants, utilities;
+
+			@layer foundations {
+				html {
+					background-color: rgb(255 255 255);
+				}
+
+				:root[data-theme='light'] {
+					color-scheme: light;
+				}
+
+				:root[data-theme='dark'] {
+					color-scheme: dark;
+					background-color: rgb(19 19 19);
+				}
+
+				@media (prefers-color-scheme: dark) {
+					:root:not([data-theme='light']) {
+						background-color: rgb(19 19 19);
+					}
+				}
+			}
+		</style>
+		<link rel="icon" href="/favicon.ico" sizes="any" />
+		<link rel="icon" href="/images/favicons/favicon.svg" type="image/svg+xml" />
+		<link
+			rel="preload"
+			href="/fonts/ibm-plex-sans/ibm-plex-sans-latin-wght-normal.woff2"
+			as="font"
+			type="font/woff2"
+			crossorigin
+		/>
+		<link rel="preconnect" href="https://media.slv.vic.gov.au" />
+
+		<title>Copyright-free image collection | State Library Victoria</title>
+		<link rel="canonical" href="https://images.slv.vic.gov.au" />
+		<meta name="description" content="Browse 200,000+ copyright-free images." />
+		<meta property="og:type" content="website" />
+		<meta property="og:site_name" content="State Library Victoria" />
+		<meta property="og:title" content="Copyright-free image collection | State Library Victoria" />
+		<meta property="og:description" content="Browse 200,000+ copyright-free images." />
+		<meta property="og:url" content="https://images.slv.vic.gov.au" />
+		<meta property="og:image" content="https://media.slv.vic.gov.au/1200-630/g-smart/jf4nqb" />
+		<meta property="og:image:width" content="1200" />
+		<meta property="og:image:height" content="630" />
+		<meta property="og:image:alt" content="Melbourne." />
+		<meta name="twitter:card" content="summary_large_image" />
+		<meta name="twitter:title" content="Copyright-free image collection | State Library Victoria" />
+		<meta name="twitter:description" content="Browse 200,000+ copyright-free images." />
+		<meta name="twitter:image" content="https://media.slv.vic.gov.au/1200-630/g-smart/jf4nqb" />
+		<meta name="twitter:image:alt" content="Melbourne." />
+		
+		<link href="./_app/immutable/assets/portal.DJnNByJu.css" rel="stylesheet">
+		<link href="./_app/immutable/assets/0.DuKo6t-6.css" rel="stylesheet">
+		<link href="./_app/immutable/assets/primitives.nXZHciDs.css" rel="stylesheet">
+		<link href="./_app/immutable/assets/2.DUGjpdC0.css" rel="stylesheet">
+		<link href="./_app/immutable/assets/3.Dtgn1HQc.css" rel="stylesheet">
+	</head>
+	<body data-sveltekit-preload-data="hover">
+		<div style="display: contents">
+			<script>
+				{
+					__sveltekit_gkc3vj = {
+						base: new URL(".", location).pathname.slice(0, -1),
+						env: {"PUBLIC_SLV_MEDIA_DOMAIN":"https://d2xkbpwjh6kvh9.cloudfront.net","PUBLIC_GTM_ID":"GTM-5FTVNW"}
+					};
+
+					const element = document.currentScript.parentElement;
+
+					Promise.all([
+						import("./_app/immutable/entry/start.Dh0V49Xh.js"),
+						import("./_app/immutable/entry/app.CjgFQuw-.js")
+					]).then(([kit, app]) => {
+						kit.start(app, element);
+					});
+				}
+			</script>
+		</div>
+	<script>(function(){function c(){var b=a.contentDocument||(a.contentWindow&&a.contentWindow.document);if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'a5a2cad9cc2a524c',t:'MTc5NDYyNTUwNA=='};var l=window.parent.location,o;try{o=new URL(l.origin).origin}catch(e){try{o=new URL(new URL(l.href).origin).origin}catch(e){o=''}}var u='/cdn-cgi/challenge-platform/scripts/jsd/main.js?ray=a5a2cad9cc2a524c',a=document.createElement('script');a.src=o?new URL(u,o).href:u;document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>

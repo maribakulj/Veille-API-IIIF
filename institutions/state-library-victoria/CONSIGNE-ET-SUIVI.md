@@ -2,51 +2,51 @@
 
 - **Dossier** : `institutions/state-library-victoria/`  ·  **Classeur de référence** : GLAM-082  ·  **Pays** : Australie
 - **Statut d'institution** : active
-- **Dernière mise à jour du suivi** : (à renseigner à chaque modification)
+- **Dernière mise à jour du suivi** : 2026-11-14
 
 ## Suivi par étape (à cocher, avec justification et preuves)
 
 ### a) Documentation lue en entier
 > Toutes les pages de doc liées à l'API (développeurs, interfaces, conditions, FAQ, aide, mentions légales, robots.txt), téléchargées avec `scripts/fetch_doc.sh` (URL, date, SHA-256), lues en entier (`scripts/extract_text.py`).
 
-- [ ] **Pas fait**
-  - **Justification** : Pas encore traitée : l'audit suit l'ordre du classeur de référence (une institution à la fois).
-  - **Preuves** : 
+- [x] **Fait**
+  - **Justification** : Doc officielle lue : tutoriel IIIF et billets SLV LAB, open data, GitHub, robots.txt de 6 hôtes ; rosetta en 403 (non contourné) lue via Wayback (illisible) et listée à vérifier à la main
+  - **Preuves** : `institutions/state-library-victoria/sources/v2/SHA256SUMS`, `institutions/state-library-victoria/sources/b/SHA256SUMS`, `institutions/state-library-victoria/sources/wayback/rosetta-wayback.md`
 
 ### b) Endpoints tirés de la doc
 > Liste des endpoints citée par la doc (URL, exemples). Jamais devinée. Une interdiction ou une impossibilité écrite dans la doc justifie de renoncer (citer la phrase).
 
-- [ ] **Pas fait**
-  - **Justification** : Pas encore traitée : l'audit suit l'ordre du classeur de référence (une institution à la fois).
-  - **Preuves** : 
+- [x] **Fait**
+  - **Justification** : Endpoints tirés du tutoriel officiel SLV LAB (manifeste 2.1, image 2, handle, viewer) et du billet Primo ; liste dans data.json
+  - **Preuves** : `institutions/state-library-victoria/data.json`, `institutions/state-library-victoria/sources/v2/SHA256SUMS`
 
 ### c) Configuration écrite AVANT les tests
 > `config/<nom>.json` pilote `scripts/probe.py`, committée avant le lancement. Un endpoint absent de la doc mais non interdit se teste avec un script poli (identifiants issus de pages publiques ou d'exemples de la doc, pas de devinette).
 
-- [ ] **Pas fait**
-  - **Justification** : Pas encore traitée : l'audit suit l'ordre du classeur de référence (une institution à la fois).
-  - **Preuves** : 
+- [x] **Fait**
+  - **Justification** : Deux configurations committées avant lancement (passes 1 et 2), pause 10 s = Crawl-delay de find.slv
+  - **Preuves** : `institutions/state-library-victoria/config/slv-v2-passe1.json`, `institutions/state-library-victoria/config/slv-v2-passe2-primaws.json`
 
 ### d) Quota cherché dans la doc
 > Pour chaque page lue : endpoint de statut, en-têtes de limite documentés, clé ou compte donnant un quota, contact pour un volume plus élevé. Chaque réponse cite sa source.
 
-- [ ] **Pas fait**
-  - **Justification** : Pas encore traitée : l'audit suit l'ordre du classeur de référence (une institution à la fois).
-  - **Preuves** : 
+- [x] **Fait**
+  - **Justification** : Aucun endpoint de statut, en-tête de limite, clé ni quota dans les pages lues ; contacts slv-lab et opendata cités
+  - **Preuves** : `institutions/state-library-victoria/sources/v2/SHA256SUMS`, `institutions/state-library-victoria/data.json`
 
 ### e) Test systématique de chaque endpoint
 > Chaque endpoint documenté est testé (budget 15 requêtes par passe, pause ≥ 6 s, GET/HEAD, UA du projet). Redirections du même hôte suivies. Un 403 arrête son hôte, un 429 arrête l'institution. Seules les interdictions écrites dans la doc dispensent de tester.
 
-- [ ] **Pas fait**
-  - **Justification** : Pas encore traitée : l'audit suit l'ordre du classeur de référence (une institution à la fois).
-  - **Preuves** : 
+- [x] **Fait**
+  - **Justification** : Passes 1 et 2 : handle, viewer, find, primaws en 200/302 sans en-tête de limite ; rosetta (403 Cloudflare dès le robots) non testé, hôte arrêté
+  - **Preuves** : `institutions/state-library-victoria/tests/journal.log`, `institutions/state-library-victoria/tests/raw/p2-primaws-sourceRecord.headers.txt`, `institutions/state-library-victoria/sources/v2/raw/09.html`
 
 ### f) Ce que disent les gens sur le web
 > Plaintes, discussions, présentations de l'institution, politique envers les API et les bots, blogs, GitHub, forums, listes de diffusion. Sources étiquetées (officielle / institution / utilisateur / tiers), lues, citées.
 
-- [ ] **Pas fait**
-  - **Justification** : Pas encore traitée : l'audit suit l'ordre du classeur de référence (une institution à la fois).
-  - **Preuves** : 
+- [x] **Fait**
+  - **Justification** : 4 catégories : institution (open data), présentations (billet SLV LAB), utilisateurs et tickets sans résultat (recherches ciblées bloquées par le plafond de recherches web, consigné)
+  - **Preuves** : `institutions/state-library-victoria/data.json`, `institutions/state-library-victoria/fiche.md`
 
 ### g) Crash test progressif
 > Seulement après l'audit complet (a à f) de toutes les institutions et avec l'accord de Marcel : paliers jusqu'à 2 × la limite documentée, ou 200 req/min si illimité ou sans limite documentée. Arrêt au premier 429/403/CAPTCHA.
@@ -60,7 +60,10 @@
 
 <!-- AUTO:DEBUT -->
 ## Contrôles automatiques (calculés depuis `tests/journal.log`)
-Aucune requête enregistrée dans `tests/journal.log`.
+- Requêtes enregistrées : **9** (sessions de sonde : 2, maximum par session : 7)
+- Plus courte pause vers un même hôte : **10 s** (règle : ≥ 6 s)
+- Méthodes utilisées : GET, HEAD (règle : GET/HEAD seulement)
+- Anomalies : aucune
 <!-- AUTO:FIN -->
 
 ## Consigne intégrale

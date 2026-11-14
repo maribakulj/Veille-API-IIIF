@@ -4,10 +4,228 @@
   "pays": "Australie",
   "classeur_id": "GLAM-082",
   "type": "Institution",
-  "statut_audit": "à faire",
-  "limites_documentees": [],
+  "statut_audit": "audit a–f complet (v2) ; g à faire ; hôte rosetta en 403 Cloudflare",
+  "limites_documentees": [
+    {
+      "nature": "Crawl-delay robots.txt",
+      "perimetre": "handle.slv.vic.gov.au",
+      "valeur": "Crawl-delay: 1 ; Request-rate: 1/1",
+      "fenetre": "1 s",
+      "effet": "respecté (pause de 10 s imposée par find.slv)",
+      "verification": "robots.txt lu",
+      "source": "https://handle.slv.vic.gov.au/robots.txt",
+      "date": "2026-11-14"
+    },
+    {
+      "nature": "Crawl-delay robots.txt",
+      "perimetre": "find.slv.vic.gov.au (Primo)",
+      "valeur": "Crawl-delay: 10 ; Disallow /primaws, /discovery/search, /nde/search",
+      "fenetre": "10 s",
+      "effet": "respecté",
+      "verification": "robots.txt lu et lu par la sonde",
+      "source": "https://find.slv.vic.gov.au/robots.txt",
+      "date": "2026-11-14"
+    }
+  ],
   "en_tetes_observes": [],
-  "blocages": [],
-  "sources": [],
-  "web": []
+  "blocages": [
+    {
+      "hote": "rosetta.slv.vic.gov.au",
+      "nature": "403 Cloudflare « Attention Required! » sur robots.txt (3e requête de la session de doc) ; hôte arrêté pour tous les appels suivants",
+      "preuve": "institutions/state-library-victoria/sources/v2/FETCH.log"
+    }
+  ],
+  "sources": [
+    {
+      "url": "https://lab.slv.vic.gov.au/resources/using-iiif-to-work-with-the-librarys-digitised-collections",
+      "date": "2026-11-14",
+      "etiquette": "officielle",
+      "preuve": "institutions/state-library-victoria/sources/v2/SHA256SUMS"
+    },
+    {
+      "url": "https://lab.slv.vic.gov.au/resources/display-slv-iiif-urls",
+      "date": "2026-11-14",
+      "etiquette": "officielle",
+      "preuve": "institutions/state-library-victoria/sources/v2/SHA256SUMS"
+    },
+    {
+      "url": "https://www.slv.vic.gov.au/search-discover/open-data",
+      "date": "2026-11-14",
+      "etiquette": "officielle",
+      "preuve": "institutions/state-library-victoria/sources/b/SHA256SUMS"
+    },
+    {
+      "url": "https://github.com/statelibraryvic/opendata",
+      "date": "2026-11-14",
+      "etiquette": "officielle",
+      "preuve": "institutions/state-library-victoria/sources/b/SHA256SUMS"
+    },
+    {
+      "url": "https://find.slv.vic.gov.au/robots.txt",
+      "date": "2026-11-14",
+      "etiquette": "officielle",
+      "preuve": "institutions/state-library-victoria/sources/b/SHA256SUMS"
+    },
+    {
+      "url": "https://handle.slv.vic.gov.au/robots.txt",
+      "date": "2026-11-14",
+      "etiquette": "officielle",
+      "preuve": "institutions/state-library-victoria/sources/v2/SHA256SUMS"
+    }
+  ],
+  "web": [
+    {
+      "categorie": "institution",
+      "url": "https://www.slv.vic.gov.au/search-discover/open-data",
+      "date": "2026-11-14",
+      "etiquette": "officielle",
+      "citation": "métadonnées en CC BY 4.0 et images du domaine public réutilisables ; aucune politique de bots ni de débit.",
+      "preuve": "institutions/state-library-victoria/sources/b/SHA256SUMS"
+    },
+    {
+      "categorie": "presentations",
+      "url": "https://lab.slv.vic.gov.au/articles/exploring-slv-urls",
+      "date": "2026-11-14",
+      "etiquette": "institution (billet SLV LAB, T. Sherratt, 04/12/2025), lu",
+      "citation": "« The SLV uses Primo for its public-facing catalogue, as well as other systems such as Rosetta and IIIF to deliver digitised content. » Aucune limite citée.",
+      "preuve": "institutions/state-library-victoria/sources/v2/SHA256SUMS"
+    },
+    {
+      "categorie": "utilisateurs",
+      "aucun_resultat": true,
+      "requete": "State Library Victoria rosetta IIIF 403 Cloudflare blocked scraping manifest \"slv.vic.gov.au\" (non exécutée : plafond de recherches web de la session) ; recherches voisines sans plainte",
+      "date": "2026-11-14",
+      "etiquette": "–",
+      "citation": "aucune plainte de quota/429/blocage trouvée dans les deux recherches exécutées ; recherche ciblée non réalisée",
+      "preuve": "institutions/state-library-victoria/fiche.md"
+    },
+    {
+      "categorie": "tickets",
+      "aucun_resultat": true,
+      "requete": "github issue \"rosetta.slv.vic.gov.au\" iiif (non exécutée : plafond de recherches web de la session) ; page GLAM Workbench SLV lue (sources/b/text/07.txt)",
+      "date": "2026-11-14",
+      "etiquette": "tiers",
+      "citation": "la page GLAM Workbench (outils tiers pour SLV) ne mentionne ni limite, ni 403, ni cookie ; aucun ticket lu",
+      "preuve": "institutions/state-library-victoria/sources/b/SHA256SUMS"
+    }
+  ],
+  "contact": "slv-lab@slv.vic.gov.au (SLV LAB) et opendata@slv.vic.gov.au (open data), cités par les pages officielles",
+  "conclusion_quota": "Aucune limite de débit, quota ni doc d'API publiés ; la doc officielle SLV LAB décrit les manifestes IIIF 2.1 et le serveur d'images sur rosetta.slv.vic.gov.au, mais cet hôte répond 403 Cloudflare (« Attention Required ») dès le robots.txt : il n'a pas été testé (403 anti-bot, pas un quota). Les autres hôtes (handle, viewer, find (Primo, y compris l'API REST /primaws)) répondent 200/302 sans en-tête de limite ; Crawl-delay 1 (handle) et 10 (find).",
+  "classe_quota": "accès refusé à ce client (403 anti-bot)",
+  "confiance": "faible",
+  "notes": "Wayback montre des captures 200 du manifeste de l'exemple (contenu illisible, texte vide) : l'hôte sert les robots de capture mais refuse notre client. Réutilisation : métadonnées CC BY 4.0, images du domaine public libres. Recherches web 'utilisateurs' et 'tickets' ciblées non lancées : plafond de recherches web de la session atteint.",
+  "endpoints_documentes": [
+    {
+      "famille": "IIIF Presentation 2.1 : manifeste (rosetta)",
+      "url": "https://rosetta.slv.vic.gov.au/delivery/iiif/presentation/2.1/IE145082/manifest",
+      "statut": "non_teste",
+      "raison": "hôte rosetta.slv.vic.gov.au en 403 Cloudflare dès le robots.txt (sources/v2/raw/09.html) : arrêt de l'hôte, non contourné ; capture Wayback illisible"
+    },
+    {
+      "famille": "IIIF Image 2 : service d'image (rosetta, port 2083)",
+      "url": "https://rosetta.slv.vic.gov.au:2083/iiif/2/IE145082:FL21000768.jpg",
+      "statut": "non_teste",
+      "raison": "même hôte rosetta.slv.vic.gov.au arrêté après un 403 Cloudflare ; aucune requête envoyée vers cet hôte"
+    },
+    {
+      "famille": "Rosetta DeliveryManagerServlet (miniatures)",
+      "url": "https://rosetta.slv.vic.gov.au/delivery/DeliveryManagerServlet?dps_pid=FL21000768&dps_func=thumbnail",
+      "statut": "non_teste",
+      "raison": "même hôte rosetta.slv.vic.gov.au arrêté après un 403 Cloudflare ; aucune requête envoyée vers cet hôte"
+    },
+    {
+      "famille": "Résolveur Handle (handle.slv.vic.gov.au)",
+      "url": "http://handle.slv.vic.gov.au/10381/4338980",
+      "statut": "teste",
+      "preuve": "institutions/state-library-victoria/tests/raw/p1-handle-4338980+redir.headers.txt"
+    },
+    {
+      "famille": "Visualiseur SLV (viewer.slv.vic.gov.au)",
+      "url": "https://viewer.slv.vic.gov.au/?entity=IE24074939&mode=browse",
+      "statut": "teste",
+      "preuve": "institutions/state-library-victoria/tests/raw/p1-viewer-IE24074939.headers.txt"
+    },
+    {
+      "famille": "Catalogue Primo (find.slv.vic.gov.au)",
+      "url": "https://find.slv.vic.gov.au/discovery/fulldisplay?vid=61SLV_INST:SLV&search_scope=slv_local&tab=searchProfile&context=L&docid=alma9941325055707636",
+      "statut": "teste",
+      "preuve": "institutions/state-library-victoria/tests/raw/p1-find-fulldisplay.headers.txt"
+    },
+    {
+      "famille": "Jeux de données ouverts (GitHub et data.vic.gov.au)",
+      "url": "https://github.com/statelibraryvic/opendata",
+      "statut": "non_teste",
+      "raison": "fichiers CSV statiques hébergés par GitHub et data.vic.gov.au, hôtes tiers hors de l'institution ; la page GitHub a été lue comme doc (200), aucune API d'institution"
+    },
+    {
+      "famille": "Primo REST publique (primaws sourceRecord, MARC)",
+      "url": "https://find.slv.vic.gov.au/primaws/rest/pub/sourceRecord?docId=alma9941325055707636&vid=61SLV_INST:SLV&recordOwner=61SLV_INST&lang=en",
+      "statut": "teste",
+      "preuve": "institutions/state-library-victoria/tests/raw/p2-primaws-sourceRecord.headers.txt"
+    }
+  ],
+  "endpoints_ecartes": [
+    {
+      "url": "https://www.slv.vic.gov.au/open-data",
+      "raison": "404 constaté (sources/v2/FETCH.log) : l'adresse correcte /search-discover/open-data a été lue ; aucune API à tester"
+    },
+    {
+      "url": "https://rosetta.slv.vic.gov.au/delivery/general/termsofuse.jsp",
+      "raison": "page de conditions Rosetta citée dans le champ license du manifeste : hôte rosetta en 403 Cloudflare, aucune capture Wayback ; ajoutée à a_verifier_manuellement"
+    }
+  ],
+  "hotes_robots": [
+    {
+      "hote": "handle.slv.vic.gov.au",
+      "resultat": "Crawl-delay: 1 ; Request-rate: 1/1 ; aucun Disallow",
+      "preuve": "institutions/state-library-victoria/sources/v2/SHA256SUMS"
+    },
+    {
+      "hote": "viewer.slv.vic.gov.au",
+      "resultat": "404 : tout autorisé",
+      "preuve": "institutions/state-library-victoria/sources/b/SHA256SUMS"
+    },
+    {
+      "hote": "find.slv.vic.gov.au",
+      "resultat": "Disallow /primaws, /discovery/search, /nde/search ; Crawl-delay 10 ; GPTBot refusé",
+      "preuve": "institutions/state-library-victoria/sources/b/SHA256SUMS"
+    },
+    {
+      "hote": "rosetta.slv.vic.gov.au",
+      "resultat": "403 Cloudflare : illisible ; capture Wayback 2025 également 403",
+      "preuve": "institutions/state-library-victoria/sources/wayback/rosetta-wayback.md"
+    },
+    {
+      "hote": "lab.slv.vic.gov.au",
+      "resultat": "404 : tout autorisé",
+      "preuve": "institutions/state-library-victoria/sources/v2/SHA256SUMS"
+    },
+    {
+      "hote": "www.slv.vic.gov.au",
+      "resultat": "404 : tout autorisé",
+      "preuve": "institutions/state-library-victoria/sources/v2/SHA256SUMS"
+    }
+  ],
+  "a_verifier_manuellement": [
+    {
+      "url": "https://rosetta.slv.vic.gov.au/delivery/iiif/presentation/2.1/IE145082/manifest",
+      "pourquoi": "403 Cloudflare « Attention Required » sur l'hôte (robots.txt) : non contourné",
+      "a_chercher": "manifeste IIIF 2.1 depuis un navigateur ; en-têtes de limite (Retry-After, RateLimit-*) ; accès pour client automatisé"
+    },
+    {
+      "url": "https://rosetta.slv.vic.gov.au/robots.txt",
+      "pourquoi": "403 Cloudflare ; capture Wayback également en 403",
+      "a_chercher": "contenu du robots.txt, Crawl-delay éventuel"
+    },
+    {
+      "url": "https://rosetta.slv.vic.gov.au:2083/iiif/2/IE145082:FL21000768.jpg/info.json",
+      "pourquoi": "même hôte arrêté (403)",
+      "a_chercher": "info.json du service d'image IIIF 2 et ses en-têtes de limite"
+    },
+    {
+      "url": "https://rosetta.slv.vic.gov.au/delivery/general/termsofuse.jsp",
+      "pourquoi": "hôte en 403 ; aucune capture Wayback",
+      "a_chercher": "conditions d'utilisation des contenus Rosetta, mention de moissonnage"
+    }
+  ]
 }

@@ -1,0 +1,14 @@
+{
+  "slug": "ku-leuven-libraries",
+  "min_delay_s": 10,
+  "max_requests": 15,
+  "follow_redirects": 1,
+  "robots_disallow_autorise_par_marcel": true,
+  "note": "v2 passe 1 : plateforme Teneo/Rosetta de KU Leuven (LIBIS). Identifiants tirés du dépôt GitHub public de l'institution (Views of Leuven : resolver.libis.be/IE978853/representation et /thumbnail, sources/b/raw/08.html) et d'une présentation LIBIS 2018 (services.libis.be/m2/manifest/BIBC_Lovaniensia, résumé de moteur). Pause 10 s = Crawl-delay de kuleuven.limo.libis.be. Aucune doc publique d'API IIIF trouvée ; les hôtes libis.be répondent lentement (timeouts 30 s à la lecture de la doc).",
+  "endpoints": [
+    {"id": "resolver-representation", "method": "GET", "url": "http://resolver.libis.be/IE978853/representation"},
+    {"id": "resolver-thumbnail", "method": "HEAD", "url": "http://resolver.libis.be/IE978853/thumbnail"},
+    {"id": "services-manifest-lovaniensia", "method": "HEAD", "url": "http://services.libis.be/m2/manifest/BIBC_Lovaniensia"},
+    {"id": "teneo-delivery", "method": "HEAD", "url": "https://repository.teneo.libis.be/delivery/DeliveryManagerServlet?dps_pid=IE17414261"}
+  ]
+}

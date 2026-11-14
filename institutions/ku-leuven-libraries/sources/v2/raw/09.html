@@ -1,0 +1,452 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta name="server-qs" content="code=404">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Error — Solis</title>
+<meta name="robots" content="noindex, nofollow">
+<meta name="color-scheme" content="light dark">
+<meta name="theme-color" content="#f6f8f8" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#070f0e" media="(prefers-color-scheme: dark)">
+
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cellipse cx='50.0' cy='50.0' rx='10.69' ry='10.69' fill='%2366c6b4'/%3E%3Cellipse cx='74.45' cy='60.13' rx='7.18' ry='7.6' fill='%2366c6b4' transform='rotate(22.5 74.45 60.13)'/%3E%3Cellipse cx='60.13' cy='74.45' rx='7.18' ry='7.6' fill='%23158582' transform='rotate(67.5 60.13 74.45)'/%3E%3Cellipse cx='39.87' cy='74.45' rx='7.18' ry='7.6' fill='%2366c6b4' transform='rotate(112.5 39.87 74.45)'/%3E%3Cellipse cx='25.55' cy='60.13' rx='7.18' ry='7.6' fill='%23158582' transform='rotate(157.5 25.55 60.13)'/%3E%3Cellipse cx='25.55' cy='39.87' rx='7.18' ry='7.6' fill='%2366c6b4' transform='rotate(202.5 25.55 39.87)'/%3E%3Cellipse cx='39.87' cy='25.55' rx='7.18' ry='7.6' fill='%2366c6b4' transform='rotate(247.5 39.87 25.55)'/%3E%3Cellipse cx='60.13' cy='25.55' rx='7.18' ry='7.6' fill='%23158582' transform='rotate(292.5 60.13 25.55)'/%3E%3Cellipse cx='74.45' cy='39.87' rx='7.18' ry='7.6' fill='%23158582' transform='rotate(337.5 74.45 39.87)'/%3E%3Cellipse cx='91.15' cy='50.0' rx='4.78' ry='7.84' fill='%2366c6b4'/%3E%3Cellipse cx='79.1' cy='79.1' rx='4.78' ry='7.84' fill='%2366c6b4' transform='rotate(45.0 79.1 79.1)'/%3E%3Cellipse cx='50.0' cy='91.15' rx='4.78' ry='7.84' fill='%23158582' transform='rotate(90.0 50.0 91.15)'/%3E%3Cellipse cx='20.9' cy='79.1' rx='4.78' ry='7.84' fill='%2366c6b4' transform='rotate(135.0 20.9 79.1)'/%3E%3Cellipse cx='8.85' cy='50.0' rx='4.78' ry='7.84' fill='%2366c6b4' transform='rotate(180.0 8.85 50.0)'/%3E%3Cellipse cx='20.9' cy='20.9' rx='4.78' ry='7.84' fill='%23158582' transform='rotate(225.0 20.9 20.9)'/%3E%3Cellipse cx='50.0' cy='8.85' rx='4.78' ry='7.84' fill='%23158582' transform='rotate(270.0 50.0 8.85)'/%3E%3Cellipse cx='79.1' cy='20.9' rx='4.78' ry='7.84' fill='%2366c6b4' transform='rotate(315.0 79.1 20.9)'/%3E%3Cellipse cx='97.27' cy='69.58' rx='2.29' ry='4.73' fill='%23158582' transform='rotate(22.5 97.27 69.58)'/%3E%3Cellipse cx='69.58' cy='97.27' rx='2.29' ry='4.73' fill='%23158582' transform='rotate(67.5 69.58 97.27)'/%3E%3Cellipse cx='30.42' cy='97.27' rx='2.29' ry='4.73' fill='%23158582' transform='rotate(112.5 30.42 97.27)'/%3E%3Cellipse cx='2.73' cy='69.58' rx='2.29' ry='4.73' fill='%2366c6b4' transform='rotate(157.5 2.73 69.58)'/%3E%3Cellipse cx='2.73' cy='30.42' rx='2.29' ry='4.73' fill='%2366c6b4' transform='rotate(202.5 2.73 30.42)'/%3E%3Cellipse cx='30.42' cy='2.73' rx='2.29' ry='4.73' fill='%2366c6b4' transform='rotate(247.5 30.42 2.73)'/%3E%3Cellipse cx='69.58' cy='2.73' rx='2.29' ry='4.73' fill='%2366c6b4' transform='rotate(292.5 69.58 2.73)'/%3E%3Cellipse cx='97.27' cy='30.42' rx='2.29' ry='4.73' fill='%2366c6b4' transform='rotate(337.5 97.27 30.42)'/%3E%3C/svg%3E">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@100..600&family=Newsreader:ital,opsz,wght@0,6..72,200..600;1,6..72,300&family=IBM+Plex+Mono:wght@400;500&display=swap">
+
+<style>
+/* =============================================================
+   TOKENS — identical to index.html
+   ============================================================= */
+:root{
+  --bg:#f6f8f8;
+  --bg-2:#ffffff;
+  --ink:#0b1817;
+  --ink-2:#4d605d;
+  --ink-3:#7d8f8c;
+  --line:#dae3e1;
+  --teal:#158582;
+  --teal-light:#66c6b4;
+  --teal-deep:#0e6b68;
+  --plate:transparent;
+  --ease-out:cubic-bezier(.22,1,.36,1);
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#070f0e;
+    --bg-2:#0d1716;
+    --ink:#e9f2f0;
+    --ink-2:#94a8a4;
+    --ink-3:#6d817d;
+    --line:#1c2a28;
+    --teal:#2ea79e;
+    --teal-light:#66c6b4;
+    --teal-deep:#12807b;
+    --plate:#ffffff;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#070f0e;
+  --bg-2:#0d1716;
+  --ink:#e9f2f0;
+  --ink-2:#94a8a4;
+  --ink-3:#6d817d;
+  --line:#1c2a28;
+  --teal:#2ea79e;
+  --teal-light:#66c6b4;
+  --teal-deep:#12807b;
+  --plate:#ffffff;
+}
+
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+  margin:0;
+  background:var(--bg);
+  color:var(--ink);
+  font-family:"Newsreader",Georgia,serif;
+  font-size:17px;
+  line-height:1.6;
+  -webkit-font-smoothing:antialiased;
+  overflow-x:hidden;
+}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--teal);outline-offset:3px;border-radius:6px}
+
+/* ambient wash — tinted by whichever product the mark is showing */
+@property --wash-d{ syntax:'<color>'; inherits:true; initial-value:#158582 }
+@property --wash-l{ syntax:'<color>'; inherits:true; initial-value:#66c6b4 }
+.wash{
+  position:fixed;inset:0;z-index:0;pointer-events:none;
+  background:
+    radial-gradient(60% 45% at 50% 20%, color-mix(in oklab, var(--wash-d) 16%, transparent), transparent 70%),
+    radial-gradient(45% 40% at 82% 78%, color-mix(in oklab, var(--wash-l) 12%, transparent), transparent 72%);
+  opacity:.9;
+  transition:--wash-d 1.2s ease, --wash-l 1.2s ease;
+}
+
+/* =============================================================
+   PAGE
+   ============================================================= */
+.page{
+  position:relative;z-index:5;
+  min-height:100dvh;
+  display:flex;flex-direction:column;
+  padding:24px 28px;
+}
+.err{
+  flex:1;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  text-align:center;gap:18px;
+  max-width:720px;margin-inline:auto;
+  padding-block:40px;
+}
+.err .dotmark{--size:180px;margin-block-end:10px}
+
+.product{
+  font-family:"IBM Plex Mono",ui-monospace,monospace;
+  font-size:.68rem;letter-spacing:.22em;text-transform:uppercase;
+  color:var(--ink-3);
+  margin:0;min-block-size:1.2em;
+  transition:opacity .35s ease;
+}
+.product.fade{opacity:0}
+
+.code{
+  font-family:"Public Sans",system-ui,sans-serif;
+  font-weight:200;letter-spacing:-.03em;line-height:1;
+  font-size:clamp(4.5rem,16vw,8rem);
+  margin:0;
+  font-variant-numeric:tabular-nums;
+}
+.message{
+  font-family:"Newsreader",Georgia,serif;
+  font-weight:300;font-size:clamp(1.35rem,3.4vw,1.9rem);
+  line-height:1.25;letter-spacing:-.01em;
+  margin:0;max-width:28ch;text-wrap:balance;
+  color:var(--ink);
+}
+.hint{margin:0;max-width:48ch;font-size:1rem;color:var(--ink-2)}
+
+.actions{display:flex;gap:10px;flex-wrap:wrap;justify-content:center;margin-block-start:8px}
+.btn{
+  font-family:"Public Sans",system-ui,sans-serif;
+  font-size:.92rem;font-weight:500;letter-spacing:.005em;
+  border-radius:999px;padding:9px 18px;cursor:pointer;
+  text-decoration:none;display:inline-flex;align-items:center;gap:8px;
+  border:1px solid var(--line);background:none;color:var(--ink-2);
+  transition:background .2s,border-color .2s,color .2s;
+}
+.btn:hover{border-color:var(--teal);color:var(--ink)}
+.btn-home{background:var(--teal-deep);border-color:var(--teal-deep);color:#fff}
+.btn-home:hover{background:var(--teal);border-color:var(--teal);color:#fff}
+
+/* entrance */
+.err > *{opacity:0;transform:translateY(10px);transition:opacity .7s var(--ease-out), transform .7s var(--ease-out)}
+body.ready .err > *{opacity:1;transform:none}
+.err > *:nth-child(2){transition-delay:.05s}
+.err > *:nth-child(3){transition-delay:.12s}
+.err > *:nth-child(4){transition-delay:.19s}
+.err > *:nth-child(5){transition-delay:.26s}
+.err > *:nth-child(6){transition-delay:.33s}
+
+/* =============================================================
+   FOOTER
+   ============================================================= */
+.foot{
+  display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap;
+  padding-top:20px;border-top:1px solid var(--line);
+}
+.unit{display:flex;align-items:center;gap:12px;text-decoration:none}
+.unit .plate{
+  display:inline-flex;align-items:center;
+  background:var(--plate);border-radius:8px;padding:7px 12px;
+}
+.unit img{display:block;height:34px;width:auto}
+.unit .fallback{
+  display:none;font-family:"Public Sans",system-ui,sans-serif;
+  font-weight:600;font-size:.9rem;letter-spacing:.01em;color:var(--ink);
+}
+.footnav{display:flex;gap:18px;flex-wrap:wrap;align-items:center}
+.footnav a{
+  font-family:"Public Sans",system-ui,sans-serif;
+  font-size:.86rem;color:var(--ink-2);text-decoration:none;
+}
+.footnav a:hover{color:var(--teal)}
+
+@media (max-width:640px){
+  .page{padding:16px}
+  .err .dotmark{--size:132px}
+  .foot{gap:14px}
+}
+
+@media (prefers-reduced-motion: reduce){
+  *{animation-duration:.01ms !important;transition-duration:.01ms !important}
+  .dotmark[data-pop="on"].is-swapping .dot{animation:none}
+}
+
+/* =============================================================
+   THE MARK — pure CSS, 25 dots (same as index.html)
+   ============================================================= */
+.dotmark{
+  --dur:520ms; --stagger:640ms; --ease:cubic-bezier(.4,0,.2,1);
+  position:relative;inline-size:var(--size);aspect-ratio:1;
+  font-size:var(--size);flex:none;
+}
+.dotmark .ring{position:absolute;inset:0}
+.dotmark .r0{--ri:0;--r:0;      --rw:.21389;--rh:.21389;--n:1;--off:0;   --base:0}
+.dotmark .r1{--ri:1;--r:.26463;--rw:.14364;--rh:.15202;--n:8;--off:22.5;--base:1}
+.dotmark .r2{--ri:2;--r:.41153;--rw:.09557;--rh:.15675;--n:8;--off:0;   --base:9}
+.dotmark .r3{--ri:3;--r:.51163;--rw:.04571;--rh:.09468;--n:8;--off:22.5;--base:17}
+
+.dotmark .dot:nth-child(1){--k:0}
+.dotmark .dot:nth-child(2){--k:1}
+.dotmark .dot:nth-child(3){--k:2}
+.dotmark .dot:nth-child(4){--k:3}
+.dotmark .dot:nth-child(5){--k:4}
+.dotmark .dot:nth-child(6){--k:5}
+.dotmark .dot:nth-child(7){--k:6}
+.dotmark .dot:nth-child(8){--k:7}
+@supports (inline-size: calc(sibling-index() * 1px)){
+  .dotmark .ring .dot{--k:calc(sibling-index() - 1);--n:sibling-count()}
+}
+
+.dotmark .dot{
+  --ang:calc(var(--off) + var(--k) * 360 / var(--n));
+  --a:calc(var(--ang) * 1deg);
+  --i:calc(var(--base) + var(--k));
+  position:absolute;left:50%;top:50%;
+  inline-size:calc(var(--rw) * 1em);
+  block-size:calc(var(--rh) * 1em);
+  margin-left:calc(var(--rw) * -.5em);
+  margin-top:calc(var(--rh) * -.5em);
+  border-radius:50%;
+  background:var(--fill);
+  transform:rotate(var(--a)) translateX(calc(var(--r) * 1em));
+  transition:background-color var(--dur) var(--ease);
+  transition-delay:calc(var(--d,0) * var(--stagger));
+}
+.dotmark[data-mode="quad"] .dot[data-tone="core"]{--fill:var(--c0)}
+.dotmark[data-mode="quad"] .dot[data-tone="0"]{--fill:var(--c1)}
+.dotmark[data-mode="quad"] .dot[data-tone="1"]{--fill:var(--c2)}
+.dotmark[data-mode="quad"] .dot[data-tone="2"]{--fill:var(--c3)}
+.dotmark[data-mode="quad"] .dot[data-tone="3"]{--fill:var(--c4)}
+.dotmark[data-mode="duo"]  .dot[data-duo="0"]{--fill:var(--cd)}
+.dotmark[data-mode="duo"]  .dot[data-duo="1"]{--fill:var(--cl)}
+
+.dotmark[data-anim="radial"]  .dot{--d:calc(var(--ri) / 3)}
+.dotmark[data-anim="spiral"]  .dot{--d:calc(var(--i) / 24)}
+.dotmark[data-anim="sweep"]   .dot{--d:calc(var(--ang) / 360)}
+.dotmark[data-anim="scatter"] .dot{--d:calc(mod(var(--i) * 7, 25) / 24)}
+.dotmark[data-anim="wipe"]    .dot{
+  --px:calc(cos(var(--a)) * var(--r));
+  --py:calc(sin(var(--a)) * var(--r));
+  --d:calc((var(--px) + var(--py) + 1.07) / 2.14);
+}
+
+.dotmark[data-pop="on"].is-swapping .dot{
+  animation:dot-pop var(--dur) var(--ease) calc(var(--d,0) * var(--stagger)) both;
+}
+@keyframes dot-pop{ 50%{ scale:1.16 } }
+
+/* ---- palettes: LIBIS is four-tone, every product is dark/light ---- */
+.dotmark[data-palette="libis"] {--c0:#7e7d7e;--c1:#0d96d2;--c2:#c92584;--c3:#c5d12d;--c4:#ec8322}
+.dotmark[data-palette="limo"]  {--cd:#878B42;--cl:#C8D250}
+.dotmark[data-palette="teneo"] {--cd:#A86034;--cl:#E1893D}
+.dotmark[data-palette="heron"] {--cd:#7D275B;--cl:#BA3583}
+.dotmark[data-palette="libisplus"]{--cd:#316781;--cl:#4295CE}
+.dotmark[data-palette="resolv"]{--cd:#BFAF4D;--cl:#F1E04D}
+.dotmark[data-palette="solis"] {--cd:#158582;--cl:#66c6b4}
+</style>
+</head>
+<!--
+  ERROR CODE / MESSAGE — resolved in this order:
+    1. query string      error.html?code=404&message=Page%20not%20found
+    2. server injection  replace __ERROR_CODE__ / __ERROR_MESSAGE__ below
+                         (ERB: <%= @code %> / <%= @message %>, nginx sub_filter, sed at build time…)
+    3. fallback          the code's standard reason phrase, or a generic 500
+  Values are written with textContent, never innerHTML.
+-->
+<body>
+
+<div class="wash" aria-hidden="true"></div>
+
+<div class="page">
+  <main class="err">
+    <div class="dotmark" id="mark" data-palette="libis" data-mode="quad" data-anim="wipe" data-pop="on" role="img" aria-label="LIBIS">
+      <div class="ring r0">
+        <i class="dot" data-tone="core" data-duo="1"></i>
+      </div>
+      <div class="ring r1">
+        <i class="dot" data-tone="0" data-duo="1"></i>
+        <i class="dot" data-tone="1" data-duo="0"></i>
+        <i class="dot" data-tone="2" data-duo="1"></i>
+        <i class="dot" data-tone="3" data-duo="0"></i>
+        <i class="dot" data-tone="0" data-duo="1"></i>
+        <i class="dot" data-tone="1" data-duo="1"></i>
+        <i class="dot" data-tone="2" data-duo="0"></i>
+        <i class="dot" data-tone="3" data-duo="0"></i>
+      </div>
+      <div class="ring r2">
+        <i class="dot" data-tone="2" data-duo="1"></i>
+        <i class="dot" data-tone="1" data-duo="1"></i>
+        <i class="dot" data-tone="3" data-duo="0"></i>
+        <i class="dot" data-tone="0" data-duo="1"></i>
+        <i class="dot" data-tone="2" data-duo="1"></i>
+        <i class="dot" data-tone="1" data-duo="0"></i>
+        <i class="dot" data-tone="3" data-duo="0"></i>
+        <i class="dot" data-tone="0" data-duo="1"></i>
+      </div>
+      <div class="ring r3">
+        <i class="dot" data-tone="3" data-duo="0"></i>
+        <i class="dot" data-tone="0" data-duo="0"></i>
+        <i class="dot" data-tone="1" data-duo="0"></i>
+        <i class="dot" data-tone="2" data-duo="1"></i>
+        <i class="dot" data-tone="3" data-duo="1"></i>
+        <i class="dot" data-tone="0" data-duo="1"></i>
+        <i class="dot" data-tone="1" data-duo="1"></i>
+        <i class="dot" data-tone="2" data-duo="1"></i>
+      </div>
+    </div>
+
+    <p class="product" id="product" aria-hidden="true">LIBIS</p>
+    <h1 class="code" id="code">__ERROR_CODE__</h1>
+    <p class="message" id="message">__ERROR_MESSAGE__</p>
+    <p class="hint">Something went wrong on the way. Head back to the start, or try again in a moment.</p>
+    <div class="actions">
+      <a class="btn btn-home" href="/">Back to home</a>
+      <button class="btn" type="button" id="retry">Try again</button>
+    </div>
+  </main>
+
+  <footer class="foot">
+    <a class="unit" href="https://libis.be" target="_blank" rel="noopener">
+      <span class="plate">
+        <img id="unitLogo" src="https://assets.libis.be/libis/libisnewkuljr.png" alt="KU Leuven — LIBIS">
+        <span class="fallback">KU&nbsp;Leuven · LIBIS</span>
+      </span>
+    </a>
+    <div class="footnav">
+      <a href="https://libis.be/en/contact" target="_blank" rel="noopener">Contact</a>
+    </div>
+  </footer>
+</div>
+
+<script>
+(function(){
+  /* ---------------------------------------------------------------
+     CODE + MESSAGE
+     --------------------------------------------------------------- */
+  const REASONS = {
+    400:'Bad request', 401:'Unauthorized', 403:'Forbidden', 404:'Page not found',
+    405:'Method not allowed', 408:'Request timeout', 410:'Gone', 413:'Payload too large',
+    415:'Unsupported media type', 422:'Unprocessable content', 429:'Too many requests',
+    500:'Internal server error', 501:'Not implemented', 502:'Bad gateway',
+    503:'Service unavailable', 504:'Gateway timeout'
+  };
+
+  const codeEl = document.getElementById('code');
+  const msgEl  = document.getElementById('message');
+  //const q      = new URLSearchParams(location.search);
+  const srvQs = document.querySelector('meta[name="server-qs"]')?.content || '';
+  const q     = new URLSearchParams(srvQs.startsWith('<!--') ? location.search : (srvQs || location.search));
+
+  // a server-side value counts only if the placeholder was actually replaced
+  const injected = el => {
+    const t = el.textContent.trim();
+    return /^__[A-Z_]+__$/.test(t) ? '' : t;
+  };
+
+  let code = (q.get('code') || q.get('status') || injected(codeEl)).trim();
+  if (!/^[1-5]\d\d$/.test(code)) code = '500';
+
+  let message = (q.get('message') || q.get('msg') || injected(msgEl)).trim().slice(0, 200);
+  if (!message) message = REASONS[code] || 'Something went wrong';
+
+  codeEl.textContent = code;
+  msgEl.textContent  = message;
+  document.title = code + ' ' + message;
+
+  document.getElementById('retry').addEventListener('click', () => location.reload());
+
+  /* ---------------------------------------------------------------
+     MARK — LIBIS four-tone first, then each product's duo, looping
+     --------------------------------------------------------------- */
+  const PRODUCTS = [
+    { id:'libis',     name:'LIBIS',  mode:'quad', d:'#158582', l:'#66c6b4' },
+    { id:'limo',      name:'Limo',   mode:'duo',  d:'#878B42', l:'#C8D250' },
+    { id:'teneo',     name:'Teneo',  mode:'duo',  d:'#A86034', l:'#E1893D' },
+    { id:'heron',     name:'Heron',  mode:'duo',  d:'#7D275B', l:'#BA3583' },
+    { id:'libisplus', name:'LIBIS+', mode:'duo',  d:'#316781', l:'#4295CE' },
+    { id:'resolv',    name:'Resolv', mode:'duo',  d:'#BFAF4D', l:'#F1E04D' },
+    { id:'solis',     name:'Solis',  mode:'duo',  d:'#158582', l:'#66c6b4' }
+  ];
+  const ANIMS = ['wipe','radial','sweep','spiral','scatter'];
+
+  const mark    = document.getElementById('mark');
+  const product = document.getElementById('product');
+  const wash    = document.querySelector('.wash');
+  const reduce  = matchMedia('(prefers-reduced-motion: reduce)');
+
+  const ms = v => {
+    const raw = getComputedStyle(mark).getPropertyValue(v).trim();
+    return parseFloat(raw) * (raw.endsWith('ms') ? 1 : 1000);
+  };
+  const RECOLOUR = ms('--dur') + ms('--stagger');   // 1160ms
+  const HOLD     = 1600;                            // ms each scheme sits still
+
+  let i = 0, timer = null;
+
+  function show(p, anim){
+    mark.dataset.anim    = anim;
+    mark.dataset.palette = p.id;
+    mark.dataset.mode    = p.mode;
+    mark.setAttribute('aria-label', p.name);
+    wash.style.setProperty('--wash-d', p.d);
+    wash.style.setProperty('--wash-l', p.l);
+
+    product.classList.add('fade');
+    setTimeout(() => { product.textContent = p.name; product.classList.remove('fade'); }, 350);
+
+    mark.classList.remove('is-swapping');
+    void mark.offsetWidth;                         // restart the pulse keyframes
+    mark.classList.add('is-swapping');
+    setTimeout(() => mark.classList.remove('is-swapping'), RECOLOUR + 200);
+  }
+
+  function next(){
+    i = (i + 1) % PRODUCTS.length;
+    show(PRODUCTS[i], ANIMS[i % ANIMS.length]);
+    timer = setTimeout(next, RECOLOUR + HOLD);
+  }
+
+  function start(){
+    stop();
+    if (reduce.matches || document.hidden) return;
+    timer = setTimeout(next, HOLD);
+  }
+  function stop(){ clearTimeout(timer); timer = null; }
+
+  document.addEventListener('visibilitychange', () => document.hidden ? stop() : start());
+  reduce.addEventListener('change', start);
+
+  /* footer logo fallback, as on the landing page */
+  const logo = document.getElementById('unitLogo');
+  function logoFallback(){
+    logo.style.display = 'none';
+    logo.nextElementSibling.style.display = 'inline';
+    logo.parentElement.style.background = 'transparent';
+  }
+  logo.addEventListener('error', logoFallback);
+  if (logo.complete && logo.naturalWidth === 0) logoFallback();
+  setTimeout(() => { if (!logo.naturalWidth) logoFallback(); }, 2500);
+
+  requestAnimationFrame(() => document.body.classList.add('ready'));
+  start();
+})();
+</script>
+
+</body>
+</html>

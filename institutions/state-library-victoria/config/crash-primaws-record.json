@@ -1,0 +1,12 @@
+{
+  "slug": "state-library-victoria",
+  "endpoint": {
+    "id": "primaws-sourceRecord",
+    "url": "https://find.slv.vic.gov.au/primaws/rest/pub/sourceRecord?docId=alma9941325055707636&vid=61SLV_INST:SLV&recordOwner=61SLV_INST&lang=en",
+    "method": "GET"
+  },
+  "limite_documentee_req_min": 6,
+  "source_limite": "Crawl-delay: 10 dans https://find.slv.vic.gov.au/robots.txt (soit 6 req/min) ; aucune autre limite documentée",
+  "duree_palier_s": 180,
+  "note": "notice MARC d'une seule notice (quelques ko), 200 dans le journal (p2-primaws-sourceRecord, 2026-11-14T03:07:49Z). Hôte derrière Cloudflare : la politique protégée de crash.py s'appliquera."
+}

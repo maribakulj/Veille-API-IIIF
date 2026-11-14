@@ -1,0 +1,134 @@
+Exploring URLs | SLV LAB 
+ Open SLV Lab menu SLV LAB -> 
+ Exploring SLV URLs 
+ × 
+ Search 
+ Title:
+ Exploring SLV URLs
+ Last updated:
+ 04.12.25
+ Tags:
+ Open access 
+ Mapping 
+ Collections 
+ History 
+ Hacking 
+ Experiment:
+ My Place – Tim Sherratt -> 
+ Author :
+ Tim Sherratt 
+ Exploring SLV URLs
+ Tim Sherratt
+ Words:  1,159 
+ Reading time:  4min 52sec 
+ I like urls. They take you places. And if you know how to read them, they can tell you things about the systems that created them. One of the first things I did when I started  my residency at SLV LAB , was to try and understand how their collection urls work. There’s a couple of well-worn methods I use when digging into a new site.
+ The first is url hacking – this involves fiddling around with the parameters in a url and submitting the result to see what happens. The Trove Data Guide includes  some examples of hacking Trove urls  to change the delivery of search results.
+ The second method involves opening up the developer console in your web browser and watching the activity in the network tab as you click on links. This tells you where the information that gets loaded into your browser actually comes from – sometimes exposing handy urls that you can use to shortcut access to useful data.
+ Permalinks
+ The SLV uses Primo for its public-facing catalogue, as well as other systems such as Rosetta and IIIF to deliver digitised content. I’d noticed that  Zotero  gets some useful data from the catalogue using the default ‘Primo 2018’ translator, however, important things like the item url aren’t captured. The problem is that Primo’s ‘permalinks’ are generated as required by a browser click – they’re not embedded anywhere on the page. This makes it hard to Zotero to grab them. So I started wondering how Zotero could construct short, persistent(ish) links to items.
+ Here’s a link to an item in Primo:
+ https://find.slv.vic.gov.au/discovery/fulldisplay?vid=61SLV_INST:SLV&search_scope=slv_local&tab=searchProfile&context=L&docid=alma9941325055707636 
+ It looks pretty long and messy, but if you start deleting parameters and resubmitting, you’ll find that only two parameters are essential,  vid  and  docid . This means we can rewrite the url as:
+ https://find.slv.vic.gov.au/discovery/fulldisplay?vid=61SLV_INST:SLV&docid=alma9941325055707636  Much nicer.
+ The ‘permalink’ for the same item is: 
+ https://find.slv.vic.gov.au/permalink/61SLV_INST/1sev8ar/alma9941325055707636  
+ If you look closely at the url path and compare it to the example above you’ll see the path is constructed from  /vid/[some other id]/docid . One of the librarians explained to me that the other identifier in the permalink is an encoding of the view type, but given that the ‘fulldisplay’ view is the default, we don’t really need it. So the shortened url seems fine for use in Zotero and is easy to generate from the current url. Nice.
+ It’s also worth noting that the  vid  value doesn’t seem to change, so to construct catalogue urls in your code, all you really need is the ALMA identifier that’s in the  docid  parameter.
+ Structured data
+ Item pages in Primo include a link labelled ‘Display source record’. If you click on this you’re taken to a representation of the item’s metadata in MARC. Here’s what the urls look like:
+ https://find.slv.vic.gov.au/discovery/sourceRecord?vid=61SLV_INST%3ASLV&docId=alma9941325055707636&recordOwner=61SLV_INST  
+ Notice that the ‘fulldisplay’ in the url path above has changed to ‘sourceRecord’. There’s also a new  recordOwner  parameter, but it seems you can delete this and still get the same result.
+ Having access to the MARC record is handy, because it delivers the metadata in a simple, structured plain text format. But while the ‘source record’ page looks like a plain text file, it’s actually a HTML page that embeds a plain text record. If you open up the network tab of your browser’s developer console and reload the ‘source record’ page, you’ll see a different url is loaded under the hood:
+ https://find.slv.vic.gov.au/primaws/rest/pub/sourceRecord?docId=alma9941325055707636&vid=61SLV_INST:SLV&recordOwner=61SLV_INST&lang=en 
+ See how the url path has changed from  /discovery/  to  /primaws/rest/pub ? This url  does  deliver a plain text version of the MARC record.
+ Once you have the plain text version you can parse the contents to extract the structured data. There are tools that can probably do this automatically, but it’s also pretty easy using regular expressions. Here’s an example of some code I used to parse map records:
+ Copy def get_marc_value(marc, tag, subfield):
+ """
+ Gets the value of a tag/subfield from a text version of an item's MARC record.
+ """
+ try:
+ tag = re.search(rf"^{tag}\t.+", marc, re.M).group(0)
+ subfield = re.search(rf"\${subfield}([^\$]+)", tag).group(1)
+ except AttributeError:
+ return None
+ return subfield.strip(" .,") 
+ You can also access a JSON representation of the record by adding the parameter  &showPnx=true  to the catalogue url: 
+ https://find.slv.vic.gov.au/discovery/fulldisplay?vid=61SLV_INST:SLV&search_scope=slv_local&tab=searchProfile&context=L&docid=alma9941325055707636&showPnx=true 
+ Once again, this is a JSON representation embedded in a web page. Using the same developer console trick, you can identify the direct url is:
+ https://find.slv.vic.gov.au/primaws/rest/pub/pnxs/L/alma9941325055707636?vid=61SLV_INST:SLV&lang=en&search_scope=slv_local&showPnx=true&lang=en 
+ You should be able to parse the response from this url as JSON and use it in your code. I think the Zotero translator makes use of this  pnx  data.
+ If you want to download the MARC or JSON representations in your code, all you really need is the  alma  identifier. Just use it to construct one of the direct urls, such as this: 
+ https://find.slv.vic.gov.au/primaws/rest/pub/sourceRecord?docId=alma9941325055707636&vid=61SLV_INST:SLV  
+ The  recordOwner  and  lang  parameters are not needed, and the  vid  parameter doesn’t change.
+ Librarians using Primo have documented a number of tricks like this and  shared handy bookmarklets  to rewrite urls and get catalogue data in different forms.
+ IIIF and images
+ SLV delivers digitised images using  IIIF . The IIIF manifest urls are not directly exposed through the web interface, but you can construct your own.
+ IIIF manifest urls look like this:
+ https://rosetta.slv.vic.gov.au/delivery/iiif/presentation/2.1/IE24074939/manifest.json  
+ All we need to construct them is the  IE  identifier, in this case  IE24074939 . But where do you find this identifier?
+ If you’re looking at an image in the SLV’s image viewer, the url will be something like this:
+ https://viewer.slv.vic.gov.au/?entity=IE24074939&mode=browse  
+ Yep, the  IE  identifier is right there in the url. Just extract it from the viewer url, and plug it into the manifest url!
+ If you’re looking at a catalogue record, or starting with one of the  alma  identifiers, you can get the  IE  identifier from the  956$e  field of the MARC record.
+ The IIIF manifest will, in turn, provide identifiers for individual images that can be requested using the standard IIIF syntax.
+ To save myself a bit of fiddling about, I created  a userscript that exposes the IIIF manifest url  within the image viewer. If you install it you’ll see something like this:
+ Handles
+ Links to digitised items sometimes come in the form of ‘handles’:
+ http://handle.slv.vic.gov.au/10381/4338980  
+ These urls are redirected to the image viewer.
+ If you want to construct one of these handles, the identifier can be found in  956$a  field of the MARC record.
+ From old to new
+ I was looking at the datasets created about 8 years ago in the  SLV open data repository  and noticed they included urls from the previous catalogue. Fortunately, the old urls redirect to the new system.
+ For example, this url:
+ http://search.slv.vic.gov.au/MAIN:Everything:SLV_VOYAGER1842440 
+ Redirects to:
+ https://find.slv.vic.gov.au/discovery/fulldisplay?context=L&vid=61SLV_INST:SLV&search_scope=slv_local&tab=searchProfile&docid=alma9918424403607636 
+ If you look closely at the urls you’ll see that the identifier from the old system is embedded in the new identifier:  1842440  is in  9918424403607636  –  99_1842440_3607636 . This means if you have a lot of old urls, such as in the open datasets, you can easily rewrite them in your code.
+ The process of GLAM hacking
+ No doubt a lot of this is well-known to librarians, and there’s probably many subtleties or complexities that my poking about has missed. But I wanted to document the process as much as the results – to give an idea of what I do when I approach a new GLAM collection online. I suppose this is GLAM hacking 101.
+ Originally published on 23 September 2025 on timsherratt.au 
+ Back to top 
+ Metadata Last updated 04.12.25 
+ Contributor :
+ Tim Sherratt -> Tim Sherratt is a historian and hacker who researches the possibilities and politics of digital cultural collections. Tim has worked across the cultural heritage sector and has been developing online resources relating to libraries, archives, museums and history since 1993. You can find him at timsherratt.au or on Mastodon as hcommons.social/@wragge .
+ In late 2025, Tim undertook a 12-week hybrid residency at State Library Victoria. He engaged the Library’s place-based collections – maps, directories, photos and newspapers – to build a series of web-based prototypes, collectively known as 'My Place', which allowed users to navigate the Library's collection in new ways. The project provided insights into the Library’s digital collections data model and demonstrated how digital tools can encourage digital scholarship using our material.
+ Learn more about 'My Place' 
+ Learn more about SLV LAB's Residency program 
+ Listen to a conversation with Tim Sherratt and Paula Bray 
+ Title:
+ Exploring SLV URLs
+ Tags:
+ Open access 
+ Mapping 
+ Collections 
+ History 
+ Hacking 
+ Experiment:
+ My Place – Tim Sherratt -> 
+ Related content
+ Title:
+ Hacking the Library (in the best possible way) – notes from Code Club
+ Last updated:
+ 25.11.25
+ Tags:
+ Open access 
+ Hacking 
+ Code 
+ Experiment:
+ My Place – Tim Sherratt -> 
+ Author (s) :
+ Dilan Gunawardana 
+ Tim Sherratt 
+ SLV LAB is State Library Victoria's prototyping and innovation lab. We experiment with technology to open access to collections, data and spaces.
+ State Library Victoria acknowledges the traditional lands of all the Victorian Aboriginal clans, and their cultural practices and knowledge systems. We recognise that our collections hold traditional cultural knowledge belonging to Indigenous communities in Victoria and around the country. We support communities to protect the integrity of this information, gathered from their Ancestors in the colonial period. We pay our respects to their Elders, past and present, who have handed down these systems of practice to each new generation for millennia
+ Home 
+ Experiments 
+ Conversations 
+ Resources 
+ Participate 
+ About 
+ Feedback 
+ Disclaimer 
+ Privacy 
+ RSS Feed 
+ © 2025 State Library Victoria
