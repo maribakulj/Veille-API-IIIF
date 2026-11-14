@@ -1,0 +1,12 @@
+{
+  "slug": "northwestern-university-libraries",
+  "endpoint": {
+    "id": "oai-identify",
+    "url": "https://api.dc.library.northwestern.edu/api/v2/oai?verb=Identify",
+    "method": "GET"
+  },
+  "limite_documentee_req_min": null,
+  "source_limite": "aucune limite documentée (https://api.dc.library.northwestern.edu/ : OpenAPI v2 sans mention de limite de débit ; authentification OAuth « pour l'instant interne »)",
+  "duree_palier_s": 180,
+  "note": "Identify OAI-PMH de l'API v2, réponse courte, 200 dans le journal (oai-identify, 2026-11-14T02:08:48Z)."
+}

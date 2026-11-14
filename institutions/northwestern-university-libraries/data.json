@@ -4,10 +4,222 @@
   "pays": "États-Unis",
   "classeur_id": "GLAM-045",
   "type": "Institution",
-  "statut_audit": "à faire",
-  "limites_documentees": [],
-  "en_tetes_observes": [],
-  "blocages": [],
-  "sources": [],
-  "web": []
+  "statut_audit": "audit a–f complet (v2) ; g à faire",
+  "limites_documentees": [
+    {
+      "nature": "Taille maximale de vignette",
+      "perimetre": "/works/{id}/thumbnail",
+      "valeur": "300 px",
+      "fenetre": "–",
+      "effet": "paramètre size plafonné",
+      "verification": "documentée, non vérifiée",
+      "source": "https://api.dc.library.northwestern.edu/",
+      "date": "2026-11-14"
+    }
+  ],
+  "en_tetes_observes": [
+    {
+      "hote": "api.dc.library.northwestern.edu",
+      "en_tete": "apigw-requestid (AWS API Gateway), aucun en-tête de limite",
+      "preuve": "institutions/northwestern-university-libraries/tests/raw/work.headers.txt"
+    }
+  ],
+  "blocages": [
+    {
+      "hote": "dc.library.northwestern.edu",
+      "code": "403",
+      "nature": "CloudFront Request blocked sur robots.txt et pages",
+      "preuve": "institutions/northwestern-university-libraries/sources/a2/FETCH.log"
+    },
+    {
+      "hote": "digitalcollections.library.northwestern.edu",
+      "code": "403",
+      "nature": "CloudFront Request blocked sur robots.txt",
+      "preuve": "institutions/northwestern-university-libraries/sources/a/FETCH.log"
+    },
+    {
+      "hote": "iiif.dc.library.northwestern.edu",
+      "code": "403",
+      "nature": "403 Forbidden sur robots.txt",
+      "preuve": "institutions/northwestern-university-libraries/sources/a/FETCH.log"
+    }
+  ],
+  "sources": [
+    {
+      "url": "https://api.dc.library.northwestern.edu/",
+      "date": "2026-11-14",
+      "etiquette": "officielle",
+      "preuve": "institutions/northwestern-university-libraries/sources/a/SHA256SUMS"
+    },
+    {
+      "url": "https://api.dc.library.northwestern.edu/docs/v2/",
+      "date": "2026-11-14",
+      "etiquette": "officielle",
+      "preuve": "institutions/northwestern-university-libraries/sources/a/SHA256SUMS"
+    },
+    {
+      "url": "https://web.archive.org/web/20261002051304/https://dc.library.northwestern.edu/robots.txt",
+      "date": "2026-11-14",
+      "etiquette": "officielle (réplique Wayback)",
+      "preuve": "institutions/northwestern-university-libraries/sources/wayback/dc-robots.md"
+    }
+  ],
+  "web": [
+    {
+      "categorie": "institution",
+      "aucun_resultat": true,
+      "requete": "Northwestern University Libraries digital collections API rate limit OR throttling OR bots OR terms of use dc.library.northwestern.edu",
+      "date": "2026-11-14",
+      "etiquette": "–",
+      "citation": "aucune politique de débit ou de bots des collections numériques trouvée ; résultats Galter/Prism sans rapport",
+      "preuve": "institutions/northwestern-university-libraries/fiche.md"
+    },
+    {
+      "categorie": "utilisateurs",
+      "aucun_resultat": true,
+      "requete": "api.dc.library.northwestern.edu OR iiif.dc.library.northwestern.edu issue OR 429 OR 403 OR blocked",
+      "date": "2026-11-14",
+      "etiquette": "–",
+      "citation": "aucune plainte 429/403 sur ces hôtes ; seulement des manifestes indexés par le moteur",
+      "preuve": "institutions/northwestern-university-libraries/fiche.md"
+    },
+    {
+      "categorie": "tickets",
+      "url": "https://github.com/nulib/dc-api-v2",
+      "date": "2026-11-14",
+      "etiquette": "officielle (code de l institution, lu)",
+      "citation": "« View the production API documentation » vers api.dc.library.northwestern.edu ; aucune limite, aucun throttling ; seul un middleware Chaos pour tests locaux",
+      "preuve": "institutions/northwestern-university-libraries/fiche.md"
+    },
+    {
+      "categorie": "presentations",
+      "aucun_resultat": true,
+      "requete": "Northwestern University Libraries Digital Collections API v2 presentation OR blog OR Library Tech IIIF OpenSearch nulib launch",
+      "date": "2026-11-14",
+      "etiquette": "–",
+      "citation": "ni billet ni présentation de lancement de l API trouvés, seulement le code nulib/dc-api-v2 et dc-nextjs",
+      "preuve": "institutions/northwestern-university-libraries/fiche.md"
+    }
+  ],
+  "contact": "Northwestern University Libraries, équipe Digital Collections (page de contact du site dc.library.northwestern.edu, à vérifier à la main)",
+  "conclusion_quota": "Aucune limite de débit publiée ; l API v2 (works, collections, file-sets, search, OAI-PMH, manifestes IIIF) répond 200 sans en-tête de limite ; le site et le serveur d images (dc.library, iiif.dc) renvoient un 403 CloudFront à notre client.",
+  "classe_quota": "aucun quota trouvé",
+  "confiance": "moyenne",
+  "notes": "Hôte iiif.dc non contacté après son 403 sur robots.txt : images IIIF non testées (décision prudente autonome). POST non utilisé.",
+  "a_verifier_manuellement": [
+    {
+      "url": "https://dc.library.northwestern.edu/",
+      "pourquoi": "403 CloudFront Request blocked (fetch_doc)",
+      "a_chercher": "Pages About / Terms of use / Contact du site Digital Collections, toute mention de limite ou de politique de robots"
+    },
+    {
+      "url": "https://iiif.dc.library.northwestern.edu/iiif/3/e814609e-ddfd-4427-b4cf-1a70d6e49129/info.json",
+      "pourquoi": "hôte en 403 (robots.txt) : non testé",
+      "a_chercher": "Réponse info.json et en-têtes de limite éventuels (à ouvrir dans un navigateur)"
+    },
+    {
+      "url": "https://www.library.northwestern.edu/libraries-collections/digital-collections/index.html",
+      "pourquoi": "404 pour notre client alors que le moteur la référence",
+      "a_chercher": "Page Digital Collections de la bibliothèque : conditions d usage et contact"
+    }
+  ],
+  "endpoints_documentes": [
+    {
+      "famille": "Works : notice, as=iiif, as=premis, as=c2pa, similar",
+      "url": "https://api.dc.library.northwestern.edu/api/v2/works/9f9a7032-717f-4446-a0c3-193404a4c090",
+      "statut": "teste",
+      "preuve": "institutions/northwestern-university-libraries/tests/raw/work.headers.txt"
+    },
+    {
+      "famille": "Search GET",
+      "url": "https://api.dc.library.northwestern.edu/api/v2/search/works?query=football&size=1",
+      "statut": "teste",
+      "preuve": "institutions/northwestern-university-libraries/tests/raw/search-works.headers.txt"
+    },
+    {
+      "famille": "Search POST",
+      "url": "https://api.dc.library.northwestern.edu/api/v2/search",
+      "statut": "non_teste",
+      "raison": "requête POST : interdite par nos règles (GET/HEAD seulement) ; la recherche GET équivalente est testée"
+    },
+    {
+      "famille": "OAI-PMH (Identify, ListMetadataFormats)",
+      "url": "https://api.dc.library.northwestern.edu/api/v2/oai?verb=Identify",
+      "statut": "teste",
+      "preuve": "institutions/northwestern-university-libraries/tests/raw/oai-identify.headers.txt"
+    },
+    {
+      "famille": "Thumbnails",
+      "url": "https://api.dc.library.northwestern.edu/api/v2/works/9f9a7032-717f-4446-a0c3-193404a4c090/thumbnail",
+      "statut": "teste",
+      "preuve": "institutions/northwestern-university-libraries/tests/raw/thumbnail.headers.txt"
+    },
+    {
+      "famille": "Collections",
+      "url": "https://api.dc.library.northwestern.edu/api/v2/collections/bd90de9e-8e1e-43c4-8009-dd13a916a2ac",
+      "statut": "teste",
+      "preuve": "institutions/northwestern-university-libraries/tests/raw/collection.headers.txt"
+    },
+    {
+      "famille": "File-sets et annotations",
+      "url": "https://api.dc.library.northwestern.edu/api/v2/file-sets/e814609e-ddfd-4427-b4cf-1a70d6e49129",
+      "statut": "teste",
+      "preuve": "institutions/northwestern-university-libraries/tests/raw/fileset.headers.txt"
+    },
+    {
+      "famille": "MCP server card",
+      "url": "https://api.dc.library.northwestern.edu/api/v2/mcp/server-card",
+      "statut": "teste",
+      "preuve": "institutions/northwestern-university-libraries/tests/raw/mcp-server-card.headers.txt"
+    },
+    {
+      "famille": "Authentification (login, token, whoami)",
+      "url": "https://api.dc.library.northwestern.edu/api/v2/auth/whoami",
+      "statut": "non_teste",
+      "raison": "doc : « for now this feature is internal » ; nécessite un compte, que nous n avons pas"
+    },
+    {
+      "famille": "IIIF Image 3 : info.json et dérivés",
+      "url": "https://iiif.dc.library.northwestern.edu/iiif/3/e814609e-ddfd-4427-b4cf-1a70d6e49129",
+      "statut": "non_teste",
+      "raison": "hôte iiif.dc en 403 sur son robots.txt (fetch_doc) : on ne poursuit pas ; URL listée à vérifier à la main"
+    }
+  ],
+  "endpoints_ecartes": [
+    {
+      "url": "https://github.com/nulib/nuldc",
+      "raison": "client en ligne de commande Python publié par l institution, pas un service ; aucun endpoint nouveau"
+    },
+    {
+      "url": "https://opensearch.org/docs/latest/",
+      "raison": "doc tierce du moteur de recherche, pas une API de l institution"
+    }
+  ],
+  "hotes_robots": [
+    {
+      "hote": "api.dc.library.northwestern.edu",
+      "resultat": "404 : tout autorisé",
+      "preuve": "institutions/northwestern-university-libraries/sources/a/SHA256SUMS"
+    },
+    {
+      "hote": "dc.library.northwestern.edu",
+      "resultat": "403 CloudFront ; réplique Wayback : Disallow /search, pas de Crawl-delay",
+      "preuve": "institutions/northwestern-university-libraries/sources/wayback/dc-robots.md"
+    },
+    {
+      "hote": "digitalcollections.library.northwestern.edu",
+      "resultat": "403 CloudFront (non lisible)",
+      "preuve": "institutions/northwestern-university-libraries/sources/a/SHA256SUMS"
+    },
+    {
+      "hote": "iiif.dc.library.northwestern.edu",
+      "resultat": "403 Forbidden (non lisible)",
+      "preuve": "institutions/northwestern-university-libraries/sources/a/SHA256SUMS"
+    },
+    {
+      "hote": "www.library.northwestern.edu",
+      "resultat": "404 : tout autorisé",
+      "preuve": "institutions/northwestern-university-libraries/sources/a/SHA256SUMS"
+    }
+  ]
 }

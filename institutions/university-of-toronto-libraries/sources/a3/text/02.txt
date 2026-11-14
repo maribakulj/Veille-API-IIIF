@@ -1,0 +1,82 @@
+About | Collections U of T Staff Docs Skip to main content Menu Expand (external link) Document Search Copy Copied Collections U of T Staff Docs 
+ About 
+ Documentation Requesting A New Repository 
+ Ingest Instructions 
+ Metadata Instructions 
+ Metadata Elements 
+ Editing Basic Pages 
+ What is IIIF? (for staff) 
+ Transcriptions With IIIF 
+ History of Collections U of T 2024 Migration Guide 
+ This site uses Just the Docs , a documentation theme for Jekyll. 
+ Search Collections U of T Staff Docs 
+ Policies and Documentation 
+ Collections U of T is the University of Toronto Libraries’ image repository for UTL digitized special collections and archives.
+ This site contains staff policy & procedures documentation. 
+ If you are looking for documentation and help for browsing and searching in Collections U of T visit the public help pages at https://collections.library.utoronto.ca/explore/help .
+ If you are a UTL staff member with an existing repository in Collections U of T and you are looking for tutorials on using the Collections U of T Admin UI visit https://q.utoronto.ca/courses/429631/pages/welcome .
+ Skip to: 
+ About Collections U of T 
+ Collections U of T policies 
+ Help finding and using images in Collections U of T 
+ Documentation for collection owners: Requesting a new repository 
+ Metadata instructions 
+ Ingest instructions 
+ Transcription and Annotation tools for Collections U of T IIIF images 
+ 2024 Migration Guide for information about moving the Collections U of T service off of Islandora 7 (Drupal 7) in 2024
+ About Collections U of T 
+ Collections U of T is the University of Toronto Libraries’ image repository for digitized special collections and archives. The service supports UTL special collections and archives staff in providing open access to digitized special collections and archives through the International Image Interoperability Framework (IIIF) and standard metadata formats.
+ Collections U of T provides U of T staff:
+ Collection management and a public discovery interface for university special collections and archives digital image collections
+ Indexing for digital object metadata
+ Search and discovery for collections and digital objects
+ User management and authentication (CRUD for collections and digital objects)
+ Statistics for collections and digital objects
+ The ability to create “simple pages” for content about collections and items stored in Collections U of T
+ Collections U of T is not :
+ A digitization service
+ A digital exhibit service
+ A digital preservation service
+ Able to store media types other than image files . Collections U of T does not currently support ingest of .pdf, audio, or video collections
+ Open to anyone for use - digital collections must be assessed prior to inclusion in Collections U of T. Because the service is intended for providing long term discovery and access for digital image collections, the digital objects must belong to a UTL department or archives for long term care and maintenance purposes. Collections from external organizations must be assessed by a UTL department and acquired via formal agreement with the external organization prior to inclusion in Collections U of T. Collections U of T is not intended for hosting digitized content from external institutions. Content ingested into Collections U of T must be selected content before ingest, with either a UTL call number/MMSID, accession ID, EID, or other collection number assigned. Note that UTL collection owners are responsible for assessing digital objects for accessibility, privacy and copyright considerations, as well as staffing capacity to support the long-term care and maintenance of the digital collection over time.
+ Collections U of T Policies 
+ Collection Guidelines 
+ Digital collections or digital objects deposited into Collections U of T are published with the intent of access in perpetuity. All content ingested into Collections U of T will be public. Collections U of T does not currently have any collection or item restriction features - all images in the repository are publicly accessible and publicly downloadable. If you require storage for digital image collections but need to restrict access or downloads to internal UTL or U of T users, please contact us . Related: read the Deletion Policy .
+ The repository is structured by top-level U of T library or archives. Any content added to Collections U of T must belong to a top-level repository collection reflecting the UTL library or archives department mandated for the long term maintenance of the digitized items and collections. The top-level repository for a library or archives is referred to as the “collection owner”.
+ To create a new top-level repository and obtain logins, U of T library or archives staff can request a new repository in Collections U of T.
+ Collection owners are responsible for reading and following Collections U of T policies.
+ Collections and items deposited into Collections U of T must not be ephemeral or intended for temporary access. Content ingested into Collections U of T must be selected content , with either a UTL call number/MMSID, accession ID, EID, or other collection number assigned.
+ Collection owners must not deposit duplicates of the same item.
+ Collection owners must follow Canadian Copyright law when submitting items/collections to Collections U of T. If the collection owner does not hold the rights to publish the material online, permission must be obtained. Contact the UTL Scholarly Communications and Copyright Office if you need support. Please also keep in mind that items within Collections U of T are stored in the Ontario Library Research Cloud (OLRC) and must also comply with the OLRC service’s Terms of Use .
+ Collection owners are responsible for assessing digital objects for accessibility, privacy, and copyright considerations, in addition to any emerging data care principles. Items submitted to Collections U of T will be accessible in perpetuity. This means digital objects and related data may require future staff time to maintain over time. Both current and future staffing capacity to support the care and maintenance of the digital collection should be assessed prior to publishing data in Collections U of T. As of Fall 2025, collection owners can consult the U of T Information Security resources Sharepoint (external link) to access resources and consider relevant information security risks prior to publishing digital collections. Additionally, considerations around use of AI-assisted tools in individual work flows, as well as AI-assistance disclosures, is the sole responsibility of collection owners.
+ Collection owners must follow Collections U of T metadata guidelines.
+ Collections U of T is not a preservation repository. Collection owners are responsible for the preservation of the digital files they use to create items in Collections U of T.
+ Format Support 
+ Collections U of T is a digital image repository that currently accepts the following file formats: TIFF, JPEG 2000, JPEG, and PNG. Please note that only files in these formats can be uploaded to the repository at this time.
+ List of Repositories in Collections U of T 
+ View the list of existing repositories in Collections U of T here .
+ While digitized items in Collections U of T are required to be UTL acquisitions belonging to a UTL department or archives for long term care and maintenance, please note that some legacy digital projects currently make use of Collections U of T IIIF infrastructure, including:
+ Ann Komaromi’s Project for the Study of Dissidence and Samizdat 
+ French and Italian Paleography , supported by a grant from The Andrew W. Mellon Foundation and completed in partnership with the Newberry Library and the Walter J. Ong Centre for Digital Humanities at Saint Louis University
+ Pamela Klassen’s Story Nations 
+ What is Collections U of T IIIF? 
+ IIIF (International Image Interoperability Framework) is a set of APIs and related tools created by an international community of leading cultural institutions. The IIIF community has created a guide to help you get started in learning about IIIF and how to make use of it.
+ Our “What is IIIF?” page also includes IIIF documentation specific to Collections U of T for staff and the Reusing Collections U of T Items with IIIF help page has instructions for users.
+ Metadata and Data Model 
+ Generally, digital objects are structured as follow:
+ Repositories have Collections have “Book” items have “Page” items
+ “Image” items
+ Basic pages 
+ Descriptive Metadata Standards 
+ Historically, Collections U of T has used MODS -based descriptive metadata formatted as spreadsheets and then converted to xml , or MARC converted to MODS xml via MarcEdit . Descriptive metadata is also converted to JSON in Collections U of T IIIF manifests for display purposes. As of 2024, Collections U of T now uses a spreadsheet ingest workflow for metadata and produces MODS xml for download following ingest ( view the spreadsheet to MODS xml mapping )
+ All other details about Collections U of T metadata can be found on the Metadata Instructions page.
+ Other UTL Services 
+ Collections U of T is just one of the many services offered by the University of Toronto Libraries. Here are some other services that might be of interest or helpful in your work or research:
+ Discover Archives 
+ Exhibits U of T 
+ TSpace 
+ Find out more about the University of Toronto Libraries 
+ Back to top 
+ Copyright © 2026 University of Toronto Libraries Information Technology Services.
+ Edit this page on GitHub 
+ This site uses Just the Docs , a documentation theme for Jekyll.

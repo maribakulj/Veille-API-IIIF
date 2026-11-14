@@ -1,0 +1,15 @@
+{
+  "slug": "northwestern-university-libraries",
+  "min_delay_s": 6,
+  "max_requests": 15,
+  "follow_redirects": 1,
+  "robots_disallow_autorise_par_marcel": true,
+  "note": "passe 2 : collections et file-sets de l'API v2 (documentés dans l'OpenAPI de https://api.dc.library.northwestern.edu/). Identifiants lus dans la réponse de la passe 1 (work 9f9a7032... : collection bd90de9e-8e1e-43c4-8009-dd13a916a2ac, file-set e814609e-ddfd-4427-b4cf-1a70d6e49129), jamais devinés. L'hôte iiif.dc.library.northwestern.edu (403 sur son robots.txt via fetch_doc) n'est pas contacté.",
+  "endpoints": [
+    {"id": "collections-liste", "method": "GET", "url": "https://api.dc.library.northwestern.edu/api/v2/collections?size=1&page=1", "save_body": 100000},
+    {"id": "collection", "method": "GET", "url": "https://api.dc.library.northwestern.edu/api/v2/collections/bd90de9e-8e1e-43c4-8009-dd13a916a2ac", "save_body": 100000},
+    {"id": "collection-thumbnail", "method": "GET", "url": "https://api.dc.library.northwestern.edu/api/v2/collections/bd90de9e-8e1e-43c4-8009-dd13a916a2ac/thumbnail?size=100"},
+    {"id": "fileset", "method": "GET", "url": "https://api.dc.library.northwestern.edu/api/v2/file-sets/e814609e-ddfd-4427-b4cf-1a70d6e49129", "save_body": 100000},
+    {"id": "fileset-annotations", "method": "GET", "url": "https://api.dc.library.northwestern.edu/api/v2/file-sets/e814609e-ddfd-4427-b4cf-1a70d6e49129/annotations", "save_body": 100000}
+  ]
+}

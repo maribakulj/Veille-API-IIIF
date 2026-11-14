@@ -1,0 +1,13 @@
+{
+  "slug": "university-of-toronto-libraries",
+  "min_delay_s": 6,
+  "max_requests": 15,
+  "follow_redirects": 1,
+  "robots_disallow_autorise_par_marcel": true,
+  "note": "passe 2 : service d'image et notice MODS, URL lues dans le manifeste de la passe 1 (tests/raw/manifeste-v2.body) : info.json du service https://iiif.library.utoronto.ca/image/v2/utarmsIB:2001-15-2MS, dérivé 80 px cité par le manifeste, notice mods citée par le manifeste (collections.library). Aucune URL devinée.",
+  "endpoints": [
+    {"id": "image-info-json", "method": "GET", "url": "https://iiif.library.utoronto.ca/image/v2/utarmsIB:2001-15-2MS/info.json", "save_body": 100000},
+    {"id": "image-derive-80", "method": "GET", "url": "https://iiif.library.utoronto.ca/image/v2/utarmsIB:2001-15-2MS/full/80,/0/default.jpg"},
+    {"id": "mods", "method": "GET", "url": "https://collections.library.utoronto.ca/mods/utarmsIB:2001-15-2MS", "save_body": 100000}
+  ]
+}

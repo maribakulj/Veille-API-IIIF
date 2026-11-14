@@ -4,10 +4,192 @@
   "pays": "États-Unis",
   "classeur_id": "GLAM-040",
   "type": "Institution",
-  "statut_audit": "à faire",
-  "limites_documentees": [],
-  "en_tetes_observes": [],
-  "blocages": [],
-  "sources": [],
-  "web": []
+  "statut_audit": "audit a–f complet (v2) ; g à faire",
+  "limites_documentees": [
+    {
+      "nature": "Troncature des résultats de recherche",
+      "perimetre": "recherche des collections d images (non connecté)",
+      "valeur": "10 000 résultats",
+      "fenetre": "–",
+      "effet": "résultats tronqués",
+      "verification": "documentée (réplique Wayback), non vérifiée",
+      "source": "https://web.archive.org/web/20250317122753/https://quod.lib.umich.edu/b/bhl?page=help",
+      "date": "2026-11-14"
+    }
+  ],
+  "en_tetes_observes": [
+    {
+      "hote": "quod.lib.umich.edu",
+      "en_tete": "cf-mitigated: challenge (403 sur page HTML)",
+      "preuve": "institutions/university-michigan-digital-collections/tests/raw/page-item-bhl-BL004079.headers.txt"
+    }
+  ],
+  "blocages": [
+    {
+      "hote": "quod.lib.umich.edu",
+      "code": "403",
+      "nature": "défi Cloudflare (cf-mitigated: challenge) sur la page HTML d item et la page d accueil",
+      "preuve": "institutions/university-michigan-digital-collections/tests/raw/page-item-bhl-BL004079.headers.txt"
+    }
+  ],
+  "sources": [
+    {
+      "url": "https://quod.lib.umich.edu/robots.txt",
+      "date": "2026-11-14",
+      "etiquette": "officielle",
+      "preuve": "institutions/university-michigan-digital-collections/sources/a/SHA256SUMS"
+    },
+    {
+      "url": "https://blogs.lib.umich.edu/library-tech-talk/image-digital-collections-getting-modern-interface",
+      "date": "2026-11-14",
+      "etiquette": "institution",
+      "preuve": "institutions/university-michigan-digital-collections/sources/a/SHA256SUMS"
+    },
+    {
+      "url": "https://blogs.lib.umich.edu/library-tech-talk/changes-university-michigan-oai-data-provider",
+      "date": "2026-11-14",
+      "etiquette": "institution",
+      "preuve": "institutions/university-michigan-digital-collections/sources/a3/SHA256SUMS"
+    },
+    {
+      "url": "https://www.lib.umich.edu/digital-content-collections-dcc",
+      "date": "2026-11-14",
+      "etiquette": "officielle",
+      "preuve": "institutions/university-michigan-digital-collections/sources/a2/SHA256SUMS"
+    },
+    {
+      "url": "https://web.archive.org/web/20240811055624/https://quod.lib.umich.edu/b/bhl/x-bl004079/bl004079",
+      "date": "2026-11-14",
+      "etiquette": "officielle (réplique Wayback)",
+      "preuve": "institutions/university-michigan-digital-collections/sources/wayback/quod-item-bhl-BL004079.md"
+    },
+    {
+      "url": "https://web.archive.org/web/20250317122753/https://quod.lib.umich.edu/b/bhl?page=help",
+      "date": "2026-11-14",
+      "etiquette": "officielle (réplique Wayback)",
+      "preuve": "institutions/university-michigan-digital-collections/sources/wayback/quod-help-bhl.md"
+    }
+  ],
+  "web": [
+    {
+      "categorie": "institution",
+      "aucun_resultat": true,
+      "requete": "quod.lib.umich.edu robots bots crawler rate limit digital collections policy",
+      "date": "2026-11-14",
+      "etiquette": "–",
+      "citation": "aucune politique de bots ou de débit des collections numériques trouvée ; seule la politique sur les ressources sous licence interdit robots et téléchargement systématique",
+      "preuve": "institutions/university-michigan-digital-collections/fiche.md"
+    },
+    {
+      "categorie": "utilisateurs",
+      "url": "https://parse.bot/marketplace/07cdc5ea-9f99-43e6-a2c0-b7ca0ce61f62/quod-lib-umich-edu-api",
+      "date": "2026-11-14",
+      "etiquette": "tiers non officiel (résumé de moteur, non vérifié)",
+      "citation": "annonce un API non officiel pour quod.lib.umich.edu avec un 429 en cas de dépassement de SA propre limite ; page en 404 à la lecture",
+      "preuve": "institutions/university-michigan-digital-collections/fiche.md"
+    },
+    {
+      "categorie": "tickets",
+      "aucun_resultat": true,
+      "requete": "github issue quod.lib.umich.edu iiif manifest harvester importer downloader University of Michigan",
+      "date": "2026-11-14",
+      "etiquette": "–",
+      "citation": "aucun ticket d outil tiers citant quod.lib.umich.edu ; github.com/mlibrary/uplift-viewer lu : ni endpoint ni limite",
+      "preuve": "institutions/university-michigan-digital-collections/fiche.md"
+    },
+    {
+      "categorie": "presentations",
+      "url": "https://iiif.io/event/2019/ann_arbor/showcase/",
+      "date": "2026-11-14",
+      "etiquette": "institution (programme)",
+      "citation": "« IIIF and University of Michigan Libraries » — Chris Powell and Roger Espinosa, University of Michigan Libraries ; sans résumé ni mention de limite",
+      "preuve": "institutions/university-michigan-digital-collections/fiche.md"
+    }
+  ],
+  "contact": "lien Contact Us des pages quod.lib.umich.edu (Wayback) ; ancienne adresse OAI : dlps-help (annonce 2007, non vérifiée)",
+  "conclusion_quota": "Aucune limite de débit publiée ; manifeste IIIF et OAI-PMH répondent 200 sans en-tête de limite ; les pages HTML de quod.lib.umich.edu sont derrière un défi Cloudflare (403, cf-mitigated: challenge). Seule limite écrite : résultats de recherche tronqués au-delà de 10 000 sans connexion.",
+  "classe_quota": "aucun quota trouvé",
+  "confiance": "moyenne",
+  "notes": "Hôte quod arrêté après le 403 de la page d item ; info.json d image non testé. Image API non testée par prudence (décision autonome).",
+  "a_verifier_manuellement": [
+    {
+      "url": "https://quod.lib.umich.edu/",
+      "pourquoi": "403 défi Cloudflare (fetch_doc)",
+      "a_chercher": "Liens Policies and Copyright, How to use this site, About these digital collections ; toute mention de limite ou de politique de robots"
+    },
+    {
+      "url": "https://quod.lib.umich.edu/b/bhl/x-bl004079/bl004079",
+      "pourquoi": "403 défi Cloudflare (sonde)",
+      "a_chercher": "Liens API/IIIF de la page d item et conditions d utilisation"
+    },
+    {
+      "url": "https://quod.lib.umich.edu/cgi/i/image/api/image/bhl:BL004079:BL004079/info.json",
+      "pourquoi": "non testé : hôte arrêté après le 403",
+      "a_chercher": "Réponse info.json et en-têtes de limite éventuels (à ouvrir dans un navigateur)"
+    }
+  ],
+  "endpoints_documentes": [
+    {
+      "famille": "IIIF Presentation 2 : manifeste",
+      "url": "https://quod.lib.umich.edu/cgi/i/image/api/manifest/bhl:BL004079:BL004079",
+      "statut": "teste",
+      "preuve": "institutions/university-michigan-digital-collections/tests/raw/manifeste-bhl-BL004079.headers.txt"
+    },
+    {
+      "famille": "OAI-PMH (Identify, ListMetadataFormats)",
+      "url": "https://quod.lib.umich.edu/cgi/o/oai/oai?verb=Identify",
+      "statut": "teste",
+      "preuve": "institutions/university-michigan-digital-collections/tests/raw/oai-identify.headers.txt"
+    },
+    {
+      "famille": "OAI-PMH ListRecords",
+      "url": "https://quod.lib.umich.edu/cgi/o/oai/oai?verb=ListRecords&metadataPrefix=oai_dc",
+      "statut": "non_teste",
+      "raison": "réponse volumineuse (notices de toutes les collections et de HathiTrust) ; le protocole est prouvé par Identify et ListMetadataFormats"
+    },
+    {
+      "famille": "IIIF Image 2 : info.json et dérivés",
+      "url": "https://quod.lib.umich.edu/cgi/i/image/api/image/bhl:BL004079:BL004079",
+      "statut": "non_teste",
+      "raison": "hôte arrêté après le 403 Cloudflare de la page HTML ; règle : on ne poursuit pas sur un hôte en défi, URL listée à vérifier à la main"
+    },
+    {
+      "famille": "Pages HTML d item et de collection",
+      "url": "https://quod.lib.umich.edu/b/bhl/x-bl004079/bl004079",
+      "statut": "teste",
+      "preuve": "institutions/university-michigan-digital-collections/tests/raw/page-item-bhl-BL004079.headers.txt"
+    }
+  ],
+  "endpoints_ecartes": [
+    {
+      "url": "https://quod.lib.umich.edu/b/bhl?page=help",
+      "raison": "page d aide utilisateur (HTML), pas une API ; lue via Wayback"
+    },
+    {
+      "url": "https://github.com/mlibrary/uplift-viewer",
+      "raison": "code d un visualiseur, pas un service de l institution ; aucun endpoint cité"
+    }
+  ],
+  "hotes_robots": [
+    {
+      "hote": "quod.lib.umich.edu",
+      "resultat": "User-agent * : Allow / ; bloc Cloudflare nommant des robots d entraînement IA (notre UA non nommé)",
+      "preuve": "institutions/university-michigan-digital-collections/sources/a/SHA256SUMS"
+    },
+    {
+      "hote": "blogs.lib.umich.edu",
+      "resultat": "robots Drupal standard : Disallow /core/, /admin/, /search/ ; pas de Crawl-delay",
+      "preuve": "institutions/university-michigan-digital-collections/sources/a/SHA256SUMS"
+    },
+    {
+      "hote": "lib.umich.edu",
+      "resultat": "User-agent * : Allow / ; Sitemap",
+      "preuve": "institutions/university-michigan-digital-collections/sources/a/SHA256SUMS"
+    },
+    {
+      "hote": "www.lib.umich.edu",
+      "resultat": "User-agent * : Allow / ; Sitemap",
+      "preuve": "institutions/university-michigan-digital-collections/sources/a2/SHA256SUMS"
+    }
+  ]
 }
