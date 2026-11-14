@@ -1,0 +1,12 @@
+{
+  "slug": "university-michigan-digital-collections",
+  "endpoint": {
+    "id": "oai-identify",
+    "url": "https://quod.lib.umich.edu/cgi/o/oai/oai?verb=Identify",
+    "method": "GET"
+  },
+  "limite_documentee_req_min": null,
+  "source_limite": "aucune limite documentée (billet https://blogs.lib.umich.edu/library-tech-talk/changes-university-michigan-oai-data-provider : baseURL et Identify, sans limite ; recommandation de nouvelle tentative seulement dans l'annonce OAI de 2007)",
+  "duree_palier_s": 180,
+  "note": "Identify OAI-PMH sur quod.lib.umich.edu (Cloudflare), 200 dans le journal (oai-identify, 2026-11-14T02:04:57Z), réponse courte. Les pages HTML de l'hôte renvoient un défi Cloudflare : le crash test peut s'arrêter tôt."
+}

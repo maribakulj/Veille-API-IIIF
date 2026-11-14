@@ -1,0 +1,25 @@
+2026-11-14T02:16:31Z GET https://library.nga.gov/mng/login
+HTTP 302
+date: Sat, 14 Nov 2026 02:16:31 GMT
+content-length: 0
+connection: keep-alive
+x-request-id: VxwstKkAzO
+p3p: CP="IDC DSP COR ADM DEVi TAIi PSA PSD IVAi IVDi CONi HIS OUR IND CNT"
+x-frame-options: SAMEORIGIN
+cache-control: no-store, no-cache, must-revalidate
+pragma: no-cache
+content-security-policy: frame-ancestors 'self' ; upgrade-insecure-requests; form-action 'self' ; base-uri 'self' ; default-src 'self' *.exlibrisgroup.com;report-uri /infra/CSPReportEndpoint.jsp; report-to csp-report-endpoint;
+report-to: {"max_age":10886400,"endpoints":[{"url":"https://na91.alma.exlibrisgroup.com/infra/CSPReportEndpoint.jsp"}],"group":"csp-report-endpoint"}
+x-content-type-options: nosniff
+location: /discovery/search?vid=01NGA_INST:NGA
+set-cookie: JSESSIONID=F471DB6C0BDD24FBC772345E53925A6E.apd05.na91.prod.almf.dc04.hosted.exlibrisgroup.com%3A1801; Path=/; Secure; HttpOnly; SameSite=None
+set-cookie: urm_st=1794622591391; Path=/; Secure; SameSite=None
+set-cookie: urm_se=1794626191391; Path=/; Secure; SameSite=None
+set-cookie: institute=01NGA_INST; Path=/; Secure; HttpOnly; SameSite=None
+set-cookie: digitalDoc=%23%23%23%23%23----%23%23%23%23%23%23; Path=/; Secure; HttpOnly; SameSite=None
+set-cookie: __Secure-UqZBpD3n3naPU20-9Fvn5i-TQ-tMpchbYtbA9YCEpg3UXgo_=v1HzIygw__F1x; Expires=Sun, 14-Nov-2027 02:16:31 GMT; Path=/; Secure; HttpOnly; SameSite=None
+set-cookie: __cf_bm=wHvCnflIpXaja11HJaqdqfeXFtGozM5QD2V1..L4nvM-1794622590.9193048-1.0.1.1-d8v56DC5Tx3CYJIzgkNt4u33WhfOY3F6LiL0GCuQqjI5sWj_Nwkb7NE_bXdEaYVKFKPrk1NjFuVaJURL8iLK.EFGRJ98zzP9MmDSf8kiHQ5luCn0GckvdlbhNfYIbvCP; HttpOnly; SameSite=None; Partitioned; Secure; Path=/; Domain=nga.gov; Expires=Sat, 14 Nov 2026 02:46:31 GMT
+strict-transport-security: max-age=31536000; includeSubDomains; preload
+cf-cache-status: DYNAMIC
+server: cloudflare
+cf-ray: a5a283b93a72edc4-MXP

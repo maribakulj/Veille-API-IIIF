@@ -1,0 +1,5 @@
+# Session 2026-11-14T02:10:32Z — configuration cornell-passe1-portail.json — sonde probe.py au commit aff0dff
+2026-11-14T02:10:34Z | robots.txt:digital.library.cornell.edu | https://digital.library.cornell.edu/robots.txt | GET | 403 | robots.txt indisponible : tout est autorisé (RFC 9309)
+2026-11-14T02:10:42Z | portail-about | https://digital.library.cornell.edu/about | GET | 403 403_ANTI_BOT | aucun en-tête de limite | taille≥118 | corps: <html> <head><title>403 Forbidden</title></head> <body> <center><h1>403 Forbidden</h1></center> </body> </html> 
+# ARRÊT de l'hôte digital.library.cornell.edu (403 anti-bot). Les autres hôtes continuent.
+# Fin 2026-11-14T02:10:42Z — 2 requête(s) envoyée(s)

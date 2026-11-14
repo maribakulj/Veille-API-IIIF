@@ -1,0 +1,40 @@
+A Funny Thing Happened on the Way to Our Next-Gen Digital Collection System 
+ Skip to main content 
+ Blogs 
+ All Posts 
+ Log in 
+ Home 
+ The Digital Collections Files 
+ A Funny Thing Happened On The Way To Our Next-Gen Digital Collection System 
+ A Funny Thing Happened on the Way to Our Next-Gen Digital Collection System 
+ Author(s): 
+ Robert James McIntyre 
+ November 29, 2017 
+ Actually, it was a few things (It's never just one is it?). First, we ( Digital Library Platform Services ) added support for the International Image Interoperability Framework (IIIF) - see the IIIF FAQ section at the bottom of this post - to our current digital collection system, DLXS . Second, we started getting requests from our stakeholders for new image collections that stretched the boundaries a bit in terms of what DLXS could traditionally support. While work is underway on a next-generation digital collection system to replace the venerable and robust (and now also almost-20-year-old) DLXS, we needed to be able to fit new functionality into the current system without expending too much development effort. Enter Universal Viewer !
+ Scene from actual planning session 
+ "It's just a jump to the left..."
+ To understand how we ended up here, we'll need a bit of history first. DLXS divides its collections into "classes" or types. Two of the biggies are TextClass and ImageClass. TextClass for text-based collections, supporting bitonal page images, optical character recognition (OCR), and page- and volume-level metadata with a page-based interface. You know, those book things but digital (see: Making of America ). And, ImageClass for digital image collections, typically "contone" or continuous tone images, supporting zoom and pan, along with associated item-level metadata (see: Pioneers of Chinese Dance ). What the new image collection requests were looking for was something of a hybrid of the two - support for contone images, zoom/pan, and representing a volume with pages, like a notebook or journal or photo album - in a page turning interface. ( "You got TextClass in my ImageClass!" ) Unfortunately, the current architecture doesn't permit mixing and matching of features or functionalities across classes. (The next-gen effort, codenamed "Object Class", will hopefully provide a flexible path into the future, but that's another story for another time ).
+ Herpetology field notebooks rendering in the Universal Viewer in DLXS 
+ "...And then a step to the right!"
+ Now, where were we? Oh right, Universal Viewer . With the advent of IIIF support in DLXS we gained the ability to integrate an IIIF-capable viewer. After a bit of research, Universal Viewer ended up being appropriately named and the best option for us. Zoomable? - Check, via OpenSeadragon and the IIIF image API. Embeddable? Check, with deep links to individual pages and zoom regions. Configurable? Check, lots (tons actually, if mildly opaque in some instances) of options. And, open source to boot. So we were able to tweak where needed and represent handwritten herpetology field notebooks at the volume level. Or, a photo album as a single volume with page-level metadata. Or a  series  of scrapbooks, newspaper clippings, and photo albums.  Coming soon in the ever-growing list of collections that can use this new functionality, a 1.6 meter long Japanese scroll . You get the idea. Users seem to dig the full screen and preserve zoom features, along with the inline thumbnail gallery and metadata display. All this was made possible by the Universal Viewer itself, along with Roger Espinosa who implemented IIIF support in DLXS, and assorted feedback/help from Roger Espinosa (yes, again), Kat Hagedorn, Lauren Havens, Chris Powell, Greg Schneider, Mike Shallcross, and Larry Wentzel. So that's how we ended up with some happy stakeholders, new flexible ways to render interesting content, and we didn't have to create (or recreate) our own widget from scratch. Standards and interoperability FTW!
+ * From the IIIF FAQ : 
+ ...IIIF makes it easy to parse and share digital image data, migrate across technology systems, and provide enhanced image access for scholars and researchers. In short, IIIF enables better, faster and cheaper image delivery. It lets you leverage interoperability and the fabric of the Web to access new possibilities and new users for your image-based resources, while reducing long term maintenance and technological lock in. IIIF gives users a rich set of baseline functionality for viewing, zooming, and assembling the best mix of resources and tools to view, compare, manipulate and work with images on the Web, an experience made portable–shareable, citable, and embeddable.
+ Tags:
+ IIIF 
+ (Opens in a full screen image modal window) 
+ The eureka moment in the Emperor’s New Collection Committee 
+ Search in The Digital Collections Files
+ Search in The Digital Collections Files 
+ Share Post Email 
+ Facebook 
+ Bluesky 
+ X (formerly Twitter) 
+ University of Michigan Library
+ 913 S. University Avenue 
+Ann Arbor, MI 48109-1190 
+ Library Blogs Accessibility 
+ Privacy and Copyright
+ Library Privacy Statement 
+ Except where otherwise noted, this work is subject to a Creative Commons Attribution 4.0 license . For details and exceptions, see the Library Copyright Policy .
+ © 2022, Regents of the University of Michigan
+ Built with Drupal and the U-M Library Design System

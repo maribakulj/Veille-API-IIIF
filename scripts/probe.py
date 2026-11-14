@@ -223,8 +223,9 @@ def main():
                 log.write(f"{now_utc()} | {eid} | NON LANCÉ : arrêt de l'institution (429)\n")
                 continue
             host = urllib.parse.urlsplit(url).hostname
-            if host in blocked_hosts:
-                log.write(f"{now_utc()} | {eid} | NON LANCÉ : hôte {host} arrêté (403 anti-bot)\n")
+            _raison = _hl.bloque(host)
+            if host in blocked_hosts or _raison:
+                log.write(f"{now_utc()} | {eid} | NON LANCÉ : hôte {host} arrêté ({'403 anti-bot' if host in blocked_hosts else 'registre partagé : ' + str(_raison)})\n")
                 continue
             if count >= max_req:
                 log.write(f"{now_utc()} | {eid} | NON LANCÉ : plafond de {max_req} requêtes atteint\n")
@@ -303,6 +304,7 @@ def main():
                         f"{lh} | taille≥{len(r['body'])} | corps: {snippet}\n")
                 if verdict == "403_ANTI_BOT":
                     blocked_hosts.add(host)
+                    _hl.bloquer(host, f"probe {cfg_path.name} 403 anti-bot")
                     line += f"# ARRÊT de l'hôte {host} (403 anti-bot). Les autres hôtes continuent.\n"
                 if verdict == "STOP_INSTITUTION_429":
                     stop_all = True

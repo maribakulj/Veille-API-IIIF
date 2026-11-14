@@ -1,0 +1,58 @@
+Delivering exciting upgrades to digital collections through Project DOR 
+ Skip to main content 
+ Blogs 
+ All Posts 
+ Log in 
+ Home 
+ Library Tech Talk 
+ Delivering Exciting Upgrades To Digital Collections Through Project DOR 
+ Delivering exciting upgrades to digital collections through Project DOR 
+ Author(s): 
+ Jessica Venlet 
+ August 20, 2026 
+ In July 2024,  Library IT launched Project DOR (Digital Object Repository), a multi-year project dedicated to the development of a new repository. The project aims to develop a repository that better meets the preservation and access mission of the library. The new repository will be used for digital collections to replace the existing digital collections platform (DLXS).
+ We are about two-thirds of the way through our project timeline, which is set to conclude in June 2027. The project team is excited to share more about our progress on this project with the broader library technology community.  
+ About digital collections 
+ The Library’s Digital Collections Service team stewards over 200 collections through our current  Digital Collections Platform . The collections consist of digitized original source material from U-M partners as well as from our community. The source materials include a variety of formats such as books, newspapers, archival manuscripts and reports, photographs, scrapbooks, and oral histories. They are collected and preserved to support the research, instruction, and scholarship mission of the University of Michigan.
+ Our current system, known internally as DLXS, has been providing access to digital collections for over twenty years. At this point, the technology has become outdated, cumbersome to maintain, and limits opportunities for creating new features. A total replacement of DLXS with a new repository will allow us to deliver critical upgrades to access and preservation of these collections. 
+ Building a tailored solution 
+ At the beginning of the project, the team discussed possibilities for selecting one of the several common repository solutions used by many libraries. We weighed this against our complex repository needs and previous experiences with various repository technologies. In the end, the advantages of building a solution tailored to our needs and the scale of our digital collections won out. While we are not using an off the shelf product, we are looking to these established solutions for inspiration as we design our system. 
+ What the repository will provide
+ The repository encompasses a few key functional areas: packaging, ingest, storage, administrative repository management, and discovery. So far, we have made the most progress on defining and developing essential backend features and infrastructure for Project DOR. 
+ Packaging for ingest
+ The packaging workflow manages tasks such as metadata extraction, file format identification, checksum calculation, and OCR creation. At the end of the process, a submission package is created and ready to move on to ingest. Our team designed the first iteration of this workflow through a collaborative process with our Digital Collections Service team to understand current workflows and ideas for improvements. 
+ Ingest and storage
+ Submission packages are received through an ingest workflow and then stored as preservation packages in the repository using the  OCFL specification . We also developed an integrity service feature that will manage at-rest fixity checks of objects in the repository. Throughout the object lifecycle, we’ll track preservation events using selected  PREMIS events. 
+ Administrative repository management 
+ The administrative repository management feature consists of a user interface for library staff. Through the interface, library staff are able to view digital objects, including preservation and technical metadata. Staff can also download files through the interface. We are keeping this feature simple for now, but it has potential to support more object management needs in the future. 
+ Discovery and access
+ One of our most important goals for Project DOR is to improve the overall search experience for digital collections users. So far, we’ve been working on iterative testing of OpenSearch and preliminary user experience research. We are also increasingly turning attention to the development of the user interface. We will be sharing other blog posts about improved discovery and user experience research in the near future. 
+ What to expect next year
+ As we move into year three of Project DOR, we are continuing to refine backend mechanics to bolster preservation and repository management while also increasingly turning attention to work that impacts end user access. We aim to have the first version of DOR functioning with a couple collections migrated and available in the new system by June 2027. Full migration of digital collections from the current platform (DLXS) will be ongoing after Project DOR is complete. 
+ Acknowledgements: 
+Thanks to the entire Project DOR team for their dedication and good work! Thank you: Roger Espinosa, Sam Sciolla, Greg Kostin, Noah Botimer, Emma Brown, Bridget Burke, Bill Dueber, Kat Hagedorn, Chris Powell, Rob McIntyre, John Weise, and Sebastien Korner.
+ Tags:
+ Project DOR 
+ Digital Collections 
+ DLXS 
+ repository 
+ digital preservation 
+ (Opens in a full screen image modal window) 
+ Search in Library Tech Talk
+ Search in Library Tech Talk 
+ Get in Touch
+ Jessica Venlet
+ jmvenlet@umich.edu 
+ Share Post Email 
+ Facebook 
+ Bluesky 
+ X (formerly Twitter) 
+ University of Michigan Library
+ 913 S. University Avenue 
+Ann Arbor, MI 48109-1190 
+ Library Blogs Accessibility 
+ Privacy and Copyright
+ Library Privacy Statement 
+ Except where otherwise noted, this work is subject to a Creative Commons Attribution 4.0 license . For details and exceptions, see the Library Copyright Policy .
+ © 2022, Regents of the University of Michigan
+ Built with Drupal and the U-M Library Design System

@@ -1,0 +1,118 @@
+About - Technology - The Portal to Texas History 
+ Skip to main content 
+ Menu
+ The Portal to Texas History
+ Home
+ Tour
+ About
+ Overview
+ History
+ Collaboration
+ Endowment
+ Technology
+ Policies
+ Harmful Content Statement
+ Help
+ Accessibility
+ Contact Us
+ News
+ Statistics
+ API
+ Explore
+ Overview
+ Collections
+ Partners
+ Locations
+ Subjects
+ Resource Types
+ Dates
+ Titles
+ Search
+ Submit
+ Guided Search
+ Advanced Search
+ Proximity Search
+ Searching Help
+ You Are Here:
+ Home 
+ About
+ Technology
+ Technology
+ About the Technology
+ The Portal to Texas History infrastructure is implemented with open source components and open, standards-based protocols and formats.
+ We designed the underlying system for the Portal with principals of shared nothing, distributed architectures in mind. By allowing the system to continue operation when one component might not work correctly, we ensure that users are still able to get to our content.
+ For all public-facing components of the system, we use the Django Web framework. Django is an open source framework written in the Python programming language. We build back-end services with Python and technologies such as mod_wsgi, Flask, and web.py; these services exist on a closed network which increases throughput and security in the system. Solr is our full-text indexer of choice in the Portal, and most interactions with the system directly or indirectly connect with one of our Solr indexes. 
+ Digital objects are represented in the system with the Metadata Encoding and Transmission Standard (METS) which provides a way to describe the structure of complex digital objects. For the descriptive metadata process, we employ a locally qualified version of Dublin Core called UNTL. It is possible for the system to convert this format on the fly to simple Dublin Core and MODS. In the future we hope to support additional machine-readable metadata formats.
+ The files and metadata that comprise digital objects are distributed to several static and metadata server nodes and written to disk using the Pairtree specification. We implement persistent linking and other services in the system with the Archival Resource Key (ARK) specification. 
+ Digitization Practices and Tools
+ We use best practices and apply standards to our work to ensure its long-term preservation as well as availability on the Internet. Learn more:
+ Metadata Guidelines 
+Documentation for the qualified Dublin Core metadata we use to describe items in the Portal.
+ Scanning Standards 
+Minimum requirements for bit-depth, color space, resolution, scale, and file format. 
+ Partner Information Toolkit 
+Guidelines and help for creating partner and collection descriptions in the Portal.
+ Equipment 
+Details about the scanners and digital cameras we use for imaging.
+ Software 
+Details about various software we use for digitization of items for the Portal. 
+ Trusted Digital Repository 
+Report of our self-audit of activities and methodologies behind the preservation of and access to content in the UNT Libraries' Digital Collections.
+ About
+ Overview
+ History
+ Collaboration
+ Rescuing Texas History
+ About Texas History for Teachers
+ Endowment
+ Technology
+ Policies
+ Harmful Content Statement 
+ Help
+ Accessibility
+ Contact Us
+ News
+ Statistics
+ API
+ Get in Touch
+ Questions / Feedback
+ Report Problems
+ Follow Along
+ New Items (RSS)
+ News
+ Facebook
+ Additional Resources
+ Texas History for Teachers
+ K-12 lesson plans, tools, and other help for history teachers.
+ Gateway to Oklahoma History
+ Historic newspapers digitized from across the Red River.
+ UNT Digital Library
+ UNT's history and scholarship, library special collections, plus a
+ large collection of U.S. government documents.
+ UNT Digital Projects Unit
+ For partners and peer institutions seeking information about
+ standards, project requests, and our services.
+ Harmful Content Statement
+ Some content on this site may be difficult to view. Read more
+ about this topic here.
+ Make a Donation
+ We've created an
+ endowment
+ to improve everyone's access to primary sources online.
+ Your support aids students of all ages, rural communities,
+ as well as independent and professional researchers.
+ Donate Now
+ Get Updates in Your Inbox
+ Sign up for our periodic e-mail newsletter, and get news about our
+ collections, new partnerships, information on research, trivia,
+ awards, and more.
+ Subscribe Now
+ External Links
+ UNT Libraries
+ Terms
+ Privacy
+ Accessibility
+ State of Texas Online
+ Updated:
+ Monday, Nov 09, 2026
+ Back to Top of Screen

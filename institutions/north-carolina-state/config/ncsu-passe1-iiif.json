@@ -1,0 +1,12 @@
+{
+  "slug": "north-carolina-state",
+  "min_delay_s": 6,
+  "max_requests": 15,
+  "follow_redirects": 1,
+  "robots_disallow_autorise_par_marcel": true,
+  "note": "Passe 1 : serveur d'images iiif.lib.ncsu.edu. Identifiant mc00227-003-ff0073-000-001_0004 donne en exemple par le billet de l'institution Slow Looking (www.lib.ncsu.edu/node/51279, sources/a/raw/06.html) : info.json (URL citee dans le billet) puis une image reduite /full/500,/0/default.jpg (motif du manifeste d'exemple NCSU, sources/b/raw/03.html). d.lib.ncsu.edu (collections, manifestes, recherche) repond 401 « Bot Detection » (preuve de travail) : hote arrete, non contacte, aucun contournement. robots.txt de iiif : 200, aucune regle.",
+  "endpoints": [
+    {"id": "iiif-info-mc00227", "method": "GET", "url": "https://iiif.lib.ncsu.edu/iiif/mc00227-003-ff0073-000-001_0004/info.json"},
+    {"id": "iiif-image-mc00227-500", "method": "GET", "url": "https://iiif.lib.ncsu.edu/iiif/mc00227-003-ff0073-000-001_0004/full/500,/0/default.jpg"}
+  ]
+}

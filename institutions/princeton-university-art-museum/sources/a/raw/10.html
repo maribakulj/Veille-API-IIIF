@@ -1,0 +1,789 @@
+
+<!DOCTYPE html>
+
+<html class="no-js" lang="en">
+
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <title>Infrastructure First, Shiny New Things Second – CDH@Princeton</title>
+    
+    
+
+<link rel="apple-touch-icon" sizes="180x180" href="/static/images/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/static/images/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/static/images/favicon-16x16.png">
+<link rel="manifest" href="/static/images/site.webmanifest">
+<link rel="mask-icon" href="/static/images/safari-pinned-tab.svg" color="#5bbad5">
+<meta name="msapplication-TileColor" content="#da532c">
+<meta name="theme-color" content="#ffffff">
+    
+    
+        
+
+
+
+
+
+
+
+
+<meta name="description" content="In 2017, the Princeton Art Museum radically expanded public access to its collections, but not through free admission (it already had that) or special events (it had those, too). Instead, it quietly released a piece of vital digital infrastructure: an open API, giving the public access to collection metadata and images.">
+
+<meta property="og:title" content="Infrastructure First, Shiny New Things Second" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://cdh.princeton.edu/blog/2020/03/05/infrastructure-first-shiny-new-things-second/" />
+<meta property="og:image" content="https://cdh.princeton.edu/media/images/PU_Art_Museum_collections_screen.2c1158fa.fill-1200x627.webp" />
+
+<meta property="og:site_name" content="The Center for Digital Humanities at Princeton"/>
+
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:site" content="@PrincetonDH" />
+<meta name="twitter:title" content="Infrastructure First, Shiny New Things Second"/>
+
+<meta name="twitter:image" content="https://cdh.princeton.edu/media/images/PU_Art_Museum_collections_screen.2c1158fa.fill-1200x627.webp" />
+
+
+
+<link rel="alternate" type="application/rss+xml" href="/updates/rss/"
+    title="Updates – CDH@Princeton"/>
+<link rel="alternate" type="application/atom+xml" href="/updates/atom/"
+    title="Updates – CDH@Princeton"/>
+
+    
+    
+
+
+
+
+
+
+
+<span class="Z3988" title="url_ver=Z39.88-2004&amp;ctx_ver=Z39.88-2004&amp;rfr_id=info%3Asid%2Fcdh.princeton.edu%3Ablog&amp;rft_val_fmt=info:ofi/fmt:kev:mtx:dc&amp;rft.type=blogPost&amp;rft.title=Infrastructure First, Shiny New Things Second&amp;rft.creator=Kate Carpenter&amp;rft.date=2020-03-05&amp;rft.source=Center For Digital Humanities@Princeton&amp;rft.identifier=https://cdh.princeton.edu/blog/2020/03/05/infrastructure-first-shiny-new-things-second/"></span>
+
+
+    <script type="text/javascript"> window.staticRoot = "/static/dist/"; </script>
+
+    <script>
+      document.documentElement.classList.remove('no-js');
+      document.documentElement.classList.add('js');
+    </script>
+    
+
+
+<script defer data-domain="cdh.princeton.edu" src="https://plausible.io/js/script.file-downloads.hash.outbound-links.js "></script>
+
+<script>window.plausible = window.plausible || function() { (window.plausible.q = window.plausible.q || []).push(arguments) }</script>
+
+
+
+    
+      
+    
+
+    <script defer src="/static/dist/main.js"></script>
+    <link href="/static/dist/styles.css" rel="stylesheet">
+
+  </head>
+  <body class="">
+    
+    <a class="skip-link" href="#content">
+      Skip to content
+    </a>
+
+    
+
+
+
+<script id="navigation-data-primary" type="application/json">{"primary_nav_data": {"primary_nav": {"l1_menu_items": [{"title": "Research", "overview": "", "link_url": "/projects/", "l2_items": [{"title": "Faculty Research", "link_url": "/faculty-research-at-cdh/"}, {"title": "All Projects", "link_url": "/projects/"}, {"title": "Published Research", "link_url": "https://www.zotero.org/groups/1657550/cdh_princeton/collections/BUG8AC3A/collection"}], "is_current": false}, {"title": "Programs", "overview": "", "link_url": "/programs/", "l2_items": [{"title": "Humanities Research Software Engineering", "link_url": "/programs/humanities-rse/"}, {"title": "Humanities \u0026 AI", "link_url": "/programs/humanities-ai/"}, {"title": "Affiliate Labs \u0026 Working Groups", "link_url": "/programs/research-groups/"}, {"title": "Graduate Program", "link_url": "/programs/graduate-program/"}, {"title": "Undergraduate Program", "link_url": "/programs/undergraduate-program/"}, {"title": "Journal of Cultural Analytics", "link_url": "/programs/journal-of-cultural-analytics/"}, {"title": "Curriculum \u0026 Pedagogy", "link_url": "/programs/curriculum-and-pedgogy/"}, {"title": "Humanities Data", "link_url": "/programs/humanities-data-new/"}, {"title": "Project Design", "link_url": "/programs/project-design/"}], "is_current": false}, {"title": "People", "overview": "", "link_url": "/people/", "l2_items": [{"title": "Staff", "link_url": "/people/staff/"}, {"title": "Faculty Leadership", "link_url": "/people/faculty-leadership/"}, {"title": "Affiliated Faculty", "link_url": "/affiliated-faculty/"}, {"title": "Students", "link_url": "/people/students/"}, {"title": "Past People", "link_url": "/past-people/"}, {"title": "Join our team", "link_url": "/opportunities/"}], "is_current": false}, {"title": "About", "overview": "", "link_url": "/about/", "l2_items": [{"title": "About us", "link_url": "/about/"}, {"title": "History of CDH", "link_url": "/history-of-cdh/"}, {"title": "Connect with us", "link_url": "/connect-with-us-online/"}, {"title": "Opportunities", "link_url": "/opportunities/"}], "is_current": false}, {"title": "AI", "overview": "", "link_url": "/programs/humanities-ai/", "l2_items": [], "is_current": false}]}}}</script>
+
+
+
+<script id="navigation-data-secondary" type="application/json">{"secondary_nav_data": {"secondary_nav": {"items": [{"title": "Events", "link_url": "/events/"}, {"title": "News", "link_url": "/news/"}, {"title": "Blog", "link_url": "/blog/"}], "cta": [{"title": "Book a consult", "link_url": "/consult/"}]}}}</script>
+
+
+
+<header class="header">
+    
+
+
+
+<div role="note"
+  class="u-hidden alert-banner alert-banner--info"
+  data-component="alert-banner"
+  data-alert-id="alert_alert_6"
+  aria-labelledby="alert-heading-alert_6"
+  >
+  <div class="alert-banner__grid content-width grid-standard">
+    <div class="alert-banner__decoration">
+      
+        
+<svg class="" aria-hidden="true">
+  <use href="/static/dist/two-tone.svg#info"></use>
+</svg>
+
+      
+    </div>
+    <div class="alert-banner__content
+      
+        alert-banner__content--dismissable
+      
+    ">
+      <div class="alert-banner__text">
+        <h2 id="alert-heading-alert_6" class="alert-banner__heading">
+          Info:
+          
+          Apply to be a Transcribe Lab Fellow!
+        </h2>
+        <p data-block-key="0s3r8">For Princeton Scholars. <b>Due: November 15, 2026.</b> <a href="/funding/transcribe-lab-fellows/">Apply now</a>.</p>
+      </div>
+      
+        <button role="button" class="alert-banner__dismiss-btn" aria-label="Dismiss alert">
+          
+<svg class="" aria-hidden="true">
+  <use href="/static/dist/two-tone.svg#x"></use>
+</svg>
+
+        </button>
+      
+    </div>
+  </div>    
+</div>
+
+
+<div role="note"
+  class="u-hidden alert-banner alert-banner--info"
+  data-component="alert-banner"
+  data-alert-id="alert_alert_10"
+  aria-labelledby="alert-heading-alert_10"
+  >
+  <div class="alert-banner__grid content-width grid-standard">
+    <div class="alert-banner__decoration">
+      
+        
+<svg class="" aria-hidden="true">
+  <use href="/static/dist/two-tone.svg#info"></use>
+</svg>
+
+      
+    </div>
+    <div class="alert-banner__content
+      
+        alert-banner__content--dismissable
+      
+    ">
+      <div class="alert-banner__text">
+        <h2 id="alert-heading-alert_10" class="alert-banner__heading">
+          Info:
+          
+          AI Support for the Humanities @ Princeton
+        </h2>
+        <p data-block-key="2igcg"><a href="/programs/humanities-ai/ai-support-for-the-humanities-princeton/">Learn more</a></p>
+      </div>
+      
+        <button role="button" class="alert-banner__dismiss-btn" aria-label="Dismiss alert">
+          
+<svg class="" aria-hidden="true">
+  <use href="/static/dist/two-tone.svg#x"></use>
+</svg>
+
+        </button>
+      
+    </div>
+  </div>    
+</div>
+
+
+    
+
+    <nav class="main-nav-mobile" data-component="main-nav-mobile" aria-label="Main" data-search-url="/search/">
+        
+        <div class="mobile-menu__header">
+            <a href="/" aria-label="The Center for Digital Humanities at Princeton" class="mobile-menu__logo-link">
+                
+<svg class="mobile-menu__header-logo" aria-hidden="true">
+  <use href="/static/dist/logo.svg#cdh-logo"></use>
+</svg>
+
+            </a>
+        </div>
+    </nav>
+
+    <nav class="main-nav-desktop" aria-label="Main">
+        <div class="content-width grid-standard main-nav-desktop__grid">
+            <a href="/" class="main-nav-desktop__logo-link" aria-label="The Center for Digital Humanities at Princeton">
+                
+<svg class="" aria-hidden="true">
+  <use href="/static/dist/logo.svg#cdh-logo"></use>
+</svg>
+
+            </a>
+
+            
+            <div class="main-nav-desktop__primary" data-component="main-nav-desktop" data-search-url="/search/">
+                
+                <ul class="main-nav-desktop__list">
+                    
+                        <li>
+                            <a href="/projects/" 
+                                class="main-nav-desktop__item 
+                                    "
+                                
+                                >  
+                                <span>Research</span>
+                                
+                                
+                                    <span class="main-nav-desktop__dropdown-icon"></span>
+                                
+                            </a>
+                        </li>
+                    
+                        <li>
+                            <a href="/programs/" 
+                                class="main-nav-desktop__item 
+                                    "
+                                
+                                >  
+                                <span>Programs</span>
+                                
+                                
+                                    <span class="main-nav-desktop__dropdown-icon"></span>
+                                
+                            </a>
+                        </li>
+                    
+                        <li>
+                            <a href="/people/" 
+                                class="main-nav-desktop__item 
+                                    "
+                                
+                                >  
+                                <span>People</span>
+                                
+                                
+                                    <span class="main-nav-desktop__dropdown-icon"></span>
+                                
+                            </a>
+                        </li>
+                    
+                        <li>
+                            <a href="/about/" 
+                                class="main-nav-desktop__item 
+                                    "
+                                
+                                >  
+                                <span>About</span>
+                                
+                                
+                                    <span class="main-nav-desktop__dropdown-icon"></span>
+                                
+                            </a>
+                        </li>
+                    
+                        <li>
+                            <a href="/programs/humanities-ai/" 
+                                class="main-nav-desktop__item 
+                                    "
+                                
+                                >  
+                                <span>AI</span>
+                                
+                                
+                            </a>
+                        </li>
+                    
+                    <li>
+                        
+                        <a href="/search/" 
+                            class="main-nav-desktop__item
+                            
+                        ">   
+                            <span>Search</span>
+                            
+<svg class="main-nav-desktop__search-icon" aria-hidden="true">
+  <use href="/static/dist/two-tone.svg#search"></use>
+</svg>
+
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
+            <ul class="main-nav-desktop__secondary">
+                
+                    <li>
+                        <a href="/events/">Events</a>
+                    </li>
+                
+                    <li>
+                        <a href="/news/">News</a>
+                    </li>
+                
+                    <li>
+                        <a href="/blog/">Blog</a>
+                    </li>
+                
+                
+                    <li>
+                        <a href="/consult/" class="sk-btn sk-btn--secondary main-nav-desktop__cta">Book a consult</a>
+                    </li>
+                
+            </ul>
+
+        </div>
+    </nav>
+</header>
+
+
+    <main id="content">
+      
+    
+
+<div class="content-width grid-standard">
+    <nav aria-label="Breadcrumb" class="breadcrumbs">
+        <ol class="breadcrumbs__list">
+            
+            
+                <li class="breadcrumbs__item 
+                    
+                ">
+                    <a href="/" class="breadcrumbs__link
+                        
+                    ">
+                        
+                        
+                            Home
+                        
+                    </a>
+                    <span class="breadcrumbs__separator" aria-hidden="true"> / </span>
+                </li>
+            
+                <li class="breadcrumbs__item 
+                    
+                        breadcrumbs__item--parent
+                    
+                ">
+                    <a href="/blog/" class="breadcrumbs__link
+                        
+                            breadcrumbs__link--parent
+                        
+                    ">
+                        
+                            
+<svg class="breadcrumbs__back-icon" aria-hidden="true">
+  <use href="/static/dist/two-tone.svg#chevron-left"></use>
+</svg>
+
+                        
+                        
+                            
+                                Blog
+                            
+                        
+                    </a>
+                    <span class="breadcrumbs__separator" aria-hidden="true"> / </span>
+                </li>
+            
+            
+            <li class="breadcrumbs__item breadcrumbs__item--current-page">
+                
+                    Infrastructure First, Shiny New Things Second
+                
+            </li>
+        </ol>
+    </nav>
+</div>
+
+    
+
+<div class="blog-hero content-width grid-standard">
+    
+    <div class="blog-hero__text">
+        <h1>Infrastructure First, Shiny New Things Second</h1>
+        
+    
+        <p class="blog-hero__date">
+            5 March 2020
+        </p>
+
+        
+            <div class="blog-hero__authors">
+                <h2 class="sr-only">Authors</h2>
+                <ul>
+                    
+                        <li><a href="/people/kathryn-carpenter/">Kate Carpenter</a></li>
+                    
+                </ul>
+            </div>
+        
+
+        
+
+    </div>
+    
+    
+        <div class="blog-hero__description">
+            In 2017, the Princeton Art Museum radically expanded public access to its collections, but not through free admission (it already had that) or special events (it had those, too). Instead, it quietly released a piece of vital digital infrastructure: an open API, giving the public access to collection metadata and images.
+        </div>
+    
+
+    
+        <figure class="blog-hero__img">
+            
+
+            
+            
+
+            <picture>
+                <source srcset="/media/images/PU_Art_Museum_collec.2c1158fa.fill-1650x928.format-webp.webp" media="(min-width: 500px)">
+                <img
+                    src="/media/images/PU_Art_Museum_collec.2c1158fa.fill-1000x563.format-webp.webp" 
+                    alt="PU_Art_Museum_collections_screenshot.png"
+                    style="aspect-ratio: 1000 / 563"
+                />
+            </picture>
+
+            
+        </figure>
+
+    
+    
+</div>
+
+
+    <div class="content-width grid-standard page-layout page-layout--without-sidenav">
+        <div class="page-layout__main-content">
+            <div class="streamfields-wrapper">
+                
+                    
+
+
+
+
+<div class="block block--migrated-content">
+     <figure class="image"> <img alt="A screenshot of the collections search page from the Princeton Art Museum." src="/media/uploads/PU_Art_Museum_collections_screenshot.png"/><figcaption> <em>A screenshot of the collections search page from the Princeton Art Museum.</em> </figcaption> </figure> <p>In 2017, the <a data-saferedirecturl="https://www.google.com/url?q=https://artmuseum.princeton.edu/&amp;source=gmail&amp;ust=1583414920169000&amp;usg=AFQjCNEvljGxYd_q4JjOjni-vXbsweLFxQ" href="https://artmuseum.princeton.edu/" rel="noopener" target="_blank">Princeton Art Museum</a> radically expanded public access to its collections, but not through free admission (it already had that) or special events (it had those, too). Instead, it quietly released a piece of vital digital infrastructure: an open API, giving the public access to collection metadata and images. </p> <p>An API (application programming interface) allows developers access to data that they can then incorporate into their own programs. In 2015 the Museum launched its five-year Collections Discovery Initiative to create open access to the scholarly documentation of its collections through continued cataloguing, conversion of data from analog to digital, and the development of dynamic search and discovery tools like data and image APIs.To head the development process, the museum re-hired Dan Brennan, a former archivist and collections and data management specialist who had left Princeton to work for New York’s Metropolitan Museum of Art. Under Brennan’s guidance, the new API launched in the spring of 2017. </p> <p>The project initially emphasized the internal benefits of offering a better way to handle collections data on the museum’s own platforms, especially its web site. Previously, the collections had been available online, but through a labor-intensive process that made it challenging to keep up with cataloging and photography. Brennan says: “It came with this realization that the way they were doing that was completely unsustainable,” especially for future growth. But Brennan and other museum leaders also thought this data might be useful to others. Soon after the API launched, Brennan began reaching out to other departments. </p> <p>Most of the work with the API outside of the museum so far has come from Princeton students themselves. It has allowed the museum to collaborate with students in departments like computer science who might not otherwise have a strong connection with the art museum. The API also offers Princeton professors teaching and research tools—like the ability to pull museum metadata and images directly into lessons—that are only just beginning to be explored. </p> <p>The Princeton Art Museum API is representative of a shift in how museums are engaging with digital technologies, especially among institutions that have the resources to tackle large projects. Earlier digital museum projects tended to focus on what Brennan calls “shiny one-off things,” projects that required significant resources to build from scratch and might quickly become outdated. Now, museums are focusing on building high quality infrastructure so that future projects require less upfront investment. </p> <p>A group of Princeton computer science students recently demonstrated the usefulness of such infrastructure. In a class that challenged them to create a software project that solved a campus problem, one team used the museum API to rebuild the campus art map. A version existed that had previously been commissioned by the museum, but, Brennan says, “these students built a more modern version in, like, three weeks” with the data they accessed through the API. </p> <p>The API has had some surprising internal results at the museum as well. In addition to a revamped collection search, the data has allowed curators to see larger trends in the collection, including differences in how curators have described cultures or materials over time, or which parts of the collection are more heavily catalogued than others. </p> <p>“When you can see the data collection as a whole, you see things about the collection that you don’t when close up,” Brennan says. </p> <p>The museum’s API is open to everyone, and <a data-saferedirecturl="https://www.google.com/url?q=https://github.com/Princeton-University-Art-Museum/puam-api-docs&amp;source=gmail&amp;ust=1583414920169000&amp;usg=AFQjCNF-JVszxTUbjTYQ7ya_cAsUKSuKiA" href="https://github.com/Princeton-University-Art-Museum/puam-api-docs" rel="noopener" target="_blank">documentation is available on Github</a>. Brennan is eager to see what other users might do with the data. One of his wildest dreams, he says, is for someone to create their own way to search the collection, one that privileges their interests and priorities rather than how the museum sees its collection. In the meantime, Brennan also sees the <a data-saferedirecturl="https://www.google.com/url?q=https://artmuseum.princeton.edu/about/press-room/press-release/new-princeton-university-art-museum-envisioned-cultural-gateway&amp;source=gmail&amp;ust=1583414920169000&amp;usg=AFQjCNG752VwntxwcML9850YUEuRTM9Oow" href="https://artmuseum.princeton.edu/about/press-room/press-release/new-princeton-university-art-museum-envisioned-cultural-gateway" rel="noopener" target="_blank">upcoming closing and rebuilding of the museum</a> as an opportunity: “Thinking about how we can use digital tools to support a museum experience with collections while we don’t have a building is a very interesting challenge that we’re working on.” </p>
+</div>
+                
+            </div>
+        </div>
+    </div>
+
+    </main>
+
+    
+    
+    
+
+    
+      
+    
+
+    
+    
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-864528T1N5"></script>
+<script nonce="">
+    /*
+      Google Analytics gtags snippet to be included if analytics are enabled.
+    */
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-864528T1N5');
+
+</script>
+    
+    
+    
+
+    
+    
+
+<footer class="footer">
+
+  <div class="content-width">
+    
+    <div class="footer__top grid-standard">
+      <div class="footer__logo">
+        <a href="/" aria-label="The Center for Digital Humanities at Princeton">
+          
+<svg class="" aria-hidden="true">
+  <use href="/static/dist/logo.svg#cdh-logo"></use>
+</svg>
+
+        </a>
+      </div>
+      <div class="footer__search">
+        <h2 class="footer__search-heading footer__heading-text">Search</h2>
+        
+
+
+<form class="search-form " action="/search/">
+  <label class="sr-only" for="search-input_footer">Search</label>
+  <div class="text-input-and-button-group">
+    <input type="text" id="search-input_footer" name="q"  />
+    <input type="submit" value="Search" />
+  </div>
+  <fieldset class="search-form__filters">
+    <legend class="sr-only">Filter search results by</legend>
+    
+      <div class="radio">
+        <div class="search-form__radio">
+          <input type="radio" 
+            name="filter" 
+            value="everything" 
+            id="footer_everything" 
+            
+            checked
+          />
+          <label for="footer_everything">Everything</label>
+          
+<svg class="" aria-hidden="true">
+  <use href="/static/dist/two-tone.svg#doc"></use>
+</svg>
+
+        </div>
+      </div>
+    
+      <div class="radio">
+        <div class="search-form__radio">
+          <input type="radio" 
+            name="filter" 
+            value="people" 
+            id="footer_people" 
+            
+            
+          />
+          <label for="footer_people">People</label>
+          
+<svg class="" aria-hidden="true">
+  <use href="/static/dist/two-tone.svg#person"></use>
+</svg>
+
+        </div>
+      </div>
+    
+      <div class="radio">
+        <div class="search-form__radio">
+          <input type="radio" 
+            name="filter" 
+            value="updates" 
+            id="footer_updates" 
+            
+            
+          />
+          <label for="footer_updates">Blogs &amp; news</label>
+          
+<svg class="" aria-hidden="true">
+  <use href="/static/dist/two-tone.svg#blog"></use>
+</svg>
+
+        </div>
+      </div>
+    
+      <div class="radio">
+        <div class="search-form__radio">
+          <input type="radio" 
+            name="filter" 
+            value="projects" 
+            id="footer_projects" 
+            
+            
+          />
+          <label for="footer_projects">Projects</label>
+          
+<svg class="" aria-hidden="true">
+  <use href="/static/dist/two-tone.svg#folder"></use>
+</svg>
+
+        </div>
+      </div>
+    
+      <div class="radio">
+        <div class="search-form__radio">
+          <input type="radio" 
+            name="filter" 
+            value="events" 
+            id="footer_events" 
+            
+            
+          />
+          <label for="footer_events">Events</label>
+          
+<svg class="" aria-hidden="true">
+  <use href="/static/dist/two-tone.svg#cal"></use>
+</svg>
+
+        </div>
+      </div>
+    
+  </fieldset>
+</form>
+
+      </div>
+    </div>
+
+    <div class="footer__main grid-standard">
+
+      <h2 class="footer__main-heading footer__heading-text">Contact</h2>
+
+      
+        <div class="footer__contact">
+          
+          <ul class="footer__link-list">
+              
+                <li><p data-block-key="wjsox">cdh-info@princeton.edu</p></li>
+              
+                <li><p data-block-key="yj489">609-258-7313</p></li>
+              
+            </ul>
+          
+
+          
+            <ul class="footer__social-links">
+              
+                <li>
+                  <a href="https://www.linkedin.com/company/the-center-for-digital-humanities-at-princeton-university/" aria-label="linkedIn">
+                    
+<svg class="" aria-hidden="true">
+  <use href="/static/dist/social.svg#linkedIn"></use>
+</svg>
+
+                  </a>
+                </li>
+              
+                <li>
+                  <a href="https://bsky.app/profile/princetoncdh.bsky.social" aria-label="bluesky">
+                    
+<svg class="" aria-hidden="true">
+  <use href="/static/dist/social.svg#bluesky"></use>
+</svg>
+
+                  </a>
+                </li>
+              
+                <li>
+                  <a href="https://instagram.com/princetoncdh" aria-label="instagram">
+                    
+<svg class="" aria-hidden="true">
+  <use href="/static/dist/social.svg#instagram"></use>
+</svg>
+
+                  </a>
+                </li>
+              
+                <li>
+                  <a href="https://github.com/Princeton-CDH" aria-label="github">
+                    
+<svg class="" aria-hidden="true">
+  <use href="/static/dist/social.svg#github"></use>
+</svg>
+
+                  </a>
+                </li>
+              
+            </ul>
+          
+        </div>
+      
+
+      <div class="footer__address-and-newsletter">
+        
+          <h2 class="sr-only">Address</h2>
+          <div class="footer__address"><p data-block-key="vn7zk">Center for Digital Humanities<br/>Firestone Library Floor B<br/>Princeton University<br/>Princeton, NJ 08544</p></div>
+        
+        <div class="footer__newsletter">
+          
+
+
+
+
+
+
+
+    <h2>
+        Subscribe to our newsletter
+        
+<svg class="" aria-hidden="true">
+  <use href="/static/dist/two-tone.svg#email"></use>
+</svg>
+
+    </h2>
+    <form action="https://princeton.us16.list-manage.com/subscribe/post?u=a77a39541c9fc9c8b625cb379&amp;id=3f268a40cb" 
+        method="post"
+        name="mc-embedded-subscribe-form"
+        class="text-input-and-button-group "
+        target="_blank"
+    >
+        <label for="id-47d712e7c7fe4dc1a414f307914968cb" class="sr-only">Subscribe to our newsletter</label>
+        <input type="email" value="" name="EMAIL" id="id-47d712e7c7fe4dc1a414f307914968cb" placeholder="Your email address" required />
+        
+        <div style="position: absolute; left: -5000px;" aria-hidden="true"><input type="text" name="b_a77a39541c9fc9c8b625cb379_3f268a40cb" tabindex="-1" value=""></div>
+        <input type="submit" value="Submit" name="subscribe"/>
+    </form>
+
+
+        </div>
+      </div>
+
+      
+        <h2 class="sr-only">Useful links</h2>
+        <ul class="footer__useful-links footer__link-list">
+          
+            <li>
+              <a href="/annual-report/">Annual Reports</a>
+            </li>
+          
+            <li>
+              <a href="/opportunities/">Opportunities</a>
+            </li>
+          
+            <li>
+              <a href="/events/cosponsor/">Co-Sponsor an Event</a>
+            </li>
+          
+        </ul>
+      
+
+      <div class="footer__princeton-logo">
+        <a href="https://www.princeton.edu/" aria-label="Princeton University">
+          
+<svg class="" aria-hidden="true">
+  <use href="/static/dist/logo.svg#princeton-logo"></use>
+</svg>
+
+        </a>
+      </div>
+
+    </div>
+
+  </div>
+
+  <div class="footer__imprint">
+    <div class="content-width footer__imprint-content">
+      
+        <ul>
+          
+            <li>
+              <a href="https://accessibility.princeton.edu/">Accessibility</a>
+            </li>
+          
+            <li>
+              <a href="https://www.princeton.edu/privacy-notice">Privacy</a>
+            </li>
+          
+
+        </ul>
+      
+      <span class="footer__copyright">©2026 Trustees of Princeton University
+      </span>
+      <span class="footer__version"><a href="https://github.com/Princeton-CDH/cdh-web">v4.2.0</a></span>
+    </div>
+  </div>
+
+</footer>
+    
+  </body>
+</html>

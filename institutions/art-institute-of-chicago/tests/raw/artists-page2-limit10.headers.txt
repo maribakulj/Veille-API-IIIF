@@ -1,0 +1,19 @@
+2026-11-14T02:07:38Z GET https://api.artic.edu/api/v1/artists?page=2&limit=10&fields=id,title
+HTTP 200
+date: Sat, 14 Nov 2026 02:07:38 GMT
+content-type: application/json
+transfer-encoding: chunked
+connection: keep-alive
+etag: W/"0fd1e9b147f521fa472df8ae36f85d50-gzip"
+server: cloudflare
+cache-control: no-cache, private
+x-ratelimit-limit: 60
+x-ratelimit-remaining: 59
+access-control-allow-origin: *
+vary: Accept-Encoding
+x-cache: Miss from cloudfront
+via: 1.1 beb67f44cc602e6e406223720e864758.cloudfront.net (CloudFront)
+x-amz-cf-pop: MXP63-P8
+x-amz-cf-id: JRTu6PZMJmeZlYkyS8-CP8qjt3xWzIvGv5m3oIItQBjqQlw0nGUnVA==
+cf-cache-status: DYNAMIC
+cf-ray: a5a276b41c57dfa2-MXP

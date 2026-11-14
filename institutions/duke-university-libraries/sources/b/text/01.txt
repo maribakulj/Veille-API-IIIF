@@ -1,0 +1,81 @@
+Impact of AI Bots on Library Websites | Duke University Libraries 
+ Skip to main content
+ My Accounts 
+ Ask a Librarian 
+ Library Hours 
+ Search our Site 
+ ☰ Menu 
+ Menu 
+ Search & Find 
+ Using the Library 
+ Research Support 
+ Course Support 
+ Libraries 
+ About 
+ Home 
+ Using the Library 
+ Off-Campus Access to E-Resources 
+ Impact of AI Bots on Library Websites
+ Impact of AI Bots on Library Websites 
+ Artificial Intelligence (AI) bot harvesting agents have been crawling library websites such as our Duke Digital Repository and Archives & Manuscripts Collection Guides to scrape content for use by Large Language Models (LLMs). The overwhelming number of simultaneous requests that these AI bots make on our websites has sometimes rendered them inaccessible to our human library patrons. The Frequently Asked Questions (FAQs) listed below provide more information about this topic.
+ The library website is slow or unavailable. What's happening? 
+ Over the last couple of years, we have been experiencing increasingly frequent periods of very high traffic, often from automated web scrapers (a.k.a., "bots"). These bots can place so much demand on our websites that the sites become very slow or stall out entirely.
+ Why are bots crawling library websites so much? 
+ Library sites are great sources of reliable, structured information, which is very appealing to companies building datasets for AI. Sometimes the extent of the web crawling may be accidental, though. Some of our applications, like our Duke Digital Repository , have web content that constantly changes, with essentially infinite links to follow. Bots can spend a lot of time and take up a lot of resources trying to click on every link on every page.
+ If bots are pulling library websites into their databases, isn't that a good thing? Doesn't that mean I can find library information when I'm using ChatGPT?
+ We definitely want people to find our information and resources! For a long time, we've built our websites to be supportive of beneficial and respectful web crawlers, like the crawlers that make sure Google searches have up-to-date information.
+ The problem with modern bots is that many are being impolite and even deceitful, and in very harmful ways. To gather as much data as they can, they are sending a ton of requests from thousands of individual IP addresses, disguised as real browsers, at a very fast pace. Even if we might benefit from being included in some of these data gathering efforts, our websites can't handle the amount of traffic the bots are generating.
+ How is the library responding to bot traffic? 
+ Historically, we have used a range of strategies to try to either block traffic from problematic bots or compensate for increased traffic. We used to be able to block some traffic by monitoring the IP addresses requests are coming from and adding temporary blocks to individual IP addresses or subnets. Sometimes we might increase the resources for our applications to try to compensate for a period of heavy traffic. Unfortunately, modern bots often send requests from a wide range of IP addresses, and they seem to just take up any extra resources we add.
+ Starting in June of 2025, we are rolling out a solution called Anubis that requires certain types of traffic to go through a Proof of Work request. If you're not on a Duke network, you might see a quick message that says, "Making sure you're not a bot!" That's the application asking your computer to execute a small amount of Javascript, which is something bots tend not to be able to do. Bots get blocked, while humans with a common browser configuration go through normally.
+ What impact will your bot protection solution have on me? 
+ Hopefully, our solution will be a benefit to you! For example, after we put our bot protection in place, we noticed that our websites were responding much faster. Without all of the extra bot requests, humans should have a better experience with our sites.
+ That being said, any system like this increases the chance that a human will accidentally get blocked from one of our sites. There is a higher risk of getting blocked if you:
+ Are not on a Duke network
+ Are using an older browser
+ Have disabled Javascript in your browser
+ Have disabled cookies in your browser
+ The final impact of these protection measures is that we are more actively gathering and reviewing data on our web traffic to monitor bot traffic and explore the impact of these measures on our users. We'll use this data to keep fine-tuning our tools and make sure we're not blocking access incorrectly.
+ What should I do if I have trouble accessing a library site? 
+ If you receive a message that we haven't been able to confirm you're a human, there are a few things you can try.
+ Allow cookies (either for all sites or just for library websites)
+ Log onto the Duke VPN , if you're able
+ Switch or update your browser
+ Enable Javascript in your browser
+ If none of these strategies work, the message you see will also include a link to a contact form. Submitting that form will help us research your particular situation and see if there is another problem. In most cases, library staff will respond to your problem report within five business days.
+ In addition to rules that govern crawling of our sites, we have protections in place to prevent large-scale, automated downloading of proxied library resources. If you download more than 500MB of material within a 30-minute time-frame, your account will be temporarily blocked from accessing library resources.
+ I have a project where I would like to crawl a library site. What rules should I follow? 
+ Duke Libraries is happy to work with researchers on projects, but there are complex guidelines that need to be followed. For example, our library catalogs like Library Search include copyrighted data that have been licensed for our use. Since we don't own the data, we aren't allowed to distribute it to others, so crawling our catalog to create a copy of the data actually violates our contract with the data owners.
+ In general, we ask people crawling our site content to follow certain rules. These rules are defined in a file called "robots.txt" that is available for our various applications. As mentioned above, we do have some applications where we restrict crawling, so please respect any disallow directives for our applications. Even where not specified in "robots.txt", it is also courteous to limit the rate of your requests by adding a crawl delay of at least 10 seconds. Limiting crawling to evenings and weekends also reduces the likelihood that your traffic will affect normal use of the system.
+ Regardless of the speed, we do not permit the use of robots or intelligent agents to engage in systematic, bulk, or automatic downloads of library materials. Such downloads may violate our licensing agreements with publishers and vendors. If you engage in automated downloads of library materials, your account may be temporarily blocked from accessing library resources. Our page on off-campus access to e-resources includes other helpful information about access to our electronic materials.
+ If you would like to speak with library staff about a project idea you have, please contact your subject specialist with an outline of the project.
+ Where can I learn more about this problem and what other institutions are doing in response? 
+ Duke's experiences are similar to those of libraries at many of our peer institutions. Here are some resources if you would like to learn more.
+ Library IT vs. the AI bots (UNC Libraries)
+ Are AI Bots Knocking Cultural Heritage Offline? (GLAM-E Lab, NYU)
+ Aggressive AI Harvesting of Digital Resources (LYRASIS)
+ Contact Us 
+ 411 Chapel Drive
+ Durham, NC 27708
+ (919) 660-5870
+ Perkins Library Service Desk 
+ Services for... 
+ Faculty & Instructors 
+ Graduate Students 
+ Undergraduate Students 
+ International Students 
+ Alumni 
+ Donors 
+ Visitors 
+ Patrons with Disabilities 
+ LinkedIn 
+ Facebook 
+ Youtube 
+ Flickr 
+ Instagram 
+ RSS 
+ Sign Up for Our Newsletter 
+ Re-use & Attribution / Privacy 
+ Harmful Language Statement 
+ Support the Libraries 
+ Log In

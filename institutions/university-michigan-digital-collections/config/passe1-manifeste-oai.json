@@ -1,0 +1,14 @@
+{
+  "slug": "university-michigan-digital-collections",
+  "min_delay_s": 6,
+  "max_requests": 15,
+  "follow_redirects": 1,
+  "robots_disallow_autorise_par_marcel": true,
+  "note": "passe 1 : manifeste IIIF (URL citée dans l'encart « Related Links » de la page d'item bhl/BL004079, réplique Wayback), OAI-PMH (baseURL citée par le billet « Changes to the University of Michigan OAI Data Provider »), page d'item HTML. robots.txt de quod : Allow / pour *.",
+  "endpoints": [
+    {"id": "manifeste-bhl-BL004079", "method": "GET", "url": "https://quod.lib.umich.edu/cgi/i/image/api/manifest/bhl:BL004079:BL004079", "save_body": 2000000},
+    {"id": "oai-identify", "method": "GET", "url": "https://quod.lib.umich.edu/cgi/o/oai/oai?verb=Identify"},
+    {"id": "oai-listmetadataformats", "method": "GET", "url": "https://quod.lib.umich.edu/cgi/o/oai/oai?verb=ListMetadataFormats"},
+    {"id": "page-item-bhl-BL004079", "method": "GET", "url": "https://quod.lib.umich.edu/b/bhl/x-bl004079/bl004079"}
+  ]
+}

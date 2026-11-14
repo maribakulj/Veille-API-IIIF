@@ -1,0 +1,30 @@
+{
+  "slug": "university-of-north-texas-libraries",
+  "min_delay_s": 6,
+  "max_requests": 15,
+  "follow_redirects": 1,
+  "robots_disallow_autorise_par_marcel": true,
+  "note": "v2 passe 2 : UNT Digital Library (digital.library.unt.edu), mêmes familles que la doc https://digital.library.unt.edu/api/ (page lue) ; identifiant ark:/67531/metapth12412 cité par cette page.",
+  "endpoints": [
+    {
+      "id": "oai-identify",
+      "method": "GET",
+      "url": "https://digital.library.unt.edu/oai/?verb=Identify"
+    },
+    {
+      "id": "oai-listsets",
+      "method": "GET",
+      "url": "https://digital.library.unt.edu/oai/?verb=ListSets"
+    },
+    {
+      "id": "manifeste-metapth12412",
+      "method": "GET",
+      "url": "https://digital.library.unt.edu/ark:/67531/metapth12412/manifest/"
+    },
+    {
+      "id": "vignette-metapth12412",
+      "method": "GET",
+      "url": "https://digital.library.unt.edu/ark:/67531/metapth12412/thumbnail/"
+    }
+  ]
+}

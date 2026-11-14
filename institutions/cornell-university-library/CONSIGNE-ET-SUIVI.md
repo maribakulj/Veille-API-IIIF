@@ -2,51 +2,51 @@
 
 - **Dossier** : `institutions/cornell-university-library/`  ·  **Classeur de référence** : GLAM-043  ·  **Pays** : États-Unis
 - **Statut d'institution** : active
-- **Dernière mise à jour du suivi** : (à renseigner à chaque modification)
+- **Dernière mise à jour du suivi** : 2026-11-14
 
 ## Suivi par étape (à cocher, avec justification et preuves)
 
 ### a) Documentation lue en entier
 > Toutes les pages de doc liées à l'API (développeurs, interfaces, conditions, FAQ, aide, mentions légales, robots.txt), téléchargées avec `scripts/fetch_doc.sh` (URL, date, SHA-256), lues en entier (`scripts/extract_text.py`).
 
-- [ ] **Pas fait**
-  - **Justification** : Pas encore traitée : l'audit suit l'ordre du classeur de référence (une institution à la fois).
-  - **Preuves** : 
+- [x] **Fait**
+  - **Justification** : Doc lue : About et conditions du portail via Wayback (hôte 403), lignes directrices, guides, robots.txt de 6 hôtes ; SHA256SUMS
+  - **Preuves** : `institutions/cornell-university-library/sources/a/SHA256SUMS`, `institutions/cornell-university-library/sources/a2/SHA256SUMS`, `institutions/cornell-university-library/sources/a3/SHA256SUMS`, `institutions/cornell-university-library/sources/wayback/digital-library-cornell.md`
 
 ### b) Endpoints tirés de la doc
 > Liste des endpoints citée par la doc (URL, exemples). Jamais devinée. Une interdiction ou une impossibilité écrite dans la doc justifie de renoncer (citer la phrase).
 
-- [ ] **Pas fait**
-  - **Justification** : Pas encore traitée : l'audit suit l'ordre du classeur de référence (une institution à la fois).
-  - **Preuves** : 
+- [x] **Fait**
+  - **Justification** : Une seule famille citée (IIIF du portail, sans URL) plus portail ; endpoints_documentes et écartés renseignés dans data.json
+  - **Preuves** : `institutions/cornell-university-library/data.json`
 
 ### c) Configuration écrite AVANT les tests
 > `config/<nom>.json` pilote `scripts/probe.py`, committée avant le lancement. Un endpoint absent de la doc mais non interdit se teste avec un script poli (identifiants issus de pages publiques ou d'exemples de la doc, pas de devinette).
 
-- [ ] **Pas fait**
-  - **Justification** : Pas encore traitée : l'audit suit l'ordre du classeur de référence (une institution à la fois).
-  - **Preuves** : 
+- [x] **Fait**
+  - **Justification** : Configuration cornell-passe1-portail.json committée (aff0dff) avant le lancement de la sonde
+  - **Preuves** : `institutions/cornell-university-library/config/cornell-passe1-portail.json`
 
 ### d) Quota cherché dans la doc
 > Pour chaque page lue : endpoint de statut, en-têtes de limite documentés, clé ou compte donnant un quota, contact pour un volume plus élevé. Chaque réponse cite sa source.
 
-- [ ] **Pas fait**
-  - **Justification** : Pas encore traitée : l'audit suit l'ordre du classeur de référence (une institution à la fois).
-  - **Preuves** : 
+- [x] **Fait**
+  - **Justification** : Quotas cherchés dans chaque source : aucun sauf Crawl-delay 10 de guides robots.txt ; contacts relevés dans data.json
+  - **Preuves** : `institutions/cornell-university-library/fiche.md`, `institutions/cornell-university-library/data.json`
 
 ### e) Test systématique de chaque endpoint
 > Chaque endpoint documenté est testé (budget 15 requêtes par passe, pause ≥ 6 s, GET/HEAD, UA du projet). Redirections du même hôte suivies. Un 403 arrête son hôte, un 429 arrête l'institution. Seules les interdictions écrites dans la doc dispensent de tester.
 
-- [ ] **Pas fait**
-  - **Justification** : Pas encore traitée : l'audit suit l'ordre du classeur de référence (une institution à la fois).
-  - **Preuves** : 
+- [x] **Fait**
+  - **Justification** : Sonde passe 1 : 403 nginx sur /about, hôte arrêté ; IIIF non testé faute d'URL et de droit d'accès, raison écrite
+  - **Preuves** : `institutions/cornell-university-library/tests/journal.log`, `institutions/cornell-university-library/tests/raw/portail-about.headers.txt`
 
 ### f) Ce que disent les gens sur le web
 > Plaintes, discussions, présentations de l'institution, politique envers les API et les bots, blogs, GitHub, forums, listes de diffusion. Sources étiquetées (officielle / institution / utilisateur / tiers), lues, citées.
 
-- [ ] **Pas fait**
-  - **Justification** : Pas encore traitée : l'audit suit l'ordre du classeur de référence (une institution à la fois).
-  - **Preuves** : 
+- [x] **Fait**
+  - **Justification** : 4 recherches web, une par catégorie (institution lue, 3 autres sans résultat ou résumé de moteur)
+  - **Preuves** : `institutions/cornell-university-library/fiche.md`, `institutions/cornell-university-library/data.json`
 
 ### g) Crash test progressif
 > Seulement après l'audit complet (a à f) de toutes les institutions et avec l'accord de Marcel : paliers jusqu'à 2 × la limite documentée, ou 200 req/min si illimité ou sans limite documentée. Arrêt au premier 429/403/CAPTCHA.
@@ -60,7 +60,10 @@
 
 <!-- AUTO:DEBUT -->
 ## Contrôles automatiques (calculés depuis `tests/journal.log`)
-Aucune requête enregistrée dans `tests/journal.log`.
+- Requêtes enregistrées : **2** (sessions de sonde : 1, maximum par session : 2)
+- Plus courte pause vers un même hôte : **8 s** (règle : ≥ 6 s)
+- Méthodes utilisées : GET (règle : GET/HEAD seulement)
+- Anomalies : aucune
 <!-- AUTO:FIN -->
 
 ## Consigne intégrale

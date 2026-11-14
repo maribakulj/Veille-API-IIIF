@@ -4,10 +4,167 @@
   "pays": "Canada",
   "classeur_id": "GLAM-050",
   "type": "Institution",
-  "statut_audit": "à faire",
+  "statut_audit": "audit a–f complet (v2) ; g à faire",
   "limites_documentees": [],
-  "en_tetes_observes": [],
+  "en_tetes_observes": [
+    {
+      "hote": "iiif.library.utoronto.ca",
+      "en_tete": "server: nginx ; aucun en-tête de limite ; 307 de normalisation vers /presentation/v2/",
+      "preuve": "institutions/university-of-toronto-libraries/tests/raw/manifeste-sans-version.headers.txt"
+    }
+  ],
   "blocages": [],
-  "sources": [],
-  "web": []
+  "sources": [
+    {
+      "url": "https://collections.library.utoronto.ca/explore/faq/getting_started",
+      "date": "2026-11-14",
+      "etiquette": "officielle",
+      "preuve": "institutions/university-of-toronto-libraries/sources/a/SHA256SUMS"
+    },
+    {
+      "url": "https://utlib.github.io/collections-uoft/documentation/iiif-collections",
+      "date": "2026-11-14",
+      "etiquette": "officielle",
+      "preuve": "institutions/university-of-toronto-libraries/sources/a4/SHA256SUMS"
+    },
+    {
+      "url": "https://utlib.github.io/collections-uoft/documentation/history/2024-migration-guide",
+      "date": "2026-11-14",
+      "etiquette": "officielle",
+      "preuve": "institutions/university-of-toronto-libraries/sources/a4/SHA256SUMS"
+    },
+    {
+      "url": "https://collections.library.utoronto.ca/robots.txt",
+      "date": "2026-11-14",
+      "etiquette": "officielle",
+      "preuve": "institutions/university-of-toronto-libraries/sources/a/SHA256SUMS"
+    }
+  ],
+  "web": [
+    {
+      "categorie": "institution",
+      "aucun_resultat": true,
+      "requete": "University of Toronto Libraries IIIF iiif.library.utoronto.ca rate limit OR 429 OR bots OR scraping Collections U of T",
+      "date": "2026-11-14",
+      "etiquette": "–",
+      "citation": "aucune politique de bots ou de débit de l institution ; résultats sur d autres bibliothèques",
+      "preuve": "institutions/university-of-toronto-libraries/fiche.md"
+    },
+    {
+      "categorie": "utilisateurs",
+      "aucun_resultat": true,
+      "requete": "iiif.library.utoronto.ca github issue OR forum manifest error OR downloader",
+      "date": "2026-11-14",
+      "etiquette": "–",
+      "citation": "aucun fil d utilisateur citant iiif.library.utoronto.ca",
+      "preuve": "institutions/university-of-toronto-libraries/fiche.md"
+    },
+    {
+      "categorie": "tickets",
+      "aucun_resultat": true,
+      "requete": "iiif.library.utoronto.ca github issue OR forum manifest error OR downloader (tickets d outils tiers)",
+      "date": "2026-11-14",
+      "etiquette": "–",
+      "citation": "aucun ticket GitHub d outil tiers citant ce serveur ; utlib/IiifItems non pertinent (non lu)",
+      "preuve": "institutions/university-of-toronto-libraries/fiche.md"
+    },
+    {
+      "categorie": "presentations",
+      "url": "https://utlib.github.io/collections-uoft/documentation/history/2024-migration-guide",
+      "date": "2026-11-14",
+      "etiquette": "institution",
+      "citation": "guide de migration 2024 de Collections U of T : plateforme maison hors Islandora ; « IIIF manifests and image URLs are published with the goal of providing access and capacity for reuse in perpetuity » (page iiif-collections) ; aucune limite",
+      "preuve": "institutions/university-of-toronto-libraries/sources/a4/SHA256SUMS"
+    }
+  ],
+  "contact": "digitalinitiatives@library.utoronto.ca (doc du personnel, utlib.github.io)",
+  "conclusion_quota": "Aucune limite de débit publiée ; manifestes IIIF, collections, service d image et MODS répondent 200 (après 307 de normalisation) sans en-tête de limite ni défi ; la doc insiste sur la réutilisation à perpétuité.",
+  "classe_quota": "aucun quota trouvé",
+  "confiance": "moyenne",
+  "notes": "Manifeste v3 non testé (URL absente de la doc). Un fetch_doc de onesearch.library.utoronto.ca/robots.txt a expiré (page HTML de 380 ko, non pertinente).",
+  "a_verifier_manuellement": [
+    {
+      "url": "https://collections.library.utoronto.ca/explore/help",
+      "pourquoi": "lue (200) mais sans règle de débit",
+      "a_chercher": "Écrire à digitalinitiatives@library.utoronto.ca pour demander s une limite non publiée existe sur iiif.library.utoronto.ca"
+    }
+  ],
+  "endpoints_documentes": [
+    {
+      "famille": "IIIF Presentation 2 : manifeste d objet",
+      "url": "https://iiif.library.utoronto.ca/presentation/v2/utarmsIB:2001-15-2MS/manifest",
+      "statut": "teste",
+      "preuve": "institutions/university-of-toronto-libraries/tests/raw/manifeste-v2.headers.txt"
+    },
+    {
+      "famille": "IIIF Presentation : motif sans version et collections",
+      "url": "https://iiif.library.utoronto.ca/presentation/collections/paleography:root",
+      "statut": "teste",
+      "preuve": "institutions/university-of-toronto-libraries/tests/raw/collection-paleography.headers.txt"
+    },
+    {
+      "famille": "IIIF Presentation : liste de toutes les collections",
+      "url": "https://iiif.library.utoronto.ca/presentation/v2/collections",
+      "statut": "teste",
+      "preuve": "institutions/university-of-toronto-libraries/tests/raw/collections-liste.headers.txt"
+    },
+    {
+      "famille": "IIIF Presentation 3",
+      "url": "https://iiif.library.utoronto.ca/presentation/v3/utarmsIB:2001-15-2MS/manifest",
+      "statut": "non_teste",
+      "raison": "la doc annonce Presentation v3 sans donner d URL ; l adresse ne peut pas être déduite sans deviner, donc non lancée"
+    },
+    {
+      "famille": "IIIF Image 2 : info.json et dérivés",
+      "url": "https://iiif.library.utoronto.ca/image/v2/utarmsIB:2001-15-2MS/info.json",
+      "statut": "teste",
+      "preuve": "institutions/university-of-toronto-libraries/tests/raw/image-info-json.headers.txt"
+    },
+    {
+      "famille": "Notice MODS et pages du site",
+      "url": "https://collections.library.utoronto.ca/mods/utarmsIB:2001-15-2MS",
+      "statut": "teste",
+      "preuve": "institutions/university-of-toronto-libraries/tests/raw/mods.headers.txt"
+    }
+  ],
+  "endpoints_ecartes": [
+    {
+      "url": "https://collections.library.utoronto.ca/api/",
+      "raison": "interdit par le robots.txt de collections.library (Disallow: /api/) et absent de la doc : aucune API de recherche documentée"
+    },
+    {
+      "url": "https://fromthepage.com/utl",
+      "raison": "service tiers de transcription utilisé par l institution, pas une API de l institution"
+    },
+    {
+      "url": "https://collections.library.utoronto.ca/search?itemType=COLLECTION",
+      "raison": "page de recherche HTML du site (lien de navigation de la doc du personnel), pas une API ; les collections se lisent par le manifeste IIIF testé"
+    },
+    {
+      "url": "https://collections.library.utoronto.ca/search?itemType=BOOK",
+      "raison": "page de recherche HTML du site (lien de navigation de la doc du personnel), pas une API ; aucune API de recherche documentée"
+    }
+  ],
+  "hotes_robots": [
+    {
+      "hote": "collections.library.utoronto.ca",
+      "resultat": "Allow / ; Disallow /api/ ; pas de Crawl-delay",
+      "preuve": "institutions/university-of-toronto-libraries/sources/a/SHA256SUMS"
+    },
+    {
+      "hote": "iiif.library.utoronto.ca",
+      "resultat": "302 vers une page HTML : pas de robots.txt, tout autorisé",
+      "preuve": "institutions/university-of-toronto-libraries/sources/a/SHA256SUMS"
+    },
+    {
+      "hote": "utlib.github.io",
+      "resultat": "404 : tout autorisé",
+      "preuve": "institutions/university-of-toronto-libraries/sources/a3/SHA256SUMS"
+    },
+    {
+      "hote": "library.utoronto.ca",
+      "resultat": "Allow / ; Disallow /storage-request",
+      "preuve": "institutions/university-of-toronto-libraries/sources/a5/SHA256SUMS"
+    }
+  ]
 }

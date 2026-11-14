@@ -1,0 +1,19 @@
+{
+  "slug": "stanford-university-libraries",
+  "min_delay_s": 6,
+  "max_requests": 15,
+  "follow_redirects": 1,
+  "robots_disallow_autorise_par_marcel": true,
+  "note": "v2 passe 1 : purl.stanford.edu (manifestes IIIF Presentation v2 et v3, XML et MODS publics) et stacks.stanford.edu (info.json et petite derivee IIIF Image v2, HEAD du fichier et de l'archive). Tous les exemples viennent de https://api.library.stanford.edu/docs/iiif/api/, /docs/purl/api/ et /docs/digital-stacks/api/ (sources/api-*). L'image 'full/full' de la doc est remplacee par une derivee de 200 px (script poli, meme ressource). Fichier et archive : HEAD seulement, pas de telechargement.",
+  "endpoints": [
+    {"id": "purl-manifest-v2", "method": "GET", "url": "https://purl.stanford.edu/wy323vc0101/iiif/manifest", "save_body": 3000000},
+    {"id": "purl-manifest-v3", "method": "GET", "url": "https://purl.stanford.edu/wy323vc0101/iiif3/manifest"},
+    {"id": "purl-xml", "method": "GET", "url": "https://purl.stanford.edu/wy323vc0101.xml"},
+    {"id": "purl-mods", "method": "GET", "url": "https://purl.stanford.edu/wy323vc0101.mods"},
+    {"id": "purl-page", "method": "GET", "url": "https://purl.stanford.edu/wy323vc0101"},
+    {"id": "stacks-info-json", "method": "GET", "url": "https://stacks.stanford.edu/image/iiif/wy323vc0101%2F36105115643962_0002/info.json"},
+    {"id": "stacks-image-200px", "method": "GET", "url": "https://stacks.stanford.edu/image/iiif/wy323vc0101%2F36105115643962_0002/full/!200,200/0/default.jpg"},
+    {"id": "stacks-file-head", "method": "HEAD", "url": "https://stacks.stanford.edu/file/qq826dq9111/neighborhood-stats_2661_20130512.csv"},
+    {"id": "stacks-object-head", "method": "HEAD", "url": "https://stacks.stanford.edu/object/qq826dq9111"}
+  ]
+}

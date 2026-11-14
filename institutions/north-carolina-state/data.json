@@ -4,10 +4,199 @@
   "pays": "États-Unis",
   "classeur_id": "GLAM-052",
   "type": "Institution",
-  "statut_audit": "à faire",
-  "limites_documentees": [],
+  "statut_audit": "audit a–f complet ; g à faire",
+  "limites_documentees": [
+    {
+      "nature": "Règle de réutilisation",
+      "perimetre": "collections numériques (images, données)",
+      "valeur": "reproduction libre pour l'enseignement, la recherche et l'étude privée avec attribution ; contact pour usage commercial",
+      "fenetre": "–",
+      "effet": "restriction d'usage, pas de débit",
+      "verification": "officielle via Wayback 2025-08-01",
+      "source": "https://web.archive.org/web/20250801232533/https://d.lib.ncsu.edu/collections/about",
+      "date": "2026-11-14"
+    },
+    {
+      "nature": "robots.txt (pas un quota)",
+      "perimetre": "d.lib.ncsu.edu",
+      "valeur": "Disallow /collections/?f%5B (sauf topic_facet) ; GPTbot Disallow /",
+      "fenetre": "–",
+      "effet": "consigne aux robots",
+      "verification": "officielle via Wayback 2025-06-05",
+      "source": "https://web.archive.org/web/20250605031035/https://d.lib.ncsu.edu/robots.txt",
+      "date": "2026-11-14"
+    }
+  ],
   "en_tetes_observes": [],
-  "blocages": [],
-  "sources": [],
-  "web": []
+  "blocages": [
+    {
+      "date": "2026-11-14",
+      "hote": "d.lib.ncsu.edu",
+      "code": "401",
+      "nature": "page « NC State University Libraries Bot Detection » (défi de preuve de travail) dès la 1re requête (robots.txt)",
+      "suite": "hôte arrêté, défi non résolu, lecture via Wayback, aucun contournement"
+    }
+  ],
+  "sources": [
+    {
+      "url": "https://www.lib.ncsu.edu/node/51279",
+      "date": "2026-11-14",
+      "etiquette": "officielle",
+      "preuve": "institutions/north-carolina-state/sources/a/SHA256SUMS"
+    },
+    {
+      "url": "https://iiif.io/news/2016/09/12/ncsu-joins-iiifc/",
+      "date": "2026-11-14",
+      "etiquette": "institution",
+      "preuve": "institutions/north-carolina-state/sources/a/SHA256SUMS"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/NCSU-Libraries/ocracoke/master/README.md",
+      "date": "2026-11-14",
+      "etiquette": "officielle",
+      "preuve": "institutions/north-carolina-state/sources/b/SHA256SUMS"
+    },
+    {
+      "url": "https://d.lib.ncsu.edu/collections/about",
+      "date": "2026-11-14",
+      "etiquette": "officielle",
+      "preuve": "institutions/north-carolina-state/sources/wayback/d-lib-about.md"
+    },
+    {
+      "url": "https://d.lib.ncsu.edu/robots.txt",
+      "date": "2026-11-14",
+      "etiquette": "officielle",
+      "preuve": "institutions/north-carolina-state/sources/wayback/d-lib-robots.md"
+    }
+  ],
+  "web": [
+    {
+      "categorie": "institution",
+      "url": "https://www.lib.ncsu.edu/node/51279",
+      "date": "2026-11-14",
+      "etiquette": "officielle",
+      "citation": "« We've implemented the IIIF APIs for interoperability with other applications and services. » ; image : « https://iiif.lib.ncsu.edu/iiif/mc00227-003-ff0073-000-001_0004/info.json » ; aucune limite.",
+      "preuve": "institutions/north-carolina-state/sources/a/text/06.txt"
+    },
+    {
+      "categorie": "utilisateurs",
+      "aucun_resultat": true,
+      "requete": "\"iiif.lib.ncsu.edu\" github issue OR forum OR iiif-discuss 429 OR error OR timeout",
+      "date": "2026-11-14",
+      "etiquette": "–",
+      "citation": "Aucun retour d'utilisateur ni ticket sur 429, erreur ou blocage de iiif.lib.ncsu.edu ; seule l'URL du billet Slow Looking ressort.",
+      "preuve": "institutions/north-carolina-state/fiche.md"
+    },
+    {
+      "categorie": "tickets",
+      "aucun_resultat": true,
+      "requete": "NC State University Libraries digital collections d.lib.ncsu.edu bot detection OR \"rate limit\" OR blocked OR scraping OR \"AI crawlers\" Anubis",
+      "date": "2026-11-14",
+      "etiquette": "–",
+      "citation": "Aucun ticket d'outil tiers ni billet de NC State sur la détection de bots de d.lib.ncsu.edu ; des billets analogues existent chez d'autres bibliothèques (Duke, UTA, UNC), sans rapport direct (résumé de moteur, non vérifié).",
+      "preuve": "institutions/north-carolina-state/fiche.md"
+    },
+    {
+      "categorie": "presentations",
+      "url": "https://iiif.io/news/2016/09/12/ncsu-joins-iiifc/",
+      "date": "2026-11-14",
+      "etiquette": "institution",
+      "citation": "Annonce de 2016 (Rabun, Ronallo) : première implémentation « des API IIIF Image, Presentation et Search » ; « search inside » étendu à d'autres collections ; aucune règle de débit.",
+      "preuve": "institutions/north-carolina-state/sources/a/text/10.txt"
+    },
+    {
+      "categorie": "presentations",
+      "url": "https://raw.githubusercontent.com/NCSU-Libraries/ocracoke/master/README.md",
+      "date": "2026-11-14",
+      "etiquette": "institution",
+      "citation": "Ocracoke : « Rails application to create, index, and search text from page images and provide results in IIIF Content Search API format » ; utilisé en production sur Rare & Unique Digital Collections ; aucun quota.",
+      "preuve": "institutions/north-carolina-state/sources/b/text/01.txt"
+    }
+  ],
+  "contact": "library_specialcollections@ncsu.edu (collections) ; group-libraries-digital-collections@ncsu.edu (développement du site), d'après la page À propos (Wayback)",
+  "conclusion_quota": "Aucun quota ni limite de débit publiés. Le serveur d'images iiif.lib.ncsu.edu répond 200 sans en-tête de limite (info.json statique Apache, image). Le site des collections d.lib.ncsu.edu (manifestes, recherche, pages) est derrière une détection de bots (401, preuve de travail) : non testable, à vérifier à la main.",
+  "classe_quota": "aucun quota trouvé",
+  "confiance": "moyenne",
+  "notes": "Doc minimale : un billet de la bibliothèque (Slow Looking, 2018) donne seulement l'URL info.json du serveur d'images ; aucune page de doc API. Les manifestes IIIF Presentation, le service IIIF Content Search (Ocracoke) et les pages de d.lib.ncsu.edu sont derrière la détection de bots : aucune URL de manifeste n'est documentée publiquement et aucune n'a été devinée. robots.txt de d.lib (Wayback 2025-06-05) : facettes interdites, GPTbot interdit, pas de Crawl-delay. La page de détection de bots renvoyait l'adresse IP de Marcel : retirée des fichiers sauvegardés (SHA256SUMS recalculé, note dans FETCH.log).",
+  "a_verifier_manuellement": [
+    {
+      "url": "https://d.lib.ncsu.edu/collections/",
+      "pourquoi": "401 « Bot Detection » (défi de preuve de travail) : site des collections non lisible par la sonde",
+      "a_chercher": "Lien « IIIF manifest » d'une notice, URL des manifestes Presentation, service Content Search, en-têtes de limite, texte d'une éventuelle politique d'accès automatisé"
+    },
+    {
+      "url": "https://d.lib.ncsu.edu/collections/catalog/mc00227-003-ff0073-000-001_0004",
+      "pourquoi": "401 « Bot Detection » : notice citée par le billet Slow Looking, non lisible",
+      "a_chercher": "Lien vers le manifeste IIIF de la notice (Presentation 2.x ou 3) et ses en-têtes"
+    },
+    {
+      "url": "https://d.lib.ncsu.edu/robots.txt",
+      "pourquoi": "401 « Bot Detection » ; lu via Wayback (capture 2025-06-05)",
+      "a_chercher": "Version actuelle (Crawl-delay, règles pour bots d'IA)"
+    },
+    {
+      "url": "https://d.lib.ncsu.edu/collections/about",
+      "pourquoi": "401 « Bot Detection » ; lu via Wayback (capture 2025-08-01)",
+      "a_chercher": "Version actuelle, mention éventuelle d'API ou de politique de moissonnage"
+    }
+  ],
+  "endpoints_documentes": [
+    {
+      "famille": "IIIF Image (iiif.lib.ncsu.edu/iiif/{id}/info.json et /full/{taille}/0/default.jpg)",
+      "url": "https://iiif.lib.ncsu.edu/iiif/mc00227-003-ff0073-000-001_0004/info.json",
+      "statut": "teste",
+      "preuve": "institutions/north-carolina-state/tests/raw/iiif-info-mc00227.headers.txt"
+    },
+    {
+      "famille": "Manifestes IIIF Presentation et collections (site d.lib.ncsu.edu)",
+      "url": "https://d.lib.ncsu.edu/collections/",
+      "statut": "non_teste",
+      "raison": "d.lib.ncsu.edu répond 401 « Bot Detection » (preuve de travail) dès la première requête : on n'insiste pas, aucun contournement ; aucune URL de manifeste n'est publiée dans la doc lue."
+    },
+    {
+      "famille": "IIIF Content Search / suggestions (application Ocracoke)",
+      "url": "https://d.lib.ncsu.edu/collections/catalog?f%5Bfulltext_bs%5D%5B%5D=true",
+      "statut": "non_teste",
+      "raison": "Le README d'Ocracoke ne donne que des URL localhost et celles de la détection de bots de d.lib.ncsu.edu ; aucune URL publique de recherche dans le texte : non devinée, à vérifier à la main."
+    }
+  ],
+  "endpoints_ecartes": [
+    {
+      "url": "https://d.lib.ncsu.edu/collections/catalog/mc00227-003-ff0073-000-001_0004",
+      "raison": "Notice HTML d'un objet (lien du billet Slow Looking), pas une API ; hôte en détection de bots 401."
+    },
+    {
+      "url": "https://slowlooking.cogapp.com/?image=https://iiif.lib.ncsu.edu/iiif/mc00227-003-ff0073-000-001_0004/info.json",
+      "raison": "Application web tierce (Cogapp) citée par le billet, pas une API de l'institution ; hôte non contacté."
+    },
+    {
+      "url": "https://discover.lib.ncsu.edu/nde/home",
+      "raison": "Catalogue de découverte de la bibliothèque (interface web), pas une API IIIF ; non contacté."
+    },
+    {
+      "url": "https://github.com/NCSU-Libraries",
+      "raison": "Page de l'organisation GitHub de la bibliothèque, lue comme source de doc, pas une API."
+    },
+    {
+      "url": "https://www.lib.ncsu.edu/services/data-visualization/get-help",
+      "raison": "Page de services du site de la bibliothèque (aide en visualisation de données), lien de pied de page du billet, pas une API."
+    }
+  ],
+  "hotes_robots": [
+    {
+      "hote": "iiif.lib.ncsu.edu",
+      "resultat": "200 : commentaires seulement, aucune règle (tout autorisé)",
+      "preuve": "institutions/north-carolina-state/sources/a/raw/02.html"
+    },
+    {
+      "hote": "d.lib.ncsu.edu",
+      "resultat": "401 « Bot Detection » ; réplique Wayback 2025-06-05 : facettes interdites, GPTbot interdit, pas de Crawl-delay",
+      "preuve": "institutions/north-carolina-state/sources/wayback/d-lib-robots.md"
+    },
+    {
+      "hote": "www.lib.ncsu.edu",
+      "resultat": "200 : robots Drupal standard (Disallow /search/, /admin/, etc.), pas de Crawl-delay",
+      "preuve": "institutions/north-carolina-state/sources/a/raw/03.html"
+    }
+  ]
 }

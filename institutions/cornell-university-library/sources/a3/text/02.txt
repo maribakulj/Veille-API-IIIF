@@ -1,0 +1,39 @@
+Using Non-IIIF Images - HIST 2391 Project Guide - Digital CoLab - LibGuides at Cornell University 
+ Skip to Main Content 
+ Cornell University 
+ Library 
+ Cornell University 
+ LibGuides 
+ HIST 2391 Project Guide - Digital CoLab 
+ Using Non-IIIF Images
+ Search this Guide 
+ Search
+ HIST 2391 Project Guide - Digital CoLab: Using Non-IIIF Images
+ This guide was created for HIST 2391 by the Digital CoLab to provide instructions and useful resources for students' final digital humanities projects. 
+ Home 
+ Using Non-IIIF Images 
+ Finding IIIF Manifests 
+ Digirati Exhibition Editor 
+ Requesting IIIF Manifests
+ If you are having trouble creating a IIIF manifest or you would not like your image to be made public in any way , you can request help from Kiran at any time. If you're running into technical difficulties, Kiran can create manifests for you, especially if the deadline for the final is approaching. Just email kam535@cornell.edu . 
+ Please request as many images as you need; the CoLab is happy to and has the capacity to process as many images as you'd like. 
+ Creating IIIF Images & Manifests
+ The Internet Archive, or archive.org, has a public upload feature that allows users to upload their own content to the repository and share it with others. Images uploaded this way are automatically IIIF compliant, since the IIIF Image API is embedded in its image services. This method only works if the image you’re uploading is outside of copyright, is covered under a Creative Commons license (see licenses for specific parameters for sharing), or is owned by you. Material with current copyrights cannot be shared this way, since all images are public. 
+ Before you start, check the rights statement for the image you want to upload.  If the image is under copyrighted, you may be able to create your own manifest for it, or may have to include the full rights statement in your metadata. Ask Kiran if you have questions.  
+ To create an IIIF Manifest for an image using the Internet Archive: 
+ Create an Internet Archive account using an email and password. Note that the Internet Archive experienced cyberattacks in 2024 that allowed the hackers to steal user emails, so we suggest being cautious when creating accounts. We do not suggest adding your full name, personal information, etc. to your account. 
+ Go to upload  in the top right corner of the screen.  Drag or select an image from your local device to upload. 
+ Once the image has loaded, add metadata to your image . Certain fields are required, including: Description and Subject Tags. You can put whatever you want in there. 
+ Select Community image next to   "Collection."   Select No next to “Test Items”; these settings are required for this method to work.  
+ Click the Upload and Create Item  button at the bottom of the screen. Wait for the image to load in a new tab. 
+ Scroll down on the new image page to the Identifier field. Copy the identifier. 
+ Paste the identifier into the following URL scheme: https://iiif.archive.org/iiif/ identifier /manifest.json. 
+ To test your new manifest, paste the URL into a IIIF viewer like Universal Viewer or Mirador . 
+ Note that Cornell University Library, nor any member of its staff, can be held responsible for copyright infringements that occur as a result of uploading to the Internet Archive. 
+ << Previous: Home 
+ Next: Finding IIIF Manifests >> 
+ Last Updated: Oct 20, 2026 9:18 AM 
+ URL: https://guides.library.cornell.edu/hist2391dss 
+ Print Page 
+ Login to LibApps 
+ Web Accessibility Assistance

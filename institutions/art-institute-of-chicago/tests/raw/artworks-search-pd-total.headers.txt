@@ -1,0 +1,19 @@
+2026-11-14T02:07:31Z GET https://api.artic.edu/api/v1/artworks/search?query[term][is_public_domain]=true&limit=0
+HTTP 200
+date: Sat, 14 Nov 2026 02:07:31 GMT
+content-type: application/json
+transfer-encoding: chunked
+connection: keep-alive
+etag: W/"3f2d72582b1e7d679ce0b09dfecd3cb3-gzip"
+server: cloudflare
+cache-control: no-cache, private
+x-ratelimit-limit: 60
+x-ratelimit-remaining: 57
+access-control-allow-origin: *
+vary: Accept-Encoding
+x-cache: Miss from cloudfront
+via: 1.1 beb67f44cc602e6e406223720e864758.cloudfront.net (CloudFront)
+x-amz-cf-pop: MXP63-P8
+x-amz-cf-id: 1-3G-PYt06iaMkVWhCQ8HP9xIaGLLcN0sZOrlLnjPrGjFX5gI_pk4g==
+cf-cache-status: DYNAMIC
+cf-ray: a5a2768d0a8d5a2b-MXP

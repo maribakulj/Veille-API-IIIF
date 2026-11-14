@@ -1,0 +1,19 @@
+2026-11-14T02:16:41Z GET https://library.nga.gov/view/scholar/siteindex.xml
+HTTP 200
+date: Sat, 14 Nov 2026 02:16:41 GMT
+content-length: 6255
+connection: keep-alive
+x-request-id: yN36XhekJQ
+p3p: CP="IDC DSP COR ADM DEVi TAIi PSA PSD IVAi IVDi CONi HIS OUR IND CNT"
+content-security-policy: object-src blob: 'self' *.exlibrisgroup.com *.exlibrisgroup.com.cn www.google-analytics.com stats.g.doubleclick.net s3.amazonaws.com www.youtube.com youtube.com *.contentdm.oclc.org iiif.nlm.nih.gov library.nga.gov learningresources.nga.gov ;worker-src blob: 'self' *.exlibrisgroup.com *.exlibrisgroup.com.cn www.google-analytics.com stats.g.doubleclick.net s3.amazonaws.com www.youtube.com youtube.com artic.contentdm.oclc.org library.nga.gov learningresources.nga.gov ;upgrade-insecure-requests; report-uri /infra/CSPReportEndpoint.jsp; report-to csp-report-endpoint;
+report-to: {"max_age":10886400,"endpoints":[{"url":"https://na91.alma.exlibrisgroup.com/infra/CSPReportEndpoint.jsp"}],"group":"csp-report-endpoint"}
+x-content-type-options: nosniff
+set-cookie: JSESSIONID=37AC86D4CD3A5C1866E6C3FBB9DC1DC3.apd05.na91.prod.almf.dc04.hosted.exlibrisgroup.com%3A1801; Path=/; Secure; HttpOnly; SameSite=None
+set-cookie: urm_st=1794622601876; Path=/; Secure; SameSite=None
+set-cookie: urm_se=1794623201876; Path=/; Secure; SameSite=None
+set-cookie: __Secure-UqZBpD3n3naPU20-9Fvn5i-TQ-tMpchbYtbA9YCEpg3UXgo_=v1HzIygw__F1x; Expires=Sun, 14-Nov-2027 02:16:41 GMT; Path=/; Secure; HttpOnly; SameSite=None
+set-cookie: __cf_bm=TOWijFB5p2BgHp722A6xbS8Q_WbKpR9EU2JVLAWe1UI-1794622601.8112135-1.0.1.1-sMU_Fs12zw5W.Su3Ry.hq00UV6sqdcGMmBjuhoRq1Bdf7Jm.cd4aVHhJZR8b.3zlbNjqkEa68DoMau2EIVSYkc.RbNl8ZXAiM8xrpIKvxddHU0pYEUwMCXWLCdOJp_dJ; HttpOnly; SameSite=None; Partitioned; Secure; Path=/; Domain=nga.gov; Expires=Sat, 14 Nov 2026 02:46:41 GMT
+strict-transport-security: max-age=31536000; includeSubDomains; preload
+cf-cache-status: DYNAMIC
+server: cloudflare
+cf-ray: a5a283fd4c85edb0-MXP
