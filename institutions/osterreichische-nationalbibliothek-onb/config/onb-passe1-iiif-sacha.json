@@ -1,0 +1,17 @@
+{
+  "slug": "osterreichische-nationalbibliothek-onb",
+  "min_delay_s": 6,
+  "max_requests": 15,
+  "follow_redirects": 1,
+  "robots_disallow_autorise_par_marcel": true,
+  "note": "Passe 1 : API SACHA iiif.onb.ac.at (swagger https://iiif.onb.ac.at/api/, exemples de https://iiif.onb.ac.at/gui/demo.html : REPO/7445056, ABO/+Z165851607, collection jerusalem). Manifeste enregistre pour en tirer les identifiants d'images et de canevas (passe 2). La doc (section 2.3) deconseille les requetes concurrentes ou en rafale : pauses >= 6 s, sequentiel.",
+  "endpoints": [
+    {"id": "manifest-repo-7445056", "method": "GET", "url": "https://iiif.onb.ac.at/presentation/REPO/7445056/manifest", "save_body": 2000000},
+    {"id": "info-json-repo-7445056-00000001", "method": "GET", "url": "https://iiif.onb.ac.at/images/REPO/7445056/00000001/info.json"},
+    {"id": "info-redirect-repo-7445056-00000001", "method": "GET", "url": "https://iiif.onb.ac.at/images/REPO/7445056/00000001"},
+    {"id": "image-repo-7445056-00000001-150px", "method": "GET", "url": "https://iiif.onb.ac.at/images/REPO/7445056/00000001/full/150,/0/default.jpg"},
+    {"id": "mods-abo-Z165851607", "method": "GET", "url": "https://iiif.onb.ac.at/mods/Z165851607"},
+    {"id": "mets-abo-Z165851607-head", "method": "HEAD", "url": "https://iiif.onb.ac.at/mets/Z165851607"},
+    {"id": "collection-jerusalem", "method": "GET", "url": "https://iiif.onb.ac.at/presentation/collection/jerusalem", "save_body": 500000}
+  ]
+}

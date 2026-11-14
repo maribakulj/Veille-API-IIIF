@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="Description" content="Some examples to view in SACHA">
+    <link rel=icon type="image/ico" href=/logo/favicon/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/gui/bootstrap-tagsinput.css">
+    <link rel="stylesheet" href="/gui/headerAndFooter.css">
+    <link rel="stylesheet" href="/gui/index.css">
+    <link rel="stylesheet" href="/gui/jquery-ui.css">
+
+    <title>SACHA</title>
+</head>
+<body>
+
+<div class="container-fluid full-screen-container">
+    <div id="pageTitle"></div><!--if this div element is empty element: "<div/>", it doesn't work-->
+
+    <div class="font full-width infotext">
+        <div class="titletext">
+            This is a selection of IIIF Manifests and IIIF Collections for demonstration purposes.
+        </div>
+        <div>
+            For more information, you can read the <a href="/api/">documentation</a>.
+        </div>
+    </div>
+
+    <hr>
+
+    <div class="container-fluid fill font">
+        <div class="table-responsive">
+            <table class="table table-hover table-striped text-center">
+                <thead>
+                <tr>
+                    <th class="text-center table-title-col">EXAMPLE</th>
+                    <th class="text-center table-desc-col">DESCRIPTION</th>
+                    <th class="text-center">IIIF MANIFEST</th>
+                    <th class="text-center">MIRADOR VIEWER</th>
+                    <th class="text-center">MIRADOR3 VIEWER</th>
+                    <th class="text-center">UNIVERSAL VIEWER</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td><b>Selectarum Stirpium Americanarum Historia</b></td>
+                    <td class="text-left">A IIIF Manifest of A Study of American Flora; Presentation Copy for the
+                        Emperor by
+                        <a href="https://portal.dnb.de/opac.htm?method=simpleSearch&cqlMode=true&query=idn%3D118556452">
+                            Nikolaus Joseph von Jacquin</a></td>
+                    <td>
+                        <a href="/presentation/ABO/+Z165851607/manifest" class="btn btn-primary onb-button">
+                            <span class="glyphicon glyphicon-eye-open button-link" aria-hidden="true"></span>
+                        </a>
+                    </td>
+                    <td>
+                        <a href="/view/manifest/mirador/ABO/+Z165851607" class="btn btn-primary onb-button">
+                            <span class="glyphicon glyphicon-eye-open button-link" aria-hidden="true"></span>
+                        </a>
+                    </td>
+                    <td>
+                        <a href="/view/manifest/mirador3/ABO/+Z165851607" class="btn btn-primary onb-button">
+                            <span class="glyphicon glyphicon-eye-open button-link" aria-hidden="true"></span>
+                        </a>
+                    </td>
+                    <td>
+                        <a href="/view/manifest/universalviewer/ABO/+Z165851607" class="btn btn-primary onb-button">
+                            <span class="glyphicon glyphicon-eye-open button-link" aria-hidden="true"></span>
+                        </a>
+                    </td>
+                </tr>
+                <tr>
+                    <td><b>Abrechnung, unpubliziert (P.Vindob. G 30082)</b></td>
+                    <td class="text-left">A IIIF Manifest of a Papyrus from Egypt from between 6th and 7th century</td>
+                    <td>
+                        <a href="/presentation/REPO/7445056/manifest/" class="btn btn-primary onb-button">
+                            <span class="glyphicon glyphicon-eye-open button-link" aria-hidden="true"></span>
+                        </a>
+                    </td>
+                    <td>
+                        <a href="/view/manifest/mirador/REPO/7445056" class="btn btn-primary onb-button">
+                            <span class="glyphicon glyphicon-eye-open button-link" aria-hidden="true"></span>
+                        </a>
+                    </td>
+                    <td>
+                        <a href="/view/manifest/mirador3/REPO/7445056" class="btn btn-primary onb-button">
+                            <span class="glyphicon glyphicon-eye-open button-link" aria-hidden="true"></span>
+                        </a>
+                    </td>
+                    <td>
+                        <a href="/view/manifest/universalviewer/REPO/7445056" class="btn btn-primary onb-button">
+                            <span class="glyphicon glyphicon-eye-open button-link" aria-hidden="true"></span>
+                        </a>
+                    </td>
+                </tr>
+                <tr>
+                    <td><b>Komposition für Violoncello und Klavier und Skizzen zu einer nicht identifizierten Komposition</b></td>
+                    <td class="text-left">A Composition for violoncello and pianno and sketches of an unidentified composition from Jacques Offenbach</td>
+                    <td>
+                        <a href="/presentation/REPO/7329888/manifest" class="btn btn-primary onb-button">
+                            <span class="glyphicon glyphicon-eye-open button-link" aria-hidden="true"></span>
+                        </a>
+                    </td>
+                    <td>
+                        <a href="/view/manifest/mirador/REPO/7329888" class="btn btn-primary onb-button">
+                            <span class="glyphicon glyphicon-eye-open button-link" aria-hidden="true"></span>
+                        </a>
+                    </td>
+                    <td>
+                        <a href="/view/manifest/mirador3/REPO/7329888" class="btn btn-primary onb-button">
+                            <span class="glyphicon glyphicon-eye-open button-link" aria-hidden="true"></span>
+                        </a>
+                    </td>
+                    <td>
+                        <a href="/view/manifest/universalviewer/REPO/7329888" class="btn btn-primary onb-button">
+                            <span class="glyphicon glyphicon-eye-open button-link" aria-hidden="true"></span>
+                        </a>
+                    </td>
+                </tr>
+                <tr>
+                    <td><b>Karte an Noll 1917</b></td>
+                    <td class="text-left">A postcard written in Esperanto from Zofia Zamenhof to Margrethe Noll from 1917</td>
+                    <td>
+                        <a href="/presentation/REPO/7491280/manifest" class="btn btn-primary onb-button">
+                            <span class="glyphicon glyphicon-eye-open button-link" aria-hidden="true"></span>
+                        </a>
+                    </td>
+                    <td>
+                        <a href="/view/manifest/mirador/REPO/7491280" class="btn btn-primary onb-button">
+                            <span class="glyphicon glyphicon-eye-open button-link" aria-hidden="true"></span>
+                        </a>
+                    </td>
+                    <td>
+                        <a href="/view/manifest/mirador3/REPO/7491280" class="btn btn-primary onb-button">
+                            <span class="glyphicon glyphicon-eye-open button-link" aria-hidden="true"></span>
+                        </a>
+                    </td>
+                    <td>
+                        <a href="/view/manifest/universalviewer/REPO/7491280" class="btn btn-primary onb-button">
+                            <span class="glyphicon glyphicon-eye-open button-link" aria-hidden="true"></span>
+                        </a>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="table-responsive">
+            <table class="table table-hover table-striped text-center">
+                <thead>
+                <tr>
+                    <th class="text-center table-title-col">EXAMPLE</th>
+                    <th class="text-center table-desc-col">DESCRIPTION</th>
+                    <th class="text-center">YEAR</th>
+                    <th class="text-center">IIIF COLLECTION</th>
+                    <th class="text-center">MIRADOR VIEWER</th>
+                    <th class="text-center">MIRADOR3 VIEWER BETA</th>
+                    <th class="text-center">UNIVERSAL VIEWER</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td><b>Wiener Zeitung Yearly Collections</b></td>
+                    <td class="text-left">A Compilation of each year of public domain Wiener Zeitung newspaper</a></td>
+                    <td>
+                        <input type="text" name="wrzInput" id="wrzInput" value="1703">
+                    </td>
+                    <td>
+                        <button onclick="wrzButtonClick('iiif')" id="wrzButton" type="submit"
+                                class="btn btn-primary onb-button">
+                            <span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span>
+                        </button>
+                    </td>
+                    <td>
+                        <button onclick="wrzButtonClick('mirador')" id="wrzButtonMirador" type="submit"
+                                class="btn btn-primary onb-button">
+                            <span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span>
+                        </button>
+                    </td>
+                    <td>
+                        <button onclick="wrzButtonClick('mirador3')" id="wrzButtonMirador3" type="submit"
+                                class="btn btn-primary onb-button">
+                            <span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span>
+                        </button>
+                    </td>
+                    <td>
+                        <button onclick="wrzButtonClick('uv')" id="wrzButtonUV" type="submit"
+                                class="btn btn-primary onb-button">
+                            <span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span>
+                        </button>
+                    </td>
+                </tr>
+                <tr>
+                    <td><b>Lustspiele Collection</b></td>
+                    <td class="text-left">A IIIF Collection of Various Comedy Books Including Theater Plays
+                        (Only the first 3 Manifests are shown in Mirador. You can view all Manifests in Universal
+                        Viewer)
+                    </td>
+                    <td></td>
+                    <td>
+                        <a href="/presentation/collection/lustspiel" class="btn btn-primary onb-button">
+                            <span class="glyphicon glyphicon-eye-open button-link" aria-hidden="true"></span>
+                        </a>
+                    </td>
+                    <td>
+                        <a href="/view/collection/mirador/lustspiel" class="btn btn-primary onb-button">
+                            <span class="glyphicon glyphicon-eye-open button-link" aria-hidden="true"></span>
+                        </a>
+                    </td>
+                    <td>
+                        <a href="/view/collection/mirador3/lustspiel" class="btn btn-primary onb-button">
+                            <span class="glyphicon glyphicon-eye-open button-link" aria-hidden="true"></span>
+                        </a>
+                    </td>
+                    <td>
+                        <a href="/view/collection/universalviewer/lustspiel" class="btn btn-primary onb-button">
+                            <span class="glyphicon glyphicon-eye-open button-link" aria-hidden="true"></span>
+                        </a>
+                    </td>
+                </tr>
+                <tr>
+                    <td><b>Jerusalem Collection</b></td>
+                    <td class="text-left">A IIIF Collection Consisting of Four Postcards From Jerusalem and a Travel
+                        Book
+                        on the Holy Land
+                    </td>
+                    <td></td>
+                    <td>
+                        <a href="/presentation/collection/jerusalem" class="btn btn-primary onb-button">
+                            <span class="glyphicon glyphicon-eye-open button-link" aria-hidden="true"></span>
+                        </a>
+                    </td>
+                    <td>
+                        <a href="/view/collection/mirador/jerusalem" class="btn btn-primary onb-button">
+                            <span class="glyphicon glyphicon-eye-open button-link" aria-hidden="true"></span>
+                        </a>
+                    </td>
+                    <td>
+                        <a href="/view/collection/mirador3/jerusalem" class="btn btn-primary onb-button">
+                            <span class="glyphicon glyphicon-eye-open button-link" aria-hidden="true"></span>
+                        </a>
+                    </td>
+                    <td>
+                        <a href="/view/collection/universalviewer/jerusalem" class="btn btn-primary onb-button">
+                            <span class="glyphicon glyphicon-eye-open button-link" aria-hidden="true"></span>
+                        </a>
+                    </td>
+                </tr>
+                <tr>
+                    <td><b>Diverse Collection</b></td>
+                    <td class="text-left">A IIIF Collection of Three Manifests from Different
+                        Institutions Around the World.
+                        A Photo of Irish Free State Soldiers,
+                        USA National Gallery of Art Collection and
+                        An early twentieth century Japanese advertisement for a sericulture merchant
+                        (Included Manifests belong to their respective institutions)
+                    </td>
+                    <td></td>
+                    <td>
+                        <a href="/presentation/collection/diverseCollection" class="btn btn-primary onb-button">
+                            <span class="glyphicon glyphicon-eye-open button-link" aria-hidden="true"></span>
+                        </a>
+                    </td>
+                    <td>
+                        <a href="/view/collection/mirador/diverseCollection" class="btn btn-primary onb-button">
+                            <span class="glyphicon glyphicon-eye-open button-link" aria-hidden="true"></span>
+                        </a>
+                    </td>
+                    <td>
+                        <a href="/view/collection/mirador3/diverseCollection" class="btn btn-primary onb-button">
+                            <span class="glyphicon glyphicon-eye-open button-link" aria-hidden="true"></span>
+                        </a>
+                    </td>
+                    <td>
+                        <a href="/view/collection/universalviewer/diverseCollection" class="btn btn-primary onb-button">
+                            <span class="glyphicon glyphicon-eye-open button-link" aria-hidden="true"></span>
+                        </a>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div id="logoBar"></div><!--if this div element is empty element: "<div/>", it doesn't work-->
+</div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script src="/gui/bootstrap-tagsinput.min.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<script src="/gui/sacha.js"></script>
+<script src="/gui/demo.js"></script>
+
+</body>
+</html>
