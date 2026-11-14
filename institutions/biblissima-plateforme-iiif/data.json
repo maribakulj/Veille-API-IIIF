@@ -4,10 +4,103 @@
   "pays": "France",
   "classeur_id": "GLAM-017",
   "type": "Plateforme / consortium",
-  "statut_audit": "à faire",
-  "limites_documentees": [],
+  "statut_audit": "audit a–f complet ; g à faire",
+  "limites_documentees": [
+    {
+      "nature": "Pas d'accès public",
+      "perimetre": "point d'accès SPARQL",
+      "valeur": "non accessible publiquement ; accès sur demande",
+      "fenetre": "–",
+      "effet": "restriction d'accès",
+      "verification": "officielle, lue en entier",
+      "source": "https://doc.biblissima.fr/api/sparql/",
+      "date": "2026-11-14"
+    },
+    {
+      "nature": "Paramètre limit (pas un quota)",
+      "perimetre": "API de réconciliation",
+      "valeur": "limit optionnel, exemple 5 résultats",
+      "fenetre": "par requête",
+      "effet": "pagination",
+      "verification": "officielle, lue en entier",
+      "source": "https://doc.biblissima.fr/api/api-reconciliation/",
+      "date": "2026-11-14"
+    }
+  ],
   "en_tetes_observes": [],
-  "blocages": [],
-  "sources": [],
-  "web": []
+  "blocages": [
+    {
+      "date": "2026-11-14",
+      "hote": "query.biblissima.fr",
+      "code": "401",
+      "nature": "SPARQL non public (authentification)",
+      "suite": "non testé"
+    }
+  ],
+  "sources": [
+    {
+      "url": "https://doc.biblissima.fr/api/",
+      "date": "2026-11-14",
+      "etiquette": "officielle",
+      "preuve": "institutions/biblissima-plateforme-iiif/sources/c/SHA256SUMS"
+    },
+    {
+      "url": "https://doc.biblissima.fr/api/api-mediawiki/",
+      "date": "2026-11-14",
+      "etiquette": "officielle",
+      "preuve": "institutions/biblissima-plateforme-iiif/sources/c/SHA256SUMS"
+    },
+    {
+      "url": "https://doc.biblissima.fr/api/api-presentation/",
+      "date": "2026-11-14",
+      "etiquette": "officielle",
+      "preuve": "institutions/biblissima-plateforme-iiif/sources/c/SHA256SUMS"
+    },
+    {
+      "url": "https://doc.biblissima.fr/api/api-reconciliation/",
+      "date": "2026-11-14",
+      "etiquette": "officielle",
+      "preuve": "institutions/biblissima-plateforme-iiif/sources/c/SHA256SUMS"
+    },
+    {
+      "url": "https://doc.biblissima.fr/api/sparql/",
+      "date": "2026-11-14",
+      "etiquette": "officielle",
+      "preuve": "institutions/biblissima-plateforme-iiif/sources/c/SHA256SUMS"
+    },
+    {
+      "url": "https://iiif.biblissima.fr/collections/about",
+      "date": "2026-11-14",
+      "etiquette": "officielle",
+      "preuve": "institutions/biblissima-plateforme-iiif/sources/b/SHA256SUMS"
+    },
+    {
+      "url": "https://portail.biblissima.fr/robots.txt",
+      "date": "2026-11-14",
+      "etiquette": "officielle",
+      "preuve": "institutions/biblissima-plateforme-iiif/sources/d/SHA256SUMS"
+    }
+  ],
+  "web": [
+    {
+      "url": "https://doc.biblissima.fr/api/sparql/",
+      "date": "2026-11-14",
+      "etiquette": "officielle",
+      "citation": "« Pour des raisons de scalabilité, ce point d'accès SPARQL n'est pas encore accessible publiquement. »",
+      "preuve": "institutions/biblissima-plateforme-iiif/sources/c/text/05.txt"
+    }
+  ],
+  "donnees_a_revalider": false,
+  "contact": "team@biblissima-condorcet.fr",
+  "conclusion_quota": "Aucun quota ni limite de débit publiés ; SPARQL non public (accès sur demande) ; 4 endpoints testés en 200, aucun en-tête de limite.",
+  "classe_quota": "aucun quota trouvé",
+  "confiance": "moyenne",
+  "notes": "SPARQL (query.biblissima.fr) : robots.txt en 401, non testé. Redirection d'entité http puis https non suivie.",
+  "a_verifier_manuellement": [
+    {
+      "url": "https://query.biblissima.fr/",
+      "pourquoi": "401 : point d'accès SPARQL non public (accès sur demande)",
+      "a_chercher": "Conditions et limites de l'accès SPARQL si Marcel en obtient un"
+    }
+  ]
 }

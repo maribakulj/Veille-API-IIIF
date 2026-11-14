@@ -1,0 +1,22 @@
+2026-11-14T00:45:26Z GET https://portail.biblissima.fr/iiif/collection/ark:/43093/coldata5151005ea5833e5a05e2639cbb210946cb7e0609
+HTTP 200
+server: nginx
+date: Sat, 14 Nov 2026 00:45:26 GMT
+content-type: application/json
+transfer-encoding: chunked
+connection: keep-alive
+strict-transport-security: max-age=31536000
+access-control-allow-origin: *
+age: 0
+cache-control: no-cache
+link: <https://portail.biblissima.fr/ark:/43093/coldata5151005ea5833e5a05e2639cbb210946cb7e0609>;rel=alternate;type=application/rdf+xml
+link: <https://portail.biblissima.fr/ark:/43093/coldata5151005ea5833e5a05e2639cbb210946cb7e0609>;rel=alternate;type=text/turtle
+link: <https://portail.biblissima.fr/ark:/43093/coldata5151005ea5833e5a05e2639cbb210946cb7e0609>;rel=alternate;type=text/n3
+link: <https://portail.biblissima.fr/ark:/43093/coldata5151005ea5833e5a05e2639cbb210946cb7e0609>;rel=alternate;type=application/n-quads
+link: <https://portail.biblissima.fr/ark:/43093/coldata5151005ea5833e5a05e2639cbb210946cb7e0609>;rel=alternate;type=application/n-triples
+link: <https://portail.biblissima.fr/ark:/43093/coldata5151005ea5833e5a05e2639cbb210946cb7e0609>;rel=alternate;type=application/trig
+link: <https://portail.biblissima.fr/ark:/43093/coldata5151005ea5833e5a05e2639cbb210946cb7e0609>;rel=alternate;type=application/ld+json
+vary: Accept-Language
+via: 1.1 varnish (Varnish/7.1)
+x-varnish: 7027048
+strict-transport-security: max-age=31536000; includeSubDomains; preload

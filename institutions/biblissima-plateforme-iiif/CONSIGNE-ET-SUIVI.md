@@ -2,57 +2,57 @@
 
 - **Dossier** : `institutions/biblissima-plateforme-iiif/`  ·  **Classeur de référence** : GLAM-017  ·  **Pays** : France
 - **Statut d'institution** : active
-- **Dernière mise à jour du suivi** : (à renseigner à chaque modification)
+- **Dernière mise à jour du suivi** : 2026-11-14
 
 ## Suivi par étape (à cocher, avec justification et preuves)
 
 ### a) Documentation lue en entier
 > Toutes les pages de doc liées à l'API (développeurs, interfaces, conditions, FAQ, aide, mentions légales, robots.txt), téléchargées avec `scripts/fetch_doc.sh` (URL, date, SHA-256), lues en entier (`scripts/extract_text.py`).
 
-- [ ] **Pas fait**
-  - **Justification** : Pas encore traitée : l'audit suit l'ordre du classeur de référence (une institution à la fois).
-  - **Preuves** : 
+- [x] **Fait**
+  - **Justification** : Lus et hachés : accueil, collections, à propos, doc.biblissima.fr (introduction IIIF, API, MediaWiki, Présentation, réconciliation, SPARQL, infos techniques), wiki data.biblissima.fr (API, licence), robots.txt de 6 hôtes (404 sauf query : 401).
+  - **Preuves** : `institutions/biblissima-plateforme-iiif/sources/SHA256SUMS`, `institutions/biblissima-plateforme-iiif/sources/b/SHA256SUMS`, `institutions/biblissima-plateforme-iiif/sources/c/SHA256SUMS`, `institutions/biblissima-plateforme-iiif/sources/d/SHA256SUMS`
 
 ### b) Endpoints tirés de la doc
 > Liste des endpoints citée par la doc (URL, exemples). Jamais devinée. Une interdiction ou une impossibilité écrite dans la doc justifie de renoncer (citer la phrase).
 
-- [ ] **Pas fait**
-  - **Justification** : Pas encore traitée : l'audit suit l'ordre du classeur de référence (une institution à la fois).
-  - **Preuves** : 
+- [x] **Fait**
+  - **Justification** : Endpoints documentés : data.biblissima.fr/w/api.php (Wikibase), /reconcile/fr/api, /entity/{id}, portail.biblissima.fr/iiif/manifest et /iiif/collection ; SPARQL non public.
+  - **Preuves** : `institutions/biblissima-plateforme-iiif/sources/c/text/02.txt`, `institutions/biblissima-plateforme-iiif/sources/c/text/03.txt`, `institutions/biblissima-plateforme-iiif/sources/c/text/04.txt`, `institutions/biblissima-plateforme-iiif/sources/c/text/05.txt`
 
 ### c) Configuration écrite AVANT les tests
 > `config/<nom>.json` pilote `scripts/probe.py`, committée avant le lancement. Un endpoint absent de la doc mais non interdit se teste avec un script poli (identifiants issus de pages publiques ou d'exemples de la doc, pas de devinette).
 
-- [ ] **Pas fait**
-  - **Justification** : Pas encore traitée : l'audit suit l'ordre du classeur de référence (une institution à la fois).
-  - **Preuves** : 
+- [x] **Fait**
+  - **Justification** : Configuration committée avant lancement avec les exemples de la doc (Q27392, « Isidorus Hispalensis », descripteur desc57cb…, collection coldata5151…).
+  - **Preuves** : `institutions/biblissima-plateforme-iiif/config/biblissima-passe1.json`
 
 ### d) Quota cherché dans la doc
 > Pour chaque page lue : endpoint de statut, en-têtes de limite documentés, clé ou compte donnant un quota, contact pour un volume plus élevé. Chaque réponse cite sa source.
 
-- [ ] **Pas fait**
-  - **Justification** : Pas encore traitée : l'audit suit l'ordre du classeur de référence (une institution à la fois).
-  - **Preuves** : 
+- [x] **Fait**
+  - **Justification** : Aucun quota, limite de débit, politique de bots ni en-tête dans la doc ; SPARQL non public ; robots.txt en 404 sauf query (401).
+  - **Preuves** : `institutions/biblissima-plateforme-iiif/sources/c/text/05.txt`, `institutions/biblissima-plateforme-iiif/sources/c/raw/09.html`
 
 ### e) Test systématique de chaque endpoint
 > Chaque endpoint documenté est testé (budget 15 requêtes par passe, pause ≥ 6 s, GET/HEAD, UA du projet). Redirections du même hôte suivies. Un 403 arrête son hôte, un 429 arrête l'institution. Seules les interdictions écrites dans la doc dispensent de tester.
 
-- [ ] **Pas fait**
-  - **Justification** : Pas encore traitée : l'audit suit l'ordre du classeur de référence (une institution à la fois).
-  - **Preuves** : 
+- [x] **Fait**
+  - **Justification** : Endpoints publics documentés testés (5 requêtes) : 200 pour Wikibase, réconciliation, manifeste, collection ; 303/301 pour l'URI d'entité (http→https, non suivi). SPARQL non testé (non public).
+  - **Preuves** : `institutions/biblissima-plateforme-iiif/tests/journal.log`, `institutions/biblissima-plateforme-iiif/tests/raw/portail-manifeste-desc57cb.headers.txt`, `institutions/biblissima-plateforme-iiif/tests/raw/wikibase-getentities-Q27392.headers.txt`
 
 ### f) Ce que disent les gens sur le web
 > Plaintes, discussions, présentations de l'institution, politique envers les API et les bots, blogs, GitHub, forums, listes de diffusion. Sources étiquetées (officielle / institution / utilisateur / tiers), lues, citées.
 
-- [ ] **Pas fait**
-  - **Justification** : Pas encore traitée : l'audit suit l'ordre du classeur de référence (une institution à la fois).
-  - **Preuves** : 
+- [x] **Fait**
+  - **Justification** : 1 recherche web : aucune limite publiée ; contact conseillé team@biblissima-condorcet.fr ; fil iiif-discuss de 2019 sans règle.
+  - **Preuves** : `institutions/biblissima-plateforme-iiif/fiche.md`
 
 ### g) Crash test progressif
 > Seulement après l'audit complet (a à f) de toutes les institutions et avec l'accord de Marcel : paliers jusqu'à 2 × la limite documentée, ou 200 req/min si illimité ou sans limite documentée. Arrêt au premier 429/403/CAPTCHA.
 
 - [ ] **Pas fait**
-  - **Justification** : Pas encore traitée : l'audit suit l'ordre du classeur de référence (une institution à la fois).
+  - **Justification** : À faire à la fin de l'audit et avec l'accord de Marcel : plafond 200 req/min sur data.biblissima.fr (Wikibase, réconciliation) et portail.biblissima.fr ; ne pas toucher à query.biblissima.fr (non public).
   - **Preuves** : 
 
 ### Contrôles transversaux
@@ -60,7 +60,10 @@
 
 <!-- AUTO:DEBUT -->
 ## Contrôles automatiques (calculés depuis `tests/journal.log`)
-Aucune requête enregistrée dans `tests/journal.log`.
+- Requêtes enregistrées : **8** (sessions de sonde : 1, maximum par session : 8)
+- Plus courte pause vers un même hôte : **6 s** (règle : ≥ 6 s)
+- Méthodes utilisées : GET (règle : GET/HEAD seulement)
+- Anomalies : aucune
 <!-- AUTO:FIN -->
 
 ## Consigne intégrale
