@@ -1,0 +1,55 @@
+{
+  "slug": "getty",
+  "min_delay_s": 6,
+  "max_requests": 15,
+  "follow_redirects": 1,
+  "robots_disallow_autorise_par_marcel": true,
+  "note": "v2 passe 1 : API data.getty.edu (Linked Art, ActivityStreams, SPARQL, Provenance Index). Tous les identifiants viennent des exemples de la doc lue (sources/a, payload.json). L'ID Management Service n'a pas d'URL d'exemple dans la doc : non testé. Remplace la session du 2026-11-13 (config committée après lancement, archivée).",
+  "endpoints": [
+    {
+      "id": "activity-stream",
+      "method": "GET",
+      "url": "https://data.getty.edu/museum/collection/activity-stream"
+    },
+    {
+      "id": "activity-stream-page1",
+      "method": "GET",
+      "url": "https://data.getty.edu/museum/collection/activity-stream/page/1"
+    },
+    {
+      "id": "objet-e099dc86",
+      "method": "GET",
+      "url": "https://data.getty.edu/museum/collection/object/e099dc86-c28e-4ad0-8b02-d7d258caec56"
+    },
+    {
+      "id": "personne-c3a876a9",
+      "method": "GET",
+      "url": "https://data.getty.edu/museum/collection/person/c3a876a9-5333-40d5-8488-6cc722058f5e"
+    },
+    {
+      "id": "sparql-sans-requete",
+      "method": "GET",
+      "url": "https://data.getty.edu/museum/collection/sparql"
+    },
+    {
+      "id": "sparql-ui",
+      "method": "GET",
+      "url": "https://data.getty.edu/museum/collection/sparql-ui"
+    },
+    {
+      "id": "provenance-activity-stream",
+      "method": "GET",
+      "url": "https://data.getty.edu/provenance/activity-stream"
+    },
+    {
+      "id": "provenance-notice-09539ab1",
+      "method": "GET",
+      "url": "https://data.getty.edu/provenance/09539ab1-416d-3870-810b-8a6b3b604368"
+    },
+    {
+      "id": "provenance-sparql",
+      "method": "GET",
+      "url": "https://data.getty.edu/provenance/sparql"
+    }
+  ]
+}
