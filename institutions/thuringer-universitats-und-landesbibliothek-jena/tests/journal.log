@@ -1,0 +1,8 @@
+# Session 2026-11-14T03:42:49Z — configuration jena-passe1-feeds.json — sonde probe.py au commit 6e0d3de
+2026-11-14T03:42:49Z | robots.txt:zs.thulb.uni-jena.de | https://zs.thulb.uni-jena.de/robots.txt | GET | 200 | 5 règle(s) pour « * » ; Crawl-delay 10.0 s
+2026-11-14T03:42:49Z | zs-feed-atom | robots.txt interdit https://zs.thulb.uni-jena.de/rsc/feed/global/atom_1.0 (Disallow: /rsc/) ; lancé car autorisé par Marcel (C12)
+2026-11-14T03:42:59Z | zs-feed-atom | https://zs.thulb.uni-jena.de/rsc/feed/global/atom_1.0 | GET | 200 OK | aucun en-tête de limite | taille≥39768 | corps: <?xml version="1.0" encoding="UTF-8"?> <feed xmlns="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">   <title>Alle Veröffentlichungen</title>   <link rel="alternate" href=
+# corps enregistré : tests/raw/zs-feed-atom.body (39768 octets lus)
+2026-11-14T03:42:59Z | zs-feed-rss | robots.txt interdit https://zs.thulb.uni-jena.de/rsc/feed/global/rss_2.0 (Disallow: /rsc/) ; lancé car autorisé par Marcel (C12)
+2026-11-14T03:43:09Z | zs-feed-rss | https://zs.thulb.uni-jena.de/rsc/feed/global/rss_2.0 | GET | 200 OK | aucun en-tête de limite | taille≥200 | corps: <?xml version="1.0" encoding="UTF-8"?> <rss xmlns:dc="http://purl.org/dc/elements/1.1/" version="2.0">   <channel>     <title>Alle Veröffentlichungen</title>     <link>https://zs.thulb.uni-jena.d
+# Fin 2026-11-14T03:43:09Z — 3 requête(s) envoyée(s)

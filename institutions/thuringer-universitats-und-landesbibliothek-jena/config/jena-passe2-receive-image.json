@@ -1,0 +1,13 @@
+{
+  "slug": "thuringer-universitats-und-landesbibliothek-jena",
+  "min_delay_s": 10,
+  "max_requests": 15,
+  "follow_redirects": 1,
+  "robots_disallow_autorise_par_marcel": true,
+  "note": "Passe 2 : identifiants tires de la reponse de la passe 1 (flux Atom, tests/raw/zs-feed-atom.body) : page d'un objet /receive/jportal_jparticle_01582058 (autorisee par robots : Allow /receive/ ; corps enregistre pour y chercher des liens IIIF/OAI), URL d'image IIIF v2 telle que donnee dans le flux (vignette !512,512) et son info.json (base de l'URL IIIF Image).",
+  "endpoints": [
+    {"id": "zs-receive-jparticle-01582058", "method": "GET", "url": "https://zs.thulb.uni-jena.de/receive/jportal_jparticle_01582058", "save_body": 600000},
+    {"id": "zs-iiif-image-vignette", "method": "GET", "url": "https://zs.thulb.uni-jena.de/api/iiif/image/v2/jportal_derivate_00401748:%2FADR_Langensalza_1911_0236.tif/full/!512,512/0/default.jpg"},
+    {"id": "zs-iiif-image-infojson", "method": "GET", "url": "https://zs.thulb.uni-jena.de/api/iiif/image/v2/jportal_derivate_00401748:%2FADR_Langensalza_1911_0236.tif/info.json", "save_body": 20000}
+  ]
+}
