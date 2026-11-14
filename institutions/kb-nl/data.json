@@ -2,33 +2,308 @@
   "slug": "kb-nl",
   "nom": "Koninklijke Bibliotheek (Pays-Bas)",
   "pays": "Pays-Bas",
-  "statut_audit": "partiel (ancienne méthode)",
-  "limites_documentees": [],
+  "statut_audit": "audit a–f complet (v2) ; g à faire",
+  "limites_documentees": [
+    {
+      "nature": "Taille de page OAI-PMH",
+      "perimetre": "services.kb.nl/mdo/oai ListRecords/ListIdentifiers",
+      "valeur": "« By default 400 records are harvested by one request »",
+      "fenetre": "par requête",
+      "effet": "pagination par resumptionToken",
+      "verification": "officielle, lue en entier ; non observée (non lancé)",
+      "source": "https://www.kb.nl/sites/default/files/docs/techniek-anp_0.pdf",
+      "date": "2026-11-14"
+    },
+    {
+      "nature": "Heures de moissonnage",
+      "perimetre": "harvest OAI-PMH (ANP)",
+      "valeur": "« harvesting activities should be performed outside Dutch office hours (9 am -17pm) »",
+      "fenetre": "9 h-17 h heure néerlandaise",
+      "effet": "recommandation, pas de blocage annoncé",
+      "verification": "officielle, lue en entier",
+      "source": "https://www.kb.nl/sites/default/files/docs/techniek-anp_0.pdf",
+      "date": "2026-11-14"
+    },
+    {
+      "nature": "Taille de page SRU",
+      "perimetre": "jsru.kb.nl/sru/sru searchRetrieve",
+      "valeur": "maximumRecords par défaut 20, maximum 1000 (réponse explain)",
+      "fenetre": "par requête",
+      "effet": "–",
+      "verification": "observée dans la réponse explain (200)",
+      "source": "https://jsru.kb.nl/sru/sru?version=1.2&operation=explain",
+      "date": "2026-11-14"
+    }
+  ],
   "en_tetes_observes": [],
   "blocages": [
     {
-      "date": "2026-11-13",
+      "date": "2026-11-14",
       "hote": "iiif.kb.nl",
       "code": "DNS",
-      "nature": "non résolu",
-      "suite": "IIIF non testable"
+      "nature": "non résolu (curl 6, 14/11 ; sonde gaierror le 13/11)",
+      "suite": "IIIF non testable ; aucun service IIIF cité par la doc KB"
+    },
+    {
+      "date": "2026-11-14",
+      "hote": "resources51.kb.nl",
+      "code": "DNS",
+      "nature": "non résolu (robots.txt, 14/11)",
+      "suite": "les URL d'objets de la doc ANP ne sont plus valides"
+    },
+    {
+      "date": "2026-11-14",
+      "hote": "imageviewer.kb.nl",
+      "code": "403",
+      "nature": "« Illegal url as identifier » (corps) : erreur applicative, l'identifiant pointe vers l'hôte mort resources51 ; classé 403 anti-bot par la sonde, hôte arrêté par prudence",
+      "suite": "non retesté"
     }
   ],
-  "contact": "non trouvé (admin@iiif.io est celui du consortium, à ne pas confondre)",
-  "conclusion_quota": "Aucun quota trouvé pour SRU et OAI-PMH.",
-  "classe_quota": "aucun quota trouvé",
-  "confiance": "faible",
-  "notes": "IIIF non résolu : seul SRU et OAI-PMH ont été testés.",
+  "contact": "Data services KB (adresse e-mail masquée par Cloudflare sur kb.nl ; formulaire/contact de https://www.kb.nl/en/research-find/for-researchers/data-services-apis-and-downloads) ; admin@iiif.io est celui du consortium IIIF, à ne pas confondre",
+  "conclusion_quota": "Aucun quota ni limite de débit chiffrés publiés. SRU (jsru.kb.nl) et OAI-PMH (services.kb.nl/mdo/oai) testés en 200 sans en-tête de limite ; limites techniques : SRU maximumRecords par défaut 20, maximum 1000 (explain), OAI ListRecords/ListIdentifiers 400 enregistrements par requête (techniek-anp_0.pdf) ; recommandation de moissonner hors des heures de bureau néerlandaises (9 h-17 h). Pas de service IIIF trouvé (iiif.kb.nl ne se résout pas). La KB a pris des mesures techniques contre le crawling commercial (AI statement) : Delpher/DBNL.",
+  "classe_quota": "limites techniques sans quota publié",
+  "confiance": "moyenne",
+  "notes": "Ancienne méthode remplacée : sessions du 13/11 archivées (config committée après lancement), rejouées en passe 2. robots.txt de jsru, services, resolver, imageviewer : Disallow: / (autorisé par Marcel, C12). resources51.kb.nl ne se résout plus (la doc ANP pointe vers lui).",
   "classeur_id": "hors 84 (ajouté)",
   "type": "Institution",
-  "sources": [],
-  "web": [],
-  "donnees_a_revalider": true,
+  "sources": [
+    {
+      "url": "https://www.kb.nl/en/research-find/for-researchers/data-services-apis-and-downloads",
+      "date": "2026-11-14",
+      "etiquette": "officielle",
+      "preuve": "institutions/kb-nl/sources/a2/SHA256SUMS"
+    },
+    {
+      "url": "https://www.kb.nl/sites/default/files/docs/techniek-anp_0.pdf",
+      "date": "2026-11-14",
+      "etiquette": "officielle",
+      "preuve": "institutions/kb-nl/sources/a4/SHA256SUMS"
+    },
+    {
+      "url": "https://www.kb.nl/en/research-find/datasets/delpher-newspapers",
+      "date": "2026-11-14",
+      "etiquette": "officielle",
+      "preuve": "institutions/kb-nl/sources/a3/SHA256SUMS"
+    },
+    {
+      "url": "https://www.kb.nl/en/ai-statement",
+      "date": "2026-11-14",
+      "etiquette": "officielle",
+      "preuve": "institutions/kb-nl/sources/a6/SHA256SUMS"
+    },
+    {
+      "url": "https://www.kb.nl/robots.txt",
+      "date": "2026-11-14",
+      "etiquette": "officielle",
+      "preuve": "institutions/kb-nl/sources/a1/SHA256SUMS"
+    },
+    {
+      "url": "https://lab.kb.nl/data-services",
+      "date": "2026-11-14",
+      "etiquette": "officielle",
+      "preuve": "institutions/kb-nl/sources/a5/SHA256SUMS"
+    }
+  ],
+  "web": [
+    {
+      "categorie": "institution",
+      "url": "https://www.kb.nl/en/ai-statement",
+      "date": "2026-11-14",
+      "etiquette": "officielle",
+      "citation": "« We have therefore adapted our terms of use and taken technical measures to combat crawling of our websites Delpher and DBNL by commercial parties from now on. » ; « Our collection remains open to research »",
+      "preuve": "institutions/kb-nl/sources/a6/SHA256SUMS"
+    },
+    {
+      "categorie": "utilisateurs",
+      "aucun_resultat": true,
+      "requete": "Delpher OR \"jsru.kb.nl\" OR \"services.kb.nl\" API blocked OR \"429\" OR \"503\" OR \"rate limit\" OR timeout KB Netherlands harvest",
+      "date": "2026-11-14",
+      "etiquette": "–",
+      "citation": "aucune plainte 429/503 sur jsru.kb.nl ou services.kb.nl ; seule la déclaration officielle sur le crawling commercial est remontée (résumé de moteur, non vérifié).",
+      "preuve": "institutions/kb-nl/fiche.md"
+    },
+    {
+      "categorie": "tickets",
+      "url": "https://github.com/LeidenUniversityLibrary/KB-harvester",
+      "date": "2026-11-14",
+      "etiquette": "tiers (lu)",
+      "citation": "« The library is setup to wait between requests to the KB, to not overload the service that also runs the excellent portal Delpher. » ; « See the usage guidelines for Delpher »",
+      "preuve": "institutions/kb-nl/sources/a6/SHA256SUMS"
+    },
+    {
+      "categorie": "presentations",
+      "url": "https://github.com/KBNLresearch/intro-kb-apis",
+      "date": "2026-11-14",
+      "etiquette": "institution (lu)",
+      "citation": "« Materials for the RUG workshop on the KB search and harvest APIs » : search API http://jsru.kb.nl/sru/sru (SRU), harvest API http://services.kb.nl/mdo/oai (OAI-PMH) ; aucune limite de débit.",
+      "preuve": "institutions/kb-nl/sources/a6/SHA256SUMS"
+    }
+  ],
   "a_verifier_manuellement": [
     {
       "url": "https://iiif.kb.nl/",
       "pourquoi": "DNS : l'hôte ne se résout pas",
-      "a_chercher": "Adresse actuelle du service IIIF de la KB et sa documentation"
+      "a_chercher": "Adresse actuelle du service IIIF de la KB (s'il existe) et sa documentation"
+    },
+    {
+      "url": "https://services.kb.nl/mdo/browse?set=anp",
+      "pourquoi": "connexion réinitialisée par le serveur à la 1re requête (passe 2) ; non réessayée",
+      "a_chercher": "Si la page de navigation OAI existe toujours"
+    },
+    {
+      "url": "https://data.bibliotheken.nl/",
+      "pourquoi": "page de linked data lue (SPA) mais aucune URL d'API ni limite documentée dans la doc KB",
+      "a_chercher": "Point d'accès SPARQL/API et ses conditions d'usage"
+    },
+    {
+      "url": "https://www.delpher.nl/robots.txt",
+      "pourquoi": "Disallow: / pour tous sauf moteurs de recherche listés ; la KB annonce des mesures techniques contre le crawling commercial (AI statement)",
+      "a_chercher": "Conditions d'utilisation de Delpher (usage guidelines) et règles pour la recherche non commerciale"
+    }
+  ],
+  "endpoints_documentes": [
+    {
+      "famille": "SRU (search API, jsru.kb.nl)",
+      "url": "https://jsru.kb.nl/sru/sru?version=1.2&operation=searchRetrieve&query=hond&maximumRecords=1&recordSchema=dc&x-collection=ANP",
+      "statut": "teste",
+      "preuve": "institutions/kb-nl/tests/raw/p2-sru-search-anp.headers.txt"
+    },
+    {
+      "famille": "SRU explain",
+      "url": "https://jsru.kb.nl/sru/sru?version=1.2&operation=explain",
+      "statut": "teste",
+      "preuve": "institutions/kb-nl/tests/raw/p2-sru-explain.headers.txt"
+    },
+    {
+      "famille": "OAI-PMH Identify",
+      "url": "https://services.kb.nl/mdo/oai?verb=Identify",
+      "statut": "teste",
+      "preuve": "institutions/kb-nl/tests/raw/p2-oai-identify.headers.txt"
+    },
+    {
+      "famille": "OAI-PMH ListSets",
+      "url": "https://services.kb.nl/mdo/oai?verb=ListSets",
+      "statut": "teste",
+      "preuve": "institutions/kb-nl/tests/raw/p2-oai-listsets.headers.txt"
+    },
+    {
+      "famille": "OAI-PMH ListIdentifiers",
+      "url": "https://services.kb.nl/mdo/oai?verb=ListIdentifiers&set=anp&metadataPrefix=didl",
+      "statut": "teste",
+      "preuve": "institutions/kb-nl/tests/raw/p2-oai-listidentifiers-etroit.headers.txt"
+    },
+    {
+      "famille": "OAI-PMH GetRecord",
+      "url": "https://services.kb.nl/mdo/oai?verb=GetRecord&identifier=anp:anp:1937:10:01:2:mpeg21&metadataPrefix=didl",
+      "statut": "teste",
+      "preuve": "institutions/kb-nl/tests/raw/p2-oai-getrecord-anp.headers.txt"
+    },
+    {
+      "famille": "OAI-PMH ListRecords",
+      "url": "https://services.kb.nl/mdo/oai?verb=ListRecords&set=anp&metadataPrefix=didl",
+      "statut": "non_teste",
+      "raison": "réponse volumineuse (400 enregistrements par requête selon la doc) ; le protocole est prouvé par Identify, ListSets, ListIdentifiers et GetRecord"
+    },
+    {
+      "famille": "OAI browse (HTML)",
+      "url": "https://services.kb.nl/mdo/browse?set=anp",
+      "statut": "non_teste",
+      "raison": "requête partie en passe 2 : connexion réinitialisée par le serveur (journal) ; non réessayée par prudence"
+    },
+    {
+      "famille": "Résolveur persistant (OCR, ALTO, image)",
+      "url": "https://resolver.kb.nl/resolve?urn=anp:1938:10:01:2:mpeg21:ocr",
+      "statut": "teste",
+      "preuve": "institutions/kb-nl/tests/raw/p2-resolver-ocr-head.headers.txt"
+    },
+    {
+      "famille": "Imaging service (vignette)",
+      "url": "https://imageviewer.kb.nl/ImagingService/imagingService?id=http://resources51.kb.nl/anp/data/1938/1938_10/jpeg/anp_1938-10-01_2_access.jpg&zoom=0.1&useresolver=false",
+      "statut": "teste",
+      "preuve": "institutions/kb-nl/tests/raw/p2-imaging-thumbnail.headers.txt"
+    },
+    {
+      "famille": "IIIF (iiif.kb.nl)",
+      "url": "https://iiif.kb.nl/",
+      "statut": "non_teste",
+      "raison": "hôte non résolu (DNS) le 13 et le 14/11/2026 ; aucune doc KB lue ne cite d'URL IIIF"
+    },
+    {
+      "famille": "Linked data (data.bibliotheken.nl)",
+      "url": "http://data.bibliotheken.nl/",
+      "statut": "non_teste",
+      "raison": "la doc KB ne donne aucun chemin d'API ni identifiant ; page d'accueil lue seulement, aucune devinette d'URL"
+    }
+  ],
+  "endpoints_ecartes": [
+    {
+      "url": "https://docs.triply.cc/triply-api",
+      "raison": "documentation générique de la plateforme Triply, éditeur tiers de data.bibliotheken.nl ; pas une API de la KB à auditer ici"
+    },
+    {
+      "url": "http://www.loc.gov/standards/sru/",
+      "raison": "spécification SRU de la Library of Congress : norme, pas un service de la KB"
+    },
+    {
+      "url": "http://www.openarchives.org/OAI/openarchivesprotocol.html",
+      "raison": "spécification OAI-PMH : norme, pas un service de la KB"
+    }
+  ],
+  "hotes_robots": [
+    {
+      "hote": "jsru.kb.nl",
+      "resultat": "Disallow: / (autorisé par Marcel, C12)",
+      "preuve": "institutions/kb-nl/sources/a1/SHA256SUMS"
+    },
+    {
+      "hote": "services.kb.nl",
+      "resultat": "Disallow: / (autorisé par Marcel, C12)",
+      "preuve": "institutions/kb-nl/sources/a1/SHA256SUMS"
+    },
+    {
+      "hote": "resolver.kb.nl",
+      "resultat": "Disallow: / (autorisé par Marcel, C12)",
+      "preuve": "institutions/kb-nl/sources/a7/SHA256SUMS"
+    },
+    {
+      "hote": "imageviewer.kb.nl",
+      "resultat": "Disallow: / (autorisé par Marcel, C12)",
+      "preuve": "institutions/kb-nl/sources/a7/SHA256SUMS"
+    },
+    {
+      "hote": "iiif.kb.nl",
+      "resultat": "DNS non résolu : robots.txt illisible",
+      "preuve": "institutions/kb-nl/sources/a1/FETCH.log"
+    },
+    {
+      "hote": "resources51.kb.nl",
+      "resultat": "DNS non résolu : robots.txt illisible",
+      "preuve": "institutions/kb-nl/sources/a7/FETCH.log"
+    },
+    {
+      "hote": "www.kb.nl",
+      "resultat": "Crawl-Delay: 10 ; Disallow /search, /zoeken, /admin… ; pages de doc hors interdits",
+      "preuve": "institutions/kb-nl/sources/a1/SHA256SUMS"
+    },
+    {
+      "hote": "lab.kb.nl",
+      "resultat": "Disallow de chemins techniques et /products/* ; pas de Crawl-delay",
+      "preuve": "institutions/kb-nl/sources/a4/SHA256SUMS"
+    },
+    {
+      "hote": "data.bibliotheken.nl",
+      "resultat": "Crawl-delay: 2 ; Allow: /",
+      "preuve": "institutions/kb-nl/sources/a4/SHA256SUMS"
+    },
+    {
+      "hote": "www.delpher.nl",
+      "resultat": "Disallow: / sauf moteurs de recherche listés",
+      "preuve": "institutions/kb-nl/sources/a4/SHA256SUMS"
+    },
+    {
+      "hote": "github.com",
+      "resultat": "200 ; hôte de doc seulement",
+      "preuve": "institutions/digital-repository-of-ireland/sources/a2/SHA256SUMS"
     }
   ]
 }

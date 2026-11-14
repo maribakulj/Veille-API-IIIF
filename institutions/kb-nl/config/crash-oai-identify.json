@@ -1,0 +1,8 @@
+{
+  "slug": "kb-nl",
+  "endpoint": {"id": "crash-oai-identify", "url": "https://services.kb.nl/mdo/oai?verb=Identify", "method": "GET"},
+  "limite_documentee_req_min": null,
+  "source_limite": "aucune limite documentée : ni techniek-anp_0.pdf, ni les pages kb.nl/lab.kb.nl lues ne chiffrent un débit (seule recommandation : moissonner hors des heures de bureau néerlandaises 9 h-17 h)",
+  "duree_palier_s": 180,
+  "note": "Identify : réponse de 3 ko déjà vue en 200 (passe 2, journal). Robots.txt de services.kb.nl = Disallow: / (autorisé par Marcel, C12). À lancer hors des heures de bureau néerlandaises, comme le demande la doc ANP."
+}
