@@ -54,6 +54,31 @@ def preliminary_category(url: str, reason: str) -> str:
 
 
 
+def qualifier_lecture(matches: list[dict]) -> str:
+    """État du CONTENU, indépendant d'un éventuel contrôle HTTP à refaire.
+
+    Seuls les nouveaux statuts de lecture explicitement qualifiés sont promus :
+    une ancienne note DOCUMENT_LU non datée n'est pas suffisante.
+    """
+    status = [m.get("statut_doc_2026_11_14", "") for m in matches]
+    direct = (
+        "TEXTE_ORIGINAL_LU_2026_11_14",
+        "TEXTE_ORIGINAL_LU_RESTRICTION_2026_11_14",
+        "REDIRECTION_ORIGINALE_LUE_2026_11_14",
+        "PAGE_ORIGINALE_LUE_DEPRECATION_2026_11_14",
+        "PDF_NEUF_PAGES_LU_2026_11_14",
+    )
+    if any(x in direct for x in status):
+        return "TEXTE_LU_PAR_LECTEUR_WEB"
+    indexed_prefixes = (
+        "COPIE_", "PDF_TEXTE_", "JSON_MANIFESTE_EXTRAIT_",
+        "ROBOTS_TEXTE_INDEXE_", "PAGE_ENDPOINT_TEXTE_LU_",
+    )
+    if any(x.startswith(indexed_prefixes) for x in status):
+        return "TEXTE_RECUPERE_COPIE_DATEE"
+    return "CONTENU_NON_DEMONTRE_PAR_REPRISE_O"
+
+
 def agregger_constats(matches: list[dict], travail_initial: str) -> dict:
     """Préserver TOUS les constats d'une même URL, même contradictoires.
 
@@ -133,6 +158,7 @@ def main() -> None:
             "categorie_preliminaire": preliminary_category(
                 item["url"], item["raison_initiale"]),
             "signal_doublon": duplicate,
+            "lecture_documentaire": qualifier_lecture(match),
             **agregat,
             "raison_initiale": item["raison_initiale"],
         })
@@ -140,7 +166,7 @@ def main() -> None:
     output = root / args.out
     output.parent.mkdir(parents=True, exist_ok=True)
     fields = ["institution", "rang", "url", "categorie_preliminaire",
-              "signal_doublon", "nombre_constats", "statut_revision",
+              "signal_doublon", "lecture_documentaire", "nombre_constats", "statut_revision",
               "preuve", "reste_a_verifier", "verification_http_independante",
               "raison_initiale"]
     with output.open("w", newline="", encoding="utf-8") as handle:
@@ -158,6 +184,15 @@ def main() -> None:
         "lignes_sans_constat_ledger": len(records) - covered,
         "lignes_avec_plusieurs_constats": sum(x["nombre_constats"] > 1
                                                for x in records),
+        "lignes_texte_lu_lecteur_web": sum(x["lecture_documentaire"] ==
+                                          "TEXTE_LU_PAR_LECTEUR_WEB"
+                                          for x in records),
+        "lignes_texte_recupere_copie_datee": sum(x["lecture_documentaire"] ==
+                                                "TEXTE_RECUPERE_COPIE_DATEE"
+                                                for x in records),
+        "lignes_contenu_non_demontre": sum(x["lecture_documentaire"] ==
+                                          "CONTENU_NON_DEMONTRE_PAR_REPRISE_O"
+                                          for x in records),
         "constats_associes_aux_lignes_manuelles": sum(x["nombre_constats"]
                                                      for x in records),
         "doublons_intra": sum(x["signal_doublon"] == "DOUBLON_DANS_INSTITUTION"
