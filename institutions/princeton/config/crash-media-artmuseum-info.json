@@ -1,0 +1,12 @@
+{
+  "slug": "princeton",
+  "endpoint": {
+    "id": "media-artmuseum-info-json",
+    "url": "https://media.artmuseum.princeton.edu/iiif/3/collection/x1954-13/info.json",
+    "method": "GET"
+  },
+  "limite_documentee_req_min": null,
+  "source_limite": "aucune limite de débit documentée (https://github.com/Princeton-University-Art-Museum/puam-api-docs README : « No authentication is currently required » ; rien sur le débit)",
+  "duree_palier_s": 180,
+  "note": "info.json d'image IIIF 3 (peu coûteux), 200 dans le journal (iiif-image-info, 2026-11-14T02:14:16Z). Alternative non retenue : iiif.princeton.edu (derrière CloudFront, déjà en cache)."
+}

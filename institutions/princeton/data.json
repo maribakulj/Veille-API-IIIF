@@ -2,18 +2,280 @@
   "slug": "princeton",
   "nom": "Princeton University Library",
   "pays": "États-Unis",
-  "statut_audit": "partiel (ancienne méthode)",
+  "statut_audit": "audit v2 a à f complet",
   "limites_documentees": [],
-  "en_tetes_observes": [],
-  "blocages": [],
-  "contact": "« contact us » du wiki DPUL",
-  "conclusion_quota": "Aucun quota trouvé.",
+  "en_tetes_observes": [
+    "x-cache / via CloudFront (iiif.princeton.edu, media.artmuseum) : pas d'en-tête de limite",
+    "cache-control: max-age=300 (API du musée)"
+  ],
+  "blocages": [
+    {
+      "date": "2026-11-14",
+      "hote": "library.princeton.edu",
+      "code": "403",
+      "nature": "défi Cloudflare (Just a moment) sur /about/collections-use ; hôte arrêté, non contourné"
+    },
+    {
+      "date": "2026-11-14",
+      "hote": "artmuseum.princeton.edu",
+      "code": "403",
+      "nature": "défi Cloudflare sur /robots.txt ; non contourné, copie Wayback lue"
+    },
+    {
+      "date": "2026-11-14",
+      "hote": "visresiiif.princeton.edu",
+      "code": "DNS",
+      "nature": "nom d'hôte introuvable (curl: Could not resolve host)"
+    }
+  ],
+  "contact": "digital-library@princeton.libanswers.com (Digital Library Services) ; musée : e-mail indiqué dans le README puam-api-docs",
+  "conclusion_quota": "Aucun quota ni limite de débit publiés ni annoncés dans les 17 réponses (aucun 429, aucun en-tête de limite). La doc dit seulement : « Contact us to learn more about harvesting Princeton's iiif data. ». robots.txt de figgy : Disallow: / (testé quand même sous C12).",
   "classe_quota": "aucun quota trouvé",
-  "confiance": "faible",
-  "notes": "Robots.txt de Figgy : affirmation tierce non vérifiée.",
+  "confiance": "moyenne",
+  "notes": "Audit v2 : 2 passes de 8 et 9 requêtes, sessions de l'ancienne méthode archivées dans tests/archive. Wayback de library.princeton.edu refusé par les permissions (non contourné).",
   "classeur_id": "GLAM-041",
   "type": "Institution",
-  "sources": [],
-  "web": [],
-  "donnees_a_revalider": true
+  "sources": [
+    {
+      "url": "https://dpul.princeton.edu/1762-archive/about/princeton-university-library",
+      "date": "2026-11-14",
+      "etiquette": "officielle",
+      "preuve": "institutions/princeton/sources/bibliotheque/SHA256SUMS"
+    },
+    {
+      "url": "https://pul-confluence.atlassian.net/wiki/spaces/IT/pages/1933600/DPUL+PUL+s+Curated+Collections+Platform",
+      "date": "2026-11-14",
+      "etiquette": "officielle",
+      "preuve": "institutions/princeton/sources/bibliotheque/SHA256SUMS"
+    },
+    {
+      "url": "https://github.com/Princeton-University-Art-Museum/puam-api-docs",
+      "date": "2026-11-14",
+      "etiquette": "officielle",
+      "preuve": "institutions/princeton/sources/musee/SHA256SUMS"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/Princeton-University-Art-Museum/puam-api-docs/main/search.md",
+      "date": "2026-11-14",
+      "etiquette": "officielle",
+      "preuve": "institutions/princeton/sources/musee2/SHA256SUMS"
+    }
+  ],
+  "web": [
+    {
+      "categorie": "institution",
+      "url": "https://github.com/natemoo93/whatiiif-mcp",
+      "date": "2026-11-14",
+      "etiquette": "tiers (outil), lu dans l'original",
+      "citation": "« finding a manifest needs a search against Figgy, whose robots.txt is `Disallow: /`. » ; « Some institutions refuse automated or cloud-hosted clients outright (the Library of Congress, Princeton DPUL's item pages). »",
+      "preuve": "institutions/princeton/fiche.md"
+    },
+    {
+      "categorie": "institution",
+      "url": "https://dpul.princeton.edu/1762-archive/about/princeton-university-library",
+      "date": "2026-11-14",
+      "etiquette": "officielle",
+      "citation": "« Contact us to learn more about harvesting Princeton's iiif data. »",
+      "preuve": "institutions/princeton/sources/bibliotheque/SHA256SUMS"
+    },
+    {
+      "categorie": "utilisateurs",
+      "aucun_resultat": true,
+      "requete": "iiif.princeton.edu OR figgy.princeton.edu 429 OR 503 OR \"too many requests\" OR blocked iiif-discuss",
+      "date": "2026-11-14",
+      "etiquette": "–",
+      "citation": "aucune plainte 429/503/blocage visant les serveurs IIIF de Princeton (résumé de moteur, non vérifié) ; seul indice : note tierce de whatiiif-mcp sur DPUL",
+      "preuve": "institutions/princeton/fiche.md"
+    },
+    {
+      "categorie": "tickets",
+      "url": "https://github.com/pulibrary/figgy/issues/1236",
+      "date": "2026-11-14",
+      "etiquette": "institution (GitHub officiel), lu via fetch_doc",
+      "citation": "ticket sur les URL de manifestes figgy pour les instruments de recherche (script Solr) ; aucune limite de débit citée",
+      "preuve": "institutions/princeton/sources/bibliotheque/SHA256SUMS"
+    },
+    {
+      "categorie": "presentations",
+      "url": "https://preview.iiif.io/root/tech-details/event/2018/washington/program/paper-49/",
+      "date": "2026-11-14",
+      "etiquette": "présentation de l'institution (IIIF Washington 2018), lue dans l'original",
+      "citation": "« ...with our Samvera/Valkyrie repository (Figgy) at the center providing IIIF manifests that drive viewers... »",
+      "preuve": "institutions/princeton/fiche.md"
+    }
+  ],
+  "donnees_a_revalider": false,
+  "endpoints_documentes": [
+    {
+      "famille": "IIIF Image v2 (Cantaloupe) : racine, /iiif/2/, ancien /loris/",
+      "url": "https://iiif.princeton.edu/iiif/2/pudl0001%2F4609321%2Fs42%2F00000001.jp2/info.json",
+      "statut": "teste",
+      "preuve": "institutions/princeton/tests/raw/image-v2-info.headers.txt"
+    },
+    {
+      "famille": "IIIF Image v3 bibliothèque",
+      "url": "https://iiif.princeton.edu/iiif/3/pudl0001%2F4609321%2Fs42%2F00000001.jp2/info.json",
+      "statut": "teste",
+      "preuve": "institutions/princeton/tests/raw/image-v3-info.headers.txt"
+    },
+    {
+      "famille": "ancien hôte libimages1 (redirige vers iiif.princeton.edu)",
+      "url": "https://libimages1.princeton.edu/loris/pudl0001%2F4609321%2Fs42%2F00000001.jp2/info.json",
+      "statut": "teste",
+      "preuve": "institutions/princeton/tests/raw/libimages1-info.headers.txt"
+    },
+    {
+      "famille": "Manifestes IIIF Presentation de la bibliothèque (figgy)",
+      "url": "https://figgy.princeton.edu/concern/scanned_resources/9d39a643-16f5-4342-8157-32daa2833939/manifest",
+      "statut": "teste",
+      "preuve": "institutions/princeton/tests/raw/figgy-manifeste.headers.txt"
+    },
+    {
+      "famille": "OAI-PMH figgy",
+      "url": "https://figgy.princeton.edu/oai?verb=Identify",
+      "statut": "teste",
+      "preuve": "institutions/princeton/tests/raw/figgy-oai-identify.headers.txt"
+    },
+    {
+      "famille": "API REST du musée : objects, tombstone, makers, packages",
+      "url": "https://data.artmuseum.princeton.edu/objects/9449",
+      "statut": "teste",
+      "preuve": "institutions/princeton/tests/raw/api-objet.headers.txt"
+    },
+    {
+      "famille": "API musée : recherche et liste filtrée",
+      "url": "https://data.artmuseum.princeton.edu/search?q=blue&type=all",
+      "statut": "teste",
+      "preuve": "institutions/princeton/tests/raw/api-search.headers.txt"
+    },
+    {
+      "famille": "IIIF Presentation 3 du musée",
+      "url": "https://data.artmuseum.princeton.edu/iiif/objects/9449",
+      "statut": "teste",
+      "preuve": "institutions/princeton/tests/raw/iiif-manifeste.headers.txt"
+    },
+    {
+      "famille": "IIIF Image 3 du musée",
+      "url": "https://media.artmuseum.princeton.edu/iiif/3/collection/x1954-13/info.json",
+      "statut": "teste",
+      "preuve": "institutions/princeton/tests/raw/iiif-image-info.headers.txt"
+    },
+    {
+      "famille": "Jeux de données statiques du musée (objects.zip, makers.zip, packages.zip)",
+      "url": "https://static.artmuseum.princeton.edu/collection-data-sets/objects.zip",
+      "statut": "non_teste",
+      "raison": "archives volumineuses (téléchargement complet de la collection) : contraire à la prudence de la sonde (pas de gros fichiers) ; la doc dit seulement « refreshed on a weekly basis »"
+    },
+    {
+      "famille": "Serveur Cantaloupe visresiiif.princeton.edu (cité par un moteur de recherche)",
+      "url": "https://visresiiif.princeton.edu/",
+      "statut": "non_teste",
+      "raison": "nom d'hôte introuvable (DNS) lors de la lecture de documentation (curl: Could not resolve host), aucune réponse à tester"
+    },
+    {
+      "famille": "Catalogue catalog.princeton.edu (Blacklight : JSON, OpenSearch)",
+      "url": "https://catalog.princeton.edu/robots.txt",
+      "statut": "non_teste",
+      "raison": "aucune API de catalogue documentée dans la doc lue ; robots.txt : Crawl-delay: 10 et Disallow sur /catalog/*/, /catalog/opensearch, recherches ; pas d'identifiant public de la doc"
+    }
+  ],
+  "endpoints_ecartes": [
+    {
+      "url": "https://github.com/Princeton-University-Art-Museum/puam-api-docs/issues/new",
+      "raison": "formulaire de création de ticket GitHub (POST) : ce n'est pas une API à tester, aucun appel"
+    },
+    {
+      "url": "https://dpul.princeton.edu/1762-archive/about/princeton-university-library",
+      "raison": "page de présentation DPUL (HTML) lue en entier ; aucune API décrite, seulement un contact"
+    },
+    {
+      "url": "https://pul-confluence.atlassian.net/wiki/spaces/IT/pages/1933600/DPUL+PUL+s+Curated+Collections+Platform",
+      "raison": "page de wiki (HTML) lue ; décrit la plateforme DPUL et un contact moissonnage, aucune API ni limite"
+    },
+    {
+      "url": "https://github.com/pulibrary/figgy",
+      "raison": "dépôt de code source de figgy (page GitHub) : documentation de développement, pas une API"
+    },
+    {
+      "url": "https://guides.iiif.io/guides/artmuseum.princeton.edu/",
+      "raison": "guide IIIF tiers expliquant comment copier le lien de manifeste ; page HTML, pas une API"
+    },
+    {
+      "url": "https://github.com/Princeton-University-Art-Museum",
+      "raison": "page d'organisation GitHub du musée : liste de dépôts, pas une API"
+    },
+    {
+      "url": "https://artmuseum.princeton.edu/search/collections",
+      "raison": "page de recherche HTML du site du musée citée par le guide IIIF ; hôte artmuseum.princeton.edu en défi Cloudflare 403, non contourné ; l'API du musée est testée sur data.artmuseum"
+    }
+  ],
+  "hotes_robots": [
+    {
+      "hote": "iiif.princeton.edu",
+      "resultat": "robots.txt : HTTP 500 « Error: Invalid IIIF path » (Cantaloupe sans robots.txt) ; RFC 9309 : traité comme interdit, testé quand même (C12)",
+      "preuve": "institutions/princeton/sources/bibliotheque/SHA256SUMS"
+    },
+    {
+      "hote": "libimages1.princeton.edu",
+      "resultat": "robots.txt : HTTP 500 (même serveur) ; testé quand même (C12)",
+      "preuve": "institutions/princeton/sources/bibliotheque/SHA256SUMS"
+    },
+    {
+      "hote": "figgy.princeton.edu",
+      "resultat": "User-agent: * / Disallow: / (tout interdit) ; testé quand même sur 2 chemins (C12), 200",
+      "preuve": "institutions/princeton/sources/bibliotheque/SHA256SUMS"
+    },
+    {
+      "hote": "data.artmuseum.princeton.edu",
+      "resultat": "robots.txt : 404, tout autorisé",
+      "preuve": "institutions/princeton/sources/musee/SHA256SUMS"
+    },
+    {
+      "hote": "media.artmuseum.princeton.edu",
+      "resultat": "robots.txt : HTTP 500 ; testé quand même (C12)",
+      "preuve": "institutions/princeton/sources/musee/SHA256SUMS"
+    },
+    {
+      "hote": "catalog.princeton.edu",
+      "resultat": "Crawl-delay: 10 ; Disallow sur recherches, /catalog/*/ et /catalog/opensearch ; hôte non contacté par la sonde",
+      "preuve": "institutions/princeton/sources/bibliotheque/SHA256SUMS"
+    },
+    {
+      "hote": "dpul.princeton.edu",
+      "resultat": "robots.txt de 76 octets lu ; hôte lu seulement pour une page de doc",
+      "preuve": "institutions/princeton/sources/bibliotheque/SHA256SUMS"
+    },
+    {
+      "hote": "library.princeton.edu",
+      "resultat": "robots.txt lu (Drupal, SemrushBot interdit) ; pages /about/ en 403 défi Cloudflare, non contourné",
+      "preuve": "institutions/princeton/sources/bibliotheque/SHA256SUMS"
+    },
+    {
+      "hote": "artmuseum.princeton.edu",
+      "resultat": "robots.txt en 403 défi Cloudflare ; copie Wayback du 2026-01-01 : User-agent * avec Disallow /admin/, /search/ ; aucun Crawl-delay",
+      "preuve": "institutions/princeton/sources/wayback/artmuseum-robots.md"
+    }
+  ],
+  "a_verifier_manuellement": [
+    {
+      "url": "https://library.princeton.edu/about/collections-use",
+      "pourquoi": "403 défi Cloudflare (sources/bibliotheque/FETCH.log) ; Wayback non lu (outil refusé par les permissions)",
+      "a_chercher": "politique d'usage des reproductions numériques ; toute phrase sur le moissonnage, les robots ou le débit"
+    },
+    {
+      "url": "https://library.princeton.edu/about/policies/special-collections-copyright-credit-and-citation-guidelines",
+      "pourquoi": "hôte library.princeton.edu en défi Cloudflare, non demandé",
+      "a_chercher": "conditions d'usage des images ; limite sur la réutilisation massive"
+    },
+    {
+      "url": "https://artmuseum.princeton.edu/robots.txt",
+      "pourquoi": "403 défi Cloudflare ; copie Wayback du 2026-01-01 lue",
+      "a_chercher": "version actuelle : Crawl-delay ou règles pour les robots"
+    },
+    {
+      "url": "https://artmuseum.princeton.edu/",
+      "pourquoi": "politique « Image Use and Access » du musée : non lue (Cloudflare)",
+      "a_chercher": "conditions d'usage des images et des données ; quota éventuel de l'API"
+    }
+  ]
 }
