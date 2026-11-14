@@ -1,0 +1,12 @@
+{
+  "slug": "osterreichische-nationalbibliothek-onb",
+  "min_delay_s": 6,
+  "max_requests": 15,
+  "follow_redirects": 1,
+  "robots_disallow_autorise_par_marcel": true,
+  "note": "Passe 3 : en passe 2, annotation/1 et list/1 ont repondu 400 (Canvas ... / imageID ne respecte pas les exigences). Le swagger precise que imageID a 8 chiffres (page avec zeros initiaux) : rejeu avec 00000001, identifiant deduit de la doc (section 3.8.2) et du manifeste (images/REPO/7445056/00000001.jpg).",
+  "endpoints": [
+    {"id": "annotation-repo-7445056-00000001", "method": "GET", "url": "https://iiif.onb.ac.at/presentation/REPO/7445056/annotation/00000001"},
+    {"id": "list-repo-7445056-00000001", "method": "GET", "url": "https://iiif.onb.ac.at/presentation/REPO/7445056/list/00000001"}
+  ]
+}
