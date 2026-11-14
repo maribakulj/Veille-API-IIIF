@@ -16,3 +16,8 @@
 2026-11-14T02:35:43Z | cdm-oai-identify | robots.txt interdit https://leicester.contentdm.oclc.org/oai/oai.php?verb=Identify (Disallow: /oai/) ; lancé car autorisé par Marcel (C12)
 2026-11-14T02:35:50Z | cdm-oai-identify | https://leicester.contentdm.oclc.org/oai/oai.php?verb=Identify | GET | 200 OK | aucun en-tête de limite | taille≥200 | corps: <?xml version="1.0" encoding="UTF-8"?><OAI-PMH xmlns="http://www.openarchives.org/OAI/2.0/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.openarchives.org/OAI/2.
 # Fin 2026-11-14T02:35:50Z — 5 requête(s) envoyée(s)
+# Session 2026-11-14T02:36:03Z — configuration leicester-passe3-manifeste.json — sonde probe.py au commit 00a147c
+2026-11-14T02:36:04Z | robots.txt:leicester.contentdm.oclc.org | https://leicester.contentdm.oclc.org/robots.txt | GET | 200 | 38 règle(s) pour « * » ; Crawl-delay 1.0 s
+2026-11-14T02:36:10Z | cdm-manifeste-global-v2 | https://leicester.contentdm.oclc.org/iiif/2/manifest.json | GET | 200 OK | aucun en-tête de limite | taille≥3738 | corps: {"@context":"http://iiif.io/api/presentation/2/context.json","@id":"http://cdm16445.contentdm.oclc.org/iiif/manifest.json","@type":"sc:Collection","collections":[{"@id":"http://cdm16445.contentdm.oclc
+# corps enregistré : tests/raw/cdm-manifeste-global-v2.body (3738 octets lus)
+# Fin 2026-11-14T02:36:10Z — 2 requête(s) envoyée(s)
