@@ -1,0 +1,11 @@
+{
+  "slug": "digital-repository-of-ireland",
+  "min_delay_s": 6,
+  "max_requests": 6,
+  "follow_redirects": 0,
+  "robots_disallow_autorise_par_marcel": true,
+  "note": "Passe 1 : hôte repository.dri.ie (défi Cloudflare constaté sur robots.txt par fetch_doc ; la sonde doit le sauter). Endpoints issus de la doc : page api-docs citée par dri-documentation/developer-guide/01-api-doc.rst ; points IIIF/OAI du code routes.rb nécessitent un identifiant public non disponible, non devinés.",
+  "endpoints": [
+    {"id": "api-docs-swagger", "method": "GET", "url": "https://repository.dri.ie/api-docs"}
+  ]
+}

@@ -1,0 +1,342 @@
+GitHub - Digital-Repository-of-Ireland/dri-app: Digital Repository of Ireland's Samvera application · GitHub 
+ Skip to content 
+ Navigation Menu
+ Sign in 
+ Products Platform GitHub Repository hosting, code review, and collaboration 
+ Copilot AI coding agent for tasks, projects, and automated work 
+ Build & Ship Actions CI/CD and automation 
+ Code Quality Quality analysis, fixes, and enforcement 
+ Codespaces Cloud development environments 
+ Secure Code Security Vulnerability detection and remediation 
+ Secret Protection Secret scanning and leak prevention 
+ All Features 
+ Developers Learn Documentation 
+ Training 
+ Certifications 
+ Build Build with Copilot 
+ Customize Copilot 
+ Integrations 
+ Explore Trending repos 
+ GitHub Sponsors 
+ Developer articles 
+ Changelog Changelog Your source for the latest features, improvements, and fixes across GitHub products, all in one place. 
+ Businesses By Stage Enterprises 
+ Team 
+ Startups 
+ Nonprofits 
+ By Industry Healthcare 
+ Financial services 
+ Manufacturing 
+ Government 
+ See all industries 
+ Evaluate GitHub Why GitHub 
+ Customer Stories 
+ Business insights 
+ Trust Center 
+ Add-ons GitHub Advanced Security Enterprise-grade code security 
+ Copilot for business Enterprise-grade AI features 
+ Premium Support Enterprise-grade 24/7 support 
+ Resources Learn & Connect Documentation 
+ Resource center 
+ Blog 
+ Events & webinars 
+ Community Forum 
+ Customer Stories 
+ Integrations 
+ Support Customer support 
+ Training 
+ GitHub Status 
+ Company About 
+ Partners 
+ Changelog 
+ GitHub Universe GitHub Universe The event for developers, by developers — talks, workshops, and what’s next for GitHub. 
+ Pricing 
+ Search / 
+ Sign in 
+ Sign up Appearance settings
+ You signed in with another tab or window. Reload to refresh your session. 
+ You signed out in another tab or window. Reload to refresh your session. 
+ You switched accounts on another tab or window. Reload to refresh your session. 
+ Dismiss alert 
+ {{ message }}
+ Digital-Repository-of-Ireland 
+ dri-app 
+ Repository navigation
+ Code 
+ Issues 
+ Pull requests 
+ Actions 
+ Projects 
+ Wiki 
+ Security and quality 
+ Insights 
+ More items 
+ dri-app 
+ Public 
+ Notifications You must be signed in to change notification settings 
+ Fork 3  ( 3 ) 
+ Star 21  ( 21 ) You must be signed in to star a repository 
+ About 
+ Digital Repository of Ireland's Samvera application
+ Resources 
+ Readme 
+ License 
+ Activity 
+ Custom properties 
+ Stars 
+ 21 stars 
+ Watchers 
+ 8 watching 
+ Forks 
+ 3 forks 
+ Report repository 
+ develop 
+ Branches Tags 
+ Go to file 
+ Code Open more actions menu 
+ Latest commit
+ History
+ 7,389 Commits 
+ 7,389 Commits 
+ Folders and files
+ Name Name Last commit message 
+ Last commit date 
+ app 
+ app 
+ bin 
+ bin 
+ config 
+ config 
+ db 
+ db 
+ docker 
+ docker 
+ features 
+ features 
+ hacking 
+ hacking 
+ lib 
+ lib 
+ log 
+ log 
+ public 
+ public 
+ script 
+ script 
+ smoothness 
+ smoothness 
+ solr/ config 
+ solr/ config 
+ spec 
+ spec 
+ vendor 
+ vendor 
+ .fcrepo_wrapper 
+ .fcrepo_wrapper 
+ .gitignore 
+ .gitignore 
+ .rspec 
+ .rspec 
+ .rspec_parallel 
+ .rspec_parallel 
+ .rubocop.yml 
+ .rubocop.yml 
+ .ruby-version 
+ .ruby-version 
+ .solr_wrapper 
+ .solr_wrapper 
+ Dockerfile 
+ Dockerfile 
+ Gemfile 
+ Gemfile 
+ Gemfile.lock 
+ Gemfile.lock 
+ Guardfile 
+ Guardfile 
+ Jenkinsfile 
+ Jenkinsfile 
+ LICENSE.rdoc 
+ LICENSE.rdoc 
+ Procfile.dev 
+ Procfile.dev 
+ README.rdoc 
+ README.rdoc 
+ README_DOCKER.md 
+ README_DOCKER.md 
+ Rakefile 
+ Rakefile 
+ ansible.cfg 
+ ansible.cfg 
+ buildshim 
+ buildshim 
+ config.ru 
+ config.ru 
+ custom_plan.rb 
+ custom_plan.rb 
+ docker-compose.yml 
+ docker-compose.yml 
+ package.json 
+ package.json 
+ yarn.lock 
+ yarn.lock 
+ zeus.json 
+ zeus.json 
+ View all files 
+ Repository files navigation
+ README 
+ License 
+ More items 
+ DRI Repository Application 
+ This repository contains the Digital Repository of Ireland’s Samvera based application.
+ There are a number of other dependencies (see below) but at this point you will need to have a functional Rails stack and Java.
+ For testing and development you will need to bootstrap the project
+ $ git clone https://github.com/Digital-Repository-of-Ireland/dri-app.git
+$ cd dri-app
+$ bundle install --without production
+$ cp config/database.yml.sample config/database.yml (and edit as appropriate)
+$ cp config/redis.yml.sample config/redis.yml (and edit as appropriate)
+$ cp config/solr.yml.sample config/solr.yml (and edit as appropriate)
+$ cp config/blacklight.yml.sample config/blacklight.yml (and edit as appropriate)
+$ cp config/authorities.yml.sample config/authorities.yml (and edit as appropriate)
+$ bundle exec rake db:migrate
+$ bundle exec rake db:seed 
+ Dont forget to prepare the test database with
+ $ bundle exec rake db:test:prepare 
+ You may also want to create test organisations (institutions) with
+ $ bundle exec rake db:seed:add_organisations 
+ You may also need to edit config/settings.yml and/or create config/settings.local.yml
+ To start the application for demo purposes
+ $ cd dri-app
+$ rake server:start
+$ rake server:config
+$ gem install foreman
+$ bin/dev 
+ The db:seed step above will create 4 initial accounts:
+ admin@dri.ie (admin user)
+ orgmanager@dri.ie (organisation manager)
+ manager@dri.ie (collection manager)
+ user@dri.ie (public user)
+ The default password for all 3 accounts is set at install time from the password setting in the settings.yml file. Typically this will be set to “CHANGEME” and it should be updated as soon as possible after installation. To change the password log into the application as each of the default users, navigate to their profile page by clicking on the username at the top of the screen, and clicking on the ‘Edit’ button.
+ To generate the app docs:
+ $ bundle exec rake rdoc 
+ There is an exclude filter for api specs in .rspec since api:docs:generate runs those specs anyway. To run api specs:
+ $ bundle exec rspec spec/api --exclude-pattern '' 
+ To generate the api docs:
+ $ bundle exec rake api:docs:generate 
+ Dependencies 
+ If you are using Ubuntu or another debian linux distribution
+ $ sudo apt-get install coreutils libtool libksba8 libxml2 libxslt1.1 automake autoconf openssl curl libreadline8 gettext pkg-config libyaml-dev redis sqlite ffmpeg libgtk2.0-dev imagemagick ghostscript npm 
+ For building Javascript:
+ $ npm install -g n
+$ npm install n -g
+$ n stable
+$ npm install -g yarn 
+ With the above installed the Javascript can be compiled with: bin/rails javascript:build. Follow the jsbundling-rails gem README for more instructions.
+ There are a few installation options for fits:
+ Download fits from the harvard website projects.iq.harvard.edu/fits/downloads 
+ Use ant to build from source github github.com/harvard-lts/fits /
+ You may need to comment out ‘<tool class=“edu.harvard.hul.ois.fits.tools.mediainfo.MediaInfo”` in fits/xml/fits.xml as per github.com/harvard-lts/fits/issues/160 
+ Settings.yml 
+ This is where the application specific settings are located
+ config / settings . yml 
+ Please view and edit this file as needed before deploying the application.
+ To override settings.yml with local settings please use settings.local.yml.
+ Configuation of database.yml, solr.yml, blacklight.yml 
+ The configuration files for the application
+ config/database.yml
+ config/solr.yml
+ config/blacklight.yml
+ are not configured initially. There are some sample configurations in the config directory. These configuration files must be created before development, testing, deployment. The default sample files can be copied into the correct locations for testing and development. It is suggested that these files are not commited to the repository.
+ Background jobs 
+ The application includes a queueing system based on Resque and Redis to allow asynchronous processing of background jobs. This introduces the following dependencies:
+ * Redis (server for the queueing system)
+* fits (for extracting metadata from a file)
+* ffmpeg (video file processing tool)
+* imagemagick (image processing)
+* Clamav (malware scanning) (production only) 
+ For testing, the file processing tools should be installed locally. See the Dependencies section of this document for more information on installing these and other dependencies.
+ By default fits should be installed in the directory /opt/local/fits/. The path to the install can be set in the Settings.plugins.fits_path setting in the file config/settings.yml or config/settings.local.yml.
+ By default ffmpeg should be installed in the directory /opt/local/bin (this can be set by modifying the ffmpeg_path setting in the file config/settings.yml).
+ For testing purposes Redis can be installed locally and started with the command
+ $ sudo redis-server /opt/local/etc/redis.conf 
+ The worker queues can be started with the following rake task
+ $ rake environment resque:work RAILS_ENV=development QUEUE="*" COUNT="2" VERBOSE=1 
+ To view your queues and workers you can visit the path /resque on the web application where resque-web is mounted.
+ Note that the queuing code is stubbed for the Cucumber tests so you do not need a redis host running in order to run the tests.
+ ClamAV 
+ ClamAV is only required to be installed in production, but can be installed locally for testing purposes.
+ To enable virus scanning ClamAV needs to be installed.
+ $ sudo apt install clamav 
+ You will need to create the configuration file freshclam.conf in /opt/local/etc. There is an example file in /opt/local/etc/example-freshclam.conf. Set the directory for the database files and the log
+ DatabaseDirectory /opt/local/share/clamav
+UpdateLogFile /opt/local/var/log/clamav/freshclam.log 
+ Update the virus database
+ $ sudo freshclam 
+ Add the gem to the GemFile
+ gem ' clamby ' 
+ Run bundler. Virus scanning should now take place when an asset is uploaded.
+ Storage 
+ Surrogate files are stored using the S3 interface. To create surrogates you will need access to an S3 server. MiniStack (or another similar S3 compatible emulator) can be used for testing purposes.
+ This can be installed using pip:
+ $ pip install ministack 
+ You may need to add the local bin dir to your path, if not previously done:
+ $ export PATH=/home/$USER/.local/bin:$PATH 
+ You can start the service with
+ $ ministack 
+ The settings should then be modified to the following:
+ S3:
+ server: http://localhost:4566
+ use_ssl: false
+ access_key_id: anything
+ secret_access_key: anything 
+ Testing 
+ The unit tests are written using rspec and the functional tests are written with cucumber.
+ To run the unit tests:
+ $ cd dri-app
+$ rake server:start
+$ rake server:config
+$ bundle exec rails dartsass:build 
+$ rake rspec 
+ To run the functional tests:
+ $ cd dri-app
+$ rake server:start
+$ rake server:config
+$ bundle exec rails dartsass:build
+$ rake cucumber or bundle exec cucumber 
+ To run tests in parallel:
+ Ensure config/database.yml uses database: db/test<%= ENV %>.sqlite3
+ $ bundle exec rake parallel:create
+$ bundle exec rake parallel:prepare
+$ bundle exec parallel_rspec spec 
+ About 
+ Digital Repository of Ireland's Samvera application
+ Resources 
+ Readme 
+ License 
+ Activity 
+ Custom properties 
+ Stars 
+ 21 stars 
+ Watchers 
+ 8 watching 
+ Forks 
+ 3 forks 
+ Report repository 
+ Releases 
+ Packages 
+ Used by 
+ Contributors 
+ Languages 
+ Footer
+ © 2026 GitHub, Inc.
+ Footer navigation
+ Terms 
+ Privacy 
+ Security 
+ Status 
+ Community 
+ Docs 
+ Contact 
+ Manage cookies
+ Do not share my personal information
+ You can’t perform that action at this time.
