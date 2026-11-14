@@ -1,0 +1,3 @@
+# Public Sector Information (PSI) Policy, Durham University Library — Wayback
+Réplique : https://web.archive.org/web/20250808045814/https://www.durham.ac.uk/departments/library/about-us/policies/public-sector-information-psi-policy/ (capture 2025-08-08)
+Extraits verbatim : « Durham University Library is required to comply with the Public Sector Information (PSI) Regulations 2015. » ; « The Library undertakes digitisation and facilitates re-use where copyright law, data protection and the availability of funding permits this. » (première page de 6000 caractères sur 8258 lue). Aucune mention d'API, de débit, de quota.

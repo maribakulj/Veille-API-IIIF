@@ -1,0 +1,3 @@
+# Publishing Images (Library, Durham University) — Wayback
+Réplique : https://web.archive.org/web/20251011234137/https://www.dur.ac.uk/departments/library/museums-and-galleries/using-our-collections/publishing-images/ (capture 2025-10-11)
+Extrait verbatim : « We are happy to supply images of items in our collections for reproduction online or in academic and commercial publications. Permission is granted for publication under the following conditions: The applicant is responsible for obtaining necessary copyright consent where applicable. » Aucune mention d'API, de débit, de quota ni de robots (première page de 6000 caractères sur 7676 lue).
