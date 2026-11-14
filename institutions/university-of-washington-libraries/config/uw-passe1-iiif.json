@@ -1,0 +1,14 @@
+{
+  "slug": "university-of-washington-libraries",
+  "min_delay_s": 10,
+  "max_requests": 10,
+  "follow_redirects": 1,
+  "robots_disallow_autorise_par_marcel": true,
+  "note": "Passe 1 : familles d'API de la plateforme CONTENTdm decrites par la doc OCLC (sources/doc/text/11-13 et doc-b/text/09-11) et le motif UW /iiif/2/{alias}:{id}/manifest.json vu dans des resultats de moteur publics (kccollects:343). Crawl-delay robots.txt UW = 1 s, pause 10 s retenue. Hote deja en 403 (CF) sur ordering.html : la sonde doit le sauter, ce qui est journalise.",
+  "endpoints": [
+    {"id": "iiif-info-sitewide", "method": "GET", "url": "https://digitalcollections.lib.washington.edu/iiif/info/manifest.json"},
+    {"id": "iiif-presentation-item", "method": "GET", "url": "https://digitalcollections.lib.washington.edu/iiif/2/kccollects:343/manifest.json"},
+    {"id": "iiif-image-info", "method": "GET", "url": "https://digitalcollections.lib.washington.edu/digital/iiif/2/kccollects:343/info.json"},
+    {"id": "dmwebservices", "method": "GET", "url": "https://digitalcollections.lib.washington.edu/bl/dmwebservices/index.php?q=dmGetCollectionList/json"}
+  ]
+}
