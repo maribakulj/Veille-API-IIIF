@@ -32,3 +32,8 @@ Cinq passes (`config/durham-passe1…5`), journal `tests/journal.log`, en-têtes
 
 ## Conclusion
 Pas de quota publié, aucun mécanisme de limitation observé. Seule règle écrite : `Disallow: /` dans le robots.txt de l'hôte IIIF, alors que la doc invite au réemploi des images en IIIF : contradiction non expliquée par Durham (pourquoi pas publié : hypothèse, robots.txt par défaut du serveur Apache ; non confirmé). À contacter : main.library@durham.ac.uk. Le site `www.durham.ac.uk` est derrière CloudFront (403) : URL à vérifier à la main.
+
+## Crash test (étape g)
+
+Crash test fait le 2026-11-14 : info-json-iiif-durham sur iiif.durham.ac.uk : aucun blocage jusqu'à 200 req/min (plafond 200 req/min).
+Journal : `tests/crash/durham-university-library.log`. Un test « sans blocage » n'est pas une preuve d'illimitation au-delà du plafond.
