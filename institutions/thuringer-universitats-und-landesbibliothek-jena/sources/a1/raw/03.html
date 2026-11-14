@@ -1,0 +1,3343 @@
+<!DOCTYPE html SYSTEM "about:legacy-compat">
+<!--
+      Begin - xsl:template match="/html-layout (template_collections.xsl)
+    --><html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<!--
+      Start - template name="headElement_collections" (html-layout.xsl)
+    -->
+<meta content="width=device-width, initial-scale=1, shrink-to-fit=no" name="viewport">
+<link href="https://collections.thulb.uni-jena.de/images/favicon.ico" type="image/x-icon" rel="shortcut icon">
+<title>Willkommen bei Collections@UrMEL, dem Portal der Th&uuml;ringer Universit&auml;ts- und Landesbibliothek Jena (ThULB) f&uuml;r Historische Best&auml;nde</title>
+<!--Start - sharingSupport_support (notifications-support.xsl)-->
+<meta content="https://collections.thulb.uni-jena.de/images/sharePreview.png" itemprop="image" property="og:image">
+<meta content="Willkommen bei Collections@UrMEL, dem Portal der Th&uuml;ringer Universit&auml;ts- und Landesbibliothek Jena (ThULB) f&uuml;r Historische Best&auml;nde" property="og:title">
+<meta content="Collections@UrMEL bietet Zugriff auf digitalisierte Handschriften, Drucke, Nachl&auml;sse sowie weitere Sammlungsbest&auml;nde der ThULB Jena und mehrerer Wissenschafts- und Kultureinrichtungen. <br/><br/> Die digitalen Best&auml;nde stehen in zitierf&auml;higer Form f&uuml;r den weltweiten Zugriff zur Verf&uuml;gung. Dar&uuml;ber hinaus sind die digitalen Best&auml;nde vielf&auml;ltig recherchierbar und in zahlreichen Katalogen, Nachweissystemen und Suchmaschinen verzeichnet." property="og:description">
+<!--End - sharingSupport_support (notifications-support.xsl)-->
+<!--Start - jqueryBootstrap (common-ui-elements.xsl)-->
+<script>var solrRequestHandler = "collections_restricted";var solrBrowseInventoryRequestHandler = "browse-inventory-restricted";var archive = archive || {};archive.httpSession = ";jsessionid=2C709FBA9D3238CB296D06FE462E9DB1";archive.webApplicationBaseURL = "https://collections.thulb.uni-jena.de/";var webApplicationBaseURL = "https://collections.thulb.uni-jena.de/";var currentLang = "de";</script><script src="https://collections.thulb.uni-jena.de/javascript/common/GoogleSupport.js"></script><script src="https://collections.thulb.uni-jena.de/javascript/qrcode/qrcode.js"></script><script src="https://collections.thulb.uni-jena.de/javascript/addMCRServiceWorker.js" type="module"></script>
+<link href="https://collections.thulb.uni-jena.de/webjars/font-awesome/5.13.0/css/all.min.css" type="text/css" rel="stylesheet">
+<link href="https://collections.thulb.uni-jena.de/rsc/sass/scss/template.css" type="text/css" rel="stylesheet">
+<script src="https://collections.thulb.uni-jena.de/webjars/jquery/3.5.1/jquery.min.js"></script><script src="https://collections.thulb.uni-jena.de/webjars/bootstrap/4.6.1/js/bootstrap.bundle.min.js"></script>
+<link href="https://collections.thulb.uni-jena.de/webjars/jquery-ui/1.12.1/jquery-ui.css" type="text/css" rel="stylesheet">
+<script src="https://collections.thulb.uni-jena.de/webjars/jquery-ui/1.12.1/jquery-ui.min.js"></script><script src="https://collections.thulb.uni-jena.de/webjars/jquery-ui-touch-punch/0.2.3/jquery.ui.touch-punch.min.js"></script>
+<link href="https://collections.thulb.uni-jena.de/webjars/select2/4.0.13/css/select2.min.css" type="text/css" rel="stylesheet">
+<script src="https://collections.thulb.uni-jena.de/webjars/select2/4.0.13/js/select2.min.js"></script><script src="https://collections.thulb.uni-jena.de/webjars/select2/4.0.13/js/i18n/de.js"></script><script src="https://collections.thulb.uni-jena.de/webjars/select2/4.0.13/js/i18n/en.js"></script><script src="https://collections.thulb.uni-jena.de/javascript/common/on-document-ready.js"></script><script src="https://collections.thulb.uni-jena.de/javascript/messages/messages.js"></script><script src="https://collections.thulb.uni-jena.de/webjars/openlayers/6.9.0/ol.js"></script><script src="https://collections.thulb.uni-jena.de/javascript/osm/osm-snippet.js"></script><script src="https://collections.thulb.uni-jena.de/javascript/extendedSearch.js"></script><script src="https://collections.thulb.uni-jena.de/javascript/changeCurrentImageOnPreview.js"></script><script src="https://collections.thulb.uni-jena.de/javascript/gnd-resolving/gnd-resolving.js"></script><script src="https://collections.thulb.uni-jena.de/javascript/ppn-resolving/ppn-resolving.js"></script><script>var CollectionsMatomoSettings = {};CollectionsMatomoSettings.host = '//piwik.thulb.uni-jena.de/';CollectionsMatomoSettings.siteId = '9';
+
+          
+            var _paq = window._paq = window._paq || [];
+            /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
+            _paq.push(['trackPageView']);
+            _paq.push(['enableLinkTracking']);
+            (function () {
+                var u = CollectionsMatomoSettings.host;
+                _paq.push(['setTrackerUrl', u + 'matomo.php']);
+                _paq.push(['setSiteId', CollectionsMatomoSettings.siteId]);
+                var d = document, g = d.createElement('script'), s = d.getElementsByTagName('script')[0];
+                g.type = 'text/javascript';
+                g.async = true;
+                g.src = u + 'matomo.js';
+                s.parentNode.insertBefore(g, s);
+            })();
+          
+        </script>
+<!--End - jqueryBootstrap (common-ui-elements.xsl)-->
+<!--Start - notification_support (notifications-support.xsl)--><script>mcrs = "727ceecf-6375-4825-a178-f3002a8add32";</script><script src="https://collections.thulb.uni-jena.de/javascript/notifications/push.js-1.0.5/bin/push.min.js"></script><script src="https://collections.thulb.uni-jena.de/javascript/notifications/notifications.js"></script>
+<!--End - notification_support (notifications-support.xsl)-->
+<!--
+      End - template name="headElement_collections" (html-layout.xsl)
+    -->
+</head>
+<body>
+<div class="container small pb-10">
+<!--
+      Start - template name="header_collections" (html-layout.xsl)
+    -->
+<!--
+      Start - displayCookieNotice (cookie-notice-support.xsl)
+    -->
+<div class="row">
+<div aria-hidden="true" aria-labelledby="get-consentLabel" role="dialog" tabindex="-1" id="get-consent" data-backdrop="static" class="modal fade">
+<div role="document" class="modal-dialog modal-dialog-centered">
+<div class="modal-content">
+<div class="modal-header">
+<h5 id="get-consentLabel" class="modal-title">
+<img src="https://collections.thulb.uni-jena.de/images/thulb_text_right_de.svg" class="img-fluid thulb-logo-footer-text-right"></h5>
+</div>
+<div class="modal-body">
+<p class="d-block text-justify">Diese Webseite verwendet Cookies (Webanalysedienst: Matomo, sowie Sessioncookies). Mit der Nutzung der Seite erkl&auml;ren Sie sich mit der Verwendung dieser Cookies einverstanden. Einzelheiten entnehmen Sie bitte den<a href="https://collections.thulb.uni-jena.de/content/main/privacy.xml" class="thulb-theme-color"> Datenschutz. </a>
+</p>
+</div>
+<div class="modal-footer">
+<button onclick="setAcceptCookiesCookie()" data-dismiss="modal" class="btn btn-sm btn-primary" type="button">Akzeptieren</button>
+</div>
+</div>
+</div>
+</div>
+<script>
+        
+          function checkCookiesAccepted() {
+              var userConfirmedCookieUsage = false;
+              var x = document.cookie;
+
+              if (x != undefined) {
+                  userConfirmedCookieUsage = x.indexOf("accept-cookies=yes") != -1;
+
+                  if (userConfirmedCookieUsage == false) {
+                      if(window.location.href.indexOf("privacy.xml") == -1){
+                        $('#get-consent').modal();
+                      }
+                  }
+              }
+          }
+
+          function setAcceptCookiesCookie() {
+              document.cookie = "accept-cookies=yes; expires=2222; path=/";
+          }
+
+          function removeConsentGivenToTracking() {
+
+          }
+      
+      </script><script>
+        checkCookiesAccepted();
+      </script>
+</div>
+<!--
+      End - displayCookieNotice (cookie-notice-support.xsl)
+    -->
+<div id="header" class="row">
+<div class="col-sm-8 float-left pt-3" id="logo">
+<a href="https://collections.thulb.uni-jena.de/index.xml"><img alt="logo" src="https://collections.thulb.uni-jena.de/images/collections_logo.png" class="img-fluid"></a>
+</div>
+<!--
+      Start - template name="login-section" (common-ui-elements.xsl)
+    -->
+<div class="col">
+<div class="float-right pt-3 mb-3 mb-sm-0" id="login">
+<a href="https://collections.thulb.uni-jena.de/servlets/MCRArchiveLoginServlet?action=login" class="font-weight-bold thulb-default-text-color">Anmelden</a>
+<div class="ml-2 float-right">
+<a title="Diese Seite auf Deutsch anzeigen." href="" class="mr-2"><img alt="flag_de" height="16" src="https://collections.thulb.uni-jena.de/images/flag_de.svg" class="rounded thulb-filter-saturate-70"></a><a title="Display this page in English." href="https://collections.thulb.uni-jena.de/?lang=en"><img alt="flag_en" height="16" src="https://collections.thulb.uni-jena.de/images/flag_en.svg" class="rounded thulb-filter-grayscale-100"></a>
+</div>
+</div>
+</div>
+<!--
+      End - template name="login-section" (common-ui-elements.xsl)
+    -->
+</div>
+<!--
+      Start - collections-menu (common-ui-elements.xsl)
+    -->
+<div class="row border-top border-bottom mb-3">
+<div class="col mt-0 mt-sm-2">
+<nav class="navbar navbar-expand-lg text-uppercase thulb-nav-bar">
+<button aria-label="toggle menu" aria-expanded="false" aria-controls="menu-bar" data-target="#menu-bar" data-toggle="collapse" type="button" class="navbar-toggler thulb-default-text-color">
+<div class="small text-uppercase">
+<i aria-hidden="true" class="fas fa-bars mr-1"></i>Men&uuml;</div>
+</button>
+<ul id="menu-bar" class="nav collapse navbar-collapse justify-content-begin justify-content-lg-center">
+<li class="nav-item current-item-false">
+<a href="https://collections.thulb.uni-jena.de/index.xml" class="nav-link thulb-nav-bar-link">
+                Start
+              </a>
+</li>
+<li class="nav-item current-item-false">
+<a href="https://collections.thulb.uni-jena.de/index.xml?XSL.DisplayExdendedSearch=true" class="nav-link thulb-nav-bar-link">Erweiterte Suche</a>
+</li>
+<li class="nav-item current-item-false">
+<a href="https://collections.thulb.uni-jena.de/content/below/index.xml?XSL.DisplayComponentBrowse=true" class="nav-link thulb-nav-bar-link">In Best&auml;nden bl&auml;ttern</a>
+</li>
+<li class="nav-item current-item-false">
+<a href="https://collections.thulb.uni-jena.de/sites/impressum.xml" class="nav-link thulb-nav-bar-link">Impressum</a>
+</li>
+<li class="nav-item current-item-false">
+<a href="https://collections.thulb.uni-jena.de/content/main/privacy.xml" class="nav-link thulb-nav-bar-link">Datenschutz</a>
+</li>
+<li class="nav-item current-item-false">
+<a href="https://collections.thulb.uni-jena.de/content/main/accessibility.xml" class="nav-link thulb-nav-bar-link">Barrierefreiheit</a>
+</li>
+</ul>
+</nav>
+</div>
+<div class="col-3 col-sm-2 mt-auto mb-auto">
+<img src="https://collections.thulb.uni-jena.de/images/thulb-claim-de.svg" id="menu-thulb-logo" class="float-right thulb-logo-menu"></div>
+</div>
+<div data-isGuest="true" id="message-area"></div>
+<!--
+      End - collections-menu (common-ui-elements.xsl)
+    -->
+<!--
+      End - template name="header_collections" (html-layout.xsl)
+    -->
+<div style="min-height: 450px; background: url('https://collections.thulb.uni-jena.de/images/searchSlotBackround.png') no-repeat center center; background-size: cover;" id="searchFormContainer" class="form-row justify-content-center align-items-center">
+<form style="" class="col col-sm-10 form-inline" action="https://collections.thulb.uni-jena.de/servlets/solr/collections_restricted" id="simpleSearchForm">
+<div class="form-group col-12">
+<div class="input-group col-12">
+<input placeholder="Suche" type="text" name="qry" id="q" autocomplete="off" class="form-control form-control-lg"><button type="submit" class="btn btn-primary thulb-search-btn"><i class="fas fa-search"></i></button>
+</div>
+</div>
+</form>
+<form style="; display:none" action="https://collections.thulb.uni-jena.de/servlets/search" id="extendedSearchForm">
+<input value="0" name="start" type="hidden"><input value="-objectType:derivate -objectType:data_file" name="fq" type="hidden"><input value="true" name="facet" type="hidden"><input value="shelfmark" name="solr.phrase" type="hidden">
+<div id="extendedSearchFormInputFieldContainer" class="form-group">
+<div style="margin-left: 15%; margin-right: 15%;" class="form-group form-row justify-content-center thulb-bg-theme">
+<label class="col-sm-2 col-form-label-sm text-white text-uppercase mt-0 mt-sm-3" for="allMeta">alle W&ouml;rter</label>
+<div class="col-sm-8 mt-0 mt-sm-3">
+<input id="allMeta" name="allMeta" class="form-control form-control-sm" type="text">
+</div>
+<div class="w-100"></div>
+<label class="col-sm-2 col-form-label-sm text-white text-uppercase" for="shelfmark">Signatur</label>
+<div class="col-sm-8">
+<input id="shelfmark" name="shelfmark" class="form-control form-control-sm" type="text">
+</div>
+<div class="w-100"></div>
+<label class="col-sm-2 col-form-label-sm text-white text-uppercase" for="anyname">Person</label>
+<div class="col-sm-8">
+<input id="anyname" name="anyname" class="form-control form-control-sm" type="text">
+</div>
+<div class="w-100"></div>
+<label class="col-sm-2 col-form-label-sm text-white text-uppercase" for="date_extended_search">Datum</label>
+<div class="col-sm-8">
+<input id="date_extended_search" name="date_extended_search" class="form-control form-control-sm" type="text">
+</div>
+<div class="w-100"></div>
+<label class="col-sm-2 col-form-label-sm text-white text-uppercase" for="place_extended_search">Ort</label>
+<div class="col-sm-8">
+<input id="place_extended_search" name="place_extended_search" class="form-control form-control-sm" type="text">
+</div>
+<div class="w-100"></div>
+<label class="col-sm-2 col-form-label-sm text-white text-uppercase" for="select_ArchFile_class_001">Bestand</label>
+<div class="col-sm-8">
+<!--Start - template name="selectBox" (common-ui-elements.xsl)-->
+<select class="form-control form-control-sm js-select2-basic-single" name="component" id="select_ArchFile_class_001"><option label="bitte w&auml;hlen..." selected value=""></option><option title="Akademisches Konzert Jena" value="7a377b5f-701d-4d22-8884-d23ea87ba918">
+<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->Akademisches Konzert Jena<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="Archiv und Bibliothek der Evangelischen Kirche in Mitteldeutschland" value="ec6f76d3-3f39-4c2c-8a9f-f5c7384121ec">
+<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->Archiv und Bibliothek der Evangelischen Kirche in Mitteldeu [...]<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="Autographen" value="a3d452c8-59ab-4021-b9e6-988bdae85560">
+<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->Autographen<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="Bauhaus im Text" value="bauhaus.im.text">
+<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->Bauhaus im Text<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="Bibliotheca Electoralis" value="electoralis">
+<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->Bibliotheca Electoralis<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="Drucke" value="electoralis.prints">&nbsp;&nbsp;<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->Drucke<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="Anglia" value="electoralis.prints.angl">&nbsp;&nbsp;&nbsp;&nbsp;<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->Anglia<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="Arch&auml;ologie" value="electoralis.prints.arch">&nbsp;&nbsp;&nbsp;&nbsp;<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->Arch&auml;ologie<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="Artes liberales" value="electoralis.prints.art.lib">&nbsp;&nbsp;&nbsp;&nbsp;<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->Artes liberales<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="Belgia" value="electoralis.prints.belg">&nbsp;&nbsp;&nbsp;&nbsp;<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->Belgia<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="Botanica" value="electoralis.prints.bot">&nbsp;&nbsp;&nbsp;&nbsp;<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->Botanica<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="Cameralia" value="cameralia">&nbsp;&nbsp;&nbsp;&nbsp;<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->Cameralia<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="Dania" value="electoralis.prints.dan">&nbsp;&nbsp;&nbsp;&nbsp;<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->Dania<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="Encyclopaedia" value="electoralis.prints.enc">&nbsp;&nbsp;&nbsp;&nbsp;<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->Encyclopaedia<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="Geographia" value="electoralis.prints.geogr">&nbsp;&nbsp;&nbsp;&nbsp;<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->Geographia<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="Germania" value="electoralis.prints.germ">&nbsp;&nbsp;&nbsp;&nbsp;<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->Germania<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="Glottica" value="electoralis.prints.gl">&nbsp;&nbsp;&nbsp;&nbsp;<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->Glottica<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="Historia" value="electoralis.prints.hist">&nbsp;&nbsp;&nbsp;&nbsp;<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->Historia<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="Historia Americana" value="electoralis.prints.hist.amer">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->Historia Americana<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="Historia Antiqua" value="electoralis.prints.hist.ant">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->Historia Antiqua<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="Historia ecclesiastica et dogmatum" value="electoralis.prints.hist.eccl">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->Historia ecclesiastica et dogmatum<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="Historia literaria" value="electoralis.prints.hist.lit">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->Historia literaria<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="Historia naturalis" value="electoralis.prints.hist.nat">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->Historia naturalis<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="Historia Orientalis" value="electoralis.prints.hist.or_">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->Historia Orientalis<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="Historia universalis" value="electoralis.prints.hist.un">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->Historia universalis<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="Hungaria" value="electoralis.prints.hung">&nbsp;&nbsp;&nbsp;&nbsp;<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->Hungaria<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="Italia" value="electoralis.prints.ital">&nbsp;&nbsp;&nbsp;&nbsp;<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->Italia<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="Jurisprudentia" value="electoralis.prints.jur">&nbsp;&nbsp;&nbsp;&nbsp;<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->Jurisprudentia<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="Jus canonicum" value="electoralis.prints.jus.can">&nbsp;&nbsp;&nbsp;&nbsp;<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->Jus canonicum<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="Mathematica" value="electoralis.prints.math">&nbsp;&nbsp;&nbsp;&nbsp;<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->Mathematica<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="Medicina" value="electoralis.prints.med">&nbsp;&nbsp;&nbsp;&nbsp;<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->Medicina<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="Musica" value="musica">&nbsp;&nbsp;&nbsp;&nbsp;<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->Musica<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="Opera theologica" value="electoralis.prints.op.theol">&nbsp;&nbsp;&nbsp;&nbsp;<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->Opera theologica<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="Philologia" value="electoralis.prints.phil">&nbsp;&nbsp;&nbsp;&nbsp;<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->Philologia<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="Philosophia" value="electoralis.prints.ph">&nbsp;&nbsp;&nbsp;&nbsp;<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->Philosophia<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="Physica" value="electoralis.prints.phys">&nbsp;&nbsp;&nbsp;&nbsp;<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->Physica<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="Politica" value="electoralis.prints.polit">&nbsp;&nbsp;&nbsp;&nbsp;<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->Politica<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="Rabbinica" value="electoralis.prints.rabb">&nbsp;&nbsp;&nbsp;&nbsp;<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->Rabbinica<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="Sax" value="electoralis.prints.sax">&nbsp;&nbsp;&nbsp;&nbsp;<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->Sax<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="Theologia" value="electoralis.prints.theol">&nbsp;&nbsp;&nbsp;&nbsp;<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->Theologia<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="Zoologia" value="zoologia">&nbsp;&nbsp;&nbsp;&nbsp;<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->Zoologia<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="Handschriften" value="electoralis.handwritings">&nbsp;&nbsp;<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->Handschriften<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="angl" value="electoralis.handwritings.angl">&nbsp;&nbsp;&nbsp;&nbsp;<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->angl<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="arch" value="electoralis.handwritings.arch">&nbsp;&nbsp;&nbsp;&nbsp;<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->arch<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="art" value="electoralis.handwritings.art">&nbsp;&nbsp;&nbsp;&nbsp;<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->art<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="lib" value="electoralis.handwritings.art.lib">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->lib<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="belg" value="electoralis.handwritings.belg">&nbsp;&nbsp;&nbsp;&nbsp;<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->belg<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="bot" value="electoralis.handwritings.bot">&nbsp;&nbsp;&nbsp;&nbsp;<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->bot<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="dan" value="electoralis.handwritings.dan">&nbsp;&nbsp;&nbsp;&nbsp;<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->dan<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="enc" value="electoralis.handwritings.enc">&nbsp;&nbsp;&nbsp;&nbsp;<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->enc<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="geogr" value="electoralis.handwritings.geogr">&nbsp;&nbsp;&nbsp;&nbsp;<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->geogr<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="germ" value="electoralis.handwritings.germ">&nbsp;&nbsp;&nbsp;&nbsp;<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->germ<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="gl" value="electoralis.handwritings.gl">&nbsp;&nbsp;&nbsp;&nbsp;<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->gl<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="hist" value="electoralis.handwritings.hist">&nbsp;&nbsp;&nbsp;&nbsp;<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->hist<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="amer" value="electoralis.handwritings.hist.amer">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->amer<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="ant" value="electoralis.handwritings.hist.ant">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->ant<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="eccl" value="electoralis.handwritings.hist.eccl">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->eccl<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="lit" value="electoralis.handwritings.hist.lit">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->lit<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="nat" value="electoralis.handwritings.hist.nat">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->nat<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="or" value="electoralis.handwritings.hist.or_">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->or<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="un" value="electoralis.handwritings.hist.un">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->un<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="hung" value="electoralis.handwritings.hung">&nbsp;&nbsp;&nbsp;&nbsp;<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->hung<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="ital" value="electoralis.handwritings.ital">&nbsp;&nbsp;&nbsp;&nbsp;<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->ital<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="jur" value="electoralis.handwritings.jur">&nbsp;&nbsp;&nbsp;&nbsp;<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->jur<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="jus" value="electoralis.handwritings.jus">&nbsp;&nbsp;&nbsp;&nbsp;<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->jus<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="can" value="electoralis.handwritings.jus.can">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->can<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="math" value="electoralis.handwritings.math">&nbsp;&nbsp;&nbsp;&nbsp;<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->math<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="med" value="electoralis.handwritings.med">&nbsp;&nbsp;&nbsp;&nbsp;<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->med<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="op" value="electoralis.handwritings.op">&nbsp;&nbsp;&nbsp;&nbsp;<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->op<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="theol" value="electoralis.handwritings.op.theol">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->theol<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="ph" value="electoralis.handwritings.ph">&nbsp;&nbsp;&nbsp;&nbsp;<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->ph<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="phil" value="electoralis.handwritings.phil">&nbsp;&nbsp;&nbsp;&nbsp;<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->phil<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="phys" value="electoralis.handwritings.phys">&nbsp;&nbsp;&nbsp;&nbsp;<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->phys<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="polit" value="electoralis.handwritings.polit">&nbsp;&nbsp;&nbsp;&nbsp;<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->polit<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="rabb" value="electoralis.handwritings.rabb">&nbsp;&nbsp;&nbsp;&nbsp;<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->rabb<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="theol" value="electoralis.handwritings.theol">&nbsp;&nbsp;&nbsp;&nbsp;<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->theol<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="Bibliothek Christian Gottlob Buder" value="buder">
+<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->Bibliothek Christian Gottlob Buder<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="Anglia" value="Anglia">&nbsp;&nbsp;<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->Anglia<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="Antiquitates Judaeae" value="Antiquitates Judaeae">&nbsp;&nbsp;<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->Antiquitates Judaeae<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="Antiquitates Romanae" value="Antiquitates Romanae">&nbsp;&nbsp;<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->Antiquitates Romanae<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="Ascania" value="Ascania">&nbsp;&nbsp;<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->Ascania<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="Astronomia" value="Astronomia">&nbsp;&nbsp;<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->Astronomia<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="Austria" value="Austria">&nbsp;&nbsp;<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->Austria<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="Bavaria" value="Bavaria">&nbsp;&nbsp;<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->Bavaria<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="Belgium" value="Belgium">&nbsp;&nbsp;<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->Belgium<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="Bohemia et Moravia" value="Bohemia et Moravia">&nbsp;&nbsp;<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->Bohemia et Moravia<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="Borussia" value="Borussia">&nbsp;&nbsp;<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->Borussia<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="Brandenburgica" value="Brandenburgica">&nbsp;&nbsp;<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->Brandenburgica<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="Brunsvigia" value="Brunsvigia">&nbsp;&nbsp;<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->Brunsvigia<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="Buder Deductiones" value="Buder Deductiones">&nbsp;&nbsp;<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->Buder Deductiones<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="Cameralia Imperii" value="Cameralia Imperii">&nbsp;&nbsp;<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->Cameralia Imperii<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="Civitates Imperii Rom.-Germ." value="Civitates Imperii Rom.-Germ.">&nbsp;&nbsp;<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->Civitates Imperii Rom.-Germ.<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="Comites et Nobiles Imperii." value="Comites et Nobiles Imperii.">&nbsp;&nbsp;<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->Comites et Nobiles Imperii.<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="Dania" value="Dania">&nbsp;&nbsp;<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->Dania<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="Diplomatica" value="Diplomatica">&nbsp;&nbsp;<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->Diplomatica<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="Franconia" value="Franconia">&nbsp;&nbsp;<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->Franconia<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="Gallia" value="Gallia">&nbsp;&nbsp;<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->Gallia<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="Geographia" value="Geographia">&nbsp;&nbsp;<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->Geographia<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="Germania" value="Germania">&nbsp;&nbsp;<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->Germania<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="Glottica" value="Glottica">&nbsp;&nbsp;<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->Glottica<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="Graecia" value="Graecia">&nbsp;&nbsp;<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->Graecia<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="Hassia (et Hassovia)" value="Hassia (et Hassovia)">&nbsp;&nbsp;<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->Hassia (et Hassovia)<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="Helvetia" value="Helvetia">&nbsp;&nbsp;<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->Helvetia<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="Heraldica" value="Heraldica">&nbsp;&nbsp;<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->Heraldica<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="Hispania" value="Hispania">&nbsp;&nbsp;<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->Hispania<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="Historia Byzantinica" value="Historia Byzantinica">&nbsp;&nbsp;<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->Historia Byzantinica<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="Historia ecclesiastica et dogmatum" value="Historia ecclesiastica et dogmat">&nbsp;&nbsp;<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->Historia ecclesiastica et dogmatum<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="Historia literaria" value="Historia literaria">&nbsp;&nbsp;<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->Historia literaria<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="Historia Naturalis" value="Historia Naturalis">&nbsp;&nbsp;<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->Historia Naturalis<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="Historia universalis" value="Historia universalis">&nbsp;&nbsp;<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->Historia universalis<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="Holsatia (et Slesvicum)" value="Holsatia (et Slesvicum)">&nbsp;&nbsp;<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->Holsatia (et Slesvicum)<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="Hungarica" value="Hungarica">&nbsp;&nbsp;<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->Hungarica<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="Imperatores Romani" value="Imperatores Romani">&nbsp;&nbsp;<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->Imperatores Romani<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="Imperium Romanum Germanicum" value="Imperium Romanum Germanicum">&nbsp;&nbsp;<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->Imperium Romanum Germanicum<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="Italia" value="Italia">&nbsp;&nbsp;<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->Italia<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="Itineraria" value="Itineraria">&nbsp;&nbsp;<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->Itineraria<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="Jus canonicum" value="Jus canonicum">&nbsp;&nbsp;<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->Jus canonicum<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="Jus civile" value="Jus civile">&nbsp;&nbsp;<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->Jus civile<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="Jus feudale" value="Jus feudale">&nbsp;&nbsp;<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->Jus feudale<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="Jus germanicum" value="Jus germanicum">&nbsp;&nbsp;<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->Jus germanicum<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="Jus publicum" value="Jus publicum">&nbsp;&nbsp;<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->Jus publicum<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="Megalopolitana" value="Megalopolitana">&nbsp;&nbsp;<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->Megalopolitana<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="Miscellanea" value="Miscellanea">&nbsp;&nbsp;<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->Miscellanea<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="Opera (Opuscula) historica" value="Opera (Opuscula) historica">&nbsp;&nbsp;<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->Opera (Opuscula) historica<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="Opera oder Opuscula" value="Opera oder Opuscula">&nbsp;&nbsp;<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->Opera oder Opuscula<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="Philologia" value="Philologia">&nbsp;&nbsp;<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->Philologia<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="Philosophia" value="Philosophia">&nbsp;&nbsp;<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->Philosophia<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="Polonia" value="Polonia">&nbsp;&nbsp;<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->Polonia<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="Pomerana" value="Pomerana">&nbsp;&nbsp;<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->Pomerana<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="Russia" value="Russia">&nbsp;&nbsp;<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->Russia<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="Saxonia" value="Saxonia">&nbsp;&nbsp;<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->Saxonia<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="Schriftsteller zur alten r&ouml;mischen Geschichte" value="Schriftsteller zur alten r&ouml;misch">&nbsp;&nbsp;<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->Schriftsteller zur alten r&ouml;mischen Geschichte<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="Silesia" value="Silesia">&nbsp;&nbsp;<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->Silesia<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="Suecia (Schweden) oder Suevia (Schwaben)" value="Suecia oder Suevia">&nbsp;&nbsp;<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->Suecia (Schweden) oder Suevia (Schwaben)<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="Theologia" value="Theologia">&nbsp;&nbsp;<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->Theologia<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="Topographia" value="Topographia">&nbsp;&nbsp;<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->Topographia<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="Turcia" value="Turcia">&nbsp;&nbsp;<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->Turcia<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="Varia" value="buder.varia">&nbsp;&nbsp;<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->Varia<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="Bibliothek des Evangelischen Ministeriums im Augustinerkloster Erfurt" value="BEAzE">
+<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->Bibliothek des Evangelischen Ministeriums im Augustinerklos [...]<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="Bibliothek Johann Andreas Bose" value="108ed3cb-cc9f-472a-88a2-d3c8e1767867">
+<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->Bibliothek Johann Andreas Bose<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="Bibliotheksarchiv" value="eb83c3eb-76cd-4493-9777-329d4bcc485c">
+<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->Bibliotheksarchiv<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="AA Allgemeine Bibliotheksakten" value="09677445-61b1-4e5f-b7d4-aeac482370e5">&nbsp;&nbsp;<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->AA Allgemeine Bibliotheksakten<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="AA Allgemeiner Schriftwechsel" value="b3bcbe05-16e1-46c3-bcb5-48d0e744f4e5">&nbsp;&nbsp;<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->AA Allgemeiner Schriftwechsel<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="AA Spezieller Schriftwechsel" value="a35c3cd9-6e13-4925-916f-001b453966ba">&nbsp;&nbsp;<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->AA Spezieller Schriftwechsel<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="AB Tageb&uuml;cher" value="f1fe48ce-554f-4bbe-a8b3-50fba05c4e0e">&nbsp;&nbsp;<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->AB Tageb&uuml;cher<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="AB X" value="76bc6fee-2948-4db1-8285-e2253237cfa9">&nbsp;&nbsp;<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->AB X<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="AC Allgemeine Bibliothekskataloge" value="d4b44a0a-46d4-4722-9c0d-4318c4fe2c8a">&nbsp;&nbsp;<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->AC Allgemeine Bibliothekskataloge<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="AC Kataloge Fachbibliotheken" value="91dbdc3d-1c97-4fe9-b827-9e345e4897c7">&nbsp;&nbsp;<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->AC Kataloge Fachbibliotheken<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="Landwirtschaft" value="1c96ca58-df91-4000-a7eb-4949116da50a">&nbsp;&nbsp;&nbsp;&nbsp;<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->Landwirtschaft<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="Rechtswissenschaft" value="66d90df1-a4e9-4511-ade6-2795fb41ff1c">&nbsp;&nbsp;&nbsp;&nbsp;<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->Rechtswissenschaft<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="Zoologie" value="5cc8ecdf-0e0d-4ea4-a446-e5f9a21b6676">&nbsp;&nbsp;&nbsp;&nbsp;<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->Zoologie<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="AC Spezialkataloge" value="077c3e8c-1223-4c0c-b196-0a494f312d1f">&nbsp;&nbsp;<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->AC Spezialkataloge<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="AD Desiderienb&uuml;cher" value="0fbd21ab-d245-4b10-bda5-450a826fa56e">&nbsp;&nbsp;<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->AD Desiderienb&uuml;cher<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="AD Zugang" value="90716d60-febc-4a11-a964-d929c42d9277">&nbsp;&nbsp;<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->AD Zugang<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="AD Zugang: Geschenke" value="812f1232-0a60-4ebc-a2fd-f5ee5df011ac">&nbsp;&nbsp;<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->AD Zugang: Geschenke<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="AD Zugang: Pflichtabgaben" value="18ceba12-3600-4398-a291-f3312e2cb99b">&nbsp;&nbsp;<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->AD Zugang: Pflichtabgaben<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="AD Zugang: Tausch" value="cf261995-d8fd-4341-baac-80b0f952bebc">&nbsp;&nbsp;<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->AD Zugang: Tausch<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="AE Lieferungen" value="1451a765-de74-4f88-a468-5f60b4a51d8e">&nbsp;&nbsp;<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->AE Lieferungen<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="AE Verkehr mit Buchbindern" value="b639f7b0-b9b9-4e77-be90-07b1e5523e56">&nbsp;&nbsp;<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->AE Verkehr mit Buchbindern<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="AF Buchbinderangelegenheiten" value="926c3b10-da88-42b0-8077-6ef1f8f2b13a">&nbsp;&nbsp;<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->AF Buchbinderangelegenheiten<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="AG Ausleihb&uuml;cher" value="e3bb5300-84b5-4b17-90c3-f1ee5d0d1535">&nbsp;&nbsp;<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->AG Ausleihb&uuml;cher<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="AG Fernleihe, Paketb&uuml;cher" value="a159cb51-4dba-492f-ad79-598bab53686f">&nbsp;&nbsp;<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->AG Fernleihe, Paketb&uuml;cher<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="AG Lesesaalstatistik" value="a94c4e35-26c8-4d1f-a998-3cd59315a5eb">&nbsp;&nbsp;<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->AG Lesesaalstatistik<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="AH Dublettenlisten und &ndash;kataloge" value="1cc661aa-750b-460c-801c-991bd95aacda">&nbsp;&nbsp;<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->AH Dublettenlisten und &ndash;kataloge<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="AJ Bibliotheksrechnungen" value="61403edc-bfec-4f27-b7d0-bbba6dd817e0">&nbsp;&nbsp;<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->AJ Bibliotheksrechnungen<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="AK Ausgeschiedene B&uuml;cher" value="fc470d41-9176-4aac-a39b-0e620470329b">&nbsp;&nbsp;<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->AK Ausgeschiedene B&uuml;cher<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="AK Revisionen" value="f52adb16-ef1d-421e-99f0-7e6256cb42fe">&nbsp;&nbsp;<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->AK Revisionen<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="AL Luftschutzangelegenheiten" value="dd56ccee-ceb2-4f88-88d4-2ff11cbcb2f3">&nbsp;&nbsp;<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->AL Luftschutzangelegenheiten<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="AN Mitgliedschaften Vereine" value="fa8514de-2258-4699-8b80-09cfcd004bc3">&nbsp;&nbsp;<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->AN Mitgliedschaften Vereine<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="AO Rundschreiben" value="c59b954e-cba1-4370-b5d9-bff82b73e21a">&nbsp;&nbsp;<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->AO Rundschreiben<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="AP Literarische Museum" value="02b9c4f9-4c41-41b9-89af-754c6ed51947">&nbsp;&nbsp;<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->AP Literarische Museum<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="AQ Lesezirkel" value="c945440e-9542-4dc8-afba-0b6d894682a5">&nbsp;&nbsp;<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->AQ Lesezirkel<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="AR Akten der Literarischen Gesellschaft zu Altenburg (LGA)" value="f92fa13e-df9c-43de-bd8e-3c780570b472">&nbsp;&nbsp;<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->AR Akten der Literarischen Gesellschaft zu Altenburg (LGA)<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="AT Varia" value="6041c416-52c2-43af-8569-81d7850d59e0">&nbsp;&nbsp;<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->AT Varia<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="Bildersammlung" value="a6b9de4f-d37f-4366-9af5-9cba55b4f1f2">&nbsp;&nbsp;<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->Bildersammlung<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="KA Kriegsarchiv" value="e86c1809-b722-4cf7-a769-fffca6cf0e16">&nbsp;&nbsp;<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->KA Kriegsarchiv<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="Botanica" value="a99c20d5-c934-41e3-916b-5425fc8fc460">
+<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->Botanica<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="Brehms Welt" value="d7efa032-50e9-4237-ae17-0489acc9bbdf">
+<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->Brehms Welt<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="Bibliothek" value="cd14eecd-ed3f-4a8e-a401-b76a7ab32f72">&nbsp;&nbsp;<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->Bibliothek<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="Korrespondenz" value="9b39cd7a-0d8c-47d7-a413-58c9ab5555de">&nbsp;&nbsp;<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->Korrespondenz<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="Lebensdokumente" value="9ae7cb83-7d52-490f-ab91-5d662642b430">&nbsp;&nbsp;<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->Lebensdokumente<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="Manuskripte" value="87d2cb64-0e50-4402-b3ec-3a98ebd74a56">&nbsp;&nbsp;<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->Manuskripte<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="Eichsfeldmuseum" value="773a22f9-b630-4a97-a802-d960fe93f018">
+<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->Eichsfeldmuseum<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="Eisenacher Flugschriften" value="eisenacher.flugschriften">
+<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->Eisenacher Flugschriften<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="Forschungsverbund &bdquo;Diktaturerfahrung und Transformation&ldquo;" value="4d2bf5d8-9fa6-4ba3-bb64-c67063f70efd">
+<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->Forschungsverbund &bdquo;Diktaturerfahrung und Transformation&ldquo;<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="Friedrich-Fr&ouml;bel-Museum" value="0001b8f1-8e41-44ea-960e-6c9600993eec">
+<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->Friedrich-Fr&ouml;bel-Museum<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="Friedrich-Schiller-Universit&auml;t: Anatomische Sammlung - Museum anatomicum Jenense" value="DE-MUS-046922">
+<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->Friedrich-Schiller-Universit&auml;t: Anatomische Sammlung - Muse [...]<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="Friedrich-Schiller-Universit&auml;t: Jena Microbial Resource Collection (JMRC)" value="DE-MUS-045523">
+<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->Friedrich-Schiller-Universit&auml;t: Jena Microbial Resource Col [...]<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="Geschichte der Naturwissenschaften" value="history.of.natural.sciences">
+<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->Geschichte der Naturwissenschaften<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="Handschriften der ThULB Jena" value="d663f77e-a391-4eab-b579-26c9355915d6">
+<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->Handschriften der ThULB Jena<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="nach 1500" value="cd62c144-55ab-4eff-99e6-a1f6ae87e72f">&nbsp;&nbsp;<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->nach 1500<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="vor 1500" value="c0db0d0e-8ece-4823-8167-b2e6e36568d7">&nbsp;&nbsp;<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->vor 1500<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="Heimatmuseum Treffurt" value="95ef6aa6-9cdc-4fee-8d66-06d57cfc10c6">
+<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->Heimatmuseum Treffurt<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="Inkunabeln" value="e174e9c2-bd1a-4a1a-9d96-fc79860821e4">
+<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->Inkunabeln<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="Kartensammlung" value="map.collection">
+<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->Kartensammlung<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="Musikhandschrift" value="9847e9cf-7292-4701-9151-537f2f176c7c">
+<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->Musikhandschrift<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="Nachl&auml;sse" value="eb78cfc6-eca3-47a6-baae-205f0943448d">
+<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->Nachl&auml;sse<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="Digitale F&uuml;rstinnenkorrespondenzen" value="6024d5eb-401e-4bbf-bab2-600a7b00e76f">&nbsp;&nbsp;<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->Digitale F&uuml;rstinnenkorrespondenzen<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="01. Korrespondenzen von Sibylla von Sachsen" value="b0342c27-06e8-4a5b-b973-c91b54fa2442">&nbsp;&nbsp;&nbsp;&nbsp;<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->01. Korrespondenzen von Sibylla von Sachsen<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="02. Korrespondenzen von Elisabeth von Sachsen" value="d9e69a2f-6d97-47ce-8f56-919a00318e41">&nbsp;&nbsp;&nbsp;&nbsp;<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->02. Korrespondenzen von Elisabeth von Sachsen<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="03. Korrespondenzen von Dorothea Susanna von Sachsen-Weimar" value="3c173a5f-f3ef-4a6d-9f12-9c18d66479b4">&nbsp;&nbsp;&nbsp;&nbsp;<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->03. Korrespondenzen von Dorothea Susanna von Sachsen-Weimar<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="04. Korrespondenzen von Maria von Sachsen-Weimar" value="812aff78-e2d0-44db-9e90-91152cffb6f8">&nbsp;&nbsp;&nbsp;&nbsp;<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->04. Korrespondenzen von Maria von Sachsen-Weimar<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="05. Korrespondenzen von Anna von Sachsen-Coburg" value="f0a0d955-c9ea-415b-bbb9-16ac8d25f402">&nbsp;&nbsp;&nbsp;&nbsp;<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->05. Korrespondenzen von Anna von Sachsen-Coburg<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="06. Korrespondenzen von Dorothea Maria von Sachsen-Weimar" value="8bafad43-0b21-4627-8e9e-57ae3fd7a53f">&nbsp;&nbsp;&nbsp;&nbsp;<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->06. Korrespondenzen von Dorothea Maria von Sachsen-Weimar<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="07. Korrespondenzen von Anna Sophia von Schwarzburg-Rudolstadt" value="a27019f2-db71-4698-b184-f7f621347d1b">&nbsp;&nbsp;&nbsp;&nbsp;<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->07. Korrespondenzen von Anna Sophia von Schwarzburg-Rudolst [...]<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="08. Korrespondenzen von Eleonore Dorothea von Sachsen-Weimar" value="8ba24f4b-e4fe-4285-a8eb-e0d81801fa0a">&nbsp;&nbsp;&nbsp;&nbsp;<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->08. Korrespondenzen von Eleonore Dorothea von Sachsen-Weimar<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="09. Korrespondenzen von Anna Dorothea von Sachsen-Weimar" value="143801f9-f3e9-4cab-8ede-0665db880203">&nbsp;&nbsp;&nbsp;&nbsp;<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->09. Korrespondenzen von Anna Dorothea von Sachsen-Weimar<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="10. Korrespondenzen von Wilhelmine Christiane von Schwarzburg-Sondershausen" value="ae946153-61b0-414a-842d-90eccd8893c8">&nbsp;&nbsp;&nbsp;&nbsp;<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->10. Korrespondenzen von Wilhelmine Christiane von Schwarzbu [...]<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="11. Korrespondenzen von Johanna Charlotte von Sachsen-Weimar" value="ccc1ddee-4251-4fa4-a6a3-a7012ec55a8c">&nbsp;&nbsp;&nbsp;&nbsp;<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->11. Korrespondenzen von Johanna Charlotte von Sachsen-Weimar<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="12. Korrespondenzen von Caroline von Sachsen-Hildburghausen" value="ea712d57-0adf-4859-a690-56aa6b45557c">&nbsp;&nbsp;&nbsp;&nbsp;<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->12. Korrespondenzen von Caroline von Sachsen-Hildburghausen<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="13. Korrespondenzen von Elisabeth Albertine von Mecklenburg-Strelitz" value="27e63161-7a8b-41b2-9968-660133e74377">&nbsp;&nbsp;&nbsp;&nbsp;<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->13. Korrespondenzen von Elisabeth Albertine von Mecklenburg [...]<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="14. Korrespondenzen von Sophie Charlotte von Sachsen-Weimar-Eisenach" value="bf05027d-b461-491e-add0-7b47cc4ebae4">&nbsp;&nbsp;&nbsp;&nbsp;<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->14. Korrespondenzen von Sophie Charlotte von Sachsen-Weimar [...]<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="15. Korrespondenzen von Ernestine Albertine, Gr&auml;fin zu Schaumburg-Lippe" value="4d62f1fa-37ce-4667-971d-f138ffafd6ec">&nbsp;&nbsp;&nbsp;&nbsp;<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->15. Korrespondenzen von Ernestine Albertine, Gr&auml;fin zu Scha [...]<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="16. Korrespondenzen von Bernhardine Christiane Sophie von Schwarzburg-Rudolstadt" value="c5372bee-995d-42da-af37-4dfa349b336d">&nbsp;&nbsp;&nbsp;&nbsp;<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->16. Korrespondenzen von Bernhardine Christiane Sophie von S [...]<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="Familienarchiv Biron" value="bf44de7c-d4ed-44a6-8823-6d6c15810c44">&nbsp;&nbsp;<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->Familienarchiv Biron<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="A. Tageb&uuml;cher" value="edca5539-45e5-407b-9d16-a76611efdc8b">&nbsp;&nbsp;&nbsp;&nbsp;<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->A. Tageb&uuml;cher<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="B. Korrespondenzen, Sammlungen &amp; Lebensdokumente" value="b9c60d79-30e1-4886-9d05-a0791f679290">&nbsp;&nbsp;&nbsp;&nbsp;<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->B. Korrespondenzen, Sammlungen &amp; Lebensdokumente<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="C. Sammlung T&uuml;mpling" value="1f47c698-c893-44b6-ad54-2406c6ea1ef6">&nbsp;&nbsp;&nbsp;&nbsp;<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->C. Sammlung T&uuml;mpling<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="Familienarchiv Hase" value="9bd07e4b-3d97-4b53-a4b6-9e5e62adfcc8">&nbsp;&nbsp;<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->Familienarchiv Hase<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="Martin Buber Korrespondenzen" value="25a81d78-e575-486e-a223-34a256c88813">&nbsp;&nbsp;<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->Martin Buber Korrespondenzen<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="Max-Reger-Archiv (Meiningen)" value="6df0ae55-1c9c-4945-b9bd-dbd3c24a9988">&nbsp;&nbsp;<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->Max-Reger-Archiv (Meiningen)<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="Nachlass Adrian Beier" value="c58cf4ba-b7ba-4099-b779-e70c6befba7f">&nbsp;&nbsp;<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->Nachlass Adrian Beier<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="Nachlass Albert Leitzmann" value="f130a789-6e55-4bd2-9ee7-13ae0850f977">&nbsp;&nbsp;<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->Nachlass Albert Leitzmann<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="Korrespondenz" value="0a432601-7169-4b00-b3cc-6896d6805b0f">&nbsp;&nbsp;&nbsp;&nbsp;<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->Korrespondenz<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="Lebensdokumente" value="9d5de409-a908-4917-a555-8f9d367bd142">&nbsp;&nbsp;&nbsp;&nbsp;<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->Lebensdokumente<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="Manuskripte" value="ae51dd59-ee57-4367-8a42-e5d5a24b78e3">&nbsp;&nbsp;&nbsp;&nbsp;<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->Manuskripte<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="Materialsammlungen" value="ae3c0dbf-502b-4091-8143-fc558835626c">&nbsp;&nbsp;&nbsp;&nbsp;<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->Materialsammlungen<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="Nachlass Buddeus" value="55bfa0f1-bffd-4ad9-be18-41516b78b5e3">&nbsp;&nbsp;<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->Nachlass Buddeus<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="Nachlass Carl Ernst Schmid" value="2dbadcbb-5f13-44a6-99b5-f366fe179f88">&nbsp;&nbsp;<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->Nachlass Carl Ernst Schmid<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="Nachlass Carl Haussknecht" value="8f5d67c4-3751-4ad3-af63-12d03fe7aca4">&nbsp;&nbsp;<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->Nachlass Carl Haussknecht<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="Reisetagebuch" value="de6081bf-c031-4df5-8521-6f5866196f90">&nbsp;&nbsp;&nbsp;&nbsp;<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->Reisetagebuch<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="A) Orientreise" value="4903d809-69b0-4d00-b9ce-d03dd05b25b5">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->A) Orientreise<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="(1) Tagebuch" value="6969da4a-914e-412f-87e6-7e667e43c39e">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->(1) Tagebuch<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="(2) Stammbuch" value="9fc2189d-a267-41ab-8310-ac959bd3cda7">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->(2) Stammbuch<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="(3) Carte de visite-Fotografien" value="db50b0fc-22be-4fe0-9500-d245750358a0">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->(3) Carte de visite-Fotografien<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="B) Briefe" value="03879d45-6129-4483-a67a-f38e4785f71d">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->B) Briefe<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="Nachlass Cartellieri" value="210b5d90-a315-4f87-a831-e7d97fc2cdc4">&nbsp;&nbsp;<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->Nachlass Cartellieri<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="Nachlass Christian August Brandis" value="d8bfda8a-5f90-48f1-8563-55f23ce42f19">&nbsp;&nbsp;<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->Nachlass Christian August Brandis<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="Nachlass Clemens Delbr&uuml;ck" value="del">&nbsp;&nbsp;<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->Nachlass Clemens Delbr&uuml;ck<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="Korrespondenz" value="del.kor">&nbsp;&nbsp;&nbsp;&nbsp;<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->Korrespondenz<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="allgemein" value="del.kor.allg">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->allgemein<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="mit Adelbert" value="del.kor.adelbert2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->mit Adelbert<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="mit Arndt von Holtzendorff" value="del.kor.holtz">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->mit Arndt von Holtzendorff<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="mit Meta" value="del.kor.meta">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->mit Meta<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="zum Tode des Sohnes Adelbert" value="del.kor.adelbert">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->zum Tode des Sohnes Adelbert<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="zu politischen oder pers&ouml;nlichen Ereignissen" value="del.kor.polpers">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->zu politischen oder pers&ouml;nlichen Ereignissen<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="zur Ernennung zum preu&szlig;ischen Handelminister" value="del.kor.handel">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->zur Ernennung zum preu&szlig;ischen Handelminister<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="Kryptonachlass Adelbert Delbr&uuml;ck" value="del.kryptoadel">&nbsp;&nbsp;&nbsp;&nbsp;<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->Kryptonachlass Adelbert Delbr&uuml;ck<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="Lebensdokumente" value="del.leben">&nbsp;&nbsp;&nbsp;&nbsp;<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->Lebensdokumente<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="Fotografien" value="del.leben.foto">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->Fotografien<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="Lebensdokumente und Sachakten" value="del.leben.sachakten">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->Lebensdokumente und Sachakten<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="Materialsammlungen" value="del.mat">&nbsp;&nbsp;&nbsp;&nbsp;<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->Materialsammlungen<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="Landkarten" value="del.mat.karten">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->Landkarten<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="Zeitungsausschnitte und Zeitungen" value="del.mat.zeitung">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->Zeitungsausschnitte und Zeitungen<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="politische T&auml;tigkeit" value="del.pol">&nbsp;&nbsp;&nbsp;&nbsp;<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->politische T&auml;tigkeit<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="Chef des Zivilkabinetts" value="del.pol.zivilkabinet">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->Chef des Zivilkabinetts<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="Handelsminister" value="del.pol.handelsminister">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->Handelsminister<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="Landrat in Tuchel/Westpreu&szlig;en" value="del.pol.tuchel">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->Landrat in Tuchel/Westpreu&szlig;en<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="Mai 1916-Oktober 1918" value="del.pol.1916-1918">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->Mai 1916-Oktober 1918<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="nach dem Ende des Kaiserreichs" value="del.pol.nachkaiser">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->nach dem Ende des Kaiserreichs<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="Oberb&uuml;rgermeister von Danzig" value="del.pol.danzig">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->Oberb&uuml;rgermeister von Danzig<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="Regierungsrat in Westpreu&szlig;en" value="del.pol.regrat">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->Regierungsrat in Westpreu&szlig;en<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="Staatssekret&auml;r im Reichsamt des Innern" value="del.pol.staatssekr">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->Staatssekret&auml;r im Reichsamt des Innern<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="Universit&auml;t Jena" value="del.pol.unijena">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->Universit&auml;t Jena<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="wiss. Ausschuss zur Erf. der dt. Kriegswirtschaft" value="del.pol.kriegswirtschaft">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->wiss. Ausschuss zur Erf. der dt. Kriegswirtschaft<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="Nachlass Danz" value="261b8a60-297e-4e45-9058-4b93dd20baa9">&nbsp;&nbsp;<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->Nachlass Danz<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="Nachlass Diederichs" value="9afea709-bebe-4037-a616-0afa8cdaf3e3">&nbsp;&nbsp;<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->Nachlass Diederichs<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="Korrespondenz" value="bdef10da-5755-45ff-b821-bea590c11e90">&nbsp;&nbsp;&nbsp;&nbsp;<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->Korrespondenz<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="Nachlass Eichst&auml;dt" value="a2ce5d87-7b62-420e-9a9c-01b441011656">&nbsp;&nbsp;<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->Nachlass Eichst&auml;dt<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="Korrespondenz" value="c0b4de94-f635-491c-8399-5ba7c751a36c">&nbsp;&nbsp;&nbsp;&nbsp;<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->Korrespondenz<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="Lebensdokumente" value="30de847d-e5a4-4c95-8ba1-c22154190b69">&nbsp;&nbsp;&nbsp;&nbsp;<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->Lebensdokumente<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="Nachlass Eliza" value="bf6e7adb-4d7b-4f48-8989-63f62dd3e957">&nbsp;&nbsp;<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->Nachlass Eliza<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="Nachlass Elster" value="0fd49ef3-25ea-43ee-b467-07e24f2a9de7">&nbsp;&nbsp;<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->Nachlass Elster<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="Nachlass Erdmuthe Benigna von Reu&szlig;-Ebersdorf, geb. v. Solms-Laubach (1670-1732)" value="e48b1d7f-6b9f-48cb-be43-98122e9f9b21">&nbsp;&nbsp;<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->Nachlass Erdmuthe Benigna von Reu&szlig;-Ebersdorf, geb. v. Solms [...]<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="Briefe" value="3b6595b4-bf22-49cd-b40f-535651700843">&nbsp;&nbsp;&nbsp;&nbsp;<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->Briefe<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="von Benigna Marie von Reu&szlig;-Ebersdorf (1695-1751)" value="09644de1-1b12-4761-844f-348b39a7070d">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->von Benigna Marie von Reu&szlig;-Ebersdorf (1695-1751)<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="an Sophie Elisabeth von Reu&szlig;-Untergreiz, geb. v. Stolberg-Wernigerode (1676-1729)" value="6ce04a7a-c8f9-4815-b1e1-08e423816295">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->an Sophie Elisabeth von Reu&szlig;-Untergreiz, geb. v. Stolberg-W [...]<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="von Erdmuthe Benigna von Reu&szlig;-Ebersdorf" value="e9f9b6e8-088c-465f-8e20-ee3f0c16ce06">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->von Erdmuthe Benigna von Reu&szlig;-Ebersdorf<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="an Heinrich XXIV. von Reu&szlig;-Schleiz zu K&ouml;stritz (1681-1748)" value="62fff65d-6d0a-46b5-aa12-6f315866656a">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->an Heinrich XXIV. von Reu&szlig;-Schleiz zu K&ouml;stritz (1681-1748)<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="an Henriette Amalie von Reu&szlig;-Obergreiz, geb. v. Friesen (1668-1732)" value="41c8b609-0e48-4fac-a237-33f660ae9f04">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->an Henriette Amalie von Reu&szlig;-Obergreiz, geb. v. Friesen (16 [...]<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="an Marie Eleonore Aemilie von Reu&szlig;-K&ouml;stritz, geb. v. Promnitz-Dittersbach (1688-1776)" value="e13bdfa5-f00f-4eb0-bcff-f23119627cb0">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->an Marie Eleonore Aemilie von Reu&szlig;-K&ouml;stritz, geb. v. Promni [...]<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="an Sophie Elisabeth von Reu&szlig;-Untergreiz, geb. v. Stolberg-Wernigerode (1676-1729)" value="c1a10570-43ff-47b1-b657-4ecaae41176d">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->an Sophie Elisabeth von Reu&szlig;-Untergreiz, geb. v. Stolberg-W [...]<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="von Heinrich XXIV. von Reu&szlig;-Schleiz zu K&ouml;stritz (1681-1748)" value="f3affc82-5c75-4a54-a3da-a5f37e7df8c2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->von Heinrich XXIV. von Reu&szlig;-Schleiz zu K&ouml;stritz (1681-1748)<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="an Erdmuthe Benigna von Reu&szlig;-Ebersdorf" value="2b0e9804-f5f1-4096-b943-87a72c9be7c0">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->an Erdmuthe Benigna von Reu&szlig;-Ebersdorf<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="von Heinrich XXIX. von Reu&szlig;-Ebersdorf (1699-1747)" value="7beac18f-d20d-4030-8805-240d25fd71c3">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->von Heinrich XXIX. von Reu&szlig;-Ebersdorf (1699-1747)<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="an Heinrich XXIV. von Reu&szlig;-Schleiz zu K&ouml;stritz (1681-1748)" value="74bed68d-13b3-4263-a07a-35760bc61fc9">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->an Heinrich XXIV. von Reu&szlig;-Schleiz zu K&ouml;stritz (1681-1748)<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="von Unbekannt" value="f0e71e54-b97e-4fc1-a835-b2deb62d427f">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->von Unbekannt<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="an Erdmuthe Benigna von Reu&szlig;-Ebersdorf" value="31c2ab5f-4b55-478f-8eba-56c32c99d75d">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->an Erdmuthe Benigna von Reu&szlig;-Ebersdorf<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="Vormundschaftsdokumente" value="bb8cb744-c1d4-4924-95ed-675077d54971">&nbsp;&nbsp;&nbsp;&nbsp;<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->Vormundschaftsdokumente<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="Amtliche Korrespondenz" value="8046e5cf-2a69-4ffa-985b-551065601996">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->Amtliche Korrespondenz<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="Karten" value="3d8abc93-3f48-4be8-a161-ed13bdd35202">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->Karten<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="Verordnungen" value="c3edd73c-d246-4226-83b3-12acc6ce6844">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->Verordnungen<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="Vertr&auml;ge" value="46af76ed-22b8-45ae-81bb-45430948ac14">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->Vertr&auml;ge<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="Vormundschaftsvereinbarungen" value="69639d18-6a66-4333-9fd7-1d23ebeb7dcd">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->Vormundschaftsvereinbarungen<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="Nachlass Fortlage" value="a5b3d634-d9e5-44f4-86c6-4d482b4abeed">&nbsp;&nbsp;<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->Nachlass Fortlage<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="Nachlass Fries" value="461437a7-176d-4c6a-94c9-24cf08a80e85">&nbsp;&nbsp;<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->Nachlass Fries<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="Korrespondenz" value="7c53f037-5ba8-40a2-b1dd-f68c29d4a8dc">&nbsp;&nbsp;&nbsp;&nbsp;<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->Korrespondenz<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="Nachlass Georg Gerland" value="8bede61b-c69d-4b9d-be9d-6f5676d16ded">&nbsp;&nbsp;<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->Nachlass Georg Gerland<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="Nachlass Goetz" value="ca8e3f0c-fe8b-4ae4-9c18-25c876fc6db7">&nbsp;&nbsp;<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->Nachlass Goetz<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="Briefe an Goetz" value="635c5942-d739-4228-b707-f80c7eab15ef">&nbsp;&nbsp;&nbsp;&nbsp;<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->Briefe an Goetz<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="Materialsammlungen" value="1fe95bb8-9523-473d-9221-00a4922e8760">&nbsp;&nbsp;&nbsp;&nbsp;<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->Materialsammlungen<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="Nachgelassene Materialien von H. Usener" value="f86f7d88-6d81-491c-abed-0a53bf718a89">&nbsp;&nbsp;&nbsp;&nbsp;<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->Nachgelassene Materialien von H. Usener<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="Nachlass Heinrich Gerland" value="4525769f-ee4c-4bd3-834f-69919bb6010b">&nbsp;&nbsp;<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->Nachlass Heinrich Gerland<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="Nachlass Heinrich Weinel" value="f3efeb46-0427-412b-b690-fa9c05353aff">&nbsp;&nbsp;<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->Nachlass Heinrich Weinel<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="Korrespondenz" value="fa82340a-fe2e-4a11-bfd7-b05c53ef5881">&nbsp;&nbsp;&nbsp;&nbsp;<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->Korrespondenz<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="Lebensdokumente" value="18c9b3b6-e6ed-42bc-97f4-35c512b65641">&nbsp;&nbsp;&nbsp;&nbsp;<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->Lebensdokumente<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="Nachlass Johanna Schultze-Wege" value="8e9aa7cf-3d0d-4a01-a65a-64c63275ed8a">&nbsp;&nbsp;<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->Nachlass Johanna Schultze-Wege<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="Nachlass Netto" value="b9233b1d-5cff-48c4-bb64-286726b8e19c">&nbsp;&nbsp;<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->Nachlass Netto<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="Nachlass Paul Schroeder" value="bf841198-1e81-41d0-b7e2-2839f083d43a">&nbsp;&nbsp;<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->Nachlass Paul Schroeder<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="I. Korrespondenz" value="a98aec10-a3ec-4b3d-9cf0-c14b82d4f69a">&nbsp;&nbsp;&nbsp;&nbsp;<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->I. Korrespondenz<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="II. Reisen &amp; Exkursionen" value="5249f58a-da5b-4890-8a3f-51cd794bf62d">&nbsp;&nbsp;&nbsp;&nbsp;<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->II. Reisen &amp; Exkursionen<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="III. Verwaltung" value="9e779000-5270-4ae1-934a-521c935643e4">&nbsp;&nbsp;&nbsp;&nbsp;<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->III. Verwaltung<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="IV. Geographie &amp; Ethnographie" value="5e43d788-b5be-4b3b-9f65-d3521a58686e">&nbsp;&nbsp;&nbsp;&nbsp;<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->IV. Geographie &amp; Ethnographie<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="IX. Zeitungsausschnitte" value="9aaba00b-d47a-4569-bc45-e04ea28a5a14">&nbsp;&nbsp;&nbsp;&nbsp;<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->IX. Zeitungsausschnitte<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="V. Sprache, Literatur und Grammatik" value="343c3440-8b6b-41f0-87f4-07d2847be7f1">&nbsp;&nbsp;&nbsp;&nbsp;<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->V. Sprache, Literatur und Grammatik<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="VI. Epigraphie &amp; Inschriften" value="d236ede0-41a5-4e8f-98bd-751721e431eb">&nbsp;&nbsp;&nbsp;&nbsp;<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->VI. Epigraphie &amp; Inschriften<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="VII. Arch&auml;ologie, Numismatik und Geschichte" value="f9a4a483-6d6b-4143-8490-c30b6f3f4341">&nbsp;&nbsp;&nbsp;&nbsp;<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->VII. Arch&auml;ologie, Numismatik und Geschichte<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="VIII. Fotografien" value="c49fbc62-5dc0-4ec5-b548-fb3181e24305">&nbsp;&nbsp;&nbsp;&nbsp;<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->VIII. Fotografien<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="X. Kleinere Druckschriften" value="f8ad7b7e-3c76-4019-a0fb-e9496137870e">&nbsp;&nbsp;&nbsp;&nbsp;<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->X. Kleinere Druckschriften<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="XI. Varia" value="20edea9c-cbfe-4423-9358-d3856f909070">&nbsp;&nbsp;&nbsp;&nbsp;<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->XI. Varia<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="Nachlass Robert Froriep" value="1cda933d-5283-44ad-bda3-f710fa2c0158">&nbsp;&nbsp;<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->Nachlass Robert Froriep<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="S&uuml;d-Palast-Projekt" value="ec79116c-5ccd-4489-95ae-e152afdbbc53">&nbsp;&nbsp;&nbsp;&nbsp;<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->S&uuml;d-Palast-Projekt<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="Nachlass Rudolf Eucken" value="a1b9962c-28ac-4826-9892-f55d0523d575">&nbsp;&nbsp;<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->Nachlass Rudolf Eucken<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="I. Korrespondenz" value="576b5d03-0b88-4251-b6e3-0e6a1fd802f2">&nbsp;&nbsp;&nbsp;&nbsp;<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->I. Korrespondenz<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="II. Werkmanuskripte" value="46e8187c-2625-4f6a-9eeb-78441897955f">&nbsp;&nbsp;&nbsp;&nbsp;<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->II. Werkmanuskripte<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="III. Lebensdokumente &amp; Sachakten" value="5a0770a5-5598-44a5-8a03-d1bb254c1dbd">&nbsp;&nbsp;&nbsp;&nbsp;<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->III. Lebensdokumente &amp; Sachakten<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="IV. Materialsammlung" value="cd99ad59-99e9-4a85-a2da-92d4d9e29d7c">&nbsp;&nbsp;&nbsp;&nbsp;<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->IV. Materialsammlung<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="V. Krypto-Nachlass Ida und Irene Eucken" value="7552d3d7-99f2-4c77-bb6f-cc2a2c739660">&nbsp;&nbsp;&nbsp;&nbsp;<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->V. Krypto-Nachlass Ida und Irene Eucken<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="VI. Material zum Euckenbund" value="672e36dd-48f2-4d49-9253-467bf4dad136">&nbsp;&nbsp;&nbsp;&nbsp;<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->VI. Material zum Euckenbund<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="Nachlass Walter Eucken" value="5c159ad2-ddeb-4495-8562-d0dce8f581d7">&nbsp;&nbsp;<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->Nachlass Walter Eucken<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="Sammlung August L&ouml;sch" value="204a1fcc-f512-47d3-82e5-c07ecfcbba96">&nbsp;&nbsp;&nbsp;&nbsp;<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->Sammlung August L&ouml;sch<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="Nachlass Wegele" value="16ac5986-2cc6-4130-832c-2660dfba9733">&nbsp;&nbsp;<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->Nachlass Wegele<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="NL W. M. v. Goethe" value="2db152a1-7a13-4f63-b7b5-26cd10f9de97">&nbsp;&nbsp;<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->NL W. M. v. Goethe<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="Portraitindex" value="0b6887a5-04c0-41d6-a147-70f4c040e436">
+<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->Portraitindex<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="Sammlung Bismarck und Jena" value="4a3a55ba-6d8c-4929-8a8c-b66bfd911873">
+<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->Sammlung Bismarck und Jena<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="Sammlung Diederichs" value="sammlung.diederichs">
+<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->Sammlung Diederichs<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="Sammlung Ernst Abbe" value="92d70374-cd25-4392-858f-b809f20433ae">
+<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->Sammlung Ernst Abbe<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="Sammlung Georg R&ouml;rer" value="sammlung.roerer">
+<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->Sammlung Georg R&ouml;rer<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="Sammlung Georg Spalatin" value="8be9f66b-a059-491b-9b07-d0e5587c8d55">
+<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->Sammlung Georg Spalatin<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="Sammlung Gustav Friedrich Dinter" value="8af9e09e-c993-4bcb-beec-57138bf9de85">
+<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->Sammlung Gustav Friedrich Dinter<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="Sammlung Heinrich Klemm (Bestand RSB Moskau)" value="e2bb6d05-6374-418f-916d-b546ec38aec2">
+<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->Sammlung Heinrich Klemm (Bestand RSB Moskau)<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="Sammlung Jenaer Kunstverein" value="f071602d-9624-4548-81b2-8e273e1c3648">
+<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->Sammlung Jenaer Kunstverein<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="Plakatsammlung Jenaer Kunstverein" value="82a3da71-5f1f-4166-a1f0-d5f37157fd1b">&nbsp;&nbsp;<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->Plakatsammlung Jenaer Kunstverein<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="Sammlung Karl Christian Friedrich Krause" value="9f1803f7-1b9c-4aea-a689-ff5d2e06e565">
+<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->Sammlung Karl Christian Friedrich Krause<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="Schriftstellerinnen aus der Sammlung Varnhagen" value="504c20f6-011f-4f33-b66e-d8d5fcc7f150">
+<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->Schriftstellerinnen aus der Sammlung Varnhagen<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="Sondersh&auml;user Fragmente" value="sondersh&auml;user.fragmente">
+<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->Sondersh&auml;user Fragmente<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="Stadtansichten" value="2a023dc2-2e91-4842-893a-843c1ab3d80e">
+<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->Stadtansichten<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="Sammlung Jena" value="1dfe65c8-4887-4c3b-89d0-54f158d50691">&nbsp;&nbsp;<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->Sammlung Jena<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="Sammlung P&ouml;&szlig;neck" value="3aa0a2e3-6edb-4fd4-b5a0-5f39830e2d99">&nbsp;&nbsp;<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->Sammlung P&ouml;&szlig;neck<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="Stadtlexikon" value="b68d31a0-95db-4c4c-a414-5af0b3d98dc1">
+<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->Stadtlexikon<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="Kahla" value="27e9e810-975d-413c-869c-908558f4e556">&nbsp;&nbsp;<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->Kahla<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="Neustadt an der Orla" value="ff9fce6d-f662-4c1a-80cd-462ad7c632f3">&nbsp;&nbsp;<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->Neustadt an der Orla<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="Th&uuml;ringer Musikalien" value="music.supplies">
+<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->Th&uuml;ringer Musikalien<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="Musikalien der Hochschule f&uuml;r Musik Weimar" value="44d80110-f3dc-47ed-a014-5fe19905d370">&nbsp;&nbsp;<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->Musikalien der Hochschule f&uuml;r Musik Weimar<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="Musikaliensammlung Meininger Museen" value="5628a9a4-2af9-4e65-ab64-199075950797">&nbsp;&nbsp;<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->Musikaliensammlung Meininger Museen<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="Thuringica" value="thuringica">
+<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->Thuringica<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="Universit&auml;tsgeschichte Jena" value="008d1fb5-c87a-4745-86bf-a98617fb19d7">
+<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->Universit&auml;tsgeschichte Jena<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="Dissertationen" value="20b93d38-a17b-4816-a1ed-88bd7ef0b03a">&nbsp;&nbsp;<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->Dissertationen<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="Personalgeschichte" value="cac25a76-a62d-4e5a-86a2-af3f24bab3ce">&nbsp;&nbsp;<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->Personalgeschichte<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="Stammbuch" value="register">&nbsp;&nbsp;<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->Stammbuch<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="Urkunden der Universit&auml;t Jena" value="7a15197e-7f7d-4343-9c97-5d674f59ddeb">&nbsp;&nbsp;<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->Urkunden der Universit&auml;t Jena<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="Vorlesungsmitschrift" value="fa976c48-dd48-424a-99ec-956f9c0b6228">&nbsp;&nbsp;<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->Vorlesungsmitschrift<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="Universit&auml;tsprogramme" value="universit&auml;tsprogramme">
+<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->Universit&auml;tsprogramme<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="Van de Velde Museum - Haus Schulenburg Gera" value="bc8da08f-1ece-4828-97f4-82337ea9b3e1">
+<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->Van de Velde Museum - Haus Schulenburg Gera<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="Varia" value="varia">
+<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->Varia<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="Flurkarten" value="8a1630ed-be29-46da-bfa8-726ce5aa12e4">&nbsp;&nbsp;<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->Flurkarten<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="LVR" value="lvr">&nbsp;&nbsp;<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->LVR<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option></select>
+<!--End - template name="selectBox" (common-ui-elements.xsl)-->
+</div>
+<div class="w-100"></div>
+<label class="col-sm-2 col-form-label-sm text-white text-uppercase" for="objectType">Dokumenttyp</label>
+<div class="col-sm-8">
+<select name="objectType" class="form-control form-control-sm js-select2-basic-single"><option label="bitte w&auml;hlen..." selected value=""></option><option value="cbu">Drucke, Handschriften &amp; Karten</option><option value="file">Akten</option><option value="certificate">Urkunden</option><option value="person">Personen</option><option value="corporation">K&ouml;rperschaften</option></select>
+</div>
+<div class="w-100"></div>
+<label class="col-sm-2 col-form-label-sm text-white text-uppercase" for="select_genre">Gattung</label>
+<div class="col-sm-8">
+<!--Start - template name="selectBox" (common-ui-elements.xsl)-->
+<select class="form-control form-control-sm js-select2-basic-single" name="genre" id="select_genre"><option label="bitte w&auml;hlen..." selected value=""></option><option title="!09663166X" value="!09663166x">
+<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->!09663166X<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="Abhandlung" value="145fb457-3228-4471-ad74-df9e7d8c52a7">
+<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->Abhandlung<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="Adriatisches Meer" value="adriatisches.meer">
+<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->Adriatisches Meer<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="Agende" value="agende">
+<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->Agende<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="Akte" value="file">
+<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->Akte<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="Handakte" value="file.personal">&nbsp;&nbsp;<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->Handakte<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="Akustik" value="akustik">
+<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->Akustik<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="Alchemie" value="alchemie">
+<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->Alchemie<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="Altertumskunde" value="altertumskunde">
+<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->Altertumskunde<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="Amtsdruckschrift" value="printed_book">
+<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->Amtsdruckschrift<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="Anatomie" value="anatomie">
+<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->Anatomie<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="Anekdote" value="anekdote">
+<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->Anekdote<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="Anleitung" value="anleitung">
+<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->Anleitung<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="Anstandsliteratur" value="anstandsliteratur">
+<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->Anstandsliteratur<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="Anthologie" value="anthologie">
+<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->Anthologie<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="Antiquariatskatalog" value="antiquariatskatalog">
+<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->Antiquariatskatalog<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="Anzeige" value="anzeige">
+<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->Anzeige<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="Aphorismus" value="aphorismus">
+<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->Aphorismus<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="Arch&auml;ologie" value="arch&auml;ologie">
+<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->Arch&auml;ologie<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="Architektur" value="architektur">
+<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->Architektur<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="Ars moriendi" value="ars.moriendi">
+<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->Ars moriendi<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="Artikel" value="article">
+<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->Artikel<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="Arzneibuch" value="arzneibuch">
+<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->Arzneibuch<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="Astrologie" value="astrologie">
+<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->Astrologie<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="Astronomie" value="astronomie">
+<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->Astronomie<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="Atlas" value="atlas">
+<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->Atlas<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="Aufsatz" value="essay">
+<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->Aufsatz<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="Aufsatzsammlung" value="30b17632-63f9-47d9-b163-b4d820fa4680">
+<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->Aufsatzsammlung<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="Auktionskatalog" value="auktionskatalog">
+<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->Auktionskatalog<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="Ausweisdokument" value="a071004a-c7e8-4fb5-a7a0-7479fc588aaf">
+<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->Ausweisdokument<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="Autobiographie" value="autobiography">
+<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->Autobiographie<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="Barrois" value="barrois">
+<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->Barrois<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="Bauplan" value="ce947472-92aa-4d0d-b343-22809b2fd1da">
+<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->Bauplan<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="Bergbau" value="bergbau">
+<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->Bergbau<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="Bericht" value="bericht">
+<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->Bericht<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="Bibel" value="bibel">
+<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->Bibel<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="Bibliographie" value="bibliographie">
+<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->Bibliographie<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="Bibliotheksgeschichte" value="d1423267-2b37-4571-b5b4-7b3f7434f150">
+<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->Bibliotheksgeschichte<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="Bibliothekskatalog" value="library_catalog">
+<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->Bibliothekskatalog<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="Bild" value="8b3ed78b-1840-4780-92ff-390fac73c924">
+<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->Bild<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="Bildband" value="58a92fd0-0490-414c-bdbe-7bf40d94c1f3">
+<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->Bildband<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="Biographie" value="biography">
+<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->Biographie<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="Botanik" value="botanik">
+<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->Botanik<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="Brevier" value="brevier">
+<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->Brevier<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="Brief" value="letter">
+<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->Brief<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="Briefsammlung" value="letter_collection">
+<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->Briefsammlung<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="Briefsteller" value="briefsteller">
+<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->Briefsteller<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="Buchbinderanweisung" value="buchbinderanweisung">
+<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->Buchbinderanweisung<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="B&uuml;cheranzeige" value="b&uuml;cheranzeige">
+<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->B&uuml;cheranzeige<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="B&uuml;cherverzeichnis" value="bibliography">
+<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->B&uuml;cherverzeichnis<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="Buchhandelskatalog" value="buchhandelskatalog">
+<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->Buchhandelskatalog<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="Chemie" value="chemie">
+<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->Chemie<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="Chirurgie" value="chirurgie">
+<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->Chirurgie<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="Chronik" value="chronicle">
+<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->Chronik<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="Dissertation" value="dissertation">
+<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->Dissertation<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="Dissertation:jur." value="dissertation-jur.">
+<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->Dissertation:jur.<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="Dissertation:med." value="dissertation-med.">
+<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->Dissertation:med.<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="Dissertation:phil." value="dissertation-phil.">
+<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->Dissertation:phil.<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="Dissertation:theol." value="dissertation-theol.">
+<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->Dissertation:theol.<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="Dissertationensammlung" value="dissertationensammlung">
+<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->Dissertationensammlung<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="Drama" value="drama">
+<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->Drama<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="Duo" value="duo">
+<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->Duo<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="Edikt" value="edikt">
+<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->Edikt<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="Einblattdruck" value="single_sheet">
+<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->Einblattdruck<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="Einf&uuml;hrung" value="einf&uuml;hrung">
+<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->Einf&uuml;hrung<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="Elegie" value="elegie">
+<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->Elegie<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="Elsa&szlig; <Provinz>" value="elsa&szlig;.<provinz>">
+<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->Elsa&szlig; &lt;Provinz&gt;<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="Emblembuch" value="emblembuch">
+<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->Emblembuch<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="Entscheidungssammlung" value="entscheidungssammlung">
+<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->Entscheidungssammlung<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="Enzyklop&auml;die" value="encyclopaedia">
+<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->Enzyklop&auml;die<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="Epigramm" value="epigramm">
+<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->Epigramm<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="Epik" value="epic">
+<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->Epik<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="Epikedeion" value="epikedeion">
+<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->Epikedeion<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="Epos" value="epos">
+<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->Epos<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="Erbauungsliteratur" value="devotional_literature">
+<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->Erbauungsliteratur<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="Erlebnisbericht" value="essay_based_on_personal_experience">
+<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->Erlebnisbericht<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="Erotische Literatur" value="erotische.literatur">
+<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->Erotische Literatur<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="Erz&auml;hlung" value="erz&auml;hlung">
+<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->Erz&auml;hlung<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="Exzerpt" value="cb578f06-2109-4166-bd04-2b94fca38d97">
+<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->Exzerpt<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="Fabel" value="fabel">
+<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->Fabel<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="Faszikel" value="fascicle">
+<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->Faszikel<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="Festbeschreibung" value="festbeschreibung">
+<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->Festbeschreibung<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="Festungsbau" value="festungsbau">
+<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->Festungsbau<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="Fibel" value="fibel">
+<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->Fibel<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="Figurengedicht" value="figurengedicht">
+<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->Figurengedicht<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="Fl&ouml;te" value="fl&ouml;te">
+<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->Fl&ouml;te<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="Flugschrift" value="flysheet">
+<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->Flugschrift<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="Fotoalbum" value="4da86630-61db-40c1-8b30-1670d94ad5c6">
+<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->Fotoalbum<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="Fotografie" value="ba9d8f38-4489-4c33-83f8-fe877fe32f93">
+<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->Fotografie<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="Frauenliteratur" value="frauenliteratur">
+<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->Frauenliteratur<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="Freimaurerliteratur" value="freimaurerliteratur">
+<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->Freimaurerliteratur<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="F&uuml;hrer" value="guide">
+<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->F&uuml;hrer<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="F&uuml;rstenspiegel" value="f&uuml;rstenspiegel">
+<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->F&uuml;rstenspiegel<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="Gartenbau" value="gartenbau">
+<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->Gartenbau<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="G&auml;stebuch" value="b2be1a0b-7b57-4021-a0f4-4799f7d7261d">
+<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->G&auml;stebuch<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="Gebet" value="gebet">
+<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->Gebet<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="Gebetbuch" value="gebetbuch">
+<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->Gebetbuch<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="Gedichtsammlung" value="10ed0c63-9b8f-4c60-aed4-fe5b9f1dc901">
+<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->Gedichtsammlung<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="Geldwesen" value="geldwesen">
+<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->Geldwesen<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="Gelegenheitsschrift" value="occasional_writing">
+<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->Gelegenheitsschrift<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="Gelegenheitsschrift:Abschied" value="gelegenheitsschrift-abschied">
+<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->Gelegenheitsschrift:Abschied<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="Gelegenheitsschrift:Amtsantritt" value="gelegenheitsschrift-amtsantritt">
+<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->Gelegenheitsschrift:Amtsantritt<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="Gelegenheitsschrift:Begr&uuml;&szlig;ung" value="gelegenheitsschrift-begr&uuml;&szlig;ung">
+<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->Gelegenheitsschrift:Begr&uuml;&szlig;ung<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="Gelegenheitsschrift:Einladung" value="gelegenheitsschrift-einladung">
+<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->Gelegenheitsschrift:Einladung<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="Gelegenheitsschrift:Einweihung" value="gelegenheitsschrift-einweihung">
+<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->Gelegenheitsschrift:Einweihung<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="Gelegenheitsschrift:Fest" value="gelegenheitsschrift-fest">
+<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->Gelegenheitsschrift:Fest<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="Gelegenheitsschrift:Friedensschlu&szlig;" value="gelegenheitsschrift-friedensschlu&szlig;">
+<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->Gelegenheitsschrift:Friedensschlu&szlig;<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="Gelegenheitsschrift:Geburt" value="gelegenheitsschrift-geburt">
+<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->Gelegenheitsschrift:Geburt<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="Gelegenheitsschrift:Geburtstag" value="gelegenheitsschrift-geburtstag">
+<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->Gelegenheitsschrift:Geburtstag<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="Gelegenheitsschrift:Gedenken" value="gelegenheitsschrift-gedenken">
+<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->Gelegenheitsschrift:Gedenken<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="Gelegenheitsschrift:Hochzeit" value="gelegenheitsschrift-hochzeit">
+<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->Gelegenheitsschrift:Hochzeit<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="Gelegenheitsschrift:Jubil&auml;um" value="gelegenheitsschrift-jubil&auml;um">
+<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->Gelegenheitsschrift:Jubil&auml;um<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="Gelegenheitsschrift:Konversion" value="gelegenheitsschrift-konversion">
+<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->Gelegenheitsschrift:Konversion<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="Gelegenheitsschrift:Kr&ouml;nung" value="gelegenheitsschrift-kr&ouml;nung">
+<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->Gelegenheitsschrift:Kr&ouml;nung<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="Gelegenheitsschrift:Namenstag" value="gelegenheitsschrift-namenstag">
+<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->Gelegenheitsschrift:Namenstag<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="Gelegenheitsschrift:Neujahr" value="gelegenheitsschrift-neujahr">
+<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->Gelegenheitsschrift:Neujahr<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="Gelegenheitsschrift:Promotion" value="gelegenheitsschrift-promotion">
+<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->Gelegenheitsschrift:Promotion<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="Gelegenheitsschrift:Sieg" value="gelegenheitsschrift-sieg">
+<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->Gelegenheitsschrift:Sieg<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="Gelegenheitsschrift:Taufe" value="gelegenheitsschrift-taufe">
+<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->Gelegenheitsschrift:Taufe<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="Gelegenheitsschrift:Tod" value="gelegenheitsschrift-tod">
+<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->Gelegenheitsschrift:Tod<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="Gelegenheitsschrift:Visitation" value="gelegenheitsschrift-visitation">
+<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->Gelegenheitsschrift:Visitation<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="Genealogie" value="genealogy">
+<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->Genealogie<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="Geographie" value="geographie">
+<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->Geographie<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="Geologie" value="geologie">
+<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->Geologie<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="Geometrie" value="geometrie">
+<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->Geometrie<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="Gesangbuch" value="gesangbuch">
+<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->Gesangbuch<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="Gesellschaftsschrift" value="gesellschaftsschrift">
+<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->Gesellschaftsschrift<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="Gesetz" value="gesetz">
+<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->Gesetz<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="Gesetzessammlung" value="gesetzessammlung">
+<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->Gesetzessammlung<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="Grammatik" value="grammatik">
+<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->Grammatik<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="Gyn&auml;kologie" value="gyn&auml;kologie">
+<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->Gyn&auml;kologie<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="Handbuch" value="handbuch">
+<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->Handbuch<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="Handschrift" value="manuscript">
+<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->Handschrift<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="Hausv&auml;terliteratur" value="hausv&auml;terliteratur">
+<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->Hausv&auml;terliteratur<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="Heiligenvita" value="heiligenvita">
+<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->Heiligenvita<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="Hochschulschrift" value="univerity_scripture">
+<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->Hochschulschrift<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="Holzschnitt" value="d6fa0f72-eb5b-4d6b-86d6-2df8893d605b">
+<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->Holzschnitt<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="Illustration" value="b90a1fe6-c009-4b69-8b51-d6782a12d8b9">
+<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->Illustration<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="Inkunabel" value="ae281a98-c70f-4a38-b3ef-e3676d3b7f80">
+<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->Inkunabel<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="Inventar" value="ec0be203-c19c-4e8d-9515-d46024ec402f">
+<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->Inventar<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="Istrien" value="istrien">
+<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->Istrien<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="Italien <Nordost>" value="italien.<nordost>">
+<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->Italien &lt;Nordost&gt;<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="Itinerar" value="itinerar">
+<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->Itinerar<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="Jagdliteratur" value="jagdliteratur">
+<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->Jagdliteratur<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="Judaicum" value="judaicum">
+<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->Judaicum<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="Jugendbuch" value="jugendbuch">
+<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->Jugendbuch<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="Kalender" value="kalender">
+<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->Kalender<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="Kapitulation" value="kapitulation">
+<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->Kapitulation<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="Karte" value="map">
+<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->Karte<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="Atlas" value="65d7fc1f-902c-4f05-a84c-74c35d9d5867">&nbsp;&nbsp;<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->Atlas<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="Einzelkarte" value="021e5f23-0d2f-422b-92f7-4cf6cfe6d4cb">&nbsp;&nbsp;<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->Einzelkarte<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="Globus" value="cbb30f6c-8721-4c01-a221-37a3dfb92f19">&nbsp;&nbsp;<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->Globus<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="Kartenverwandte Darstellung" value="38963b49-7c8b-4ee6-8624-6648068baf82">&nbsp;&nbsp;<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->Kartenverwandte Darstellung<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="Kartenwerk" value="02072cff-eaf9-4c54-8469-79c0bec13f06">&nbsp;&nbsp;<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->Kartenwerk<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="Plan / Stadtplan" value="b2595d2d-0d97-429c-8baa-0c83042f0079">&nbsp;&nbsp;<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->Plan / Stadtplan<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="Schulwandkarte" value="ed5f1a0d-8f9f-45c6-82ff-913bf6e356ff">&nbsp;&nbsp;<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->Schulwandkarte<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="Katalog" value="catalog">
+<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->Katalog<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="Katechismus" value="katechismus">
+<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->Katechismus<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="Kaufvertrag" value="7250335e-0d80-4022-a509-274b99921b13">
+<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->Kaufvertrag<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="Kirchenlied" value="kirchenlied">
+<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->Kirchenlied<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="Kochbuch" value="kochbuch">
+<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->Kochbuch<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="Kolportageliteratur" value="colportage">
+<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->Kolportageliteratur<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="Kommentar" value="kommentar">
+<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->Kommentar<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="Kommentar: hist." value="kommentar-.hist.">
+<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->Kommentar: hist.<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="Kommentar: jur." value="kommentar-.jur.">
+<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->Kommentar: jur.<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="Kommentar: lit." value="kommentar-.lit.">
+<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->Kommentar: lit.<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="Kommentar: polit." value="kommentar-.polit.">
+<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->Kommentar: polit.<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="Kommentar: theol." value="kommentar-.theol.">
+<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->Kommentar: theol.<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="Kom&ouml;die" value="kom&ouml;die">
+<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->Kom&ouml;die<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="Konkordanz" value="konkordanz">
+<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->Konkordanz<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="Konsiliensammlung" value="konsiliensammlung">
+<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->Konsiliensammlung<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="Konsilium" value="konsilium">
+<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->Konsilium<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="Kriegskunde" value="kriegskunde">
+<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->Kriegskunde<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="Kupferstich" value="81ef1a8b-baa2-4453-8bb8-346a46f2260b">
+<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->Kupferstich<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="Landesbeschreibung" value="b87c60ec-9bca-4ccd-a7ef-111fc026905f">
+<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->Landesbeschreibung<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="Landrecht" value="20c2a8fa-082f-40d2-82da-22a3c2457521">
+<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->Landrecht<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="Landwirtschaft" value="landwirtschaft">
+<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->Landwirtschaft<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="Legende" value="legende">
+<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->Legende<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="Lehrbuch" value="1feb4d2d-467e-44c2-adb9-ffce130e95cb">
+<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->Lehrbuch<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="Leichenpredigt" value="leichenpredigt">
+<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->Leichenpredigt<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="Leichenpredigtsammlung" value="leichenpredigtsammlung">
+<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->Leichenpredigtsammlung<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="Lesebuch" value="lesebuch">
+<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->Lesebuch<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="Lexikon" value="lexikon">
+<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->Lexikon<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="Libretto" value="libretto">
+<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->Libretto<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="Lied" value="tune">
+<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->Lied<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="Liedersammlung" value="liedersammlung">
+<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->Liedersammlung<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="Lothringen <Provinz>" value="lothringen.<provinz>">
+<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->Lothringen &lt;Provinz&gt;<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="Lyrik" value="lyrik">
+<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->Lyrik<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="Mandat" value="mandat">
+<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->Mandat<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="Manuskript" value="f2d6681e-334f-4bd0-ae0a-963b45298eee">
+<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->Manuskript<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="M&auml;rchen" value="m&auml;rchen">
+<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->M&auml;rchen<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="Mathematik" value="mathematik">
+<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->Mathematik<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="Mechanik" value="mechanik">
+<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->Mechanik<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="Medizin" value="medicine">
+<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->Medizin<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="Memoir" value="dfa6bb6f-fa45-4512-85ed-28ed6138a0ed">
+<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->Memoir<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="Me&szlig;katalog" value="me&szlig;katalog">
+<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->Me&szlig;katalog<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="Me&szlig;relation" value="me&szlig;relation">
+<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->Me&szlig;relation<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="Metz <Region>" value="metz.<region>">
+<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->Metz &lt;Region&gt;<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="Mineralogie" value="mineralogy">
+<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->Mineralogie<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="Monographie" value="monography">
+<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->Monographie<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="Musikbuch" value="musikbuch">
+<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->Musikbuch<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="Musiknoten" value="musiknoten">
+<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->Musiknoten<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="Musterbuch" value="musterbuch">
+<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->Musterbuch<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="Notizen" value="9a480902-9d7d-456d-b654-a6ec657b6341">
+<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->Notizen<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="Novelle" value="novelle">
+<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->Novelle<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="Optik" value="optik">
+<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->Optik<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="Ordensliteratur" value="ordensliteratur">
+<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->Ordensliteratur<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="Ordensliteratur:Augustiner" value="ordensliteratur-augustiner">
+<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->Ordensliteratur:Augustiner<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="Ordensliteratur:Augustiner-Barf&uuml;&szlig;er" value="ordensliteratur-augustiner-barf&uuml;&szlig;er">
+<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->Ordensliteratur:Augustiner-Barf&uuml;&szlig;er<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="Ordensliteratur:Augustiner-Chorherren" value="ordensliteratur-augustiner-chorherren">
+<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->Ordensliteratur:Augustiner-Chorherren<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="Ordensliteratur:Augustiner-Eremiten" value="ordensliteratur-augustiner-eremiten">
+<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->Ordensliteratur:Augustiner-Eremiten<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="Ordensliteratur:Barnabiten" value="ordensliteratur-barnabiten">
+<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->Ordensliteratur:Barnabiten<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="Ordensliteratur:Benediktiner" value="ordensliteratur-benediktiner">
+<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->Ordensliteratur:Benediktiner<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="Ordensliteratur:Dominikaner" value="ordensliteratur-dominikaner">
+<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->Ordensliteratur:Dominikaner<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="Ordensliteratur:Franziskaner" value="ordensliteratur-franziskaner">
+<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->Ordensliteratur:Franziskaner<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="Ordensliteratur:Jesuiten" value="ordensliteratur-jesuiten">
+<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->Ordensliteratur:Jesuiten<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="Ordensliteratur:Kapuziner" value="ordensliteratur-kapuziner">
+<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->Ordensliteratur:Kapuziner<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="Ordensliteratur:Kart&auml;user" value="ordensliteratur-kart&auml;user">
+<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->Ordensliteratur:Kart&auml;user<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="Ordensliteratur:Minimen" value="ordensliteratur-minimen">
+<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->Ordensliteratur:Minimen<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="Ordensliteratur:Minoriten" value="ordensliteratur-minoriten">
+<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->Ordensliteratur:Minoriten<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="Ordensliteratur:Pr&auml;monstratenser" value="ordensliteratur-pr&auml;monstratenser">
+<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->Ordensliteratur:Pr&auml;monstratenser<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="Ordensliteratur:Theatiner" value="ordensliteratur-theatiner">
+<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->Ordensliteratur:Theatiner<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="Ordensliteratur:Zisterzienser" value="ordensliteratur-zisterzienser">
+<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->Ordensliteratur:Zisterzienser<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="Ortsverzeichnis" value="ortsverzeichnis">
+<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->Ortsverzeichnis<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="P&auml;dagogik" value="p&auml;dagogik">
+<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->P&auml;dagogik<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="Panegyrikos" value="panegyrikos">
+<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->Panegyrikos<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="Pflanzenbuch" value="pflanzenbuch">
+<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->Pflanzenbuch<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="Pharmakop&ouml;e" value="pharmakop&ouml;e">
+<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->Pharmakop&ouml;e<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="Physik" value="physik">
+<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->Physik<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="Poetik" value="poetik">
+<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->Poetik<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="Portr&auml;twerk" value="portr&auml;twerk">
+<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->Portr&auml;twerk<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="Postkarte" value="8b2cb87f-2877-4673-bef7-8d5366d9297a">
+<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->Postkarte<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="Praktik" value="praktik">
+<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->Praktik<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="Predigt" value="sermon">
+<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->Predigt<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="Predigtsammlung" value="predigtsammlung">
+<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->Predigtsammlung<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="Preisschrift" value="preisschrift">
+<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->Preisschrift<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="Privileg" value="privileg">
+<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->Privileg<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="Psalmenauslegung" value="Psalmenauslegung">
+<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->Psalmenauslegung<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="Psalter" value="psalter">
+<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->Psalter<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="Ratgeber" value="guidebook">
+<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->Ratgeber<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="Rechenbuch" value="rechenbuch">
+<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->Rechenbuch<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="Rede" value="speech">
+<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->Rede<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="Regesten" value="inventory">
+<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->Regesten<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="Reisebericht" value="reisebericht">
+<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->Reisebericht<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="Reisef&uuml;hrer" value="reisef&uuml;hrer">
+<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->Reisef&uuml;hrer<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="Rezension" value="rezension">
+<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->Rezension<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="Rhetorik" value="rhetorik">
+<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->Rhetorik<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="Richtlinie" value="richtlinie">
+<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->Richtlinie<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="Rituale" value="rituale">
+<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->Rituale<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="Roman" value="roman">
+<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->Roman<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="Sage" value="sage">
+<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->Sage<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="Satire" value="satire">
+<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->Satire<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="Satzung" value="satzung">
+<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->Satzung<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="Sch&auml;ferdichtung" value="sch&auml;ferdichtung">
+<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->Sch&auml;ferdichtung<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="Schauspiel" value="schauspiel">
+<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->Schauspiel<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="Schreibmeisterbuch" value="schreibmeisterbuch">
+<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->Schreibmeisterbuch<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="Schulbuch" value="schulbuch">
+<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->Schulbuch<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="Schulprogramm" value="schulprogramm">
+<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->Schulprogramm<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="Schwank" value="schwank">
+<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->Schwank<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="Seuchenschrift" value="seuchenschrift">
+<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->Seuchenschrift<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="Spiel" value="spiel">
+<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->Spiel<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="Sprachf&uuml;hrer" value="sprachf&uuml;hrer">
+<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->Sprachf&uuml;hrer<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="Sprichwortsammlung" value="sprichwortsammlung">
+<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->Sprichwortsammlung<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="Stadtbeschreibung" value="c1cd4800-bc58-4ea6-b0f4-f3f13262dabd">
+<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->Stadtbeschreibung<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="Stadtrecht" value="e9b716a6-8ff5-4029-a8ee-e91ededd44a1">
+<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->Stadtrecht<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="Stammbuch" value="71d3677b-0729-46cb-ac35-fa7729c3b6e8">
+<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->Stammbuch<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="Statistik" value="statistik">
+<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->Statistik<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="Statut" value="43d959fa-5343-4be4-9391-77db0c07119c">
+<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->Statut<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="Streitschrift" value="pamphlet">
+<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->Streitschrift<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="Streitschrift:jur." value="streitschrift-jur.">
+<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->Streitschrift:jur.<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="Streitschrift:polit." value="streitschrift-polit.">
+<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->Streitschrift:polit.<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="Streitschrift:theol." value="streitschrift-theol.">
+<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->Streitschrift:theol.<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="Subskribentenliste" value="subskribentenliste">
+<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->Subskribentenliste<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="Subskriptionsanzeige" value="subskriptionsanzeige">
+<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->Subskriptionsanzeige<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="Tabelle" value="tabelle">
+<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->Tabelle<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="Tagebuch" value="85f31725-8848-4141-ac31-15dc1cdc6e7a">
+<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->Tagebuch<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="Telegramm" value="telegram">
+<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->Telegramm<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="theologischer Text" value="theological_text">
+<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->theologischer Text<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="Tierbuch" value="tierbuch">
+<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->Tierbuch<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="Tiermedizin" value="tiermedizin">
+<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->Tiermedizin<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="Tischrede" value="dinner_speech">
+<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->Tischrede<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="Topographie" value="topographie">
+<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->Topographie<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="Totentanz" value="totentanz">
+<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->Totentanz<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="Toul <Region>" value="toul.<region>">
+<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->Toul &lt;Region&gt;<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="Trag&ouml;die" value="trag&ouml;die">
+<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->Trag&ouml;die<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="Traktat" value="tract">
+<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->Traktat<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="Typoskript" value="typoscript">
+<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->Typoskript<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="&Uuml;bersetzung" value="e5305fd8-2ffe-44c1-befa-e0363b2b0c0c">
+<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->&Uuml;bersetzung<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="Universit&auml;tsgeschichte" value="dec59313-1666-46a4-ba84-ed78e7edaf5e">
+<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->Universit&auml;tsgeschichte<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="Universit&auml;tsprogramm" value="universit&auml;tsprogramm">
+<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->Universit&auml;tsprogramm<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="Urkunde" value="dabeb6d3-4a78-412e-b5cc-598f5daee572">
+<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->Urkunde<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="Urkundenbuch" value="book_of_documents">
+<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->Urkundenbuch<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="Venetien" value="venetien">
+<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->Venetien<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="Verdun <Region>" value="verdun.<region>">
+<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->Verdun &lt;Region&gt;<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="Verkaufskatalog" value="sales_catalog">
+<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->Verkaufskatalog<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="Verordnung" value="act">
+<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->Verordnung<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="Verserz&auml;hlung" value="verserz&auml;hlung">
+<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->Verserz&auml;hlung<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="Vertrag" value="vertrag">
+<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->Vertrag<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="Visitenkarte" value="businessCard">
+<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->Visitenkarte<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="Volksbuch" value="volksbuch">
+<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->Volksbuch<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="Volksschrifttum" value="volksschrifttum">
+<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->Volksschrifttum<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="Vorlesung" value="Vorlesung">
+<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->Vorlesung<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="Vorlesungsmitschrift" value="8e31b950-9ea1-4504-8834-bc1e427fdfb1">
+<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->Vorlesungsmitschrift<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="Vorlesungsverzeichnis" value="vorlesungsverzeichnis">
+<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->Vorlesungsverzeichnis<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="Wappenbuch" value="wappenbuch">
+<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->Wappenbuch<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="W&ouml;rterbuch" value="dictionary">
+<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->W&ouml;rterbuch<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="Zeitschrift" value="zeitschrift">
+<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->Zeitschrift<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="Zeitung" value="zeitung">
+<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->Zeitung<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="Zeugnis" value="306717c9-cddc-4306-baf3-8f3d20d65f14">
+<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->Zeugnis<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="Zitatensammlung" value="zitatensammlung">
+<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->Zitatensammlung<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option><option title="Zoologie" value="zoologie">
+<!--
+      Start - match="items" mode="label" (items2options.xsl)
+    -->Zoologie<!--
+      End - match="items" mode="label" (items2options.xsl)
+    --></option></select>
+<!--End - template name="selectBox" (common-ui-elements.xsl)-->
+</div>
+<div class="w-100"></div>
+<label class="col-sm-2 col-form-label-sm text-white text-uppercase" for="sort.1.field">Sortieren nach</label>
+<div class="col-sm-4">
+<select name="sort.1.field" class="form-control form-control-sm"><option value="modified">&Auml;nderungsdatum</option><option value="shelfmark.as.is">Signatur</option><option value="ppn">PPN</option><option value="cbuUnitTypes.actual">Dokumenttyp</option></select>
+</div>
+<div class="col-sm-4 input-group">
+<select name="sort.1.order" class="form-control form-control-sm"><option value="desc">absteigend</option><option value="asc">aufsteigend</option></select><button style="background:#00CC00 !important; border: none;" type="submit" class="btn btn-primary input-group-append ml-4 mb-0 mb-sm-3 text-lowercase">Suchen</button>
+</div>
+</div>
+</div>
+</form>
+</div>
+<hr>
+<div class="row">
+<div class="col-sm-4 mb-3">
+<img alt="intro" src="https://collections.thulb.uni-jena.de/images/intro.png" class="img-fluid mx-auto d-block"></div>
+<div class="col-sm-7">
+<span lang="de" class="text-uppercase pb-4 intro-text thulb-theme-color" id="headline-intro">Willkommen bei Collections@UrMEL, dem Portal der Th&uuml;ringer Universit&auml;ts- und Landesbibliothek Jena (ThULB) f&uuml;r Historische Best&auml;nde</span>
+<p lang="de" class="text-justify intro-content thulb-hyphens-auto">Collections@UrMEL bietet Zugriff auf digitalisierte Handschriften, Drucke, Nachlässe sowie weitere Sammlungsbestände der ThULB Jena und mehrerer Wissenschafts- und Kultureinrichtungen. <br/><br/> Die digitalen Bestände stehen in zitierfähiger Form für den weltweiten Zugriff zur Verfügung. Darüber hinaus sind die digitalen Bestände vielfältig recherchierbar und in zahlreichen Katalogen, Nachweissystemen und Suchmaschinen verzeichnet.</p>
+</div>
+</div>
+<hr>
+<div class="row pb-2">
+<div id="link_to_zs_container" class="col-sm-4 text-center intro-text d-none d-sm-block">
+<a target="_blank" href="https://zs.thulb.uni-jena.de/" class="thulb-theme-color">
+<div>
+<img alt="logo-zs" src="https://collections.thulb.uni-jena.de/images/logo_zs_link.png" class="img-fluid img-thumbnail"></div>Journals@UrMEL</a>
+</div>
+<div id="link_to_thulb_container" class="col-sm-4 text-center intro-text">
+<a target="_blank" href="https://www.thulb.uni-jena.de/" class="thulb-theme-color">
+<div>
+<img alt="logo-thulb" src="https://collections.thulb.uni-jena.de/images/logo_thulb_link.png" class="img-fluid img-thumbnail"></div>Th&uuml;ringer Universit&auml;ts- und Landesbibliothek Jena (ThULB)</a>
+</div>
+<div id="link_to_ddb_container" class="col-sm-4 text-center intro-text d-none d-sm-block">
+<a target="_blank" href="https://www.db-thueringen.de/" class="thulb-theme-color">
+<div>
+<img alt="logo-dbt" src="https://collections.thulb.uni-jena.de/images/logo_dbt_link.png" class="img-fluid img-thumbnail"></div>Digitale Bibliothek Th&uuml;ringen</a>
+</div>
+</div>
+</div>
+<!--
+      Start - thulb-default-footer (common-ui-elements.xsl)
+    -->
+<div class="container">
+<div class="row justify-content-center mt-3 mb-3">
+<div class="col-12 text-center">
+<a target="_blank" href="//www.thulb.uni-jena.de" id="thulbLink"><img alt="thulb-logo" src="https://collections.thulb.uni-jena.de/images/thulb_text_right_de.svg" class="img-fluid thulb-logo-footer-text-right"></a>
+</div>
+</div>
+</div>
+<!--
+      End - thulb-default-footer (common-ui-elements.xsl)
+    -->
+</body>
+</html><!--
+      End - xsl:template match="/html-layout (template_collections.xsl)
+    -->
