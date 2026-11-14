@@ -1,0 +1,13 @@
+2026-11-14T02:13:48Z GET https://iiif.library.utoronto.ca/presentation/v2/collections
+HTTP 307
+server: nginx
+date: Sat, 14 Nov 2026 02:13:48 GMT
+content-length: 0
+connection: keep-alive
+x-content-type-options: nosniff
+referrer-policy: strict-origin-when-cross-origin
+access-control-allow-origin: *
+vary: Accept-Encoding, rsc, next-router-state-tree, next-router-prefetch, next-router-segment-prefetch
+location: /presentation/v2/collections/utl:root
+age: 0
+strict-transport-security: max-age=63072000
