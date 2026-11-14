@@ -1,0 +1,10 @@
+# Session 2026-11-14T03:17:18Z — configuration hab-passe1-bodleian-oai.json — sonde probe.py au commit 5296696
+2026-11-14T03:17:18Z | robots.txt:hab.bodleian.ox.ac.uk | https://hab.bodleian.ox.ac.uk/robots.txt | GET | 404 | robots.txt indisponible : tout est autorisé (RFC 9309)
+2026-11-14T03:17:28Z | p1-bodleian-digitized-json | https://hab.bodleian.ox.ac.uk/js/digitized.json | GET | 200 OK | aucun en-tête de limite | taille≥518207 | corps: [   {     "institution": "Herzog August Bibliothek",     "shelfmark": "35 Helmst.",     "title": "Missale",     "religious_house": [       "Hildesheim, Augustinian canons of Sülte"     ],     "religi
+# corps enregistré : tests/raw/p1-bodleian-digitized-json.body (518207 octets lus)
+2026-11-14T03:17:28Z | robots.txt:oai.hab.de | http://oai.hab.de/robots.txt | GET | 404 | robots.txt indisponible : tout est autorisé (RFC 9309)
+2026-11-14T03:17:34Z | p1-oai-identify | http://oai.hab.de/?verb=Identify | GET | 200 OK | aucun en-tête de limite | taille≥200 | corps: <?xml version="1.0" encoding="UTF-8"?> <?xml-stylesheet type="text/xsl" href="oai2.xsl"?> <OAI-PMH xmlns="http://www.openarchives.org/OAI/2.0/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xs
+2026-11-14T03:17:40Z | p1-oai-listmetadataformats | http://oai.hab.de/?verb=ListMetadataFormats | GET | 200 OK | aucun en-tête de limite | taille≥200 | corps: <?xml version="1.0" encoding="UTF-8"?> <?xml-stylesheet type="text/xsl" href="oai2.xsl"?> <OAI-PMH xmlns="http://www.openarchives.org/OAI/2.0/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xs
+2026-11-14T03:17:40Z | robots.txt:diglib.hab.de | http://diglib.hab.de/robots.txt | GET | 200 | 11 règle(s) pour « * »
+2026-11-14T03:17:46Z | p1-diglib-sitemap-head | http://diglib.hab.de/sitemap.xml | HEAD | 200 OK | aucun en-tête de limite | taille≥0 | corps: 
+# Fin 2026-11-14T03:17:46Z — 7 requête(s) envoyée(s)

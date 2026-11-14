@@ -1,0 +1,14 @@
+{
+  "slug": "hab",
+  "min_delay_s": 6,
+  "max_requests": 15,
+  "follow_redirects": 1,
+  "robots_disallow_autorise_par_marcel": true,
+  "note": "Passe 2 (v2) : URL de manifeste et de vignette IIIF lues dans /js/digitized.json (reponse de la passe 1, champs uri et thumbnail_uri). Hote iiif.hab.de (robots.txt lu : 404) ; un manifeste de iiif.bodleian.ox.ac.uk liste aussi par ce fichier.",
+  "endpoints": [
+    {"id": "p2-hab-manifest-35-helmst", "method": "GET", "url": "https://iiif.hab.de/object/mss_35-helmst/manifest.json", "save_body": 2000000},
+    {"id": "p2-hab-vignette-35-helmst", "method": "GET", "url": "https://iiif.hab.de/object/mss_35-helmst/image/image_00021/pct:5.843857143,7.744028571,39.679,20.56717143/pct:35/0/native.jpg"},
+    {"id": "p2-hab-manifest-173-helmst-sans-ext", "method": "GET", "url": "https://iiif.hab.de/object/mss_173-helmst/manifest"},
+    {"id": "p2-bodleian-manifest-4ce6f23f", "method": "GET", "url": "https://iiif.bodleian.ox.ac.uk/iiif/manifest/4ce6f23f-7682-41f5-8e46-639a8ba9570f.json", "save_body": 2000000}
+  ]
+}
