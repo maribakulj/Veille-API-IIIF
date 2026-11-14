@@ -34,3 +34,13 @@
 2026-11-14T06:09:01Z | durham-university-library : g cochée, commit fait (9)
 2026-11-14T06:09:01Z | === e-codices (1 configuration(s))
 2026-11-14T06:20:46Z | e-codices / crash-media-info.json : e-codices : aucun blocage jusqu'à 200 req/min
+2026-11-14T06:21:16Z | e-codices : g cochée, commit fait (10)
+2026-11-14T06:21:22Z | push OK
+2026-11-14T06:21:22Z | === e-manuscripta-bibliotheques-partenaires-suisses (1 configuration(s))
+2026-11-14T06:31:16Z | e-manuscripta-bibliotheques-partenaires-suisses / crash-oai-identify.json : Traceback (most recent call last):
+  File "/Users/marcel/Veille-API-IIIF/scripts/crash.py", line 252, in <module>
+    sys.exit(main(sys.argv[1]))
+             ~~~~^^^^^^^^^^^^^
+  File "/Users/marcel/Veille-API-IIIF/scripts/crash.py", line 2
+2026-11-14T06:31:16Z | === e-museum-national-institutes-for-cultural-herita (1 configuration(s))
+2026-11-14T06:43:10Z | e-museum-national-institutes-for-cultural-herita / crash-image-info.json : e-museum-national-institutes-for-cultural-herita : aucun blocage jusqu'à 200 req/min

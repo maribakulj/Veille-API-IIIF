@@ -1,0 +1,9 @@
+# Crash test 2026-11-14T06:31:23Z — configuration crash-image-info.json — endpoint image-info-json GET https://emuseum.nich.go.jp/iiif/?IIIF=/100005001002.tif/info.json
+# réseau détecté : aucun réseau à réputation partagée connu ; plafond standard 200 req/min (décision de Marcel 14/11/2026) ; requête de détection : 200 en 6.43 s
+# limite documentée : aucune req/min (aucune limite documentée (https://emuseum.nich.go.jp/about?langId=en&webView=0 : conditions d'usage sans limite de débit)) ; paliers [6, 10, 50, 200] ; plafond 200 req/min ; 180 s par palier
+2026-11-14T06:34:14Z | palier 6 req/min | {"palier_req_min": 6, "requetes": 18, "debit_reel_req_min": 6.3, "codes": {"200": 18}, "latence_p50_s": 1.13, "latence_max_s": 1.332}
+2026-11-14T06:37:09Z | palier 10 req/min | {"palier_req_min": 10, "requetes": 30, "debit_reel_req_min": 10.3, "codes": {"200": 30}, "latence_p50_s": 1.143, "latence_max_s": 1.805}
+2026-11-14T06:40:09Z | palier 50 req/min | {"palier_req_min": 50, "requetes": 150, "debit_reel_req_min": 50.0, "codes": {"200": 149, "None": 1}, "latence_p50_s": 1.077, "latence_max_s": 20.308}
+2026-11-14T06:43:10Z | palier 200 req/min | {"palier_req_min": 200, "requetes": 600, "debit_reel_req_min": 199.2, "codes": {"200": 599, "None": 1}, "latence_p50_s": 1.067, "latence_max_s": 20.266}
+# Fin 2026-11-14T06:43:10Z — aucun blocage jusqu'à 200 req/min
+

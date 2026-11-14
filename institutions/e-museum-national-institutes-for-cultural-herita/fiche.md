@@ -17,3 +17,8 @@
 
 ## Conclusion
 Aucun quota ni limite de débit publiés ni observés (5 requêtes, 200 partout). IIIF 2.1 (manifeste) et service d'image fonctionnels. Confiance : faible à moyenne (recherches web incomplètes).
+
+## Crash test (étape g)
+
+Crash test fait le 2026-11-14 : image-info-json sur emuseum.nich.go.jp : aucun blocage jusqu'à 200 req/min (plafond 200 req/min).
+Journal : `tests/crash/e-museum-national-institutes-for-cultural-herita.log`. Un test « sans blocage » n'est pas une preuve d'illimitation au-delà du plafond.

@@ -1,0 +1,54 @@
+{
+  "slug": "e-museum-national-institutes-for-cultural-herita",
+  "hote": "emuseum.nich.go.jp",
+  "reseaux": [],
+  "plafond_req_min": 200,
+  "endpoint": "image-info-json",
+  "limite_documentee_req_min": null,
+  "paliers": [
+    {
+      "palier_req_min": 6,
+      "requetes": 18,
+      "debit_reel_req_min": 6.3,
+      "codes": {
+        "200": 18
+      },
+      "latence_p50_s": 1.13,
+      "latence_max_s": 1.332
+    },
+    {
+      "palier_req_min": 10,
+      "requetes": 30,
+      "debit_reel_req_min": 10.3,
+      "codes": {
+        "200": 30
+      },
+      "latence_p50_s": 1.143,
+      "latence_max_s": 1.805
+    },
+    {
+      "palier_req_min": 50,
+      "requetes": 150,
+      "debit_reel_req_min": 50.0,
+      "codes": {
+        "200": 149,
+        "None": 1
+      },
+      "latence_p50_s": 1.077,
+      "latence_max_s": 20.308
+    },
+    {
+      "palier_req_min": 200,
+      "requetes": 600,
+      "debit_reel_req_min": 199.2,
+      "codes": {
+        "200": 599,
+        "None": 1
+      },
+      "latence_p50_s": 1.067,
+      "latence_max_s": 20.266
+    }
+  ],
+  "arret": null,
+  "conclusion": "aucun blocage jusqu'à 200 req/min"
+}
