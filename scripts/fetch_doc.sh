@@ -33,6 +33,7 @@ while IFS= read -r url; do
   esac
   python3 "$MAIN/scripts/hostlock.py" attendre "$host" 3
   code=$(curl -sS -L --max-redirs 3 -A "$UA" --max-time 30 -o "$f" -w '%{http_code}' "$url" 2>>"$out/FETCH.log" || echo "ERR")
+  python3 "$MAIN/scripts/hostlock.py" redact "$f"
   echo "$(date -u +%Y-%m-%dT%H:%M:%SZ) | $code | $(wc -c < "$f" 2>/dev/null || echo 0) o | $url" >> "$out/FETCH.log"
   # 403 / 405 / 429 ou défi anti-bot : l'hôte est arrêté pour le reste de la liste (règle : jamais d'insistance) ;
   # un 429 arrête toute la liste.
