@@ -4,10 +4,197 @@
   "pays": "Allemagne",
   "classeur_id": "GLAM-075",
   "type": "Institution",
-  "statut_audit": "à faire",
-  "limites_documentees": [],
-  "en_tetes_observes": [],
+  "statut_audit": "audit a–f complet ; g à faire",
+  "limites_documentees": [
+    {
+      "nature": "Crawl-delay (robots.txt)",
+      "perimetre": "zs.thulb.uni-jena.de, collections.thulb.uni-jena.de, www.db-thueringen.de",
+      "valeur": "Crawl-delay: 10",
+      "fenetre": "secondes entre requêtes",
+      "effet": "consigne aux robots, non appliquée techniquement (non observée)",
+      "verification": "officielle, lue en entier",
+      "source": "https://zs.thulb.uni-jena.de/robots.txt",
+      "date": "2026-11-14"
+    }
+  ],
+  "en_tetes_observes": [
+    {
+      "hote": "zs.thulb.uni-jena.de",
+      "en_tete": "x-reputation: OK (-0.21)",
+      "signification": "score de réputation de l'IP côté serveur, pas un quota",
+      "preuve": "institutions/thuringer-universitats-und-landesbibliothek-jena/tests/raw/zs-iiif-image-infojson.headers.txt"
+    }
+  ],
   "blocages": [],
-  "sources": [],
-  "web": []
+  "sources": [
+    {
+      "url": "https://www.thulb.uni-jena.de/thulb/organisation/digitales-kultur-und-sammlungsmanagement",
+      "date": "2026-11-14",
+      "etiquette": "officielle",
+      "preuve": "institutions/thuringer-universitats-und-landesbibliothek-jena/sources/a2/SHA256SUMS"
+    },
+    {
+      "url": "https://www.thulb.uni-jena.de/",
+      "date": "2026-11-14",
+      "etiquette": "officielle",
+      "preuve": "institutions/thuringer-universitats-und-landesbibliothek-jena/sources/a1/SHA256SUMS"
+    },
+    {
+      "url": "https://zs.thulb.uni-jena.de/",
+      "date": "2026-11-14",
+      "etiquette": "officielle",
+      "preuve": "institutions/thuringer-universitats-und-landesbibliothek-jena/sources/a1/SHA256SUMS"
+    },
+    {
+      "url": "https://collections.thulb.uni-jena.de/",
+      "date": "2026-11-14",
+      "etiquette": "officielle",
+      "preuve": "institutions/thuringer-universitats-und-landesbibliothek-jena/sources/a1/SHA256SUMS"
+    },
+    {
+      "url": "https://zs.thulb.uni-jena.de/robots.txt",
+      "date": "2026-11-14",
+      "etiquette": "officielle",
+      "preuve": "institutions/thuringer-universitats-und-landesbibliothek-jena/sources/robots/SHA256SUMS"
+    }
+  ],
+  "web": [
+    {
+      "categorie": "institution",
+      "url": "https://www.thulb.uni-jena.de/thulb/organisation/digitales-kultur-und-sammlungsmanagement",
+      "date": "2026-11-14",
+      "etiquette": "officielle",
+      "citation": "« die Daten können über eine offene Schnittstelle (z. B. OAI-PMH, REST oder IIIF) abgerufen werden » ; aucune limite ni politique de bots.",
+      "preuve": "institutions/thuringer-universitats-und-landesbibliothek-jena/sources/a2/text/03.txt"
+    },
+    {
+      "categorie": "utilisateurs",
+      "aucun_resultat": true,
+      "requete": "zs.thulb.uni-jena.de OR urmel-dl.de 429 OR 503 OR blocked OR rate limit crawler IIIF",
+      "date": "2026-11-14",
+      "etiquette": "–",
+      "citation": "Aucune plainte sur zs.thulb ou urmel-dl ; résultats génériques sur les bots dans les bibliothèques (résumé de moteur, non vérifié)",
+      "preuve": "institutions/thuringer-universitats-und-landesbibliothek-jena/fiche.md"
+    },
+    {
+      "categorie": "tickets",
+      "aucun_resultat": true,
+      "requete": "github issue zs.thulb.uni-jena.de iiif manifest OR urmel-dl.de harvest",
+      "date": "2026-11-14",
+      "etiquette": "–",
+      "citation": "Aucun ticket mentionnant les hôtes de ThULB ; résultats IIIF génériques (résumé de moteur, non vérifié)",
+      "preuve": "institutions/thuringer-universitats-und-landesbibliothek-jena/fiche.md"
+    },
+    {
+      "categorie": "presentations",
+      "url": "https://digicult-verbund.de/sites/default/files/2023-07/ThULB_Leydolph_DAM_2023.pdf",
+      "date": "2026-11-14",
+      "etiquette": "institution",
+      "citation": "Présentation DigiCULT 2023 de ThULB sur son DAM MyCoRe, IIIF et Massendownload comme interfaces standard (résumé de moteur, non vérifié : la lecture du PDF n'a pas confirmé le contenu)",
+      "preuve": "institutions/thuringer-universitats-und-landesbibliothek-jena/fiche.md"
+    }
+  ],
+  "contact": "urmel_auskunft@thulb.uni-jena.de",
+  "conclusion_quota": "Aucun quota ni limite de débit publiés ; Crawl-delay 10 s dans les robots.txt (zs, collections, db-thueringen) ; IIIF Image v2 en 200 sans en-tête de limite ; manifeste testé en 500.",
+  "classe_quota": "aucun quota trouvé",
+  "confiance": "moyenne",
+  "notes": "robots.txt interdit /api/ et /rsc/ sur zs et collections ; testés avec l'accord de Marcel (C12). Manifeste IIIF Presentation v2 de la dérivée 00401748 : 500 (1 essai). OAI-PMH/REST : pas d'URL dans la doc, non testés.",
+  "a_verifier_manuellement": [
+    {
+      "url": "https://zs.thulb.uni-jena.de/api/iiif/presentation/v2/jportal_derivate_00401748/manifest",
+      "pourquoi": "500 sur le manifeste IIIF Presentation testé (1 essai)",
+      "a_chercher": "Si ce manifeste fonctionne pour d'autres dérivées et s'il existe une doc/limite OAI-PMH/REST/IIIF auprès de urmel_auskunft@thulb.uni-jena.de"
+    }
+  ],
+  "endpoints_documentes": [
+    {
+      "famille": "Flux Atom/RSS de journals@UrMEL",
+      "url": "https://zs.thulb.uni-jena.de/rsc/feed/global/atom_1.0",
+      "statut": "teste",
+      "preuve": "institutions/thuringer-universitats-und-landesbibliothek-jena/tests/raw/zs-feed-atom.headers.txt"
+    },
+    {
+      "famille": "IIIF Image API v2 (zs)",
+      "url": "https://zs.thulb.uni-jena.de/api/iiif/image/v2/",
+      "statut": "teste",
+      "preuve": "institutions/thuringer-universitats-und-landesbibliothek-jena/tests/raw/zs-iiif-image-infojson.headers.txt"
+    },
+    {
+      "famille": "IIIF Presentation API v2 (manifeste, zs)",
+      "url": "https://zs.thulb.uni-jena.de/api/iiif/presentation/v2/",
+      "statut": "teste",
+      "preuve": "institutions/thuringer-universitats-und-landesbibliothek-jena/tests/raw/zs-iiif-manifest-00401748.headers.txt"
+    },
+    {
+      "famille": "METS (MCRMETSServlet, zs)",
+      "url": "https://zs.thulb.uni-jena.de/servlets/MCRMETSServlet/",
+      "statut": "teste",
+      "preuve": "institutions/thuringer-universitats-und-landesbibliothek-jena/tests/raw/zs-mets-servlet-00401748.headers.txt"
+    },
+    {
+      "famille": "OAI-PMH (annoncé par la doc, sans URL)",
+      "url": "https://www.thulb.uni-jena.de/thulb/organisation/digitales-kultur-und-sammlungsmanagement",
+      "statut": "non_teste",
+      "raison": "La doc cite OAI-PMH sans donner d'URL de point d'accès ; aucune URL n'est devinée."
+    },
+    {
+      "famille": "REST (annoncé par la doc, sans URL)",
+      "url": "https://www.thulb.uni-jena.de/thulb/organisation/digitales-kultur-und-sammlungsmanagement",
+      "statut": "non_teste",
+      "raison": "La doc cite une interface REST sans donner d'URL ni de description ; aucune URL n'est devinée."
+    }
+  ],
+  "endpoints_ecartes": [
+    {
+      "url": "https://www.thulb.uni-jena.de/",
+      "raison": "site web TYPO3 de la bibliothèque, pas une API ; téléchargé et lu (sources/a1)."
+    },
+    {
+      "url": "https://www.db-thueringen.de/content/index.xml",
+      "raison": "page d'accueil d'un portail MyCoRe, pas une API ; lue (sources/a2), robots.txt lu."
+    },
+    {
+      "url": "https://suche.thulb.uni-jena.de/",
+      "raison": "catalogue de recherche (VuFind) cité par le site, hors périmètre IIIF/API documentée ; non requêté."
+    },
+    {
+      "url": "https://collections.thulb.uni-jena.de/servlets/search",
+      "raison": "formulaire de recherche du portail (action de formulaire HTML), pas une API documentée ; robots.txt : Disallow /servlets/ et /*?, non requêté."
+    },
+    {
+      "url": "https://zs.thulb.uni-jena.de/search",
+      "raison": "formulaire de recherche du portail (action de formulaire HTML), pas une API documentée ; robots.txt : Disallow /*? (requêtes avec paramètres), non requêté."
+    },
+    {
+      "url": "https://www.thulb.uni-jena.de/en/services/research-/-teaching/open-access-/-e-publishing",
+      "raison": "page web éditoriale (version anglaise de la page Open Access, lue en allemand dans sources/a2), pas une API."
+    }
+  ],
+  "hotes_robots": [
+    {
+      "hote": "zs.thulb.uni-jena.de",
+      "resultat": "200 : Crawl-delay 10, Disallow /*?, /servlets/, /browse/, /rsc/, /api/",
+      "preuve": "institutions/thuringer-universitats-und-landesbibliothek-jena/sources/robots/SHA256SUMS"
+    },
+    {
+      "hote": "collections.thulb.uni-jena.de",
+      "resultat": "200 : Crawl-delay 10, mêmes Disallow, Allow MCRFileNodeServlet",
+      "preuve": "institutions/thuringer-universitats-und-landesbibliothek-jena/sources/robots/SHA256SUMS"
+    },
+    {
+      "hote": "www.thulb.uni-jena.de",
+      "resultat": "200 : TYPO3 standard, pas de Crawl-delay",
+      "preuve": "institutions/thuringer-universitats-und-landesbibliothek-jena/sources/robots/SHA256SUMS"
+    },
+    {
+      "hote": "www.urmel-dl.de",
+      "resultat": "200 HTML (pas de robots.txt réel)",
+      "preuve": "institutions/thuringer-universitats-und-landesbibliothek-jena/sources/a2/SHA256SUMS"
+    },
+    {
+      "hote": "www.db-thueringen.de",
+      "resultat": "200 : Crawl-delay 10, Allow /api/v1/objects/ et /api/v2/objects/",
+      "preuve": "institutions/thuringer-universitats-und-landesbibliothek-jena/sources/a2/SHA256SUMS"
+    }
+  ]
 }

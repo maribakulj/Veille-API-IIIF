@@ -1,0 +1,12 @@
+{
+  "slug": "thuringer-universitats-und-landesbibliothek-jena",
+  "min_delay_s": 10,
+  "max_requests": 15,
+  "follow_redirects": 1,
+  "robots_disallow_autorise_par_marcel": true,
+  "note": "Passe 1 : flux Atom et RSS de journals@UrMEL (zs.thulb.uni-jena.de), URL citees en lien <link rel> dans la page d'accueil du portail (sources/a1/raw/02.html). Le Atom est enregistre pour en extraire des identifiants publics d'objets (pas de devinette). robots.txt de zs : Crawl-delay 10 ; Disallow /rsc/ (autorise par Marcel).",
+  "endpoints": [
+    {"id": "zs-feed-atom", "method": "GET", "url": "https://zs.thulb.uni-jena.de/rsc/feed/global/atom_1.0", "save_body": 500000},
+    {"id": "zs-feed-rss", "method": "GET", "url": "https://zs.thulb.uni-jena.de/rsc/feed/global/rss_2.0"}
+  ]
+}

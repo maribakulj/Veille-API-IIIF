@@ -1,0 +1,522 @@
+<!DOCTYPE html SYSTEM "about:legacy-compat">
+<!--
+      Begin - template name="html-layout" (template_collections.xsl)
+    --><html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<!--
+      Start - template name="headElement_collections" (html-layout.xsl)
+    -->
+<meta content="width=device-width, initial-scale=1, shrink-to-fit=no" name="viewport">
+<link href="https://collections.thulb.uni-jena.de/images/favicon.ico" type="image/x-icon" rel="shortcut icon">
+<title>Einbandbeschreibung (Chorbuch 35: 92 vierstimmige Me&szlig;kompositionen: 2 Me&szlig;ordinarien, 21 weitere Ordinariumss&auml;tze, 67 S&auml;tze zum Proprium missae)</title>
+<!--Start - sharingSupport_support (notifications-support.xsl)-->
+<!--
+      Start - match="/mycoreobject" mode="sharePreview" (collections-common.xsl)
+    -->
+<meta name="description" content="Einbandbeschreibung (Chorbuch 35: 92 vierstimmige Me&szlig;kompositionen: 2 Me&szlig;ordinarien, 21 weitere Ordinariumss&auml;tze, 67 S&auml;tze zum Proprium missae)">
+<meta name="keywords" content="Handschriften, Bibliotheca, Electoralis, Einb&auml;nde">
+<meta content="https://collections.thulb.uni-jena.de/images/sharePreview.png" itemprop="image" property="og:image">
+<meta content="Einbandbeschreibung (Chorbuch 35: 92 vierstimmige Me&szlig;kompositionen: 2 Me&szlig;ordinarien, 21 weitere Ordinariumss&auml;tze, 67 S&auml;tze zum Proprium missae)" property="og:title">
+<meta content="Einbandbeschreibung (Chorbuch 35: 92 vierstimmige Me&szlig;kompositionen: 2 Me&szlig;ordinarien, 21 weitere Ordinariumss&auml;tze, 67 S&auml;tze zum Proprium missae), Sp&auml;tmittelalter " property="og:description">
+<!--
+      End - match="/mycoreobject" mode="sharePreview" (collections-common.xsl)
+    -->
+<!--End - sharingSupport_support (notifications-support.xsl)-->
+<!--Start - jqueryBootstrap (common-ui-elements.xsl)-->
+<script>var solrRequestHandler = "collections_restricted";var solrBrowseInventoryRequestHandler = "browse-inventory-restricted";var archive = archive || {};archive.httpSession = ";jsessionid=28F6390AF726F3111B515112918F4E4B";archive.webApplicationBaseURL = "https://collections.thulb.uni-jena.de/";archive.mcrObjectOnDisplay = "HisBest_cover_00000120";var webApplicationBaseURL = "https://collections.thulb.uni-jena.de/";var currentLang = "de";</script><script src="https://collections.thulb.uni-jena.de/javascript/common/GoogleSupport.js"></script><script src="https://collections.thulb.uni-jena.de/javascript/qrcode/qrcode.js"></script><script src="https://collections.thulb.uni-jena.de/javascript/addMCRServiceWorker.js" type="module"></script>
+<link href="https://collections.thulb.uni-jena.de/webjars/font-awesome/5.13.0/css/all.min.css" type="text/css" rel="stylesheet">
+<link href="https://collections.thulb.uni-jena.de/rsc/sass/scss/template.css" type="text/css" rel="stylesheet">
+<script src="https://collections.thulb.uni-jena.de/webjars/jquery/3.5.1/jquery.min.js"></script><script src="https://collections.thulb.uni-jena.de/webjars/bootstrap/4.6.1/js/bootstrap.bundle.min.js"></script>
+<link href="https://collections.thulb.uni-jena.de/webjars/jquery-ui/1.12.1/jquery-ui.css" type="text/css" rel="stylesheet">
+<script src="https://collections.thulb.uni-jena.de/webjars/jquery-ui/1.12.1/jquery-ui.min.js"></script><script src="https://collections.thulb.uni-jena.de/webjars/jquery-ui-touch-punch/0.2.3/jquery.ui.touch-punch.min.js"></script>
+<link href="https://collections.thulb.uni-jena.de/webjars/select2/4.0.13/css/select2.min.css" type="text/css" rel="stylesheet">
+<script src="https://collections.thulb.uni-jena.de/webjars/select2/4.0.13/js/select2.min.js"></script><script src="https://collections.thulb.uni-jena.de/webjars/select2/4.0.13/js/i18n/de.js"></script><script src="https://collections.thulb.uni-jena.de/webjars/select2/4.0.13/js/i18n/en.js"></script><script src="https://collections.thulb.uni-jena.de/javascript/common/on-document-ready.js"></script><script src="https://collections.thulb.uni-jena.de/javascript/messages/messages.js"></script><script src="https://collections.thulb.uni-jena.de/webjars/openlayers/6.9.0/ol.js"></script><script src="https://collections.thulb.uni-jena.de/javascript/osm/osm-snippet.js"></script><script src="https://collections.thulb.uni-jena.de/javascript/extendedSearch.js"></script><script src="https://collections.thulb.uni-jena.de/javascript/changeCurrentImageOnPreview.js"></script><script src="https://collections.thulb.uni-jena.de/javascript/gnd-resolving/gnd-resolving.js"></script><script src="https://collections.thulb.uni-jena.de/javascript/ppn-resolving/ppn-resolving.js"></script><script>var CollectionsMatomoSettings = {};CollectionsMatomoSettings.host = '//piwik.thulb.uni-jena.de/';CollectionsMatomoSettings.siteId = '9';
+
+          
+            var _paq = window._paq = window._paq || [];
+            /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
+            _paq.push(['trackPageView']);
+            _paq.push(['enableLinkTracking']);
+            (function () {
+                var u = CollectionsMatomoSettings.host;
+                _paq.push(['setTrackerUrl', u + 'matomo.php']);
+                _paq.push(['setSiteId', CollectionsMatomoSettings.siteId]);
+                var d = document, g = d.createElement('script'), s = d.getElementsByTagName('script')[0];
+                g.type = 'text/javascript';
+                g.async = true;
+                g.src = u + 'matomo.js';
+                s.parentNode.insertBefore(g, s);
+            })();
+          
+        </script>
+<!--End - jqueryBootstrap (common-ui-elements.xsl)-->
+<!--Start - notification_support (notifications-support.xsl)--><script>mcrs = "44504dc2-5cd2-47ac-99ad-8f053149b66e";</script><script src="https://collections.thulb.uni-jena.de/javascript/notifications/push.js-1.0.5/bin/push.min.js"></script><script src="https://collections.thulb.uni-jena.de/javascript/notifications/notifications.js"></script>
+<!--End - notification_support (notifications-support.xsl)-->
+<!--
+      End - template name="headElement_collections" (html-layout.xsl)
+    -->
+</head>
+<body>
+<div class="container small pb-10">
+<!--
+      Start - template name="header_collections" (html-layout.xsl)
+    -->
+<!--
+      Start - displayCookieNotice (cookie-notice-support.xsl)
+    -->
+<div class="row">
+<div aria-hidden="true" aria-labelledby="get-consentLabel" role="dialog" tabindex="-1" id="get-consent" data-backdrop="static" class="modal fade">
+<div role="document" class="modal-dialog modal-dialog-centered">
+<div class="modal-content">
+<div class="modal-header">
+<h5 id="get-consentLabel" class="modal-title">
+<img src="https://collections.thulb.uni-jena.de/images/thulb_text_right_de.svg" class="img-fluid thulb-logo-footer-text-right"></h5>
+</div>
+<div class="modal-body">
+<p class="d-block text-justify">Diese Webseite verwendet Cookies (Webanalysedienst: Matomo, sowie Sessioncookies). Mit der Nutzung der Seite erkl&auml;ren Sie sich mit der Verwendung dieser Cookies einverstanden. Einzelheiten entnehmen Sie bitte den<a href="https://collections.thulb.uni-jena.de/content/main/privacy.xml" class="thulb-theme-color"> Datenschutz. </a>
+</p>
+</div>
+<div class="modal-footer">
+<button onclick="setAcceptCookiesCookie()" data-dismiss="modal" class="btn btn-sm btn-primary" type="button">Akzeptieren</button>
+</div>
+</div>
+</div>
+</div>
+<script>
+        
+          function checkCookiesAccepted() {
+              var userConfirmedCookieUsage = false;
+              var x = document.cookie;
+
+              if (x != undefined) {
+                  userConfirmedCookieUsage = x.indexOf("accept-cookies=yes") != -1;
+
+                  if (userConfirmedCookieUsage == false) {
+                      if(window.location.href.indexOf("privacy.xml") == -1){
+                        $('#get-consent').modal();
+                      }
+                  }
+              }
+          }
+
+          function setAcceptCookiesCookie() {
+              document.cookie = "accept-cookies=yes; expires=2222; path=/";
+          }
+
+          function removeConsentGivenToTracking() {
+
+          }
+      
+      </script><script>
+        checkCookiesAccepted();
+      </script>
+</div>
+<!--
+      End - displayCookieNotice (cookie-notice-support.xsl)
+    -->
+<div id="header" class="row">
+<div class="col-sm-8 float-left pt-3" id="logo">
+<a href="https://collections.thulb.uni-jena.de/index.xml"><img alt="logo" src="https://collections.thulb.uni-jena.de/images/collections_logo.png" class="img-fluid"></a>
+</div>
+<!--
+      Start - template name="login-section" (common-ui-elements.xsl)
+    -->
+<div class="col">
+<div class="float-right pt-3 mb-3 mb-sm-0" id="login">
+<a href="https://collections.thulb.uni-jena.de/servlets/MCRArchiveLoginServlet?action=login" class="font-weight-bold thulb-default-text-color">Anmelden</a>
+<div class="ml-2 float-right">
+<a title="Diese Seite auf Deutsch anzeigen." href="" class="mr-2"><img alt="flag_de" height="16" src="https://collections.thulb.uni-jena.de/images/flag_de.svg" class="rounded thulb-filter-saturate-70"></a><a title="Display this page in English." href="https://collections.thulb.uni-jena.de/receive/HisBest_cover_00000120?lang=en"><img alt="flag_en" height="16" src="https://collections.thulb.uni-jena.de/images/flag_en.svg" class="rounded thulb-filter-grayscale-100"></a>
+</div>
+</div>
+</div>
+<!--
+      End - template name="login-section" (common-ui-elements.xsl)
+    -->
+</div>
+<div class="row ml-1 mb-3">
+<div class="ml-auto mr-3">
+<form action="https://collections.thulb.uni-jena.de/servlets/solr/collections_restricted" class="form-inline">
+<div class="form-group">
+<div class="input-group">
+<input value="" type="search" name="qry" id="q" autocomplete="off" class="form-control form-control-sm py-2 border-right-0 border"><span class="input-group-append">
+<div class="input-group-text bg-transparent">
+<i class="fas fa-search"></i>
+</div>
+</span>
+</div>
+</div>
+</form>
+</div>
+</div>
+<!--
+      Start - collections-menu (common-ui-elements.xsl)
+    -->
+<div class="row border-top border-bottom mb-3">
+<div class="col mt-0 mt-sm-2">
+<nav class="navbar navbar-expand-lg text-uppercase thulb-nav-bar">
+<button aria-label="toggle menu" aria-expanded="false" aria-controls="menu-bar" data-target="#menu-bar" data-toggle="collapse" type="button" class="navbar-toggler thulb-default-text-color">
+<div class="small text-uppercase">
+<i aria-hidden="true" class="fas fa-bars mr-1"></i>Men&uuml;</div>
+</button>
+<ul id="menu-bar" class="nav collapse navbar-collapse justify-content-begin justify-content-lg-center">
+<li class="nav-item current-item-false">
+<a href="https://collections.thulb.uni-jena.de/index.xml" class="nav-link thulb-nav-bar-link">
+                Start
+              </a>
+</li>
+<li class="nav-item current-item-false">
+<a href="https://collections.thulb.uni-jena.de/index.xml?XSL.DisplayExdendedSearch=true" class="nav-link thulb-nav-bar-link">Erweiterte Suche</a>
+</li>
+<li class="nav-item current-item-false">
+<a href="https://collections.thulb.uni-jena.de/content/below/index.xml?XSL.DisplayComponentBrowse=true" class="nav-link thulb-nav-bar-link">In Best&auml;nden bl&auml;ttern</a>
+</li>
+<li class="nav-item current-item-false">
+<a href="https://collections.thulb.uni-jena.de/sites/impressum.xml" class="nav-link thulb-nav-bar-link">Impressum</a>
+</li>
+<li class="nav-item current-item-false">
+<a href="https://collections.thulb.uni-jena.de/content/main/privacy.xml" class="nav-link thulb-nav-bar-link">Datenschutz</a>
+</li>
+<li class="nav-item current-item-false">
+<a href="https://collections.thulb.uni-jena.de/content/main/accessibility.xml" class="nav-link thulb-nav-bar-link">Barrierefreiheit</a>
+</li>
+</ul>
+</nav>
+</div>
+<div class="col-3 col-sm-2 mt-auto mb-auto">
+<img src="https://collections.thulb.uni-jena.de/images/thulb-claim-de.svg" id="menu-thulb-logo" class="float-right thulb-logo-menu"></div>
+</div>
+<div data-isGuest="true" id="message-area"></div>
+<!--
+      End - collections-menu (common-ui-elements.xsl)
+    -->
+<!--
+      End - template name="header_collections" (html-layout.xsl)
+    -->
+<!--
+      Start - match="/mycoreobject" (mycoreobject.xsl)
+    -->
+<div class="row thulb-derivate-view mb-3">
+<!--
+      Start - match="/mycoreobject" mode="hilite" (mycoreobject.xsl)
+    -->
+<!--
+      Start - template mode="printDerivates" priority="2" match="/mycoreobject" (collections-common.xsl)
+    -->
+<!--
+      End - template mode="printDerivates" priority="2" match="/mycoreobject" (collections-common.xsl)
+    -->
+<!--
+      End - match="/mycoreobject" mode="hilite" (mycoreobject.xsl)
+    -->
+</div>
+<div class="row thulb-metadata-view pb-3">
+<!--
+      Start - mode="thulb-info-box" match="/mycoreobject" (collections-ui-elements.xsl)
+    -->
+<div class="col-12 col-md-4 mt-3 overflow-auto thulb-info-box d-none d-md-block">
+<div class="col-12 mt-3 overflow-auto thulb-info-box d-none d-md-block">
+<div id="tree"></div>
+<script>var categId = "electoralis.handwritings";</script>
+<link rel="stylesheet" href="https://collections.thulb.uni-jena.de/javascript/jstree/dist/themes/staatsarchive/style.css">
+<script src="https://collections.thulb.uni-jena.de/javascript/jstree/dist/jstree.js"></script><script src="https://collections.thulb.uni-jena.de/js/tectonics.js"></script>
+<!--
+      Start - template name="simple-thulb-modal-lg-no-footer" (collections-edit-dialogs.xsl)
+    -->
+<div aria-hidden="true" aria-labelledby="simple-thulb-modal-lg-no-footer-preface" role="dialog" tabindex="-1" class="modal fade" id="simple-thulb-modal-lg-no-footer-preface">
+<div role="document" class="modal-dialog modal-lg modal-dialog-centered">
+<div class="modal-content">
+<h6 class="mt-2 mr-3 border-bottom ml-3 thulb-theme-color">Vorwort<button aria-label="Close" data-dismiss="modal" class="close" type="button"><span aria-hidden="true">&times;</span></button>
+</h6>
+<span class="ml-3 mr-3 mb-3" id="simple-thulb-modal-lg-no-footer-content-hook-preface"></span>
+</div>
+</div>
+</div>
+<!--
+      End - template name="simple-thulb-modal-lg-no-footer" (collections-edit-dialogs.xsl)
+    -->
+</div>
+<div class="col-12 mb-3 mt-3 thulb-info-box border-top rounded">
+<div class="row border-left border-right">
+<div class="col font-weight-bold mb-2 mt-2">&Uuml;bersicht</div>
+</div>
+<div class="row border-left border-right border-bottom rounded">
+<div class="col thulb-citation mb-3">
+<!--
+      Start - template match="/mycoreobject" mode="citation" priority="0" (mycoreobject.xsl)
+    -->
+<a href="https://collections.thulb.uni-jena.de/receive/HisBest_cover_00000120" class="thulb-theme-color font-weight-bold">Einbandbeschreibung (Chorbuch 35: 92 vierstimmige Me&szlig;kompositionen: 2 Me&szlig;ordinarien, 21 weitere Ordinariumss&auml;tze, 67 S&auml;tze zum Proprium missae), Sp&auml;tmittelalter </a>
+<!--
+      End - template match="/mycoreobject" mode="citation" priority="0" (mycoreobject.xsl)
+    -->
+</div>
+</div>
+<!--
+      Start - match="/mycoreobject" mode="shareLink" (collections-common.xsl)
+    -->
+<div class="row mt-2" id="share">
+<div title="Link in E-Mail versenden" class="col float-left mt-2 pl-0 pr-1" id="shareEmail">
+<a href="javascript:commentObjectByEMail()"><img alt="email" src="https://collections.thulb.uni-jena.de/images/material/mail.svg" class="thulb-share-on-icon p-1"></a><script>var EMailAddress='';
+          
+            function commentObjectByEMail() {
+              window.location.href = "mailto:" + EMailAddress + "?subject=" + document.title + " " + encodeURI(document.location) + "&body=" + encodeURI(document.location);
+            }
+         
+        </script>
+</div>
+<div title="&Uuml;ber X teilen" class="col float-left px-1 mt-2" id="shareX">
+<a target="_blank" href="https://x.com/share?url=https://collections.thulb.uni-jena.de/receive/HisBest_cover_00000120&amp;text=Einbandbeschreibung+%28Chorbuch+35%3A+92+vierstimmige+Me%C3%9Fkompositionen%3A+2+Me%C3%9Fordinarien%2C+21+weitere+Ordinariumss%C3%A4tze%2C+67+S%C3%A4tze+zum+Proprium+missae%29%2C+Sp%C3%A4tmittelalter+"><img alt="X" src="https://collections.thulb.uni-jena.de/images/shareX.svg" class="thulb-share-on-icon p-1"></a>
+</div>
+<div title="&Uuml;ber WhatsApp teilen" class="col float-left px-1 mt-2" id="shareWhatsapp">
+<a href="whatsapp://send?text=Einbandbeschreibung+%28Chorbuch+35%3A+92+vierstimmige+Me%C3%9Fkompositionen%3A+2+Me%C3%9Fordinarien%2C+21+weitere+Ordinariumss%C3%A4tze%2C+67+S%C3%A4tze+zum+Proprium+missae%29%2C+Sp%C3%A4tmittelalter+%20https://collections.thulb.uni-jena.de/receive/HisBest_cover_00000120"><img alt="whatsapp" src="https://collections.thulb.uni-jena.de/images/shareWhatsapp.png" class="thulb-share-on-icon p-1"></a>
+</div>
+<div data-url="https://collections.thulb.uni-jena.de/receive/HisBest_cover_00000120" title="QR-Code" class="col float-left px-1 mt-2 thulb-hover-pointer" id="shareQR"></div>
+</div>
+<!--
+      End - match="/mycoreobject" mode="shareLink" (collections-common.xsl)
+    -->
+</div>
+</div>
+<!--
+      End - mode="thulb-info-box" match="/mycoreobject" (collections-ui-elements.xsl)
+    -->
+<div class="col-12 col-sm-8">
+<!--
+      Start - template mode="BreadcrumbTrail" match="/mycoreobject" (collections-common.xsl)
+    -->
+<div class="border-top border-bottom mb-3 mt-3">
+<div class="row mt-2">
+<div class="col text-nowrap text-truncate">
+<a href="https://collections.thulb.uni-jena.de/receive/HisBest_cbu_00014289" class="thulb-theme-color h5" title="Bestandteil von: Chorbuch 35: 92 vierstimmige Me&szlig;kompositionen: 2 Me&szlig;ordinarien, 21 weitere Ordinariumss&auml;tze, 67 S&auml;tze zum Proprium missae">Chorbuch 35: 92 vierstimmige Me&szlig;kompositionen: 2 Me&szlig;ordinarien, 21 weitere Ordinariumss&auml;tze, 67 S&auml;tze zum Proprium missae</a>
+</div>
+<div class="col col-sm-2">
+<!--
+      Start - mode="state-badge" (collections-edit-toolbars-derivate.xsl)
+    -->
+<!--
+      End - mode="state-badge" (collections-edit-toolbars-derivate.xsl)
+    -->
+</div>
+</div>
+<div class="row mb-2">
+<div class="col col-sm-10">
+<div class="font-weight-bold">
+<!--
+      Start - name="printComponentSolr" (collections-common.xsl)
+    -->
+<span id="ArchFile_class_001_1">Bibliotheca Electoralis</span><span id="ArchFile_class_001_1"> &raquo; </span><a href="https://collections.thulb.uni-jena.de/servlets/solr/collections_restricted?qry=ArchFile_class_001:%22electoralis.handwritings%22" class="thulb-default-text-color"><span id="ArchFile_class_001_1">Handschriften</span></a>
+<!--
+      End - name="printComponentSolr" (collections-common.xsl)
+    -->
+</div>
+</div>
+</div>
+</div>
+<!--
+      End - template mode="BreadcrumbTrail" match="/mycoreobject" (collections-common.xsl)
+    -->
+<div class="row">
+<div class="col">
+<!--
+      Start - mode="tab-nav-items" match="/mycoreobject" (collections-common.xsl)
+    -->
+<ul role="tablist" id="pills-tab" class="nav nav-pills thulb-tab-nav mb-3">
+<li class="nav-item">
+<a aria-selected="true" aria-controls="nav-home" role="tab" href="#nav-home" data-toggle="pill" id="nav-home-tab" class="nav-link active">Einband</a>
+</li>
+</ul>
+<!--
+      End - mode="tab-nav-items" match="/mycoreobject" (collections-common.xsl)
+    -->
+</div>
+</div>
+<div class="row">
+<div class="col">
+<div id="children-tabs" class="tab-content">
+<div aria-labelledby="nav-home-tab" role="tabpanel" class="tab-pane fade show active" id="nav-home">
+<!--
+      Start - displayEntityLinks.gnd (collections-common.xsl)
+    -->
+<!--
+      End - displayEntityLinks.gnd (collections-common.xsl)
+    -->
+<!--
+      Start - name="printMetaDate" (MyCoReLayout.xsl)
+    -->
+<!--
+      End - name="printMetaDate" (MyCoReLayout.xsl)
+    -->
+<!--
+      Start - name="printMetaDate" (MyCoReLayout.xsl)
+    -->
+<!--
+      End - name="printMetaDate" (MyCoReLayout.xsl)
+    -->
+<!--
+      Start - name="printMetaDate" (MyCoReLayout.xsl)
+    -->
+<div class="border-bottom">
+<div class="row  thulb-metadata-cover-date" id="thulb-metadata-date">
+<div title="Datierung des Einbandes" class="col col-sm-4 mt-1 mb-1 text-truncate text-nowrap thulb-meta-name ">Datierung des Einbandes:</div>
+<div class="col col-sm-8 mt-1 mb-1 thulb-meta-value">
+<div class="d-block ">Sp&auml;tmittelalter</div>
+</div>
+</div>
+</div>
+<!--
+      End - name="printMetaDate" (MyCoReLayout.xsl)
+    -->
+<!--
+      Start - name="printMetaDate" (MyCoReLayout.xsl)
+    -->
+<!--
+      End - name="printMetaDate" (MyCoReLayout.xsl)
+    -->
+<!--
+      Start - name="printMetaDate" (MyCoReLayout.xsl)
+    -->
+<div class="border-bottom">
+<div class="row  thulb-metadata-cover-material" id="thulb-metadata-material">
+<div title="Material" class="col col-sm-4 mt-1 mb-1 text-truncate text-nowrap thulb-meta-name ">Material:</div>
+<div class="col col-sm-8 mt-1 mb-1 thulb-meta-value">
+<div class="d-block ">helles Leder &uuml;ber Holz</div>
+</div>
+</div>
+</div>
+<!--
+      End - name="printMetaDate" (MyCoReLayout.xsl)
+    -->
+<!--
+      Start - name="printMetaDate" (MyCoReLayout.xsl)
+    -->
+<!--
+      End - name="printMetaDate" (MyCoReLayout.xsl)
+    -->
+<!--
+      Start - name="printMetaDate" (MyCoReLayout.xsl)
+    -->
+<!--
+      End - name="printMetaDate" (MyCoReLayout.xsl)
+    -->
+<!--
+      Start - name="printMetaDate" (MyCoReLayout.xsl)
+    -->
+<div class="border-bottom">
+<div class="row  thulb-metadata-cover-description" id="thulb-metadata-description">
+<div title="Beschreibung des Einbandes" class="col col-sm-4 mt-1 mb-1 text-truncate text-nowrap thulb-meta-name ">Beschreibung des Einbandes:</div>
+<div class="col col-sm-8 mt-1 mb-1 thulb-meta-value">
+<div class="d-block ">helles Leder, origianle Schlie&szlig;en und Beschl&auml;ge; Reste von Schildern auf R&uuml;cken und Deckel; Rollenstempel und Pr&auml;gung des Leders auf beiden Einbanddeckeln gleich &bull; Beschriftung: modernes Schild auf dem R&uuml;cken: "Chorbuch Nr. 35"</div>
+</div>
+</div>
+</div>
+<!--
+      End - name="printMetaDate" (MyCoReLayout.xsl)
+    -->
+<!--
+      Start - name="printMetaDate" (MyCoReLayout.xsl)
+    -->
+<!--
+      End - name="printMetaDate" (MyCoReLayout.xsl)
+    -->
+<!--
+      Start - name="printMetaDate" (MyCoReLayout.xsl)
+    -->
+<!--
+      End - name="printMetaDate" (MyCoReLayout.xsl)
+    -->
+<!--
+      Start - name="printMetaDate" (MyCoReLayout.xsl)
+    -->
+<!--
+      End - name="printMetaDate" (MyCoReLayout.xsl)
+    -->
+<!--
+      Start - name="printMetaDate" (MyCoReLayout.xsl)
+    -->
+<!--
+      End - name="printMetaDate" (MyCoReLayout.xsl)
+    -->
+<!--
+      Start - name="printMetaDate" (MyCoReLayout.xsl)
+    -->
+<!--
+      End - name="printMetaDate" (MyCoReLayout.xsl)
+    -->
+<!--
+      Start - name="printMetaDate" (MyCoReLayout.xsl)
+    -->
+<div class="border-bottom">
+<div class="row  thulb-metadata-cover-repeatableDescription" id="thulb-metadata-repeatableDescription">
+<div title="Stempel" class="col col-sm-4 mt-1 mb-1 text-truncate text-nowrap thulb-meta-name ">Stempel:</div>
+<div class="col col-sm-8 mt-1 mb-1 thulb-meta-value">
+<div class="d-block ">Rollelstempel: a. Bl&uuml;tenranke; b. Bl&uuml;tenranke klein</div>
+<div class="d-block mt-1 ">Einzelstempel: c. Granatapfel mit inliegendem Strau&szlig;, klein; der inliegende Strau&szlig; erscheint auch als Einzelstempel</div>
+</div>
+</div>
+</div>
+<!--
+      End - name="printMetaDate" (MyCoReLayout.xsl)
+    -->
+<!--
+      Start - name="printMetaDate" (MyCoReLayout.xsl)
+    -->
+<div class="border-bottom">
+<div class="row  thulb-metadata-cover-description" id="thulb-metadata-description">
+<div title="Schlie&szlig;en/Applikation" class="col col-sm-4 mt-1 mb-1 text-truncate text-nowrap thulb-meta-name ">Schlie&szlig;en/Applikation:</div>
+<div class="col col-sm-8 mt-1 mb-1 thulb-meta-value">
+<div class="d-block ">origianle Schlie&szlig;en und Beschl&auml;ge</div>
+</div>
+</div>
+</div>
+<!--
+      End - name="printMetaDate" (MyCoReLayout.xsl)
+    -->
+<!--
+      Start - name="printMetaDate" (MyCoReLayout.xsl)
+    -->
+<div class="border-bottom">
+<div class="row  thulb-metadata-cover-repeatableDescription" id="thulb-metadata-repeatableDescription">
+<div title="Wasserzeichen" class="col col-sm-4 mt-1 mb-1 text-truncate text-nowrap thulb-meta-name ">Wasserzeichen:</div>
+<div class="col col-sm-8 mt-1 mb-1 thulb-meta-value">
+<div class="d-block ">1. Blume, klein (Herkunft: Mittel- und Oberitalien)</div>
+<div class="d-block mt-1 ">2. Blume, gro&szlig; (Herkunft: Mittel- und Oberitalien)</div>
+<div class="d-block mt-1 ">3. Ochsenkopf (nur in einer einzige Lage (L. 10)</div>
+</div>
+</div>
+</div>
+<!--
+      End - name="printMetaDate" (MyCoReLayout.xsl)
+    -->
+<!--
+      Start - collections.edit (collections-edit-toolbars.xsl)
+    -->
+<!--
+      End - collections.edit (collections-edit-toolbars.xsl)
+    -->
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!--
+      End - match="/mycoreobject" (mycoreobject.xsl)
+    -->
+</div>
+<!--
+      Start - thulb-default-footer (common-ui-elements.xsl)
+    -->
+<div class="container">
+<div class="row justify-content-center mt-3 mb-3">
+<div class="col-12 text-center">
+<a target="_blank" href="//www.thulb.uni-jena.de" id="thulbLink"><img alt="thulb-logo" src="https://collections.thulb.uni-jena.de/images/thulb_text_right_de.svg" class="img-fluid thulb-logo-footer-text-right"></a>
+</div>
+</div>
+</div>
+<!--
+      End - thulb-default-footer (common-ui-elements.xsl)
+    -->
+</body>
+</html><!--
+      End - template name="html-layout" (html-layout.xsl)
+    -->

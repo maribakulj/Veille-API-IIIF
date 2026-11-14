@@ -1,0 +1,13 @@
+{
+  "slug": "thuringer-universitats-und-landesbibliothek-jena",
+  "min_delay_s": 10,
+  "max_requests": 15,
+  "follow_redirects": 1,
+  "robots_disallow_autorise_par_marcel": true,
+  "note": "Passe 4 : URL toutes tirees de reponses precedentes. (1) iiif-module.js du visionneur (liste dans le HTML de zs-viewer-derivate-00401748.body) pour lire le motif de l'URL du manifeste IIIF ; (2) metsURL donnee dans les proprietes du visionneur (MCRMETSServlet) ; (3) sitemap_google_1.00000.xml annonce par l'index de collections.thulb (collections-sitemap-google.body) pour obtenir un identifiant public de cet hote.",
+  "endpoints": [
+    {"id": "zs-js-iiif-module", "method": "GET", "url": "https://zs.thulb.uni-jena.de/modules/iview2/js/iiif-module.js", "save_body": 200000},
+    {"id": "zs-mets-servlet-00401748", "method": "GET", "url": "https://zs.thulb.uni-jena.de/servlets/MCRMETSServlet/jportal_derivate_00401748", "save_body": 30000},
+    {"id": "collections-sitemap-google-1", "method": "GET", "url": "https://collections.thulb.uni-jena.de/sitemap_google_1.00000.xml", "save_body": 100000}
+  ]
+}
