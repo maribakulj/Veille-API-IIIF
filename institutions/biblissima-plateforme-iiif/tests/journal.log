@@ -23,3 +23,7 @@
 2026-11-14T01:33:03Z | demos-manifeste-florus | https://demos.biblissima.fr/iiif/metadata/florus-dispersus/manifest.json | GET | 200 OK | aucun en-tête de limite | taille≥200 | corps: {     "@context": "http://iiif.io/api/presentation/2/context.json",     "@id": "http://demos.biblissima-condorcet.fr/iiif/metadata/florus-dispersus/manifest.json",     "@type": "sc:Manifest",     "lab
 2026-11-14T01:33:14Z | demos-manifeste-chateauroux | https://demos.biblissima.fr/iiif/metadata/BVMM/chateauroux/manifest.json | GET | 200 OK | aucun en-tête de limite | taille≥200 | corps: {      "@context": "http://iiif.io/api/presentation/2/context.json",     "@id": "https://demos.biblissima-condorcet.fr/iiif/metadata/BVMM/chateauroux/manifest.json",     "@type": "sc:Manifest",     "l
 # Fin 2026-11-14T01:33:14Z — 10 requête(s) envoyée(s)
+# Session 2026-11-14T01:33:23Z — configuration biblissima-passe3.json — sonde probe.py au commit c3629b9
+2026-11-14T01:33:23Z | robots.txt:data.biblissima.fr | https://data.biblissima.fr/robots.txt | GET | 404 | robots.txt indisponible : tout est autorisé (RFC 9309)
+2026-11-14T01:33:36Z | entitydata-Q27392-json | https://data.biblissima.fr/w/Sp%C3%A9cial:EntityData/Q27392.json | GET | 200 OK | aucun en-tête de limite | taille≥200 | corps: {"entities":{"Q27392":{"pageid":27642,"ns":120,"title":"Item:Q27392","lastrevid":1996408,"modified":"2025-11-13T11:52:54Z","type":"item","id":"Q27392","labels":{"fr":{"language":"fr","value":"Paris (F
+# Fin 2026-11-14T01:33:36Z — 2 requête(s) envoyée(s)
