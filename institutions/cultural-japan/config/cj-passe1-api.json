@@ -1,0 +1,18 @@
+{
+  "slug": "cultural-japan",
+  "min_delay_s": 6,
+  "max_requests": 15,
+  "follow_redirects": 1,
+  "robots_disallow_autorise_par_marcel": true,
+  "note": "Passe 1 : endpoints de https://api.cultural.jp/openapi.json (sources/api) avec les exemples de la doc (stanfordsw-2842816, minneapolis-exhib-2021-japan) ; SPARQL ld.cultural.jp/sparql/ cité par la page About (requete ASK minimale). robots.txt de api.cultural.jp : Disallow / (test autorisé par Marcel) ; ld.cultural.jp : Disallow /sparql ; cultural.jp : Disallow /api/ (même API, servie aussi par api.cultural.jp). app.cultural.jp : robots.txt en 403, hôte non testé.",
+  "endpoints": [
+    {"id": "cj-count", "method": "GET", "url": "https://api.cultural.jp/count?keyword=Map"},
+    {"id": "cj-search-1", "method": "GET", "url": "https://api.cultural.jp/search?keyword=Map&size=1"},
+    {"id": "cj-item", "method": "GET", "url": "https://api.cultural.jp/item/stanfordsw-2842816"},
+    {"id": "cj-manifeste", "method": "GET", "url": "https://api.cultural.jp/iiif/stanfordsw-2842816/manifest", "save_body": 300000},
+    {"id": "cj-exhibition-liste", "method": "GET", "url": "https://api.cultural.jp/iiif/2/exhibition", "save_body": 300000},
+    {"id": "cj-exhibition-collection", "method": "GET", "url": "https://api.cultural.jp/exhibition/iiif/collection/minneapolis-exhib-2021-japan", "save_body": 300000},
+    {"id": "cj-collection-map", "method": "GET", "url": "https://api.cultural.jp/collection?keyword=Map", "save_body": 300000},
+    {"id": "cj-sparql-ask", "method": "GET", "url": "https://ld.cultural.jp/sparql/?query=ASK%7B%7D"}
+  ]
+}

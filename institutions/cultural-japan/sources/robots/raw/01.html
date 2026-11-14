@@ -1,0 +1,27 @@
+User-agent: *
+Allow: /
+Disallow: /search
+Disallow: /api/
+
+# 学習用の巡回はお断りします。
+#
+# 2026-09-09 に CloudFront のログ 1 時間ぶん (93,168 件) を数えたところ、
+# meta-externalagent だけで 59,560 件、**全体の 64%** を占めていました。
+# 資料ページは 240 万件あり、巡回者はそのほぼ全部を 1 回ずつ舐めていきます
+# (1 時間の資料ページ 49,042 件のうち、異なる URL が 45,425 件 = 93%)。
+# キャッシュはほとんど効かず、そのまま配信元の負荷と費用になります。
+#
+# 検索エンジン (Googlebot / Bingbot / Applebot) は引き続き歓迎します。
+# メタデータは https://cultural.jp/api/ から取得できます。
+User-agent: meta-externalagent
+Disallow: /
+
+# Google の検索インデックス用ではない巡回 (Gemini などの学習・取得用)。
+# Googlebot とは別扱いなので、検索結果には影響しません。
+User-agent: GoogleOther
+Disallow: /
+
+User-agent: SleepBot
+Disallow: /
+
+Sitemap: https://cultural.jp/sitemap.xml
