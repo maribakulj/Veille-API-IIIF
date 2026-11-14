@@ -1,0 +1,15 @@
+{
+  "slug": "e-manuscripta-bibliotheques-partenaires-suisses",
+  "min_delay_s": 6,
+  "max_requests": 15,
+  "follow_redirects": 1,
+  "robots_disallow_autorise_par_marcel": true,
+  "note": "Passe 2 : fonctions documentées non couvertes en passe 1 (ListRecords étroit = 10 notices, ListSets avec resumptionToken, PDF en HEAD seulement, hOCR, collection IIIF v21/top citée par la data map ZB et le document de l'Université de Berne). Exemples tirés de sources/a2.",
+  "endpoints": [
+    {"id": "oai-listrecords-etroit", "method": "GET", "url": "https://www.e-manuscripta.ch/oai/?verb=ListRecords&metadataPrefix=oai_dc&set=emanuszuz&from=2021-09-01&until=2021-09-08"},
+    {"id": "oai-listsets-token", "method": "GET", "url": "https://www.e-manuscripta.ch/oai?verb=ListSets&resumptionToken=cursor_p_3D10_p_26batch_size_p_3D11"},
+    {"id": "pdf-head-1384091", "method": "HEAD", "url": "https://www.e-manuscripta.ch/download/pdf/1384091.pdf"},
+    {"id": "fulltext-hocr-1831288", "method": "GET", "url": "https://www.e-manuscripta.ch/zuz/download/fulltext/hocr/1831288"},
+    {"id": "iiif-collection-top", "method": "GET", "url": "https://www.e-manuscripta.ch/i3f/v21/collection/top"}
+  ]
+}
