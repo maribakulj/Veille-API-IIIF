@@ -1,0 +1,48 @@
+name: Contrôle du rattrapage documentaire IIIF
+
+on:
+  push:
+    branches:
+      - chatgpt/rattrapage-documentation-2026-11-14
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  controle-sans-reseau:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Récupérer la branche
+        uses: actions/checkout@v4
+      - name: Installer Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Tester le rapprochement
+        run: python -m unittest discover -s tests -p 'test_etat_reverifications.py' -v
+      - name: Générer la file de vérifications (aucune requête à des API IIIF)
+        run: |
+          python scripts/etat_reverifications.py --root . --out data/etat-reverifications.csv > data/resume-reverifications.json
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          s = json.loads(Path('data/resume-reverifications.json').read_text())
+          assert s['institution_json'] == 93, 'Périmètre institutionnel modifié : revoir le contrôle'
+          assert s['lignes_manuelles'] == 260, 'File manuelle modifiée : revoir le contrôle'
+          print(json.dumps(s, ensure_ascii=False, indent=2))
+          Path('data/controle-rattrapage.txt').write_text(
+              'Contrôle effectué sans aucune requête HTTP vers les API patrimoniales.\n'
+              'Les catégories du registre sont documentaires et non des statuts HTTP.\n'
+          )
+          PY
+      - name: Publier les fichiers de travail produits
+        uses: actions/upload-artifact@v4
+        with:
+          name: rattrapage-inventaire-manuel
+          path: |
+            data/etat-reverifications.csv
+            data/resume-reverifications.json
+            data/controle-rattrapage.txt
+          retention-days: 14
