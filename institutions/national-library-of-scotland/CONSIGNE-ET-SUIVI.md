@@ -16,9 +16,9 @@
 ### b) Endpoints tirés de la doc
 > Liste des endpoints citée par la doc (URL, exemples). Jamais devinée. Une interdiction ou une impossibilité écrite dans la doc justifie de renoncer (citer la phrase).
 
-- [ ] **Pas fait**
-  - **Justification** : DÉCOCHÉE le 2026-11-14 (verrou renforcé) : URL d'API citée par la doc et ni testée ni justifiée : https://data.nls.uk/wp-json/wp/v2/pages/60 (ajouter à endpoints_documentes, ou à endpoints_ecartes avec url + raison) | ancienne justification : Endpoint documenté par le NLS : view.nls.uk/collections/top.json (« IIIF volumes are harvestable via a top-level collections-based json file »). Les manifestes, le service d'images dg-view et map-view
-  - **Preuves** : 
+- [x] **Fait**
+  - **Justification** : Familles tirées de la doc du NLS (top.json, CoreTrustSeal) et du manifeste (dg-view, map-view) ; REST WordPress de data.nls.uk annoncé par la page d'accueil ajouté et testé ; sites digital/maps en CAPTCHA, MapTiler hors IIIF : non testés avec raison.
+  - **Preuves** : `institutions/national-library-of-scotland/data.json`, `institutions/national-library-of-scotland/sources/suite/raw/03.html`, `institutions/national-library-of-scotland/sources/coretrust/nls-oais-archive.txt`
 
 ### c) Configuration écrite AVANT les tests
 > `config/<nom>.json` pilote `scripts/probe.py`, committée avant le lancement. Un endpoint absent de la doc mais non interdit se teste avec un script poli (identifiants issus de pages publiques ou d'exemples de la doc, pas de devinette).
@@ -37,9 +37,9 @@
 ### e) Test systématique de chaque endpoint
 > Chaque endpoint documenté est testé (budget 15 requêtes par passe, pause ≥ 6 s, GET/HEAD, UA du projet). Redirections du même hôte suivies. Un 403 arrête son hôte, un 429 arrête l'institution. Seules les interdictions écrites dans la doc dispensent de tester.
 
-- [ ] **Pas fait**
-  - **Justification** : DÉCOCHÉE le 2026-11-14 (verrou renforcé) : 1 élément(s) de rattrapage_a_faire non traités | ancienne justification : Tous les endpoints IIIF atteignables sont testés (passes 1 à 5, 9 requêtes de données + lectures de robots) : top.json, collection de 4 142 manifests, manifeste, info.json et dérivé de dg-view, info.j
-  - **Preuves** : 
+- [x] **Fait**
+  - **Justification** : Passes 1 à 5 : top.json, collection, manifeste, dg-view, map-view en 200 ; passe 6 : wp-json data.nls.uk 200 ; digital.nls.uk et maps.nls.uk en CAPTCHA 405 non contournés ; aucun en-tête de limite, aucun 429.
+  - **Preuves** : `institutions/national-library-of-scotland/tests/journal.log`, `institutions/national-library-of-scotland/tests/raw/datanls-wp-json-pages-60.headers.txt`, `institutions/national-library-of-scotland/tests/raw/collections-top-json.headers.txt`, `institutions/national-library-of-scotland/data.json`
 
 ### f) Ce que disent les gens sur le web
 > Plaintes, discussions, présentations de l'institution, politique envers les API et les bots, blogs, GitHub, forums, listes de diffusion. Sources étiquetées (officielle / institution / utilisateur / tiers), lues, citées.
@@ -60,7 +60,7 @@
 
 <!-- AUTO:DEBUT -->
 ## Contrôles automatiques (calculés depuis `tests/journal.log`)
-- Requêtes enregistrées : **11** (sessions de sonde : 5, maximum par session : 3)
+- Requêtes enregistrées : **13** (sessions de sonde : 6, maximum par session : 3)
 - Plus courte pause vers un même hôte : **6 s** (règle : ≥ 6 s)
 - Méthodes utilisées : GET (règle : GET/HEAD seulement)
 - Anomalies : aucune

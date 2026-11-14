@@ -159,6 +159,24 @@
       "etiquette": "institution",
       "citation": "Page du NLS sur l'archivage web sous dépôt légal (collecte des sites .uk) ; ne vise pas le moissonnage IIIF (résumé de moteur, non vérifié ; page de l'institution non lue).",
       "preuve": "institutions/national-library-of-scotland/fiche.md"
+    },
+    {
+      "categorie": "institution",
+      "aucun_resultat": true,
+      "requete": "National Library of Scotland digital.nls.uk maps.nls.uk bots crawlers AI scraping human verification policy",
+      "date": "2026-11-14",
+      "etiquette": "–",
+      "citation": "Aucune page du NLS sur les robots ou la vérification humaine ; seule la déclaration IA de juillet 2024 (cenl.org), qui ne traite pas des robots (résumé de moteur, non vérifié).",
+      "preuve": "institutions/national-library-of-scotland/fiche.md"
+    },
+    {
+      "categorie": "presentations",
+      "aucun_resultat": true,
+      "requete": "National Library of Scotland IIIF view.nls.uk blog data.nls.uk API harvesting manifests",
+      "date": "2026-11-14",
+      "etiquette": "–",
+      "citation": "Pas de page officielle sur un point de moissonnage en plus de top.json (déjà lu dans la demande CoreTrustSeal) ; contact data.nls.uk : digital.scholarship@nls.uk (résumé de moteur, non vérifié).",
+      "preuve": "institutions/national-library-of-scotland/fiche.md"
     }
   ],
   "contact": "geo@nls.uk (cartes) ; ask a librarian (nls.uk)",
@@ -245,6 +263,13 @@
       "url": "https://digital.nls.uk/",
       "statut": "non_teste",
       "raison": "Ces hôtes répondent par une page « Human Verification » (CAPTCHA, 405) ; la méthode interdit de la contourner, donc aucune requête de test n'a été envoyée."
+    },
+    {
+      "famille": "REST WordPress de data.nls.uk (wp-json/wp/v2/pages/60, annoncé par <link rel=alternate>)",
+      "url": "https://data.nls.uk/wp-json/wp/v2/pages/60",
+      "statut": "teste",
+      "preuve": "institutions/national-library-of-scotland/tests/raw/datanls-wp-json-pages-60.headers.txt",
+      "raison": "200 JSON, GET seul autorisé (en-tête allow), aucun en-tête de limite ; non documenté comme API par le NLS."
     }
   ],
   "hotes_robots": [
@@ -280,11 +305,9 @@
     },
     {
       "hote": "data.nls.uk",
-      "resultat": "200 (robots.txt lu, 112 octets)",
-      "preuve": "institutions/national-library-of-scotland/sources/suite/FETCH.log"
+      "resultat": "200 : User-agent * ; Disallow /wp-admin/, Allow /wp-admin/admin-ajax.php (sources/suite/raw/02.html ; relu par la sonde, 2 règles)",
+      "preuve": "institutions/national-library-of-scotland/sources/suite/raw/02.html"
     }
   ],
-  "rattrapage_a_faire": [
-    "https://data.nls.uk/wp-json/wp/v2/pages/60 : à tester par scripts/probe.py, config à committer avant (point d'accès REST WordPress annoncé par <link rel=alternate type=application/json> dans sources/suite/raw/03.html ; non documenté comme API par la NLS, enjeu faible)"
-  ]
+  "rattrapage_a_faire": []
 }

@@ -30,6 +30,10 @@
 
 Aucun 429. Aucun en-tête `Retry-After`, `X-RateLimit-*`, `RateLimit-*`. Non testés : `digital.nls.uk` et `maps.nls.uk` (CAPTCHA, hôte arrêté par la règle de la méthode).
 
+| 6 (14/11) | `data.nls.uk/wp-json/wp/v2/pages/60` (REST WordPress annoncé par la page d'accueil, non documenté comme API) | **200**, GET seul (`allow: GET`), aucun en-tête de limite |
+
+Recherches web du 14/11 : aucune page du NLS sur les robots ni sur d'autres points de moissonnage que `top.json` (résumés de moteur, non vérifiés).
+
 ## Web
 
 - **Un utilisateur** (ticket `dezoomify-rs` n° 92, décembre 2020, `map-view.nls.uk`) rapporte qu'un tuilage « plein format » reçoit un **403** : « The requested pixel area exceeds the maximum threshold set in the configuration. » Ancien, d'un particulier, **non vérifié par nous** (nous n'avons pas demandé de grande image).
