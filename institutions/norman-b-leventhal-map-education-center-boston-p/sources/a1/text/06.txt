@@ -1,0 +1,35 @@
+Georeferenced Map Collections | Cartinal 
+ X As of May 30, 2025, this site has been archived.
+ Hi! 👋 Thanks for visiting Cartinal. Please feel free to explore, but note that
+ these guides and documentation pages are no longer maintained. Content may be
+ outdated.
+ Technical documentation for LMEC digital projects has been migrated to the corresponding project's GitHub Wiki page in the @bplmaps repository .
+ Future guides will be published as part of our forthcoming digital teaching resources platform.
+ ↩ LMEC Home
+ Cartinal has been archived as of May 30, 2025. Please visit our GitHub page @bplmaps for technical documentation. 
+ Cartinal
+ Guides and Tutorials
+ Documentation
+ Guides and Tutorials
+ Documentation
+ Georeferenced Map Collections 
+ Accessing maps previously georeferenced in Map Warper 
+ Accessing maps georeferenced in Allmaps 
+ 🕒 Page Health
+ It has been 1122 days since this page was last updated .
+ # Georeferenced Map Collections
+ The Leventhal Map & Education Center (LMEC) is home to nearly a thousand georeferenced maps and atlases, all of which are free for public use.
+ # Accessing maps previously georeferenced in Map Warper
+ LMEC Map Warper
+ The Map Warper integration which was set up in our Digital Collections site is unfortunately no longer being supported. The source Map Warper software this was based on, and the crowdsourced add-on to the original software requires many outdated dependencies that make the tool's upkeep extremely difficult and less-than-operational.
+ You can access maps which were georeferenced using our Collections portal instance of Map Warper prior to the software's expiration by doing the following:
+ Visit collections.leventhalmap.org 
+ Return all map results by clicking the blue search button on the home page
+ Filter by only the maps that have been georeferenced. Do this by scrolling down the filters on the left hand side of the page, and selecting Georeferenced → Yes 
+ Pick a map from the resulting list
+ On the page showing the map, scroll below the map image to the Downloads section
+ To download a GeoTIFF for use with GIS software, select Downloads → GeoTIFF 
+ To find a web layer link that will be compatible in QGIS, ArcGIS Online, Leaflet, and so on, select Downloads → See More Downloads (Warped PNG, KML, WMS Tile URL) → Tiles (Google/OSM Scheme) 
+ # Accessing maps georeferenced in Allmaps
+ Allmaps is a platform for web georeferencing that relies on the IIIF protocol and WebGL to warp maps in a web browser. While Allmaps is still under development, you will eventually be able to access any maps previously georeferenced in Map Warper there as well. You'll also be able to add new maps to those collections. Stay tuned for more info in fall 2022!
+ Last Updated: 4/5/2022, 3:17:56 PM
