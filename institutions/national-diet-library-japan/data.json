@@ -4,10 +4,296 @@
   "pays": "Japon",
   "classeur_id": "GLAM-076",
   "type": "Institution",
-  "statut_audit": "à faire",
-  "limites_documentees": [],
-  "en_tetes_observes": [],
-  "blocages": [],
-  "sources": [],
-  "web": []
+  "statut_audit": "audit a–f complet (v2) ; arrêt 429 ; g impossible",
+  "limites_documentees": [
+    {
+      "nature": "Accès simultanés et blocage d'IP",
+      "perimetre": "NDL Search API",
+      "valeur": "« We restrict the number of concurrent accesses to prevent server overload. When we receive a large amounts of requests from a particular IP address on a continuous basis, we might block access to the website. »",
+      "fenetre": "non chiffrée",
+      "effet": "restriction des accès, blocage possible du site",
+      "verification": "officielle, observée (429)",
+      "source": "https://ndlsearch.ndl.go.jp/en/help/api",
+      "date": "2026-11-14"
+    },
+    {
+      "nature": "Nombre maximal de résultats",
+      "perimetre": "SRU/OpenSearch",
+      "valeur": "500 par requête, aucun résultat au-delà du 500e",
+      "fenetre": "–",
+      "effet": "troncature",
+      "verification": "officielle, non testée",
+      "source": "https://ndlsearch.ndl.go.jp/file/help/api/specifications/ndlsearch_api_20260925.pdf",
+      "date": "2026-11-14"
+    },
+    {
+      "nature": "Période OAI-PMH",
+      "perimetre": "ListRecords/ListIdentifiers",
+      "valeur": "from obligatoire, période d'un an au plus, 200 notices par resumptionToken",
+      "fenetre": "1 an",
+      "effet": "requête refusée au-delà",
+      "verification": "officielle, non testée",
+      "source": "https://ndlsearch.ndl.go.jp/file/help/api/specifications/ndlsearch_api_20260925.pdf",
+      "date": "2026-11-14"
+    }
+  ],
+  "en_tetes_observes": [
+    {
+      "hote": "ndlsearch.ndl.go.jp",
+      "en_tete": "aucun (x-cache: Error from cloudfront ; pas de Retry-After)",
+      "preuve": "institutions/national-diet-library-japan/tests/raw/v2p1-ndlsearch-sru.headers.txt"
+    }
+  ],
+  "blocages": [
+    {
+      "hote": "ndlsearch.ndl.go.jp",
+      "code": "429",
+      "nature": "429 Too Many Requests, limite de connexions simultanées, SRU, 2026-11-14T02:59:06Z ; arrêt de l'institution",
+      "preuve": "institutions/national-diet-library-japan/tests/journal.log"
+    },
+    {
+      "hote": "ndlsearch.ndl.go.jp",
+      "code": "délai",
+      "nature": "timeout 30 s sur OpenSearch (1re requête)",
+      "preuve": "institutions/national-diet-library-japan/tests/journal.log"
+    }
+  ],
+  "sources": [
+    {
+      "url": "https://ndlsearch.ndl.go.jp/en/help/api",
+      "date": "2026-11-14",
+      "etiquette": "officielle",
+      "preuve": "institutions/national-diet-library-japan/sources/a2/SHA256SUMS"
+    },
+    {
+      "url": "https://ndlsearch.ndl.go.jp/help/api",
+      "date": "2026-11-14",
+      "etiquette": "officielle",
+      "preuve": "institutions/national-diet-library-japan/sources/a2/SHA256SUMS"
+    },
+    {
+      "url": "https://ndlsearch.ndl.go.jp/en/help/api/specifications",
+      "date": "2026-11-14",
+      "etiquette": "officielle",
+      "preuve": "institutions/national-diet-library-japan/sources/a3/SHA256SUMS"
+    },
+    {
+      "url": "https://ndlsearch.ndl.go.jp/en/help/api/oai_pmh",
+      "date": "2026-11-14",
+      "etiquette": "officielle",
+      "preuve": "institutions/national-diet-library-japan/sources/a3/SHA256SUMS"
+    },
+    {
+      "url": "https://ndlsearch.ndl.go.jp/en/help/sitepolicy",
+      "date": "2026-11-14",
+      "etiquette": "officielle",
+      "preuve": "institutions/national-diet-library-japan/sources/a3/SHA256SUMS"
+    },
+    {
+      "url": "https://ndlsearch.ndl.go.jp/file/help/api/specifications/ndlsearch_api_20260925.pdf",
+      "date": "2026-11-14",
+      "etiquette": "officielle",
+      "preuve": "institutions/national-diet-library-japan/sources/a4/SHA256SUMS"
+    },
+    {
+      "url": "https://www.ndl.go.jp/jp/dlib/standards/opendataset/index.html",
+      "date": "2026-11-14",
+      "etiquette": "officielle",
+      "preuve": "institutions/national-diet-library-japan/sources/a4/SHA256SUMS"
+    },
+    {
+      "url": "https://current.ndl.go.jp/car/35999",
+      "date": "2026-11-14",
+      "etiquette": "tiers (NDL, Current Awareness)",
+      "preuve": "institutions/national-diet-library-japan/sources/a5/SHA256SUMS"
+    },
+    {
+      "url": "https://dl.ndl.go.jp/static/files/IIIF_interface_Jp.pdf",
+      "date": "2026-11-14",
+      "etiquette": "officielle",
+      "preuve": "institutions/national-diet-library-japan/sources/a7/SHA256SUMS"
+    },
+    {
+      "url": "https://www.dl.ndl.go.jp/robots.txt",
+      "date": "2026-11-14",
+      "etiquette": "officielle",
+      "preuve": "institutions/national-diet-library-japan/sources/a8/SHA256SUMS"
+    },
+    {
+      "url": "http://dl.ndl.go.jp/ja/iiif_license.html (Wayback 2022-12-16)",
+      "date": "2026-11-14",
+      "etiquette": "officielle, archivée",
+      "preuve": "institutions/national-diet-library-japan/sources/wayback/ndl-dl-iiif-licence.md"
+    }
+  ],
+  "web": [
+    {
+      "categorie": "institution",
+      "url": "https://dl.ndl.go.jp/static/files/IIIF_interface_Jp.pdf",
+      "date": "2026-11-14",
+      "etiquette": "officielle (trouvée par recherche web)",
+      "citation": "guide IIIF : manifeste https://www.dl.ndl.go.jp/api/iiif/{PID}/manifest.json ; aucune limite de débit citée.",
+      "preuve": "institutions/national-diet-library-japan/sources/a7/SHA256SUMS"
+    },
+    {
+      "categorie": "utilisateurs",
+      "aucun_resultat": true,
+      "requete": "NDL Search API rate limit blocked IP 429 OR \"too many requests\" ndlsearch.ndl.go.jp harvest",
+      "date": "2026-11-14",
+      "etiquette": "–",
+      "citation": "aucune plainte ni discussion concernant NDL ; résultats sans rapport avec la NDL (autres API).",
+      "preuve": "institutions/national-diet-library-japan/fiche.md"
+    },
+    {
+      "categorie": "tickets",
+      "url": "https://github.com/search?q=%22ndlsearch.ndl.go.jp%2Fapi%22+429&type=issues",
+      "date": "2026-11-14",
+      "etiquette": "tiers (recherche interne GitHub ; WebSearch indisponible)",
+      "citation": "aucun résultat concernant ndlsearch.ndl.go.jp ; les « 429 » correspondent à des numéros de ticket.",
+      "preuve": "institutions/national-diet-library-japan/fiche.md"
+    },
+    {
+      "categorie": "presentations",
+      "url": "https://zenn.dev/nakamura196/articles/be2941869b5b29",
+      "date": "2026-11-14",
+      "etiquette": "tiers, lu par WebFetch (page de redirection)",
+      "citation": "article sur les manifestes NDL : ne mentionne ni limite ni 429 ; aucune présentation de la NDL sur la politique d'API trouvée (WebSearch indisponible).",
+      "preuve": "institutions/national-diet-library-japan/fiche.md"
+    }
+  ],
+  "contact": "formulaire de demande d'API NDL Search (www.ndl.go.jp/form/en/service/api_application.html) ; ndlsearch.ndl.go.jp/en/help/contact",
+  "conclusion_quota": "Limite de requêtes simultanées documentée sans chiffre (blocage d'IP possible) et observée : 429 sur le SRU dès la 2e requête ; plafonds de volume 500 résultats et OAI-PMH sur 1 an ; IIIF non testé (arrêt 429).",
+  "classe_quota": "limite non chiffrée documentée et observée (429)",
+  "confiance": "moyenne",
+  "notes": "429 le 2026-11-14T02:59:06Z sur ndlsearch.ndl.go.jp/api/sru, sans en-tête de limite ; arrêt de l'institution, aucune relance. Catégories web tickets/présentations sans WebSearch propre (budget épuisé).",
+  "a_verifier_manuellement": [
+    {
+      "url": "https://dl.ndl.go.jp/ja/terms",
+      "pourquoi": "application JavaScript : la sonde ne reçoit qu'une coquille de 4 298 octets",
+      "a_chercher": "Conditions d'usage et éventuelle limite de débit de NDL Digital Collections et de son IIIF"
+    },
+    {
+      "url": "https://www.dl.ndl.go.jp/api/iiif/2542679/manifest.json",
+      "pourquoi": "non testé : arrêt de l'institution après le 429 du SRU",
+      "a_chercher": "En-têtes de réponse et éventuelle limite sur le manifeste IIIF et sur les images"
+    },
+    {
+      "url": "https://ndlsearch.ndl.go.jp/api/oaipmh?verb=Identify",
+      "pourquoi": "non testé : arrêt 429",
+      "a_chercher": "Comportement OAI-PMH, en-têtes, seuil de requêtes simultanées"
+    }
+  ],
+  "endpoints_documentes": [
+    {
+      "famille": "SRU (NDL Search)",
+      "url": "https://ndlsearch.ndl.go.jp/api/sru?operation=searchRetrieve&maximumRecords=1&query=title%3d%22%E6%A1%9C%22",
+      "statut": "teste",
+      "preuve": "institutions/national-diet-library-japan/tests/raw/v2p1-ndlsearch-sru.headers.txt"
+    },
+    {
+      "famille": "OpenSearch (NDL Search)",
+      "url": "https://ndlsearch.ndl.go.jp/api/opensearch?cnt=1&title=x",
+      "statut": "teste",
+      "preuve": "institutions/national-diet-library-japan/tests/journal.log"
+    },
+    {
+      "famille": "OpenURL",
+      "url": "https://ndlsearch.ndl.go.jp/api/openurl",
+      "statut": "non_teste",
+      "raison": "arrêt de l'institution après le 429 reçu sur le SRU (règle : jamais d'insistance)"
+    },
+    {
+      "famille": "OAI-PMH",
+      "url": "https://ndlsearch.ndl.go.jp/api/oaipmh?verb=Identify",
+      "statut": "non_teste",
+      "raison": "arrêt de l'institution après le 429 reçu sur le SRU (règle : jamais d'insistance)"
+    },
+    {
+      "famille": "IIIF Presentation (manifeste Digital Collections)",
+      "url": "https://www.dl.ndl.go.jp/api/iiif/2542679/manifest.json",
+      "statut": "non_teste",
+      "raison": "arrêt de l'institution après le 429 reçu sur le SRU ; à refaire plus tard"
+    },
+    {
+      "famille": "IIIF Image / info.json",
+      "url": "https://www.dl.ndl.go.jp/api/iiif/1234567/info.json",
+      "statut": "non_teste",
+      "raison": "arrêt 429 ; identifiant d'exemple de la doc, aucun identifiant réel de canevas obtenu faute de manifeste"
+    },
+    {
+      "famille": "Thumbnail API",
+      "url": "https://ndlsearch.ndl.go.jp/en/help/api",
+      "statut": "non_teste",
+      "raison": "demande d'utilisation requise (usage commercial) et page de spécification en 404 ; arrêt 429"
+    }
+  ],
+  "endpoints_ecartes": [
+    {
+      "url": "https://ndlsearch.ndl.go.jp/api/opensearch_description",
+      "raison": "description OpenSearch liée depuis la page d'aide, non lancée après arrêt 429 ; pas une famille d'API distincte"
+    },
+    {
+      "url": "https://ndlsearch.ndl.go.jp/help/api/thumbnail",
+      "raison": "page de doc : 404 constaté (sources/a3/FETCH.log), aucune API à tester"
+    },
+    {
+      "url": "http://dl.ndl.go.jp/api/oaipmh?verb=GetRecord&metadataPrefix=dcndl_porta&identifier=oai:dl.ndl.go.jp:（永続的識",
+      "raison": "exemple de modèle (identifiant à remplacer) dans la doc de l'ancienne OAI-PMH de dl.ndl.go.jp ; non testé : identifiant non réel et arrêt de l'institution après le 429"
+    },
+    {
+      "url": "https://dl.ndl.go.jp/static/files/IIIF_interface_Jp.pdf",
+      "raison": "document PDF de documentation (guide IIIF) téléchargé par fetch_doc.sh, pas un endpoint d'API à tester"
+    },
+    {
+      "url": "https://dl.ndl.go.jp/view/download/digidepo_11007718_po_ca1913.pdf?contentNo=1&alternativeNo=",
+      "raison": "téléchargement d'un PDF de document numérisé cité en exemple ; fichier volumineux, interdit par la méthode (jamais PDF) et arrêt 429"
+    },
+    {
+      "url": "https://ndlsearch.ndl.go.jp/file/help/api/specifications/ndlsearch_api_20260925.pdf",
+      "raison": "PDF de spécification téléchargé par fetch_doc.sh (sources/a4), pas un endpoint d'API"
+    },
+    {
+      "url": "https://ndlsearch.ndl.go.jp/site/search?cs=page&keyword={search_term_string}",
+      "raison": "modèle de recherche du site (SearchAction du balisage de la page), page HTML de recherche, pas une API ; recherche interdite par la méthode et arrêt 429"
+    },
+    {
+      "url": "https://www.ndl.go.jp/search?cs=bib&f-ht=ndl&keyword={search_term_string}",
+      "raison": "modèle de recherche du site (SearchAction), page HTML, pas une API ; arrêt 429"
+    }
+  ],
+  "hotes_robots": [
+    {
+      "hote": "ndlsearch.ndl.go.jp",
+      "resultat": "Disallow: /api (autorisé par Marcel C12), pas de Crawl-delay",
+      "preuve": "institutions/national-diet-library-japan/sources/a1/SHA256SUMS"
+    },
+    {
+      "hote": "dl.ndl.go.jp",
+      "resultat": "Disallow: /api/ mais Allow: /api/iiif/",
+      "preuve": "institutions/national-diet-library-japan/sources/a1/SHA256SUMS"
+    },
+    {
+      "hote": "www.dl.ndl.go.jp",
+      "resultat": "idem dl.ndl.go.jp",
+      "preuve": "institutions/national-diet-library-japan/sources/a8/SHA256SUMS"
+    },
+    {
+      "hote": "www.ndl.go.jp",
+      "resultat": "Allow: /",
+      "preuve": "institutions/national-diet-library-japan/sources/a1/SHA256SUMS"
+    },
+    {
+      "hote": "lab.ndl.go.jp",
+      "resultat": "Disallow /dl/fulltext, /dl/illust ; non contacté en test",
+      "preuve": "institutions/national-diet-library-japan/sources/a1/SHA256SUMS"
+    },
+    {
+      "hote": "current.ndl.go.jp",
+      "resultat": "Disallow /wp-admin/",
+      "preuve": "institutions/national-diet-library-japan/sources/a5/SHA256SUMS"
+    }
+  ],
+  "g_impossible": {
+    "raison": "429 reçu sur ndlsearch.ndl.go.jp (SRU) dès la 2e requête : aucun endpoint déjà vu en 200 dans le journal ; le crash test ferait insister sur un hôte qui limite déjà, à refaire plus tard."
+  }
 }

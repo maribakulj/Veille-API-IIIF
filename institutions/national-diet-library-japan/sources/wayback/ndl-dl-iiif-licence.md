@@ -14,6 +14,6 @@ Conditions : « Collection Information » = Books ou Rare Books and Old Material
 ## 2. https://www.ndl.go.jp/jp/news/fy2018/180515_01.html (annonce du 2018-05-15)
 Réplique : https://web.archive.org/web/20190824204504/https://www.ndl.go.jp/jp/news/fy2018/180515_01.html
 
-> 著作権保護期間満了によりインターネット公開しているもの（約34万点）を、画像共有のためのフレームWORK...
+> 著作権保護期間満了によりインターネット公開しているもの（約34万点）を、画像共有のためのフレームワークとして注目を集めるIIIF（International Image Interoperability Framework）に対応した方式でも提供することにしました。
 
-(texte exact : « 著作権保護期間満了によりインターネット公開しているもの（約34万点）を、画像共有のためのフレームワークとして注目を集めるIIIF（International Image Interoperability Framework）に対応した方式でも提供することにしました。 ») Pas de limite de débit.
+Pas de limite de débit.
