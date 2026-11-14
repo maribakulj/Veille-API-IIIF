@@ -4,10 +4,338 @@
   "pays": "États-Unis",
   "classeur_id": "GLAM-039",
   "type": "Institution",
-  "statut_audit": "à faire",
-  "limites_documentees": [],
+  "statut_audit": "audit a–f complet (v2) ; g à faire (config prête)",
+  "limites_documentees": [
+    {
+      "nature": "Conditions d'usage du site (usage personnel non commercial)",
+      "perimetre": "sites Stanford (Terms of Use)",
+      "valeur": "« User may download material from the Sites only for User’s own personal, non-commercial use. »",
+      "fenetre": "–",
+      "effet": "–",
+      "verification": "officielle, lue en entier",
+      "source": "https://www.stanford.edu/site/terms/",
+      "date": "2026-11-14"
+    },
+    {
+      "nature": "Crawl-delay robots.txt",
+      "perimetre": "library.stanford.edu (site, hors API)",
+      "valeur": "crawl-delay: 30",
+      "fenetre": "30 s entre requêtes",
+      "effet": "–",
+      "verification": "officielle, lue ; non sondé",
+      "source": "https://library.stanford.edu/robots.txt",
+      "date": "2026-11-14"
+    }
+  ],
   "en_tetes_observes": [],
   "blocages": [],
-  "sources": [],
-  "web": []
+  "sources": [
+    {
+      "url": "https://api.library.stanford.edu/docs/iiif/api/",
+      "date": "2026-11-14",
+      "etiquette": "officielle",
+      "preuve": "institutions/stanford-university-libraries/sources/api-iiif/SHA256SUMS"
+    },
+    {
+      "url": "https://api.library.stanford.edu/docs/purl/api/",
+      "date": "2026-11-14",
+      "etiquette": "officielle",
+      "preuve": "institutions/stanford-university-libraries/sources/api-purl/SHA256SUMS"
+    },
+    {
+      "url": "https://api.library.stanford.edu/docs/digital-stacks/api/",
+      "date": "2026-11-14",
+      "etiquette": "officielle",
+      "preuve": "institutions/stanford-university-libraries/sources/api-stacks/SHA256SUMS"
+    },
+    {
+      "url": "https://api.library.stanford.edu/docs/embed/api/",
+      "date": "2026-11-14",
+      "etiquette": "officielle",
+      "preuve": "institutions/stanford-university-libraries/sources/api-embed/SHA256SUMS"
+    },
+    {
+      "url": "https://api.library.stanford.edu/docs/library-hours/api/",
+      "date": "2026-11-14",
+      "etiquette": "officielle",
+      "preuve": "institutions/stanford-university-libraries/sources/api-hours/SHA256SUMS"
+    },
+    {
+      "url": "https://api.library.stanford.edu/",
+      "date": "2026-11-14",
+      "etiquette": "officielle",
+      "preuve": "institutions/stanford-university-libraries/sources/api-home/SHA256SUMS"
+    },
+    {
+      "url": "https://library.stanford.edu/iiif",
+      "date": "2026-11-14",
+      "etiquette": "officielle",
+      "preuve": "institutions/stanford-university-libraries/sources/b/SHA256SUMS"
+    },
+    {
+      "url": "https://library.stanford.edu/general-policies",
+      "date": "2026-11-14",
+      "etiquette": "officielle",
+      "preuve": "institutions/stanford-university-libraries/sources/c/SHA256SUMS"
+    },
+    {
+      "url": "https://library.stanford.edu/copyright-notice",
+      "date": "2026-11-14",
+      "etiquette": "officielle",
+      "preuve": "institutions/stanford-university-libraries/sources/c/SHA256SUMS"
+    },
+    {
+      "url": "https://www.stanford.edu/site/terms/",
+      "date": "2026-11-14",
+      "etiquette": "officielle",
+      "preuve": "institutions/stanford-university-libraries/sources/c/SHA256SUMS"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/sul-dlss/stacks/main/README.md",
+      "date": "2026-11-14",
+      "etiquette": "officielle (GitHub de l'institution)",
+      "preuve": "institutions/stanford-university-libraries/sources/a/SHA256SUMS"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/sul-dlss/purl/main/README.md",
+      "date": "2026-11-14",
+      "etiquette": "officielle (GitHub de l'institution)",
+      "preuve": "institutions/stanford-university-libraries/sources/a/SHA256SUMS"
+    },
+    {
+      "url": "https://library.stanford.edu/contact-us",
+      "date": "2026-11-14",
+      "etiquette": "officielle",
+      "preuve": "institutions/stanford-university-libraries/sources/a/SHA256SUMS"
+    },
+    {
+      "url": "https://sdr.library.stanford.edu/news/web-searching-now-sdr-content",
+      "date": "2026-11-14",
+      "etiquette": "officielle",
+      "preuve": "institutions/stanford-university-libraries/sources/e/SHA256SUMS"
+    }
+  ],
+  "web": [
+    {
+      "categorie": "institution",
+      "url": "https://sdr.library.stanford.edu/news/web-searching-now-sdr-content",
+      "date": "2026-11-14",
+      "etiquette": "institution",
+      "citation": "« We've enabled web crawling of PURL (persistent URL) pages for a core set of SDR deposits » (environ 11 000 œuvres, 26 janvier 2024) ; aucune limite de débit citée.",
+      "preuve": "institutions/stanford-university-libraries/sources/e/text/01.txt"
+    },
+    {
+      "categorie": "utilisateurs",
+      "aucun_resultat": true,
+      "requete": "stacks.stanford.edu IIIF 429 too many requests OR rate limit OR blocked",
+      "date": "2026-11-14",
+      "etiquette": "–",
+      "citation": "aucune plainte ni question sur des 429/blocages de stacks ou purl Stanford ; résultats génériques sur le code 429 (résumé de moteur, non vérifié)",
+      "preuve": "institutions/stanford-university-libraries/fiche.md"
+    },
+    {
+      "categorie": "tickets",
+      "url": "https://github.com/allmaps/allmaps/issues/689",
+      "date": "2026-11-14",
+      "etiquette": "tiers",
+      "citation": "« When georeferencing maps from Stanford University, I cannot proceed beyond the \"Draw mask\" step in Allmaps Editor. » (manifeste https://purl.stanford.edu/tp496sm8272/iiif3/manifest, erreur navPlace, corrigée par PR #688) : aucun quota ni 429 cité.",
+      "preuve": "institutions/stanford-university-libraries/fiche.md"
+    },
+    {
+      "categorie": "presentations",
+      "aucun_resultat": true,
+      "requete": "Stanford Libraries Digital Library IIIF presentation SUL DLSS stacks image server Cantaloupe scaling traffic bots",
+      "date": "2026-11-14",
+      "etiquette": "–",
+      "citation": "aucune présentation ni billet de Stanford sur le trafic, les bots ou les limites de débit de ses services IIIF (résumé de moteur, non vérifié)",
+      "preuve": "institutions/stanford-university-libraries/fiche.md"
+    },
+    {
+      "categorie": "institution",
+      "aucun_resultat": true,
+      "requete": "Stanford University Libraries policy automated access web crawlers API bots SearchWorks purl",
+      "date": "2026-11-14",
+      "etiquette": "–",
+      "citation": "aucune politique de bots ou de moissonnage trouvée en dehors du billet SDR ; articles de presse généraux sur les bots et les bibliothèques universitaires, non spécifiques à Stanford (résumé de moteur, non vérifié)",
+      "preuve": "institutions/stanford-university-libraries/fiche.md"
+    }
+  ],
+  "contact": "https://library.stanford.edu/contact-us ; formulaire de retour sur https://api.library.stanford.edu (page About)",
+  "conclusion_quota": "Aucun quota ni limite de débit publiés : la doc API (api.library.stanford.edu) décrit PURL, IIIF, Digital Stacks, Embed et Library Hours sans mention de limite, de clé ni de compte. 16 requêtes de sonde (passes 1 et 2) toutes en 200, aucun en-tête RateLimit ni Retry-After, aucun 429. Les conditions d'usage de Stanford visent un usage personnel non commercial.",
+  "classe_quota": "aucun quota trouvé",
+  "confiance": "moyenne",
+  "notes": "Faux positif de fetch_doc.sh : le mot « reCAPTCHA » du formulaire de retour de api.library.stanford.edu et de sa page 404 /robots.txt fait classer l'hôte « défi » ; les pages de doc ont donc été récupérées une par une (sources/api-*). Les robots.txt de embed.stanford.edu et library-hours.stanford.edu interdisent tout (Disallow: /) : testés avec l'autorisation C12 de Marcel. library.stanford.edu demande Crawl-delay: 30 (non sondé). Crash test g non lancé (interdit à ce stade) : config crash-stacks-info.json prête.",
+  "a_verifier_manuellement": [
+    {
+      "url": "https://library.stanford.edu/contact-us",
+      "pourquoi": "aucune politique de débit publiée ; seul le contact permet de savoir s'il existe une limite non publiée (par ex. sur stacks.stanford.edu)",
+      "a_chercher": "Demander à Stanford Libraries (DLSS) si stacks.stanford.edu / purl.stanford.edu limitent le moissonnage IIIF et à quel débit"
+    }
+  ],
+  "hotes_robots": [
+    {
+      "hote": "purl.stanford.edu",
+      "resultat": "aucune règle Disallow (commentaires et Sitemap) : tout autorisé",
+      "preuve": "institutions/stanford-university-libraries/sources/a/SHA256SUMS"
+    },
+    {
+      "hote": "stacks.stanford.edu",
+      "resultat": "commentaire seul : tout autorisé",
+      "preuve": "institutions/stanford-university-libraries/sources/a/SHA256SUMS"
+    },
+    {
+      "hote": "searchworks.stanford.edu",
+      "resultat": "seuls AdsBot/Mediapartners interdits ; Crawl-delay 60 pour Exabot, ImagesiftBot, SemrushBot, SeznamBot ; * libre",
+      "preuve": "institutions/stanford-university-libraries/sources/a/SHA256SUMS"
+    },
+    {
+      "hote": "library.stanford.edu",
+      "resultat": "* : Allow /, Disallow /api/ /admin/ /search etc., crawl-delay 30",
+      "preuve": "institutions/stanford-university-libraries/sources/a/SHA256SUMS"
+    },
+    {
+      "hote": "api.library.stanford.edu",
+      "resultat": "/robots.txt répond 404 (page d'erreur) : tout autorisé (RFC 9309)",
+      "preuve": "institutions/stanford-university-libraries/sources/b/SHA256SUMS"
+    },
+    {
+      "hote": "embed.stanford.edu",
+      "resultat": "User-agent: * Disallow: / (tout interdit) ; testé avec l'autorisation C12",
+      "preuve": "institutions/stanford-university-libraries/sources/c/SHA256SUMS"
+    },
+    {
+      "hote": "www.stanford.edu",
+      "resultat": "Allow /, Disallow quelques chemins techniques",
+      "preuve": "institutions/stanford-university-libraries/sources/c/SHA256SUMS"
+    },
+    {
+      "hote": "library-hours.stanford.edu",
+      "resultat": "seul SiteimproveBot autorisé, tout le reste Disallow: / ; testé avec l'autorisation C12",
+      "preuve": "institutions/stanford-university-libraries/sources/d/SHA256SUMS"
+    },
+    {
+      "hote": "sdr.library.stanford.edu",
+      "resultat": "non lu : page de blog lue une seule fois par fetch_doc, aucune sonde sur cet hôte (hors périmètre API)",
+      "preuve": "institutions/stanford-university-libraries/sources/e/SHA256SUMS"
+    },
+    {
+      "hote": "raw.githubusercontent.com",
+      "resultat": "hôte tiers (GitHub) : 2 README lus par fetch_doc, aucune sonde",
+      "preuve": "institutions/stanford-university-libraries/sources/a/SHA256SUMS"
+    }
+  ],
+  "endpoints_documentes": [
+    {
+      "famille": "PURL : manifeste IIIF Presentation v2",
+      "url": "https://purl.stanford.edu/wy323vc0101/iiif/manifest",
+      "statut": "teste",
+      "preuve": "institutions/stanford-university-libraries/tests/raw/purl-manifest-v2.headers.txt"
+    },
+    {
+      "famille": "PURL : manifeste IIIF Presentation v3 (alpha)",
+      "url": "https://purl.stanford.edu/wy323vc0101/iiif3/manifest",
+      "statut": "teste",
+      "preuve": "institutions/stanford-university-libraries/tests/raw/purl-manifest-v3.headers.txt"
+    },
+    {
+      "famille": "PURL : XML public",
+      "url": "https://purl.stanford.edu/wy323vc0101.xml",
+      "statut": "teste",
+      "preuve": "institutions/stanford-university-libraries/tests/raw/purl-xml.headers.txt"
+    },
+    {
+      "famille": "PURL : MODS public",
+      "url": "https://purl.stanford.edu/wy323vc0101.mods",
+      "statut": "teste",
+      "preuve": "institutions/stanford-university-libraries/tests/raw/purl-mods.headers.txt"
+    },
+    {
+      "famille": "PURL : page HTML",
+      "url": "https://purl.stanford.edu/wy323vc0101",
+      "statut": "teste",
+      "preuve": "institutions/stanford-university-libraries/tests/raw/purl-page.headers.txt"
+    },
+    {
+      "famille": "IIIF Image v2 (stacks) : info.json",
+      "url": "https://stacks.stanford.edu/image/iiif/wy323vc0101%2F36105115643962_0002/info.json",
+      "statut": "teste",
+      "preuve": "institutions/stanford-university-libraries/tests/raw/stacks-info-json.headers.txt"
+    },
+    {
+      "famille": "IIIF Image v2 (stacks) : dérivée",
+      "url": "https://stacks.stanford.edu/image/iiif/wy323vc0101%2F36105115643962_0002/full/full/0/default.jpg",
+      "statut": "teste",
+      "preuve": "institutions/stanford-university-libraries/tests/raw/stacks-image-200px.headers.txt"
+    },
+    {
+      "famille": "Stacks : téléchargement de fichier (HEAD)",
+      "url": "https://stacks.stanford.edu/file/qq826dq9111/neighborhood-stats_2661_20130512.csv",
+      "statut": "teste",
+      "preuve": "institutions/stanford-university-libraries/tests/raw/stacks-file-head.headers.txt"
+    },
+    {
+      "famille": "Stacks : archive zip d'un objet (HEAD)",
+      "url": "https://stacks.stanford.edu/object/qq826dq9111",
+      "statut": "teste",
+      "preuve": "institutions/stanford-university-libraries/tests/raw/stacks-object-head.headers.txt"
+    },
+    {
+      "famille": "Embed : oEmbed",
+      "url": "https://embed.stanford.edu/embed?url=https://purl.stanford.edu/fw090jw3474",
+      "statut": "teste",
+      "preuve": "institutions/stanford-university-libraries/tests/raw/embed-oembed.headers.txt"
+    },
+    {
+      "famille": "Embed : iframe",
+      "url": "https://embed.stanford.edu/iframe?url=https://purl.stanford.edu/fw090jw3474",
+      "statut": "teste",
+      "preuve": "institutions/stanford-university-libraries/tests/raw/embed-iframe.headers.txt"
+    },
+    {
+      "famille": "Library Hours : liste (JSON:API)",
+      "url": "https://library-hours.stanford.edu/libraries.json",
+      "statut": "teste",
+      "preuve": "institutions/stanford-university-libraries/tests/raw/hours-libraries.headers.txt"
+    },
+    {
+      "famille": "Library Hours : bibliothèque",
+      "url": "https://library-hours.stanford.edu/libraries/green.json",
+      "statut": "teste",
+      "preuve": "institutions/stanford-university-libraries/tests/raw/hours-green.headers.txt"
+    },
+    {
+      "famille": "Library Hours : API v1 heures du jour",
+      "url": "https://library-hours.stanford.edu/api/v1/library/green/location/information-center/hours/for/2019-08-22",
+      "statut": "teste",
+      "preuve": "institutions/stanford-university-libraries/tests/raw/hours-v1.headers.txt"
+    },
+    {
+      "famille": "Library Hours : lieu avec dates",
+      "url": "https://library-hours.stanford.edu/libraries/green/locations/information-center.json",
+      "statut": "non_teste",
+      "raison": "même famille JSON:API déjà testée avec libraries.json et libraries/green.json ; une troisième variante n'apprendrait rien de plus sur le débit"
+    }
+  ],
+  "endpoints_ecartes": [
+    {
+      "url": "https://library.stanford.edu/projects/international-image-interoperability-framework",
+      "raison": "URL devinée par moi, 404 constaté (sources/a/FETCH.log) ; la vraie page IIIF est https://library.stanford.edu/iiif, lue ; aucune API"
+    },
+    {
+      "url": "https://library-status.stanford.edu/",
+      "raison": "page d'état en application JavaScript, pas une API documentée ; HTML de 1 ko lu (sources/c/raw/06.html)"
+    },
+    {
+      "url": "https://stacks.stanford.edu/image/iiif/wy323vc0101%2F36105115643962_0002/full/full/0/default.jpg",
+      "raison": "exemple 'full/full' de la doc remplacé par une dérivée 200 px de la même image (sonde polie, pas de téléchargement plein format)"
+    },
+    {
+      "url": "https://purl.stanford.edu/fw090jw3474/iiif/manifest",
+      "raison": "variante (autre druid, exemple de la page Embed) de la famille manifeste v2 déjà testée avec wy323vc0101 : même service, rien de plus à apprendre sur le débit"
+    },
+    {
+      "url": "https://www.stanford.edu/search/",
+      "raison": "lien de pied de page vers la recherche du site Stanford, page web et non API documentée ; robots.txt de www.stanford.edu y interdit /search"
+    }
+  ]
 }

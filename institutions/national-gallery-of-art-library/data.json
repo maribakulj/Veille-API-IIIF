@@ -4,10 +4,265 @@
   "pays": "États-Unis",
   "classeur_id": "GLAM-049",
   "type": "Institution",
-  "statut_audit": "à faire",
-  "limites_documentees": [],
+  "statut_audit": "audit a–f complet (v2) ; www.nga.gov en défi Cloudflare ; g à faire sur api.nga.gov (config prête)",
+  "limites_documentees": [
+    {
+      "nature": "Crawl-delay robots.txt",
+      "perimetre": "api.nga.gov",
+      "valeur": "Crawl-delay: 10 ; commentaire « if you would like to crawl any nga.gov site you can contact us … to apply for white listing »",
+      "fenetre": "10 s entre requêtes",
+      "effet": "–",
+      "verification": "officielle, lue (sources/h2) ; respectée par la sonde",
+      "source": "https://api.nga.gov/robots.txt",
+      "date": "2026-11-14"
+    },
+    {
+      "nature": "Crawl-delay robots.txt",
+      "perimetre": "library.nga.gov",
+      "valeur": "Crawl-delay: 10 ; Disallow /primaws /discovery/search /nde/search ; GPTBot, Applebot, DuckDuckBot… interdits",
+      "fenetre": "10 s entre requêtes",
+      "effet": "–",
+      "verification": "officielle, lue (sources/h4)",
+      "source": "https://library.nga.gov/robots.txt",
+      "date": "2026-11-14"
+    }
+  ],
   "en_tetes_observes": [],
-  "blocages": [],
-  "sources": [],
-  "web": []
+  "blocages": [
+    {
+      "hote": "www.nga.gov",
+      "code": "403",
+      "nature": "défi Cloudflare « Just a moment... » dès la 1re requête",
+      "preuve": "institutions/national-gallery-of-art-library/sources/h7/FETCH.log",
+      "date": "2026-11-14"
+    }
+  ],
+  "sources": [
+    {
+      "url": "https://api.nga.gov/robots.txt",
+      "date": "2026-11-14",
+      "etiquette": "officielle",
+      "preuve": "institutions/national-gallery-of-art-library/sources/h2/SHA256SUMS"
+    },
+    {
+      "url": "https://library.nga.gov/robots.txt",
+      "date": "2026-11-14",
+      "etiquette": "officielle",
+      "preuve": "institutions/national-gallery-of-art-library/sources/h4/SHA256SUMS"
+    },
+    {
+      "url": "https://www.nga.gov/robots.txt",
+      "date": "2026-11-14",
+      "etiquette": "officielle",
+      "preuve": "institutions/national-gallery-of-art-library/sources/h1/SHA256SUMS"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/NationalGalleryOfArt/opendata/main/README.md",
+      "date": "2026-11-14",
+      "etiquette": "officielle (GitHub de l'institution)",
+      "preuve": "institutions/national-gallery-of-art-library/sources/h5/SHA256SUMS"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/NationalGalleryOfArt/accademia-research/main/README.md",
+      "date": "2026-11-14",
+      "etiquette": "officielle (GitHub de l'institution)",
+      "preuve": "institutions/national-gallery-of-art-library/sources/gh/SHA256SUMS"
+    },
+    {
+      "url": "https://iiif.io/guides/guides/library.nga.gov/",
+      "date": "2026-11-14",
+      "etiquette": "tiers (guide de la communauté IIIF sur la NGA Library)",
+      "preuve": "institutions/national-gallery-of-art-library/sources/iiifio/SHA256SUMS"
+    },
+    {
+      "url": "https://libraryimage.nga.gov/robots.txt",
+      "date": "2026-11-14",
+      "etiquette": "officielle (404)",
+      "preuve": "institutions/national-gallery-of-art-library/sources/li/SHA256SUMS"
+    },
+    {
+      "url": "https://www.nga.gov/open-access-images.html",
+      "date": "2026-11-14",
+      "etiquette": "officielle (Wayback 2025-04-28)",
+      "preuve": "institutions/national-gallery-of-art-library/sources/wayback/nga-open-access-images-20250428.md"
+    }
+  ],
+  "web": [
+    {
+      "categorie": "institution",
+      "url": "https://api.nga.gov/robots.txt",
+      "date": "2026-11-14",
+      "etiquette": "officielle",
+      "citation": "« if you would like to crawl any nga.gov site you can contact us … to apply for white listing » ; Crawl-delay: 10.",
+      "preuve": "institutions/national-gallery-of-art-library/sources/h2/SHA256SUMS"
+    },
+    {
+      "categorie": "utilisateurs",
+      "aucun_resultat": true,
+      "requete": "nga.gov API 403 Cloudflare OR Akamai blocked scraping IIIF manifest National Gallery of Art rate limit",
+      "date": "2026-11-14",
+      "etiquette": "–",
+      "citation": "aucune plainte d'utilisateur sur nga.gov ; résultats génériques sur les 403 Cloudflare (résumé de moteur, non vérifié)",
+      "preuve": "institutions/national-gallery-of-art-library/fiche.md"
+    },
+    {
+      "categorie": "tickets",
+      "url": "https://github.com/Antonio-Faure/mnemosyne/pull/22",
+      "date": "2026-11-14",
+      "etiquette": "tiers",
+      "citation": "« derrière un WAF (Akamai) qui renvoie 403 aux clients non-navigateur » (www.nga.gov) ; image API v2 sur media.nga.gov redirigée vers api.nga.gov ; aucun quota chiffré.",
+      "preuve": "institutions/national-gallery-of-art-library/fiche.md"
+    },
+    {
+      "categorie": "presentations",
+      "url": "https://iiif.io/event/2018/washington/program/paper-20/",
+      "date": "2026-11-14",
+      "etiquette": "présentation de l'institution (conférence IIIF 2018)",
+      "citation": "« The scans will be viewable through a distributed network of image servers using IIIF. » (Digital Cicognara Library, NGA Library) ; aucune limite de débit citée.",
+      "preuve": "institutions/national-gallery-of-art-library/fiche.md"
+    }
+  ],
+  "contact": "https://www.nga.gov/contact-us.html (lien cité par le robots.txt de api.nga.gov pour demander une liste blanche ; page en défi Cloudflare, non lue)",
+  "conclusion_quota": "Aucune doc officielle d'API lisible : www.nga.gov est derrière un défi Cloudflare (403 « Just a moment »). Aucune limite chiffrée trouvée ; le robots.txt de api.nga.gov demande de contacter NGA pour une liste blanche avant tout crawl et fixe Crawl-delay 10 ; library.nga.gov fixe aussi Crawl-delay 10. Le IIIF de la NGA Library (manifestes sur libraryimage.nga.gov, images sur api.nga.gov/iiif) répond 200 sans aucun en-tête de limite en 9 requêtes de sonde.",
+  "classe_quota": "aucun quota trouvé",
+  "confiance": "faible",
+  "notes": "Erreur de procédure : après le 1er 403 de www.nga.gov (open-data-program.html), trois autres pages www.nga.gov ont été demandées par des appels distincts de fetch_doc.sh (open-access-images, terms-use, faqs : 403 aussi), contre la règle « un 403 arrête son hôte » ; aucune autre requête vers www.nga.gov ensuite. media.nga.gov : DNS non résolu (sources/h3). api.nga.gov racine redirige vers www.nga.gov (défi) : non suivie. Les doc d'API de la NGA ne sont lisibles que par README GitHub (opendata) ; l'URL du manifeste www.nga.gov/api/v1/iiif/... vient d'un tiers (mnemosyne#22, Wikidata P6108) et n'est pas testée (hôte en défi).",
+  "a_verifier_manuellement": [
+    {
+      "url": "https://www.nga.gov/open-access-images/open-data-program.html",
+      "pourquoi": "403 défi Cloudflare (« Just a moment ») ; hôte arrêté, pas de contournement",
+      "a_chercher": "Conditions d'usage de l'API et des images ; mention de quota ou de liste blanche"
+    },
+    {
+      "url": "https://www.nga.gov/about-us/terms-use.html",
+      "pourquoi": "403 défi Cloudflare",
+      "a_chercher": "Conditions d'utilisation : moissonnage automatisé, débit, API"
+    },
+    {
+      "url": "https://www.nga.gov/open-access-images/faqs.html",
+      "pourquoi": "403 défi Cloudflare",
+      "a_chercher": "FAQ sur l'accès aux images et à l'API IIIF"
+    },
+    {
+      "url": "https://www.nga.gov/contact-us.html",
+      "pourquoi": "403 défi Cloudflare (non demandée, même hôte)",
+      "a_chercher": "Formulaire de demande de liste blanche citée par le robots.txt de api.nga.gov"
+    },
+    {
+      "url": "https://www.nga.gov/api/v1/iiif/presentation/manifest.json?cultObj:id=26",
+      "pourquoi": "manifeste IIIF des objets du musée, cité par Wikidata P6108 et mnemosyne#22 (tiers) ; hôte en défi Cloudflare, non testé",
+      "a_chercher": "Dans un navigateur : le manifeste répond-il, avec quels en-têtes de limite ?"
+    }
+  ],
+  "hotes_robots": [
+    {
+      "hote": "www.nga.gov",
+      "resultat": "Drupal standard : Disallow /search, /artwork-search?*, /calendar?* etc. ; pas de Crawl-delay ; hôte en défi Cloudflare, non sondé",
+      "preuve": "institutions/national-gallery-of-art-library/sources/h1/SHA256SUMS"
+    },
+    {
+      "hote": "api.nga.gov",
+      "resultat": "User-agent: * Disallow: (vide) ; Crawl-delay: 10 ; demande de liste blanche pour tout crawl nga.gov",
+      "preuve": "institutions/national-gallery-of-art-library/sources/h2/SHA256SUMS"
+    },
+    {
+      "hote": "library.nga.gov",
+      "resultat": "* : Disallow /primaws /discovery/search /nde/search ; Crawl-delay 10 ; plusieurs robots d'IA interdits",
+      "preuve": "institutions/national-gallery-of-art-library/sources/h4/SHA256SUMS"
+    },
+    {
+      "hote": "libraryimage.nga.gov",
+      "resultat": "/robots.txt répond 404 : tout autorisé (RFC 9309)",
+      "preuve": "institutions/national-gallery-of-art-library/sources/li/SHA256SUMS"
+    },
+    {
+      "hote": "media.nga.gov",
+      "resultat": "robots.txt illisible : le nom d'hôte ne se résout pas (DNS), hôte non sondé",
+      "preuve": "institutions/national-gallery-of-art-library/sources/h3/SHA256SUMS"
+    },
+    {
+      "hote": "raw.githubusercontent.com",
+      "resultat": "hôte tiers (GitHub) : README lus par fetch_doc, aucune sonde",
+      "preuve": "institutions/national-gallery-of-art-library/sources/gh/SHA256SUMS"
+    },
+    {
+      "hote": "iiif.io",
+      "resultat": "hôte tiers (communauté IIIF) : un guide lu par fetch_doc, aucune sonde",
+      "preuve": "institutions/national-gallery-of-art-library/sources/iiifio/SHA256SUMS"
+    }
+  ],
+  "endpoints_documentes": [
+    {
+      "famille": "IIIF Presentation v2 : manifestes de la NGA Library (libraryimage)",
+      "url": "https://libraryimage.nga.gov/manifest/mms/99682033504896.json",
+      "statut": "teste",
+      "preuve": "institutions/national-gallery-of-art-library/tests/raw/libraryimage-manifeste.headers.txt"
+    },
+    {
+      "famille": "IIIF Image v2 : service api.nga.gov/iiif (info.json)",
+      "url": "https://api.nga.gov/iiif/428537bd-58da-4075-97e8-034b9f30f2f1/info.json",
+      "statut": "teste",
+      "preuve": "institutions/national-gallery-of-art-library/tests/raw/image-info-json.headers.txt"
+    },
+    {
+      "famille": "IIIF Image v2 : dérivée",
+      "url": "https://api.nga.gov/iiif/428537bd-58da-4075-97e8-034b9f30f2f1/full/full/0/default.jpg",
+      "statut": "teste",
+      "preuve": "institutions/national-gallery-of-art-library/tests/raw/image-200px.headers.txt"
+    },
+    {
+      "famille": "Visionneuse Universal Viewer (libraryimage)",
+      "url": "https://libraryimage.nga.gov/uv/?manifest=https://libraryimage.nga.gov/manifest/mms/99682033504896.json",
+      "statut": "teste",
+      "preuve": "institutions/national-gallery-of-art-library/tests/raw/uv-visionneuse.headers.txt"
+    },
+    {
+      "famille": "Plan de site de la bibliothèque (cité par robots.txt)",
+      "url": "https://library.nga.gov/view/scholar/siteindex.xml",
+      "statut": "teste",
+      "preuve": "institutions/national-gallery-of-art-library/tests/raw/library-sitemap-index.headers.txt"
+    },
+    {
+      "famille": "Accueil de library.nga.gov (Primo)",
+      "url": "https://library.nga.gov/",
+      "statut": "teste",
+      "preuve": "institutions/national-gallery-of-art-library/tests/raw/library-accueil.headers.txt"
+    },
+    {
+      "famille": "Racine api.nga.gov",
+      "url": "https://api.nga.gov/",
+      "statut": "teste",
+      "preuve": "institutions/national-gallery-of-art-library/tests/raw/api-nga-racine.headers.txt"
+    },
+    {
+      "famille": "IIIF Presentation v2 : manifestes d'objets du musée (www.nga.gov/api/v1/iiif)",
+      "url": "https://www.nga.gov/api/v1/iiif/presentation/manifest.json?cultObj:id=26",
+      "statut": "non_teste",
+      "raison": "hôte www.nga.gov en défi Cloudflare (403) dès la 1re requête : arrêt de l'hôte ; URL issue de tiers (Wikidata, mnemosyne#22), pas de la doc"
+    },
+    {
+      "famille": "Open Data NGA (CSV sur GitHub)",
+      "url": "https://github.com/NationalGalleryOfArt/opendata",
+      "statut": "non_teste",
+      "raison": "jeu de données CSV hébergé par GitHub, pas une API de la NGA ; README lu, aucun débit propre à la NGA à mesurer"
+    }
+  ],
+  "endpoints_ecartes": [
+    {
+      "url": "https://library.nga.gov/discovery/collectionDiscovery?vid=01NGA_INST:NGA&collectionId=8157583990004896",
+      "raison": "page de recherche Primo (application web JavaScript), cité par le guide iiif.io ; le robots.txt de library.nga.gov interdit /discovery/search, et ce n'est pas une API"
+    },
+    {
+      "url": "https://www.nga.gov/audio-video/video/iiif.html",
+      "raison": "page du site www.nga.gov (vidéo de symposium) en défi Cloudflare, pas une API"
+    },
+    {
+      "url": "https://library.nga.gov/mng/login",
+      "raison": "redirection de l'accueil vers la page de connexion Primo (302 constaté en passe 1), puis vers /discovery/search : pas une API"
+    },
+    {
+      "url": "https://iiif.io/api",
+      "raison": "lien vers les spécifications IIIF générales dans le guide iiif.io, pas une API de la NGA ; aucune requête utile"
+    }
+  ]
 }

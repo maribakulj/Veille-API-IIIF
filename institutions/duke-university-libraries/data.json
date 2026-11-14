@@ -4,10 +4,218 @@
   "pays": "États-Unis",
   "classeur_id": "GLAM-044",
   "type": "Institution",
-  "statut_audit": "à faire",
-  "limites_documentees": [],
+  "statut_audit": "audit a–f complet (v2) ; hôte repository.duke.edu en défi Anubis ; g impossible",
+  "limites_documentees": [
+    {
+      "nature": "Crawl-delay robots.txt",
+      "perimetre": "repository.duke.edu",
+      "valeur": "Crawl-delay: 10",
+      "fenetre": "10 s entre requêtes",
+      "effet": "–",
+      "verification": "officielle, lue (sources/a/raw/01.html) ; respecté par la sonde",
+      "source": "https://repository.duke.edu/robots.txt",
+      "date": "2026-11-14"
+    },
+    {
+      "nature": "Délai recommandé pour les crawlers",
+      "perimetre": "sites de la bibliothèque",
+      "valeur": "« it is also courteous to limit the rate of your requests by adding a crawl delay of at least 10 seconds »",
+      "fenetre": "10 s",
+      "effet": "–",
+      "verification": "officielle, lue en entier",
+      "source": "https://library.duke.edu/using/off-campus/impact-of-bots",
+      "date": "2026-11-14"
+    },
+    {
+      "nature": "Blocage de compte sur téléchargements automatisés de ressources proxifiées",
+      "perimetre": "ressources électroniques de la bibliothèque (accès hors campus)",
+      "valeur": "« If you download more than 500MB of material within a 30-minute time-frame, your account will be temporarily blocked »",
+      "fenetre": "30 minutes",
+      "effet": "blocage temporaire du compte",
+      "verification": "officielle, lue en entier",
+      "source": "https://library.duke.edu/using/off-campus/impact-of-bots",
+      "date": "2026-11-14"
+    }
+  ],
   "en_tetes_observes": [],
-  "blocages": [],
-  "sources": [],
-  "web": []
+  "blocages": [
+    {
+      "hote": "repository.duke.edu",
+      "code": "défi Anubis (200 + page « Making sure you're not a bot! »)",
+      "nature": "défi JavaScript anti-bot",
+      "preuve": "institutions/duke-university-libraries/tests/raw/repository-dc.headers.txt",
+      "date": "2026-11-14"
+    }
+  ],
+  "sources": [
+    {
+      "url": "https://library.duke.edu/using/off-campus/impact-of-bots",
+      "date": "2026-11-14",
+      "etiquette": "officielle",
+      "preuve": "institutions/duke-university-libraries/sources/b/SHA256SUMS"
+    },
+    {
+      "url": "https://library.duke.edu/about/privacy",
+      "date": "2026-11-14",
+      "etiquette": "officielle",
+      "preuve": "institutions/duke-university-libraries/sources/b/SHA256SUMS"
+    },
+    {
+      "url": "https://library.duke.edu/repositories",
+      "date": "2026-11-14",
+      "etiquette": "officielle",
+      "preuve": "institutions/duke-university-libraries/sources/a/SHA256SUMS"
+    },
+    {
+      "url": "https://repository.duke.edu/robots.txt",
+      "date": "2026-11-14",
+      "etiquette": "officielle",
+      "preuve": "institutions/duke-university-libraries/sources/a/SHA256SUMS"
+    },
+    {
+      "url": "https://library.duke.edu/robots.txt",
+      "date": "2026-11-14",
+      "etiquette": "officielle",
+      "preuve": "institutions/duke-university-libraries/sources/a/SHA256SUMS"
+    },
+    {
+      "url": "https://repository.duke.edu/dc",
+      "date": "2026-11-14",
+      "etiquette": "officielle (page de défi)",
+      "preuve": "institutions/duke-university-libraries/sources/a/SHA256SUMS"
+    },
+    {
+      "url": "https://github.com/duke-libraries/ddr-public",
+      "date": "2026-11-14",
+      "etiquette": "officielle (GitHub de l'institution, dépôt archivé 2020)",
+      "preuve": "institutions/duke-university-libraries/sources/a/SHA256SUMS"
+    },
+    {
+      "url": "https://web.archive.org/web/20250102164321/https://repository.duke.edu/",
+      "date": "2026-11-14",
+      "etiquette": "officielle (Wayback)",
+      "preuve": "institutions/duke-university-libraries/sources/wayback/repository-duke-edu-accueil-20250102.md"
+    }
+  ],
+  "web": [
+    {
+      "categorie": "institution",
+      "url": "https://library.duke.edu/using/off-campus/impact-of-bots",
+      "date": "2026-11-14",
+      "etiquette": "officielle",
+      "citation": "« it is also courteous to limit the rate of your requests by adding a crawl delay of at least 10 seconds » ; « we do not permit the use of robots or intelligent agents to engage in systematic, bulk, or automatic downloads of library materials ».",
+      "preuve": "institutions/duke-university-libraries/sources/b/text/01.txt"
+    },
+    {
+      "categorie": "utilisateurs",
+      "aucun_resultat": true,
+      "requete": "Duke Digital Repository IIIF manifest harvest 429 OR rate limit github issue repository.duke.edu",
+      "date": "2026-11-14",
+      "etiquette": "–",
+      "citation": "aucune plainte d'utilisateur sur des 429 ou blocages de repository.duke.edu ; seul résultat voisin : un ticket d'un autre outil sur la politesse IIIF, sans mention de Duke (résumé de moteur, non vérifié)",
+      "preuve": "institutions/duke-university-libraries/fiche.md"
+    },
+    {
+      "categorie": "tickets",
+      "aucun_resultat": true,
+      "requete": "Duke Digital Repository IIIF manifest harvest 429 OR rate limit github issue repository.duke.edu",
+      "date": "2026-11-14",
+      "etiquette": "–",
+      "citation": "aucun ticket GitHub/GitLab d'un outil tiers citant repository.duke.edu et un quota ou un blocage (résumé de moteur, non vérifié)",
+      "preuve": "institutions/duke-university-libraries/fiche.md"
+    },
+    {
+      "categorie": "presentations",
+      "url": "https://dukespace.lib.duke.edu/server/api/core/bitstreams/816ef134-55cf-49f6-9a8b-1e8a2324b1ff/content",
+      "date": "2026-11-14",
+      "etiquette": "présentation de l'institution (résumé de moteur, non vérifié : PDF non lu, téléchargement interrompu)",
+      "citation": "rapport du pilote Anubis de Duke (1er mai au 10 juin 2025) : le scraping agressif a causé des pannes du Digital Repository ; Anubis aurait bloqué environ 90 % du trafic (résumé de moteur).",
+      "preuve": "institutions/duke-university-libraries/sources/b/FETCH.log"
+    }
+  ],
+  "contact": "repositoryhelp@duke.edu (page library.duke.edu/repositories) ; formulaire de contact lié depuis la page de défi",
+  "conclusion_quota": "Aucune doc d'API ni quota chiffré publié. Duke documente sa politique de bots (library.duke.edu/using/off-campus/impact-of-bots) : respecter robots.txt, crawl-delay d'au moins 10 s, pas de téléchargement systématique de documents, blocage temporaire de compte au-delà de 500 Mo en 30 min (ressources proxifiées). repository.duke.edu est derrière un défi Anubis (preuve de travail) depuis juin 2025 : un client sans JavaScript reçoit 200 + page de défi, donc l'API IIIF n'est pas testable sans contournement.",
+  "classe_quota": "accès refusé à ce client (défi anti-bot)",
+  "confiance": "moyenne",
+  "notes": "Première tentative de sonde : commit refusé (IP de Marcel dans la page de défi de sources/a/raw/04-05.html, remplacée par [IP retirée] avec SHA256SUMS recalculé) ; session archivée dans tests/archive puis rejouée avec configuration committée. Le crawl-delay 10 de repository.duke.edu est respecté (min_delay_s 10). PDF du rapport pilote Anubis (dukespace) : téléchargement interrompu (timeout), non lu. Aucun endpoint IIIF documenté : l'URL du manifeste n'existe que comme lien sur les pages item, derrière le défi.",
+  "a_verifier_manuellement": [
+    {
+      "url": "https://repository.duke.edu/dc",
+      "pourquoi": "défi Anubis (preuve de travail JavaScript) : la sonde reçoit 200 + page de défi, aucun contournement",
+      "a_chercher": "Dans un navigateur : lien « manifest » IIIF d'une page item (ex. Ad*Access), URL de l'image server, en-têtes de limite éventuels dans l'onglet réseau"
+    },
+    {
+      "url": "https://dukespace.lib.duke.edu/server/api/core/bitstreams/816ef134-55cf-49f6-9a8b-1e8a2324b1ff/content",
+      "pourquoi": "PDF de 867 ko (rapport du pilote Anubis) : téléchargement interrompu par le délai de 30 s (277 ko reçus), non lisible",
+      "a_chercher": "Chiffres de trafic bots, règles Anubis, politique pour les crawlers acceptés (Google, Bing) ; existe-t-il une liste d'exceptions pour la recherche ?"
+    }
+  ],
+  "hotes_robots": [
+    {
+      "hote": "repository.duke.edu",
+      "resultat": "User-agent: * : Crawl-delay 10 ; Disallow des pages de recherche et facettes (/?q=, /catalog?q=, /catalog/facet, etc.) ; /dc non interdit",
+      "preuve": "institutions/duke-university-libraries/sources/a/SHA256SUMS"
+    },
+    {
+      "hote": "library.duke.edu",
+      "resultat": "Drupal standard : Disallow /admin/, /search/, /user/… ; pas de Crawl-delay ; non sondé",
+      "preuve": "institutions/duke-university-libraries/sources/a/SHA256SUMS"
+    },
+    {
+      "hote": "blogs.library.duke.edu",
+      "resultat": "/robots.txt répond 404 : tout autorisé (RFC 9309) ; page de blog non lue, hôte non sondé",
+      "preuve": "institutions/duke-university-libraries/sources/b/SHA256SUMS"
+    },
+    {
+      "hote": "dukespace.lib.duke.edu",
+      "resultat": "robots.txt non lu : un seul PDF demandé par fetch_doc (interrompu), hôte non sondé",
+      "preuve": "institutions/duke-university-libraries/sources/b/SHA256SUMS"
+    },
+    {
+      "hote": "github.com",
+      "resultat": "hôte tiers : page du dépôt ddr-public lue par fetch_doc, aucune sonde",
+      "preuve": "institutions/duke-university-libraries/sources/a/SHA256SUMS"
+    }
+  ],
+  "endpoints_documentes": [
+    {
+      "famille": "Interface Duke Digital Repository (page de collections)",
+      "url": "https://repository.duke.edu/dc",
+      "statut": "teste",
+      "preuve": "institutions/duke-university-libraries/tests/raw/repository-dc.headers.txt"
+    },
+    {
+      "famille": "IIIF Presentation : manifeste (lien sur les pages item)",
+      "url": "https://repository.duke.edu/dc",
+      "statut": "non_teste",
+      "raison": "aucune doc d'API ; l'URL d'un manifeste n'est visible que sur les pages item, derrière un défi Anubis (journal, repository-dc) : arrêt de l'hôte, pas de contournement"
+    },
+    {
+      "famille": "IIIF Image (serveur d'images du DDR)",
+      "url": "https://repository.duke.edu/dc",
+      "statut": "non_teste",
+      "raison": "aucune URL publiée ; hôte repository.duke.edu en défi Anubis (journal), et jamais d'identifiant ni de chemin deviné"
+    }
+  ],
+  "endpoints_ecartes": [
+    {
+      "url": "https://repository.duke.edu/dc/about",
+      "raison": "page qui redirige vers la même page de défi Anubis (5057 octets, identique à /dc) ; sources/a/raw/05.html"
+    },
+    {
+      "url": "https://library.duke.edu/using/policies/copyright",
+      "raison": "URL devinée par moi, 404 constaté (sources/a/FETCH.log), page de politique sans API"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/duke-libraries/ddr-public/master/README.md",
+      "raison": "URL devinée (branche master), 404 constaté ; le dépôt est archivé depuis 2020 et ne contient pas de doc d'API"
+    },
+    {
+      "url": "https://dukespace.lib.duke.edu/server/api/core/bitstreams/816ef134-55cf-49f6-9a8b-1e8a2324b1ff/content",
+      "raison": "PDF de rapport (pilote Anubis), pas une API testable : lien « api/core/bitstreams » de DSpace pour un document ; téléchargement interrompu, listé à vérifier à la main"
+    }
+  ],
+  "g_impossible": {
+    "raison": "repository.duke.edu, seul hôte d'API de Duke, est derrière un défi Anubis (preuve de travail JavaScript) : la sonde reçoit une page de défi ; un crash test provoquerait un blocage sans rien apprendre et le défi ne se contourne pas."
+  }
 }

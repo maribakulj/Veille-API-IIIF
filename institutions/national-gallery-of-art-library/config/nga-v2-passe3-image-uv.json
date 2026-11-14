@@ -1,0 +1,13 @@
+{
+  "slug": "national-gallery-of-art-library",
+  "min_delay_s": 10,
+  "max_requests": 15,
+  "follow_redirects": 1,
+  "robots_disallow_autorise_par_marcel": true,
+  "note": "v2 passe 3 : service d'image IIIF api.nga.gov/iiif/<uuid> annonce par le manifeste de la passe 2 (tests/raw/libraryimage-manifeste.body, 1er canevas : uuid 428537bd-58da-4075-97e8-034b9f30f2f1), info.json puis derivee de 200 px ; puis visionneuse Universal Viewer citee par le guide iiif.io. Pause 10 s = Crawl-delay du robots.txt de api.nga.gov.",
+  "endpoints": [
+    {"id": "image-info-json", "method": "GET", "url": "https://api.nga.gov/iiif/428537bd-58da-4075-97e8-034b9f30f2f1/info.json"},
+    {"id": "image-200px", "method": "GET", "url": "https://api.nga.gov/iiif/428537bd-58da-4075-97e8-034b9f30f2f1/full/!200,200/0/default.jpg"},
+    {"id": "uv-visionneuse", "method": "GET", "url": "https://libraryimage.nga.gov/uv/?manifest=https://libraryimage.nga.gov/manifest/mms/99682033504896.json"}
+  ]
+}

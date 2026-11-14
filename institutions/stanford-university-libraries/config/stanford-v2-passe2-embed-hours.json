@@ -1,0 +1,15 @@
+{
+  "slug": "stanford-university-libraries",
+  "min_delay_s": 6,
+  "max_requests": 15,
+  "follow_redirects": 1,
+  "robots_disallow_autorise_par_marcel": true,
+  "note": "v2 passe 2 : embed.stanford.edu (oEmbed et iframe, exemple fw090jw3474 de https://api.library.stanford.edu/docs/embed/api/) et library-hours.stanford.edu (3 exemples de https://api.library.stanford.edu/docs/library-hours/api/ : libraries.json, libraries/green.json, v1 hours/for/2019-08-22). Les robots.txt de ces deux hotes interdisent tout (sources/c/raw/04.html et sources/d/raw/01.html) : Disallow journalise et autorise par Marcel (C12). Aucun 403/CAPTCHA/429 ne doit etre contourne.",
+  "endpoints": [
+    {"id": "embed-oembed", "method": "GET", "url": "https://embed.stanford.edu/embed?url=https://purl.stanford.edu/fw090jw3474"},
+    {"id": "embed-iframe", "method": "GET", "url": "https://embed.stanford.edu/iframe?url=https://purl.stanford.edu/fw090jw3474"},
+    {"id": "hours-libraries", "method": "GET", "url": "https://library-hours.stanford.edu/libraries.json"},
+    {"id": "hours-green", "method": "GET", "url": "https://library-hours.stanford.edu/libraries/green.json"},
+    {"id": "hours-v1", "method": "GET", "url": "https://library-hours.stanford.edu/api/v1/library/green/location/information-center/hours/for/2019-08-22"}
+  ]
+}
