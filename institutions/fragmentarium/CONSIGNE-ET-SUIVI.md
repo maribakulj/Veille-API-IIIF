@@ -2,51 +2,51 @@
 
 - **Dossier** : `institutions/fragmentarium/`  ·  **Classeur de référence** : GLAM-023  ·  **Pays** : Suisse
 - **Statut d'institution** : active
-- **Dernière mise à jour du suivi** : (à renseigner à chaque modification)
+- **Dernière mise à jour du suivi** : 2026-11-14
 
 ## Suivi par étape (à cocher, avec justification et preuves)
 
 ### a) Documentation lue en entier
 > Toutes les pages de doc liées à l'API (développeurs, interfaces, conditions, FAQ, aide, mentions légales, robots.txt), téléchargées avec `scripts/fetch_doc.sh` (URL, date, SHA-256), lues en entier (`scripts/extract_text.py`).
 
-- [ ] **Pas fait**
-  - **Justification** : Pas encore traitée : l'audit suit l'ordre du classeur de référence (une institution à la fois).
-  - **Preuves** : 
+- [x] **Fait**
+  - **Justification** : Doc lue en entier : conditions d'utilisation, Digital Laboratory, privacy, impressum, past-and-present, partners, contact, robots.txt (Disallow /cms/ et /auth/) ; téléchargées avec fetch_doc.sh, hachées SHA-256, textes extraits. Aucun hôte bloqué ; /case_studies en 404.
+  - **Preuves** : `institutions/fragmentarium/sources/a/SHA256SUMS`, `institutions/fragmentarium/sources/b/SHA256SUMS`, `institutions/fragmentarium/sources/a/text/02.txt`
 
 ### b) Endpoints tirés de la doc
 > Liste des endpoints citée par la doc (URL, exemples). Jamais devinée. Une interdiction ou une impossibilité écrite dans la doc justifie de renoncer (citer la phrase).
 
-- [ ] **Pas fait**
-  - **Justification** : Pas encore traitée : l'audit suit l'ordre du classeur de référence (une institution à la fois).
-  - **Preuves** : 
+- [x] **Fait**
+  - **Justification** : Endpoints tirés de la doc et du manifeste public : IIIF Presentation 2 (manifestes, collections), IIIF Image 2 Loris (info.json, dérivés), page d'aperçu seeAlso ; recherche non testée avec raison (pas d'API documentée). Identifiants issus du lien public du site, non devinés.
+  - **Preuves** : `institutions/fragmentarium/sources/a/text/03.txt`, `institutions/fragmentarium/sources/a/raw/05.html`
 
 ### c) Configuration écrite AVANT les tests
 > `config/<nom>.json` pilote `scripts/probe.py`, committée avant le lancement. Un endpoint absent de la doc mais non interdit se teste avec un script poli (identifiants issus de pages publiques ou d'exemples de la doc, pas de devinette).
 
-- [ ] **Pas fait**
-  - **Justification** : Pas encore traitée : l'audit suit l'ordre du classeur de référence (une institution à la fois).
-  - **Preuves** : 
+- [x] **Fait**
+  - **Justification** : Configuration passe 1 committée avant lancement (commit de la passe 1) : 5 requêtes GET, pause 6 s, identifiants du manifeste public F-ioqy ; configuration de crash test préparée (crash-info-json.json), non lancée.
+  - **Preuves** : `institutions/fragmentarium/config/fragmentarium-passe1.json`, `institutions/fragmentarium/config/crash-info-json.json`
 
 ### d) Quota cherché dans la doc
 > Pour chaque page lue : endpoint de statut, en-têtes de limite documentés, clé ou compte donnant un quota, contact pour un volume plus élevé. Chaque réponse cite sa source.
 
-- [ ] **Pas fait**
-  - **Justification** : Pas encore traitée : l'audit suit l'ordre du classeur de référence (une institution à la fois).
-  - **Preuves** : 
+- [x] **Fait**
+  - **Justification** : Aucun quota, clé, endpoint de statut ni en-tête de limite documentés dans les pages lues ; seule mention : « free access to all of its services » ; contact fragmentarium@unifr.ch ; droits d'usage et robots.txt notés.
+  - **Preuves** : `institutions/fragmentarium/sources/a/text/02.txt`, `institutions/fragmentarium/sources/a/text/03.txt`
 
 ### e) Test systématique de chaque endpoint
 > Chaque endpoint documenté est testé (budget 15 requêtes par passe, pause ≥ 6 s, GET/HEAD, UA du projet). Redirections du même hôte suivies. Un 403 arrête son hôte, un 429 arrête l'institution. Seules les interdictions écrites dans la doc dispensent de tester.
 
-- [ ] **Pas fait**
-  - **Justification** : Pas encore traitée : l'audit suit l'ordre du classeur de référence (une institution à la fois).
-  - **Preuves** : 
+- [x] **Fait**
+  - **Justification** : 5 endpoints testés en 200 (manifeste, collection, info.json, dérivé 200 px, page d'aperçu), aucun 429 ni en-tête de limite (en-têtes bruts relus). Recherche non testée : pas d'API documentée.
+  - **Preuves** : `institutions/fragmentarium/tests/journal.log`, `institutions/fragmentarium/tests/raw/info-json-F-ioqy-page5.headers.txt`
 
 ### f) Ce que disent les gens sur le web
 > Plaintes, discussions, présentations de l'institution, politique envers les API et les bots, blogs, GitHub, forums, listes de diffusion. Sources étiquetées (officielle / institution / utilisateur / tiers), lues, citées.
 
-- [ ] **Pas fait**
-  - **Justification** : Pas encore traitée : l'audit suit l'ordre du classeur de référence (une institution à la fois).
-  - **Preuves** : 
+- [x] **Fait**
+  - **Justification** : Quatre catégories couvertes par 4 recherches web et 2 pages tierces lues (guide iiif.io, article unifr.ch) : aucune plainte, aucun ticket, aucune limite ; résumés de moteur marqués non vérifiés.
+  - **Preuves** : `institutions/fragmentarium/fiche.md`
 
 ### g) Crash test progressif
 > Seulement après l'audit complet (a à f) de toutes les institutions et avec l'accord de Marcel : paliers jusqu'à 2 × la limite documentée, ou 200 req/min si illimité ou sans limite documentée. Arrêt au premier 429/403/CAPTCHA.
@@ -60,7 +60,10 @@
 
 <!-- AUTO:DEBUT -->
 ## Contrôles automatiques (calculés depuis `tests/journal.log`)
-Aucune requête enregistrée dans `tests/journal.log`.
+- Requêtes enregistrées : **6** (sessions de sonde : 1, maximum par session : 6)
+- Plus courte pause vers un même hôte : **6 s** (règle : ≥ 6 s)
+- Méthodes utilisées : GET (règle : GET/HEAD seulement)
+- Anomalies : aucune
 <!-- AUTO:FIN -->
 
 ## Consigne intégrale
