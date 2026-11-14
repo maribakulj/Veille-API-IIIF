@@ -2,51 +2,51 @@
 
 - **Dossier** : `institutions/princeton/`  ·  **Classeur de référence** : GLAM-041  ·  **Pays** : États-Unis
 - **Statut d'institution** : active
-- **Dernière mise à jour du suivi** : (à renseigner à chaque modification)
+- **Dernière mise à jour du suivi** : 2026-11-14
 
 ## Suivi par étape (à cocher, avec justification et preuves)
 
 ### a) Documentation lue en entier
 > Toutes les pages de doc liées à l'API (développeurs, interfaces, conditions, FAQ, aide, mentions légales, robots.txt), téléchargées avec `scripts/fetch_doc.sh` (URL, date, SHA-256), lues en entier (`scripts/extract_text.py`).
 
-- [ ] **Pas fait**
-  - **Justification** : Passe antérieure non conforme à la méthode v2 (AUDIT-HAIKU.md) : à refaire. Le matériel déjà présent dans ce dossier est conservé comme historique.
-  - **Preuves** : 
+- [x] **Fait**
+  - **Justification** : Doc lue via fetch_doc.sh : DPUL, wiki Confluence, GitHub puam-api-docs (README, objects, makers, packages, search), figgy, robots.txt de chaque hôte ; library.princeton.edu et artmuseum en défi Cloudflare, robots du musée lu via Wayback, URL listées à vérifier à la main.
+  - **Preuves** : `institutions/princeton/sources/bibliotheque/SHA256SUMS`, `institutions/princeton/sources/musee/SHA256SUMS`, `institutions/princeton/sources/musee2/SHA256SUMS`, `institutions/princeton/sources/wayback/artmuseum-robots.md`
 
 ### b) Endpoints tirés de la doc
 > Liste des endpoints citée par la doc (URL, exemples). Jamais devinée. Une interdiction ou une impossibilité écrite dans la doc justifie de renoncer (citer la phrase).
 
-- [ ] **Pas fait**
-  - **Justification** : Passe antérieure non conforme à la méthode v2 (AUDIT-HAIKU.md) : à refaire. Le matériel déjà présent dans ce dossier est conservé comme historique.
-  - **Preuves** : 
+- [x] **Fait**
+  - **Justification** : Endpoints tirés de la doc du musée (objects, tombstone, makers, packages, search), des racines Cantaloupe /iiif/2 et /iiif/3, d'un exemple OpenSeadragon et du ticket figgy#1236 ; familles non testées justifiées dans data.json.
+  - **Preuves** : `institutions/princeton/data.json`
 
 ### c) Configuration écrite AVANT les tests
 > `config/<nom>.json` pilote `scripts/probe.py`, committée avant le lancement. Un endpoint absent de la doc mais non interdit se teste avec un script poli (identifiants issus de pages publiques ou d'exemples de la doc, pas de devinette).
 
-- [ ] **Pas fait**
-  - **Justification** : Passe antérieure non conforme à la méthode v2 (AUDIT-HAIKU.md) : à refaire. Le matériel déjà présent dans ce dossier est conservé comme historique.
-  - **Preuves** : 
+- [x] **Fait**
+  - **Justification** : Deux configurations committées (1d8b1d5) avant lancement, robots_disallow_autorise_par_marcel, pause 6 s, 8 et 9 requêtes ; l'ancienne session archivée dans tests/archive.
+  - **Preuves** : `institutions/princeton/config/princeton-v2-passe1-bibliotheque.json`, `institutions/princeton/config/princeton-v2-passe2-musee.json`, `institutions/princeton/tests/archive/journal-sessions-avant-config-committee.log`
 
 ### d) Quota cherché dans la doc
 > Pour chaque page lue : endpoint de statut, en-têtes de limite documentés, clé ou compte donnant un quota, contact pour un volume plus élevé. Chaque réponse cite sa source.
 
-- [ ] **Pas fait**
-  - **Justification** : Passe antérieure non conforme à la méthode v2 (AUDIT-HAIKU.md) : à refaire. Le matériel déjà présent dans ce dossier est conservé comme historique.
-  - **Preuves** : 
+- [x] **Fait**
+  - **Justification** : Aucune limite de débit, en-tête de limite, clé ni quota dans la doc lue ; seul contact de moissonnage : digital-library@princeton.libanswers.com (DPUL) et e-mail du README du musée ; sources citées dans data.json.
+  - **Preuves** : `institutions/princeton/data.json`, `institutions/princeton/fiche.md`
 
 ### e) Test systématique de chaque endpoint
 > Chaque endpoint documenté est testé (budget 15 requêtes par passe, pause ≥ 6 s, GET/HEAD, UA du projet). Redirections du même hôte suivies. Un 403 arrête son hôte, un 429 arrête l'institution. Seules les interdictions écrites dans la doc dispensent de tester.
 
-- [ ] **Pas fait**
-  - **Justification** : Passe antérieure non conforme à la méthode v2 (AUDIT-HAIKU.md) : à refaire. Le matériel déjà présent dans ce dossier est conservé comme historique.
-  - **Preuves** : 
+- [x] **Fait**
+  - **Justification** : 17 requêtes en 2 passes : Cantaloupe v2/v3/loris, libimages1 (301), figgy manifeste et OAI, API du musée (6 chemins), manifeste et info.json : 200, aucun 429 ni en-tête de limite.
+  - **Preuves** : `institutions/princeton/tests/journal.log`, `institutions/princeton/tests/raw/racine-iiif.headers.txt`, `institutions/princeton/tests/raw/api-objet.headers.txt`
 
 ### f) Ce que disent les gens sur le web
 > Plaintes, discussions, présentations de l'institution, politique envers les API et les bots, blogs, GitHub, forums, listes de diffusion. Sources étiquetées (officielle / institution / utilisateur / tiers), lues, citées.
 
-- [ ] **Pas fait**
-  - **Justification** : Passe antérieure non conforme à la méthode v2 (AUDIT-HAIKU.md) : à refaire. Le matériel déjà présent dans ce dossier est conservé comme historique.
-  - **Preuves** : 
+- [x] **Fait**
+  - **Justification** : 4 recherches web (institution, utilisateurs, tickets, présentations) ; originaux lus : whatiiif-mcp, article IIIF 2018, ticket figgy#1236 ; utilisateurs sans résultat (résumé de moteur).
+  - **Preuves** : `institutions/princeton/fiche.md`, `institutions/princeton/data.json`
 
 ### g) Crash test progressif
 > Seulement après l'audit complet (a à f) de toutes les institutions et avec l'accord de Marcel : paliers jusqu'à 2 × la limite documentée, ou 200 req/min si illimité ou sans limite documentée. Arrêt au premier 429/403/CAPTCHA.
@@ -60,8 +60,8 @@
 
 <!-- AUTO:DEBUT -->
 ## Contrôles automatiques (calculés depuis `tests/journal.log`)
-- Requêtes enregistrées : **8** (sessions de sonde : 0, maximum par session : 0)
-- Plus courte pause vers un même hôte : **7 s** (règle : ≥ 6 s)
+- Requêtes enregistrées : **22** (sessions de sonde : 2, maximum par session : 11)
+- Plus courte pause vers un même hôte : **6 s** (règle : ≥ 6 s)
 - Méthodes utilisées : GET, HEAD (règle : GET/HEAD seulement)
 - Anomalies : aucune
 <!-- AUTO:FIN -->

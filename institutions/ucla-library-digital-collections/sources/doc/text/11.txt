@@ -1,0 +1,324 @@
+GitHub - UCLALibrary/ursus: Publicly accessible collection of the UCLA Digital Library · GitHub 
+ Skip to content 
+ Navigation Menu
+ Sign in 
+ Products Platform GitHub Repository hosting, code review, and collaboration 
+ Copilot AI coding agent for tasks, projects, and automated work 
+ Build & Ship Actions CI/CD and automation 
+ Code Quality Quality analysis, fixes, and enforcement 
+ Codespaces Cloud development environments 
+ Secure Code Security Vulnerability detection and remediation 
+ Secret Protection Secret scanning and leak prevention 
+ All Features 
+ Developers Learn Documentation 
+ Training 
+ Certifications 
+ Build Build with Copilot 
+ Customize Copilot 
+ Integrations 
+ Explore Trending repos 
+ GitHub Sponsors 
+ Developer articles 
+ Changelog Changelog Your source for the latest features, improvements, and fixes across GitHub products, all in one place. 
+ Businesses By Stage Enterprises 
+ Team 
+ Startups 
+ Nonprofits 
+ By Industry Healthcare 
+ Financial services 
+ Manufacturing 
+ Government 
+ See all industries 
+ Evaluate GitHub Why GitHub 
+ Customer Stories 
+ Business insights 
+ Trust Center 
+ Add-ons GitHub Advanced Security Enterprise-grade code security 
+ Copilot for business Enterprise-grade AI features 
+ Premium Support Enterprise-grade 24/7 support 
+ Resources Learn & Connect Documentation 
+ Resource center 
+ Blog 
+ Events & webinars 
+ Community Forum 
+ Customer Stories 
+ Integrations 
+ Support Customer support 
+ Training 
+ GitHub Status 
+ Company About 
+ Partners 
+ Changelog 
+ GitHub Universe GitHub Universe The event for developers, by developers — talks, workshops, and what’s next for GitHub. 
+ Pricing 
+ Search / 
+ Sign in 
+ Sign up Appearance settings
+ You signed in with another tab or window. Reload to refresh your session. 
+ You signed out in another tab or window. Reload to refresh your session. 
+ You switched accounts on another tab or window. Reload to refresh your session. 
+ Dismiss alert 
+ {{ message }}
+ UCLALibrary 
+ ursus 
+ Repository navigation
+ Code 
+ Pull requests 6  ( 6 ) 
+ Actions 
+ Wiki 
+ Security and quality 
+ Insights 
+ More items 
+ ursus 
+ Public 
+ Notifications You must be signed in to change notification settings 
+ Fork 5  ( 5 ) 
+ Star 8  ( 8 ) You must be signed in to star a repository 
+ About 
+ Publicly accessible collection of the UCLA Digital Library
+ digital.library.ucla.edu 
+ Resources 
+ Readme 
+ License 
+ Activity 
+ Custom properties 
+ Stars 
+ 8 stars 
+ Watchers 
+ 11 watching 
+ Forks 
+ 5 forks 
+ Report repository 
+ main 
+ Branches Tags 
+ Go to file 
+ Code Open more actions menu 
+ Latest commit
+ History
+ 1,523 Commits 
+ 1,523 Commits 
+ Folders and files
+ Name Name Last commit message 
+ Last commit date 
+ .github/ workflows 
+ .github/ workflows 
+ app 
+ app 
+ bin 
+ bin 
+ config 
+ config 
+ db 
+ db 
+ docker-entrypoint-initdb.d 
+ docker-entrypoint-initdb.d 
+ e2e 
+ e2e 
+ fixtures 
+ fixtures 
+ lib 
+ lib 
+ log 
+ log 
+ public 
+ public 
+ solr 
+ solr 
+ spec 
+ spec 
+ tmp 
+ tmp 
+ vendor 
+ vendor 
+ .dockerignore 
+ .dockerignore 
+ .gitignore 
+ .gitignore 
+ .rspec 
+ .rspec 
+ .ruby-version 
+ .ruby-version 
+ .simplecov 
+ .simplecov 
+ .stylelintignore 
+ .stylelintignore 
+ .stylelintrc.json 
+ .stylelintrc.json 
+ CODEOWNERS 
+ CODEOWNERS 
+ Capfile 
+ Capfile 
+ Dockerfile 
+ Dockerfile 
+ Dockerfile.ci 
+ Dockerfile.ci 
+ Gemfile 
+ Gemfile 
+ Gemfile.lock 
+ Gemfile.lock 
+ LICENSE 
+ LICENSE 
+ PULL_REQUEST_TEMPLATE.md 
+ PULL_REQUEST_TEMPLATE.md 
+ README.md 
+ README.md 
+ Rakefile 
+ Rakefile 
+ config.ru 
+ config.ru 
+ cypress.json 
+ cypress.json 
+ default.env 
+ default.env 
+ docker-compose-with-californica.yml 
+ docker-compose-with-californica.yml 
+ docker-compose.yml 
+ docker-compose.yml 
+ docker.env 
+ docker.env 
+ package-lock.json 
+ package-lock.json 
+ package.json 
+ package.json 
+ start-ursus.sh 
+ start-ursus.sh 
+ yarn.lock 
+ yarn.lock 
+ View all files 
+ Repository files navigation
+ README 
+ License 
+ More items 
+ UCLA Library Management - Ursus
+ Ursus is designed as the public interface for UCLA's digital library content.
+ Bruin Bear (statue) 
+In 1984 to mark its 50th Anniversary, the UCLA Alumni Association commissioned "Mighty Bruins" and presented the Bruin Bear Statue to the university. The statue is now a campus landmark and a focal point in Westwood Plaza.
+ Development
+ This section gives basic instructions to get Ursus running locally. More extensive developer documentation is maintained in the wiki .
+ Install and run locally
+ git clone git@github.com:UCLALibrary/ursus.git
+cd ursus
+docker compose up --detach
+ As of June 2026, you do not need to explicitly set up the database or load data into solr. These jobs are handled by the dbsetup and solrload containers, defined in docker-compose.yml, and the web server will not run until they have completed.
+ Run tests
+ docker compose run rspec
+ For now (July 2026), ignore the many deprecation warnings. Many things are out of date. Check the message near the end, which should look like this, with no failures:
+ 256 examples, 0 failures, 3 pending
+ Information below is deprecated as of June 2026 and will be removed at some point
+ Note
+ The compose environment has been refactored significantly, this may or may not still be relevant.
+ docker compose run web bundle exec rails db:setup
+Could not find rails_autolink-1.1.8 in any of the sources
+Run `bundle install` to install missing gems.
+ Running this command
+ docker compose up --build
+ ** Then run the following command again
+ docker compose run web bundle exec rails db:setup
+ 4. Bring up the development environment
+ ** Do this after setting up the databases** - the startup scripts require the database to be ready so that they can set feature flags e.g. for the Sinai UI mode.
+ docker compose up
+ Ursus should now be running
+ Ursus / UCLA Library Digital Collections UI is enabled on port 3003 
+ The data you're viewing is coming from a solr instance, preloaded with data from [Californica-test]
+( https://californica-test.library.ucla.edu ), and should not need to be changed in most cases,
+since Ursus is a discovery interface only.
+You can view the solr console on port 8983.
+ Running linters and unit tests
+ Connect to a shell inside the container with:
+ docker compose run web bash
+ Then run the entire suite, except for the cypress integration test, with:
+ sh start-ci.sh
+ You can inspect the start-ci.sh script to see which linters and tests this invokes.
+ Or individually:
+ root@ursus:/ursus# bundle exec erblint --lint-all
+ root@ursus:/ursus# yarn run lint
+ root@ursus:/ursus# rubocop
+ Ursus WITH Californica's database
+ Go to the docker.env file for directions
+ In the docker.env file 
+ Comment out SOLR_URL=http://solr:8983/solr/ursus 
+ Uncomment this line SOLR_URL=http://host.docker.internal:8983/solr/californica 
+ In your terminal run $ docker compose -f docker-compose-with-californica.yml up 
+ Before deploying
+ Be sure to comment out SOLR_URL=http://host.docker.internal:8983/solr/californica 
+ And uncomment this line SOLR_URL=http://host.docker.internal:8983/solr/californica 
+ You cannot run docker compose run web bash in this environment.
+ Steps to connect to Ursus Maria db
+ Here's how you can do it using Docker and Docker Compose commands.
+ Step 1: Access the Database Container
+ docker compose exec db bash
+ Step 2: Log into the MariaDB Database
+ mysql -u root
+ Step 3: Check Your Tables
+ USE ursus_development;
+ Then, list all tables:
+ SHOW TABLES;
+ You can also check the schema of a specific table:
+ DESCRIBE users;
+ DESCRIBE searches;
+ You can run sql queries:
+ select * from searches;
+ Exiting the Shell
+ exit;
+ Additional Tips
+ Rails Console: For Rails-specific data inspection or manipulation, you can also use the Rails console. Run docker compose exec web rails console to access it. This is particularly useful for operations that involve Rails models.
+ Running Rake tasks
+ To run the Rake task, open a terminal, navigate to the root of your Rails application, and execute:
+ docker compose run web bash
+rake blacklight:clear_tables
+ Or, if you are using Rails 5.1 or later, you should use the rails command instead:
+ docker compose run web bash
+rails blacklight:clear_tables
+ Running the integration tests
+ First, you will need to install node.js and npm locally.
+ Then cd into the e2e directory and install the javascript dependencies:
+ cd e2e
+npm install
+ Next, you can either open the cypress test runner GUI with:
+ npx cypress open
+ or run the tests in the command line:
+ npx cypress run
+ Visual regression tests
+ Visual regression testing is done via percy.io . This runs only for pull requests on travis; it will not run locally.
+ Rebuilding the image
+ If you need to rebuild the docker image (for example, if packages were added to the Gemfile), run:
+ docker compose pull 
+ docker compose up --build 
+ OAI
+ https://digital.library.ucla.edu/catalog/oai 
+ Data Fixtures
+ Sample data is found in the /fixtures/seed data .jsonl files (broken up to fit github's maximum file size), which was created using feed_ursus dump and the previous dev solr image. Note that this sample data _must be created with feed_ursus, as not every indexed field is stored, and feed_ursus knows how to recreate the unstored fields from stored ones. (Usually this is just a matter of a main *_tesim field that is stored and indexed as text, plus a second unstored *_sim field indexed as symbols for faceting.)
+ When adding data in the future, the best approach will probably be to add CSV files directly to the /fixtures/ directory and use feed_ursus to ingest them during the solr build.
+ About 
+ Publicly accessible collection of the UCLA Digital Library
+ digital.library.ucla.edu 
+ Resources 
+ Readme 
+ License 
+ Activity 
+ Custom properties 
+ Stars 
+ 8 stars 
+ Watchers 
+ 11 watching 
+ Forks 
+ 5 forks 
+ Report repository 
+ Releases 
+ Packages 
+ Used by 
+ Contributors 
+ Languages 
+ Footer
+ © 2026 GitHub, Inc.
+ Footer navigation
+ Terms 
+ Privacy 
+ Security 
+ Status 
+ Community 
+ Docs 
+ Contact 
+ Manage cookies
+ Do not share my personal information
+ You can’t perform that action at this time.

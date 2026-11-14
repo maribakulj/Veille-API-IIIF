@@ -1,0 +1,41 @@
+{
+  "slug": "ucla-library-digital-collections",
+  "min_delay_s": 6,
+  "max_requests": 15,
+  "follow_redirects": 1,
+  "robots_disallow_autorise_par_marcel": true,
+  "note": "v2 passe 1 : manifestes IIIF cités par le guide UCLA (guides.library.ucla.edu/digital-collections/iiif), racine Cantaloupe, opensearch.xml et page d'item cités sur digital.library.ucla.edu. Anubis (défi) signalé par un billet : si défi, arrêt de l'hôte.",
+  "endpoints": [
+    {
+      "id": "racine-iiif",
+      "method": "GET",
+      "url": "https://iiif.library.ucla.edu/"
+    },
+    {
+      "id": "manifeste-zz0002hh5q",
+      "method": "GET",
+      "url": "https://iiif.library.ucla.edu/ark%3A%2F21198%2Fzz0002hh5q/manifest",
+      "save_body": 600000
+    },
+    {
+      "id": "manifeste-zz0002hp4m",
+      "method": "GET",
+      "url": "https://iiif.library.ucla.edu/ark%3A%2F21198%2Fzz0002hp4m/manifest"
+    },
+    {
+      "id": "manifeste-zz0002hp4m-head",
+      "method": "HEAD",
+      "url": "https://iiif.library.ucla.edu/ark%3A%2F21198%2Fzz0002hp4m/manifest"
+    },
+    {
+      "id": "ursus-opensearch",
+      "method": "GET",
+      "url": "https://digital.library.ucla.edu/catalog/opensearch.xml"
+    },
+    {
+      "id": "ursus-item",
+      "method": "GET",
+      "url": "https://digital.library.ucla.edu/catalog/ark:/21198/zz0002c6b5"
+    }
+  ]
+}

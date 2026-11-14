@@ -1,0 +1,191 @@
+UBC Library Open Collections IIIF Presentation API (University of British Columbia) — OpenAPI & Docs | APIs.io 
+ Providers 
+ APIs 
+ Browse 
+ Taxonomy
+ Tags 
+ Industries 
+ Areas 
+ Topics 
+ Business Architecture
+ Business Capabilities 
+ Applications 
+ Use Cases & Features
+ Use Cases 
+ Features 
+ Geography
+ Regions 
+ Countries 
+ Governance
+ Regulations 
+ Market
+ Venture Capital 
+ Secondary Market 
+ API Estates 
+ Gartner Magic Quadrants 
+ Markets 
+ Artifacts 
+ Specifications
+ OpenAPI 
+ OpenAPI Extensions 
+ OpenAPI Overlays 
+ HTTP Headers 
+ Schemas 
+ JSON Structure 
+ AsyncAPI 
+ GraphQL 
+ JSON-LD 
+ Vocabularies 
+ Standards 
+ Usage
+ Examples 
+ Collections 
+ Arazzo Workflows 
+ Event Channels 
+ Webhooks 
+ Errors 
+ Agents & Governance
+ Agent Registry 
+ MCP Servers 
+ A2A Agent Cards 
+ Agent Discovery 
+ Agent Skills 
+ llms.txt 
+ AI Catalog 
+ Rules 
+ Signals 
+ Security
+ Security Posture 
+ OAuth Scopes 
+ Agentic Access 
+ Commercial
+ Plans 
+ Rate Limits 
+ Service Levels 
+ FinOps 
+ Business Terms
+ Terms of Service 
+ Privacy & Data 
+ Deprecation 
+ Compliance 
+ Eligibility 
+ AI Preferences 
+ Data Licenses 
+ Kin Score 
+ Stack 
+ Platform 
+ Developers
+ Developer Docs 
+ Agent Playground 
+ Changelog 
+ Trust Layer
+ The Trust Layer 
+ Onboarding 
+ Agent Signup 
+ Blueprint 
+ Insights
+ Analytics 
+ Search Terms 
+ APIs.io
+ About 
+ On-Premise 
+ Newsletter 
+ Support 
+ GitHub 
+ Blog 
+ Add your API 
+ Home 
+ University of British Columbia 
+ UBC Library Open Collections IIIF Presentation API
+ University of British Columbia 
+ UBC Library Open Collections IIIF Presentation API
+ IIIF Presentation manifests for Open Collections items, served from UBC Library's own host. Verified live 2026-08-19: a 10,560-byte JSON manifest returned for an item in the UBC Archives Photograph Collection, with IRI-annotated Dublin Core, EDM and DPLA metadata. UBC publishes no OpenAPI for this surface and none is invented here — the contract is the IIIF Presentation specification itself.
+ Documentation 
+ GitHub 
+ Add to Stack 
+ Documentation
+ 📖
+ Documentation
+ https://open.library.ubc.ca/docs
+ Other Resources
+ 🔗
+ Conformance
+ https://artifacts.apis.io/ubc/conformance/ubc-domain-standards-conformance.yml
+ 🔗
+ APIsJSON
+ https://artifacts.apis.io/ubc/apis.yml
+ Provider
+ University of British Columbia 
+ Base URL
+ https://iiif.library.ubc.ca
+ Tags
+ Library 
+ IIIF 
+ Digital Collections 
+ Image 
+ APIs.json
+ View index file 
+ Work with this as data 
+ Every API here is available over the APIs.io API and to AI agents over MCP.
+ MCP server
+ One button, every client — Claude, Cursor, VS Code and the rest.
+ https://apis.io/mcp 
+ Tools for apis
+ 7 MCP tools reach this 
+ find_apis Browse and filter every API in the catalog. 
+ get_api_artifacts One API's artifacts, grouped by type. 
+ get_openapi The primary OpenAPI for this API. 
+ find_similar_apis APIs that look like this one. 
+ apis_io_search START HERE — APIs, providers and tags for one query, each with its total. 
+ resolve Turn a domain, URL or GitHub org into the provider it belongs to. 
+ find_cohorts Every scored population of providers in the catalog. 
+ All 92 tools → 
+ Call it yourself
+ curl for this page 
+ This API 
+ curl "https://apis.io/api/v1/apis/ubc:open-collections-iiif" 
+ All apis 
+ curl "https://apis.io/api/v1/apis?limit=25" 
+ Calls without X-API-Key need no key. Calls with it need a paid plan — get a key .
+ Get an API key
+ Free tier, no form to fill in. Signing in shares your email address with us — we
+ store it to create your key and to recognise you if you sign in with another
+ provider. See our Privacy Policy and
+ Terms .
+ GitHub 
+ Google 
+ LinkedIn 
+ A second provider on the same verified email joins the account you already have.
+ API entry from apis.yml
+ apis.yml 
+ YAML 
+ JSON 
+ Download 
+ Raw ↑ 
+ Copy 
+ aid: ubc:open-collections-iiif
+name: UBC Library Open Collections IIIF Presentation API
+x-operator: institution
+description: 'IIIF Presentation manifests for Open Collections items, served from UBC Library''s own host.
+ Verified live 2026-08-19: a 10,560-byte JSON manifest returned for an item in the UBC Archives Photograph
+ Collection, with IRI-annotated Dublin Core, EDM and DPLA metadata. UBC publishes no OpenAPI for this
+ surface and none is invented here — the contract is the IIIF Presentation specification itself.'
+humanURL: https://open.library.ubc.ca/docs
+baseURL: https://iiif.library.ubc.ca
+tags:
+- Library
+- IIIF
+- Digital Collections
+- Image
+tags_raw:
+- Library
+- IIIF
+- Digital Collections
+- Images
+properties:
+- type: Documentation
+ url: https://open.library.ubc.ca/docs
+- type: Conformance
+ url: conformance/ubc-domain-standards-conformance.yml
+ © APIs.io 
+ APIs.json API Commons API Evangelist Terms Privacy

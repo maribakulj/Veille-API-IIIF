@@ -1,0 +1,20 @@
+{
+  "slug": "university-british-columbia-open-collections",
+  "min_delay_s": 6,
+  "max_requests": 15,
+  "follow_redirects": 1,
+  "robots_disallow_autorise_par_marcel": true,
+  "note": "v2 passe 2 : deux endpoints REST documentés restants (liste des collections ; liste paginée limit=10) ; 2 requêtes seulement car un tiers (apis.io, non vérifié) cite 10 requêtes/min sans clé.",
+  "endpoints": [
+    {
+      "id": "rest-collections",
+      "method": "GET",
+      "url": "https://oc-index.library.ubc.ca/collections"
+    },
+    {
+      "id": "rest-items-arkley-p10",
+      "method": "GET",
+      "url": "https://oc-index.library.ubc.ca/collections/arkley/items?limit=10&offset=0"
+    }
+  ]
+}

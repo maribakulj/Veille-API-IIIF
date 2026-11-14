@@ -1,0 +1,156 @@
+Allow users to obtain manifests URLs of figgy content for use in EAD/Finding Aids · Issue #1236 · pulibrary/figgy · GitHub 
+ Skip to content 
+ Navigation Menu
+ Sign in 
+ Products Platform GitHub Repository hosting, code review, and collaboration 
+ Copilot AI coding agent for tasks, projects, and automated work 
+ Build & Ship Actions CI/CD and automation 
+ Code Quality Quality analysis, fixes, and enforcement 
+ Codespaces Cloud development environments 
+ Secure Code Security Vulnerability detection and remediation 
+ Secret Protection Secret scanning and leak prevention 
+ All Features 
+ Developers Learn Documentation 
+ Training 
+ Certifications 
+ Build Build with Copilot 
+ Customize Copilot 
+ Integrations 
+ Explore Trending repos 
+ GitHub Sponsors 
+ Developer articles 
+ Changelog Changelog Your source for the latest features, improvements, and fixes across GitHub products, all in one place. 
+ Businesses By Stage Enterprises 
+ Team 
+ Startups 
+ Nonprofits 
+ By Industry Healthcare 
+ Financial services 
+ Manufacturing 
+ Government 
+ See all industries 
+ Evaluate GitHub Why GitHub 
+ Customer Stories 
+ Business insights 
+ Trust Center 
+ Add-ons GitHub Advanced Security Enterprise-grade code security 
+ Copilot for business Enterprise-grade AI features 
+ Premium Support Enterprise-grade 24/7 support 
+ Resources Learn & Connect Documentation 
+ Resource center 
+ Blog 
+ Events & webinars 
+ Community Forum 
+ Customer Stories 
+ Integrations 
+ Support Customer support 
+ Training 
+ GitHub Status 
+ Company About 
+ Partners 
+ Changelog 
+ GitHub Universe GitHub Universe The event for developers, by developers — talks, workshops, and what’s next for GitHub. 
+ Pricing 
+ Search / 
+ Sign in 
+ Sign up Appearance settings
+ You signed in with another tab or window. Reload to refresh your session. 
+ You signed out in another tab or window. Reload to refresh your session. 
+ You switched accounts on another tab or window. Reload to refresh your session. 
+ Dismiss alert 
+ {{ message }}
+ pulibrary 
+ figgy 
+ Repository navigation
+ Code 
+ Issues 152  ( 152 ) 
+ Pull requests 4  ( 4 ) 
+ Actions 
+ Projects 
+ Security and quality 
+ Insights 
+ More items 
+ Allow users to obtain manifests URLs of figgy content for use in EAD/Finding Aids   #1236 
+ New issue 
+ Copy link 
+ New issue 
+ Copy link 
+ Closed 
+ #3170 
+ Closed 
+ Allow users to obtain manifests URLs of figgy content for use in EAD/Finding Aids #1236 
+ #3170 
+ Copy link 
+ Labels
+ feature 
+ Description
+ sdellis 
+ opened on May 11, 2018 
+ Issue body actions 
+ In order for Figgy content to show in Finding Aids, someone in RBSC will need to either manually or automatically add a <dao> reference to a component <did> element.
+ Find the in the following example:
+ https://findingaids-dev.princeton.edu/collections/C0744.03/c0090.xml 
+ <dao xmlns:xlin="http://www.w3.org/1999/xlink" xmlns:xli="http://www.w3.org/1999/xlink" xli:type="simple" xli:role="iiif-manifest" xli:href="https://figgy.princeton.edu/concern/scanned_resources/9d39a643-16f5-4342-8157-32daa2833939/manifest"/>
+ It would be easiest to provide a hash/csv/spreadsheet of component_ids to manifests for a collection, and then a script could add the content to the EAD.
+ componentID | manifest URI
+__________________________________________________________
+C0744.03_c0090 | https://figgy.princeton.edu/concern/scanned_resources/9d39a643-16f5-4342-8157-32daa2833939/manifest
+__________________________________________________________
+... | ...
+ The next best thing would be to make it easy for a user to copy the manifest URI.
+ Part of: #810 
+ Activity
+ tpendragon 
+added enhancement 
+ on Jul 25, 2018 
+ escowles commented on Jul 26, 2018 
+ escowles 
+ on Jul 26, 2018 
+ Member 
+ More actions 
+ Here is a simple shell script implementation that outputs the source_metadata_identifier and manifest URL:
+ #! /bin/sh 
+COL=a0624f5e-30e6-46f2-b1e8-f4ab8eb8cee4 # figgy collection id 
+NUM=346 # items in the collection 
+SOLR=http://localhost:9999/solr/figgy/select # SSH tunnel 
+curl -s " $SOLR ?q=member_of_collection_ids_tsim: $COL &fl=id,source_metadata_identifier_ssim&rows= $NUM " > $COL .json
+cat $COL .json | jq -c ' .response.docs[] | [.source_metadata_identifier_ssim[0], .id] ' | sed -e ' s/\["// ' -e ' s/","/ https:\/\/figgy.princeton.edu\/concern\/scanned_resources\// ' -e ' s/"\]/\/manifest/ ' > $COL .txt 
+ A Ruby implementation could avoid assumptions about the number of items, the type of the resources, etc.
+ tpendragon 
+added feature 
+ and removed enhancement 
+ on Jul 26, 2018 
+ hackartisan 
+closed this as completed in #3170 on Oct 18, 2019 
+ Sign up for free to join this conversation on GitHub. Already have an account? Sign in to comment 
+ Metadata
+ Metadata
+ Assignees
+ No one assigned 
+ Labels
+ feature 
+ Type
+ No type 
+ Projects
+ No projects 
+ Milestone
+ No milestone 
+ Relationships
+ None yet 
+ Development
+ No branches or pull requests 
+ Issue actions
+ Open in GitHub Copilot app 
+ Footer
+ © 2026 GitHub, Inc.
+ Footer navigation
+ Terms 
+ Privacy 
+ Security 
+ Status 
+ Community 
+ Docs 
+ Contact 
+ Manage cookies
+ Do not share my personal information
+ You can’t perform that action at this time.

@@ -2,51 +2,51 @@
 
 - **Dossier** : `institutions/ucla-library-digital-collections/`  ·  **Classeur de référence** : GLAM-046  ·  **Pays** : États-Unis
 - **Statut d'institution** : active
-- **Dernière mise à jour du suivi** : (à renseigner à chaque modification)
+- **Dernière mise à jour du suivi** : 2026-11-14
 
 ## Suivi par étape (à cocher, avec justification et preuves)
 
 ### a) Documentation lue en entier
 > Toutes les pages de doc liées à l'API (développeurs, interfaces, conditions, FAQ, aide, mentions légales, robots.txt), téléchargées avec `scripts/fetch_doc.sh` (URL, date, SHA-256), lues en entier (`scripts/extract_text.py`).
 
-- [ ] **Pas fait**
-  - **Justification** : Pas encore traitée : l'audit suit l'ordre du classeur de référence (une institution à la fois).
-  - **Preuves** : 
+- [x] **Fait**
+  - **Justification** : Doc lue via fetch_doc.sh : guide IIIF UCLA, racines Cantaloupe 1/2/3, Code4Lib 15217, GitHub UCLALibrary, robots.txt de chaque hôte (digital, iiif, guides, library, www) ; une page GitHub déplacée en .verbatim (validateur planté).
+  - **Preuves** : `institutions/ucla-library-digital-collections/sources/doc/SHA256SUMS`, `institutions/ucla-library-digital-collections/sources/doc2/SHA256SUMS`
 
 ### b) Endpoints tirés de la doc
 > Liste des endpoints citée par la doc (URL, exemples). Jamais devinée. Une interdiction ou une impossibilité écrite dans la doc justifie de renoncer (citer la phrase).
 
-- [ ] **Pas fait**
-  - **Justification** : Pas encore traitée : l'audit suit l'ordre du classeur de référence (une institution à la fois).
-  - **Preuves** : 
+- [x] **Fait**
+  - **Justification** : Endpoints tirés du guide IIIF (manifestes), de la racine Cantaloupe (Image 1.x/2.x/3.x) et de digital.library.ucla.edu (opensearch.xml, page d'item) ; non testés justifiés dans data.json.
+  - **Preuves** : `institutions/ucla-library-digital-collections/data.json`
 
 ### c) Configuration écrite AVANT les tests
 > `config/<nom>.json` pilote `scripts/probe.py`, committée avant le lancement. Un endpoint absent de la doc mais non interdit se teste avec un script poli (identifiants issus de pages publiques ou d'exemples de la doc, pas de devinette).
 
-- [ ] **Pas fait**
-  - **Justification** : Pas encore traitée : l'audit suit l'ordre du classeur de référence (une institution à la fois).
-  - **Preuves** : 
+- [x] **Fait**
+  - **Justification** : Configurations passe1-manifestes (commit 4246136) et passe2-images committées avant lancement ; première session non conforme archivée dans tests/archive puis rejouée.
+  - **Preuves** : `institutions/ucla-library-digital-collections/config/passe1-manifestes.json`, `institutions/ucla-library-digital-collections/config/passe2-images.json`, `institutions/ucla-library-digital-collections/tests/archive/journal-session-avant-config-committee.log`
 
 ### d) Quota cherché dans la doc
 > Pour chaque page lue : endpoint de statut, en-têtes de limite documentés, clé ou compte donnant un quota, contact pour un volume plus élevé. Chaque réponse cite sa source.
 
-- [ ] **Pas fait**
-  - **Justification** : Pas encore traitée : l'audit suit l'ordre du classeur de référence (une institution à la fois).
-  - **Preuves** : 
+- [x] **Fait**
+  - **Justification** : Aucune limite de débit, en-tête de limite, clé ni quota dans la doc lue (guide, Code4Lib, GitHub) ; pas de contact dédié moissonnage, contact général de la bibliothèque ; sources citées dans data.json.
+  - **Preuves** : `institutions/ucla-library-digital-collections/data.json`, `institutions/ucla-library-digital-collections/fiche.md`
 
 ### e) Test systématique de chaque endpoint
 > Chaque endpoint documenté est testé (budget 15 requêtes par passe, pause ≥ 6 s, GET/HEAD, UA du projet). Redirections du même hôte suivies. Un 403 arrête son hôte, un 429 arrête l'institution. Seules les interdictions écrites dans la doc dispensent de tester.
 
-- [ ] **Pas fait**
-  - **Justification** : Pas encore traitée : l'audit suit l'ordre du classeur de référence (une institution à la fois).
-  - **Preuves** : 
+- [x] **Fait**
+  - **Justification** : 10 requêtes en 2 passes : manifestes, opensearch, item, info.json v2/v3 : 200 ; HEAD manifeste 405 ; v1 en 403 Cantaloupe (hôte arrêté, 200 px non lancé) ; aucun 429 ni en-tête de limite.
+  - **Preuves** : `institutions/ucla-library-digital-collections/tests/journal.log`, `institutions/ucla-library-digital-collections/tests/raw/image-v2-info.headers.txt`, `institutions/ucla-library-digital-collections/tests/raw/image-v1-info.headers.txt`
 
 ### f) Ce que disent les gens sur le web
 > Plaintes, discussions, présentations de l'institution, politique envers les API et les bots, blogs, GitHub, forums, listes de diffusion. Sources étiquetées (officielle / institution / utilisateur / tiers), lues, citées.
 
-- [ ] **Pas fait**
-  - **Justification** : Pas encore traitée : l'audit suit l'ordre du classeur de référence (une institution à la fois).
-  - **Preuves** : 
+- [x] **Fait**
+  - **Justification** : 4 recherches web (institution, utilisateurs, tickets, présentations) ; originaux lus : billet SAA, iiif-discuss, Code4Lib ; Duke Anubis en résumé de moteur ; tickets sans résultat.
+  - **Preuves** : `institutions/ucla-library-digital-collections/fiche.md`, `institutions/ucla-library-digital-collections/data.json`
 
 ### g) Crash test progressif
 > Seulement après l'audit complet (a à f) de toutes les institutions et avec l'accord de Marcel : paliers jusqu'à 2 × la limite documentée, ou 200 req/min si illimité ou sans limite documentée. Arrêt au premier 429/403/CAPTCHA.
@@ -60,7 +60,10 @@
 
 <!-- AUTO:DEBUT -->
 ## Contrôles automatiques (calculés depuis `tests/journal.log`)
-Aucune requête enregistrée dans `tests/journal.log`.
+- Requêtes enregistrées : **13** (sessions de sonde : 2, maximum par session : 8)
+- Plus courte pause vers un même hôte : **6 s** (règle : ≥ 6 s)
+- Méthodes utilisées : GET, HEAD (règle : GET/HEAD seulement)
+- Anomalies : aucune
 <!-- AUTO:FIN -->
 
 ## Consigne intégrale

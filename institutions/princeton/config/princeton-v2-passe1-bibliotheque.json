@@ -1,0 +1,50 @@
+{
+  "slug": "princeton",
+  "min_delay_s": 6,
+  "max_requests": 15,
+  "follow_redirects": 1,
+  "robots_disallow_autorise_par_marcel": true,
+  "note": "v2 passe 1 : bibliothèque (iiif.princeton.edu Cantaloupe, figgy). Racine et /iiif/2 /iiif/3 lus sur la racine ; identifiant d'image et manifeste figgy tirés de pages publiques (exemple OpenSeadragon, ticket GitHub pulibrary/figgy#1236) ; OAI figgy /oai cité par le wiki Samvera (tiers). robots.txt figgy = Disallow:/ (C12 : testé quand même).",
+  "endpoints": [
+    {
+      "id": "racine-iiif",
+      "method": "GET",
+      "url": "https://iiif.princeton.edu/"
+    },
+    {
+      "id": "image-v2-info",
+      "method": "GET",
+      "url": "https://iiif.princeton.edu/iiif/2/pudl0001%2F4609321%2Fs42%2F00000001.jp2/info.json"
+    },
+    {
+      "id": "image-v3-info",
+      "method": "GET",
+      "url": "https://iiif.princeton.edu/iiif/3/pudl0001%2F4609321%2Fs42%2F00000001.jp2/info.json"
+    },
+    {
+      "id": "image-v2-info-head",
+      "method": "HEAD",
+      "url": "https://iiif.princeton.edu/iiif/2/pudl0001%2F4609321%2Fs42%2F00000001.jp2/info.json"
+    },
+    {
+      "id": "loris-ancien-info",
+      "method": "GET",
+      "url": "https://iiif.princeton.edu/loris/pudl0001%2F4609321%2Fs42%2F00000001.jp2/info.json"
+    },
+    {
+      "id": "libimages1-info",
+      "method": "GET",
+      "url": "https://libimages1.princeton.edu/loris/pudl0001%2F4609321%2Fs42%2F00000001.jp2/info.json"
+    },
+    {
+      "id": "figgy-manifeste",
+      "method": "GET",
+      "url": "https://figgy.princeton.edu/concern/scanned_resources/9d39a643-16f5-4342-8157-32daa2833939/manifest"
+    },
+    {
+      "id": "figgy-oai-identify",
+      "method": "GET",
+      "url": "https://figgy.princeton.edu/oai?verb=Identify"
+    }
+  ]
+}

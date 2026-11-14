@@ -1,0 +1,38 @@
+# Google AdSense bots, they only are beneficial for sites that display Google's Adsense ads, which we don't
+# User-agent: Google-Display-Ads-Bot
+# User-agent: Mediapartners-Google
+# Disallow: /
+# Removing to see if this allows Google Search Console to read this file again.
+User-agent: *
+Crawl-delay: 10
+Sitemap: https://catalog.princeton.edu/sitemap
+Disallow: /?q=*
+Disallow: /?f*
+Disallow: /*?q=*
+Disallow: /*?f*
+Disallow: /requests
+Disallow: /browse
+Disallow: /browse/call_numbers
+Disallow: /browse/names
+Disallow: /browse/name_titles
+Disallow: /browse/subjects
+Disallow: /catalog.atom
+Disallow: /catalog.rss
+Disallow: /catalog/*/
+Disallow: /catalog/endnote
+Disallow: /catalog/opensearch
+Disallow: /catalog/range_limit
+Disallow: /catalog/email
+Disallow: /catalog/sms
+Disallow: /catalog/citation
+Disallow: /bookmarks
+Disallow: /users
+Disallow: /cgi-bin
+Disallow: /account
+Disallow: /borrow-direct
+Disallow: /thumbnail
+Disallow: /404
+Disallow: /422
+Disallow: /500
+Disallow: /search_history
+Disallow: /suggest
