@@ -12,7 +12,7 @@ from unittest.mock import patch
 
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "scripts"))
-from etat_reverifications import agregger_constats, main, normalize_url  # noqa: E402
+from etat_reverifications import agregger_constats, main, normalize_url, qualifier_lecture  # noqa: E402
 
 
 class RapprochementTests(unittest.TestCase):
@@ -43,6 +43,18 @@ class RapprochementTests(unittest.TestCase):
         self.assertEqual(resultat["nombre_constats"], 0)
         self.assertEqual(resultat["statut_revision"], "NON_REEXAMINE_DANS_REGISTRE")
         self.assertEqual(resultat["reste_a_verifier"], "Contrôler les entêtes")
+
+    def test_lecture_directe_copie_et_blocage_restent_distincts(self):
+        def statut(v):
+            return [{"statut_doc_2026_11_14": x} for x in v]
+        self.assertEqual(qualifier_lecture(statut([
+            "BLOCAGE_ACCES", "TEXTE_ORIGINAL_LU_2026_11_14"])),
+            "TEXTE_LU_PAR_LECTEUR_WEB")
+        self.assertEqual(qualifier_lecture(statut([
+            "PAGE_ACTUELLE_REFUSEE_403", "COPIE_INTEGRALE_INDEXEE_LUE_2026_09_18"])),
+            "TEXTE_RECUPERE_COPIE_DATEE")
+        self.assertEqual(qualifier_lecture(statut(["BLOCAGE_ACCES"])),
+                         "CONTENU_NON_DEMONTRE_PAR_REPRISE_O")
 
     def test_url_conserve_chemin_et_requete(self):
         self.assertEqual(normalize_url(" HTTPS://EXAMPLE.ORG/Manifest?ID=AbC "),
@@ -101,6 +113,8 @@ class RapprochementTests(unittest.TestCase):
                 rows = list(csv.DictReader(handle))
             self.assertEqual(len(rows), 3)
             self.assertEqual(rows[0]["nombre_constats"], "2")
+            self.assertEqual(rows[0]["lecture_documentaire"],
+                             "CONTENU_NON_DEMONTRE_PAR_REPRISE_O")
             self.assertIn("BLOCAGE_ACCES", rows[0]["statut_revision"])
             self.assertIn("LIEN_OFFICIEL_CIBLE_CONFIRME", rows[1]["statut_revision"])
             self.assertEqual(rows[0]["signal_doublon"], "DOUBLON_DANS_INSTITUTION")
