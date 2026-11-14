@@ -1,0 +1,13 @@
+{
+  "slug": "david-rumsey-map-collection",
+  "min_delay_s": 500,
+  "max_requests": 15,
+  "follow_redirects": 1,
+  "robots_disallow_autorise_par_marcel": true,
+  "note": "Passe 1 : robots.txt de www.davidrumsey.com : Crawl-Delay: 500 (User-agent *), donc 500 s entre requetes. Endpoints de la doc LUNA (lunaimaging.atlassian.net, sources/c) : manifeste IIIF d'un objet (pattern luna/servlet/iiif/m/<id>/manifest, identifiant RUMSEY~8~1~305711~90076087 pris sur un lien public de la page d'accueil, sources/a), collection IIIF d'un groupe (exemple de la doc : collection/g/21368), API fetchMediaSearch avec includeIiifManifest (exemple de la doc, bs reduit a 3). /luna/servlet/as/ est en Disallow : autorise par Marcel (C12).",
+  "endpoints": [
+    {"id": "manifeste-iiif", "method": "GET", "url": "https://www.davidrumsey.com/luna/servlet/iiif/m/RUMSEY~8~1~305711~90076087/manifest", "save_body": 2000000},
+    {"id": "collection-iiif-g21368", "method": "GET", "url": "https://www.davidrumsey.com/luna/servlet/iiif/collection/g/21368"},
+    {"id": "fetchMediaSearch-iiif", "method": "GET", "url": "https://www.davidrumsey.com/luna/servlet/as/fetchMediaSearch?&lc=RUMSEY~8~1&fullData=false&bs=3&os=0&includeIiifManifest=true"}
+  ]
+}

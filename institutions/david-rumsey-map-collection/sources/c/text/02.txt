@@ -1,0 +1,62 @@
+LUNA Viewer API and IIIF - Version 7.5 Doc - LUNA Documentation 
+ Atlassian uses cookies to improve your browsing experience, perform analytics and research, and conduct advertising. Accept all cookies to indicate that you agree to our use of cookies on your device. 
+ Atlassian cookies and tracking notice , (opens new window) 
+ Atlassian uses cookies to improve your browsing experience, perform analytics and research, and conduct advertising. Accept all cookies to indicate that you agree to our use of cookies on your device. Atlassian cookies and tracking notice , (opens new window) 
+ Preferences Only necessary Accept all 
+ Collapse sidebar Switch sites or apps 
+ Create Create 
+ Help 
+ Log in 
+ Version 7.6 Doc 
+ Spaces 
+ Apps 
+ Version 7.5 Doc 
+ More actions 
+ Back to top 
+ Content 
+ Results will update as you type. 
+ Current Documentation 
+ LUNA Users Guide 
+ Quick Start Guides 
+ How-to articles 
+ Installing or Upgrading LUNA 
+ Simple Compound Objects 
+ Tutorial Videos 
+ LUNA 7 Backend Overview 
+ OAI-PMH in LUNA 
+ Google Analytics 
+ Source & Associated Files 
+ IIIF in LUNA 
+ What you can do with some IIIF tools 
+ LUNA Viewer API and IIIF 
+ Working with disparate IIIF resources using Mirador 2.7 
+ Dates in LUNA 
+ Migrating from Insight 6.x to LUNA 7.1+ 
+ Accessibility Information 
+ Managing web crawler traffic with reCAPTCHA v3 
+ LUNA Release Notes 
+ LUNA API Documentation 
+ System Requirements 
+ Using MARC as source data 
+ LDAP 
+ Common Support Solutions 
+ You‘re viewing this with anonymous access, so some content might be blocked. 
+ Close 
+ Version 7.5 Doc
+ /
+ LUNA Viewer API and IIIF
+ Published May 13, 2020 
+ More actions 
+ LUNA Viewer API and IIIF
+ By Luna 
+ May 13, 2020
+ 1 min 
+ Add a reaction
+ New in LUNA 7.3.1
+ LUNA Viewer API can now provide IIIF Manifest for each item returned and IIIF collection URL for each search result.
+ Adding this functionality allows for simpler IIIF interface development using LUNA resources.
+ Parameter includeIiifManifest
+ When you add includeIiifManifest=true to your request URL, it will return iiif Manifest for each item returned
+ https://www.example.com/luna/servlet/as/fetchMediaSearch?&lc=RUMSEY~8~1&fullData=false&bs=25&os=0&includeIiifManifest=true
+ Open image2017-8-9 13:54:31.png 
+ {"serverDuration": 30, "requestCorrelationId": "477c19d28167476183ad52fa2c539f56"}

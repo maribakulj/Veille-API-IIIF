@@ -1,0 +1,599 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<title>
+David Rumsey Historical Map Collection
+| Copyright and Permissions
+
+</title>
+<meta content="David Rumsey Map Collection" name="DC.title">
+<meta content="width=device-width, initial-scale=1" name="viewport">
+<link rel="stylesheet" href="/assets/application-1a3016547332cb563870b6dd831bd4e24124ca2d4789380840981d85ec5f7eff.css" />
+<link rel="stylesheet" href="/assets/globe-3d116a84e1ee87ea917423cb515959f1dd2b524e27b8f18579c9e9edddea1b37.css" />
+
+<link href="/favicon.png" rel="shortcut icon" type="image/png">
+<link href="https://feeds.feedburner.com/DavidRumseyHistoricalMapCollection" rel="alternate" title="David Rumsey Historical Map Collection - Blog" type="application/atom+xml">
+<link href="/assets/color-2d038f81a86b3a797cb8d98411a82f01a469a54bc5823aaa7fbfb298e1059bc0.css" id="light_theme" media="screen" rel="stylesheet" title="light" type="text/css">
+<script>
+  function isDarkTheme() { return document.cookie.match(/dark_theme=1/); }
+  if(isDarkTheme()) { document.getElementById("light_theme").disabled = true; }
+</script>
+<script type="importmap" data-turbo-track="reload">{
+  "imports": {
+    "application": "/assets/application-2af229818a817f50f67ba19305cdbe3191ea7bda776f681f0aeabd7ed179b1e5.js",
+    "@rails/ujs": "https://ga.jspm.io/npm:@rails/ujs@6.0.5/lib/assets/compiled/rails-ujs.js",
+    "@hotwired/turbo-rails": "/assets/turbo.min-f9991a0dbcbebe62d386fc178ebb427a9299d389be093a495eed4c428f8f2e90.js",
+    "@hotwired/stimulus": "https://ga.jspm.io/npm:@hotwired/stimulus@3.2.1/dist/stimulus.js",
+    "@hotwired/stimulus-loading": "/assets/stimulus-loading-d80f0feea68692981b568bbfef0ed4370b56927ae5c663421e8461a466f0618f.js",
+    "stimulus-use": "https://ga.jspm.io/npm:stimulus-use@0.50.0-2/dist/index.js",
+    "stimulus-use-actions": "https://unpkg.com/stimulus-use-actions@0.1.0/index.js",
+    "stimulus-if": "https://ga.jspm.io/npm:stimulus-if@0.2.0/index.js",
+    "stimulus-shorthand": "https://ga.jspm.io/npm:stimulus-shorthand@0.1.0/index.js",
+    "mustache": "https://ga.jspm.io/npm:mustache@4.2.0/mustache.mjs",
+    "swiped-events": "https://ga.jspm.io/npm:swiped-events@1.1.7/src/swiped-events.js",
+    "spinning-globe": "https://ga.jspm.io/npm:spinning-globe@0.3.1/index.js",
+    "@lit/reactive-element": "https://ga.jspm.io/npm:@lit/reactive-element@1.3.1/reactive-element.js",
+    "current-device": "https://ga.jspm.io/npm:current-device@0.10.2/lib/index.js",
+    "lit": "https://ga.jspm.io/npm:lit@2.2.1/index.js",
+    "lit-element/lit-element.js": "https://ga.jspm.io/npm:lit-element@3.2.0/lit-element.js",
+    "lit-html": "https://ga.jspm.io/npm:lit-html@2.2.1/lit-html.js",
+    "lit-html/directives/style-map.js": "https://ga.jspm.io/npm:lit-html@2.2.1/directives/style-map.js",
+    "lit/directives/style-map.js": "https://ga.jspm.io/npm:lit@2.2.1/directives/style-map.js",
+    "three": "https://ga.jspm.io/npm:three@0.139.2/build/three.module.js",
+    "js-cookie": "https://ga.jspm.io/npm:js-cookie@3.0.5/dist/js.cookie.mjs",
+    "controllers/application": "/assets/controllers/application-dae5034e797a3f855eab45faa95bd7a5154b848d7117d337c29b9a7c287db699.js",
+    "controllers/article_summary_controller": "/assets/controllers/article_summary_controller-9deb3217dae641f09f045cad69386776aa66fafd8b7f7b714568883e1aea3653.js",
+    "controllers/carousel_controller": "/assets/controllers/carousel_controller-bc5568d6d6f0cfea5b2562de002ce9fccda5ce7c9212100641de0e9be4f995bf.js",
+    "controllers/dark_mode_controller": "/assets/controllers/dark_mode_controller-dc237288e7c49d5e9a7a61031159f59e00f1512e397fc311350071d74df6bb48.js",
+    "controllers/expanding_uls_controller": "/assets/controllers/expanding_uls_controller-64f09bdcbd2cb00fdc626bfeb371ff3069d0ff57d09029b8f308a8fe3cda365c.js",
+    "controllers/google_analytics_controller": "/assets/controllers/google_analytics_controller-3826d1f9cddf50cbf02b58ff2ace51b7e115df2cad3a40f43df616b0006c69ca.js",
+    "controllers/if_controller": "/assets/controllers/if_controller-beea9c073e09fa0aa6793a212b52e098dec3a28b4dc1382220b0ed4bdb642f12.js",
+    "controllers/map_group_controller": "/assets/controllers/map_group_controller-a07deaef2055302a4add518c46474247734811888d6207cf98a5d0cb6894db23.js",
+    "controllers/nav_controller": "/assets/controllers/nav_controller-89b9f015ba18b6304c87644474ce3b552237ae080c9406c10ef1831f2196656e.js",
+    "controllers/onscreen_video_controller": "/assets/controllers/onscreen_video_controller-661b505676ea5f4aedbb8768499654d290f87f8fa2638ce8c4775622fd109bb8.js",
+    "controllers/photo_viewer_controller": "/assets/controllers/photo_viewer_controller-beb3df7f7ddbcebc4993315664a0853936a7446513dfc2d7094947606650a3a4.js",
+    "controllers/share_controller": "/assets/controllers/share_controller-f1db5e968e42f420a48d3baa8f600e39350fc0113105010e9f8fd6c1df018291.js",
+    "controllers/slideshow_controller": "/assets/controllers/slideshow_controller-601dd1f3de3a3a636d3e254cd31a91e2eb2ff03d336440be2f812b8d112241bb.js",
+    "controllers/ticker_popup_link_controller": "/assets/controllers/ticker_popup_link_controller-db0ca546285f407263b9dfe9551d75e2aca5fc5e1de4c388f95f47d6f5b18bfd.js",
+    "importmap_admin": "/assets/importmap_admin-cd8244c877317d780274169e1fdae57878f8188d1345ff9a733897b31a2b2ba1.js",
+    "photo_viewer": "/assets/photo_viewer-a19ef8cb19446a8ffbe37babf3384a8dc2e06afd10a373d927fe835cb1bedc49.js"
+  }
+}</script>
+<link rel="modulepreload" href="/assets/application-2af229818a817f50f67ba19305cdbe3191ea7bda776f681f0aeabd7ed179b1e5.js">
+<link rel="modulepreload" href="https://ga.jspm.io/npm:@rails/ujs@6.0.5/lib/assets/compiled/rails-ujs.js">
+<link rel="modulepreload" href="/assets/turbo.min-f9991a0dbcbebe62d386fc178ebb427a9299d389be093a495eed4c428f8f2e90.js">
+<link rel="modulepreload" href="https://ga.jspm.io/npm:@hotwired/stimulus@3.2.1/dist/stimulus.js">
+<link rel="modulepreload" href="/assets/stimulus-loading-d80f0feea68692981b568bbfef0ed4370b56927ae5c663421e8461a466f0618f.js">
+<link rel="modulepreload" href="https://ga.jspm.io/npm:stimulus-use@0.50.0-2/dist/index.js">
+<link rel="modulepreload" href="https://unpkg.com/stimulus-use-actions@0.1.0/index.js">
+<link rel="modulepreload" href="https://ga.jspm.io/npm:stimulus-if@0.2.0/index.js">
+<link rel="modulepreload" href="https://ga.jspm.io/npm:stimulus-shorthand@0.1.0/index.js">
+<link rel="modulepreload" href="https://ga.jspm.io/npm:mustache@4.2.0/mustache.mjs">
+<link rel="modulepreload" href="https://ga.jspm.io/npm:swiped-events@1.1.7/src/swiped-events.js">
+<link rel="modulepreload" href="https://ga.jspm.io/npm:js-cookie@3.0.5/dist/js.cookie.mjs">
+<link rel="modulepreload" href="/assets/controllers/application-dae5034e797a3f855eab45faa95bd7a5154b848d7117d337c29b9a7c287db699.js">
+<link rel="modulepreload" href="/assets/controllers/article_summary_controller-9deb3217dae641f09f045cad69386776aa66fafd8b7f7b714568883e1aea3653.js">
+<link rel="modulepreload" href="/assets/controllers/carousel_controller-bc5568d6d6f0cfea5b2562de002ce9fccda5ce7c9212100641de0e9be4f995bf.js">
+<link rel="modulepreload" href="/assets/controllers/dark_mode_controller-dc237288e7c49d5e9a7a61031159f59e00f1512e397fc311350071d74df6bb48.js">
+<link rel="modulepreload" href="/assets/controllers/expanding_uls_controller-64f09bdcbd2cb00fdc626bfeb371ff3069d0ff57d09029b8f308a8fe3cda365c.js">
+<link rel="modulepreload" href="/assets/controllers/google_analytics_controller-3826d1f9cddf50cbf02b58ff2ace51b7e115df2cad3a40f43df616b0006c69ca.js">
+<link rel="modulepreload" href="/assets/controllers/if_controller-beea9c073e09fa0aa6793a212b52e098dec3a28b4dc1382220b0ed4bdb642f12.js">
+<link rel="modulepreload" href="/assets/controllers/map_group_controller-a07deaef2055302a4add518c46474247734811888d6207cf98a5d0cb6894db23.js">
+<link rel="modulepreload" href="/assets/controllers/nav_controller-89b9f015ba18b6304c87644474ce3b552237ae080c9406c10ef1831f2196656e.js">
+<link rel="modulepreload" href="/assets/controllers/onscreen_video_controller-661b505676ea5f4aedbb8768499654d290f87f8fa2638ce8c4775622fd109bb8.js">
+<link rel="modulepreload" href="/assets/controllers/photo_viewer_controller-beb3df7f7ddbcebc4993315664a0853936a7446513dfc2d7094947606650a3a4.js">
+<link rel="modulepreload" href="/assets/controllers/share_controller-f1db5e968e42f420a48d3baa8f600e39350fc0113105010e9f8fd6c1df018291.js">
+<link rel="modulepreload" href="/assets/controllers/slideshow_controller-601dd1f3de3a3a636d3e254cd31a91e2eb2ff03d336440be2f812b8d112241bb.js">
+<link rel="modulepreload" href="/assets/controllers/ticker_popup_link_controller-db0ca546285f407263b9dfe9551d75e2aca5fc5e1de4c388f95f47d6f5b18bfd.js">
+<link rel="modulepreload" href="/assets/importmap_admin-cd8244c877317d780274169e1fdae57878f8188d1345ff9a733897b31a2b2ba1.js">
+<link rel="modulepreload" href="/assets/photo_viewer-a19ef8cb19446a8ffbe37babf3384a8dc2e06afd10a373d927fe835cb1bedc49.js">
+<script type="module">import "application"</script>
+
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-6LSSEQCT7M"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', "G-6LSSEQCT7M");
+  </script>
+
+  <script type="text/javascript">
+  </script>
+<script>document.addEventListener("DOMContentLoaded", () => {
+  const cookie = document.cookie.match(/(^|;)\s*flash=([^;\s]+)/)
+  if(!cookie) return
+  const data = JSON.parse(unescape(cookie[2]).replaceAll("+"," "))
+  document.cookie = 'flash=; path=/; expires=Sat, 01 Jan 2000 00:00:00 GMT;'
+
+  function show(type) {
+    const flash = document.querySelector('#flash_' + type)
+    const message = data[type]
+    if(flash && message) {
+      flash.innerHTML = message
+      flash.hidden = false
+    }
+  }
+  
+  show('error')
+  show('alert')
+  show('notice')
+})
+</script></head>
+<body class="" height="100%">
+<div height="100%" id="container">
+<!-- = render :partial => 'shared/flash' -->
+<div id="nav_container">
+<div data-controller="nav" id="nav">
+<input id="mobile-nav-input" type="checkbox">
+<label class="mobile-bars" for="mobile-nav-input">
+<span></span>
+</label>
+<ul class="header-nav">
+<li>
+<a href="/home">Home</a>
+<input class="nested-nav-input" id="Home-toggle" type="checkbox">
+<label class="nested-chevron" for="Home-toggle"></label>
+<ul class="nested-nav">
+<!-- UGH hack -->
+<li>
+<a href="/home/the-collection">The Collection</a>
+</li>
+</ul>
+</li>
+<li>
+<a href="/about">About</a>
+<input class="nested-nav-input" id="About-toggle" type="checkbox">
+<label class="nested-chevron" for="About-toggle"></label>
+<ul class="nested-nav">
+<!-- UGH hack -->
+<li>
+<a href="/about/about">Collection History</a>
+</li>
+<li>
+<a href="/about/david-rumsey">David Rumsey</a>
+</li>
+<li>
+<a href="/about/a-stranger-quest-film">A Stranger Quest Film</a>
+</li>
+<li>
+<a href="/about/copyright-and-permissions">Copyright and Permissions</a>
+</li>
+<li>
+<a href="/about/quicktimevr">Panoramas of Original Rumsey Library Space</a>
+</li>
+<li>
+<a href="/about/flash-collection-tour">Flash Collection Tour</a>
+</li>
+<li>
+<a href="https://library.stanford.edu/rumsey">David Rumsey Map Center at Stanford Library</a>
+</li>
+</ul>
+</li>
+<li>
+<a href="/view">View Collection</a>
+<input class="nested-nav-input" id="View Collection-toggle" type="checkbox">
+<label class="nested-chevron" for="View Collection-toggle"></label>
+<ul class="nested-nav">
+<!-- UGH hack -->
+<li>
+<a href="/view/view">View Collection</a>
+</li>
+<li>
+<a href="/view/luna">LUNA Viewer </a>
+<a class="external" target="_blank" href="https://www.davidrumsey.com/luna/servlet/view/all?res=1&amp;sort=Pub_List_No_InitialSort"><span>external</span>
+</a></li>
+<li>
+<a href="/view/ai-search-assist">AI Search Assist</a>
+</li>
+<li>
+<a href="/view/interactive-globes">Interactive Globes</a>
+</li>
+<li>
+<a href="/view/georeferencer">Georeferencer</a>
+<a class="external" target="_blank" href="https://davidrumsey.oldmapsonline.org/compare#"><span>external</span>
+</a></li>
+<li>
+<a href="/view/maprank-search">MapRank Search</a>
+<a class="external" target="_blank" href="https://rumsey.mapranksearch.com/"><span>external</span>
+</a></li>
+<li>
+<a href="/view/google-earth">Google Earth</a>
+<a class="external" target="_blank" href="https://www.davidrumsey.com/rumsey_collection.kmz"><span>external</span>
+</a></li>
+<li>
+<a href="/view/google-maps">Google Maps</a>
+<a class="external" target="_blank" href="https://rumsey.geogarage.com/"><span>external</span>
+</a></li>
+<li>
+<a href="/view/second-life">Second Life</a>
+<a class="external" target="_blank" href="http://secondlife.com/destination/19191"><span>external</span>
+</a></li>
+<li>
+<a href="/view/insight">Insight Java Client 6.3</a>
+</li>
+<li>
+<a href="/view/ticker">Collections Ticker</a>
+</li>
+<li>
+<a href="/view/atlases">Atlases</a>
+</li>
+<li>
+<a href="/view/view-all-illustrated-categories">View All Illustrated Categories</a>
+</li>
+<li>
+<a href="https://www.davidrumsey.com/luna/servlet/browseByCategory">Browse By Categories: What, Where, Who, When</a>
+</li>
+<li>
+<a href="/view/past">Past Ways to View The Collections</a>
+</li>
+</ul>
+</li>
+<li>
+<a href="/publications">Publications</a>
+<input class="nested-nav-input" id="Publications-toggle" type="checkbox">
+<label class="nested-chevron" for="Publications-toggle"></label>
+<ul class="nested-nav">
+<!-- UGH hack -->
+<li>
+<a href="/publications/cartographica">Cartographica Extraordinaire</a>
+</li>
+<li>
+<a href="/publications/past-time-past-place">Past Time, Past Place</a>
+</li>
+<li>
+<a href="/publications/mapping-the-west">Mapping the West</a>
+</li>
+<li>
+<a href="/publications/mapping-san-francisco">San Francisco in Maps</a>
+</li>
+<li>
+<a href="/publications/reproductions">Reproductions</a>
+</li>
+<li>
+<a href="/publications/rumsey-map-catalogs">Rumsey Map Catalogs</a>
+</li>
+<li>
+<a href="/maps-up-close">Maps Up Close</a>
+</li>
+</ul>
+</li>
+<li>
+<a href="/blog">Blog</a>
+<input class="nested-nav-input" id="Blog-toggle" type="checkbox">
+<label class="nested-chevron" for="Blog-toggle"></label>
+<ul class="nested-nav">
+<!-- UGH hack -->
+<li><a href="/blog">All Categories</a></li>
+<li>
+<a href="/blog/categories/recent-additions">Recent Additions</a>
+</li>
+<li>
+<a href="/blog/categories/news">News</a>
+</li>
+<li>
+<a href="/blog/categories/featured-maps">Featured Maps</a>
+</li>
+<li>
+<a href="/blog/categories/related-sites">Related Collections</a>
+</li>
+<li>
+<a href="/blog/categories/videos">Videos</a>
+</li>
+</ul>
+</li>
+<li>
+<a href="/help">Help</a>
+<input class="nested-nav-input" id="Help-toggle" type="checkbox">
+<label class="nested-chevron" for="Help-toggle"></label>
+<ul class="nested-nav">
+<!-- UGH hack -->
+<li>
+<a href="/help/center">Help Center</a>
+</li>
+<li>
+<a href="/help/contact">Contact</a>
+</li>
+<li>
+<a href="#switch_site_colors">Switch Site Colors</a>
+</li>
+<li>
+<a href="https://mailchi.mp/davidrumsey/join-our-mail-list">Join Our Mail List</a>
+</li>
+</ul>
+</li>
+<li class="spacer"></li>
+<li class="share-nav">
+<span>Share</span>
+<input class="nested-nav-input" id="share-toggle" type="checkbox">
+<label class="nested-chevron" for="share-toggle"></label>
+<ul class="nested-nav">
+<li>
+<a target="_blank" class="facebook-icon track_external" href="https://www.facebook.com/David-Rumsey-Map-Collection-216302804001/"></a>
+<a target="_blank" class="twitter-icon track_external" href="https://twitter.com/davidrumseymaps"></a>
+<a target="_blank" class="instagram-icon track_external" href="https://www.instagram.com/david_rumsey_maps/"></a>
+<a target="_blank" class="email-icon track_external" href="https://mailchi.mp/davidrumsey/join-our-mail-list"></a>
+</li>
+</ul>
+</li>
+</ul>
+<div id="search"><form action="https://davidrumsey.com/luna/servlet/view/search" method="get" style="margin: 0px; padding: 0px" target="_blank"><div class="search-container"><input name="sort" type="hidden" value="Pub_List_No_InitialSort,Pub_Date,Pub_List_No,Series_No" /><input name="q" placeholder="Search the Collection" type="text" /><div class="search-type-fields"><div class="field"><input checked="" id="search_type_maps" name="annotSearch" type="radio" value="" /><label for="search_type_maps">by Maps</label></div><div class="field"><input id="search_type_text" name="annotSearch" type="radio" value="annotSearch" /><label for="search_type_text">by Text on Maps</label></div></div><input type="submit" value="Go" /></div></form></div>
+</div>
+</div>
+
+<div id="header_container">
+<div id="header">
+<div id="title">
+<h1><a href="/">David Rumsey Map Collection</a></h1>
+<h2>
+<span><a href="/">Cartography Associates</a></span>
+<i><a target="_blank" href="http://www.lunaimaging.com/">powered by Luna Imaging</a></i>
+</h2>
+</div>
+<div class="header-links">
+<a class="luna-button" target="_blank" href="https://www.davidrumsey.com/luna/servlet/view/all?res=1&amp;sort=Pub_List_No_InitialSort">Browse 151,758 Maps and Images</a>
+<a class="wiki-button" target="_blank" href="https://en.wikipedia.org/wiki/David_Rumsey">David Rumsey Wikipedia Page</a>
+</div>
+</div>
+</div>
+<div id="content_container">
+<div id="content">
+<input id="toggle-sidebar" type="checkbox">
+<main id="main">
+<div class="box" id="article_294">
+<div class="box-header">
+<h3>copyright and permissions</h3>
+<div class="links">
+<ul><li class="left share" data-controller="share" data-share-title-value="Copyright and Permissions" data-share-url-value="https://www.davidrumsey.com/about/copyright-and-permissions"><a class="star" data-action="share#toggle:prevent" href="https://www.davidrumsey.com/about/copyright-and-permissions">Share this Page</a><div class="link overlay" data-share-target="overlay" hidden="hidden"><iframe bgcolor="red" src="about:blank" style="width: 100%; height: 100%; border: 0; position: absolute; z-index: -1"></iframe><div class="share-flex"><em>Link to share:</em><input class="text" data-share-target="url" type="text" /></div><div id="shortcuts"><em class="block">Shortcuts:</em><div class="clear"></div><div class="left_align"><a class="facebook" data-share-target="link" data-template="https://www.facebook.com/share.php?u={eurl}&amp;t={etitle}" href="#" target="_blank">Facebook</a><a class="twitter" data-share-target="link" data-template="https://www.twitter.com/?status={title}+{url}" href="#" target="_blank">Twitter</a><a class="myspace" data-share-target="link" data-template="https://www.myspace.com/Modules/PostTo/Pages/?u={eurl}&amp;t={etitle}" href="#" target="_blank">Myspace</a><a class="delicious" data-share-target="link" data-template="https://del.icio.us/post?url={eurl}&amp;title={etitle}" href="#" target="_blank">Delicious</a><div class="clear"></div><a class="blogger" data-share-target="link" data-template="https://www.blogger.com/blog_this.pyra?t&amp;u={eurl}&amp;l&amp;n={etitle}&amp;pli=1" href="#" target="_blank">Blogger</a><a class="linkedin" data-share-target="link" data-template="https://www.linkedin.com/shareArticle?mini=true&amp;url={eurl}&amp;title={etitle}&amp;summary=&amp;source=" href="#" target="_blank">Linked In</a><a class="reddit" data-share-target="link" data-template="https://reddit.com/submit?url={eurl}&amp;title={etitle}" href="#" target="_blank">Reddit</a><a class="stumbleupon" data-share-target="link" data-template="https://www.stumbleupon.com/submit?url={eurl}&amp;title={etitle}" href="#" target="_blank">StumbleUpon</a><div class="clear"></div><a class="digg" data-share-target="link" data-template="https://www.digg.com/submit?url={url}&amp;title={etitle}" href="#" target="_blank">Digg</a><a class="slashdot" data-share-target="link" data-template="https://slashdot.org/bookmark.pl?url={eurl}&amp;title={etitle}" href="#" target="_blank">Slashdot</a><a class="technorati" data-share-target="link" data-template="https://www.technorati.com/faves?add={eurl}&amp;title={etitle}" href="#" target="_blank">Technorati</a><a class="email" data-share-target="link" data-template="mailto:?subject={etitle}&amp;body={etitle}: {eurl}" href="#" target="_blank">Email</a></div><div class="clear"></div></div><div class="right_align"><div class="sm_pad"><a class="close_overlay" data-action="share#toggle:prevent" href="#">Close Menu</a></div></div></div></li></ul>
+</div>
+</div>
+<div class="inner">
+<p>Images from this web site and database may be reproduced or transmitted and used without charge for personal use or in any publication, either in print or digital media, by any for profit or non profit publisher. Please contact us for permission if you intend to make reproductions of our maps as stand alone for sale facsimiles. Contact mailto:carto@davidrumsey.com</p>
+
+<p>Be aware that maps and images originally published after 1929&nbsp;may still be under copyright, and it is your responsibility to check copyright status on such images before using them.&nbsp;We ask that you make a good faith effort to contact the original publisher of such maps and images, or otherwise determine the copyright status of such maps and images before using them even after we grant permission to use our image file. Any maps and images that do not have a download button on them are not available for use other than display on our website. However if you are able to obtain usage permission from the estate or original publisher of the author we will allow use of our image file once we receive forwarded permission from the estate or original publisher. Original publishers and estate information can be found to the left of such maps and images on www.davidrumsey.com under &quot;Media Information&quot;.</p>
+
+<p>Please give image credit to &quot;David Rumsey Map Collection, David Rumsey Map Center, Stanford University Libraries&quot;&nbsp; &nbsp;For downloading images, use the Export button on the menu bar or use the Download 1 link at the bottom of the Media Information window. The Download 1 link will give a full resolution JP2 file.</p>
+
+<p>This work is licensed under a <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/" target="_blank">Creative Commons License.</a> By downloading any images from this site, you agree to the terms of that license. Users are expected to abide by all copyright laws. Distribution, reproduction, or other use requires the written permission of any copyright and other rights holders unless the materials are in the public domain or authorized by fair use or other statutory exemption. It is the user&rsquo;s obligation to determine and satisfy copyright or other use restrictions when publishing or otherwise distributing materials found in this collection. For maps not in the public domain that we know are being sold by their makers, we do not allow downloading or printing and we attempt to provide a link to the maker&#39;s site in our metadata for the map.</p>
+
+<div id="cc"><a href="https://creativecommons.org/licenses/by-nc-sa/3.0/" target="_blank"><img alt="Cc" height="31" src="https://d1w7ugt075xbik.cloudfront.net/images/cms/cc.gif" width="88" /></a></div>
+
+<p>&nbsp;</p>
+
+</div>
+</div>
+
+</main>
+<aside id="sidebar">
+<label for="toggle-sidebar">
+<span>Toggle sidebar</span>
+</label>
+<div class="inner networking-icons">
+<!-- = link_to "", "https://bsky.app/profile/davidrumseymaps.bsky.social", :target => "_blank", :class => "bluesky-icon track_external" -->
+<!-- = link_to "", "https://en.wikipedia.org/wiki/David_Rumsey", :target => "_blank", :class => "wiki-icon track_external" -->
+<a target="_blank" class="facebook-icon track_external" href="https://www.facebook.com/p/David-Rumsey-Map-Collection-100064310366013/"></a>
+<a target="_blank" class="x-icon track_external" href="https://x.com/davidrumseymaps"></a>
+<a target="_blank" class="instagram-icon track_external" href="https://www.instagram.com/david_rumsey_maps/"></a>
+<a target="_blank" class="email-icon track_external" href="https://mailchi.mp/davidrumsey/join-our-mail-list"></a>
+</div>
+
+<div class="inner">
+<h4>About</h4>
+<hr>
+<ul>
+<li><a href="/about/about">Collection History</a></li>
+<li><a href="/about/david-rumsey">David Rumsey</a></li>
+<li><a href="/about/a-stranger-quest-film">A Stranger Quest Film</a></li>
+<li><a href="/about/copyright-and-permissions" class="current">Copyright and Permissions</a></li>
+<li><a href="/about/quicktimevr">Panoramas of Original Rumsey Library Space</a></li>
+<li><a href="/about/flash-collection-tour">Flash Collection Tour</a></li>
+<li><a href="https://library.stanford.edu/rumsey">David Rumsey Map Center at Stanford Library</a></li>
+</ul>
+</div>
+
+<div class="inner">
+<h4>Quicklinks</h4>
+<hr>
+<p>
+<em>The collection may be viewed with the following applications:</em>
+</p>
+<ul id="sidebar_quicklinks">
+<li>
+<a href="/view/luna">LUNA Viewer</a>
+<div class="external_link"><a target="_blank" href="https://www.davidrumsey.com/luna/servlet/view/all?res=1&amp;sort=Pub_List_No_InitialSort">&nbsp;</a></div>
+</li>
+<li>
+<a href="/view/ai-search-assist" class="new">AI Search Assist</a>
+</li>
+<li>
+<a href="/view/interactive-globes">Interactive Globes</a>
+</li>
+<li>
+<a href="/view/georeferencer">Georeferencer v4</a>
+<div class="external_link"><a target="_blank" href="https://davidrumsey.georeferencer.com/random?collection=pilot">&nbsp;</a></div>
+</li>
+<li>
+<a href="/view/maprank-search">MapRank Search</a>
+<div class="external_link"><a target="_blank" href="https://rumsey.mapranksearch.com/">&nbsp;</a></div>
+</li>
+<li>
+<a href="/view/google-earth">Google Earth</a>
+<div class="external_link"><a target="_blank" href="/rumsey_collection.kmz">&nbsp;</a></div>
+</li>
+<li>
+<a href="/view/google-maps">Google Maps</a>
+<div class="external_link"><a target="_blank" href="https://rumsey.geogarage.com/">&nbsp;</a></div>
+</li>
+<li>
+<a href="/view/second-life">Second Life</a>
+<div class="external_link"><a target="_blank" class="track_external" href="http://secondlife.com/destination/1919">&nbsp;</a></div>
+</li>
+<li>
+<a href="/view/insight">Insight Java Client</a>
+</li>
+<li>
+<a href="/view/ticker">Ticker</a>
+<div class="external_link"><a target="_blank" class="popup_full_width" href="/cells/ticker">&nbsp;</a></div>
+</li>
+<li>
+<a href="/view/atlases">Atlases</a>
+</li>
+<li>
+<a href="https://www.davidrumsey.com/luna/servlet/browseByCategory" target="_blank">Browse by Categories</a>
+</li>
+<li>
+<a href="/view/past">Past Ways to View</a>
+</li>
+</ul>
+</div>
+<div class="inner">
+<h4>Mailchimp</h4>
+<hr>
+<a target="_blank" class="join-button" href="https://mailchi.mp/davidrumsey/join-our-mail-list">Join Our Mail List</a>
+</div>
+<div class="inner">
+<h4>Luna Imaging</h4>
+<hr>
+<p>LUNA is a web-hosted software solution developed to display, manage and preserve all types of digital archive collections, image collections, special collections and library collections.</p>
+<a target="_blank" class="button" href="http://www.lunaimaging.com/">Learn more</a>
+</div>
+<div class="inner">
+<h4>X</h4>
+<hr>
+<a href="https://x.com/DavidRumseyMaps" target="_blank">Posts by DavidRumseyMaps</a>
+</div>
+<div class="inner" id="reproductions_sidebar">
+<h4>Reproductions</h4>
+<hr>
+<em>
+<a class="frame" href="/publications/reproductions"></a>
+<br>
+Buy prints through LUNA Viewer.
+<a class="more" href="/publications/reproductions">Learn more</a>
+</em>
+</div>
+<div class="inner" id="ar_sidebar">
+<h4>AR Globe</h4>
+<hr>
+<a class="ar-link" href="https://t.co/u35VwgfNpR" target="_blank"><img src="/assets/ar-globe-72656d022d3b73f2476c9219320a17f6c066760f144276612951a26d0f4c92ab.png" /></a>
+<em>Try an augmented reality experience with historical globes.<br/></em>
+<a class="more" href="https://t.co/u35VwgfNpR" target="_blank">Download the AR Globe App</a>
+</div>
+<div class="inner apple-vision-sidebar">
+<h4>Globes 1.2 for <br/>Apple Vision Pro</h4>
+<hr>
+<a class="apple_vision-link" href="https://apps.apple.com/us/app/globes/id6480082996?platform=vision" target="_blank"><img src="/assets/globes-apple-vision-4c68fb0c2ba38d757bc4fcf995bd1ac50673c2f8e985334d4f540bd00f58a26d.webp" /></a>
+<em>Explore the most beautiful globes from the David Rumsey Map Center at Stanford Libraries. Enlarge the globes to view the finest details, see them as large 360-degree panoramas, and animate them to cycle through a selection of your favorite globes.<br/></em>
+<a class="more" href="https://apps.apple.com/us/app/globes/id6480082996?platform=vision" target="_blank">Download the app for your Apple Vision Pro</a>
+</div>
+<div class="inner center_align">
+<em>Find our maps and others on</em>
+<br>
+<a target="_blank" class="old-maps-online" href="https://www.oldmapsonline.org"></a>
+</div>
+<div class="inner center_align">
+<p>
+<em>Webby Award winner in Technical Achievement</em>
+</p>
+<br>
+<div class="webby"></div>
+</div>
+<div class="inner center_align">
+<p>
+<em>Registered Data Provider</em>
+</p>
+<a class="open-archives" href="https://www.openarchives.org" target="_blank"></a>
+</div>
+
+</aside>
+<div class="clear"></div>
+</div>
+</div>
+<footer>
+<div class="footer-section -sm-footer">
+<h5>Browse</h5>
+<ul class="footer-nav">
+<li><a href="/">Home</a></li>
+<li><a href="/about">About</a></li>
+<li><a href="/view">View Collection</a></li>
+<li><a href="/publications">Publications</a></li>
+<li><a href="/blog">Blog</a></li>
+<li><a href="/help">Help</a></li>
+</ul>
+</div>
+<div class="footer-section">
+<h5>Luna Imaging</h5>
+<p>LUNA is a web-hosted software solution developed to display, manage and preserve all types of digital archive collections, image collections, special collections and library collections.</p>
+<a target="_blank" class="button" href="http://www.lunaimaging.com/">Learn more</a>
+</div>
+<div class="footer-section">
+<h5>Reproductions</h5>
+<a class="frame" href="/publications/reproductions"></a>
+<p>
+Buy prints through LUNA Viewer.<br/>
+<a class="more" href="/publications/reproductions">Learn more</a>
+</p>
+</div>
+<div class="footer-section footer-apps">
+<h5>Apps</h5>
+<div class="footer-app">
+<a class="ar-link" href="https://t.co/u35VwgfNpR" target="_blank"><img loading="lazy" src="/assets/ar-globe-72656d022d3b73f2476c9219320a17f6c066760f144276612951a26d0f4c92ab.png" /></a>
+<p>
+<b>AR Globe <br/></b>
+Try an augmented reality experience with historical globes.<br/>
+<a class="more" href="https://t.co/u35VwgfNpR" target="_blank">Download the AR Globe App</a>
+</p>
+</div>
+<div class="footer-app">
+<a class="apple_vision-link" href="https://apps.apple.com/us/app/globes/id6480082996?platform=vision" target="_blank"><img loading="lazy" src="/assets/globes-apple-vision-4c68fb0c2ba38d757bc4fcf995bd1ac50673c2f8e985334d4f540bd00f58a26d.webp" /></a>
+<p>
+<b>Globes 1.2 for Apple Vision Pro <br/></b>
+Explore the most beautiful globes from the David Rumsey Map Center at Stanford Libraries.<br/>
+<a class="more" href="https://apps.apple.com/us/app/globes/id6480082996?platform=vision" target="_blank">Download the app for your Apple Vision Pro</a>
+</p>
+</div>
+</div>
+<div class="footer-section">
+<h5>Acknowledgements</h5>
+<div class="acknowledgement">
+<div class="webby"></div>
+<p>Webby Award winner in Technical Achievement</p>
+</div>
+<div class="acknowledgement">
+<a class="open-archives" href="https://www.openarchives.org" target="_blank"></a>
+<p>Registered Data Provider</p>
+</div>
+</div>
+<div class="footer-section">
+<h5>Share</h5>
+<div class="inner networking-icons">
+<!-- = link_to "", "https://bsky.app/profile/davidrumseymaps.bsky.social", :target => "_blank", :class => "bluesky-icon track_external" -->
+<!-- = link_to "", "https://en.wikipedia.org/wiki/David_Rumsey", :target => "_blank", :class => "wiki-icon track_external" -->
+<a target="_blank" class="facebook-icon track_external" href="https://www.facebook.com/p/David-Rumsey-Map-Collection-100064310366013/"></a>
+<a target="_blank" class="x-icon track_external" href="https://x.com/davidrumseymaps"></a>
+<a target="_blank" class="instagram-icon track_external" href="https://www.instagram.com/david_rumsey_maps/"></a>
+<a target="_blank" class="email-icon track_external" href="https://mailchi.mp/davidrumsey/join-our-mail-list"></a>
+</div>
+
+<h5>Mailchimp</h5>
+<a target="_blank" class="join-button" href="https://mailchi.mp/davidrumsey/join-our-mail-list">Join Our Mail List</a>
+<h5>Discover</h5>
+<a target="_blank" class="old-maps-online" href="https://www.oldmapsonline.org"></a>
+<p>
+<em>Find our maps and others on</em>
+</p>
+</div>
+</footer>
+<div class="footer-copyright">
+<p>
+Copyright ©2026 Cartography Associates.  All Rights Reserved.
+<a href="/about/copyright-and-permissions">Learn more</a>
+</p>
+<a class="cc" href="https://creativecommons.org/licenses/by-nc-sa/3.0/" target="_blank"></a>
+</div>
+
+</div>
+
+</body>
+</html>
