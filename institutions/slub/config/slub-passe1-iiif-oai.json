@@ -1,0 +1,14 @@
+{
+  "slug": "slub",
+  "min_delay_s": 6,
+  "max_requests": 15,
+  "follow_redirects": 1,
+  "robots_disallow_autorise_par_marcel": true,
+  "note": "Passe 1 (v2) : manifeste IIIF (motif de l'extension tierce InstantIIIF, deja reponse 200 en 2026-11-13), OAI-PMH des Digitale Sammlungen (page open-source-open-data de la SLUB : http://digital.slub-dresden.de/oai/ qui redirige vers sachsen.digital/oai), OAI Qucosa (https://www.qucosa.de/oai/, Crawl-delay 30 du robots.txt applique par la sonde).",
+  "endpoints": [
+    {"id": "p1-iiif-manifest-1741646995-18800000", "method": "GET", "url": "https://iiif.slub-dresden.de/iiif/2/1741646995-18800000/manifest.json", "save_body": 2000000},
+    {"id": "p1-oai-sachsen-identify", "method": "GET", "url": "https://sachsen.digital/oai?verb=Identify"},
+    {"id": "p1-oai-sachsen-listmetadataformats", "method": "GET", "url": "https://sachsen.digital/oai?verb=ListMetadataFormats"},
+    {"id": "p1-oai-qucosa-identify", "method": "GET", "url": "https://www.qucosa.de/oai/?verb=Identify"}
+  ]
+}

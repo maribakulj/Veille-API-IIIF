@@ -1,0 +1,714 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+
+<meta charset="utf-8">
+<!-- 
+	Ein Projekt der Sächsischen Landesbibliothek - Staats- und Universitätsbibliothek Dresden (SLUB)
+
+	This website is powered by TYPO3 - inspiring people to share!
+	TYPO3 is a free open source Content Management Framework initially created by Kasper Skaarhoj and licensed under GNU/GPL.
+	TYPO3 is copyright 1998-2026 of Kasper Skaarhoj. Extensions are copyright of their respective owners.
+	Information and contribution at https://typo3.org/
+-->
+
+
+<link rel="icon" href="/_assets/97636929f9ced7ded919f6dd395dfefe/Icons/Extension.svg" type="image/svg+xml">
+<title>Das Virtuelle Kartenforum der SLUB Dresden: Kartenforum</title>
+<meta http-equiv="x-ua-compatible" content="IE=edge">
+<meta name="generator" content="TYPO3 CMS">
+<meta name="description" content="Entdecken und erkunden Sie über 9000 hochauflösende historische Karten aus dem 18. bis 20. Jahrhundert.">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta name="robots" content="index,follow">
+<meta property="og:title" content="Das Virtuelle Kartenforum der SLUB Dresden">
+<meta property="og:description" content="Entdecken und erkunden Sie über 9000 hochauflösende historische Karten aus dem 18. bis 20. Jahrhundert.">
+<meta property="og:image" content="https://kartenforum.slub-dresden.de/fileadmin/user_upload/og_thumbnail.jpg">
+<meta property="og:image:url" content="https://kartenforum.slub-dresden.de/fileadmin/user_upload/og_thumbnail.jpg">
+<meta property="og:image:width" content="1600">
+<meta property="og:image:height" content="840">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="apple-mobile-web-app-capable" content="no">
+
+
+<link rel="stylesheet" href="/typo3temp/assets/compressed/merged-3d96430d465b6d3af8c568df59e1960f-f45e6c1bfae844555482385315af5adc.css?1769774726" media="all">
+
+
+<script src="/typo3temp/assets/compressed/merged-a66d57b90f42eb78b6e048676ccdd6c7-f1820db0f07493d97b340fa39a53ab3c.js?1769774726"></script>
+
+
+
+<link
+        rel="stylesheet"
+        href="/_assets/97636929f9ced7ded919f6dd395dfefe/Contrib/Css/ol.css"
+    />
+    <link
+        rel="stylesheet"
+        href="/_assets/97636929f9ced7ded919f6dd395dfefe/Build/plugin-map.css"
+    />
+    <script
+        type="text/javascript"
+        src="/_assets/97636929f9ced7ded919f6dd395dfefe/Contrib/JavaScript/glif.min.js"
+    ></script>
+    <script
+        type="text/javascript"
+        src="/_assets/97636929f9ced7ded919f6dd395dfefe/Build/plugin-map.js"
+    ></script>
+
+<link rel="canonical" href="https://kartenforum.slub-dresden.de/"/>
+
+<link rel="alternate" hreflang="de-DE" href="https://kartenforum.slub-dresden.de/"/>
+<link rel="alternate" hreflang="en-US" href="https://kartenforum.slub-dresden.de/en/"/>
+<link rel="alternate" hreflang="x-default" href="https://kartenforum.slub-dresden.de/"/>
+</head>
+<body>
+
+
+<header class="site-header"><a class="navbar-brand" href="/"><img alt="Virtuelles Kartenforum" src="/_assets/97636929f9ced7ded919f6dd395dfefe/Images/vkfLogo.svg" /></a><button aria-controls="main-navigation" aria-expanded="false" aria-haspopup="true" class="main-navigation-toggle" type="button"><span class="menu-label">Menu</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button><div class="navigation-container"><nav aria-expanded="false" aria-haspopup="true" aria-label="Hauptnavigation" class="main-navigation" id="main-navigation"><ul><li><a href="/willkommen" target="" title="Willkommen" class="header-navigation-link">
+                                Willkommen
+                            </a></li><li><a href="/ranking" target="" title="Ranking" class="header-navigation-link">
+                                Ranking
+                            </a></li><li><a href="/hilfe" target="" title="Hilfe" class="header-navigation-link">
+                                Hilfe
+                            </a></li><li><a href="/kontakt" target="" title="Kontakt" class="header-navigation-link">
+                                Kontakt
+                            </a></li><li class="metanav-item"><a href="/impressum" target="" title="Impressum" class="header-navigation-link">
+                                    Impressum
+                                </a></li><li class="metanav-item"><a href="/datenschutzerklaerung" target="" title="Datenschutzerklärung" class="header-navigation-link">
+                                    Datenschutzerklärung
+                                </a></li><li class="metanav-item"><a href="/barrierefreiheit" target="" title="Barrierefreiheit" class="header-navigation-link">
+                                    Barrierefreiheit
+                                </a></li><li><a data-classes="login" title="Anmelden" href="/login">
+                                    Anmelden
+                                </a></li></ul></nav><nav aria-label="Language navigation" class="language-navigation"><ul><li class="lang_de active "><a href="/" hreflang="" title="Deutsch"><span class="fulltext-label">Deutsch</span><span class="iso-code">de</span></a></li><li class="lang_en  "><a href="/en/" hreflang="" title="English"><span class="fulltext-label">English</span><span class="iso-code">en</span></a></li></ul></nav></div></header><script>
+    var lang_dictionary = {
+        // attribution
+        "control-attribution-basemap-label":
+            "Basiskarte",
+        "control-attribution-terrain-label":
+            "Terrain",
+
+        // basemap selector
+        "control-basemapselector-open":
+            "Auswahl der Basiskarte",
+        "control-basemapselector-addwms-title":
+            "WMS hinzufügen",
+        "control-basemapselector-addwms-input-label":
+            "URL zur WMS Capabilities",
+        "control-basemapselector-addwms-input-description":
+            "Bitte geben Sie eine URL zu den WMS-Funktionen ein, um ein WMS als Basiskarte hinzuzufügen. Die URL muss wie eine Capabilities-Anfrage aussehen. Wir unterstützen derzeit WMS-Versionen ab 1.1.0.",
+        "control-basemapselector-addwms-select-label":
+            "WMS Layer",
+        "control-basemapselector-addwms-select-description":
+            "Wählen Sie anschließend ein Layer aus, der als Basiskarte verwendet soll und klicken Sie auf hinzufügen.",
+        "control-basemapselector-addwms-btn-load-capabilities":
+            "Lade WMS layer",
+        "control-basemapselector-addwms-btn-cancel":
+            "Nein, Abbrechen",
+        "control-basemapselector-addwms-btn-submit":
+            "WMS hinzufügen",
+        "control-basemapselector-label":
+            "Auswahl der Basiskarte",
+        "control-basemapselector-btn-addwms":
+            "WMS hinzufügen",
+        "control-basemapselector-error-initializiation":
+            "Die ausgewählte Basiskarte ist nicht verfügbar",
+        "dialog.add-wms.error.invalid-url":
+            "Der WMS kann nicht hinzugefügt werden. Bitte überprüfen sie, ob die URL einer HTTPS GetCapabilities Anfrage entspricht, die WMS Version korrekt in der URL angegeben ist oder der WMS das Referenzsystem EPSG:3857 unterstützt.",
+        "control-basemapselector-invalid-url-error-hint":
+            "Bitte prüfen Sie, ob die URL gültig ist und mit https beginnt",
+        "control-basemapselector-select-disabled-hint":
+            "Bitte geben sie zunächst eine URL ein",
+
+
+        // fullscreen
+        "control-fullscreen-Enter":
+            "Umschalten zu Vollbild",
+        "control-fullscreen-Exit":
+            "Vollbildmodus beenden",
+
+        // image manipulation
+        "control-imagemanipulation-open":
+            "Öffne Bildbearbeitungswerkzeug",
+        "control-imagemanipulation-saturation":
+            "Sättigung",
+        "control-imagemanipulation-contrast":
+            "Kontrast",
+        "control-imagemanipulation-brightness":
+            "Helligkeit",
+        "control-imagemanipulation-reset":
+            "Zurücksetzen",
+
+        // layerspy
+        "control-layerspy-title":
+            "Aktiviere Kartenlupe",
+        "control-layerspy-radius-tooltip":
+            "Drücken Sie Y zum Vergrößern / X zum Verkleinern",
+
+        // locate me
+        "control-locateme-title":
+            "Lokalisiere mich",
+        // location not available
+        "control-locateme-location-not-available":
+            "Standort nicht verfügbar",
+
+        // mouse position
+        "control-mouseposition-title":
+            "Cursorposition",
+        "control-mouseposition-save-helper":
+            "Klicken um aktuelle Position zu speichern",
+        "control-mouseposition-saved-label":
+            "Gespeichert",
+        "control-mouseposition-button-title":
+            "Kopiere gespeichert Position in die Zwischenablage",
+
+        //restore default view
+        "control-restoredefaultview-title":
+            "Stelle die initiale Ansicht wieder her",
+
+        // toggleviewmode control
+        "control-toggleviewmode-title":
+            "Wechsel zwischen 2D und 3D-Ansicht",
+        "control-toggleviewmode-zoomin":
+            "Wechsel zur 3D-Ansicht für diese Zoomstufe nicht möglich. Bitte zoomen sie rein.",
+
+        // zoom controls
+        "control-zoom-in":
+            "Hereinzoomen",
+        "control-zoom-out":
+            "Herauszoomen",
+
+        // rotation controls
+        "control-rotate":
+            "Rotation zurücksetzen",
+
+        // zoom to extent
+        "control-zoomtoextent-title":
+            "Zum Kartenausschnitt zoomen",
+
+        // permalink
+        "control-permalink-open":
+            "Aktuelle Ansicht teilen",
+        "control-permalink-title-permalink":
+            "Permalink",
+        "control-permalink-title-map-view":
+            "Kartenansicht",
+        "control-permalink-input-mapview-placeholder":
+            "Link zu der Kartenansicht",
+        "control-permalink-exporter-copy":
+            "Kopiert",
+        "control-permalink-exporter-copy-title":
+            "Kopiere in die Zwischenablage",
+        "control-permalink-exporter-permalink-description":
+            "Die Permalinkfunktion erlaubt das Teilen der derzeitigen Kartenansicht. Benutzerdefinierte Inhalte, wie Geojson Layer oder zusätzliche Basiskarten, können damit nicht geteilt werden. Der nur im eingeloggten Zustand erreichbare Kartenansicht Reiter erlaubt das Teilen sämtlicher Inhalte.",
+        "control-permalink-exporter-mapview-description":
+            "Die Kartenansicht Funktion erlaubt das Teilen des gesamten Applikationszustandes. Dazu wird eine Repräsentation des Zustandes hochgeladen und ein eindeutiger Link zu dieser Repräsentation generiert.",
+
+        // placename search
+        "placenamesearch-placeholder":
+            "Ortsname",
+        "placenamesearch-submit":
+            "Suchen",
+        "placenamesearch-unknown-placename":
+            "Der ausgewählte Ortsname ist unbekannt.",
+    };
+
+    if (typeof vk2 !== "undefined")
+        vk2.SettingsProvider.appendSettings({ dictionary: lang_dictionary });
+</script><div class="content-main"><h1 class="visually-hidden">Startseite</h1><input type="hidden" value="[{&quot;id&quot;:&quot;slub-osm&quot;,&quot;label&quot;:&quot;SLUB OSM&quot;,&quot;urls&quot;:[&quot;https://tile-2.kartenforum.slub-dresden.de/styles/maptiler-basic-v2/style.json&quot;],&quot;type&quot;:&quot;vector&quot;,&quot;attribution&quot;:&quot;&lt;a href=\&quot;https://kartenforum.slub-dresden.de/\&quot; target=\&quot;_blank\&quot;&gt;Hosted by SLUB Dresden&lt;/a&gt; &lt;a href=\&quot;https://www.pikobytes.de/\&quot; target=\&quot;_blank\&quot;&gt;built by PIKOBYTES GmbH&lt;/a&gt; &lt;a href=\&quot;https://www.openmaptiles.org/\&quot; target=\&quot;_blank\&quot;&gt;&amp;copy; OpenMapTiles&lt;/a&gt; &lt;a href=\&quot;https://www.openstreetmap.org/copyright\&quot; target=\&quot;_blank\&quot;&gt;&amp;copy; OpenStreetMap contributors&lt;/a&gt;&quot;},{&quot;id&quot;:&quot;maptiler-satellite&quot;,&quot;label&quot;:&quot;MapTiler Satellite&quot;,&quot;urls&quot;:[&quot;https://api.maptiler.com/maps/hybrid/{z}/{x}/{y}.jpg?key=91Du0aFKkKtM4ZGIRoX0&quot;],&quot;type&quot;:&quot;xyz&quot;,&quot;tileSize&quot;:512,&quot;attribution&quot;:&quot;&lt;a href=\&quot;https://www.maptiler.com/copyright/\&quot; target=\&quot;_blank\&quot;&gt;© MapTiler&lt;/a&gt; &lt;a href=\&quot;https://www.openstreetmap.org/copyright\&quot; target=\&quot;_blank\&quot;&gt;© OpenStreetMap contributors&lt;/a&gt;&quot;},{&quot;id&quot;:&quot;bkg-topoplus&quot;,&quot;label&quot;:&quot;TopPlusOpen&quot;,&quot;urls&quot;:[&quot;https://sgx.geodatenzentrum.de/wms_topplus_open&quot;],&quot;type&quot;:&quot;wms&quot;,&quot;layers&quot;:&quot;web&quot;,&quot;tileSize&quot;:512,&quot;attribution&quot;:&quot;&lt;a href=\&quot;https://sg.geodatenzentrum.de/web_public/Datenquellen_TopPlus_Open.pdf\&quot; target=\&quot;blank\&quot;&gt;© Bundesamt für Kartographie und Geodäsie 2022&lt;/a&gt;&quot;}]" id="setting-basemaps"/><input type="hidden" value="{ &quot;center&quot;: [14.9928, 51.1463], &quot;zoom&quot;: 6.3 }" id="setting-mapView"/><input type="hidden" value="https://place-search.kartenforum.slub-dresden.de/search" id="setting-urlNominatim"/><input type="hidden" value="https://search.kartenforum.slub-dresden.de/vk20" id="setting-urlSearch"/><input type="hidden" value="{&quot;url&quot;: &quot;https://terrain.kartenforum.slub-dresden.de/v2/{z}/{x}/{y}.png&quot;, &quot;attribution&quot;: &quot;&lt;a href=&#039;https://kartenforum.slub-dresden.de/attribution&#039; target=&#039;_blank&#039;&gt;© U.S. Geological Survey and others&lt;/a&gt;&quot;}" id="setting-terrain"/><input type="hidden" value="https://api.kartenforum.slub-dresden.de" id="setting-georefApi" /><input type="hidden"
+       value="/_assets/97636929f9ced7ded919f6dd395dfefe/Images/layer_default.png"
+       id="settings-layer-fallback"/><input type="hidden"
+       value="/_assets/97636929f9ced7ded919f6dd395dfefe/Icons/ReactIconSprite.svg"
+       id="settings-icon-sprite"/><input type="hidden"
+       value="/_assets/97636929f9ced7ded919f6dd395dfefe/Images/not-found.png"
+       id="settings-fallback-not-found"/><input type="hidden"
+       value="/_assets/97636929f9ced7ded919f6dd395dfefe/Images/marker.png"
+       id="settings-marker-url"/><div class="map-plugin-container"><div id="vkf-app-map"></div></div><div class="welcome-container"><div class="welcome-content"><div id="c69" class="frame frame-default frame-type-textmedia frame-layout-0"><header><h2 class="">
+                Herzlich willkommen im Virtuellen Kartenforum!
+            </h2></header><div class="image horizontal-center vertical-above"><div class="ce-bodytext"><p>Im Virtuellen Kartenforum der SLUB Dresden können historische Karten georeferenziert und mit weiteren Karten positionsgleich dargestellt werden.&nbsp;In der linken Randleiste können Sie Orte suchen und Karten an- und abwählen, in der rechten Randleiste sehen Sie Ihre aktuelle Kartenauswahl. Rechts oben finden Sie unter "Hilfe" weitere Informationen zur Benutzung sowie die Möglichkeit, mit uns Kontakt aufzunehmen.</p></div></div></div><div id="c70" class="frame frame-default frame-type-header frame-layout-40"><header><h2 class=""><a href="/">Start</a></h2></header></div></div></div></div><footer class="site-footer"><nav aria-label="Footer Navigation" class="footer-navigation"><ul><li><a href="/impressum" target="" title="Impressum" class="header-navigation-link">
+                            Impressum
+                        </a></li><li><a href="/datenschutzerklaerung" target="" title="Datenschutzerklärung" class="header-navigation-link">
+                            Datenschutzerklärung
+                        </a></li><li><a href="/barrierefreiheit" target="" title="Barrierefreiheit" class="header-navigation-link">
+                            Barrierefreiheit
+                        </a></li></ul></nav><div class="attribution"><p><strong>Virtuelles Kartenforum</strong><span class="full-attribution">ein Projekt der SLUB Dresden und der Universität Rostock</span></p></div><div class="copyright"><p>
+            &copy; SLUB Dresden
+            2026
+        </p></div></footer><script>
+        var _paq = window._paq = window._paq || [];
+        
+        _paq.push(["disableCookies"]);
+        _paq.push(['trackPageView']);
+        _paq.push(['enableLinkTracking']);
+        (function () {
+            var u = "https://matomo.slub-dresden.de/";
+            _paq.push(['setTrackerUrl', u + 'matomo.php']);
+            _paq.push(['setSiteId', '164']);
+            var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+              g.async=true; g.src=u+'matomo.js'; s.parentNode.insertBefore(g,s);
+        })();
+    </script><noscript><p><img src="https://matomo.slub-dresden.de/matomo.php?idsite=164&rec=1" style="border:0;" alt=""/></p></noscript>
+
+<script src="/typo3temp/assets/compressed/merged-0af2391f529e37847e9a95e17632e37e-14b4265855d7c0b6e46c0dcb8bf88afb.js?1769774726"></script>
+
+<script type="text/javascript">
+        vk2.SettingsProvider.appendSettings({
+            API_SEARCH:
+                document.getElementById("setting-urlSearch").value,
+                    API_GEOREFERENCE_BASEURL: document.getElementById("setting-georefApi").value,
+            BASEMAPS: JSON.parse(
+                document.getElementById("setting-basemaps").value
+            ),
+            FALLBACK_THUMBNAIL:
+            document.getElementById("settings-layer-fallback").value,
+            FALLBACK_NOT_FOUND:
+            document.getElementById("settings-fallback-not-found").value,
+            ICON_SPRITE:
+            document.getElementById("settings-icon-sprite").value,
+            LANGUAGE_CODE: "de",
+            LINK_TO_GEOREFERENCE:
+                document.getElementById("setting-is-auth") !== null
+                    ? "/georeferenzierung"
+                    : undefined,
+            MAPVIEW_PARAMS: JSON.parse(
+                document.getElementById("setting-mapView").value
+            ),
+            MARKER_URL:document.getElementById("settings-marker-url").value,
+            NOMINATIM_URL: document.getElementById("setting-urlNominatim")
+                .value,
+            TERRAIN_TILES: JSON.parse(
+                document.getElementById("setting-terrain").value
+            ),
+            USER_ISAUTHENTICATED: document.getElementById("setting-is-auth") !== null,
+            });
+
+        vk2.SettingsProvider.appendSettings({
+            dictionary: Object.assign(
+                {},
+                vk2.SettingsProvider.getSettings().dictionary,
+                {
+                    "originalview-title":
+                        "Originale Karte",
+                    "mosaic-badge-title":
+                        "Mosaik",
+                    "originalview-title-mosaic":
+                        "Mosaikkarte",
+                    "originalview-label-desc":
+                        "Beschreibung",
+                    "originalview-label-identifier":
+                        "Identifier",
+                    "originalview-label-scale":
+                        "Maßstab",
+                    "originalview-label-services":
+                        "Dienste",
+                    "originalview-link-download-label":
+                        "Download Karte",
+                    "originalview-link-slub-label":
+                        "Gehe zu SLUB",
+
+                    // mapsearch
+                    "mapsearch-facetedsearch-open":
+                        "Öffne Facettensuche",
+                    "mapsearch-facetedsearch-close":
+                        "Schließe Facettensuche",
+                    "mapsearch-found-maps":
+                        "Karten gefunden",
+                    "mapsearch-found-no-maps":
+                        "Keine Karten gefunden",
+                    "mapsearch-georeference":
+                        "Georeferenzierung",
+                    "mapsearch-time_published":
+                        "Zeit",
+                    "mapsearch-time":
+                        "Zeit",
+                    "mapsearch-title":
+                        "Titel",
+                    "mapsearch-sorting":
+                        "Sortierung",
+                    "mapsearch-map_scale":
+                        "Maßstab",
+                    "mapsearch-listelement-time":
+                        "Zeit",
+                    "mapsearch-listelement-scale":
+                        "Maßstab",
+                    "mapsearch-listelement-type":
+                        "Typ",
+                    "mapsearch-listelement-no-georef":
+                        "Georeferenzierung fehlt",
+                    "mapsearch-listelement-loading":
+                        "Lädt",
+                    "mapsearch-listelement-unknown":
+                        "Unbekannt",
+
+                    // geojson add dialog
+                    "geojson-adddialog-confirm":
+                        "Vektor-Karte jetzt hinzufügen",
+                    "geojson-adddialog-cancel":
+                        "nein, upload abbrechen",
+                    "geojson-adddialog-title":
+                        "Neue Vektor-Karte hinzufügen",
+                    "geojson-adddialog-layer-title-label":
+                        "Titel",
+                    "geojson-adddialog-projection-label":
+                        "Projektion",
+                    "geojson-adddialog-persistent-button-label":
+                        "Persistente Vektor-Karte",
+                    "geojson-adddialog-persistent-description":
+                        "Wählen ob die hinaufgeladenen Daten dauerhaft als recherchierbare Karte verfügbar sein soll oder lediglich temporär für Sie persönlich in Ihrem Browser.",
+                    "geojson-adddialog-description":
+                        "Bitte geben Sie Ihrer Vektor-Karte einen Namen, und wählen Sie aus ob die Karten dauerhaft gespeichert werden soll.",
+
+                    // dropzone
+                    "dropzone-wrong-filetype":
+                        "Falscher Dateityp",
+                    "dropzone-drop":
+                        "GeoJSON Datei hier ablegen (oder klicken)",
+
+                    // GeoJson Feature View
+                    "geojson-featureview-header-text":
+                        "Details",
+                    "geojson-featureview-no-title":
+                        "kein Titel",
+                    "geojson-featureview-no-description":
+                        "keine Beschreibung",
+                    "geojson-featureview-no-time":
+                        "unbekannt",
+                    "geojson-featureview-invalid-time":
+                        "ungültige Zeitangabe",
+                    "geojson-featureview-metadata":
+                        "",
+                    "geojson-featureview-description":
+                        "Beschreibung",
+                    "geojson-featureview-time":
+                        "Zeit",
+                    "geojson-featureview-title":
+                        "Titel",
+
+
+                    // geojson feature edit
+                    "geojson-editview-intro-text":
+                        "Bearbeiten Sie hier die grafischen Einstellungen für das Vektor-Element und vergeben Sie einen Titel, ein Bild und eine Beschreibung dazu. Weiter unten können Sie eigene Felder erstellen.",
+                    "geojson-editview-header-text":
+                        "Details bearbeiten",
+                    "geojson-featureview-delete-btn":
+                        "GeoJson-feature löschen",
+                    "geojson-featureview-image-title":
+                        "Bild",
+                    "geojson-editfeature-danger-zone-title":
+                        "Dieses GeoJson-Feature löschen.",
+                    "geojson-editfeature-add-new-field-button":
+                        "neues feld hinzufügen",
+                    "geojson-editfeature-label-placeholder":
+                        "Feldtitel hier eingeben...",
+                    "geojson-editfeature-input-placeholder":
+                        "Feldwerte hier eingeben...",
+                    "geojson-editfeature-input-placeholder-date":
+                        "dd.mm.yyyy",
+                    "geojson-featureview-delete-field-btn":
+                        "Dieses Feld Löschen",
+                    "geojson-editfeature-style-header":
+                        "Stil",
+
+
+
+                    // GeoJson Feature Edit Delete Modal
+                    "geojson-deletemodal-delete-btn":
+                        "Ja, jetzt löschen",
+                    "geojson-deletemodal-body":
+                        "Wollen Sie dieses Feature wirklich löschen?",
+                    "geojson-deletemodal-title":
+                        "Daten endgültig entfernen",
+
+                    // GeoJson Control Bar Discard Modal
+                    "geojson-discard-modal-title":
+                        "Bearbeitung abbrechen?",
+                    "geojson-discard-modal-description":
+                        "Sie haben derzeit ungespeicherte Änderungen an dieser Vektor-Karte. Sind Sie sicher, dass Sie diese Änderungen verwerfen möchten?",
+                    "geojson-discard-modal-discard-button":
+                        "Ja, Änderungen verwerfen",
+                    "geojson-discard-modal-save-button":
+                        "Speichern und schliessen",
+
+
+                    // geojson feature edit image fallback
+                    "geojson-image-fallback-p":
+                        "Wir konnten kein Bild finden. Bitte überprüfe den Link erneut.",
+
+                    // geojson
+                    "geojson-cancel-btn":
+                        "verwerfen",
+                    "geojson-apply-btn":
+                        "übernehmen",
+                    "geojson-save-btn":
+                        "speichern",
+                    "geojson-draw-version-conflict":
+                        "A newer version of the vector map already exists on the server. Please reload the map and apply your changes to the new version of the map.",
+
+                    // GeoJson Metadata Panel
+                    "geojson-metadata-panel-header-create":
+                        "Vektor-Karte erstellen",
+                    "geojson-metadata-panel-header-edit":
+                        "Vektor-Karte bearbeiten",
+                    "geojson-metadata-panel-header-history":
+                        "Historie der Vektor-Karte",
+                    "geojson-metadata-panel-intro-create":
+                        "Fügen Sie hier einen Titel, eine Beschreibung und ein Vorschaubild für Ihre neue Vektor-Karte hinzu.",
+                    "geojson-metadata-panel-intro-create-external":
+                        "Fügen Sie hier einen Titel, die GeoJson-URL und eine Zeitspanne für Ihre neue externe Vektor-Karte hinzu.",
+                    "geojson-metadata-panel-intro-edit-external":
+                        "Bearbeiten Sie hier die Einstellungen für die externe Vektor-Karte.",
+                    "geojson-metadata-panel-intro-edit":
+                        "Bearbeiten Sie hier die Einstellungen für die gesamte Vektor-Karte. Sie können hier Titel, Beschreibung und Vorschaubild bestimmen.",
+                    "geojson-metadata-panel-intro-history":
+                        "Wählen Sie hier eine frühere Variante der Vektor-Karte aus indem Sie zunächst die älteren Varianten durchsuchen und dann zurücksetzen.",
+                    "geojson-metadata-panel-intro-history-unsaved":
+                        "Sie erstellen gerade eine neue Vektorkarte. Es gibt noch keine früheren Versionen, die angezeigt werden können.",
+                    "geojson-metadata-panel-delete":
+                        "Diese Vektor-Karte löschen.",
+                    "geojson-metadata-panel-delete-btn":
+                        "Vektor-Karte löschen",
+                    "geojson-metadata-panel-refresh-btn":
+                        "Bounding Box erneuern",
+                    "geojson-metadata-panel-refresh":
+                        "Die Bounding Box der Vektor-Karte im Suchindex erneuern.",
+                    "geojson-metadata-panel-notify-refresh":
+                        "Die Bounding Box wurde erfolgreich erneuert.",
+
+                    // GeoJson Metadata Fields
+                    "geojson-metadata-title":
+                    "Titel",
+                    "geojson-metadata-description":
+                    "Beschreibung",
+                    "geojson-metadata-thumbnailUrl":
+                    "Vorschau-Bild",
+                    "geojson-metadata-timePeriod":
+                    "Zeitraum",
+                    "geojson-label-timePeriod-start":
+                    "Startdatum",
+                    "geojson-label-timePeriod-end":
+                    "Enddatum",
+                    "geojson-metadata-externalContentUrl":
+                    "GeoJson URL",
+                    "geojson-metadata-externalContentType":
+                    "Layertyp",
+                    "geojson-metadata-delete-vector":
+                    "Wollen Sie diese Vektor-Karte wirklich löschen?",
+
+                    // GeoJson Metadata Placeholders
+                    "geojson-placeholder-title":
+                    "Titel hier eingeben…",
+                    "geojson-placeholder-description":
+                    "Beschreibung hier eingeben…",
+                    "geojson-placeholder-thumbnailUrl":
+                    "Link zum Vorschau-Bild hier eingeben…",
+                    "geojson-placeholder-externalContentUrl":
+                    "Link zum GeoJson hier eingeben…",
+
+
+                    // mapwrapper
+                    "mapwrapper-geojson-parse-error":
+                        "Die bereitgestellte geojson Datei konnte nicht gelesen werden",
+                    "mapwrapper-mount-layer-error":
+                        "Ein Layer konnte nicht geladen werden. Das zugehörige Feature wurde deselektiert.",
+
+                    // facets
+                    "facet-ae":
+                        "Äquidistantenkarten (1:25.000)",
+                    "facet-ak":
+                        "Andere Altkartentypen",
+                    "facet-cm":
+                        "Stadtpläne",
+                    "facet-gl":
+                        "Geologische Karten (1:25.000)",
+                    "facet-mb":
+                        "Meilenblätter (1:12.000)",
+                    "facet-mtb":
+                        "Messtischblätter (1:25.000)",
+                    "facet-tk":
+                        "Karten des Deutschen Reiches (1:100.000)",
+                    "facet-tkx":
+                        "Topographische Karten (&lt; 1:50.000)",
+                    "facet-mm":
+                        "Mosaikkarten",
+                    "facet-vm":
+                        "Vektorkarten",
+
+
+                    // layer management
+                    "layermanagement-create-vector-map": "Vektor-Karte erstellen",
+                    "layermanagement-create-external-vector-map": "Externe Vektor-Karte erstellen",
+                    "layermanagement-add-vector-map": "GeoJSON hinzufügen",
+                    "layermanagement-show-map":
+                        "Zeige Karte",
+                    "layermanagement-remove-map":
+                        "Verwerfe Karte",
+                    "layermanagement-move-top":
+                        "Karte in den Vordergrund ",
+                    "layermanagement-zoom-to-map":
+                        "Zoome auf die Karte",
+                    "layermanagement-show-original":
+                        "Zeige Original",
+                    "layermanagement-show-geojson":
+                        "Zeige GeoJson Informationen",
+                    "layermanagement-start-msg-header":
+                        "Herzlich Willkommen im Virtuellen Kartenforum 2.0.",
+                    "layermanagement-start-msg-body":
+                        "Bitte wählen Sie zunächst links im Suchbereich einige Karten aus",
+                    "layermanagement-header-lbl":
+                        "Meine Karten",
+                    "layermanagement-deactivate-all-maps":
+                        "Deaktiviere alle Karten",
+                    "layermanagement-activate-all-maps":
+                        "Aktiviere alle Karten",
+                    "layermanagement-timestamp":
+                        "Zeitstempel",
+                    "layermangement-georef-update":
+                        "Aktualisierte Georeferenzierungen",
+                    "layermanagement-export-geojson":
+                        "Exportiere GeoJSON",
+                    "layermanagement-filter-geojson-features":
+                        "Filtere GeoJSON features",
+
+
+
+                    // dynamic map vis
+                    "dynamicmapvis-open":
+                        "Öffne dynamische Kartenvisualisierung",
+                    "dynamicmapvis-close":
+                        "Schließe dynamische Kartenvisualisierung",
+                    "dynamicmapvis-start":
+                        "Starte Zeitreihenvisualisierung der Kartenauswahl",
+                    "dynamicmapvis-stop":
+                        "Stoppe Zeitreihenvisualisierung der Kartenauswahl",
+
+                    // persistence controller
+                    "persistencecontroller-error-operational-layers":
+                        "Die persistierten Karten konnten nicht wiederhergestellt werden.",
+                    "persistencecontroller-error-persistence-object":
+                        "Es ist ein Fehler mit dem persistierten Anwendungszustand aufgetreten, der die Wiederherstellung verhinderte.",
+                    "persistencecontroller-error-single-map":
+                        "Die ausgewählte Karte konnte nicht geladen werden.",
+                    "persistencecontroller-deprecated-3d-map-view":
+                        "Die wiederhergestellte Kartenansicht wurde in einer alten Version des Kartenforums erstellt. Dadurch können Abweichungen der Ansicht auftreten.",
+
+                    // timeslider
+                    "timeslider-adjust-timeperiod":
+                        "Definiere Suchzeitraum",
+
+                    // map > GeoJsonLayerPanel
+                    "geojsonlayerpanel-header-title":
+                        "Vektor-Karte",
+                    "geojsonlayerpanel-no-features":
+                        "Keine Features gefunden",
+                    "geojsonlayerpanel-timefilter-title":
+                        "Definiere Filterzeitraum",
+                    "geojsonlayerpanel-fulltext-placeholder":
+                        "Suche",
+
+                    // map > GeoJsonControlBar
+                    "geojson-control-bar-metadata-btn-title":
+                        "Zeige Einstellungen der Vektor-Karte",
+                    "geojson-control-bar-history-btn-title":
+                        "Zeige Versionen der Vektor-Karte",
+                    "geojson-control-bar-roles-btn-title":
+                        "Zeige Zugriffsberechtigungen der Vektor-Karte",
+                    "geojson-control-bar-hint-add-feature":
+                        "Keine Features vorhanden. Jetzt ein Neues erstellen.",
+                    "geojson-control-bar-hint-add-content-url":
+                        "Keine Features vorhanden. Bitte eine GeoJson URL hinzufügen.",
+                    "geojson-control-bar-hint-add-title":
+                        "Bitte füge zunächst einen Titel hinzu.",
+                    "geojson-control-bar-no-features":
+                        "Keine Features",
+                    "geojson-control-bar-hint-features-present":
+                        "in dieser Vektor-Karte vorhanden.",
+                    "geojson-control-bar-new":
+                        "neues",
+                    "geojson-control-bar-deleted":
+                        "gelöschtes",
+                    "geojson-control-bar-changed":
+                        "geändertes",
+                    "geojson-control-bar-new-plural":
+                        "neue",
+                    "geojson-control-bar-deleted-plural":
+                        "gelöschte",
+                    "geojson-control-bar-changed-plural":
+                        "geänderte",
+                    "geojson-control-bar-feature":
+                        "Feature",
+                    "geojson-control-bar-feature-plural":
+                        "Features",
+
+                    // GeoJson Roles
+                    "geojson-roles-modal-title":
+                        "Berechtigungen anpassen",
+                    "geojson-roles-form-intro":
+                        "Wählen Sie hier die Benutzer aus, die Ihre Vektor-Karten ebenso wie Sie bearbeiten können. Bitte achten Sie auf die korrekte Schreibweise des jeweiligen Benutzernamens.",
+                    "geojson-roles-form-intro-unsaved":
+                        "Sie erstellen eine neue Vektorkarte. Um die Berechtigungen für Ihre neue Vektorkarte anpassen zu können, müssen Sie sie zunächst speichern.",
+                    "geojson-roles-owner":
+                        "Ersteller/Besitzer",
+                    "geojson-roles-authors":
+                        "Autoren",
+                    "geojson-roles-insert-username":
+                        "Nutzername eingeben…",
+                    "geojson-roles-btn-save":
+                        "Benutzerrollen speichern",
+                    "geojson-roles-form.error.required":
+                        "Dieses Feld ist erforderlich.",
+                    "geojson-roles-form.error.duplicateRoles":
+                        "Der Benutzer PLACEHOLDER kann nicht gleichzeitig Ersteller und Autor sein.",
+
+                    // Common error messages
+                    "common-errors-http-401":
+                        "Sie müssen eingeloggt sein, um diese Aktion auszuführen.",
+                    "common-errors-http-403":
+                        "Sie sind nicht berechtigt, diese Aktion auszuführen.",
+                    "common-errors-unexpected":
+                        "Ein unerwarteter Fehler ist aufgetreten. Kontaktieren Sie bitte ggf. den Administrator.",
+
+                    "geojson-draw-error-invalid-input":
+                        "Die von Ihnen eingegebenen Metadaten sind nicht gültig und können nicht gespeichert werden. Bitte öffnen Sie das Metadaten-Formular und überprüfen Sie die Eingaben.",
+                    "geojson-external-vector-map-error-invalid-input":
+                        "Die von Ihnen eingegebenen Metadaten sind nicht gültig und können nicht gespeichert werden. Bitte prüfen Sie, ob die angegebene GeoJson URL eine gültige FeatureCollection zurückgibt.",
+
+                    "error-no-feature-id":
+                        "Dieses Feature hat eine ungültige ID. Dessen Metadaten können nicht angezeigt werden.",
+
+                    "vector-badge-title":
+                        "Vektor",
+
+                    "feature-permalink-exporter-copy-title":
+                        "Den Permalink für dieses Feature in die Zwischenablage kopieren",
+
+                    // Button loading label
+                    "button-loading-label":
+                        "Lade…",
+
+                    // Idohist
+                    "idohist-date-label":
+                        "Datierung",
+                    "idohist-permalink-label":
+                        "IDOHIST Dokumentation",
+                    "idohist-tags-label":
+                        "Tags",
+                    "idohist-affiliation-label":
+                        "Zugehörigkeit",
+                    "idohist-certainty-label":
+                        "Konfidenzen",
+                    "idohist-certainty-label-spatial":
+                        "Spatiale Konfidenz",
+                    "idohist-certainty-label-temporal":
+                        "Zeitliche Konfidenz",
+                    "idohist-certainty-label-content":
+                        "Thematische Konfidenz",
+                }
+            ),
+        });
+
+        // Render map plugin
+        if (vk2 !== undefined) {
+            vk2.renderApp(document.getElementById("vkf-app-map"));
+        }
+    </script>
+</body>
+</html>

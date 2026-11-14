@@ -1,0 +1,14 @@
+{
+  "slug": "hab",
+  "min_delay_s": 6,
+  "max_requests": 15,
+  "follow_redirects": 1,
+  "robots_disallow_autorise_par_marcel": true,
+  "note": "Passe 1 (v2) : donnees du site hab.bodleian.ox.ac.uk citees par son JS (/js/digitized.json, lu dans script.prd.js), OAI-PMH annonce par diglib.hab.de (Identify cite par la page WDB ; ListMetadataFormats = verbe standard OAI-PMH, sans resumption), sitemap cite par le robots.txt de diglib.",
+  "endpoints": [
+    {"id": "p1-bodleian-digitized-json", "method": "GET", "url": "https://hab.bodleian.ox.ac.uk/js/digitized.json", "save_body": 2000000},
+    {"id": "p1-oai-identify", "method": "GET", "url": "http://oai.hab.de/?verb=Identify"},
+    {"id": "p1-oai-listmetadataformats", "method": "GET", "url": "http://oai.hab.de/?verb=ListMetadataFormats"},
+    {"id": "p1-diglib-sitemap-head", "method": "HEAD", "url": "http://diglib.hab.de/sitemap.xml"}
+  ]
+}

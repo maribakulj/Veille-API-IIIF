@@ -2,18 +2,249 @@
   "slug": "hab",
   "nom": "Herzog August Bibliothek (Wolfenbüttel)",
   "pays": "Allemagne",
-  "statut_audit": "partiel (ancienne méthode)",
-  "limites_documentees": [],
+  "statut_audit": "audit a–f complet (v2) ; g à faire (config préparée)",
+  "limites_documentees": [
+    {
+      "nature": "Aucune limite de débit documentée ; seulement licences (images en domaine public, données CC BY-SA 4.0 sauf mention)",
+      "perimetre": "offres en ligne de la WDB",
+      "valeur": "« Imagedigitalisate von HAB-Beständen werden als Public Domain publiziert. »",
+      "fenetre": "–",
+      "effet": "–",
+      "verification": "officielle, lue en entier",
+      "source": "http://diglib.hab.de/nutzungshinweise.html",
+      "date": "2026-11-14"
+    }
+  ],
   "en_tetes_observes": [],
-  "blocages": [],
-  "contact": "auskunft@hab.de (copyright.html)",
-  "conclusion_quota": "Aucun quota dans les Nutzungshinweise lues en résumé.",
+  "blocages": [
+    {
+      "date": "2026-11-14",
+      "hote": "image.hab.de",
+      "code": "403",
+      "nature": "403 Forbidden Apache générique sur robots.txt (2026-11-14T03:19:55Z), pas de page de défi",
+      "suite": "hôte arrêté, non testé ; Wayback : captures 404 (sources/wayback/image-hab-de-robots.md)"
+    }
+  ],
+  "contact": "auskunft@hab.de (page Nutzungshinweise) ; baumgarten@hab.de (WDB, page diglib.hab.de)",
+  "conclusion_quota": "Aucun quota, limite de débit ni règle sur l'accès automatisé publiés par la HAB (Nutzungshinweise : seulement licences et mentions). OAI-PMH (oai.hab.de), IIIF Presentation 2 et Image 2 (iiif.hab.de), IIIF Presentation 3 (portraits.hab.de) et ressources IIIF Bodleian testés : 200 sans en-tête de limite. image.hab.de : 403 sur robots.txt, non testé.",
   "classe_quota": "aucun quota trouvé",
-  "confiance": "faible",
-  "notes": "Pas d'URL de manifeste trouvée pour diglib.hab.de.",
+  "confiance": "moyenne",
+  "notes": "Les URL IIIF ne sont pas dans la doc HAB : manifeste, vignette et info.json viennent de /js/digitized.json (cité par le JS du site hab.bodleian.ox.ac.uk). Le service IIIF HAB est iiif.hab.de, indépendant de diglib.hab.de. Aucun en-tête de limite sur ~20 requêtes. 303 de /manifest vers /manifest.json suivi. image.hab.de (image des portraits) en 403 sur robots.txt : hôte arrêté, lecture par Wayback (404 historiques).",
   "classeur_id": "hors 84 (ajouté)",
   "type": "Institution",
-  "sources": [],
-  "web": [],
-  "donnees_a_revalider": true
+  "sources": [
+    {
+      "url": "https://www.hab.de/en/iiif-international-interfaces-for-digitised-cultural-assets/",
+      "date": "2026-11-14",
+      "etiquette": "officielle",
+      "preuve": "institutions/hab/sources/doc1/SHA256SUMS"
+    },
+    {
+      "url": "http://diglib.hab.de/nutzungshinweise.html",
+      "date": "2026-11-14",
+      "etiquette": "officielle",
+      "preuve": "institutions/hab/sources/doc1/SHA256SUMS"
+    },
+    {
+      "url": "http://diglib.hab.de/copyright.html",
+      "date": "2026-11-14",
+      "etiquette": "officielle (marquée obsolète)",
+      "preuve": "institutions/hab/sources/doc1/SHA256SUMS"
+    },
+    {
+      "url": "https://diglib.hab.de/",
+      "date": "2026-11-14",
+      "etiquette": "officielle",
+      "preuve": "institutions/hab/sources/doc1/SHA256SUMS"
+    },
+    {
+      "url": "https://hab.bodleian.ox.ac.uk/de/digitalisate/",
+      "date": "2026-11-14",
+      "etiquette": "officielle",
+      "preuve": "institutions/hab/sources/doc1/SHA256SUMS"
+    },
+    {
+      "url": "https://hab.bodleian.ox.ac.uk/js/script.prd.js",
+      "date": "2026-11-14",
+      "etiquette": "officielle",
+      "preuve": "institutions/hab/sources/doc2/SHA256SUMS"
+    },
+    {
+      "url": "https://www.hab.de/iiif-internationale-schnittstellen-fuer-digitalisiertes-kulturgut/",
+      "date": "2026-11-14",
+      "etiquette": "officielle",
+      "preuve": "institutions/hab/sources/doc2/SHA256SUMS"
+    },
+    {
+      "url": "https://portraits.hab.de/werk/9043",
+      "date": "2026-11-14",
+      "etiquette": "officielle",
+      "preuve": "institutions/hab/sources/portraits2/SHA256SUMS"
+    }
+  ],
+  "web": [
+    {
+      "categorie": "institution",
+      "url": "https://www.hab.de/en/iiif-international-interfaces-for-digitised-cultural-assets/",
+      "date": "2026-11-14",
+      "etiquette": "officielle (relue dans l'original)",
+      "citation": "« The authentication API … serves to regulate access to certain objects if required » ; aucune politique de débit ni de robots dans la page",
+      "preuve": "institutions/hab/sources/doc1/SHA256SUMS"
+    },
+    {
+      "categorie": "utilisateurs",
+      "aucun_resultat": true,
+      "requete": "iiif.hab.de 429 OR 503 OR blocked OR \"rate limit\" HAB Wolfenbüttel manifest download problem",
+      "date": "2026-11-14",
+      "etiquette": "–",
+      "citation": "aucune plainte, aucun ticket de blocage ou de 429 concernant la HAB ; seuls des résultats sur d'autres institutions (MDZ, museum-digital)",
+      "preuve": "institutions/hab/fiche.md"
+    },
+    {
+      "categorie": "tickets",
+      "aucun_resultat": true,
+      "requete": "github issue \"iiif.hab.de\" OR \"diglib.hab.de\" manifest harvester OR crawler OR importer",
+      "date": "2026-11-14",
+      "etiquette": "–",
+      "citation": "aucun ticket d'outil tiers citant iiif.hab.de ou diglib.hab.de ; seul mets2iiif (subhh) est lié à un projet HAB/Bodleian, sans ticket de quota",
+      "preuve": "institutions/hab/fiche.md"
+    },
+    {
+      "categorie": "presentations",
+      "url": "https://zenodo.org/records/5724105/files/presentation.pdf",
+      "date": "2021-01-22",
+      "etiquette": "tiers (présentation d'un partenaire du projet, relue dans l'original)",
+      "citation": "« Von METS zu Manifest » (D. Maus, Kitodo Anwendertreffen 2021) : aucune mention de quota ; renvoie à https://hab.bodleian.ox.ac.uk",
+      "preuve": "institutions/hab/sources/tiers/SHA256SUMS"
+    }
+  ],
+  "donnees_a_revalider": false,
+  "a_verifier_manuellement": [
+    {
+      "url": "https://image.hab.de/robots.txt",
+      "pourquoi": "403 sur l'hôte des images des portraits (portraits.hab.de renvoie vers image.hab.de/iiif/images/...)",
+      "a_chercher": "Demander à auskunft@hab.de si image.hab.de est restreint aux navigateurs ou s'il a une limite de débit"
+    },
+    {
+      "url": "https://iiif.bodleian.ox.ac.uk/robots.txt",
+      "pourquoi": "robots.txt répond 400 « Bad request » à notre client",
+      "a_chercher": "Règles de moissonnage et limites de iiif.bodleian.ox.ac.uk (institution Bodleian, auditée à part)"
+    }
+  ],
+  "endpoints_documentes": [
+    {
+      "famille": "OAI-PMH (oai.hab.de)",
+      "url": "http://oai.hab.de/?verb=Identify",
+      "statut": "teste",
+      "preuve": "institutions/hab/tests/raw/p1-oai-identify.headers.txt"
+    },
+    {
+      "famille": "OAI-PMH ListMetadataFormats",
+      "url": "http://oai.hab.de/?verb=ListMetadataFormats",
+      "statut": "teste",
+      "preuve": "institutions/hab/tests/raw/p1-oai-listmetadataformats.headers.txt"
+    },
+    {
+      "famille": "IIIF Presentation 2 (iiif.hab.de)",
+      "url": "https://iiif.hab.de/object/mss_35-helmst/manifest.json",
+      "statut": "teste",
+      "preuve": "institutions/hab/tests/raw/p2-hab-manifest-35-helmst.headers.txt"
+    },
+    {
+      "famille": "IIIF Image 2 (iiif.hab.de) vignette et info.json",
+      "url": "https://iiif.hab.de/object/mss_35-helmst/image/image_00001/info.json",
+      "statut": "teste",
+      "preuve": "institutions/hab/tests/raw/p3-hab-info-json-image-00001.headers.txt"
+    },
+    {
+      "famille": "Données du site manuscrits (digitized.json)",
+      "url": "https://hab.bodleian.ox.ac.uk/js/digitized.json",
+      "statut": "teste",
+      "preuve": "institutions/hab/tests/raw/p1-bodleian-digitized-json.headers.txt"
+    },
+    {
+      "famille": "IIIF Bodleian (manifeste et info.json cités par le site)",
+      "url": "https://iiif.bodleian.ox.ac.uk/iiif/manifest/4ce6f23f-7682-41f5-8e46-639a8ba9570f.json",
+      "statut": "teste",
+      "preuve": "institutions/hab/tests/raw/p2-bodleian-manifest-4ce6f23f.headers.txt"
+    },
+    {
+      "famille": "IIIF Presentation 3 (portraits.hab.de)",
+      "url": "https://portraits.hab.de/werk/9043/iiif",
+      "statut": "teste",
+      "preuve": "institutions/hab/tests/raw/p4-portraits-manifest-9043.headers.txt"
+    },
+    {
+      "famille": "Images des portraits (image.hab.de)",
+      "url": "https://image.hab.de/iiif/images/varia/portrait/a-12667/2011_standard_original/a-12667.jp2/full/150,/0/default.jpg",
+      "statut": "non_teste",
+      "raison": "robots.txt de image.hab.de en 403 (hôte arrêté, registre partagé) ; aucun contournement"
+    },
+    {
+      "famille": "IIIF Authentication et Content Search (annoncées par la HAB)",
+      "url": "https://www.hab.de/en/iiif-international-interfaces-for-digitised-cultural-assets/",
+      "statut": "non_teste",
+      "raison": "annoncées sans aucune URL ni exemple ; aucun lien vers elles dans les pages lues ni dans les manifestes, aucune URL devinée"
+    }
+  ],
+  "endpoints_ecartes": [
+    {
+      "url": "http://diglib.hab.de/?link=167",
+      "raison": "PURL redirigeant (302) vers la page de blog hab.de lue : pas une API"
+    },
+    {
+      "url": "https://diglib.hab.de/sitemap.xml",
+      "raison": "sitemap de 1,5 Mo cité par robots.txt, testé en HEAD seulement (200) : pas une API IIIF"
+    },
+    {
+      "url": "https://www.hab.de/de/home/bibliothek/digitale-bibliothek-wdb/standards-dokumentation.html",
+      "raison": "page de doc éditoriale TEI, 404 constaté en 2026-11-14 (sources/doc1/FETCH.log) : pas d API"
+    },
+    {
+      "url": "https://www.hab.de/wp-json/wp/v2/posts/9060",
+      "raison": "lien WordPress REST (alternate) de la page de blog IIIF, outil du CMS du site hab.de, pas une API IIIF ni d un service de données de la HAB ; non testé"
+    }
+  ],
+  "hotes_robots": [
+    {
+      "hote": "diglib.hab.de",
+      "resultat": "Disallow : /diglib2004/ /Report/ /wdb/ /download.php /rules/ etc. ; pas de Crawl-delay ; nos chemins non concernés",
+      "preuve": "institutions/hab/sources/robots/SHA256SUMS"
+    },
+    {
+      "hote": "oai.hab.de",
+      "resultat": "404 : tout autorisé",
+      "preuve": "institutions/hab/sources/robots/SHA256SUMS"
+    },
+    {
+      "hote": "hab.bodleian.ox.ac.uk",
+      "resultat": "404 : tout autorisé",
+      "preuve": "institutions/hab/sources/robots/SHA256SUMS"
+    },
+    {
+      "hote": "www.hab.de",
+      "resultat": "Disallow /wp-admin/ seulement ; pas de Crawl-delay",
+      "preuve": "institutions/hab/sources/robots/SHA256SUMS"
+    },
+    {
+      "hote": "iiif.hab.de",
+      "resultat": "404 : tout autorisé",
+      "preuve": "institutions/hab/sources/robots2/SHA256SUMS"
+    },
+    {
+      "hote": "iiif.bodleian.ox.ac.uk",
+      "resultat": "400 Bad request : traité comme indisponible, tout autorisé",
+      "preuve": "institutions/hab/sources/doc2/SHA256SUMS"
+    },
+    {
+      "hote": "portraits.hab.de",
+      "resultat": "404 : tout autorisé",
+      "preuve": "institutions/hab/sources/portraits/SHA256SUMS"
+    },
+    {
+      "hote": "image.hab.de",
+      "resultat": "403 Forbidden : hôte arrêté, non testé ; Wayback : 404 historiques",
+      "preuve": "institutions/hab/sources/wayback/image-hab-de-robots.md"
+    }
+  ]
 }

@@ -1,0 +1,49 @@
+/{authority_provider} | SLUB - LOD API documentation Skip to main content Menu Expand (external link) Document Search Copy Copied 
+ Home 
+ API endpoints /search 
+ /source 
+ /{entity_index} 
+ /{authority_provider} 
+ /reconcile 
+ Entity Types Resources 
+ Persons 
+ Organizations 
+ Events 
+ Places 
+ Works 
+ Topics 
+ Mappings MARC21 
+ Data Sources 
+ Exploratory Search 
+ Contact 
+ Try API 
+ This site uses Just the Docs , a documentation theme for Jekyll. 
+ Search SLUB - LOD API documentation 
+ LOD API documentation on GitHub 
+ API endpoints 
+ /{authority_provider} 
+ Query LOD API by searching for authority provider’s ID 
+ In case you know the ID of your dataset for one of the listed authority providers , you can use this ID If one only needs results for certain entities the /{entity_index} can be used. This makes it possible to look - for example - just for results in organizations or persons.
+ Usage 
+ /{authority_provider}/ {id} 
+ /{authority_provider}/ {entity_index} / {id} 
+ It is preferred to use the second call of the API in case you already know the entity index of your dataset, see /{entity_index} , because this call can be processed much faster by Elasticsearch compared to the more general request not providing the entity index.
+ possible values for {entity_index} :
+ events 
+ slub-resources 
+ works 
+ organizations 
+ topics 
+ geo 
+ persons 
+ Authority Providers 
+ authority_provider name 
+ gnd Integrated Authority File by DNB 
+ swb SWB online index 
+ viaf Virutal International Authority File 
+ wd wikidata 
+ Example 
+ $ curl -X GET "https://data.slub-dresden.de/gnd/persons/118559206" 
+ Try Me 
+ Copyright © 2019-2023 SLUB Dresden. Legal Notice , Privacy Policies: API usage , Github Pages (webpage) 
+ This site uses Just the Docs , a documentation theme for Jekyll.

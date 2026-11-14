@@ -1,0 +1,217 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="/images/favicon.ico" type="image/x-icon">
+    <title>Digitalisate</title>
+    <link href="https://fonts.googleapis.com/css?family=PT+Sans:400,400i,700" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=PT+Sans:400,400i,700|Nunito+Sans:400,400i,600,600i,700" rel="stylesheet">
+    <link href='https://api.mapbox.com/mapbox-gl-js/v0.53.0/mapbox-gl.css' rel='stylesheet' />
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-N68CLCQ');</script>
+    <!-- End Google Tag Manager -->
+    
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/css/styles.cf8788df0e85ebd54577a96ba5f4b813edafb1cd10f16e2d4c679f24afdd8d2f.css" integrity="sha256-z4eI3w6F69VFd6lrpfS4E&#43;2vsc0Q8W4tTGefJK/djS8=" media="screen">
+  </head>
+  <body>
+<header>
+  <div class="container">
+    <nav class="navbar is-transparent" role="navigation" aria-label="main navigation">
+      <div class="navbar-brand">
+        <a class="navbar-item" href="/de">
+          <img src="/images/logo.svg" id="logo">
+        </a>
+        <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navbarHeader">
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+        </a>
+      </div>
+
+      <div class="navbar-menu" id="navbarHeader">
+        <div class="navbar-start">    
+          
+          <a class='navbar-item has-text-weight-semibold' title="Home" href="/de/">Home</a>
+          
+          <a class='navbar-item has-text-weight-semibold' title="Digitalisate" href="/de/digitalisate/">Digitalisate</a>
+          
+          <a class='navbar-item has-text-weight-semibold' title="Blog" href="/de/blog/">Blog</a>
+          
+          <a class='navbar-item has-text-weight-semibold' title="Sammlungen" href="/de/sammlungen/">Sammlungen</a>
+          
+          <a class='navbar-item has-text-weight-semibold' title="Ordenshäuser" href="/de/ordenshauser">Ordenshäuser</a>
+          
+          <a class='navbar-item has-text-weight-semibold' title="Über uns" href="/de/uber-uns/">Über uns</a>
+                  
+        </div>      
+
+        <div class="navbar-end" id="language-selector">
+          <div class="navbar-item">
+            <div class="dropdown">
+              <div class="dropdown-trigger">
+                <button class="button" id="language-trigger" aria-haspopup="true" aria-controls="dropdown-menu" data-language="Deutsch">
+                  <span class="has-text-weight-semibold">Deutsch</span>
+                  <span class="icon is-small">
+                    <i class="fa fa-angle-down" aria-hidden="true"></i>
+                  </span>
+                </button>
+              </div>
+              <div class="dropdown-menu" id="dropdown-menu" role="menu">
+                <div class="dropdown-content is-right">
+                  
+                  <a class="dropdown-item has-text-weight-semibold is-size-6" href="/en/">English</a>
+                  
+                  <a class="dropdown-item has-text-weight-semibold is-size-6" href="/de/">Deutsch</a>
+                  
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </nav>
+  </div>
+</header>
+<main id="main-digitized">
+    
+
+<div class="digitized-item__hero hero">
+  <div class="polonsky-hero-body">
+    <img src="/img/latest/default.jpg" alt="" id="latest-digitized-item__image">
+  </div>
+  <div id="latest-digitized">
+    <a href="" target="_blank">
+      <p class="article-meta has-text-grey-light is-size-7">Neueste Hinzufügung</p>
+      <p class="has-text-primary has-text-weight-semibold" id="latest-digitized-item__shelfmark"></p>
+      <p class="has-text-dark has-text-weight-semibold" id="latest-digitized-item__institution"></p>
+      <p class="digitized-item__title has-text-dark is-italic" id="latest-digitized-item__title"></p>
+    </a>
+  </div>
+</div>
+<div class="container">  
+
+  <div id="card-container">
+    <div class="filters">
+      <div id="search-block" class="field">
+        <p class="control has-icons-right">
+          <input id="search" class="input is-medium" type="search" v-model="query" name="search" placeholder="Digitalisate suchen...">
+          <span class="icon is-small is-right">
+            <i class="fas fa-search"></i>
+          </span>
+        </p>
+      </div>
+    </div>
+    <div id="card-container--block">
+      
+      
+      
+      <input type="hidden" v-bind:value="searchResult.pagination.total" id="pagination__total">
+      <input type="hidden" v-bind:value="searchResult.pagination.page" id="pagination__current-page">
+      <input type="hidden" v-bind:value="num_pages" id="pagination__num-pages">
+      <aside id="facets">
+        <div v-for="facet in searchResult.data.aggregations">
+          <div class='panel--title is-size-5 active' v-html="facet.title"></div>
+          <ul  class='panel--content browse-list expanded'>
+            <li v-for="bucket in facet.buckets">
+              <div class="checkbox block">
+                <label>
+                  <input class="checkbox" type="checkbox" v-model="filters[facet.name]" v-bind:value="bucket.key" v-bind:data-text="bucket.key" @click="update_page(1)">
+                  <span class="facet-name" v-html="bucket.key"></span> 
+                  <span class="facet-count is-pulled-right" v-html="bucket.doc_count"></span>
+                </label>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </aside>
+      <div id="results" class="wrapper" v-bind:data-total="searchResult.pagination.total">
+        <div v-if="searchResult.pagination.total == 0">
+          <div class="no-results content">
+            <h4>Keine Ergebnisse gefunden</h4>  
+            <p>There are no results matching your search.</p>
+            <p>Suggestions:</p>
+            <ul>
+              <li>Clear any filters by starting a new search and make sure all words are spelled correctly</li>
+              <li>Use fewer keywords to start, then refine your search using the links on the left.</li>
+              <li>Try different, more general or fewer keywords</li>
+            </ul>
+          </div>
+        </div>
+        <div v-else>
+          <div v-for="item of searchResult.data.items" class="card">
+            <a  class="wrapper-item" target="_blank" v-bind:href="'/en/image-viewer?manifest='+item.uri" >
+              <img class="filtr-item__image" v-if="item.thumbnail_uri" loading=lazy v-bind:src="item.thumbnail_uri" v-bind:alt="item.shelfmark">
+              <img class="filtr-item__image" v-else src="/img/blog/placeholder.jpg">
+              <div class="filtr-item__shelfmark has-text-primary has-text-weight-semibold"><span v-html="item.shelfmark"></span></div>
+              <div class="has-text-dark has-text-weight-semibold"><span v-html="item.institution"></span></div>
+              <div class="filtr-item__title has-text-dark is-italic" v-html="item.title"></div>
+            </a>
+          </div>
+        </div>
+        <nav class="pagination" role="navigation" aria-label="pagination" id="digitized-pagination">          
+          <ul class="pagination-list">
+            <a class="pagination-previous" v-bind:disabled="current_page == 1" @click="current_page != 1 && update_page(current_page - 1)">
+              <i class="fas fa-angle-double-left"></i>
+            </a>
+            <li v-for="i in num_pages" class="pagination-link is-size-6" v-bind:class="{ 'is-current': i == current_page }" v-bind:data-page="i" v-html="i" @click="update_page(i)"></li>
+            <a class="pagination-next" v-bind:disabled="current_page == num_pages" @click="current_page != num_pages && update_page(current_page + 1)">
+              <i class="fas fa-angle-double-right"></i>
+            </a>
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+</main>
+<footer class="footer container">
+   <div class="content has-text-centered">
+    <div id="footer-logos">
+    <a href="https://www.bodleian.ox.ac.uk/" target="_blank" rel="noopener">
+        <img src="/images/bodleian.png" id="footer-logos--bodleian" alt="Bodleian Libraries">
+    </a>
+    <a href="http://www.hab.de/" target="_blank" rel="noopener">
+        <img src="/images/hab.png" id="footer-logos--hab" alt="Herzog August Library">
+    </a>
+    <a href="http://polonskyfoundation.com/" target="_blank" rel="noopener">
+        <img src="/images/polonsky-logo.jpg" id="footer-logos--polonsky" alt="Polonsky Foundation">
+    </a>
+</div>
+    <div id="footer-links">  
+  
+    
+      <a class="navbar-item has-text-primary has-text-weight-bold" href="https://glam.web.ox.ac.uk/privacy-policy-bodleian-libraries-website" rel="noopener" target="_blank">Datenschutzerklärung</a>
+    
+   
+</div>
+    <span class="has-text-grey-light is-size-7">© Copyright 2023 - Bodleian Libraries und Herzog August Bibliothek</span>
+    </div>
+</footer>
+  
+  <script type="text/javascript" id="embedUV" src="https://iiif.bodleian.ox.ac.uk/universalviewer/lib/embed.js"></script>
+  <script src='https://api.mapbox.com/mapbox-gl-js/v0.53.0/mapbox-gl.js'></script>
+  <script src="/js/ofi.min.js"></script>
+  <script src="/js/facets.js"></script>
+  <script src="/js/vue.min.js"></script>
+
+  <script src="/js/script.prd.js"></script>
+</body>
+</html>

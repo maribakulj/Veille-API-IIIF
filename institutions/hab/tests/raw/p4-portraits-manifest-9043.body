@@ -1,0 +1,282 @@
+
+
+{
+  "@context": "https://iiif.io/api/presentation/3/context.json",
+  "id": "https://portraits.hab.de/werk/9043/iiif/",
+  "type": "Manifest",
+  "label": { "de": [ "Porträt\u0020A\u002012667" ] },
+  "metadata": [
+    {
+        "label": [
+            {
+                "@language": "de",
+                "@value": "Dargestellte Person"
+            },
+            {
+                "@language": "en",
+                "@value": "Person represented"
+            }
+        ],
+        "value": [
+            {
+                "@language": "none",
+                "@value": "Lochner,\u0020Johann\u0020Heinrich"
+            }
+        ]
+    },
+    {
+        "label": [
+            {
+                "@language": "de",
+                "@value": "Zeichner"
+            },
+            {
+                "@language": "en",
+                "@value": "Draftsman"
+            }
+        ],
+        "value": [
+            {
+                "@language": "none",
+                "@value": "Heumann,\u0020Georg\u0020Daniel"
+            }
+        ]
+    },
+    {
+        "label": [
+            {
+                "@language": "de",
+                "@value": "Stecher"
+            },
+            {
+                "@language": "en",
+                "@value": "Engraver"
+            }
+        ],
+        "value": [
+            {
+                "@language": "none",
+                "@value": "Heumann,\u0020Georg\u0020Daniel"
+            }
+        ]
+    },
+        {
+        "label": [
+            {
+                "@language": "de",
+                "@value": "Technik"
+            },
+            {
+                "@language": "en",
+                "@value": "Technique"
+            }
+        ],
+        "value": [
+            {
+                "@language": "de",
+                "@value": "Kupferstich\u0020\u0028Druckgrafik\u0029"
+            },
+            {
+                "@language": "en",
+                "@value": "copper\u0020engraving"
+            }
+        ]
+        },
+        {
+        "label": [
+            {
+                "@language": "de",
+                "@value": "Technik"
+            },
+            {
+                "@language": "en",
+                "@value": "Technique"
+            }
+        ],
+        "value": [
+            {
+                "@language": "de",
+                "@value": "Radierung\u0020\u0028Druckgrafik\u0029"
+            },
+            {
+                "@language": "en",
+                "@value": "etching"
+            }
+        ]
+        },
+        {
+        "label": [
+            {
+                "@language": "de",
+                "@value": "Jahr"
+            },
+            {
+                "@language": "en",
+                "@value": "Date"
+            }
+        ],
+        "value": [
+            {
+                "@language": "none",
+                "@value": "1716"
+            }
+        ]
+    },
+        {
+        "label": [
+            {
+                "@language": "de",
+                "@value": "Beschreibung"
+            },
+            {
+                "@language": "en",
+                "@value": "Description"
+            }
+        ],
+        "value": [
+            {
+                "@language": "none",
+                "@value": "Wie\u0020A\u002012666,\u0020aber\u0020der\u0020Totensch\u00E4del\u0020u.\u0020r.\u0020gr\u00F6\u00DFer."
+            }
+        ]
+    },
+        {
+        "label": [
+            {
+                "@language": "de",
+                "@value": "Quelle"
+            },
+            {
+                "@language": "en",
+                "@value": "Source"
+            }
+        ],
+        "value": [
+            {
+                "@language": "none",
+                "@value": "<a href=\"https://portraits.hab.de\">Porträtsammlung der Herzog August Bibliothek</a>"
+            }
+        ]
+    }
+  ],
+  "summary": { "de": [ ": Lochner,\u0020Johann\u0020Heinrich.\u00201716" ] },
+  "thumbnail": [
+    {
+      "id": "https://image.hab.de/iiif/images/varia/portrait/a-12667/2011_standard_original/a-12667.jp2/full/150,/0/default.jpg",
+      "type": "Image",
+      "format": "image/jpeg",
+      "service": [
+        {
+          "id": "https://image.hab.de/iiif/images/varia/portrait/a-12667/2011_standard_original/a-12667.jp2/full/150,/0/default.jpg",
+          "type": "Image2",
+          "profile": "level2"
+        }
+      ]
+    }
+  ],
+
+  "viewingDirection": "right-to-left",
+  "behavior": [ "paged" ],
+  "navDate": "1856-01-01T00:00:00Z",
+
+  "rights": "https://creativecommons.org/licenses/by/4.0/",
+  "requiredStatement": {
+    "label": { "de": [ "Institution" ] },
+    "value": { "de": [ "Herzog August Bibliothek Wolfenbüttel" ] }
+  },
+  "provider": [
+      {
+        "id": "https://sigel.staatsbibliothek-berlin.de/suche/?isil=DE-23",
+        "type": "Agent",
+        "label": { "de": [ "Herzog August Bibliothek Wolfenbüttel" ] },
+        "homepage": [
+          {
+            "id": "https://www.hab.de",
+            "type": "Text",
+            "label": { "de": [ "Webpräsenz der HAB" ] },
+            "format": "text/html"
+          }
+        ],
+        "logo": [
+          {
+            "id": "https://portraits.hab.de/assets/icons/icon.gif",
+            "type": "Image",
+            "format": "image/gif",
+            "height": 616,
+            "width": 607
+          }
+        ],
+        "seeAlso": [
+          {
+            "id": "https://ld.zdb-services.de/data/organisations/DE-23.jsonld",
+            "type": "Dataset",
+            "format": "application/ld+json",
+            "profile": "https://sigel.staatsbibliothek-berlin.de/suche/linked-data-service/"
+          }
+        ]
+      }
+    ],
+  "homepage": [
+    {
+      "id": "https://portraits.hab.de/werk/9043/",
+      "type": "Text",
+      "label": { "de": [ "Anzeige in der Porträtdatenbank der HAB" ] },
+      "format": "text/html"
+    }
+  ],
+  "seeAlso": [
+    {
+      "id": "https://portraits.hab.de/oai/?verb=GetRecord&metadataPrefix=oai_dc&identifier=oai:portraits.hab.de:artwork_9043",
+      "type": "Dataset",
+      "format": "text/xml",
+      "profile": "https://www.openarchives.org/OAI/2.0/oai_dc/"
+    }
+  ],
+  "rendering": [
+    {
+      "id": "https://dfg-viewer.de/show/?set[mets]=https%3A%2F%2Fportraits.hab.de%2Foai%2F%3Fverb%3DGetRecord%26metadataPrefix%3Dmets%26identifier%3Doai:portraits.hab.de:artwork_9043",
+      "type" : "Text",
+      "label": { "de": [ "Anzeige im DFG-Viewer" ] },
+      "format": "text/html"
+    }
+  ],
+
+  "items": [
+    {
+      "id": "https://portraits.hab.de/werk/9043/canvas/p1",
+      "type": "Canvas",
+      "label": { "de": [ "Vorderseite" ] },
+      "height": 4948,
+      "width": 3548,
+      "items": [
+        {
+          "id": "https://portraits.hab.de/werk/9043/canvas/p1/1",
+          "type": "AnnotationPage",
+          "items": [
+            {
+              "id": "https://portraits.hab.de/werk/9043/annotation/p1-image",
+              "type": "Annotation",
+              "motivation": "painting",
+              "body": {
+                "id": "https\u003A\/\/image.hab.de\/iiif\/images\/varia\/portrait\/a\u002D12667\/2011_standard_original\/a\u002D12667.jp2/full/max/0/default.jpg",
+                "type": "Image",
+                "format": "image/jpg",
+                "service": [
+                  {
+                    "id": "https\u003A\/\/image.hab.de\/iiif\/images\/varia\/portrait\/a\u002D12667\/2011_standard_original\/a\u002D12667.jp2/",
+                    "type": "ImageService3",
+                    "profile": "level2"
+                  }
+                ],
+                "height": 4948,
+                "width": 3548
+              },
+              "target": "https://portraits.hab.de/werk/9043/canvas/p1"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+
+}

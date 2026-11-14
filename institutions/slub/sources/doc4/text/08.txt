@@ -1,0 +1,33 @@
+Data Sources | SLUB - LOD API documentation Skip to main content Menu Expand (external link) Document Search Copy Copied 
+ Home 
+ API endpoints /search 
+ /source 
+ /{entity_index} 
+ /{authority_provider} 
+ /reconcile 
+ Entity Types Resources 
+ Persons 
+ Organizations 
+ Events 
+ Places 
+ Works 
+ Topics 
+ Mappings MARC21 
+ Data Sources 
+ Exploratory Search 
+ Contact 
+ Try API 
+ This site uses Just the Docs , a documentation theme for Jekyll. 
+ Search SLUB - LOD API documentation 
+ LOD API documentation on GitHub 
+ Data Sources 
+ In our project, we are merging and enriching multiple sources. However, we only offer a subset of the K10Plus data which is connected to our local resources here at the SLUB-Dresden. Therefore also data for the enrichment process (via GND, wikidata, and GeoNames) are only available fitting to our local resources.
+ Source licence 
+ K10Plus (DE-14) CC0 
+ GND CC0 
+ Wikidata CC0 
+ GeoNames CC BY 4.0 
+ The ground work of our data are the authority and bibliographic data of the K10Plus cluster. This data is furthermore enriched with data from GND (in particular over their linked data API Entityfacts ), Wikidata , and GeoNames .
+ All Sources provide their data over Public Domain licenses.
+ Copyright © 2019-2023 SLUB Dresden. Legal Notice , Privacy Policies: API usage , Github Pages (webpage) 
+ This site uses Just the Docs , a documentation theme for Jekyll.

@@ -2,51 +2,51 @@
 
 - **Dossier** : `institutions/slub/`  ·  **Classeur de référence** : hors 84 (ajouté)  ·  **Pays** : Allemagne
 - **Statut d'institution** : active
-- **Dernière mise à jour du suivi** : (à renseigner à chaque modification)
+- **Dernière mise à jour du suivi** : 2026-11-14
 
 ## Suivi par étape (à cocher, avec justification et preuves)
 
 ### a) Documentation lue en entier
 > Toutes les pages de doc liées à l'API (développeurs, interfaces, conditions, FAQ, aide, mentions légales, robots.txt), téléchargées avec `scripts/fetch_doc.sh` (URL, date, SHA-256), lues en entier (`scripts/extract_text.py`).
 
-- [ ] **Pas fait**
-  - **Justification** : Passe antérieure non conforme à la méthode v2 (AUDIT-HAIKU.md) : à refaire. Le matériel déjà présent dans ce dossier est conservé comme historique.
-  - **Preuves** : 
+- [x] **Fait**
+  - **Justification** : Doc SLUB lue : portail sachsen.digital, Nutzungsbestimmungen, Open Source/Open Data, doc complète de l'API LOD, swagger.json, robots.txt de 9 hôtes (Crawl-delay et Request-rate lus), SHA256SUMS
+  - **Preuves** : `institutions/slub/sources/robots/SHA256SUMS`, `institutions/slub/sources/doc1/SHA256SUMS`, `institutions/slub/sources/doc2/SHA256SUMS`, `institutions/slub/sources/doc3/SHA256SUMS`, `institutions/slub/sources/doc4/SHA256SUMS`, `institutions/slub/sources/doc5/SHA256SUMS`, `institutions/slub/sources/doc6/SHA256SUMS`
 
 ### b) Endpoints tirés de la doc
 > Liste des endpoints citée par la doc (URL, exemples). Jamais devinée. Une interdiction ou une impossibilité écrite dans la doc justifie de renoncer (citer la phrase).
 
-- [ ] **Pas fait**
-  - **Justification** : Passe antérieure non conforme à la méthode v2 (AUDIT-HAIKU.md) : à refaire. Le matériel déjà présent dans ce dossier est conservé comme historique.
-  - **Preuves** : 
+- [x] **Fait**
+  - **Justification** : 11 familles d'API listées dans data.json (OAI x3, IIIF, LOD x4, reconcile, WMS) ; 3 URL écartées avec raison ; reconcile (POST) et WMS (sans URL) non testés avec raison
+  - **Preuves** : `institutions/slub/data.json`, `institutions/slub/fiche.md`
 
 ### c) Configuration écrite AVANT les tests
 > `config/<nom>.json` pilote `scripts/probe.py`, committée avant le lancement. Un endpoint absent de la doc mais non interdit se teste avec un script poli (identifiants issus de pages publiques ou d'exemples de la doc, pas de devinette).
 
-- [ ] **Pas fait**
-  - **Justification** : Passe antérieure non conforme à la méthode v2 (AUDIT-HAIKU.md) : à refaire. Le matériel déjà présent dans ce dossier est conservé comme historique.
-  - **Preuves** : 
+- [x] **Fait**
+  - **Justification** : Deux configurations de sonde committées avant chaque lancement, robots_disallow_autorise_par_marcel, pause 6 s (Crawl-delay 30 s appliqué sur qucosa), moins de 15 requêtes par passe
+  - **Preuves** : `institutions/slub/config/slub-passe1-iiif-oai.json`, `institutions/slub/config/slub-passe2-image-lod.json`
 
 ### d) Quota cherché dans la doc
 > Pour chaque page lue : endpoint de statut, en-têtes de limite documentés, clé ou compte donnant un quota, contact pour un volume plus élevé. Chaque réponse cite sa source.
 
-- [ ] **Pas fait**
-  - **Justification** : Passe antérieure non conforme à la méthode v2 (AUDIT-HAIKU.md) : à refaire. Le matériel déjà présent dans ce dossier est conservé comme historique.
-  - **Preuves** : 
+- [x] **Fait**
+  - **Justification** : Quota cherché dans toutes les pages : limite 10 000 résultats (API LOD), Crawl-delay 6 s et Request-rate 10/1m (robots.txt) ; pas de clé ni de statut ; contact digital@slub-dresden.de
+  - **Preuves** : `institutions/slub/data.json`, `institutions/slub/fiche.md`
 
 ### e) Test systématique de chaque endpoint
 > Chaque endpoint documenté est testé (budget 15 requêtes par passe, pause ≥ 6 s, GET/HEAD, UA du projet). Redirections du même hôte suivies. Un 403 arrête son hôte, un 429 arrête l'institution. Seules les interdictions écrites dans la doc dispensent de tester.
 
-- [ ] **Pas fait**
-  - **Justification** : Passe antérieure non conforme à la méthode v2 (AUDIT-HAIKU.md) : à refaire. Le matériel déjà présent dans ce dossier est conservé comme historique.
-  - **Preuves** : 
+- [x] **Fait**
+  - **Justification** : Endpoints documentés testés en 2 passes v2 (14 requêtes dont robots) : OAI x3, manifeste, image, LOD x4 en 200 ; reconcile et WMS non testés avec raison ; aucun 429
+  - **Preuves** : `institutions/slub/tests/journal.log`, `institutions/slub/tests/raw/p2-lod-search-slub-size1.headers.txt`, `institutions/slub/tests/raw/p1-oai-qucosa-identify.headers.txt`
 
 ### f) Ce que disent les gens sur le web
 > Plaintes, discussions, présentations de l'institution, politique envers les API et les bots, blogs, GitHub, forums, listes de diffusion. Sources étiquetées (officielle / institution / utilisateur / tiers), lues, citées.
 
-- [ ] **Pas fait**
-  - **Justification** : Passe antérieure non conforme à la méthode v2 (AUDIT-HAIKU.md) : à refaire. Le matériel déjà présent dans ce dossier est conservé comme historique.
-  - **Preuves** : 
+- [x] **Fait**
+  - **Justification** : 4 recherches web faites le 2026-11-14 : institution (page open-source-open-data lue dans l'original), utilisateurs, tickets et presentations sans résultat, requêtes consignées dans data.json
+  - **Preuves** : `institutions/slub/data.json`, `institutions/slub/fiche.md`
 
 ### g) Crash test progressif
 > Seulement après l'audit complet (a à f) de toutes les institutions et avec l'accord de Marcel : paliers jusqu'à 2 × la limite documentée, ou 200 req/min si illimité ou sans limite documentée. Arrêt au premier 429/403/CAPTCHA.
@@ -60,8 +60,8 @@
 
 <!-- AUTO:DEBUT -->
 ## Contrôles automatiques (calculés depuis `tests/journal.log`)
-- Requêtes enregistrées : **4** (sessions de sonde : 0, maximum par session : 0)
-- Plus courte pause vers un même hôte : **28 s** (règle : ≥ 6 s)
+- Requêtes enregistrées : **19** (sessions de sonde : 2, maximum par session : 8)
+- Plus courte pause vers un même hôte : **6 s** (règle : ≥ 6 s)
 - Méthodes utilisées : GET (règle : GET/HEAD seulement)
 - Anomalies : aucune
 <!-- AUTO:FIN -->

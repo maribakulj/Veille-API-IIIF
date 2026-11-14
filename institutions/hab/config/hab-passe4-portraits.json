@@ -1,0 +1,11 @@
+{
+  "slug": "hab",
+  "min_delay_s": 6,
+  "max_requests": 15,
+  "follow_redirects": 1,
+  "robots_disallow_autorise_par_marcel": true,
+  "note": "Passe 4 (v2) : portraits.hab.de, site HAB decouvert par la recherche web (etape f) ; le lien /werk/9043/iiif est present dans la page /werk/9043 lue (sources/portraits2). robots.txt de portraits.hab.de lu : 404. image.hab.de (robots.txt en 403) n'est PAS teste.",
+  "endpoints": [
+    {"id": "p4-portraits-manifest-9043", "method": "GET", "url": "https://portraits.hab.de/werk/9043/iiif", "save_body": 2000000}
+  ]
+}
