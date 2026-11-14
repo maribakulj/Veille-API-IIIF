@@ -8,7 +8,7 @@ Le 14/11, l'ensemble des **93 fichiers** `institutions/*/data.json` de la branch
 
 Ces **260 lignes ne sont pas 260 défauts d'accès vérifiés**, ni 260 tâches qui exigent une intervention humaine. Aucun bilan « 260 contrôlés et terminés » n'est revendiqué.
 
-Le registre **`data/reverifications-chatgpt-2026-11-14.csv`** contient désormais **84 observations explicites**, de nature différente : URL effectivement lues, source institutionnelle de substitution, vérification de code, erreur 404/503/WAF, correction de catégorie, ressource technique non testée, etc. Toutes les observations ne correspondent pas à une URL initialement inscrite dans `a_verifier_manuellement` : certaines signalent une nouvelle source ou une incohérence du benchmark. Ces 84 observations **ne représentent pas 84 items clos**.
+Le registre **`data/reverifications-chatgpt-2026-11-14.csv`** contient désormais **114 observations explicites**, de nature différente : URL effectivement lues, source institutionnelle de substitution, vérification de code, erreur 404/503/WAF, correction de catégorie, ressource technique non testée, etc. Toutes les observations ne correspondent pas à une URL initialement inscrite dans `a_verifier_manuellement` : certaines signalent une nouvelle source ou une incohérence du benchmark. Ces 114 observations **ne représentent pas 114 items clos**.
 
 ## Rapports détaillés
 
@@ -78,3 +78,32 @@ Résultats de [l'exécution GitHub Actions réussie](https://github.com/maribaku
 Les **4 tests sur 4** et la production du CSV ont réussi. Le rapport C a également été rapproché, notamment la contradiction documentaire sur les droits des images d'Édimbourg, à arbitrer avec les périmètres de collections. Les statistiques proviennent du journal de CI, non d'un recalcul approximatif.
 
 **Prochain ordre de travail :** indexer les rapports D–M dans le registre ; distinguer les statuts documentaires des contrôles HTTP ; examiner les 190 entrées sans constat rapproché ; traiter ensuite les erreurs de portée des plafonds NYPL/UBC/EPFL/Heidelberg/HAB et confirmer les endpoints IIIF. L'intégration des `data.json` avec la régénération de `BENCHMARK.xlsx` reste une étape distincte et non accomplie. Ne pas fusionner la PR.
+
+## Recentrage sur l'objectif initial : lire les URL auparavant « manuelles » (passe O)
+
+La reprise ne doit pas se limiter à consigner les résultats précédents : **la tâche prioritaire est de récupérer le contenu des URL originales**. Nouveau rapport [`VERIFICATIONS-CHATGPT-2026-11-14-O-LECTURES-REELLES.md`](VERIFICATIONS-CHATGPT-2026-11-14-O-LECTURES-REELLES.md). La passe a essayé des pages en direct avec un lecteur web, puis une extraction publique alternative pour les pages bloquées. Les dates d'indexation antérieures ont été conservées.
+
+**Résultat CI vérifié du 14/11/2026 :** [exécution réussie](https://github.com/maribakulj/Veille-API-IIIF/actions/runs/43612532734), cinq tests automatisés réussis, 93 `data.json`, 260 entrées manuelles historiques :
+
+| Indicateur | Nombre | Portée |
+|---|---:|---|
+| Observations du registre | **114** | Une URL peut avoir plusieurs constats |
+| Entrées de la file originale avec ≥ 1 constat exact | **73 / 260** | Pas 73 clôtures |
+| Entrées sans constat dans le registre | **187 / 260** | Beaucoup figurent dans les rapports antérieurs non indexés |
+| **Contenu lu par lecteur web dans la passe O** | **10** | Lecture du texte original ou redirection documentée |
+| **Contenu récupéré en copie datée dans la passe O** | **14** | Texte ou JSON récupéré via un second extracteur, pas nécessairement live |
+| Entrées dont le contenu n'est pas certifié par la passe O | **236** | Cela ne veut pas dire que les 236 sont définitivement illisibles, ni que les rapports antérieurs ne les ont pas étudiées |
+| URLs avec plusieurs constats reliés | 24 | Historique de blocage et lecture retrouvée conservés |
+| Observations hors des URL initiales | 16 | Sources institutionnelles supplémentaires |
+
+**Nouvelles lectures particulièrement utiles :**
+- PDF IIIF du National Palace Museum (Taiwan) : texte extrait, 13 pages, et huit URL de manifestes explicitement publiées ; la lecture PDF directe avait expiré. L'extraction ne constitue pas un rendu visuel intégral.
+- Conditions de Cambridge Digital Library récupérées (copie datée du 18/09), malgré le 403 en lecture web : restriction contractuelle sur l'extraction systématique substantielle.
+- Documentation **PPOC JSON** de la Library of Congress récupérée (copie du 29/08), distincte du quota IIIF Image Services.
+- Manifeste **IIIF Presentation 2** de State Library Victoria effectivement extrait en JSON (copie du 05/11), mais en-têtes HTTP non testés.
+- Conditions et `robots.txt` de NYPL récupérés par extraction : le site annonce que son ancienne Repo API a cessé au 1er août 2026 et qu'aucun remplacement **public** n'était prévu.
+- Textes des pages initiales e-rara et e-manuscripta consultés directement ; e-manuscripta requiert un accord écrit pour copie systématique des fichiers vers d'autres serveurs.
+
+**Toujours non récupérés avec les deux lecteurs :** fichier JSON Collection de Cultural Japan, manifeste de Leeds, OpenAPI de DRI (seul le shell Swagger UI apparaît), API-docs Brown (vérification humaine), entre autres.
+
+Le nouveau CSV généré par GitHub Actions contient la colonne `lecture_documentaire`, avec les états `TEXTE_LU_PAR_LECTEUR_WEB`, `TEXTE_RECUPERE_COPIE_DATEE` et `CONTENU_NON_DEMONTRE_PAR_REPRISE_O`. **Filtrer cette colonne plutôt que renvoyer à Marcel sans distinction toutes les 260 URL.** L'historique des 403/WAF et les tests de quotas demeurent séparés et non certifiés par ces lectures. La PR reste brouillon et les `data.json` canoniques / `BENCHMARK.xlsx` ne sont pas modifiés.
