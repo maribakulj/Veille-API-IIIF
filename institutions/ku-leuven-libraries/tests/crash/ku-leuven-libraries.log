@@ -1,3 +1,4 @@
 # Crash test 2026-11-14T09:25:09Z — configuration crash-limo-collection.json — endpoint limo-collection GET https://kuleuven.limo.libis.be/discovery/collectionDiscovery?vid=32KUL_KUL:KULeuven&collectionId=81475525920001488
 # réseau détecté : aucun réseau à réputation partagée connu ; plafond standard 200 req/min (décision de Marcel 14/11/2026) ; requête de détection : 200 en 2.20 s
 # limite documentée : 6 req/min (Crawl-delay: 10 dans https://kuleuven.limo.libis.be/robots.txt (soit 6 req/min) ; aucune autre limite documentée) ; paliers [2.0, 4.0, 6, 9.0, 12] ; plafond 12 req/min ; 180 s par palier
+2026-11-14T09:27:39Z | palier 2.0 req/min | {"palier_req_min": 2.0, "requetes": 6, "debit_reel_req_min": 2.4, "codes": {"200": 6}, "latence_p50_s": 0.162, "latence_max_s": 0.358}

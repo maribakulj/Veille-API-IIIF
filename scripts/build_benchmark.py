@@ -226,9 +226,9 @@ def feuille_institutions(wb, D):
             e, just, _ = d["etapes"].get(c, ("?", "", []))
             vals.append(f"{libelle_etat(e)} — {just[:110]}")
         vals += [f"{score(d)} / 6", f"{ok} / {len(d['preuves'])}",
-                 d.get("classe_quota", "") if etat(d, "d") == "x" else "",
-                 d.get("conclusion_quota", "") if etat(d, "d") == "x" else "",
-                 d.get("contact", "") if etat(d, "d") == "x" else ""]
+                 (d.get("classe_quota") or "—") if etat(d, "d") == "x" else "— (étape d non cochée ou institution écartée)",
+                 (d.get("conclusion_quota") or "—") if etat(d, "d") == "x" else "— (étape d non cochée ou institution écartée)",
+                 (d.get("contact") or "—") if etat(d, "d") == "x" else "—"]
         for c, v in enumerate(vals, start=1):
             ws.cell(row=n, column=c, value=v).alignment = Alignment(wrap_text=True, vertical="top")
         for i, (c, _) in enumerate(ETAPES, start=6):
@@ -289,17 +289,35 @@ def feuille_entetes(wb, D):
         if not trouves:
             lignes.append([d.get("nom", d["slug"]), d.get("classeur_id"), "—", "(aucun en-tête de limite)",
                            f"observé sur {len(brut)} réponse(s) enregistrée(s)" if brut else "aucune réponse enregistrée (hôtes bloqués ou non testés)",
-                           "", "", "", len(brut), "oui" if d.get("donnees_a_revalider") else "non"])
+                           "—", "—", "—", len(brut), "oui" if d.get("donnees_a_revalider") else "non"])
     ecrire(ws, 2, lignes)
     ws.auto_filter.ref = f"A1:J{len(lignes) + 1}"
 
 
+def pick(d, *cles, defaut="—"):
+    """Première valeur non vide parmi plusieurs noms de champ (les agents n'ont pas tous employé les mêmes)."""
+    for k in cles:
+        v = d.get(k)
+        if v not in (None, "", [], {}):
+            return v if not isinstance(v, (list, dict)) else str(v)
+    return defaut
+
+
 def feuille_blocages(wb, D):
     ws = wb.create_sheet("Blocages")
-    entete(ws, 1, ["Institution", "Date (UTC)", "Hôte", "Code", "Nature", "Suite donnée"], [34, 22, 34, 12, 50, 50])
-    lignes = [[d.get("nom", d["slug"]), b.get("date"), b.get("hote"), b.get("code"), b.get("nature"), b.get("suite")]
-              for d in D for b in d.get("blocages", [])]
-    ecrire(ws, 2, lignes or [["(aucun)"] + [""] * 5])
+    entete(ws, 1, ["Institution", "Date (UTC)", "Hôte", "Code", "Nature", "Suite donnée", "Preuve"], [34, 22, 34, 14, 56, 56, 50])
+    lignes = []
+    for d in D:
+        manuel = " ".join(str(x.get("url", "")) for x in d.get("a_verifier_manuellement", []) if isinstance(x, dict))
+        for b in d.get("blocages", []):
+            hote = str(pick(b, "hote", "host", "hôte"))
+            suite = pick(b, "suite", "suite_donnee", "decision", "action", defaut="")
+            if not suite:
+                suite = ("(déduit) hôte arrêté, non contourné ; URL listées dans l'onglet « À vérifier à la main »"
+                         if any(h and h in manuel for h in hote.replace(",", " ").split()) else "(déduit) hôte arrêté, non contourné (règle du projet)")
+            lignes.append([d.get("nom", d["slug"]), pick(b, "date", "quand", "heure", "jour"), hote, pick(b, "code", "statut", "http", defaut="n.c."),
+                           pick(b, "nature", "detail", "raison", "cause", "texte"), suite, pick(b, "preuve", defaut="—")])
+    ecrire(ws, 2, lignes or [["(aucun)"] + [""] * 6])
 
 
 def feuille_manuel(wb, D):
@@ -332,7 +350,7 @@ def feuille_couverture(wb, D):
         manques = suivi.controle_v3(d["slug"], d)
         lignes.append([d.get("nom", d["slug"]), d.get("classeur_id"), f"{cochees}/6",
                        "conforme" if not manques else ("à compléter (ancienne)" if d["slug"] in anc else "NON CONFORME"),
-                       "\n".join(manques)])
+                       "\n".join(manques) if manques else "aucun manque"])
     ecrire(ws, 2, lignes or [["(aucune)"] + [""] * 4])
 
 
@@ -355,19 +373,30 @@ def feuille_sources(wb, D):
     lignes = []
     for d in D:
         for s in d.get("sources", []):
-            p = (s.get("preuve") or "").split(" ")[0]
-            lignes.append([d.get("nom", d["slug"]), s.get("url"), s.get("date"), s.get("etiquette"),
-                           s.get("preuve"), "OUI" if p and (REPO / p).exists() else "NON"])
+            if not isinstance(s, dict):
+                s = {"url": str(s)}
+            pr = pick(s, "preuve", "fichier", defaut="")
+            p = str(pr).split(" ")[0]
+            lignes.append([d.get("nom", d["slug"]), pick(s, "url"), pick(s, "date"), pick(s, "etiquette", "étiquette"),
+                           pr or "—", "OUI" if p and (REPO / p).exists() else "NON"])
     ecrire(ws, 2, lignes or [["(aucune)"] + [""] * 5])
 
 
 def feuille_web(wb, D):
     ws = wb.create_sheet("Web (étape f)")
-    entete(ws, 1, ["Institution", "URL", "Date", "Étiquette", "Citation (texte exact ou résumé signalé)", "Preuve"],
-           [34, 66, 16, 30, 80, 44])
-    lignes = [[d.get("nom", d["slug"]), w.get("url"), w.get("date"), w.get("etiquette"), w.get("citation"), w.get("preuve")]
-              for d in D for w in d.get("web", [])]
-    ecrire(ws, 2, lignes or [["(aucune)"] + [""] * 5])
+    entete(ws, 1, ["Institution", "Catégorie", "URL lue", "Requête (si aucun résultat)", "Date", "Étiquette", "Citation (texte exact ou résumé signalé)", "Preuve"],
+           [34, 16, 66, 50, 16, 30, 80, 44])
+    lignes = []
+    for d in D:
+        for w in d.get("web", []):
+            if not isinstance(w, dict):
+                w = {"citation": str(w)}
+            aucun = bool(w.get("aucun_resultat"))
+            lignes.append([d.get("nom", d["slug"]), pick(w, "categorie", "catégorie"),
+                           "(aucun résultat)" if aucun and not w.get("url") else pick(w, "url"),
+                           pick(w, "requete", "requête", defaut="—"), pick(w, "date"), pick(w, "etiquette", "étiquette"),
+                           pick(w, "citation", "texte"), pick(w, "preuve", defaut="—")])
+    ecrire(ws, 2, lignes or [["(aucune)"] + [""] * 7])
 
 
 def feuille_preuves(wb, D):
