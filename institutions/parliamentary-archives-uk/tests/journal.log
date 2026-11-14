@@ -1,0 +1,6 @@
+# Session 2026-11-14T02:47:33Z — configuration pa-uk-passe1-members-api.json — sonde probe.py au commit 23f7284
+2026-11-14T02:47:33Z | robots.txt:members-api.parliament.uk | https://members-api.parliament.uk/robots.txt | GET | 404 | robots.txt indisponible : tout est autorisé (RFC 9309)
+2026-11-14T02:47:39Z | pa1-members-index | https://members-api.parliament.uk/index.html | GET | 200 OK | aucun en-tête de limite | taille≥200 | corps: <!-- HTML for static distribution bundle build --> <!DOCTYPE html> <html lang="en"> <head>     <meta charset="UTF-8">     <title>Members API</title>     <style>         /* Loading FOUC trick ..
+2026-11-14T02:47:45Z | pa1-members-swagger | https://members-api.parliament.uk/swagger/v1/swagger.json | GET | 200 OK | aucun en-tête de limite | taille≥126393 | corps: {   "openapi": "3.0.4",   "info": {     "title": "Members API",     "description": "An API which retrieves Members data.",     "contact": {       "name": "UK Parliament",       "url": "https://www.par
+# corps enregistré : tests/raw/pa1-members-swagger.body (126393 octets lus)
+# Fin 2026-11-14T02:47:45Z — 3 requête(s) envoyée(s)

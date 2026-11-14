@@ -1,0 +1,15 @@
+{
+  "slug": "parliamentary-archives-uk",
+  "min_delay_s": 6,
+  "max_requests": 15,
+  "follow_redirects": 1,
+  "robots_disallow_autorise_par_marcel": true,
+  "note": "Passe 2 : endpoints de la page Swagger de members-api (paramètres Name, take lus dans swagger.json de la passe 1), requête répétée pour observer des en-têtes de limite, puis documents Swagger de bills-api et committees-api (robots.txt 404 lus). Identifiants d'endpoint distincts de la passe 1.",
+  "endpoints": [
+    {"id": "pa2-members-search", "method": "GET", "url": "https://members-api.parliament.uk/api/Members/Search?Name=Churchill&take=1"},
+    {"id": "pa2-members-search-repete", "method": "GET", "url": "https://members-api.parliament.uk/api/Members/Search?Name=Churchill&take=1"},
+    {"id": "pa2-constituency-search", "method": "GET", "url": "https://members-api.parliament.uk/api/Location/Constituency/Search?searchText=Westminster&take=1"},
+    {"id": "pa2-bills-swagger", "method": "GET", "url": "https://bills-api.parliament.uk/swagger/v1/swagger.json"},
+    {"id": "pa2-committees-swagger", "method": "GET", "url": "https://committees-api.parliament.uk/swagger/v1/swagger.json"}
+  ]
+}
