@@ -2,51 +2,51 @@
 
 - **Dossier** : `institutions/gottingen-state-gdz/`  ·  **Classeur de référence** : GLAM-025  ·  **Pays** : Allemagne
 - **Statut d'institution** : active
-- **Dernière mise à jour du suivi** : (à renseigner à chaque modification)
+- **Dernière mise à jour du suivi** : 2026-11-14
 
 ## Suivi par étape (à cocher, avec justification et preuves)
 
 ### a) Documentation lue en entier
 > Toutes les pages de doc liées à l'API (développeurs, interfaces, conditions, FAQ, aide, mentions légales, robots.txt), téléchargées avec `scripts/fetch_doc.sh` (URL, date, SHA-256), lues en entier (`scripts/extract_text.py`).
 
-- [ ] **Pas fait**
-  - **Justification** : Pas encore traitée : l'audit suit l'ordre du classeur de référence (une institution à la fois).
-  - **Preuves** : 
+- [x] **Fait**
+  - **Justification** : Doc GDZ (accueil, aide, mentions légales, contact, confidentialité), pages SUB, robots.txt des 4 hôtes lus ; pages SUB IIIF/TIFY/Digital Policies lues dans la Wayback (URL actuelles renvoient l'accueil).
+  - **Preuves** : `institutions/gottingen-state-gdz/sources/a1/SHA256SUMS`, `institutions/gottingen-state-gdz/sources/a2/SHA256SUMS`, `institutions/gottingen-state-gdz/sources/a3/SHA256SUMS`, `institutions/gottingen-state-gdz/sources/a4/SHA256SUMS`, `institutions/gottingen-state-gdz/sources/wayback/iiif-bei-der-sub.md`, `institutions/gottingen-state-gdz/sources/wayback/tify.md`, `institutions/gottingen-state-gdz/sources/wayback/digital-policies.md`
 
 ### b) Endpoints tirés de la doc
 > Liste des endpoints citée par la doc (URL, exemples). Jamais devinée. Une interdiction ou une impossibilité écrite dans la doc justifie de renoncer (citer la phrase).
 
-- [ ] **Pas fait**
-  - **Justification** : Pas encore traitée : l'audit suit l'ordre du classeur de référence (une institution à la fois).
-  - **Preuves** : 
+- [x] **Fait**
+  - **Justification** : Familles d'API listées dans data.json (OAI, IIIF Presentation, IIIF Image, flux RSS) avec ListRecords non testé (raison) et 5 URL écartées (raison).
+  - **Preuves** : `institutions/gottingen-state-gdz/data.json`
 
 ### c) Configuration écrite AVANT les tests
 > `config/<nom>.json` pilote `scripts/probe.py`, committée avant le lancement. Un endpoint absent de la doc mais non interdit se teste avec un script poli (identifiants issus de pages publiques ou d'exemples de la doc, pas de devinette).
 
-- [ ] **Pas fait**
-  - **Justification** : Pas encore traitée : l'audit suit l'ordre du classeur de référence (une institution à la fois).
-  - **Preuves** : 
+- [x] **Fait**
+  - **Justification** : Configurations passe 1 et 2 écrites et committées avant le lancement (commits visibles dans le journal), crash-image-info.json préparée pour g.
+  - **Preuves** : `institutions/gottingen-state-gdz/config/gdz-passe1-oai-site.json`, `institutions/gottingen-state-gdz/config/gdz-passe2-iiif.json`, `institutions/gottingen-state-gdz/config/crash-image-info.json`
 
 ### d) Quota cherché dans la doc
 > Pour chaque page lue : endpoint de statut, en-têtes de limite documentés, clé ou compte donnant un quota, contact pour un volume plus élevé. Chaque réponse cite sa source.
 
-- [ ] **Pas fait**
-  - **Justification** : Pas encore traitée : l'audit suit l'ordre du classeur de référence (une institution à la fois).
-  - **Preuves** : 
+- [x] **Fait**
+  - **Justification** : Aucune limite, clé, endpoint de statut ni en-tête de limite documentés dans les pages lues ; politique d'ouverture sans chiffre citée (Digital Produktion VII) ; contact gdz@sub.uni-goettingen.de.
+  - **Preuves** : `institutions/gottingen-state-gdz/sources/wayback/digital-policies.md`, `institutions/gottingen-state-gdz/sources/a2/SHA256SUMS`
 
 ### e) Test systématique de chaque endpoint
 > Chaque endpoint documenté est testé (budget 15 requêtes par passe, pause ≥ 6 s, GET/HEAD, UA du projet). Redirections du même hôte suivies. Un 403 arrête son hôte, un 429 arrête l'institution. Seules les interdictions écrites dans la doc dispensent de tester.
 
-- [ ] **Pas fait**
-  - **Justification** : Pas encore traitée : l'audit suit l'ordre du classeur de référence (une institution à la fois).
-  - **Preuves** : 
+- [x] **Fait**
+  - **Justification** : 9 requêtes d'API en 2 passes plus 3 robots.txt, 200 partout, aucun en-tête de limite, aucun 429/403.
+  - **Preuves** : `institutions/gottingen-state-gdz/tests/journal.log`, `institutions/gottingen-state-gdz/tests/raw/oai-identify.headers.txt`
 
 ### f) Ce que disent les gens sur le web
 > Plaintes, discussions, présentations de l'institution, politique envers les API et les bots, blogs, GitHub, forums, listes de diffusion. Sources étiquetées (officielle / institution / utilisateur / tiers), lues, citées.
 
-- [ ] **Pas fait**
-  - **Justification** : Pas encore traitée : l'audit suit l'ordre du classeur de référence (une institution à la fois).
-  - **Preuves** : 
+- [x] **Fait**
+  - **Justification** : 4 recherches web, une par catégorie (institution, utilisateurs sans résultat, tickets, présentations) ; originaux lus (iiif.io 2019, ticket sourcelibrary #3510, Wayback).
+  - **Preuves** : `institutions/gottingen-state-gdz/fiche.md`, `institutions/gottingen-state-gdz/data.json`
 
 ### g) Crash test progressif
 > Seulement après l'audit complet (a à f) de toutes les institutions et avec l'accord de Marcel : paliers jusqu'à 2 × la limite documentée, ou 200 req/min si illimité ou sans limite documentée. Arrêt au premier 429/403/CAPTCHA.
@@ -60,7 +60,7 @@
 
 <!-- AUTO:DEBUT -->
 ## Contrôles automatiques (calculés depuis `tests/journal.log`)
-- Requêtes enregistrées : **7** (sessions de sonde : 1, maximum par session : 7)
+- Requêtes enregistrées : **12** (sessions de sonde : 2, maximum par session : 7)
 - Plus courte pause vers un même hôte : **6 s** (règle : ≥ 6 s)
 - Méthodes utilisées : GET (règle : GET/HEAD seulement)
 - Anomalies : aucune
