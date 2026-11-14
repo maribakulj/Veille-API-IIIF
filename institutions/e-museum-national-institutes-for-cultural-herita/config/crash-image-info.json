@@ -1,0 +1,12 @@
+{
+  "slug": "e-museum-national-institutes-for-cultural-herita",
+  "endpoint": {
+    "id": "image-info-json",
+    "url": "https://emuseum.nich.go.jp/iiif/?IIIF=/100005001002.tif/info.json",
+    "method": "GET"
+  },
+  "limite_documentee_req_min": null,
+  "source_limite": "aucune limite documentée (https://emuseum.nich.go.jp/about?langId=en&webView=0 : conditions d'usage sans limite de débit)",
+  "duree_palier_s": 180,
+  "note": "info.json d'image IIIF (Image API, 200 dans le journal : v2p2-image-info, 2026-11-14T03:06:42Z). Réponse de 200 o environ, aucun manifeste ni image."
+}

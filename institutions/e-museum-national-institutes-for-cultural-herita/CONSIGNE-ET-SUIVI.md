@@ -2,51 +2,51 @@
 
 - **Dossier** : `institutions/e-museum-national-institutes-for-cultural-herita/`  ·  **Classeur de référence** : GLAM-081  ·  **Pays** : Japon
 - **Statut d'institution** : active
-- **Dernière mise à jour du suivi** : (à renseigner à chaque modification)
+- **Dernière mise à jour du suivi** : 2026-11-14
 
 ## Suivi par étape (à cocher, avec justification et preuves)
 
 ### a) Documentation lue en entier
 > Toutes les pages de doc liées à l'API (développeurs, interfaces, conditions, FAQ, aide, mentions légales, robots.txt), téléchargées avec `scripts/fetch_doc.sh` (URL, date, SHA-256), lues en entier (`scripts/extract_text.py`).
 
-- [ ] **Pas fait**
-  - **Justification** : Pas encore traitée : l'audit suit l'ordre du classeur de référence (une institution à la fois).
-  - **Preuves** : 
+- [x] **Fait**
+  - **Justification** : Doc lue en entier : page About (conditions), guide, annonces, page About IIIF, page de détail (liens manifeste et OpenSearch), 3 robots.txt (aucun réel pour emuseum/colbase) ; ColBase (application JS) listée à vérifier à la main
+  - **Preuves** : `institutions/e-museum-national-institutes-for-cultural-herita/sources/a1/SHA256SUMS`, `institutions/e-museum-national-institutes-for-cultural-herita/sources/a2/SHA256SUMS`, `institutions/e-museum-national-institutes-for-cultural-herita/sources/a3/SHA256SUMS`, `institutions/e-museum-national-institutes-for-cultural-herita/sources/a4/SHA256SUMS`
 
 ### b) Endpoints tirés de la doc
 > Liste des endpoints citée par la doc (URL, exemples). Jamais devinée. Une interdiction ou une impossibilité écrite dans la doc justifie de renoncer (citer la phrase).
 
-- [ ] **Pas fait**
-  - **Justification** : Pas encore traitée : l'audit suit l'ordre du classeur de référence (une institution à la fois).
-  - **Preuves** : 
+- [x] **Fait**
+  - **Justification** : Endpoints tirés de l'aide IIIF /about2 et de la page de détail (lien manifeste, link rel=search) : manifeste IIIF 2.1, Image API, OpenSearch ; 3 URL de doc écartées avec raison
+  - **Preuves** : `institutions/e-museum-national-institutes-for-cultural-herita/data.json`, `institutions/e-museum-national-institutes-for-cultural-herita/sources/a3/SHA256SUMS`
 
 ### c) Configuration écrite AVANT les tests
 > `config/<nom>.json` pilote `scripts/probe.py`, committée avant le lancement. Un endpoint absent de la doc mais non interdit se teste avec un script poli (identifiants issus de pages publiques ou d'exemples de la doc, pas de devinette).
 
-- [ ] **Pas fait**
-  - **Justification** : Pas encore traitée : l'audit suit l'ordre du classeur de référence (une institution à la fois).
-  - **Preuves** : 
+- [x] **Fait**
+  - **Justification** : Configurations emuseum-v2-passe1.json et emuseum-v2-passe2-image-search.json écrites et committées avant chaque lancement, delai 6 s, 2 puis 3 requêtes, GET, identifiants lus dans la page de détail et le manifeste ; crash-image-info.json préparé
+  - **Preuves** : `institutions/e-museum-national-institutes-for-cultural-herita/config/emuseum-v2-passe1.json`, `institutions/e-museum-national-institutes-for-cultural-herita/config/emuseum-v2-passe2-image-search.json`, `institutions/e-museum-national-institutes-for-cultural-herita/config/crash-image-info.json`
 
 ### d) Quota cherché dans la doc
 > Pour chaque page lue : endpoint de statut, en-têtes de limite documentés, clé ou compte donnant un quota, contact pour un volume plus élevé. Chaque réponse cite sa source.
 
-- [ ] **Pas fait**
-  - **Justification** : Pas encore traitée : l'audit suit l'ordre du classeur de référence (une institution à la fois).
-  - **Preuves** : 
+- [x] **Fait**
+  - **Justification** : Recherche de quota dans toutes les pages : aucune limite de débit, aucune clé, aucun en-tête de limite ; seule règle : usage limité à ce que permet le droit d'auteur ; contact via la FAQ du centre de promotion des biens culturels
+  - **Preuves** : `institutions/e-museum-national-institutes-for-cultural-herita/sources/a2/SHA256SUMS`, `institutions/e-museum-national-institutes-for-cultural-herita/fiche.md`
 
 ### e) Test systématique de chaque endpoint
 > Chaque endpoint documenté est testé (budget 15 requêtes par passe, pause ≥ 6 s, GET/HEAD, UA du projet). Redirections du même hôte suivies. Un 403 arrête son hôte, un 429 arrête l'institution. Seules les interdictions écrites dans la doc dispensent de tester.
 
-- [ ] **Pas fait**
-  - **Justification** : Pas encore traitée : l'audit suit l'ordre du classeur de référence (une institution à la fois).
-  - **Preuves** : 
+- [x] **Fait**
+  - **Justification** : Les 3 familles documentées testées en 5 requêtes (manifeste, info.json, dérivé, description et RSS OpenSearch) : 200 partout, aucun en-tête de limite, aucun 429 ; ColBase à vérifier à la main
+  - **Preuves** : `institutions/e-museum-national-institutes-for-cultural-herita/tests/journal.log`, `institutions/e-museum-national-institutes-for-cultural-herita/tests/raw/v2p2-image-info.headers.txt`, `institutions/e-museum-national-institutes-for-cultural-herita/tests/raw/v2p1-manifeste-100005000.headers.txt`
 
 ### f) Ce que disent les gens sur le web
 > Plaintes, discussions, présentations de l'institution, politique envers les API et les bots, blogs, GitHub, forums, listes de diffusion. Sources étiquetées (officielle / institution / utilisateur / tiers), lues, citées.
 
-- [ ] **Pas fait**
-  - **Justification** : Pas encore traitée : l'audit suit l'ordre du classeur de référence (une institution à la fois).
-  - **Preuves** : 
+- [x] **Fait**
+  - **Justification** : 4 catégories renseignées mais WebSearch épuisé : institution (page d'annonce officielle), utilisateurs et tickets (GitHub, dezoomify#597), presentations non couverte (aucune recherche, signalé) ; à compléter
+  - **Preuves** : `institutions/e-museum-national-institutes-for-cultural-herita/fiche.md`, `institutions/e-museum-national-institutes-for-cultural-herita/data.json`
 
 ### g) Crash test progressif
 > Seulement après l'audit complet (a à f) de toutes les institutions et avec l'accord de Marcel : paliers jusqu'à 2 × la limite documentée, ou 200 req/min si illimité ou sans limite documentée. Arrêt au premier 429/403/CAPTCHA.
@@ -60,7 +60,7 @@
 
 <!-- AUTO:DEBUT -->
 ## Contrôles automatiques (calculés depuis `tests/journal.log`)
-- Requêtes enregistrées : **3** (sessions de sonde : 1, maximum par session : 3)
+- Requêtes enregistrées : **7** (sessions de sonde : 2, maximum par session : 4)
 - Plus courte pause vers un même hôte : **7 s** (règle : ≥ 6 s)
 - Méthodes utilisées : GET (règle : GET/HEAD seulement)
 - Anomalies : aucune
