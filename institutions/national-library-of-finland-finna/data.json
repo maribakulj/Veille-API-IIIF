@@ -4,7 +4,7 @@
   "pays": "Finlande",
   "classeur_id": "GLAM-014",
   "type": "Institution",
-  "statut_audit": "audit a–f complet (API interdite aux robots ; spécification OpenAPI lue via Wayback) ; g impossible",
+  "statut_audit": "audit a–f complet (api.finna.fi en 403 défi Cloudflare ; spécification OpenAPI lue via Wayback) ; g impossible",
   "limites_documentees": [
     {
       "nature": "Interdiction robots",
@@ -45,6 +45,13 @@
       "code": "403",
       "nature": "anti-bot",
       "suite": "non contourné ; Wayback"
+    },
+    {
+      "date": "2026-11-14",
+      "hote": "api.finna.fi",
+      "code": "403",
+      "nature": "défi Cloudflare (cf-mitigated: challenge) dès la 1re requête de la sonde sur /api/v1/search",
+      "suite": "arrêt sur cet hôte, non contourné (C12 : le Disallow du robots.txt n'est plus un motif d'abstention, le 403 en est un)"
     }
   ],
   "sources": [
@@ -111,7 +118,7 @@
   ],
   "donnees_a_revalider": false,
   "contact": "formulaire Kansalliskirjasto / adresse indiquée dans les conditions de l'API",
-  "conclusion_quota": "Aucun chiffre de débit publié ; api.finna.fi/robots.txt : Disallow: / pour tous les robots ; inscription possible en cas de charge excessive ; Crawl-delay 1 s sur le site.",
+  "conclusion_quota": "Aucun chiffre de débit publié (spécification OpenAPI 2025 : limit max 100, aucune mention de limite de débit) ; robots.txt de l'API : Disallow: / (Wayback) ; hôte en 403 défi Cloudflare pour notre client ; inscription possible en cas de charge excessive ; Crawl-delay 1 s sur le site.",
   "classe_quota": "aucun quota trouvé (API exclue aux robots)",
   "confiance": "faible à moyenne",
   "notes": "Hôtes en 403 pour la sonde ; lecture via Wayback ; doc Swagger non lue.",
@@ -160,9 +167,9 @@
   "endpoints_documentes": [
     {
       "famille": "API REST Finna (api.finna.fi/v1)",
-      "url": "https://api.finna.fi/v1",
-      "statut": "non_teste",
-      "raison": "robots.txt de api.finna.fi (copie Wayback 2025-05-31) : « User-agent: * Disallow: / » ; consigne C8 : interdit aux robots, donc aucun envoi."
+      "url": "https://api.finna.fi/api/v1/search?lookfor=test&limit=1",
+      "statut": "teste",
+      "preuve": "institutions/national-library-of-finland-finna/tests/journal.log"
     },
     {
       "famille": "Documentation Swagger de l'API Finna",
@@ -208,6 +215,6 @@
     }
   ],
   "g_impossible": {
-    "raison": "api.finna.fi/robots.txt (copie Wayback 2025-05-31) : « User-agent: * Disallow: / » et l'hôte renvoie 403 anti-bot : aucun hôte testable, aucun crash test possible sans violer une interdiction écrite."
+    "raison": "api.finna.fi répond 403 (défi Cloudflare) à la sonde dès la 1re requête, le 2026-11-13 (fetch) et le 2026-11-14 (probe) : aucun hôte testable sans contournement, interdit."
   }
 }

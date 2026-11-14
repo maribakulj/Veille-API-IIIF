@@ -1,0 +1,6 @@
+# Session 2026-11-14T01:33:16Z — configuration finna-passe1-api.json — sonde probe.py au commit e2c7d5c
+2026-11-14T01:33:18Z | robots.txt:api.finna.fi | https://api.finna.fi/robots.txt | GET | 403 | robots.txt indisponible : tout est autorisé (RFC 9309)
+2026-11-14T01:33:24Z | finna-search-1 | https://api.finna.fi/api/v1/search?lookfor=test&limit=1 | GET | 403 403_ANTI_BOT | cf-mitigated: challenge | taille≥5652 | corps: <!DOCTYPE html><html lang="en-US"><head><title>Just a moment...</title><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=Edge"><meta nam
+# ARRÊT de l'hôte api.finna.fi (403 anti-bot). Les autres hôtes continuent.
+2026-11-14T01:33:24Z | finna-openapi | NON LANCÉ : hôte api.finna.fi arrêté (403 anti-bot)
+# Fin 2026-11-14T01:33:24Z — 2 requête(s) envoyée(s)
