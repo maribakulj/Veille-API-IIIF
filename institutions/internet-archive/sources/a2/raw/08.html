@@ -1,0 +1,2085 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="./" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" type="image/jpg" sizes="200x200" href="_static/logo.jpg">
+    <title>OCR at the Internet Archive with Tesseract and hOCR &#8212; Internet Archive Developer Portal</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="_static/custom.css?v=3feec52e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="_static/documentation_options.js?v=902ff5ee"></script>
+    <script src="_static/doctools.js?v=9bcbadda"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=f281be69"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'ocr';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="PDF analysis, generation and compression at the Internet Archive" href="pdf.html" />
+    <link rel="prev" title="Reviews API" href="reviews.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="_static/logo.jpg" class="logo__image only-light" alt="Internet Archive Developer Portal - Home"/>
+    <script>document.write(`<img src="_static/logo.jpg" class="logo__image only-dark" alt="Internet Archive Developer Portal - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="index.html">
+                    Home
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="index-tutorials.html">Tutorials</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="tutorial-get-ia-credentials.html">Get your Internet Archive credentials</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tutorial-get-snapshot-wayback.html">See whether a website exists in the archives</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tutorial-compare-snapshot-wayback.html">Compare two versions of a website</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="index-apis.html">Tools and APIs</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="bots.html">Bots, LLMs, and Automated Access</a></li>
+<li class="toctree-l2"><a class="reference internal" href="items.html">Internet Archive Items</a></li>
+<li class="toctree-l2"><a class="reference internal" href="metadata-schema/index.html">Internet Archive Metadata</a></li>
+<li class="toctree-l2"><a class="reference internal" href="internetarchive/cli.html">Command-Line Interface</a></li>
+<li class="toctree-l2"><a class="reference internal" href="internetarchive/index.html">The Internet Archive Python Library</a></li>
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="ias3.html">ias3 Internet archive S3-like API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="metadata.html">Item Metadata API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="md-read.html">Item Metadata API: Read</a></li>
+<li class="toctree-l2"><a class="reference internal" href="md-write.html">Item Metadata API: Write</a></li>
+<li class="toctree-l2"><a class="reference internal" href="md-record.html">Item Metadata API: Record details</a></li>
+<li class="toctree-l2"><a class="reference internal" href="md-write-adv.html">Item Metadata API: Advanced Topics &amp; Extensions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="changes.html">API for discovering changes to archive.org items</a></li>
+<li class="toctree-l2"><a class="reference internal" href="views_api.html">Views data service api</a></li>
+<li class="toctree-l2"><a class="reference internal" href="views.html">Item Engagement counting on the archive.org website.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="iarest.html">Internet Archive RESTful microservices</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tasks.html">Internet Archive Tasks API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="simplelists.html">Simple Lists (Relationships API)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="reviews.html">Reviews API</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">OCR at the Internet Archive with Tesseract and hOCR</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pdf.html">PDF analysis, generation and compression at the Internet Archive</a></li>
+</ul>
+</details></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/ocr.rst" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.rst</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>OCR at the Internet Archive with Tesseract and hOCR</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> On this page </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction">Introduction</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#motivation">Motivation</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ocr-format">OCR format</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#basic-workflow">Basic workflow</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#hocr-files">hOCR files</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#additional-generated-content">Additional generated content</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ocr-metadata">OCR metadata</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#metadata-and-input-for-the-ocr-process">Metadata and input for the OCR process</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#language">language</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#adaptive-ocr">adaptive_ocr</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#ocr-default-parameters">ocr_default_parameters</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#scandata">Scandata</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#metadata-written-by-the-ocr-module">Metadata written by the OCR module</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#ocr">ocr</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#ocr-parameters">ocr_parameters</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#ocr-module-version">ocr_module_version</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#ocr-detected-script">ocr_detected_script</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#ocr-detected-script-conf">ocr_detected_script_conf</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#ocr-detected-lang">ocr_detected_lang</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#ocr-detected-lang-conf">ocr_detected_lang_conf</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#ocr-autonomous">ocr_autonomous</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#ocr-unsupported-language">ocr_unsupported_language</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#ocr-invalid-language">ocr_invalid_language</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#ocr-converted">ocr_converted</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#ocr-degraded">ocr_degraded</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#task-arguments">Task arguments</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#ocr-script-detect">ocr-script-detect</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#ocr-full-script-detect">ocr-full-script-detect</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#ocr-use-script-detect">ocr-use-script-detect</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#ocr-lang-detect">ocr-lang-detect</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#ocr-binarization-method">ocr-binarization-method</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#ocr-pass-dpi">ocr-pass-dpi</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">ocr-autonomous</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#ocr-page-timeout">ocr-page-timeout</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#ocr-additional-languages">ocr-additional-languages</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#ocr-two-pass">ocr-two-pass</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#searching">Searching</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#summary-of-the-ocr-module-modes-and-functionality">Summary of the OCR module modes and functionality</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#normal-operation">Normal operation</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#autonomous-mode">Autonomous mode</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#conversion-from-abbyy-xml">Conversion from Abbyy XML</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#conversion-from-text-pdf">Conversion from Text PDF</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#supported-languages">Supported languages</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#list-of-supported-languages">List of supported languages</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#code-repositories">Code repositories</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#contributing">Contributing</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#release-history">Release history</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tesseract-module-0-0-19">Tesseract module 0.0.19</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tesseract-module-0-0-18">Tesseract module 0.0.18</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tesseract-module-0-0-17">Tesseract module 0.0.17</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tesseract-module-0-0-16">Tesseract module 0.0.16</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tesseract-module-0-0-15">Tesseract module 0.0.15</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tesseract-module-0-0-14">Tesseract module 0.0.14</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tesseract-module-0-0-13">Tesseract module 0.0.13</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tesseract-module-0-0-12">Tesseract module 0.0.12</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tesseract-module-0-0-11">Tesseract module 0.0.11</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tesseract-module-0-0-10">Tesseract module 0.0.10</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tesseract-module-0-0-9">Tesseract module 0.0.9</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tesseract-module-0-0-8">Tesseract module 0.0.8</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tesseract-module-0-0-7">Tesseract module 0.0.7</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tesseract-module-0-0-6">Tesseract module 0.0.6</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tesseract-module-0-0-5">Tesseract module 0.0.5</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tesseract-module-0-0-4">Tesseract module 0.0.4</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tesseract-module-0-0-3">Tesseract module 0.0.3</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="ocr-at-the-internet-archive-with-tesseract-and-hocr">
+<h1>OCR at the Internet Archive with Tesseract and hOCR<a class="headerlink" href="#ocr-at-the-internet-archive-with-tesseract-and-hocr" title="Link to this heading">#</a></h1>
+<dl class="field-list simple">
+<dt class="field-odd">authors<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Merlijn Wajer &lt;<a class="reference external" href="mailto:merlijn&#37;&#52;&#48;archive&#46;org">merlijn<span>&#64;</span>archive<span>&#46;</span>org</a>&gt;</p>
+</dd>
+<dt class="field-even">date<span class="colon">:</span></dt>
+<dd class="field-even"><p>2020-01-29</p>
+</dd>
+<dt class="field-odd">last-updated<span class="colon">:</span></dt>
+<dd class="field-odd"><p>2023-02-23</p>
+</dd>
+<dt class="field-even">version<span class="colon">:</span></dt>
+<dd class="field-even"><p>1.2</p>
+</dd>
+</dl>
+<section id="introduction">
+<h2>Introduction<a class="headerlink" href="#introduction" title="Link to this heading">#</a></h2>
+<p>This document outlines the OCR (Optical Character Recognition) module and its
+features as used to perform optical text recognition on Internet Archive items
+and elaborates on design decisions and how various solutions were picked.</p>
+</section>
+<section id="motivation">
+<h2>Motivation<a class="headerlink" href="#motivation" title="Link to this heading">#</a></h2>
+<p>The Internet Archive had been using proprietary OCR technology for many years,
+but decided to move to an entirely open source stack after evaluating the
+various open source software OCR offerings, settling on <a class="reference external" href="https://github.com/tesseract-ocr">Tesseract</a> but keeping an eye out for alternative
+engines.</p>
+<p>This transition to Tesseract was completed near the end of 2020.</p>
+<section id="ocr-format">
+<h3>OCR format<a class="headerlink" href="#ocr-format" title="Link to this heading">#</a></h3>
+<p>There are a few open standards when it comes to defining OCR results, with the
+main contenders being:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://kba.github.io/hocr-spec/1.2/">hOCR</a></p></li>
+<li><p><a class="reference external" href="https://github.com/PRImA-Research-Lab/PAGE-XML">PAGE XML</a></p></li>
+<li><p><a class="reference external" href="https://en.wikipedia.org/wiki/ALTO_(XML)">ALTO XML</a></p></li>
+</ul>
+<p>The Internet Archive settled on using <a class="reference external" href="https://kba.github.io/hocr-spec/1.2/">hOCR</a>. At the time of writing, Tesseract
+does support outputting ALTO XML, but PAGE XML was not yet supported. hOCR was
+deemed sufficiently simple and flexible, with the added advantage that it is
+XHTML, which allows for viewing the documents in a browser. Various hOCR tools
+and libraries exist, as do hOCR viewers, such as <a class="reference external" href="https://github.com/jbaiter/hocrviewer-mirador">hocrviewer-miradoc</a> and <a class="reference external" href="https://github.com/kba/hocrjs">hocrjs</a>.</p>
+<p>We have also created our own tooling to work on (large) hOCR files, as some of
+the existing tooling ran out of memory rather quickly; see <a class="reference external" href="https://github.com/internetarchive/archive-hocr-tools">archive-hocr-tools</a> (<a class="reference external" href="https://archive-hocr-tools.readthedocs.io/en/latest/">documentation
+hosted here</a>).</p>
+<p>We intend to keep around the older (pre-tesseract) OCR results, but will attempt
+to convert them to hOCR as well, providing a hOCR file for each item with OCR
+results, no matter the OCR engine. The code to convert those files can also be
+found in <a class="reference external" href="https://github.com/internetarchive/archive-hocr-tools">archive-hocr-tools</a>.</p>
+</section>
+</section>
+<section id="basic-workflow">
+<h2>Basic workflow<a class="headerlink" href="#basic-workflow" title="Link to this heading">#</a></h2>
+<p>After an <a class="reference external" href="https://archive.org/services/docs/api/items.html#what-is-an-item">Internet Archive Item</a> has been
+uploaded, various processes kick in to analyze the content and provide
+derivative files, one of those being the OCR file. The output <a class="reference internal" href="#ocr-format">OCR format</a>
+was changed from the old proprietary format to hOCR, as explained earlier.</p>
+<section id="hocr-files">
+<h3>hOCR files<a class="headerlink" href="#hocr-files" title="Link to this heading">#</a></h3>
+<p>Barring any failures in the OCR process, after upload, every item will get one
+or more <code class="docutils literal notranslate"><span class="pre">*_hocr.html</span></code> files which represent the results of OCR jobs.  Each
+<code class="docutils literal notranslate"><span class="pre">*_hocr.html</span></code> file contains results for all pages in one set of images (book,
+PDF, or otherwise), with text, bounding boxes, and confidence at the word level.
+For those seeking more detailed OCR results, each <code class="docutils literal notranslate"><span class="pre">_hocr.html</span></code> file should
+also have a corresponding <code class="docutils literal notranslate"><span class="pre">*_chocr.html.gz</span></code> file, with character-level
+granularity. (The exact meaning of “character” differs, of course, per script or
+language).</p>
+<p>From these hOCR files, two additional OCR files get created:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">*_hocr_pageindex.json.gz</span></code>: a simple JSON array annotating where each
+individual page element starts in the <code class="docutils literal notranslate"><span class="pre">*_hocr.html</span></code> file, enabling
+quick fast-forwarding to an individual page without parsing all the XML.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">*_hocr_searchtext.txt.gz</span></code>: a plaintext file that is ingested by the full
+text search engine.</p></li>
+</ul>
+</section>
+<section id="additional-generated-content">
+<h3>Additional generated content<a class="headerlink" href="#additional-generated-content" title="Link to this heading">#</a></h3>
+<p>Using the <code class="docutils literal notranslate"><span class="pre">*_hocr.html</span></code> file, even more files are generated, for
+accessibility and compatibility reasons:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">*.pdf</span></code>: Portable Document Format files, containing MRC-compressed
+images and the OCR result as a hidden (selectable, searchable) text layer.
+(In some cases, the PDF files can have a slightly different suffix,
+but the extension remains <code class="docutils literal notranslate"><span class="pre">.pdf</span></code>)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">*_djvu.xml</span></code>: a modified version of the DjVu XML standard, these files
+can also be used to read OCR results, but the recommendation is to instead
+parse the hOCR files.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">*_djvu.txt</span></code>:, a human-readable plaintext version of the generated
+<code class="docutils literal notranslate"><span class="pre">*_djvu.xml</span></code> file.</p></li>
+</ul>
+</section>
+</section>
+<section id="ocr-metadata">
+<h2>OCR metadata<a class="headerlink" href="#ocr-metadata" title="Link to this heading">#</a></h2>
+<p>Archive.org items have metadata, and the metadata can dictate how the items are
+treated. For example, the <code class="docutils literal notranslate"><span class="pre">language</span></code> field determines what languages will be
+used when OCRing the content of the item. Upon completion, the OCR process will
+write various metadata values that potentially enable document discovery through
+metadata search. This section covers all the metadata relevant to the OCR process.</p>
+<section id="metadata-and-input-for-the-ocr-process">
+<h3>Metadata and input for the OCR process<a class="headerlink" href="#metadata-and-input-for-the-ocr-process" title="Link to this heading">#</a></h3>
+<section id="language">
+<h4>language<a class="headerlink" href="#language" title="Link to this heading">#</a></h4>
+<p>The item-level <code class="docutils literal notranslate"><span class="pre">language</span></code> metadata key describes the language(s) the documents
+contained in the item are written in. Accepted values are standard three letter
+ISO-639 codes, MARC languages codes, and canonical names of a language. So in
+the case of English, either <code class="docutils literal notranslate"><span class="pre">eng</span></code> or <code class="docutils literal notranslate"><span class="pre">English</span></code> would be accepted.
+Additionally, Tesseract language codes are accepted, and a list of special-case
+language mappings can be found in section <a class="reference internal" href="#supported-languages">Supported languages</a>.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">language</span></code> metadata value can be repeated, meaning that multiple languages
+can be provided. If this is the case, the OCR module will perform OCR using the
+multiple provided languages.</p>
+<p>If the <code class="docutils literal notranslate"><span class="pre">language</span></code> value is set to the literal string <code class="docutils literal notranslate"><span class="pre">None</span></code>, then no OCR
+will be performed, and every page will instead be treated as a page with no
+OCRable content.</p>
+<p>If the <code class="docutils literal notranslate"><span class="pre">language</span></code> metadata key is not provided, or is set to one of (<code class="docutils literal notranslate"><span class="pre">und</span></code>,
+<code class="docutils literal notranslate"><span class="pre">zxx</span></code>, <code class="docutils literal notranslate"><span class="pre">mul</span></code>), then the OCR system will perform what is known as the
+<a class="reference internal" href="#autonomous-mode">autonomous mode</a>, which is explained in detail later on.</p>
+<p>If the <code class="docutils literal notranslate"><span class="pre">language</span></code> is set to an invalid or unknown language, the OCR module
+will also perform the <a class="reference internal" href="#autonomous-mode">autonomous mode</a> instead, attempting to guess the script
+and language. (In addition, it will also set either <code class="docutils literal notranslate"><span class="pre">ocr_invalid_language</span></code> or
+<code class="docutils literal notranslate"><span class="pre">ocr_unsupported_language</span></code> in the item (and resulting hOCR file) metadata to
+the languages that are considered invalid or unsupported.</p>
+</section>
+<section id="adaptive-ocr">
+<h4>adaptive_ocr<a class="headerlink" href="#adaptive-ocr" title="Link to this heading">#</a></h4>
+<p>When the <code class="docutils literal notranslate"><span class="pre">adaptive_ocr</span></code> metadata value is set to <code class="docutils literal notranslate"><span class="pre">true</span></code>:</p>
+<ul class="simple">
+<li><p>excessively long runs on Tesseract will not cause the OCR process to fail, but
+rather insert an empty page and set <code class="docutils literal notranslate"><span class="pre">ocr_degraded</span></code> to <code class="docutils literal notranslate"><span class="pre">page-timeout</span></code>.</p></li>
+<li><p>Tesseract crashes during the OCR process will cause an empty page to be be
+inserted (as opposed to hard failing) and <code class="docutils literal notranslate"><span class="pre">ocr_degraded</span></code> will be set to
+<code class="docutils literal notranslate"><span class="pre">tesseract-crash</span></code>.</p></li>
+<li><p>In autonomous mode, if no language could be determined but scripts have been
+detected, the OCR will proceed with the scripts only and <code class="docutils literal notranslate"><span class="pre">ocr_degraded</span></code> will
+be set to <code class="docutils literal notranslate"><span class="pre">script-only</span></code>.</p></li>
+</ul>
+</section>
+<section id="ocr-default-parameters">
+<h4>ocr_default_parameters<a class="headerlink" href="#ocr-default-parameters" title="Link to this heading">#</a></h4>
+<p>The item-level <code class="docutils literal notranslate"><span class="pre">ocr_default_parameters</span></code> metadata key allows specifying
+specific OCR module parameters. This only has effect when it is set in the
+<code class="docutils literal notranslate"><span class="pre">collection</span></code> of an item, setting it on an item itself has no effect. See
+<a class="reference internal" href="#task-arguments">task arguments</a> for an explanation of all the possible task arguments.</p>
+</section>
+<section id="scandata">
+<h4>Scandata<a class="headerlink" href="#scandata" title="Link to this heading">#</a></h4>
+<p>Scandata is not a metadata key, but rather a XML file containing specific
+per-image information, including if the image should be included in any of the
+produced formats. The module will find, parse and honours these files if they
+exist.</p>
+<p>Scandata files are marked with the format <code class="docutils literal notranslate"><span class="pre">&quot;Scandata&quot;</span></code>.</p>
+</section>
+</section>
+<section id="metadata-written-by-the-ocr-module">
+<h3>Metadata written by the OCR module<a class="headerlink" href="#metadata-written-by-the-ocr-module" title="Link to this heading">#</a></h3>
+<p>The following keys are written to the item metadata, as well as to the files
+metadata of the generated hOCR files.</p>
+<p>If an item contains multiple stacks of images, pdfs, or otherwise, then the
+item-level metadata only represents the values of the stack of images that was
+OCRd, in which case the hOCR file-level metadata should be inspected for correct
+values. This metadata is only written to the files metadata starting with module
+version <code class="docutils literal notranslate"><span class="pre">0.0.11</span></code>.</p>
+<section id="ocr">
+<h4>ocr<a class="headerlink" href="#ocr" title="Link to this heading">#</a></h4>
+<p>This metadata key contains the name and version of the OCR engine that was used
+to produce to OCR content. If a <a class="reference internal" href="#language">language</a> metadata key was found to be not
+“ocrable”, the <code class="docutils literal notranslate"><span class="pre">ocr</span></code> metadata key also contains the text <code class="docutils literal notranslate"><span class="pre">language</span> <span class="pre">not</span>
+<span class="pre">currently</span> <span class="pre">OCRable</span></code>.</p>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ocr</span><span class="p">:</span> <span class="s2">&quot;tesseract 4.1.1&quot;</span>
+</pre></div>
+</div>
+</section>
+<section id="ocr-parameters">
+<h4>ocr_parameters<a class="headerlink" href="#ocr-parameters" title="Link to this heading">#</a></h4>
+<p>This metadata key describes the parameters passed to the OCR engine (Tesseract)
+that were ultimately used to OCR the item contents. This can be used to spot
+potential problems.</p>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ocr_parameters</span><span class="p">:</span> <span class="s2">&quot;-l eng&quot;</span>
+</pre></div>
+</div>
+</section>
+<section id="ocr-module-version">
+<h4>ocr_module_version<a class="headerlink" href="#ocr-module-version" title="Link to this heading">#</a></h4>
+<p>This metadata key describes the version of the OCR module that was used to
+perform the resulting hOCR file. This can be used to potentially perform OCR on
+items again if problems are found in a specific version.</p>
+</section>
+<section id="ocr-detected-script">
+<h4>ocr_detected_script<a class="headerlink" href="#ocr-detected-script" title="Link to this heading">#</a></h4>
+<p>The script or set of script that is/are most prominent on the images. This value
+is typically based on sampling the content and internally relies on Tesseract’s
+script detection module. Please refer to Tesseract for the list of currently
+supported scripts.</p>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ocr_detected_script</span><span class="p">:</span> <span class="s2">&quot;Fraktur&quot;</span>
+</pre></div>
+</div>
+</section>
+<section id="ocr-detected-script-conf">
+<h4>ocr_detected_script_conf<a class="headerlink" href="#ocr-detected-script-conf" title="Link to this heading">#</a></h4>
+<p>This metadata key describes the confidence in the various
+<code class="docutils literal notranslate"><span class="pre">ocr_detected_script</span></code> keys; if multiple values are present then the ordering
+follows the <code class="docutils literal notranslate"><span class="pre">ocr_detected_script</span></code> ordering. The confidence value is expressed
+as a floating point number between 0 and 1.</p>
+</section>
+<section id="ocr-detected-lang">
+<h4>ocr_detected_lang<a class="headerlink" href="#ocr-detected-lang" title="Link to this heading">#</a></h4>
+<p>The language that is most prominent after OCR. The functionality is provided by
+<a class="reference external" href="https://github.com/saffsd/langid.py">langid.py</a> and is expressed as ISO639-1
+language codes, but might be changed to ISO639-3 codes in the future.</p>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ocr_detected_lang</span><span class="p">:</span> <span class="s2">&quot;en&quot;</span>
+</pre></div>
+</div>
+</section>
+<section id="ocr-detected-lang-conf">
+<h4>ocr_detected_lang_conf<a class="headerlink" href="#ocr-detected-lang-conf" title="Link to this heading">#</a></h4>
+<p>This metadata key describes the confidence in the detected language
+(<a class="reference internal" href="#ocr-detected-lang">ocr_detected_lang</a>). The confidence value is expressed as a floating point
+number between 0 and 1.</p>
+</section>
+<section id="ocr-autonomous">
+<h4>ocr_autonomous<a class="headerlink" href="#ocr-autonomous" title="Link to this heading">#</a></h4>
+<p>Contains the literal value <code class="docutils literal notranslate"><span class="pre">true</span></code> if the OCR was a result of an <a class="reference internal" href="#autonomous-mode">autonomous
+mode</a> OCR run. Otherwise, the key is not present.</p>
+</section>
+<section id="ocr-unsupported-language">
+<h4>ocr_unsupported_language<a class="headerlink" href="#ocr-unsupported-language" title="Link to this heading">#</a></h4>
+<p>If a value in the <a class="reference internal" href="#language">language</a> field is not supported, this field will be set to
+the unsupported value(s).</p>
+</section>
+<section id="ocr-invalid-language">
+<h4>ocr_invalid_language<a class="headerlink" href="#ocr-invalid-language" title="Link to this heading">#</a></h4>
+<p>If a value in the <a class="reference internal" href="#language">language</a> field is considered invalid, this field will be
+set to the invalid value(s).</p>
+</section>
+<section id="ocr-converted">
+<h4>ocr_converted<a class="headerlink" href="#ocr-converted" title="Link to this heading">#</a></h4>
+<p>This value gets set to <code class="docutils literal notranslate"><span class="pre">true</span></code> if the hOCR document was created from an
+existing <code class="docutils literal notranslate"><span class="pre">_abbyy.gz</span></code> file.</p>
+</section>
+<section id="ocr-degraded">
+<h4>ocr_degraded<a class="headerlink" href="#ocr-degraded" title="Link to this heading">#</a></h4>
+<p>If OCRing a specific page fails, this value will get set to the error that
+caused the page failure. Currently can get set to:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">page-timeout</span></code>: OCR process timed out</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">tesseract-crash</span></code>: Tesseract crashed during OCR, an empty page was produced</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">script-only</span></code>: OCR is done only on script datasets</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">pdf-text-convert</span></code>: The PDF text layer contained one or more issues</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">pdf-text-garbage</span></code>: The PDF text layer was not used to create the chOCR file</p></li>
+</ul>
+</section>
+</section>
+<section id="task-arguments">
+<h3>Task arguments<a class="headerlink" href="#task-arguments" title="Link to this heading">#</a></h3>
+<p>Task arguments typically cannot be supplied manually, but can be set as part of
+the <a class="reference internal" href="#ocr-default-parameters">ocr_default_parameters</a> value of a collection.</p>
+<section id="ocr-script-detect">
+<h4>ocr-script-detect<a class="headerlink" href="#ocr-script-detect" title="Link to this heading">#</a></h4>
+<p>Perform script detection by sampling, default is on (<code class="docutils literal notranslate"><span class="pre">1</span></code>). Stores the result
+in the <a class="reference internal" href="#ocr-detected-script">ocr_detected_script</a> metadata field.</p>
+</section>
+<section id="ocr-full-script-detect">
+<h4>ocr-full-script-detect<a class="headerlink" href="#ocr-full-script-detect" title="Link to this heading">#</a></h4>
+<p>Perform full script detection, default is off (<code class="docutils literal notranslate"><span class="pre">0</span></code>). Stores the result in the
+<a class="reference internal" href="#ocr-detected-script">ocr_detected_script</a> metadata field.</p>
+</section>
+<section id="ocr-use-script-detect">
+<h4>ocr-use-script-detect<a class="headerlink" href="#ocr-use-script-detect" title="Link to this heading">#</a></h4>
+<p>Use the detected script in the OCR step, default is off (<code class="docutils literal notranslate"><span class="pre">0</span></code>).</p>
+</section>
+<section id="ocr-lang-detect">
+<h4>ocr-lang-detect<a class="headerlink" href="#ocr-lang-detect" title="Link to this heading">#</a></h4>
+<p>Detect the language based upon the OCR’d corpus and store it in the
+<a class="reference internal" href="#ocr-detected-lang">ocr_detected_lang</a> metadata field. Default is on (<code class="docutils literal notranslate"><span class="pre">1</span></code>).</p>
+</section>
+<section id="ocr-binarization-method">
+<h4>ocr-binarization-method<a class="headerlink" href="#ocr-binarization-method" title="Link to this heading">#</a></h4>
+<p>Change the binarization method used for automatically segmenting the page.
+Default is <code class="docutils literal notranslate"><span class="pre">otsu</span></code>.</p>
+<p>Valid values:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">otsu</span></code>: default Tesseract binarization</p></li>
+<li><dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">leptonica-otsu</span></code>: Tesseract binarization based on Leptonica Otsu</dt><dd><p>(<code class="docutils literal notranslate"><span class="pre">-c</span> <span class="pre">thresholding_method=1</span></code> in Tesseract)</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">leptonica-sauvola</span></code>: Tesseract binarization based on Leptonica Sauvola</dt><dd><p>(<code class="docutils literal notranslate"><span class="pre">-c</span> <span class="pre">thresholding_method=2</span></code> in Tesseract)</p>
+</dd>
+</dl>
+</li>
+</ul>
+</section>
+<section id="ocr-pass-dpi">
+<h4>ocr-pass-dpi<a class="headerlink" href="#ocr-pass-dpi" title="Link to this heading">#</a></h4>
+<p>Whether to directly pass the DPI of the image to Tesseract. Default is off
+(<code class="docutils literal notranslate"><span class="pre">0</span></code>), specify <code class="docutils literal notranslate"><span class="pre">1</span></code> to turn this feature on. DPI is taken from the item
+metadata and <a class="reference internal" href="#scandata">Scandata</a>, with the scandata being the preferred source because
+it can provide per-image information.</p>
+</section>
+<section id="id1">
+<h4>ocr-autonomous<a class="headerlink" href="#id1" title="Link to this heading">#</a></h4>
+<p>Force-enable the <a class="reference internal" href="#autonomous-mode">autonomous mode</a>. Default is off (<code class="docutils literal notranslate"><span class="pre">0</span></code>).</p>
+</section>
+<section id="ocr-page-timeout">
+<h4>ocr-page-timeout<a class="headerlink" href="#ocr-page-timeout" title="Link to this heading">#</a></h4>
+<p>Set the maximum running time (in seconds) for any given page, default is <code class="docutils literal notranslate"><span class="pre">30</span></code>
+minutes (<code class="docutils literal notranslate"><span class="pre">1800</span></code> seconds). Applies to both script detection and the actual OCR
+process. If the timeout is set to <code class="docutils literal notranslate"><span class="pre">0</span></code>, no timeout is used.</p>
+</section>
+<section id="ocr-additional-languages">
+<h4>ocr-additional-languages<a class="headerlink" href="#ocr-additional-languages" title="Link to this heading">#</a></h4>
+<p>Some collections of items could benefit from using additional languages or
+scripts during OCR. For example, older works (from the 18th century) might use
+the <a class="reference external" href="https://en.wikipedia.org/wiki/Long_s">Long S</a>, but otherwise might not be
+written in the Fraktur script. In this case Tesseract will not detect the Fraktur
+script and as such the “Long S” won’t be picked up properly, and will instead be
+read as <code class="docutils literal notranslate"><span class="pre">f</span></code>.
+Setting <code class="docutils literal notranslate"><span class="pre">Fraktur</span></code> in the item <code class="docutils literal notranslate"><span class="pre">language</span></code> metadata could result in the “Long S”
+being picked up, but that would be an awkward fit, as <code class="docutils literal notranslate"><span class="pre">Fraktur</span></code> isn’t really a
+language, but rather a script. Instead, setting the following
+<a class="reference internal" href="#ocr-default-parameters">ocr_default_parameters</a> metadata on a collection of an item:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ocr</span><span class="o">-</span><span class="n">additional</span><span class="o">-</span><span class="n">languages</span><span class="p">:</span><span class="n">Fraktur</span>
+</pre></div>
+</div>
+<p>will cause the OCR process of every item contained in the collection to use the
+Fraktur script data set, in addition to the languages of an item, which in turn
+would likely cause the “Long S” to be picked up properly.</p>
+<p>The <cite>ocr-additional-languages</cite> parameter can also be used as a (one off) task
+parameter, but that might not be a particularly sensible use case.</p>
+</section>
+<section id="ocr-two-pass">
+<h4>ocr-two-pass<a class="headerlink" href="#ocr-two-pass" title="Link to this heading">#</a></h4>
+<p>This parameter tells the OCR module to perform two OCR passes for each page,
+which can help find elements that are not always picked up
+by Tesseract, such as page numbers. This additional detection is achieved by
+using a different page segmentation method, in combination with excluding all
+areas where the first pass already found any text.</p>
+<p>The current implementation does not reconstruct the reading order after the
+second pass; it just appends any new text to that found during the first pass.</p>
+<p>When this feature is turned on, it introduces a small performance hit, typically
+less than 10%.</p>
+<p>Default is off (<code class="docutils literal notranslate"><span class="pre">0</span></code>); specify <code class="docutils literal notranslate"><span class="pre">1</span></code> to turn this feature on.</p>
+</section>
+</section>
+</section>
+<section id="searching">
+<h2>Searching<a class="headerlink" href="#searching" title="Link to this heading">#</a></h2>
+<p>The OCR module writes various metadata keys to items (see <a class="reference internal" href="#metadata-written-by-the-ocr-module">Metadata written
+by the OCR module</a>), which are searchable fields in Archive.org. For example,
+to find all documents where the detected script was Fraktur, one could search
+for the following:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ocr_detected_script</span><span class="p">:</span><span class="n">Fraktur</span>
+</pre></div>
+</div>
+<p>Likewise, to find all items which were processed with the <a class="reference internal" href="#autonomous-mode">Autonomous mode</a>,
+one could search for the following:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ocr_autonomous</span><span class="p">:</span><span class="n">true</span>
+</pre></div>
+</div>
+<p>To surface all items with a detected language of French, but with the language
+metadata key set to English, one could try something like this:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ocr_detected_lang</span><span class="p">:</span><span class="n">fr</span> <span class="n">AND</span> <span class="p">(</span><span class="n">language</span><span class="p">:</span><span class="n">english</span> <span class="n">OR</span> <span class="n">language</span><span class="p">:</span><span class="n">eng</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="summary-of-the-ocr-module-modes-and-functionality">
+<h2>Summary of the OCR module modes and functionality<a class="headerlink" href="#summary-of-the-ocr-module-modes-and-functionality" title="Link to this heading">#</a></h2>
+<p>This section expands a little on the heuristics and computations performed by
+the OCR module. In-depth analysis of the code is outside of the scope of this
+document.</p>
+<section id="normal-operation">
+<h3>Normal operation<a class="headerlink" href="#normal-operation" title="Link to this heading">#</a></h3>
+<p>The normal mode of operation involves mapping the values in the <a class="reference internal" href="#language">language</a>
+metadata into Tesseract language names. If this succeeds, the images are
+extracted and analysed by the script-detection module (if enabled). The
+confidence for each script on each page is summed up; scripts with low
+confidence are filtered out.</p>
+<p>After that step, each image is OCR’d with all the provided languages, producing
+a hOCR file for each image. These files are then concatenated into a single hOCR
+file containing all the pages.</p>
+<p>Finally, the extracted text corpus is analysed by the language detected module
+(not on page-by-page basis).</p>
+</section>
+<section id="autonomous-mode">
+<h3>Autonomous mode<a class="headerlink" href="#autonomous-mode" title="Link to this heading">#</a></h3>
+<p>The autonomous mode is a multi-pass OCR mode where no knowledge of the script or
+language of the content is assumed or known. This is computationally more
+intensive. In most simple cases, this is a very effective way to analyse content
+that is provided without the right metadata. In some cases, the result of the
+module ranges from sub-optimal to unusable, depending on the script and language
+of the content - especially unsupported scripts will likely not turn out well.</p>
+<p>The first step in this process is analysing every image with the script
+detection module from Tesseract. At the end of this step, one or a few scripts are
+selected for the first OCR pass (Tesseract can perform OCR with just a script as
+data files).</p>
+<p>With the detected scripts, every page is OCR’d with the detected scripts. Once
+that has finished, the language detection module is ran on each page in an
+attempt to figure out the various languages the content is written in. Using
+some simple heuristics, a final set of languages is then selected for the second
+OCR pass.</p>
+<p>The second OCR pass performs OCR as in the <a class="reference internal" href="#normal-operation">Normal operation</a>, using the
+detected languages as input languages.</p>
+</section>
+<section id="conversion-from-abbyy-xml">
+<h3>Conversion from Abbyy XML<a class="headerlink" href="#conversion-from-abbyy-xml" title="Link to this heading">#</a></h3>
+<p>If an Abbyy XML file is present, the module can instead create a hOCR from an
+existing <code class="docutils literal notranslate"><span class="pre">_abbyy.gz</span></code> file. Whether this happens or not is decided externally
+(by the <code class="docutils literal notranslate"><span class="pre">sourceFormat</span></code> provided to the module).</p>
+</section>
+<section id="conversion-from-text-pdf">
+<h3>Conversion from Text PDF<a class="headerlink" href="#conversion-from-text-pdf" title="Link to this heading">#</a></h3>
+<p>If a Text PDF file is present, the module can instead create a hOCR from the
+text layers of a PDF document. Whether this happens or not is decided
+externally (by the <code class="docutils literal notranslate"><span class="pre">sourceFormat</span></code> provided to the module).</p>
+<p>If minor errors occur during the conversion, <a class="reference internal" href="#ocr-degraded">ocr_degraded</a> will get set to
+<code class="docutils literal notranslate"><span class="pre">pdf-text-convert</span></code>.</p>
+<p>In case the text layer of the PDF is deemed unacceptable (for example due to
+encoding problems), the module may decide to just perform OCR on rasterised
+images of the PDF. <a class="reference internal" href="#ocr-degraded">ocr_degraded</a> will also be set to <code class="docutils literal notranslate"><span class="pre">pdf-text-garbage</span></code> in
+this case.</p>
+</section>
+</section>
+<section id="supported-languages">
+<h2>Supported languages<a class="headerlink" href="#supported-languages" title="Link to this heading">#</a></h2>
+<p>In case a language is missing, the best way to get the Internet Archive to
+support is by creating the language data is to submit the files to the Tesseract
+project. We might take user contributed language packs that have not made it
+into Tesseract yet, but ideally everything ends up in Tesseract.</p>
+<p>Omissions or mistakes in the below list when it comes to detected script or
+simply supporting more metadata values can also be reported.</p>
+<p>See <cite>Contributing</cite> on the best way to reach us.</p>
+<section id="list-of-supported-languages">
+<h3>List of supported languages<a class="headerlink" href="#list-of-supported-languages" title="Link to this heading">#</a></h3>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Language name</p></th>
+<th class="head"><p>Code</p></th>
+<th class="head"><p>Script(s)</p></th>
+<th class="head"><p>Note</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Afrikaans</p></td>
+<td><p><cite>afr</cite></p></td>
+<td><p>Latin</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>Albanian</p></td>
+<td><p><cite>sqi</cite>, <cite>alb</cite></p></td>
+<td><p>Latin</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>Amharic</p></td>
+<td><p><cite>amh</cite></p></td>
+<td><p>Ethiopic</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>Ancient Greek (to 1453)</p></td>
+<td><p><cite>grc</cite></p></td>
+<td><p>Greek</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>Arabic</p></td>
+<td><p><cite>ara</cite>, <cite>عربى</cite>, <cite>العربية</cite></p></td>
+<td><p>Arabic</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>Arabic</p></td>
+<td><p><cite>Arabic</cite></p></td>
+<td><p>Arabic</p></td>
+<td><p>Script only</p></td>
+</tr>
+<tr class="row-even"><td><p>Armenian</p></td>
+<td><p><cite>hye</cite>, <cite>arm</cite></p></td>
+<td><p>Armenian</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>Armenian</p></td>
+<td><p><cite>Armenian</cite></p></td>
+<td><p>Armenian</p></td>
+<td><p>Script only</p></td>
+</tr>
+<tr class="row-even"><td><p>Assamese</p></td>
+<td><p><cite>asm</cite></p></td>
+<td><p>Bengali</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>Azerbaijani</p></td>
+<td><p><cite>aze_cyrl</cite></p></td>
+<td><p>Cyrillic</p></td>
+<td><p>Cyrillic</p></td>
+</tr>
+<tr class="row-even"><td><p>Azerbaijani</p></td>
+<td><p><cite>aze</cite></p></td>
+<td><p>Latin, Cyrillic</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>Basque</p></td>
+<td><p><cite>eus</cite>, <cite>baq</cite></p></td>
+<td><p>Latin</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>Belarusian</p></td>
+<td><p><cite>bel</cite></p></td>
+<td><p>Cyrillic</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>Bengali</p></td>
+<td><p><cite>ben</cite></p></td>
+<td><p>Bengali</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>Bengali</p></td>
+<td><p><cite>Bengali</cite></p></td>
+<td><p>Bengali</p></td>
+<td><p>Script only</p></td>
+</tr>
+<tr class="row-odd"><td><p>Bosnian</p></td>
+<td><p><cite>bos</cite></p></td>
+<td><p>Latin, Cyrillic</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>Breton</p></td>
+<td><p><cite>bre</cite>, <cite>cor</cite></p></td>
+<td><p>Latin</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>Bulgarian</p></td>
+<td><p><cite>bul</cite>, <cite>chu</cite></p></td>
+<td><p>Latin, Cyrillic</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>Burmese</p></td>
+<td><p><cite>mya</cite>, <cite>bur</cite></p></td>
+<td><p>Myanmar</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>Canadian_Aboriginal</p></td>
+<td><p><cite>Canadian_Aboriginal</cite></p></td>
+<td><p>Canadian_Aboriginal</p></td>
+<td><p>Script only</p></td>
+</tr>
+<tr class="row-even"><td><p>Catalan</p></td>
+<td><p><cite>cat</cite></p></td>
+<td><p>Latin</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>Cebuano</p></td>
+<td><p><cite>ceb</cite></p></td>
+<td><p>Latin</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>Central Khmer</p></td>
+<td><p><cite>khm</cite></p></td>
+<td><p>Khmer</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>Cherokee</p></td>
+<td><p><cite>chr</cite></p></td>
+<td><p>Cherokee, Latin</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>Cherokee</p></td>
+<td><p><cite>Cherokee</cite></p></td>
+<td><p>Cherokee</p></td>
+<td><p>Script only</p></td>
+</tr>
+<tr class="row-odd"><td><p>Chinese</p></td>
+<td><p><cite>chi_sim</cite>, <cite>chi</cite>, <cite>zho</cite>, <cite>chinese (simplified)</cite>, <cite>chinese (china)</cite>, <cite>chinese (prc)</cite></p></td>
+<td><p>HanS</p></td>
+<td><p>Simplified</p></td>
+</tr>
+<tr class="row-even"><td><p>Chinese</p></td>
+<td><p><cite>chi_tra</cite>, <cite>chinese (traditional)</cite>, <cite>chinese (taiwan)</cite></p></td>
+<td><p>HanT</p></td>
+<td><p>Traditional</p></td>
+</tr>
+<tr class="row-odd"><td><p>Corsican</p></td>
+<td><p><cite>cos</cite></p></td>
+<td><p>Latin</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>Croatian</p></td>
+<td><p><cite>hrv</cite>, <cite>scr</cite></p></td>
+<td><p>Latin</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>Cyrillic</p></td>
+<td><p><cite>Cyrillic</cite></p></td>
+<td><p>Cyrillic</p></td>
+<td><p>Script only</p></td>
+</tr>
+<tr class="row-even"><td><p>Czech</p></td>
+<td><p><cite>ces</cite>, <cite>cze</cite></p></td>
+<td><p>Latin</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>Danish</p></td>
+<td><p><cite>dan</cite></p></td>
+<td><p>Latin, Fraktur</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>Devanagari</p></td>
+<td><p><cite>Devanagari</cite></p></td>
+<td><p>Devanagari</p></td>
+<td><p>Script only</p></td>
+</tr>
+<tr class="row-odd"><td><p>Dhivehi</p></td>
+<td><p><cite>div</cite></p></td>
+<td><p>Thaana</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>Dutch</p></td>
+<td><p><cite>nld</cite>, <cite>dut</cite>, <cite>dum</cite>, <cite>lim</cite></p></td>
+<td><p>Latin</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>Dzongkha</p></td>
+<td><p><cite>dzo</cite></p></td>
+<td><p>Tibetan</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>English</p></td>
+<td><p><cite>eng</cite>, <cite>sco</cite>, <cite>cpe</cite>, <cite>en_us</cite></p></td>
+<td><p>Latin, Fraktur</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>Esperanto</p></td>
+<td><p><cite>epo</cite>, <cite>esp</cite></p></td>
+<td><p>Latin</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>Estonian</p></td>
+<td><p><cite>est</cite></p></td>
+<td><p>Latin, Fraktur</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>Ethiopic</p></td>
+<td><p><cite>Ethiopic</cite>, <cite>eth</cite>, <cite>ethiopic</cite>, <cite>gez</cite></p></td>
+<td><p>Ethiopic</p></td>
+<td><p>Script only</p></td>
+</tr>
+<tr class="row-even"><td><p>Faroese</p></td>
+<td><p><cite>fao</cite>, <cite>far</cite></p></td>
+<td><p>Latin</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>Filipino</p></td>
+<td><p><cite>fil</cite>, <cite>tag</cite>, <cite>tgl</cite>, <cite>pam</cite>, <cite>pag</cite></p></td>
+<td><p>Latin</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>Finnish</p></td>
+<td><p><cite>fin</cite></p></td>
+<td><p>Latin, Fraktur</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>Fraktur</p></td>
+<td><p><cite>Fraktur</cite></p></td>
+<td><p>Fraktur</p></td>
+<td><p>Script only</p></td>
+</tr>
+<tr class="row-even"><td><p>Frankish</p></td>
+<td><p><cite>frk</cite></p></td>
+<td><p>Latin</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>French</p></td>
+<td><p><cite>fra</cite>, <cite>fre</cite>, <cite>cpf</cite>, <cite>français</cite>, <cite>fro</cite></p></td>
+<td><p>Latin</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>Galician</p></td>
+<td><p><cite>glg</cite>, <cite>gag</cite></p></td>
+<td><p>Latin</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>Georgian</p></td>
+<td><p><cite>kat_old</cite></p></td>
+<td><p>Georgian</p></td>
+<td><p>Ancient</p></td>
+</tr>
+<tr class="row-even"><td><p>Georgian</p></td>
+<td><p><cite>kat</cite>, <cite>geo</cite></p></td>
+<td><p>Georgian</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>Georgian</p></td>
+<td><p><cite>Georgian</cite></p></td>
+<td><p>Georgian</p></td>
+<td><p>Script only</p></td>
+</tr>
+<tr class="row-even"><td><p>German</p></td>
+<td><p><cite>deu</cite>, <cite>gsw</cite>, <cite>ger</cite>, <cite>gem</cite>, <cite>gmh</cite>, <cite>nds</cite>, <cite>goh</cite></p></td>
+<td><p>Latin, Fraktur</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>Greek</p></td>
+<td><p><cite>Greek</cite></p></td>
+<td><p>Greek</p></td>
+<td><p>Script only</p></td>
+</tr>
+<tr class="row-even"><td><p>Gujarati</p></td>
+<td><p><cite>guj</cite></p></td>
+<td><p>Gujarati</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>Gujarati</p></td>
+<td><p><cite>Gujarati</cite></p></td>
+<td><p>Gujarati</p></td>
+<td><p>Script only</p></td>
+</tr>
+<tr class="row-even"><td><p>Gurmukhi</p></td>
+<td><p><cite>Gurmukhi</cite></p></td>
+<td><p>Gurmukhi</p></td>
+<td><p>Script only</p></td>
+</tr>
+<tr class="row-odd"><td><p>Haitian</p></td>
+<td><p><cite>hat</cite></p></td>
+<td><p>Latin</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>HanS</p></td>
+<td><p><cite>HanS</cite></p></td>
+<td><p>HanS</p></td>
+<td><p>Script only</p></td>
+</tr>
+<tr class="row-odd"><td><p>HanT</p></td>
+<td><p><cite>HanT</cite></p></td>
+<td><p>HanT</p></td>
+<td><p>Script only</p></td>
+</tr>
+<tr class="row-even"><td><p>Hangul</p></td>
+<td><p><cite>Hangul</cite></p></td>
+<td><p>Hangul</p></td>
+<td><p>Script only</p></td>
+</tr>
+<tr class="row-odd"><td><p>Hangul_vert</p></td>
+<td><p><cite>Hangul_vert</cite></p></td>
+<td><p>Hangul_vert</p></td>
+<td><p>Script only</p></td>
+</tr>
+<tr class="row-even"><td><p>Hebrew</p></td>
+<td><p><cite>heb</cite></p></td>
+<td><p>Hebrew</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>Hebrew</p></td>
+<td><p><cite>Hebrew</cite></p></td>
+<td><p>Hebrew</p></td>
+<td><p>Script only</p></td>
+</tr>
+<tr class="row-even"><td><p>Hindi</p></td>
+<td><p><cite>hin</cite></p></td>
+<td><p>Devanagari</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>Hungarian</p></td>
+<td><p><cite>hun</cite></p></td>
+<td><p>Latin</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>Icelandic</p></td>
+<td><p><cite>isl</cite>, <cite>ice</cite>, <cite>non</cite></p></td>
+<td><p>Latin</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>Indonesian</p></td>
+<td><p><cite>ind</cite></p></td>
+<td><p>Latin</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>Inuktitut</p></td>
+<td><p><cite>iku</cite></p></td>
+<td><p>Canadian_Aboriginal</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>Irish</p></td>
+<td><p><cite>gle</cite>, <cite>mga</cite>, <cite>sga</cite>, <cite>iri</cite></p></td>
+<td><p>Latin</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>Italian</p></td>
+<td><p><cite>ita_old</cite></p></td>
+<td><p>Latin</p></td>
+<td><p>Ancient</p></td>
+</tr>
+<tr class="row-odd"><td><p>Italian</p></td>
+<td><p><cite>ita</cite>, <cite>nap</cite></p></td>
+<td><p>Latin</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>Japanese</p></td>
+<td><p><cite>jpn</cite></p></td>
+<td><p>Japanese</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>Japanese</p></td>
+<td><p><cite>Japanese</cite></p></td>
+<td><p>Japanese</p></td>
+<td><p>Script only</p></td>
+</tr>
+<tr class="row-even"><td><p>Javanese</p></td>
+<td><p><cite>jav</cite></p></td>
+<td><p>Latin</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>Kannada</p></td>
+<td><p><cite>kan</cite></p></td>
+<td><p>Kannada</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>Kannada</p></td>
+<td><p><cite>Kannada</cite></p></td>
+<td><p>Kannada</p></td>
+<td><p>Script only</p></td>
+</tr>
+<tr class="row-odd"><td><p>Kazakh</p></td>
+<td><p><cite>kaz</cite></p></td>
+<td><p>Latin, Cyrillic, Arabic</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>Khmer</p></td>
+<td><p><cite>Khmer</cite></p></td>
+<td><p>Khmer</p></td>
+<td><p>Script only</p></td>
+</tr>
+<tr class="row-odd"><td><p>Kirghiz</p></td>
+<td><p><cite>kir</cite></p></td>
+<td><p>Latin, Cyrillic, Arabic</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>Korean</p></td>
+<td><p><cite>kor</cite></p></td>
+<td><p>Hangul</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>Korean</p></td>
+<td><p><cite>kor_vert</cite></p></td>
+<td><p>Hangul_vert</p></td>
+<td><p>Vertical</p></td>
+</tr>
+<tr class="row-even"><td><p>Lao</p></td>
+<td><p><cite>lao</cite></p></td>
+<td><p>Lao</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>Lao</p></td>
+<td><p><cite>Lao</cite></p></td>
+<td><p>Lao</p></td>
+<td><p>Script only</p></td>
+</tr>
+<tr class="row-even"><td><p>Latin</p></td>
+<td><p><cite>lat</cite></p></td>
+<td><p>Latin</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>Latin</p></td>
+<td><p><cite>Latin</cite></p></td>
+<td><p>Latin</p></td>
+<td><p>Script only</p></td>
+</tr>
+<tr class="row-even"><td><p>Latvian</p></td>
+<td><p><cite>lav</cite></p></td>
+<td><p>Latin, Fraktur</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>Lithuanian</p></td>
+<td><p><cite>lit</cite></p></td>
+<td><p>Latin</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>Luxembourgish</p></td>
+<td><p><cite>ltz</cite></p></td>
+<td><p>Latin</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>Macedonian</p></td>
+<td><p><cite>mkd</cite>, <cite>mac</cite></p></td>
+<td><p>Cyrillic</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>Malay (macrolanguage)</p></td>
+<td><p><cite>msa</cite>, <cite>may</cite></p></td>
+<td><p>Latin</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>Malayalam</p></td>
+<td><p><cite>mal</cite></p></td>
+<td><p>Malayalam</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>Malayalam</p></td>
+<td><p><cite>Malayalam</cite></p></td>
+<td><p>Malayalam</p></td>
+<td><p>Script only</p></td>
+</tr>
+<tr class="row-odd"><td><p>Maltese</p></td>
+<td><p><cite>mlt</cite></p></td>
+<td><p>Latin</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>Maori</p></td>
+<td><p><cite>mri</cite>, <cite>mao</cite></p></td>
+<td><p>Latin</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>Marathi</p></td>
+<td><p><cite>mar</cite></p></td>
+<td><p>Devanagari</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>Middle English (1100-1500)</p></td>
+<td><p><cite>enm</cite>, <cite>ang</cite>, <cite>old english</cite>, <cite>middle english</cite></p></td>
+<td><p>Latin, Fraktur</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>Middle French (ca. 1400-1600)</p></td>
+<td><p><cite>frm</cite></p></td>
+<td><p>Latin</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>Modern Greek (1453-)</p></td>
+<td><p><cite>ell</cite>, <cite>gre</cite>, <cite>greek</cite>, <cite>ελληνικά</cite></p></td>
+<td><p>Greek</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>Mongolian</p></td>
+<td><p><cite>mon</cite></p></td>
+<td><p>Cyrillic</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>Myanmar</p></td>
+<td><p><cite>Myanmar</cite></p></td>
+<td><p>Myanmar</p></td>
+<td><p>Script only</p></td>
+</tr>
+<tr class="row-odd"><td><p>Nepali (macrolanguage)</p></td>
+<td><p><cite>nep</cite></p></td>
+<td><p>Devanagari</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>Northern Kurdish</p></td>
+<td><p><cite>kmr</cite>, <cite>kur</cite></p></td>
+<td><p>Latin</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>Norwegian</p></td>
+<td><p><cite>nor</cite>, <cite>nob</cite>, <cite>nno</cite></p></td>
+<td><p>Latin, Fraktur</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>Occitan (post 1500)</p></td>
+<td><p><cite>oci</cite></p></td>
+<td><p>Latin</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>Oriya</p></td>
+<td><p><cite>Oriya</cite></p></td>
+<td><p>Oriya</p></td>
+<td><p>Script only</p></td>
+</tr>
+<tr class="row-even"><td><p>Oriya (macrolanguage)</p></td>
+<td><p><cite>ori</cite></p></td>
+<td><p>Oriya</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>Panjabi</p></td>
+<td><p><cite>pan</cite></p></td>
+<td><p>Gurmukhi</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>Persian</p></td>
+<td><p><cite>fas</cite>, <cite>per</cite>, <cite>ira</cite></p></td>
+<td><p>Arabic</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>Polish</p></td>
+<td><p><cite>pol</cite></p></td>
+<td><p>Latin</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>Portuguese</p></td>
+<td><p><cite>por</cite>, <cite>cpp</cite>, <cite>brazilian portuguese</cite></p></td>
+<td><p>Latin</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>Pushto</p></td>
+<td><p><cite>pus</cite></p></td>
+<td><p>Arabic</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>Quechua</p></td>
+<td><p><cite>que</cite></p></td>
+<td><p>Latin</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>Romanian</p></td>
+<td><p><cite>ron</cite>, <cite>rum</cite>, <cite>mol</cite>, <cite>moldavian</cite></p></td>
+<td><p>Latin</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>Russian</p></td>
+<td><p><cite>rus</cite>, <cite>русский</cite>, <cite>russian old</cite>, <cite>russian (old)</cite></p></td>
+<td><p>Cyrillic</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>Sanskrit</p></td>
+<td><p><cite>san</cite></p></td>
+<td><p>Devanagari, Kannada, Telugu, Tamil</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>Scottish Gaelic</p></td>
+<td><p><cite>gla</cite>, <cite>gae</cite>, <cite>glv</cite>, <cite>max</cite></p></td>
+<td><p>Latin</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>Serbian</p></td>
+<td><p><cite>srp</cite>, <cite>scc</cite></p></td>
+<td><p>Cyrillic, Latin</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>Serbian</p></td>
+<td><p><cite>srp_latn</cite></p></td>
+<td><p>Latin</p></td>
+<td><p>Latin</p></td>
+</tr>
+<tr class="row-odd"><td><p>Sindhi</p></td>
+<td><p><cite>snd</cite></p></td>
+<td><p>Arabic, Devanagari</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>Sinhala</p></td>
+<td><p><cite>sin</cite></p></td>
+<td><p>Sinhala</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>Sinhala</p></td>
+<td><p><cite>Sinhala</cite></p></td>
+<td><p>Sinhala</p></td>
+<td><p>Script only</p></td>
+</tr>
+<tr class="row-even"><td><p>Slovak</p></td>
+<td><p><cite>slk</cite>, <cite>slo</cite>, <cite>sla</cite></p></td>
+<td><p>Latin</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>Slovenian</p></td>
+<td><p><cite>slv</cite></p></td>
+<td><p>Latin</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>Spanish</p></td>
+<td><p><cite>spa_old</cite></p></td>
+<td><p>Latin</p></td>
+<td><p>Ancient</p></td>
+</tr>
+<tr class="row-odd"><td><p>Spanish</p></td>
+<td><p><cite>spa</cite>, <cite>español</cite>, <cite>arg</cite></p></td>
+<td><p>Latin</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>Sundanese</p></td>
+<td><p><cite>sun</cite></p></td>
+<td><p>Latin</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>Swahili (macrolanguage)</p></td>
+<td><p><cite>swa</cite></p></td>
+<td><p>Latin</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>Swedish</p></td>
+<td><p><cite>swe</cite></p></td>
+<td><p>Latin, Fraktur</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>Syriac</p></td>
+<td><p><cite>syr</cite>, <cite>syc</cite></p></td>
+<td><p>Syriac</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>Syriac</p></td>
+<td><p><cite>Syriac</cite></p></td>
+<td><p>Syriac</p></td>
+<td><p>Script only</p></td>
+</tr>
+<tr class="row-odd"><td><p>Tajik</p></td>
+<td><p><cite>tgk</cite>, <cite>taj</cite></p></td>
+<td><p>Latin, Cyrillic, Arabic</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>Tamil</p></td>
+<td><p><cite>tam</cite></p></td>
+<td><p>Tamil</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>Tamil</p></td>
+<td><p><cite>Tamil</cite></p></td>
+<td><p>Tamil</p></td>
+<td><p>Script only</p></td>
+</tr>
+<tr class="row-even"><td><p>Tatar</p></td>
+<td><p><cite>tat</cite>, <cite>tar</cite></p></td>
+<td><p>Latin, Cyrillic, Arabic</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>Telugu</p></td>
+<td><p><cite>tel</cite></p></td>
+<td><p>Telugu</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>Telugu</p></td>
+<td><p><cite>Telugu</cite></p></td>
+<td><p>Telugu</p></td>
+<td><p>Script only</p></td>
+</tr>
+<tr class="row-odd"><td><p>Thaana</p></td>
+<td><p><cite>Thaana</cite></p></td>
+<td><p>Thaana</p></td>
+<td><p>Script only</p></td>
+</tr>
+<tr class="row-even"><td><p>Thai</p></td>
+<td><p><cite>tha</cite></p></td>
+<td><p>Thai</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>Thai</p></td>
+<td><p><cite>Thai</cite></p></td>
+<td><p>Thai</p></td>
+<td><p>Script only</p></td>
+</tr>
+<tr class="row-even"><td><p>Tibetan</p></td>
+<td><p><cite>bod</cite>, <cite>tib</cite></p></td>
+<td><p>Tibetan</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>Tibetan</p></td>
+<td><p><cite>Tibetan</cite></p></td>
+<td><p>Tibetan</p></td>
+<td><p>Script only</p></td>
+</tr>
+<tr class="row-even"><td><p>Tigrinya</p></td>
+<td><p><cite>tir</cite></p></td>
+<td><p>Ethiopic</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>Tonga (Tonga Islands)</p></td>
+<td><p><cite>ton</cite></p></td>
+<td><p>Latin</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>Turkish</p></td>
+<td><p><cite>tur</cite></p></td>
+<td><p>Latin</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>Uighur</p></td>
+<td><p><cite>uig</cite></p></td>
+<td><p>Latin, Cyrillic, Arabic</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>Ukrainian</p></td>
+<td><p><cite>ukr</cite></p></td>
+<td><p>Cyrillic</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>Urdu</p></td>
+<td><p><cite>urd</cite></p></td>
+<td><p>Arabic</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>Uzbek</p></td>
+<td><p><cite>uzb</cite></p></td>
+<td><p>Latin</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>Uzbek</p></td>
+<td><p><cite>uzb_cyrl</cite></p></td>
+<td><p>Cyrillic</p></td>
+<td><p>Cyrillic</p></td>
+</tr>
+<tr class="row-even"><td><p>Vietnamese</p></td>
+<td><p><cite>vie</cite></p></td>
+<td><p>Vietnamese</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>Vietnamese</p></td>
+<td><p><cite>Vietnamese</cite></p></td>
+<td><p>Vietnamese</p></td>
+<td><p>Script only</p></td>
+</tr>
+<tr class="row-even"><td><p>Welsh</p></td>
+<td><p><cite>cym</cite>, <cite>wel</cite></p></td>
+<td><p>Latin</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>Western Frisian</p></td>
+<td><p><cite>fry</cite>, <cite>fri</cite>, <cite>frr</cite></p></td>
+<td><p>Latin</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>Yiddish</p></td>
+<td><p><cite>yid</cite></p></td>
+<td><p>Hebrew</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>Yoruba</p></td>
+<td><p><cite>yor</cite></p></td>
+<td><p>Latin</p></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+</section>
+<section id="code-repositories">
+<h2>Code repositories<a class="headerlink" href="#code-repositories" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p><a class="reference external" href="https://git.archive.org/www/tesseract">https://git.archive.org/www/tesseract</a></p></li>
+<li><p><a class="reference external" href="https://git.archive.org/www/hocr-fts-text">https://git.archive.org/www/hocr-fts-text</a></p></li>
+<li><p><a class="reference external" href="https://git.archive.org/www/hocr-pageindex">https://git.archive.org/www/hocr-pageindex</a></p></li>
+<li><p><a class="github reference external" href="https://github.com/internetarchive/archive-hocr-tools">internetarchive/archive-hocr-tools</a></p></li>
+<li><p><a class="reference external" href="https://git.archive.org/merlijn/python-derivermodule">https://git.archive.org/merlijn/python-derivermodule</a></p></li>
+<li><p><a class="reference external" href="https://git.archive.org/merlijn/hocr-char-to-word">https://git.archive.org/merlijn/hocr-char-to-word</a></p></li>
+</ul>
+</section>
+<section id="contributing">
+<h2>Contributing<a class="headerlink" href="#contributing" title="Link to this heading">#</a></h2>
+<p>Contributions to the <a class="reference internal" href="#code-repositories">Code repositories</a> are welcome. The discussion of the OCR
+efforts takes place in the #ocr-g channel on the Internet Archive’s Slack
+channel. Feel free to reach out to the author of this document if you would like
+to contribute.</p>
+</section>
+<section id="release-history">
+<h2>Release history<a class="headerlink" href="#release-history" title="Link to this heading">#</a></h2>
+<section id="tesseract-module-0-0-19">
+<h3>Tesseract module 0.0.19<a class="headerlink" href="#tesseract-module-0-0-19" title="Link to this heading">#</a></h3>
+<p>Date: 2023-01-12</p>
+<p>Changes:</p>
+<ul class="simple">
+<li><p>Support <code class="docutils literal notranslate"><span class="pre">ocr-two-pass</span></code> argument, which ought to help finding page numbers</p></li>
+<li><p>Move to Tesseract 5.3.0</p></li>
+<li><p>Move to archive-hocr-tools 1.1.33</p></li>
+<li><p>Support additional languages in <code class="docutils literal notranslate"><span class="pre">abbyyy-to-hocr</span></code></p></li>
+</ul>
+</section>
+<section id="tesseract-module-0-0-18">
+<h3>Tesseract module 0.0.18<a class="headerlink" href="#tesseract-module-0-0-18" title="Link to this heading">#</a></h3>
+<p>Date: 2022-09-05</p>
+<p>Changes:</p>
+<ul class="simple">
+<li><p>Support converting PDFs with text layers to chOCR</p></li>
+<li><p>Write <code class="docutils literal notranslate"><span class="pre">ocr_degraded</span></code> in case PDF text conversion encounters non-fatal errors</p></li>
+<li><p>archive-hocr-tools version 1.1.24</p></li>
+</ul>
+</section>
+<section id="tesseract-module-0-0-17">
+<h3>Tesseract module 0.0.17<a class="headerlink" href="#tesseract-module-0-0-17" title="Link to this heading">#</a></h3>
+<p>Date: 2022-08-05</p>
+<p>Changes:</p>
+<ul class="simple">
+<li><p>Move to Tesseract 5.2.0</p></li>
+<li><p>Support finding photos during the OCR process and mark them as such in the
+hOCR</p></li>
+<li><p>Switch to archive-hocr-tools 1.1.20</p></li>
+<li><p>Get default_language and ocr arguments from all collections of an item</p></li>
+<li><p>Add new Fraktur <a class="reference external" href="https://ub-backup.bib.uni-mannheim.de/~stweil/tesstrain/frak2021/tessdata_fast/frak2021_1.069.traineddata">frak2021_1.069.traineddata</a> data</p></li>
+<li><p>Add <code class="docutils literal notranslate"><span class="pre">ocr-additional-languages</span></code> argument</p></li>
+<li><p>Support additional languages in <code class="docutils literal notranslate"><span class="pre">abbyyy-to-hocr</span></code></p></li>
+</ul>
+</section>
+<section id="tesseract-module-0-0-16">
+<h3>Tesseract module 0.0.16<a class="headerlink" href="#tesseract-module-0-0-16" title="Link to this heading">#</a></h3>
+<p>Date: 2022-06-13</p>
+<p>Changes:</p>
+<ul class="simple">
+<li><p>Move to archive-hocr-tools 1.1.16</p></li>
+</ul>
+</section>
+<section id="tesseract-module-0-0-15">
+<h3>Tesseract module 0.0.15<a class="headerlink" href="#tesseract-module-0-0-15" title="Link to this heading">#</a></h3>
+<p>Date: 2022-02-02</p>
+<p>Changes:</p>
+<ul class="simple">
+<li><p>Add tool to output supported languages as restructured text</p></li>
+<li><p>Support passing the DPI of a page from scandata or item metadata</p></li>
+<li><p>Support specifying a thresholding mechanism</p></li>
+<li><p>In autonomous mode, fall back to scripts only if no language is detected</p></li>
+<li><p>Set``ocr_degraded`` if autonomous mode falls back to scripts only</p></li>
+<li><p>Fix OCRing image stacks that contain around TIFFs that contain with multiple
+images by always analysing just the first image.</p></li>
+<li><p>Move to archive-hocr-tools 1.1.15</p></li>
+</ul>
+</section>
+<section id="tesseract-module-0-0-14">
+<h3>Tesseract module 0.0.14<a class="headerlink" href="#tesseract-module-0-0-14" title="Link to this heading">#</a></h3>
+<p>Date: 2021-11-01</p>
+<p>Changes:</p>
+<ul class="simple">
+<li><p>Add support for per-page timeouts</p></li>
+<li><p>Map additional languages in <code class="docutils literal notranslate"><span class="pre">abbyy-to-hocr</span></code></p></li>
+<li><p>Gracefully handle missing font sizes when converting Abbyy files</p></li>
+<li><p>Support converting gzip Abbyy files</p></li>
+<li><p>Log Tesseract (max) memory usage</p></li>
+<li><p>Move to archive-hocr-tools 1.1.7</p></li>
+<li><p>Add fallback path for certain JPEG2000 files that cannot be read with
+<code class="docutils literal notranslate"><span class="pre">Pillow</span></code></p></li>
+<li><p>Decrease page timeout to 10 seconds</p></li>
+<li><p>Add a fallback to Sauvola thresholding when OCR times out</p></li>
+</ul>
+</section>
+<section id="tesseract-module-0-0-13">
+<h3>Tesseract module 0.0.13<a class="headerlink" href="#tesseract-module-0-0-13" title="Link to this heading">#</a></h3>
+<p>Date: 2021-04-15</p>
+<p>Changes:</p>
+<ul class="simple">
+<li><p>Switch to archive-hocr-tools 1.1.4</p></li>
+<li><p>Add initial support for converting from Abbyy</p></li>
+</ul>
+</section>
+<section id="tesseract-module-0-0-12">
+<h3>Tesseract module 0.0.12<a class="headerlink" href="#tesseract-module-0-0-12" title="Link to this heading">#</a></h3>
+<p>Date: 2021-03-16</p>
+<p>Changes:</p>
+<ul class="simple">
+<li><p>Switch to Tesseract 5 alpha</p></li>
+<li><p>Handle items without <code class="docutils literal notranslate"><span class="pre">collection</span></code> metadata</p></li>
+<li><p>Automatically use Fraktur script if detected with a confidence greater than
+<code class="docutils literal notranslate"><span class="pre">0.7</span></code></p></li>
+<li><p>Switch to archive-hocr-tools 1.1.3</p></li>
+</ul>
+</section>
+<section id="tesseract-module-0-0-11">
+<h3>Tesseract module 0.0.11<a class="headerlink" href="#tesseract-module-0-0-11" title="Link to this heading">#</a></h3>
+<p>Date: 2021-01-26</p>
+<p>Changes:</p>
+<ul class="simple">
+<li><p>Metadata is now also written to per-file metadata (_files.xml)</p></li>
+<li><p>Move to python-derivermodule 1.0.0</p></li>
+</ul>
+</section>
+<section id="tesseract-module-0-0-10">
+<h3>Tesseract module 0.0.10<a class="headerlink" href="#tesseract-module-0-0-10" title="Link to this heading">#</a></h3>
+<p>Date: 2020-12-18</p>
+<p>Changes:</p>
+<ul class="simple">
+<li><p>Various language mapping additions</p></li>
+<li><p>More clear error messages when scandata doesn’t match,</p></li>
+<li><p>Bugfix for backslashes being rewritten to forward slashes in Leptonica, which
+were reported and fixed prompty:
+<a class="github reference external" href="https://github.com/DanBloomberg/leptonica/issues/558">DanBloomberg/leptonica#558</a></p></li>
+</ul>
+</section>
+<section id="tesseract-module-0-0-9">
+<h3>Tesseract module 0.0.9<a class="headerlink" href="#tesseract-module-0-0-9" title="Link to this heading">#</a></h3>
+<p>Date: 2020-12-08</p>
+<p>Changes:</p>
+<ul class="simple">
+<li><p>Additional language mappings, supporting more exotic language codes, and some
+different spellings of language codes. (Based on an updated list from
+Tesseract, some languages from the old module, and some others)</p></li>
+<li><p>Module will now process items with invalid or unsupported language codes,
+where possible. The autonomous mode will be turned on in these cases, and the
+metadata will reflect the invalid or unsupported languages in
+ocr_invalid_language and ocr_unsupported_language. If the script cannot be
+detected, the module will enter the “cannot ocr path”</p></li>
+<li><p>The “cannot ocr path” will not perform (further) OCR on the item. The ocr
+metadata will contain “language not currently OCRable” (the same as the
+old module), and the hOCR file will contain empty pages and a hint
+in a &lt;meta&gt; field that OCR has not been run.</p></li>
+<li><p>Items that have “handwritten” in the language, or None (literal string) in the
+language field will not be OCR’d via the “cannot ocr path”.  bugfix:
+hocr-combine-stream did not honour the ocr-system and ocr-capabilities &lt;meta&gt;
+keywords. This has now been fixed, but is still unfortunate.</p></li>
+</ul>
+</section>
+<section id="tesseract-module-0-0-8">
+<h3>Tesseract module 0.0.8<a class="headerlink" href="#tesseract-module-0-0-8" title="Link to this heading">#</a></h3>
+<p>Date: 2020-12-01</p>
+<p>Changes:</p>
+<ul class="simple">
+<li><p>Introduces the <a class="reference internal" href="#autonomous-mode">Autonomous mode</a>.</p></li>
+<li><p>Support more languages: kur and tgl are not actually in Tesseract; replace
+them with kmr (not an exact replacement, but better than nothing for “Kurdish”
+kmr is Latin, kur used to be Arabic but is not available currently). tgl is
+Tagalog which was renamed to fil (Filipino).</p></li>
+<li><p>Fixup invalid metadata in items
+(not caused by us, but we can fix it, discussed with Hank)</p></li>
+<li><p>Add Fraktur for all languages that we know have used Fraktur in the past
+(taken from Wikipedia)</p></li>
+<li><p><a class="reference internal" href="#ocr-detected-script">ocr_detected_script</a> and <a class="reference internal" href="#ocr-detected-script-conf">ocr_detected_script_conf</a> can now have multiple
+values (only in autonomous mode at the moment)</p></li>
+</ul>
+</section>
+<section id="tesseract-module-0-0-7">
+<h3>Tesseract module 0.0.7<a class="headerlink" href="#tesseract-module-0-0-7" title="Link to this heading">#</a></h3>
+<p>Date: 2020-11-20</p>
+<p>Changes:</p>
+<ul class="simple">
+<li><p>Support for collection default parameters (see <a class="reference internal" href="#ocr-default-parameters">ocr_default_parameters</a>)</p></li>
+<li><p>Image validation checks are loosened up as they were too strict.</p></li>
+<li><p>A division by zero has been fixed when the confidence in the script detected was 0.</p></li>
+<li><p>Ships with improved Fraktur model</p></li>
+</ul>
+</section>
+<section id="tesseract-module-0-0-6">
+<h3>Tesseract module 0.0.6<a class="headerlink" href="#tesseract-module-0-0-6" title="Link to this heading">#</a></h3>
+<p>Date: 2020-11-10</p>
+<p>Changes:</p>
+<ul class="simple">
+<li><p>Script detection confidence is now added, with normalisation based on all the collected confidence values (metadata field: ocr_script_detect_conf). This field will be useful in the upcoming autonomous mode, where the module will be able to figure out the script and potentially even the language.</p></li>
+<li><p>Task arguments support for scripting flexibility.</p></li>
+<li><p>Switched to hocr-tools package: <a class="reference external" href="https://git.archive.org/merlijn/archive-hocr-tools">https://git.archive.org/merlijn/archive-hocr-tools</a></p></li>
+<li><p>Code refactoring for the upcoming autonomous mode</p></li>
+</ul>
+</section>
+<section id="tesseract-module-0-0-5">
+<h3>Tesseract module 0.0.5<a class="headerlink" href="#tesseract-module-0-0-5" title="Link to this heading">#</a></h3>
+<p>Date: 2020-11-02</p>
+<p>Changes:</p>
+<ul class="simple">
+<li><p>Script detection by sampling, not full analysis</p></li>
+</ul>
+</section>
+<section id="tesseract-module-0-0-4">
+<h3>Tesseract module 0.0.4<a class="headerlink" href="#tesseract-module-0-0-4" title="Link to this heading">#</a></h3>
+<p>Date: 2020-10-26</p>
+<p>Changes:</p>
+<ul class="simple">
+<li><p>Streaming XML version of hOCR combination</p></li>
+</ul>
+</section>
+<section id="tesseract-module-0-0-3">
+<h3>Tesseract module 0.0.3<a class="headerlink" href="#tesseract-module-0-0-3" title="Link to this heading">#</a></h3>
+<p>Date: 2020-10-21</p>
+<p>Changes:</p>
+<ul class="simple">
+<li><p>Can read (and honour) <a class="reference internal" href="#scandata">Scandata</a>.</p></li>
+</ul>
+</section>
+</section>
+</section>
+
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="reviews.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Reviews API</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="pdf.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">PDF analysis, generation and compression at the Internet Archive</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> On this page
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction">Introduction</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#motivation">Motivation</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ocr-format">OCR format</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#basic-workflow">Basic workflow</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#hocr-files">hOCR files</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#additional-generated-content">Additional generated content</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ocr-metadata">OCR metadata</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#metadata-and-input-for-the-ocr-process">Metadata and input for the OCR process</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#language">language</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#adaptive-ocr">adaptive_ocr</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#ocr-default-parameters">ocr_default_parameters</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#scandata">Scandata</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#metadata-written-by-the-ocr-module">Metadata written by the OCR module</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#ocr">ocr</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#ocr-parameters">ocr_parameters</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#ocr-module-version">ocr_module_version</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#ocr-detected-script">ocr_detected_script</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#ocr-detected-script-conf">ocr_detected_script_conf</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#ocr-detected-lang">ocr_detected_lang</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#ocr-detected-lang-conf">ocr_detected_lang_conf</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#ocr-autonomous">ocr_autonomous</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#ocr-unsupported-language">ocr_unsupported_language</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#ocr-invalid-language">ocr_invalid_language</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#ocr-converted">ocr_converted</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#ocr-degraded">ocr_degraded</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#task-arguments">Task arguments</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#ocr-script-detect">ocr-script-detect</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#ocr-full-script-detect">ocr-full-script-detect</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#ocr-use-script-detect">ocr-use-script-detect</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#ocr-lang-detect">ocr-lang-detect</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#ocr-binarization-method">ocr-binarization-method</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#ocr-pass-dpi">ocr-pass-dpi</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">ocr-autonomous</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#ocr-page-timeout">ocr-page-timeout</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#ocr-additional-languages">ocr-additional-languages</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#ocr-two-pass">ocr-two-pass</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#searching">Searching</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#summary-of-the-ocr-module-modes-and-functionality">Summary of the OCR module modes and functionality</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#normal-operation">Normal operation</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#autonomous-mode">Autonomous mode</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#conversion-from-abbyy-xml">Conversion from Abbyy XML</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#conversion-from-text-pdf">Conversion from Text PDF</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#supported-languages">Supported languages</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#list-of-supported-languages">List of supported languages</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#code-repositories">Code repositories</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#contributing">Contributing</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#release-history">Release history</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tesseract-module-0-0-19">Tesseract module 0.0.19</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tesseract-module-0-0-18">Tesseract module 0.0.18</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tesseract-module-0-0-17">Tesseract module 0.0.17</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tesseract-module-0-0-16">Tesseract module 0.0.16</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tesseract-module-0-0-15">Tesseract module 0.0.15</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tesseract-module-0-0-14">Tesseract module 0.0.14</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tesseract-module-0-0-13">Tesseract module 0.0.13</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tesseract-module-0-0-12">Tesseract module 0.0.12</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tesseract-module-0-0-11">Tesseract module 0.0.11</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tesseract-module-0-0-10">Tesseract module 0.0.10</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tesseract-module-0-0-9">Tesseract module 0.0.9</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tesseract-module-0-0-8">Tesseract module 0.0.8</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tesseract-module-0-0-7">Tesseract module 0.0.7</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tesseract-module-0-0-6">Tesseract module 0.0.6</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tesseract-module-0-0-5">Tesseract module 0.0.5</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tesseract-module-0-0-4">Tesseract module 0.0.4</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tesseract-module-0-0-3">Tesseract module 0.0.3</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Internet Archive
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2018-2026, Internet Archive.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

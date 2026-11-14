@@ -1,0 +1,734 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="./" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" type="image/jpg" sizes="200x200" href="_static/logo.jpg">
+    <title>Internet Archive RESTful microservices &#8212; Internet Archive Developer Portal</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="_static/custom.css?v=3feec52e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="_static/documentation_options.js?v=902ff5ee"></script>
+    <script src="_static/doctools.js?v=9bcbadda"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=f281be69"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'iarest';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Internet Archive Tasks API" href="tasks.html" />
+    <link rel="prev" title="Item Engagement counting on the archive.org website." href="views.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="_static/logo.jpg" class="logo__image only-light" alt="Internet Archive Developer Portal - Home"/>
+    <script>document.write(`<img src="_static/logo.jpg" class="logo__image only-dark" alt="Internet Archive Developer Portal - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="index.html">
+                    Home
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="index-tutorials.html">Tutorials</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="tutorial-get-ia-credentials.html">Get your Internet Archive credentials</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tutorial-get-snapshot-wayback.html">See whether a website exists in the archives</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tutorial-compare-snapshot-wayback.html">Compare two versions of a website</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="index-apis.html">Tools and APIs</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="bots.html">Bots, LLMs, and Automated Access</a></li>
+<li class="toctree-l2"><a class="reference internal" href="items.html">Internet Archive Items</a></li>
+<li class="toctree-l2"><a class="reference internal" href="metadata-schema/index.html">Internet Archive Metadata</a></li>
+<li class="toctree-l2"><a class="reference internal" href="internetarchive/cli.html">Command-Line Interface</a></li>
+<li class="toctree-l2"><a class="reference internal" href="internetarchive/index.html">The Internet Archive Python Library</a></li>
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="ias3.html">ias3 Internet archive S3-like API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="metadata.html">Item Metadata API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="md-read.html">Item Metadata API: Read</a></li>
+<li class="toctree-l2"><a class="reference internal" href="md-write.html">Item Metadata API: Write</a></li>
+<li class="toctree-l2"><a class="reference internal" href="md-record.html">Item Metadata API: Record details</a></li>
+<li class="toctree-l2"><a class="reference internal" href="md-write-adv.html">Item Metadata API: Advanced Topics &amp; Extensions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="changes.html">API for discovering changes to archive.org items</a></li>
+<li class="toctree-l2"><a class="reference internal" href="views_api.html">Views data service api</a></li>
+<li class="toctree-l2"><a class="reference internal" href="views.html">Item Engagement counting on the archive.org website.</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">Internet Archive RESTful microservices</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tasks.html">Internet Archive Tasks API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="simplelists.html">Simple Lists (Relationships API)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="reviews.html">Reviews API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ocr.html">OCR at the Internet Archive with Tesseract and hOCR</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pdf.html">PDF analysis, generation and compression at the Internet Archive</a></li>
+</ul>
+</details></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/iarest.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Internet Archive RESTful microservices</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> On this page </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction">Introduction</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#service-transaction">Service transaction</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#client-request">Client request</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#server-response">Server response</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#versioning">Versioning</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#authentication">Authentication</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#compression">Compression</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#common-http-methods">Common HTTP methods</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#get">GET</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#post">POST</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#put">PUT</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#delete">DELETE</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#common-http-statuses">Common HTTP statuses</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ok">200 OK</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bad-request">400 Bad Request</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#unauthorized">401 Unauthorized</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#not-found">404 Not Found</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#method-not-allowed">405 Method Not Allowed</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#conflict">409 Conflict</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#too-many-requests">429 Too Many Requests</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#service-unavailable">503 Service Unavailable</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#custom-headers">Custom headers</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#request-headers">Request headers</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#response-headers">Response headers</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#examples">Examples</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#further-reading">Further reading</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="internet-archive-restful-microservices">
+<h1>Internet Archive RESTful microservices<a class="headerlink" href="#internet-archive-restful-microservices" title="Link to this heading">#</a></h1>
+<section id="introduction">
+<h2>Introduction<a class="headerlink" href="#introduction" title="Link to this heading">#</a></h2>
+<p>Recently, the Internet Archive has been introducing several RESTful (or REST-like) microservices with similar request and response semantics.  They’re different from legacy IA services, either because of earlier requirements not present today (such as with the <a class="reference internal" href="metadata.html"><span class="doc std std-doc">Metadata API</span></a>) or due to emulation of existing services (such as <a class="reference internal" href="ias3.html"><span class="doc std std-doc">S3</span></a>).</p>
+<p>Common traits of the newer microservices are:</p>
+<ul class="simple">
+<li><p>Stateless, representational programming interfaces to IA’s services</p></li>
+<li><p>Accept and return JSON-encoded payloads</p></li>
+<li><p><a class="reference internal" href="ias3.html"><span class="doc std std-doc">IAS3</span></a> credentials for authentication (no cookies)</p></li>
+<li><p>Utilize standard HTTP features whenever possible</p></li>
+<li><p>A standard request/response format and error reporting, meaning greater code reuse for server and client</p></li>
+</ul>
+<p>In general, our approach is coding by contract.  When given the choice of pragmatism or purity, we’ve gone with pragmatism.</p>
+<p>Examples of these newer microservices are <a class="reference internal" href="tasks.html"><span class="doc std std-doc">Task API</span></a> and <a class="reference internal" href="reviews.html"><span class="doc std std-doc">Reviews API</span></a>.  Others may appear in the future as well.</p>
+</section>
+<section id="service-transaction">
+<h2>Service transaction<a class="headerlink" href="#service-transaction" title="Link to this heading">#</a></h2>
+<section id="client-request">
+<span id="iarest-client-request"></span><h3>Client request<a class="headerlink" href="#client-request" title="Link to this heading">#</a></h3>
+<p>Each microservice’s documentation will detail which parameters need to be included as part of the URI query and which parameters should be encoded in the request payload as JSON.</p>
+<p>If transmitting a JSON payload, the request should include the header:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Content</span><span class="o">-</span><span class="n">Type</span><span class="p">:</span> <span class="n">application</span><span class="o">/</span><span class="n">json</span>
+</pre></div>
+</div>
+</section>
+<section id="server-response">
+<span id="iarest-server-response"></span><h3>Server response<a class="headerlink" href="#server-response" title="Link to this heading">#</a></h3>
+<p>The server responds to most requests with a JSON payload.  The response <code class="docutils literal notranslate"><span class="pre">Content-Type</span></code> will be <code class="docutils literal notranslate"><span class="pre">application/json</span></code>.</p>
+<p>The JSON itself is an object with the following top-level keys:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">success</span></code> (bool): Indicates if the operation succeeded or failed</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">error</span></code> (string): A human-readable error message.  Only present if <code class="docutils literal notranslate"><span class="pre">success</span></code> is <code class="docutils literal notranslate"><span class="pre">false</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">value</span></code> (mixed): A request-specific value.  May be a scalar or a complex data structure</p></li>
+</ul>
+<p>Generally, if the HTTP status is any value other than <code class="docutils literal notranslate"><span class="pre">200</span> <span class="pre">OK</span></code> the request should be considered failed.  However, it’s possible for <code class="docutils literal notranslate"><span class="pre">200</span> <span class="pre">OK</span></code> and <code class="docutils literal notranslate"><span class="pre">success:</span> <span class="pre">false</span></code>, in which case the <code class="docutils literal notranslate"><span class="pre">error</span></code> field describes the error.</p>
+<p>The client should be prepared for <code class="docutils literal notranslate"><span class="pre">value</span></code> to be present with any response, including an error.</p>
+<p>Clients should respect the HTTP status code rather than attempt to parse the <code class="docutils literal notranslate"><span class="pre">error</span></code> field.</p>
+<p>Clients should respect HTTP redirects.</p>
+</section>
+<section id="versioning">
+<span id="iarest-versioning"></span><h3>Versioning<a class="headerlink" href="#versioning" title="Link to this heading">#</a></h3>
+<p>All requests may include a <code class="docutils literal notranslate"><span class="pre">version</span></code> URI query parameter.  This parameter is optional and if not included is treated as <code class="docutils literal notranslate"><span class="pre">1</span></code> (one).</p>
+<p>If the client supplies an unsupported version number, the service will respond with a <code class="docutils literal notranslate"><span class="pre">400</span> <span class="pre">Bad</span> <span class="pre">Request</span></code>.</p>
+<p>The version number is only incremented when breaking changes are introduced to the microservice API.</p>
+<p>To preserve backwards compatibility, the service ignores unknown parameters sent by the client, both in the URI query and in the JSON payload.</p>
+<p>Likewise, the client should ignore unknown fields in the server response.</p>
+</section>
+<section id="authentication">
+<span id="iarest-authentication"></span><h3>Authentication<a class="headerlink" href="#authentication" title="Link to this heading">#</a></h3>
+<p>Some services require S3 authentication be supplied via the HTTP <code class="docutils literal notranslate"><span class="pre">Authorization</span></code> header.  Currently the only supported authentication scheme is <code class="docutils literal notranslate"><span class="pre">LOW</span></code> :</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Authorization</span><span class="p">:</span> <span class="n">LOW</span> <span class="o">&lt;</span><span class="n">s3</span><span class="o">-</span><span class="n">access</span><span class="o">&gt;</span><span class="p">:</span><span class="o">&lt;</span><span class="n">s3</span><span class="o">-</span><span class="n">secret</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+<p>If the service requires authentication and the header is not supplied or invalid S3 credentials are presented, the request will fail with an <a class="reference internal" href="#iarest-unauthorized"><span class="std std-ref">401 Unauthorized</span></a> status.</p>
+</section>
+<section id="compression">
+<h3>Compression<a class="headerlink" href="#compression" title="Link to this heading">#</a></h3>
+<p>These microservices support response compression to reduce bandwidth.</p>
+<p>Clients which support compression should include an <code class="docutils literal notranslate"><span class="pre">Accept-Encoding:</span> <span class="pre">deflate,</span> <span class="pre">gzip</span></code> header in requests.  The client should be prepared to accept compressed or uncompressed content.</p>
+<p>See <a class="reference external" href="https://tools.ietf.org/html/rfc7230#section-4.2">RFC 7230 Section 4.2</a> for more information.</p>
+</section>
+</section>
+<section id="common-http-methods">
+<h2>Common HTTP methods<a class="headerlink" href="#common-http-methods" title="Link to this heading">#</a></h2>
+<p>These services take advantage of HTTP’s descriptive methods when appropriate, such as <code class="docutils literal notranslate"><span class="pre">GET</span></code>, <code class="docutils literal notranslate"><span class="pre">POST</span></code>, <code class="docutils literal notranslate"><span class="pre">PUT</span></code>, and <code class="docutils literal notranslate"><span class="pre">DELETE</span></code>.  There are other HTTP methods, but these four are the most common.</p>
+<section id="get">
+<h3>GET<a class="headerlink" href="#get" title="Link to this heading">#</a></h3>
+<p>Used for reading from a service.  <code class="docutils literal notranslate"><span class="pre">GET</span></code> should always be idempotent.</p>
+<p><code class="docutils literal notranslate"><span class="pre">GET</span></code> <a class="reference external" href="https://tools.ietf.org/html/rfc7231#section-4.3.1">permits request payloads</a>, but generally this is avoided.  The URI query parameters are used for passing arguments.  If a query parameter used for <code class="docutils literal notranslate"><span class="pre">GET</span></code> is needed for the other methods, it will often be used as a query parameter there as well, even if a JSON payload is transmitted.  (For example, this is true for <a class="reference internal" href="#iarest-versioning"><span class="std std-ref">versioning</span></a>.)</p>
+</section>
+<section id="post">
+<h3>POST<a class="headerlink" href="#post" title="Link to this heading">#</a></h3>
+<p>Generally used for creating a new resource or appending to an existing resource.</p>
+<p>May also be used to update an existing resource if knowing when to <code class="docutils literal notranslate"><span class="pre">POST</span></code> (create) vs. <code class="docutils literal notranslate"><span class="pre">PUT</span></code> (update) is not easily determined or inconvenient.  (For more thought on this, see <a class="reference external" href="http://restcookbook.com/HTTP%20Methods/put-vs-post/">When should we use PUT and when should we use POST?</a>)</p>
+</section>
+<section id="put">
+<h3>PUT<a class="headerlink" href="#put" title="Link to this heading">#</a></h3>
+<p>Used for updating an existing resource.  See caveats in <code class="docutils literal notranslate"><span class="pre">POST</span></code> about <code class="docutils literal notranslate"><span class="pre">PUT</span></code>.</p>
+<p><code class="docutils literal notranslate"><span class="pre">PUT</span></code> is idempotent.</p>
+</section>
+<section id="delete">
+<h3>DELETE<a class="headerlink" href="#delete" title="Link to this heading">#</a></h3>
+<p>Used for removing a resource.  If the resource does not exist, it’s up to the service to determine (and document!) whether to return an error (“delete failed”) or success (“resource is now not present”).</p>
+<p>As with <code class="docutils literal notranslate"><span class="pre">GET</span></code>, request payloads are permitted but <a class="reference external" href="https://tools.ietf.org/html/rfc7231#section-4.3.5">generally avoided</a>.</p>
+</section>
+</section>
+<section id="common-http-statuses">
+<h2>Common HTTP statuses<a class="headerlink" href="#common-http-statuses" title="Link to this heading">#</a></h2>
+<p>These microservices use a set of HTTP status to indicate errors and warnings.  The client is expected to process these statuses in addition to any information in the <a class="reference internal" href="#iarest-server-response"><span class="std std-ref">response payload</span></a>.</p>
+<section id="ok">
+<h3>200 OK<a class="headerlink" href="#ok" title="Link to this heading">#</a></h3>
+<p>Indicates the transaction completed successfully.</p>
+<p><strong>It’s still possible the request did not succeed as expected.</strong>  The client should check the <code class="docutils literal notranslate"><span class="pre">success</span></code> and <code class="docutils literal notranslate"><span class="pre">error</span></code> values in the <a class="reference internal" href="#iarest-server-response"><span class="std std-ref">response payload</span></a>.  (This special-case situation should be documented by the individual service.)</p>
+</section>
+<section id="bad-request">
+<h3>400 Bad Request<a class="headerlink" href="#bad-request" title="Link to this heading">#</a></h3>
+<p>Indicates some element of the request was malformed or inappropriate.  Often means a required parameter was missing, in either the query parameters or the <a class="reference internal" href="#iarest-client-request"><span class="std std-ref">request payload</span></a>.</p>
+</section>
+<section id="unauthorized">
+<span id="iarest-unauthorized"></span><h3>401 Unauthorized<a class="headerlink" href="#unauthorized" title="Link to this heading">#</a></h3>
+<p><a class="reference external" href="https://web.archive.org/web/20190126231944/http://www.dirv.me/blog/2011/07/18/understanding-403-forbidden/index">Most</a> <a class="reference external" href="https://www.freecodecamp.org/news/http-401-error-vs-http-403-error-status-code-responses-explained/">readings</a> of the HTTP specification differentiate between <a class="reference external" href="https://tools.ietf.org/html/rfc7235#section-3.1"><code class="docutils literal notranslate"><span class="pre">401</span> <span class="pre">Unauthorized</span></code></a> as an <em>authentication</em> error and <a class="reference external" href="https://tools.ietf.org/html/rfc7231#section-6.5.3"><code class="docutils literal notranslate"><span class="pre">403</span> <span class="pre">Forbidden</span></code></a> as an <em>authorization</em> error.  (See <a class="reference external" href="http://people.duke.edu/~rob/kerberos/authvauth.html">“Authentication vs. Authorization”</a> for more information.)</p>
+<p>Due to internal limitations, IA microservices cannot return <code class="docutils literal notranslate"><span class="pre">403</span> <span class="pre">Forbidden</span></code>, as this will cause a static HTML page to be returned to the client.  <code class="docutils literal notranslate"><span class="pre">401</span> <span class="pre">Unauthorized</span></code> is used for both authentication and authorization errors.</p>
+<p>HTTP requires a <a class="reference external" href="https://tools.ietf.org/html/rfc7235#section-4.1"><code class="docutils literal notranslate"><span class="pre">WWW-Authenticate</span></code></a> header be sent with a <code class="docutils literal notranslate"><span class="pre">401</span></code> response.  We don’t do that at this time.</p>
+</section>
+<section id="not-found">
+<h3>404 Not Found<a class="headerlink" href="#not-found" title="Link to this heading">#</a></h3>
+<p>Indicates the requested resource is not present.  For example, the Reviews API will return a <code class="docutils literal notranslate"><span class="pre">404</span> <span class="pre">Not</span> <span class="pre">Found</span></code> if the client performs a <code class="docutils literal notranslate"><span class="pre">GET</span></code> on an item that does not exist <em>or</em> if the user has not submitted a review for the item.  The <code class="docutils literal notranslate"><span class="pre">error</span></code> field in the JSON payload will differentiate between the two.</p>
+</section>
+<section id="method-not-allowed">
+<h3>405 Method Not Allowed<a class="headerlink" href="#method-not-allowed" title="Link to this heading">#</a></h3>
+<p>Returned if the client invoked the microservice with a method the service does not support.</p>
+</section>
+<section id="conflict">
+<h3>409 Conflict<a class="headerlink" href="#conflict" title="Link to this heading">#</a></h3>
+<p>Returned if the requested change could not be satisfied due to the current state of the resource or another resource.  For example, the Tasks API will return a <code class="docutils literal notranslate"><span class="pre">409</span></code> if the user attempts to rename the item identifier to an identifier already in use.</p>
+</section>
+<section id="too-many-requests">
+<h3>429 Too Many Requests<a class="headerlink" href="#too-many-requests" title="Link to this heading">#</a></h3>
+<p>Used to indicate the client is being rate-limited due to an excessive number of requests over a period of time.  The client should take a breather and try again later.</p>
+<p>A <a class="reference external" href="https://tools.ietf.org/html/rfc7231#section-7.1.3"><code class="docutils literal notranslate"><span class="pre">Retry-After</span></code> header</a> <em>may</em> be included in the response.</p>
+</section>
+<section id="service-unavailable">
+<h3>503 Service Unavailable<a class="headerlink" href="#service-unavailable" title="Link to this heading">#</a></h3>
+<p>General server error.  The error may be temporary.</p>
+<p><code class="docutils literal notranslate"><span class="pre">500</span> <span class="pre">Internal</span> <span class="pre">Server</span> <span class="pre">Error</span></code> is a more appropriate response for permanent errors, but like <code class="docutils literal notranslate"><span class="pre">403</span> <span class="pre">Forbidden</span></code>, that status code is wired on our servers to return a static HTML page.</p>
+</section>
+</section>
+<section id="custom-headers">
+<h2>Custom headers<a class="headerlink" href="#custom-headers" title="Link to this heading">#</a></h2>
+<p>Some of IA’s services support custom HTTP request and response headers.</p>
+<section id="request-headers">
+<h3>Request headers<a class="headerlink" href="#request-headers" title="Link to this heading">#</a></h3>
+<p><strong>X-Archive-Simulate-Error</strong>: <em>Supported by: <a class="reference internal" href="metadata.html"><span class="doc std std-doc">Metadata API</span></a>, <a class="reference internal" href="ias3.html"><span class="doc std std-doc">S3</span></a></em></p>
+<p>Header value should be a string describing which error should be simulated by the service.  <code class="docutils literal notranslate"><span class="pre">help</span></code> may be used to return a list of errors which can be simulated.</p>
+<p><strong>X-Accept-Reduced-Priority</strong>: <em>Supported by <a class="reference internal" href="metadata.html"><span class="doc std std-doc">Metadata API</span></a>, <a class="reference internal" href="tasks.html"><span class="doc std std-doc">Tasks API</span></a></em></p>
+<p>When set to a true-ish value (e.g., <code class="docutils literal notranslate"><span class="pre">1</span></code>), a client submitting a task for execution can avoid rate limiting.  The task will be queued at a reduced priority.</p>
+<p>Clients should be prepared to receive an <code class="docutils literal notranslate"><span class="pre">HTTP</span> <span class="pre">429</span> <span class="pre">Too</span> <span class="pre">Many</span> <span class="pre">Requests</span></code> even if this header is present.</p>
+</section>
+<section id="response-headers">
+<h3>Response headers<a class="headerlink" href="#response-headers" title="Link to this heading">#</a></h3>
+<p><strong>X-Priority-Reduced</strong>: <em>Supported by <a class="reference internal" href="metadata.html"><span class="doc std std-doc">Metadata API</span></a>, <a class="reference internal" href="tasks.html"><span class="doc std std-doc">Tasks API</span></a></em></p>
+<p>If <code class="docutils literal notranslate"><span class="pre">X-Accept-Reduced-Priority:</span> <span class="pre">1</span></code> (or equivalent) was sent with the request, and the client is under rate limiting due to a high number of queued tasks, this header will be returned with an <code class="docutils literal notranslate"><span class="pre">HTTP</span> <span class="pre">200</span> <span class="pre">OK</span></code> response.  The task was queued successfully, but at a lower priority.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">X-Priority-Reduced</span></code> value is the reduced priority number (e.g., <code class="docutils literal notranslate"><span class="pre">-7</span></code> or <code class="docutils literal notranslate"><span class="pre">-9</span></code>).</p>
+</section>
+</section>
+<section id="examples">
+<h2>Examples<a class="headerlink" href="#examples" title="Link to this heading">#</a></h2>
+<p>(In these examples, the JSON payload is formatted for easy reading, and compressed data is shown uncompressed.)</p>
+<p>This Reviews API request will add or update a user’s review of item <code class="docutils literal notranslate"><span class="pre">foo</span></code>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>POST /services/reviews.php?identifier=foo&amp;version=1 HTTP/1.1
+Host: archive.org
+Authorization: LOW &lt;s3-access&gt;:&lt;s3-secret&gt;
+Content-Type: application/json
+Accept-Encoding: gzip, deflate
+
+{
+  &quot;title&quot;:&quot;A review title&quot;,
+  &quot;body&quot;:&quot;A review body&quot;,
+  &quot;stars&quot;:1
+}
+</pre></div>
+</div>
+<p>The server’s success response:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">HTTP</span><span class="o">/</span><span class="mf">1.1</span> <span class="mi">200</span> <span class="n">OK</span>
+<span class="n">Content</span><span class="o">-</span><span class="n">Type</span><span class="p">:</span> <span class="n">application</span><span class="o">/</span><span class="n">json</span>
+<span class="n">Content</span><span class="o">-</span><span class="n">Encoding</span><span class="p">:</span> <span class="n">gzip</span>
+
+<span class="p">{</span>
+  <span class="s2">&quot;success&quot;</span><span class="p">:</span><span class="n">true</span><span class="p">,</span>
+  <span class="s2">&quot;value&quot;</span><span class="p">:{</span>
+    <span class="s2">&quot;task_id&quot;</span><span class="p">:</span><span class="mi">1234</span><span class="p">,</span>
+    <span class="s2">&quot;review_updated&quot;</span><span class="p">:</span><span class="n">false</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>And the server’s response if the S3 credentials are invalid:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">HTTP</span><span class="o">/</span><span class="mf">1.1</span> <span class="mi">401</span> <span class="n">Unauthorized</span>
+<span class="n">Content</span><span class="o">-</span><span class="n">Type</span><span class="p">:</span> <span class="n">application</span><span class="o">/</span><span class="n">json</span>
+<span class="n">Content</span><span class="o">-</span><span class="n">Encoding</span><span class="p">:</span> <span class="n">gzip</span>
+
+<span class="p">{</span>
+  <span class="s2">&quot;success&quot;</span><span class="p">:</span><span class="n">false</span><span class="p">,</span>
+  <span class="s2">&quot;error&quot;</span><span class="p">:</span><span class="s2">&quot;Authentication failed&quot;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+<section id="further-reading">
+<h2>Further reading<a class="headerlink" href="#further-reading" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p><a class="reference external" href="https://en.wikipedia.org/wiki/Representational_state_transfer">Representational state transfer</a>, i.e., “REST”</p></li>
+<li><p><a class="reference external" href="http://restcookbook.com/">REST CookBook</a></p></li>
+<li><p><a class="reference external" href="https://www.kennethlange.com/what-are-restful-web-services/">What are RESTful Web Services?</a></p></li>
+</ul>
+</section>
+</section>
+
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="views.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Item Engagement counting on the archive.org website.</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="tasks.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Internet Archive Tasks API</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> On this page
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction">Introduction</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#service-transaction">Service transaction</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#client-request">Client request</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#server-response">Server response</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#versioning">Versioning</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#authentication">Authentication</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#compression">Compression</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#common-http-methods">Common HTTP methods</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#get">GET</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#post">POST</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#put">PUT</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#delete">DELETE</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#common-http-statuses">Common HTTP statuses</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ok">200 OK</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bad-request">400 Bad Request</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#unauthorized">401 Unauthorized</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#not-found">404 Not Found</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#method-not-allowed">405 Method Not Allowed</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#conflict">409 Conflict</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#too-many-requests">429 Too Many Requests</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#service-unavailable">503 Service Unavailable</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#custom-headers">Custom headers</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#request-headers">Request headers</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#response-headers">Response headers</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#examples">Examples</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#further-reading">Further reading</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Internet Archive
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2018-2026, Internet Archive.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

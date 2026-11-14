@@ -1,0 +1,754 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="./" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" type="image/jpg" sizes="200x200" href="_static/logo.jpg">
+    <title>Item Metadata API: Write &#8212; Internet Archive Developer Portal</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="_static/custom.css?v=3feec52e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="_static/documentation_options.js?v=902ff5ee"></script>
+    <script src="_static/doctools.js?v=9bcbadda"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=f281be69"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'md-write';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Item Metadata API: Record details" href="md-record.html" />
+    <link rel="prev" title="Item Metadata API: Read" href="md-read.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="_static/logo.jpg" class="logo__image only-light" alt="Internet Archive Developer Portal - Home"/>
+    <script>document.write(`<img src="_static/logo.jpg" class="logo__image only-dark" alt="Internet Archive Developer Portal - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="index.html">
+                    Home
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="index-tutorials.html">Tutorials</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="tutorial-get-ia-credentials.html">Get your Internet Archive credentials</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tutorial-get-snapshot-wayback.html">See whether a website exists in the archives</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tutorial-compare-snapshot-wayback.html">Compare two versions of a website</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="index-apis.html">Tools and APIs</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="bots.html">Bots, LLMs, and Automated Access</a></li>
+<li class="toctree-l2"><a class="reference internal" href="items.html">Internet Archive Items</a></li>
+<li class="toctree-l2"><a class="reference internal" href="metadata-schema/index.html">Internet Archive Metadata</a></li>
+<li class="toctree-l2"><a class="reference internal" href="internetarchive/cli.html">Command-Line Interface</a></li>
+<li class="toctree-l2"><a class="reference internal" href="internetarchive/index.html">The Internet Archive Python Library</a></li>
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="ias3.html">ias3 Internet archive S3-like API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="metadata.html">Item Metadata API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="md-read.html">Item Metadata API: Read</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">Item Metadata API: Write</a></li>
+<li class="toctree-l2"><a class="reference internal" href="md-record.html">Item Metadata API: Record details</a></li>
+<li class="toctree-l2"><a class="reference internal" href="md-write-adv.html">Item Metadata API: Advanced Topics &amp; Extensions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="changes.html">API for discovering changes to archive.org items</a></li>
+<li class="toctree-l2"><a class="reference internal" href="views_api.html">Views data service api</a></li>
+<li class="toctree-l2"><a class="reference internal" href="views.html">Item Engagement counting on the archive.org website.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="iarest.html">Internet Archive RESTful microservices</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tasks.html">Internet Archive Tasks API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="simplelists.html">Simple Lists (Relationships API)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="reviews.html">Reviews API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ocr.html">OCR at the Internet Archive with Tesseract and hOCR</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pdf.html">PDF analysis, generation and compression at the Internet Archive</a></li>
+</ul>
+</details></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/md-write.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Item Metadata API: Write</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> On this page </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lookahead">Lookahead</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#transaction-workflow">Transaction workflow</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#concurrency-issues">Concurrency issues</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#authentication">Authentication</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#user-json-files">User JSON files</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#targets">Targets</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#json-patch-json-pointer">JSON Patch &amp; JSON Pointer</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#rate-limits">Rate limits</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#priority">Priority</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#priority-reduction">Priority reduction</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#single-target-writes">Single target writes</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#encoding">Encoding</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example">Example</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#multi-target-writes">Multi-target writes</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Encoding</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Example</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#errors">Errors</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="item-metadata-api-write">
+<h1>Item Metadata API: Write<a class="headerlink" href="#item-metadata-api-write" title="Link to this heading">#</a></h1>
+<p><a class="reference internal" href="metadata.html"><span class="doc std std-doc">Item Metadata API</span></a> (MDAPI) Read updates an item’s metadata.</p>
+<p><em>(<strong>NOTE:</strong> In this document, JSON is pretty-printed for legibility.)</em></p>
+<p>Certain portions of an item’s metadata record may be updated by making an HTTP POST request to the same address as reading the record (<code class="docutils literal notranslate"><span class="pre">https://archive.org/metadata/{identifier}</span></code>).</p>
+<p>The caller must choose which target(s) they wish to write to.  Currently, the only writeable targets are <code class="docutils literal notranslate"><span class="pre">metadata</span></code>, <code class="docutils literal notranslate"><span class="pre">files</span></code>, user JSON, and <code class="docutils literal notranslate"><span class="pre">simplelists</span></code>.</p>
+<p>(Reviews may be written via the <a class="reference internal" href="reviews.html"><span class="doc std std-doc">Reviews API</span></a>.  Writing to SimpleLists is covered <a class="reference internal" href="simplelists.html#simplelists-modifying-relationships"><span class="std std-ref">here</span></a>.)</p>
+<p>Metadata Write does not support <a class="reference internal" href="md-read.html#md-read-partial-reads"><span class="std std-ref">partial paths</span></a>, such as <code class="docutils literal notranslate"><span class="pre">https://archive.org/metadata/xfetch/metadata/creator</span></code>.  Rather, the write would occur to the <code class="docutils literal notranslate"><span class="pre">metadata</span></code> target and the patch path would be for <code class="docutils literal notranslate"><span class="pre">/creator</span></code>.</p>
+<p>There are two forms of Metadata Write: <a class="reference internal" href="#md-write-single-target-writes"><span class="std std-ref">single-target</span></a> and <a class="reference internal" href="#md-write-multi-target-writes"><span class="std std-ref">multi-target</span></a>.  The first form is more common.</p>
+<section id="lookahead">
+<span id="md-write-lookahead"></span><h2>Lookahead<a class="headerlink" href="#lookahead" title="Link to this heading">#</a></h2>
+<p>MDAPI performs lookahead for all changes submitted via MD Write.  This means that changes submitted to an item will be reflected in MD Read’s results <em>before</em> the patch is written to disk.  Lookahead takes effect the moment a change is submitted.</p>
+<p>Note that lookahead only works if the metadata record is read with the Metadata API.  Directly viewing the on-disk data file will <em>not</em> receive the benefits of lookahead.</p>
+<p>When creating a patch for MD Write, the caller should always use MD Read rather than reading the raw file in the item.</p>
+</section>
+<section id="transaction-workflow">
+<h2>Transaction workflow<a class="headerlink" href="#transaction-workflow" title="Link to this heading">#</a></h2>
+<p>The general approach for using Metadata Write is:</p>
+<ol class="arabic simple">
+<li><p>Read the item’s current metadata record (using <a class="reference internal" href="md-read.html"><span class="doc std std-doc">Metadata Read</span></a>)</p></li>
+<li><p>Alter the record (either the record’s <code class="docutils literal notranslate"><span class="pre">metadata</span></code>, <code class="docutils literal notranslate"><span class="pre">files</span></code>, or a user JSON field; other fields are read-only)</p></li>
+<li><p>Generate a JSON Patch (using a diff tool, although it can be hand-generated)</p></li>
+<li><p>Perform a Metadata Write</p></li>
+</ol>
+<p>The caller should <em>always</em> read the item state via MD Read, and not read the files directly from the data node via HTTP.</p>
+<section id="concurrency-issues">
+<span id="md-write-concurrency-issues"></span><h3>Concurrency issues<a class="headerlink" href="#concurrency-issues" title="Link to this heading">#</a></h3>
+<p>It’s possible for multiple writers to submit changes to the same item concurrently.  MDAPI makes certain provisions to guard against race conditions, but clients are expected to use safeguards as well.</p>
+<p>This issue is discussed further in <a class="reference internal" href="md-write-adv.html"><span class="doc std std-doc">Metadata API: Advanced Topics &amp; Extensions</span></a>.</p>
+</section>
+<section id="authentication">
+<h3>Authentication<a class="headerlink" href="#authentication" title="Link to this heading">#</a></h3>
+<p>In addition to the authentication methods detailed <a class="reference internal" href="metadata.html#metadata-authentication"><span class="std std-ref">elsewhere</span></a>, Metadata Write also permits the user’s S3 access/secret keys to be included as URL-encoded form data in the POST payload.  This is explained below.</p>
+</section>
+<section id="user-json-files">
+<h3>User JSON files<a class="headerlink" href="#user-json-files" title="Link to this heading">#</a></h3>
+<p>As mentioned earlier, MD Write may be used to create and update JSON files in the item.  <strong>If you plan on updating a user JSON file with MD Write, do NOT upload the file to or delete the file from the item using S3.</strong>  This interferes with MDAPI and the way it works with the JSON file.</p>
+</section>
+</section>
+<section id="targets">
+<h2>Targets<a class="headerlink" href="#targets" title="Link to this heading">#</a></h2>
+<p>Other than <code class="docutils literal notranslate"><span class="pre">simplelists</span></code> and <code class="docutils literal notranslate"><span class="pre">reviews</span></code>, the three supported targets are:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">metadata</span></code>: To write to the <code class="docutils literal notranslate"><span class="pre">metadata</span></code> field</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">files/{filename}</span></code>: To write metadata for a specific file in the item</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">{identifier}</span></code> or <code class="docutils literal notranslate"><span class="pre">{name}</span></code>: To write custom user JSON</p></li>
+</ul>
+<p>Note that the <code class="docutils literal notranslate"><span class="pre">files/{filename}</span></code> form does <strong>not</strong> write to the target file itself.  Rather, the metadata is written to the item’s <code class="docutils literal notranslate"><span class="pre">_files.xml</span></code> file, which holds sundry metadata about each file.</p>
+<p>Also note that a partial Metadata Read of a file uses the file’s <em>index</em> in the path (https://archive.org/metadata/xfetch/files/12), while Metadata Write uses the file’s <em>name</em> in the path (<code class="docutils literal notranslate"><span class="pre">files/xfetch.pdf</span></code>).</p>
+<p>Custom user JSON will result in a file being written to the item: <code class="docutils literal notranslate"><span class="pre">{identifier}.json</span></code> for the first form, and <code class="docutils literal notranslate"><span class="pre">{identifier}_{name}.json</span></code> for the second.</p>
+</section>
+<section id="json-patch-json-pointer">
+<h2>JSON Patch &amp; JSON Pointer<a class="headerlink" href="#json-patch-json-pointer" title="Link to this heading">#</a></h2>
+<p>MDAPI uses <a class="reference external" href="https://tools.ietf.org/html/rfc6902">JSON Patch</a> for specifying metadata changes.  The patches can be generated by hand, or by using a JSON diff library.</p>
+<p>One important note about the patches regards the JSON path (which is a <a class="reference external" href="https://tools.ietf.org/html/rfc6901">JSON pointer</a>).  The patch <code class="docutils literal notranslate"><span class="pre">path</span></code> should <em>not</em> include the target being modified.</p>
+<p>For example, if modifying the <code class="docutils literal notranslate"><span class="pre">creator</span></code>field in <code class="docutils literal notranslate"><span class="pre">metadata</span></code>, don’t include <code class="docutils literal notranslate"><span class="pre">/metadata/</span></code> in the JSON path:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+  <span class="s2">&quot;op&quot;</span><span class="p">:</span> <span class="s2">&quot;replace&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;path: &quot;</span><span class="o">/</span><span class="n">creator</span><span class="s2">&quot;,</span>
+  <span class="s2">&quot;value&quot;</span><span class="p">:</span> <span class="s2">&quot;Stimpy&quot;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Also note that a JSON Patch may include multiple operations as a JSON array:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span>
+  <span class="p">{</span>
+    <span class="s2">&quot;op&quot;</span><span class="p">:</span> <span class="s2">&quot;replace&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;path: &quot;</span><span class="o">/</span><span class="n">creator</span><span class="s2">&quot;,</span>
+    <span class="s2">&quot;value&quot;</span><span class="p">:</span> <span class="s2">&quot;Stimpy&quot;</span>
+  <span class="p">},</span>
+  <span class="p">{</span>
+    <span class="s2">&quot;op&quot;</span><span class="p">:</span> <span class="s2">&quot;remove&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;path&quot;</span><span class="p">:</span> <span class="s2">&quot;/keywords&quot;</span>
+  <span class="p">}</span>
+<span class="p">]</span>
+</pre></div>
+</div>
+</section>
+<section id="rate-limits">
+<h2>Rate limits<a class="headerlink" href="#rate-limits" title="Link to this heading">#</a></h2>
+<p>Users are limited in the number of tasks they may submit over a period of time.  Clients should be prepared to receive a <code class="docutils literal notranslate"><span class="pre">429</span> <span class="pre">Too</span> <span class="pre">Many</span> <span class="pre">Requests</span></code> HTTP response indicating the user’s threshold has been reached.  The client should either report this error or sleep for a period of time before retrying.</p>
+<p>The server may return a <code class="docutils literal notranslate"><span class="pre">Retry-After</span></code> header with the response.  The client may use this value as a suggestion for the amount of time to pause.</p>
+</section>
+<section id="priority">
+<span id="md-write-priority"></span><h2>Priority<a class="headerlink" href="#priority" title="Link to this heading">#</a></h2>
+<p>All tasks have a priority number.  The higher the number, the higher the execution order.  Task priorities generally run in the range from -10 to +10.</p>
+<p><strong>High priority does not mean a task will run sooner.</strong>  There are several criteria used to determine when a task executes, including machine availability, workload, total number of queued tasks, and more.  Also, tasks for any particular item are serialized (only one may execute at a time).  Tasks are executed in the order they are submitted, regardless of their priority.</p>
+<p>Additionally, because of <a class="reference internal" href="#md-write-lookahead"><span class="std std-ref">lookahead</span></a>, when the MD Write task executes is somewhat moot.  As soon as the task is scheduled, it will be reflected in the MD Read record.</p>
+<section id="priority-reduction">
+<span id="md-write-priority-reduction"></span><h3>Priority reduction<a class="headerlink" href="#priority-reduction" title="Link to this heading">#</a></h3>
+<p>Clients wishing to avoid rate limiting may opt to schedule their change task at a reduced priority.  When the <code class="docutils literal notranslate"><span class="pre">X-Accept-Reduced-Priority</span></code> request header is set to a true-ish value (e.g., <code class="docutils literal notranslate"><span class="pre">1</span></code>), a client submitting a task for execution can avoid rate limiting.  If the user is being rate limited, the task will be queued at a reduced priority rather than returning a <code class="docutils literal notranslate"><span class="pre">429</span> <span class="pre">Too</span> <span class="pre">Many</span> <span class="pre">Requests</span></code>.</p>
+<p>If priority reduction occurs, the <code class="docutils literal notranslate"><span class="pre">X-Priority-Reduced</span></code> header is returned with the <code class="docutils literal notranslate"><span class="pre">200</span> <span class="pre">OK</span></code> response.  The header value is the task’s reduced priority number (e.g., <code class="docutils literal notranslate"><span class="pre">-7</span></code> or <code class="docutils literal notranslate"><span class="pre">-9</span></code>).</p>
+<p>Clients should be prepared to receive a <code class="docutils literal notranslate"><span class="pre">429</span> <span class="pre">Too</span> <span class="pre">Many</span> <span class="pre">Requests</span></code> even if the <code class="docutils literal notranslate"><span class="pre">X-Accept-Reduced-Priority</span></code> header is sent.</p>
+</section>
+</section>
+<section id="single-target-writes">
+<span id="md-write-single-target-writes"></span><h2>Single target writes<a class="headerlink" href="#single-target-writes" title="Link to this heading">#</a></h2>
+<p>To write to a single target, perform an HTTP POST to the <code class="docutils literal notranslate"><span class="pre">/metadata/{identifier}</span></code> endpoint with a <a class="reference external" href="https://datatracker.ietf.org/doc/html/rfc7578"><strong>URL-encoded form data payload</strong></a> of the following fields:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">-target</span></code>: The patch target (<code class="docutils literal notranslate"><span class="pre">metadata</span></code>, <code class="docutils literal notranslate"><span class="pre">files/{filename}</span></code>, or user JSON identifier)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">-patch</span></code>: The JSON Patch (JSON-encoded)</p></li>
+</ul>
+<p>As mentioned above, the form data may also include these fields rather than use the <code class="docutils literal notranslate"><span class="pre">Authorization:</span></code> header:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">access</span></code>: The user’s S3 access key</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">secret</span></code>: The user’s S3 secret key</p></li>
+</ul>
+<p>The form data may also include an optional <code class="docutils literal notranslate"><span class="pre">priority</span></code> field, an integer indicating the task’s execution priority.  The default <code class="docutils literal notranslate"><span class="pre">priority</span></code> is <code class="docutils literal notranslate"><span class="pre">0</span></code> (zero).  (See <a class="reference internal" href="#md-write-priority"><span class="std std-ref">Priority</span></a> for more information.)</p>
+<p>A success response is <a class="reference external" href="https://datatracker.ietf.org/doc/html/rfc8259">JSON-encoded</a> with three fields:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">success</span></code> (true)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">task_id</span></code> (int): The queued task identifier for the change</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">log</span></code>: A URL to the log file that will be written to when the change is executed</p></li>
+</ul>
+<p>An error response will have two fields:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">success</span></code> (false)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">error</span></code> (string)</p></li>
+</ul>
+<section id="encoding">
+<h3>Encoding<a class="headerlink" href="#encoding" title="Link to this heading">#</a></h3>
+<p>One important point that can be confusing is the use of multiple encodings.</p>
+<p>The entire payload is URL-encoded form data (“percent encoding”).  The <code class="docutils literal notranslate"><span class="pre">-patch</span></code> field is a JSON Patch, meaning it is itself JSON-encoded.  This means the JSON Patch is double-encoded: First as JSON, and then percent encoded.</p>
+<p>In pseudo-code, assembling the payload looks something like this:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>  <span class="n">patch</span> <span class="o">=</span> <span class="n">json_diff</span><span class="p">(</span><span class="n">current_metadata</span><span class="p">,</span> <span class="n">updated_metadata</span><span class="p">);</span>
+  <span class="n">json_patch</span> <span class="o">=</span> <span class="n">json_encode</span><span class="p">(</span><span class="n">patch</span><span class="p">);</span> <span class="o">//</span> <span class="k">if</span> <span class="n">json_diff</span><span class="p">()</span> <span class="n">doesn</span><span class="s1">&#39;t return a JSON-encoded patch</span>
+  <span class="n">payload</span> <span class="o">=</span> <span class="n">percent_encode</span><span class="p">([</span> <span class="s2">&quot;-target&quot;</span> <span class="o">=&gt;</span> <span class="s2">&quot;metadata&quot;</span><span class="p">,</span> <span class="s2">&quot;-patch&quot;</span> <span class="o">=&gt;</span> <span class="n">json_patch</span> <span class="p">]);</span>
+</pre></div>
+</div>
+</section>
+<section id="example">
+<h3>Example<a class="headerlink" href="#example" title="Link to this heading">#</a></h3>
+<p>For writing to target <code class="docutils literal notranslate"><span class="pre">metadata</span></code>, a patch to remove the <code class="docutils literal notranslate"><span class="pre">creator</span></code> field would look like this:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+  <span class="s2">&quot;op&quot;</span><span class="p">:</span> <span class="s2">&quot;remove&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;path&quot;</span><span class="p">:</span> <span class="s2">&quot;/creator&quot;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>The write request:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">POST</span> <span class="o">/</span><span class="n">metadata</span><span class="o">/</span><span class="n">example_item</span> <span class="n">HTTP</span><span class="o">/</span><span class="mf">1.1</span>
+<span class="n">Host</span><span class="p">:</span> <span class="n">archive</span><span class="o">.</span><span class="n">org</span>
+<span class="n">Authorization</span><span class="p">:</span> <span class="n">LOW</span> <span class="o">&lt;</span><span class="n">s3</span><span class="o">-</span><span class="n">access</span><span class="o">&gt;</span><span class="p">:</span><span class="o">&lt;</span><span class="n">s3</span><span class="o">-</span><span class="n">secret</span><span class="o">&gt;</span>
+<span class="n">Content</span><span class="o">-</span><span class="n">Length</span><span class="p">:</span> <span class="mi">85</span>
+<span class="n">Content</span><span class="o">-</span><span class="n">Type</span><span class="p">:</span> <span class="n">application</span><span class="o">/</span><span class="n">x</span><span class="o">-</span><span class="n">www</span><span class="o">-</span><span class="n">form</span><span class="o">-</span><span class="n">urlencoded</span>
+
+<span class="o">-</span><span class="n">target</span><span class="o">=</span><span class="n">metadata</span><span class="o">&amp;-</span><span class="n">patch</span><span class="o">=%</span><span class="mi">7</span><span class="n">B</span><span class="o">%</span><span class="mi">22</span><span class="n">op</span><span class="o">%</span><span class="mi">22</span><span class="o">%</span><span class="mi">3</span><span class="n">A</span><span class="o">%</span><span class="mi">22</span><span class="n">remove</span><span class="o">%</span><span class="mi">22</span><span class="o">%</span><span class="mi">2</span><span class="n">C</span><span class="o">%</span><span class="mi">22</span><span class="n">path</span><span class="o">%</span><span class="mi">22</span><span class="o">%</span><span class="mi">3</span><span class="n">A</span><span class="o">%</span><span class="mi">22</span><span class="o">%</span><span class="mi">2</span><span class="n">Fcreator</span><span class="o">%</span><span class="mi">22</span><span class="o">%</span><span class="mi">7</span><span class="n">D</span>
+</pre></div>
+</div>
+<p>A successful response:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">HTTP</span><span class="o">/</span><span class="mf">1.1</span> <span class="mi">200</span> <span class="n">OK</span>
+<span class="n">Content</span><span class="o">-</span><span class="n">Type</span><span class="p">:</span> <span class="n">application</span><span class="o">/</span><span class="n">json</span>
+<span class="n">Transfer</span><span class="o">-</span><span class="n">Encoding</span><span class="p">:</span> <span class="n">chunked</span>
+
+<span class="p">{</span>
+  <span class="s2">&quot;success&quot;</span><span class="p">:</span><span class="n">true</span><span class="p">,</span>
+  <span class="s2">&quot;task_id&quot;</span><span class="p">:</span><span class="mi">2391928033</span><span class="p">,</span>
+  <span class="s2">&quot;log&quot;</span><span class="p">:</span><span class="s2">&quot;https://catalogd.archive.org/log/2391928033&quot;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>An error response:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">HTTP</span><span class="o">/</span><span class="mf">1.1</span> <span class="mi">400</span> <span class="n">Bad</span> <span class="n">Request</span>
+<span class="n">Content</span><span class="o">-</span><span class="n">Type</span><span class="p">:</span> <span class="n">application</span><span class="o">/</span><span class="n">json</span>
+<span class="n">Transfer</span><span class="o">-</span><span class="n">Encoding</span><span class="p">:</span> <span class="n">chunked</span>
+
+<span class="p">{</span>
+  <span class="s2">&quot;success&quot;</span><span class="p">:</span><span class="n">false</span><span class="p">,</span>
+  <span class="s2">&quot;error&quot;</span><span class="p">:</span><span class="s2">&quot;No changes made to _meta.xml&quot;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="multi-target-writes">
+<span id="md-write-multi-target-writes"></span><h2>Multi-target writes<a class="headerlink" href="#multi-target-writes" title="Link to this heading">#</a></h2>
+<p>Multiple targets may be written in a single request.  While this can be achieved by several sequential single-target requests, multi-target writes have the advantage of being atomic.</p>
+<p>To write to multiple targets, perform an HTTP POST to the endpoint with a URL-encoded form data payload of the following field:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">-changes</span></code>: A JSON-encoded array of targets and patches (described below)</p></li>
+</ul>
+<p>As with single-target, the form data may also include an optional <code class="docutils literal notranslate"><span class="pre">priority</span></code> field.  (See <a class="reference internal" href="#md-write-priority"><span class="std std-ref">Priority</span></a> for more information.)</p>
+<p>The success and error responses are identical to the responses described in <a class="reference internal" href="#md-write-single-target-writes"><span class="std std-ref">“Single target”</span></a>.</p>
+<p>Multi-target writes accept S3 keys as POST data, also described above.</p>
+<section id="id1">
+<h3>Encoding<a class="headerlink" href="#id1" title="Link to this heading">#</a></h3>
+<p>The <code class="docutils literal notranslate"><span class="pre">-changes</span></code> list is a JSON-encoded array of objects (dictionaries).  Each JSON object contains two keys: <code class="docutils literal notranslate"><span class="pre">target</span></code> and <code class="docutils literal notranslate"><span class="pre">patch</span></code>.  Thus, multiple targets may be specified, each with its own patch.  The same target may be included multiple times.</p>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span>
+  <span class="p">{</span>
+    <span class="s2">&quot;target&quot;</span><span class="p">:</span> <span class="s2">&quot;metadata&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;patch&quot;</span><span class="p">:</span> <span class="p">{</span>
+      <span class="s2">&quot;op&quot;</span><span class="p">:</span> <span class="s2">&quot;replace&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;path&quot;</span><span class="p">:</span> <span class="s2">&quot;/creator&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;value&quot;</span><span class="p">:</span> <span class="s2">&quot;Ren&quot;</span>
+    <span class="p">}</span>
+  <span class="p">},</span>
+  <span class="p">{</span>
+    <span class="s2">&quot;target&quot;</span><span class="p">:</span> <span class="s2">&quot;files/image/01.jpg&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;patch&quot;</span><span class="p">:</span> <span class="p">[</span>
+      <span class="p">{</span>
+        <span class="s2">&quot;op&quot;</span><span class="p">:</span> <span class="s2">&quot;add&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;path&quot;</span><span class="p">:</span> <span class="s2">&quot;/subject&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;value&quot;</span><span class="p">:</span> <span class="s2">&quot;Log&quot;</span>
+      <span class="p">},</span>
+      <span class="p">{</span>
+        <span class="s2">&quot;op&quot;</span><span class="p">:</span> <span class="s2">&quot;remove&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;path&quot;</span><span class="p">:</span> <span class="s2">&quot;/keyword&quot;</span>
+      <span class="p">}</span>
+    <span class="p">]</span>
+  <span class="p">}</span>
+<span class="p">]</span>
+</pre></div>
+</div>
+<p>The second element in the changes list, for <code class="docutils literal notranslate"><span class="pre">files/image/01.jpg</span></code>, is an example of <code class="docutils literal notranslate"><span class="pre">patch</span></code> holding multiple operations.</p>
+<p>As with single-target writes, the entire <code class="docutils literal notranslate"><span class="pre">-changes</span></code> list is URL-encoded (meaning the changes list is double-encoded).</p>
+</section>
+<section id="id2">
+<h3>Example<a class="headerlink" href="#id2" title="Link to this heading">#</a></h3>
+<p>Using the prior changes list example, the HTTP POST would look like this:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">POST</span> <span class="o">/</span><span class="n">metadata</span><span class="o">/</span><span class="n">example_item</span> <span class="n">HTTP</span><span class="o">/</span><span class="mf">1.1</span>
+<span class="n">Host</span><span class="p">:</span> <span class="n">archive</span><span class="o">.</span><span class="n">org</span>
+<span class="n">Authorization</span><span class="p">:</span> <span class="n">LOW</span> <span class="o">&lt;</span><span class="n">s3</span><span class="o">-</span><span class="n">access</span><span class="o">&gt;</span><span class="p">:</span><span class="o">&lt;</span><span class="n">s3</span><span class="o">-</span><span class="n">secret</span><span class="o">&gt;</span>
+<span class="n">Content</span><span class="o">-</span><span class="n">Length</span><span class="p">:</span> <span class="mi">378</span>
+<span class="n">Content</span><span class="o">-</span><span class="n">Type</span><span class="p">:</span> <span class="n">application</span><span class="o">/</span><span class="n">x</span><span class="o">-</span><span class="n">www</span><span class="o">-</span><span class="n">form</span><span class="o">-</span><span class="n">urlencoded</span>
+
+<span class="o">-</span><span class="n">changes</span><span class="o">=%</span><span class="mi">5</span><span class="n">B</span><span class="o">%</span><span class="mi">7</span><span class="n">B</span><span class="o">%</span><span class="mi">22</span><span class="n">target</span><span class="o">%</span><span class="mi">22</span><span class="o">%</span><span class="mi">3</span><span class="n">A</span><span class="o">%</span><span class="mi">22</span><span class="n">metadata</span><span class="o">%</span><span class="mi">22</span><span class="o">%</span><span class="mi">2</span><span class="n">C</span><span class="o">%</span><span class="mi">22</span><span class="n">patch</span><span class="o">%</span><span class="mi">22</span><span class="o">%</span><span class="mi">3</span><span class="n">A</span><span class="o">%</span><span class="mi">7</span><span class="n">B</span><span class="o">%</span><span class="mi">22</span><span class="n">op</span><span class="o">%</span><span class="mi">22</span><span class="o">%</span><span class="mi">3</span><span class="n">A</span><span class="o">%</span><span class="mi">22</span><span class="n">replace</span><span class="o">%</span><span class="mi">22</span><span class="o">%</span><span class="mi">2</span><span class="n">C</span><span class="o">%</span><span class="mi">22</span><span class="n">path</span><span class="o">%</span><span class="mi">22</span><span class="o">%</span><span class="mi">3</span><span class="n">A</span><span class="o">%</span><span class="mi">22</span><span class="o">%</span><span class="mi">2</span><span class="n">Fcreator</span><span class="o">%</span><span class="mi">22</span><span class="o">%</span><span class="mi">2</span><span class="n">C</span><span class="o">%</span><span class="mi">22</span><span class="n">value</span><span class="o">%</span><span class="mi">22</span><span class="o">%</span><span class="mi">3</span><span class="n">A</span><span class="o">%</span><span class="mi">22</span><span class="n">Ren</span><span class="o">%</span><span class="mi">22</span><span class="o">%</span><span class="mi">7</span><span class="n">D</span><span class="o">%</span><span class="mi">7</span><span class="n">D</span><span class="o">%</span><span class="mi">2</span><span class="n">C</span><span class="o">%</span><span class="mi">7</span><span class="n">B</span><span class="o">%</span><span class="mi">22</span><span class="n">target</span><span class="o">%</span><span class="mi">22</span><span class="o">%</span><span class="mi">3</span><span class="n">A</span><span class="o">%</span><span class="mi">22</span><span class="n">files</span><span class="o">%</span><span class="mi">2</span><span class="n">Fimage</span><span class="o">%</span><span class="mi">2</span><span class="n">F01</span><span class="o">.</span><span class="n">jpg</span><span class="o">%</span><span class="mi">22</span><span class="o">%</span><span class="mi">2</span><span class="n">C</span><span class="o">%</span><span class="mi">22</span><span class="n">patch</span><span class="o">%</span><span class="mi">22</span><span class="o">%</span><span class="mi">3</span><span class="n">A</span><span class="o">%</span><span class="mi">5</span><span class="n">B</span><span class="o">%</span><span class="mi">7</span><span class="n">B</span><span class="o">%</span><span class="mi">22</span><span class="n">op</span><span class="o">%</span><span class="mi">22</span><span class="o">%</span><span class="mi">3</span><span class="n">A</span><span class="o">%</span><span class="mi">22</span><span class="n">add</span><span class="o">%</span><span class="mi">22</span><span class="o">%</span><span class="mi">2</span><span class="n">C</span><span class="o">%</span><span class="mi">22</span><span class="n">path</span><span class="o">%</span><span class="mi">22</span><span class="o">%</span><span class="mi">3</span><span class="n">A</span><span class="o">%</span><span class="mi">22</span><span class="o">%</span><span class="mi">2</span><span class="n">Fsubject</span><span class="o">%</span><span class="mi">22</span><span class="o">%</span><span class="mi">2</span><span class="n">C</span><span class="o">%</span><span class="mi">22</span><span class="n">value</span><span class="o">%</span><span class="mi">22</span><span class="o">%</span><span class="mi">3</span><span class="n">A</span><span class="o">%</span><span class="mi">22</span><span class="n">Log</span><span class="o">%</span><span class="mi">22</span><span class="o">%</span><span class="mi">7</span><span class="n">D</span><span class="o">%</span><span class="mi">2</span><span class="n">C</span><span class="o">%</span><span class="mi">7</span><span class="n">B</span><span class="o">%</span><span class="mi">22</span><span class="n">op</span><span class="o">%</span><span class="mi">22</span><span class="o">%</span><span class="mi">3</span><span class="n">A</span><span class="o">%</span><span class="mi">22</span><span class="n">remove</span><span class="o">%</span><span class="mi">22</span><span class="o">%</span><span class="mi">2</span><span class="n">C</span><span class="o">%</span><span class="mi">22</span><span class="n">path</span><span class="o">%</span><span class="mi">22</span><span class="o">%</span><span class="mi">3</span><span class="n">A</span><span class="o">%</span><span class="mi">22</span><span class="o">%</span><span class="mi">2</span><span class="n">Fkeyword</span><span class="o">%</span><span class="mi">22</span><span class="o">%</span><span class="mi">7</span><span class="n">D</span><span class="o">%</span><span class="mi">5</span><span class="n">D</span><span class="o">%</span><span class="mi">7</span><span class="n">D</span><span class="o">%</span><span class="mi">5</span><span class="n">D</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="errors">
+<h2>Errors<a class="headerlink" href="#errors" title="Link to this heading">#</a></h2>
+<p>If the patch does not make any changes to the item, it will be rejected with an error message stating “no changes made.”  Other errors have different messages.</p>
+</section>
+</section>
+
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="md-read.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Item Metadata API: Read</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="md-record.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Item Metadata API: Record details</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> On this page
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lookahead">Lookahead</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#transaction-workflow">Transaction workflow</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#concurrency-issues">Concurrency issues</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#authentication">Authentication</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#user-json-files">User JSON files</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#targets">Targets</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#json-patch-json-pointer">JSON Patch &amp; JSON Pointer</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#rate-limits">Rate limits</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#priority">Priority</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#priority-reduction">Priority reduction</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#single-target-writes">Single target writes</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#encoding">Encoding</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example">Example</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#multi-target-writes">Multi-target writes</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Encoding</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Example</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#errors">Errors</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Internet Archive
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2018-2026, Internet Archive.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

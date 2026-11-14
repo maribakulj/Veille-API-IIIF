@@ -1,0 +1,790 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="./" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" type="image/jpg" sizes="200x200" href="_static/logo.jpg">
+    <title>Tools and APIs &#8212; Internet Archive Developer Portal</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="_static/custom.css?v=3feec52e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="_static/documentation_options.js?v=902ff5ee"></script>
+    <script src="_static/doctools.js?v=9bcbadda"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=f281be69"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'index-apis';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Bots, LLMs, and Automated Access" href="bots.html" />
+    <link rel="prev" title="Compare two versions of a website" href="tutorial-compare-snapshot-wayback.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="_static/logo.jpg" class="logo__image only-light" alt="Internet Archive Developer Portal - Home"/>
+    <script>document.write(`<img src="_static/logo.jpg" class="logo__image only-dark" alt="Internet Archive Developer Portal - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="index.html">
+                    Home
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="index-tutorials.html">Tutorials</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="tutorial-get-ia-credentials.html">Get your Internet Archive credentials</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tutorial-get-snapshot-wayback.html">See whether a website exists in the archives</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tutorial-compare-snapshot-wayback.html">Compare two versions of a website</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 current active has-children"><a class="current reference internal" href="#">Tools and APIs</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="bots.html">Bots, LLMs, and Automated Access</a></li>
+<li class="toctree-l2"><a class="reference internal" href="items.html">Internet Archive Items</a></li>
+<li class="toctree-l2"><a class="reference internal" href="metadata-schema/index.html">Internet Archive Metadata</a></li>
+<li class="toctree-l2"><a class="reference internal" href="internetarchive/cli.html">Command-Line Interface</a></li>
+<li class="toctree-l2"><a class="reference internal" href="internetarchive/index.html">The Internet Archive Python Library</a></li>
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="ias3.html">ias3 Internet archive S3-like API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="metadata.html">Item Metadata API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="md-read.html">Item Metadata API: Read</a></li>
+<li class="toctree-l2"><a class="reference internal" href="md-write.html">Item Metadata API: Write</a></li>
+<li class="toctree-l2"><a class="reference internal" href="md-record.html">Item Metadata API: Record details</a></li>
+<li class="toctree-l2"><a class="reference internal" href="md-write-adv.html">Item Metadata API: Advanced Topics &amp; Extensions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="changes.html">API for discovering changes to archive.org items</a></li>
+<li class="toctree-l2"><a class="reference internal" href="views_api.html">Views data service api</a></li>
+<li class="toctree-l2"><a class="reference internal" href="views.html">Item Engagement counting on the archive.org website.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="iarest.html">Internet Archive RESTful microservices</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tasks.html">Internet Archive Tasks API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="simplelists.html">Simple Lists (Relationships API)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="reviews.html">Reviews API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ocr.html">OCR at the Internet Archive with Tesseract and hOCR</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pdf.html">PDF analysis, generation and compression at the Internet Archive</a></li>
+</ul>
+</details></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/index-apis.rst" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.rst</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Tools and APIs</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="tools-and-apis">
+<h1>Tools and APIs<a class="headerlink" href="#tools-and-apis" title="Link to this heading">#</a></h1>
+<p>Here’s a list of the Internet Archive APIs, tools, and services.</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<colgroup>
+<col style="width: 15.0%" />
+<col style="width: 30.0%" />
+<col style="width: 15.0%" />
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Name</p></th>
+<th class="head"><p>Description</p></th>
+<th class="head"><p>Available as</p></th>
+<th class="head"><p>Interactive documentation</p></th>
+<th class="head"><p>Tutorials</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference internal" href="bots.html"><span class="doc">Bots, LLMs, and Automated Access</span></a></p></td>
+<td><p>Best practices for bots, AI agents, LLMs, and automated tools accessing archive.org APIs.</p></td>
+<td><p>N/A</p></td>
+<td><p>N/A</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="metadata-schema/index.html"><span class="doc">Internet Archive Metadata</span></a></p></td>
+<td><p>Metadata is used for locating and viewing information.</p></td>
+<td><p>XML</p></td>
+<td><p>N/A</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="internetarchive/cli.html"><span class="doc">Command-Line Interface</span></a></p></td>
+<td><p>The Command-Line Tool (CLI) is for interacting with various archive.org services from the command-line.</p></td>
+<td><p>Binary program</p></td>
+<td><p>N/A</p></td>
+<td><p><a class="reference internal" href="index.html"><span class="doc">Quick start with the ia command line tool</span></a></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="internetarchive/index.html"><span class="doc">The Internet Archive Python Library</span></a></p></td>
+<td><p>This is a Python interface for interacting with various archive.org services.</p></td>
+<td><p>Python library</p></td>
+<td><p>N/A</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="ias3.html"><span class="doc">S3-like API</span></a></p></td>
+<td><p>This API is for creating items, uploading files, and managing metadata on an Amazon S3-like server.</p></td>
+<td><p>Python library, REST API, SOAP API</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="metadata.html"><span class="doc">Item Metadata API</span></a></p></td>
+<td><p>This API is for fetching the entire metadata of an item in a single transaction.</p></td>
+<td><p>PHP library, REST API</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="md-read.html"><span class="doc">Item Metadata API: Read</span></a></p></td>
+<td><p>This API is for fetching metadata.</p></td>
+<td><p>PHP library, REST API</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="md-write.html"><span class="doc">Item Metadata API: Write</span></a></p></td>
+<td><p>This API is for updating metadata.</p></td>
+<td><p>PHP library, REST API</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="md-record.html"><span class="doc">Item Metadata API: Record details</span></a></p></td>
+<td><p>This API is for fetching number of fields for an item.</p></td>
+<td><p>PHP library, REST API</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="md-write-adv.html"><span class="doc">Item Metadata API: Advanced Topics &amp; Extensions</span></a></p></td>
+<td><p>This API is for updating item metadata through JSON patches.</p></td>
+<td><p>JSON</p></td>
+<td><p>N/A</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="changes.html"><span class="doc">Changes API</span></a></p></td>
+<td><p>This API is for  fetching identifiers that have changed within a particular time period.</p></td>
+<td><p>REST API</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="views_api.html"><span class="doc">Views data service api</span></a></p></td>
+<td><p>This API is for fetching the view data of items and collections.</p></td>
+<td><p>REST API</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="iarest.html"><span class="doc">Internet Archive RESTful microservices</span></a></p></td>
+<td><p>These microservices are stateless, representational programming interfaces that accept and return JSON payloads.</p></td>
+<td></td>
+<td><p>N/A</p></td>
+<td><p>N/A</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="tasks.html"><span class="doc">Tasks API</span></a></p></td>
+<td><p>This API is for fetching information about running, pending, and completed tasks.</p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="simplelists.html"><span class="doc">Relationships API</span></a></p></td>
+<td><p>This API is for creating relationships between items on the Internet Archive.</p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="reviews.html"><span class="doc">Reviews API</span></a></p></td>
+<td><p>This API is for storing reviews of items. Registered users can review items.</p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="ocr.html"><span class="doc">OCR module</span></a></p></td>
+<td></td>
+<td></td>
+<td><p>N/A</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="pdf.html"><span class="doc">PDF generation module</span></a></p></td>
+<td></td>
+<td></td>
+<td><p>N/A</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>Wayback machine APIs</p></td>
+<td><p>These APIs are for determining if a URL is stored on the Wayback Machine and for querying, filtering and analysis of snapshot data.</p></td>
+<td><p>REST API</p></td>
+<td><p><a class="reference external" href="./_static/test-wayback.html">Wayback API reference</a> and <a class="reference external" href="./_static/vis/vis_wayback.html">Wayback API visualization</a></p></td>
+<td><p><a class="reference internal" href="tutorial-get-snapshot-wayback.html"><span class="doc">See whether a website exists in the archives</span></a>, <a class="reference internal" href="tutorial-compare-snapshot-wayback.html"><span class="doc">Compare two versions of a website</span></a></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="toctree-wrapper compound">
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Table of Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="bots.html">Bots, LLMs, and Automated Access</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="bots.html#ai-coding-assistants">AI Coding Assistants</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bots.html#user-agent-requirements">User-Agent Requirements</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bots.html#rate-limiting">Rate Limiting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bots.html#best-practices">Best Practices</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="items.html">Internet Archive Items</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="items.html#what-is-an-item">What Is an Item?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="items.html#how-items-are-structured">How Items Are Structured</a></li>
+<li class="toctree-l2"><a class="reference internal" href="items.html#item-limitations">Item Limitations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="items.html#collections">Collections</a></li>
+<li class="toctree-l2"><a class="reference internal" href="items.html#archival-urls">Archival URLs</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="metadata-schema/index.html">Internet Archive Metadata</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="metadata-schema/index.html#archive-org-identifiers">Archive.org Identifiers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="metadata-schema/index.html#custom-metadata-fields">Custom Metadata Fields</a></li>
+<li class="toctree-l2"><a class="reference internal" href="metadata-schema/index.html#metadata-schema">Metadata Schema</a></li>
+<li class="toctree-l2"><a class="reference internal" href="metadata-schema/index.html#file-metadata-schema">File Metadata Schema</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="internetarchive/cli.html">Command-Line Interface</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="internetarchive/cli.html#quick-start">Quick Start</a></li>
+<li class="toctree-l2"><a class="reference internal" href="internetarchive/cli.html#metadata">Metadata</a></li>
+<li class="toctree-l2"><a class="reference internal" href="internetarchive/cli.html#upload">Upload</a></li>
+<li class="toctree-l2"><a class="reference internal" href="internetarchive/cli.html#download">Download</a></li>
+<li class="toctree-l2"><a class="reference internal" href="internetarchive/cli.html#delete">Delete</a></li>
+<li class="toctree-l2"><a class="reference internal" href="internetarchive/cli.html#search">Search</a></li>
+<li class="toctree-l2"><a class="reference internal" href="internetarchive/cli.html#tasks">Tasks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="internetarchive/cli.html#list">List</a></li>
+<li class="toctree-l2"><a class="reference internal" href="internetarchive/cli.html#copy">Copy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="internetarchive/cli.html#move">Move</a></li>
+<li class="toctree-l2"><a class="reference internal" href="internetarchive/cli.html#performance-tips">Performance Tips</a></li>
+<li class="toctree-l2"><a class="reference internal" href="internetarchive/cli.html#getting-help">Getting Help</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="internetarchive/index.html">The Internet Archive Python Library</a></li>
+<li class="toctree-l1"><a class="reference internal" href="internetarchive/index.html#quick-start">Quick start</a></li>
+<li class="toctree-l1"><a class="reference internal" href="internetarchive/index.html#documentation">Documentation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="internetarchive/index.html#setup-configuration">Setup &amp; Configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="internetarchive/index.html#user-interfaces">User Interfaces</a></li>
+<li class="toctree-l2"><a class="reference internal" href="internetarchive/index.html#performance-scaling">Performance &amp; Scaling</a></li>
+<li class="toctree-l2"><a class="reference internal" href="internetarchive/index.html#development-community">Development &amp; Community</a></li>
+<li class="toctree-l2"><a class="reference internal" href="internetarchive/index.html#help-support">Help &amp; Support</a></li>
+<li class="toctree-l2"><a class="reference internal" href="internetarchive/index.html#reference">Reference</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="internetarchive/index.html#authors">Authors</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="internetarchive/authors.html">Authors</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="internetarchive/index.html#indices-and-tables">Indices and tables</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ias3.html">ias3 Internet archive S3-like API</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="ias3.html#what-the-s3-like-api-does">What the S3-like API does:</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ias3.html#python-library">Python Library</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ias3.html#post-support">POST Support</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ias3.html#how-this-is-different-from-normal-s3">How this is different from normal S3</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ias3.html#skip-request-signing">Skip request signing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ias3.html#skip-derive-process">Skip derive process</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ias3.html#delete-derived-files-when-an-original-is-deleted">Delete derived files when an original is deleted</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ias3.html#keep-old-versions-of-files">Keep old versions of files</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ias3.html#hint-the-archive-about-the-final-size-of-an-item">Hint the archive about the final size of an item</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ias3.html#express-queue">Express queue</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ias3.html#dealing-with-api-errors">Dealing with API errors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ias3.html#use-limits">Use Limits</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ias3.html#examples">Examples</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ias3.html#fast-get-downloads">Fast GET downloads</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ias3.html#bucket-activity">Bucket activity</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ias3.html#questions">Questions?</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="metadata.html">Item Metadata API</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="metadata.html#introduction">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="metadata.html#item-identifiers">Item identifiers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="metadata.html#authentication">Authentication</a></li>
+<li class="toctree-l2"><a class="reference internal" href="metadata.html#compression">Compression</a></li>
+<li class="toctree-l2"><a class="reference internal" href="metadata.html#metadata-read">Metadata Read</a></li>
+<li class="toctree-l2"><a class="reference internal" href="metadata.html#metadata-write">Metadata Write</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="md-read.html">Item Metadata API: Read</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="md-read.html#partial-reads">Partial reads</a></li>
+<li class="toctree-l2"><a class="reference internal" href="md-read.html#errors">Errors</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="md-write.html">Item Metadata API: Write</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="md-write.html#lookahead">Lookahead</a></li>
+<li class="toctree-l2"><a class="reference internal" href="md-write.html#transaction-workflow">Transaction workflow</a></li>
+<li class="toctree-l2"><a class="reference internal" href="md-write.html#targets">Targets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="md-write.html#json-patch-json-pointer">JSON Patch &amp; JSON Pointer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="md-write.html#rate-limits">Rate limits</a></li>
+<li class="toctree-l2"><a class="reference internal" href="md-write.html#priority">Priority</a></li>
+<li class="toctree-l2"><a class="reference internal" href="md-write.html#single-target-writes">Single target writes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="md-write.html#multi-target-writes">Multi-target writes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="md-write.html#errors">Errors</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="md-record.html">Item Metadata API: Record details</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="md-record.html#location-fields">Location fields</a></li>
+<li class="toctree-l2"><a class="reference internal" href="md-record.html#metadata-field">Metadata field</a></li>
+<li class="toctree-l2"><a class="reference internal" href="md-record.html#files-fields">Files fields</a></li>
+<li class="toctree-l2"><a class="reference internal" href="md-record.html#reviews-field">Reviews field</a></li>
+<li class="toctree-l2"><a class="reference internal" href="md-record.html#catalog-fields">Catalog fields</a></li>
+<li class="toctree-l2"><a class="reference internal" href="md-record.html#item-state-fields">Item state fields</a></li>
+<li class="toctree-l2"><a class="reference internal" href="md-record.html#simplelists-field">SimpleLists field</a></li>
+<li class="toctree-l2"><a class="reference internal" href="md-record.html#user-json-fields">User JSON fields</a></li>
+<li class="toctree-l2"><a class="reference internal" href="md-record.html#meta-metadata-fields">Meta-metadata fields</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="md-write-adv.html">Item Metadata API: Advanced Topics &amp; Extensions</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="md-write-adv.html#introduction">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="md-write-adv.html#tasks">Tasks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="md-write-adv.html#per-item-write-locking">Per-item write locking</a></li>
+<li class="toctree-l2"><a class="reference internal" href="md-write-adv.html#no-changes-to-meta-xml">“no changes to _meta.xml”</a></li>
+<li class="toctree-l2"><a class="reference internal" href="md-write-adv.html#problems-with-concurrent-writes">Problems with concurrent writes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="md-write-adv.html#concurrency-strategies">Concurrency strategies</a></li>
+<li class="toctree-l2"><a class="reference internal" href="md-write-adv.html#json-patch-extensions">JSON Patch extensions</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="changes.html">API for discovering changes to archive.org items</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="changes.html#changes-api">Changes API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="changes.html#starting-from-now-see-the-changes-in-the-archive">Starting from now, see the changes in the archive</a></li>
+<li class="toctree-l2"><a class="reference internal" href="changes.html#starting-from-a-date-see-changes-made-after-midnight-on-that-utc-day">Starting from a date, see changes made after midnight on that UTC day</a></li>
+<li class="toctree-l2"><a class="reference internal" href="changes.html#starting-from-nothing-load-all-the-identifiers-then-pick-up-changes">Starting from nothing, load all the identifiers, then pick up changes</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="views_api.html">Views data service api</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="views_api.html#simple-summary-view-count-data">Simple summary view count data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="views_api.html#per-day-view-data">Per day view data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="views_api.html#detailed-aggregated-collection-access-data-with-geolocation-region-information">Detailed, aggregated collection access data with geolocation region information</a></li>
+<li class="toctree-l2"><a class="reference internal" href="views_api.html#detailed-aggregated-item-access-data-with-geolocation-region-information">Detailed, aggregated item access data with geolocation region information</a></li>
+<li class="toctree-l2"><a class="reference internal" href="views_api.html#detailed-aggregated-access-data-by-contributor-with-geolocation-region-information">Detailed, aggregated access data by contributor with geolocation region information</a></li>
+<li class="toctree-l2"><a class="reference internal" href="views_api.html#legacy-summary-view-count-data">Legacy summary view count data</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="views.html">Item Engagement counting on the archive.org website.</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="views.html#views-api">Views API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="views.html#measuring-use">Measuring use.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="views.html#collections">Collections.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="views.html#technical-details">Technical details.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="views.html#footnote-what-is-the-deal-with-privacy-protecting-hashes-instead-of-ip-numbers-in-our-logs">Footnote: what is the deal with privacy protecting hashes instead of IP numbers in our logs?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="views.html#differences-between-pre-2017-old-counting-system">Differences between pre-2017 (old) counting system:</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="iarest.html">Internet Archive RESTful microservices</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="iarest.html#introduction">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="iarest.html#service-transaction">Service transaction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="iarest.html#common-http-methods">Common HTTP methods</a></li>
+<li class="toctree-l2"><a class="reference internal" href="iarest.html#common-http-statuses">Common HTTP statuses</a></li>
+<li class="toctree-l2"><a class="reference internal" href="iarest.html#custom-headers">Custom headers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="iarest.html#examples">Examples</a></li>
+<li class="toctree-l2"><a class="reference internal" href="iarest.html#further-reading">Further reading</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="tasks.html">Internet Archive Tasks API</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="tasks.html#what-is-a-task">What is a Task?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tasks.html#service-overview">Service Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tasks.html#task-listings">Task Listings</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tasks.html#task-logs">Task Logs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tasks.html#task-submission">Task Submission</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tasks.html#rerunning-a-task">Rerunning a task</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tasks.html#examples">Examples</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="simplelists.html">Simple Lists (Relationships API)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="simplelists.html#introduction">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="simplelists.html#simple-lists-relationships">Simple Lists Relationships</a></li>
+<li class="toctree-l2"><a class="reference internal" href="simplelists.html#fetching-relationships">Fetching relationships</a></li>
+<li class="toctree-l2"><a class="reference internal" href="simplelists.html#modifying-relationships">Modifying relationships</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="reviews.html">Reviews API</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="reviews.html#introduction">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="reviews.html#review-structure-syntax-and-policies">Review structure, syntax, and policies</a></li>
+<li class="toctree-l2"><a class="reference internal" href="reviews.html#metadata-api">Metadata API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="reviews.html#reviews-service">Reviews service</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="ocr.html">OCR at the Internet Archive with Tesseract and hOCR</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="ocr.html#introduction">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ocr.html#motivation">Motivation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ocr.html#basic-workflow">Basic workflow</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ocr.html#ocr-metadata">OCR metadata</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ocr.html#searching">Searching</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ocr.html#summary-of-the-ocr-module-modes-and-functionality">Summary of the OCR module modes and functionality</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ocr.html#supported-languages">Supported languages</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ocr.html#code-repositories">Code repositories</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ocr.html#contributing">Contributing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ocr.html#release-history">Release history</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="pdf.html">PDF analysis, generation and compression at the Internet Archive</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="pdf.html#introduction">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pdf.html#motivation">Motivation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pdf.html#basic-workflow">Basic workflow</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pdf.html#pdf-analysis-module">PDF Analysis module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pdf.html#release-history">Release history</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pdf.html#code-repositories">Code repositories</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pdf.html#contributing">Contributing</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</section>
+
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="tutorial-compare-snapshot-wayback.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Compare two versions of a website</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="bots.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Bots, LLMs, and Automated Access</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Internet Archive
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2018-2026, Internet Archive.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

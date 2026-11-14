@@ -1,0 +1,425 @@
+An Update on Wayback Machine Access - Internet Archive Blogs 
+ Internet Archive Blogs 
+ Updates from the Internet Archive
+ Menu 
+ Skip to content 
+ archive.org 
+ Blog 
+ Announcements 
+ About 
+ Events 
+ Developers 
+ Donate 
+ An Update on Wayback Machine Access
+ Posted on September 15, 2026 by Mark Graham 
+ We’ve heard you: “Fix the Wayback Machine!”
+ Here’s what’s going on. The Internet Archive’s Wayback Machine has been hit by waves of high-volume automated traffic, and we’ve put protections in place to keep the service running. One recent change: we rewrote the message you see when a request is blocked with a 429 error — the HTTP code that means “too many requests.”
+ Those protections sometimes catch real people by mistake. If that’s happened to you, we’re sorry, and we appreciate your patience while we work to reduce the errors.
+ We’re getting better at telling abusive bots apart from the people who depend on the Wayback Machine every day. If you think you were blocked in error, email info@archive.org with your operating system, browser, and IP address, and we’ll look into it.
+ Posted in Announcements , Wayback Machine - Web Archive | Tagged Wayback Machine |
+ 34 Replies 
+ About Mark Graham
+ Mark Graham is the Director of the Wayback Machine.
+ View all posts by Mark Graham → 
+ Post navigation
+ ← Negativland, Culture Jamming, and the Art of Making Something New 
+ Every Night Is Different: Ryley Walker on Preserving Live Music → 
+ 34 thoughts on “ An Update on Wayback Machine Access ” 
+ larry September 15, 2026 at 3:17 pm 
+ “High volume automated traffic” 
+ Do you think that’s somebody training a model? Or an attempted DOS, possibly from the Trump regime?
+ Ellie Kesselman September 20, 2026 at 4:38 pm 
+ LLM scraping seems a lot more likely to me. If so, it is really sad. They have plenty of other training material and websites to scrape: no need to do it so abusively to IA, a service that does is so helpful for so many people.
+ Everyone, including Donald Trump’s administration, values the archival records provided by Brewster Kahle and IA.
+P.S. Mark Graham, thanks for fixing it so we don’t get the 429 error when logged in! That was considerate of you.
+ Ron September 23, 2026 at 1:42 am 
+ My feeling is… training sets before instances of AI slop. Few real unblemished content on the internet – unfortunately this is a goldmine for content that predates AI.
+ Rich Winkel September 15, 2026 at 3:47 pm 
+ Just to clarify: are these DOS attack?
+ JS September 22, 2026 at 5:48 pm 
+ Yeah I think one of my pages got flagged, went to access it the other day and it was gone. No worries
+ Ken S. September 15, 2026 at 5:11 pm 
+ What is the policy for when “bot” traffic is good and when it’s not? I use AI to search the archive for historical data about certain products that is no longer available on the companies’ websites. I don’t want to drown out other traffic but also don’t want to have to do all of this manually. (And btw, I am a regular donor to the Internet Archive.)
+ bartolo September 15, 2026 at 7:06 pm 
+ Many people like me use mullvad vpn for example and almost always blocked. You can add a cloudflare like protection
+ Angel September 20, 2026 at 11:49 pm 
+ I agree with @bartolo you should add some sort of a system like rcaptcha, hcaptcha, cloudfare protection & etc… to allow vpn users, tor browser users to still be able to access the full site including the Wayback Machine or web.archive.org . I do not think blocking/banning all IP addresses from vpns and tor browser is a good long term solution to the problem. I think giving these IP addresses a temporary timeout could also be a part of the solution.
+ GEORGE ZICK September 15, 2026 at 7:37 pm 
+ Well I remember hearing the first time the old time Radio show and it was the Shadow in my Dad’s truck on the radio back in 1979 and now I listen to the old radio shows instead of listening to music.
+ Miguel September 15, 2026 at 7:54 pm 
+ The problem is that VPNs are completely blocked. There probably isn’t an easy way to deal with this.
+ Bobbie September 15, 2026 at 8:17 pm 
+ Sharon Lois Bram I really love that you have them on here and love those cool interviews. I would love to know if you have any more hidden surprise Sharon Lois and Bram interviews concerts from 1984 to 1988 especially. Because that was the elephant show series time. 
+ Did you know that there is a documentary about Sharon Lois Bram being created? I hope you can release some stuff of theirs like that from the 80s to celebrate that. It’s gonna be there almost 50 years of Sharon Lois and Bram. You guys need to celebrate that!
+ Javad Yasari September 15, 2026 at 8:22 pm 
+ AIs are ruining everything
+ Tom September 15, 2026 at 11:23 pm 
+ Harsh times
+ what would be a reasonable timeout, for consumers of the Wayback API or CDX API?
+ Is one request ever 0.1 seconds reasonable?
+ Thanks!
+ Tyler Hou September 15, 2026 at 11:46 pm 
+ Has the Internet Archive considered denying requests to the Wayback Machine for recent content (e.g. younger than 1 month)? This might help prevent abuse from scrapers and crawlers while still preserving the core functionality of the Wayback Machine as an archive.
+ T September 16, 2026 at 12:02 am 
+ AI is actually ddosing the entire internet at this point
+ Ellie Kesselman September 20, 2026 at 4:51 pm 
+ I have that impression too. Some websites get relentlessly ddos’d by scraper bots. 
+ Then there are resident proxy networks. Just learned about them. They subvert consumer devices to make them a network node for AI scrapers. The FBI warned about it in July.
+ Alexander Mason September 16, 2026 at 12:07 am 
+ Thanks Mark for your work on this treasure of the internet.
+ Suzanne September 16, 2026 at 12:12 am 
+ Thank you for keeping this wonderful thing running!
+ Carl September 16, 2026 at 2:40 am 
+ Awesome work and completely understand what you’re trying to do.
+ Keep up the good work with the archives.
+ Sincerely
+An avid archive.org user and contributor
+ no-reply September 16, 2026 at 4:47 am 
+ Hello! I’ve lately been blocked by the wayback machine, likely due to using Mullvad, librewolf and a large collection of anti fingerprinting extensions.
+ Please consider adding a captcha or similar for blocked ip ranges.
+I value access to information that I cannot find elsewhere, the clearnet is not an option for me.
+ Thank you for maintaining one of the most valuable pieces of the internet!
+ Scott September 16, 2026 at 5:41 am 
+ Hey man, don’t apologize! Screw them bots. Keep em out!
+ Christian September 16, 2026 at 12:25 pm 
+ Everyone has been hit by the AI swarms(see the recent post by the linux git team)
+It’s a rough situation, and kudos must be given to any effort made <3
+ Ros Her September 16, 2026 at 7:41 pm 
+ Why has uploading from the U.K. so slow, and has been for past several years?.
+ E.g. 1 MB per 5 seconds. (No internet connection issues)
+ (I know it is not a problem at some places outside UK)
+ Can you fix it?…
+ John September 16, 2026 at 11:52 pm 
+ https://archive.org/details/instructionbooka0000easy why can i not access this it worked earlier today
+ I go on all the books. None work. There is a blank.
+ Please reply to me and explain why this happened. Please reply to me.
+ My e-mail address is nfterno@aol.com 
+ John Politis
+ Tomy Power September 16, 2026 at 11:54 pm 
+ Fix the website test
+ Lydia McGrew September 17, 2026 at 1:21 am 
+ I’m trying to figure out what is going on with Open Library. During the last few days, there will be long periods when you can get to search results, but whenever you click on one of the search results to try to go to a book and borrow it, you get only a black screen. What’s the deal with that? It doesn’t appear to be my Internet connection. Everything else is working. Is this somehow related to the Wayback Machine problem?
+ Lucas Gabriel Miguel September 17, 2026 at 3:44 am 
+ Thanks for the update and for working to improve access for legitimate Wayback Machine users.
+ Patrick Kuhlman September 17, 2026 at 5:16 am 
+ I truly would like to thank you for all of your guy’s work. The archives worth is priceless and I can’t even begin to show my depth of gratitude
+ Evert van Ingen September 17, 2026 at 2:00 pm 
+ Thank you very much for this update
+ Michael September 18, 2026 at 12:06 pm 
+ Just want to encourage all your work and will be patient!!!
+ Peter September 20, 2026 at 9:37 pm 
+ I think me using Cloudflare’s DNS got me blocked from the wayback machine. Any fix?
+‘
+ Arashi September 24, 2026 at 8:38 pm 
+ Thank you for your hard work on this. Echoing sentiment from users here and I’m sure countless others, The Wayback Machine is such a valuable archive of what is online. Unfortunately those with malicious intents may be aiming to suppress the past so to speak. I did notice when clicking on an entry, it doesn’t show the page but rather downloads a file; which I didn’t open and just deleted but we should be cognizant of this. Thank you again.
+ Bei September 25, 2026 at 4:44 am 
+ Now if only you’d actually keep up with the problems caused by Ruffle never being maintained or up to date on the Internet Archive. Everything is always Ruffle SWF/Flash errors that cannot be fixed by users. Ruffle errors go on without corrections for many months now. You know as good as I do that huge portions of archived material from the mid-00s depend on old Flash. I understand a free/donation service – but if I feel my contributions go to “nothing” when basic maintenance isn’t upheld. For months.
+ Meg September 25, 2026 at 3:30 pm 
+ I’m just so tired of getting those “server not responding” errors.
+ Comments are closed.
+ Search for: 
+ Latest Posts
+ Preserving 30 Years of Salon Journalism 
+ Annual Celebration 2026: Internet Archive Staff and Friends Showcase Latest Developments 
+ 2027 Public Domain Film Contest: The Internet Archive is Looking For Creative Short Films Made By You! 
+ Weaving ‘Tapestries’: Introducing A New Tool for Digital Storytelling and Archiving 
+ From Main Street to Capitol Hill, the Case for Democracy’s Library 
+ Upcoming Events 
+ Dec 
+ 3 
+ 10:00 am - 11:00 am 
+ First Encounters with AI 
+ View Calendar 
+ Recent Comments
+ CedarBill on Weaving ‘Tapestries’: Introducing A New Tool for Digital Storytelling and Archiving 
+ Adelaide Dupont on Weaving ‘Tapestries’: Introducing A New Tool for Digital Storytelling and Archiving 
+ Theokali77 on Celebrating 2026 Internet Archive Artist in Residence: Christopher Burch 
+ Adelaide Dupont on Building the Hero Award: The Story Behind Taekyeom Lee’s 3D-Printed Model of the Internet Archive 
+ Ophelia Sterling on 100+ Years of Student Radio History in the DLARC College Radio Collections 
+ Categories
+ 78rpm 
+ Announcements 
+ Archive Version 2 
+ Archive-It 
+ Audio Archive 
+ Books Archive 
+ Cool items 
+ Education Archive 
+ Emulation 
+ Event 
+ Image Archive 
+ Jobs 
+ Lending Books 
+ Live Music Archive 
+ Movie Archive 
+ Music 
+ News 
+ Newsletter 
+ Open Library 
+ Past Event 
+ Software Archive 
+ Technical 
+ Television Archive 
+ Uncategorized 
+ Upcoming Event 
+ Video Archive 
+ Wayback Machine – Web Archive 
+ Web & Data Services 
+ Archives
+ Archives 
+ Select Month 
+ November 2026 
+ October 2026 
+ September 2026 
+ August 2026 
+ July 2026 
+ June 2026 
+ May 2026 
+ April 2026 
+ March 2026 
+ February 2026 
+ January 2026 
+ December 2025 
+ November 2025 
+ October 2025 
+ September 2025 
+ August 2025 
+ July 2025 
+ June 2025 
+ May 2025 
+ April 2025 
+ March 2025 
+ February 2025 
+ January 2025 
+ December 2024 
+ November 2024 
+ October 2024 
+ September 2024 
+ August 2024 
+ July 2024 
+ June 2024 
+ May 2024 
+ April 2024 
+ March 2024 
+ February 2024 
+ January 2024 
+ December 2023 
+ November 2023 
+ October 2023 
+ September 2023 
+ August 2023 
+ July 2023 
+ June 2023 
+ May 2023 
+ April 2023 
+ March 2023 
+ February 2023 
+ January 2023 
+ December 2022 
+ November 2022 
+ October 2022 
+ September 2022 
+ August 2022 
+ July 2022 
+ June 2022 
+ May 2022 
+ April 2022 
+ March 2022 
+ February 2022 
+ January 2022 
+ December 2021 
+ November 2021 
+ October 2021 
+ September 2021 
+ August 2021 
+ July 2021 
+ June 2021 
+ May 2021 
+ April 2021 
+ March 2021 
+ February 2021 
+ January 2021 
+ December 2020 
+ November 2020 
+ October 2020 
+ September 2020 
+ August 2020 
+ July 2020 
+ June 2020 
+ May 2020 
+ April 2020 
+ March 2020 
+ February 2020 
+ January 2020 
+ December 2019 
+ November 2019 
+ October 2019 
+ September 2019 
+ August 2019 
+ July 2019 
+ June 2019 
+ May 2019 
+ April 2019 
+ March 2019 
+ February 2019 
+ January 2019 
+ December 2018 
+ November 2018 
+ October 2018 
+ September 2018 
+ August 2018 
+ July 2018 
+ June 2018 
+ May 2018 
+ April 2018 
+ March 2018 
+ February 2018 
+ January 2018 
+ December 2017 
+ November 2017 
+ October 2017 
+ September 2017 
+ August 2017 
+ July 2017 
+ June 2017 
+ May 2017 
+ April 2017 
+ March 2017 
+ February 2017 
+ January 2017 
+ December 2016 
+ November 2016 
+ October 2016 
+ September 2016 
+ August 2016 
+ July 2016 
+ June 2016 
+ May 2016 
+ April 2016 
+ March 2016 
+ February 2016 
+ January 2016 
+ December 2015 
+ November 2015 
+ October 2015 
+ September 2015 
+ July 2015 
+ June 2015 
+ May 2015 
+ April 2015 
+ March 2015 
+ February 2015 
+ January 2015 
+ December 2014 
+ November 2014 
+ October 2014 
+ September 2014 
+ August 2014 
+ July 2014 
+ June 2014 
+ May 2014 
+ April 2014 
+ March 2014 
+ February 2014 
+ January 2014 
+ December 2013 
+ November 2013 
+ October 2013 
+ September 2013 
+ August 2013 
+ July 2013 
+ June 2013 
+ May 2013 
+ April 2013 
+ March 2013 
+ February 2013 
+ January 2013 
+ December 2012 
+ November 2012 
+ October 2012 
+ September 2012 
+ August 2012 
+ July 2012 
+ June 2012 
+ May 2012 
+ April 2012 
+ March 2012 
+ February 2012 
+ January 2012 
+ December 2011 
+ November 2011 
+ October 2011 
+ September 2011 
+ August 2011 
+ July 2011 
+ June 2011 
+ May 2011 
+ April 2011 
+ March 2011 
+ February 2011 
+ January 2011 
+ December 2010 
+ November 2010 
+ October 2010 
+ September 2010 
+ August 2010 
+ July 2010 
+ June 2010 
+ May 2010 
+ April 2010 
+ March 2010 
+ February 2010 
+ January 2010 
+ December 2009 
+ October 2009 
+ September 2009 
+ August 2009 
+ July 2009 
+ June 2009 
+ May 2009 
+ April 2009 
+ March 2009 
+ February 2009 
+ January 2009 
+ December 2008 
+ November 2008 
+ September 2008 
+ August 2008 
+ June 2008 
+ May 2008 
+ April 2008 
+ March 2008 
+ February 2008 
+ January 2008 
+ December 2007 
+ October 2007 
+ September 2007 
+ August 2007 
+ July 2007 
+ June 2007 
+ May 2007 
+ April 2007 
+ March 2007 
+ February 2007 
+ January 2007 
+ December 2006 
+ November 2006 
+ October 2006 
+ September 2006 
+ August 2006 
+ February 2006 
+ November 2005 
+ October 2005 
+ September 2005 
+ March 2005 
+ February 2005 
+ January 2005 
+ December 2004 
+ October 2004 
+ March 2004 
+ Meta
+ Log in 
+ Entries feed 
+ Comments feed 
+ WordPress.org 
+ Proudly powered by WordPress

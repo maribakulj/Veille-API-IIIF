@@ -1,0 +1,564 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="./" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" type="image/jpg" sizes="200x200" href="_static/logo.jpg">
+    <title>Internet Archive Items &#8212; Internet Archive Developer Portal</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="_static/custom.css?v=3feec52e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="_static/documentation_options.js?v=902ff5ee"></script>
+    <script src="_static/doctools.js?v=9bcbadda"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=f281be69"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'items';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Internet Archive Metadata" href="metadata-schema/index.html" />
+    <link rel="prev" title="Bots, LLMs, and Automated Access" href="bots.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="_static/logo.jpg" class="logo__image only-light" alt="Internet Archive Developer Portal - Home"/>
+    <script>document.write(`<img src="_static/logo.jpg" class="logo__image only-dark" alt="Internet Archive Developer Portal - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="index.html">
+                    Home
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="index-tutorials.html">Tutorials</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="tutorial-get-ia-credentials.html">Get your Internet Archive credentials</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tutorial-get-snapshot-wayback.html">See whether a website exists in the archives</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tutorial-compare-snapshot-wayback.html">Compare two versions of a website</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="index-apis.html">Tools and APIs</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="bots.html">Bots, LLMs, and Automated Access</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">Internet Archive Items</a></li>
+<li class="toctree-l2"><a class="reference internal" href="metadata-schema/index.html">Internet Archive Metadata</a></li>
+<li class="toctree-l2"><a class="reference internal" href="internetarchive/cli.html">Command-Line Interface</a></li>
+<li class="toctree-l2"><a class="reference internal" href="internetarchive/index.html">The Internet Archive Python Library</a></li>
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="ias3.html">ias3 Internet archive S3-like API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="metadata.html">Item Metadata API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="md-read.html">Item Metadata API: Read</a></li>
+<li class="toctree-l2"><a class="reference internal" href="md-write.html">Item Metadata API: Write</a></li>
+<li class="toctree-l2"><a class="reference internal" href="md-record.html">Item Metadata API: Record details</a></li>
+<li class="toctree-l2"><a class="reference internal" href="md-write-adv.html">Item Metadata API: Advanced Topics &amp; Extensions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="changes.html">API for discovering changes to archive.org items</a></li>
+<li class="toctree-l2"><a class="reference internal" href="views_api.html">Views data service api</a></li>
+<li class="toctree-l2"><a class="reference internal" href="views.html">Item Engagement counting on the archive.org website.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="iarest.html">Internet Archive RESTful microservices</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tasks.html">Internet Archive Tasks API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="simplelists.html">Simple Lists (Relationships API)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="reviews.html">Reviews API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ocr.html">OCR at the Internet Archive with Tesseract and hOCR</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pdf.html">PDF analysis, generation and compression at the Internet Archive</a></li>
+</ul>
+</details></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/items.rst" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.rst</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Internet Archive Items</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> On this page </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-an-item">What Is an Item?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#how-items-are-structured">How Items Are Structured</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#item-limitations">Item Limitations</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#collections">Collections</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#archival-urls">Archival URLs</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="internet-archive-items">
+<h1>Internet Archive Items<a class="headerlink" href="#internet-archive-items" title="Link to this heading">#</a></h1>
+<section id="what-is-an-item">
+<span id="items-what-is-an-item"></span><h2>What Is an Item?<a class="headerlink" href="#what-is-an-item" title="Link to this heading">#</a></h2>
+<p>Archive.org is made up of “items”.
+An item is a logical “thing” that we represent on one web page on archive.org.
+An item can be considered as a group of files that deserve their own metadata.
+If the files in an item have separate metadata, the files should probably be in different items.
+An item can be a book, a song, an album, a dataset, a movie, an image or set of images, etc.
+Every item has an <a class="reference external" href="metadata-schema/index.html#archive-org-identifiers">identifier</a> that is unique across archive.org.</p>
+</section>
+<section id="how-items-are-structured">
+<h2>How Items Are Structured<a class="headerlink" href="#how-items-are-structured" title="Link to this heading">#</a></h2>
+<p>An item is just a directory of files and possibly subdirectories.
+Every item has at least two files named in the following format (see <a class="reference external" href="metadata-schema/index.html#archive-org-identifiers">metadata page</a> for more context on what an identifier is):</p>
+<blockquote>
+<div><ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">&lt;identifier&gt;_files.xml</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&lt;identifier&gt;_meta.xml</span></code></p></li>
+</ul>
+</div></blockquote>
+<p>The <code class="docutils literal notranslate"><span class="pre">_meta.xml</span></code> file is an XML file containing all of the <a class="reference external" href="metadata-schema/index.html">metadata describing the item</a>.
+The <code class="docutils literal notranslate"><span class="pre">_files.xml</span></code> file is an XML file containing all of the file-level metadata.
+There can only be one <code class="docutils literal notranslate"><span class="pre">_meta.xml</span></code> file and one <code class="docutils literal notranslate"><span class="pre">_files.xml</span></code> file per item.</p>
+<p>Alongside these metadata files and the original files uploaded to the item, the item may also contain <a class="reference external" href="https://archive.org/help/derivatives.php">derivative files automatically generated by archive.org</a>.</p>
+</section>
+<section id="item-limitations">
+<h2>Item Limitations<a class="headerlink" href="#item-limitations" title="Link to this heading">#</a></h2>
+<p>As a rule of thumb, items should:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p><strong>not</strong> be over 100GB</p></li>
+<li><p><strong>not</strong> contain more than 10,000 files.</p></li>
+</ul>
+</div></blockquote>
+</section>
+<section id="collections">
+<h2>Collections<a class="headerlink" href="#collections" title="Link to this heading">#</a></h2>
+<p>All items must be part of a collection.
+A collection is simply an item with special characteristics.
+Besides an image file for the collection logo, files should <strong>never</strong> be uploaded directly to a collection item.
+Items can be assigned to a collection at the time of creation, or after the item has been created by modifying the <code class="docutils literal notranslate"><span class="pre">collection</span></code> element in an item’s metadata to contain the identifier for the given collection (i.e. <code class="docutils literal notranslate"><span class="pre">ia</span> <span class="pre">metadata</span> <span class="pre">&lt;identifier&gt;</span> <span class="pre">-m</span> <span class="pre">collection:&lt;collection-identifier&gt;</span></code>.
+Collections can only be created by archive.org staff. <strong>If you have content you intend to keep on archive.org, please contact</strong> <a class="reference external" href="mailto:info&#37;&#52;&#48;archive&#46;org">info<span>&#64;</span>archive<span>&#46;</span>org</a> <strong>to request a permanent collection.</strong> This is the recommended path for any non-trivial body of content.</p>
+<p>If you don’t yet have a permanent collection, general uploaders without special privileges can upload to one of the <strong>Community collections</strong>, matched to the item’s media type:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">opensource</span></code> (Community Texts)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">opensource_movies</span></code> (Community Video)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">opensource_audio</span></code> (Community Audio)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">opensource_image</span></code> (Community Images)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">opensource_media</span></code> (Community Data)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">open_source_software</span></code> (Community Software)</p></li>
+</ul>
+</div></blockquote>
+<p>For trying out an upload before committing it to a permanent or Community collection, use the special <code class="docutils literal notranslate"><span class="pre">test_collection</span></code> sandbox. Items uploaded to <code class="docutils literal notranslate"><span class="pre">test_collection</span></code> are automatically removed from the site after approximately 30 days, so use it to validate uploads end-to-end (upload, derive, viewing) — <strong>not</strong> as a long-term home for your content. Uploading “real” content to <code class="docutils literal notranslate"><span class="pre">test_collection</span></code> will result in it being removed.</p>
+<p>See the <a class="reference external" href="metadata-schema/index.html#collection">collection field in the metadata schema</a> for the authoritative description.</p>
+</section>
+<section id="archival-urls">
+<h2>Archival URLs<a class="headerlink" href="#archival-urls" title="Link to this heading">#</a></h2>
+<p>An item’s “details” page will always be available at:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">archive</span><span class="o">.</span><span class="n">org</span><span class="o">/</span><span class="n">details</span><span class="o">/&lt;</span><span class="n">identifier</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+<p>The item directory is always available at:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">archive</span><span class="o">.</span><span class="n">org</span><span class="o">/</span><span class="n">download</span><span class="o">/&lt;</span><span class="n">identifier</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+<p>A particular file can always be downloaded from:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">archive</span><span class="o">.</span><span class="n">org</span><span class="o">/</span><span class="n">download</span><span class="o">/&lt;</span><span class="n">identifier</span><span class="o">&gt;/&lt;</span><span class="n">filename</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+<p><strong>Note</strong>: Archival URLs may redirect to an actual server that contains the content.
+The resultant URL is <strong>not</strong> a permalink.
+For example, the archival URL:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">archive</span><span class="o">.</span><span class="n">org</span><span class="o">/</span><span class="n">download</span><span class="o">/</span><span class="n">popeye_taxi</span><span class="o">-</span><span class="n">turvey</span><span class="o">/</span><span class="n">popeye_taxi</span><span class="o">-</span><span class="n">turvey_meta</span><span class="o">.</span><span class="n">xml</span>
+</pre></div>
+</div>
+<p>currently redirects to:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">ia802304</span><span class="o">.</span><span class="n">us</span><span class="o">.</span><span class="n">archive</span><span class="o">.</span><span class="n">org</span><span class="o">/</span><span class="mi">30</span><span class="o">/</span><span class="n">items</span><span class="o">/</span><span class="n">popeye_taxi</span><span class="o">-</span><span class="n">turvey</span><span class="o">/</span><span class="n">popeye_taxi</span><span class="o">-</span><span class="n">turvey_meta</span><span class="o">.</span><span class="n">xml</span>
+</pre></div>
+</div>
+<p><strong>DO NOT LINK</strong> to any archive.org URL that begins with numbers like this.
+This refers to the particular machine that we’re serving the file from right now, but we move items to new servers all the time.
+If you link to this sort of URL, instead of the archival URL, your link <strong>WILL</strong> break at some point.</p>
+</section>
+</section>
+
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="bots.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Bots, LLMs, and Automated Access</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="metadata-schema/index.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Internet Archive Metadata</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> On this page
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-an-item">What Is an Item?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#how-items-are-structured">How Items Are Structured</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#item-limitations">Item Limitations</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#collections">Collections</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#archival-urls">Archival URLs</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Internet Archive
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2018-2026, Internet Archive.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

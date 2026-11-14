@@ -1,0 +1,360 @@
+Making IIIF Official at the Internet Archive - Internet Archive Blogs 
+ Internet Archive Blogs 
+ Updates from the Internet Archive
+ Menu 
+ Skip to content 
+ archive.org 
+ Blog 
+ Announcements 
+ About 
+ Events 
+ Developers 
+ Donate 
+ Making IIIF Official at the Internet Archive
+ Posted on September 18, 2023 by mek 
+ A joint blog post between the Internet Archive and the IIIF Community 
+ Summary 
+ After eight years hosting an experimental IIIF service for public benefit, the Internet Archive is moving forward with important steps to make its International Image Interoperability Framework (IIIF) service official. Each year, the Internet Archive receives feedback from friends and partners asking about our long-term plans for supporting IIIF. In response, the Internet Archive is announcing an official IIIF service which aims to increase the resourcing and reliability of the Internet Archive’s IIIF service, upgrade the service to utilize the latest version 3.0 of the IIIF specification, and graduate the service from the iiif.archivelab.org domain to iiif.archive.org. The upgrade also expands the Internet Archive’s IIIF support beyond images to also include audio, movies, and collections — enabling deep zoom on high-resolution images, comparative item analysis, portability across media players, annotation support, and more. 
+ Background 
+ In 2015, a team of enthusiastic Internet Archive volunteers from a group called Archive Labs implemented an experimental IIIF service to give partners and patrons new ways of using Archive.org images and texts. You can read more about the project’s origins and ambitions in this 2015 announcement blog post . The initial service provided researchers with an easy, standardized way to crop and reference specific regions of archive.org images. (Maybe you can tell whose eyes these are ?) By making Internet Archive images and texts IIIF-compatible, they may be opened using any number of compatible IIIF viewer apps , each offering their own advantages and unique features. For instance, Mirador is a “multi-up” viewer that makes it easy for researchers to view different images side by side and then zoom into or annotate different areas of interest within each image.
+ Since its launch more than seven years ago, the IIIF labs service has received millions of requests by more than 15 universities and GLAM (galleries, libraries, archives and museums) organizations across the globe, including University of Texas , UCD Digital Library, Havana University, Digital Library of Georgia , BioStor , Emory University, and McGill University . In this time, the broader IIIF ecosystem itself has blossomed to include hundreds of participating institutions . For all its benefits, the labs IIIF service has been considered “unofficial,” hosted on the separate archivelab.org domain, and several partners have voiced interest in the Internet Archive adopting it as an officially supported service. Today, several members of the IIIF community are collaborating with the Internet Archive to make this happen. 
+ Josh Hadro , managing director of the IIIF Consortium (IIIF-C), sees the Internet Archive as filling a critical role “in serving the average Internet user who may not benefit from the same access to or affiliation with infrastructure offered by traditional research institutions.” The IIIF-C promotes interoperability as a core element of IIIF: the ability to streamline access to information and make cultural materials as easy to use and reuse as possible. Because the Internet Archive enables any patron to upload eligible materials, everyone has the opportunity to benefit from IIIF’s capabilities. IIIF-C counts the Internet Archive as a natural ally because of its ongoing support of open collections delivered via open web standards and protocols. With this project, IIIF-C hopes to make the Internet Archive a go-to resource online that facilitates IIIF work for students and scholars unaffiliated with the kinds of institutions that historically have provided IIIF infrastructure. This is an essential step toward a strategic goal of lowering barriers to IIIF usage and adoption worldwide.
+ In service of this outcome, the Internet Archive has teamed up with a number of IIIF community members to officialize and upgrade the IIIF service in order to make the best use of the new capabilities introduced into the IIIF specifications in recent years.
+ In the coming weeks, we’ll share more details about the IIIF improvements that will become available to users of the Internet Archive. First, we want to lay out our current plan for the update, including backwards compatibility affordances, to ensure existing consumers have the information they need to successfully migrate from the unofficial to the official IIIF API.
+ Thanks
+ Both the original IIIF labs service the Internet Archive has been running, as well as the new upcoming official IIIF service, wouldn’t have been possible without huge support from volunteers within the IIIF community and Internet Archive staff. A big thank you to the following folks who are making this effort to bring IIIF into production possible:
+ Glen Robson 
+ Mike Bennett 
+ Sara Brumfield 
+ Ben Brumfield 
+ Josh Hadro 
+ Drew Winget 
+ Internet Archive staff, including Rob, Mek , Drini, Tracey, Brenton, et al.
+ Stay tuned for more details on the new functionality soon, and if you have questions or would like to get involved in helping us test the new setup, get in touch with IIIF-C at staff@iiif.io . For more updates, including September 13 IIIF Consortium community call announcing the Internet Archive’s IIIF service, please visit the IIIF community calendar at https://iiif.io/community/#calendar .
+ Technical Notes & FAQs for Partners
+ This technical section is intended for partners who currently rely on the iiif.archivelab.org IIIF API who may be seeking further details on how these changes might affect them. 
+ What is changing? Previously, partners accessed the Internet Archive’s IIIF labs API from the  iiif. archivelab.org domain. As part of the effort to graduate from labs to production, the IIIF API will move to the iiif. archive.org domain. Because we don’t want to break any of the amazing projects and exhibits that patrons have created using the existing IIIF capabilities on the archivelab.org domain, we’re migrating the API in phases. 
+ Phasing migration. The first phase will introduce a new and improved, official Internet Archive IIIF 3.0 service on the iiif.archive.org subdomain. The unofficial, legacy service will continue to run on the iiif.archivelab.org for a grace period, allowing partners to migrate. Once we’ve gathered enough data to be confident requests are being satisfactorily fulfilled by the new official service, the legacy iiif.archivelab.org service will be “sunset” and any request to it will redirect to use the official iiif.archive.org service. At this point, all requests for IIIF manifests and IIIF images (whether to iiif.archivelab.org or iiif.archive.org) will default to the latest 3.0 version of the IIIF APIs and be answered by iiif.archive.org. A specifiable “version” endpoint will be available for consumers whose applications require manifests and images to be served using the IIIF v2.0 legacy format. More details, examples, and technical documentation will be made available on this topic in the coming weeks and will eventually be accessible from iiif.archive.org.
+ Possible Breaking Changes. 
+ 1. When the iiif.archivelab.org service was originally launched, iiif.archive.org was set up to redirect to iiif.archivelab.org as a convenience. Regrettably, during the first phase of development, iiif.archive.org will no longer be a redirect for iiif.archivelab.org and instead will run the new official IIIF service. As a result, partners whose code or applications reference iiif.archive.org (expecting it to redirect to iiif.archivelab.org) will experience a breaking change and will need to either update their references to explicitly refer to the legacy “iiif.archivelab.org” service, or update their code to use the Internet Archive’s new official iiif.archive.org service. As far as we can tell, we’re unaware of partners currently referencing “iiif.archive.org”  within public projects on Github or Gitlab and so we hope no one is affected. Still, we want to give fair warning here. For those starting a new project and looking to use the Internet Archive’s IIIF offerings today, we strongly recommend using the iiif.archive.org endpoint.
+ 2. Some partners migrating from the v2 to v3 API who have been saving annotations may also experience a breaking changes because canvas and manifest identifiers for version 3 are necessarily different from version 2 identifiers. We will be doing our best, for the time being, to ensure version 2.0 manifests remain accessible from the archivelab.org address (via redirects) and will retain the iiif.archivelab.org canvas identifiers.
+ Posted in News |
+ 2 Replies 
+ About mek
+ Citizen of the World, Open Librarian @ openlibrary.org
+ View all posts by mek → 
+ Post navigation
+ ← Student’s Use of Internet Archive Expands from High School to College 
+ IMLS National Leadership Grant Supports Expansion of the ARCH Computational Research Platform → 
+ 2 thoughts on “ Making IIIF Official at the Internet Archive ” 
+ Missy September 22, 2023 at 7:35 pm 
+ Is this why I can no longer acces any books on the archive? They are all “Not available at this time”, which is a different message from “Book is being used by another Patron.”
+ Imanol September 24, 2023 at 8:34 pm 
+ Gracias por todo
+ Comments are closed.
+ Search for: 
+ Latest Posts
+ Preserving 30 Years of Salon Journalism 
+ Annual Celebration 2026: Internet Archive Staff and Friends Showcase Latest Developments 
+ 2027 Public Domain Film Contest: The Internet Archive is Looking For Creative Short Films Made By You! 
+ Weaving ‘Tapestries’: Introducing A New Tool for Digital Storytelling and Archiving 
+ From Main Street to Capitol Hill, the Case for Democracy’s Library 
+ Upcoming Events 
+ Dec 
+ 3 
+ 10:00 am - 11:00 am 
+ First Encounters with AI 
+ View Calendar 
+ Recent Comments
+ CedarBill on Weaving ‘Tapestries’: Introducing A New Tool for Digital Storytelling and Archiving 
+ Adelaide Dupont on Weaving ‘Tapestries’: Introducing A New Tool for Digital Storytelling and Archiving 
+ Theokali77 on Celebrating 2026 Internet Archive Artist in Residence: Christopher Burch 
+ Adelaide Dupont on Building the Hero Award: The Story Behind Taekyeom Lee’s 3D-Printed Model of the Internet Archive 
+ Ophelia Sterling on 100+ Years of Student Radio History in the DLARC College Radio Collections 
+ Categories
+ 78rpm 
+ Announcements 
+ Archive Version 2 
+ Archive-It 
+ Audio Archive 
+ Books Archive 
+ Cool items 
+ Education Archive 
+ Emulation 
+ Event 
+ Image Archive 
+ Jobs 
+ Lending Books 
+ Live Music Archive 
+ Movie Archive 
+ Music 
+ News 
+ Newsletter 
+ Open Library 
+ Past Event 
+ Software Archive 
+ Technical 
+ Television Archive 
+ Uncategorized 
+ Upcoming Event 
+ Video Archive 
+ Wayback Machine – Web Archive 
+ Web & Data Services 
+ Archives
+ Archives 
+ Select Month 
+ November 2026 
+ October 2026 
+ September 2026 
+ August 2026 
+ July 2026 
+ June 2026 
+ May 2026 
+ April 2026 
+ March 2026 
+ February 2026 
+ January 2026 
+ December 2025 
+ November 2025 
+ October 2025 
+ September 2025 
+ August 2025 
+ July 2025 
+ June 2025 
+ May 2025 
+ April 2025 
+ March 2025 
+ February 2025 
+ January 2025 
+ December 2024 
+ November 2024 
+ October 2024 
+ September 2024 
+ August 2024 
+ July 2024 
+ June 2024 
+ May 2024 
+ April 2024 
+ March 2024 
+ February 2024 
+ January 2024 
+ December 2023 
+ November 2023 
+ October 2023 
+ September 2023 
+ August 2023 
+ July 2023 
+ June 2023 
+ May 2023 
+ April 2023 
+ March 2023 
+ February 2023 
+ January 2023 
+ December 2022 
+ November 2022 
+ October 2022 
+ September 2022 
+ August 2022 
+ July 2022 
+ June 2022 
+ May 2022 
+ April 2022 
+ March 2022 
+ February 2022 
+ January 2022 
+ December 2021 
+ November 2021 
+ October 2021 
+ September 2021 
+ August 2021 
+ July 2021 
+ June 2021 
+ May 2021 
+ April 2021 
+ March 2021 
+ February 2021 
+ January 2021 
+ December 2020 
+ November 2020 
+ October 2020 
+ September 2020 
+ August 2020 
+ July 2020 
+ June 2020 
+ May 2020 
+ April 2020 
+ March 2020 
+ February 2020 
+ January 2020 
+ December 2019 
+ November 2019 
+ October 2019 
+ September 2019 
+ August 2019 
+ July 2019 
+ June 2019 
+ May 2019 
+ April 2019 
+ March 2019 
+ February 2019 
+ January 2019 
+ December 2018 
+ November 2018 
+ October 2018 
+ September 2018 
+ August 2018 
+ July 2018 
+ June 2018 
+ May 2018 
+ April 2018 
+ March 2018 
+ February 2018 
+ January 2018 
+ December 2017 
+ November 2017 
+ October 2017 
+ September 2017 
+ August 2017 
+ July 2017 
+ June 2017 
+ May 2017 
+ April 2017 
+ March 2017 
+ February 2017 
+ January 2017 
+ December 2016 
+ November 2016 
+ October 2016 
+ September 2016 
+ August 2016 
+ July 2016 
+ June 2016 
+ May 2016 
+ April 2016 
+ March 2016 
+ February 2016 
+ January 2016 
+ December 2015 
+ November 2015 
+ October 2015 
+ September 2015 
+ July 2015 
+ June 2015 
+ May 2015 
+ April 2015 
+ March 2015 
+ February 2015 
+ January 2015 
+ December 2014 
+ November 2014 
+ October 2014 
+ September 2014 
+ August 2014 
+ July 2014 
+ June 2014 
+ May 2014 
+ April 2014 
+ March 2014 
+ February 2014 
+ January 2014 
+ December 2013 
+ November 2013 
+ October 2013 
+ September 2013 
+ August 2013 
+ July 2013 
+ June 2013 
+ May 2013 
+ April 2013 
+ March 2013 
+ February 2013 
+ January 2013 
+ December 2012 
+ November 2012 
+ October 2012 
+ September 2012 
+ August 2012 
+ July 2012 
+ June 2012 
+ May 2012 
+ April 2012 
+ March 2012 
+ February 2012 
+ January 2012 
+ December 2011 
+ November 2011 
+ October 2011 
+ September 2011 
+ August 2011 
+ July 2011 
+ June 2011 
+ May 2011 
+ April 2011 
+ March 2011 
+ February 2011 
+ January 2011 
+ December 2010 
+ November 2010 
+ October 2010 
+ September 2010 
+ August 2010 
+ July 2010 
+ June 2010 
+ May 2010 
+ April 2010 
+ March 2010 
+ February 2010 
+ January 2010 
+ December 2009 
+ October 2009 
+ September 2009 
+ August 2009 
+ July 2009 
+ June 2009 
+ May 2009 
+ April 2009 
+ March 2009 
+ February 2009 
+ January 2009 
+ December 2008 
+ November 2008 
+ September 2008 
+ August 2008 
+ June 2008 
+ May 2008 
+ April 2008 
+ March 2008 
+ February 2008 
+ January 2008 
+ December 2007 
+ October 2007 
+ September 2007 
+ August 2007 
+ July 2007 
+ June 2007 
+ May 2007 
+ April 2007 
+ March 2007 
+ February 2007 
+ January 2007 
+ December 2006 
+ November 2006 
+ October 2006 
+ September 2006 
+ August 2006 
+ February 2006 
+ November 2005 
+ October 2005 
+ September 2005 
+ March 2005 
+ February 2005 
+ January 2005 
+ December 2004 
+ October 2004 
+ March 2004 
+ Meta
+ Log in 
+ Entries feed 
+ Comments feed 
+ WordPress.org 
+ Proudly powered by WordPress

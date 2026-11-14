@@ -1,0 +1,696 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="./" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" type="image/jpg" sizes="200x200" href="_static/logo.jpg">
+    <title>Simple Lists (Relationships API) &#8212; Internet Archive Developer Portal</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="_static/custom.css?v=3feec52e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="_static/documentation_options.js?v=902ff5ee"></script>
+    <script src="_static/doctools.js?v=9bcbadda"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=f281be69"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'simplelists';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Reviews API" href="reviews.html" />
+    <link rel="prev" title="Internet Archive Tasks API" href="tasks.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="_static/logo.jpg" class="logo__image only-light" alt="Internet Archive Developer Portal - Home"/>
+    <script>document.write(`<img src="_static/logo.jpg" class="logo__image only-dark" alt="Internet Archive Developer Portal - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="index.html">
+                    Home
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="index-tutorials.html">Tutorials</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="tutorial-get-ia-credentials.html">Get your Internet Archive credentials</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tutorial-get-snapshot-wayback.html">See whether a website exists in the archives</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tutorial-compare-snapshot-wayback.html">Compare two versions of a website</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="index-apis.html">Tools and APIs</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="bots.html">Bots, LLMs, and Automated Access</a></li>
+<li class="toctree-l2"><a class="reference internal" href="items.html">Internet Archive Items</a></li>
+<li class="toctree-l2"><a class="reference internal" href="metadata-schema/index.html">Internet Archive Metadata</a></li>
+<li class="toctree-l2"><a class="reference internal" href="internetarchive/cli.html">Command-Line Interface</a></li>
+<li class="toctree-l2"><a class="reference internal" href="internetarchive/index.html">The Internet Archive Python Library</a></li>
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="ias3.html">ias3 Internet archive S3-like API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="metadata.html">Item Metadata API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="md-read.html">Item Metadata API: Read</a></li>
+<li class="toctree-l2"><a class="reference internal" href="md-write.html">Item Metadata API: Write</a></li>
+<li class="toctree-l2"><a class="reference internal" href="md-record.html">Item Metadata API: Record details</a></li>
+<li class="toctree-l2"><a class="reference internal" href="md-write-adv.html">Item Metadata API: Advanced Topics &amp; Extensions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="changes.html">API for discovering changes to archive.org items</a></li>
+<li class="toctree-l2"><a class="reference internal" href="views_api.html">Views data service api</a></li>
+<li class="toctree-l2"><a class="reference internal" href="views.html">Item Engagement counting on the archive.org website.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="iarest.html">Internet Archive RESTful microservices</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tasks.html">Internet Archive Tasks API</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">Simple Lists (Relationships API)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="reviews.html">Reviews API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ocr.html">OCR at the Internet Archive with Tesseract and hOCR</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pdf.html">PDF analysis, generation and compression at the Internet Archive</a></li>
+</ul>
+</details></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/simplelists.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Simple Lists (Relationships API)</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> On this page </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction">Introduction</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#operations">Operations</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#reading">Reading</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#writing">Writing</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#collections">Collections</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#json-lists">JSON lists</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#simple-lists">Simple Lists</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#simple-lists-relationships">Simple Lists Relationships</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fetching-relationships">Fetching relationships</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#enumerate-a-child-s-parents-and-list-memberships">Enumerate a child’s parents and list memberships</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#enumerate-all-children-of-a-list-for-a-single-parent">Enumerate all children of a list for a single parent</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#enumerate-all-children-of-a-list">Enumerate all children of a list</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#enumerate-all-children-of-a-parent">Enumerate all children of a parent</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#modifying-relationships">Modifying relationships</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#adding-updating-a-relationship">Adding / updating a relationship</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#removing-a-relationship">Removing a relationship</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="simple-lists-relationships-api">
+<h1>Simple Lists (Relationships API)<a class="headerlink" href="#simple-lists-relationships-api" title="Link to this heading">#</a></h1>
+<section id="introduction">
+<h2>Introduction<a class="headerlink" href="#introduction" title="Link to this heading">#</a></h2>
+<p>Simple Lists is a service allowing applications to create relationships among items in the Internet Archive corpus.  The current implementation only allows for these relationships to be between items.  Future expansion plans include allowing relationships between items and other identifiers, such as URLs and ISBNs.</p>
+<section id="operations">
+<h3>Operations<a class="headerlink" href="#operations" title="Link to this heading">#</a></h3>
+<p>When thinking of a hierarchical relationship system (much like a file system’s) it’s useful to consider a desirable list of operations for managing the organization:</p>
+<section id="reading">
+<h4>Reading<a class="headerlink" href="#reading" title="Link to this heading">#</a></h4>
+<ol class="arabic simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">list-children</span></code>: List all children of a parent (e.g., <code class="docutils literal notranslate"><span class="pre">ls</span></code> or <code class="docutils literal notranslate"><span class="pre">dir</span></code>)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">list-parents</span></code>: List all parents of a child (if the system allows for multiple parents; most file systems do not)</p></li>
+</ol>
+</section>
+<section id="writing">
+<h4>Writing<a class="headerlink" href="#writing" title="Link to this heading">#</a></h4>
+<ol class="arabic simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">add-child</span></code>: Make a child a descendent of the parent (e.g., creating or linking a file within a directory)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">remove-child</span></code>: Remove child’s relationship to the parent (e.g., unlinking a file)</p></li>
+</ol>
+</section>
+</section>
+<section id="collections">
+<h3>Collections<a class="headerlink" href="#collections" title="Link to this heading">#</a></h3>
+<p>Internet Archive’s <a class="reference internal" href="items.html#items-what-is-an-item"><span class="std std-ref">items</span></a> are organized hierarchically.  Each item may either hold content or stand as a collection other child items belong to (a logical folder).  Items are organized across the data cluster in this tree.  Thus, to organize items such as music albums, library holdings, magazine runs, etc., each item is the child of one or more collections (which themselves are stored within appropriate media collections such as <code class="docutils literal notranslate"><span class="pre">audio</span></code>, <code class="docutils literal notranslate"><span class="pre">texts</span></code>, etc.)  It’s allowable for a child item to have multiple immediate parents.</p>
+<p>There are limitations to this approach.  Creating new IA collections requires special privileges and is not available to all users.  Relationships are stored within each child item; adding one million items to a collection requires touching all million items, a lengthy process that requires write permissions to all children.</p>
+<p>These limitations make creating arbitrary collections (for music playlists, favorite items, bookmarks, and more) difficult for application programmers.</p>
+<p>Using collections for organization requires these APIs to satisfy the above operations:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">list-children</span></code>: Search API</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">list-parents</span></code>: Metadata Read of child</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">add-child</span></code> and <code class="docutils literal notranslate"><span class="pre">remove-child</span></code>: Metadata Write to child</p></li>
+</ul>
+</section>
+<section id="json-lists">
+<h3>JSON lists<a class="headerlink" href="#json-lists" title="Link to this heading">#</a></h3>
+<p>JSON lists are another approach: storing a JSON file (<code class="docutils literal notranslate"><span class="pre">members.json</span></code>) within the parent item using the Metadata Write API and JSON patches.  In this case, only a single item is written to (the parent), which means the caller need only have write permissions to it and not the children.</p>
+<p>Due to technical limitations, the JSON list is stored as a flat file and so its practical maximum size is constrained.  Adding additional relationships outside of <code class="docutils literal notranslate"><span class="pre">members.json</span></code> requires specialized treatment by the Search API and is not generalizable.</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">list-children</span></code>: Metadata Read of parent</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">list-parents</span></code>: Search API</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">add-child</span></code> and <code class="docutils literal notranslate"><span class="pre">remove-child</span></code>: Metadata Write to parent</p></li>
+</ul>
+</section>
+<section id="simple-lists">
+<h3>Simple Lists<a class="headerlink" href="#simple-lists" title="Link to this heading">#</a></h3>
+<p>To address these issues, the Simple Lists service was created.  It offers:</p>
+<ul class="simple">
+<li><p>creating custom lists outside of the collection hierarchy</p></li>
+<li><p>associating items without writing to the items themselves</p></li>
+<li><p>creating these associations with less stringent permissions</p></li>
+<li><p>fast lookup of relationships (both parents and children)</p></li>
+<li><p>large, near-unconstrained lists</p></li>
+<li><p>future expansion to allow relationships to non-IA identifiers</p></li>
+</ul>
+<p>Its operations are:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">list-children</span></code>: Search API</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">list-parents</span></code>: Metadata Read of child</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">add-child</span></code> and <code class="docutils literal notranslate"><span class="pre">remove-child</span></code>: Metadata Write to child (does not involve writing to child item, however)</p></li>
+</ul>
+<p>Although Simple Lists uses Metadata Write (as with the other approaches), Metadata applies a different set of permissions for this write path versus the others (explained below).</p>
+</section>
+</section>
+<section id="simple-lists-relationships">
+<h2>Simple Lists Relationships<a class="headerlink" href="#simple-lists-relationships" title="Link to this heading">#</a></h2>
+<p>Simple Lists defines a relationship as a triplet of identifiers: a parent, a list name, and a child.</p>
+<ul class="simple">
+<li><p>The parent must be an Internet Archive item identifier.  Currently the Metadata Write API requires the parent be a collection item; this may change in the future.</p></li>
+<li><p>The list is an arbitrary name which describes the relationship between the parent and the child.  Currently there is no registry of names; please contact Internet Archive before selecting one.</p></li>
+<li><p>The child is an item identifier.</p></li>
+</ul>
+<p>Future expansion plans include allowing children to be URLs, ISBNs, etc.  For now, all parents and children are items.</p>
+</section>
+<section id="fetching-relationships">
+<h2>Fetching relationships<a class="headerlink" href="#fetching-relationships" title="Link to this heading">#</a></h2>
+<p>For the examples which follow, these identifiers are used:</p>
+<ul class="simple">
+<li><p>Parent: <code class="docutils literal notranslate"><span class="pre">library_of_atlantis</span></code> (a collection)</p></li>
+<li><p>Child: <code class="docutils literal notranslate"><span class="pre">isbn_9780920303122</span></code> (book item)</p></li>
+<li><p>List name: <code class="docutils literal notranslate"><span class="pre">holdings</span></code></p></li>
+</ul>
+<section id="enumerate-a-child-s-parents-and-list-memberships">
+<h3>Enumerate a child’s parents and list memberships<a class="headerlink" href="#enumerate-a-child-s-parents-and-list-memberships" title="Link to this heading">#</a></h3>
+<p>To read a list of all parent relationships a child item is a member of, perform an HTTP <code class="docutils literal notranslate"><span class="pre">GET</span></code> of the <code class="docutils literal notranslate"><span class="pre">simplelists</span></code> branch of its metadata record via the Metadata Read API:</p>
+<p><a class="reference external" href="https://archive.org/metadata/isbn_9780920303122/simplelists"><code class="docutils literal notranslate"><span class="pre">https://archive.org/metadata/isbn_9780920303122/simplelists</span></code></a></p>
+<p>This book is in the <code class="docutils literal notranslate"><span class="pre">holdings</span></code> of several libraries, including <code class="docutils literal notranslate"><span class="pre">library_of_atlantis</span></code>:</p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;result&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;holdings&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">&quot;library_of_atlantis&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">&quot;notes&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">          </span><span class="nt">&quot;isbn&quot;</span><span class="p">:</span><span class="s2">&quot;9781453262825&quot;</span>
+<span class="w">        </span><span class="p">},</span>
+<span class="w">        </span><span class="nt">&quot;sys_changed_by&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">          </span><span class="nt">&quot;source&quot;</span><span class="p">:</span><span class="s2">&quot;task&quot;</span><span class="p">,</span>
+<span class="w">          </span><span class="nt">&quot;task_id&quot;</span><span class="p">:</span><span class="s2">&quot;718194457&quot;</span>
+<span class="w">        </span><span class="p">},</span>
+<span class="w">        </span><span class="nt">&quot;sys_last_changed&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2017-08-09 01:27:03.751945&quot;</span>
+<span class="w">      </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Here <code class="docutils literal notranslate"><span class="pre">holdings</span></code> is the list name and <code class="docutils literal notranslate"><span class="pre">library_of_atlantis</span></code> is the parent.</p>
+<p>In addition to the relationship itself, Simple Lists stores user-defined structured data in its <code class="docutils literal notranslate"><span class="pre">notes</span></code> field.  In the above example, the user stored the book’s ISBN number.  Since <code class="docutils literal notranslate"><span class="pre">notes</span></code> is stored as JSON, the user may submit an arbitrary data structure with any information that encoding supports (within reasonable size limits).</p>
+<p>Simple Lists also stores update history in the form of which subsystem made the most recent edit (<code class="docutils literal notranslate"><span class="pre">sys_changed_by</span></code>) and when it occurred (<code class="docutils literal notranslate"><span class="pre">sys_last_changed</span></code>).  These fields are not user-modifiable and only presented for informational purposes.</p>
+</section>
+<section id="enumerate-all-children-of-a-list-for-a-single-parent">
+<h3>Enumerate all children of a list for a single parent<a class="headerlink" href="#enumerate-all-children-of-a-list-for-a-single-parent" title="Link to this heading">#</a></h3>
+<p>To read a list of all children in a particular list for a parent item, use the Search API:</p>
+<p><a class="reference external" href="https://archive.org/advancedsearch.php?q=simplelists__holdings:library_of_atlantis&amp;amp;fl=identifier&amp;amp;output=json&amp;amp;rows=10&amp;amp;page=1">https://archive.org/advancedsearch.php?q=simplelists__holdings:library_of_atlantis&amp;fl=identifier&amp;output=json&amp;rows=10&amp;page=1</a></p>
+<p>Formatting the request uses this query pattern:</p>
+<p><code class="docutils literal notranslate"><span class="pre">q=simplelists__&lt;list-name&gt;:&lt;parent-item&gt;</span></code></p>
+<p>Note there are two underscores after <code class="docutils literal notranslate"><span class="pre">simplelists</span></code>.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">rows</span></code> parameter indicates the maximum number of identifiers to return with the request.  Since the number of children a parent may have can be large, the search engine can return the results in pages.  To continue the listing, add subsequent page numbers (one-based) for each group:</p>
+<p><code class="docutils literal notranslate"><span class="pre">page=2</span></code></p>
+<p>A complete list may be obtained using <code class="docutils literal notranslate"><span class="pre">rows=*</span></code>.  The returned JSON can be quite large depending on the list members.</p>
+</section>
+<section id="enumerate-all-children-of-a-list">
+<h3>Enumerate all children of a list<a class="headerlink" href="#enumerate-all-children-of-a-list" title="Link to this heading">#</a></h3>
+<p>To get all children in a particular list, use the Search API:</p>
+<p><a class="reference external" href="https://archive.org/advancedsearch.php?q=simplelists__holdings:*&amp;amp;fl=identifier&amp;amp;output=json&amp;amp;rows=10&amp;amp;page=1">https://archive.org/advancedsearch.php?q=simplelists__holdings:*&amp;fl=identifier&amp;output=json&amp;rows=10&amp;page=1</a></p>
+<p>Note the query format for this operation:</p>
+<p><code class="docutils literal notranslate"><span class="pre">q=simplelists__&lt;list-name&gt;:*</span></code></p>
+<p>Again, there are two underscores after <code class="docutils literal notranslate"><span class="pre">simplelists</span></code>.</p>
+</section>
+<section id="enumerate-all-children-of-a-parent">
+<h3>Enumerate all children of a parent<a class="headerlink" href="#enumerate-all-children-of-a-parent" title="Link to this heading">#</a></h3>
+<p>To get all children of a parent, use the Search API:</p>
+<p><a class="reference external" href="https://archive.org/advancedsearch.php?q=simplelists__catchall:library_of_atlantis&amp;amp;fl=identifier&amp;amp;output=json&amp;amp;rows=10&amp;amp;page=1">https://archive.org/advancedsearch.php?q=simplelists__catchall:library_of_atlantis&amp;fl=identifier&amp;output=json&amp;rows=10&amp;page=1</a></p>
+<p>The query format for this operation uses the special <code class="docutils literal notranslate"><span class="pre">catchall</span></code> operator:</p>
+<p><code class="docutils literal notranslate"><span class="pre">q=simplelists__catchall:&lt;parent-item&gt;</span></code></p>
+<p>Again, two underscores after <code class="docutils literal notranslate"><span class="pre">simplelists</span></code>.</p>
+<p>Unfortunately, there’s no way today to format the query to include the list name for each identifier in the output.</p>
+</section>
+</section>
+<section id="modifying-relationships">
+<span id="simplelists-modifying-relationships"></span><h2>Modifying relationships<a class="headerlink" href="#modifying-relationships" title="Link to this heading">#</a></h2>
+<p>Relationships are added, modified, and removed via the Metadata Write API.  The caller must POST a request to the child item in the relationship:</p>
+<p><a class="reference external" href="https://archive.org/metadata/isbn_9780920303122"><code class="docutils literal notranslate"><span class="pre">https://archive.org/metadata/isbn_9780920303122</span></code></a></p>
+<p>The caller must supply credentials either in the form of an Internet Archive cookie or S3 keys; see <a class="reference internal" href="md-write.html"><span class="doc std std-doc">Metadata API</span></a> for more information.</p>
+<p>The following must be true when updating a relationship:</p>
+<ul class="simple">
+<li><p>The parent item exists and is a collection,</p></li>
+<li><p>the caller has permission to write to the list (contact Internet Archive for more information),</p></li>
+<li><p>the child item exists,</p></li>
+<li><p>and neither item is darked.</p></li>
+</ul>
+<p>The requirement that the parent be a collection is currently enforced by Metadata API and is not inherent to Simple Lists.  This requirement may be relaxed or removed by Metadata API in the future.</p>
+<p>Whether adding, updating, or deleting a relationship, the change will be immediately visible <em>if read through the Metadata API</em>.  It may take several minutes or more for the change to be visible when using the Search API to read relationships.</p>
+<p>For the <code class="docutils literal notranslate"><span class="pre">POST</span></code> payload, the <code class="docutils literal notranslate"><span class="pre">-target</span></code> field should be <code class="docutils literal notranslate"><span class="pre">simplelists</span></code> in all cases.  The <code class="docutils literal notranslate"><span class="pre">-patch</span></code> field is a JSON-encoded string as defined in the following sections.</p>
+<section id="adding-updating-a-relationship">
+<h3>Adding / updating a relationship<a class="headerlink" href="#adding-updating-a-relationship" title="Link to this heading">#</a></h3>
+<p>To add or update a relationship, the MD Write <code class="docutils literal notranslate"><span class="pre">-patch</span></code> should be structured as this JSON:</p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;op&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;set&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;parent&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;library_of_atlantis&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;list&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;holdings&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;notes&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;(optional)&quot;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">notes</span></code> is optional and may be any valid JSON data type, including an array or object (map).</p>
+</section>
+<section id="removing-a-relationship">
+<h3>Removing a relationship<a class="headerlink" href="#removing-a-relationship" title="Link to this heading">#</a></h3>
+<p>To remove a relationship, the MD Write <code class="docutils literal notranslate"><span class="pre">-patch</span></code> should be structured as this JSON:</p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;op&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;delete&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;parent&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;library_of_atlantis&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;list&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;holdings&quot;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+</section>
+</section>
+
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="tasks.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Internet Archive Tasks API</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="reviews.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Reviews API</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> On this page
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction">Introduction</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#operations">Operations</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#reading">Reading</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#writing">Writing</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#collections">Collections</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#json-lists">JSON lists</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#simple-lists">Simple Lists</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#simple-lists-relationships">Simple Lists Relationships</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fetching-relationships">Fetching relationships</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#enumerate-a-child-s-parents-and-list-memberships">Enumerate a child’s parents and list memberships</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#enumerate-all-children-of-a-list-for-a-single-parent">Enumerate all children of a list for a single parent</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#enumerate-all-children-of-a-list">Enumerate all children of a list</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#enumerate-all-children-of-a-parent">Enumerate all children of a parent</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#modifying-relationships">Modifying relationships</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#adding-updating-a-relationship">Adding / updating a relationship</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#removing-a-relationship">Removing a relationship</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Internet Archive
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2018-2026, Internet Archive.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

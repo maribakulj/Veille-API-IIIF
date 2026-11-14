@@ -1,0 +1,1143 @@
+OCR at the Internet Archive with Tesseract and hOCR — Internet Archive Developer Portal 
+ Skip to main content 
+ Back to top 
+ Ctrl + K 
+ Ctrl + K 
+ Home
+ Tutorials 
+ Get your Internet Archive credentials 
+ See whether a website exists in the archives 
+ Compare two versions of a website 
+ Tools and APIs 
+ Bots, LLMs, and Automated Access 
+ Internet Archive Items 
+ Internet Archive Metadata 
+ Command-Line Interface 
+ The Internet Archive Python Library 
+ ias3 Internet archive S3-like API 
+ Item Metadata API 
+ Item Metadata API: Read 
+ Item Metadata API: Write 
+ Item Metadata API: Record details 
+ Item Metadata API: Advanced Topics & Extensions 
+ API for discovering changes to archive.org items 
+ Views data service api 
+ Item Engagement counting on the archive.org website. 
+ Internet Archive RESTful microservices 
+ Internet Archive Tasks API 
+ Simple Lists (Relationships API) 
+ Reviews API 
+ OCR at the Internet Archive with Tesseract and hOCR 
+ PDF analysis, generation and compression at the Internet Archive 
+ .rst 
+ .pdf 
+ OCR at the Internet Archive with Tesseract and hOCR
+ On this page 
+ Introduction 
+ Motivation 
+ OCR format 
+ Basic workflow 
+ hOCR files 
+ Additional generated content 
+ OCR metadata 
+ Metadata and input for the OCR process 
+ language 
+ adaptive_ocr 
+ ocr_default_parameters 
+ Scandata 
+ Metadata written by the OCR module 
+ ocr 
+ ocr_parameters 
+ ocr_module_version 
+ ocr_detected_script 
+ ocr_detected_script_conf 
+ ocr_detected_lang 
+ ocr_detected_lang_conf 
+ ocr_autonomous 
+ ocr_unsupported_language 
+ ocr_invalid_language 
+ ocr_converted 
+ ocr_degraded 
+ Task arguments 
+ ocr-script-detect 
+ ocr-full-script-detect 
+ ocr-use-script-detect 
+ ocr-lang-detect 
+ ocr-binarization-method 
+ ocr-pass-dpi 
+ ocr-autonomous 
+ ocr-page-timeout 
+ ocr-additional-languages 
+ ocr-two-pass 
+ Searching 
+ Summary of the OCR module modes and functionality 
+ Normal operation 
+ Autonomous mode 
+ Conversion from Abbyy XML 
+ Conversion from Text PDF 
+ Supported languages 
+ List of supported languages 
+ Code repositories 
+ Contributing 
+ Release history 
+ Tesseract module 0.0.19 
+ Tesseract module 0.0.18 
+ Tesseract module 0.0.17 
+ Tesseract module 0.0.16 
+ Tesseract module 0.0.15 
+ Tesseract module 0.0.14 
+ Tesseract module 0.0.13 
+ Tesseract module 0.0.12 
+ Tesseract module 0.0.11 
+ Tesseract module 0.0.10 
+ Tesseract module 0.0.9 
+ Tesseract module 0.0.8 
+ Tesseract module 0.0.7 
+ Tesseract module 0.0.6 
+ Tesseract module 0.0.5 
+ Tesseract module 0.0.4 
+ Tesseract module 0.0.3 
+ OCR at the Internet Archive with Tesseract and hOCR # 
+ authors : 
+ Merlijn Wajer < merlijn @ archive . org >
+ date : 
+ 2020-01-29
+ last-updated : 
+ 2023-02-23
+ version : 
+ 1.2
+ Introduction # 
+ This document outlines the OCR (Optical Character Recognition) module and its
+features as used to perform optical text recognition on Internet Archive items
+and elaborates on design decisions and how various solutions were picked.
+ Motivation # 
+ The Internet Archive had been using proprietary OCR technology for many years,
+but decided to move to an entirely open source stack after evaluating the
+various open source software OCR offerings, settling on Tesseract but keeping an eye out for alternative
+engines.
+ This transition to Tesseract was completed near the end of 2020.
+ OCR format # 
+ There are a few open standards when it comes to defining OCR results, with the
+main contenders being:
+ hOCR 
+ PAGE XML 
+ ALTO XML 
+ The Internet Archive settled on using hOCR . At the time of writing, Tesseract
+does support outputting ALTO XML, but PAGE XML was not yet supported. hOCR was
+deemed sufficiently simple and flexible, with the added advantage that it is
+XHTML, which allows for viewing the documents in a browser. Various hOCR tools
+and libraries exist, as do hOCR viewers, such as hocrviewer-miradoc and hocrjs .
+ We have also created our own tooling to work on (large) hOCR files, as some of
+the existing tooling ran out of memory rather quickly; see archive-hocr-tools ( documentation
+hosted here ).
+ We intend to keep around the older (pre-tesseract) OCR results, but will attempt
+to convert them to hOCR as well, providing a hOCR file for each item with OCR
+results, no matter the OCR engine. The code to convert those files can also be
+found in archive-hocr-tools .
+ Basic workflow # 
+ After an Internet Archive Item has been
+uploaded, various processes kick in to analyze the content and provide
+derivative files, one of those being the OCR file. The output OCR format 
+was changed from the old proprietary format to hOCR, as explained earlier.
+ hOCR files # 
+ Barring any failures in the OCR process, after upload, every item will get one
+or more *_hocr.html files which represent the results of OCR jobs. Each
+ *_hocr.html file contains results for all pages in one set of images (book,
+PDF, or otherwise), with text, bounding boxes, and confidence at the word level.
+For those seeking more detailed OCR results, each _hocr.html file should
+also have a corresponding *_chocr.html.gz file, with character-level
+granularity. (The exact meaning of “character” differs, of course, per script or
+language).
+ From these hOCR files, two additional OCR files get created:
+ *_hocr_pageindex.json.gz : a simple JSON array annotating where each
+individual page element starts in the *_hocr.html file, enabling
+quick fast-forwarding to an individual page without parsing all the XML.
+ *_hocr_searchtext.txt.gz : a plaintext file that is ingested by the full
+text search engine.
+ Additional generated content # 
+ Using the *_hocr.html file, even more files are generated, for
+accessibility and compatibility reasons:
+ *.pdf : Portable Document Format files, containing MRC-compressed
+images and the OCR result as a hidden (selectable, searchable) text layer.
+(In some cases, the PDF files can have a slightly different suffix,
+but the extension remains .pdf )
+ *_djvu.xml : a modified version of the DjVu XML standard, these files
+can also be used to read OCR results, but the recommendation is to instead
+parse the hOCR files.
+ *_djvu.txt :, a human-readable plaintext version of the generated
+ *_djvu.xml file.
+ OCR metadata # 
+ Archive.org items have metadata, and the metadata can dictate how the items are
+treated. For example, the language field determines what languages will be
+used when OCRing the content of the item. Upon completion, the OCR process will
+write various metadata values that potentially enable document discovery through
+metadata search. This section covers all the metadata relevant to the OCR process.
+ Metadata and input for the OCR process # 
+ language # 
+ The item-level language metadata key describes the language(s) the documents
+contained in the item are written in. Accepted values are standard three letter
+ISO-639 codes, MARC languages codes, and canonical names of a language. So in
+the case of English, either eng or English would be accepted.
+Additionally, Tesseract language codes are accepted, and a list of special-case
+language mappings can be found in section Supported languages .
+ The language metadata value can be repeated, meaning that multiple languages
+can be provided. If this is the case, the OCR module will perform OCR using the
+multiple provided languages.
+ If the language value is set to the literal string None , then no OCR
+will be performed, and every page will instead be treated as a page with no
+OCRable content.
+ If the language metadata key is not provided, or is set to one of ( und ,
+ zxx , mul ), then the OCR system will perform what is known as the
+ autonomous mode , which is explained in detail later on.
+ If the language is set to an invalid or unknown language, the OCR module
+will also perform the autonomous mode instead, attempting to guess the script
+and language. (In addition, it will also set either ocr_invalid_language or
+ ocr_unsupported_language in the item (and resulting hOCR file) metadata to
+the languages that are considered invalid or unsupported.
+ adaptive_ocr # 
+ When the adaptive_ocr metadata value is set to true :
+ excessively long runs on Tesseract will not cause the OCR process to fail, but
+rather insert an empty page and set ocr_degraded to page-timeout .
+ Tesseract crashes during the OCR process will cause an empty page to be be
+inserted (as opposed to hard failing) and ocr_degraded will be set to
+ tesseract-crash .
+ In autonomous mode, if no language could be determined but scripts have been
+detected, the OCR will proceed with the scripts only and ocr_degraded will
+be set to script-only .
+ ocr_default_parameters # 
+ The item-level ocr_default_parameters metadata key allows specifying
+specific OCR module parameters. This only has effect when it is set in the
+ collection of an item, setting it on an item itself has no effect. See
+ task arguments for an explanation of all the possible task arguments.
+ Scandata # 
+ Scandata is not a metadata key, but rather a XML file containing specific
+per-image information, including if the image should be included in any of the
+produced formats. The module will find, parse and honours these files if they
+exist.
+ Scandata files are marked with the format "Scandata" .
+ Metadata written by the OCR module # 
+ The following keys are written to the item metadata, as well as to the files
+metadata of the generated hOCR files.
+ If an item contains multiple stacks of images, pdfs, or otherwise, then the
+item-level metadata only represents the values of the stack of images that was
+OCRd, in which case the hOCR file-level metadata should be inspected for correct
+values. This metadata is only written to the files metadata starting with module
+version 0.0.11 .
+ ocr # 
+ This metadata key contains the name and version of the OCR engine that was used
+to produce to OCR content. If a language metadata key was found to be not
+“ocrable”, the ocr metadata key also contains the text language not 
+ currently OCRable .
+ Example:
+ ocr : "tesseract 4.1.1" 
+ ocr_parameters # 
+ This metadata key describes the parameters passed to the OCR engine (Tesseract)
+that were ultimately used to OCR the item contents. This can be used to spot
+potential problems.
+ Example:
+ ocr_parameters : "-l eng" 
+ ocr_module_version # 
+ This metadata key describes the version of the OCR module that was used to
+perform the resulting hOCR file. This can be used to potentially perform OCR on
+items again if problems are found in a specific version.
+ ocr_detected_script # 
+ The script or set of script that is/are most prominent on the images. This value
+is typically based on sampling the content and internally relies on Tesseract’s
+script detection module. Please refer to Tesseract for the list of currently
+supported scripts.
+ Example:
+ ocr_detected_script : "Fraktur" 
+ ocr_detected_script_conf # 
+ This metadata key describes the confidence in the various
+ ocr_detected_script keys; if multiple values are present then the ordering
+follows the ocr_detected_script ordering. The confidence value is expressed
+as a floating point number between 0 and 1.
+ ocr_detected_lang # 
+ The language that is most prominent after OCR. The functionality is provided by
+ langid.py and is expressed as ISO639-1
+language codes, but might be changed to ISO639-3 codes in the future.
+ Example:
+ ocr_detected_lang : "en" 
+ ocr_detected_lang_conf # 
+ This metadata key describes the confidence in the detected language
+( ocr_detected_lang ). The confidence value is expressed as a floating point
+number between 0 and 1.
+ ocr_autonomous # 
+ Contains the literal value true if the OCR was a result of an autonomous
+mode OCR run. Otherwise, the key is not present.
+ ocr_unsupported_language # 
+ If a value in the language field is not supported, this field will be set to
+the unsupported value(s).
+ ocr_invalid_language # 
+ If a value in the language field is considered invalid, this field will be
+set to the invalid value(s).
+ ocr_converted # 
+ This value gets set to true if the hOCR document was created from an
+existing _abbyy.gz file.
+ ocr_degraded # 
+ If OCRing a specific page fails, this value will get set to the error that
+caused the page failure. Currently can get set to:
+ page-timeout : OCR process timed out
+ tesseract-crash : Tesseract crashed during OCR, an empty page was produced
+ script-only : OCR is done only on script datasets
+ pdf-text-convert : The PDF text layer contained one or more issues
+ pdf-text-garbage : The PDF text layer was not used to create the chOCR file
+ Task arguments # 
+ Task arguments typically cannot be supplied manually, but can be set as part of
+the ocr_default_parameters value of a collection.
+ ocr-script-detect # 
+ Perform script detection by sampling, default is on ( 1 ). Stores the result
+in the ocr_detected_script metadata field.
+ ocr-full-script-detect # 
+ Perform full script detection, default is off ( 0 ). Stores the result in the
+ ocr_detected_script metadata field.
+ ocr-use-script-detect # 
+ Use the detected script in the OCR step, default is off ( 0 ).
+ ocr-lang-detect # 
+ Detect the language based upon the OCR’d corpus and store it in the
+ ocr_detected_lang metadata field. Default is on ( 1 ).
+ ocr-binarization-method # 
+ Change the binarization method used for automatically segmenting the page.
+Default is otsu .
+ Valid values:
+ otsu : default Tesseract binarization
+ leptonica-otsu : Tesseract binarization based on Leptonica Otsu ( -c thresholding_method=1 in Tesseract)
+ leptonica-sauvola : Tesseract binarization based on Leptonica Sauvola ( -c thresholding_method=2 in Tesseract)
+ ocr-pass-dpi # 
+ Whether to directly pass the DPI of the image to Tesseract. Default is off
+( 0 ), specify 1 to turn this feature on. DPI is taken from the item
+metadata and Scandata , with the scandata being the preferred source because
+it can provide per-image information.
+ ocr-autonomous # 
+ Force-enable the autonomous mode . Default is off ( 0 ).
+ ocr-page-timeout # 
+ Set the maximum running time (in seconds) for any given page, default is 30 
+minutes ( 1800 seconds). Applies to both script detection and the actual OCR
+process. If the timeout is set to 0 , no timeout is used.
+ ocr-additional-languages # 
+ Some collections of items could benefit from using additional languages or
+scripts during OCR. For example, older works (from the 18th century) might use
+the Long S , but otherwise might not be
+written in the Fraktur script. In this case Tesseract will not detect the Fraktur
+script and as such the “Long S” won’t be picked up properly, and will instead be
+read as f .
+Setting Fraktur in the item language metadata could result in the “Long S”
+being picked up, but that would be an awkward fit, as Fraktur isn’t really a
+language, but rather a script. Instead, setting the following
+ ocr_default_parameters metadata on a collection of an item:
+ ocr - additional - languages : Fraktur 
+ will cause the OCR process of every item contained in the collection to use the
+Fraktur script data set, in addition to the languages of an item, which in turn
+would likely cause the “Long S” to be picked up properly.
+ The ocr-additional-languages parameter can also be used as a (one off) task
+parameter, but that might not be a particularly sensible use case.
+ ocr-two-pass # 
+ This parameter tells the OCR module to perform two OCR passes for each page,
+which can help find elements that are not always picked up
+by Tesseract, such as page numbers. This additional detection is achieved by
+using a different page segmentation method, in combination with excluding all
+areas where the first pass already found any text.
+ The current implementation does not reconstruct the reading order after the
+second pass; it just appends any new text to that found during the first pass.
+ When this feature is turned on, it introduces a small performance hit, typically
+less than 10%.
+ Default is off ( 0 ); specify 1 to turn this feature on.
+ Searching # 
+ The OCR module writes various metadata keys to items (see Metadata written
+by the OCR module ), which are searchable fields in Archive.org. For example,
+to find all documents where the detected script was Fraktur, one could search
+for the following:
+ ocr_detected_script : Fraktur 
+ Likewise, to find all items which were processed with the Autonomous mode ,
+one could search for the following:
+ ocr_autonomous : true 
+ To surface all items with a detected language of French, but with the language
+metadata key set to English, one could try something like this:
+ ocr_detected_lang : fr AND ( language : english OR language : eng ) 
+ Summary of the OCR module modes and functionality # 
+ This section expands a little on the heuristics and computations performed by
+the OCR module. In-depth analysis of the code is outside of the scope of this
+document.
+ Normal operation # 
+ The normal mode of operation involves mapping the values in the language 
+metadata into Tesseract language names. If this succeeds, the images are
+extracted and analysed by the script-detection module (if enabled). The
+confidence for each script on each page is summed up; scripts with low
+confidence are filtered out.
+ After that step, each image is OCR’d with all the provided languages, producing
+a hOCR file for each image. These files are then concatenated into a single hOCR
+file containing all the pages.
+ Finally, the extracted text corpus is analysed by the language detected module
+(not on page-by-page basis).
+ Autonomous mode # 
+ The autonomous mode is a multi-pass OCR mode where no knowledge of the script or
+language of the content is assumed or known. This is computationally more
+intensive. In most simple cases, this is a very effective way to analyse content
+that is provided without the right metadata. In some cases, the result of the
+module ranges from sub-optimal to unusable, depending on the script and language
+of the content - especially unsupported scripts will likely not turn out well.
+ The first step in this process is analysing every image with the script
+detection module from Tesseract. At the end of this step, one or a few scripts are
+selected for the first OCR pass (Tesseract can perform OCR with just a script as
+data files).
+ With the detected scripts, every page is OCR’d with the detected scripts. Once
+that has finished, the language detection module is ran on each page in an
+attempt to figure out the various languages the content is written in. Using
+some simple heuristics, a final set of languages is then selected for the second
+OCR pass.
+ The second OCR pass performs OCR as in the Normal operation , using the
+detected languages as input languages.
+ Conversion from Abbyy XML # 
+ If an Abbyy XML file is present, the module can instead create a hOCR from an
+existing _abbyy.gz file. Whether this happens or not is decided externally
+(by the sourceFormat provided to the module).
+ Conversion from Text PDF # 
+ If a Text PDF file is present, the module can instead create a hOCR from the
+text layers of a PDF document. Whether this happens or not is decided
+externally (by the sourceFormat provided to the module).
+ If minor errors occur during the conversion, ocr_degraded will get set to
+ pdf-text-convert .
+ In case the text layer of the PDF is deemed unacceptable (for example due to
+encoding problems), the module may decide to just perform OCR on rasterised
+images of the PDF. ocr_degraded will also be set to pdf-text-garbage in
+this case.
+ Supported languages # 
+ In case a language is missing, the best way to get the Internet Archive to
+support is by creating the language data is to submit the files to the Tesseract
+project. We might take user contributed language packs that have not made it
+into Tesseract yet, but ideally everything ends up in Tesseract.
+ Omissions or mistakes in the below list when it comes to detected script or
+simply supporting more metadata values can also be reported.
+ See Contributing on the best way to reach us.
+ List of supported languages # 
+ Language name
+ Code
+ Script(s)
+ Note
+ Afrikaans
+ afr 
+ Latin
+ Albanian
+ sqi , alb 
+ Latin
+ Amharic
+ amh 
+ Ethiopic
+ Ancient Greek (to 1453)
+ grc 
+ Greek
+ Arabic
+ ara , عربى , العربية 
+ Arabic
+ Arabic
+ Arabic 
+ Arabic
+ Script only
+ Armenian
+ hye , arm 
+ Armenian
+ Armenian
+ Armenian 
+ Armenian
+ Script only
+ Assamese
+ asm 
+ Bengali
+ Azerbaijani
+ aze_cyrl 
+ Cyrillic
+ Cyrillic
+ Azerbaijani
+ aze 
+ Latin, Cyrillic
+ Basque
+ eus , baq 
+ Latin
+ Belarusian
+ bel 
+ Cyrillic
+ Bengali
+ ben 
+ Bengali
+ Bengali
+ Bengali 
+ Bengali
+ Script only
+ Bosnian
+ bos 
+ Latin, Cyrillic
+ Breton
+ bre , cor 
+ Latin
+ Bulgarian
+ bul , chu 
+ Latin, Cyrillic
+ Burmese
+ mya , bur 
+ Myanmar
+ Canadian_Aboriginal
+ Canadian_Aboriginal 
+ Canadian_Aboriginal
+ Script only
+ Catalan
+ cat 
+ Latin
+ Cebuano
+ ceb 
+ Latin
+ Central Khmer
+ khm 
+ Khmer
+ Cherokee
+ chr 
+ Cherokee, Latin
+ Cherokee
+ Cherokee 
+ Cherokee
+ Script only
+ Chinese
+ chi_sim , chi , zho , chinese (simplified) , chinese (china) , chinese (prc) 
+ HanS
+ Simplified
+ Chinese
+ chi_tra , chinese (traditional) , chinese (taiwan) 
+ HanT
+ Traditional
+ Corsican
+ cos 
+ Latin
+ Croatian
+ hrv , scr 
+ Latin
+ Cyrillic
+ Cyrillic 
+ Cyrillic
+ Script only
+ Czech
+ ces , cze 
+ Latin
+ Danish
+ dan 
+ Latin, Fraktur
+ Devanagari
+ Devanagari 
+ Devanagari
+ Script only
+ Dhivehi
+ div 
+ Thaana
+ Dutch
+ nld , dut , dum , lim 
+ Latin
+ Dzongkha
+ dzo 
+ Tibetan
+ English
+ eng , sco , cpe , en_us 
+ Latin, Fraktur
+ Esperanto
+ epo , esp 
+ Latin
+ Estonian
+ est 
+ Latin, Fraktur
+ Ethiopic
+ Ethiopic , eth , ethiopic , gez 
+ Ethiopic
+ Script only
+ Faroese
+ fao , far 
+ Latin
+ Filipino
+ fil , tag , tgl , pam , pag 
+ Latin
+ Finnish
+ fin 
+ Latin, Fraktur
+ Fraktur
+ Fraktur 
+ Fraktur
+ Script only
+ Frankish
+ frk 
+ Latin
+ French
+ fra , fre , cpf , français , fro 
+ Latin
+ Galician
+ glg , gag 
+ Latin
+ Georgian
+ kat_old 
+ Georgian
+ Ancient
+ Georgian
+ kat , geo 
+ Georgian
+ Georgian
+ Georgian 
+ Georgian
+ Script only
+ German
+ deu , gsw , ger , gem , gmh , nds , goh 
+ Latin, Fraktur
+ Greek
+ Greek 
+ Greek
+ Script only
+ Gujarati
+ guj 
+ Gujarati
+ Gujarati
+ Gujarati 
+ Gujarati
+ Script only
+ Gurmukhi
+ Gurmukhi 
+ Gurmukhi
+ Script only
+ Haitian
+ hat 
+ Latin
+ HanS
+ HanS 
+ HanS
+ Script only
+ HanT
+ HanT 
+ HanT
+ Script only
+ Hangul
+ Hangul 
+ Hangul
+ Script only
+ Hangul_vert
+ Hangul_vert 
+ Hangul_vert
+ Script only
+ Hebrew
+ heb 
+ Hebrew
+ Hebrew
+ Hebrew 
+ Hebrew
+ Script only
+ Hindi
+ hin 
+ Devanagari
+ Hungarian
+ hun 
+ Latin
+ Icelandic
+ isl , ice , non 
+ Latin
+ Indonesian
+ ind 
+ Latin
+ Inuktitut
+ iku 
+ Canadian_Aboriginal
+ Irish
+ gle , mga , sga , iri 
+ Latin
+ Italian
+ ita_old 
+ Latin
+ Ancient
+ Italian
+ ita , nap 
+ Latin
+ Japanese
+ jpn 
+ Japanese
+ Japanese
+ Japanese 
+ Japanese
+ Script only
+ Javanese
+ jav 
+ Latin
+ Kannada
+ kan 
+ Kannada
+ Kannada
+ Kannada 
+ Kannada
+ Script only
+ Kazakh
+ kaz 
+ Latin, Cyrillic, Arabic
+ Khmer
+ Khmer 
+ Khmer
+ Script only
+ Kirghiz
+ kir 
+ Latin, Cyrillic, Arabic
+ Korean
+ kor 
+ Hangul
+ Korean
+ kor_vert 
+ Hangul_vert
+ Vertical
+ Lao
+ lao 
+ Lao
+ Lao
+ Lao 
+ Lao
+ Script only
+ Latin
+ lat 
+ Latin
+ Latin
+ Latin 
+ Latin
+ Script only
+ Latvian
+ lav 
+ Latin, Fraktur
+ Lithuanian
+ lit 
+ Latin
+ Luxembourgish
+ ltz 
+ Latin
+ Macedonian
+ mkd , mac 
+ Cyrillic
+ Malay (macrolanguage)
+ msa , may 
+ Latin
+ Malayalam
+ mal 
+ Malayalam
+ Malayalam
+ Malayalam 
+ Malayalam
+ Script only
+ Maltese
+ mlt 
+ Latin
+ Maori
+ mri , mao 
+ Latin
+ Marathi
+ mar 
+ Devanagari
+ Middle English (1100-1500)
+ enm , ang , old english , middle english 
+ Latin, Fraktur
+ Middle French (ca. 1400-1600)
+ frm 
+ Latin
+ Modern Greek (1453-)
+ ell , gre , greek , ελληνικά 
+ Greek
+ Mongolian
+ mon 
+ Cyrillic
+ Myanmar
+ Myanmar 
+ Myanmar
+ Script only
+ Nepali (macrolanguage)
+ nep 
+ Devanagari
+ Northern Kurdish
+ kmr , kur 
+ Latin
+ Norwegian
+ nor , nob , nno 
+ Latin, Fraktur
+ Occitan (post 1500)
+ oci 
+ Latin
+ Oriya
+ Oriya 
+ Oriya
+ Script only
+ Oriya (macrolanguage)
+ ori 
+ Oriya
+ Panjabi
+ pan 
+ Gurmukhi
+ Persian
+ fas , per , ira 
+ Arabic
+ Polish
+ pol 
+ Latin
+ Portuguese
+ por , cpp , brazilian portuguese 
+ Latin
+ Pushto
+ pus 
+ Arabic
+ Quechua
+ que 
+ Latin
+ Romanian
+ ron , rum , mol , moldavian 
+ Latin
+ Russian
+ rus , русский , russian old , russian (old) 
+ Cyrillic
+ Sanskrit
+ san 
+ Devanagari, Kannada, Telugu, Tamil
+ Scottish Gaelic
+ gla , gae , glv , max 
+ Latin
+ Serbian
+ srp , scc 
+ Cyrillic, Latin
+ Serbian
+ srp_latn 
+ Latin
+ Latin
+ Sindhi
+ snd 
+ Arabic, Devanagari
+ Sinhala
+ sin 
+ Sinhala
+ Sinhala
+ Sinhala 
+ Sinhala
+ Script only
+ Slovak
+ slk , slo , sla 
+ Latin
+ Slovenian
+ slv 
+ Latin
+ Spanish
+ spa_old 
+ Latin
+ Ancient
+ Spanish
+ spa , español , arg 
+ Latin
+ Sundanese
+ sun 
+ Latin
+ Swahili (macrolanguage)
+ swa 
+ Latin
+ Swedish
+ swe 
+ Latin, Fraktur
+ Syriac
+ syr , syc 
+ Syriac
+ Syriac
+ Syriac 
+ Syriac
+ Script only
+ Tajik
+ tgk , taj 
+ Latin, Cyrillic, Arabic
+ Tamil
+ tam 
+ Tamil
+ Tamil
+ Tamil 
+ Tamil
+ Script only
+ Tatar
+ tat , tar 
+ Latin, Cyrillic, Arabic
+ Telugu
+ tel 
+ Telugu
+ Telugu
+ Telugu 
+ Telugu
+ Script only
+ Thaana
+ Thaana 
+ Thaana
+ Script only
+ Thai
+ tha 
+ Thai
+ Thai
+ Thai 
+ Thai
+ Script only
+ Tibetan
+ bod , tib 
+ Tibetan
+ Tibetan
+ Tibetan 
+ Tibetan
+ Script only
+ Tigrinya
+ tir 
+ Ethiopic
+ Tonga (Tonga Islands)
+ ton 
+ Latin
+ Turkish
+ tur 
+ Latin
+ Uighur
+ uig 
+ Latin, Cyrillic, Arabic
+ Ukrainian
+ ukr 
+ Cyrillic
+ Urdu
+ urd 
+ Arabic
+ Uzbek
+ uzb 
+ Latin
+ Uzbek
+ uzb_cyrl 
+ Cyrillic
+ Cyrillic
+ Vietnamese
+ vie 
+ Vietnamese
+ Vietnamese
+ Vietnamese 
+ Vietnamese
+ Script only
+ Welsh
+ cym , wel 
+ Latin
+ Western Frisian
+ fry , fri , frr 
+ Latin
+ Yiddish
+ yid 
+ Hebrew
+ Yoruba
+ yor 
+ Latin
+ Code repositories # 
+ https://git.archive.org/www/tesseract 
+ https://git.archive.org/www/hocr-fts-text 
+ https://git.archive.org/www/hocr-pageindex 
+ internetarchive/archive-hocr-tools 
+ https://git.archive.org/merlijn/python-derivermodule 
+ https://git.archive.org/merlijn/hocr-char-to-word 
+ Contributing # 
+ Contributions to the Code repositories are welcome. The discussion of the OCR
+efforts takes place in the #ocr-g channel on the Internet Archive’s Slack
+channel. Feel free to reach out to the author of this document if you would like
+to contribute.
+ Release history # 
+ Tesseract module 0.0.19 # 
+ Date: 2023-01-12
+ Changes:
+ Support ocr-two-pass argument, which ought to help finding page numbers
+ Move to Tesseract 5.3.0
+ Move to archive-hocr-tools 1.1.33
+ Support additional languages in abbyyy-to-hocr 
+ Tesseract module 0.0.18 # 
+ Date: 2022-09-05
+ Changes:
+ Support converting PDFs with text layers to chOCR
+ Write ocr_degraded in case PDF text conversion encounters non-fatal errors
+ archive-hocr-tools version 1.1.24
+ Tesseract module 0.0.17 # 
+ Date: 2022-08-05
+ Changes:
+ Move to Tesseract 5.2.0
+ Support finding photos during the OCR process and mark them as such in the
+hOCR
+ Switch to archive-hocr-tools 1.1.20
+ Get default_language and ocr arguments from all collections of an item
+ Add new Fraktur frak2021_1.069.traineddata data
+ Add ocr-additional-languages argument
+ Support additional languages in abbyyy-to-hocr 
+ Tesseract module 0.0.16 # 
+ Date: 2022-06-13
+ Changes:
+ Move to archive-hocr-tools 1.1.16
+ Tesseract module 0.0.15 # 
+ Date: 2022-02-02
+ Changes:
+ Add tool to output supported languages as restructured text
+ Support passing the DPI of a page from scandata or item metadata
+ Support specifying a thresholding mechanism
+ In autonomous mode, fall back to scripts only if no language is detected
+ Set``ocr_degraded`` if autonomous mode falls back to scripts only
+ Fix OCRing image stacks that contain around TIFFs that contain with multiple
+images by always analysing just the first image.
+ Move to archive-hocr-tools 1.1.15
+ Tesseract module 0.0.14 # 
+ Date: 2021-11-01
+ Changes:
+ Add support for per-page timeouts
+ Map additional languages in abbyy-to-hocr 
+ Gracefully handle missing font sizes when converting Abbyy files
+ Support converting gzip Abbyy files
+ Log Tesseract (max) memory usage
+ Move to archive-hocr-tools 1.1.7
+ Add fallback path for certain JPEG2000 files that cannot be read with
+ Pillow 
+ Decrease page timeout to 10 seconds
+ Add a fallback to Sauvola thresholding when OCR times out
+ Tesseract module 0.0.13 # 
+ Date: 2021-04-15
+ Changes:
+ Switch to archive-hocr-tools 1.1.4
+ Add initial support for converting from Abbyy
+ Tesseract module 0.0.12 # 
+ Date: 2021-03-16
+ Changes:
+ Switch to Tesseract 5 alpha
+ Handle items without collection metadata
+ Automatically use Fraktur script if detected with a confidence greater than
+ 0.7 
+ Switch to archive-hocr-tools 1.1.3
+ Tesseract module 0.0.11 # 
+ Date: 2021-01-26
+ Changes:
+ Metadata is now also written to per-file metadata (_files.xml)
+ Move to python-derivermodule 1.0.0
+ Tesseract module 0.0.10 # 
+ Date: 2020-12-18
+ Changes:
+ Various language mapping additions
+ More clear error messages when scandata doesn’t match,
+ Bugfix for backslashes being rewritten to forward slashes in Leptonica, which
+were reported and fixed prompty:
+ DanBloomberg/leptonica#558 
+ Tesseract module 0.0.9 # 
+ Date: 2020-12-08
+ Changes:
+ Additional language mappings, supporting more exotic language codes, and some
+different spellings of language codes. (Based on an updated list from
+Tesseract, some languages from the old module, and some others)
+ Module will now process items with invalid or unsupported language codes,
+where possible. The autonomous mode will be turned on in these cases, and the
+metadata will reflect the invalid or unsupported languages in
+ocr_invalid_language and ocr_unsupported_language. If the script cannot be
+detected, the module will enter the “cannot ocr path”
+ The “cannot ocr path” will not perform (further) OCR on the item. The ocr
+metadata will contain “language not currently OCRable” (the same as the
+old module), and the hOCR file will contain empty pages and a hint
+in a <meta> field that OCR has not been run.
+ Items that have “handwritten” in the language, or None (literal string) in the
+language field will not be OCR’d via the “cannot ocr path”. bugfix:
+hocr-combine-stream did not honour the ocr-system and ocr-capabilities <meta>
+keywords. This has now been fixed, but is still unfortunate.
+ Tesseract module 0.0.8 # 
+ Date: 2020-12-01
+ Changes:
+ Introduces the Autonomous mode .
+ Support more languages: kur and tgl are not actually in Tesseract; replace
+them with kmr (not an exact replacement, but better than nothing for “Kurdish”
+kmr is Latin, kur used to be Arabic but is not available currently). tgl is
+Tagalog which was renamed to fil (Filipino).
+ Fixup invalid metadata in items
+(not caused by us, but we can fix it, discussed with Hank)
+ Add Fraktur for all languages that we know have used Fraktur in the past
+(taken from Wikipedia)
+ ocr_detected_script and ocr_detected_script_conf can now have multiple
+values (only in autonomous mode at the moment)
+ Tesseract module 0.0.7 # 
+ Date: 2020-11-20
+ Changes:
+ Support for collection default parameters (see ocr_default_parameters )
+ Image validation checks are loosened up as they were too strict.
+ A division by zero has been fixed when the confidence in the script detected was 0.
+ Ships with improved Fraktur model
+ Tesseract module 0.0.6 # 
+ Date: 2020-11-10
+ Changes:
+ Script detection confidence is now added, with normalisation based on all the collected confidence values (metadata field: ocr_script_detect_conf). This field will be useful in the upcoming autonomous mode, where the module will be able to figure out the script and potentially even the language.
+ Task arguments support for scripting flexibility.
+ Switched to hocr-tools package: https://git.archive.org/merlijn/archive-hocr-tools 
+ Code refactoring for the upcoming autonomous mode
+ Tesseract module 0.0.5 # 
+ Date: 2020-11-02
+ Changes:
+ Script detection by sampling, not full analysis
+ Tesseract module 0.0.4 # 
+ Date: 2020-10-26
+ Changes:
+ Streaming XML version of hOCR combination
+ Tesseract module 0.0.3 # 
+ Date: 2020-10-21
+ Changes:
+ Can read (and honour) Scandata .
+ previous
+ Reviews API
+ next
+ PDF analysis, generation and compression at the Internet Archive
+ On this page
+ Introduction 
+ Motivation 
+ OCR format 
+ Basic workflow 
+ hOCR files 
+ Additional generated content 
+ OCR metadata 
+ Metadata and input for the OCR process 
+ language 
+ adaptive_ocr 
+ ocr_default_parameters 
+ Scandata 
+ Metadata written by the OCR module 
+ ocr 
+ ocr_parameters 
+ ocr_module_version 
+ ocr_detected_script 
+ ocr_detected_script_conf 
+ ocr_detected_lang 
+ ocr_detected_lang_conf 
+ ocr_autonomous 
+ ocr_unsupported_language 
+ ocr_invalid_language 
+ ocr_converted 
+ ocr_degraded 
+ Task arguments 
+ ocr-script-detect 
+ ocr-full-script-detect 
+ ocr-use-script-detect 
+ ocr-lang-detect 
+ ocr-binarization-method 
+ ocr-pass-dpi 
+ ocr-autonomous 
+ ocr-page-timeout 
+ ocr-additional-languages 
+ ocr-two-pass 
+ Searching 
+ Summary of the OCR module modes and functionality 
+ Normal operation 
+ Autonomous mode 
+ Conversion from Abbyy XML 
+ Conversion from Text PDF 
+ Supported languages 
+ List of supported languages 
+ Code repositories 
+ Contributing 
+ Release history 
+ Tesseract module 0.0.19 
+ Tesseract module 0.0.18 
+ Tesseract module 0.0.17 
+ Tesseract module 0.0.16 
+ Tesseract module 0.0.15 
+ Tesseract module 0.0.14 
+ Tesseract module 0.0.13 
+ Tesseract module 0.0.12 
+ Tesseract module 0.0.11 
+ Tesseract module 0.0.10 
+ Tesseract module 0.0.9 
+ Tesseract module 0.0.8 
+ Tesseract module 0.0.7 
+ Tesseract module 0.0.6 
+ Tesseract module 0.0.5 
+ Tesseract module 0.0.4 
+ Tesseract module 0.0.3 
+By Internet Archive
+ © Copyright 2018-2026, Internet Archive.
+ so the DOM is not blocked -->

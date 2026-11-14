@@ -1,0 +1,92 @@
+See whether a website exists in the archives — Internet Archive Developer Portal 
+ Skip to main content 
+ Back to top 
+ Ctrl + K 
+ Ctrl + K 
+ Home
+ Tutorials 
+ Get your Internet Archive credentials 
+ See whether a website exists in the archives 
+ Compare two versions of a website 
+ Tools and APIs 
+ Bots, LLMs, and Automated Access 
+ Internet Archive Items 
+ Internet Archive Metadata 
+ Command-Line Interface 
+ The Internet Archive Python Library 
+ ias3 Internet archive S3-like API 
+ Item Metadata API 
+ Item Metadata API: Read 
+ Item Metadata API: Write 
+ Item Metadata API: Record details 
+ Item Metadata API: Advanced Topics & Extensions 
+ API for discovering changes to archive.org items 
+ Views data service api 
+ Item Engagement counting on the archive.org website. 
+ Internet Archive RESTful microservices 
+ Internet Archive Tasks API 
+ Simple Lists (Relationships API) 
+ Reviews API 
+ OCR at the Internet Archive with Tesseract and hOCR 
+ PDF analysis, generation and compression at the Internet Archive 
+ .md 
+ .pdf 
+ See whether a website exists in the archives
+ On this page 
+ API used 
+ Prerequisites 
+ Steps 
+ Example request 
+ Example response 
+ What to do next 
+ See whether a website exists in the archives # 
+ Ever since the first website was born, the worldwide web has seen many sites being created every day. Sometimes, websites die. However, if the Internet Archive crawled and stored a dead website when the website was still available, you can still access that website.
+ This tutorial shows you how to see if a website was crawled and stored by the Internet Archive.
+ API used # 
+ Wayback machine APIs 
+ Prerequisites # 
+ The instructions in this tutorial use the cURL command. Most computers have this protocol pre-installed. To see if it’s installed on your computer, at the command prompt, run the following command:
+ curl 
+ You should get an output similar to this:
+ curl: try 'curl --help' for more information 
+ If you don’t see this output, install cURL .
+ Steps # 
+ Run a command in the following syntax:
+ curl -X GET "https://archive.org/wayback/available?url=<url>" 
+ where <url> is the URL of the website you’re looking for.
+ The result is a JSON dictionary that has the following objects:
+ url : The URL you queried the API for
+ archived_snapshots.closest.status : An HTTP status code that tells you whether the URL is available
+ archived_snapshots.closest.available : Boolean, based on the value of the status key
+ archived_snapshots.closest.url : If the value of archived_snapshots.closest.available is true , the URL of the archived website
+ archived_snapshots.timestamp : The most recent time when the website was archived
+ Example request # 
+ curl -X GET "https://archive.org/wayback/available?url=http://tc.eserver.org/" 
+ Example response # 
+ { 
+ "url" : "http://tc.eserver.org/" , 
+ "archived_snapshots" : { 
+ "closest" : { 
+ "status" : "200" , 
+ "available" : true , 
+ "url" : "http://web.archive.org/web/20180427130634/https://tc.eserver.org/" , 
+ "timestamp" : "20180427130634" 
+ } 
+ } 
+ } 
+ What to do next # 
+ These steps give you the most recent snapshot of the queried website. If you need to retrieve all snapshots of the website, see Compare two versions of a website .
+ previous
+ Get your Internet Archive credentials
+ next
+ Compare two versions of a website
+ On this page
+ API used 
+ Prerequisites 
+ Steps 
+ Example request 
+ Example response 
+ What to do next 
+By Internet Archive
+ © Copyright 2018-2026, Internet Archive.
+ so the DOM is not blocked -->

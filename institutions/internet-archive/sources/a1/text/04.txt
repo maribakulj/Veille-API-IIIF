@@ -1,0 +1,241 @@
+Item Metadata API: Write — Internet Archive Developer Portal 
+ Skip to main content 
+ Back to top 
+ Ctrl + K 
+ Ctrl + K 
+ Home
+ Tutorials 
+ Get your Internet Archive credentials 
+ See whether a website exists in the archives 
+ Compare two versions of a website 
+ Tools and APIs 
+ Bots, LLMs, and Automated Access 
+ Internet Archive Items 
+ Internet Archive Metadata 
+ Command-Line Interface 
+ The Internet Archive Python Library 
+ ias3 Internet archive S3-like API 
+ Item Metadata API 
+ Item Metadata API: Read 
+ Item Metadata API: Write 
+ Item Metadata API: Record details 
+ Item Metadata API: Advanced Topics & Extensions 
+ API for discovering changes to archive.org items 
+ Views data service api 
+ Item Engagement counting on the archive.org website. 
+ Internet Archive RESTful microservices 
+ Internet Archive Tasks API 
+ Simple Lists (Relationships API) 
+ Reviews API 
+ OCR at the Internet Archive with Tesseract and hOCR 
+ PDF analysis, generation and compression at the Internet Archive 
+ .md 
+ .pdf 
+ Item Metadata API: Write
+ On this page 
+ Lookahead 
+ Transaction workflow 
+ Concurrency issues 
+ Authentication 
+ User JSON files 
+ Targets 
+ JSON Patch & JSON Pointer 
+ Rate limits 
+ Priority 
+ Priority reduction 
+ Single target writes 
+ Encoding 
+ Example 
+ Multi-target writes 
+ Encoding 
+ Example 
+ Errors 
+ Item Metadata API: Write # 
+ Item Metadata API (MDAPI) Read updates an item’s metadata.
+ ( NOTE: In this document, JSON is pretty-printed for legibility.) 
+ Certain portions of an item’s metadata record may be updated by making an HTTP POST request to the same address as reading the record ( https://archive.org/metadata/{identifier} ).
+ The caller must choose which target(s) they wish to write to. Currently, the only writeable targets are metadata , files , user JSON, and simplelists .
+ (Reviews may be written via the Reviews API . Writing to SimpleLists is covered here .)
+ Metadata Write does not support partial paths , such as https://archive.org/metadata/xfetch/metadata/creator . Rather, the write would occur to the metadata target and the patch path would be for /creator .
+ There are two forms of Metadata Write: single-target and multi-target . The first form is more common.
+ Lookahead # 
+ MDAPI performs lookahead for all changes submitted via MD Write. This means that changes submitted to an item will be reflected in MD Read’s results before the patch is written to disk. Lookahead takes effect the moment a change is submitted.
+ Note that lookahead only works if the metadata record is read with the Metadata API. Directly viewing the on-disk data file will not receive the benefits of lookahead.
+ When creating a patch for MD Write, the caller should always use MD Read rather than reading the raw file in the item.
+ Transaction workflow # 
+ The general approach for using Metadata Write is:
+ Read the item’s current metadata record (using Metadata Read )
+ Alter the record (either the record’s metadata , files , or a user JSON field; other fields are read-only)
+ Generate a JSON Patch (using a diff tool, although it can be hand-generated)
+ Perform a Metadata Write
+ The caller should always read the item state via MD Read, and not read the files directly from the data node via HTTP.
+ Concurrency issues # 
+ It’s possible for multiple writers to submit changes to the same item concurrently. MDAPI makes certain provisions to guard against race conditions, but clients are expected to use safeguards as well.
+ This issue is discussed further in Metadata API: Advanced Topics & Extensions .
+ Authentication # 
+ In addition to the authentication methods detailed elsewhere , Metadata Write also permits the user’s S3 access/secret keys to be included as URL-encoded form data in the POST payload. This is explained below.
+ User JSON files # 
+ As mentioned earlier, MD Write may be used to create and update JSON files in the item. If you plan on updating a user JSON file with MD Write, do NOT upload the file to or delete the file from the item using S3. This interferes with MDAPI and the way it works with the JSON file.
+ Targets # 
+ Other than simplelists and reviews , the three supported targets are:
+ metadata : To write to the metadata field
+ files/{filename} : To write metadata for a specific file in the item
+ {identifier} or {name} : To write custom user JSON
+ Note that the files/{filename} form does not write to the target file itself. Rather, the metadata is written to the item’s _files.xml file, which holds sundry metadata about each file.
+ Also note that a partial Metadata Read of a file uses the file’s index in the path (https://archive.org/metadata/xfetch/files/12), while Metadata Write uses the file’s name in the path ( files/xfetch.pdf ).
+ Custom user JSON will result in a file being written to the item: {identifier}.json for the first form, and {identifier}_{name}.json for the second.
+ JSON Patch & JSON Pointer # 
+ MDAPI uses JSON Patch for specifying metadata changes. The patches can be generated by hand, or by using a JSON diff library.
+ One important note about the patches regards the JSON path (which is a JSON pointer ). The patch path should not include the target being modified.
+ For example, if modifying the creator field in metadata , don’t include /metadata/ in the JSON path:
+ { 
+ "op" : "replace" , 
+ "path: " / creator ", 
+ "value" : "Stimpy" 
+ } 
+ Also note that a JSON Patch may include multiple operations as a JSON array:
+ [ 
+ { 
+ "op" : "replace" , 
+ "path: " / creator ", 
+ "value" : "Stimpy" 
+ }, 
+ { 
+ "op" : "remove" , 
+ "path" : "/keywords" 
+ } 
+ ] 
+ Rate limits # 
+ Users are limited in the number of tasks they may submit over a period of time. Clients should be prepared to receive a 429 Too Many Requests HTTP response indicating the user’s threshold has been reached. The client should either report this error or sleep for a period of time before retrying.
+ The server may return a Retry-After header with the response. The client may use this value as a suggestion for the amount of time to pause.
+ Priority # 
+ All tasks have a priority number. The higher the number, the higher the execution order. Task priorities generally run in the range from -10 to +10.
+ High priority does not mean a task will run sooner. There are several criteria used to determine when a task executes, including machine availability, workload, total number of queued tasks, and more. Also, tasks for any particular item are serialized (only one may execute at a time). Tasks are executed in the order they are submitted, regardless of their priority.
+ Additionally, because of lookahead , when the MD Write task executes is somewhat moot. As soon as the task is scheduled, it will be reflected in the MD Read record.
+ Priority reduction # 
+ Clients wishing to avoid rate limiting may opt to schedule their change task at a reduced priority. When the X-Accept-Reduced-Priority request header is set to a true-ish value (e.g., 1 ), a client submitting a task for execution can avoid rate limiting. If the user is being rate limited, the task will be queued at a reduced priority rather than returning a 429 Too Many Requests .
+ If priority reduction occurs, the X-Priority-Reduced header is returned with the 200 OK response. The header value is the task’s reduced priority number (e.g., -7 or -9 ).
+ Clients should be prepared to receive a 429 Too Many Requests even if the X-Accept-Reduced-Priority header is sent.
+ Single target writes # 
+ To write to a single target, perform an HTTP POST to the /metadata/{identifier} endpoint with a URL-encoded form data payload of the following fields:
+ -target : The patch target ( metadata , files/{filename} , or user JSON identifier)
+ -patch : The JSON Patch (JSON-encoded)
+ As mentioned above, the form data may also include these fields rather than use the Authorization: header:
+ access : The user’s S3 access key
+ secret : The user’s S3 secret key
+ The form data may also include an optional priority field, an integer indicating the task’s execution priority. The default priority is 0 (zero). (See Priority for more information.)
+ A success response is JSON-encoded with three fields:
+ success (true)
+ task_id (int): The queued task identifier for the change
+ log : A URL to the log file that will be written to when the change is executed
+ An error response will have two fields:
+ success (false)
+ error (string)
+ Encoding # 
+ One important point that can be confusing is the use of multiple encodings.
+ The entire payload is URL-encoded form data (“percent encoding”). The -patch field is a JSON Patch, meaning it is itself JSON-encoded. This means the JSON Patch is double-encoded: First as JSON, and then percent encoded.
+ In pseudo-code, assembling the payload looks something like this:
+ patch = json_diff ( current_metadata , updated_metadata ); 
+ json_patch = json_encode ( patch ); // if json_diff () doesn 't return a JSON-encoded patch 
+ payload = percent_encode ([ "-target" => "metadata" , "-patch" => json_patch ]); 
+ Example # 
+ For writing to target metadata , a patch to remove the creator field would look like this:
+ { 
+ "op" : "remove" , 
+ "path" : "/creator" 
+ } 
+ The write request:
+ POST / metadata / example_item HTTP / 1.1 
+ Host : archive . org 
+ Authorization : LOW < s3 - access > : < s3 - secret > 
+ Content - Length : 85 
+ Content - Type : application / x - www - form - urlencoded 
+ - target = metadata &- patch =% 7 B % 22 op % 22 % 3 A % 22 remove % 22 % 2 C % 22 path % 22 % 3 A % 22 % 2 Fcreator % 22 % 7 D 
+ A successful response:
+ HTTP / 1.1 200 OK 
+ Content - Type : application / json 
+ Transfer - Encoding : chunked 
+ { 
+ "success" : true , 
+ "task_id" : 2391928033 , 
+ "log" : "https://catalogd.archive.org/log/2391928033" 
+ } 
+ An error response:
+ HTTP / 1.1 400 Bad Request 
+ Content - Type : application / json 
+ Transfer - Encoding : chunked 
+ { 
+ "success" : false , 
+ "error" : "No changes made to _meta.xml" 
+ } 
+ Multi-target writes # 
+ Multiple targets may be written in a single request. While this can be achieved by several sequential single-target requests, multi-target writes have the advantage of being atomic.
+ To write to multiple targets, perform an HTTP POST to the endpoint with a URL-encoded form data payload of the following field:
+ -changes : A JSON-encoded array of targets and patches (described below)
+ As with single-target, the form data may also include an optional priority field. (See Priority for more information.)
+ The success and error responses are identical to the responses described in “Single target” .
+ Multi-target writes accept S3 keys as POST data, also described above.
+ Encoding # 
+ The -changes list is a JSON-encoded array of objects (dictionaries). Each JSON object contains two keys: target and patch . Thus, multiple targets may be specified, each with its own patch. The same target may be included multiple times.
+ Example:
+ [ 
+ { 
+ "target" : "metadata" , 
+ "patch" : { 
+ "op" : "replace" , 
+ "path" : "/creator" , 
+ "value" : "Ren" 
+ } 
+ }, 
+ { 
+ "target" : "files/image/01.jpg" , 
+ "patch" : [ 
+ { 
+ "op" : "add" , 
+ "path" : "/subject" , 
+ "value" : "Log" 
+ }, 
+ { 
+ "op" : "remove" , 
+ "path" : "/keyword" 
+ } 
+ ] 
+ } 
+ ] 
+ The second element in the changes list, for files/image/01.jpg , is an example of patch holding multiple operations.
+ As with single-target writes, the entire -changes list is URL-encoded (meaning the changes list is double-encoded).
+ Example # 
+ Using the prior changes list example, the HTTP POST would look like this:
+ POST / metadata / example_item HTTP / 1.1 
+ Host : archive . org 
+ Authorization : LOW < s3 - access > : < s3 - secret > 
+ Content - Length : 378 
+ Content - Type : application / x - www - form - urlencoded 
+ - changes =% 5 B % 7 B % 22 target % 22 % 3 A % 22 metadata % 22 % 2 C % 22 patch % 22 % 3 A % 7 B % 22 op % 22 % 3 A % 22 replace % 22 % 2 C % 22 path % 22 % 3 A % 22 % 2 Fcreator % 22 % 2 C % 22 value % 22 % 3 A % 22 Ren % 22 % 7 D % 7 D % 2 C % 7 B % 22 target % 22 % 3 A % 22 files % 2 Fimage % 2 F01 . jpg % 22 % 2 C % 22 patch % 22 % 3 A % 5 B % 7 B % 22 op % 22 % 3 A % 22 add % 22 % 2 C % 22 path % 22 % 3 A % 22 % 2 Fsubject % 22 % 2 C % 22 value % 22 % 3 A % 22 Log % 22 % 7 D % 2 C % 7 B % 22 op % 22 % 3 A % 22 remove % 22 % 2 C % 22 path % 22 % 3 A % 22 % 2 Fkeyword % 22 % 7 D % 5 D % 7 D % 5 D 
+ Errors # 
+ If the patch does not make any changes to the item, it will be rejected with an error message stating “no changes made.” Other errors have different messages.
+ previous
+ Item Metadata API: Read
+ next
+ Item Metadata API: Record details
+ On this page
+ Lookahead 
+ Transaction workflow 
+ Concurrency issues 
+ Authentication 
+ User JSON files 
+ Targets 
+ JSON Patch & JSON Pointer 
+ Rate limits 
+ Priority 
+ Priority reduction 
+ Single target writes 
+ Encoding 
+ Example 
+ Multi-target writes 
+ Encoding 
+ Example 
+ Errors 
+By Internet Archive
+ © Copyright 2018-2026, Internet Archive.
+ so the DOM is not blocked -->

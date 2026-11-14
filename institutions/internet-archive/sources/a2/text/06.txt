@@ -1,0 +1,323 @@
+Views data service api — Internet Archive Developer Portal 
+ Skip to main content 
+ Back to top 
+ Ctrl + K 
+ Ctrl + K 
+ Home
+ Tutorials 
+ Get your Internet Archive credentials 
+ See whether a website exists in the archives 
+ Compare two versions of a website 
+ Tools and APIs 
+ Bots, LLMs, and Automated Access 
+ Internet Archive Items 
+ Internet Archive Metadata 
+ Command-Line Interface 
+ The Internet Archive Python Library 
+ ias3 Internet archive S3-like API 
+ Item Metadata API 
+ Item Metadata API: Read 
+ Item Metadata API: Write 
+ Item Metadata API: Record details 
+ Item Metadata API: Advanced Topics & Extensions 
+ API for discovering changes to archive.org items 
+ Views data service api 
+ Item Engagement counting on the archive.org website. 
+ Internet Archive RESTful microservices 
+ Internet Archive Tasks API 
+ Simple Lists (Relationships API) 
+ Reviews API 
+ OCR at the Internet Archive with Tesseract and hOCR 
+ PDF analysis, generation and compression at the Internet Archive 
+ .md 
+ .pdf 
+ Views data service api
+ On this page 
+ Simple summary view count data 
+ Per day view data 
+ Detailed, aggregated collection access data with geolocation region information 
+ Detailed, aggregated item access data with geolocation region information 
+ Detailed, aggregated access data by contributor with geolocation region information 
+ Legacy summary view count data 
+ Views data service api # 
+ Archive.org performs daily processing of our access logs and generates aggregated view data.
+ We are providing a beta api for access to view data.
+ View data is provided for items, and collections.
+For collections, the count data is the sum of the views from all items in that
+collection.
+ Simple summary view count data # 
+ https://be-api.us.archive.org/views/v1/short/<identifier>[,<identifier>,...]
+ This api call provides an array with keys being identifiers, and values being a record with four fields:
+ have_data : A boolean which is true if there is data in the views data set for this identifier. When there is no data available, counts are still returned, but they are all zeros.
+ all_time : The all time view count.
+ last_30day : The number of views for the item over the last 30 days.
+ last_7day : The number of views for the item over the last 7 days.
+ For example:
+ $ curl - s https : //be-api.us.archive.org/views/v1/short/adventuresoftoms00twaiiala,texts | jq . 
+ { 
+ "adventuresoftoms00twaiiala" : { 
+ "all_time" : 31565 , 
+ "have_data" : true , 
+ "last_30day" : 361 , 
+ "last_7day" : 84 
+ }, 
+ "texts" : { 
+ "all_time" : 3872455803 , 
+ "have_data" : true , 
+ "last_30day" : 81840217 , 
+ "last_7day" : 18351826 
+ } 
+ } 
+ Per day view data # 
+ https://be-api.us.archive.org/views/v1/long/<identifier>[,<identifier>,...]
+ This api call provides data suitable for making item sparclines, and very general summary reporting.
+ days : A list of the days the api has detailed data for
+ ids : Per identifier result data
+ The four fields above from the /short/ call and,
+ pre_20170101_total : The total up to Jan 1 2017 of all view counts carried over from the legacy views system.
+ detail : Detailed access data by useragent category
+ non_robot : view counts caused by known browser useragent strings
+ robot : view counts caused by known robot useragent strings
+ unrecognized : view counts for useragent strings which the library could not be sure were robots or non_robots.
+ pre2017 : view counts computed using the legacy counting method which ignores useragent, provided for comparison purposes.
+ Each of these categories has with these keys
+ per_day : the views which happened per day, each value of this array matches the datecode in the days array.
+ previous_days_total : the sum of views which are in this category, which are not accounted for in the per_day data (this value will remain zero unless, for performance reasons, day data becomes too large for this system to manage, in which case some per day data may get rolled up into this accumulator.)
+ sum_per_day_data : the sum of the values in the per_day array. Provided for convenience.
+ For example:
+ $ curl - s https : //be-api.us.archive.org/views/v1/long/adventuresoftoms00twaiiala | jq . 
+ { 
+ "days" : [ 
+ "2017-01-01" , 
+ "2017-01-02" , 
+ ... 
+ "2017-10-02" , 
+ "2017-10-03" 
+ ], 
+ "ids" : { 
+ "adventuresoftoms00twaiiala" : { 
+ "all_time" : 31565 , 
+ "detail" : { 
+ "pre_20170101_total" : 28105 , 
+ "non_robot" : { 
+ "per_day" : [ 
+ 9 , 
+ 12 , 
+ ... 
+ 9 , 
+ 3 
+ ], 
+ "previous_days_total" : 0 , 
+ "sum_per_day_data" : 2924 
+ }, 
+ "pre2017" : { 
+ "per_day" : [ 
+ ... 
+ ], 
+ "previous_days_total" : 0 , 
+ "sum_per_day_data" : 2117 
+ }, 
+ "robot" : { 
+ "per_day" : [ 
+ ... 
+ ], 
+ "previous_days_total" : 0 , 
+ "sum_per_day_data" : 457 
+ }, 
+ "unrecognized" : { 
+ "per_day" : [ 
+ ... 
+ ], 
+ "previous_days_total" : 0 , 
+ "sum_per_day_data" : 79 
+ } 
+ }, 
+ "have_data" : true , 
+ "last_30day" : 361 , 
+ "last_7day" : 84 
+ } 
+ } 
+ } 
+ Detailed, aggregated collection access data with geolocation region information # 
+ https://be-api.us.archive.org/views/v1/detail/collection/<collection_identifier>/<start_YYYY-MM-DD>/<up_to_YYYY-MM-DD>
+ This api call provides data suitable for regional geoip view information.
+Results contain view count data by geographic region for the useragent categories described above ( robot , non_robot , and unrecognized ).
+ days : The days the which have been aggregated to produce this dataset.
+ counts_geo : A list of region and useragent binned view data records.
+Fields include:
+ sum_count_value : The number of views which originated in this region from this useragent category
+ ua_kind : useragent category, one of robot , non_robot , or unrecognized 
+ country : utf8 country name
+ state : utf8 region name
+ geo_country : 2 letter iso country code.
+ geo_state : 2 letter region code
+ lat : approximate latitude of region
+ lng : approximate longitude of region
+ count_kind : The aggregation group this data is in. For this api call value is always collection .
+ For example:
+ $ curl - s https : //be-api.us.archive.org/views/v1/detail/collection/JohnCarterBrownLibrary/20170101/20170201 | jq . 
+ { 
+ "counts_geo" : [ 
+ ... 
+ { 
+ "count_kind" : "collection" , 
+ "country" : "Argentina" , 
+ "geo_country" : "AR" , 
+ "geo_state" : "01" , 
+ "lat" : - 34.6407 , 
+ "lng" : - 58.5638 , 
+ "state" : "Buenos Aires" , 
+ "sum_count_value" : 332 , 
+ "ua_kind" : "non_robot" 
+ }, 
+ { 
+ "count_kind" : "collection" , 
+ "country" : "United States of America" , 
+ "geo_country" : "US" , 
+ "geo_state" : "PA" , 
+ "lat" : 39.9523 , 
+ "lng" : - 75.1638 , 
+ "state" : "Pennsylvania" , 
+ "sum_count_value" : 309 , 
+ "ua_kind" : "non_robot" 
+ }, 
+ ... 
+ ], 
+ "days" : [ 
+ "2017-01-01" , 
+ "2017-01-02" , 
+ ... 
+ "2017-01-30" , 
+ "2017-01-31" 
+ ], 
+ "referers" : [] 
+ } 
+ This call is also available with a last-n days calling pattern:
+ https://be-api.us.archive.org/views/v1/detail/collection/<collection_identifier>/<last_n_days>
+ This method can be helpful for displays which want to avoid doing any date math.
+ Detailed, aggregated item access data with geolocation region information # 
+ https://be-api.us.archive.org/views/v1/detail/item/<identifier>/<start_YYYY-MM-DD>/<up_to_YYYY-MM-DD>
+ This api call provides data suitable for regional geoip view information on a per item basis.
+Results contain view count data by geographic region for the useragent categories described above ( robot , non_robot , and unrecognized ).
+ The output format is the same as above. Except offsite referers data is added.
+ referers : a list of Referer records from header values seen in the access logs. Each record has fields:
+ referer : The referer value in the log.
+ score : An approximate count of the number of users which incurred views via this referer.
+ ua_kind : The useragent type for this referer count.
+ In addition to media engagement, details page views with no media engagement, including /stream and /embed pages can generate referer events which increment the referer score. Referer data is limited because of conservative browser referer policy settings. See: https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Referrer-Policy
+ For example:
+ $ curl - s https : //be-api.us.archive.org/views/v1/detail/item/adventuresoftoms00twaiiala/2017-01-01/2017-02-01 | jq . 
+ { 
+ "counts_geo" : [ 
+ { 
+ ... 
+ }, 
+ "referers" : [ 
+ { 
+ "referer" : "https://www.google.com/" , 
+ "score" : 42 , 
+ "ua_kind" : "non_robot" 
+ }, 
+ { 
+ "referer" : "https://en.wikipedia.org/" , 
+ "score" : 12 , 
+ "ua_kind" : "non_robot" 
+ }, 
+ ... 
+ ] 
+ } 
+ This call is also available with a last-n days calling pattern:
+ https://be-api.us.archive.org/views/v1/detail/item/<identifier>/<last_n_days>
+ This method can be helpful for displays which want to avoid doing any date math.
+ Detailed, aggregated access data by contributor with geolocation region information # 
+ https://be-api.us.archive.org/views/v1/detail/contributor/<contributor>/<start_YYYY-MM-DD>/<up_to_YYYY-MM-DD>
+ This api call provides data suitable for regional geoip view information.
+Results contain view count data by geographic region for the useragent categories described above ( robot , non_robot , and unrecognized ).
+ days : The days the which have been aggregated to produce this dataset.
+ counts_geo : A list of region and useragent binned view data records.
+Fields include:
+ sum_count_value : The number of views which originated in this region from this useragent category
+ ua_kind : useragent category, one of robot , non_robot , or unrecognized 
+ country : utf8 country name
+ state : utf8 region name
+ geo_country : 2 letter iso country code.
+ geo_state : 2 letter region code
+ lat : approximate latitude of region
+ lng : approximate longitude of region
+ count_kind : The aggregation group this data is in. For this api call value is always contributor .
+ For example:
+ $ curl - s https : //be-api.us.archive.org/views/v1/detail/contributor/Solomon%20R.%20Guggenheim%20Museum%20Library/2017-01-01/2017-02-01 | jq . 
+ { 
+ "counts_geo" : [ 
+ ... 
+ { 
+ "count_kind" : "contributor" , 
+ "country" : "Bulgaria" , 
+ "geo_country" : "BG" , 
+ "geo_state" : "42" , 
+ "lat" : 42.6833 , 
+ "lng" : 23.3167 , 
+ "state" : "Grad Sofiya" , 
+ "sum_count_value" : 10 , 
+ "ua_kind" : "non_robot" 
+ }, 
+ { 
+ "count_kind" : "contributor" , 
+ "country" : "Nepal" , 
+ "geo_country" : "NP" , 
+ "geo_state" : "00" , 
+ "lat" : 27.7167 , 
+ "lng" : 85.3167 , 
+ "state" : "unknown" , 
+ "sum_count_value" : 10 , 
+ "ua_kind" : "non_robot" 
+ }, 
+ ... 
+ ], 
+ "days" : [ 
+ "2017-01-01" , 
+ "2017-01-02" , 
+ ... 
+ "2017-01-30" , 
+ "2017-01-31" 
+ ], 
+ "referers" : [] 
+ } 
+ Legacy summary view count data # 
+ https://be-api.us.archive.org/views/v1/legacy_counts/<identifier>[,<identifier>,...]
+ This api call provides an array with keys being identifiers, and values being a record with four fields.
+The field values are computed using the legacy download counting pipeline method (internally referred to as the item_stats or countess systems at the archive).
+ have_data : A boolean which is true if there is data in the views data set for this identifier. When there is no data available, counts are still returned, but they are all zeros.
+ all_time : The all time view count.
+ last_30day : The number of views for the item over the last 30 days.
+ last_7day : The number of views for the item over the last 7 days.
+ For example:
+ curl - s https : //be-api.us.archive.org/views/v1/legacy_counts/adventuresoftoms00twaiiala,slc36.chuzausen-mr_default | jq . 
+ { 
+ "adventuresoftoms00twaiiala" : { 
+ "all_time" : 32430 , 
+ "have_data" : true , 
+ "last_30day" : 257 , 
+ "last_7day" : 75 
+ }, 
+ "slc36.chuzausen-mr_default" : { 
+ "all_time" : 75102 , 
+ "have_data" : true , 
+ "last_30day" : 75102 , 
+ "last_7day" : 74500 
+ } 
+ } 
+ previous
+ API for discovering changes to archive.org items
+ next
+ Item Engagement counting on the archive.org website.
+ On this page
+ Simple summary view count data 
+ Per day view data 
+ Detailed, aggregated collection access data with geolocation region information 
+ Detailed, aggregated item access data with geolocation region information 
+ Detailed, aggregated access data by contributor with geolocation region information 
+ Legacy summary view count data 
+By Internet Archive
+ © Copyright 2018-2026, Internet Archive.
+ so the DOM is not blocked -->
