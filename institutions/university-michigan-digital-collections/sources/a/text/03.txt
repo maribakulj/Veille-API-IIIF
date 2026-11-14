@@ -1,0 +1,96 @@
+Image Digital Collections Getting a Modern Interface 
+ Skip to main content 
+ Blogs 
+ All Posts 
+ Log in 
+ Home 
+ Library Tech Talk 
+ Image Digital Collections Getting a Modern Interface 
+ Image Digital Collections Getting a Modern Interface 
+ Author(s): 
+ Kat Hagedorn 
+ Roger Roberto Espinosa 
+ Bridget Burke 
+ April 22, 2022 
+ It’s been nearly a decade since we last refreshed our image digital collections . At that time, we created a standard web template, constructed consistent help pages, cleaned up our collection home pages, and built what was at the time an easier way to view and interact with the images in the interface.
+ What can I expect from this web interface change?
+ This time, we’re doing more ! We have a brand-new interface and a number of additional and improved features:
+ Compliance with current accessibility standards ( WCAG 2.1 A and AA)
+ A mobile-friendly interface
+ Improved navigation and organization of content
+ Better image display & interaction (a single image viewer, consistently applied)
+ We’ve been testing this new interface with stakeholders, partners and other end-users for a number of months. Interface improvement is part of the bigger Digital Collections Platform (DCP) project . The purpose of this project is to build an entirely new platform for our collections of images, texts, newspapers, and other digitized materials in order to improve the experience of people who access and use the materials online, the partners who contribute materials, and the staff who create and maintain the digital collections.
+ We will be launching the new interface for four of our image digital collections on May 2, and the large majority of the remainder by August 1. If you’re a partner / stakeholder with one of our image digital collections, expect to hear from us very soon, if you haven’t already!
+ OK, so what does this new interface look like?
+ We’re so pleased to show you! 
+ The side-by-side views below will give you an overview of each of the elements of the new, improved interface, in comparison with the current interface.
+ Collection Home
+ The improved digital collection home page features a larger image representing the collection and provides quick access to:
+ a link to browse all the items in the digital collection
+ a list of filters you can use to limit what you want to look for (via browsing)
+ a simple search box located in the main area of the page layout, where you can search “anywhere in a record” or search specific metadata fields like subject or identifier, plus a prominent link to advanced search functionality
+ a more prominent display of rights and permissions information
+ Side-by-side view of the current and improved image digital collections Collection Home interfaces. 
+ Search Results
+ We've redesigned the search results page to:
+ present larger thumbnail images to make it easier to identify and understand the items in your results
+ continue emphasis on key item-level metadata
+ display a search box and filters that allow you refine your search directly from the search results page
+ Side-by-side view of the current and improved image digital collections Search Results interfaces. 
+ Item View
+ We've adopted a stacked (top of the page to bottom of the page) design to more consistently present:
+ the image viewer
+ a toolbar for interacting with (e.g., zooming, rotating, downloading) the images
+ a prominent action menu to quickly download, save to portfolio, copy page link, or cite an item
+ item-level descriptive metadata (what the image is about)
+ item-level technical metadata (details such as the size of the image)
+ rights and permissions
+ related links, including the IIIF manifest , for the item
+ recommended citation formats
+ Side-by-side view of the current and improved image digital collections Item View interfaces. 
+ Footer
+ Our new footer gathers important information about how to use our digital collections: 
+ specific contact links for technical, content, and general questions
+ links to learn about all the Digital Collections we build at U-M Library
+ ways to access the main U-M Library home page and other relevant policy pages
+ a consistent link to the permissions and copyright area that is relevant to this particular digital collection
+ Top and bottom view of the current and improved image digital collections Footer interfaces. 
+ Further Highlights
+ We’d like to highlight a few other aspects of the interface replacement as well:
+ Standardized image viewer for all image digital collections . We’ve used a variety of image viewers over the years, and now we’ve decided on the Mirador viewer. Our digital collections need to support items with a single image, multiple images, and book-like items with many pages, and Mirador supports all these scenarios. Our Mirador instance will also come with image interaction tools (eg, rotating the image, adjusting the brightness or contrast of the image).
+ May 2025 update! Although we started with Mirador, to better support our content we have replaced the image viewer with a custom implementation in which the IIIF Presentation manifest is implemented using XSLT in our application, wrapping an inline viewer component from our custom viewer . The image viewer, like Mirador, wraps OpenSeadragon to support the IIIF Image API.
+ Easier discovery and navigation . We’re making the whole digital collection easier to navigate and understand, and in particular we’ve made it easier to understand how to filter (or limit) your search, sort the results, perform a more advanced search, and see all the relevant information about a particular item before going to it.
+ All the item information in one place . Last, but definitely not least, all the information we have about an item is now displayed together in a single place, directly below the image, whether it’s the descriptive metadata, rights and permissions information, how to cite the item, etc. 
+ We also have a slide deck that offers a more in-depth view of our design process for creating the improved interface. (The video on slide 10 is a bit out of date, but still useful as a walk-through of the interface.) 
+ But wait there’s more!
+ In addition to these image digital collection interface improvements, we are taking the opportunity to improve our digital collections service through other aspects of the DCP project:
+ We’re improving the accuracy of the subject categories we associate with our digital collections . Making these improvements will make it easier for people to discover digital collections that are similar to the one they are accessing. A group of us in the DCP project are identifying changes to those subject categories. We’ll pass those as recommendations to each of our digital collections partners - those who brought us the digital collections, and remain with us as our stakeholders - to verify and recommend other changes. New subject categories will be rolled out for each digital collection along with the improvement to the interface.
+ We have also been working on making it possible to create digital collections that are focused in large part or entirely on audio / moving image (AMI) content . In conjunction with our Accessibility Strategist, Stephanie Rosen , we’re building this new interface - Spoiler alert! It will look a lot like the image collection interface - and making it possible to include transcriptions and captioning to ensure accessibility.
+ We know so many of you have loved our long, long list of digital collections (Sarcasm alert!) but we feel it’s time for a change there, too . The current list doesn’t align with the look and feel or the functionality of our newly refreshed Library website . By the time we’re ready to roll out more of our image digital collections with the new interface, we’ll also have a newly revamped list of all our digital collections.
+ But what about the text digital collections?
+ That’s a good question! We have many text digital collections which contain digitized books, manuscripts, archival materials and other written materials. We've been experimenting with “uplifting” our text digital collections for several years (for example, see Rochester Ladies' Anti-Slavery Society Papers, 1848-1868 ), and those lessons have informed our new interfaces for image digital collections. We'll be starting the work on text digital collections interfaces in the fall of 2022. 
+ Is there still more?
+ The DCP project includes so much more! We hope to update you soon on the bigger picture for the DCP project in general - the landscape of the products we are working on, and the reasons the work is deeply aligned within the Library and the University. We’d also like to provide information about some of the other work that is part of the bigger project, such as our metadata remediation pilot, the rebuild of our finding aids solution, and the best practices we’re creating for handling sensitive content in digital collections. Stay tuned!
+ Big thank-yous!
+ We couldn’t do any of this work without the work and support of the entire Digital Collections Platform team! In particular, we’d like to thank Jackson Huang and Robyn Ness, who provided helpful feedback on this post.
+ Tags:
+ Digital Collections 
+ Usability 
+ ImageClass 
+ (Opens in a full screen image modal window) 
+ Gallery View of new interface for image digital collections.
+ Search in The Digital Collections Files
+ Search in The Digital Collections Files 
+ Share Post Email 
+ Facebook 
+ Bluesky 
+ X (formerly Twitter) 
+ University of Michigan Library
+ 913 S. University Avenue 
+Ann Arbor, MI 48109-1190 
+ Library Blogs Accessibility 
+ Privacy and Copyright
+ Library Privacy Statement 
+ Except where otherwise noted, this work is subject to a Creative Commons Attribution 4.0 license . For details and exceptions, see the Library Copyright Policy .
+ © 2022, Regents of the University of Michigan
+ Built with Drupal and the U-M Library Design System

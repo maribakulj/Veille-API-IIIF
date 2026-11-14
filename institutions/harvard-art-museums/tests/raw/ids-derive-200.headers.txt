@@ -15,7 +15,7 @@ x-dns-prefetch-control: off
 x-frame-options: SAMEORIGIN
 x-xss-protection: 0
 vary: Origin
-x-mps-client-ip: 93.147.79.52, 10.42.18.0, 3.236.169.145, 10.42.2.0, 93.147.79.52
+x-mps-client-ip: [IP retirée], 10.42.18.0, 3.236.169.145, 10.42.2.0, [IP retirée]
 cache-control: public, max-age=31536000, s-maxage=36000
 x-envoy-upstream-service-time: 1005
 server: istio-envoy

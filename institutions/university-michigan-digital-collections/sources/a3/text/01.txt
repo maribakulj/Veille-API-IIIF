@@ -1,0 +1,36 @@
+Changes to the University of Michigan OAI Data Provider 
+ Skip to main content 
+ Blogs 
+ All Posts 
+ Log in 
+ Home 
+ Library Tech Talk 
+ Changes To The University of Michigan OAI Data Provider 
+ Changes to the University of Michigan OAI Data Provider 
+ Author(s): 
+ Kat Hagedorn 
+ January 7, 2009 
+ We've made some changes to the University of Michigan OAI data provider.
+ baseURL = http://quod.lib.umich.edu/cgi/o/oai/oai
+ http://quod.lib.umich.edu/cgi/o/oai/oai?verb=Identify 
+ The data provider now reflects the fact that we are providing records from the HathiTrust Digital Library ( http://www.hathitrust.org/ ), formerly called MBooks. From reading this blog, you probably know that the HathiTrust Digital Library contains Google-digitized books and journals from a consortium of institutions including the University of Michigan.
+ Consequently, OAI sets that were originally named "mbooks" are now named "hathitrust". If you're harvesting us, please change your harvesting protocols to reflect this.
+ In addition, we have modified the MARC and oai_dc formats to correct and amplify the information we are providing, based on feedback from those who have harvested us in the past. For instance, the 245 field now includes the statement of responsibility (subfield c). We hope the records will be more useful as a result.
+ We'd love to hear any feedback you might have on the changes.
+ Tags:
+ OAI 
+ Search in Library Tech Talk
+ Search in Library Tech Talk 
+ Share Post Email 
+ Facebook 
+ Bluesky 
+ X (formerly Twitter) 
+ University of Michigan Library
+ 913 S. University Avenue 
+Ann Arbor, MI 48109-1190 
+ Library Blogs Accessibility 
+ Privacy and Copyright
+ Library Privacy Statement 
+ Except where otherwise noted, this work is subject to a Creative Commons Attribution 4.0 license . For details and exceptions, see the Library Copyright Policy .
+ © 2022, Regents of the University of Michigan
+ Built with Drupal and the U-M Library Design System

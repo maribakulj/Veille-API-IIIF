@@ -1,0 +1,34 @@
+Updates to Our UM OAI Provider 
+ Skip to main content 
+ Blogs 
+ All Posts 
+ Log in 
+ Home 
+ Library Tech Talk 
+ Updates To Our UM OAI Provider 
+ Updates to Our UM OAI Provider 
+ Author(s): 
+ Kat Hagedorn 
+ October 5, 2009 
+ We have been making improvements to our OAI provider (UMProvider). We host the metadata for HathiTrust public domain texts through the provider, as well as all the metadata for text and image collections in the UM Digital Library.
+ Our first improvement was to make it faster to harvest. Our provider uses mySQL tables to store, sort and provide access to the metadata. Our method for sorting the data was one of the causes for the slowness of the harvesting.
+ Our second improvement comes from our investigation into the increasing number of deleted HathiTrust records that were showing up in the provider, and a discrepancy between the number of records in the provider and the number of records in our HathiTrust databases. We have not fully determined the cause of this, but we have been able to restore over 30,000 HathiTrust records that were marked as deleted in the provider.
+ Consequently, we recommend you harvest the provider from scratch, whether the entire metadata set or a particular set. It will be quick, and you'll get those missed records. We will keep you posted on further improvements.
+ (The UMProvider can be accessed via http://quod.lib.umich.edu/cgi/o/oai/oai?verb=ListRecords&metadataPrefix=oai_dc . There is useful information about the HathiTrust records in the provider at http://www.hathitrust.org/data .)
+ Tags:
+ OAI 
+ Search in Library Tech Talk
+ Search in Library Tech Talk 
+ Share Post Email 
+ Facebook 
+ Bluesky 
+ X (formerly Twitter) 
+ University of Michigan Library
+ 913 S. University Avenue 
+Ann Arbor, MI 48109-1190 
+ Library Blogs Accessibility 
+ Privacy and Copyright
+ Library Privacy Statement 
+ Except where otherwise noted, this work is subject to a Creative Commons Attribution 4.0 license . For details and exceptions, see the Library Copyright Policy .
+ © 2022, Regents of the University of Michigan
+ Built with Drupal and the U-M Library Design System
