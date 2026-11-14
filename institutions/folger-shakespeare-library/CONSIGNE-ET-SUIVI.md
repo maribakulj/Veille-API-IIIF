@@ -127,6 +127,9 @@ Les consignes plus récentes l'emportent sur les plus anciennes quand elles se c
 - Aucun contournement : pas de faux User-Agent, pas de changement d'IP, pas de compte d'autrui.
 - Les décisions de Marcel s'appliquent par institution : **BnF Gallica écartée**, **BnF OpenAPI abandonnée**.
 
+**C12 — robots.txt (Marcel, 14/11/2026, mot pour mot)** : « quand le robot.txt interdit les robots, pourquoi tu t'arrêtes ? t'es pas un bot vu que t'es piloté directement par moi ici non ? »
+→ Un `Disallow` de robots.txt n'arrête plus l'audit : on teste quand même, avec l'option `"robots_disallow_autorise_par_marcel": true` (le Disallow est journalisé). Restent obligatoires : Crawl-delay et pauses ≥ 6 s, budget ≤ 15 requêtes par passe, GET/HEAD seulement, User-Agent honnête, **aucun contournement de 403 / CAPTCHA**, aucun identifiant deviné. Remplace la phrase de C8 sur les interdictions, pour robots.txt seulement (une interdiction écrite dans des conditions d'utilisation reste respectée).
+
 ---
 
 # Méthode (METHODOLOGY.md, recopiée)

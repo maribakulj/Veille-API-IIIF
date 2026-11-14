@@ -240,7 +240,11 @@ def main():
                 count += 1
             if respect_robots and host in robots:
                 ok, motif = autorise(robots[host][0], url)
-                if not ok:
+                if not ok and cfg.get("robots_disallow_autorise_par_marcel"):
+                    # Décision de Marcel (C12, 14/11/2026) : un Disallow n'arrête plus l'audit ;
+                    # le Crawl-delay, la pause, le budget et l'interdiction de contourner restent.
+                    log.write(f"{now_utc()} | {eid} | robots.txt interdit {url} (Disallow: {motif}) ; lancé car autorisé par Marcel (C12)\n")
+                elif not ok:
                     log.write(f"{now_utc()} | {eid} | {url} | NON LANCÉ : interdit par robots.txt (Disallow: {motif})\n")
                     print(f"NON LANCÉ (robots.txt) : {url}")
                     continue

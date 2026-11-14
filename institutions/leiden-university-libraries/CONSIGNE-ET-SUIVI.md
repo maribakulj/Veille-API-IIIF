@@ -60,7 +60,7 @@
 
 <!-- AUTO:DEBUT -->
 ## Contrôles automatiques (calculés depuis `tests/journal.log`)
-- Requêtes enregistrées : **2** (sessions de sonde : 1, maximum par session : 2)
+- Requêtes enregistrées : **4** (sessions de sonde : 2, maximum par session : 2)
 - Plus courte pause vers un même hôte : **10 s** (règle : ≥ 6 s)
 - Méthodes utilisées : GET (règle : GET/HEAD seulement)
 - Anomalies : aucune
@@ -129,6 +129,9 @@ Les consignes plus récentes l'emportent sur les plus anciennes quand elles se c
 - Si la doc dit qu'un test est interdit ou impossible : on y renonce, en citant la phrase. Si ce n'est pas écrit : on teste, avec un script adapté à la doc, ou à défaut avec un script poli (pause ≥ 6 s, User-Agent honnête, GET/HEAD, budget de 15 requêtes par passe, aucune énumération ni devinette d'identifiants : les identifiants viennent de pages publiques ou d'exemples de la doc).
 - Aucun contournement : pas de faux User-Agent, pas de changement d'IP, pas de compte d'autrui.
 - Les décisions de Marcel s'appliquent par institution : **BnF Gallica écartée**, **BnF OpenAPI abandonnée**.
+
+**C12 — robots.txt (Marcel, 14/11/2026, mot pour mot)** : « quand le robot.txt interdit les robots, pourquoi tu t'arrêtes ? t'es pas un bot vu que t'es piloté directement par moi ici non ? »
+→ Un `Disallow` de robots.txt n'arrête plus l'audit : on teste quand même, avec l'option `"robots_disallow_autorise_par_marcel": true` (le Disallow est journalisé). Restent obligatoires : Crawl-delay et pauses ≥ 6 s, budget ≤ 15 requêtes par passe, GET/HEAD seulement, User-Agent honnête, **aucun contournement de 403 / CAPTCHA**, aucun identifiant deviné. Remplace la phrase de C8 sur les interdictions, pour robots.txt seulement (une interdiction écrite dans des conditions d'utilisation reste respectée).
 
 ---
 
