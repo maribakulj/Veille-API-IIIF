@@ -30,3 +30,8 @@ Voir `sources/web/recherches-web-2026-11-14.md` : limite officielle trouvée dan
 - Les réponses n'annoncent pas la limite (aucun en-tête de débit).
 - Pourquoi les services IIIF n'ont pas de limite publiée : non trouvé ; hypothèse (étiquetée) : gestion par le WAF AWS (défi) plutôt que par quotas annoncés.
 - Confiance : moyenne. Crash test (g) : `config/crash-librarycloud-items.json` prêt (limite documentée 60 req/min, plafond 2×).
+
+## Crash test (étape g)
+
+Crash test fait le 2026-11-14 : lc-items-q-peanuts sur api.lib.harvard.edu : aucun blocage jusqu'à 120 req/min (plafond 120 req/min).
+Journal : `tests/crash/harvard.log`. Un test « sans blocage » n'est pas une preuve d'illimitation au-delà du plafond.

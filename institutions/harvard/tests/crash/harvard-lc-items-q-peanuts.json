@@ -1,0 +1,63 @@
+{
+  "slug": "harvard",
+  "hote": "api.lib.harvard.edu",
+  "reseaux": [],
+  "plafond_req_min": 120,
+  "endpoint": "lc-items-q-peanuts",
+  "limite_documentee_req_min": 60,
+  "paliers": [
+    {
+      "palier_req_min": 20.0,
+      "requetes": 60,
+      "debit_reel_req_min": 20.3,
+      "codes": {
+        "200": 60
+      },
+      "latence_p50_s": 0.525,
+      "latence_max_s": 2.573
+    },
+    {
+      "palier_req_min": 40.0,
+      "requetes": 120,
+      "debit_reel_req_min": 40.2,
+      "codes": {
+        "200": 120
+      },
+      "latence_p50_s": 0.461,
+      "latence_max_s": 2.841
+    },
+    {
+      "palier_req_min": 60,
+      "requetes": 180,
+      "debit_reel_req_min": 55.9,
+      "codes": {
+        "200": 179,
+        "None": 1
+      },
+      "latence_p50_s": 0.453,
+      "latence_max_s": 20.341
+    },
+    {
+      "palier_req_min": 90.0,
+      "requetes": 270,
+      "debit_reel_req_min": 90.1,
+      "codes": {
+        "200": 270
+      },
+      "latence_p50_s": 0.449,
+      "latence_max_s": 3.089
+    },
+    {
+      "palier_req_min": 120,
+      "requetes": 360,
+      "debit_reel_req_min": 120.0,
+      "codes": {
+        "200": 360
+      },
+      "latence_p50_s": 0.442,
+      "latence_max_s": 1.963
+    }
+  ],
+  "arret": null,
+  "conclusion": "aucun blocage jusqu'à 120 req/min"
+}

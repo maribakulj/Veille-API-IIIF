@@ -1,0 +1,10 @@
+# Crash test 2026-11-14T07:57:25Z — configuration crash-librarycloud-items.json — endpoint lc-items-q-peanuts GET https://api.lib.harvard.edu/v2/items?q=peanuts&limit=1
+# réseau détecté : aucun réseau à réputation partagée connu ; plafond standard 200 req/min (décision de Marcel 14/11/2026) ; requête de détection : 200 en 1.08 s
+# limite documentée : 60 req/min (https://harvardwiki.atlassian.net/wiki/spaces/LibraryStaffDoc/pages/43287734/LibraryCloud+APIs, section « API Request Rate Limit » : « The LibraryCloud API is limited to an average of 300 requests per 5 minutes; if, after 5 minutes, that limit is exceeded, the client will receive a 5 minute timeout before they can resume requests. Please limit your requests to no more once per second. » (300 / 5 min = 60 req/min)) ; paliers [20.0, 40.0, 60, 90.0, 120] ; plafond 120 req/min ; 180 s par palier
+2026-11-14T08:00:23Z | palier 20.0 req/min | {"palier_req_min": 20.0, "requetes": 60, "debit_reel_req_min": 20.3, "codes": {"200": 60}, "latence_p50_s": 0.525, "latence_max_s": 2.573}
+2026-11-14T08:03:22Z | palier 40.0 req/min | {"palier_req_min": 40.0, "requetes": 120, "debit_reel_req_min": 40.2, "codes": {"200": 120}, "latence_p50_s": 0.461, "latence_max_s": 2.841}
+2026-11-14T08:06:35Z | palier 60 req/min | {"palier_req_min": 60, "requetes": 180, "debit_reel_req_min": 55.9, "codes": {"200": 179, "None": 1}, "latence_p50_s": 0.453, "latence_max_s": 20.341}
+2026-11-14T08:09:35Z | palier 90.0 req/min | {"palier_req_min": 90.0, "requetes": 270, "debit_reel_req_min": 90.1, "codes": {"200": 270}, "latence_p50_s": 0.449, "latence_max_s": 3.089}
+2026-11-14T08:12:35Z | palier 120 req/min | {"palier_req_min": 120, "requetes": 360, "debit_reel_req_min": 120.0, "codes": {"200": 360}, "latence_p50_s": 0.442, "latence_max_s": 1.963}
+# Fin 2026-11-14T08:12:35Z — aucun blocage jusqu'à 120 req/min
+
