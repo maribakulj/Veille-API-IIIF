@@ -1,0 +1,20 @@
+{
+  "slug": "e-codices",
+  "min_delay_s": 6,
+  "max_requests": 15,
+  "follow_redirects": 1,
+  "robots_disallow_autorise_par_marcel": true,
+  "note": "v2 passe 3 : service d'images lu dans le manifeste fmb-cb-0100 (service @id, IIIF Image 2 niveau 2). robots.txt de media.e-codices.ch lu avant (sources/c).",
+  "endpoints": [
+    {
+      "id": "media-info-json",
+      "method": "GET",
+      "url": "https://media.e-codices.ch/iip/fmb/fmb-cb-0100/fmb-cb-0100_e001.jp2/info.json"
+    },
+    {
+      "id": "media-derive-200",
+      "method": "GET",
+      "url": "https://media.e-codices.ch/iip/fmb/fmb-cb-0100/fmb-cb-0100_e001.jp2/full/!200,200/0/default.jpg"
+    }
+  ]
+}
