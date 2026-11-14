@@ -1,0 +1,12 @@
+{
+  "slug": "national-palace-museum-taiwan",
+  "min_delay_s": 6,
+  "max_requests": 15,
+  "follow_redirects": 1,
+  "robots_disallow_autorise_par_marcel": true,
+  "note": "Passe 1 : manifeste IIIF d'une notice publique (lien Copier le lien IIIF de la page de notice 2383), en-tetes de quota; corps sauvegarde pour en extraire les URL d'images.",
+  "endpoints": [
+    {"id": "npm-p1-manifeste-2383", "method": "GET", "url": "https://digitalarchive.npm.gov.tw/Integrate/GetJson?cid=2383&dept=U", "save_body": 2000000},
+    {"id": "npm-p1-manifeste-2383-bis", "method": "HEAD", "url": "https://digitalarchive.npm.gov.tw/Integrate/GetJson?cid=2383&dept=U"}
+  ]
+}

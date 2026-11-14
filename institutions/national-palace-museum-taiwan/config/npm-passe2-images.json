@@ -1,0 +1,13 @@
+{
+  "slug": "national-palace-museum-taiwan",
+  "min_delay_s": 6,
+  "max_requests": 15,
+  "follow_redirects": 1,
+  "robots_disallow_autorise_par_marcel": true,
+  "note": "Passe 2 : service d'images iiifod.npm.gov.tw et liste d'annotations, URL tirees du manifeste de la passe 1 (npm-p1-manifeste-2383.body). Le robots.txt d'iiifod a expire a la lecture (fetch_doc).",
+  "endpoints": [
+    {"id": "npm-p2-annotations-2383", "method": "GET", "url": "https://digitalarchive.npm.gov.tw/Integrate/GetJsonOtherContent?server=iiifod&n1=K1F&item=K1F000001N000000000PAA&ObjectID=2383&Dept=U"},
+    {"id": "npm-p2-info-json-PAA", "method": "GET", "url": "https://iiifod.npm.gov.tw/iiif/2/K1F%2FK1F000001N000000000PAA/info.json"},
+    {"id": "npm-p2-vignette-PAA", "method": "GET", "url": "https://iiifod.npm.gov.tw/iiif/2/K1F%2FK1F000001N000000000PAA/full/,300/0/default.jpg"}
+  ]
+}

@@ -4,10 +4,189 @@
   "pays": "Taïwan",
   "classeur_id": "GLAM-080",
   "type": "Institution",
-  "statut_audit": "à faire",
+  "statut_audit": "méthode v2 complète sauf g (crash test à la fin)",
   "limites_documentees": [],
   "en_tetes_observes": [],
-  "blocages": [],
-  "sources": [],
-  "web": []
+  "blocages": [
+    {
+      "hote": "iiifod.npm.gov.tw",
+      "nature": "délai dépassé (ni 403 ni 429)",
+      "preuve": "institutions/national-palace-museum-taiwan/tests/journal.log"
+    }
+  ],
+  "sources": [
+    {
+      "url": "https://theme.npm.edu.tw/opendata/?lang=2",
+      "date": "2026-11-14",
+      "etiquette": "officielle",
+      "preuve": "institutions/national-palace-museum-taiwan/sources/doc/SHA256SUMS"
+    },
+    {
+      "url": "https://digitalarchive.npm.gov.tw/opendata/Pub/EngVersion",
+      "date": "2026-11-14",
+      "etiquette": "officielle",
+      "preuve": "institutions/national-palace-museum-taiwan/sources/doc2/SHA256SUMS"
+    },
+    {
+      "url": "https://www.npm.gov.tw/Articles.aspx?sno=02000178&l=1",
+      "date": "2026-11-14",
+      "etiquette": "officielle",
+      "preuve": "institutions/national-palace-museum-taiwan/sources/doc2/SHA256SUMS"
+    },
+    {
+      "url": "https://www.npm.gov.tw/Articles.aspx?sno=02000179&l=1",
+      "date": "2026-11-14",
+      "etiquette": "officielle",
+      "preuve": "institutions/national-palace-museum-taiwan/sources/doc2/SHA256SUMS"
+    },
+    {
+      "url": "https://digitalarchive.npm.gov.tw/",
+      "date": "2026-11-14",
+      "etiquette": "officielle",
+      "preuve": "institutions/national-palace-museum-taiwan/sources/doc3/SHA256SUMS"
+    },
+    {
+      "url": "https://digitalarchive.npm.gov.tw/opendata/Pub/Detail/2383?dep=U&mode=full",
+      "date": "2026-11-14",
+      "etiquette": "officielle (lien du manifeste)",
+      "preuve": "institutions/national-palace-museum-taiwan/sources/doc3/SHA256SUMS"
+    },
+    {
+      "url": "https://digitalarchive.npm.gov.tw/robots.txt",
+      "date": "2026-11-14",
+      "etiquette": "officielle",
+      "preuve": "institutions/national-palace-museum-taiwan/sources/robots2/SHA256SUMS"
+    }
+  ],
+  "web": [
+    {
+      "categorie": "institution",
+      "url": "https://theme.npm.edu.tw/opendata/?lang=2",
+      "date": "2026-11-14",
+      "etiquette": "officielle",
+      "citation": "« 無須申請、不限用途、不用付費即可公開使用 » (sans demande, sans limite d'usage, gratuit) ; aucune limite de débit mentionnée",
+      "preuve": "institutions/national-palace-museum-taiwan/sources/doc/text/01.txt"
+    },
+    {
+      "categorie": "utilisateurs",
+      "aucun_resultat": true,
+      "requete": "npm.gov.tw opendata API 429 OR blocked OR \"rate limit\" OR timeout user complaint",
+      "date": "2026-11-14",
+      "etiquette": "tiers (résumé de moteur, non vérifié)",
+      "citation": "Aucune plainte trouvée ; seul résultat : GreatFire signale digitalarchive.npm.gov.tw bloqué depuis la Chine continentale (résumé de moteur, non vérifié)",
+      "preuve": "institutions/national-palace-museum-taiwan/fiche.md"
+    },
+    {
+      "categorie": "tickets",
+      "aucun_resultat": true,
+      "requete": "github issue \"National Palace Museum\" Taiwan IIIF manifest harvest opendata.npm.gov.tw",
+      "date": "2026-11-14",
+      "etiquette": "tiers",
+      "citation": "Aucun ticket trouvé ; le guide IIIF finding_resources liste le musée sans manifeste ni limite (lu : guides.iiif.io/guides/digitalarchive.npm.gov.tw/)",
+      "preuve": "institutions/national-palace-museum-taiwan/fiche.md"
+    },
+    {
+      "categorie": "presentations",
+      "aucun_resultat": true,
+      "requete": "National Palace Museum Taiwan open data platform presentation IIIF linked open data article",
+      "date": "2026-11-14",
+      "etiquette": "institution (résumé de moteur, non vérifié)",
+      "citation": "Aucune présentation sur la politique d'API ou de bots ; pistes non lues : article IAFOR ACTIS 2014 et diaporama de données liées (résumés de moteur, non vérifiés)",
+      "preuve": "institutions/national-palace-museum-taiwan/fiche.md"
+    }
+  ],
+  "contact": "https://contactus.npm.gov.tw/Web/case-apply.jsp?l=1&TArea=1 (formulaire de contact du musée, lien de la page Opendata)",
+  "conclusion_quota": "Aucun quota ni en-tête de limite documenté ou observé. La déclaration d'ouverture des données dit : sans demande, sans limite d'usage, gratuit. Le manifeste IIIF répond 200 sans en-tête de limite. Le service d'images iiifod.npm.gov.tw n'a pas répondu (délai dépassé, 3 requêtes), cause inconnue, pas un 403.",
+  "classe_quota": "aucun quota trouvé",
+  "confiance": "faible",
+  "notes": "HEAD sur le manifeste : 555 (non pris en charge). robots.txt : digitalarchive Disallow vide ; www 404 ; theme.npm.edu.tw : boucle de redirections ; iiifod : délai dépassé. Le PDF NPMIIIF.pdf (5,9 Mo) n'a pu être téléchargé en entier (2 délais dépassés).",
+  "a_verifier_manuellement": [
+    {
+      "url": "https://digitalarchive.npm.gov.tw/opendata/Json/NPMIIIF.pdf",
+      "pourquoi": "PDF de 5,9 Mo, téléchargement coupé par le délai de 30 s (900 ko puis 4,9 Mo reçus)",
+      "a_chercher": "Description du service IIIF : limites de débit, URL d'API, conditions"
+    },
+    {
+      "url": "https://iiifod.npm.gov.tw/iiif/2/K1F%2FK1F000001N000000000PAA/info.json",
+      "pourquoi": "délai dépassé depuis ce poste (3 requêtes), robots.txt aussi",
+      "a_chercher": "Le service d'images répond-il depuis un autre réseau ; en-têtes de limite ; robots.txt"
+    },
+    {
+      "url": "https://presidential-hackathon.taiwan.gov.tw/history/2021/files/中英文_國立故宮博物院.pdf",
+      "pourquoi": "piste du moteur de recherche, non lue (résumé : une Open API avec clé)",
+      "a_chercher": "URL et conditions de l'Open API à clé, limites éventuelles"
+    },
+    {
+      "url": "https://contactus.npm.gov.tw/Web/case-apply.jsp?l=1&TArea=1",
+      "pourquoi": "formulaire (POST), non utilisé",
+      "a_chercher": "Demander s'il existe une limite non publiée de débit"
+    }
+  ],
+  "endpoints_documentes": [
+    {
+      "famille": "Manifeste IIIF Presentation (GetJson)",
+      "url": "https://digitalarchive.npm.gov.tw/Integrate/GetJson?cid=2383&dept=U",
+      "statut": "teste",
+      "preuve": "institutions/national-palace-museum-taiwan/tests/raw/npm-p1-manifeste-2383.headers.txt"
+    },
+    {
+      "famille": "Liste d'annotations (GetJsonOtherContent)",
+      "url": "https://digitalarchive.npm.gov.tw/Integrate/GetJsonOtherContent?server=iiifod&n1=K1F&item=K1F000001N000000000PAA&ObjectID=2383&Dept=U",
+      "statut": "teste",
+      "preuve": "institutions/national-palace-museum-taiwan/tests/raw/npm-p2-annotations-2383.headers.txt"
+    },
+    {
+      "famille": "Images IIIF 2 (iiifod.npm.gov.tw : info.json et vignette)",
+      "url": "https://iiifod.npm.gov.tw/iiif/2/K1F%2FK1F000001N000000000PAA/info.json",
+      "statut": "teste",
+      "preuve": "institutions/national-palace-museum-taiwan/tests/journal.log"
+    },
+    {
+      "famille": "Open API à clé (notice, liste, expositions)",
+      "url": "https://presidential-hackathon.taiwan.gov.tw/history/2021/files/中英文_國立故宮博物院.pdf",
+      "statut": "non_teste",
+      "raison": "Clé d'API (code de vérification) nécessaire d'après un résumé de moteur ; aucune URL d'API dans la documentation téléchargée."
+    }
+  ],
+  "endpoints_ecartes": [
+    {
+      "url": "https://digitalarchive.npm.gov.tw/opendata/Json/NPMIIIF.pdf",
+      "raison": "PDF de documentation IIIF, pas une API ; téléchargement coupé par un délai dépassé, listé à vérifier à la main"
+    },
+    {
+      "url": "https://contactus.npm.gov.tw/Web/case-apply.jsp?l=1&TArea=1",
+      "raison": "formulaire de contact qui demande un POST, interdit par la méthode ; ce n'est pas une API"
+    },
+    {
+      "url": "https://creativecommons.org/licenses/by/4.0/deed.zh-hant",
+      "raison": "texte de licence tiers, pas une API du musée"
+    }
+  ],
+  "hotes_robots": [
+    {
+      "hote": "digitalarchive.npm.gov.tw",
+      "resultat": "User-agent * avec Disallow vide : tout autorisé",
+      "preuve": "institutions/national-palace-museum-taiwan/sources/robots2/SHA256SUMS"
+    },
+    {
+      "hote": "www.npm.gov.tw",
+      "resultat": "404 : tout autorisé (RFC 9309)",
+      "preuve": "institutions/national-palace-museum-taiwan/sources/robots2/SHA256SUMS"
+    },
+    {
+      "hote": "contactus.npm.gov.tw",
+      "resultat": "200 mais page « Page not found » : pas de règle",
+      "preuve": "institutions/national-palace-museum-taiwan/sources/robots2/SHA256SUMS"
+    },
+    {
+      "hote": "theme.npm.edu.tw",
+      "resultat": "boucle de redirections (curl 47, 3 sauts) : robots.txt illisible",
+      "preuve": "institutions/national-palace-museum-taiwan/sources/robots/FETCH.log"
+    },
+    {
+      "hote": "iiifod.npm.gov.tw",
+      "resultat": "délai dépassé à la lecture (fetch_doc et sonde) : illisible",
+      "preuve": "institutions/national-palace-museum-taiwan/sources/robots3/FETCH.log"
+    }
+  ]
 }
