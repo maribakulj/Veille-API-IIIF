@@ -2,57 +2,57 @@
 
 - **Dossier** : `institutions/leiden-university-libraries/`  ·  **Classeur de référence** : GLAM-015  ·  **Pays** : Pays-Bas
 - **Statut d'institution** : active
-- **Dernière mise à jour du suivi** : (à renseigner à chaque modification)
+- **Dernière mise à jour du suivi** : 2026-11-14
 
 ## Suivi par étape (à cocher, avec justification et preuves)
 
 ### a) Documentation lue en entier
 > Toutes les pages de doc liées à l'API (développeurs, interfaces, conditions, FAQ, aide, mentions légales, robots.txt), téléchargées avec `scripts/fetch_doc.sh` (URL, date, SHA-256), lues en entier (`scripts/extract_text.py`).
 
-- [ ] **Pas fait**
-  - **Justification** : Pas encore traitée : l'audit suit l'ordre du classeur de référence (une institution à la fois).
-  - **Preuves** : 
+- [x] **Fait**
+  - **Justification** : Lus et hachés : robots.txt de 5 hôtes (digitalcollections, catalogue Primo, iiif-endpoint, Ex Libris, library), accueil, page Terms of use/reproductions, centre de numérisation. Aucune doc d'API trouvée.
+  - **Preuves** : `institutions/leiden-university-libraries/sources/SHA256SUMS`, `institutions/leiden-university-libraries/sources/b/SHA256SUMS`, `institutions/leiden-university-libraries/sources/d/SHA256SUMS`
 
 ### b) Endpoints tirés de la doc
 > Liste des endpoints citée par la doc (URL, exemples). Jamais devinée. Une interdiction ou une impossibilité écrite dans la doc justifie de renoncer (citer la phrase).
 
-- [ ] **Pas fait**
-  - **Justification** : Pas encore traitée : l'audit suit l'ordre du classeur de référence (une institution à la fois).
-  - **Preuves** : 
+- [x] **Fait**
+  - **Justification** : Pas d'API documentée. Endpoints observés : manifeste /iiif_manifest/item:ID/manifest (motif publié par Biblissima), puis URL annoncées par les redirections et le manifeste (Primo, Ex Libris IIIF Image 2).
+  - **Preuves** : `institutions/leiden-university-libraries/sources/b/text/01.txt`, `institutions/leiden-university-libraries/tests/journal.log`
 
 ### c) Configuration écrite AVANT les tests
 > `config/<nom>.json` pilote `scripts/probe.py`, committée avant le lancement. Un endpoint absent de la doc mais non interdit se teste avec un script poli (identifiants issus de pages publiques ou d'exemples de la doc, pas de devinette).
 
-- [ ] **Pas fait**
-  - **Justification** : Pas encore traitée : l'audit suit l'ordre du classeur de référence (une institution à la fois).
-  - **Preuves** : 
+- [x] **Fait**
+  - **Justification** : 4 configurations committées avant lancement ; chaque nouvel hôte annoncé par une redirection ou par le manifeste a eu son robots.txt lu avant.
+  - **Preuves** : `institutions/leiden-university-libraries/config/leiden-passe1.json`, `institutions/leiden-university-libraries/config/leiden-passe2.json`, `institutions/leiden-university-libraries/config/leiden-passe3.json`, `institutions/leiden-university-libraries/config/leiden-passe4.json`
 
 ### d) Quota cherché dans la doc
 > Pour chaque page lue : endpoint de statut, en-têtes de limite documentés, clé ou compte donnant un quota, contact pour un volume plus élevé. Chaque réponse cite sa source.
 
-- [ ] **Pas fait**
-  - **Justification** : Pas encore traitée : l'audit suit l'ordre du classeur de référence (une institution à la fois).
-  - **Preuves** : 
+- [x] **Fait**
+  - **Justification** : Aucun quota, en-tête de limite ni endpoint de statut dans les pages lues ; seule règle écrite : Crawl-delay 10 s (2 robots.txt).
+  - **Preuves** : `institutions/leiden-university-libraries/sources/text/01.txt`, `institutions/leiden-university-libraries/sources/d/raw/01.html`
 
 ### e) Test systématique de chaque endpoint
 > Chaque endpoint documenté est testé (budget 15 requêtes par passe, pause ≥ 6 s, GET/HEAD, UA du projet). Redirections du même hôte suivies. Un 403 arrête son hôte, un 429 arrête l'institution. Seules les interdictions écrites dans la doc dispensent de tester.
 
-- [ ] **Pas fait**
-  - **Justification** : Pas encore traitée : l'audit suit l'ordre du classeur de référence (une institution à la fois).
-  - **Preuves** : 
+- [x] **Fait**
+  - **Justification** : Toute la chaîne testée (4 passes, 6 requêtes de données) : 301, 302, puis 200 pour manifeste, info.json et dérivé ; aucun 429 ni en-tête de limite.
+  - **Preuves** : `institutions/leiden-university-libraries/tests/journal.log`, `institutions/leiden-university-libraries/tests/raw/manifeste-primo-v3.headers.txt`, `institutions/leiden-university-libraries/tests/raw/exlibris-info-json.headers.txt`
 
 ### f) Ce que disent les gens sur le web
 > Plaintes, discussions, présentations de l'institution, politique envers les API et les bots, blogs, GitHub, forums, listes de diffusion. Sources étiquetées (officielle / institution / utilisateur / tiers), lues, citées.
 
-- [ ] **Pas fait**
-  - **Justification** : Pas encore traitée : l'audit suit l'ordre du classeur de référence (une institution à la fois).
-  - **Preuves** : 
+- [x] **Fait**
+  - **Justification** : 1 recherche web : aucune politique de débit de Leiden ; ticket tiers (mnemosyne#4) lu par résumé ; cas Wellcome cité en comparaison seulement.
+  - **Preuves** : `institutions/leiden-university-libraries/fiche.md`
 
 ### g) Crash test progressif
 > Seulement après l'audit complet (a à f) de toutes les institutions et avec l'accord de Marcel : paliers jusqu'à 2 × la limite documentée, ou 200 req/min si illimité ou sans limite documentée. Arrêt au premier 429/403/CAPTCHA.
 
 - [ ] **Pas fait**
-  - **Justification** : Pas encore traitée : l'audit suit l'ordre du classeur de référence (une institution à la fois).
+  - **Justification** : À faire à la fin de l'audit et avec l'accord de Marcel : plafond 200 req/min ; la limite éventuelle des images appartient à Ex Libris, décision de Marcel utile avant.
   - **Preuves** : 
 
 ### Contrôles transversaux

@@ -4,10 +4,76 @@
   "pays": "Pays-Bas",
   "classeur_id": "GLAM-015",
   "type": "Institution",
-  "statut_audit": "à faire",
-  "limites_documentees": [],
+  "statut_audit": "audit a–f complet ; g à faire",
+  "limites_documentees": [
+    {
+      "nature": "Crawl-delay",
+      "perimetre": "digitalcollections.universiteitleiden.nl, User-agent: *",
+      "valeur": "10 secondes",
+      "fenetre": "entre requêtes",
+      "effet": "non précisé",
+      "verification": "officielle, lue en entier",
+      "source": "https://digitalcollections.universiteitleiden.nl/robots.txt",
+      "date": "2026-11-14"
+    },
+    {
+      "nature": "Crawl-delay",
+      "perimetre": "catalogue.leidenuniv.nl, User-agent: *",
+      "valeur": "10 secondes",
+      "fenetre": "entre requêtes",
+      "effet": "non précisé",
+      "verification": "officielle, lue en entier",
+      "source": "https://catalogue.leidenuniv.nl/robots.txt",
+      "date": "2026-11-14"
+    }
+  ],
   "en_tetes_observes": [],
   "blocages": [],
-  "sources": [],
-  "web": []
+  "sources": [
+    {
+      "url": "https://digitalcollections.universiteitleiden.nl/robots.txt",
+      "date": "2026-11-14",
+      "etiquette": "officielle",
+      "preuve": "institutions/leiden-university-libraries/sources/SHA256SUMS"
+    },
+    {
+      "url": "https://www.library.universiteitleiden.nl/special-collections/using-special-collections/",
+      "date": "2026-11-14",
+      "etiquette": "officielle",
+      "preuve": "institutions/leiden-university-libraries/sources/b/SHA256SUMS"
+    },
+    {
+      "url": "https://catalogue.leidenuniv.nl/robots.txt",
+      "date": "2026-11-14",
+      "etiquette": "officielle",
+      "preuve": "institutions/leiden-university-libraries/sources/d/SHA256SUMS"
+    },
+    {
+      "url": "https://iiif-endpoint.universiteitleiden.nl/robots.txt",
+      "date": "2026-11-14",
+      "etiquette": "officielle",
+      "preuve": "institutions/leiden-university-libraries/sources/c/SHA256SUMS"
+    },
+    {
+      "url": "https://eu-img02.ext.exlibrisgroup.com/robots.txt",
+      "date": "2026-11-14",
+      "etiquette": "officielle",
+      "preuve": "institutions/leiden-university-libraries/sources/e/SHA256SUMS"
+    }
+  ],
+  "web": [
+    {
+      "url": "https://github.com/Antonio-Faure/mnemosyne/pull/4",
+      "date": "2026-11-14",
+      "etiquette": "tiers, non vérifié",
+      "citation": "manifestes IIIF 3 via un proxy ; site HTML derrière un défi anti-bot (non observé).",
+      "preuve": "institutions/leiden-university-libraries/fiche.md"
+    }
+  ],
+  "donnees_a_revalider": false,
+  "contact": "specialcollections@library.leidenuniv.nl",
+  "conclusion_quota": "Aucun quota publié ; Crawl-delay 10 s (digitalcollections et catalogue). Chaîne d'hôtes : digitalcollections → iiif-endpoint → Primo → images Ex Libris. Aucun 429 ni en-tête de limite.",
+  "classe_quota": "limite documentée chiffrée (Crawl-delay 10 s uniquement)",
+  "confiance": "moyenne",
+  "notes": "Les images dépendent d'Ex Libris (CloudFront) : limite éventuelle non publiée."
 }
