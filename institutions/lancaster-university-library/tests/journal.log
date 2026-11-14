@@ -5,3 +5,7 @@
 2026-11-14T03:43:36Z | sitemap-xml | https://digitalcollections.lancaster.ac.uk/sitemap.xml | GET | 200 OK | aucun en-tête de limite | taille≥200 | corps: <?xml version="1.0" encoding="UTF-8"?> <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"  xmlns:image="http://www.google.com/schemas/sitemap-image/1.1"  xmlns:video="http://www.google.com/sc
 2026-11-14T03:43:43Z | page-collection-davy | https://digitalcollections.lancaster.ac.uk/collections/davy | HEAD | 200 OK | aucun en-tête de limite | taille≥0 | corps: 
 # Fin 2026-11-14T03:43:43Z — 4 requête(s) envoyée(s)
+# Session 2026-11-14T03:43:59Z — configuration lancaster-v2-passe2-manifeste.json — sonde probe.py au commit b63bbff
+2026-11-14T03:43:59Z | robots.txt:digitalcollections.lancaster.ac.uk | https://digitalcollections.lancaster.ac.uk/robots.txt | GET | 200 | 0 règle(s) pour « * »
+2026-11-14T03:44:25Z | iiif-manifeste-davy-11306 | https://digitalcollections.lancaster.ac.uk/iiif/MS-DAVY-11306 | GET | ERREUR_RÉSEAU | TimeoutError: The read operation timed out
+# Fin 2026-11-14T03:44:25Z — 2 requête(s) envoyée(s)
