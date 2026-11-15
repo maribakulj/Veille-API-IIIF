@@ -8,7 +8,7 @@ Le 14/11, l'ensemble des **93 fichiers** `institutions/*/data.json` de la branch
 
 Ces **260 lignes ne sont pas 260 défauts d'accès vérifiés**, ni 260 tâches qui exigent une intervention humaine. Aucun bilan « 260 contrôlés et terminés » n'est revendiqué.
 
-Le registre **`data/reverifications-chatgpt-2026-11-14.csv`** contient désormais **351 observations explicites**, de nature différente : URL effectivement lues, source institutionnelle de substitution, vérification de code, erreur 404/503/WAF, correction de catégorie, ressource technique non testée, etc. Toutes les observations ne correspondent pas à une URL initialement inscrite dans `a_verifier_manuellement` : certaines signalent une nouvelle source ou une incohérence du benchmark. Ces 351 observations **ne représentent pas 351 items clos**.
+Le registre **`data/reverifications-chatgpt-2026-11-14.csv`** contient désormais **360 observations explicites**, de nature différente : URL effectivement lues, source institutionnelle de substitution, vérification de code, erreur 404/503/WAF, correction de catégorie, ressource technique non testée, etc. Toutes les observations ne correspondent pas à une URL initialement inscrite dans `a_verifier_manuellement` : certaines signalent une nouvelle source ou une incohérence du benchmark. Ces 360 observations **ne représentent pas 360 items clos**.
 
 ## Rapports détaillés
 
@@ -226,3 +226,30 @@ Les données canoniques, fiches et BENCHMARK.xlsx sont toujours à réconcilier/
 **Important** : l'onglet historique `À vérifier à la main` contient toujours 260 URL, pour assurer la traçabilité. Ce n'est **pas** la liste des 108 preuves manquantes ni celle des cinq décisions humaines identifiées. La liste de travail active et son triage sont dans l'artefact `rattrapage-inventaire-manuel` de la CI documentaire et dans [`ACTIONS-HUMAINES-PRIORITAIRES-2026-11-15.md`](ACTIONS-HUMAINES-PRIORITAIRES-2026-11-15.md).
 
 **PR maintenue en brouillon** : les réponses HTTP sur Cultural Japan, Northwestern Image, Villanova, NPM Image, Digital Commonwealth et DRI restent incomplètes malgré les alternatives documentaires. Pas de test de charge ni de contournement des protections.
+
+## Passe X/Y du 15 novembre : 157 URL avec contenu démontré et 7 dossiers réconciliés
+
+**Rapport [X](VERIFICATIONS-CHATGPT-2026-11-15-X-DOCUMENTS-ORIGINAUX.md)** : quatre URL manuelles originales ont désormais leur **texte lu en copie indexée datée** : deux pages Finna (index des documentations et documentation REST complète), une page Contact Us de National Gallery of Art et l'étude de cas de préservation numérique des Parliamentary Archives. Les copies anciennes restent datées et ne certifient pas la réponse HTTP en direct. Trois recherches de remplacement officielles ont été corroborées : migration du service expérimental IIIF d'Internet Archive (`iiif.archivelab.org`) vers `iiif.archive.org` (exemple *Iris* en JSON Image v2), avis de Cloudflare Bot Protection publié par Brown (mise en œuvre printemps 2025) et conditions Finna (REST métadonnées sans inscription obligatoire, droit de réserver des restrictions en cas de charge ; CC0 des métadonnées **non** applicable automatiquement aux images). **Les quotas IIIF ne sont pas déduits** des règles REST ou d'une copie indexée.
+
+**Rapport [Y](VERIFICATIONS-CHATGPT-2026-11-15-Y-PDF-IIIF.md)** : la présentation CNI sur Yale LUX (2022), **texte des 26 diapositives analysé** et figures représentatives contrôlées, documente JSON-LD, Linked Art et IIIF Change Discovery mais ne présente pas de valeur chiffrée de débit. Celle de Cardiff (Alma Digital/Universal Viewer) est **essentiellement composée d'images : 25 des 29 diapositives inspectées visuellement**, avec **pages 20, 23, 24, 28 non lues** en raison de délais d'accès. Elle n'est **pas** classée document intégralement lu.
+
+**Données canoniques :** commit [`921a0a3`](https://github.com/maribakulj/Veille-API-IIIF/commit/921a0a3cd0a6502e16caa83154cb67314faab39c) : `data.json` et `fiche.md` de **cinq dossiers** Internet Archive, Brown, Finna, National Gallery of Art et Parliamentary Archives. Commit [`064381e`](https://github.com/maribakulj/Veille-API-IIIF/commit/064381e0813bc1b7bd1586652ea64474283620ee) : deux dossiers supplémentaires **Yale Peabody et Cardiff**. Dates de copie et statuts HTTP historiques conservés.
+
+**Validation [GitHub Actions #43748080199](https://github.com/maribakulj/Veille-API-IIIF/actions/runs/43748080199), succès :**
+
+| Mesure | Situation actualisée |
+| --- | ---: |
+| Institutions et URL historiques | **93 / 260** |
+| Observations documentaires dans le registre | **360** |
+| URL d'origine avec au moins un constat relié | **260/260** |
+| Lecture par lecteur web | **11/260** |
+| Contenu récupéré en copie datée, y compris texte complet Yale PDF | **146/260** |
+| **Contenus dont une lecture est démontrée** | **157/260** |
+| **Contenus sans preuve de lecture** (notamment les quatre diapositives Cardiff) | **103/260** |
+| Parmi les 103 : sans lecture humaine par défaut | **80** |
+| Parmi les 103 : intervention conditionnelle | **18** |
+| Parmi les 103 : contact ou compte éventuel identifié | **5** |
+
+**Classeur intégré :** [workflow de reconstruction #43748080192](https://github.com/maribakulj/Veille-API-IIIF/actions/runs/43748080192) **réussi**, après validation stricte **93 institutions / aucune preuve manquante**, Excel de **292 212 octets** régénéré et committé (commit `ff26f51`). L'onglet historique des 260 URL reste volontairement conservé pour la traçabilité ; **le CSV de triage produit par la CI est la liste active**. Les anciens résumés chiffrés du présent document sont des photographies de versions antérieures, pas l'état courant.
+
+Les endpoints encore bloqués (Cultural Japan Collection, Northwestern IIIF Image, Villanova, NPM IIIF Image, DRI Swagger) et la vérification de l'accès HTTP réel restent ouverts. **PR en brouillon.**
