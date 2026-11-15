@@ -24,3 +24,7 @@ Aucun quota chiffré publié pour advancedsearch, metadata, IIIF ; seules consig
 
 Crash test fait le 2026-11-14 : crash-iiif-info sur iiif.archive.org : aucun blocage jusqu'à 200 req/min (plafond 200 req/min).
 Journal : `tests/crash/internet-archive.log`. Un test « sans blocage » n'est pas une preuve d'illimitation au-delà du plafond.
+
+## Rattrapage documentaire — passe X (15 novembre 2026)
+
+L'ancien hôte `iiif.archivelab.org` de la liste de contrôle n'est **plus** le serveur institutionnel officiel. Le dépôt [`internetarchive/iiif`](https://github.com/internetarchive/iiif), confirmé par l'annonce [IIIF de septembre 2023](https://iiif.io/news/2023/09/18/making-iiif-official-at-the-internet-archive/), établit la migration vers **`iiif.archive.org`**. L'exemple exact des *Iris* (`/iiif/mma_irises_436528/info.json`) rend sur le nouveau hôte un **JSON Image API 2 valide** (3 811 × 3 058, tuiles 512, profil level2), récupéré comme **copie indexée datée du 15/11**. La lecture **ne démontre pas** l'accès HTTP live par notre client ni un quota IIIF. Voir [`VERIFICATIONS-CHATGPT-2026-11-15-X-DOCUMENTS-ORIGINAUX.md`](../../VERIFICATIONS-CHATGPT-2026-11-15-X-DOCUMENTS-ORIGINAUX.md).

@@ -134,13 +134,21 @@
       "etiquette": "institution (résumé de moteur, non vérifié ; original en 403 pour WebFetch)",
       "citation": "Article « Project to Production: Digital Preservation at the Houses of Parliament, 2010–2020 » (Fryer) : dépôt Preservica relié à CALM ; aucune mention de IIIF ni de quota dans le résumé du moteur.",
       "preuve": "institutions/parliamentary-archives-uk/fiche.md"
+    },
+    {
+      "url": "https://www.nationalarchives.gov.uk/archives-sector/case-studies-and-research-reports/case-studies/digital/digital-preservation/the-parliamentary-archives",
+      "categorie": "institution",
+      "date": "2026-11-15",
+      "etiquette": "étude de cas institutionnelle originale, copie indexée 2026-08-27",
+      "citation": "Texte complet de l'étude de cas sur la préservation numérique et deux infrastructures cloud. Aucune règle d'accès API IIIF.",
+      "preuve": "VERIFICATIONS-CHATGPT-2026-11-15-X-DOCUMENTS-ORIGINAUX.md"
     }
   ],
   "contact": "archives@parliament.uk (Parliamentary Archives, d'après le résumé de moteur) ; softwareengineering@parliament.uk (contact déclaré dans le swagger.json de members-api)",
   "conclusion_quota": "Aucun quota ni limite de débit publiés. Les hôtes du catalogue des Archives (archives.parliament.uk, www.parliament.uk, developer.parliament.uk) sont derrière un défi Cloudflare (403) : documentation lue via Wayback, endpoints non testables. Le catalogue (CALM) n'a pas d'API ni de IIIF documentés ; les collections sont en cours de transfert aux National Archives (Kew). Les API de données du Parlement (members-api, bills-api, committees-api) répondent en 200 sans en-tête de limite.",
   "classe_quota": "aucun quota trouvé",
   "confiance": "faible",
-  "notes": "Les Archives du Parlement ne publient pas d'API ni de IIIF. Seul le robots.txt de archives.parliament.uk (lu via Wayback) donne un Crawl-delay de 10 s. Les API du Developer hub sont celles du Parlement, pas du catalogue des Archives : trois familles testées sur douze. WebFetch sur ijdc.net a répondu 403 et sur nationalarchives.gov.uk a été refusé par le système de permissions : non contourné.",
+  "notes": "Les Archives du Parlement ne publient pas d'API ni de IIIF. Seul le robots.txt de archives.parliament.uk (lu via Wayback) donne un Crawl-delay de 10 s. Les API du Developer hub sont celles du Parlement, pas du catalogue des Archives : trois familles testées sur douze. WebFetch sur ijdc.net a répondu 403 et sur nationalarchives.gov.uk a été refusé par le système de permissions : non contourné.\nPasse X 15/11/2026 : étude de cas originale des UK National Archives sur les Parliamentary Archives récupérée intégralement (13266 caractères, copie 27/08). Analyse préservation numérique et architecture multi-cloud, pas d'API IIIF pour le catalogue parlementaire démontrée.",
   "a_verifier_manuellement": [
     {
       "url": "https://archives.parliament.uk/",

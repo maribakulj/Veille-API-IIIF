@@ -31,3 +31,7 @@ Passe 1 (`config/passe1-api.json`, 3 endpoints, committée avant) : **0 requête
 - **Accès refusé à ce client** : oui, défi Turnstile (protection ajoutée au printemps 2025, documentée par l'institution). Ce n'est pas un quota.
 - **À refaire autrement** : navigateur / VPN Brown, ou demande via un ticket sur le dépôt `bdr_api_documentation`.
 - **Étape g** : impossible (hôte arrêté).
+
+## Rattrapage documentaire — passe X (15 novembre 2026)
+
+La page Swagger/Studio originale continue d'afficher un défi de vérification humaine. Le **wiki officiel de Brown**, dont le texte intégral a été lu dans une copie du 15/09/2026, documente explicitement l'ajout de **Cloudflare au printemps 2025** et ses conséquences pour des clients API demandant de gros volumes à rythme élevé ; la solution proposée est une **demande via ticket officiel**, et éventuellement le VPN pour les **membres Brown autorisés**, non un contournement. Les deux exemples IIIF Image/Presentation récupérés en T n'établissent aucun quota. Voir [`VERIFICATIONS-CHATGPT-2026-11-15-X-DOCUMENTS-ORIGINAUX.md`](../../VERIFICATIONS-CHATGPT-2026-11-15-X-DOCUMENTS-ORIGINAUX.md).

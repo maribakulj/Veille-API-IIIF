@@ -114,6 +114,30 @@
       "etiquette": "officielle (copie Wayback 2025-08-10)",
       "citation": "« Finna REST API is a read-only interface to Finna's search index » ; limit maximum 100 ; aucune mention de limite de débit",
       "preuve": "institutions/national-library-of-finland-finna/sources/wayback/finna-openapi-et-kiwi-robots.md"
+    },
+    {
+      "url": "https://www.kiwi.fi/spaces/Finna/pages/440828359/Finna+API+Documentation+In+English",
+      "categorie": "institution",
+      "date": "2026-11-15",
+      "etiquette": "index documentation Finna API officielle, copie 2026-11-05",
+      "citation": "Index de documentation anglais, renvois vers REST, Auth, OAI-PMH et OIDC, dernière mise à jour 24/08/2026.",
+      "preuve": "VERIFICATIONS-CHATGPT-2026-11-15-X-DOCUMENTS-ORIGINAUX.md"
+    },
+    {
+      "url": "https://www.kiwi.fi/pages/viewpage.action?pageId=75202667",
+      "categorie": "institution",
+      "date": "2026-11-15",
+      "etiquette": "ancienne documentation Finna API complète en copie indexée",
+      "citation": "Page anglophone 38 323 caractères effectivement lue, référence historique des endpoints REST, pas preuve du contrat IIIF en production.",
+      "preuve": "VERIFICATIONS-CHATGPT-2026-11-15-X-DOCUMENTS-ORIGINAUX.md"
+    },
+    {
+      "url": "https://www.kiwi.fi/display/Finna/Finna+API+Terms+of+Use",
+      "categorie": "institution",
+      "date": "2026-11-15",
+      "etiquette": "conditions API officielles, copie indexée 2026-11-05",
+      "citation": "API REST de métadonnées sans inscription requise, inscription possible si surcharge; CC0 pour métadonnées, pas pour images liées.",
+      "preuve": "VERIFICATIONS-CHATGPT-2026-11-15-X-DOCUMENTS-ORIGINAUX.md"
     }
   ],
   "donnees_a_revalider": false,
@@ -121,7 +145,7 @@
   "conclusion_quota": "Aucun chiffre de débit publié (spécification OpenAPI 2025 : limit max 100, aucune mention de limite de débit) ; robots.txt de l'API : Disallow: / (Wayback) ; hôte en 403 défi Cloudflare pour notre client ; inscription possible en cas de charge excessive ; Crawl-delay 1 s sur le site.",
   "classe_quota": "aucun quota trouvé (API exclue aux robots)",
   "confiance": "faible à moyenne",
-  "notes": "Hôtes en 403 pour la sonde ; lecture via Wayback ; doc Swagger non lue.",
+  "notes": "Hôtes en 403 pour la sonde ; lecture via Wayback ; ancien Swagger /v1?swagger non lu, mais OpenAPI v11.0.3 récupérée via /api/v1/?openapi.\nPasse X 15/11/2026 : deux URL documentaires originales désormais lues intégralement (index Finna Documentation In English 3848 caractères, copie 05/11 ; ancien Confluence Finna API English 38323 caractères, copie 15/11). Conditions API officielles 6895 caractères (copie 05/11, MAJ affichée 25/10/2024) : aucune inscription exigée pour REST metadata, possibilité de restreindre pour surcharge ; métadonnées CC0, images sous droits propres. OpenAPI 3.0.3 version 11.0.3 lisible sur /api/v1/?openapi mais ancienne /v1?swagger encore 403. Aucun quota IIIF déduit.",
   "a_verifier_manuellement": [
     {
       "url": "https://api.finna.fi/robots.txt",

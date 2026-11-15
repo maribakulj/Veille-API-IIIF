@@ -19,3 +19,7 @@
 
 ## Conclusion
 Aucun quota ni limite de débit publiés pour les Archives du Parlement ; seul le Crawl-delay de 10 s du robots.txt (via Wayback). Pas de IIIF ni d'API pour le catalogue ; les API de données du Parlement répondent sans en-tête de limite. Confiance faible (hôtes principaux inaccessibles à la sonde). À vérifier à la main : voir `a_verifier_manuellement`.
+
+## Rattrapage documentaire — passe X (15 novembre 2026)
+
+L'étude de cas originale des **UK National Archives** sur les Parliamentary Archives a été entièrement récupérée (13 266 caractères, copie indexée du 27/08/2026). Elle traite du stockage réparti entre deux prestataires cloud pour la **préservation numérique**, non des politiques de débit ou d'un endpoint IIIF des Archives. Le Developer Hub du Parlement reste **un autre service**, à ne pas substituer aux API d'archives inexistantes ou non publiées. Voir [`VERIFICATIONS-CHATGPT-2026-11-15-X-DOCUMENTS-ORIGINAUX.md`](../../VERIFICATIONS-CHATGPT-2026-11-15-X-DOCUMENTS-ORIGINAUX.md).
