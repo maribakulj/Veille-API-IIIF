@@ -21,3 +21,7 @@ Aucune limite n'est publiée ; l'API sert aussi le site public de la bibliothèq
 
 ## Conclusion
 Limite chiffrée : aucune. API v2 ouverte (200 partout, sans en-tête de limite) ; site et serveur d'images derrière un 403 CloudFront. Confiance : moyenne. Contact : page de contact du site Digital Collections (à vérifier à la main). Étape g : `config/crash-oai-identify.json` prête.
+
+## Rattrapage documentaire — 15 novembre 2026
+
+La spécification institutionnelle **OpenAPI 3.1** de l'API REST v2 a été récupérée et parcourue intégralement (19 463 caractères) ; elle décrit la représentation des œuvres par `?as=iiif` et des schémas d'authentification, **sans plafond chiffré dans le YAML**. Ne pas assimiler cette REST API à l'hôte d'images : le `info.json` exact de `iiif.dc.library.northwestern.edu` **n'a toujours pas été extrait**. Voir [`VERIFICATIONS-CHATGPT-2026-11-15-V-SOURCES-ET-TRIAGE.md`](../../VERIFICATIONS-CHATGPT-2026-11-15-V-SOURCES-ET-TRIAGE.md).

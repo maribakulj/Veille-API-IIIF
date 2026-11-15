@@ -93,13 +93,29 @@
       "etiquette": "institution (résumé de moteur, non vérifié)",
       "citation": "Aucune présentation sur la politique d'API ou de bots ; pistes non lues : article IAFOR ACTIS 2014 et diaporama de données liées (résumés de moteur, non vérifiés)",
       "preuve": "institutions/national-palace-museum-taiwan/fiche.md"
+    },
+    {
+      "categorie": "institution",
+      "url": "https://digitalarchive.npm.gov.tw/opendata/Json/NPMIIIF.pdf",
+      "date": "2026-11-15",
+      "etiquette": "guide institutionnel (texte 13 pages récupéré par extracteur, rendu PDF complet non vérifié)",
+      "citation": "Guide IIIF, identifiants d'exemples de manifestes ; ne donne pas de limite de débit. Sonde originale : timeout de téléchargement.",
+      "preuve": "VERIFICATIONS-CHATGPT-2026-11-14-O-LECTURES-REELLES.md"
+    },
+    {
+      "categorie": "institution",
+      "url": "https://iiifod.npm.gov.tw/iiif/2",
+      "date": "2026-11-15",
+      "etiquette": "page Cantaloupe IIIF Image API 2.x retrouvée dans index public",
+      "citation": "Page de documentation du service Image API 2, exemples de chemins info.json et requêtes image ; info.json ciblé toujours en timeout.",
+      "preuve": "VERIFICATIONS-CHATGPT-2026-11-15-W-IIIF-IMAGES.md"
     }
   ],
   "contact": "https://contactus.npm.gov.tw/Web/case-apply.jsp?l=1&TArea=1 (formulaire de contact du musée, lien de la page Opendata)",
   "conclusion_quota": "Aucun quota ni en-tête de limite documenté ou observé. La déclaration d'ouverture des données dit : sans demande, sans limite d'usage, gratuit. Le manifeste IIIF répond 200 sans en-tête de limite. Le service d'images iiifod.npm.gov.tw n'a pas répondu (délai dépassé, 3 requêtes), cause inconnue, pas un 403.",
   "classe_quota": "aucun quota trouvé",
   "confiance": "faible",
-  "notes": "HEAD sur le manifeste : 555 (non pris en charge). robots.txt : digitalarchive Disallow vide ; www 404 ; theme.npm.edu.tw : boucle de redirections ; iiifod : délai dépassé. Le PDF NPMIIIF.pdf (5,9 Mo) n'a pu être téléchargé en entier (2 délais dépassés).",
+  "notes": "HEAD sur le manifeste : 555 (non pris en charge). robots.txt : digitalarchive Disallow vide ; www 404 ; theme.npm.edu.tw : boucle de redirections ; iiifod : délai dépassé. Le PDF NPMIIIF.pdf (5,9 Mo) n'a pu être téléchargé en entier (2 délais dépassés).\nRattrapage 2026-11-15 : le texte du guide IIIF NPMIIIF.pdf (13 pages) a été extrait via lecteur alternatif, sans visualisation intégrale ; ses exemples documentent huit identifiants de manifestes. La page d'accueil Cantaloupe du serveur iiifod.npm.gov.tw/iiif/2 est retrouvée dans l'index public. info.json original demeure en timeout et débit inconnu.",
   "a_verifier_manuellement": [
     {
       "url": "https://digitalarchive.npm.gov.tw/opendata/Json/NPMIIIF.pdf",

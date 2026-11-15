@@ -19,3 +19,7 @@ Aucune requête envoyée (0) : hôtes en 403/défi, la sonde a sauté les 2 endp
 
 ## Conclusion
 Limite chiffrée de débit : aucune publiée ; seule limite documentée : image à 1200 px au maximum ; `Crawl-delay: 10` dans robots.txt. Accès automatisé refusé par Cloudflare (403 anti-bot, pas un quota). Confiance : faible. Crash test impossible. Une demande écrite à QDL (page « Comments or concerns ») ou un test depuis un navigateur seraient nécessaires.
+
+## Rattrapage documentaire — 15 novembre 2026
+
+Le **manifeste original** `https://www.qdl.qa/en/iiif/81055/vdc_100023807156.0x000001/manifest` est désormais **lu en JSON IIIF Presentation 2** (16 709 caractères, copie indexée du 23/10/2026, une séquence). Le 403 Cloudflare original reste documenté, et aucun en-tête HTTP de quota n'est établi. La page officielle des droits a été retrouvée sous `https://qdl.qa/en/copyright-ethical-terms-reuse`, remplaçant l'ancien lien illisible. Voir [`VERIFICATIONS-CHATGPT-2026-11-15-V-SOURCES-ET-TRIAGE.md`](../../VERIFICATIONS-CHATGPT-2026-11-15-V-SOURCES-ET-TRIAGE.md).

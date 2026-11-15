@@ -99,13 +99,21 @@
       "etiquette": "–",
       "citation": "ni billet ni présentation de lancement de l API trouvés, seulement le code nulib/dc-api-v2 et dc-nextjs",
       "preuve": "institutions/northwestern-university-libraries/fiche.md"
+    },
+    {
+      "categorie": "institution",
+      "url": "https://api.dc.library.northwestern.edu/docs/v2/spec/openapi.yaml",
+      "date": "2026-11-15",
+      "etiquette": "spécification OpenAPI REST officielle v2, copie intégrale analysée",
+      "citation": "OpenAPI 3.1.0, API version 2.0.0, schéma bearer JWT et chemins ?as=iiif ; pas de quota numérique dans YAML ; hôte Image séparé.",
+      "preuve": "VERIFICATIONS-CHATGPT-2026-11-15-V-SOURCES-ET-TRIAGE.md"
     }
   ],
   "contact": "Northwestern University Libraries, équipe Digital Collections (page de contact du site dc.library.northwestern.edu, à vérifier à la main)",
   "conclusion_quota": "Aucune limite de débit publiée ; l API v2 (works, collections, file-sets, search, OAI-PMH, manifestes IIIF) répond 200 sans en-tête de limite ; le site et le serveur d images (dc.library, iiif.dc) renvoient un 403 CloudFront à notre client.",
   "classe_quota": "aucun quota trouvé",
   "confiance": "moyenne",
-  "notes": "Hôte iiif.dc non contacté après son 403 sur robots.txt : images IIIF non testées (décision prudente autonome). POST non utilisé.",
+  "notes": "Hôte iiif.dc non contacté après son 403 sur robots.txt : images IIIF non testées (décision prudente autonome). POST non utilisé.\nRattrapage 2026-11-15 : OpenAPI officielle REST v2 OAS 3.1 (19463 caractères) et route de représentation ?as=iiif documentées; sécurité JWT bearer et choix de sécurité incluant une option anonyme (à qualifier endpoint par endpoint). Aucune limite numérique dans cette spécification. info.json de l'hôte iiif.dc.library.northwestern.edu non extrait.",
   "a_verifier_manuellement": [
     {
       "url": "https://dc.library.northwestern.edu/",

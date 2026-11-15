@@ -19,3 +19,7 @@
 
 ## Conclusion
 Limite chiffrée : aucune. Pas d'en-tête de limite. Le service d'images n'a pas répondu depuis ce poste (cause inconnue). Confiance : faible. Décision prise seul : crash test prévu sur le manifeste (`config/crash-manifeste.json`), à lancer à la fin.
+
+## Rattrapage documentaire — 15 novembre 2026
+
+Le texte du PDF officiel `NPMIIIF.pdf` (13 pages) a été **récupéré par un extracteur documentaire**, avec des identifiants de manifestes ; ce résultat ne signifie pas que la sonde a pu télécharger ou afficher le PDF. La page d'accueil Cantaloupe de `iiifod.npm.gov.tw/iiif/2` est indexée et confirme Image API 2.x ; **le `info.json` ciblé continue de ne pas répondre (timeout)**. Voir [`VERIFICATIONS-CHATGPT-2026-11-14-O-LECTURES-REELLES.md`](../../VERIFICATIONS-CHATGPT-2026-11-14-O-LECTURES-REELLES.md) et [`VERIFICATIONS-CHATGPT-2026-11-15-W-IIIF-IMAGES.md`](../../VERIFICATIONS-CHATGPT-2026-11-15-W-IIIF-IMAGES.md).
