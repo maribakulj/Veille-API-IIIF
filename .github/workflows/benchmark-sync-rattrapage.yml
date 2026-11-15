@@ -1,0 +1,70 @@
+name: Synchroniser BENCHMARK.xlsx après révision des dossiers IIIF
+
+on:
+  push:
+    branches:
+      - chatgpt/rattrapage-documentation-2026-11-14
+    paths:
+      - 'institutions/**/data.json'
+      - 'institutions/**/fiche.md'
+      - '.github/workflows/benchmark-sync-rattrapage.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: benchmark-sync-rattrapage
+  cancel-in-progress: false
+
+jobs:
+  synchroniser:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - name: Récupérer la branche de révision
+        uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+          fetch-depth: 1
+      - name: Installer Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Installer les dépendances du générateur existant
+        run: python -m pip install -r requirements.txt
+      - name: Valider les justifications et les preuves du suivi
+        run: python scripts/suivi.py validate
+      - name: Régénérer le classeur avec le générateur canonique du dépôt
+        run: python scripts/build_benchmark.py
+      - name: Vérifier l'intégrité minimale du classeur produit
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          from zipfile import ZipFile
+          f = Path('BENCHMARK.xlsx')
+          assert f.exists() and f.stat().st_size > 20000, 'Classeur absent ou incomplet'
+          with ZipFile(f) as z:
+              bad = z.testzip()
+              assert bad is None, f'Archive XLSX corrompue : {bad}'
+              assert 'xl/workbook.xml' in z.namelist()
+              assert len([x for x in z.namelist() if x.startswith('xl/worksheets/sheet') and x.endswith('.xml')]) >= 10
+          print('BENCHMARK.xlsx régénéré et structure ZIP/XML contrôlée :', f.stat().st_size, 'octets')
+          PY
+      - name: Publier un artefact de sécurité
+        uses: actions/upload-artifact@v4
+        with:
+          name: benchmark-IIIF-reconcilie
+          path: BENCHMARK.xlsx
+          retention-days: 14
+      - name: Committer seulement si le classeur a changé
+        run: |
+          git add BENCHMARK.xlsx
+          if git diff --cached --quiet; then
+            echo "Classeur inchangé"
+          else
+            git config user.name 'github-actions[bot]'
+            git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+            git commit -m "Régénérer BENCHMARK.xlsx après vérification des quatre dossiers IIIF"
+            git push origin HEAD:chatgpt/rattrapage-documentation-2026-11-14
+          fi
