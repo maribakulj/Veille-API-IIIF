@@ -8,7 +8,7 @@ Le 14/11, l'ensemble des **93 fichiers** `institutions/*/data.json` de la branch
 
 Ces **260 lignes ne sont pas 260 défauts d'accès vérifiés**, ni 260 tâches qui exigent une intervention humaine. Aucun bilan « 260 contrôlés et terminés » n'est revendiqué.
 
-Le registre **`data/reverifications-chatgpt-2026-11-14.csv`** contient désormais **231 observations explicites**, de nature différente : URL effectivement lues, source institutionnelle de substitution, vérification de code, erreur 404/503/WAF, correction de catégorie, ressource technique non testée, etc. Toutes les observations ne correspondent pas à une URL initialement inscrite dans `a_verifier_manuellement` : certaines signalent une nouvelle source ou une incohérence du benchmark. Ces 231 observations **ne représentent pas 231 items clos**.
+Le registre **`data/reverifications-chatgpt-2026-11-14.csv`** contient désormais **345 observations explicites**, de nature différente : URL effectivement lues, source institutionnelle de substitution, vérification de code, erreur 404/503/WAF, correction de catégorie, ressource technique non testée, etc. Toutes les observations ne correspondent pas à une URL initialement inscrite dans `a_verifier_manuellement` : certaines signalent une nouvelle source ou une incohérence du benchmark. Ces 345 observations **ne représentent pas 345 items clos**.
 
 ## Rapports détaillés
 
@@ -176,3 +176,29 @@ Ces chiffres **supplantent** les instantanés des sections précédentes. La pri
 La qualification des 169 **ne veut pas dire** « 169 pages bloquées ». Elle inclut les URLs qui sont des contacts, des anciennes routes, des réponses HTTP refusées, des pages de protection sans document, et celles qui n'ont pas encore été reprises.
 
 **À poursuivre en priorité :** les 88 entrées sans aucune correspondance avec le registre; puis les autres sans contenu. Ne pas demander à l'utilisateur de tout relire : seul le résidu qui exige réellement un navigateur humain, un compte ou une réponse institutionnelle est à conserver comme « vérification manuelle ». Les anciennes sections ci-dessus sont des mesures historisées; **ce tableau est l'état courant**. La source de vérité `data.json` et le classeur `BENCHMARK.xlsx` restent inchangés jusqu'à régénération validée.
+
+## Reprise du 15 novembre 2026 — passes T et U, résultats de la dernière CI
+
+- **Rapport T** : [`VERIFICATIONS-CHATGPT-2026-11-15-T-LECTURES.md`](VERIFICATIONS-CHATGPT-2026-11-15-T-LECTURES.md). Les **88 URL historiques** qui n'avaient encore aucun constat lié ont été **classées**, non pas déclarées toutes lues. Les plus importants documents extraits sont les API JSON Brown (dont manifeste IIIF et `info.json` associés), e-rara Content Search, OAI-PMH MDZ, LoC JSON, IIIF Image 2 SLV et l'**OpenAPI Finna REST version 11.0.3** (six chemins). Deux PDF de diapositives, Cardiff et Yale, ont été ouverts avec **échantillonnage visuel explicitement daté**, et non validés page par page.
+- **Rapport U** : [`VERIFICATIONS-CHATGPT-2026-11-15-U-LECTURES.md`](VERIFICATIONS-CHATGPT-2026-11-15-U-LECTURES.md). Deuxième passe sur les **126 entrées à contenu non démontré** après T : réexamens ciblés des pages BNE, AIC, Cardiff, CUDL, Europeana, e-rara, LoC, Finna, etc. Les pages de contenu réellement récupérées sont promues au statut `COPIE_...` ; les **403/404, shells SPA, redirections sur pages génériques et fichiers JSON non extraits** gardent un statut ouvert. Les sources de substitution EAP et Göttingen sont documentées sans être confondues avec les anciennes URL.
+
+[**GitHub Actions #43709360396, réussite des 5 tests et génération du CSV**](https://github.com/maribakulj/Veille-API-IIIF/actions/runs/43709360396), dernière métrique :
+
+| Mesure | État au 15/11 |
+| --- | ---: |
+| Dossiers institutionnels / lignes initiales | **93 / 260** |
+| Observations documentaires inscrites dans le registre | **345** |
+| Lignes possédant un constat par URL et dossier | **260 / 260** |
+| Lignes **sans** constat de triage | **0** |
+| Lignes avec contenu **lu par le lecteur web** | **11** |
+| Lignes avec texte/JSON **récupéré en copie indexée datée** | **139** |
+| **Total de lignes dont le contenu a été obtenu au cours des passes** | **150 / 260** |
+| Lignes avec contenu **non démontré** | **110 / 260** |
+| Lignes disposant de plusieurs constats conservés | **61** |
+| Observations supplémentaires hors des 260 URL | **23** |
+
+**Rappel indispensable :** `260/260 classées` mesure la couverture de la **file de vérifications**, **pas** la disponibilité HTTP ni l'absence de protection ; `150 contenus obtenus` inclut **139 copies datées potentiellement non valides aujourd'hui** et des pages de conditions, robots ou contacts qui ne prouvent pas un quota IIIF. Les **110** incluent notamment des liens obsolètes, des documents sous WAF/SSO, des éléments réellement non lus, des formulaires et des PDF seulement partiellement inspectés. Les classer en `non obtenu` est plus fidèle que de les renvoyer tous à l'utilisateur pour une lecture manuelle.
+
+**Constats techniques à prioriser :** reprendre les véritables JSON manquants (Cultural Japan Collection, IIIF Image AIC, manifeste Villanova, NPM Taïwan, QDL, Northwestern), les descriptions OpenAPI impossibles à extraire (DRI Swagger), puis **distinguer les contacts et comptes humains obligatoires** des erreurs historiques. Pour les quotas, ne pas inférer de limite depuis `robots.txt`, `maxArea`, le nombre de résultats d'une recherche, le nombre de collections, une licence ou l'existence d'une clé sur un autre service.
+
+**État des livrables canoniques :** `institutions/*/data.json`, les `fiche.md` et `BENCHMARK.xlsx` restent à reprendre dans une intégration cohérente avec validation du générateur. **Ne pas fusionner la PR** avant cette intégration et contrôle du résidu.
