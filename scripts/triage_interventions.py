@@ -33,16 +33,35 @@ EXPLICIT_ACTIONS = {
 }
 
 
+# Substitutions prouvées dans la documentation officielle : on ne prétend
+# PAS que l'ancienne URL donne le même contenu aujourd'hui.
+OFFICIAL_SUBSTITUTES = {
+    "https://emuseum.nich.go.jp/terms?locale=en":
+        "https://emuseum.nich.go.jp/about?langId=en&webView=0",
+    "https://www.qdl.qa/en/copyright-and-ethical-terms-reuse":
+        "https://qdl.qa/en/copyright-ethical-terms-reuse",
+    "https://dl.ndl.go.jp/ja/terms":
+        "https://dl.ndl.go.jp/sitepolicy",
+}
+
+
 def qualifier(row: dict) -> dict:
     """Décision d'aiguillage, jamais une affirmation de disponibilité HTTP."""
     url = row["url"]
     states = row.get("statut_revision", "")
-    reason = row.get("raison_initiale", "")
     path = urlsplit(url).path.lower()
+    query = urlsplit(url).query.lower()
     if url in EXPLICIT_ACTIONS:
         kind, action = EXPLICIT_ACTIONS[url]
         return {"classe": kind, "intervention_utilisateur": "OUI_SI_NECESSAIRE",
                 "action": action, "priorite": "P2"}
+
+    if url in OFFICIAL_SUBSTITUTES:
+        return {"classe": "SUBSTITUT_OFFICIEL_LU",
+                "intervention_utilisateur": "NON_PAR_DEFAUT",
+                "action": "Ancienne URL non lue ; lire le remplacement institutionnel : " +
+                          OFFICIAL_SUBSTITUTES[url],
+                "priorite": "P3"}
 
     if url.endswith("/robots.txt"):
         return {"classe": "ROBOTS_OU_POLITIQUE_CRAWL",
@@ -56,6 +75,15 @@ def qualifier(row: dict) -> dict:
                 "intervention_utilisateur": "NON_PAR_DEFAUT",
                 "action": "Conserver une source et mutualiser la vérification sans multiplier les demandes",
                 "priorite": "P3"}
+
+    # Un info.json dont l'ancien client a suivi un 301 n'est PAS une
+    # URL obsolète tant que le JSON n'a pas été récupéré.
+    if path.endswith(("info.json", "/manifest", "/manifest.json", "/collection.json")) or (
+            ".json" in path or ".xml" in path):
+        return {"classe": "SERVICE_TECHNIQUE_A_VERIFIER",
+                "intervention_utilisateur": "NON_PAR_DEFAUT",
+                "action": "Récupérer le contenu JSON/XML ou vérifier l'endpoint officiel depuis client autorisé",
+                "priorite": "P1"}
 
     old = ("ANCIENNE_", "URL_", "REDIRECTION_", "PAGE_404", "PAGE_GENERIC",
            "PAGE_ANCIENNE", "DOCUMENT_SUBSTITUTION", "REST_URL_404")
@@ -82,7 +110,8 @@ def qualifier(row: dict) -> dict:
 
     if ("/iiif/" in path or "/manifest" in path or "info.json" in path or
             "/oai" in path or "api-docs" in path or "swagger" in path or
-            "openapi" in path or "/rest/" in path or
+            "openapi" in path or "swagger" in query or
+            "/v1/" in path or "/v2/" in path or "/rest/" in path or
             path.endswith("/feed/")):
         return {"classe": "SERVICE_TECHNIQUE_A_VERIFIER",
                 "intervention_utilisateur": "NON_PAR_DEFAUT",
