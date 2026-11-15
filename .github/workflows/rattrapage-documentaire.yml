@@ -22,6 +22,8 @@ jobs:
           python-version: '3.11'
       - name: Tester le rapprochement
         run: python -m unittest discover -s tests -p 'test_*.py' -v
+      - name: Vérifier les preuves de rattrapage dans les dossiers institutionnels
+        run: python scripts/valider_preuves_rattrapage.py .
       - name: Générer la file de vérifications (aucune requête à des API IIIF)
         run: |
           python scripts/etat_reverifications.py --root . --out data/etat-reverifications.csv > data/resume-reverifications.json
