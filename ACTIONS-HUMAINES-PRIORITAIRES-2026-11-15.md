@@ -18,7 +18,6 @@
 
 | Priorité | Institution | Document technique toujours non lu | Alternative déjà lue / étape suivante |
 |---|---|---|---|
-| Haute | Art Institute of Chicago | `www.artic.edu/iiif/2/.../info.json`, redirection/autodéfi | Guide public API et droits déjà lus ; vérifier une image IIIF par client autorisé, sans extrapoler limite REST |
 | Haute | Cultural Japan | `app.cultural.jp/iiif-collection/collection.json` | IIIF Discovery in Japan a **une collection distincte** de 30 sous-collections, pas remplacement du JSON de Cultural Japan |
 | Haute | Northwestern | `iiif.dc.library.northwestern.edu/iiif/3/.../info.json` | OpenAPI 3.1 / v2 officielle de 19 463 caractères retrouvée ; exemple REST `?as=iiif` à distinguer de l'Image API |
 | Haute | National Palace Museum | `iiifod.npm.gov.tw/iiif/2/.../info.json` | Guide IIIF PDF 13 pages et exemples de manifestes retrouvés ; en-têtes et accès d'images non établis |
@@ -38,3 +37,15 @@ Le `robots.txt` d'un domaine n'est pas un contrat de quotas ; un `403` ne signif
 - Générateur : `scripts/triage_interventions.py` ; le CSV se recalcule après chaque nouvelle lecture, sans solliciter les APIs externes.
 
 **Statut** : une entrée `CONTENU_NON_DEMONTRE_PAR_REPRISE_O` signifie *absence de preuve de contenu dans le registre*, pas preuve d'indisponibilité publique. Les actions humaines sont suggérées **seulement si l'information est nécessaire**.
+
+## Mise à jour du 15 novembre : pages débloquées et actions à ne plus demander
+
+Le statut initial « Art Institute of Chicago : `info.json` à lire » **n'est plus à jour**. La passe W a extrait le **JSON complet original** (IIIF Image 2, 6 679 × 4 577 pixels, 931 caractères) dans une copie datée du 15/11. Le **403 Cloudflare depuis la sonde** reste une question distincte pour une utilisation réelle. Le lecteur humain n'a **pas** à rouvrir cette page simplement pour en connaître la structure. Voir [rapport W](VERIFICATIONS-CHATGPT-2026-11-15-W-IIIF-IMAGES.md).
+
+Autres tâches de lecture retirables de la file active : la documentation Finna anglaise (les deux URL historiques désormais lues), la page Contact Us de National Gallery of Art et l'étude de cas UK National Archives (rapport [X](VERIFICATIONS-CHATGPT-2026-11-15-X-DOCUMENTS-ORIGINAUX.md)) ; le **texte des 26 diapositives Yale LUX** (rapport [Y](VERIFICATIONS-CHATGPT-2026-11-15-Y-PDF-IIIF.md)). L'URL `iiif.archivelab.org` de l'Internet Archive est **historique**, officiellement remplacée par `iiif.archive.org`, où un `info.json` correspondant au même objet a été récupéré ; ne pas exiger de rendre l'ancien service de laboratoire opérationnel.
+
+Pour Cardiff, **25 diapositives sur 29** ont été inspectées visuellement. **Quatre restent inaccessibles** (20, 23, 24, 28) ; cela demeure une lecture partielle, pas une page « complète ».
+
+**Chiffres vérifiés par [CI #43748080199](https://github.com/maribakulj/Veille-API-IIIF/actions/runs/43748080199)** : **157 / 260 URL** avec contenu documentaire obtenu, **103 / 260** sans contenu démontré. Dans ce résidu, **80** ne demandent pas d'action humaine par défaut, **18** demanderaient une intervention conditionnelle et **5** correspondent à des demandes/contact/compte explicites. Les trois demandes institutionnelles et deux accès sous compte décrits plus haut restent **facultatifs**, sans formulaire ni message transmis.
+
+**Liste active téléchargeable :** ouvrir l'artefact `rattrapage-inventaire-manuel` de la [dernière CI documentaire](https://github.com/maribakulj/Veille-API-IIIF/actions/runs/43748080199), puis `data/triage-interventions-humaines.csv`. Les numéros historiques des anciennes sections de ce document ne sont pas la métrique courante.
