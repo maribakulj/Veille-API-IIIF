@@ -55,6 +55,23 @@ class TriageTests(unittest.TestCase):
         self.assertEqual(rows[0]["preuve_http_actuelle"],
                          "NON_ETABLIE_PAR_CE_TRIAGE")
 
+    def test_info_json_301_reste_un_service_a_lire(self):
+        r = qualifier(item("https://example.org/iiif/2/a/info.json",
+                           "REDIRECTION_AUTOREFFERENTIELLE_SANS_JSON_U"))
+        self.assertEqual(r["classe"], "SERVICE_TECHNIQUE_A_VERIFIER")
+
+    def test_doc_termes_remplacee_ne_demande_pas_nouvelle_lecture_humaine(self):
+        r = qualifier(item(
+            "https://www.qdl.qa/en/copyright-and-ethical-terms-reuse",
+            "CONDITIONS_NON_EXTRAITES_520_2026_11_14"))
+        self.assertEqual(r["classe"], "SUBSTITUT_OFFICIEL_LU")
+        self.assertIn("/copyright-ethical-terms-reuse", r["action"])
+
+    def test_collection_json_hors_chemin_iiif_est_technique(self):
+        r = qualifier(item("https://app.cultural.jp/iiif-collection/collection.json",
+                           "JSON_NON_EXTRAIT_2026_11_14"))
+        self.assertEqual(r["classe"], "SERVICE_TECHNIQUE_A_VERIFIER")
+
     def test_authentification_na_pas_ete_effectuee(self):
         r = qualifier(item("https://web.library.yale.edu/lit/servicecatalog/164929"))
         self.assertEqual(r["classe"], "AUTORISATION_COMPTE")
