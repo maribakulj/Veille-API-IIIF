@@ -21,7 +21,7 @@
   "conclusion_quota": "Aucun quota chiffré ni en-tête. Prévenir avant un moissonnage important. La Bodleian déclare subir un scraping qui dégrade ses sites et envisage des mesures techniques.",
   "classe_quota": "aucun quota trouvé (règle de contact, menace de mesures techniques)",
   "confiance": "moyenne",
-  "notes": "Le billet 2026-10-01 concerne le dépôt ORA, pas Digital Bodleian. iiif.bodleian robots.txt : 400. Poster lu visuellement.",
+  "notes": "Le billet 2026-10-01 concerne le dépôt ORA, pas Digital Bodleian. iiif.bodleian robots.txt : 400. Poster lu visuellement.\nRelecture 2026-11-16 IIIF-Discuss : message Digital Bodleian de 2017 parcouru intégralement, recommandations User-Agent contact, pause volontaire 500 ms et négociation des volumes ; ces valeurs ne sont pas des quotas actuels. Note sourcée : institutions/bodleian/sources/lectures-2026-11-16/IIIF-DISCUSS-2017-NOTE.md",
   "sources": [
     {
       "url": "https://digital.bodleian.ox.ac.uk/developer/",
@@ -111,10 +111,10 @@
     },
     {
       "url": "https://groups.google.com/g/iiif-discuss/c/Z3GVdj6s61w",
-      "date": "2017-11-13",
-      "etiquette": "institution (message équipe Digital Bodleian), ancien, extraits",
-      "citation": "« even a 500ms delay between requests would help moderate traffic » ; « We would like to avoid automated throttling of our connections if at all possible »",
-      "preuve": "institutions/bodleian/fiche.md (étape f)",
+      "date": "2026-11-16",
+      "etiquette": "institution (message équipe Digital Bodleian, 2017 ; texte intégral relu 2026-11-16)",
+      "citation": "Courtoisie de moissonnage : User-Agent avec contact, pause de 500 ms proposée à titre d'exemple, contact pour grands volumes ; aucune limite obligatoire ni en-tête de débit officiel annoncé.",
+      "preuve": "institutions/bodleian/sources/lectures-2026-11-16/IIIF-DISCUSS-2017-NOTE.md",
       "categorie": "institution"
     },
     {

@@ -65,3 +65,7 @@ Manifestes (`/iiif/manifest/{uuid}.json`), canvases, annotations, images (`/iiif
 
 Crash test fait le 2026-11-14 : image-info-json sur iiif.bodleian.ox.ac.uk : aucun blocage jusqu'à 200 req/min (plafond 200 req/min).
 Journal : `tests/crash/bodleian.log`. Un test « sans blocage » n'est pas une preuve d'illimitation au-delà du plafond.
+
+## Complément de l'étape f : lecture intégrale du fil IIIF-Discuss (16/11/2026)
+
+L'ancien fil **« Crawler Etiquette — a request »** (13/11/2017), auparavant utilisé seulement sous forme d'extraits, a été **relu intégralement**. Le représentant de Digital Bodleian recommande un **User-Agent avec contact**, propose **500 ms entre requêtes à titre d'exemple de courtoisie**, demande de contacter la bibliothèque pour les collectes très volumineuses et déconseille les contournements de blocage. Un autre participant mentionne `robots.txt`, `429` et `Retry-After` comme bonnes pratiques, non comme réponses observées de l'API Bodleian. **Ce n'est ni un plafond de 120 req/min ni une mesure de limitation en 2026.** Note sourcée : [`institutions/bodleian/sources/lectures-2026-11-16/IIIF-DISCUSS-2017-NOTE.md`](../../institutions/bodleian/sources/lectures-2026-11-16/IIIF-DISCUSS-2017-NOTE.md). Le `robots.txt` du sous-hôte IIIF continue de répondre 400 au lecteur.
