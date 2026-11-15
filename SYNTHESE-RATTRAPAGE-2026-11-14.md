@@ -8,7 +8,7 @@ Le 14/11, l'ensemble des **93 fichiers** `institutions/*/data.json` de la branch
 
 Ces **260 lignes ne sont pas 260 défauts d'accès vérifiés**, ni 260 tâches qui exigent une intervention humaine. Aucun bilan « 260 contrôlés et terminés » n'est revendiqué.
 
-Le registre **`data/reverifications-chatgpt-2026-11-14.csv`** contient désormais **349 observations explicites**, de nature différente : URL effectivement lues, source institutionnelle de substitution, vérification de code, erreur 404/503/WAF, correction de catégorie, ressource technique non testée, etc. Toutes les observations ne correspondent pas à une URL initialement inscrite dans `a_verifier_manuellement` : certaines signalent une nouvelle source ou une incohérence du benchmark. Ces 349 observations **ne représentent pas 349 items clos**.
+Le registre **`data/reverifications-chatgpt-2026-11-14.csv`** contient désormais **351 observations explicites**, de nature différente : URL effectivement lues, source institutionnelle de substitution, vérification de code, erreur 404/503/WAF, correction de catégorie, ressource technique non testée, etc. Toutes les observations ne correspondent pas à une URL initialement inscrite dans `a_verifier_manuellement` : certaines signalent une nouvelle source ou une incohérence du benchmark. Ces 351 observations **ne représentent pas 351 items clos**.
 
 ## Rapports détaillés
 
@@ -212,3 +212,17 @@ Un outil reproductible a été ajouté : `scripts/triage_interventions.py`, avec
 **[Dernière CI validée #43730045511](https://github.com/maribakulj/Veille-API-IIIF/actions/runs/43730045511)** : 93 dossiers, 260 URL initiales, **349 observations**, 151 contenus obtenus (**11 lectures web et 140 copies datées**), **109 sans preuve de contenu original**. Ces 109 ont été réparties en **82 cas sans lecture humaine par défaut**, **22 interventions conditionnelles** et **5 démarches explicites de contact ou de compte**. Les catégories reflètent une aide à la décision, pas un statut HTTP ni un quota.
 
 Les données canoniques, fiches et BENCHMARK.xlsx sont toujours à réconcilier/régénérer ensemble ; la PR reste brouillon.
+
+## Dernière reprise : passe W, correction canonique et Excel synchronisé (15/11/2026)
+
+**Rapport W** : [`VERIFICATIONS-CHATGPT-2026-11-15-W-IIIF-IMAGES.md`](VERIFICATIONS-CHATGPT-2026-11-15-W-IIIF-IMAGES.md). Le `info.json` **original** de l'Art Institute of Chicago a été récupéré **en JSON complet et analysé**, avec dimensions 6 679 × 4 577 px, tuiles 256, profil IIIF Image 2 level2, copie indexée du 15/11. Les 403 de l'autre client et le témoignage d'utilisateurs Cloudflare restent conservés. Le serveur NPM donne des exemples Cantaloupe IIIF v2, mais l'image NPM ciblée est encore en timeout.
+
+**État de rapprochement validé par [GitHub Actions #43741287143](https://github.com/maribakulj/Veille-API-IIIF/actions/runs/43741287143)** : 93 dossiers, 260 URL historiques rapprochées, **351 observations au registre**, **152/260 contenus documentaires récupérés** (11 lectures web et 141 copies datées), **108/260 sans preuve de contenu**. Sur ces 108 : **81** sans lecture humaine requise par défaut, **22** démarches conditionnelles et **5** contacts/comptes explicites. Ces chiffres ne représentent aucun contrôle HTTP live supplémentaire ni mesure de débit.
+
+**Première intégration canonique atomique** : commit [`7302096`](https://github.com/maribakulj/Veille-API-IIIF/commit/7302096bd81f2581f9879f9097dcdb411f594d88) modifiant ensemble les `data.json` et les `fiche.md` des dossiers **Art Institute of Chicago**, **Qatar Digital Library**, **National Palace Museum** et **Northwestern**. Les entrées `web` précisent les dates de copies et pointent vers les rapports enregistrés. Les anciennes observations 403/timeout restent inchangées, aucun quota inventé.
+
+**Regénération effective de `BENCHMARK.xlsx`** : [GitHub Actions #43741867021](https://github.com/maribakulj/Veille-API-IIIF/actions/runs/43741867021) **réussie** après `fetch-depth: 0` (nécessaire au contrôle des antériorités de configuration). `scripts/suivi.py validate` indique **VALIDATION OK : 93 institutions** ; le générateur canonique a produit le classeur **290 420 octets** (12 feuilles), vérifié comme archive ZIP/XML valide, **1 498 / 1 498 preuves présentes**, et l'a **committé en binaire** sous [`1464820`](https://github.com/maribakulj/Veille-API-IIIF/commit/1464820dea251900752cc535874d249ff5b4e14e). Le workbook reste fondé sur les `data.json` canoniques, tandis que le triage des anciennes URL conserve son propre CSV séparé.
+
+**Important** : l'onglet historique `À vérifier à la main` contient toujours 260 URL, pour assurer la traçabilité. Ce n'est **pas** la liste des 108 preuves manquantes ni celle des cinq décisions humaines identifiées. La liste de travail active et son triage sont dans l'artefact `rattrapage-inventaire-manuel` de la CI documentaire et dans [`ACTIONS-HUMAINES-PRIORITAIRES-2026-11-15.md`](ACTIONS-HUMAINES-PRIORITAIRES-2026-11-15.md).
+
+**PR maintenue en brouillon** : les réponses HTTP sur Cultural Japan, Northwestern Image, Villanova, NPM Image, Digital Commonwealth et DRI restent incomplètes malgré les alternatives documentaires. Pas de test de charge ni de contournement des protections.
