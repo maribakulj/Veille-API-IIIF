@@ -21,7 +21,7 @@ jobs:
         with:
           python-version: '3.11'
       - name: Tester le rapprochement
-        run: python -m unittest discover -s tests -p 'test_etat_reverifications.py' -v
+        run: python -m unittest discover -s tests -p 'test_*.py' -v
       - name: Générer la file de vérifications (aucune requête à des API IIIF)
         run: |
           python scripts/etat_reverifications.py --root . --out data/etat-reverifications.csv > data/resume-reverifications.json
@@ -37,6 +37,25 @@ jobs:
               'Les catégories du registre sont documentaires et non des statuts HTTP.\n'
           )
           PY
+      - name: Réduire la liste aux interventions réelles (sans réseau)
+        run: |
+          python scripts/triage_interventions.py --infile data/etat-reverifications.csv \
+            --out data/triage-interventions-humaines.csv \
+            --summary data/resume-triage-interventions.json
+          python - <<'PY'
+          import csv
+          import json
+          from pathlib import Path
+          manual = list(csv.DictReader(Path('data/etat-reverifications.csv').open(encoding='utf-8')))
+          todo = list(csv.DictReader(Path('data/triage-interventions-humaines.csv').open(encoding='utf-8')))
+          stats = json.loads(Path('data/resume-triage-interventions.json').read_text())
+          assert len(manual) == 260
+          assert len(todo) == stats['entrees_non_lues']
+          assert len(todo) == sum(x['lecture_documentaire'] == 'CONTENU_NON_DEMONTRE_PAR_REPRISE_O' for x in manual)
+          assert all(x['preuve_http_actuelle'] == 'NON_ETABLIE_PAR_CE_TRIAGE' for x in todo)
+          print('Triage cohérent :', len(todo), 'entrées à classer, dont',
+                stats['demandes_explicites_ou_comptes'], 'demandes/accès explicites')
+          PY
       - name: Publier les fichiers de travail produits
         uses: actions/upload-artifact@v4
         with:
@@ -45,4 +64,6 @@ jobs:
             data/etat-reverifications.csv
             data/resume-reverifications.json
             data/controle-rattrapage.txt
+            data/triage-interventions-humaines.csv
+            data/resume-triage-interventions.json
           retention-days: 14
