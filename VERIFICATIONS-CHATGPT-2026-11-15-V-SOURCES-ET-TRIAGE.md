@@ -64,3 +64,13 @@ Construire désormais une file **séparée et strictement qualifiée**. Éviter 
 La séparation doit aboutir à une liste réellement actionnable : **« une preuve/lecture manque » n'est pas synonyme de « fais-la manuellement ».**
 
 Les `data.json` des institutions et `BENCHMARK.xlsx` ne sont pas régénérés par ce rapport. PR en brouillon.
+
+## 6. Deux conditions de réutilisation retrouvées sous leurs nouvelles URL
+
+**Qatar Digital Library** : l'URL initiale `https://www.qdl.qa/en/copyright-and-ethical-terms-reuse` ne livrait pas le texte. Son **remplacement officiel** est `https://qdl.qa/en/copyright-ethical-terms-reuse` (texte intégral accessible et documenté sur le site). Le document **distingue** domaine public, licences Creative Commons, copyright Crown et **consentement préalable pour certains usages commerciaux de patrimoines culturels sensibles**. Il exige de respecter les conditions de chaque objet et de ne pas déduire un droit général de redistribution du simple accès aux images. Ce n'est toujours **pas une politique de quota IIIF**. La page `https://qdl.qa/en/terms-use` expose les conditions générales. Le nouveau chemin est signalé comme **substitution institutionnelle**, pas comme ancien contenu HTTP de la vieille URL.
+
+**National Institutes for Cultural Heritage, Japon (e-Museum)** : ancienne route `https://emuseum.nich.go.jp/terms?locale=en` renvoie l'accueil générique. La vraie page `https://emuseum.nich.go.jp/about?langId=en&webView=0` contient une section **Terms of Use** lisible : au-delà des exceptions permises par le droit, la copie et la réutilisation d'images du site sur d'autres supports nécessitent l'**autorisation explicite de l'institution détentrice**. Cela concerne les **droits et permissions**, non un nombre de requêtes admissibles.
+
+**KB / Delpher (Pays-Bas)** : `https://www.kb.nl/en/research-find/datasets/delpher-newspapers` décrit une voie alternative **OAI-PMH ou SRU**, dont les manuels sont fournis après obtention de l'accès juridique, et des fichiers OCR/ALTO en volumes téléchargeables pour le domaine public. Il s'agit de l'accès aux données Delpher, **pas** d'une mesure IIIF ni d'un accès supposé aux collections sous droits.
+
+Ces textes permettent de **ne pas redemander à l'utilisateur de lire les anciennes pages de droits**. Aucune demande de permission n'a été envoyée.
