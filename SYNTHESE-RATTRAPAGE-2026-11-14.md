@@ -8,7 +8,7 @@ Le 14/11, l'ensemble des **93 fichiers** `institutions/*/data.json` de la branch
 
 Ces **260 lignes ne sont pas 260 défauts d'accès vérifiés**, ni 260 tâches qui exigent une intervention humaine. Aucun bilan « 260 contrôlés et terminés » n'est revendiqué.
 
-Le registre **`data/reverifications-chatgpt-2026-11-14.csv`** contient désormais **345 observations explicites**, de nature différente : URL effectivement lues, source institutionnelle de substitution, vérification de code, erreur 404/503/WAF, correction de catégorie, ressource technique non testée, etc. Toutes les observations ne correspondent pas à une URL initialement inscrite dans `a_verifier_manuellement` : certaines signalent une nouvelle source ou une incohérence du benchmark. Ces 345 observations **ne représentent pas 345 items clos**.
+Le registre **`data/reverifications-chatgpt-2026-11-14.csv`** contient désormais **349 observations explicites**, de nature différente : URL effectivement lues, source institutionnelle de substitution, vérification de code, erreur 404/503/WAF, correction de catégorie, ressource technique non testée, etc. Toutes les observations ne correspondent pas à une URL initialement inscrite dans `a_verifier_manuellement` : certaines signalent une nouvelle source ou une incohérence du benchmark. Ces 349 observations **ne représentent pas 349 items clos**.
 
 ## Rapports détaillés
 
@@ -202,3 +202,13 @@ La qualification des 169 **ne veut pas dire** « 169 pages bloquées ». Elle in
 **Constats techniques à prioriser :** reprendre les véritables JSON manquants (Cultural Japan Collection, IIIF Image AIC, manifeste Villanova, NPM Taïwan, QDL, Northwestern), les descriptions OpenAPI impossibles à extraire (DRI Swagger), puis **distinguer les contacts et comptes humains obligatoires** des erreurs historiques. Pour les quotas, ne pas inférer de limite depuis `robots.txt`, `maxArea`, le nombre de résultats d'une recherche, le nombre de collections, une licence ou l'existence d'une clé sur un autre service.
 
 **État des livrables canoniques :** `institutions/*/data.json`, les `fiche.md` et `BENCHMARK.xlsx` restent à reprendre dans une intégration cohérente avec validation du générateur. **Ne pas fusionner la PR** avant cette intégration et contrôle du résidu.
+
+## Passe V du 15/11/2026 : lectures et triage des interventions
+
+Le manifeste original Qatar Digital Library a été récupéré en JSON Presentation v2 intégral (16 709 caractères, copie datée du 23/10). Les autres nouvelles sources sont le manifeste Cambridge (247 499 caractères), l'OpenAPI de Northwestern v2 et une collection de 30 sous-collections d'IIIF Discovery in Japan, **distincte** du service original Cultural Japan. Les conditions de droits Qatar et e-Museum ont été retrouvées sur des pages institutionnelles de remplacement. Détails : [rapport V](VERIFICATIONS-CHATGPT-2026-11-15-V-SOURCES-ET-TRIAGE.md).
+
+Un outil reproductible a été ajouté : `scripts/triage_interventions.py`, avec tests, et CI qui publie `data/triage-interventions-humaines.csv` et `data/resume-triage-interventions.json` en artefact GitHub Actions. La [shortlist des démarches](ACTIONS-HUMAINES-PRIORITAIRES-2026-11-15.md) décrit seulement trois demandes institutionnelles et deux contrôles de compte potentiels (ces derniers périphériques à IIIF). Aucun compte, formulaire ni courriel envoyé.
+
+**[Dernière CI validée #43730045511](https://github.com/maribakulj/Veille-API-IIIF/actions/runs/43730045511)** : 93 dossiers, 260 URL initiales, **349 observations**, 151 contenus obtenus (**11 lectures web et 140 copies datées**), **109 sans preuve de contenu original**. Ces 109 ont été réparties en **82 cas sans lecture humaine par défaut**, **22 interventions conditionnelles** et **5 démarches explicites de contact ou de compte**. Les catégories reflètent une aide à la décision, pas un statut HTTP ni un quota.
+
+Les données canoniques, fiches et BENCHMARK.xlsx sont toujours à réconcilier/régénérer ensemble ; la PR reste brouillon.
