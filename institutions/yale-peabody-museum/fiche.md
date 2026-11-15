@@ -29,3 +29,7 @@ Voir `sources/web/recherches-web-2026-11-14.md` : conditions du Peabody ; articl
 - Pourquoi non publié : non trouvé ; hypothèse (étiquetée) : politique gérée au niveau de LUX/Yale et du réseau CloudFront plutôt que dans la doc du Peabody.
 - Confiance : moyenne. À vérifier à la main : wiki Yale ITS (202 vide), contact Peabody pour une limite non publiée.
 - Crash test (g) : `config/crash-images-info.json` prêt (serveur d'images commun, sans limite documentée, réseau CloudFront).
+
+## Rattrapage PDF — passe Y (15 novembre 2026)
+
+La présentation CNI **LUX: Cross-Collection Discovery at Yale** (Sanderson et Gibbons, **décembre 2022**, 26 diapositives) a été examinée par extraction **intégrale du texte** et contrôle visuel de six pages. Elle présente **Linked Art, JSON-LD et IIIF Change Discovery**, notamment pour rendre les changements moissonnables, ainsi que la réconciliation et le partage des infrastructures. Aucun quota de débit n'apparaît dans le texte du PDF. **Le diaporama historique ne prouve pas les conditions d'accès en 2026** et ses autres figures ne sont pas toutes vérifiées visuellement. Voir [`VERIFICATIONS-CHATGPT-2026-11-15-Y-PDF-IIIF.md`](../../VERIFICATIONS-CHATGPT-2026-11-15-Y-PDF-IIIF.md).

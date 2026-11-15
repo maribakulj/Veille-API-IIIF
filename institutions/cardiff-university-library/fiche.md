@@ -23,3 +23,7 @@ Aucun quota ni politique de débit publiés par Cardiff ; hypothèse non vérifi
 
 Crash test fait le 2026-11-14 : delivery-json sur librarysearch.cardiff.ac.uk : aucun blocage jusqu'à 200 req/min (plafond 200 req/min).
 Journal : `tests/crash/cardiff-university-library.log`. Un test « sans blocage » n'est pas une preuve d'illimitation au-delà du plafond.
+
+## Rattrapage PDF — passe Y (15 novembre 2026)
+
+Le PDF **Unlocking your collections with Alma Digital and IIIF** d'Alison Harvey (IGELU, 2022) a été contrôlé visuellement sur **25 des 29 pages**, révélant les exemples Alma Digital, les collections numérisées et l'intégration d'Universal Viewer. **Quatre diapositives restent non lues** (20, 23, 24, 28) à cause de délais d'accès répétés : il serait faux de le qualifier de « PDF complet ». Les diapositives examinées ne contiennent pas de quota chiffré. Voir [`VERIFICATIONS-CHATGPT-2026-11-15-Y-PDF-IIIF.md`](../../VERIFICATIONS-CHATGPT-2026-11-15-Y-PDF-IIIF.md).
