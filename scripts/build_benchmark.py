@@ -21,6 +21,7 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 import suivi  # noqa: E402
+from classification_limites import categorie, seuil_debit_explicitement_identifie  # noqa: E402
 
 from openpyxl import Workbook  # noqa: E402
 from openpyxl.chart import BarChart, PieChart, Reference  # noqa: E402
@@ -133,11 +134,15 @@ def tableau_de_bord(wb, D, commit):
     ws["A2"] = f"Généré le {datetime.now(timezone.utc):%Y-%m-%d %H:%M} UTC · commit {commit} · {len(D)} dossiers d'institutions"
     ws["A3"] = ("« non trouvé » = absent des pages lues, pas une preuve d'absence de limite. "
                 "Seules les étapes cochées avec preuves comptent.")
+    ws["A4"] = ("Crawl-delay, pagination et dimensions ne sont PAS des quotas de requêtes. "
+                "La typologie de l’onglet Limites reste indicative.")
     act = [d for d in D if actif(d)]
     hors = [d for d in D if not actif(d)]
     complet = sum(1 for d in act if score(d) == 6)
     commence = sum(1 for d in act if score(d) > 0)
     chiffrees = sum(1 for d in act for l in d.get("limites_documentees", []) if limite_comptee(d, l))
+    debits_explicitement_identifies = sum(1 for d in act for l in d.get("limites_documentees", [])
+        if limite_comptee(d, l) and seuil_debit_explicitement_identifie(l))
     a_revalider = sum(1 for d in act if d.get("donnees_a_revalider"))
     observes = sum(len(d.get("en_tetes_observes", [])) for d in act if etat(d, "e") == "x")
     bloques = sum(1 for d in act for b in d.get("blocages", []) if b.get("code") == "403")
@@ -149,7 +154,8 @@ def tableau_de_bord(wb, D, commit):
         ("Écartées ou abandonnées (décision de Marcel)", len(hors)),
         ("Audit commencé (≥ 1 étape cochée)", commence),
         ("Audit complet (étapes a à f cochées)", complet),
-        ("Limites officielles chiffrées (étape d cochée)", chiffrees),
+        ("Restrictions officielles avec chiffre (toutes natures)", chiffrees),
+        ("Débits explicites chiffrés (classification conservatrice)", debits_explicitement_identifies),
         ("Institutions dont les données sont à revalider (ancienne passe)", a_revalider),
         ("En-têtes de quota observés (étape e cochée)", observes),
         ("Blocages 403 anti-bot consignés", bloques),
@@ -160,7 +166,7 @@ def tableau_de_bord(wb, D, commit):
     for n, (k, v) in enumerate(kpi, start=6):
         ws.cell(row=n, column=1, value=k)
         ws.cell(row=n, column=2, value=v).font = Font(bold=True)
-    ws.column_dimensions["A"].width = 58
+    ws.column_dimensions["A"].width = 70
     ws.column_dimensions["B"].width = 18
 
     # Graphique 1 : institutions ayant fait chaque étape
@@ -238,8 +244,8 @@ def feuille_institutions(wb, D):
 def feuille_limites(wb, D):
     ws = wb.create_sheet("Limites")
     cols = ["Institution", "Nature", "Périmètre", "Valeur", "Fenêtre", "Effet au dépassement",
-            "Vérification", "Compté comme officiel chiffré ?", "Données à revalider ?", "Source (URL)", "Date de lecture"]
-    entete(ws, 1, cols, [34, 24, 30, 24, 14, 24, 34, 16, 14, 66, 14])
+            "Vérification", "Chiffre officiel ? (≠ quota de débit)", "Données à revalider ?", "Source (URL)", "Date de lecture", "Catégorie indicative"]
+    entete(ws, 1, cols, [34, 28, 35, 32, 21, 25, 34, 25, 18, 66, 17, 42])
     lignes = []
     for d in D:
         for l in d.get("limites_documentees", []):
@@ -247,8 +253,9 @@ def feuille_limites(wb, D):
                            l.get("fenetre"), l.get("effet"), l.get("verification", "non renseignée"),
                            "oui" if limite_comptee(d, l) else "non",
                            "oui (ancienne passe)" if d.get("donnees_a_revalider") else "non",
-                           l.get("source"), l.get("date")])
-    ecrire(ws, 2, lignes or [["(aucune)"] + [""] * 10])
+                           l.get("source"), l.get("date"), categorie(l)])
+    ecrire(ws, 2, lignes or [["(aucune)"] + [""] * 11])
+    ws.auto_filter.ref = f"A1:L{len(lignes) + 1}"
 
 
 LIMITE_RE = re.compile(r"(?i)^(x-)?(ratelimit|rate-limit|x-rate|retry-after|x-retry|quota|x-quota|x-.*rate.?limit|x-throttl|throttl|cf-mitigated)")
