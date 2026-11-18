@@ -59,10 +59,10 @@
     }
   ],
   "contact": "info@archive.org (billet officiel du 15/09/2026)",
-  "conclusion_quota": "Aucun quota chiffré publié pour advancedsearch, metadata, IIIF, Views ; consignes qualitatives (délais, 429/Retry-After). Seule valeur chiffrée : CDX Wayback 60 req/min sur 5 min, relayée par un tiers. Aucun en-tête de limite observé ; iiif.archivelab.org en erreur TLS.",
+  "conclusion_quota": "Aucun quota chiffré publié pour advancedsearch, metadata, IIIF, Views ; consignes qualitatives (délais, 429/Retry-After). Seule valeur chiffrée : CDX Wayback 60 req/min sur 5 min, relayée par un tiers. Aucun en-tête de limite observé ; ancien iiif.archivelab.org en erreur TLS, désormais remplacé officiellement par iiif.archive.org (JSON d'exemple lu en copie ; pas de quota IIIF mesuré).",
   "classe_quota": "aucun quota trouvé",
   "confiance": "moyenne",
-  "notes": "Passe 1 par curl (13/11) conservée ; passe 2 par probe.py. Tasks API et Changes API exigent des clés S3 : non testées.",
+  "notes": "Passe 1 par curl (13/11) conservée ; passe 2 par probe.py. Tasks API et Changes API exigent des clés S3 : non testées.\nPasse X 15/11/2026 : l'hôte labs iiif.archivelab.org est historique et a été officiellement remplacé par iiif.archive.org (références Internet Archive et IIIF, annonce 2023). L'exemple exact du tableau manuel mma_irises_436528/info.json sur le NOUVEL hôte rend un JSON Image 2 complet en copie indexée du 15/11 (3811x3058 pixels, tiles512, level2). L'ancienne URL reste inaccessible au lecteur; aucun quota IIIF chiffré ni HTTP live nouveau démontré.",
   "classeur_id": "hors 84 (ajouté)",
   "type": "Institution",
   "sources": [
@@ -130,6 +130,22 @@
       "etiquette": "officielle",
       "citation": "has been hit by waves of high-volume automated traffic, and we've put protections in place to keep the service running",
       "preuve": "institutions/internet-archive/sources/a2/SHA256SUMS"
+    },
+    {
+      "url": "https://iiif.archive.org/iiif/mma_irises_436528/info.json",
+      "categorie": "institution",
+      "date": "2026-11-15",
+      "etiquette": "nouveau service officiel IIIF Image API 2, JSON obtenu en copie indexée",
+      "citation": "Vrai JSON Image 2 de 902 caractères, 3811×3058, tuiles 512, level2; l'ancienne URL archivelab n'est pas devenue accessible.",
+      "preuve": "VERIFICATIONS-CHATGPT-2026-11-15-X-DOCUMENTS-ORIGINAUX.md"
+    },
+    {
+      "url": "https://github.com/internetarchive/iiif",
+      "categorie": "institution",
+      "date": "2026-11-15",
+      "etiquette": "code officiel du service Internet Archive IIIF",
+      "citation": "Le service IIIF officiel iiif.archive.org remplace le service expérimental iiif.archivelab.org.",
+      "preuve": "VERIFICATIONS-CHATGPT-2026-11-15-X-DOCUMENTS-ORIGINAUX.md"
     }
   ],
   "donnees_a_revalider": false,

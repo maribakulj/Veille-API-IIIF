@@ -103,7 +103,7 @@
   "conclusion_quota": "Aucun chiffre publié. Usage équitable : limites par type de requête fixées par Europeana ; limites des clés personnelles réduites jusqu'en avril 2026 ; blocage ou révocation de clé. L'API IIIF ne demande aucune clé. Aucun en-tête de limite observé.",
   "classe_quota": "règle sans chiffre publié (clé personnelle ou de projet)",
   "confiance": "moyenne",
-  "notes": "Le chiffre « 120 requêtes / 10 s » de l'ancienne passe est introuvable. La FAQ (plus ancienne) dit « as often as you like without any throttling » : contredite par la politique d'usage équitable. Documentation Confluence partiellement masquée aux anonymes. Passes 4-5 (lot D) : annopage, recherche dans un item et ressource plein texte en 200 sans clé ; api.europeana.eu/fulltext/search.json exige une clé (401). Limite de 120 requêtes / 10 s retrouvée sur la liste europeanaAPI (équipe, 12/07/2024) : l'ancienne mention « introuvable » est caduque.",
+  "notes": "Le chiffre « 120 requêtes / 10 s » de l'ancienne passe est introuvable. La FAQ (plus ancienne) dit « as often as you like without any throttling » : contredite par la politique d'usage équitable. Documentation Confluence partiellement masquée aux anonymes. Passes 4-5 (lot D) : annopage, recherche dans un item et ressource plein texte en 200 sans clé ; api.europeana.eu/fulltext/search.json exige une clé (401). Limite de 120 requêtes / 10 s retrouvée sur la liste europeanaAPI (équipe, 12/07/2024) : l'ancienne mention « introuvable » est caduque.\nPasse AA du 18/11/2026 : vrai texte du robots.txt de pro.europeana.eu récupéré (copie 05/11). Seulement User-agent * et Disallow /admin/ actifs. À distinguer des domaines api.europeana.eu et IIIF, et du chiffre historique 120 requêtes/10 s trouvé dans la liste Europeana API 2024.",
   "classeur_id": "GLAM-011",
   "type": "Plateforme / consortium",
   "sources": [
@@ -243,6 +243,14 @@
       "etiquette": "institution (résumé de moteur, non vérifié pour cette recherche)",
       "citation": "recherche « fulltext API newspapers » : la doc IIIF indique « You don't need an API key for this API! » ; un carnet tiers dit le contraire ; test direct de fulltext/search.json : 401 invalid_apikey.",
       "preuve": "institutions/europeana/tests/raw/fulltext-search.headers.txt"
+    },
+    {
+      "categorie": "institution",
+      "url": "https://pro.europeana.eu/robots.txt",
+      "date": "2026-11-18",
+      "etiquette": "robots.txt pro.europeana.eu, contenu original indexé",
+      "citation": "Le robots.txt original du portail Pro a été lu en copie datée 05/11 : User-agent * ; Disallow /admin/. Des listes et anciennes interdictions sont commentées, sans effet actif ; pas de plafond de débit.",
+      "preuve": "VERIFICATIONS-CHATGPT-2026-11-18-AA-NPM-EUROPEANA-CARDIFF.md"
     }
   ],
   "donnees_a_revalider": false,

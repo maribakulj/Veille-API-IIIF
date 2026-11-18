@@ -101,13 +101,21 @@
       "etiquette": "institution",
       "citation": "« IIIF Discovery Japan aggregates manifests from some 50 sources » ; « more RDF generated from 123 thousands of IIIF manifests » (original lu)",
       "preuve": "institutions/cultural-japan/sources/web/recherches-2026-11-14.md"
+    },
+    {
+      "categorie": "institution",
+      "url": "https://nakamura196.hatenablog.com/entry/2021/07/23/003143",
+      "date": "2026-11-18",
+      "etiquette": "source opérateur historique, pas état actuel ni JSON original",
+      "citation": "Article technique primaire 2021 décrivant la génération de manifestes dynamiques Cultural Japan par AWS Lambda avec requêtes aux stores RDF et sélection associatedMedia ; aucune limite de débit.",
+      "preuve": "VERIFICATIONS-CHATGPT-2026-11-18-AB-HARVARD-KB-CULTURALJAPAN.md"
     }
   ],
   "contact": "groupe Google cj-discuss (https://groups.google.com/g/cj-discuss), indiqué par https://cultural.jp/contact",
   "classe_quota": "aucun quota trouvé",
   "confiance": "moyenne",
   "conclusion_quota": "Aucun quota ni limite de débit publiés. La politique du site renvoie aux conditions de chaque base source ; robots.txt de cultural.jp explique avoir interdit les robots d'entraînement (meta-externalagent 64 % des 93 168 requêtes d'une heure) mais accueille Googlebot/Bingbot et indique l'API comme voie d'accès aux métadonnées, alors que api.cultural.jp/robots.txt dit Disallow / (contradiction notée). 8 requêtes en 200 sans en-tête de limite (CloudFront). app.cultural.jp en 403.",
-  "notes": "Doc : /about, /policy, /contact, ld.cultural.jp about-rdf et about-sources, OpenAPI api.cultural.jp/openapi.json. L'API est servie aussi sur cultural.jp/api (Disallow /api/ dans robots.txt de cultural.jp) ; test fait sur api.cultural.jp avec l'option robots_disallow_autorise_par_marcel. Recherches web : aucune plainte ni ticket.",
+  "notes": "Doc : /about, /policy, /contact, ld.cultural.jp about-rdf et about-sources, OpenAPI api.cultural.jp/openapi.json. L'API est servie aussi sur cultural.jp/api (Disallow /api/ dans robots.txt de cultural.jp) ; test fait sur api.cultural.jp avec l'option robots_disallow_autorise_par_marcel. Recherches web : aucune plainte ni ticket.\nPasse AB 18/11/2026 : article technique de Satoru Nakamura (23/07/2021, copie 15/06/2026) sur la collection app.cultural.jp/iiif-collection/collection.json : manifeste dynamique historique via AWS Lambda avec requêtes RDF Japan Search/Cultural Japan à chaque appel, seulement objets avec associatedMedia image HD et parfois images incomplètes. Information d'architecture datée de 2021, ne démontre pas le déploiement actuel ni un quota. La collection JSON originale app.cultural.jp reste NON EXTRAITE.",
   "a_verifier_manuellement": [
     {
       "url": "https://app.cultural.jp/iiif-collection/collection.json",

@@ -120,13 +120,21 @@
       "etiquette": "présentation de l'institution (conférence IIIF 2018)",
       "citation": "« The scans will be viewable through a distributed network of image servers using IIIF. » (Digital Cicognara Library, NGA Library) ; aucune limite de débit citée.",
       "preuve": "institutions/national-gallery-of-art-library/fiche.md"
+    },
+    {
+      "url": "https://www.nga.gov/contact-us.html",
+      "categorie": "institution",
+      "date": "2026-11-15",
+      "etiquette": "page de contact officielle récupérée via copie indexée",
+      "citation": "Contenu Contact Us complet, signale les images Open Access mais sans aucun contrat de débit IIIF.",
+      "preuve": "VERIFICATIONS-CHATGPT-2026-11-15-X-DOCUMENTS-ORIGINAUX.md"
     }
   ],
   "contact": "https://www.nga.gov/contact-us.html (lien cité par le robots.txt de api.nga.gov pour demander une liste blanche ; page en défi Cloudflare, non lue)",
   "conclusion_quota": "Aucune doc officielle d'API lisible : www.nga.gov est derrière un défi Cloudflare (403 « Just a moment »). Aucune limite chiffrée trouvée ; le robots.txt de api.nga.gov demande de contacter NGA pour une liste blanche avant tout crawl et fixe Crawl-delay 10 ; library.nga.gov fixe aussi Crawl-delay 10. Le IIIF de la NGA Library (manifestes sur libraryimage.nga.gov, images sur api.nga.gov/iiif) répond 200 sans aucun en-tête de limite en 9 requêtes de sonde.",
   "classe_quota": "aucun quota trouvé",
   "confiance": "faible",
-  "notes": "Erreur de procédure : après le 1er 403 de www.nga.gov (open-data-program.html), trois autres pages www.nga.gov ont été demandées par des appels distincts de fetch_doc.sh (open-access-images, terms-use, faqs : 403 aussi), contre la règle « un 403 arrête son hôte » ; aucune autre requête vers www.nga.gov ensuite. media.nga.gov : DNS non résolu (sources/h3). api.nga.gov racine redirige vers www.nga.gov (défi) : non suivie. Les doc d'API de la NGA ne sont lisibles que par README GitHub (opendata) ; l'URL du manifeste www.nga.gov/api/v1/iiif/... vient d'un tiers (mnemosyne#22, Wikidata P6108) et n'est pas testée (hôte en défi).",
+  "notes": "Erreur de procédure : après le 1er 403 de www.nga.gov (open-data-program.html), trois autres pages www.nga.gov ont été demandées par des appels distincts de fetch_doc.sh (open-access-images, terms-use, faqs : 403 aussi), contre la règle « un 403 arrête son hôte » ; aucune autre requête vers www.nga.gov ensuite. media.nga.gov : DNS non résolu (sources/h3). api.nga.gov racine redirige vers www.nga.gov (défi) : non suivie. Les doc d'API de la NGA ne sont lisibles que par README GitHub (opendata) ; l'URL du manifeste www.nga.gov/api/v1/iiif/... vient d'un tiers (mnemosyne#22, Wikidata P6108) et n'est pas testée (hôte en défi).\nPasse X 15/11/2026 : la page de contact originale www.nga.gov/contact-us.html a été lue intégralement (10929 caractères, copie 09/11) malgré anciens 403 depuis la sonde. Ne donne aucun quota ni accès IIIF; les pages d'open data et termes restent 403.",
   "a_verifier_manuellement": [
     {
       "url": "https://www.nga.gov/open-access-images/open-data-program.html",

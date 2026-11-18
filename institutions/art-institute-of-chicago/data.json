@@ -172,13 +172,21 @@
       "etiquette": "–",
       "citation": "Aucune plainte d'utilisateur sur des 429 de l'API de l'AIC ; seulement des répertoires d'API qui répètent 60 req/min (résumé de moteur, non vérifié).",
       "preuve": "institutions/art-institute-of-chicago/fiche.md"
+    },
+    {
+      "categorie": "institution",
+      "url": "https://www.artic.edu/iiif/2/b3974542-b9b4-7568-fc4b-966738f61d78/info.json",
+      "date": "2026-11-15",
+      "etiquette": "source IIIF institutionnelle (JSON extrait en copie datée)",
+      "citation": "IIIF Image 2.0 : 6679×4577 px, tiles 256, level2 ; copie récupérée après 403 indépendant, pas de plafond de débit IIIF démontré.",
+      "preuve": "VERIFICATIONS-CHATGPT-2026-11-15-W-IIIF-IMAGES.md"
     }
   ],
   "contact": "GitHub issues https://github.com/art-institute-of-chicago/api-data/issues ; pour dépasser 60 req/min : e-mail indiqué dans api.artic.edu/docs#authentication (adresse masquée par la page)",
   "conclusion_quota": "Limite documentée : 60 requêtes par minute pour les utilisateurs anonymes (api.artic.edu/docs, section Authentication) ; grattage : un seul fil, pas plus d'une requête par seconde. Annoncée par l'API : x-ratelimit-limit: 60 et x-ratelimit-remaining sur chaque réponse (observé 6 fois, 200). Aucun 429. Le service d'images IIIF (www.artic.edu/iiif/2) est derrière un défi Cloudflare 403 : non testé.",
   "classe_quota": "limite documentée et annoncée en-têtes",
   "confiance": "haute",
-  "notes": "Plafond de pagination : limit ≤ 100 et au plus 1 000 enregistrements par recherche (page×limit). Tailles d'image autorisées en IIIF : 112, 200, 400, 600, 800, 843 (1200 et 1686 pour le domaine public) ; images : un fil, 1 s de délai. Dump : https://artic-api-data.s3.amazonaws.com/artic-api-data.tar.bz2 (HEAD : 130 504 161 octets, 200), mis à jour chaque semaine. La doc demande l'en-tête AIC-User-Agent (courtoisie) : la sonde envoie l'User-Agent honnête du projet, sans en-tête personnalisé. Un article tiers (navigating.art 2026) affirme que le serveur IIIF renvoie 403 sans Referer www.artic.edu : non reproduit (ce serait un contournement). iiif.artic.edu : DNS introuvable (non cité par la doc). Le 403 de robots.txt sur le S3 du dump est un refus S3 d'URL absente, pas un défi.",
+  "notes": "Plafond de pagination : limit ≤ 100 et au plus 1 000 enregistrements par recherche (page×limit). Tailles d'image autorisées en IIIF : 112, 200, 400, 600, 800, 843 (1200 et 1686 pour le domaine public) ; images : un fil, 1 s de délai. Dump : https://artic-api-data.s3.amazonaws.com/artic-api-data.tar.bz2 (HEAD : 130 504 161 octets, 200), mis à jour chaque semaine. La doc demande l'en-tête AIC-User-Agent (courtoisie) : la sonde envoie l'User-Agent honnête du projet, sans en-tête personnalisé. Un article tiers (navigating.art 2026) affirme que le serveur IIIF renvoie 403 sans Referer www.artic.edu : non reproduit (ce serait un contournement). iiif.artic.edu : DNS introuvable (non cité par la doc). Le 403 de robots.txt sur le S3 du dump est un refus S3 d'URL absente, pas un défi.\nRattrapage 2026-11-15 : le info.json initialement classé illisible a été extrait et parsé (copie indexée 931 octets, Image API 2, 6679x4577, tuiles 256, level2) ; l'ancien 403 Cloudflare depuis la sonde demeure valable, aucun en-tête de quota IIIF mesuré.",
   "a_verifier_manuellement": [
     {
       "url": "https://www.artic.edu/iiif/2/b3974542-b9b4-7568-fc4b-966738f61d78/info.json",

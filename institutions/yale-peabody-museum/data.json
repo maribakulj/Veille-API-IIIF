@@ -115,13 +115,21 @@
       "etiquette": "–",
       "citation": "aucun ticket d'outil tiers mentionnant les serveurs Yale trouvé (seul voisin : dlme-airflow, non vérifié)",
       "preuve": "institutions/yale-peabody-museum/sources/web/recherches-web-2026-11-14.md"
+    },
+    {
+      "url": "https://www.cni.org/wp-content/uploads/2022/12/LUX-CNI-Susan-Rob-Rob-Sanderson.pdf",
+      "categorie": "presentations",
+      "date": "2026-11-15",
+      "etiquette": "présentation CNI 2022, texte intégral 26 pages lu, figures clés inspectées",
+      "citation": "Principes LOUD/Linked Art/IIIF, moissonnage IIIF Change Discovery et gouvernance LUX. Pas de quota API numérique dans le texte (2022), ne prouve pas la politique 2026.",
+      "preuve": "VERIFICATIONS-CHATGPT-2026-11-15-Y-PDF-IIIF.md"
     }
   ],
   "contact": "peabody.permissions@yale.edu (permissions et reproduction, page Terms of Use) ; formulaire Contact us du Peabody (reCAPTCHA)",
   "conclusion_quota": "Aucun quota, limite de débit ni politique d'API ou de bots publiés par le Peabody ni par LUX/Yale pour les manifestes et images ; conditions d'utilisation : fair use, téléchargement pour usage personnel ou éducatif. 14 requêtes de sonde (2 passes), toutes 200 (un 302 vers peabody.collections.yale.edu), aucun en-tête de limite. Aucun manifeste propre au Peabody n'a pu être testé (aucun identifiant publié) : le test porte sur le même serveur de manifestes (YCBA, YUAG).",
   "classe_quota": "aucun quota trouvé",
   "confiance": "moyenne",
-  "notes": "Le catalogue du Peabody est servi par l'application LUX (peabody.collections.yale.edu, même robots.txt que lux.collections.yale.edu). Chaîne CloudFront + Varnish devant LUX ; serveur d'images Cantaloupe 4.1.9. Documentation publique des API de LUX limitée au dépôt GitHub project-lux ; wiki Yale ITS illisible à la sonde.",
+  "notes": "Le catalogue du Peabody est servi par l'application LUX (peabody.collections.yale.edu, même robots.txt que lux.collections.yale.edu). Chaîne CloudFront + Varnish devant LUX ; serveur d'images Cantaloupe 4.1.9. Documentation publique des API de LUX limitée au dépôt GitHub project-lux ; wiki Yale ITS illisible à la sonde.\nPasse Y 15/11/2026 : texte du PDF LUX CNI 2022 lu intégralement (369 lignes sur 26 pages), avec six pages de figures contrôlées visuellement; principes LOUD/JSON-LD/Linked Art, IIIF Change Discovery pour moissonnage, réconciliation et gouvernance, aucun quota HTTP chiffré dans le texte. Figures des autres pages non inspectées individuellement; source historique 2022.",
   "donnees_a_revalider": false,
   "a_verifier_manuellement": [
     {

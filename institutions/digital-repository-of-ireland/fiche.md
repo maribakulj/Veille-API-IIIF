@@ -19,3 +19,9 @@ Une passe (`config/passe1.json`, committée avant lancement) : 0 requête envoy�
 
 ## Conclusion
 Limite chiffrée : aucune trouvée. L'absence d'accès automatisé (Turnstile Cloudflare) est un refus d'accès à ce client, pas un quota. Confiance : faible. À vérifier à la main : `repository.dri.ie/api-docs` (voir `data.json`). Contact : dri@ria.ie. Étape g : impossible (aucun hôte testable).
+
+## Rattrapage documentaire — passe AC (18 novembre 2026)
+
+Les sources Ruby de `dri-app` au commit **7f793a9 (10 novembre 2026)** ont été effectivement lues : `config/routes.rb`, `spec/api/iiif_spec.rb`, `spec/swagger_helper.rb`, `iiif_controller.rb`, `riiif_authorization_service.rb` et la construction de manifestes. L'application définit des manifestes **Presentation v2** et des images **Image API v2 level2** ; le test de manifeste public publié vérifie **200 sans `user_token`/`user_email`**, tandis que d'autres cas renvoient 401/404. L'UI Swagger pointe vers `/api-docs/v1/swagger.json` et le contrôleur ajoute CORS `*` aux manifestes. **Ce code ne prouve pas que le même commit est déployé** ni que toutes les ressources sont publiques ; le Swagger distant reste illisible. Aucun quota chiffré n'est établi dans les sources analysées.
+
+Voir [`VERIFICATIONS-CHATGPT-2026-11-18-AC-DRI-NORTHWESTERN.md`](../../VERIFICATIONS-CHATGPT-2026-11-18-AC-DRI-NORTHWESTERN.md).

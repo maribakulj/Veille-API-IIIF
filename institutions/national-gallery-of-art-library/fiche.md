@@ -15,3 +15,7 @@ Institution : robots.txt (liste blanche). Tickets : mnemosyne#22 (tiers, 403 par
 
 ## Conclusion
 Limite chiffrée : aucune. Règles écrites : crawl-delay 10 s, liste blanche demandée pour crawler. Accès : www.nga.gov refusé à ce client (Cloudflare), le IIIF de la Library est ouvert. Confiance : faible (doc officielle illisible). Crash test (g) : config `crash-api-nga.json` prête, à décider (liste blanche demandée).
+
+## Rattrapage documentaire — passe X (15 novembre 2026)
+
+La **page Contact Us d'origine** (`https://www.nga.gov/contact-us.html`) a été récupérée intégralement (10 929 caractères, copie indexée du 09/11). Elle présente les contacts et les ressources d'images libres, mais **ne fournit pas de quota API**. Les autres URLs NGA `open-data-program.html`, `terms-use.html`, `faqs.html` et le manifeste d'exemple sur `www.nga.gov` restent en refus 403 pour le lecteur. Les tests déjà effectués des hôtes distincts `api.nga.gov` ne permettent pas d'en déduire les règles du serveur web protégé. Voir [`VERIFICATIONS-CHATGPT-2026-11-15-X-DOCUMENTS-ORIGINAUX.md`](../../VERIFICATIONS-CHATGPT-2026-11-15-X-DOCUMENTS-ORIGINAUX.md).

@@ -11,3 +11,9 @@ cultural.jp /about, /policy, /contact ; ld.cultural.jp about-rdf et about-source
 
 ## Conclusion
 Aucun quota publié. robots.txt de cultural.jp : robots d'entraînement interdits (justifié par la charge), moteurs bienvenus, API recommandée ; api.cultural.jp/robots.txt dit Disallow / (contradiction). Tests de l'API faits avec l'accord de Marcel sur les Disallow. Confiance moyenne.
+
+## Rattrapage documentaire — passe AB (18 novembre 2026)
+
+Passe AB 18/11/2026 : article technique de Satoru Nakamura (23/07/2021, copie 15/06/2026) sur la collection app.cultural.jp/iiif-collection/collection.json : manifeste dynamique historique via AWS Lambda avec requêtes RDF Japan Search/Cultural Japan à chaque appel, seulement objets avec associatedMedia image HD et parfois images incomplètes. Information d'architecture datée de 2021, ne démontre pas le déploiement actuel ni un quota. La collection JSON originale app.cultural.jp reste NON EXTRAITE.
+
+Voir [`VERIFICATIONS-CHATGPT-2026-11-18-AB-HARVARD-KB-CULTURALJAPAN.md`](../../VERIFICATIONS-CHATGPT-2026-11-18-AB-HARVARD-KB-CULTURALJAPAN.md).

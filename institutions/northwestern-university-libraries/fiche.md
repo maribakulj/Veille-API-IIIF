@@ -21,3 +21,13 @@ Aucune limite n'est publiée ; l'API sert aussi le site public de la bibliothèq
 
 ## Conclusion
 Limite chiffrée : aucune. API v2 ouverte (200 partout, sans en-tête de limite) ; site et serveur d'images derrière un 403 CloudFront. Confiance : moyenne. Contact : page de contact du site Digital Collections (à vérifier à la main). Étape g : `config/crash-oai-identify.json` prête.
+
+## Rattrapage documentaire — 15 novembre 2026
+
+La spécification institutionnelle **OpenAPI 3.1** de l'API REST v2 a été récupérée et parcourue intégralement (19 463 caractères) ; elle décrit la représentation des œuvres par `?as=iiif` et des schémas d'authentification, **sans plafond chiffré dans le YAML**. Ne pas assimiler cette REST API à l'hôte d'images : le `info.json` exact de `iiif.dc.library.northwestern.edu` **n'a toujours pas été extrait**. Voir [`VERIFICATIONS-CHATGPT-2026-11-15-V-SOURCES-ET-TRIAGE.md`](../../VERIFICATIONS-CHATGPT-2026-11-15-V-SOURCES-ET-TRIAGE.md).
+
+## Rattrapage documentaire — passe AC (18 novembre 2026)
+
+La documentation **Clover** éditée par Northwestern University Libraries montre des manifestes **Presentation v3 statiques** documentés et récupérables. Trois exemples ont été lus : *tagging* (1 canevas), *paged* (31 canevas) et *navPlace* (1 canevas). Le document *tagging* a été **conservé en JSON** dans `sources/lectures-2026-11-18/clover-tagging-manifest-static.json` ; il pointe vers un vrai service d'image `iiif.dc.library.northwestern.edu` mais comporte des **annotations ajoutées à des fins de démonstration**. Deux essais ponctuels de `info.json` pour les images référencées ont encore rendu un **`fetch_error` code200 sans corps**. L'URL originale `/iiif/3/e814609e-.../info.json` demeure non extraite : **une démonstration n'est pas une mesure HTTP du service Image**.
+
+Voir [`VERIFICATIONS-CHATGPT-2026-11-18-AC-DRI-NORTHWESTERN.md`](../../VERIFICATIONS-CHATGPT-2026-11-18-AC-DRI-NORTHWESTERN.md).

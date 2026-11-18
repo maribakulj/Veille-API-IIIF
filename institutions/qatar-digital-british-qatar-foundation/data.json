@@ -104,13 +104,29 @@
       "etiquette": "présentation (tiers, lue dans l'original)",
       "citation": "« Institutional partnerships and open standards: Unlocking your archive for digital scholarship » (EAP, QDL) ; aucun quota évoqué.",
       "preuve": "institutions/qatar-digital-british-qatar-foundation/sources/wayback/ifla-2019.md"
+    },
+    {
+      "categorie": "institution",
+      "url": "https://www.qdl.qa/en/iiif/81055/vdc_100023807156.0x000001/manifest",
+      "date": "2026-11-15",
+      "etiquette": "document JSON institutionnel récupéré via copie indexée du 2026-10-23",
+      "citation": "Manifeste IIIF Presentation 2 réel, sc:Manifest, un sequence, original Thomas Elwon ; accès live de la sonde inconnu.",
+      "preuve": "VERIFICATIONS-CHATGPT-2026-11-15-V-SOURCES-ET-TRIAGE.md"
+    },
+    {
+      "categorie": "institution",
+      "url": "https://qdl.qa/en/copyright-ethical-terms-reuse",
+      "date": "2026-11-15",
+      "etiquette": "conditions officielles sur URL nouvelle",
+      "citation": "Conditions de droit et de réutilisation retrouvées sur le nouveau chemin, distinctes de limites HTTP.",
+      "preuve": "VERIFICATIONS-CHATGPT-2026-11-15-V-SOURCES-ET-TRIAGE.md"
     }
   ],
   "contact": "page Comments or concerns (qdl.qa/node/372) et Contact us de www.qdl.qa ; adresse e-mail non lue",
   "conclusion_quota": "Aucun quota de débit publié ; image limitée à 1200 px ; Crawl-delay 10 dans robots.txt ; www.qdl.qa et iiif.qdl.qa répondent 403 Cloudflare (défi) à notre client : IIIF non testable.",
   "classe_quota": "accès refusé à ce client (403 anti-bot)",
   "confiance": "faible",
-  "notes": "Doc lue par Wayback. Les 2 endpoints de la doc non lancés (hôtes arrêtés par le registre). Copyright & ethical terms of reuse non lue.",
+  "notes": "Doc lue par Wayback. Les 2 endpoints de la doc non lancés (hôtes arrêtés par le registre). Copyright & ethical terms of reuse : nouvelle page officielle lue, URL dans rapport V.\nRattrapage 2026-11-15 : manifeste IIIF original de la file manuelle extrait et parsé en JSON Presentation 2 (16709 caractères, copie 2026-10-23) ; le blocage Cloudflare 403 depuis la sonde n'est pas invalidé. Conditions Copyright & ethical terms retrouvées sous la nouvelle URL officielle qdl.qa/en/copyright-ethical-terms-reuse. Limite d'image 1200 px et droits ne sont pas des quotas.",
   "a_verifier_manuellement": [
     {
       "url": "https://www.qdl.qa/en/iiif/81055/vdc_100023807156.0x000001/manifest",

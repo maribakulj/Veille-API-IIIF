@@ -18,3 +18,7 @@ Trouvé : le grattage « puts undue stress on our systems » et un bot a déjà 
 
 ## Conclusion
 Limite chiffrée : 60 req/min anonymes, annoncée par `x-ratelimit-*`. Confiance : haute. Crash test (g) : à faire à la fin ; plafond 2 × 60 = 120 req/min, réseau protégé détecté (Cloudflare/CloudFront), donc 30 min d'écart avec les autres tests protégés.
+
+## Rattrapage documentaire — 15 novembre 2026
+
+La lecture complémentaire du 15 novembre a permis d'extraire **le JSON exact** du `info.json` jusque-là classé manuel : IIIF Image v2, 6 679 × 4 577 px, tuiles 256, profil level2, copie datée du 15/11. **Cela ne contredit pas le 403 Cloudflare rencontré par la sonde**, ni ne permet d'appliquer le quota REST de 60/min à IIIF Image. Voir [`VERIFICATIONS-CHATGPT-2026-11-15-W-IIIF-IMAGES.md`](../../VERIFICATIONS-CHATGPT-2026-11-15-W-IIIF-IMAGES.md).

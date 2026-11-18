@@ -95,13 +95,29 @@
       "etiquette": "présentation de l'institution (lue)",
       "citation": "« We will soon be adding IIIF Image API and Presenta6on API support to the Repository » ; « The Repository supports batch ingest of large collec6ons through a command-line tool and REST API. » ; ni OAI-PMH ni limite de débit mentionnés.",
       "preuve": "institutions/digital-repository-of-ireland/fiche.md"
+    },
+    {
+      "categorie": "institution",
+      "url": "https://github.com/Digital-Repository-of-Ireland/dri-app/blob/7f793a938a4be4d2f387bb92e66c17c2507e59ee/spec/api/iiif_spec.rb",
+      "date": "2026-11-18",
+      "etiquette": "code officiel DRI de tests d'API IIIF, versionné et lu ; pas réponse de production",
+      "citation": "Le test d'accès à un manifeste public publié attend 200 sans user_token ni user_email, avec cas 401/404 distincts ; authentification conditionnelle.",
+      "preuve": "VERIFICATIONS-CHATGPT-2026-11-18-AC-DRI-NORTHWESTERN.md"
+    },
+    {
+      "categorie": "institution",
+      "url": "https://github.com/Digital-Repository-of-Ireland/dri-app/blob/7f793a938a4be4d2f387bb92e66c17c2507e59ee/config/initializers/rswag-ui.rb",
+      "date": "2026-11-18",
+      "etiquette": "configuration Swagger Rswag du code DRI, non capture de la prod",
+      "citation": "La configuration UI déclare /api-docs/v1/swagger.json, distinct du 403 sur Swagger UI en production ; aucun quota chiffré dans le fichier.",
+      "preuve": "VERIFICATIONS-CHATGPT-2026-11-18-AC-DRI-NORTHWESTERN.md"
     }
   ],
   "contact": "dri@ria.ie (Digital Repository of Ireland, Royal Irish Academy, 19 Dawson Street, Dublin 2)",
   "conclusion_quota": "Aucun quota ni limite de débit publiés dans la doc lisible (Standards Adoption, About, End User Agreement, dépôt dri-documentation). IIIF (Presentation + Image via Riiif), OAI-PMH (DC/EDM) et API (page repository.dri.ie/api-docs, Swagger/rswag) existent ; repository.dri.ie et dri.ie sont derrière un défi Cloudflare Turnstile (403 dès la 1re requête) : un accès automatisé n'est pas possible depuis ce client, aucune limite chiffrée n'a pu être observée.",
   "classe_quota": "aucun quota trouvé",
   "confiance": "faible",
-  "notes": "Hôtes en défi Cloudflare dès robots.txt (403, 2026-11-14T03:40Z) : jamais contourné. Lecture via Wayback et via le dépôt GitHub de l'institution (routes.rb, Gemfile, initializers). Le dépôt dri-app contient config/initializers/cloudflare_turnstile.rb (rails-cloudflare-turnstile, fail_open = true), ce qui est cohérent avec le défi observé.",
+  "notes": "Hôtes en défi Cloudflare dès robots.txt (403, 2026-11-14T03:40Z) : jamais contourné. Lecture via Wayback et via le dépôt GitHub de l'institution (routes.rb, Gemfile, initializers). Le dépôt dri-app contient config/initializers/cloudflare_turnstile.rb (rails-cloudflare-turnstile, fail_open = true), ce qui est cohérent avec le défi observé.\nPasse AC 18/11/2026 : code officiel dri-app commit 7f793a9 (develop, 10/11/2026) lu dans routes, rswag-ui, spec/api/iiif_spec, contrôleur et autorisation Riiif. Test de manifeste publié public avec user_token=nil et user_email=nil en 200 ; 401 pour accès non autorisé. Swagger UI attend /api-docs/v1/swagger.json, document de production non extrait. Contrôle CORS '*' ajouté aux manifestes dans le code. Aucun seuil req/min dans les fichiers analysés ; comportement déployé non garanti par le code seul.",
   "a_verifier_manuellement": [
     {
       "url": "https://repository.dri.ie/api-docs",

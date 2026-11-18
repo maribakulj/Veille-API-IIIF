@@ -17,3 +17,7 @@ Recherches : aucune politique de débit publiée ; le paquet R `finna` met 5 s p
 
 ## Conclusion
 Limite chiffrée : aucune trouvée (seul `Crawl-delay: 1` sur le site). Règle écrite : API exclue aux robots par robots.txt ; inscription possible en cas de charge. Confiance : faible à moyenne. **Données Finna : à revoir si Marcel obtient un accès humain à la doc Swagger.**
+
+## Rattrapage documentaire — passe X (15 novembre 2026)
+
+Deux pages **originales** du suivi manuel ont été réellement récupérées : l'index `Finna API Documentation In English` (3 848 caractères, copie 05/11/2026) et `viewpage.action?pageId=75202667` (38 323 caractères, copie 15/11/2026). Les **conditions officielles de Finna**, relues intégralement (6 895 caractères, mise à jour affichée 25/10/2024), confirment qu'aucune inscription n'est requise pour l'**API REST de métadonnées**, mais qu'une restriction peut être introduite en cas de surcharge. **CC0 ne s'étend pas automatiquement aux images liées.** L'OpenAPI REST actuelle v11.0.3 existe à `/api/v1/?openapi` ; l'ancien `/v1?swagger` demeure 403. Les règles robots et les quotas Image IIIF sont des questions distinctes. Voir [`VERIFICATIONS-CHATGPT-2026-11-15-X-DOCUMENTS-ORIGINAUX.md`](../../VERIFICATIONS-CHATGPT-2026-11-15-X-DOCUMENTS-ORIGINAUX.md).
