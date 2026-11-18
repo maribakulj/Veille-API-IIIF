@@ -20,11 +20,11 @@
 |---|---|---|---|
 | Haute | Cultural Japan | `app.cultural.jp/iiif-collection/collection.json` | IIIF Discovery in Japan a **une collection distincte** de 30 sous-collections, pas remplacement du JSON de Cultural Japan |
 | Haute | Northwestern | `iiif.dc.library.northwestern.edu/iiif/3/.../info.json` | OpenAPI 3.1 / v2 officielle de 19 463 caractères retrouvée ; exemple REST `?as=iiif` à distinguer de l'Image API |
-| Haute | National Palace Museum | `iiifod.npm.gov.tw/iiif/2/.../info.json` | Guide IIIF PDF 13 pages et exemples de manifestes retrouvés ; en-têtes et accès d'images non établis |
+| Document obtenu, accès live à préciser | National Palace Museum | **Vrai `info.json` original enregistré** dans le dépôt le 18/11 (Image 2, 3055×2291, tuiles 512) | Ancien timeout toujours documenté ; aucun quota mesuré. Demande institutionnelle conditionnelle seulement si nécessaire |
 | Haute | Villanova | `digital.library.villanova.edu/Item/vudl:92879/Manifest` | Domaine du catalogue et notice fournisseur récupérés ; l'exemple ciblé reste 403 |
 | Moyenne | DRI | `repository.dri.ie/api-docs` (seul Swagger UI) | Routes Rswag et `iiif/:id/manifest` prouvées dans le code officiel ; récupérer le document OpenAPI de l'application |
 | Moyenne | Folger | `digitalcollections.folger.edu/` | Défi humain sur le catalogue ; historique de la plateforme IIIF documenté, demander accès officiel si nécessaire |
-| Moyenne | Qatar Digital Library | Manifeste `/en/iiif/81055/.../manifest` | **Résolu pour le contenu** : vrai JSON IIIF Presentation 2 intégral (copie 23/10), mais réponse live de la sonde encore inconnue |
+| Document obtenu, accès live à préciser | Qatar Digital Library | Manifeste original JSON Presentation 2 lu en copie datée du 23/10 | HTTP live de la sonde non garanti, mais **aucune lecture humaine du manifeste à refaire** |
 | Moyenne | Cambridge | Anciennes routes `cudl.link/v1/metadata/` et `/transcription` | Nouveau manifeste `cudl.lib.cam.ac.uk/iiif/MS-ADD-03996` réellement extrait, README CUDL Services disponible |
 
 Le `robots.txt` d'un domaine n'est pas un contrat de quotas ; un `403` ne signifie pas qu'il faut contourner le filtrage, et une licence ne fixe pas de débit. Les documents personnels, les collections sous droits et les traitements de masse appellent des vérifications supplémentaires, indépendantes de la simple lecture de page.
@@ -49,3 +49,12 @@ Pour Cardiff, **25 diapositives sur 29** ont été inspectées visuellement. **Q
 **Chiffres vérifiés par [CI #43748080199](https://github.com/maribakulj/Veille-API-IIIF/actions/runs/43748080199)** : **157 / 260 URL** avec contenu documentaire obtenu, **103 / 260** sans contenu démontré. Dans ce résidu, **80** ne demandent pas d'action humaine par défaut, **18** demanderaient une intervention conditionnelle et **5** correspondent à des demandes/contact/compte explicites. Les trois demandes institutionnelles et deux accès sous compte décrits plus haut restent **facultatifs**, sans formulaire ni message transmis.
 
 **Liste active téléchargeable :** ouvrir l'artefact `rattrapage-inventaire-manuel` de la [dernière CI documentaire](https://github.com/maribakulj/Veille-API-IIIF/actions/runs/43748080199), puis `data/triage-interventions-humaines.csv`. Les numéros historiques des anciennes sections de ce document ne sont pas la métrique courante.
+
+
+## Mise à jour du 18 novembre 2026
+
+La CI documentaire confirme **162 URL originales avec contenu effectivement retrouvé** (11 lectures web, 151 copies indexées) sur 260 URL historiques, et **98 dont le contenu reste non démontré**. Les 98 se partagent en **77 cas sans lecture humaine requise par défaut, 16 interventions conditionnelles et 5 demandes/accès explicites**. Les cinq n'impliquent **pas** cinq courriels à envoyer : les deux contrôles de compte sont périphériques au besoin IIIF.
+
+Le `info.json` original du National Palace Museum a été **extrait en JSON complet et sauvegardé** dans [la source du dépôt](institutions/national-palace-museum-taiwan/sources/lectures-2026-11-18/info-K1F000001N000000000PAA-indexed.json), mais son accessibilité HTTP depuis la sonde demeure non établie. L'Art Institute et Qatar étaient déjà satisfaits pour la **lecture du document**, non pour la disponibilité technique. Rapports [AA](VERIFICATIONS-CHATGPT-2026-11-18-AA-NPM-EUROPEANA-CARDIFF.md) et [AB](VERIFICATIONS-CHATGPT-2026-11-18-AB-HARVARD-KB-CULTURALJAPAN.md).
+
+Le PDF Cardiff IGELU est passé de **25/29 à 28/29 diapositives inspectées visuellement**, sans pouvoir lire la page 24. Les endpoints Cultural Japan Collection, Northwestern Image, Villanova, DRI Swagger et plusieurs autres restent sans corps exploitable. Aucun formulaire envoyé, aucune authentification ni contournement de WAF effectué.
