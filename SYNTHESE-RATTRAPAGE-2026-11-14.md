@@ -281,3 +281,35 @@ L'onglet « Limites » contient à présent la colonne **« Catégorie indicativ
 **[CI documentaire #43775094377](https://github.com/maribakulj/Veille-API-IIIF/actions/runs/43775094377) : 26 tests sur 26 réussis**, dont six nouveaux contrôles sur les erreurs de catégorie (robots, images, pagination, recommandations et quotas hors IIIF). **[CI Excel #43775094412](https://github.com/maribakulj/Veille-API-IIIF/actions/runs/43775094412) : succès**, validation des 93 institutions et 16 observations complémentaires, puis création du nouveau `BENCHMARK.xlsx` **293 686 octets, 12 feuilles**, commit binaire `1eaeb27`. Le classeur a ensuite été **réimporté avec un lecteur de tableur indépendant** et les deux valeurs **81 / 3** ainsi que la colonne de typologie ont été vérifiées directement.
 
 Ce correctif **ne modifie aucune observation de la source institutionnelle** : il répare la présentation d'une donnée hétérogène qui aurait pu être prise pour un nombre de quotas IIIF. La typologie demeure explicitement **indicative** pour les enregistrements anciens.
+
+
+## Nouvelle reprise des 18 novembre 2026 : passes AA et AB, contenus et intégration
+
+Les deux rapports [AA](VERIFICATIONS-CHATGPT-2026-11-18-AA-NPM-EUROPEANA-CARDIFF.md) et [AB](VERIFICATIONS-CHATGPT-2026-11-18-AB-HARVARD-KB-CULTURALJAPAN.md) documentent **cinq URL historiques réellement obtenues en plus**, distinguées des autres échecs d'accès. **Les dates d'acquisition des copies ne sont pas une preuve de réponse HTTP live**.
+
+- **NPM Taïwan (GLAM-080)** : URL Image API v2 `.../K1F%2FK1F000001N000000000PAA/info.json` enfin retrouvée sous forme de **893 caractères JSON complets**, analysés et [sauvegardés dans le dépôt](institutions/national-palace-museum-taiwan/sources/lectures-2026-11-18/info-K1F000001N000000000PAA-indexed.json). Dimensions **3 055 × 2 291**, tuiles **512**, profil **level2**, capture indexée du **18/11**. Le `timeout` de la sonde de novembre est conservé comme observation distincte ; `maxArea` est une surface d'image, pas un quota.
+- **Europeana Pro** : le `robots.txt` original, copie du **05/11**, contient des directives actives `User-agent: *` et `Disallow: /admin/`. Cela ne vaut **pas** pour les hôtes d'API Europeana et ne fournit aucune limite de débit.
+- **Harvard** : texte complet (13 940 caractères, copie du **23/08**) de la politique HUIT de plateforme **Apigee**, distinction documentation-portail/gateway, contrôles et `rate limiting` *possibles*. **Ce n'est pas un contrat d'API IIIF de Harvard Library**. Page Harvard LTS Support ancienne (2018) récupérée aussi, sans quota.
+- **KB Pays-Bas** : vrai accueil LOD `data.bibliotheken.nl` (2 729 caractères, copie du **16/11**), services Triply/RDF et licence CC0 des données ; **pas** le serveur IIIF KB.
+- **Cardiff** : trois pages PDF supplémentaires **20, 23 et 28**, réellement inspectées visuellement. Bilan **28/29 diapositives**, la page **24** demeure inaccessible. Ne pas présenter le diaporama comme intégralement lu.
+- **Cultural Japan** : article technique **de 2021** de Satoru Nakamura lu en entier : AWS Lambda et graphes RDF de Japan Search/Cultural Japan utilisés pour des manifestes générés dynamiquement. **Cette source historique est hors de la liste initiale et ne clôt pas** le `collection.json` original (qui demeure sans contenu).
+
+**Mises à jour canoniques** : dossiers `national-palace-museum-taiwan`, `europeana`, `cardiff-university-library`, `harvard`, `kb-nl` et `cultural-japan`, chacun avec `data.json` et `fiche.md`. Le registre compte **367 observations**, dont des sources complémentaires hors liste initiale.
+
+### Indicateurs confirmés par la CI du 18/11
+
+[CI documentaire #44403182532](https://github.com/maribakulj/Veille-API-IIIF/actions/runs/44403182532) **réussie** : **28 tests**, **23 observations supplémentaires intégrées aux données vérifiées structurellement**, aucune erreur de preuve. [CI Excel #44403182221](https://github.com/maribakulj/Veille-API-IIIF/actions/runs/44403182221) **réussie** : `scripts/suivi.py validate` OK pour les **93 institutions**, **0 preuve référencée manquante**, classeur `BENCHMARK.xlsx` reconstruit et committé (`7212ead`).
+
+| Mesure | Au 18 novembre 2026 |
+| --- | ---: |
+| Institutions / URL manuelles historiques | **93 / 260** |
+| Lignes avec au moins une observation | **260 / 260** |
+| Contenu réellement obtenu dans le registre | **162 / 260** |
+| Dont lecture directe / copie datée | **11 / 151** |
+| Contenu non démontré | **98 / 260** |
+| Parmi les 98 : sans nouvelle lecture humaine par défaut | **77** |
+| Parmi les 98 : intervention seulement si indispensable | **16** |
+| Parmi les 98 : contact ou compte explicitement identifiable | **5** |
+
+**Ne pas confondre** : 162 extraits documentaires, 162 services HTTP actuels accessibles et 162 politiques de quota connues sont trois mesures **différentes**. Les 98 entrées restantes incluent des `robots.txt` inaccessibles, de vieux chemins, des exigences de compte et des vrais endpoints restés sans JSON. La liste de travail active reste le CSV d'artefact CI, pas les 260 références conservées dans l'onglet historique du classeur. **PR en brouillon**, aucun test de charge ni contournement réalisé.
+
