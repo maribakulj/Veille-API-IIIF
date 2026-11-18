@@ -49,3 +49,9 @@ Aucun 429. Aucun en-tête `Retry-After`, `X-RateLimit-*`, `RateLimit-*`. **Non t
 
 ## Passes 4-5 (lot D) : pages pro.europeana.eu
 `pro.europeana.eu/page/api-libraries-and-plugins` et `/project/iiif-europeana-working-group` : 403 anti-bot pour `fetch_doc.sh` le 2026-11-14 (non contourné) ; lues sur répliques Wayback (`sources/wayback/pro-europeana.md`) : aucune limite chiffrée, ni API. robots.txt de pro (Wayback 2025-05-07) : `Disallow: /admin/` pour `*`. robots.txt de europeana.atlassian.net lu : Crawl-delay 1. Remarque : `fetch_doc.sh` a envoyé la 2e requête vers pro après un premier 403 (outil, pas de décision).
+
+## Lecture complémentaire — 18 novembre 2026 (passe AA)
+
+Passe AA du 18/11/2026 : vrai texte du robots.txt de pro.europeana.eu récupéré (copie 05/11). Seulement User-agent * et Disallow /admin/ actifs. À distinguer des domaines api.europeana.eu et IIIF, et du chiffre historique 120 requêtes/10 s trouvé dans la liste Europeana API 2024.
+
+Rapport de preuve : [`VERIFICATIONS-CHATGPT-2026-11-18-AA-NPM-EUROPEANA-CARDIFF.md`](../../VERIFICATIONS-CHATGPT-2026-11-18-AA-NPM-EUROPEANA-CARDIFF.md).

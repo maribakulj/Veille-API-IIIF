@@ -56,6 +56,12 @@
       "date": "2026-11-14",
       "etiquette": "officielle",
       "preuve": "institutions/national-palace-museum-taiwan/sources/robots2/SHA256SUMS"
+    },
+    {
+      "url": "https://iiifod.npm.gov.tw/iiif/2/K1F%2FK1F000001N000000000PAA/info.json",
+      "date": "2026-11-18",
+      "etiquette": "original JSON IIIF Image 2 sauvegardé depuis extrait indexé, pas capture HTTP de sonde",
+      "preuve": "institutions/national-palace-museum-taiwan/sources/lectures-2026-11-18/info-K1F000001N000000000PAA-indexed.json"
     }
   ],
   "web": [
@@ -109,13 +115,21 @@
       "etiquette": "page Cantaloupe IIIF Image API 2.x retrouvée dans index public",
       "citation": "Page de documentation du service Image API 2, exemples de chemins info.json et requêtes image ; info.json ciblé toujours en timeout.",
       "preuve": "VERIFICATIONS-CHATGPT-2026-11-15-W-IIIF-IMAGES.md"
+    },
+    {
+      "categorie": "institution",
+      "url": "https://iiifod.npm.gov.tw/iiif/2/K1F%2FK1F000001N000000000PAA/info.json",
+      "date": "2026-11-18",
+      "etiquette": "IIIF Image 2 original : JSON extrait en copie indexée 2026-11-18, pas test HTTP live",
+      "citation": "La copie indexée du 18/11 contient le vrai JSON Image API v2 (893 caractères) : 3055×2291 px, tuiles 512, profil level2. Fichier original sauvegardé sous sources/lectures-2026-11-18 ; anciens timeouts de sonde préservés.",
+      "preuve": "VERIFICATIONS-CHATGPT-2026-11-18-AA-NPM-EUROPEANA-CARDIFF.md"
     }
   ],
   "contact": "https://contactus.npm.gov.tw/Web/case-apply.jsp?l=1&TArea=1 (formulaire de contact du musée, lien de la page Opendata)",
   "conclusion_quota": "Aucun quota ni en-tête de limite documenté ou observé. La déclaration d'ouverture des données dit : sans demande, sans limite d'usage, gratuit. Le manifeste IIIF répond 200 sans en-tête de limite. Le service d'images iiifod.npm.gov.tw n'a pas répondu (délai dépassé, 3 requêtes), cause inconnue, pas un 403.",
   "classe_quota": "aucun quota trouvé",
   "confiance": "faible",
-  "notes": "HEAD sur le manifeste : 555 (non pris en charge). robots.txt : digitalarchive Disallow vide ; www 404 ; theme.npm.edu.tw : boucle de redirections ; iiifod : délai dépassé. Le PDF NPMIIIF.pdf (5,9 Mo) n'a pu être téléchargé en entier (2 délais dépassés).\nRattrapage 2026-11-15 : le texte du guide IIIF NPMIIIF.pdf (13 pages) a été extrait via lecteur alternatif, sans visualisation intégrale ; ses exemples documentent huit identifiants de manifestes. La page d'accueil Cantaloupe du serveur iiifod.npm.gov.tw/iiif/2 est retrouvée dans l'index public. info.json original demeure en timeout et débit inconnu.",
+  "notes": "HEAD sur le manifeste : 555 (non pris en charge). robots.txt : digitalarchive Disallow vide ; www 404 ; theme.npm.edu.tw : boucle de redirections ; iiifod : délai dépassé. Le PDF NPMIIIF.pdf (5,9 Mo) n'a pu être téléchargé en entier (2 délais dépassés).\nRattrapage 2026-11-15 : le texte du guide IIIF NPMIIIF.pdf (13 pages) a été extrait via lecteur alternatif, sans visualisation intégrale ; ses exemples documentent huit identifiants de manifestes. La page d'accueil Cantaloupe du serveur iiifod.npm.gov.tw/iiif/2 est retrouvée dans l'index public. info.json original demeure en timeout et débit inconnu.\nPasse AA du 18/11/2026 : le info.json initialement en timeout a été récupéré et parsé en JSON via copie indexée du 18/11. Fichier de preuve dans institutions/national-palace-museum-taiwan/sources/lectures-2026-11-18/info-K1F000001N000000000PAA-indexed.json. Ne pas inférer un accès HTTP live à tout client, ni une valeur req/min de maxArea (6999005 pixels²).",
   "a_verifier_manuellement": [
     {
       "url": "https://digitalarchive.npm.gov.tw/opendata/Json/NPMIIIF.pdf",

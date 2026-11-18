@@ -27,3 +27,11 @@ Journal : `tests/crash/cardiff-university-library.log`. Un test « sans blocage 
 ## Rattrapage PDF — passe Y (15 novembre 2026)
 
 Le PDF **Unlocking your collections with Alma Digital and IIIF** d'Alison Harvey (IGELU, 2022) a été contrôlé visuellement sur **25 des 29 pages**, révélant les exemples Alma Digital, les collections numérisées et l'intégration d'Universal Viewer. **Quatre diapositives restent non lues** (20, 23, 24, 28) à cause de délais d'accès répétés : il serait faux de le qualifier de « PDF complet ». Les diapositives examinées ne contiennent pas de quota chiffré. Voir [`VERIFICATIONS-CHATGPT-2026-11-15-Y-PDF-IIIF.md`](../../VERIFICATIONS-CHATGPT-2026-11-15-Y-PDF-IIIF.md).
+
+## Lecture complémentaire — 18 novembre 2026 (passe AA)
+
+Passe AA du 18/11/2026 : diaporama Cardiff PDF examiné visuellement sur 28/29 diapositives (nouvelles pages 20 23 28). La page humaine 24, index PDF 23, n'a pas été lue après deux erreurs du lecteur. Ne pas dire PDF intégralement contrôlé.
+
+**Détail des images réellement vues** : page 20, fenêtre d'intégration iframe pour une scène paysagère ; page 23, outil Exhibit ; page 28, écran Mirador comparant deux œuvres de collections différentes. **Page 24 toujours absente**.
+
+Rapport de preuve : [`VERIFICATIONS-CHATGPT-2026-11-18-AA-NPM-EUROPEANA-CARDIFF.md`](../../VERIFICATIONS-CHATGPT-2026-11-18-AA-NPM-EUROPEANA-CARDIFF.md).
