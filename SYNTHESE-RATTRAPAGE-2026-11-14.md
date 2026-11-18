@@ -313,3 +313,18 @@ Les deux rapports [AA](VERIFICATIONS-CHATGPT-2026-11-18-AA-NPM-EUROPEANA-CARDIFF
 
 **Ne pas confondre** : 162 extraits documentaires, 162 services HTTP actuels accessibles et 162 politiques de quota connues sont trois mesures **différentes**. Les 98 entrées restantes incluent des `robots.txt` inaccessibles, de vieux chemins, des exigences de compte et des vrais endpoints restés sans JSON. La liste de travail active reste le CSV d'artefact CI, pas les 260 références conservées dans l'onglet historique du classeur. **PR en brouillon**, aucun test de charge ni contournement réalisé.
 
+
+## Passe AC du 18 novembre : code DRI et démonstrations IIIF Northwestern
+
+**Rapport** : [`VERIFICATIONS-CHATGPT-2026-11-18-AC-DRI-NORTHWESTERN.md`](VERIFICATIONS-CHATGPT-2026-11-18-AC-DRI-NORTHWESTERN.md).
+
+- **Digital Repository of Ireland** : le code officiel `dri-app`, dans la révision immuable **7f793a9 (10/11/2026)**, a été réellement lu (`routes.rb`, contrôleur, autorisations Riiif, Rswag, tests). Il décrit **Presentation v2 / Image v2**, le `Swagger` attendu à `/api-docs/v1/swagger.json`, et un test d'accès **200 aux manifestes publics publiés sans `user_token`/`user_email`**, avec des contrôles 401/404 distincts. **Le document Swagger de production est encore inaccessible** : le code et les tests ne prouvent ni le déploiement exact, ni un quota de débit.
+- **Northwestern University Libraries** : la documentation officielle **Clover** a livré **trois manifestes statiques Presentation 3 complets**, dont un catalogue de **31 canevas**. L'exemple `tagging` a été **sauvegardé en JSON** dans [`sources/lectures-2026-11-18/clover-tagging-manifest-static.json`](institutions/northwestern-university-libraries/sources/lectures-2026-11-18/clover-tagging-manifest-static.json). Les documents sont des **mocks de démonstration enrichis**, qui référencent le vrai service IIIF Image ; **deux `info.json` du serveur Image** ont encore renvoyé `fetch_error` sans corps (indicateur HTTP 200 sans JSON). L'URL originale `e814609e-.../info.json` reste non lue.
+- Les deux dossiers institutionnels `data.json` et `fiche.md` ont été enrichis, avec renvois aux sources exactes. Le registre contient désormais **369 observations**, dont des sources complémentaires hors liste initiale, mais **aucun nouveau contenu de la file historique** n'est déclaré lu.
+
+**Bilan confirmé par la [CI documentaire #44414876269](https://github.com/maribakulj/Veille-API-IIIF/actions/runs/44414876269)** : **30 tests réussis**, **27 observations récentes liées à leurs preuves, 0 erreur** ; **162/260 contenus originaux récupérés** (11 lectures directes et 151 copies datées), **98/260 sans preuve de lecture**, classés **77 sans intervention humaine par défaut, 16 conditionnels, 5 démarches de compte/contact éventuelles**. Une nouvelle source annexe n'efface jamais un ancien 403 ou le `collection.json` non extrait.
+
+**[CI Excel #44414876112](https://github.com/maribakulj/Veille-API-IIIF/actions/runs/44414876112)** **réussie** : validation de **93 dossiers**, **aucune preuve manquante**, `BENCHMARK.xlsx` construit, contrôle ZIP/XML passé, et commit de synchronisation **`3c65eeb`** sur la branche de PR. Les données canoniques, non une édition indépendante du tableur, restent la source du classeur.
+
+**Prochaine priorité réelle** : demander l'accès/les informations de quota aux services dont le JSON exact demeure inaccessible **seulement si le besoin de recherche BnF le justifie**. La PR demeure en brouillon ; l'inventaire de 98 URL n'est **pas** présenté comme 98 lectures humaines.
+
