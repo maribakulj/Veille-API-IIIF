@@ -63,7 +63,7 @@
   "conclusion_quota": "LibraryCloud (api.lib.harvard.edu) : limite documentée de 300 requêtes / 5 minutes en moyenne, timeout de 5 minutes au-delà, « no more once per second » (wiki officiel LTS). Services IIIF (NRS, MPS, ids) : aucune limite publiée. 29 requêtes de sonde en 4 passes, aucun 429 ; défi AWS WAF (202) sur viewer.lib.harvard.edu et sur le robots.txt de mps.lib.harvard.edu ; 500 sur collections/2 déjà annoncé « currently unavailable » par la doc.",
   "classe_quota": "limite chiffrée documentée (LibraryCloud) ; IIIF sans limite publiée",
   "confiance": "moyenne",
-  "notes": "Aucun en-tête de limite dans les réponses ; réponses derrière istio-envoy. Adresse IP de Marcel présente dans l'en-tête x-mps-client-ip de MPS : redigée dans les fichiers du dépôt.",
+  "notes": "Aucun en-tête de limite dans les réponses ; réponses derrière istio-envoy. Adresse IP de Marcel présente dans l'en-tête x-mps-client-ip de MPS : redigée dans les fichiers du dépôt.\nPasse AB 18/11/2026 : document HUIT de principes API complet (13940 caractères, copie 23/08/2026) : Apigee pour API Platform, portail de documentation distinct de gateway (authentification, observabilité et limitation de débit potentielle), règles par catégories de fournisseurs et services internes. Cette stratégie Harvard générale ne prouve rien sur les quotas IIIF Library. Ancienne page wiki LTS Support de 2018 entièrement lue (4926 caractères, copie 15/11/2026), sans quotas.",
   "classeur_id": "GLAM-033",
   "type": "Institution",
   "sources": [
@@ -144,6 +144,22 @@
       "etiquette": "–",
       "citation": "aucun ticket d'outil tiers sur les services IIIF de la Harvard Library trouvé",
       "preuve": "institutions/harvard/sources/web/recherches-web-2026-11-14.md"
+    },
+    {
+      "categorie": "institution",
+      "url": "https://enterprisearchitecture.harvard.edu/api-principles-and-practices-use-api-gateway-and-portal",
+      "date": "2026-11-18",
+      "etiquette": "politique institutionnelle API générale (HUIT), non contrat Harvard IIIF",
+      "citation": "Harvard HUIT REST API Platform et Apigee, doc complète dans copie 23/08/2026 ; portail/gateway différenciés, rate limiting décrit sans seuil IIIF.",
+      "preuve": "VERIFICATIONS-CHATGPT-2026-11-18-AB-HARVARD-KB-CULTURALJAPAN.md"
+    },
+    {
+      "categorie": "institution",
+      "url": "https://harvardwiki.atlassian.net/wiki/spaces/LibraryStaffDoc/pages/43286896/LTS+Support",
+      "date": "2026-11-18",
+      "etiquette": "page support Harvard Library historique",
+      "citation": "Page LTS Support 2018 intégralement lue en copie du 15/11/2026 ; liens historiques d'assistance sans contrat IIIF.",
+      "preuve": "VERIFICATIONS-CHATGPT-2026-11-18-AB-HARVARD-KB-CULTURALJAPAN.md"
     }
   ],
   "donnees_a_revalider": false,

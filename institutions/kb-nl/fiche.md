@@ -26,3 +26,9 @@ Aucun quota chiffré. Limites techniques : pages de 20 (SRU, max 1000) et 400 (O
 
 Crash test fait le 2026-11-14 : crash-oai-identify sur services.kb.nl : aucun blocage jusqu'à 200 req/min (plafond 200 req/min).
 Journal : `tests/crash/kb-nl.log`. Un test « sans blocage » n'est pas une preuve d'illimitation au-delà du plafond.
+
+## Rattrapage documentaire — passe AB (18 novembre 2026)
+
+Passe AB 18/11/2026 : accueil data.bibliotheken.nl effectivement lu (2729 caractères, copie 16/11). Portail Triply de Linked Open Data de la KB des Pays-Bas, jeux NBT, STCN, DBNL, thésaurus, manuscrits, CC0 pour ce dataset. Le compteur 259366042 RDF statements est historique à la capture et n'est pas un quota HTTP. Ne pas assimiler ce portail à iiif.kb.nl ni services.kb.nl/mdo.
+
+Voir [`VERIFICATIONS-CHATGPT-2026-11-18-AB-HARVARD-KB-CULTURALJAPAN.md`](../../VERIFICATIONS-CHATGPT-2026-11-18-AB-HARVARD-KB-CULTURALJAPAN.md).

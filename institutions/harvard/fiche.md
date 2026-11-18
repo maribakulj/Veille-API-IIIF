@@ -35,3 +35,9 @@ Voir `sources/web/recherches-web-2026-11-14.md` : limite officielle trouvée dan
 
 Crash test fait le 2026-11-14 : lc-items-q-peanuts sur api.lib.harvard.edu : aucun blocage jusqu'à 120 req/min (plafond 120 req/min).
 Journal : `tests/crash/harvard.log`. Un test « sans blocage » n'est pas une preuve d'illimitation au-delà du plafond.
+
+## Rattrapage documentaire — passe AB (18 novembre 2026)
+
+Passe AB 18/11/2026 : document HUIT de principes API complet (13940 caractères, copie 23/08/2026) : Apigee pour API Platform, portail de documentation distinct de gateway (authentification, observabilité et limitation de débit potentielle), règles par catégories de fournisseurs et services internes. Cette stratégie Harvard générale ne prouve rien sur les quotas IIIF Library. Ancienne page wiki LTS Support de 2018 entièrement lue (4926 caractères, copie 15/11/2026), sans quotas.
+
+Voir [`VERIFICATIONS-CHATGPT-2026-11-18-AB-HARVARD-KB-CULTURALJAPAN.md`](../../VERIFICATIONS-CHATGPT-2026-11-18-AB-HARVARD-KB-CULTURALJAPAN.md).

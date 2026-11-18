@@ -63,7 +63,7 @@
   "conclusion_quota": "Aucun quota ni limite de débit chiffrés publiés. SRU (jsru.kb.nl) et OAI-PMH (services.kb.nl/mdo/oai) testés en 200 sans en-tête de limite ; limites techniques : SRU maximumRecords par défaut 20, maximum 1000 (explain), OAI ListRecords/ListIdentifiers 400 enregistrements par requête (techniek-anp_0.pdf) ; recommandation de moissonner hors des heures de bureau néerlandaises (9 h-17 h). Pas de service IIIF trouvé (iiif.kb.nl ne se résout pas). La KB a pris des mesures techniques contre le crawling commercial (AI statement) : Delpher/DBNL.",
   "classe_quota": "limites techniques sans quota publié",
   "confiance": "moyenne",
-  "notes": "Ancienne méthode remplacée : sessions du 13/11 archivées (config committée après lancement), rejouées en passe 2. robots.txt de jsru, services, resolver, imageviewer : Disallow: / (autorisé par Marcel, C12). resources51.kb.nl ne se résout plus (la doc ANP pointe vers lui).",
+  "notes": "Ancienne méthode remplacée : sessions du 13/11 archivées (config committée après lancement), rejouées en passe 2. robots.txt de jsru, services, resolver, imageviewer : Disallow: / (autorisé par Marcel, C12). resources51.kb.nl ne se résout plus (la doc ANP pointe vers lui).\nPasse AB 18/11/2026 : accueil data.bibliotheken.nl effectivement lu (2729 caractères, copie 16/11). Portail Triply de Linked Open Data de la KB des Pays-Bas, jeux NBT, STCN, DBNL, thésaurus, manuscrits, CC0 pour ce dataset. Le compteur 259366042 RDF statements est historique à la capture et n'est pas un quota HTTP. Ne pas assimiler ce portail à iiif.kb.nl ni services.kb.nl/mdo.",
   "classeur_id": "hors 84 (ajouté)",
   "type": "Institution",
   "sources": [
@@ -137,6 +137,14 @@
       "etiquette": "institution (lu)",
       "citation": "« Materials for the RUG workshop on the KB search and harvest APIs » : search API http://jsru.kb.nl/sru/sru (SRU), harvest API http://services.kb.nl/mdo/oai (OAI-PMH) ; aucune limite de débit.",
       "preuve": "institutions/kb-nl/sources/a6/SHA256SUMS"
+    },
+    {
+      "categorie": "institution",
+      "url": "https://data.bibliotheken.nl/",
+      "date": "2026-11-18",
+      "etiquette": "portail Linked Open Data distinct du service IIIF KB",
+      "citation": "Page originale KB LOD Triply et documentation API ; copie du 16/11, 259366042 triples affichés, données annoncées CC0, pas IIIF.",
+      "preuve": "VERIFICATIONS-CHATGPT-2026-11-18-AB-HARVARD-KB-CULTURALJAPAN.md"
     }
   ],
   "a_verifier_manuellement": [
